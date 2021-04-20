@@ -21,382 +21,433 @@ import('lib.pkp.classes.plugins.GenericPlugin');
 define('USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT', 'bot');
 define('USAGE_EVENT_PLUGIN_CLASSIFICATION_ADMIN', 'administrative');
 
-abstract class PKPUsageEventPlugin extends GenericPlugin {
+abstract class PKPUsageEventPlugin extends GenericPlugin
+{
+    //
+    // Implement methods from PKPPlugin.
+    //
+    /**
+     * @copydoc Plugin::register()
+     *
+     * @param null|mixed $mainContextId
+     */
+    public function register($category, $path, $mainContextId = null)
+    {
+        $success = parent::register($category, $path, $mainContextId);
 
-	//
-	// Implement methods from PKPPlugin.
-	//
-	/**
-	 * @copydoc Plugin::register()
-	 */
-	function register($category, $path, $mainContextId = null) {
-		$success = parent::register($category, $path, $mainContextId);
+        if ($success) {
+            $eventHooks = $this->getEventHooks();
+            foreach ($eventHooks as $hook) {
+                HookRegistry::register($hook, [$this, 'getUsageEvent']);
+            }
+        }
 
-		if ($success) {
-			$eventHooks = $this->getEventHooks();
-			foreach ($eventHooks as $hook) {
-				HookRegistry::register($hook, array($this, 'getUsageEvent'));
-			}
-		}
+        return $success;
+    }
 
-		return $success;
-	}
+    /**
+     * @copydoc LazyLoadPlugin::getName()
+     */
+    public function getName()
+    {
+        return 'usageeventplugin';
+    }
 
-	/**
-	 * @copydoc LazyLoadPlugin::getName()
-	 */
-	function getName() {
-		return 'usageeventplugin';
-	}
+    /**
+     * @copydoc Plugin::getInstallSitePluginSettingsFile()
+     */
+    public function getInstallSitePluginSettingsFile()
+    {
+        return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'settings.xml';
+    }
 
-	/**
-	 * @copydoc Plugin::getInstallSitePluginSettingsFile()
-	 */
-	function getInstallSitePluginSettingsFile() {
-		return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'settings.xml';
-	}
+    /**
+     * @copydoc Plugin::getDisplayName()
+     */
+    public function getDisplayName()
+    {
+        return __('plugins.generic.usageEvent.displayName');
+    }
 
-	/**
-	 * @copydoc Plugin::getDisplayName()
-	 */
-	function getDisplayName() {
-		return __('plugins.generic.usageEvent.displayName');
-	}
+    /**
+     * @copydoc Plugin::getDescription()
+     */
+    public function getDescription()
+    {
+        return __('plugins.generic.usageEvent.description');
+    }
 
-	/**
-	 * @copydoc Plugin::getDescription()
-	 */
-	function getDescription() {
-		return __('plugins.generic.usageEvent.description');
-	}
+    /**
+     * @copydoc LazyLoadPlugin::getEnabled()
+     *
+     * @param null|mixed $contextId
+     */
+    public function getEnabled($contextId = null)
+    {
+        return true;
+    }
 
-	/**
-	 * @copydoc LazyLoadPlugin::getEnabled()
-	 */
-	function getEnabled($contextId = null) {
-		return true;
-	}
+    /**
+     * @copydoc Plugin::isSitePlugin()
+     */
+    public function isSitePlugin()
+    {
+        return true;
+    }
 
-	/**
-	 * @copydoc Plugin::isSitePlugin()
-	 */
-	function isSitePlugin() {
-		return true;
-	}
+    /**
+     * @copydoc Plugin::getCanEnable()
+     */
+    public function getCanEnable()
+    {
+        return false;
+    }
 
-	/**
-	 * @copydoc Plugin::getCanEnable()
-	 */
-	function getCanEnable() {
-		return false;
-	}
-
-	/**
-	 * @copydoc Plugin::getCanDisable()
-	 */
-	function getCanDisable() {
-		return false;
-	}
-
-
-	//
-	// Public methods.
-	//
-	/**
-	 * Get the unique site id.
-	 * @return mixed string or null
-	 */
-	function getUniqueSiteId() {
-		return $this->getSetting(CONTEXT_SITE, 'uniqueSiteId');
-	}
-
-
-	//
-	// Hook implementations.
-	//
-	/**
-	 * Get usage event and pass it to the registered plugins, if any.
-	 */
-	function getUsageEvent($hookName, $args) {
-		// Check if we have a registration to receive the usage event.
-		if (HookRegistry::getHooks('UsageEventPlugin::getUsageEvent')) {
-
-			$usageEvent = $this->buildUsageEvent($hookName, $args);
-			HookRegistry::call('UsageEventPlugin::getUsageEvent', array_merge(array($hookName, $usageEvent), $args));
-		}
-		return false;
-	}
+    /**
+     * @copydoc Plugin::getCanDisable()
+     */
+    public function getCanDisable()
+    {
+        return false;
+    }
 
 
-	//
-	// Protected methods.
-	//
-	/**
-	 * Get all hooks that must be used to
-	 * generate usage events.
-	 * @return array
-	 */
-	protected function getEventHooks() {
-		return array(
-			'TemplateManager::display',
-			'FileManager::downloadFileFinished'
-		);
-	}
+    //
+    // Public methods.
+    //
+    /**
+     * Get the unique site id.
+     *
+     * @return mixed string or null
+     */
+    public function getUniqueSiteId()
+    {
+        return $this->getSetting(CONTEXT_SITE, 'uniqueSiteId');
+    }
 
-	/**
-	 * Get all hooks that define the
-	 * finished file download.
-	 * @return array
-	 */
-	protected function getDownloadFinishedEventHooks() {
-		return array(
-			'FileManager::downloadFileFinished'
-		);
-	}
 
-	/**
-	 * Build an usage event.
-	 * @param $hookName string
-	 * @param $args array
-	 * @return array
-	 */
-	protected function buildUsageEvent($hookName, $args) {
-		// Finished downloading a file?
-		if (in_array($hookName, $this->getDownloadFinishedEventHooks())) {
-			// The usage event for this request is already build and
-			// passed to any other registered hook.
-			return null;
-		}
+    //
+    // Hook implementations.
+    //
+    /**
+     * Get usage event and pass it to the registered plugins, if any.
+     */
+    public function getUsageEvent($hookName, $args)
+    {
+        // Check if we have a registration to receive the usage event.
+        if (HookRegistry::getHooks('UsageEventPlugin::getUsageEvent')) {
+            $usageEvent = $this->buildUsageEvent($hookName, $args);
+            HookRegistry::call('UsageEventPlugin::getUsageEvent', array_merge([$hookName, $usageEvent], $args));
+        }
+        return false;
+    }
 
-		$application = Application::get();
-		$request = $application->getRequest();
-		$router = $request->getRouter(); /* @var $router PageRouter */
-		$templateMgr = $args[0]; /* @var $templateMgr TemplateManager */
 
-		// We are just interested in page requests.
-		if (!is_a($router, 'PageRouter')) return false;
+    //
+    // Protected methods.
+    //
+    /**
+     * Get all hooks that must be used to
+     * generate usage events.
+     *
+     * @return array
+     */
+    protected function getEventHooks()
+    {
+        return [
+            'TemplateManager::display',
+            'FileManager::downloadFileFinished'
+        ];
+    }
 
-		// Check whether we are in journal context.
-		$context = $router->getContext($request);
-		if (!$context) return false;
+    /**
+     * Get all hooks that define the
+     * finished file download.
+     *
+     * @return array
+     */
+    protected function getDownloadFinishedEventHooks()
+    {
+        return [
+            'FileManager::downloadFileFinished'
+        ];
+    }
 
-		// Prepare request information.
-		list($pubObject, $downloadSuccess, $assocType, $idParams, $canonicalUrlPage, $canonicalUrlOp, $canonicalUrlParams) =
-			$this->getUsageEventData($hookName, $args, $request, $router, $templateMgr, $context);
+    /**
+     * Build an usage event.
+     *
+     * @param $hookName string
+     * @param $args array
+     *
+     * @return array
+     */
+    protected function buildUsageEvent($hookName, $args)
+    {
+        // Finished downloading a file?
+        if (in_array($hookName, $this->getDownloadFinishedEventHooks())) {
+            // The usage event for this request is already build and
+            // passed to any other registered hook.
+            return null;
+        }
 
-		if (!$pubObject) return false;
+        $application = Application::get();
+        $request = $application->getRequest();
+        $router = $request->getRouter(); /** @var PageRouter $router */
+        $templateMgr = $args[0]; /** @var TemplateManager $templateMgr */
 
-		// Timestamp.
-		$time = Core::getCurrentDate();
+        // We are just interested in page requests.
+        if (!is_a($router, 'PageRouter')) {
+            return false;
+        }
 
-		// Actual document size, MIME type.
-		$htmlPageAssocTypes = $this->getHtmlPageAssocTypes();
-		if (in_array($assocType, $htmlPageAssocTypes)) {
-			// HTML pages with no file downloads.
-			$mimeType = 'text/html';
-		} elseif (is_a($pubObject, 'IssueGalley')) {
-			$mimeType = $pubObject->getFileType();
-		} else {
-			// Files.
-			$path = $pubObject->getData('path');
-			$mimeType = $pubObject->getData('mimetype');
-		}
+        // Check whether we are in journal context.
+        $context = $router->getContext($request);
+        if (!$context) {
+            return false;
+        }
 
-		$canonicalUrl = $router->url(
-			$request, null, $canonicalUrlPage, $canonicalUrlOp, $canonicalUrlParams
-		);
+        // Prepare request information.
+        [$pubObject, $downloadSuccess, $assocType, $idParams, $canonicalUrlPage, $canonicalUrlOp, $canonicalUrlParams] =
+            $this->getUsageEventData($hookName, $args, $request, $router, $templateMgr, $context);
 
-		// Make sure we log the server name and not aliases.
-		$configBaseUrl = Config::getVar('general', 'base_url');
-		$requestBaseUrl = $request->getBaseUrl();
-		if ($requestBaseUrl !== $configBaseUrl) {
-			// Make sure it's not an url override (no alias on that case).
-			if (!in_array($requestBaseUrl, Config::getContextBaseUrls()) &&
-					$requestBaseUrl !== Config::getVar('general', 'base_url[index]')) {
-				// Alias found, replace it by base_url from config file.
-				// Make sure we use the correct base url override value for the context, if any.
-				$baseUrlReplacement = Config::getVar('general', 'base_url['.$context->getPath().']');
-				if (!$baseUrlReplacement) $baseUrlReplacement = $configBaseUrl;
-				$canonicalUrl = str_replace($requestBaseUrl, $baseUrlReplacement, $canonicalUrl);
-			}
-		}
+        if (!$pubObject) {
+            return false;
+        }
 
-		// Public identifiers.
-		// 1) A unique system internal ID that will help us to easily attribute
-		//    statistics to a specific publication object.
-		array_unshift($idParams, 'c' . $context->getId());
-		$siteId = $this->getUniqueSiteId();
-		if (empty($siteId)) {
-			// Create a globally unique, persistent site ID
-			// so that we can uniquely identify publication
-			// objects from this site, even if the URL or any
-			// other externally influenced information changes.
-			$siteId = uniqid();
-			$this->updateSetting(0, 'uniqueSiteId', $siteId);
-		}
-		array_unshift($idParams, $siteId);
-		$applicationName = $application->getName();
-		$applicationId = $applicationName . ':' . implode('-', $idParams);
-		$idKey = 'other::' . $applicationName;
-		$identifiers = array($idKey => $applicationId);
+        // Timestamp.
+        $time = Core::getCurrentDate();
 
-		// 2) Standardized public identifiers, e.g. DOI, URN, etc.
-		if ($this->isPubIdObjectType($pubObject)) {
-			$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
-			if (!empty($pubIdPlugins)) {
-				foreach ($pubIdPlugins as $pubIdPlugin) {
-					if (!$pubIdPlugin->getEnabled()) continue;
-					$pubId = $pubObject->getStoredPubId($pubIdPlugin->getPubIdType());
-					if ($pubId) {
-						$identifiers[$pubIdPlugin->getPubIdType()] = $pubId;
-					}
-				}
-			}
-		}
+        // Actual document size, MIME type.
+        $htmlPageAssocTypes = $this->getHtmlPageAssocTypes();
+        if (in_array($assocType, $htmlPageAssocTypes)) {
+            // HTML pages with no file downloads.
+            $mimeType = 'text/html';
+        } elseif (is_a($pubObject, 'IssueGalley')) {
+            $mimeType = $pubObject->getFileType();
+        } else {
+            // Files.
+            $path = $pubObject->getData('path');
+            $mimeType = $pubObject->getData('mimetype');
+        }
 
-		// Service URI.
-		$serviceUri = $router->url($request, $context->getPath());
+        $canonicalUrl = $router->url(
+            $request,
+            null,
+            $canonicalUrlPage,
+            $canonicalUrlOp,
+            $canonicalUrlParams
+        );
 
-		// IP and Host.
-		$ip = $request->getRemoteAddr();
-		$host = null;
-		if (isset($_SERVER['REMOTE_HOST'])) {
-			// We do NOT actively look up the remote host to
-			// avoid the performance penalty. We only set the remote
-			// host if we get it "for free".
-			$host = $_SERVER['REMOTE_HOST'];
-		}
+        // Make sure we log the server name and not aliases.
+        $configBaseUrl = Config::getVar('general', 'base_url');
+        $requestBaseUrl = $request->getBaseUrl();
+        if ($requestBaseUrl !== $configBaseUrl) {
+            // Make sure it's not an url override (no alias on that case).
+            if (!in_array($requestBaseUrl, Config::getContextBaseUrls()) &&
+                    $requestBaseUrl !== Config::getVar('general', 'base_url[index]')) {
+                // Alias found, replace it by base_url from config file.
+                // Make sure we use the correct base url override value for the context, if any.
+                $baseUrlReplacement = Config::getVar('general', 'base_url[' . $context->getPath() . ']');
+                if (!$baseUrlReplacement) {
+                    $baseUrlReplacement = $configBaseUrl;
+                }
+                $canonicalUrl = str_replace($requestBaseUrl, $baseUrlReplacement, $canonicalUrl);
+            }
+        }
 
-		// HTTP user agent.
-		$userAgent = $request->getUserAgent();
+        // Public identifiers.
+        // 1) A unique system internal ID that will help us to easily attribute
+        //    statistics to a specific publication object.
+        array_unshift($idParams, 'c' . $context->getId());
+        $siteId = $this->getUniqueSiteId();
+        if (empty($siteId)) {
+            // Create a globally unique, persistent site ID
+            // so that we can uniquely identify publication
+            // objects from this site, even if the URL or any
+            // other externally influenced information changes.
+            $siteId = uniqid();
+            $this->updateSetting(0, 'uniqueSiteId', $siteId);
+        }
+        array_unshift($idParams, $siteId);
+        $applicationName = $application->getName();
+        $applicationId = $applicationName . ':' . implode('-', $idParams);
+        $idKey = 'other::' . $applicationName;
+        $identifiers = [$idKey => $applicationId];
 
-		// HTTP referrer.
-		$referrer = (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null);
+        // 2) Standardized public identifiers, e.g. DOI, URN, etc.
+        if ($this->isPubIdObjectType($pubObject)) {
+            $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
+            if (!empty($pubIdPlugins)) {
+                foreach ($pubIdPlugins as $pubIdPlugin) {
+                    if (!$pubIdPlugin->getEnabled()) {
+                        continue;
+                    }
+                    $pubId = $pubObject->getStoredPubId($pubIdPlugin->getPubIdType());
+                    if ($pubId) {
+                        $identifiers[$pubIdPlugin->getPubIdType()] = $pubId;
+                    }
+                }
+            }
+        }
 
-		// User and roles.
-		$user = $request->getUser();
-		$roles = array();
-		if ($user) {
-			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao PKPRoleDAO */
-			$rolesByContext = $roleDao->getByUserIdGroupedByContext($user->getId());
-			foreach (array(CONTEXT_SITE, $context->getId()) as $workingContext) {
-				if(isset($rolesByContext[$workingContext])) {
-					foreach ($rolesByContext[$workingContext] as $roleId => $role) {
-						$roles[] = $roleId;
-					}
-				}
-			}
-		}
+        // Service URI.
+        $serviceUri = $router->url($request, $context->getPath());
 
-		// Try a simple classification of the request.
-		$classification = null;
-		if (!empty($roles)) {
-			// Access by editors, authors, etc.
-			$internalRoles = array_diff($roles, array(ROLE_ID_READER));
-			if (!empty($internalRoles)) {
-				$classification = USAGE_EVENT_PLUGIN_CLASSIFICATION_ADMIN;
-			}
-		}
-		if ($request->isBot()) {
-			// The bot classification overwrites other classifications.
-			$classification = USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT;
-		}
-		// TODO: Classify LOCKSS or similar as 'internal' access.
+        // IP and Host.
+        $ip = $request->getRemoteAddr();
+        $host = null;
+        if (isset($_SERVER['REMOTE_HOST'])) {
+            // We do NOT actively look up the remote host to
+            // avoid the performance penalty. We only set the remote
+            // host if we get it "for free".
+            $host = $_SERVER['REMOTE_HOST'];
+        }
 
-		/*
-		 * Comparison of our event log format with Apache log parameters...
-		*
-		* 1) default parameters:
-		* %h: remote hostname or IP => $ip, $host
-		* %l: remote logname (identd) => not supported, see $user, $roles instead
-		* %u: remote user => not supported, see $user, $roles instead
-		* %t: request time => $time
-		* %r: query => derived objects: $pubObject, $assocType, $canonicalUrl, $identifiers, $serviceUri, $classification
-		* %s: status => not supported (always 200 in our case)
-		*
-		* 2) other common parameters
-		* %O: bytes sent => not supported (cannot be reliably determined from within PHP)
-		* %X: connection status => $downloadSuccess (not reliable!)
-		* %{ContentType}o: => $mimeType
-		* %{User-agent}i: => $userAgent
-		* %{Referer}i: => $referrer
-		*
-		* Several items, e.g. time etc., may differ from what Apache
-		* would actually log. But the differences do not matter for our use
-		* cases.
-		*/
+        // HTTP user agent.
+        $userAgent = $request->getUserAgent();
 
-		// Collect all information into an array.
-		$usageEvent = compact(
-			'time', 'pubObject', 'assocType', 'canonicalUrl', 'mimeType',
-			'identifiers', 'downloadSuccess', 'serviceUri',
-			'ip', 'host', 'user', 'roles', 'userAgent', 'referrer',
-			'classification'
-		);
+        // HTTP referrer.
+        $referrer = ($_SERVER['HTTP_REFERER'] ?? null);
 
-		return $usageEvent;
-	}
+        // User and roles.
+        $user = $request->getUser();
+        $roles = [];
+        if ($user) {
+            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var PKPRoleDAO $roleDao */
+            $rolesByContext = $roleDao->getByUserIdGroupedByContext($user->getId());
+            foreach ([CONTEXT_SITE, $context->getId()] as $workingContext) {
+                if (isset($rolesByContext[$workingContext])) {
+                    foreach ($rolesByContext[$workingContext] as $roleId => $role) {
+                        $roles[] = $roleId;
+                    }
+                }
+            }
+        }
 
-	/**
-	* Get usage event details based on the passed hook.
-	* Subclasses should extend to implement application specifics.
-	* @param $hookName string
-	* @param $hookArgs array
-	* @param $request PKPRequest
-	* @param $router PageRouter
-	* @param $templateMgr PKPTemplateManager
-	* @param $context Context
-	* @return array With the following data:
-	* DataObject the published object, boolean download success, integer used published object assoc type,
-	* string used published object id foreign keys lookup (all parent associated objects id,
-	* preceeded with a single letter to identify the object), string canonical url page,
-	* string canonical url operation, array with canonical url parameters.
-	* @see PKPUsageEventPlugin::buildUsageEvent()
-	*/
-	protected function getUsageEventData($hookName, $hookArgs, $request, $router, $templateMgr, $context) {
-		$nullVar = null;
-		$pubObject = $nullVar;
-		$downloadSuccess = false;
-		$canonicalUrlPage = $canonicalUrlOp = $assocType = null;
-		$canonicalUrlParams = $idParams = array();
+        // Try a simple classification of the request.
+        $classification = null;
+        if (!empty($roles)) {
+            // Access by editors, authors, etc.
+            $internalRoles = array_diff($roles, [ROLE_ID_READER]);
+            if (!empty($internalRoles)) {
+                $classification = USAGE_EVENT_PLUGIN_CLASSIFICATION_ADMIN;
+            }
+        }
+        if ($request->isBot()) {
+            // The bot classification overwrites other classifications.
+            $classification = USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT;
+        }
+        // TODO: Classify LOCKSS or similar as 'internal' access.
 
-		if ($hookName == 'TemplateManager::display') {
-			$page = $router->getRequestedPage($request);
-			$op = $router->getRequestedOp($request);
+        /*
+         * Comparison of our event log format with Apache log parameters...
+        *
+        * 1) default parameters:
+        * %h: remote hostname or IP => $ip, $host
+        * %l: remote logname (identd) => not supported, see $user, $roles instead
+        * %u: remote user => not supported, see $user, $roles instead
+        * %t: request time => $time
+        * %r: query => derived objects: $pubObject, $assocType, $canonicalUrl, $identifiers, $serviceUri, $classification
+        * %s: status => not supported (always 200 in our case)
+        *
+        * 2) other common parameters
+        * %O: bytes sent => not supported (cannot be reliably determined from within PHP)
+        * %X: connection status => $downloadSuccess (not reliable!)
+        * %{ContentType}o: => $mimeType
+        * %{User-agent}i: => $userAgent
+        * %{Referer}i: => $referrer
+        *
+        * Several items, e.g. time etc., may differ from what Apache
+        * would actually log. But the differences do not matter for our use
+        * cases.
+        */
 
-			// First check for a context index page view.
-			if (($page == 'index' || empty($page)) && $op == 'index') {
-				$pubObject = $templateMgr->getTemplateVars('currentContext');
-				if (is_a($pubObject, 'Context')) {
-					$assocType = Application::getContextAssocType();
-					$canonicalUrlOp = '';
-					$canonicalUrlPage = 'index';
-					$downloadSuccess = true;
-				}
-			}
-		}
+        // Collect all information into an array.
+        $usageEvent = compact(
+            'time',
+            'pubObject',
+            'assocType',
+            'canonicalUrl',
+            'mimeType',
+            'identifiers',
+            'downloadSuccess',
+            'serviceUri',
+            'ip',
+            'host',
+            'user',
+            'roles',
+            'userAgent',
+            'referrer',
+            'classification'
+        );
 
-		return array($pubObject, $downloadSuccess, $assocType, $idParams, $canonicalUrlPage, $canonicalUrlOp, $canonicalUrlParams);
-	}
+        return $usageEvent;
+    }
 
-	//
-	// Abstract protected methods.
-	//
-	/**
-	 * Get all assoc types that have their usage event
-	 * produced by html page access.
-	 * @return array
-	 */
-	abstract protected function getHtmlPageAssocTypes();
+    /**
+    * Get usage event details based on the passed hook.
+    * Subclasses should extend to implement application specifics.
+    *
+    * @param $hookName string
+    * @param $hookArgs array
+    * @param $request PKPRequest
+    * @param $router PageRouter
+    * @param $templateMgr PKPTemplateManager
+    * @param $context Context
+    *
+    * @return array With the following data:
+    * DataObject the published object, boolean download success, integer used published object assoc type,
+    * string used published object id foreign keys lookup (all parent associated objects id,
+    * preceeded with a single letter to identify the object), string canonical url page,
+    * string canonical url operation, array with canonical url parameters.
+    *
+    * @see PKPUsageEventPlugin::buildUsageEvent()
+    */
+    protected function getUsageEventData($hookName, $hookArgs, $request, $router, $templateMgr, $context)
+    {
+        $nullVar = null;
+        $pubObject = $nullVar;
+        $downloadSuccess = false;
+        $canonicalUrlPage = $canonicalUrlOp = $assocType = null;
+        $canonicalUrlParams = $idParams = [];
 
-	/**
-	 * Whether or not the passed object is of a type that can have
-	 * different public identifiers, like DOI, URN, etc.
-	 * @param $pubObject DataObject
-	 * @return boolean
-	 */
-	abstract protected function isPubIdObjectType($pubObject);
+        if ($hookName == 'TemplateManager::display') {
+            $page = $router->getRequestedPage($request);
+            $op = $router->getRequestedOp($request);
 
+            // First check for a context index page view.
+            if (($page == 'index' || empty($page)) && $op == 'index') {
+                $pubObject = $templateMgr->getTemplateVars('currentContext');
+                if (is_a($pubObject, 'Context')) {
+                    $assocType = Application::getContextAssocType();
+                    $canonicalUrlOp = '';
+                    $canonicalUrlPage = 'index';
+                    $downloadSuccess = true;
+                }
+            }
+        }
+
+        return [$pubObject, $downloadSuccess, $assocType, $idParams, $canonicalUrlPage, $canonicalUrlOp, $canonicalUrlParams];
+    }
+
+    //
+    // Abstract protected methods.
+    //
+    /**
+     * Get all assoc types that have their usage event
+     * produced by html page access.
+     *
+     * @return array
+     */
+    abstract protected function getHtmlPageAssocTypes();
+
+    /**
+     * Whether or not the passed object is of a type that can have
+     * different public identifiers, like DOI, URN, etc.
+     *
+     * @param $pubObject DataObject
+     *
+     * @return boolean
+     */
+    abstract protected function isPubIdObjectType($pubObject);
 }
-
-

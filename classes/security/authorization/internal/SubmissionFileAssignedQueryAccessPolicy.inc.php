@@ -16,51 +16,66 @@
 
 import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
 
-class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPolicy {
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 */
-	function __construct($request, $submissionFileId = null) {
-		parent::__construct($request, $submissionFileId);
-	}
+class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPolicy
+{
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     * @param null|mixed $submissionFileId
+     */
+    public function __construct($request, $submissionFileId = null)
+    {
+        parent::__construct($request, $submissionFileId);
+    }
 
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		$request = $this->getRequest();
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        $request = $this->getRequest();
 
-		// Get the user
-		$user = $request->getUser();
-		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
+        // Get the user
+        $user = $request->getUser();
+        if (!is_a($user, 'User')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Get the submission file
-		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+        // Get the submission file
+        $submissionFile = $this->getSubmissionFile($request);
+        if (!is_a($submissionFile, 'SubmissionFile')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Check if it's associated with a note.
-		if ($submissionFile->getData('assocType') != ASSOC_TYPE_NOTE) return AUTHORIZATION_DENY;
+        // Check if it's associated with a note.
+        if ($submissionFile->getData('assocType') != ASSOC_TYPE_NOTE) {
+            return AUTHORIZATION_DENY;
+        }
 
-		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
-		$note = $noteDao->getById($submissionFile->getData('assocId'));
-		if (!is_a($note, 'Note')) return AUTHORIZATION_DENY;
+        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+        $note = $noteDao->getById($submissionFile->getData('assocId'));
+        if (!is_a($note, 'Note')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		if ($note->getAssocType() != ASSOC_TYPE_QUERY) return AUTHORIZATION_DENY;
-		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
-		$query = $queryDao->getById($note->getAssocId());
-		if (!$query) return AUTHORIZATION_DENY;
+        if ($note->getAssocType() != ASSOC_TYPE_QUERY) {
+            return AUTHORIZATION_DENY;
+        }
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $query = $queryDao->getById($note->getAssocId());
+        if (!$query) {
+            return AUTHORIZATION_DENY;
+        }
 
-		if ($queryDao->getParticipantIds($note->getAssocId(), $user->getId())) {
-			return AUTHORIZATION_PERMIT;
-		}
+        if ($queryDao->getParticipantIds($note->getAssocId(), $user->getId())) {
+            return AUTHORIZATION_PERMIT;
+        }
 
-		return AUTHORIZATION_DENY;
-	}
+        return AUTHORIZATION_DENY;
+    }
 }
-
-

@@ -20,59 +20,60 @@ import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy')
 define('ACCESS_MODE_MANAGE', 0x01);
 define('ACCESS_MODE_ADMIN', 0x02);
 
-class PluginAccessPolicy extends PolicySet {
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 * @param $args array request arguments
-	 * @param $roleAssignments array
-	 * @param $accessMode int
-	 */
-	function __construct($request, &$args, $roleAssignments, $accessMode = ACCESS_MODE_ADMIN) {
-		parent::__construct();
+class PluginAccessPolicy extends PolicySet
+{
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     * @param $args array request arguments
+     * @param $roleAssignments array
+     * @param $accessMode int
+     */
+    public function __construct($request, &$args, $roleAssignments, $accessMode = ACCESS_MODE_ADMIN)
+    {
+        parent::__construct();
 
-		// A valid plugin is required.
-		$this->addPolicy(new PluginRequiredPolicy($request));
+        // A valid plugin is required.
+        $this->addPolicy(new PluginRequiredPolicy($request));
 
-		// Managers and site admin have access to plugins. We'll have to define
-		// differentiated policies for those roles in a policy set.
-		$pluginAccessPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
-		$pluginAccessPolicy->setEffectIfNoPolicyApplies(AUTHORIZATION_DENY);
+        // Managers and site admin have access to plugins. We'll have to define
+        // differentiated policies for those roles in a policy set.
+        $pluginAccessPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $pluginAccessPolicy->setEffectIfNoPolicyApplies(AUTHORIZATION_DENY);
 
-		//
-		// Managerial role
-		//
-		if (isset($roleAssignments[ROLE_ID_MANAGER])) {
-			if ($accessMode & ACCESS_MODE_MANAGE) {
-				// Managers have edit settings access mode...
-				$managerPluginAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
-				$managerPluginAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
+        //
+        // Managerial role
+        //
+        if (isset($roleAssignments[ROLE_ID_MANAGER])) {
+            if ($accessMode & ACCESS_MODE_MANAGE) {
+                // Managers have edit settings access mode...
+                $managerPluginAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+                $managerPluginAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
 
-				// ...only to context-level plugins.
-				$managerPluginAccessPolicy->addPolicy(new PluginLevelRequiredPolicy($request, true));
+                // ...only to context-level plugins.
+                $managerPluginAccessPolicy->addPolicy(new PluginLevelRequiredPolicy($request, true));
 
-				$pluginAccessPolicy->addPolicy($managerPluginAccessPolicy);
-			}
-		}
+                $pluginAccessPolicy->addPolicy($managerPluginAccessPolicy);
+            }
+        }
 
-		//
-		// Site administrator role
-		//
-		if (isset($roleAssignments[ROLE_ID_SITE_ADMIN])) {
-			// Site admin have access to all plugins...
-			$siteAdminPluginAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
-			$siteAdminPluginAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SITE_ADMIN, $roleAssignments[ROLE_ID_SITE_ADMIN]));
+        //
+        // Site administrator role
+        //
+        if (isset($roleAssignments[ROLE_ID_SITE_ADMIN])) {
+            // Site admin have access to all plugins...
+            $siteAdminPluginAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+            $siteAdminPluginAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SITE_ADMIN, $roleAssignments[ROLE_ID_SITE_ADMIN]));
 
-			if ($accessMode & ACCESS_MODE_MANAGE) {
-				// ...of site level only.
-				$siteAdminPluginAccessPolicy->addPolicy(new PluginLevelRequiredPolicy($request, false));
-			}
+            if ($accessMode & ACCESS_MODE_MANAGE) {
+                // ...of site level only.
+                $siteAdminPluginAccessPolicy->addPolicy(new PluginLevelRequiredPolicy($request, false));
+            }
 
-			$pluginAccessPolicy->addPolicy($siteAdminPluginAccessPolicy);
-		}
+            $pluginAccessPolicy->addPolicy($siteAdminPluginAccessPolicy);
+        }
 
-		$this->addPolicy($pluginAccessPolicy);
-	}
+        $this->addPolicy($pluginAccessPolicy);
+    }
 }
-
-

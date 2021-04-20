@@ -9,6 +9,7 @@
  *
  * @class QueuedPayment
  * @ingroup payment
+ *
  * @see QueuedPaymentDAO
  *
  * @brief Queued (unfulfilled) payment data structure
@@ -17,33 +18,41 @@
 
 import('lib.pkp.classes.payment.Payment');
 
-class QueuedPayment extends Payment {
-	/** @var string URL associated with this payment */
-	var $requestUrl;
+class QueuedPayment extends Payment
+{
+    /** @var string URL associated with this payment */
+    public $requestUrl;
 
-	/**
-	 * @copydoc Payment::Payment
-	 */
-	function __construct($amount, $currencyCode, $userId = null, $assocId = null) {
-		parent::__construct($amount, $currencyCode, $userId, $assocId);
-	}
+    /**
+     * @copydoc Payment::Payment
+     *
+     * @param null|mixed $userId
+     * @param null|mixed $assocId
+     */
+    public function __construct($amount, $currencyCode, $userId = null, $assocId = null)
+    {
+        parent::__construct($amount, $currencyCode, $userId, $assocId);
+    }
 
-	/**
-	 * Set the request URL.
-	 * @param $url string
-	 * @return string New URL
-	 */
-	function setRequestUrl($url) {
-		return $this->requestUrl = $url;
-	}
+    /**
+     * Set the request URL.
+     *
+     * @param $url string
+     *
+     * @return string New URL
+     */
+    public function setRequestUrl($url)
+    {
+        return $this->requestUrl = $url;
+    }
 
-	/**
-	 * Get the request URL.
-	 * @return string
-	 */
-	function getRequestUrl() {
-		return $this->requestUrl;
-	}
+    /**
+     * Get the request URL.
+     *
+     * @return string
+     */
+    public function getRequestUrl()
+    {
+        return $this->requestUrl;
+    }
 }
-
-

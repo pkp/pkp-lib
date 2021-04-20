@@ -16,45 +16,45 @@
 
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 
-class SelectableItemsFeature extends GridFeature {
+class SelectableItemsFeature extends GridFeature
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct('selectableItems');
+    }
 
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct('selectableItems');
-	}
+    //
+    // Hooks implementation.
+    //
+    /**
+     * @see GridFeature::gridInitialize()
+     */
+    public function gridInitialize($args)
+    {
+        $grid = $args['grid'];
 
+        // Add checkbox column to the grid.
+        import('lib.pkp.classes.controllers.grid.feature.selectableItems.ItemSelectionGridColumn');
+        $grid->addColumn(new ItemSelectionGridColumn($grid->getSelectName()));
+    }
 
-	//
-	// Hooks implementation.
-	//
-	/**
-	 * @see GridFeature::gridInitialize()
-	 */
-	function gridInitialize($args) {
-		$grid = $args['grid'];
+    /**
+     * @see GridFeature::getInitializedRowInstance()
+     */
+    public function getInitializedRowInstance($args)
+    {
+        $grid = $args['grid'];
+        $row = $args['row'];
 
-		// Add checkbox column to the grid.
-		import('lib.pkp.classes.controllers.grid.feature.selectableItems.ItemSelectionGridColumn');
-		$grid->addColumn(new ItemSelectionGridColumn($grid->getSelectName()));
-	}
-
-	/**
-	 * @see GridFeature::getInitializedRowInstance()
-	 */
-	function getInitializedRowInstance($args) {
-		$grid = $args['grid'];
-		$row = $args['row'];
-
-		if (is_a($grid, 'CategoryGridHandler')) {
-			$categoryId = $grid->getCurrentCategoryId();
-			$row->addFlag('selected', (bool) $grid->isDataElementInCategorySelected($categoryId, $row->getData()));
-		} else {
-			$row->addFlag('selected', (bool) $grid->isDataElementSelected($row->getData()));
-		}
-	}
+        if (is_a($grid, 'CategoryGridHandler')) {
+            $categoryId = $grid->getCurrentCategoryId();
+            $row->addFlag('selected', (bool) $grid->isDataElementInCategorySelected($categoryId, $row->getData()));
+        } else {
+            $row->addFlag('selected', (bool) $grid->isDataElementSelected($row->getData()));
+        }
+    }
 }
-
-

@@ -15,85 +15,102 @@
 
 namespace PKP\db;
 
-class DBResultRange {
-	/** The number of items to display */
-	var $count;
+class DBResultRange
+{
+    /** The number of items to display */
+    public $count;
 
-	/** The number of pages to skip */
-	var $page;
+    /** The number of pages to skip */
+    public $page;
 
-	/** Optional offset if pagination is not used. */
-	var $offset;
+    /** Optional offset if pagination is not used. */
+    public $offset;
 
-	/**
-	 * Constructor.
-	 * Initialize the DBResultRange.
-	 */
-	function __construct($count, $page = 1, $offset = null) {
-		$this->count = $count;
-		$this->page = $page;
-		$this->offset = $offset;
-	}
+    /**
+     * Constructor.
+     * Initialize the DBResultRange.
+     *
+     * @param null|mixed $offset
+     */
+    public function __construct($count, $page = 1, $offset = null)
+    {
+        $this->count = $count;
+        $this->page = $page;
+        $this->offset = $offset;
+    }
 
-	/**
-	 * Checks to see if the DBResultRange is valid.
-	 * @return boolean
-	 */
-	function isValid() {
-		return (($this->count > 0) && ($this->page >= 0))
-				|| ($this->count > 0 && !is_null($this->offset));
-	}
+    /**
+     * Checks to see if the DBResultRange is valid.
+     *
+     * @return boolean
+     */
+    public function isValid()
+    {
+        return (($this->count > 0) && ($this->page >= 0))
+                || ($this->count > 0 && !is_null($this->offset));
+    }
 
-	/**
-	 * Returns the count of pages to skip.
-	 * @return int
-	 */
-	function getPage() {
-		return $this->page;
-	}
+    /**
+     * Returns the count of pages to skip.
+     *
+     * @return int
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
 
-	/**
-	 * Set the count of pages to skip.
-	 * @param $page int
-	 */
-	function setPage($page) {
-		$this->page = $page;
-	}
+    /**
+     * Set the count of pages to skip.
+     *
+     * @param $page int
+     */
+    public function setPage($page)
+    {
+        $this->page = $page;
+    }
 
-	/**
-	 * Returns the count of items in this range to display.
-	 * @return int
-	 */
-	function getCount() {
-		return $this->count;
-	}
+    /**
+     * Returns the count of items in this range to display.
+     *
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
 
-	/**
-	 * Set the count of items in this range to display.
-	 * @param $count int
-	 */
-	function setCount($count) {
-		$this->count = $count;
-	}
+    /**
+     * Set the count of items in this range to display.
+     *
+     * @param $count int
+     */
+    public function setCount($count)
+    {
+        $this->count = $count;
+    }
 
-	/**
-	 * Returns the offset of items in this range to display.
-	 * @return int
-	 */
-	function getOffset() {
-		return $this->offset;
-	}
+    /**
+     * Returns the offset of items in this range to display.
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->offset;
+    }
 
-	/**
-	 * Set the offset of items in this range to display.
-	 * @param $offset int
-	 */
-	function setOffset($offset) {
-		$this->offset = $offset;
-	}
+    /**
+     * Set the offset of items in this range to display.
+     *
+     * @param $offset int
+     */
+    public function setOffset($offset)
+    {
+        $this->offset = $offset;
+    }
 }
 
 if (!PKP_STRICT_MODE) {
-	class_alias('\PKP\db\DBResultRange', '\DBResultRange');
+    class_alias('\PKP\db\DBResultRange', '\DBResultRange');
 }
-

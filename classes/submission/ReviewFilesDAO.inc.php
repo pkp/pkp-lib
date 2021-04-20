@@ -15,58 +15,65 @@
  */
 use Illuminate\Support\Facades\DB;
 
-class ReviewFilesDAO extends \PKP\db\DAO {
-
-	/**
-	 * Grant a review file to a review.
-	 * @param $reviewId int Review assignment ID
-	 * @param $submissionFileId int Submission file ID
-	 */
-	function grant($reviewId, $submissionFileId) {
-		$this->update(
-			'INSERT INTO review_files
+class ReviewFilesDAO extends \PKP\db\DAO
+{
+    /**
+     * Grant a review file to a review.
+     *
+     * @param $reviewId int Review assignment ID
+     * @param $submissionFileId int Submission file ID
+     */
+    public function grant($reviewId, $submissionFileId)
+    {
+        $this->update(
+            'INSERT INTO review_files
 			(review_id, submission_file_id)
 			VALUES
 			(?, ?)',
-			[(int) $reviewId, (int) $submissionFileId]
-		);
-	}
+            [(int) $reviewId, (int) $submissionFileId]
+        );
+    }
 
-	/**
-	 * Revoke a review's association with a review file.
-	 * @param $reviewId int Review assignment ID.
-	 * @param $fileId int Review file ID.
-	 */
-	function revoke($reviewId, $fileId) {
-		$this->update(
-			'DELETE FROM review_files WHERE review_id = ? AND file_id = ?',
-			[(int) $reviewId, (int) $fileId]
-		);
-	}
+    /**
+     * Revoke a review's association with a review file.
+     *
+     * @param $reviewId int Review assignment ID.
+     * @param $fileId int Review file ID.
+     */
+    public function revoke($reviewId, $fileId)
+    {
+        $this->update(
+            'DELETE FROM review_files WHERE review_id = ? AND file_id = ?',
+            [(int) $reviewId, (int) $fileId]
+        );
+    }
 
-	/**
-	 * Revoke a review's association with all submission files.
-	 * @param $reviewId int Review assignment ID.
-	 */
-	function revokeByReviewId($reviewId) {
-		$this->update(
-			'DELETE FROM review_files WHERE review_id = ?',
-			[(int) $reviewId]
-		);
-	}
+    /**
+     * Revoke a review's association with all submission files.
+     *
+     * @param $reviewId int Review assignment ID.
+     */
+    public function revokeByReviewId($reviewId)
+    {
+        $this->update(
+            'DELETE FROM review_files WHERE review_id = ?',
+            [(int) $reviewId]
+        );
+    }
 
-	/**
-	 * Check review file availability
-	 * @param $reviewId integer
-	 * @param $submissionFileId int
-	 * @return boolean
-	 */
-	function check($reviewId, $submissionFileId) {
-		return DB::table('review_files')
-			->where('review_id', (int) $reviewId)
-			->where('submission_file_id', (int) $submissionFileId)
-			->exists();
-	}
+    /**
+     * Check review file availability
+     *
+     * @param $reviewId integer
+     * @param $submissionFileId int
+     *
+     * @return boolean
+     */
+    public function check($reviewId, $submissionFileId)
+    {
+        return DB::table('review_files')
+            ->where('review_id', (int) $reviewId)
+            ->where('submission_file_id', (int) $submissionFileId)
+            ->exists();
+    }
 }
-
-

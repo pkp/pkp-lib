@@ -11,72 +11,76 @@
  *
  * @brief A preset form for the site appearance settings.
  */
+
 namespace PKP\components\forms\site;
-use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldOptions;
-use \PKP\components\forms\FieldRichTextarea;
-use \PKP\components\forms\FieldUpload;
-use \PKP\components\forms\FieldUploadImage;
+
+use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FieldRichTextarea;
+use PKP\components\forms\FieldUpload;
+use PKP\components\forms\FieldUploadImage;
+use PKP\components\forms\FormComponent;
 
 define('FORM_SITE_APPEARANCE', 'siteAppearance');
 
-class PKPSiteAppearanceForm extends FormComponent {
-	/** @copydoc FormComponent::$id */
-	public $id = FORM_SITE_APPEARANCE;
+class PKPSiteAppearanceForm extends FormComponent
+{
+    /** @copydoc FormComponent::$id */
+    public $id = FORM_SITE_APPEARANCE;
 
-	/** @copydoc FormComponent::$method */
-	public $method = 'PUT';
+    /** @copydoc FormComponent::$method */
+    public $method = 'PUT';
 
-	/**
-	 * Constructor
-	 *
-	 * @param $action string URL to submit the form to
-	 * @param $locales array Supported locales
-	 * @param $site Site
-	 * @param $baseUrl string Site's base URL. Used for image previews.
-	 * @param $temporaryFileApiUrl string URL to upload files to
-	 */
-	public function __construct($action, $locales, $site, $baseUrl, $temporaryFileApiUrl) {
-		$this->action = $action;
-		$this->locales = $locales;
+    /**
+     * Constructor
+     *
+     * @param $action string URL to submit the form to
+     * @param $locales array Supported locales
+     * @param $site Site
+     * @param $baseUrl string Site's base URL. Used for image previews.
+     * @param $temporaryFileApiUrl string URL to upload files to
+     */
+    public function __construct($action, $locales, $site, $baseUrl, $temporaryFileApiUrl)
+    {
+        $this->action = $action;
+        $this->locales = $locales;
 
-		$sidebarOptions = [];
-		$plugins = \PluginRegistry::loadCategory('blocks', true);
-		foreach ($plugins as $pluginName => $plugin) {
-			$sidebarOptions[] = [
-				'value' => $pluginName,
-				'label' => $plugin->getDisplayName(),
-			];
-		}
+        $sidebarOptions = [];
+        $plugins = \PluginRegistry::loadCategory('blocks', true);
+        foreach ($plugins as $pluginName => $plugin) {
+            $sidebarOptions[] = [
+                'value' => $pluginName,
+                'label' => $plugin->getDisplayName(),
+            ];
+        }
 
-		$this->addField(new FieldUploadImage('pageHeaderTitleImage', [
-				'label' => __('manager.setup.logo'),
-				'value' => $site->getData('pageHeaderTitleImage'),
-				'isMultilingual' => true,
-				'baseUrl' => $baseUrl,
-				'options' => [
-					'url' => $temporaryFileApiUrl,
-				],
-			]))
-			->addField(new FieldRichTextarea('pageFooter', [
-				'label' => __('manager.setup.pageFooter'),
-				'description' => __('manager.setup.pageFooter.description'),
-				'isMultilingual' => true,
-				'value' => $site->getData('pageFooter'),
-			]))
-			->addField(new FieldOptions('sidebar', [
-				'label' => __('manager.setup.layout.sidebar'),
-				'isOrderable' => true,
-				'value' => (array) $site->getData('sidebar'),
-				'options' => $sidebarOptions,
-			]))
-			->addField(new FieldUpload('styleSheet', [
-				'label' => __('admin.settings.siteStyleSheet'),
-				'value' => $site->getData('styleSheet'),
-				'options' => [
-					'url' => $temporaryFileApiUrl,
-					'acceptedFiles' => '.css',
-				],
-			]));
-	}
+        $this->addField(new FieldUploadImage('pageHeaderTitleImage', [
+            'label' => __('manager.setup.logo'),
+            'value' => $site->getData('pageHeaderTitleImage'),
+            'isMultilingual' => true,
+            'baseUrl' => $baseUrl,
+            'options' => [
+                'url' => $temporaryFileApiUrl,
+            ],
+        ]))
+            ->addField(new FieldRichTextarea('pageFooter', [
+                'label' => __('manager.setup.pageFooter'),
+                'description' => __('manager.setup.pageFooter.description'),
+                'isMultilingual' => true,
+                'value' => $site->getData('pageFooter'),
+            ]))
+            ->addField(new FieldOptions('sidebar', [
+                'label' => __('manager.setup.layout.sidebar'),
+                'isOrderable' => true,
+                'value' => (array) $site->getData('sidebar'),
+                'options' => $sidebarOptions,
+            ]))
+            ->addField(new FieldUpload('styleSheet', [
+                'label' => __('admin.settings.siteStyleSheet'),
+                'value' => $site->getData('styleSheet'),
+                'options' => [
+                    'url' => $temporaryFileApiUrl,
+                    'acceptedFiles' => '.css',
+                ],
+            ]));
+    }
 }

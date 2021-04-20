@@ -15,27 +15,27 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-class SetVersionTool extends CommandLineTool {
-
-	/**
-	 * Set the version numbers
-	 */
-	function execute() {
-		$request = Application::get()->getRequest();
-		$contextIds = Services::get('context')->getIds();
-		foreach ($contextIds as $contextId) {
-			$submissions = Services::get('submission')->getMany(['contextId' => $contextId]);
-			foreach ($submissions as $submission) {
-				$version = 1;
-				foreach ((array) $submission->getData('publications') as $publication) {
-					Services::get('publication')->edit($publication, ['version' => $version], $request);
-					$version++;
-				}
-			}
-		}
-	}
+class SetVersionTool extends CommandLineTool
+{
+    /**
+     * Set the version numbers
+     */
+    public function execute()
+    {
+        $request = Application::get()->getRequest();
+        $contextIds = Services::get('context')->getIds();
+        foreach ($contextIds as $contextId) {
+            $submissions = Services::get('submission')->getMany(['contextId' => $contextId]);
+            foreach ($submissions as $submission) {
+                $version = 1;
+                foreach ((array) $submission->getData('publications') as $publication) {
+                    Services::get('publication')->edit($publication, ['version' => $version], $request);
+                    $version++;
+                }
+            }
+        }
+    }
 }
 
-$tool = new SetVersionTool(isset($argv) ? $argv : []);
+$tool = new SetVersionTool($argv ?? []);
 $tool->execute();
-

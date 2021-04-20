@@ -18,66 +18,72 @@ define('AJAX_REQUEST_TYPE_POST', 'post');
 
 import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
-class AjaxAction extends LinkActionRequest {
+class AjaxAction extends LinkActionRequest
+{
+    /** @var string */
+    public $_remoteAction;
 
-	/** @var string */
-	var $_remoteAction;
-
-	/** @var string */
-	var $_requestType;
-
-
-	/**
-	 * Constructor
-	 * @param $remoteAction string The target URL.
-	 * @param $requestType string One of the AJAX_REQUEST_TYPE_* constants.
-	 */
-	function __construct($remoteAction, $requestType = AJAX_REQUEST_TYPE_POST) {
-		parent::__construct();
-		$this->_remoteAction = $remoteAction;
-		$this->_requestType = $requestType;
-	}
+    /** @var string */
+    public $_requestType;
 
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the target URL.
-	 * @return string
-	 */
-	function getRemoteAction() {
-		return $this->_remoteAction;
-	}
-
-	/**
-	 * Get the modal object.
-	 * @return Modal
-	 */
-	function getRequestType() {
-		return $this->_requestType;
-	}
+    /**
+     * Constructor
+     *
+     * @param $remoteAction string The target URL.
+     * @param $requestType string One of the AJAX_REQUEST_TYPE_* constants.
+     */
+    public function __construct($remoteAction, $requestType = AJAX_REQUEST_TYPE_POST)
+    {
+        parent::__construct();
+        $this->_remoteAction = $remoteAction;
+        $this->_requestType = $requestType;
+    }
 
 
-	//
-	// Overridden protected methods from LinkActionRequest
-	//
-	/**
-	 * @see LinkActionRequest::getJSLinkActionRequest()
-	 */
-	function getJSLinkActionRequest() {
-		return '$.pkp.classes.linkAction.AjaxRequest';
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the target URL.
+     *
+     * @return string
+     */
+    public function getRemoteAction()
+    {
+        return $this->_remoteAction;
+    }
 
-	/**
-	 * @see LinkActionRequest::getLocalizedOptions()
-	 */
-	function getLocalizedOptions() {
-		return array(
-			'url' => $this->getRemoteAction(),
-			'requestType' => $this->getRequestType()
-		);
-	}
+    /**
+     * Get the modal object.
+     *
+     * @return Modal
+     */
+    public function getRequestType()
+    {
+        return $this->_requestType;
+    }
+
+
+    //
+    // Overridden protected methods from LinkActionRequest
+    //
+    /**
+     * @see LinkActionRequest::getJSLinkActionRequest()
+     */
+    public function getJSLinkActionRequest()
+    {
+        return '$.pkp.classes.linkAction.AjaxRequest';
+    }
+
+    /**
+     * @see LinkActionRequest::getLocalizedOptions()
+     */
+    public function getLocalizedOptions()
+    {
+        return [
+            'url' => $this->getRemoteAction(),
+            'requestType' => $this->getRequestType()
+        ];
+    }
 }
-
-

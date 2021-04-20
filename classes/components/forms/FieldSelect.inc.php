@@ -11,21 +11,25 @@
  *
  * @brief A select field in a form.
  */
+
 namespace PKP\components\forms;
-class FieldSelect extends Field {
-	/** @copydoc Field::$component */
-	public $component = 'field-select';
 
-	/** @var array The options which can be selected */
-	public $options = [];
+class FieldSelect extends Field
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-select';
 
-	/**
-	 * @copydoc Field::getConfig()
-	 */
-	public function getConfig() {
-		$config = parent::getConfig();
-		$config['options'] = $this->options;
+    /** @var array The options which can be selected */
+    public $options = [];
 
-		return $config;
-	}
+    /**
+     * @copydoc Field::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        $config['options'] = $this->options;
+
+        return $config;
+    }
 }

@@ -16,217 +16,241 @@
 import('lib.pkp.controllers.grid.settings.SetupGridHandler');
 import('lib.pkp.controllers.grid.settings.submissionChecklist.SubmissionChecklistGridRow');
 
-use \PKP\core\JSONMessage;
+use PKP\core\JSONMessage;
 
-class SubmissionChecklistGridHandler extends SetupGridHandler {
+class SubmissionChecklistGridHandler extends SetupGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER],
+            ['fetchGrid', 'fetchRow', 'addItem', 'editItem', 'updateItem', 'deleteItem', 'saveSequence']
+        );
+    }
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(array(ROLE_ID_MANAGER),
-				array('fetchGrid', 'fetchRow', 'addItem', 'editItem', 'updateItem', 'deleteItem', 'saveSequence'));
-	}
+    //
+    // Overridden template methods
+    //
+    /**
+     * @copydoc SetupGridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        parent::initialize($request, $args);
 
-	//
-	// Overridden template methods
-	//
-	/**
-	 * @copydoc SetupGridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+        // Basic grid configuration
+        $this->setId('submissionChecklist');
+        $this->setTitle('manager.setup.submissionPreparationChecklist');
 
-		// Basic grid configuration
-		$this->setId('submissionChecklist');
-		$this->setTitle('manager.setup.submissionPreparationChecklist');
+        // Add grid-level actions
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
+        $router = $request->getRouter();
+        $this->addAction(
+            new LinkAction(
+                'addItem',
+                new AjaxModal(
+                    $router->url($request, null, null, 'addItem', null, ['gridId' => $this->getId()]),
+                    __('grid.action.addItem'),
+                    'modal_add_item',
+                    true
+                ),
+                __('grid.action.addItem'),
+                'add_item'
+            )
+        );
 
-		// Add grid-level actions
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$router = $request->getRouter();
-		$this->addAction(
-			new LinkAction(
-				'addItem',
-				new AjaxModal(
-					$router->url($request, null, null, 'addItem', null, array('gridId' => $this->getId())),
-					__('grid.action.addItem'),
-					'modal_add_item',
-					true),
-				__('grid.action.addItem'),
-				'add_item')
-		);
-
-		// Columns
-		$this->addColumn(
-			new GridColumn(
-				'content',
-				'grid.submissionChecklist.column.checklistItem',
-				null,
-				null,
-				null,
-				array('html' => true, 'maxLength' => 220)
-			)
-		);
-	}
-
-
-	//
-	// Overridden methods from GridHandler
-	//
-	/**
-	 * @copydoc GridHandler::initFeatures()
-	 */
-	function initFeatures($request, $args) {
-		import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
-		return array(new OrderGridItemsFeature());
-	}
-
-	/**
-	 * @copydoc GridHandler::getRowInstance()
-	 */
-	protected function getRowInstance() {
-		return new SubmissionChecklistGridRow();
-	}
-
-	/**
-	 * @copydoc GridHandler::loadData()
-	 */
-	protected function loadData($request, $filter) {
-		// Elements to be displayed in the grid
-		$router = $request->getRouter();
-		$context = $router->getContext($request);
-		$submissionChecklist = $context->getData('submissionChecklist');
-		return $submissionChecklist[AppLocale::getLocale()];
-	}
+        // Columns
+        $this->addColumn(
+            new GridColumn(
+                'content',
+                'grid.submissionChecklist.column.checklistItem',
+                null,
+                null,
+                null,
+                ['html' => true, 'maxLength' => 220]
+            )
+        );
+    }
 
 
-	//
-	// Public grid actions.
-	//
-	/**
-	 * An action to add a new submissionChecklist
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function addItem($args, $request) {
-		// Calling editItem with an empty row id will add a new row.
-		return $this->editItem($args, $request);
-	}
+    //
+    // Overridden methods from GridHandler
+    //
+    /**
+     * @copydoc GridHandler::initFeatures()
+     */
+    public function initFeatures($request, $args)
+    {
+        import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
+        return [new OrderGridItemsFeature()];
+    }
 
-	/**
-	 * An action to edit a submissionChecklist
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function editItem($args, $request) {
-		import('lib.pkp.controllers.grid.settings.submissionChecklist.form.SubmissionChecklistForm');
-		$submissionChecklistId = isset($args['rowId']) ? $args['rowId'] : null;
-		$submissionChecklistForm = new SubmissionChecklistForm($submissionChecklistId);
+    /**
+     * @copydoc GridHandler::getRowInstance()
+     */
+    protected function getRowInstance()
+    {
+        return new SubmissionChecklistGridRow();
+    }
 
-		$submissionChecklistForm->initData($args);
+    /**
+     * @copydoc GridHandler::loadData()
+     */
+    protected function loadData($request, $filter)
+    {
+        // Elements to be displayed in the grid
+        $router = $request->getRouter();
+        $context = $router->getContext($request);
+        $submissionChecklist = $context->getData('submissionChecklist');
+        return $submissionChecklist[AppLocale::getLocale()];
+    }
 
-		return new JSONMessage(true, $submissionChecklistForm->fetch($request));
-	}
 
-	/**
-	 * Update a submissionChecklist
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function updateItem($args, $request) {
-		// -> submissionChecklistId must be present and valid
-		// -> htmlId must be present and valid
+    //
+    // Public grid actions.
+    //
+    /**
+     * An action to add a new submissionChecklist
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function addItem($args, $request)
+    {
+        // Calling editItem with an empty row id will add a new row.
+        return $this->editItem($args, $request);
+    }
 
-		import('lib.pkp.controllers.grid.settings.submissionChecklist.form.SubmissionChecklistForm');
-		$submissionChecklistId = isset($args['rowId']) ? $args['rowId'] : null;
-		$submissionChecklistForm = new SubmissionChecklistForm($submissionChecklistId);
-		$submissionChecklistForm->readInputData();
+    /**
+     * An action to edit a submissionChecklist
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function editItem($args, $request)
+    {
+        import('lib.pkp.controllers.grid.settings.submissionChecklist.form.SubmissionChecklistForm');
+        $submissionChecklistId = $args['rowId'] ?? null;
+        $submissionChecklistForm = new SubmissionChecklistForm($submissionChecklistId);
 
-		if ($submissionChecklistForm->validate()) {
-			$submissionChecklistForm->execute();
-			return \PKP\db\DAO::getDataChangedEvent($submissionChecklistForm->submissionChecklistId);
-		} else {
-			return new JSONMessage(false);
-		}
-	}
+        $submissionChecklistForm->initData($args);
 
-	/**
-	 * Delete a submissionChecklist
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function deleteItem($args, $request) {
-		if (!$request->checkCSRF()) return new JSONMessage(false);
+        return new JSONMessage(true, $submissionChecklistForm->fetch($request));
+    }
 
-		$rowId = $request->getUserVar('rowId');
+    /**
+     * Update a submissionChecklist
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function updateItem($args, $request)
+    {
+        // -> submissionChecklistId must be present and valid
+        // -> htmlId must be present and valid
 
-		$router = $request->getRouter();
-		$context = $router->getContext($request);
+        import('lib.pkp.controllers.grid.settings.submissionChecklist.form.SubmissionChecklistForm');
+        $submissionChecklistId = $args['rowId'] ?? null;
+        $submissionChecklistForm = new SubmissionChecklistForm($submissionChecklistId);
+        $submissionChecklistForm->readInputData();
 
-		// get all of the submissionChecklists
-		$submissionChecklistAll = $context->getData('submissionChecklist');
+        if ($submissionChecklistForm->validate()) {
+            $submissionChecklistForm->execute();
+            return \PKP\db\DAO::getDataChangedEvent($submissionChecklistForm->submissionChecklistId);
+        } else {
+            return new JSONMessage(false);
+        }
+    }
 
-		foreach (AppLocale::getSupportedLocales() as $locale => $name) {
-			if ( isset($submissionChecklistAll[$locale][$rowId]) ) {
-				unset($submissionChecklistAll[$locale][$rowId]);
-			} else {
-				// only fail if the currently displayed locale was not set
-				// (this is the one that needs to be removed from the currently displayed grid)
-				if ( $locale == AppLocale::getLocale() ) {
-					return new JSONMessage(false, __('manager.setup.errorDeletingSubmissionChecklist'));
-				}
-			}
-		}
+    /**
+     * Delete a submissionChecklist
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function deleteItem($args, $request)
+    {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
 
-		$context->updateSetting('submissionChecklist', $submissionChecklistAll, 'object', true);
-		return \PKP\db\DAO::getDataChangedEvent($rowId);
-	}
+        $rowId = $request->getUserVar('rowId');
 
-	/**
-	 * @copydoc GridHandler::getDataElementSequence()
-	 */
-	function getDataElementSequence($gridDataElement) {
-		return $gridDataElement['order'];
-	}
+        $router = $request->getRouter();
+        $context = $router->getContext($request);
 
-	/**
-	 * @copydoc GridHandler::setDataElementSequence()
-	 */
-	function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence) {
-		$router = $request->getRouter();
-		$context = $router->getContext($request);
+        // get all of the submissionChecklists
+        $submissionChecklistAll = $context->getData('submissionChecklist');
 
-		// Get all of the submissionChecklists.
-		$submissionChecklistAll = $context->getData('submissionChecklist');
-		$locale = AppLocale::getLocale();
+        foreach (AppLocale::getSupportedLocales() as $locale => $name) {
+            if (isset($submissionChecklistAll[$locale][$rowId])) {
+                unset($submissionChecklistAll[$locale][$rowId]);
+            } else {
+                // only fail if the currently displayed locale was not set
+                // (this is the one that needs to be removed from the currently displayed grid)
+                if ($locale == AppLocale::getLocale()) {
+                    return new JSONMessage(false, __('manager.setup.errorDeletingSubmissionChecklist'));
+                }
+            }
+        }
 
-		if (isset($submissionChecklistAll[$locale][$rowId])) {
-			$submissionChecklistAll[$locale][$rowId]['order'] = $newSequence;
-		}
+        $context->updateSetting('submissionChecklist', $submissionChecklistAll, 'object', true);
+        return \PKP\db\DAO::getDataChangedEvent($rowId);
+    }
 
-		$orderMap = array();
-		foreach ($submissionChecklistAll[$locale] as $id => $checklistItem) {
-			$orderMap[$id] = $checklistItem['order'];
-		}
+    /**
+     * @copydoc GridHandler::getDataElementSequence()
+     */
+    public function getDataElementSequence($gridDataElement)
+    {
+        return $gridDataElement['order'];
+    }
 
-		asort($orderMap);
+    /**
+     * @copydoc GridHandler::setDataElementSequence()
+     */
+    public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
+    {
+        $router = $request->getRouter();
+        $context = $router->getContext($request);
 
-		// Build the new order checklist object.
-		$orderedChecklistItems = array();
-		foreach ($orderMap as $id => $order) {
-			if (isset($submissionChecklistAll[$locale][$id])) {
-				$orderedChecklistItems[$locale][$id] = $submissionChecklistAll[$locale][$id];
-			}
-		}
+        // Get all of the submissionChecklists.
+        $submissionChecklistAll = $context->getData('submissionChecklist');
+        $locale = AppLocale::getLocale();
 
-		// Update both the in-memory value and database setting.
-		$context->setData('submissionChecklist', $orderedChecklistItems);
-		$context->updateSetting('submissionChecklist', $orderedChecklistItems, 'object', true);
-	}
+        if (isset($submissionChecklistAll[$locale][$rowId])) {
+            $submissionChecklistAll[$locale][$rowId]['order'] = $newSequence;
+        }
+
+        $orderMap = [];
+        foreach ($submissionChecklistAll[$locale] as $id => $checklistItem) {
+            $orderMap[$id] = $checklistItem['order'];
+        }
+
+        asort($orderMap);
+
+        // Build the new order checklist object.
+        $orderedChecklistItems = [];
+        foreach ($orderMap as $id => $order) {
+            if (isset($submissionChecklistAll[$locale][$id])) {
+                $orderedChecklistItems[$locale][$id] = $submissionChecklistAll[$locale][$id];
+            }
+        }
+
+        // Update both the in-memory value and database setting.
+        $context->setData('submissionChecklist', $orderedChecklistItems);
+        $context->updateSetting('submissionChecklist', $orderedChecklistItems, 'object', true);
+    }
 }
-
-

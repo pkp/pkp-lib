@@ -11,87 +11,91 @@
  *
  * @brief A preset form for configuring a context's contact details.
  */
+
 namespace PKP\components\forms\context;
-use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldText;
-use \PKP\components\forms\FieldTextarea;
+
+use PKP\components\forms\FieldText;
+use PKP\components\forms\FieldTextarea;
+use PKP\components\forms\FormComponent;
 
 define('FORM_CONTACT', 'contact');
 
-class PKPContactForm extends FormComponent {
-	/** @copydoc FormComponent::$id */
-	public $id = FORM_CONTACT;
+class PKPContactForm extends FormComponent
+{
+    /** @copydoc FormComponent::$id */
+    public $id = FORM_CONTACT;
 
-	/** @copydoc FormComponent::$method */
-	public $method = 'PUT';
+    /** @copydoc FormComponent::$method */
+    public $method = 'PUT';
 
-	/**
-	 * Constructor
-	 *
-	 * @param $action string URL to submit the form to
-	 * @param $locales array Supported locales
-	 * @param $context Context Journal or Press to change settings for
-	 */
-	public function __construct($action, $locales, $context) {
-		$this->action = $action;
-		$this->locales = $locales;
+    /**
+     * Constructor
+     *
+     * @param $action string URL to submit the form to
+     * @param $locales array Supported locales
+     * @param $context Context Journal or Press to change settings for
+     */
+    public function __construct($action, $locales, $context)
+    {
+        $this->action = $action;
+        $this->locales = $locales;
 
-		$this->addGroup([
-				'id' => 'principal',
-				'label' => __('manager.setup.principalContact'),
-				'description' => __('manager.setup.principalContactDescription'),
-			])
-			->addField(new FieldText('contactName', [
-				'label' => __('common.name'),
-				'isRequired' => true,
-				'groupId' => 'principal',
-				'value' => $context->getData('contactName'),
-			]))
-			->addField(new FieldText('contactEmail', [
-				'label' => __('user.email'),
-				'isRequired' => true,
-				'groupId' => 'principal',
-				'value' => $context->getData('contactEmail'),
-			]))
-			->addField(new FieldText('contactPhone', [
-				'label' => __('user.phone'),
-				'groupId' => 'principal',
-				'value' => $context->getData('contactPhone'),
-			]))
-			->addField(new FieldText('contactAffiliation', [
-				'label' => __('user.affiliation'),
-				'isMultilingual' => true,
-				'groupId' => 'principal',
-				'value' => $context->getData('contactAffiliation'),
-			]))
-			->addField(new FieldTextarea('mailingAddress', [
-				'label' => __('common.mailingAddress'),
-				'isRequired' => true,
-				'size' => 'small',
-				'groupId' => 'principal',
-				'value' => $context->getData('mailingAddress'),
-			]))
-			->addGroup([
-				'id' => 'technical',
-				'label' => __('manager.setup.technicalSupportContact'),
-				'description' => __('manager.setup.technicalSupportContactDescription'),
-			])
-			->addField(new FieldText('supportName', [
-				'label' => __('common.name'),
-				'isRequired' => true,
-				'groupId' => 'technical',
-				'value' => $context->getData('supportName'),
-			]))
-			->addField(new FieldText('supportEmail', [
-				'label' => __('user.email'),
-				'isRequired' => true,
-				'groupId' => 'technical',
-				'value' => $context->getData('supportEmail'),
-			]))
-			->addField(new FieldText('supportPhone', [
-				'label' => __('user.phone'),
-				'groupId' => 'technical',
-				'value' => $context->getData('supportPhone'),
-			]));
-	}
+        $this->addGroup([
+            'id' => 'principal',
+            'label' => __('manager.setup.principalContact'),
+            'description' => __('manager.setup.principalContactDescription'),
+        ])
+            ->addField(new FieldText('contactName', [
+                'label' => __('common.name'),
+                'isRequired' => true,
+                'groupId' => 'principal',
+                'value' => $context->getData('contactName'),
+            ]))
+            ->addField(new FieldText('contactEmail', [
+                'label' => __('user.email'),
+                'isRequired' => true,
+                'groupId' => 'principal',
+                'value' => $context->getData('contactEmail'),
+            ]))
+            ->addField(new FieldText('contactPhone', [
+                'label' => __('user.phone'),
+                'groupId' => 'principal',
+                'value' => $context->getData('contactPhone'),
+            ]))
+            ->addField(new FieldText('contactAffiliation', [
+                'label' => __('user.affiliation'),
+                'isMultilingual' => true,
+                'groupId' => 'principal',
+                'value' => $context->getData('contactAffiliation'),
+            ]))
+            ->addField(new FieldTextarea('mailingAddress', [
+                'label' => __('common.mailingAddress'),
+                'isRequired' => true,
+                'size' => 'small',
+                'groupId' => 'principal',
+                'value' => $context->getData('mailingAddress'),
+            ]))
+            ->addGroup([
+                'id' => 'technical',
+                'label' => __('manager.setup.technicalSupportContact'),
+                'description' => __('manager.setup.technicalSupportContactDescription'),
+            ])
+            ->addField(new FieldText('supportName', [
+                'label' => __('common.name'),
+                'isRequired' => true,
+                'groupId' => 'technical',
+                'value' => $context->getData('supportName'),
+            ]))
+            ->addField(new FieldText('supportEmail', [
+                'label' => __('user.email'),
+                'isRequired' => true,
+                'groupId' => 'technical',
+                'value' => $context->getData('supportEmail'),
+            ]))
+            ->addField(new FieldText('supportPhone', [
+                'label' => __('user.phone'),
+                'groupId' => 'technical',
+                'value' => $context->getData('supportPhone'),
+            ]));
+    }
 }

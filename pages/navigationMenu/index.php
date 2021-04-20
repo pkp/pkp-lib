@@ -17,12 +17,10 @@
  */
 
 switch ($op) {
-	case 'index':
-	case 'view':
-	case 'preview':
-		define('HANDLER_CLASS', 'NavigationMenuItemHandler');
-		import('lib.pkp.pages.navigationMenu.NavigationMenuItemHandler');
-		break;
+    case 'index':
+    case 'view':
+    case 'preview':
+        define('HANDLER_CLASS', 'NavigationMenuItemHandler');
+        import('lib.pkp.pages.navigationMenu.NavigationMenuItemHandler');
+        break;
 }
-
-

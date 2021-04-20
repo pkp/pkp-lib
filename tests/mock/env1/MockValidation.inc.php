@@ -8,22 +8,24 @@
  *
  * @class Validation
  * @ingroup tests_mock_env1
+ *
  * @see PKPPageRouterTest
  *
  * @brief Mock implementation of the Validation class for the PKPPageRouterTest
  */
 
 
-class Validation {
-	static $_isLoggedIn = false;
+class Validation
+{
+    public static $_isLoggedIn = false;
 
-	static function isLoggedIn() {
-		return Validation::$_isLoggedIn;
-	}
+    public static function isLoggedIn()
+    {
+        return Validation::$_isLoggedIn;
+    }
 
-	static function setIsLoggedIn($isLoggedIn) {
-		Validation::$_isLoggedIn = $isLoggedIn;
-	}
+    public static function setIsLoggedIn($isLoggedIn)
+    {
+        Validation::$_isLoggedIn = $isLoggedIn;
+    }
 }
-
-

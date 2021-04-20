@@ -13,22 +13,26 @@
  *  determines whether or not to show a link to reviewers about keeping reviews
  *  anonymous.
  */
+
 namespace PKP\components\forms;
-class FieldShowEnsuringLink extends FieldOptions {
-	/** @copydoc Field::$component */
-	public $component = 'field-show-ensuring-link';
 
-	/** @var string The message to show in a modal when the link is clicked.  */
-	public $message = '';
+class FieldShowEnsuringLink extends FieldOptions
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-show-ensuring-link';
 
-	/**
-	 * @copydoc Field::getConfig()
-	 */
-	public function getConfig() {
-		$config = parent::getConfig();
-		$config['message'] = __('review.anonymousPeerReview');
-		$config['modalTitle'] = __('review.anonymousPeerReview.title');
+    /** @var string The message to show in a modal when the link is clicked.  */
+    public $message = '';
 
-		return $config;
-	}
+    /**
+     * @copydoc Field::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        $config['message'] = __('review.anonymousPeerReview');
+        $config['modalTitle'] = __('review.anonymousPeerReview.title');
+
+        return $config;
+    }
 }

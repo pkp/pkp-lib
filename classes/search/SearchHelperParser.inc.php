@@ -16,31 +16,32 @@
 
 import('lib.pkp.classes.search.SearchFileParser');
 
-class SearchHelperParser extends SearchFileParser {
+class SearchHelperParser extends SearchFileParser
+{
+    /** @var string Type should match an index[$type] setting in the "search" section of config.inc.php */
+    public $type;
 
-	/** @var string Type should match an index[$type] setting in the "search" section of config.inc.php */
-	var $type;
+    public function __construct($type, $filePath)
+    {
+        parent::__construct($filePath);
+        $this->type = $type;
+    }
 
-	function __construct($type, $filePath) {
-		parent::__construct($filePath);
-		$this->type = $type;
-	}
+    public function open()
+    {
+        $prog = Config::getVar('search', 'index[' . $this->type . ']');
 
-	function open() {
-		$prog = Config::getVar('search', 'index[' . $this->type . ']');
+        if (isset($prog)) {
+            $exec = sprintf($prog, escapeshellarg($this->getFilePath()));
+            $this->fp = @popen($exec, 'r');
+            return $this->fp ? true : false;
+        }
 
-		if (isset($prog)) {
-			$exec = sprintf($prog, escapeshellarg($this->getFilePath()));
-			$this->fp = @popen($exec, 'r');
-			return $this->fp ? true : false;
-		}
+        return false;
+    }
 
-		return false;
-	}
-
-	function close() {
-		pclose($this->fp);
-	}
+    public function close()
+    {
+        pclose($this->fp);
+    }
 }
-
-

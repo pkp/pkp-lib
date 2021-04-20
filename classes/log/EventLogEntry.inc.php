@@ -9,235 +9,276 @@
  *
  * @class EventLogEntry
  * @ingroup log
+ *
  * @see EventLogDAO
  *
  * @brief Describes an entry in the event log.
  */
 
 // Information Center events
-define('SUBMISSION_LOG_NOTE_POSTED',			0x01000000);
-define('SUBMISSION_LOG_MESSAGE_SENT',			0x01000001);
+define('SUBMISSION_LOG_NOTE_POSTED', 0x01000000);
+define('SUBMISSION_LOG_MESSAGE_SENT', 0x01000001);
 
-class EventLogEntry extends \PKP\core\DataObject {
+class EventLogEntry extends \PKP\core\DataObject
+{
+    //
+    // Get/set methods
+    //
 
-	//
-	// Get/set methods
-	//
+    /**
+     * Get user ID of user that initiated the event.
+     *
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->getData('userId');
+    }
 
-	/**
-	 * Get user ID of user that initiated the event.
-	 * @return int
-	 */
-	function getUserId() {
-		return $this->getData('userId');
-	}
+    /**
+     * Set user ID of user that initiated the event.
+     *
+     * @param $userId int
+     */
+    public function setUserId($userId)
+    {
+        $this->setData('userId', $userId);
+    }
 
-	/**
-	 * Set user ID of user that initiated the event.
-	 * @param $userId int
-	 */
-	function setUserId($userId) {
-		$this->setData('userId', $userId);
-	}
+    /**
+     * Get date entry was logged.
+     *
+     * @return datestamp
+     */
+    public function getDateLogged()
+    {
+        return $this->getData('dateLogged');
+    }
 
-	/**
-	 * Get date entry was logged.
-	 * @return datestamp
-	 */
-	function getDateLogged() {
-		return $this->getData('dateLogged');
-	}
+    /**
+     * Set date entry was logged.
+     *
+     * @param $dateLogged datestamp
+     */
+    public function setDateLogged($dateLogged)
+    {
+        $this->setData('dateLogged', $dateLogged);
+    }
 
-	/**
-	 * Set date entry was logged.
-	 * @param $dateLogged datestamp
-	 */
-	function setDateLogged($dateLogged) {
-		$this->setData('dateLogged', $dateLogged);
-	}
+    /**
+     * Get event type.
+     *
+     * @return int
+     */
+    public function getEventType()
+    {
+        return $this->getData('eventType');
+    }
 
-	/**
-	 * Get event type.
-	 * @return int
-	 */
-	function getEventType() {
-		return $this->getData('eventType');
-	}
+    /**
+     * Set event type.
+     *
+     * @param $eventType int
+     */
+    public function setEventType($eventType)
+    {
+        $this->setData('eventType', $eventType);
+    }
 
-	/**
-	 * Set event type.
-	 * @param $eventType int
-	 */
-	function setEventType($eventType) {
-		$this->setData('eventType', $eventType);
-	}
+    /**
+     * Get associated type.
+     *
+     * @return int
+     */
+    public function getAssocType()
+    {
+        return $this->getData('assocType');
+    }
 
-	/**
-	 * Get associated type.
-	 * @return int
-	 */
-	function getAssocType() {
-		return $this->getData('assocType');
-	}
+    /**
+     * Set associated type.
+     *
+     * @param $assocType int
+     */
+    public function setAssocType($assocType)
+    {
+        $this->setData('assocType', $assocType);
+    }
 
-	/**
-	 * Set associated type.
-	 * @param $assocType int
-	 */
-	function setAssocType($assocType) {
-		$this->setData('assocType', $assocType);
-	}
+    /**
+     * Get associated ID.
+     *
+     * @return int
+     */
+    public function getAssocId()
+    {
+        return $this->getData('assocId');
+    }
 
-	/**
-	 * Get associated ID.
-	 * @return int
-	 */
-	function getAssocId() {
-		return $this->getData('assocId');
-	}
+    /**
+     * Set associated ID.
+     *
+     * @param $assocId int
+     */
+    public function setAssocId($assocId)
+    {
+        $this->setData('assocId', $assocId);
+    }
 
-	/**
-	 * Set associated ID.
-	 * @param $assocId int
-	 */
-	function setAssocId($assocId) {
-		$this->setData('assocId', $assocId);
-	}
+    /**
+     * Get custom log message (either locale key or literal string).
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->getData('message');
+    }
 
-	/**
-	 * Get custom log message (either locale key or literal string).
-	 * @return string
-	 */
-	function getMessage() {
-		return $this->getData('message');
-	}
+    /**
+     * Set custom log message (either locale key or literal string).
+     *
+     * @param $message string
+     */
+    public function setMessage($message)
+    {
+        $this->setData('message', $message);
+    }
 
-	/**
-	 * Set custom log message (either locale key or literal string).
-	 * @param $message string
-	 */
-	function setMessage($message) {
-		$this->setData('message', $message);
-	}
+    /**
+     * Get flag indicating whether or not message is translated.
+     *
+     * @return boolean
+     */
+    public function getIsTranslated()
+    {
+        return $this->getData('isTranslated');
+    }
 
-	/**
-	 * Get flag indicating whether or not message is translated.
-	 * @return boolean
-	 */
-	function getIsTranslated() {
-		return $this->getData('isTranslated');
-	}
+    /**
+     * Set flag indicating whether or not message is translated.
+     *
+     * @param $isTranslated int
+     */
+    public function setIsTranslated($isTranslated)
+    {
+        $this->setData('isTranslated', $isTranslated);
+    }
 
-	/**
-	 * Set flag indicating whether or not message is translated.
-	 * @param $isTranslated int
-	 */
-	function setIsTranslated($isTranslated) {
-		$this->setData('isTranslated', $isTranslated);
-	}
+    /**
+     * Get translated message, translating it if necessary.
+     *
+     * @param $locale string optional
+     * @param $hideReviewerName boolean optional Don't reveal reviewer names in
+     *  log descriptions.
+     */
+    public function getTranslatedMessage($locale = null, $hideReviewerName = false)
+    {
+        $message = $this->getMessage();
+        // If it's already translated, just return the message.
+        if ($this->getIsTranslated()) {
+            return $message;
+        }
 
-	/**
-	 * Get translated message, translating it if necessary.
-	 * @param $locale string optional
-	 * @param $hideReviewerName boolean optional Don't reveal reviewer names in
-	 *  log descriptions.
-	 */
-	function getTranslatedMessage($locale = null, $hideReviewerName = false) {
-		$message = $this->getMessage();
-		// If it's already translated, just return the message.
-		if ($this->getIsTranslated()) return $message;
+        // Otherwise, translate it and include parameters.
+        if ($locale === null) {
+            $locale = AppLocale::getLocale();
+        }
 
-		// Otherwise, translate it and include parameters.
-		if ($locale === null) $locale = AppLocale::getLocale();
+        $params = array_merge($this->_data, $this->getParams());
+        unset($params['params']); // Clean up for translate call
 
-		$params = array_merge($this->_data, $this->getParams());
-		unset($params['params']); // Clean up for translate call
-
-		if ($hideReviewerName) {
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-			// Reviewer activity log entries (assigning, accepting, declining)
-			if (isset($params['reviewerName'])) {
-				$anonymousAuthor = true;
-				if (isset($params['reviewAssignmentId'])) {
-					$reviewAssignment = $reviewAssignmentDao->getById($params['reviewAssignmentId']);
-					if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS))) {
-						$anonymousAuthor = false;
-					}
-				}
-				if ($anonymousAuthor) {
-					$params['reviewerName'] = __('editor.review.anonymousReviewer');
-				}
-			}
-			// Files submitted by reviewers
-			if (isset($params['fileStage']) && $params['fileStage'] === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
-				assert(isset($params['fileId']) && isset($params['submissionId']));
-				$anonymousAuthor = true;
-				$submissionFile = Services::get('submissionFile')->get($params['id']);
-				if ($submissionFile && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-					$reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
-					if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), array(SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS))) {
-						$anonymousAuthor = false;
-					}
-				}
-				if (isset($params['username']) && $anonymousAuthor) {
-					if (isset($params['username'])) {
-						$params['username'] = __('editor.review.anonymousReviewer');
-					}
-					if (isset($params['originalFileName'])) {
-						$params['originalFileName'] = '';
-					}
-				}
-			}
-		}
+        if ($hideReviewerName) {
+            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+            // Reviewer activity log entries (assigning, accepting, declining)
+            if (isset($params['reviewerName'])) {
+                $anonymousAuthor = true;
+                if (isset($params['reviewAssignmentId'])) {
+                    $reviewAssignment = $reviewAssignmentDao->getById($params['reviewAssignmentId']);
+                    if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
+                        $anonymousAuthor = false;
+                    }
+                }
+                if ($anonymousAuthor) {
+                    $params['reviewerName'] = __('editor.review.anonymousReviewer');
+                }
+            }
+            // Files submitted by reviewers
+            if (isset($params['fileStage']) && $params['fileStage'] === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+                assert(isset($params['fileId']) && isset($params['submissionId']));
+                $anonymousAuthor = true;
+                $submissionFile = Services::get('submissionFile')->get($params['id']);
+                if ($submissionFile && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+                    $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
+                    if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
+                        $anonymousAuthor = false;
+                    }
+                }
+                if (isset($params['username']) && $anonymousAuthor) {
+                    if (isset($params['username'])) {
+                        $params['username'] = __('editor.review.anonymousReviewer');
+                    }
+                    if (isset($params['originalFileName'])) {
+                        $params['originalFileName'] = '';
+                    }
+                }
+            }
+        }
 
 
-		return __($message, $params, $locale);
-	}
+        return __($message, $params, $locale);
+    }
 
-	/**
-	 * Get custom log message parameters.
-	 * @return array
-	 */
-	function getParams() {
-		return $this->getData('params');
-	}
+    /**
+     * Get custom log message parameters.
+     *
+     * @return array
+     */
+    public function getParams()
+    {
+        return $this->getData('params');
+    }
 
-	/**
-	 * Set custom log message parameters.
-	 * @param $params array
-	 */
-	function setParams($params) {
-		$this->setData('params', $params);
-	}
+    /**
+     * Set custom log message parameters.
+     *
+     * @param $params array
+     */
+    public function setParams($params)
+    {
+        $this->setData('params', $params);
+    }
 
-	/**
-	 * Return the full name of the user.
-	 * @return string
-	 */
-	function getUserFullName() {
-		$userFullName =& $this->getData('userFullName');
-		if(!isset($userFullName)) {
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-			$userFullName = $userDao->getUserFullName($this->getUserId(), true);
-		}
+    /**
+     * Return the full name of the user.
+     *
+     * @return string
+     */
+    public function getUserFullName()
+    {
+        $userFullName = & $this->getData('userFullName');
+        if (!isset($userFullName)) {
+            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+            $userFullName = $userDao->getUserFullName($this->getUserId(), true);
+        }
 
-		return ($userFullName ? $userFullName : '');
-	}
+        return ($userFullName ? $userFullName : '');
+    }
 
-	/**
-	 * Return the email address of the user.
-	 * @return string
-	 */
-	function getUserEmail() {
-		$userEmail =& $this->getData('userEmail');
+    /**
+     * Return the email address of the user.
+     *
+     * @return string
+     */
+    public function getUserEmail()
+    {
+        $userEmail = & $this->getData('userEmail');
 
-		if(!isset($userEmail)) {
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-			$userEmail = $userDao->getUserEmail($this->getUserId(), true);
-		}
+        if (!isset($userEmail)) {
+            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+            $userEmail = $userDao->getUserEmail($this->getUserId(), true);
+        }
 
-		return ($userEmail ? $userEmail : '');
-	}
+        return ($userEmail ? $userEmail : '');
+    }
 }
-
-

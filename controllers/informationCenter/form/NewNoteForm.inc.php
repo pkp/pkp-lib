@@ -16,93 +16,105 @@
 
 import('lib.pkp.classes.form.Form');
 
-class NewNoteForm extends Form {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct('controllers/informationCenter/notes.tpl');
+class NewNoteForm extends Form
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct('controllers/informationCenter/notes.tpl');
 
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
-	}
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
+    }
 
-	/**
-	 * Return the assoc type for this note.
-	 * @return int
-	 */
-	function getAssocType() {
-		assert(false);
-	}
+    /**
+     * Return the assoc type for this note.
+     *
+     * @return int
+     */
+    public function getAssocType()
+    {
+        assert(false);
+    }
 
-	/**
-	 * Return the assoc ID for this note.
-	 * @return int
-	 */
-	function getAssocId() {
-		assert(false);
-	}
+    /**
+     * Return the assoc ID for this note.
+     *
+     * @return int
+     */
+    public function getAssocId()
+    {
+        assert(false);
+    }
 
-	/**
-	 * Return the submit note button locale key.
-	 * Should be overriden by subclasses.
-	 * @return string
-	 */
-	function getSubmitNoteLocaleKey() {
-		assert(false);
-	}
+    /**
+     * Return the submit note button locale key.
+     * Should be overriden by subclasses.
+     *
+     * @return string
+     */
+    public function getSubmitNoteLocaleKey()
+    {
+        assert(false);
+    }
 
-	/**
-	 * Get the new note form template. Subclasses can
-	 * override this method to define other template.
-	 * @return string
-	 */
-	function getNewNoteFormTemplate() {
-		return 'controllers/informationCenter/newNoteForm.tpl';
-	}
+    /**
+     * Get the new note form template. Subclasses can
+     * override this method to define other template.
+     *
+     * @return string
+     */
+    public function getNewNoteFormTemplate()
+    {
+        return 'controllers/informationCenter/newNoteForm.tpl';
+    }
 
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
-		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
-		$templateMgr->assign(array(
-			'notes' => $noteDao->getByAssoc($this->getAssocType(), $this->getAssocId()),
-			'submitNoteText' => $this->getSubmitNoteLocaleKey(),
-			'newNoteFormTemplate' => $this->getNewNoteFormTemplate(),
-		));
-		return parent::fetch($request, $template, $display);
-	}
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+        $templateMgr->assign([
+            'notes' => $noteDao->getByAssoc($this->getAssocType(), $this->getAssocId()),
+            'submitNoteText' => $this->getSubmitNoteLocaleKey(),
+            'newNoteFormTemplate' => $this->getNewNoteFormTemplate(),
+        ]);
+        return parent::fetch($request, $template, $display);
+    }
 
-	/**
-	 * @copydoc Form::readInputData()
-	 */
-	function readInputData() {
-		$this->readUserVars(array(
-			'newNote'
-		));
+    /**
+     * @copydoc Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $this->readUserVars([
+            'newNote'
+        ]);
+    }
 
-	}
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        $request = Application::get()->getRequest();
+        $user = $request->getUser();
 
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		$request = Application::get()->getRequest();
-		$user = $request->getUser();
+        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+        $note = $noteDao->newDataObject();
 
-		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
-		$note = $noteDao->newDataObject();
+        $note->setUserId($user->getId());
+        $note->setContents($this->getData('newNote'));
+        $note->setAssocType($this->getAssocType());
+        $note->setAssocId($this->getAssocId());
 
-		$note->setUserId($user->getId());
-		$note->setContents($this->getData('newNote'));
-		$note->setAssocType($this->getAssocType());
-		$note->setAssocId($this->getAssocId());
-
-		parent::execute(...$functionArgs);
-		return $noteDao->insertObject($note);
-	}
+        parent::execute(...$functionArgs);
+        return $noteDao->insertObject($note);
+    }
 }
-
-

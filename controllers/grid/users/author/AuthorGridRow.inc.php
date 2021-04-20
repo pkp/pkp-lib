@@ -15,148 +15,163 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class AuthorGridRow extends GridRow {
-	/** @var Submission **/
-	var $_submission;
+class AuthorGridRow extends GridRow
+{
+    /** @var Submission **/
+    public $_submission;
 
-	/** @var Publication **/
-	var $_publication;
+    /** @var Publication **/
+    public $_publication;
 
-	/** @var boolean */
-	var $_readOnly;
+    /** @var boolean */
+    public $_readOnly;
 
-	/** @var int */
-	var $_version;
+    /** @var int */
+    public $_version;
 
-	/**
-	 * Constructor
-	 */
-	function __construct($submission, $publication, $readOnly = false) {
-		$this->_submission = $submission;
-		$this->_publication = $publication;
-		$this->_readOnly = $readOnly;
-		parent::__construct();
-	}
+    /**
+     * Constructor
+     */
+    public function __construct($submission, $publication, $readOnly = false)
+    {
+        $this->_submission = $submission;
+        $this->_publication = $publication;
+        $this->_readOnly = $readOnly;
+        parent::__construct();
+    }
 
-	//
-	// Overridden methods from GridRow
-	//
-	/**
-	 * @copydoc GridRow::initialize()
-	 */
-	function initialize($request, $template = null) {
-		// Do the default initialization
-		parent::initialize($request, $template);
+    //
+    // Overridden methods from GridRow
+    //
+    /**
+     * @copydoc GridRow::initialize()
+     *
+     * @param null|mixed $template
+     */
+    public function initialize($request, $template = null)
+    {
+        // Do the default initialization
+        parent::initialize($request, $template);
 
-		// Is this a new row or an existing row?
-		$rowId = $this->getId();
-		if (!empty($rowId) && is_numeric($rowId)) {
-			// Only add row actions if this is an existing row
-			$router = $request->getRouter();
-			$actionArgs = $this->getRequestArgs();
-			$actionArgs['authorId'] = $rowId;
+        // Is this a new row or an existing row?
+        $rowId = $this->getId();
+        if (!empty($rowId) && is_numeric($rowId)) {
+            // Only add row actions if this is an existing row
+            $router = $request->getRouter();
+            $actionArgs = $this->getRequestArgs();
+            $actionArgs['authorId'] = $rowId;
 
-			if (!$this->isReadOnly()) {
-				// Add row-level actions
-				import('lib.pkp.classes.linkAction.request.AjaxModal');
-				$this->addAction(
-					new LinkAction(
-						'editAuthor',
-						new AjaxModal(
-							$router->url($request, null, null, 'editAuthor', null, $actionArgs),
-							__('grid.action.editContributor'),
-							'modal_edit'
-						),
-						__('grid.action.edit'),
-						'edit'
-					)
-				);
+            if (!$this->isReadOnly()) {
+                // Add row-level actions
+                import('lib.pkp.classes.linkAction.request.AjaxModal');
+                $this->addAction(
+                    new LinkAction(
+                        'editAuthor',
+                        new AjaxModal(
+                            $router->url($request, null, null, 'editAuthor', null, $actionArgs),
+                            __('grid.action.editContributor'),
+                            'modal_edit'
+                        ),
+                        __('grid.action.edit'),
+                        'edit'
+                    )
+                );
 
-				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-				$this->addAction(
-					new LinkAction(
-						'deleteAuthor',
-						new RemoteActionConfirmationModal(
-							$request->getSession(),
-							__('common.confirmDelete'),
-							__('common.delete'),
-							$router->url($request, null, null, 'deleteAuthor', null, $actionArgs),
-							'modal_delete'
-						),
-						__('grid.action.delete'),
-						'delete'
-					)
-				);
+                import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+                $this->addAction(
+                    new LinkAction(
+                        'deleteAuthor',
+                        new RemoteActionConfirmationModal(
+                            $request->getSession(),
+                            __('common.confirmDelete'),
+                            __('common.delete'),
+                            $router->url($request, null, null, 'deleteAuthor', null, $actionArgs),
+                            'modal_delete'
+                        ),
+                        __('grid.action.delete'),
+                        'delete'
+                    )
+                );
 
-				$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-				$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-				$author = $authorDao->getById($rowId);
+                $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
+                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+                $author = $authorDao->getById($rowId);
 
-				if ($author && !$userDao->userExistsByEmail($author->getEmail())) {
-					$this->addAction(
-						new LinkAction(
-							'addUser',
-							new AjaxModal(
-								$router->url($request, null, null, 'addUser', null, $actionArgs),
-								__('grid.user.add'),
-								'modal_add_user',
-								true
-								),
-							__('grid.user.add'),
-							'add_user')
-					);
-				}
-			}
-		}
-	}
+                if ($author && !$userDao->userExistsByEmail($author->getEmail())) {
+                    $this->addAction(
+                        new LinkAction(
+                            'addUser',
+                            new AjaxModal(
+                                $router->url($request, null, null, 'addUser', null, $actionArgs),
+                                __('grid.user.add'),
+                                'modal_add_user',
+                                true
+                            ),
+                            __('grid.user.add'),
+                            'add_user'
+                        )
+                    );
+                }
+            }
+        }
+    }
 
-	/**
-	 * Get the submission for this row (already authorized)
-	 * @return Submission
-	 */
-	function getSubmission() {
-		return $this->_submission;
-	}
+    /**
+     * Get the submission for this row (already authorized)
+     *
+     * @return Submission
+     */
+    public function getSubmission()
+    {
+        return $this->_submission;
+    }
 
-	/**
-	 * Get the publication for this row (already authorized)
-	 * @return Publication
-	 */
-	function getPublication() {
-		return $this->_publication;
-	}
+    /**
+     * Get the publication for this row (already authorized)
+     *
+     * @return Publication
+     */
+    public function getPublication()
+    {
+        return $this->_publication;
+    }
 
-	/**
-	 * Get the base arguments that will identify the data in the grid.
-	 * @return array
-	 */
-	function getRequestArgs() {
-		$submission = $this->getSubmission();
-		$publication = $this->getPublication();
-		return array(
-			'submissionId' => $submission->getId(),
-			'publicationId' => $publication->getId()
-		);
-	}
+    /**
+     * Get the base arguments that will identify the data in the grid.
+     *
+     * @return array
+     */
+    public function getRequestArgs()
+    {
+        $submission = $this->getSubmission();
+        $publication = $this->getPublication();
+        return [
+            'submissionId' => $submission->getId(),
+            'publicationId' => $publication->getId()
+        ];
+    }
 
-	/**
-	 * Determines whether the current user can create user accounts from authors present
-	 * in the grid.
-	 * Overridden by child grid rows.
-	 * @param PKPRequest $request
-	 * @return boolean
-	 */
-	function allowedToCreateUser($request) {
-		return false;
-	}
+    /**
+     * Determines whether the current user can create user accounts from authors present
+     * in the grid.
+     * Overridden by child grid rows.
+     *
+     * @param PKPRequest $request
+     *
+     * @return boolean
+     */
+    public function allowedToCreateUser($request)
+    {
+        return false;
+    }
 
-	/**
-	 * Determine if this grid row should be read only.
-	 * @return boolean
-	 */
-	function isReadOnly() {
-		return $this->_readOnly;
-	}
+    /**
+     * Determine if this grid row should be read only.
+     *
+     * @return boolean
+     */
+    public function isReadOnly()
+    {
+        return $this->_readOnly;
+    }
 }
-
-

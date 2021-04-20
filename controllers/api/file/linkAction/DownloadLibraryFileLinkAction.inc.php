@@ -14,51 +14,66 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class DownloadLibraryFileLinkAction extends LinkAction {
+class DownloadLibraryFileLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $libraryFile LibraryFile the library file to
+     *  link to.
+     */
+    public function __construct($request, $libraryFile)
+    {
+        // Instantiate the redirect action request.
+        $router = $request->getRouter();
+        import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
+        $redirectRequest = new PostAndRedirectAction(
+            $router->url(
+                $request,
+                null,
+                'api.file.FileApiHandler',
+                'enableLinkAction',
+                null,
+                $this->getActionArgs($libraryFile)
+            ),
+            $router->url(
+                $request,
+                null,
+                'api.file.FileApiHandler',
+                'downloadLibraryFile',
+                null,
+                $this->getActionArgs($libraryFile)
+            )
+        );
 
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $libraryFile LibraryFile the library file to
-	 *  link to.
-	 */
-	function __construct($request, $libraryFile) {
-		// Instantiate the redirect action request.
-		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
-		$redirectRequest = new PostAndRedirectAction(
-			$router->url(
-				$request, null, 'api.file.FileApiHandler', 'enableLinkAction',
-				null, $this->getActionArgs($libraryFile)),
-			$router->url(
-				$request, null, 'api.file.FileApiHandler', 'downloadLibraryFile',
-				null, $this->getActionArgs($libraryFile))
-		);
+        // Configure the file link action.
+        parent::__construct(
+            'downloadFile',
+            $redirectRequest,
+            htmlspecialchars($libraryFile->getLocalizedName()),
+            $libraryFile->getDocumentType()
+        );
+    }
 
-		// Configure the file link action.
-		parent::__construct(
-			'downloadFile', $redirectRequest, htmlspecialchars($libraryFile->getLocalizedName()),
-			$libraryFile->getDocumentType()
-		);
-	}
+    /**
+     * Return the action arguments to address a file.
+     *
+     * @param $libraryFile LibraryFile
+     *
+     * @return array
+     */
+    public function getActionArgs(&$libraryFile)
+    {
+        assert(is_a($libraryFile, 'LibraryFile'));
 
-	/**
-	 * Return the action arguments to address a file.
-	 * @param $libraryFile LibraryFile
-	 * @return array
-	 */
-	function getActionArgs(&$libraryFile) {
-		assert(is_a($libraryFile, 'LibraryFile'));
+        // Create the action arguments array.
+        $args = ['libraryFileId' => $libraryFile->getId()];
 
-		// Create the action arguments array.
-		$args = array('libraryFileId' => $libraryFile->getId());
+        if ($libraryFile->getSubmissionId()) {
+            $args['submissionId'] = $libraryFile->getSubmissionId();
+        }
 
-		if ($libraryFile->getSubmissionId()) {
-			$args['submissionId'] = $libraryFile->getSubmissionId();
-		}
-
-		return $args;
-	}
+        return $args;
+    }
 }
-
-

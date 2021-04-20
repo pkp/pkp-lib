@@ -12,8 +12,11 @@
  * @brief A component for inserting HTML into a form, when you don't need any
  *  input fields or values stored.
  */
+
 namespace PKP\components\forms;
-class FieldHTML extends Field {
-	/** @copydoc Field::$component */
-	public $component = 'field-html';
+
+class FieldHTML extends Field
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-html';
 }

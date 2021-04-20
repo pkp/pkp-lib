@@ -19,40 +19,43 @@
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridHandler');
 
-class FileListGridHandler extends SubmissionFilesGridHandler {
+class FileListGridHandler extends SubmissionFilesGridHandler
+{
+    /**
+     * Constructor
+     *
+     * @param $dataProvider GridDataProvider
+     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
+     * @param $capabilities integer A bit map with zero or more
+     *  FILE_GRID_* capabilities set.
+     */
+    public function __construct($dataProvider, $stageId, $capabilities = 0)
+    {
+        parent::__construct($dataProvider, $stageId, $capabilities);
+    }
 
-	/**
-	 * Constructor
-	 * @param $dataProvider GridDataProvider
-	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-	 * @param $capabilities integer A bit map with zero or more
-	 *  FILE_GRID_* capabilities set.
-	 */
-	function __construct($dataProvider, $stageId, $capabilities = 0) {
-		parent::__construct($dataProvider, $stageId, $capabilities);
-	}
 
+    //
+    // Extended methods from SubmissionFilesGridHandler.
+    //
+    /**
+     * @copydoc SubmissionFilesGridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        parent::initialize($request, $args);
 
-	//
-	// Extended methods from SubmissionFilesGridHandler.
-	//
-	/**
-	 * @copydoc SubmissionFilesGridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+        // Add the "manage files" action if required.
+        $capabilities = $this->getCapabilities();
+        if ($capabilities->canManage()) {
+            $dataProvider = $this->getDataProvider();
+            $this->addAction($dataProvider->getSelectAction($request));
+        }
 
-		// Add the "manage files" action if required.
-		$capabilities = $this->getCapabilities();
-		if($capabilities->canManage()) {
-			$dataProvider = $this->getDataProvider();
-			$this->addAction($dataProvider->getSelectAction($request));
-		}
-
-		// The file list grid layout has an additional file genre column.
-		import('lib.pkp.controllers.grid.files.fileList.FileGenreGridColumn');
-		$this->addColumn(new FileGenreGridColumn());
-	}
+        // The file list grid layout has an additional file genre column.
+        import('lib.pkp.controllers.grid.files.fileList.FileGenreGridColumn');
+        $this->addColumn(new FileGenreGridColumn());
+    }
 }
-
-

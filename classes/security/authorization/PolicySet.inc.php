@@ -23,77 +23,88 @@ define('COMBINING_PERMIT_OVERRIDES', 0x02);
 // definitions for the deny and permit effects.
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class PolicySet {
-	/** @var array */
-	var $_policies = array();
+class PolicySet
+{
+    /** @var array */
+    public $_policies = [];
 
-	/** @var integer */
-	var $_combiningAlgorithm;
+    /** @var integer */
+    public $_combiningAlgorithm;
 
-	/** @var integer the default effect if none of the policies in the set applies */
-	var $_effectIfNoPolicyApplies = AUTHORIZATION_DENY;
+    /** @var integer the default effect if none of the policies in the set applies */
+    public $_effectIfNoPolicyApplies = AUTHORIZATION_DENY;
 
 
-	/**
-	 * Constructor
-	 * @param $combiningAlgorithm int COMBINING_...
-	 */
-	function __construct($combiningAlgorithm = COMBINING_DENY_OVERRIDES) {
-		$this->_combiningAlgorithm = $combiningAlgorithm;
-	}
+    /**
+     * Constructor
+     *
+     * @param $combiningAlgorithm int COMBINING_...
+     */
+    public function __construct($combiningAlgorithm = COMBINING_DENY_OVERRIDES)
+    {
+        $this->_combiningAlgorithm = $combiningAlgorithm;
+    }
 
-	//
-	// Setters and Getters
-	//
-	/**
-	 * Add a policy or a nested policy set.
-	 * @param $policyOrPolicySet AuthorizationPolicy|PolicySet
-	 * @param $addToTop boolean whether to insert the new policy
-	 *  to the top of the list.
-	 */
-	function addPolicy($policyOrPolicySet, $addToTop = false) {
-		assert(is_a($policyOrPolicySet, 'AuthorizationPolicy') || is_a($policyOrPolicySet, 'PolicySet'));
-		if ($addToTop) {
-			array_unshift($this->_policies, $policyOrPolicySet);
-		} else {
-			$this->_policies[] =& $policyOrPolicySet;
-		}
-	}
+    //
+    // Setters and Getters
+    //
+    /**
+     * Add a policy or a nested policy set.
+     *
+     * @param $policyOrPolicySet AuthorizationPolicy|PolicySet
+     * @param $addToTop boolean whether to insert the new policy
+     *  to the top of the list.
+     */
+    public function addPolicy($policyOrPolicySet, $addToTop = false)
+    {
+        assert(is_a($policyOrPolicySet, 'AuthorizationPolicy') || is_a($policyOrPolicySet, 'PolicySet'));
+        if ($addToTop) {
+            array_unshift($this->_policies, $policyOrPolicySet);
+        } else {
+            $this->_policies[] = & $policyOrPolicySet;
+        }
+    }
 
-	/**
-	 * Get all policies within this policy set.
-	 * @return array a list of AuthorizationPolicy or PolicySet objects.
-	 */
-	function &getPolicies() {
-		return $this->_policies;
-	}
+    /**
+     * Get all policies within this policy set.
+     *
+     * @return array a list of AuthorizationPolicy or PolicySet objects.
+     */
+    public function &getPolicies()
+    {
+        return $this->_policies;
+    }
 
-	/**
-	 * Return the combining algorithm
-	 * @return integer
-	 */
-	function getCombiningAlgorithm() {
-		return $this->_combiningAlgorithm;
-	}
+    /**
+     * Return the combining algorithm
+     *
+     * @return integer
+     */
+    public function getCombiningAlgorithm()
+    {
+        return $this->_combiningAlgorithm;
+    }
 
-	/**
-	 * Set the default effect if none of the policies in the set applies
-	 * @param $effectIfNoPolicyApplies integer
-	 */
-	function setEffectIfNoPolicyApplies($effectIfNoPolicyApplies) {
-		assert($effectIfNoPolicyApplies == AUTHORIZATION_PERMIT ||
-				$effectIfNoPolicyApplies == AUTHORIZATION_DENY ||
-				$effectIfNoPolicyApplies == AUTHORIZATION_NOT_APPLICABLE);
-		$this->_effectIfNoPolicyApplies = $effectIfNoPolicyApplies;
-	}
+    /**
+     * Set the default effect if none of the policies in the set applies
+     *
+     * @param $effectIfNoPolicyApplies integer
+     */
+    public function setEffectIfNoPolicyApplies($effectIfNoPolicyApplies)
+    {
+        assert($effectIfNoPolicyApplies == AUTHORIZATION_PERMIT ||
+                $effectIfNoPolicyApplies == AUTHORIZATION_DENY ||
+                $effectIfNoPolicyApplies == AUTHORIZATION_NOT_APPLICABLE);
+        $this->_effectIfNoPolicyApplies = $effectIfNoPolicyApplies;
+    }
 
-	/**
-	 * Get the default effect if none of the policies in the set applies
-	 * @return integer
-	 */
-	function getEffectIfNoPolicyApplies() {
-		return $this->_effectIfNoPolicyApplies;
-	}
+    /**
+     * Get the default effect if none of the policies in the set applies
+     *
+     * @return integer
+     */
+    public function getEffectIfNoPolicyApplies()
+    {
+        return $this->_effectIfNoPolicyApplies;
+    }
 }
-
-

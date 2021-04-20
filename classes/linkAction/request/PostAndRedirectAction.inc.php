@@ -16,53 +16,58 @@
 
 import('lib.pkp.classes.linkAction.request.RedirectAction');
 
-class PostAndRedirectAction extends RedirectAction {
+class PostAndRedirectAction extends RedirectAction
+{
+    /** @var string The url to be used for posting data */
+    public $_postUrl;
 
-	/** @var string The url to be used for posting data */
-	var $_postUrl;
-
-	/**
-	 * Constructor
-	 * @param $postUrl string The target URL to post data.
-	 * @param $redirectUrl string The target URL to redirect.
-	 */
-	function __construct($postUrl, $redirectUrl) {
-		parent::__construct($redirectUrl);
-		$this->_postUrl = $postUrl;
-	}
-
-
-	//
-	// Getters and Setters
-	//
-	/**
-  	 * Get the url to post data.
-	 * @return string
-	 */
-	function getPostUrl() {
-		return $this->_postUrl;
-	}
+    /**
+     * Constructor
+     *
+     * @param $postUrl string The target URL to post data.
+     * @param $redirectUrl string The target URL to redirect.
+     */
+    public function __construct($postUrl, $redirectUrl)
+    {
+        parent::__construct($redirectUrl);
+        $this->_postUrl = $postUrl;
+    }
 
 
-	//
-	// Overridden protected methods from LinkActionRequest
-	//
-	/**
-	 * @see LinkActionRequest::getJSLinkActionRequest()
-	 */
-	function getJSLinkActionRequest() {
-		return '$.pkp.classes.linkAction.PostAndRedirectRequest';
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the url to post data.
+     *
+     * @return string
+     */
+    public function getPostUrl()
+    {
+        return $this->_postUrl;
+    }
 
-	/**
-	 * @see LinkActionRequest::getLocalizedOptions()
-	 */
-	function getLocalizedOptions() {
-		$options = parent::getLocalizedOptions();
-		return array_merge($options,
-			array('postUrl' => $this->getPostUrl())
-		);
-	}
+
+    //
+    // Overridden protected methods from LinkActionRequest
+    //
+    /**
+     * @see LinkActionRequest::getJSLinkActionRequest()
+     */
+    public function getJSLinkActionRequest()
+    {
+        return '$.pkp.classes.linkAction.PostAndRedirectRequest';
+    }
+
+    /**
+     * @see LinkActionRequest::getLocalizedOptions()
+     */
+    public function getLocalizedOptions()
+    {
+        $options = parent::getLocalizedOptions();
+        return array_merge(
+            $options,
+            ['postUrl' => $this->getPostUrl()]
+        );
+    }
 }
-
-

@@ -15,92 +15,98 @@
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
-use \PKP\core\JSONMessage;
+use PKP\core\JSONMessage;
 
-class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
-		parent::__construct(
-			new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_PROOF),
-			WORKFLOW_STAGE_ID_PRODUCTION
-		);
+class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
+        parent::__construct(
+            new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_PROOF),
+            WORKFLOW_STAGE_ID_PRODUCTION
+        );
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER),
-			array(
-				'fetchGrid', 'fetchCategory', 'fetchRow',
-				'addFile', 'downloadFile', 'deleteFile',
-				'updateProofFiles',
-			)
-		);
+        $this->addRoleAssignment(
+            [ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER],
+            [
+                'fetchGrid', 'fetchCategory', 'fetchRow',
+                'addFile', 'downloadFile', 'deleteFile',
+                'updateProofFiles',
+            ]
+        );
 
-		// Set the grid title.
-		$this->setTitle('submission.pageProofs');
-	}
+        // Set the grid title.
+        $this->setTitle('submission.pageProofs');
+    }
 
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
-		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
+        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
-		import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
-		$this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
-		import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');
-		$this->addPolicy(new RepresentationRequiredPolicy($request, $args));
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+        import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
+        $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
+        import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');
+        $this->addPolicy(new RepresentationRequiredPolicy($request, $args));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-	/**
-	 * Get the grid request parameters.
-	 * @return array
-	 */
-	function getRequestArgs() {
-		$publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
-		$representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
-		return array_merge(
-			parent::getRequestArgs(),
-			array(
-				'publicationId' => $publication->getId(),
-				'representationId' => $representation->getId()
-			)
-		);
-	}
+    /**
+     * Get the grid request parameters.
+     *
+     * @return array
+     */
+    public function getRequestArgs()
+    {
+        $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+        $representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+        return array_merge(
+            parent::getRequestArgs(),
+            [
+                'publicationId' => $publication->getId(),
+                'representationId' => $representation->getId()
+            ]
+        );
+    }
 
-	//
-	// Public handler methods
-	//
-	/**
-	 * Save 'manage proof files' form
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function updateProofFiles($args, $request) {
-		$submission = $this->getSubmission();
-		$publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
-		$representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+    //
+    // Public handler methods
+    //
+    /**
+     * Save 'manage proof files' form
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function updateProofFiles($args, $request)
+    {
+        $submission = $this->getSubmission();
+        $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+        $representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
 
-		import('lib.pkp.controllers.grid.files.proof.form.ManageProofFilesForm');
-		$manageProofFilesForm = new ManageProofFilesForm($submission->getId(), $publication->getId(), $representation->getId());
-		$manageProofFilesForm->readInputData();
+        import('lib.pkp.controllers.grid.files.proof.form.ManageProofFilesForm');
+        $manageProofFilesForm = new ManageProofFilesForm($submission->getId(), $publication->getId(), $representation->getId());
+        $manageProofFilesForm->readInputData();
 
-		if ($manageProofFilesForm->validate()) {
-			$manageProofFilesForm->execute(
-				$this->getGridCategoryDataElements($request, $this->getStageId()),
-				SUBMISSION_FILE_PROOF
-			);
+        if ($manageProofFilesForm->validate()) {
+            $manageProofFilesForm->execute(
+                $this->getGridCategoryDataElements($request, $this->getStageId()),
+                SUBMISSION_FILE_PROOF
+            );
 
-			// Let the calling grid reload itself
-			return \PKP\db\DAO::getDataChangedEvent();
-		} else {
-			return new JSONMessage(false);
-		}
-	}
+            // Let the calling grid reload itself
+            return \PKP\db\DAO::getDataChangedEvent();
+        } else {
+            return new JSONMessage(false);
+        }
+    }
 }
-
-

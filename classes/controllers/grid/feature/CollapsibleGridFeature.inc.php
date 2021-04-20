@@ -17,38 +17,41 @@
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 import('lib.pkp.classes.linkAction.request.NullAction');
 
-class CollapsibleGridFeature extends GridFeature {
+class CollapsibleGridFeature extends GridFeature
+{
+    /**
+     * @copydoc GridFeature::GridFeature()
+     * Constructor.
+     */
+    public function __construct($id = 'collapsible')
+    {
+        parent::__construct($id);
+    }
 
-	/**
-	 * @copydoc GridFeature::GridFeature()
-	 * Constructor.
-	 */
-	function __construct($id = 'collapsible') {
-		parent::__construct($id);
-	}
+    /**
+     * @copyDoc GridFeature::getJSClass()
+     */
+    public function getJSClass()
+    {
+        return '$.pkp.classes.features.CollapsibleGridFeature';
+    }
 
-	/**
-	 * @copyDoc GridFeature::getJSClass()
-	 */
-	function getJSClass() {
-		return '$.pkp.classes.features.CollapsibleGridFeature';
-	}
+    /**
+     * @copyDoc GridFeature::fetchUIElement()
+     */
+    public function fetchUIElements($request, $grid)
+    {
+        $controlLink = new LinkAction(
+            'expandGridControlLink',
+            new NullAction(),
+            null,
+            'expand_all'
+        );
 
-	/**
-	 * @copyDoc GridFeature::fetchUIElement()
-	 */
-	function fetchUIElements($request, $grid) {
-		$controlLink = new LinkAction(
-			'expandGridControlLink',
-			new NullAction(),
-			null,
-			'expand_all'
-		);
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('controlLink', $controlLink);
+        $markup = $templateMgr->fetch('controllers/grid/feature/collapsibleGridFeature.tpl');
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('controlLink', $controlLink);
-		$markup = $templateMgr->fetch('controllers/grid/feature/collapsibleGridFeature.tpl');
-
-		return array('collapsibleLink' => $markup);
-	} 
+        return ['collapsibleLink' => $markup];
+    }
 }

@@ -15,26 +15,27 @@
 
 import('classes.handler.Handler');
 
-class PKPIndexHandler extends Handler {
-	/**
-	 * Set up templates with announcement data.
-	 * @protected
-	 * @param $context Context
-	 * @param $templateMgr PKPTemplateManager
-	 */
-	protected function _setupAnnouncements($context, $templateMgr) {
-		$enableAnnouncements = $context->getData('enableAnnouncements');
-		$numAnnouncementsHomepage = $context->getData('numAnnouncementsHomepage');
-		if ($enableAnnouncements && $numAnnouncementsHomepage) {
-			$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
-			$announcements = $announcementDao->getNumAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $numAnnouncementsHomepage);
-			$templateMgr->assign(array(
-				'announcements' => $announcements->toArray(),
-				'numAnnouncementsHomepage' => $numAnnouncementsHomepage,
-			));
-		}
-
-	}
+class PKPIndexHandler extends Handler
+{
+    /**
+     * Set up templates with announcement data.
+     *
+     * @protected
+     *
+     * @param $context Context
+     * @param $templateMgr PKPTemplateManager
+     */
+    protected function _setupAnnouncements($context, $templateMgr)
+    {
+        $enableAnnouncements = $context->getData('enableAnnouncements');
+        $numAnnouncementsHomepage = $context->getData('numAnnouncementsHomepage');
+        if ($enableAnnouncements && $numAnnouncementsHomepage) {
+            $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
+            $announcements = $announcementDao->getNumAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $numAnnouncementsHomepage);
+            $templateMgr->assign([
+                'announcements' => $announcements->toArray(),
+                'numAnnouncementsHomepage' => $numAnnouncementsHomepage,
+            ]);
+        }
+    }
 }
-
-

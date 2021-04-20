@@ -12,113 +12,123 @@
  * @brief Class that provides native import/export filter-related helper methods.
  */
 
-class PKPNativeFilterHelper {
-	/**
-	 * Create and return an object covers node.
-	 * @param $filter NativeExportFilter
-	 * @param $doc DOMDocument
-	 * @param $object Publication
-	 * @return DOMElement?
-	 */
-	function createPublicationCoversNode($filter, $doc, $object) {
-		$deployment = $filter->getDeployment();
+class PKPNativeFilterHelper
+{
+    /**
+     * Create and return an object covers node.
+     *
+     * @param $filter NativeExportFilter
+     * @param $doc DOMDocument
+     * @param $object Publication
+     *
+     * @return DOMElement?
+     */
+    public function createPublicationCoversNode($filter, $doc, $object)
+    {
+        $deployment = $filter->getDeployment();
 
-		$context = $deployment->getContext();
+        $context = $deployment->getContext();
 
-		$coversNode = null;
-		$coverImages = $object->getData('coverImage');
-		if (!empty($coverImages)) {
-			$coversNode = $doc->createElementNS($deployment->getNamespace(), 'covers');
-			foreach ($coverImages as $locale => $coverImage) {
-				$coverImageName = $coverImage['uploadName'];
+        $coversNode = null;
+        $coverImages = $object->getData('coverImage');
+        if (!empty($coverImages)) {
+            $coversNode = $doc->createElementNS($deployment->getNamespace(), 'covers');
+            foreach ($coverImages as $locale => $coverImage) {
+                $coverImageName = $coverImage['uploadName'];
 
-				$coverNode = $doc->createElementNS($deployment->getNamespace(), 'cover');
-				$coverNode->setAttribute('locale', $locale);
-				$coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image', htmlspecialchars($coverImageName, ENT_COMPAT, 'UTF-8')));
-				$coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image_alt_text', htmlspecialchars($coverImage['altText'], ENT_COMPAT, 'UTF-8')));
+                $coverNode = $doc->createElementNS($deployment->getNamespace(), 'cover');
+                $coverNode->setAttribute('locale', $locale);
+                $coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image', htmlspecialchars($coverImageName, ENT_COMPAT, 'UTF-8')));
+                $coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image_alt_text', htmlspecialchars($coverImage['altText'], ENT_COMPAT, 'UTF-8')));
 
-				import('classes.file.PublicFileManager');
-				$publicFileManager = new PublicFileManager();
+                import('classes.file.PublicFileManager');
+                $publicFileManager = new PublicFileManager();
 
-				$contextId = $context->getId();
+                $contextId = $context->getId();
 
-				$filePath = $publicFileManager->getContextFilesPath($contextId) . '/' . $coverImageName;
-				$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($filePath)));
-				$embedNode->setAttribute('encoding', 'base64');
-				$coverNode->appendChild($embedNode);
-				$coversNode->appendChild($coverNode);
-			}
-		}
-		return $coversNode;
-	}
+                $filePath = $publicFileManager->getContextFilesPath($contextId) . '/' . $coverImageName;
+                $embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($filePath)));
+                $embedNode->setAttribute('encoding', 'base64');
+                $coverNode->appendChild($embedNode);
+                $coversNode->appendChild($coverNode);
+            }
+        }
+        return $coversNode;
+    }
 
-	/**
-	 * Parse out the object covers.
-	 * @param $filter NativeExportFilter
-	 * @param $node DOMElement
-	 * @param $object Publication
-	 */
-	function parsePublicationCovers($filter, $node, $object) {
-		$deployment = $filter->getDeployment();
+    /**
+     * Parse out the object covers.
+     *
+     * @param $filter NativeExportFilter
+     * @param $node DOMElement
+     * @param $object Publication
+     */
+    public function parsePublicationCovers($filter, $node, $object)
+    {
+        $deployment = $filter->getDeployment();
 
-		$coverImages = array();
+        $coverImages = [];
 
-		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
-			if (is_a($n, 'DOMElement')) {
-				switch ($n->tagName) {
-					case 'cover':
-						$coverImage = $this->parsePublicationCover($filter, $n, $object);
-						$coverImages[key($coverImage)] = reset($coverImage);
-						break;
-					default:
-						$deployment->addWarning(ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
-				}
-			}
-		}
+        for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
+            if (is_a($n, 'DOMElement')) {
+                switch ($n->tagName) {
+                    case 'cover':
+                        $coverImage = $this->parsePublicationCover($filter, $n, $object);
+                        $coverImages[key($coverImage)] = reset($coverImage);
+                        break;
+                    default:
+                        $deployment->addWarning(ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
+                }
+            }
+        }
 
-		$object->setData('coverImage', $coverImages);
-	}
+        $object->setData('coverImage', $coverImages);
+    }
 
-	/**
-	 * Parse out the cover and store it in the object.
-	 * @param $filter NativeExportFilter
-	 * @param $node DOMElement
-	 * @param $object Publication
-	 */
-	function parsePublicationCover($filter, $node, $object) {
-		$deployment = $filter->getDeployment();
+    /**
+     * Parse out the cover and store it in the object.
+     *
+     * @param $filter NativeExportFilter
+     * @param $node DOMElement
+     * @param $object Publication
+     */
+    public function parsePublicationCover($filter, $node, $object)
+    {
+        $deployment = $filter->getDeployment();
 
-		$context = $deployment->getContext();
+        $context = $deployment->getContext();
 
-		$locale = $node->getAttribute('locale');
-		if (empty($locale)) $locale = $context->getPrimaryLocale();
+        $locale = $node->getAttribute('locale');
+        if (empty($locale)) {
+            $locale = $context->getPrimaryLocale();
+        }
 
-		$coverImagelocale = array();
-		$coverImage = array();
+        $coverImagelocale = [];
+        $coverImage = [];
 
-		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
-			if (is_a($n, 'DOMElement')) {
-				switch ($n->tagName) {
-					case 'cover_image':
-						$coverImage['uploadName'] = $n->textContent;
-						break;
-					case 'cover_image_alt_text':
-						$coverImage['altText'] = $n->textContent;
-						break;
-					case 'embed':
-						import('classes.file.PublicFileManager');
-						$publicFileManager = new PublicFileManager();
-						$filePath = $publicFileManager->getContextFilesPath($context->getId()) . '/' . $coverImage['uploadName'];
-						file_put_contents($filePath, base64_decode($n->textContent));
-						break;
-					default:
-						$deployment->addWarning(ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.unknownElement', array('param' => $n->tagName)));
-				}
-			}
-		}
+        for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
+            if (is_a($n, 'DOMElement')) {
+                switch ($n->tagName) {
+                    case 'cover_image':
+                        $coverImage['uploadName'] = $n->textContent;
+                        break;
+                    case 'cover_image_alt_text':
+                        $coverImage['altText'] = $n->textContent;
+                        break;
+                    case 'embed':
+                        import('classes.file.PublicFileManager');
+                        $publicFileManager = new PublicFileManager();
+                        $filePath = $publicFileManager->getContextFilesPath($context->getId()) . '/' . $coverImage['uploadName'];
+                        file_put_contents($filePath, base64_decode($n->textContent));
+                        break;
+                    default:
+                        $deployment->addWarning(ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
+                }
+            }
+        }
 
-		$coverImagelocale[$locale] = $coverImage;
+        $coverImagelocale[$locale] = $coverImage;
 
-		return $coverImagelocale;
-	}
+        return $coverImagelocale;
+    }
 }

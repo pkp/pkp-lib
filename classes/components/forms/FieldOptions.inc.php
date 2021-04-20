@@ -11,29 +11,33 @@
  *
  * @brief A field to select from a set of checkbox or radio options.
  */
+
 namespace PKP\components\forms;
-class FieldOptions extends Field {
-	/** @copydoc Field::$component */
-	public $component = 'field-options';
 
-	/** @var string Use a checkbox or radio button input type */
-	public $type = 'checkbox';
+class FieldOptions extends Field
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-options';
 
-	/** @var boolean Should the user be able to re-order the options? */
-	public $isOrderable = false;
+    /** @var string Use a checkbox or radio button input type */
+    public $type = 'checkbox';
 
-	/** @var array The options which can be selected */
-	public $options = [];
+    /** @var boolean Should the user be able to re-order the options? */
+    public $isOrderable = false;
 
-	/**
-	 * @copydoc Field::getConfig()
-	 */
-	public function getConfig() {
-		$config = parent::getConfig();
-		$config['type'] = $this->type;
-		$config['isOrderable'] = $this->isOrderable;
-		$config['options'] = $this->options;
+    /** @var array The options which can be selected */
+    public $options = [];
 
-		return $config;
-	}
+    /**
+     * @copydoc Field::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        $config['type'] = $this->type;
+        $config['isOrderable'] = $this->isOrderable;
+        $config['options'] = $this->options;
+
+        return $config;
+    }
 }

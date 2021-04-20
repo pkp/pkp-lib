@@ -15,60 +15,66 @@
 
 import('classes.handler.Handler');
 
-class AboutSiteHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER);
-	}
+class AboutSiteHandler extends Handler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER);
+    }
 
-	/**
-	 * Display aboutThisPublishingSystem page.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function aboutThisPublishingSystem($args, $request) {
-		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
-		$version = $versionDao->getCurrentVersion();
+    /**
+     * Display aboutThisPublishingSystem page.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function aboutThisPublishingSystem($args, $request)
+    {
+        $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
+        $version = $versionDao->getCurrentVersion();
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign([
-			'appVersion' => $version->getVersionString(false),
-			'contactUrl' => $request->getDispatcher()->url(
-				Application::get()->getRequest(),
-				PKPApplication::ROUTE_PAGE,
-				null,
-				'about',
-				'contact'
-			),
-		]);
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'appVersion' => $version->getVersionString(false),
+            'contactUrl' => $request->getDispatcher()->url(
+                Application::get()->getRequest(),
+                PKPApplication::ROUTE_PAGE,
+                null,
+                'about',
+                'contact'
+            ),
+        ]);
 
-		$templateMgr->display('frontend/pages/aboutThisPublishingSystem.tpl');
-	}
+        $templateMgr->display('frontend/pages/aboutThisPublishingSystem.tpl');
+    }
 
-	/**
-	 * Display privacy policy page.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function privacy($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-		$context = $request->getContext();
-		$enableSiteWidePrivacyStatement = Config::getVar('general', 'sitewide_privacy_statement');
-		if (!$enableSiteWidePrivacyStatement && $context) {
-			$privacyStatement = $context->getLocalizedData('privacyStatement');
-		} else {
-			$privacyStatement = $request->getSite()->getLocalizedData('privacyStatement');
-		}
-		if (!$privacyStatement) {
-			$dispatcher = $this->getDispatcher();
-			$dispatcher->handle404();
-		}
-		$templateMgr->assign('privacyStatement', $privacyStatement);
+    /**
+     * Display privacy policy page.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function privacy($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+        $context = $request->getContext();
+        $enableSiteWidePrivacyStatement = Config::getVar('general', 'sitewide_privacy_statement');
+        if (!$enableSiteWidePrivacyStatement && $context) {
+            $privacyStatement = $context->getLocalizedData('privacyStatement');
+        } else {
+            $privacyStatement = $request->getSite()->getLocalizedData('privacyStatement');
+        }
+        if (!$privacyStatement) {
+            $dispatcher = $this->getDispatcher();
+            $dispatcher->handle404();
+        }
+        $templateMgr->assign('privacyStatement', $privacyStatement);
 
-		$templateMgr->display('frontend/pages/privacy.tpl');
-	}
+        $templateMgr->display('frontend/pages/privacy.tpl');
+    }
 }

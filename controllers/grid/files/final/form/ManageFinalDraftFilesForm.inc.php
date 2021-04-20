@@ -15,30 +15,33 @@
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
-class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm {
+class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm
+{
+    /**
+     * Constructor.
+     *
+     * @param $submissionId int Submission ID.
+     */
+    public function __construct($submissionId)
+    {
+        parent::__construct($submissionId, 'controllers/grid/files/final/manageFinalDraftFiles.tpl');
+    }
 
-	/**
-	 * Constructor.
-	 * @param $submissionId int Submission ID.
-	 */
-	function __construct($submissionId) {
-		parent::__construct($submissionId, 'controllers/grid/files/final/manageFinalDraftFiles.tpl');
-	}
 
-
-	//
-	// Overridden template methods
-	//
-	/**
-	 * Save Selection of Final Draft files
-	 * @param $stageSubmissionFiles array The files that belongs to a file stage
-	 * that is currently being used by a grid inside this form.
-	 * @param $fileStage int SUBMISSION_FILE_...
-	 * @return array a list of all submission files marked as "final".
-	 */
-	function execute($stageSubmissionFiles, $fileStage = null) {
-		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_FINAL);
-	}
+    //
+    // Overridden template methods
+    //
+    /**
+     * Save Selection of Final Draft files
+     *
+     * @param $stageSubmissionFiles array The files that belongs to a file stage
+     * that is currently being used by a grid inside this form.
+     * @param $fileStage int SUBMISSION_FILE_...
+     *
+     * @return array a list of all submission files marked as "final".
+     */
+    public function execute($stageSubmissionFiles, $fileStage = null)
+    {
+        parent::execute($stageSubmissionFiles, SUBMISSION_FILE_FINAL);
+    }
 }
-
-

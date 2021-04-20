@@ -11,37 +11,41 @@
  *
  * @brief A basic text field in a form.
  */
+
 namespace PKP\components\forms;
-class FieldText extends Field {
-	/** @copydoc Field::$component */
-	public $component = 'field-text';
 
-	/** @var string What should the <input type=""> be? */
-	public $inputType = 'text';
+class FieldText extends Field
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-text';
 
-	/** @var boolean Whether the user should have to click a button to edit the field */
-	public $optIntoEdit = false;
+    /** @var string What should the <input type=""> be? */
+    public $inputType = 'text';
 
-	/** @var string The label of the button added by self::$optIntoEdit */
-	public $optIntoEditLabel = '';
+    /** @var boolean Whether the user should have to click a button to edit the field */
+    public $optIntoEdit = false;
 
-	/** @var string Accepts: `small`, `normal` or `large` */
-	public $size = 'normal';
+    /** @var string The label of the button added by self::$optIntoEdit */
+    public $optIntoEditLabel = '';
 
-	/** @var string A prefix to display before the input value */
-	public $prefix = '';
+    /** @var string Accepts: `small`, `normal` or `large` */
+    public $size = 'normal';
 
-	/**
-	 * @copydoc Field::getConfig()
-	 */
-	public function getConfig() {
-		$config = parent::getConfig();
-		$config['inputType'] = $this->inputType;
-		$config['optIntoEdit'] = $this->optIntoEdit;
-		$config['optIntoEditLabel'] = $this->optIntoEditLabel;
-		$config['size'] = $this->size;
-		$config['prefix'] = $this->prefix;
+    /** @var string A prefix to display before the input value */
+    public $prefix = '';
 
-		return $config;
-	}
+    /**
+     * @copydoc Field::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        $config['inputType'] = $this->inputType;
+        $config['optIntoEdit'] = $this->optIntoEdit;
+        $config['optIntoEditLabel'] = $this->optIntoEditLabel;
+        $config['size'] = $this->size;
+        $config['prefix'] = $this->prefix;
+
+        return $config;
+    }
 }

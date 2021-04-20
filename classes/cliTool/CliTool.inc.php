@@ -26,140 +26,144 @@
 define('PWD', getcwd());
 chdir(dirname(INDEX_FILE_LOCATION)); /* Change to base directory */
 if (!defined('STDIN')) {
-	define('STDIN', fopen('php://stdin','r'));
+    define('STDIN', fopen('php://stdin', 'r'));
 }
 define('SESSION_DISABLE_INIT', 1);
 require('./lib/pkp/includes/bootstrap.inc.php');
 
-use \PKP\plugins\PluginRegistry;
+use APP\i18n\AppLocale;
 
-use \APP\i18n\AppLocale;
+use PKP\plugins\PluginRegistry;
 
 if (!isset($argc)) {
-	// In PHP < 4.3.0 $argc/$argv are not automatically registered
-	if (isset($_SERVER['argc'])) {
-		$argc = $_SERVER['argc'];
-		$argv = $_SERVER['argv'];
-	} else {
-		$argc = $argv = null;
-	}
+    // In PHP < 4.3.0 $argc/$argv are not automatically registered
+    if (isset($_SERVER['argc'])) {
+        $argc = $_SERVER['argc'];
+        $argv = $_SERVER['argv'];
+    } else {
+        $argc = $argv = null;
+    }
 }
 
-class CommandLineTool {
+class CommandLineTool
+{
+    /** @var string the script being executed */
+    public $scriptName;
 
-	/** @var string the script being executed */
-	var $scriptName;
+    /** @vary array Command-line arguments */
+    public $argv;
 
-	/** @vary array Command-line arguments */
-	var $argv;
+    /** @var string the username provided */
+    public $username;
 
-	/** @var string the username provided */
-	var $username;
+    /** @var User the user provided */
+    public $user;
 
-	/** @var User the user provided */
-	var $user;
+    public function __construct($argv = [])
+    {
+        // Initialize the request object with a page router
+        $application = Application::get();
+        $request = $application->getRequest();
 
-	function __construct($argv = array()) {
-		// Initialize the request object with a page router
-		$application = Application::get();
-		$request = $application->getRequest();
+        // FIXME: Write and use a CLIRouter here (see classdoc)
+        import('classes.core.PageRouter');
+        $router = new PageRouter();
+        $router->setApplication($application);
+        $request->setRouter($router);
 
-		// FIXME: Write and use a CLIRouter here (see classdoc)
-		import('classes.core.PageRouter');
-		$router = new PageRouter();
-		$router->setApplication($application);
-		$request->setRouter($router);
+        // Initialize the locale and load generic plugins.
+        AppLocale::initialize($request);
+        PluginRegistry::loadCategory('generic');
 
-		// Initialize the locale and load generic plugins.
-		AppLocale::initialize($request);
-		PluginRegistry::loadCategory('generic');
+        $this->argv = isset($argv) && is_array($argv) ? $argv : [];
 
-		$this->argv = isset($argv) && is_array($argv) ? $argv : array();
+        if (isset($_SERVER['SERVER_NAME'])) {
+            die('This script can only be executed from the command-line');
+        }
 
-		if (isset($_SERVER['SERVER_NAME'])) {
-			die('This script can only be executed from the command-line');
-		}
+        $this->scriptName = isset($this->argv[0]) ? array_shift($this->argv) : '';
 
-		$this->scriptName = isset($this->argv[0]) ? array_shift($this->argv) : '';
+        $this->checkArgsForUsername();
 
-		$this->checkArgsForUsername();
+        if (isset($this->argv[0]) && $this->argv[0] == '-h') {
+            $this->exitWithUsageMessage();
+        }
+    }
 
-		if (isset($this->argv[0]) && $this->argv[0] == '-h') {
-			$this->exitWithUsageMessage();
-		}
-	}
+    public function usage()
+    {
+    }
 
-	function usage() {
-	}
+    private function checkArgsForUsername()
+    {
+        $usernameKeyPos = array_search('--user_name', $this->argv);
+        if (!$usernameKeyPos) {
+            $usernameKeyPos = array_search('-u', $this->argv);
+        }
 
-	private function checkArgsForUsername() {
-		$usernameKeyPos = array_search('--user_name', $this->argv);
-		if (!$usernameKeyPos) {
-			$usernameKeyPos = array_search('-u', $this->argv);
-		}
+        if ($usernameKeyPos) {
+            $usernamePos = $usernameKeyPos + 1;
+            if (count($this->argv) >= $usernamePos + 1) {
+                $this->username = $this->argv[$usernamePos];
 
-		if ($usernameKeyPos) {
-			$usernamePos = $usernameKeyPos + 1;
-			if (count($this->argv) >= $usernamePos + 1) {
-				$this->username = $this->argv[$usernamePos];
+                unset($this->argv[$usernamePos]);
+            }
 
-				unset($this->argv[$usernamePos]);
-			}
+            unset($this->argv[$usernameKeyPos]);
+        }
 
-			unset($this->argv[$usernameKeyPos]);
-		}
+        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 
-		$userDao = DAORegistry::getDAO('UserDAO'); /** @var $userDao UserDAO */
+        if ($this->username) {
+            $user = $userDao->getByUsername($this->username);
 
-		if ($this->username) {
+            $this->setUser($user);
+        }
 
-			$user = $userDao->getByUsername($this->username);
+        if (!$this->user) {
+            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+            $adminGroups = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SITE_ADMIN);
 
-			$this->setUser($user);
-		}
+            if (count($adminGroups)) {
+                $groupUsers = $userGroupDao->getUsersById($adminGroups[0])->toArray();
 
-		if (!$this->user) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var $userGroupDao UserGroupDAO */
-			$adminGroups = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SITE_ADMIN);
+                if (count($groupUsers) > 0) {
+                    $this->setUser($groupUsers[0]);
+                } else {
+                    $this->exitWithUsageMessage();
+                }
+            }
+        }
+    }
 
-			if (count($adminGroups)) {
-				$groupUsers = $userGroupDao->getUsersById($adminGroups[0])->toArray();
+    /**
+     * Sets the user for the CLI Tool
+     *
+     * @param $user User The user to set as the execution user of this CLI command
+     */
+    public function setUser($user)
+    {
+        $registeredUser = Registry::get('user', true, null);
+        if (!isset($registeredUser)) {
+            /**
+             * This is used in order to reconcile with possible $request->getUser()
+             * used inside import processes, when the import is done by CLI tool.
+             */
+            if ($user) {
+                Registry::set('user', $user);
+                $this->user = $user;
+            }
+        } else {
+            $this->user = $registeredUser;
+        }
+    }
 
-				if (count($groupUsers) > 0) {
-					$this->setUser($groupUsers[0]);
-				} else {
-					$this->exitWithUsageMessage();
-				}
-			}
-		}
-	}
-
-	/**
-	 * Sets the user for the CLI Tool
-	 * @param $user User The user to set as the execution user of this CLI command
-	 */
-	function setUser($user) {
-		$registeredUser = Registry::get('user', true, null);
-		if (!isset($registeredUser)) {
-			/**
-			 * This is used in order to reconcile with possible $request->getUser()
-			 * used inside import processes, when the import is done by CLI tool.
-			 */
-			if ($user) {
-				Registry::set('user', $user);
-				$this->user = $user;
-			}
-		} else {
-			$this->user = $registeredUser;
-		}
-	}
-
-	/**
-	 * Exit the CLI tool if an error occurs
-	 */
-	function exitWithUsageMessage() {
-		$this->usage();
-		exit(0);
-	}
-
+    /**
+     * Exit the CLI tool if an error occurs
+     */
+    public function exitWithUsageMessage()
+    {
+        $this->usage();
+        exit(0);
+    }
 }

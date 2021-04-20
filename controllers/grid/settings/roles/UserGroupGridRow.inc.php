@@ -15,54 +15,55 @@
 
 import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 
-class UserGroupGridRow extends GridRow {
+class UserGroupGridRow extends GridRow
+{
+    //
+    // Overridden methods from GridRow
+    //
+    /**
+     * @copydoc GridRow::initialize()
+     *
+     * @param null|mixed $template
+     */
+    public function initialize($request, $template = null)
+    {
+        parent::initialize($request, $template);
 
-	//
-	// Overridden methods from GridRow
-	//
-	/**
-	 * @copydoc GridRow::initialize()
-	 */
-	function initialize($request, $template = null) {
-		parent::initialize($request, $template);
+        $userGroup = $this->getData(); /** @var UserGroup $userGroup */
+        assert($userGroup != null);
 
-		$userGroup = $this->getData(); /* @var $userGroup UserGroup */
-		assert($userGroup != null);
+        $rowId = $this->getId();
 
-		$rowId = $this->getId();
+        $actionArgs = ['userGroupId' => $userGroup->getId()];
+        $this->setRequestArgs($actionArgs);
 
-		$actionArgs = array('userGroupId' => $userGroup->getId());
-		$this->setRequestArgs($actionArgs);
+        // Only add row actions if this is an existing row.
+        if (!empty($rowId) && is_numeric($rowId)) {
+            $router = $request->getRouter();
 
-		// Only add row actions if this is an existing row.
-		if (!empty($rowId) && is_numeric($rowId)) {
-			$router = $request->getRouter();
+            $this->addAction(new LinkAction(
+                'editUserGroup',
+                new AjaxModal(
+                    $router->url($request, null, null, 'editUserGroup', null, $actionArgs),
+                    __('grid.action.edit'),
+                    'modal_edit'
+                ),
+                __('grid.action.edit'),
+                'edit'
+            ));
 
-			$this->addAction(new LinkAction(
-				'editUserGroup',
-				new AjaxModal(
-					$router->url($request, null, null, 'editUserGroup', null, $actionArgs),
-					__('grid.action.edit'),
-					'modal_edit'
-				),
-				__('grid.action.edit'),
-				'edit'
-			));
-
-			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-			$this->addAction(new LinkAction(
-				'removeUserGroup',
-				new RemoteActionConfirmationModal(
-					$request->getSession(),
-					__('settings.roles.removeText'),
-					null,
-					$router->url($request, null, null, 'removeUserGroup', null, $actionArgs)
-				),
-				__('grid.action.remove'),
-				'delete'
-			));
-		}
-	}
+            import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+            $this->addAction(new LinkAction(
+                'removeUserGroup',
+                new RemoteActionConfirmationModal(
+                    $request->getSession(),
+                    __('settings.roles.removeText'),
+                    null,
+                    $router->url($request, null, null, 'removeUserGroup', null, $actionArgs)
+                ),
+                __('grid.action.remove'),
+                'delete'
+            ));
+        }
+    }
 }
-
-

@@ -17,22 +17,20 @@
  */
 
 switch ($op) {
-	//
-	// Profiles
-	//
-	case 'profile':
-		define('HANDLER_CLASS', 'ProfileHandler');
-		import('lib.pkp.pages.user.ProfileHandler');
-		break;
-	//
-	// Registration
-	//
-	case 'register':
-	case 'registerUser':
-	case 'activateUser':
-		define('HANDLER_CLASS', 'RegistrationHandler');
-		import('lib.pkp.pages.user.RegistrationHandler');
-		break;
+    //
+    // Profiles
+    //
+    case 'profile':
+        define('HANDLER_CLASS', 'ProfileHandler');
+        import('lib.pkp.pages.user.ProfileHandler');
+        break;
+    //
+    // Registration
+    //
+    case 'register':
+    case 'registerUser':
+    case 'activateUser':
+        define('HANDLER_CLASS', 'RegistrationHandler');
+        import('lib.pkp.pages.user.RegistrationHandler');
+        break;
 }
-
-

@@ -15,16 +15,18 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class AuthorReviewerGridRow extends GridRow {
-
-	//
-	// Overridden methods from GridRow
-	//
-	/**
-	 * @copydoc GridRow::initialize()
-	 */
-	function initialize($request, $template = null) {
-		parent::initialize($request, $template);
-	}
+class AuthorReviewerGridRow extends GridRow
+{
+    //
+    // Overridden methods from GridRow
+    //
+    /**
+     * @copydoc GridRow::initialize()
+     *
+     * @param null|mixed $template
+     */
+    public function initialize($request, $template = null)
+    {
+        parent::initialize($request, $template);
+    }
 }
-

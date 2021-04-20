@@ -16,73 +16,83 @@
 
 import('lib.pkp.classes.plugins.importexport.PKPImportExportDeployment');
 
-class PKPNativeImportExportDeployment extends PKPImportExportDeployment {
+class PKPNativeImportExportDeployment extends PKPImportExportDeployment
+{
+    /**
+     * Constructor
+     *
+     * @param $context Context
+     * @param $user User
+     */
+    public function __construct($context, $user)
+    {
+        parent::__construct($context, $user);
+    }
 
-	/**
-	 * Constructor
-	 * @param $context Context
-	 * @param $user User
-	 */
-	function __construct($context, $user) {
-		parent::__construct($context, $user);
-	}
+    //
+    // Deployment items for subclasses to override
+    //
+    /**
+     * Get the submission node name
+     *
+     * @return string
+     */
+    public function getSubmissionNodeName()
+    {
+        return 'submission';
+    }
 
-	//
-	// Deployment items for subclasses to override
-	//
-	/**
-	 * Get the submission node name
-	 * @return string
-	 */
-	function getSubmissionNodeName() {
-		return 'submission';
-	}
+    /**
+     * Get the submissions node name
+     *
+     * @return string
+     */
+    public function getSubmissionsNodeName()
+    {
+        return 'submissions';
+    }
 
-	/**
-	 * Get the submissions node name
-	 * @return string
-	 */
-	function getSubmissionsNodeName() {
-		return 'submissions';
-	}
+    /**
+     * Get the namespace URN
+     *
+     * @return string
+     */
+    public function getNamespace()
+    {
+        return 'http://pkp.sfu.ca';
+    }
 
-	/**
-	 * Get the namespace URN
-	 * @return string
-	 */
-	function getNamespace() {
-		return 'http://pkp.sfu.ca';
-	}
+    /**
+     * Get the schema filename.
+     *
+     * @return string
+     */
+    public function getSchemaFilename()
+    {
+        return 'pkp-native.xsd';
+    }
 
-	/**
-	 * Get the schema filename.
-	 * @return string
-	 */
-	function getSchemaFilename() {
-		return 'pkp-native.xsd';
-	}
-
-	/**
-	 * Get the mapping between stage names in XML and their numeric consts
-	 * @return array
-	 */
-	function getStageNameStageIdMapping() {
-		import('lib.pkp.classes.submission.SubmissionFile'); // Get file constants
-		return array(
-			'submission' => SUBMISSION_FILE_SUBMISSION,
-			'note' => SUBMISSION_FILE_NOTE,
-			'review_file' => SUBMISSION_FILE_REVIEW_FILE,
-			'review_attachment' => SUBMISSION_FILE_REVIEW_ATTACHMENT,
-			'final' => SUBMISSION_FILE_FINAL,
-			'copyedit' => SUBMISSION_FILE_COPYEDIT,
-			'proof' => SUBMISSION_FILE_PROOF,
-			'production_ready' => SUBMISSION_FILE_PRODUCTION_READY,
-			'attachment' => SUBMISSION_FILE_ATTACHMENT,
-			'review_revision' => SUBMISSION_FILE_REVIEW_REVISION,
-			'dependent' => SUBMISSION_FILE_DEPENDENT,
-			'query' => SUBMISSION_FILE_QUERY,
-		);
-	}
+    /**
+     * Get the mapping between stage names in XML and their numeric consts
+     *
+     * @return array
+     */
+    public function getStageNameStageIdMapping()
+    {
+        import('lib.pkp.classes.submission.SubmissionFile'); // Get file constants
+        return [
+            'submission' => SUBMISSION_FILE_SUBMISSION,
+            'note' => SUBMISSION_FILE_NOTE,
+            'review_file' => SUBMISSION_FILE_REVIEW_FILE,
+            'review_attachment' => SUBMISSION_FILE_REVIEW_ATTACHMENT,
+            'final' => SUBMISSION_FILE_FINAL,
+            'copyedit' => SUBMISSION_FILE_COPYEDIT,
+            'proof' => SUBMISSION_FILE_PROOF,
+            'production_ready' => SUBMISSION_FILE_PRODUCTION_READY,
+            'attachment' => SUBMISSION_FILE_ATTACHMENT,
+            'review_revision' => SUBMISSION_FILE_REVIEW_REVISION,
+            'dependent' => SUBMISSION_FILE_DEPENDENT,
+            'query' => SUBMISSION_FILE_QUERY,
+        ];
+    }
 }
-
-

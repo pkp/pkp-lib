@@ -15,22 +15,23 @@
 
 import('lib.pkp.classes.form.validation.FormValidator');
 
-class FormValidatorControlledVocab extends FormValidator {
-	/**
-	 * Constructor.
-	 * @param $form Form the associated form
-	 * @param $field string the name of the associated field
-	 * @param $type string the type of check, either "required" or "optional"
-	 * @param $message string the error message for validation failures (i18n key)
-	 * @param $symbolic string
-	 * @param $assocType int
-	 * @param $assocId int
-	 */
-	function __construct(&$form, $field, $type, $message, $symbolic, $assocType, $assocId) {
-		import('lib.pkp.classes.validation.ValidatorControlledVocab');
-		$validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
-		parent::__construct($form, $field, $type, $message, $validator);
-	}
+class FormValidatorControlledVocab extends FormValidator
+{
+    /**
+     * Constructor.
+     *
+     * @param $form Form the associated form
+     * @param $field string the name of the associated field
+     * @param $type string the type of check, either "required" or "optional"
+     * @param $message string the error message for validation failures (i18n key)
+     * @param $symbolic string
+     * @param $assocType int
+     * @param $assocId int
+     */
+    public function __construct(&$form, $field, $type, $message, $symbolic, $assocType, $assocId)
+    {
+        import('lib.pkp.classes.validation.ValidatorControlledVocab');
+        $validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
+        parent::__construct($form, $field, $type, $message, $validator);
+    }
 }
-
-

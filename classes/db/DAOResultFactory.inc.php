@@ -16,178 +16,217 @@
 
 namespace PKP\db;
 
-use \PKP\core\ItemIterator;
-use \PKP\db\DAOResultIterator;
-
 use Illuminate\Support\Enumerable;
 
-class DAOResultFactory extends \PKP\core\ItemIterator {
-	/** @var DAO The DAO used to create objects */
-	var $dao;
+use PKP\core\ItemIterator;
 
-	/** @var string The name of the DAO's factory function (to be called with an associative array of values) */
-	var $functionName;
+class DAOResultFactory extends \PKP\core\ItemIterator
+{
+    /** @var DAO The DAO used to create objects */
+    public $dao;
 
-	/**
-	 * @var array an array of primary key field names that uniquely
-	 *   identify a result row in the record set.
-	 */
-	var $idFields;
+    /** @var string The name of the DAO's factory function (to be called with an associative array of values) */
+    public $functionName;
 
-	/** @var Enumerable The results to be wrapped around */
-	var $records;
+    /**
+     * @var array an array of primary key field names that uniquely
+     *   identify a result row in the record set.
+     */
+    public $idFields;
 
-	/**
-	 * @var string|null Fetch SQL
-	 */
-	var $sql;
+    /** @var Enumerable The results to be wrapped around */
+    public $records;
 
-	/**
-	 * @var array|null Fetch parameters
-	 */
-	var $params;
+    /**
+     * @var string|null Fetch SQL
+     */
+    public $sql;
 
-	/**
-	 * @var $rangeInfo DBResultRange|null Range information, if specified.
-	 */
-	var $rangeInfo;
+    /**
+     * @var array|null Fetch parameters
+     */
+    public $params;
 
-	/**
-	 * Constructor.
-	 * Initialize the DAOResultFactory
-	 * @param $records object ADO record set, Generator, or Enumerable
-	 * @param $dao object DAO class for factory
-	 * @param $functionName The function to call on $dao to create an object
-	 * @param $idFields array an array of primary key field names that uniquely identify a result row in the record set. Should be data object _data array key, not database column name
-	 * @param $sql string Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
-	 * @param $params array Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
-	 * @param $rangeInfo DBResultRange Optional pagination information. WARNING: New code should not use this.
-	 */
-	function __construct($records, $dao, $functionName, $idFields = [], $sql = null, $params = [], $rangeInfo = null) {
-		parent::__construct();
-		$this->functionName = $functionName;
-		$this->dao = $dao;
-		$this->idFields = $idFields;
-		$this->records = $records;
-		$this->sql = $sql;
-		$this->params = $params;
-		$this->rangeInfo = $rangeInfo;
-	}
+    /**
+     * @var DBResultRange|null $rangeInfo Range information, if specified.
+     */
+    public $rangeInfo;
 
-	/**
-	 * Return the object representing the next row.
-	 * @return object?
-	 */
-	function next() {
-		if ($this->records == null) return $this->records;
+    /**
+     * Constructor.
+     * Initialize the DAOResultFactory
+     *
+     * @param $records object ADO record set, Generator, or Enumerable
+     * @param $dao object DAO class for factory
+     * @param $functionName The function to call on $dao to create an object
+     * @param $idFields array an array of primary key field names that uniquely identify a result row in the record set. Should be data object _data array key, not database column name
+     * @param $sql string Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+     * @param $params array Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+     * @param $rangeInfo DBResultRange Optional pagination information. WARNING: New code should not use this.
+     */
+    public function __construct($records, $dao, $functionName, $idFields = [], $sql = null, $params = [], $rangeInfo = null)
+    {
+        parent::__construct();
+        $this->functionName = $functionName;
+        $this->dao = $dao;
+        $this->idFields = $idFields;
+        $this->records = $records;
+        $this->sql = $sql;
+        $this->params = $params;
+        $this->rangeInfo = $rangeInfo;
+    }
 
-		$row = null;
-		$functionName = $this->functionName;
-		$dao = $this->dao;
+    /**
+     * Return the object representing the next row.
+     *
+     * @return object?
+     */
+    public function next()
+    {
+        if ($this->records == null) {
+            return $this->records;
+        }
 
-		if ($this->records instanceof \Generator) {
-			$row = (array) $this->records->current();
-			$this->records->next();
-		} elseif ($this->records instanceof Enumerable) {
-			$row = (array) $this->records->shift();
-		} else throw new \Exception('Unsupported record set type (' . join(', ', class_implements($this->records)) . ')');
-		if (!$row) return null;
-		return $dao->$functionName($row);
-	}
+        $row = null;
+        $functionName = $this->functionName;
+        $dao = $this->dao;
 
-	/**
-	 * @copydoc ItemIterator::count()
-	 */
-	function getCount() {
-		if ($this->sql === null) throw new \Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . get_class($this->dao) . ')!');
-		return $this->dao->countRecords($this->sql, $this->params);
-	}
+        if ($this->records instanceof \Generator) {
+            $row = (array) $this->records->current();
+            $this->records->next();
+        } elseif ($this->records instanceof Enumerable) {
+            $row = (array) $this->records->shift();
+        } else {
+            throw new \Exception('Unsupported record set type (' . join(', ', class_implements($this->records)) . ')');
+        }
+        if (!$row) {
+            return null;
+        }
+        return $dao->$functionName($row);
+    }
 
-	/**
-	 * Return the next row, with key.
-	 * @return array? ($key, $value)
-	 */
-	function nextWithKey($idField = null) {
-		$result = $this->next();
-		if($idField) {
-			assert($result instanceof \PKP\core\DataObject);
-			$key = $result->getData($idField);
-		} elseif (empty($this->idFields)) {
-			$key = null;
-		} else {
-			assert($result instanceof \PKP\core\DataObject && is_array($this->idFields));
-			$key = '';
-			foreach($this->idFields as $idField) {
-				assert(!is_null($result->getData($idField)));
-				if (!empty($key)) $key .= '-';
-				$key .= (string)$result->getData($idField);
-			}
-		}
-		return [$key, $result];
-	}
+    /**
+     * @copydoc ItemIterator::count()
+     */
+    public function getCount()
+    {
+        if ($this->sql === null) {
+            throw new \Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . get_class($this->dao) . ')!');
+        }
+        return $this->dao->countRecords($this->sql, $this->params);
+    }
 
-	/**
-	 * Get the page number of a set that this iterator represents.
-	 * @return int
-	 */
-	function getPage() {
-		return $this->rangeInfo->getPage();
-	}
+    /**
+     * Return the next row, with key.
+     *
+     * @param null|mixed $idField
+     *
+     * @return array? ($key, $value)
+     */
+    public function nextWithKey($idField = null)
+    {
+        $result = $this->next();
+        if ($idField) {
+            assert($result instanceof \PKP\core\DataObject);
+            $key = $result->getData($idField);
+        } elseif (empty($this->idFields)) {
+            $key = null;
+        } else {
+            assert($result instanceof \PKP\core\DataObject && is_array($this->idFields));
+            $key = '';
+            foreach ($this->idFields as $idField) {
+                assert(!is_null($result->getData($idField)));
+                if (!empty($key)) {
+                    $key .= '-';
+                }
+                $key .= (string)$result->getData($idField);
+            }
+        }
+        return [$key, $result];
+    }
 
-	/**
-	 * Get the total number of pages in this set.
-	 * @return int
-	 */
-	function getPageCount() {
-		return ceil($this->getCount() / $this->rangeInfo->getCount());
-	}
+    /**
+     * Get the page number of a set that this iterator represents.
+     *
+     * @return int
+     */
+    public function getPage()
+    {
+        return $this->rangeInfo->getPage();
+    }
 
-	/**
-	 * Return a boolean indicating whether or not we've reached the end of results
-	 * @return boolean
-	 */
-	function eof() {
-		if ($this->records == null) return true;
-		return !$this->records->valid();
-	}
+    /**
+     * Get the total number of pages in this set.
+     *
+     * @return int
+     */
+    public function getPageCount()
+    {
+        return ceil($this->getCount() / $this->rangeInfo->getCount());
+    }
 
-	/**
-	 * Return true iff the result list was empty.
-	 * @return boolean
-	 */
-	function wasEmpty() {
-		return $this->getCount() === 0;
-	}
+    /**
+     * Return a boolean indicating whether or not we've reached the end of results
+     *
+     * @return boolean
+     */
+    public function eof()
+    {
+        if ($this->records == null) {
+            return true;
+        }
+        return !$this->records->valid();
+    }
 
-	/**
-	 * Convert this iterator to an array.
-	 * @return array
-	 */
-	function toArray() {
-		$returner = [];
-		while ($row = $this->next()) $returner[] = $row;
-		return $returner;
-	}
+    /**
+     * Return true iff the result list was empty.
+     *
+     * @return boolean
+     */
+    public function wasEmpty()
+    {
+        return $this->getCount() === 0;
+    }
 
-	/**
-	 * Return an Iterator for this DAOResultFactory.
-	 * @return Iterator
-	 */
-	function toIterator() {
-		return new DAOResultIterator($this);
-	}
+    /**
+     * Convert this iterator to an array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $returner = [];
+        while ($row = $this->next()) {
+            $returner[] = $row;
+        }
+        return $returner;
+    }
 
-	/**
-	 * Convert this iterator to an associative array by database ID.
-	 * @return array
-	 */
-	function toAssociativeArray($idField = 'id') {
-		$returner = [];
-		while ($row = $this->next()) $returner[$row->getData($idField)] = $row;
-		return $returner;
-	}
+    /**
+     * Return an Iterator for this DAOResultFactory.
+     *
+     * @return Iterator
+     */
+    public function toIterator()
+    {
+        return new DAOResultIterator($this);
+    }
+
+    /**
+     * Convert this iterator to an associative array by database ID.
+     *
+     * @return array
+     */
+    public function toAssociativeArray($idField = 'id')
+    {
+        $returner = [];
+        while ($row = $this->next()) {
+            $returner[$row->getData($idField)] = $row;
+        }
+        return $returner;
+    }
 }
 
 if (!PKP_STRICT_MODE) {
-	class_alias('\PKP\db\DAOResultFactory', '\DAOResultFactory');
+    class_alias('\PKP\db\DAOResultFactory', '\DAOResultFactory');
 }

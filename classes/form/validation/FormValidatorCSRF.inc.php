@@ -13,31 +13,34 @@
  * @brief Form validation check to make sure the CSRF token is correct.
  */
 
-import ('lib.pkp.classes.form.validation.FormValidator');
+import('lib.pkp.classes.form.validation.FormValidator');
 
-class FormValidatorCSRF extends FormValidator {
-	/**
-	 * Constructor.
-	 * @param $form Form
-	 * @param $message string the locale key to use (optional)
-	 */
-	function __construct(&$form, $message = 'form.csrfInvalid') {
-		parent::__construct($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
-	}
+class FormValidatorCSRF extends FormValidator
+{
+    /**
+     * Constructor.
+     *
+     * @param $form Form
+     * @param $message string the locale key to use (optional)
+     */
+    public function __construct(&$form, $message = 'form.csrfInvalid')
+    {
+        parent::__construct($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
+    }
 
 
-	//
-	// Public methods
-	//
-	/**
-	 * Check if the CSRF token is correct.
-	 * overrides FormValidator::isValid()
-	 * @return boolean
-	 */
-	function isValid() {
-		$request = Application::get()->getRequest();
-		return $request->checkCSRF();
-	}
+    //
+    // Public methods
+    //
+    /**
+     * Check if the CSRF token is correct.
+     * overrides FormValidator::isValid()
+     *
+     * @return boolean
+     */
+    public function isValid()
+    {
+        $request = Application::get()->getRequest();
+        return $request->checkCSRF();
+    }
 }
-
-

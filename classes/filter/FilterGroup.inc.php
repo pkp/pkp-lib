@@ -39,90 +39,108 @@
  * contributions to certain filter groups (e.g. citation parsers).
  */
 
-class FilterGroup extends \PKP\core\DataObject {
+class FilterGroup extends \PKP\core\DataObject
+{
+    //
+    // Setters and Getters
+    //
+    /**
+     * Set the symbolic name
+     *
+     * @param $symbolic string
+     */
+    public function setSymbolic($symbolic)
+    {
+        $this->setData('symbolic', $symbolic);
+    }
 
-	//
-	// Setters and Getters
-	//
-	/**
-	 * Set the symbolic name
-	 * @param $symbolic string
-	 */
-	function setSymbolic($symbolic) {
-		$this->setData('symbolic', $symbolic);
-	}
+    /**
+     * Get the symbolic name
+     *
+     * @return string
+     */
+    public function getSymbolic()
+    {
+        return $this->getData('symbolic');
+    }
 
-	/**
-	 * Get the symbolic name
-	 * @return string
-	 */
-	function getSymbolic() {
-		return $this->getData('symbolic');
-	}
+    /**
+     * Set the display name
+     *
+     * @param $displayName string
+     */
+    public function setDisplayName($displayName)
+    {
+        $this->setData('displayName', $displayName);
+    }
 
-	/**
-	 * Set the display name
-	 * @param $displayName string
-	 */
-	function setDisplayName($displayName) {
-		$this->setData('displayName', $displayName);
-	}
+    /**
+     * Get the display name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->getData('displayName');
+    }
 
-	/**
-	 * Get the display name
-	 * @return string
-	 */
-	function getDisplayName() {
-		return $this->getData('displayName');
-	}
+    /**
+     * Set the description
+     *
+     * @param $description string
+     */
+    public function setDescription($description)
+    {
+        $this->setData('description', $description);
+    }
 
-	/**
-	 * Set the description
-	 * @param $description string
-	 */
-	function setDescription($description) {
-		$this->setData('description', $description);
-	}
+    /**
+     * Get the description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->getData('description');
+    }
 
-	/**
-	 * Get the description
-	 * @return string
-	 */
-	function getDescription() {
-		return $this->getData('description');
-	}
+    /**
+     * Set the input type
+     *
+     * @param $inputType string a string representation of a TypeDescription
+     */
+    public function setInputType($inputType)
+    {
+        $this->setData('inputType', $inputType);
+    }
 
-	/**
-	 * Set the input type
-	 * @param $inputType string a string representation of a TypeDescription
-	 */
-	function setInputType($inputType) {
-		$this->setData('inputType', $inputType);
-	}
+    /**
+     * Get the input type
+     *
+     * @return string a string representation of a TypeDescription
+     */
+    public function getInputType()
+    {
+        return $this->getData('inputType');
+    }
 
-	/**
-	 * Get the input type
-	 * @return string a string representation of a TypeDescription
-	 */
-	function getInputType() {
-		return $this->getData('inputType');
-	}
+    /**
+     * Set the output type
+     *
+     * @param $outputType string a string representation of a TypeDescription
+     */
+    public function setOutputType($outputType)
+    {
+        $this->setData('outputType', $outputType);
+    }
 
-	/**
-	 * Set the output type
-	 * @param $outputType string a string representation of a TypeDescription
-	 */
-	function setOutputType($outputType) {
-		$this->setData('outputType', $outputType);
-	}
-
-	/**
-	 * Get the output type
-	 * @return string a string representation of a TypeDescription
-	 */
-	function getOutputType() {
-		return $this->getData('outputType');
-	}
-
+    /**
+     * Get the output type
+     *
+     * @return string a string representation of a TypeDescription
+     */
+    public function getOutputType()
+    {
+        return $this->getData('outputType');
+    }
 }
-

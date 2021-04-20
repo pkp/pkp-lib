@@ -20,94 +20,108 @@
 
 namespace PKP\config;
 
-use \PKP\core\Registry;
+use PKP\core\Registry;
 
 /** The path to the default configuration file */
 define('CONFIG_FILE', \PKP\core\Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.inc.php');
 
-class Config {
-	/**
-	 * Retrieve a specified configuration variable.
-	 * @param $section string
-	 * @param $key string
-	 * @param $default mixed Optional default if the var doesn't exist
-	 * @return mixed May return boolean (in case of "off"/"on"/etc), numeric, string, or null.
-	 */
-	static function getVar($section, $key, $default = null) {
-		$configData =& Config::getData();
-		return isset($configData[$section][$key]) ? $configData[$section][$key] : $default;
-	}
+class Config
+{
+    /**
+     * Retrieve a specified configuration variable.
+     *
+     * @param $section string
+     * @param $key string
+     * @param $default mixed Optional default if the var doesn't exist
+     *
+     * @return mixed May return boolean (in case of "off"/"on"/etc), numeric, string, or null.
+     */
+    public static function getVar($section, $key, $default = null)
+    {
+        $configData = & Config::getData();
+        return $configData[$section][$key] ?? $default;
+    }
 
-	/**
-	 * Get the current configuration data.
-	 * @return array the configuration data
-	 */
-	static function &getData() {
-		$configData =& Registry::get('configData', true, null);
+    /**
+     * Get the current configuration data.
+     *
+     * @return array the configuration data
+     */
+    public static function &getData()
+    {
+        $configData = & Registry::get('configData', true, null);
 
-		if ($configData === null) {
-			// Load configuration data only once per request, implicitly
-			// sets config data by ref in the registry.
-			$configData = Config::reloadData();
-		}
+        if ($configData === null) {
+            // Load configuration data only once per request, implicitly
+            // sets config data by ref in the registry.
+            $configData = Config::reloadData();
+        }
 
-		return $configData;
-	}
+        return $configData;
+    }
 
-	/**
-	 * Load configuration data from a file.
-	 * The file is assumed to be formatted in php.ini style.
-	 * @return array the configuration data
-	 */
-	static function &reloadData() {
-		if (($configData =& ConfigParser::readConfig(Config::getConfigFileName())) === false) {
-			fatalError(sprintf('Cannot read configuration file %s', Config::getConfigFileName()));
-		}
+    /**
+     * Load configuration data from a file.
+     * The file is assumed to be formatted in php.ini style.
+     *
+     * @return array the configuration data
+     */
+    public static function &reloadData()
+    {
+        if (($configData = & ConfigParser::readConfig(Config::getConfigFileName())) === false) {
+            fatalError(sprintf('Cannot read configuration file %s', Config::getConfigFileName()));
+        }
 
-		return $configData;
-	}
+        return $configData;
+    }
 
-	/**
-	 * Set the path to the configuration file.
-	 * @param $configFile string
-	 */
-	static function setConfigFileName($configFile) {
-		// Reset the config data
-		$configData = null;
-		Registry::set('configData', $configData);
+    /**
+     * Set the path to the configuration file.
+     *
+     * @param $configFile string
+     */
+    public static function setConfigFileName($configFile)
+    {
+        // Reset the config data
+        $configData = null;
+        Registry::set('configData', $configData);
 
-		// Set the config file
-		Registry::set('configFile', $configFile);
-	}
+        // Set the config file
+        Registry::set('configFile', $configFile);
+    }
 
-	/**
-	 * Return the path to the configuration file.
-	 * @return string
-	 */
-	static function getConfigFileName() {
-		return Registry::get('configFile', true, CONFIG_FILE);
-	}
+    /**
+     * Return the path to the configuration file.
+     *
+     * @return string
+     */
+    public static function getConfigFileName()
+    {
+        return Registry::get('configFile', true, CONFIG_FILE);
+    }
 
-	/**
-	 * Get context base urls from config file.
-	 * @return array Empty array if none is set.
-	 */
-	static function &getContextBaseUrls() {
-		$contextBaseUrls =& Registry::get('contextBaseUrls'); // Reference required.
+    /**
+     * Get context base urls from config file.
+     *
+     * @return array Empty array if none is set.
+     */
+    public static function &getContextBaseUrls()
+    {
+        $contextBaseUrls = & Registry::get('contextBaseUrls'); // Reference required.
 
-		if (is_null($contextBaseUrls)) {
-			$contextBaseUrls = array();
-			$configData = self::getData();
-			// Filter the settings.
-			$matches = null;
-			foreach ($configData['general'] as $settingName => $settingValue) {
-				if (preg_match('/base_url\[(.*)\]/', $settingName, $matches)) {
-					$workingContextPath = $matches[1];
-					$contextBaseUrls[$workingContextPath] = $settingValue;
-				}
-			}
-		}
+        if (is_null($contextBaseUrls)) {
+            $contextBaseUrls = [];
+            $configData = self::getData();
+            // Filter the settings.
+            $matches = null;
+            foreach ($configData['general'] as $settingName => $settingValue) {
+                if (preg_match('/base_url\[(.*)\]/', $settingName, $matches)) {
+                    $workingContextPath = $matches[1];
+                    $contextBaseUrls[$workingContextPath] = $settingValue;
+                }
+            }
+        }
 
-		return $contextBaseUrls;
-	}
+        return $contextBaseUrls;
+    }
 }

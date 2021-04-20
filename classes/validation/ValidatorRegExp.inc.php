@@ -13,31 +13,34 @@
  * @brief Validation check using a regular expression.
  */
 
-import ('lib.pkp.classes.validation.Validator');
+import('lib.pkp.classes.validation.Validator');
 import('lib.pkp.classes.validation.ValidatorFactory');
 
-class ValidatorRegExp extends Validator {
+class ValidatorRegExp extends Validator
+{
+    /** @var The regular expression to match against the field value */
+    public $_regExp;
 
-	/** @var The regular expression to match against the field value */
-	var $_regExp;
+    /**
+     * Constructor.
+     *
+     * @param $regExp string the regular expression (PCRE form)
+     */
+    public function __construct($regExp)
+    {
+        $this->_regExp = $regExp;
+    }
 
-	/**
-	 * Constructor.
-	 * @param $regExp string the regular expression (PCRE form)
-	 */
-	function __construct($regExp) {
-		$this->_regExp = $regExp;
-	}
+    /**
+     * @copydoc Validator::isValid()
+     */
+    public function isValid($value)
+    {
+        $validator = \ValidatorFactory::make(
+            ['value' => $value],
+            ['value' => ['required', 'regex:' . $this->_regExp]]
+        );
 
-	/**
-	 * @copydoc Validator::isValid()
-	 */
-	function isValid($value) {
-		$validator = \ValidatorFactory::make(
-			['value' => $value],
-			['value' => ['required', 'regex:' . $this->_regExp]]
-		);
-
-		return $validator->passes();
-	}
+        return $validator->passes();
+    }
 }

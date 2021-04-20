@@ -16,61 +16,63 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
-class LanguageGridRow extends GridRow {
+class LanguageGridRow extends GridRow
+{
+    //
+    // Overridden methods from GridRow
+    //
+    /**
+     * @copydoc GridRow::initialize()
+     *
+     * @param null|mixed $template
+     */
+    public function initialize($request, $template = null)
+    {
+        parent::initialize($request, $template);
 
-	//
-	// Overridden methods from GridRow
-	//
-	/**
-	 * @copydoc GridRow::initialize()
-	 */
-	function initialize($request, $template = null) {
-		parent::initialize($request, $template);
+        // Is this a new row or an existing row?
+        $rowId = $this->getId();
+        $rowData = $this->getData();
 
-		// Is this a new row or an existing row?
-		$rowId = $this->getId();
-		$rowData = $this->getData();
+        if (!empty($rowId)) {
+            // Only add row actions if this is an existing row
+            $router = $request->getRouter();
+            $actionArgs = [
+                'gridId' => $this->getGridId(),
+                'rowId' => $rowId
+            ];
 
-		if (!empty($rowId)) {
-			// Only add row actions if this is an existing row
-			$router = $request->getRouter();
-			$actionArgs = array(
-				'gridId' => $this->getGridId(),
-				'rowId' => $rowId
-			);
-
-			if (Validation::isSiteAdmin()) {
-				if (!$request->getContext() && !$rowData['primary']) {
-					$this->addAction(
-						new LinkAction(
-							'uninstall',
-							new RemoteActionConfirmationModal(
-								$request->getSession(),
-								__('admin.languages.confirmUninstall'),
-								__('grid.action.remove'),
-								$router->url($request, null, null, 'uninstallLocale', null, $actionArgs)
-								),
-							__('grid.action.remove'),
-							'delete')
-					);
-				}
-				if ($request->getContext()) {
-					$this->addAction(
-						new LinkAction(
-							'reload',
-							new RemoteActionConfirmationModal(
-								$request->getSession(),
-								__('manager.language.confirmDefaultSettingsOverwrite'),
-								__('manager.language.reloadLocalizedDefaultSettings'),
-								$router->url($request, null, null, 'reloadLocale', null, $actionArgs)
-								),
-							__('manager.language.reloadLocalizedDefaultSettings')
-							)
-					);
-				}
-			}
-		}
-	}
+            if (Validation::isSiteAdmin()) {
+                if (!$request->getContext() && !$rowData['primary']) {
+                    $this->addAction(
+                        new LinkAction(
+                            'uninstall',
+                            new RemoteActionConfirmationModal(
+                                $request->getSession(),
+                                __('admin.languages.confirmUninstall'),
+                                __('grid.action.remove'),
+                                $router->url($request, null, null, 'uninstallLocale', null, $actionArgs)
+                            ),
+                            __('grid.action.remove'),
+                            'delete'
+                        )
+                    );
+                }
+                if ($request->getContext()) {
+                    $this->addAction(
+                        new LinkAction(
+                            'reload',
+                            new RemoteActionConfirmationModal(
+                                $request->getSession(),
+                                __('manager.language.confirmDefaultSettingsOverwrite'),
+                                __('manager.language.reloadLocalizedDefaultSettings'),
+                                $router->url($request, null, null, 'reloadLocale', null, $actionArgs)
+                            ),
+                            __('manager.language.reloadLocalizedDefaultSettings')
+                        )
+                    );
+                }
+            }
+        }
+    }
 }
-
-

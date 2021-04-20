@@ -16,62 +16,71 @@
 
 namespace PKP\core;
 
-class Registry {
-	/**
-	 * Get a static reference to the registry data structure.
-	 * @return array
-	 */
-	static function &_getRegistry() {
-		static $registry = array();
-		return $registry;
-	}
+class Registry
+{
+    /**
+     * Get a static reference to the registry data structure.
+     *
+     * @return array
+     */
+    public static function &_getRegistry()
+    {
+        static $registry = [];
+        return $registry;
+    }
 
-	/**
-	 * Get the value of an item in the registry.
-	 * @param $key string
-	 * @param $createIfEmpty boolean Whether or not to create the entry if none exists
-	 * @param $createWithDefault mixed If $createIfEmpty, this value will be used as a default
-	 * @return mixed
-	 */
-	static function &get($key, $createIfEmpty = false, $createWithDefault = null) {
-		$registry =& self::_getRegistry();
+    /**
+     * Get the value of an item in the registry.
+     *
+     * @param $key string
+     * @param $createIfEmpty boolean Whether or not to create the entry if none exists
+     * @param $createWithDefault mixed If $createIfEmpty, this value will be used as a default
+     */
+    public static function &get($key, $createIfEmpty = false, $createWithDefault = null)
+    {
+        $registry = & self::_getRegistry();
 
-		$result = null;
-		if (isset($registry[$key])) $result =& $registry[$key];
-		elseif ($createIfEmpty) {
-			$result = $createWithDefault;
-			self::set($key, $result);
-		}
-		return $result;
-	}
+        $result = null;
+        if (isset($registry[$key])) {
+            $result = & $registry[$key];
+        } elseif ($createIfEmpty) {
+            $result = $createWithDefault;
+            self::set($key, $result);
+        }
+        return $result;
+    }
 
-	/**
-	 * Set the value of an item in the registry.
-	 * The item will be added if it does not already exist.
-	 * @param $key string
-	 * @param $value mixed
-	 */
-	static function set($key, &$value) {
-		$registry =& self::_getRegistry();
-		$registry[$key] =& $value;
-	}
+    /**
+     * Set the value of an item in the registry.
+     * The item will be added if it does not already exist.
+     *
+     * @param $key string
+     * @param $value mixed
+     */
+    public static function set($key, &$value)
+    {
+        $registry = & self::_getRegistry();
+        $registry[$key] = & $value;
+    }
 
-	/**
-	 * Remove an item from the registry.
-	 * @param $key string
-	 */
-	static function delete($key) {
-		$registry =& self::_getRegistry();
-		if (isset($registry[$key])) {
-			unset($registry[$key]);
-		}
-	}
+    /**
+     * Remove an item from the registry.
+     *
+     * @param $key string
+     */
+    public static function delete($key)
+    {
+        $registry = & self::_getRegistry();
+        if (isset($registry[$key])) {
+            unset($registry[$key]);
+        }
+    }
 
-	static function clear() {
-		$registry =& self::_getRegistry();
-		foreach (array_keys($registry) as $key) {
-			unset($registry[$key]);
-		}
-	}
+    public static function clear()
+    {
+        $registry = & self::_getRegistry();
+        foreach (array_keys($registry) as $key) {
+            unset($registry[$key]);
+        }
+    }
 }
-

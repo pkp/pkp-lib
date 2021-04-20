@@ -14,46 +14,49 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
-		// Pass in null stageId to be set in initialize from request var.
-		parent::__construct(
-			new ReviewerReviewAttachmentGridDataProvider(SUBMISSION_FILE_REVIEW_ATTACHMENT),
-			null,
-			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_EDIT
-		);
+class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
+        // Pass in null stageId to be set in initialize from request var.
+        parent::__construct(
+            new ReviewerReviewAttachmentGridDataProvider(SUBMISSION_FILE_REVIEW_ATTACHMENT),
+            null,
+            FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_EDIT
+        );
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER),
-			array(
-				'fetchGrid', 'fetchRow'
-			)
-		);
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER],
+            [
+                'fetchGrid', 'fetchRow'
+            ]
+        );
 
-		// Set the grid title.
-		$this->setTitle('reviewer.submission.reviewerFiles');
-	}
+        // Set the grid title.
+        $this->setTitle('reviewer.submission.reviewerFiles');
+    }
 
-	/**
-	 * @copydoc FileListGridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		// Watch for flag from including template to warn about the
-		// review already being complete. If so, remove some capabilities.
-		$capabilities = $this->getCapabilities();
-		if ($request->getUserVar('reviewIsClosed')) {
-			$capabilities->setCanAdd(false);
-			$capabilities->setCanDelete(false);
-		}
+    /**
+     * @copydoc FileListGridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        // Watch for flag from including template to warn about the
+        // review already being complete. If so, remove some capabilities.
+        $capabilities = $this->getCapabilities();
+        if ($request->getUserVar('reviewIsClosed')) {
+            $capabilities->setCanAdd(false);
+            $capabilities->setCanDelete(false);
+        }
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
 
-		parent::initialize($request, $args);
-	}
+        parent::initialize($request, $args);
+    }
 }
-
-

@@ -15,100 +15,115 @@
 
 import('lib.pkp.classes.plugins.importexport.PKPImportExportFilter');
 
-class NativeImportFilter extends PKPImportExportFilter {
-	//
-	// Implement template methods from Filter
-	//
-	/**
-	 * @see Filter::process()
-	 * @param $document DOMDocument|string
-	 * @return array Array of imported documents
-	 */
-	function &process(&$document) {
-		// If necessary, convert $document to a DOMDocument.
-		if (is_string($document)) {
-			$xmlString = $document;
-			$document = new DOMDocument();
-			$document->loadXml($xmlString);
-		}
-		assert(is_a($document, 'DOMDocument'));
+class NativeImportFilter extends PKPImportExportFilter
+{
+    //
+    // Implement template methods from Filter
+    //
+    /**
+     * @see Filter::process()
+     *
+     * @param $document DOMDocument|string
+     *
+     * @return array Array of imported documents
+     */
+    public function &process(&$document)
+    {
+        // If necessary, convert $document to a DOMDocument.
+        if (is_string($document)) {
+            $xmlString = $document;
+            $document = new DOMDocument();
+            $document->loadXml($xmlString);
+        }
+        assert(is_a($document, 'DOMDocument'));
 
-		$deployment = $this->getDeployment();
-		$importedObjects = array();
-		if ($document->documentElement->tagName == $this->getPluralElementName()) {
-			// Multiple element (plural) import
-			for ($n = $document->documentElement->firstChild; $n !== null; $n=$n->nextSibling) {
-				if (!is_a($n, 'DOMElement')) continue;
-				$object = $this->handleElement($n);
-				if ($object) {
-					$importedObjects[] = $object;
-				}
-			}
-		} else {
-			assert($document->documentElement->tagName == $this->getSingularElementName());
+        $deployment = $this->getDeployment();
+        $importedObjects = [];
+        if ($document->documentElement->tagName == $this->getPluralElementName()) {
+            // Multiple element (plural) import
+            for ($n = $document->documentElement->firstChild; $n !== null; $n = $n->nextSibling) {
+                if (!is_a($n, 'DOMElement')) {
+                    continue;
+                }
+                $object = $this->handleElement($n);
+                if ($object) {
+                    $importedObjects[] = $object;
+                }
+            }
+        } else {
+            assert($document->documentElement->tagName == $this->getSingularElementName());
 
-			// Single element (singular) import
-			$object = $this->handleElement($document->documentElement);
-			if ($object) {
-				$importedObjects[] = $object;
-			}
-		}
+            // Single element (singular) import
+            $object = $this->handleElement($document->documentElement);
+            if ($object) {
+                $importedObjects[] = $object;
+            }
+        }
 
-		return $importedObjects;
-	}
+        return $importedObjects;
+    }
 
-	/**
-	 * Return the plural element name
-	 * @return string
-	 */
-	function getPluralElementName() {
-		assert(false); // Must be overridden by subclasses
-	}
+    /**
+     * Return the plural element name
+     *
+     * @return string
+     */
+    public function getPluralElementName()
+    {
+        assert(false); // Must be overridden by subclasses
+    }
 
-	/**
-	 * Get the singular element name
-	 * @return string
-	 */
-	function getSingularElementName() {
-		assert(false); // Must be overridden by subclasses
-	}
+    /**
+     * Get the singular element name
+     *
+     * @return string
+     */
+    public function getSingularElementName()
+    {
+        assert(false); // Must be overridden by subclasses
+    }
 
-	/**
-	 * Handle a singular element import
-	 * @param $node DOMElement
-	 */
-	function handleElement($node) {
-		assert(false); // Must be overridden by subclasses
-	}
+    /**
+     * Handle a singular element import
+     *
+     * @param $node DOMElement
+     */
+    public function handleElement($node)
+    {
+        assert(false); // Must be overridden by subclasses
+    }
 
-	/**
-	 * Parse a localized element
-	 * @param $element DOMElement
-	 * @return array Array("locale_KEY", "Localized Text")
-	 */
-	function parseLocalizedContent($element) {
-		return array($element->getAttribute('locale'), $element->textContent);
-	}
+    /**
+     * Parse a localized element
+     *
+     * @param $element DOMElement
+     *
+     * @return array Array("locale_KEY", "Localized Text")
+     */
+    public function parseLocalizedContent($element)
+    {
+        return [$element->getAttribute('locale'), $element->textContent];
+    }
 
-	/**
-	 * Import node to a given parent node
-	 * @param $n DOMElement The parent node
-	 * @param $filter string The filter to execute it's import function
-	 */
-	function importWithXMLNode($n, $filter = null) {
-		$doc = new DOMDocument();
-		$doc->appendChild($doc->importNode($n, true));
-		$importFilter = null;
-		if ($filter) {
-			$importFilter = PKPImportExportFilter::getFilter($filter, $this->getDeployment());
-		} elseif (method_exists($this, 'getImportFilter')) {
-			$importFilter = $this->getImportFilter($n->tagName);
-		} else {
-			throw new Exception(__('filter.import.error.couldNotImportNode'));
-		}
+    /**
+     * Import node to a given parent node
+     *
+     * @param $n DOMElement The parent node
+     * @param $filter string The filter to execute it's import function
+     */
+    public function importWithXMLNode($n, $filter = null)
+    {
+        $doc = new DOMDocument();
+        $doc->appendChild($doc->importNode($n, true));
+        $importFilter = null;
+        if ($filter) {
+            $importFilter = PKPImportExportFilter::getFilter($filter, $this->getDeployment());
+        } elseif (method_exists($this, 'getImportFilter')) {
+            $importFilter = $this->getImportFilter($n->tagName);
+        } else {
+            throw new Exception(__('filter.import.error.couldNotImportNode'));
+        }
 
-		return $importFilter->execute($doc);
-	}
+        return $importFilter->execute($doc);
+    }
 }
-
-

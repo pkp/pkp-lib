@@ -15,56 +15,61 @@
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
-class ManageProofFilesForm extends ManageSubmissionFilesForm {
+class ManageProofFilesForm extends ManageSubmissionFilesForm
+{
+    /** @var int Representation ID. */
+    public $_representationId;
 
-	/** @var int Representation ID. */
-	var $_representationId;
-
-	/**
-	 * Constructor.
-	 * @param $submissionId int Submission ID.
-	 * @param $publicationId int Publication ID
-	 * @param $representationId int Representation ID.
-	 */
-	function __construct($submissionId, $publicationId, $representationId) {
-		parent::__construct($submissionId, 'controllers/grid/files/proof/manageProofFiles.tpl');
-		$this->_publicationId = $publicationId;
-		$this->_representationId = $representationId;
-	}
-
-
-	//
-	// Overridden template methods
-	//
-	/**
-	 * @copydoc ManageSubmissionFilesForm::fetch
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('publicationId', $this->_publicationId);
-		$templateMgr->assign('representationId', $this->_representationId);
-		return parent::fetch($request, $template, $display);
-	}
-
-	/**
-	 * @copydoc ManageSubmissionFilesForm::fileExistsInStage
-	 */
-	protected function fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage) {
-		return false;
-	}
+    /**
+     * Constructor.
+     *
+     * @param $submissionId int Submission ID.
+     * @param $publicationId int Publication ID
+     * @param $representationId int Representation ID.
+     */
+    public function __construct($submissionId, $publicationId, $representationId)
+    {
+        parent::__construct($submissionId, 'controllers/grid/files/proof/manageProofFiles.tpl');
+        $this->_publicationId = $publicationId;
+        $this->_representationId = $representationId;
+    }
 
 
-	/**
-	 * @copydoc ManageSubmissionFilesForm::importFile()
-	 */
-	protected function importFile($submissionFile, $fileStage) {
-		$newSubmissionFile = clone $submissionFile;
-		$newSubmissionFile->setData('assocType', ASSOC_TYPE_REPRESENTATION);
-		$newSubmissionFile->setData('assocId', $this->_representationId);
-		$newSubmissionFile->setData('viewable', false); // Not approved by default
+    //
+    // Overridden template methods
+    //
+    /**
+     * @copydoc ManageSubmissionFilesForm::fetch
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('publicationId', $this->_publicationId);
+        $templateMgr->assign('representationId', $this->_representationId);
+        return parent::fetch($request, $template, $display);
+    }
 
-		return parent::importFile($newSubmissionFile, SUBMISSION_FILE_PROOF);
-	}
+    /**
+     * @copydoc ManageSubmissionFilesForm::fileExistsInStage
+     */
+    protected function fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)
+    {
+        return false;
+    }
+
+
+    /**
+     * @copydoc ManageSubmissionFilesForm::importFile()
+     */
+    protected function importFile($submissionFile, $fileStage)
+    {
+        $newSubmissionFile = clone $submissionFile;
+        $newSubmissionFile->setData('assocType', ASSOC_TYPE_REPRESENTATION);
+        $newSubmissionFile->setData('assocId', $this->_representationId);
+        $newSubmissionFile->setData('viewable', false); // Not approved by default
+
+        return parent::importFile($newSubmissionFile, SUBMISSION_FILE_PROOF);
+    }
 }
-
-

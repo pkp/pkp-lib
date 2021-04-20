@@ -9,35 +9,41 @@
  *
  * @class SubmissionKeyword
  * @ingroup submission
+ *
  * @see SubmissionKeywordEntryDAO
  *
  * @brief Basic class describing a submission keyword
  */
 
-class SubmissionKeyword extends \PKP\controlledVocab\ControlledVocabEntry {
-	//
-	// Get/set methods
-	//
+class SubmissionKeyword extends \PKP\controlledVocab\ControlledVocabEntry
+{
+    //
+    // Get/set methods
+    //
 
-	/**
-	 * Get the keyword
-	 * @return string
-	 */
-	function getKeyword() {
-		return $this->getData('submissionKeyword');
-	}
+    /**
+     * Get the keyword
+     *
+     * @return string
+     */
+    public function getKeyword()
+    {
+        return $this->getData('submissionKeyword');
+    }
 
-	/**
-	 * Set the keyword text
-	 * @param keyword string
-	 * @param locale string
-	 */
-	function setKeyword($keyword, $locale) {
-		$this->setData('submissionKeyword', $keyword, $locale);
-	}
+    /**
+     * Set the keyword text
+     *
+     * @param keyword string
+     * @param locale string
+     */
+    public function setKeyword($keyword, $locale)
+    {
+        $this->setData('submissionKeyword', $keyword, $locale);
+    }
 
-	function getLocaleMetadataFieldNames() {
-		return array('submissionKeyword');
-	}
+    public function getLocaleMetadataFieldNames()
+    {
+        return ['submissionKeyword'];
+    }
 }
-

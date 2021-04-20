@@ -16,108 +16,114 @@
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
-class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider {
-	/** @var int Note ID */
-	var $_noteId;
+class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
+{
+    /** @var int Note ID */
+    public $_noteId;
 
-	/**
-	 * Constructor
-	 * @param $noteId int Note ID
-	 */
-	function __construct($noteId) {
-		parent::__construct(SUBMISSION_FILE_QUERY);
-		$this->_noteId = $noteId;
-	}
+    /**
+     * Constructor
+     *
+     * @param $noteId int Note ID
+     */
+    public function __construct($noteId)
+    {
+        parent::__construct(SUBMISSION_FILE_QUERY);
+        $this->_noteId = $noteId;
+    }
 
-	//
-	// Overridden public methods from FilesGridDataProvider
-	//
-	/**
-	 * @copydoc GridDataProvider::getAuthorizationPolicy()
-	 */
-	function getAuthorizationPolicy($request, $args, $roleAssignments) {
-		$this->setUploaderRoles($roleAssignments);
+    //
+    // Overridden public methods from FilesGridDataProvider
+    //
+    /**
+     * @copydoc GridDataProvider::getAuthorizationPolicy()
+     */
+    public function getAuthorizationPolicy($request, $args, $roleAssignments)
+    {
+        $this->setUploaderRoles($roleAssignments);
 
-		import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
-		return new QueryAccessPolicy($request, $args, $roleAssignments, $this->getStageId());
-	}
+        import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
+        return new QueryAccessPolicy($request, $args, $roleAssignments, $this->getStageId());
+    }
 
-	/**
-	 * @copydoc FilesGridDataProvider::getSelectAction()
-	 */
-	function getSelectAction($request) {
-		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
-		import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectFilesLinkAction');
-		return new SelectFilesLinkAction(
-			$request,
-			$this->getRequestArgs(),
-			__('editor.submission.selectFiles')
-		);
-	}
+    /**
+     * @copydoc FilesGridDataProvider::getSelectAction()
+     */
+    public function getSelectAction($request)
+    {
+        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        import('lib.pkp.controllers.grid.files.fileList.linkAction.SelectFilesLinkAction');
+        return new SelectFilesLinkAction(
+            $request,
+            $this->getRequestArgs(),
+            __('editor.submission.selectFiles')
+        );
+    }
 
-	/**
-	 * @copydoc GridDataProvider::loadData()
-	 */
-	function loadData($filter = array()) {
-		// Retrieve all submission files for the given file query.
-		$submission = $this->getSubmission();
-		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+    /**
+     * @copydoc GridDataProvider::loadData()
+     */
+    public function loadData($filter = [])
+    {
+        // Retrieve all submission files for the given file query.
+        $submission = $this->getSubmission();
+        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 
-		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
-		$note = $noteDao->getById($this->_noteId);
-		if ($note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
-			throw new Exception('Invalid note ID specified!');
-		}
+        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+        $note = $noteDao->getById($this->_noteId);
+        if ($note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
+            throw new Exception('Invalid note ID specified!');
+        }
 
-		$submissionFilesIterator = Services::get('submissionFile')->getMany([
-			'assocTypes' => [ASSOC_TYPE_NOTE],
-			'assocIds' => [$this->_noteId],
-			'submissionIds' => [$submission->getId()],
-			'fileStages' => [(int) $this->getFileStage()],
-		]);
+        $submissionFilesIterator = Services::get('submissionFile')->getMany([
+            'assocTypes' => [ASSOC_TYPE_NOTE],
+            'assocIds' => [$this->_noteId],
+            'submissionIds' => [$submission->getId()],
+            'fileStages' => [(int) $this->getFileStage()],
+        ]);
 
-		return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
-	}
+        return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
+    }
 
-	/**
-	 * @copydoc GridDataProvider::getRequestArgs()
-	 */
-	function getRequestArgs() {
-		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
-		$representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
-		return array_merge(
-			parent::getRequestArgs(),
-			array(
-				'assocType' => ASSOC_TYPE_NOTE,
-				'assocId' => $this->_noteId,
-				'queryId' => $query->getId(),
-				'noteId' => $this->_noteId,
-				'representationId' => $representation?$representation->getId():null,
-			)
-		);
-	}
+    /**
+     * @copydoc GridDataProvider::getRequestArgs()
+     */
+    public function getRequestArgs()
+    {
+        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        $representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+        return array_merge(
+            parent::getRequestArgs(),
+            [
+                'assocType' => ASSOC_TYPE_NOTE,
+                'assocId' => $this->_noteId,
+                'queryId' => $query->getId(),
+                'noteId' => $this->_noteId,
+                'representationId' => $representation ? $representation->getId() : null,
+            ]
+        );
+    }
 
-	/**
-	 * @copydoc FilesGridDataProvider::getAddFileAction()
-	 */
-	function getAddFileAction($request) {
-		$submission = $this->getSubmission();
-		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
-		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
-		return new AddFileLinkAction(
-			$request,
-			$submission->getId(),
-			$this->getStageId(),
-			$this->getUploaderRoles(),
-			$this->getFileStage(),
-			ASSOC_TYPE_NOTE,
-			$this->_noteId,
-			null,
-			null,
-			null,
-			$query->getId()
-		);
-	}
+    /**
+     * @copydoc FilesGridDataProvider::getAddFileAction()
+     */
+    public function getAddFileAction($request)
+    {
+        $submission = $this->getSubmission();
+        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
+        return new AddFileLinkAction(
+            $request,
+            $submission->getId(),
+            $this->getStageId(),
+            $this->getUploaderRoles(),
+            $this->getFileStage(),
+            ASSOC_TYPE_NOTE,
+            $this->_noteId,
+            null,
+            null,
+            null,
+            $query->getId()
+        );
+    }
 }
-
-

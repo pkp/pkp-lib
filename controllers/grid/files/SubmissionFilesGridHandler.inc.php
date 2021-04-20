@@ -27,199 +27,219 @@ import('lib.pkp.classes.submission.SubmissionFile');
 // Import the class that defines file grids capabilities.
 import('lib.pkp.classes.controllers.grid.files.FilesGridCapabilities');
 
-class SubmissionFilesGridHandler extends GridHandler {
+class SubmissionFilesGridHandler extends GridHandler
+{
+    /** @var FilesGridCapabilities */
+    public $_capabilities;
 
-	/** @var FilesGridCapabilities */
-	var $_capabilities;
+    /** @var integer */
+    public $_stageId;
 
-	/** @var integer */
-	var $_stageId;
+    /**
+     * Constructor
+     *
+     * @param $dataProvider GridDataProvider
+     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
+     * @param $capabilities integer A bit map with zero or more
+     *  FILE_GRID_* capabilities set.
+     */
+    public function __construct($dataProvider, $stageId, $capabilities = 0)
+    {
+        parent::__construct($dataProvider);
 
-	/**
-	 * Constructor
-	 * @param $dataProvider GridDataProvider
-	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-	 * @param $capabilities integer A bit map with zero or more
-	 *  FILE_GRID_* capabilities set.
-	 */
-	function __construct($dataProvider, $stageId, $capabilities = 0) {
-		parent::__construct($dataProvider);
-
-		if ($stageId) {
-			$this->_stageId = (int)$stageId;
-		}
-		$this->_capabilities = new FilesGridCapabilities($capabilities);
-	}
-
-
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get grid capabilities object.
-	 * @return FilesGridCapabilities
-	 */
-	function getCapabilities() {
-		return $this->_capabilities;
-	}
-
-	/**
-	 * Set grid capabilities object.
-	 * @param $capabilities FilesGridCapabilities
-	 */
-	function setCapabilities($capabilities) {
-		$this->_capabilities = $capabilities;
-	}
-
-	/**
-	 * Get the workflow stage id.
-	 * @return integer
-	 */
-	function getStageId() {
-		return $this->_stageId;
-	}
-
-	/**
-	 * Get the authorized submission.
-	 * @return Submission
-	 */
-	function getSubmission() {
-		// We assume proper authentication by the data provider.
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		assert(is_a($submission, 'Submission'));
-		return $submission;
-	}
+        if ($stageId) {
+            $this->_stageId = (int)$stageId;
+        }
+        $this->_capabilities = new FilesGridCapabilities($capabilities);
+    }
 
 
-	//
-	// Implement template methods from PKPHandler
-	//
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		// Set the stage id from the request parameter if not set previously.
-		if (!$this->getStageId()) {
-			$stageId = (int) $request->getUserVar('stageId');
-			// This will be validated with the authorization policy added by
-			// the grid data provider.
-			$this->_stageId = $stageId;
-		}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get grid capabilities object.
+     *
+     * @return FilesGridCapabilities
+     */
+    public function getCapabilities()
+    {
+        return $this->_capabilities;
+    }
 
-		$dataProvider = $this->getDataProvider();
-		$dataProvider->setStageId($this->getStageId());
+    /**
+     * Set grid capabilities object.
+     *
+     * @param $capabilities FilesGridCapabilities
+     */
+    public function setCapabilities($capabilities)
+    {
+        $this->_capabilities = $capabilities;
+    }
 
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /**
+     * Get the workflow stage id.
+     *
+     * @return integer
+     */
+    public function getStageId()
+    {
+        return $this->_stageId;
+    }
 
-	/**
-	 * @copydoc GridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
-
-		// Load translations.
-		AppLocale::requireComponents(
-			LOCALE_COMPONENT_APP_SUBMISSION,
-			LOCALE_COMPONENT_PKP_SUBMISSION,
-			LOCALE_COMPONENT_APP_EDITOR,
-			LOCALE_COMPONENT_PKP_EDITOR,
-			LOCALE_COMPONENT_PKP_COMMON,
-			LOCALE_COMPONENT_APP_COMMON
-		);
-
-		// Add grid actions
-		$capabilities = $this->getCapabilities();
-		$dataProvider = $this->getDataProvider();
-
-		$submission = $this->getSubmission();
-
-		if($capabilities->canAdd()) {
-			assert(isset($dataProvider));
-			$this->addAction($dataProvider->getAddFileAction($request));
-		}
-
-		// Test whether an archive tool is available for the export to work, if so, add 'download all' grid action
-		if ($capabilities->canDownloadAll() && $this->hasGridDataElements($request)) {
-			$stageId = $this->getStageId();
-			$linkParams = [
-				'nameLocaleKey' => $this->getTitle(),
-				'fileStage' => $this->getDataProvider()->getFileStage(),
-				'submissionId' => $submission->getId(),
-				'stageId' => $stageId,
-			];
-			$files = $this->getFilesToDownload($request);
-
-			$this->addAction($capabilities->getDownloadAllAction($request, $files, $linkParams), GRID_ACTION_POSITION_BELOW);
-		}
-
-		// The file name column is common to all file grid types.
-		$this->addColumn(new FileNameGridColumn($capabilities->canViewNotes(), $this->getStageId()));
-
-		// Additional column with file upload date/creation date
-		$this->addColumn(new FileDateGridColumn($capabilities->canViewNotes()));
-
-		// Set the no items row text
-		$this->setEmptyRowText('grid.noFiles');
-	}
-
-	/**
-	 * @copyDoc GridHandler::getFilterForm()
-	 */
-	protected function getFilterForm() {
-		return 'controllers/grid/files/filesGridFilter.tpl';
-	}
-
-	/**
-	 * @copyDoc GridHandler::renderFilter()
-	 */
-	function renderFilter($request, $filterData = array()) {
-		return parent::renderFilter(
-			$request,
-			array(
-				'columns' => $this->getFilterColumns(),
-				'gridId' => $this->getId()
-			)
-		);
-	}
-
-	/**
-	 * @copyDoc GridHandler::getFilterSelectionData()
-	 */
-	function getFilterSelectionData($request) {
-		return array(
-			'search' => (string) $request->getUserVar('search'),
-			'column' => (string) $request->getUserVar('column'),
-		);
-	}
-
-	/**
-	 * Get which columns can be used by users to filter data.
-	 * @return Array
-	 */
-	protected function getFilterColumns() {
-		return array(
-			'name' => __('common.name'),
-		);
-	}
+    /**
+     * Get the authorized submission.
+     *
+     * @return Submission
+     */
+    public function getSubmission()
+    {
+        // We assume proper authentication by the data provider.
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        assert(is_a($submission, 'Submission'));
+        return $submission;
+    }
 
 
-	//
-	// Overridden methods from GridHandler
-	//
-	/**
-	 * @copydoc GridHandler::getRowInstance()
-	 */
-	protected function getRowInstance() {
-		return new SubmissionFilesGridRow($this->getCapabilities(), $this->getStageId());
-	}
+    //
+    // Implement template methods from PKPHandler
+    //
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        // Set the stage id from the request parameter if not set previously.
+        if (!$this->getStageId()) {
+            $stageId = (int) $request->getUserVar('stageId');
+            // This will be validated with the authorization policy added by
+            // the grid data provider.
+            $this->_stageId = $stageId;
+        }
+
+        $dataProvider = $this->getDataProvider();
+        $dataProvider->setStageId($this->getStageId());
+
+        return parent::authorize($request, $args, $roleAssignments);
+    }
+
+    /**
+     * @copydoc GridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        parent::initialize($request, $args);
+
+        // Load translations.
+        AppLocale::requireComponents(
+            LOCALE_COMPONENT_APP_SUBMISSION,
+            LOCALE_COMPONENT_PKP_SUBMISSION,
+            LOCALE_COMPONENT_APP_EDITOR,
+            LOCALE_COMPONENT_PKP_EDITOR,
+            LOCALE_COMPONENT_PKP_COMMON,
+            LOCALE_COMPONENT_APP_COMMON
+        );
+
+        // Add grid actions
+        $capabilities = $this->getCapabilities();
+        $dataProvider = $this->getDataProvider();
+
+        $submission = $this->getSubmission();
+
+        if ($capabilities->canAdd()) {
+            assert(isset($dataProvider));
+            $this->addAction($dataProvider->getAddFileAction($request));
+        }
+
+        // Test whether an archive tool is available for the export to work, if so, add 'download all' grid action
+        if ($capabilities->canDownloadAll() && $this->hasGridDataElements($request)) {
+            $stageId = $this->getStageId();
+            $linkParams = [
+                'nameLocaleKey' => $this->getTitle(),
+                'fileStage' => $this->getDataProvider()->getFileStage(),
+                'submissionId' => $submission->getId(),
+                'stageId' => $stageId,
+            ];
+            $files = $this->getFilesToDownload($request);
+
+            $this->addAction($capabilities->getDownloadAllAction($request, $files, $linkParams), GRID_ACTION_POSITION_BELOW);
+        }
+
+        // The file name column is common to all file grid types.
+        $this->addColumn(new FileNameGridColumn($capabilities->canViewNotes(), $this->getStageId()));
+
+        // Additional column with file upload date/creation date
+        $this->addColumn(new FileDateGridColumn($capabilities->canViewNotes()));
+
+        // Set the no items row text
+        $this->setEmptyRowText('grid.noFiles');
+    }
+
+    /**
+     * @copyDoc GridHandler::getFilterForm()
+     */
+    protected function getFilterForm()
+    {
+        return 'controllers/grid/files/filesGridFilter.tpl';
+    }
+
+    /**
+     * @copyDoc GridHandler::renderFilter()
+     */
+    public function renderFilter($request, $filterData = [])
+    {
+        return parent::renderFilter(
+            $request,
+            [
+                'columns' => $this->getFilterColumns(),
+                'gridId' => $this->getId()
+            ]
+        );
+    }
+
+    /**
+     * @copyDoc GridHandler::getFilterSelectionData()
+     */
+    public function getFilterSelectionData($request)
+    {
+        return [
+            'search' => (string) $request->getUserVar('search'),
+            'column' => (string) $request->getUserVar('column'),
+        ];
+    }
+
+    /**
+     * Get which columns can be used by users to filter data.
+     *
+     * @return Array
+     */
+    protected function getFilterColumns()
+    {
+        return [
+            'name' => __('common.name'),
+        ];
+    }
 
 
-	//
-	// Protected methods.
-	//
-	function getFilesToDownload($request) {
-		return $this->getGridDataElements($request);
-	}
+    //
+    // Overridden methods from GridHandler
+    //
+    /**
+     * @copydoc GridHandler::getRowInstance()
+     */
+    protected function getRowInstance()
+    {
+        return new SubmissionFilesGridRow($this->getCapabilities(), $this->getStageId());
+    }
+
+
+    //
+    // Protected methods.
+    //
+    public function getFilesToDownload($request)
+    {
+        return $this->getGridDataElements($request);
+    }
 }
-

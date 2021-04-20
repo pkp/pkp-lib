@@ -15,46 +15,49 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class PluginRequiredPolicy extends AuthorizationPolicy {
+class PluginRequiredPolicy extends AuthorizationPolicy
+{
+    /** @var Request */
+    public $_request;
 
-	/** @var Request */
-	var $_request;
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     */
+    public function __construct($request)
+    {
+        parent::__construct('user.authorization.pluginRequired');
+        $this->_request = $request;
+    }
 
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 */
-	function __construct($request) {
-		parent::__construct('user.authorization.pluginRequired');
-		$this->_request = $request;
-	}
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        // Get the plugin request data.
+        $category = $this->_request->getUserVar('category');
+        $pluginName = $this->_request->getUserVar('plugin');
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		// Get the plugin request data.
-		$category = $this->_request->getUserVar('category');
-		$pluginName = $this->_request->getUserVar('plugin');
+        // Load the plugin.
+        $plugins = PluginRegistry::loadCategory($category);
+        $foundPlugin = null;
+        foreach ($plugins as $plugin) { /** @var Plugin $plugin */
+            if ($plugin->getName() == $pluginName) {
+                $foundPlugin = $plugin;
+                break;
+            }
+        }
+        if (!is_a($foundPlugin, 'Plugin')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Load the plugin.
-		$plugins = PluginRegistry::loadCategory($category);
-		$foundPlugin = null;
-		foreach ($plugins as $plugin) { /* @var $plugin Plugin */
-			if ($plugin->getName() == $pluginName) {
-				$foundPlugin = $plugin;
-				break;
-			}
-		}
-		if (!is_a($foundPlugin, 'Plugin')) return AUTHORIZATION_DENY;
-
-		// Add the plugin to the authorized context.
-		$this->addAuthorizedContextObject(ASSOC_TYPE_PLUGIN, $foundPlugin);
-		return AUTHORIZATION_PERMIT;
-	}
+        // Add the plugin to the authorized context.
+        $this->addAuthorizedContextObject(ASSOC_TYPE_PLUGIN, $foundPlugin);
+        return AUTHORIZATION_PERMIT;
+    }
 }
-
-

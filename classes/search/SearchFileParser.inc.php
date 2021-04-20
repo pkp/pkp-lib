@@ -20,109 +20,125 @@
  */
 
 
-class SearchFileParser {
+class SearchFileParser
+{
+    /** @var string the complete path to the file */
+    public $filePath;
 
-	/** @var string the complete path to the file */
-	var $filePath;
+    /** @var int file handle */
+    public $fp;
 
-	/** @var int file handle */
-	var $fp;
+    /**
+     * Constructor.
+     *
+     * @param $filePath string
+     */
+    public function __construct($filePath)
+    {
+        $this->filePath = $filePath;
+    }
 
-	/**
-	 * Constructor.
-	 * @param $filePath string
-	 */
-	function __construct($filePath) {
-		$this->filePath = $filePath;
-	}
+    /**
+     * Return the path to the file.
+     *
+     * @return string
+     */
+    public function getFilePath()
+    {
+        return $this->filePath;
+    }
 
-	/**
-	 * Return the path to the file.
-	 * @return string
-	 */
-	function getFilePath() {
-		return $this->filePath;
-	}
+    /**
+     * Change the file path.
+     *
+     * @param $filePath string
+     */
+    public function setFilePath($filePath)
+    {
+        $this->filePath = $filePath;
+    }
 
-	/**
-	 * Change the file path.
-	 * @param $filePath string
-	 */
-	function setFilePath($filePath) {
-		$this->filePath = $filePath;
-	}
+    /**
+     * Open the file.
+     *
+     * @return boolean
+     */
+    public function open()
+    {
+        $this->fp = @fopen($this->filePath, 'rb');
+        return $this->fp ? true : false;
+    }
 
-	/**
-	 * Open the file.
-	 * @return boolean
-	 */
-	function open() {
-		$this->fp = @fopen($this->filePath, 'rb');
-		return $this->fp ? true : false;
-	}
+    /**
+     * Close the file.
+     */
+    public function close()
+    {
+        fclose($this->fp);
+    }
 
-	/**
-	 * Close the file.
-	 */
-	function close() {
-		fclose($this->fp);
-	}
+    /**
+     * Read and return the next block/line of text.
+     *
+     * @return string (false on EOF)
+     */
+    public function read()
+    {
+        if (!$this->fp || feof($this->fp)) {
+            return false;
+        }
+        return $this->doRead();
+    }
 
-	/**
-	 * Read and return the next block/line of text.
-	 * @return string (false on EOF)
-	 */
-	function read() {
-		if (!$this->fp || feof($this->fp)) {
-			return false;
-		}
-		return $this->doRead();
-	}
-
-	/**
-	 * Read from the file pointer.
-	 * @return string
-	 */
-	function doRead() {
-		return fgets($this->fp, 4096);
-	}
+    /**
+     * Read from the file pointer.
+     *
+     * @return string
+     */
+    public function doRead()
+    {
+        return fgets($this->fp, 4096);
+    }
 
 
-	//
-	// Static methods
-	//
+    //
+    // Static methods
+    //
 
-	/**
-	 * Create a text parser for a file.
-	 * @param SubmissionFile $submissionFile
-	 * @return SearchFileParser
-	 */
-	static function fromFile($submissionFile) {
-		$fullPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
-		return SearchFileParser::fromFileType($submissionFile->getData('mimetype'), $fullPath);
-	}
+    /**
+     * Create a text parser for a file.
+     *
+     * @param SubmissionFile $submissionFile
+     *
+     * @return SearchFileParser
+     */
+    public static function fromFile($submissionFile)
+    {
+        $fullPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
+        return SearchFileParser::fromFileType($submissionFile->getData('mimetype'), $fullPath);
+    }
 
-	/**
-	 * Create a text parser for a file.
-	 * @param $type string
-	 * @param $path string
-	 */
-	static function fromFileType($type, $path) {
-		switch ($type) {
-			case 'text/plain':
-				$returner = new SearchFileParser($path);
-				break;
-			case 'text/html':
-			case 'text/xml':
-			case 'application/xhtml':
-			case 'application/xml':
-				$returner = new SearchHTMLParser($path);
-				break;
-			default:
-				$returner = new SearchHelperParser($type, $path);
-		}
-		return $returner;
-	}
+    /**
+     * Create a text parser for a file.
+     *
+     * @param $type string
+     * @param $path string
+     */
+    public static function fromFileType($type, $path)
+    {
+        switch ($type) {
+            case 'text/plain':
+                $returner = new SearchFileParser($path);
+                break;
+            case 'text/html':
+            case 'text/xml':
+            case 'application/xhtml':
+            case 'application/xml':
+                $returner = new SearchHTMLParser($path);
+                break;
+            default:
+                $returner = new SearchHelperParser($type, $path);
+        }
+        return $returner;
+    }
 }
-
-

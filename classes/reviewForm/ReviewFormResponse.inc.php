@@ -9,81 +9,96 @@
  *
  * @class ReviewFormResponse
  * @ingroup reviewForm
+ *
  * @see ReviewFormResponseDAO
  *
  * @brief Basic class describing a review form response.
  *
  */
 
-class ReviewFormResponse extends \PKP\core\DataObject {
+class ReviewFormResponse extends \PKP\core\DataObject
+{
+    //
+    // Get/set methods
+    //
 
-	//
-	// Get/set methods
-	//
+    /**
+     * Get the review ID.
+     *
+     * @return int
+     */
+    public function getReviewId()
+    {
+        return $this->getData('reviewId');
+    }
 
-	/**
-	 * Get the review ID.
-	 * @return int
-	 */
-	function getReviewId() {
-		return $this->getData('reviewId');
-	}
+    /**
+     * Set the review ID.
+     *
+     * @param $reviewId int
+     */
+    public function setReviewId($reviewId)
+    {
+        $this->setData('reviewId', $reviewId);
+    }
 
-	/**
-	 * Set the review ID.
-	 * @param $reviewId int
-	 */
-	function setReviewId($reviewId) {
-		$this->setData('reviewId', $reviewId);
-	}
+    /**
+     * Get ID of review form element.
+     *
+     * @return int
+     */
+    public function getReviewFormElementId()
+    {
+        return $this->getData('reviewFormElementId');
+    }
 
-	/**
-	 * Get ID of review form element.
-	 * @return int
-	 */
-	function getReviewFormElementId() {
-		return $this->getData('reviewFormElementId');
-	}
+    /**
+     * Set ID of review form element.
+     *
+     * @param $reviewFormElementId int
+     */
+    public function setReviewFormElementId($reviewFormElementId)
+    {
+        $this->setData('reviewFormElementId', $reviewFormElementId);
+    }
 
-	/**
-	 * Set ID of review form element.
-	 * @param $reviewFormElementId int
-	 */
-	function setReviewFormElementId($reviewFormElementId) {
-		$this->setData('reviewFormElementId', $reviewFormElementId);
-	}
+    /**
+     * Get response value.
+     *
+     * @return int
+     */
+    public function getValue()
+    {
+        return $this->getData('value');
+    }
 
-	/**
-	 * Get response value.
-	 * @return int
-	 */
-	function getValue() {
-		return $this->getData('value');
-	}
+    /**
+     * Set response value.
+     *
+     * @param $value int
+     */
+    public function setValue($value)
+    {
+        $this->setData('value', $value);
+    }
 
-	/**
-	 * Set response value.
-	 * @param $value int
-	 */
-	function setValue($value) {
-		$this->setData('value', $value);
-	}
+    /**
+     * Get response type.
+     *
+     * @return string
+     */
+    public function getResponseType()
+    {
+        return $this->getData('type');
+    }
 
-	/**
-	 * Get response type.
-	 * @return string
-	 */
-	function getResponseType() {
-		return $this->getData('type');
-	}
-
-	/**
-	 * Set response type.
-	 * @param $type string
-	 */
-	function setResponseType($type) {
-		$this->setData('type', $type);
-	}
+    /**
+     * Set response type.
+     *
+     * @param $type string
+     */
+    public function setResponseType($type)
+    {
+        $this->setData('type', $type);
+    }
 }
-
-

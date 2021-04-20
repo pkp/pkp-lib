@@ -16,35 +16,39 @@
  * @brief Abstract base class defining an action to be taken when a link action is activated.
  */
 
-class LinkActionRequest {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-	}
+class LinkActionRequest
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
 
 
-	//
-	// Public methods
-	//
-	/**
-	 * Return the JavaScript controller that will
-	 * handle this request.
-	 * @return string
-	 */
-	function getJSLinkActionRequest() {
-		assert(false);
-	}
+    //
+    // Public methods
+    //
+    /**
+     * Return the JavaScript controller that will
+     * handle this request.
+     *
+     * @return string
+     */
+    public function getJSLinkActionRequest()
+    {
+        assert(false);
+    }
 
-	/**
-	 * Return the options to be passed on to the
-	 * JS action request handler.
-	 * @return array An array describing the dialog
-	 *  options.
-	 */
-	function getLocalizedOptions() {
-		return array();
-	}
+    /**
+     * Return the options to be passed on to the
+     * JS action request handler.
+     *
+     * @return array An array describing the dialog
+     *  options.
+     */
+    public function getLocalizedOptions()
+    {
+        return [];
+    }
 }
-
-

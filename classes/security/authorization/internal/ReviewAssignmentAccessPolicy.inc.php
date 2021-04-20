@@ -17,56 +17,68 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class ReviewAssignmentAccessPolicy extends AuthorizationPolicy {
-	/** @var PKPRequest */
-	var $_request;
+class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
+{
+    /** @var PKPRequest */
+    public $_request;
 
-	/** @var bool */
-	var $_permitDeclined;
+    /** @var bool */
+    public $_permitDeclined;
 
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 * @param $permitDeclined bool True if declined or cancelled reviews are acceptable.
-	 */
-	function __construct($request, $permitDeclined = false) {
-		parent::__construct('user.authorization.submissionReviewer');
-		$this->_request = $request;
-		$this->_permitDeclined = $permitDeclined;
-	}
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     * @param $permitDeclined bool True if declined or cancelled reviews are acceptable.
+     */
+    public function __construct($request, $permitDeclined = false)
+    {
+        parent::__construct('user.authorization.submissionReviewer');
+        $this->_request = $request;
+        $this->_permitDeclined = $permitDeclined;
+    }
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		// Get the user
-		$user = $this->_request->getUser();
-		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        // Get the user
+        $user = $this->_request->getUser();
+        if (!is_a($user, 'User')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Get the submission
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
+        // Get the submission
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        if (!is_a($submission, 'Submission')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Check if a review assignment exists between the submission and the user
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
+        // Check if a review assignment exists between the submission and the user
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
 
-		// Ensure a valid review assignment was fetched from the database
-		if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) return AUTHORIZATION_DENY;
+        // Ensure a valid review assignment was fetched from the database
+        if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// If the assignment has been cancelled, deny access.
-		if ($reviewAssignment->getCancelled()) return AUTHORIZATION_DENY;
+        // If the assignment has been cancelled, deny access.
+        if ($reviewAssignment->getCancelled()) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Ensure that the assignment isn't declined, unless that's permitted
-		if (!$this->_permitDeclined && $reviewAssignment->getDeclined()) return AUTHORIZATION_DENY;
+        // Ensure that the assignment isn't declined, unless that's permitted
+        if (!$this->_permitDeclined && $reviewAssignment->getDeclined()) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Save the review assignment to the authorization context.
-		$this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
-		return AUTHORIZATION_PERMIT;
-	}
+        // Save the review assignment to the authorization context.
+        $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
+        return AUTHORIZATION_PERMIT;
+    }
 }
-
-

@@ -15,12 +15,10 @@
  *
  */
 
-switch($op) {
-	case 'index':
-	case 'tasks':
-		define('HANDLER_CLASS', 'DashboardHandler');
-		import('lib.pkp.pages.dashboard.DashboardHandler');
-		break;
+switch ($op) {
+    case 'index':
+    case 'tasks':
+        define('HANDLER_CLASS', 'DashboardHandler');
+        import('lib.pkp.pages.dashboard.DashboardHandler');
+        break;
 }
-
-

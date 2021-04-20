@@ -19,129 +19,144 @@ import('classes.file.PublicFileManager');
 define('PROFILE_IMAGE_MAX_WIDTH', 150);
 define('PROFILE_IMAGE_MAX_HEIGHT', 150);
 
-class PublicProfileForm extends BaseProfileForm {
+class PublicProfileForm extends BaseProfileForm
+{
+    /**
+     * Constructor.
+     *
+     * @param $user User
+     */
+    public function __construct($user)
+    {
+        parent::__construct('user/publicProfileForm.tpl', $user);
 
-	/**
-	 * Constructor.
-	 * @param $template string
-	 * @param $user User
-	 */
-	function __construct($user) {
-		parent::__construct('user/publicProfileForm.tpl', $user);
+        // Validation checks for this form
+        $this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
+        $this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
+    }
 
-		// Validation checks for this form
-		$this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
-		$this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
-	}
+    /**
+     * @copydoc BaseProfileForm::initData()
+     */
+    public function initData()
+    {
+        $user = $this->getUser();
 
-	/**
-	 * @copydoc BaseProfileForm::initData()
-	 */
-	function initData() {
-		$user = $this->getUser();
+        $this->_data = [
+            'orcid' => $user->getOrcid(),
+            'userUrl' => $user->getUrl(),
+            'biography' => $user->getBiography(null), // Localized
+        ];
 
-		$this->_data = array(
-			'orcid' => $user->getOrcid(),
-			'userUrl' => $user->getUrl(),
-			'biography' => $user->getBiography(null), // Localized
-		);
+        parent::initData();
+    }
 
-		parent::initData();
-	}
+    /**
+     * Assign form data to user-submitted data.
+     */
+    public function readInputData()
+    {
+        parent::readInputData();
 
-	/**
-	 * Assign form data to user-submitted data.
-	 */
-	function readInputData() {
-		parent::readInputData();
+        $this->readUserVars([
+            'orcid', 'userUrl', 'biography',
+        ]);
+    }
 
-		$this->readUserVars(array(
-			'orcid', 'userUrl', 'biography',
-		));
-	}
+    /**
+     * Upload a profile image.
+     *
+     * @return boolean True iff success.
+     */
+    public function uploadProfileImage()
+    {
+        import('classes.file.PublicFileManager');
+        $publicFileManager = new PublicFileManager();
 
-	/**
-	 * Upload a profile image.
-	 * @return boolean True iff success.
-	 */
-	function uploadProfileImage() {
-		import('classes.file.PublicFileManager');
-		$publicFileManager = new PublicFileManager();
+        $user = $this->getUser();
+        $type = $publicFileManager->getUploadedFileType('uploadedFile');
+        $extension = $publicFileManager->getImageExtension($type);
+        if (!$extension) {
+            return false;
+        }
 
-		$user = $this->getUser();
-		$type = $publicFileManager->getUploadedFileType('uploadedFile');
-		$extension = $publicFileManager->getImageExtension($type);
-		if (!$extension) return false;
+        $uploadName = 'profileImage-' . (int) $user->getId() . $extension;
+        if (!$publicFileManager->uploadSiteFile('uploadedFile', $uploadName)) {
+            return false;
+        }
+        $filePath = $publicFileManager->getSiteFilesPath();
+        [$width, $height] = getimagesize($filePath . '/' . $uploadName);
 
-		$uploadName = 'profileImage-' . (int) $user->getId() . $extension;
-		if (!$publicFileManager->uploadSiteFile('uploadedFile', $uploadName)) return false;
-		$filePath = $publicFileManager->getSiteFilesPath();
-		list($width, $height) = getimagesize($filePath . '/' . $uploadName);
+        if ($width > PROFILE_IMAGE_MAX_WIDTH || $height > PROFILE_IMAGE_MAX_HEIGHT || $width <= 0 || $height <= 0) {
+            $userSetting = null;
+            $user->updateSetting('profileImage', $userSetting);
+            $publicFileManager->removeSiteFile($filePath);
+            return false;
+        }
 
-		if ($width > PROFILE_IMAGE_MAX_WIDTH || $height > PROFILE_IMAGE_MAX_HEIGHT || $width <= 0 || $height <= 0) {
-			$userSetting = null;
-			$user->updateSetting('profileImage', $userSetting);
-			$publicFileManager->removeSiteFile($filePath);
-			return false;
-		}
+        $user->updateSetting('profileImage', [
+            'name' => $publicFileManager->getUploadedFileName('uploadedFile'),
+            'uploadName' => $uploadName,
+            'width' => $width,
+            'height' => $height,
+            'dateUploaded' => Core::getCurrentDate(),
+        ]);
+        return true;
+    }
 
-		$user->updateSetting('profileImage', array(
-			'name' => $publicFileManager->getUploadedFileName('uploadedFile'),
-			'uploadName' => $uploadName,
-			'width' => $width,
-			'height' => $height,
-			'dateUploaded' => Core::getCurrentDate(),
-		));
-		return true;
-	}
+    /**
+     * Delete a profile image.
+     *
+     * @return boolean True iff success.
+     */
+    public function deleteProfileImage()
+    {
+        $user = $this->getUser();
+        $profileImage = $user->getSetting('profileImage');
+        if (!$profileImage) {
+            return false;
+        }
 
-	/**
-	 * Delete a profile image.
-	 * @return boolean True iff success.
-	 */
-	function deleteProfileImage() {
-		$user = $this->getUser();
-		$profileImage = $user->getSetting('profileImage');
-		if (!$profileImage) return false;
+        $publicFileManager = new PublicFileManager();
+        if ($publicFileManager->removeSiteFile($profileImage['uploadName'])) {
+            return $user->updateSetting('profileImage', null);
+        } else {
+            return false;
+        }
+    }
 
-		$publicFileManager = new PublicFileManager();
-		if ($publicFileManager->removeSiteFile($profileImage['uploadName'])) {
-			return $user->updateSetting('profileImage', null);
-		} else {
-			return false;
-		}
-	}
+    /**
+     * @copydoc BaseProfileForm::fetch
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
 
-	/**
-	 * @copydoc BaseProfileForm::fetch
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
+        $publicFileManager = new PublicFileManager();
+        $templateMgr->assign([
+            'profileImage' => $request->getUser()->getSetting('profileImage'),
+            'profileImageMaxWidth' => PROFILE_IMAGE_MAX_WIDTH,
+            'profileImageMaxHeight' => PROFILE_IMAGE_MAX_HEIGHT,
+            'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),
+        ]);
 
-		$publicFileManager = new PublicFileManager();
-		$templateMgr->assign(array(
-			'profileImage' => $request->getUser()->getSetting('profileImage'),
-			'profileImageMaxWidth' => PROFILE_IMAGE_MAX_WIDTH,
-			'profileImageMaxHeight' => PROFILE_IMAGE_MAX_HEIGHT,
-			'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),
-		));
+        return parent::fetch($request, $template, $display);
+    }
 
-		return parent::fetch($request, $template, $display);
-	}
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        $request = Application::get()->getRequest();
+        $user = $request->getUser();
 
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		$request = Application::get()->getRequest();
-		$user = $request->getUser();
+        $user->setOrcid($this->getData('orcid'));
+        $user->setUrl($this->getData('userUrl'));
+        $user->setBiography($this->getData('biography'), null); // Localized
 
-		$user->setOrcid($this->getData('orcid'));
-		$user->setUrl($this->getData('userUrl'));
-		$user->setBiography($this->getData('biography'), null); // Localized
-
-		parent::execute(...$functionArgs);
-	}
+        parent::execute(...$functionArgs);
+    }
 }
-
-

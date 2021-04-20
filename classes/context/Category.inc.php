@@ -9,162 +9,199 @@
  *
  * @class Category
  * @ingroup context
+ *
  * @see CategoryDAO
  *
  * @brief Describes basic Category properties.
  */
 
-class Category extends \PKP\core\DataObject {
-	/**
-	 * Get ID of context.
-	 * @return int
-	 */
-	function getContextId() {
-		return $this->getData('contextId');
-	}
+class Category extends \PKP\core\DataObject
+{
+    /**
+     * Get ID of context.
+     *
+     * @return int
+     */
+    public function getContextId()
+    {
+        return $this->getData('contextId');
+    }
 
-	/**
-	 * Set ID of context.
-	 * @param $contextId int
-	 */
-	function setContextId($contextId) {
-		return $this->setData('contextId', $contextId);
-	}
+    /**
+     * Set ID of context.
+     *
+     * @param $contextId int
+     */
+    public function setContextId($contextId)
+    {
+        return $this->setData('contextId', $contextId);
+    }
 
-	/**
-	 * Get ID of parent category.
-	 * @return int
-	 */
-	function getParentId() {
-		return $this->getData('parentId');
-	}
+    /**
+     * Get ID of parent category.
+     *
+     * @return int
+     */
+    public function getParentId()
+    {
+        return $this->getData('parentId');
+    }
 
-	/**
-	 * Set ID of parent category.
-	 * @param $parentId int
-	 */
-	function setParentId($parentId) {
-		return $this->setData('parentId', $parentId);
-	}
+    /**
+     * Set ID of parent category.
+     *
+     * @param $parentId int
+     */
+    public function setParentId($parentId)
+    {
+        return $this->setData('parentId', $parentId);
+    }
 
-	/**
-	 * Get sequence of category.
-	 * @return int
-	 */
-	function getSequence() {
-		return $this->getData('sequence');
-	}
+    /**
+     * Get sequence of category.
+     *
+     * @return int
+     */
+    public function getSequence()
+    {
+        return $this->getData('sequence');
+    }
 
-	/**
-	 * Set sequence of category.
-	 * @param $sequence int
-	 */
-	function setSequence($sequence) {
-		return $this->setData('sequence', $sequence);
-	}
+    /**
+     * Set sequence of category.
+     *
+     * @param $sequence int
+     */
+    public function setSequence($sequence)
+    {
+        return $this->setData('sequence', $sequence);
+    }
 
-	/**
-	 * Get category path.
-	 * @return string
-	 */
-	function getPath() {
-		return $this->getData('path');
-	}
+    /**
+     * Get category path.
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->getData('path');
+    }
 
-	/**
-	 * Set category path.
-	 * @param $path string
-	 */
-	function setPath($path) {
-		return $this->setData('path', $path);
-	}
+    /**
+     * Set category path.
+     *
+     * @param $path string
+     */
+    public function setPath($path)
+    {
+        return $this->setData('path', $path);
+    }
 
-	/**
-	 * Get localized title of the category.
-	 * @return string
-	 */
-	function getLocalizedTitle() {
-		return $this->getLocalizedData('title');
-	}
+    /**
+     * Get localized title of the category.
+     *
+     * @return string
+     */
+    public function getLocalizedTitle()
+    {
+        return $this->getLocalizedData('title');
+    }
 
-	/**
-	 * Get title of category.
-	 * @param $locale string
-	 * @return string
-	 */
-	function getTitle($locale) {
-		return $this->getData('title', $locale);
-	}
+    /**
+     * Get title of category.
+     *
+     * @param $locale string
+     *
+     * @return string
+     */
+    public function getTitle($locale)
+    {
+        return $this->getData('title', $locale);
+    }
 
-	/**
-	 * Set title of category.
-	 * @param $title string
-	 * @param $locale string
-	 */
-	function setTitle($title, $locale) {
-		return $this->setData('title', $title, $locale);
-	}
+    /**
+     * Set title of category.
+     *
+     * @param $title string
+     * @param $locale string
+     */
+    public function setTitle($title, $locale)
+    {
+        return $this->setData('title', $title, $locale);
+    }
 
-	/**
-	 * Get localized description of the category.
-	 * @return string
-	 */
-	function getLocalizedDescription() {
-		return $this->getLocalizedData('description');
-	}
+    /**
+     * Get localized description of the category.
+     *
+     * @return string
+     */
+    public function getLocalizedDescription()
+    {
+        return $this->getLocalizedData('description');
+    }
 
-	/**
-	 * Get description of category.
-	 * @param $locale string
-	 * @return string
-	 */
-	function getDescription($locale) {
-		return $this->getData('description', $locale);
-	}
+    /**
+     * Get description of category.
+     *
+     * @param $locale string
+     *
+     * @return string
+     */
+    public function getDescription($locale)
+    {
+        return $this->getData('description', $locale);
+    }
 
-	/**
-	 * Set description of category.
-	 * @param $description string
-	 * @param $locale string
-	 */
-	function setDescription($description, $locale) {
-		return $this->setData('description', $description, $locale);
-	}
+    /**
+     * Set description of category.
+     *
+     * @param $description string
+     * @param $locale string
+     */
+    public function setDescription($description, $locale)
+    {
+        return $this->setData('description', $description, $locale);
+    }
 
-	/**
-	 * Get the image.
-	 * @return array
-	 */
-	function getImage() {
-		return $this->getData('image');
-	}
+    /**
+     * Get the image.
+     *
+     * @return array
+     */
+    public function getImage()
+    {
+        return $this->getData('image');
+    }
 
-	/**
-	 * Set the image.
-	 * @param $image array
-	 */
-	function setImage($image) {
-		return $this->setData('image', $image);
-	}
+    /**
+     * Set the image.
+     *
+     * @param $image array
+     */
+    public function setImage($image)
+    {
+        return $this->setData('image', $image);
+    }
 
-	/**
-	 * Get the option how the books in this category should be sorted,
-	 * in the form: concat(sortBy, sortDir).
-	 * @return string
-	 */
-	function getSortOption() {
-		return $this->getData('sortOption');
-	}
+    /**
+     * Get the option how the books in this category should be sorted,
+     * in the form: concat(sortBy, sortDir).
+     *
+     * @return string
+     */
+    public function getSortOption()
+    {
+        return $this->getData('sortOption');
+    }
 
-	/**
-	 * Set the option how the books in this categpry should be sorted,
-	 * in the form: concat(sortBy, sortDir).
-	 * @param $sortOption string
-	 */
-	function setSortOption($sortOption) {
-		return $this->setData('sortOption', $sortOption);
-	}
-
+    /**
+     * Set the option how the books in this categpry should be sorted,
+     * in the form: concat(sortBy, sortDir).
+     *
+     * @param $sortOption string
+     */
+    public function setSortOption($sortOption)
+    {
+        return $this->setData('sortOption', $sortOption);
+    }
 }
-
-

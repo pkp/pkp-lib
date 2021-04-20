@@ -11,11 +11,11 @@
  *
  * @brief A text field to search for and select users.
  */
+
 namespace PKP\components\forms;
 
-use \PKP\components\forms\FieldBaseAutosuggest;
-
-class FieldSelectUsers extends FieldBaseAutosuggest {
-	/** @copydoc Field::$component */
-	public $component = 'field-select-users';
+class FieldSelectUsers extends FieldBaseAutosuggest
+{
+    /** @copydoc Field::$component */
+    public $component = 'field-select-users';
 }

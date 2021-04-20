@@ -16,53 +16,52 @@
 import('classes.install.Upgrade');
 import('lib.pkp.classes.install.form.MaintenanceForm');
 
-class UpgradeForm extends MaintenanceForm {
+class UpgradeForm extends MaintenanceForm
+{
+    /**
+     * Constructor.
+     */
+    public function __construct($request)
+    {
+        parent::__construct($request, 'install/upgrade.tpl');
+    }
 
-	/**
-	 * Constructor.
-	 */
-	function __construct($request) {
-		parent::__construct($request, 'install/upgrade.tpl');
-	}
+    /**
+     * Perform installation.
+     */
+    public function execute(...$functionParams)
+    {
+        parent::execute(...$functionParams);
 
-	/**
-	 * Perform installation.
-	 */
-	function execute(...$functionParams) {
-		parent::execute(...$functionParams);
+        define('RUNNING_UPGRADE', 1);
+        $templateMgr = TemplateManager::getManager($this->_request);
+        Application::get()->initializeLaravelContainer();
+        $installer = new Upgrade($this->_data);
 
-		define('RUNNING_UPGRADE', 1);
-		$templateMgr = TemplateManager::getManager($this->_request);
-		Application::get()->initializeLaravelContainer();
-		$installer = new Upgrade($this->_data);
+        // FIXME Use logger?
 
-		// FIXME Use logger?
+        // FIXME Mostly common with InstallForm
 
-		// FIXME Mostly common with InstallForm
+        if ($installer->execute()) {
+            if (!$installer->wroteConfig()) {
+                // Display config file contents for manual replacement
+                $templateMgr->assign(['writeConfigFailed' => true, 'configFileContents' => $installer->getConfigContents()]);
+            }
 
-		if ($installer->execute()) {
-			if (!$installer->wroteConfig()) {
-				// Display config file contents for manual replacement
-				$templateMgr->assign(array('writeConfigFailed' => true, 'configFileContents' => $installer->getConfigContents()));
-			}
+            $templateMgr->assign('notes', $installer->getNotes());
+            $templateMgr->assign('newVersion', $installer->getNewVersion());
+            $templateMgr->display('install/upgradeComplete.tpl');
+        } else {
+            switch ($installer->getErrorType()) {
+                case INSTALLER_ERROR_DB:
+                    $this->dbInstallError($installer->getErrorMsg());
+                    break;
+                default:
+                    $this->installError($installer->getErrorMsg());
+                    break;
+            }
+        }
 
-			$templateMgr->assign('notes', $installer->getNotes());
-			$templateMgr->assign('newVersion', $installer->getNewVersion());
-			$templateMgr->display('install/upgradeComplete.tpl');
-
-		} else {
-			switch ($installer->getErrorType()) {
-				case INSTALLER_ERROR_DB:
-					$this->dbInstallError($installer->getErrorMsg());
-					break;
-				default:
-					$this->installError($installer->getErrorMsg());
-					break;
-			}
-		}
-
-		$installer->destroy();
-	}
+        $installer->destroy();
+    }
 }
-
-

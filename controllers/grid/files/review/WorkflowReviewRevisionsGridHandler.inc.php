@@ -15,27 +15,27 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class WorkflowReviewRevisionsGridHandler extends FileListGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		$stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
-		$fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_REVISION : SUBMISSION_FILE_REVIEW_REVISION;
-		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
-		parent::__construct(
-			new ReviewGridDataProvider($fileStage),
-			null,
-			FILE_GRID_ADD|FILE_GRID_EDIT|FILE_GRID_VIEW_NOTES|FILE_GRID_DELETE
-		);
+class WorkflowReviewRevisionsGridHandler extends FileListGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
+        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_REVISION : SUBMISSION_FILE_REVIEW_REVISION;
+        import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
+        parent::__construct(
+            new ReviewGridDataProvider($fileStage),
+            null,
+            FILE_GRID_ADD | FILE_GRID_EDIT | FILE_GRID_VIEW_NOTES | FILE_GRID_DELETE
+        );
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('fetchGrid', 'fetchRow', 'addFile')
-		);
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+            ['fetchGrid', 'fetchRow', 'addFile']
+        );
 
-		$this->setTitle('editor.submission.revisions');
-	}
+        $this->setTitle('editor.submission.revisions');
+    }
 }
-
-

@@ -18,48 +18,59 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class BaseAddFileLinkAction extends LinkAction {
+class BaseAddFileLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $submissionId integer The submission the file should be
+     *  uploaded to.
+     * @param $stageId integer The workflow stage in which the file
+     *  uploader is being instantiated (one of the WORKFLOW_STAGE_ID_*
+     *  constants).
+     * @param $uploaderRoles array The ids of all roles allowed to upload
+     *  in the context of this action.
+     * @param $actionArgs array The arguments to be passed into the file
+     *  upload wizard.
+     * @param $wizardTitle string The title to be displayed in the file
+     *  upload wizard.
+     * @param $buttonLabel string The link action's button label.
+     */
+    public function __construct(
+        $request,
+        $submissionId,
+        $stageId,
+        $uploaderRoles,
+        $actionArgs,
+        $wizardTitle,
+        $buttonLabel
+    ) {
 
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $submissionId integer The submission the file should be
-	 *  uploaded to.
-	 * @param $stageId integer The workflow stage in which the file
-	 *  uploader is being instantiated (one of the WORKFLOW_STAGE_ID_*
-	 *  constants).
-	 * @param $uploaderRoles array The ids of all roles allowed to upload
-	 *  in the context of this action.
-	 * @param $actionArgs array The arguments to be passed into the file
-	 *  upload wizard.
-	 * @param $wizardTitle string The title to be displayed in the file
-	 *  upload wizard.
-	 * @param $buttonLabel string The link action's button label.
-	 */
-	function __construct($request, $submissionId, $stageId,
-			$uploaderRoles, $actionArgs, $wizardTitle, $buttonLabel) {
+        // Augment the action arguments array.
+        $actionArgs['submissionId'] = $submissionId;
+        $actionArgs['stageId'] = $stageId;
+        assert(is_array($uploaderRoles) && count($uploaderRoles) >= 1);
+        $actionArgs['uploaderRoles'] = implode('-', (array) $uploaderRoles);
 
-		// Augment the action arguments array.
-		$actionArgs['submissionId'] = $submissionId;
-		$actionArgs['stageId'] = $stageId;
-		assert(is_array($uploaderRoles) && count($uploaderRoles) >= 1);
-		$actionArgs['uploaderRoles'] = implode('-', (array) $uploaderRoles);
+        // Instantiate the file upload modal.
+        $dispatcher = $request->getDispatcher();
+        import('lib.pkp.classes.linkAction.request.WizardModal');
+        $modal = new WizardModal(
+            $dispatcher->url(
+                $request,
+                PKPApplication::ROUTE_COMPONENT,
+                null,
+                'wizard.fileUpload.FileUploadWizardHandler',
+                'startWizard',
+                null,
+                $actionArgs
+            ),
+            $wizardTitle,
+            'modal_add_file'
+        );
 
-		// Instantiate the file upload modal.
-		$dispatcher = $request->getDispatcher();
-		import('lib.pkp.classes.linkAction.request.WizardModal');
-		$modal = new WizardModal(
-			$dispatcher->url(
-				$request, PKPApplication::ROUTE_COMPONENT, null,
-				'wizard.fileUpload.FileUploadWizardHandler', 'startWizard',
-				null, $actionArgs
-			),
-			$wizardTitle, 'modal_add_file'
-		);
-
-		// Configure the link action.
-		parent::__construct('addFile', $modal, $buttonLabel, 'add');
-	}
+        // Configure the link action.
+        parent::__construct('addFile', $modal, $buttonLabel, 'add');
+    }
 }
-
-

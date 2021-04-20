@@ -15,109 +15,119 @@
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
-class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataProvider {
-	/** @var integer */
-	var $_reviewId;
+class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataProvider
+{
+    /** @var integer */
+    public $_reviewId;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct(SUBMISSION_FILE_REVIEW_ATTACHMENT);
-	}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct(SUBMISSION_FILE_REVIEW_ATTACHMENT);
+    }
 
 
-	//
-	// Implement template methods from GridDataProvider
-	//
-	/**
-	 * @copydoc GridDataProvider::getAuthorizationPolicy()
-	 */
-	function getAuthorizationPolicy($request, $args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
+    //
+    // Implement template methods from GridDataProvider
+    //
+    /**
+     * @copydoc GridDataProvider::getAuthorizationPolicy()
+     */
+    public function getAuthorizationPolicy($request, $args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
 
-		// Need to use the reviewId because this grid can either be
-		// viewed by the reviewer (in which case, we could do a
-		// $request->getUser()->getId() or by the editor when reading
-		// the review. The following covers both cases...
-		$assocType = (int) $request->getUserVar('assocType');
-		$assocId = (int) $request->getUserVar('assocId');
-		if ($assocType && $assocId) {
-			// Viewing from a Reviewer perspective.
-			assert($assocType == ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        // Need to use the reviewId because this grid can either be
+        // viewed by the reviewer (in which case, we could do a
+        // $request->getUser()->getId() or by the editor when reading
+        // the review. The following covers both cases...
+        $assocType = (int) $request->getUserVar('assocType');
+        $assocId = (int) $request->getUserVar('assocId');
+        if ($assocType && $assocId) {
+            // Viewing from a Reviewer perspective.
+            assert($assocType == ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
-			$this->setUploaderRoles($roleAssignments);
-			import('lib.pkp.classes.security.authorization.ReviewStageAccessPolicy');
+            $this->setUploaderRoles($roleAssignments);
+            import('lib.pkp.classes.security.authorization.ReviewStageAccessPolicy');
 
-			$authorizationPolicy = new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId'));
-			$paramName = 'assocId';
-		} else {
-			// Viewing from a context role perspective.
-			$authorizationPolicy = parent::getAuthorizationPolicy($request, $args, $roleAssignments);
-			$paramName = 'reviewId';
-		}
+            $authorizationPolicy = new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId'));
+            $paramName = 'assocId';
+        } else {
+            // Viewing from a context role perspective.
+            $authorizationPolicy = parent::getAuthorizationPolicy($request, $args, $roleAssignments);
+            $paramName = 'reviewId';
+        }
 
-		$authorizationPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, $paramName));
+        $authorizationPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, $paramName));
 
-		return $authorizationPolicy;
-	}
+        return $authorizationPolicy;
+    }
 
-	/**
-	 * @copydoc GridDataProvider::getRequestArgs()
-	 */
-	function getRequestArgs() {
-		return array_merge(
-			parent::getRequestArgs(),
-			array(
-				'assocType' => ASSOC_TYPE_REVIEW_ASSIGNMENT,
-				'assocId' => $this->_getReviewId()
-			)
-		);
-	}
+    /**
+     * @copydoc GridDataProvider::getRequestArgs()
+     */
+    public function getRequestArgs()
+    {
+        return array_merge(
+            parent::getRequestArgs(),
+            [
+                'assocType' => ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                'assocId' => $this->_getReviewId()
+            ]
+        );
+    }
 
-	/**
-	 * @copydoc GridDataProvider::loadData()
-	 */
-	function loadData($filter = array()) {
-		$submissionFilesIterator = Services::get('submissionFile')->getMany([
-			'submissionIds' => [$this->getSubmission()->getId()],
-			'assocTypes' => [ASSOC_TYPE_REVIEW_ASSIGNMENT],
-			'assocIds' => [$this->_getReviewId()]
-		]);
-		return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), false, $filter);
-	}
+    /**
+     * @copydoc GridDataProvider::loadData()
+     */
+    public function loadData($filter = [])
+    {
+        $submissionFilesIterator = Services::get('submissionFile')->getMany([
+            'submissionIds' => [$this->getSubmission()->getId()],
+            'assocTypes' => [ASSOC_TYPE_REVIEW_ASSIGNMENT],
+            'assocIds' => [$this->_getReviewId()]
+        ]);
+        return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), false, $filter);
+    }
 
-	//
-	// Overridden public methods from FilesGridDataProvider
-	//
-	/**
-	 * @copydoc FilesGridDataProvider::getAddFileAction()
-	 */
-	function getAddFileAction($request) {
-		import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
-		$submission = $this->getSubmission();
+    //
+    // Overridden public methods from FilesGridDataProvider
+    //
+    /**
+     * @copydoc FilesGridDataProvider::getAddFileAction()
+     */
+    public function getAddFileAction($request)
+    {
+        import('lib.pkp.controllers.api.file.linkAction.AddFileLinkAction');
+        $submission = $this->getSubmission();
 
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$reviewAssignment = $reviewAssignmentDao->getById($this->_getReviewId());
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignment = $reviewAssignmentDao->getById($this->_getReviewId());
 
-		return new AddFileLinkAction(
-			$request, $submission->getId(), $this->getStageId(),
-			$this->getUploaderRoles(), $this->getFileStage(),
-			ASSOC_TYPE_REVIEW_ASSIGNMENT, $this->_getReviewId(),
-			$reviewAssignment->getReviewRoundId()
-		);
-	}
-	//
-	// Private helper methods
-	//
-	/**
-	 * Get the review id.
-	 * @return integer
-	 */
-	function _getReviewId() {
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-		return $reviewAssignment->getId();
-	}
+        return new AddFileLinkAction(
+            $request,
+            $submission->getId(),
+            $this->getStageId(),
+            $this->getUploaderRoles(),
+            $this->getFileStage(),
+            ASSOC_TYPE_REVIEW_ASSIGNMENT,
+            $this->_getReviewId(),
+            $reviewAssignment->getReviewRoundId()
+        );
+    }
+    //
+    // Private helper methods
+    //
+    /**
+     * Get the review id.
+     *
+     * @return integer
+     */
+    public function _getReviewId()
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        return $reviewAssignment->getId();
+    }
 }
-
-

@@ -16,74 +16,78 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-use \PKP\core\JSONMessage;
+use PKP\core\JSONMessage;
 
-class QueryNoteFilesGridHandler extends FileListGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		// import app-specific grid data provider for access policies.
-		$request = Application::get()->getRequest();
-		$stageId = $request->getUservar('stageId'); // authorized in authorize() method.
-		import('lib.pkp.controllers.grid.files.query.QueryNoteFilesGridDataProvider');
-		parent::__construct(
-			new QueryNoteFilesGridDataProvider($request->getUserVar('noteId')),
-			$stageId,
-			FILE_GRID_ADD|FILE_GRID_DELETE|FILE_GRID_VIEW_NOTES|FILE_GRID_EDIT
-		);
+class QueryNoteFilesGridHandler extends FileListGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        // import app-specific grid data provider for access policies.
+        $request = Application::get()->getRequest();
+        $stageId = $request->getUservar('stageId'); // authorized in authorize() method.
+        import('lib.pkp.controllers.grid.files.query.QueryNoteFilesGridDataProvider');
+        parent::__construct(
+            new QueryNoteFilesGridDataProvider($request->getUserVar('noteId')),
+            $stageId,
+            FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
+        );
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR),
-			array('fetchGrid', 'fetchRow', 'selectFiles')
-		);
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
+            ['fetchGrid', 'fetchRow', 'selectFiles']
+        );
 
-		// Set grid title.
-		$this->setTitle('submission.queries.attachedFiles');
-	}
+        // Set grid title.
+        $this->setTitle('submission.queries.attachedFiles');
+    }
 
-	/**
-	 * @copydoc SubmissionFilesGridHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		$stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
-		$this->_stageId = (int)$stageId;
+    /**
+     * @copydoc SubmissionFilesGridHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        $stageId = $request->getUserVar('stageId'); // This is being validated in WorkflowStageAccessPolicy
+        $this->_stageId = (int)$stageId;
 
-		// Get the stage access policy
-		import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
-		$queryAccessPolicy = new QueryAccessPolicy($request, $args, $roleAssignments, $stageId);
-		$this->addPolicy($queryAccessPolicy);
-		$result = parent::authorize($request, $args, $roleAssignments);
+        // Get the stage access policy
+        import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
+        $queryAccessPolicy = new QueryAccessPolicy($request, $args, $roleAssignments, $stageId);
+        $this->addPolicy($queryAccessPolicy);
+        $result = parent::authorize($request, $args, $roleAssignments);
 
-		if (0!=count(array_intersect(
-			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT)
-		))) {
-			$this->getCapabilities()->setCanManage(true);
-		}
+        if (0 != count(array_intersect(
+            $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT]
+        ))) {
+            $this->getCapabilities()->setCanManage(true);
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 
 
-	//
-	// Public handler methods
-	//
-	/**
-	 * Show the form to allow the user to select files from previous stages
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function selectFiles($args, $request) {
-		$submission = $this->getSubmission();
-		$query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+    //
+    // Public handler methods
+    //
+    /**
+     * Show the form to allow the user to select files from previous stages
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function selectFiles($args, $request)
+    {
+        $submission = $this->getSubmission();
+        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
 
-		import('lib.pkp.controllers.grid.files.query.form.ManageQueryNoteFilesForm');
-		$manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'), $this->getRequestArgs());
-		$manageQueryNoteFilesForm->initData();
-		return new JSONMessage(true, $manageQueryNoteFilesForm->fetch($request));
-	}
+        import('lib.pkp.controllers.grid.files.query.form.ManageQueryNoteFilesForm');
+        $manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'), $this->getRequestArgs());
+        $manageQueryNoteFilesForm->initData();
+        return new JSONMessage(true, $manageQueryNoteFilesForm->fetch($request));
+    }
 }
-
-

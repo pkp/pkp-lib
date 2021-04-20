@@ -17,57 +17,66 @@
 
 import('lib.pkp.classes.filter.CompositeFilter');
 
-class GenericSequencerFilter extends CompositeFilter {
-	/**
-	 * Constructor
-	 */
-	function __construct(&$filterGroup, $displayName = null) {
-		parent::__construct($filterGroup, $displayName);
-	}
+class GenericSequencerFilter extends CompositeFilter
+{
+    /**
+     * Constructor
+     *
+     * @param null|mixed $displayName
+     */
+    public function __construct(&$filterGroup, $displayName = null)
+    {
+        parent::__construct($filterGroup, $displayName);
+    }
 
 
-	//
-	// Implementing abstract template methods from PersistableFilter
-	//
-	/**
-	 * @see PersistableFilter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.classes.filter.GenericSequencerFilter';
-	}
+    //
+    // Implementing abstract template methods from PersistableFilter
+    //
+    /**
+     * @see PersistableFilter::getClassName()
+     */
+    public function getClassName()
+    {
+        return 'lib.pkp.classes.filter.GenericSequencerFilter';
+    }
 
 
-	//
-	// Implementing abstract template methods from Filter
-	//
-	/**
-	 * @see Filter::process()
-	 * @param $input mixed
-	 * @return mixed
-	 */
-	function &process(&$input) {
-		// Iterate over all filters and always feed the
-		// output of one filter as input to the next
-		// filter.
-		$previousOutput = null;
-		foreach($this->getFilters() as $filter) {
-			if(is_null($previousOutput)) {
-				// First filter
-				$previousOutput =& $input;
-			}
-			$output = $filter->execute($previousOutput);
+    //
+    // Implementing abstract template methods from Filter
+    //
+    /**
+     * @see Filter::process()
+     *
+     * @param $input mixed
+     */
+    public function &process(&$input)
+    {
+        // Iterate over all filters and always feed the
+        // output of one filter as input to the next
+        // filter.
+        $previousOutput = null;
+        foreach ($this->getFilters() as $filter) {
+            if (is_null($previousOutput)) {
+                // First filter
+                $previousOutput = & $input;
+            }
+            $output = $filter->execute($previousOutput);
 
-			// Propagate errors of sub-filters (if any)
-			foreach($filter->getErrors() as $errorMessage) $this->addError($errorMessage);
+            // Propagate errors of sub-filters (if any)
+            foreach ($filter->getErrors() as $errorMessage) {
+                $this->addError($errorMessage);
+            }
 
-			// If one filter returns null then we'll abort
-			// execution of the filter chain.
-			if (is_null($output)) break;
+            // If one filter returns null then we'll abort
+            // execution of the filter chain.
+            if (is_null($output)) {
+                break;
+            }
 
-			unset($previousOutput);
-			$previousOutput = $output;
-		}
-		return $output;
-	}
+            unset($previousOutput);
+            $previousOutput = $output;
+        }
+        return $output;
+    }
 }
-

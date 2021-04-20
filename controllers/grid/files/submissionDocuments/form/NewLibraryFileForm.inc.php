@@ -15,82 +15,91 @@
 
 import('lib.pkp.controllers.grid.files.form.LibraryFileForm');
 
-class NewLibraryFileForm extends LibraryFileForm {
+class NewLibraryFileForm extends LibraryFileForm
+{
+    /** @var int */
+    public $submissionId;
 
-	/** @var int */
-	var $submissionId;
+    /**
+     * Constructor.
+     *
+     * @param $contextId int
+     */
+    public function __construct($contextId, $submissionId)
+    {
+        parent::__construct('controllers/grid/files/submissionDocuments/form/newFileForm.tpl', $contextId);
+        $this->submissionId = $submissionId;
+        $this->addCheck(new FormValidator($this, 'temporaryFileId', 'required', 'settings.libraryFiles.fileRequired'));
+    }
 
-	/**
-	 * Constructor.
-	 * @param $contextId int
-	 */
-	function __construct($contextId, $submissionId) {
-		parent::__construct('controllers/grid/files/submissionDocuments/form/newFileForm.tpl', $contextId);
-		$this->submissionId = $submissionId;
-		$this->addCheck(new FormValidator($this, 'temporaryFileId', 'required', 'settings.libraryFiles.fileRequired'));
-	}
+    /**
+     * Assign form data to user-submitted data.
+     *
+     * @copydoc Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $this->readUserVars(['temporaryFileId', 'submissionId']);
+        return parent::readInputData();
+    }
 
-	/**
-	 * Assign form data to user-submitted data.
-	 * @copydoc Form::readInputData()
-	 */
-	function readInputData() {
-		$this->readUserVars(array('temporaryFileId', 'submissionId'));
-		return parent::readInputData();
-	}
+    /**
+     * @copydoc LibraryFileForm::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('submissionId', $this->getSubmissionId());
+        return parent::fetch($request, $template, $display);
+    }
 
-	/**
-	 * @copydoc LibraryFileForm::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('submissionId', $this->getSubmissionId());
-		return parent::fetch($request, $template, $display);
-	}
+    /**
+     * @copydoc Form::execute()
+     *
+     * @return $fileId int The new library file id.
+     */
+    public function execute(...$functionArgs)
+    {
+        $userId = Application::get()->getRequest()->getUser()->getId();
 
-	/**
-	 * @copydoc Form::execute()
-	 * @return $fileId int The new library file id.
-	 */
-	function execute(...$functionArgs) {
-		$userId = Application::get()->getRequest()->getUser()->getId();
+        // Fetch the temporary file storing the uploaded library file
+        $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
+        $temporaryFile = $temporaryFileDao->getTemporaryFile(
+            $this->getData('temporaryFileId'),
+            $userId
+        );
+        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
+        $libraryFileManager = new LibraryFileManager($this->contextId);
 
-		// Fetch the temporary file storing the uploaded library file
-		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
-		$temporaryFile = $temporaryFileDao->getTemporaryFile(
-			$this->getData('temporaryFileId'),
-			$userId
-		);
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
-		$libraryFileManager = new LibraryFileManager($this->contextId);
+        // Convert the temporary file to a library file and store
+        $libraryFile = & $libraryFileManager->copyFromTemporaryFile($temporaryFile, $this->getData('fileType'));
+        assert(isset($libraryFile));
+        $libraryFile->setContextId($this->contextId);
+        $libraryFile->setName($this->getData('libraryFileName'), null); // Localized
+        $libraryFile->setType($this->getData('fileType'));
+        $libraryFile->setSubmissionId($this->getData('submissionId'));
 
-		// Convert the temporary file to a library file and store
-		$libraryFile =& $libraryFileManager->copyFromTemporaryFile($temporaryFile, $this->getData('fileType'));
-		assert(isset($libraryFile));
-		$libraryFile->setContextId($this->contextId);
-		$libraryFile->setName($this->getData('libraryFileName'), null); // Localized
-		$libraryFile->setType($this->getData('fileType'));
-		$libraryFile->setSubmissionId($this->getData('submissionId'));
+        $fileId = $libraryFileDao->insertObject($libraryFile);
 
-		$fileId = $libraryFileDao->insertObject($libraryFile);
+        // Clean up the temporary file
+        import('lib.pkp.classes.file.TemporaryFileManager');
+        $temporaryFileManager = new TemporaryFileManager();
+        $temporaryFileManager->deleteById($this->getData('temporaryFileId'), $userId);
 
-		// Clean up the temporary file
-		import('lib.pkp.classes.file.TemporaryFileManager');
-		$temporaryFileManager = new TemporaryFileManager();
-		$temporaryFileManager->deleteById($this->getData('temporaryFileId'), $userId);
+        parent::execute(...$functionArgs);
 
-		parent::execute(...$functionArgs);
+        return $fileId;
+    }
 
-		return $fileId;
-	}
-
-	/**
-	 * return the submission ID for this library file.
-	 * @return int
-	 */
-	function getSubmissionId() {
-		return $this->submissionId;
-	}
+    /**
+     * return the submission ID for this library file.
+     *
+     * @return int
+     */
+    public function getSubmissionId()
+    {
+        return $this->submissionId;
+    }
 }
-
-

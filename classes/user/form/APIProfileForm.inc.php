@@ -13,85 +13,98 @@
  * @brief Form to edit user's API key settings.
  */
 
-use \Firebase\JWT\JWT;
+use Firebase\JWT\JWT;
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
 
-class APIProfileForm extends BaseProfileForm {
+class APIProfileForm extends BaseProfileForm
+{
+    /**
+     * Constructor.
+     *
+     * @param $user User
+     */
+    public function __construct($user)
+    {
+        parent::__construct('user/apiProfileForm.tpl', $user);
+    }
 
-	/**
-	 * Constructor.
-	 * @param $user User
-	 */
-	public function __construct($user) {
-		parent::__construct('user/apiProfileForm.tpl', $user);
-	}
+    /**
+     * @copydoc Form::initData()
+     */
+    public function initData()
+    {
+        $user = $this->getUser();
+        $this->setData('apiKeyEnabled', (bool) $user->getData('apiKeyEnabled'));
+    }
 
-	/**
-	 * @copydoc Form::initData()
-	 */
-	public function initData() {
-		$user = $this->getUser();
-		$this->setData('apiKeyEnabled', (bool) $user->getData('apiKeyEnabled'));
-	}
+    /**
+     * Assign form data to user-submitted data.
+     */
+    public function readInputData()
+    {
+        parent::readInputData();
 
-	/**
-	 * Assign form data to user-submitted data.
-	 */
-	public function readInputData() {
-		parent::readInputData();
+        $this->readUserVars([
+            'apiKeyEnabled', 'generateApiKey',
+        ]);
+    }
 
-		$this->readUserVars(array(
-				'apiKeyEnabled', 'generateApiKey',
-		));
-	}
+    /**
+     * Fetch the form to edit user's API key settings.
+     *
+     * @see BaseProfileForm::fetch
+     *
+     * @param null|mixed $template
+     *
+     * @return string JSON-encoded form contents.
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $user = $request->getUser();
+        $secret = Config::getVar('security', 'api_key_secret', '');
+        if ($secret === '') {
+            $notificationManager = new NotificationManager();
+            $notificationManager->createTrivialNotification(
+                $user->getId(),
+                NOTIFICATION_TYPE_WARNING,
+                [
+                    'contents' => __('user.apiKey.secretRequired'),
+                ]
+            );
+        } elseif ($user->getData('apiKey')) {
+            $templateMgr = TemplateManager::getManager($request);
+            $templateMgr->assign([
+                'apiKey' => JWT::encode($user->getData('apiKey'), $secret, 'HS256'),
+            ]);
+        }
+        return parent::fetch($request, $template, $display);
+    }
 
-	/**
-	 * Fetch the form to edit user's API key settings.
-	 * @return string JSON-encoded form contents.
-	 * @see BaseProfileForm::fetch
-	 */
-	public function fetch($request, $template = null, $display = false) {
-		$user = $request->getUser();
-		$secret = Config::getVar('security', 'api_key_secret', '');
-		if ($secret === '') {
-			$notificationManager = new NotificationManager();
-			$notificationManager->createTrivialNotification(
-				$user->getId(), NOTIFICATION_TYPE_WARNING, array(
-					'contents' => __('user.apiKey.secretRequired'),
-			));
-		} elseif ($user->getData('apiKey')) {
-			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign(array(
-				'apiKey' => JWT::encode($user->getData('apiKey'), $secret, 'HS256'),
-			));
-		}
-		return parent::fetch($request, $template, $display);
-	}
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        $request = Application::get()->getRequest();
+        $user = $request->getUser();
 
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		$request = Application::get()->getRequest();
-		$user = $request->getUser();
+        $apiKeyEnabled = (bool) $this->getData('apiKeyEnabled');
+        $user->setData('apiKeyEnabled', $apiKeyEnabled);
 
-		$apiKeyEnabled = (bool) $this->getData('apiKeyEnabled');
-		$user->setData('apiKeyEnabled', $apiKeyEnabled);
+        // remove api key if exists
+        if (!$apiKeyEnabled) {
+            $user->setData('apiKeyEnabled', null);
+        }
 
-		// remove api key if exists
-		if (!$apiKeyEnabled) {
-			$user->setData('apiKeyEnabled', null);
-		}
+        // generate api key
+        if ($apiKeyEnabled && !is_null($this->getData('generateApiKey'))) {
+            $secret = Config::getVar('security', 'api_key_secret', '');
+            if ($secret) {
+                $user->setData('apiKey', sha1(time()));
+            }
+        }
 
-		// generate api key
-		if ($apiKeyEnabled && !is_null($this->getData('generateApiKey'))) {
-			$secret = Config::getVar('security', 'api_key_secret', '');
-			if ($secret) {
-				$user->setData('apiKey', sha1(time()));
-			}
-		}
-
-		parent::execute(...$functionArgs);
-	}
+        parent::execute(...$functionArgs);
+    }
 }

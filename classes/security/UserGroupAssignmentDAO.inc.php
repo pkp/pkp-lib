@@ -9,6 +9,7 @@
  *
  * @class UserGroupAssignmentDAO
  * @ingroup security
+ *
  * @see UserGroupAssigment
  *
  * @brief Operations for retrieving and modifying user group assignments
@@ -19,129 +20,149 @@
 
 import('lib.pkp.classes.security.UserGroupAssignment');
 
-class UserGroupAssignmentDAO extends \PKP\db\DAO {
+class UserGroupAssignmentDAO extends \PKP\db\DAO
+{
+    /**
+     * Create a new UserGroupAssignment object
+     * (allows extensibility)
+     */
+    public function newDataObject()
+    {
+        return new UserGroupAssignment();
+    }
 
-	/**
-	 * Create a new UserGroupAssignment object
-	 * (allows extensibility)
-	 */
-	function newDataObject() {
-		return new UserGroupAssignment();
-	}
+    /**
+     * Internal function to return a UserGroupAssignment object from a row.
+     *
+     * @param $row array
+     *
+     * @return Role
+     */
+    public function _fromRow($row)
+    {
+        $userGroupAssignment = $this->newDataObject();
+        $userGroupAssignment->setUserGroupId($row['user_group_id']);
+        $userGroupAssignment->setUserId($row['user_id']);
 
-	/**
-	 * Internal function to return a UserGroupAssignment object from a row.
-	 * @param $row array
-	 * @return Role
-	 */
-	function _fromRow($row) {
-		$userGroupAssignment = $this->newDataObject();
-		$userGroupAssignment->setUserGroupId($row['user_group_id']);
-		$userGroupAssignment->setUserId($row['user_id']);
+        return $userGroupAssignment;
+    }
 
-		return $userGroupAssignment;
-	}
+    /**
+     * Delete all user group assignments for a given userId
+     *
+     * @param int $userId
+     * @param $userGroupId int optional
+     */
+    public function deleteByUserId($userId, $userGroupId = null)
+    {
+        $params = [(int) $userId];
+        if ($userGroupId) {
+            $params[] = (int) $userGroupId;
+        }
 
-	/**
-	 * Delete all user group assignments for a given userId
-	 * @param int $userId
-	 * @param $userGroupId int optional
-	 */
-	function deleteByUserId($userId, $userGroupId = null) {
-		$params = [(int) $userId];
-		if ($userGroupId) $params[] = (int) $userGroupId;
-
-		$this->update(
-			'DELETE FROM user_user_groups
+        $this->update(
+            'DELETE FROM user_user_groups
 			WHERE	user_id = ?
-			' . ($userGroupId?' AND user_group_id = ?':''),
-			$params
-		);
-	}
+			' . ($userGroupId ? ' AND user_group_id = ?' : ''),
+            $params
+        );
+    }
 
-	/**
-	 * Remove all user group assignments for a given group
-	 * @param int $userGroupId
-	 */
-	function deleteAssignmentsByUserGroupId($userGroupId) {
-		return $this->update('DELETE FROM user_user_groups WHERE user_group_id = ?', [(int) $userGroupId]);
-	}
+    /**
+     * Remove all user group assignments for a given group
+     *
+     * @param int $userGroupId
+     */
+    public function deleteAssignmentsByUserGroupId($userGroupId)
+    {
+        return $this->update('DELETE FROM user_user_groups WHERE user_group_id = ?', [(int) $userGroupId]);
+    }
 
-	/**
-	 * Remove all user group assignments in a given context
-	 * @param int $contextId
-	 * @param int $userId
-	 */
-	function deleteAssignmentsByContextId($contextId, $userId = null) {
-		$params = [(int) $contextId];
-		if ($userId) $params[] = (int) $userId;
-		$result = $this->retrieve(
-			'SELECT	uug.user_group_id, uug.user_id
+    /**
+     * Remove all user group assignments in a given context
+     *
+     * @param int $contextId
+     * @param int $userId
+     */
+    public function deleteAssignmentsByContextId($contextId, $userId = null)
+    {
+        $params = [(int) $contextId];
+        if ($userId) {
+            $params[] = (int) $userId;
+        }
+        $result = $this->retrieve(
+            'SELECT	uug.user_group_id, uug.user_id
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 			WHERE	ug.context_id = ?
-				' . ($userId?' AND uug.user_id = ?':''),
-			$params
-		);
+				' . ($userId ? ' AND uug.user_id = ?' : ''),
+            $params
+        );
 
-		$assignments = new DAOResultFactory($result, $this, '_fromRow');
-		while ($assignment = $assignments->next()) {
-			$this->deleteByUserId($assignment->getUserId(), $assignment->getUserGroupId());
-		}
-	}
+        $assignments = new DAOResultFactory($result, $this, '_fromRow');
+        while ($assignment = $assignments->next()) {
+            $this->deleteByUserId($assignment->getUserId(), $assignment->getUserGroupId());
+        }
+    }
 
 
-	/**
-	 * Retrieve user group assignments for a user
-	 * @param $userId int
-	 * @param $contextId int
-	 * @param $roleId int
-	 * @return Iterator UserGroup
-	 */
-	function getByUserId($userId, $contextId = null, $roleId = null) {
-		$params = [(int) $userId];
-		if ($contextId) $params[] = (int) $contextId;
-		if ($roleId) $params[] = (int) $roleId;
+    /**
+     * Retrieve user group assignments for a user
+     *
+     * @param $userId int
+     * @param $contextId int
+     * @param $roleId int
+     *
+     * @return Iterator UserGroup
+     */
+    public function getByUserId($userId, $contextId = null, $roleId = null)
+    {
+        $params = [(int) $userId];
+        if ($contextId) {
+            $params[] = (int) $contextId;
+        }
+        if ($roleId) {
+            $params[] = (int) $roleId;
+        }
 
-		$result = $this->retrieve(
-			'SELECT uug.user_group_id, uug.user_id
+        $result = $this->retrieve(
+            'SELECT uug.user_group_id, uug.user_id
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 				WHERE uug.user_id = ?' .
-				($contextId?' AND ug.context_id = ?':'') .
-				($roleId?' AND ug.role_id = ?':''),
-			$params
-		);
-		return new DAOResultFactory($result, $this, '_fromRow');
-	}
+                ($contextId ? ' AND ug.context_id = ?' : '') .
+                ($roleId ? ' AND ug.role_id = ?' : ''),
+            $params
+        );
+        return new DAOResultFactory($result, $this, '_fromRow');
+    }
 
 
-	/**
-	 * Insert an assignment
-	 * @param $userId
-	 * @param $groupId
-	 */
-	function insertObject($userGroupAssignment) {
-		$this->replace(
-			'user_user_groups',
-			[
-				'user_id' => (int) $userGroupAssignment->getUserId(),
-				'user_group_id' => (int) $userGroupAssignment->getUserGroupId(),
-			],
-			['user_id', 'user_group_id']
-		);
-	}
+    /**
+     * Insert an assignment
+     */
+    public function insertObject($userGroupAssignment)
+    {
+        $this->replace(
+            'user_user_groups',
+            [
+                'user_id' => (int) $userGroupAssignment->getUserId(),
+                'user_group_id' => (int) $userGroupAssignment->getUserGroupId(),
+            ],
+            ['user_id', 'user_group_id']
+        );
+    }
 
-	/**
-	 * Remove an assignment
-	 * @param $userGroupAssignment
-	 */
-	function deleteAssignment($userGroupAssignment) {
-		$this->update(
-			'DELETE FROM user_user_groups WHERE user_id = ? AND user_group_id = ?',
-			[(int) $userGroupAssignment->getUserId(), (int) $userGroupAssignment->getUserGroupId()]
-		);
-	}
+    /**
+     * Remove an assignment
+     *
+     * @param $userGroupAssignment
+     */
+    public function deleteAssignment($userGroupAssignment)
+    {
+        $this->update(
+            'DELETE FROM user_user_groups WHERE user_id = ? AND user_group_id = ?',
+            [(int) $userGroupAssignment->getUserId(), (int) $userGroupAssignment->getUserGroupId()]
+        );
+    }
 }
-
-

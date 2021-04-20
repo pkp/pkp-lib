@@ -15,20 +15,20 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class PublicationIsSubmissionPolicy extends AuthorizationPolicy {
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+class PublicationIsSubmissionPolicy extends AuthorizationPolicy
+{
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
 
-		if ($submission && $publication && $submission->getId() === $publication->getData('submissionId')) {
-			return AUTHORIZATION_PERMIT;
-		}
+        if ($submission && $publication && $submission->getId() === $publication->getData('submissionId')) {
+            return AUTHORIZATION_PERMIT;
+        }
 
-		return AUTHORIZATION_DENY;
-	}
+        return AUTHORIZATION_DENY;
+    }
 }
-
-

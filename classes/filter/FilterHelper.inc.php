@@ -12,252 +12,272 @@
  * @brief Class that provides filter-related helper methods.
  */
 
-class FilterHelper {
-	/**
-	 * @verbatim
-	 * Helper method that installs filter groups based on
-	 * the given XML node which represents a <filterGroups>
-	 * element.
-	 * @endverbatim
-	 * @param $filterGroupsNode XMLNode
-	 */
-	function installFilterGroups($filterGroupsNode) {
-		// Install filter groups.
-		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
-		import('lib.pkp.classes.filter.FilterGroup');
+class FilterHelper
+{
+    /**
+     * @verbatim
+     * Helper method that installs filter groups based on
+     * the given XML node which represents a <filterGroups>
+     * element.
+     * @endverbatim
+     *
+     * @param $filterGroupsNode XMLNode
+     */
+    public function installFilterGroups($filterGroupsNode)
+    {
+        // Install filter groups.
+        $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /** @var FilterGroupDAO $filterGroupDao */
+        import('lib.pkp.classes.filter.FilterGroup');
 
-		foreach ($filterGroupsNode->getChildren() as $filterGroupNode) { /* @var $filterGroupNode XMLNode */
-			$filterGroupSymbolic = $filterGroupNode->getAttribute('symbolic');
+        foreach ($filterGroupsNode->getChildren() as $filterGroupNode) { /** @var XMLNode $filterGroupNode */
+            $filterGroupSymbolic = $filterGroupNode->getAttribute('symbolic');
 
-			// Make sure that the filter group has not been
-			// installed before to guarantee idempotence.
-			$existingFilterGroup = $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
-			if (!is_null($existingFilterGroup)) continue;
+            // Make sure that the filter group has not been
+            // installed before to guarantee idempotence.
+            $existingFilterGroup = $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
+            if (!is_null($existingFilterGroup)) {
+                continue;
+            }
 
-			// Instantiate and configure the filter group.
-			$filterGroup = new FilterGroup();
-			$filterGroup->setSymbolic($filterGroupSymbolic);
-			$filterGroup->setDisplayName($filterGroupNode->getAttribute('displayName'));
-			$filterGroup->setDescription($filterGroupNode->getAttribute('description'));
-			$filterGroup->setInputType($filterGroupNode->getAttribute('inputType'));
-			$filterGroup->setOutputType($filterGroupNode->getAttribute('outputType'));
+            // Instantiate and configure the filter group.
+            $filterGroup = new FilterGroup();
+            $filterGroup->setSymbolic($filterGroupSymbolic);
+            $filterGroup->setDisplayName($filterGroupNode->getAttribute('displayName'));
+            $filterGroup->setDescription($filterGroupNode->getAttribute('description'));
+            $filterGroup->setInputType($filterGroupNode->getAttribute('inputType'));
+            $filterGroup->setOutputType($filterGroupNode->getAttribute('outputType'));
 
-			// Install the filter group.
-			$installedGroupId = $filterGroupDao->insertObject($filterGroup);
-			assert(is_integer($installedGroupId));
+            // Install the filter group.
+            $installedGroupId = $filterGroupDao->insertObject($filterGroup);
+            assert(is_integer($installedGroupId));
 
-			unset($filterGroup);
-		}
-	}
+            unset($filterGroup);
+        }
+    }
 
-	/**
-	 * @verbatim
-	 * Helper method that configures and optionally
-	 * installs a filter based on the given XML node
-	 * which represents a <filter> element.
-	 * @endverbatim
-	 * @param $filterNode XMLNode
-	 * @param $persist boolean whether to install the filter
-	 * @return PersistableFilter the installed filter.
-	 */
-	function &configureFilter($filterNode, $persist = true) {
-		// Install filters.
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+    /**
+     * @verbatim
+     * Helper method that configures and optionally
+     * installs a filter based on the given XML node
+     * which represents a <filter> element.
+     * @endverbatim
+     *
+     * @param $filterNode XMLNode
+     * @param $persist boolean whether to install the filter
+     *
+     * @return PersistableFilter the installed filter.
+     */
+    public function &configureFilter($filterNode, $persist = true)
+    {
+        // Install filters.
+        $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
 
-		$filterGroupSymbolic = $filterNode->getAttribute('inGroup');
-		$filterClassName = $filterNode->getAttribute('class');
-		$isTemplate = $filterNode->getAttribute('isTemplate');
+        $filterGroupSymbolic = $filterNode->getAttribute('inGroup');
+        $filterClassName = $filterNode->getAttribute('class');
+        $isTemplate = $filterNode->getAttribute('isTemplate');
 
-		// We have to include the filter class before going on
-		// so that all required constants are defined before they
-		// might be used in settings.
-		if (PKPString::regexp_match('/^[a-zA-Z0-9.]+$/', $filterClassName)) {
-			import($filterClassName);
-		}
+        // We have to include the filter class before going on
+        // so that all required constants are defined before they
+        // might be used in settings.
+        if (PKPString::regexp_match('/^[a-zA-Z0-9.]+$/', $filterClassName)) {
+            import($filterClassName);
+        }
 
-		// Go through the filter sub-nodes. This can be nested
-		// filters or filter settings.
-		$subNodes = $filterNode->getChildren();
-		$settings = array();
-		$subFilters = array();
-		foreach($subNodes as $subNode) { /* @var $subNode XMLNode */
-			switch($subNode->getName()) {
-				case 'setting':
-					// Get the filter setting.
-					list($name, $value) = $this->getFilterSetting($subNode);
-					$settings[$name] = $value;
-					unset($name, $value);
-					break;
+        // Go through the filter sub-nodes. This can be nested
+        // filters or filter settings.
+        $subNodes = $filterNode->getChildren();
+        $settings = [];
+        $subFilters = [];
+        foreach ($subNodes as $subNode) { /** @var XMLNode $subNode */
+            switch ($subNode->getName()) {
+                case 'setting':
+                    // Get the filter setting.
+                    [$name, $value] = $this->getFilterSetting($subNode);
+                    $settings[$name] = $value;
+                    unset($name, $value);
+                    break;
 
-				case 'filter':
-					// Recursively configure sub-filters.
-					$subFilter =& $this->configureFilter($subNode, false);
-					$subFilters[] =& $subFilter;
-					unset($subFilter);
-					break;
-			}
-		}
+                case 'filter':
+                    // Recursively configure sub-filters.
+                    $subFilter = & $this->configureFilter($subNode, false);
+                    $subFilters[] = & $subFilter;
+                    unset($subFilter);
+                    break;
+            }
+        }
 
-		// We ensure idempotence of plug-in installation by checking
-		// for existing identical filters.
-		$similarFilters = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, $isTemplate)->toArray();
+        // We ensure idempotence of plug-in installation by checking
+        // for existing identical filters.
+        $similarFilters = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, $isTemplate)->toArray();
 
-		if (count($similarFilters) > 0) {
-			// Go through similar filters and eliminate them if they don't have the exact same settings.
-			foreach($similarFilters as $index => $similarFilter) { /* @var $similarFilter PersistableFilter */
-				if (!$this->compareFilters($similarFilter, $settings, $subFilters)) unset($similarFilters[$index]);
-			}
+        if (count($similarFilters) > 0) {
+            // Go through similar filters and eliminate them if they don't have the exact same settings.
+            foreach ($similarFilters as $index => $similarFilter) { /** @var PersistableFilter $similarFilter */
+                if (!$this->compareFilters($similarFilter, $settings, $subFilters)) {
+                    unset($similarFilters[$index]);
+                }
+            }
 
-			// There can be a maximum of exactly one identical transformation
-			// in the database otherwise we've somehow installed a duplicate filter.
-			assert(count($similarFilters) <= 1);
+            // There can be a maximum of exactly one identical transformation
+            // in the database otherwise we've somehow installed a duplicate filter.
+            assert(count($similarFilters) <= 1);
 
-			// If the filter has been installed before then return the existing filter.
-			if (count($similarFilters) == 1) {
-				$existingFilter = array_pop($similarFilters);
-				return $existingFilter;
-			}
-		}
+            // If the filter has been installed before then return the existing filter.
+            if (count($similarFilters) == 1) {
+                $existingFilter = array_pop($similarFilters);
+                return $existingFilter;
+            }
+        }
 
-		// Configure (and optionally install) the filter.
-		$installedFilter = $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, $isTemplate, 0, $subFilters, $persist);
-		assert(is_a($installedFilter, 'PersistableFilter'));
+        // Configure (and optionally install) the filter.
+        $installedFilter = $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, $isTemplate, 0, $subFilters, $persist);
+        assert(is_a($installedFilter, 'PersistableFilter'));
 
-		return $installedFilter;
-	}
+        return $installedFilter;
+    }
 
-	/**
-	 * Recursively compares two filters (filter A and filter B)
-	 * based on their settings and sub-filters.
-	 * @param $filterA PersistableFilter
-	 * @param $filterBSettings array an array of key/value pairs
-	 * @param $filterBSubfilters array an array of filters
-	 * @return boolean true if the two transformations are identical, false otherwise
-	 */
-	function compareFilters(&$filterA, $filterBSettings, &$filterBSubfilters) {
-		// Compare settings.
-		foreach($filterBSettings as $name => $value) {
-		if (!($filterA->hasSetting($name) || in_array($name, $filterA->getInternalSettings()))
-				|| $filterA->getData($name) != $value) {
-			return false;
-			}
-		}
+    /**
+     * Recursively compares two filters (filter A and filter B)
+     * based on their settings and sub-filters.
+     *
+     * @param $filterA PersistableFilter
+     * @param $filterBSettings array an array of key/value pairs
+     * @param $filterBSubfilters array an array of filters
+     *
+     * @return boolean true if the two transformations are identical, false otherwise
+     */
+    public function compareFilters(&$filterA, $filterBSettings, &$filterBSubfilters)
+    {
+        // Compare settings.
+        foreach ($filterBSettings as $name => $value) {
+            if (!($filterA->hasSetting($name) || in_array($name, $filterA->getInternalSettings()))
+                || $filterA->getData($name) != $value) {
+                return false;
+            }
+        }
 
-		// Compare sub-filters.
-		if (is_a($filterA, 'CompositeFilter')) {
-			// Compare sub-filters of composite filters.
-			foreach($filterBSubfilters as $filterBSubfilter) { /* @var $filterBSubfilter PersistableFilter */
-				$seq = $filterBSubfilter->getSequence();
-				$filterASubfilter =& $filterA->getFilter($seq);
-				if (!$filterASubfilter || !$filterBSubfilter || get_class($filterASubfilter) != get_class($filterBSubfilter)) {
-					return false;
-				}
+        // Compare sub-filters.
+        if (is_a($filterA, 'CompositeFilter')) {
+            // Compare sub-filters of composite filters.
+            foreach ($filterBSubfilters as $filterBSubfilter) { /** @var PersistableFilter $filterBSubfilter */
+                $seq = $filterBSubfilter->getSequence();
+                $filterASubfilter = & $filterA->getFilter($seq);
+                if (!$filterASubfilter || !$filterBSubfilter || get_class($filterASubfilter) != get_class($filterBSubfilter)) {
+                    return false;
+                }
 
-				// Extract sub-filter settings.
-				$filterBSubfilterSettings = array();
-				foreach($filterBSubfilter->getSettingNames() as $filterBSubfilterSettingName) {
-					if ($filterBSubfilter->hasData($filterBSubfilterSettingName)) {
-						$filterBSubfilterSettings[$filterBSubfilterSettingName] = $filterBSubfilter->getData($filterBSubfilterSettingName);
-					}
-				}
+                // Extract sub-filter settings.
+                $filterBSubfilterSettings = [];
+                foreach ($filterBSubfilter->getSettingNames() as $filterBSubfilterSettingName) {
+                    if ($filterBSubfilter->hasData($filterBSubfilterSettingName)) {
+                        $filterBSubfilterSettings[$filterBSubfilterSettingName] = $filterBSubfilter->getData($filterBSubfilterSettingName);
+                    }
+                }
 
-				// Extract sub-filter sub-filters.
-				if (is_a($filterBSubfilter, 'CompositeFilter')) {
-					$filterBSubfilterSubfilters =& $filterBSubfilter->getFilters();
-				} else {
-					$filterBSubfilterSubfilters = array();
-				}
+                // Extract sub-filter sub-filters.
+                if (is_a($filterBSubfilter, 'CompositeFilter')) {
+                    $filterBSubfilterSubfilters = & $filterBSubfilter->getFilters();
+                } else {
+                    $filterBSubfilterSubfilters = [];
+                }
 
-				// Recurse.
-				if (!$this->compareFilters($filterASubfilter, $filterBSubfilterSettings, $filterBSubfilterSubfilters)) return false;
-			}
-		}
+                // Recurse.
+                if (!$this->compareFilters($filterASubfilter, $filterBSubfilterSettings, $filterBSubfilterSubfilters)) {
+                    return false;
+                }
+            }
+        }
 
-		return true;
-	}
+        return true;
+    }
 
-	/**
-	 * @verbatim
-	 * Helper method that extracts filter settings
-	 * from the children of a <filter> element.
-	 * @endverbatim
-	 * @param $settingNode XMLNode
-	 * @return $setting array a key-value pair.
-	 */
-	function getFilterSetting($settingNode) {
-		// Retrieve the setting name.
-		$nameNode =& $settingNode->getChildByName('name');
-		assert(is_a($nameNode, 'XMLNode'));
-		$name = $nameNode->getValue();
+    /**
+     * @verbatim
+     * Helper method that extracts filter settings
+     * from the children of a <filter> element.
+     * @endverbatim
+     *
+     * @param $settingNode XMLNode
+     *
+     * @return $setting array a key-value pair.
+     */
+    public function getFilterSetting($settingNode)
+    {
+        // Retrieve the setting name.
+        $nameNode = & $settingNode->getChildByName('name');
+        assert(is_a($nameNode, 'XMLNode'));
+        $name = $nameNode->getValue();
 
-		// Retrieve the setting value.
-		$type = $settingNode->getAttribute('type');
-		$valueNode =& $settingNode->getChildByName('value');
-		assert(is_a($valueNode, 'XMLNode'));
-		switch($type) {
-			case 'string':
-				$value = (string)$valueNode->getValue();
-				break;
+        // Retrieve the setting value.
+        $type = $settingNode->getAttribute('type');
+        $valueNode = & $settingNode->getChildByName('value');
+        assert(is_a($valueNode, 'XMLNode'));
+        switch ($type) {
+            case 'string':
+                $value = (string)$valueNode->getValue();
+                break;
 
-			case 'bool':
-				$value = (boolean)$valueNode->getValue();
-				break;
+            case 'bool':
+                $value = (bool)$valueNode->getValue();
+                break;
 
-			case 'int':
-				$value = (integer)$valueNode->getValue();
-				break;
+            case 'int':
+                $value = (int)$valueNode->getValue();
+                break;
 
-			case 'const':
-				$constName = $valueNode->getValue();
-				assert(defined($constName));
-				$value = constant($constName);
-				break;
+            case 'const':
+                $constName = $valueNode->getValue();
+                assert(defined($constName));
+                $value = constant($constName);
+                break;
 
-			case 'object':
-				$value = array();
-				$arrayNode =& $valueNode->getChildByName('array');
-				$value = $this->readArraySetting($arrayNode);
-				break;
+            case 'object':
+                $value = [];
+                $arrayNode = & $valueNode->getChildByName('array');
+                $value = $this->readArraySetting($arrayNode);
+                break;
 
-			default:
-				// Unknown type.
-				assert(false);
-				$value = null;
-		}
+            default:
+                // Unknown type.
+                assert(false);
+                $value = null;
+        }
 
-		// Add the setting to the list.
-		$setting = array($name, $value);
-		return $setting;
-	}
+        // Add the setting to the list.
+        $setting = [$name, $value];
+        return $setting;
+    }
 
-	/**
-	 * Recursively read an array from an XML element list.
-	 * @param $arrayNode XMLNode
-	 * @return array
-	 */
-	function readArraySetting($arrayNode) {
-		$resultArray = array();
-		foreach($arrayNode->getChildren() as $elementNode) { /* @var $elementNode XMLNode */
-			$key = $elementNode->getAttribute('key');
+    /**
+     * Recursively read an array from an XML element list.
+     *
+     * @param $arrayNode XMLNode
+     *
+     * @return array
+     */
+    public function readArraySetting($arrayNode)
+    {
+        $resultArray = [];
+        foreach ($arrayNode->getChildren() as $elementNode) { /** @var XMLNode $elementNode */
+            $key = $elementNode->getAttribute('key');
 
-			$subArrayNode = $elementNode->getChildByName('array');
-			if (is_a($subArrayNode, 'XMLNode')) {
-				// Recurse into sub-array.
-				$value = $this->readArraySetting($subArrayNode);
-			} else {
-				// Read the element value.
-				$value = $elementNode->getValue();
-			}
+            $subArrayNode = $elementNode->getChildByName('array');
+            if (is_a($subArrayNode, 'XMLNode')) {
+                // Recurse into sub-array.
+                $value = $this->readArraySetting($subArrayNode);
+            } else {
+                // Read the element value.
+                $value = $elementNode->getValue();
+            }
 
-			// Add the element to the result set.
-			if (isset($key)) {
-				$resultArray[$key] = $value;
-			} else {
-				$resultArray[] = $value;
-			}
-		}
+            // Add the element to the result set.
+            if (isset($key)) {
+                $resultArray[$key] = $value;
+            } else {
+                $resultArray[] = $value;
+            }
+        }
 
-		return $resultArray;
-	}
+        return $resultArray;
+    }
 }
-

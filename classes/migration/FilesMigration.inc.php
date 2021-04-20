@@ -15,25 +15,26 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class FilesMigration extends Migration {
-	/**
-	 * Run the migrations.
-	 * @return void
-	 */
-	public function up() {
-		// Create a new table to track files in file storage
-		Schema::create('files', function (Blueprint $table) {
-			$table->bigIncrements('file_id');
-			$table->string('path', 255);
-			$table->string('mimetype', 255);
-		});
-	}
+class FilesMigration extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        // Create a new table to track files in file storage
+        Schema::create('files', function (Blueprint $table) {
+            $table->bigIncrements('file_id');
+            $table->string('path', 255);
+            $table->string('mimetype', 255);
+        });
+    }
 
-	/**
-	 * Reverse the migration.
-	 * @return void
-	 */
-	public function down() {
-		Schema::drop('files');
-	}
+    /**
+     * Reverse the migration.
+     */
+    public function down()
+    {
+        Schema::drop('files');
+    }
 }

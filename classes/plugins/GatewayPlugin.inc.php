@@ -15,64 +15,76 @@
 
 import('lib.pkp.classes.plugins.Plugin');
 
-abstract class GatewayPlugin extends Plugin {
+abstract class GatewayPlugin extends Plugin
+{
+    /**
+     * Handle fetch requests for this plugin.
+     *
+     * @param $args array
+     * @param $request object
+     */
+    abstract public function fetch($args, $request);
 
-	/**
-	 * Handle fetch requests for this plugin.
-	 * @param $args array
-	 * @param $request object
-	 */
-	abstract function fetch($args, $request);
+    /**
+     * Determine whether the plugin can be enabled.
+     *
+     * @return boolean
+     */
+    public function getCanEnable()
+    {
+        return true;
+    }
 
-	/**
-	 * Determine whether the plugin can be enabled.
-	 * @return boolean
-	 */
-	function getCanEnable() {
-		return true;
-	}
+    /**
+     * Determine whether the plugin can be disabled.
+     *
+     * @return boolean
+     */
+    public function getCanDisable()
+    {
+        return true;
+    }
 
-	/**
-	 * Determine whether the plugin can be disabled.
-	 * @return boolean
-	 */
-	function getCanDisable() {
-		return true;
-	}
+    /**
+     * Determine whether or not this plugin is currently enabled.
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->getSetting($this->getCurrentContextId(), 'enabled');
+    }
 
-	/**
-	 * Determine whether or not this plugin is currently enabled.
-	 * @return boolean
-	 */
-	function getEnabled() {
-		return $this->getSetting($this->getCurrentContextId(), 'enabled');
-	}
+    /**
+     * Set whether or not this plugin is currently enabled.
+     *
+     * @param $enabled boolean
+     */
+    public function setEnabled($enabled)
+    {
+        $this->updateSetting($this->getCurrentContextId(), 'enabled', $enabled, 'bool');
+    }
 
-	/**
-	 * Set whether or not this plugin is currently enabled.
-	 * @param $enabled boolean
-	 */
-	function setEnabled($enabled) {
-		$this->updateSetting($this->getCurrentContextId(), 'enabled', $enabled, 'bool');
-	}
+    /**
+     * Get the current context ID or the site-wide context ID (0) if no context
+     * can be found.
+     */
+    public function getCurrentContextId()
+    {
+        $context = Application::get()->getRequest()->getContext();
+        return is_null($context) ? 0 : $context->getId();
+    }
 
-	/**
-	 * Get the current context ID or the site-wide context ID (0) if no context
-	 * can be found.
-	 */
-	function getCurrentContextId() {
-		$context = Application::get()->getRequest()->getContext();
-		return is_null($context) ? 0 : $context->getId();
-	}
+    /**
+     * Get policies to the authorization process
+     *
+     * @param $request PKPRequest
+     *
+     * @return array Set of authorization policies
+     */
 
-	/**
-	 * Get policies to the authorization process
-	 * @param $request PKPRequest
-	 * @return array Set of authorization policies
-	 */
-
-	function getPolicies($request) {
-		return array();
-	}
-
+    public function getPolicies($request)
+    {
+        return [];
+    }
 }

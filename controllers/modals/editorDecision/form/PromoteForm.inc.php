@@ -18,197 +18,211 @@ import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailFo
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
-class PromoteForm extends EditorDecisionWithEmailForm {
+class PromoteForm extends EditorDecisionWithEmailForm
+{
+    /**
+     * Constructor.
+     *
+     * @param Submission $submission
+     * @param int $decision
+     * @param int $stageId
+     * @param ReviewRound $reviewRound
+     */
+    public function __construct($submission, $decision, $stageId, $reviewRound = null)
+    {
+        if (!in_array($decision, $this->_getDecisions())) {
+            fatalError('Invalid decision!');
+        }
 
-	/**
-	 * Constructor.
-	 * @param Submission $submission
-	 * @param int $decision
-	 * @param int $stageId
-	 * @param ReviewRound $reviewRound
-	 */
-	function __construct($submission, $decision, $stageId, $reviewRound = null) {
-		if (!in_array($decision, $this->_getDecisions())) {
-			fatalError('Invalid decision!');
-		}
+        $this->setSaveFormOperation('savePromote');
 
-		$this->setSaveFormOperation('savePromote');
+        parent::__construct(
+            $submission,
+            $decision,
+            $stageId,
+            'controllers/modals/editorDecision/form/promoteForm.tpl',
+            $reviewRound
+        );
 
-		parent::__construct(
-			$submission, $decision, $stageId,
-			'controllers/modals/editorDecision/form/promoteForm.tpl',
-			$reviewRound
-		);
-
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-	}
-
-
-	//
-	// Implement protected template methods from Form
-	//
-	/**
-	 * @copydoc EditorDecisionWithEmailForm::initData()
-	 */
-	function initData($actionLabels = []) {
-		$request = Application::get()->getRequest();
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getSubmission(), $this->getStageId(), $this->_getDecisions());
-
-		$this->setData('stageId', $this->getStageId());
-
-		// If payments are enabled for this stage/form, default to requiring them
-		$this->setData('requestPayment', true);
-
-		return parent::initData($actionLabels);
-	}
-
-	/**
-	 * @copydoc Form::readInputData()
-	 */
-	function readInputData() {
-		$this->readUserVars(['requestPayment']);
-		parent::readInputData();
-	}
-
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionParams) {
-		parent::execute(...$functionParams);
-
-		$request = Application::get()->getRequest();
-
-		// Retrieve the submission.
-		$submission = $this->getSubmission();
-
-		// Get this form decision actions labels.
-		$actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), $this->_getDecisions());
-
-		// Record the decision.
-		$reviewRound = $this->getReviewRound();
-		$decision = $this->getDecision();
-		import('lib.pkp.classes.submission.action.EditorAction');
-		$editorAction = new EditorAction();
-		$editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound);
-
-		// Bring in the SUBMISSION_FILE_* constants.
-		import('lib.pkp.classes.submission.SubmissionFile');
-
-		// Identify email key and status of round.
-		switch ($decision) {
-			case SUBMISSION_EDITOR_DECISION_ACCEPT:
-				$emailKey = 'EDITOR_DECISION_ACCEPT';
-				$status = REVIEW_ROUND_STATUS_ACCEPTED;
-
-				$this->_updateReviewRoundStatus($submission, $status, $reviewRound);
-
-				// Move to the editing stage.
-				$editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EDITING, $request);
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
+    }
 
 
-				$selectedFiles = $this->getData('selectedFiles');
-				if(is_array($selectedFiles)) {
-					foreach ($selectedFiles as $submissionFileId) {
-						$submissionFile = Services::get('submissionFile')->get($submissionFileId);
-						$newSubmissionFile = clone $submissionFile;
-						$newSubmissionFile->setData('fileStage', SUBMISSION_FILE_FINAL);
-						$newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
-						$newSubmissionFile->setData('assocType', null);
-						$newSubmissionFile->setData('assocId', null);
-						$newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
-					}
-				}
+    //
+    // Implement protected template methods from Form
+    //
+    /**
+     * @copydoc EditorDecisionWithEmailForm::initData()
+     */
+    public function initData($actionLabels = [])
+    {
+        $request = Application::get()->getRequest();
+        $actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $this->getSubmission(), $this->getStageId(), $this->_getDecisions());
 
-				// Send email to the author.
-				$this->_sendReviewMailToAuthor($submission, $emailKey, $request);
-				break;
+        $this->setData('stageId', $this->getStageId());
 
-			case SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW:
-				$emailKey = 'EDITOR_DECISION_SEND_TO_EXTERNAL';
-				$status = REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL;
+        // If payments are enabled for this stage/form, default to requiring them
+        $this->setData('requestPayment', true);
 
-				$this->_updateReviewRoundStatus($submission, $status, $reviewRound);
+        return parent::initData($actionLabels);
+    }
 
-				// Move to the external review stage.
-				$editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request);
+    /**
+     * @copydoc Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $this->readUserVars(['requestPayment']);
+        parent::readInputData();
+    }
 
-				// Create an initial external review round.
-				$this->_initiateReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionParams)
+    {
+        parent::execute(...$functionParams);
 
-				// Send email to the author.
-				$this->_sendReviewMailToAuthor($submission, $emailKey, $request);
-				break;
-			case SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION:
-				$emailKey = 'EDITOR_DECISION_SEND_TO_PRODUCTION';
-				// FIXME: this is copy-pasted from above, save the FILE_GALLEY.
+        $request = Application::get()->getRequest();
 
-				// Move to the editing stage.
-				$editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_PRODUCTION, $request);
+        // Retrieve the submission.
+        $submission = $this->getSubmission();
 
-				// Bring in the SUBMISSION_FILE_* constants.
-				import('lib.pkp.classes.submission.SubmissionFile');
+        // Get this form decision actions labels.
+        $actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), $this->_getDecisions());
 
-				$selectedFiles = $this->getData('selectedFiles');
-				if(is_array($selectedFiles)) {
-					foreach ($selectedFiles as $submissionFileId) {
-						$submissionFile = Services::get('submissionFile')->get($submissionFileId);
-						$newSubmissionFile = clone $submissionFile;
-						$newSubmissionFile->setData('fileStage', SUBMISSION_FILE_PRODUCTION_READY);
-						$newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
-						$newSubmissionFile->setData('assocType', null);
-						$newSubmissionFile->setData('assocId', null);
-						$newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
-					}
-				}
-				// Send email to the author.
-				$this->_sendReviewMailToAuthor($submission, $emailKey, $request);
-				break;
-			default:
-				throw new Exception('Unsupported decision!');
-		}
+        // Record the decision.
+        $reviewRound = $this->getReviewRound();
+        $decision = $this->getDecision();
+        import('lib.pkp.classes.submission.action.EditorAction');
+        $editorAction = new EditorAction();
+        $editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound);
 
-		if ($this->getData('requestPayment')) {
-			$context = $request->getContext();
-			$stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($context, $submission, $this->getStageId());
-			$decisionData = $stageDecisions[$decision];
-			if (isset($decisionData['paymentType'])) {
-				$paymentType = $decisionData['paymentType'];
+        // Bring in the SUBMISSION_FILE_* constants.
+        import('lib.pkp.classes.submission.SubmissionFile');
 
-				// Queue a payment.
-				$paymentManager = Application::getPaymentManager($context);
-				$queuedPayment = $paymentManager->createQueuedPayment($request, $paymentType, $request->getUser()->getId(), $submission->getId(), $decisionData['paymentAmount'], $decisionData['paymentCurrency']);
-				$paymentManager->queuePayment($queuedPayment);
+        // Identify email key and status of round.
+        switch ($decision) {
+            case SUBMISSION_EDITOR_DECISION_ACCEPT:
+                $emailKey = 'EDITOR_DECISION_ACCEPT';
+                $status = REVIEW_ROUND_STATUS_ACCEPTED;
 
-				// Notify any authors that this needs payment.
-				$notificationMgr = new NotificationManager();
-				$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-				$stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
-				$userIds = [];
-				while ($stageAssignment = $stageAssignments->next()) {
-					if (!in_array($stageAssignment->getUserId(), $userIds)) {
-						$notificationMgr->createNotification($request, $stageAssignment->getUserId(), NOTIFICATION_TYPE_PAYMENT_REQUIRED,
-							$context->getId(), ASSOC_TYPE_QUEUED_PAYMENT, $queuedPayment->getId(), NOTIFICATION_LEVEL_TASK);
-						$userIds[] = $stageAssignment->getUserId();
-					}
-				}
-			}
-		}
-	}
+                $this->_updateReviewRoundStatus($submission, $status, $reviewRound);
 
-	//
-	// Private functions
-	//
-	/**
-	 * Get this form decisions.
-	 * @return array
-	 */
-	function _getDecisions() {
-		return [
-			SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW,
-			SUBMISSION_EDITOR_DECISION_ACCEPT,
-			SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION
-		];
-	}
+                // Move to the editing stage.
+                $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EDITING, $request);
+
+
+                $selectedFiles = $this->getData('selectedFiles');
+                if (is_array($selectedFiles)) {
+                    foreach ($selectedFiles as $submissionFileId) {
+                        $submissionFile = Services::get('submissionFile')->get($submissionFileId);
+                        $newSubmissionFile = clone $submissionFile;
+                        $newSubmissionFile->setData('fileStage', SUBMISSION_FILE_FINAL);
+                        $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
+                        $newSubmissionFile->setData('assocType', null);
+                        $newSubmissionFile->setData('assocId', null);
+                        $newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
+                    }
+                }
+
+                // Send email to the author.
+                $this->_sendReviewMailToAuthor($submission, $emailKey, $request);
+                break;
+
+            case SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW:
+                $emailKey = 'EDITOR_DECISION_SEND_TO_EXTERNAL';
+                $status = REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL;
+
+                $this->_updateReviewRoundStatus($submission, $status, $reviewRound);
+
+                // Move to the external review stage.
+                $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request);
+
+                // Create an initial external review round.
+                $this->_initiateReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
+
+                // Send email to the author.
+                $this->_sendReviewMailToAuthor($submission, $emailKey, $request);
+                break;
+            case SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION:
+                $emailKey = 'EDITOR_DECISION_SEND_TO_PRODUCTION';
+                // FIXME: this is copy-pasted from above, save the FILE_GALLEY.
+
+                // Move to the editing stage.
+                $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_PRODUCTION, $request);
+
+                // Bring in the SUBMISSION_FILE_* constants.
+                import('lib.pkp.classes.submission.SubmissionFile');
+
+                $selectedFiles = $this->getData('selectedFiles');
+                if (is_array($selectedFiles)) {
+                    foreach ($selectedFiles as $submissionFileId) {
+                        $submissionFile = Services::get('submissionFile')->get($submissionFileId);
+                        $newSubmissionFile = clone $submissionFile;
+                        $newSubmissionFile->setData('fileStage', SUBMISSION_FILE_PRODUCTION_READY);
+                        $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
+                        $newSubmissionFile->setData('assocType', null);
+                        $newSubmissionFile->setData('assocId', null);
+                        $newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
+                    }
+                }
+                // Send email to the author.
+                $this->_sendReviewMailToAuthor($submission, $emailKey, $request);
+                break;
+            default:
+                throw new Exception('Unsupported decision!');
+        }
+
+        if ($this->getData('requestPayment')) {
+            $context = $request->getContext();
+            $stageDecisions = (new EditorDecisionActionsManager())->getStageDecisions($context, $submission, $this->getStageId());
+            $decisionData = $stageDecisions[$decision];
+            if (isset($decisionData['paymentType'])) {
+                $paymentType = $decisionData['paymentType'];
+
+                // Queue a payment.
+                $paymentManager = Application::getPaymentManager($context);
+                $queuedPayment = $paymentManager->createQueuedPayment($request, $paymentType, $request->getUser()->getId(), $submission->getId(), $decisionData['paymentAmount'], $decisionData['paymentCurrency']);
+                $paymentManager->queuePayment($queuedPayment);
+
+                // Notify any authors that this needs payment.
+                $notificationMgr = new NotificationManager();
+                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+                $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
+                $userIds = [];
+                while ($stageAssignment = $stageAssignments->next()) {
+                    if (!in_array($stageAssignment->getUserId(), $userIds)) {
+                        $notificationMgr->createNotification(
+                            $request,
+                            $stageAssignment->getUserId(),
+                            NOTIFICATION_TYPE_PAYMENT_REQUIRED,
+                            $context->getId(),
+                            ASSOC_TYPE_QUEUED_PAYMENT,
+                            $queuedPayment->getId(),
+                            NOTIFICATION_LEVEL_TASK
+                        );
+                        $userIds[] = $stageAssignment->getUserId();
+                    }
+                }
+            }
+        }
+    }
+
+    //
+    // Private functions
+    //
+    /**
+     * Get this form decisions.
+     *
+     * @return array
+     */
+    public function _getDecisions()
+    {
+        return [
+            SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW,
+            SUBMISSION_EDITOR_DECISION_ACCEPT,
+            SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION
+        ];
+    }
 }
-
-

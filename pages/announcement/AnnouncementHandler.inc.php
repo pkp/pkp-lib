@@ -15,80 +15,84 @@
 
 import('classes.handler.Handler');
 
-use \PKP\db\DBResultRange;
+use PKP\db\DBResultRange;
 
-class AnnouncementHandler extends Handler {
+class AnnouncementHandler extends Handler
+{
+    //
+    // Implement methods from Handler.
+    //
+    /**
+     * @copydoc Handler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
+        $this->addPolicy(new ContextRequiredPolicy($request));
 
-	//
-	// Implement methods from Handler.
-	//
-	/**
-	 * @copydoc Handler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
-		$this->addPolicy(new ContextRequiredPolicy($request));
-
-		return parent::authorize($request, $args, $roleAssignments);
-	}
-
-
-	//
-	// Public handler methods.
-	//
-	/**
-	 * Show public announcements page.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return string
-	 */
-	function index($args, $request) {
-		if (!$request->getContext()->getData('enableAnnouncements')) {
-			$request->getDispatcher()->handle404();
-		}
-
-		$this->setupTemplate($request);
-
-		$context = $request->getContext();
-		$announcementsIntro = $context->getLocalizedData('announcementsIntroduction');
-
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('announcementsIntroduction', $announcementsIntro);
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
 
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
-		// TODO the announcements list should support pagination
-		$rangeInfo = new DBResultRange(50, -1);
-		$announcements = $announcementDao->getAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $rangeInfo);
-		$templateMgr->assign('announcements', $announcements->toArray());
+    //
+    // Public handler methods.
+    //
+    /**
+     * Show public announcements page.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return string
+     */
+    public function index($args, $request)
+    {
+        if (!$request->getContext()->getData('enableAnnouncements')) {
+            $request->getDispatcher()->handle404();
+        }
 
-		$templateMgr->display('frontend/pages/announcements.tpl');
-	}
+        $this->setupTemplate($request);
 
-	/**
-	 * View announcement details.
-	 * @param $args array first parameter is the ID of the announcement to display
-	 * @param $request PKPRequest
-	 */
-	function view($args, $request) {
-		if (!$request->getContext()->getData('enableAnnouncements')) {
-			$request->getDispatcher()->handle404();
-		}
-		$this->validate();
-		$this->setupTemplate($request);
+        $context = $request->getContext();
+        $announcementsIntro = $context->getLocalizedData('announcementsIntroduction');
 
-		$context = $request->getContext();
-		$announcementId = (int) array_shift($args);
-		$announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /* @var $announcementDao AnnouncementDAO */
-		$announcement = $announcementDao->getById($announcementId);
-		if ($announcement && $announcement->getAssocType() == Application::getContextAssocType() && $announcement->getAssocId() == $context->getId() && ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time())) {
-			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('announcement', $announcement);
-			$templateMgr->assign('announcementTitle', $announcement->getLocalizedTitleFull());
-			return $templateMgr->display('frontend/pages/announcement.tpl');
-		}
-		$request->redirect(null, 'announcement');
-	}
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('announcementsIntroduction', $announcementsIntro);
+
+
+        $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
+        // TODO the announcements list should support pagination
+        $rangeInfo = new DBResultRange(50, -1);
+        $announcements = $announcementDao->getAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $rangeInfo);
+        $templateMgr->assign('announcements', $announcements->toArray());
+
+        $templateMgr->display('frontend/pages/announcements.tpl');
+    }
+
+    /**
+     * View announcement details.
+     *
+     * @param $args array first parameter is the ID of the announcement to display
+     * @param $request PKPRequest
+     */
+    public function view($args, $request)
+    {
+        if (!$request->getContext()->getData('enableAnnouncements')) {
+            $request->getDispatcher()->handle404();
+        }
+        $this->validate();
+        $this->setupTemplate($request);
+
+        $context = $request->getContext();
+        $announcementId = (int) array_shift($args);
+        $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
+        $announcement = $announcementDao->getById($announcementId);
+        if ($announcement && $announcement->getAssocType() == Application::getContextAssocType() && $announcement->getAssocId() == $context->getId() && ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time())) {
+            $templateMgr = TemplateManager::getManager($request);
+            $templateMgr->assign('announcement', $announcement);
+            $templateMgr->assign('announcementTitle', $announcement->getLocalizedTitleFull());
+            return $templateMgr->display('frontend/pages/announcement.tpl');
+        }
+        $request->redirect(null, 'announcement');
+    }
 }
-
-

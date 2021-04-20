@@ -15,54 +15,55 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-use \PKP\core\JSONMessage;
+use PKP\core\JSONMessage;
 
-class EditorReviewFilesGridHandler extends FileListGridHandler {
+class EditorReviewFilesGridHandler extends FileListGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
+        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE;
+        import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
+        parent::__construct(
+            new ReviewGridDataProvider($fileStage),
+            null,
+            FILE_GRID_EDIT | FILE_GRID_MANAGE | FILE_GRID_VIEW_NOTES | FILE_GRID_DELETE
+        );
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		$stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
-		$fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE;
-		import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
-		parent::__construct(
-			new ReviewGridDataProvider($fileStage),
-			null,
-			FILE_GRID_EDIT|FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES|FILE_GRID_DELETE
-		);
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+            ['fetchGrid', 'fetchRow', 'selectFiles']
+        );
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('fetchGrid', 'fetchRow', 'selectFiles')
-		);
-
-		$this->setTitle('reviewer.submission.reviewFiles');
-	}
+        $this->setTitle('reviewer.submission.reviewFiles');
+    }
 
 
-	//
-	// Public handler methods
-	//
-	/**
-	 * Show the form to allow the user to select review files
-	 * (bring in/take out files from submission stage to review stage)
-	 *
-	 * FIXME: Move to its own handler so that it can be re-used among grids.
-	 *
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function selectFiles($args, $request) {
-		$submission = $this->getSubmission();
+    //
+    // Public handler methods
+    //
+    /**
+     * Show the form to allow the user to select review files
+     * (bring in/take out files from submission stage to review stage)
+     *
+     * FIXME: Move to its own handler so that it can be re-used among grids.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function selectFiles($args, $request)
+    {
+        $submission = $this->getSubmission();
 
-		import('lib.pkp.controllers.grid.files.review.form.ManageReviewFilesForm');
-		$manageReviewFilesForm = new ManageReviewFilesForm($submission->getId(), $this->getRequestArg('stageId'), $this->getRequestArg('reviewRoundId'));
+        import('lib.pkp.controllers.grid.files.review.form.ManageReviewFilesForm');
+        $manageReviewFilesForm = new ManageReviewFilesForm($submission->getId(), $this->getRequestArg('stageId'), $this->getRequestArg('reviewRoundId'));
 
-		$manageReviewFilesForm->initData();
-		return new JSONMessage(true, $manageReviewFilesForm->fetch($request));
-	}
+        $manageReviewFilesForm->initData();
+        return new JSONMessage(true, $manageReviewFilesForm->fetch($request));
+    }
 }
-
-

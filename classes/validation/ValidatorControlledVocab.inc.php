@@ -16,34 +16,43 @@
 
 import('lib.pkp.classes.validation.Validator');
 
-class ValidatorControlledVocab extends Validator {
-	/** @var array */
-	var $_acceptedValues;
+class ValidatorControlledVocab extends Validator
+{
+    /** @var array */
+    public $_acceptedValues;
 
-	/**
-	 * Constructor.
-	 * @param $symbolic string
-	 * @param $assocType int
-	 * @param $assocId int
-	 */
-	function __construct($symbolic, $assocType, $assocId) {
-		$controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /* @var $controlledVocabDao ControlledVocabDAO */
-		$controlledVocab = $controlledVocabDao->getBySymbolic($symbolic, $assocType, $assocId);
-		if ($controlledVocab) $this->_acceptedValues = array_keys($controlledVocab->enumerate());
-		else $this->_acceptedValues = array();
-	}
+    /**
+     * Constructor.
+     *
+     * @param $symbolic string
+     * @param $assocType int
+     * @param $assocId int
+     */
+    public function __construct($symbolic, $assocType, $assocId)
+    {
+        $controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /** @var ControlledVocabDAO $controlledVocabDao */
+        $controlledVocab = $controlledVocabDao->getBySymbolic($symbolic, $assocType, $assocId);
+        if ($controlledVocab) {
+            $this->_acceptedValues = array_keys($controlledVocab->enumerate());
+        } else {
+            $this->_acceptedValues = [];
+        }
+    }
 
 
-	//
-	// Implement abstract methods from Validator
-	//
-	/**
-	 * @see Validator::isValid()
-	 * Value is valid if it is empty and optional or is in the set of accepted values.
-	 * @param $value mixed
-	 * @return boolean
-	 */
-	function isValid($value) {
-		return in_array($value, $this->_acceptedValues);
-	}
+    //
+    // Implement abstract methods from Validator
+    //
+    /**
+     * @see Validator::isValid()
+     * Value is valid if it is empty and optional or is in the set of accepted values.
+     *
+     * @param $value mixed
+     *
+     * @return boolean
+     */
+    public function isValid($value)
+    {
+        return in_array($value, $this->_acceptedValues);
+    }
 }

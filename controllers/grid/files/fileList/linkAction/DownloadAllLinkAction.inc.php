@@ -18,24 +18,25 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class DownloadAllLinkAction extends LinkAction {
+class DownloadAllLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $actionArgs array
+     */
+    public function __construct($request, $actionArgs)
+    {
+        // Instantiate the redirect action request.
+        $router = $request->getRouter();
+        import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
+        $redirectRequest = new PostAndRedirectAction(
+            $router->url($request, null, 'api.file.FileApiHandler', 'recordDownload', null, $actionArgs),
+            $router->url($request, null, 'api.file.FileApiHandler', 'downloadAllFiles', null, $actionArgs)
+        );
 
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $actionArgs array
-	 * @param $files array Files to be downloaded.
-	 */
-	function __construct($request, $actionArgs) {
-		// Instantiate the redirect action request.
-		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
-		$redirectRequest = new PostAndRedirectAction($router->url($request, null, 'api.file.FileApiHandler', 'recordDownload', null, $actionArgs),
-			$router->url($request, null, 'api.file.FileApiHandler', 'downloadAllFiles', null, $actionArgs));
-
-		// Configure the link action.
-		parent::__construct('downloadAll', $redirectRequest, __('submission.files.downloadAll'), 'getPackage');
-	}
+        // Configure the link action.
+        parent::__construct('downloadAll', $redirectRequest, __('submission.files.downloadAll'), 'getPackage');
+    }
 }
-
-

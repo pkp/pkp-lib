@@ -9,54 +9,61 @@
  *
  * @class UserSettingsDAO
  * @ingroup user
+ *
  * @see User
  *
  * @brief Operations for retrieving and modifying user settings.
  */
 
 
-class UserSettingsDAO extends \PKP\db\DAO {
-	/**
-	 * Retrieve a user setting value.
-	 * @param $userId int
-	 * @param $name
-	 * @param $contextId int
-	 * @return mixed
-	 * @see UserSettingsDAO::getByAssoc
-	 */
-	function getSetting($userId, $name, $contextId = CONTEXT_SITE) {
-		$result = $this->retrieve(
-			'SELECT	setting_value,
+class UserSettingsDAO extends \PKP\db\DAO
+{
+    /**
+     * Retrieve a user setting value.
+     *
+     * @param $userId int
+     * @param $name
+     * @param $contextId int
+     *
+     * @see UserSettingsDAO::getByAssoc
+     */
+    public function getSetting($userId, $name, $contextId = CONTEXT_SITE)
+    {
+        $result = $this->retrieve(
+            'SELECT	setting_value,
 				setting_type
 			FROM	user_settings
 			WHERE	user_id = ? AND
 				setting_name = ? AND
 				assoc_type = ? AND
 				assoc_id = ?',
-			[
-				(int) $userId,
-				$name,
-				Application::getContextAssocType(),
-				(int) $contextId
-			]
-		);
+            [
+                (int) $userId,
+                $name,
+                Application::getContextAssocType(),
+                (int) $contextId
+            ]
+        );
 
-		$row = (array) $result->current();
-		return $row?$this->convertFromDB($row['setting_value'], $row['setting_type']):null;
-	}
+        $row = (array) $result->current();
+        return $row ? $this->convertFromDB($row['setting_value'], $row['setting_type']) : null;
+    }
 
-	/**
-	 * Retrieve all users by setting name and value.
-	 * @param $name string
-	 * @param $value mixed
-	 * @param $type string
-	 * @param $contextId int
-	 * @return DAOResultFactory matching Users
-	 */
-	function getUsersBySetting($name, $value, $type = null, $contextId = CONTEXT_SITE) {
-		$value = $this->convertToDB($value, $type);
-		$result = $this->retrieve(
-			'SELECT	u.*
+    /**
+     * Retrieve all users by setting name and value.
+     *
+     * @param $name string
+     * @param $value mixed
+     * @param $type string
+     * @param $contextId int
+     *
+     * @return DAOResultFactory matching Users
+     */
+    public function getUsersBySetting($name, $value, $type = null, $contextId = CONTEXT_SITE)
+    {
+        $value = $this->convertToDB($value, $type);
+        $result = $this->retrieve(
+            'SELECT	u.*
 			FROM	users u,
 				user_settings s
 			WHERE	u.user_id = s.user_id AND
@@ -64,117 +71,126 @@ class UserSettingsDAO extends \PKP\db\DAO {
 				s.setting_value = ? AND
 				s.assoc_type = ? AND
 				s.assoc_id = ?',
-			[$name, $value, Application::getContextAssocType(), (int) $contextId]
-		);
+            [$name, $value, Application::getContextAssocType(), (int) $contextId]
+        );
 
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		return new DAOResultFactory($result, $userDao, '_returnUserFromRow');
-	}
+        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        return new DAOResultFactory($result, $userDao, '_returnUserFromRow');
+    }
 
-	/**
-	 * Retrieve all settings for a user for a context.
-	 * @param $userId int
-	 * @param $contextId int
-	 * @return array
-	 */
-	function getSettingsByContextId($userId, $contextId = CONTEXT_SITE) {
-		$result = $this->retrieve(
-			'SELECT	setting_name,
+    /**
+     * Retrieve all settings for a user for a context.
+     *
+     * @param $userId int
+     * @param $contextId int
+     *
+     * @return array
+     */
+    public function getSettingsByContextId($userId, $contextId = CONTEXT_SITE)
+    {
+        $result = $this->retrieve(
+            'SELECT	setting_name,
 				setting_value,
 				setting_type
 			FROM	user_settings
 			WHERE	user_id = ? AND
 				assoc_type = ?
 				AND assoc_id = ?',
-			[(int) $userId, Application::getContextAssocType(), (int) $contextId]
-		);
+            [(int) $userId, Application::getContextAssocType(), (int) $contextId]
+        );
 
-		$userSettings = array();
-		foreach ($result as $row) {
-			$value = $this->convertFromDB($row->setting_value, $row->setting_type);
-			$userSettings[$row->setting_name] = $value;
-		}
-		return $userSettings;
-	}
+        $userSettings = [];
+        foreach ($result as $row) {
+            $value = $this->convertFromDB($row->setting_value, $row->setting_type);
+            $userSettings[$row->setting_name] = $value;
+        }
+        return $userSettings;
+    }
 
-	/**
-	 * Add/update a user setting.
-	 * @param $userId int
-	 * @param $name string
-	 * @param $value mixed
-	 * @param $type string data type of the setting. If omitted, type will be guessed
-	 * @param $contextId int
-	 */
-	function updateSetting($userId, $name, $value, $type = null, $contextId = CONTEXT_SITE) {
-		$result = $this->retrieve(
-			'SELECT	COUNT(*) AS row_count
+    /**
+     * Add/update a user setting.
+     *
+     * @param $userId int
+     * @param $name string
+     * @param $value mixed
+     * @param $type string data type of the setting. If omitted, type will be guessed
+     * @param $contextId int
+     */
+    public function updateSetting($userId, $name, $value, $type = null, $contextId = CONTEXT_SITE)
+    {
+        $result = $this->retrieve(
+            'SELECT	COUNT(*) AS row_count
 			FROM	user_settings
 			WHERE	user_id = ? AND
 				setting_name = ?
 				AND assoc_type = ?
 				AND assoc_id = ?',
-			[(int) $userId, $name, Application::getContextAssocType(), (int) $contextId]
-		);
+            [(int) $userId, $name, Application::getContextAssocType(), (int) $contextId]
+        );
 
-		$row = (array) $result->current();
-		$value = $this->convertToDB($value, $type);
-		if (!$row || $row['row_count'] == 0) {
-			$this->update(
-				'INSERT INTO user_settings
+        $row = (array) $result->current();
+        $value = $this->convertToDB($value, $type);
+        if (!$row || $row['row_count'] == 0) {
+            $this->update(
+                'INSERT INTO user_settings
 					(user_id, setting_name, assoc_type, assoc_id, setting_value, setting_type)
 				VALUES
 					(?, ?, ?, ?, ?, ?)',
-				[
-					(int) $userId,
-					$name,
-					Application::getContextAssocType(),
-					(int) $contextId,
-					$value,
-					$type
-				]
-			);
-		} else {
-			$this->update(
-				'UPDATE user_settings
+                [
+                    (int) $userId,
+                    $name,
+                    Application::getContextAssocType(),
+                    (int) $contextId,
+                    $value,
+                    $type
+                ]
+            );
+        } else {
+            $this->update(
+                'UPDATE user_settings
 				SET	setting_value = ?,
 					setting_type = ?
 				WHERE	user_id = ? AND
 					setting_name = ? AND
 					assoc_type = ? AND
 					assoc_id = ?',
-				[
-					$value,
-					$type,
-					(int) $userId,
-					$name,
-					Application::getContextAssocType(),
-					(int) $contextId
-				]
-			);
-		}
-	}
+                [
+                    $value,
+                    $type,
+                    (int) $userId,
+                    $name,
+                    Application::getContextAssocType(),
+                    (int) $contextId
+                ]
+            );
+        }
+    }
 
-	/**
-	 * Delete a user setting by context.
-	 * @param $userId int
-	 * @param $name string
-	 * @param $contextId int
-	 */
-	function deleteSetting($userId, $name, $contextId = CONTEXT_SITE) {
-		$this->update(
-			'DELETE FROM user_settings WHERE user_id = ? AND setting_name = ? AND assoc_type = ? AND assoc_id = ?',
-			[(int) $userId, $name, Application::getContextAssocType(), (int) $contextId]
-		);
-	}
+    /**
+     * Delete a user setting by context.
+     *
+     * @param $userId int
+     * @param $name string
+     * @param $contextId int
+     */
+    public function deleteSetting($userId, $name, $contextId = CONTEXT_SITE)
+    {
+        $this->update(
+            'DELETE FROM user_settings WHERE user_id = ? AND setting_name = ? AND assoc_type = ? AND assoc_id = ?',
+            [(int) $userId, $name, Application::getContextAssocType(), (int) $contextId]
+        );
+    }
 
-	/**
-	 * Delete all settings for a user.
-	 * @param $userId int
-	 */
-	function deleteSettings($userId) {
-		return $this->update(
-			'DELETE FROM user_settings WHERE user_id = ?', [(int) $userId]
-		);
-	}
+    /**
+     * Delete all settings for a user.
+     *
+     * @param $userId int
+     */
+    public function deleteSettings($userId)
+    {
+        return $this->update(
+            'DELETE FROM user_settings WHERE user_id = ?',
+            [(int) $userId]
+        );
+    }
 }
-

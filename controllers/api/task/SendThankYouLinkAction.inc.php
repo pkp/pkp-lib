@@ -15,31 +15,32 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class SendThankYouLinkAction extends LinkAction {
+class SendThankYouLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $actionArgs array The action arguments.
+     */
+    public function __construct($request, $modalTitle, $actionArgs)
+    {
+        // Instantiate the send thank you modal.
+        $router = $request->getRouter();
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $actionArgs array The action arguments.
-	 */
-	function __construct($request, $modalTitle, $actionArgs) {
-		// Instantiate the send thank you modal.
-		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
+        $ajaxModal = new AjaxModal(
+            $router->url($request, null, null, 'editThankReviewer', null, $actionArgs),
+            __($modalTitle),
+            'modal_email'
+        );
 
-		$ajaxModal = new AjaxModal(
-			$router->url($request, null, null, 'editThankReviewer', null, $actionArgs),
-			__($modalTitle),
-			'modal_email'
-		);
-
-		// Configure the link action.
-		parent::__construct(
-			'thankReviewer', $ajaxModal,
-			__('editor.review.thankReviewer'),
-			'accepted'
-		);
-	}
+        // Configure the link action.
+        parent::__construct(
+            'thankReviewer',
+            $ajaxModal,
+            __('editor.review.thankReviewer'),
+            'accepted'
+        );
+    }
 }
-
-

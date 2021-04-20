@@ -15,26 +15,28 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class ViewCompetingInterestGuidelinesLinkAction extends LinkAction {
+class ViewCompetingInterestGuidelinesLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     */
+    public function __construct($request)
+    {
+        $context = $request->getContext();
+        // Instantiate the view competing interests modal.
+        import('lib.pkp.classes.linkAction.request.ConfirmationModal');
+        $viewCompetingInterestsModal = new ConfirmationModal(
+            $context->getLocalizedData('competingInterests'),
+            __('reviewer.submission.competingInterests'),
+            null,
+            null,
+            false,
+            false
+        );
 
-	/**
-	 * Constructor
-	 * @param $request Request
-	 */
-	function __construct($request) {
-		$context = $request->getContext();
-		// Instantiate the view competing interests modal.
-		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
-		$viewCompetingInterestsModal = new ConfirmationModal(
-			$context->getLocalizedData('competingInterests'),
-			__('reviewer.submission.competingInterests'),
-			null, null, false,
-			false
-		);
-
-		// Configure the link action.
-		parent::__construct('viewCompetingInterestGuidelines', $viewCompetingInterestsModal, __('reviewer.submission.competingInterests'));
-	}
+        // Configure the link action.
+        parent::__construct('viewCompetingInterestGuidelines', $viewCompetingInterestsModal, __('reviewer.submission.competingInterests'));
+    }
 }
-
-

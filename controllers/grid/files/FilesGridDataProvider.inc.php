@@ -16,86 +16,94 @@
 
 import('lib.pkp.classes.controllers.grid.GridDataProvider');
 
-class FilesGridDataProvider extends GridDataProvider {
+class FilesGridDataProvider extends GridDataProvider
+{
+    /** @var integer */
+    public $_uploaderRoles;
 
-	/* @var integer */
-	var $_uploaderRoles;
-
-	/** @var boolean */
-	var $_viewableOnly = false;
-
-
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Set the uploader roles.
-	 * @param $roleAssignments array The grid's
-	 *  role assignment from which the uploader roles
-	 *  will be extracted.
-	 */
-	function setUploaderRoles($roleAssignments) {
-		$this->_uploaderRoles = array_keys($roleAssignments);
-	}
-
-	/**
-	 * Get the uploader roles.
-	 * @return array
-	 */
-	function getUploaderRoles() {
-		assert(is_array($this->_uploaderRoles) && !empty($this->_uploaderRoles));
-		return $this->_uploaderRoles;
-	}
-
-	/**
-	 * Load only viewable files flag.
-	 * @param $viewableOnly boolean
-	 */
-	function setViewableOnly($viewableOnly) {
-		$this->_viewableOnly = $viewableOnly;
-	}
+    /** @var boolean */
+    public $_viewableOnly = false;
 
 
-	//
-	// Public helper methods
-	//
-	/**
-	 * Configures and returns the action to add a file.
-	 *
-	 * NB: Must be overridden by subclasses (if implemented).
-	 *
-	 * @param $request Request
-	 *
-	 * @return AddFileLinkAction
-	 */
-	function getAddFileAction($request) {
-		assert(false);
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Set the uploader roles.
+     *
+     * @param $roleAssignments array The grid's
+     *  role assignment from which the uploader roles
+     *  will be extracted.
+     */
+    public function setUploaderRoles($roleAssignments)
+    {
+        $this->_uploaderRoles = array_keys($roleAssignments);
+    }
 
-	/**
-	 * Configures and returns the select files action.
-	 *
-	 * NB: Must be overridden by subclasses (if implemented).
-	 *
-	 * @param $request Request
-	 *
-	 * @return SelectFilesLinkAction
-	 */
-	function getSelectAction($request) {
-		assert(false);
-	}
+    /**
+     * Get the uploader roles.
+     *
+     * @return array
+     */
+    public function getUploaderRoles()
+    {
+        assert(is_array($this->_uploaderRoles) && !empty($this->_uploaderRoles));
+        return $this->_uploaderRoles;
+    }
+
+    /**
+     * Load only viewable files flag.
+     *
+     * @param $viewableOnly boolean
+     */
+    public function setViewableOnly($viewableOnly)
+    {
+        $this->_viewableOnly = $viewableOnly;
+    }
 
 
-	//
-	// Protected helper methods
-	//
-	/**
-	 * Get the authorized submission.
-	 * @return Submission
-	 */
-	protected function getSubmission() {
-		return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-	}
+    //
+    // Public helper methods
+    //
+    /**
+     * Configures and returns the action to add a file.
+     *
+     * NB: Must be overridden by subclasses (if implemented).
+     *
+     * @param $request Request
+     *
+     * @return AddFileLinkAction
+     */
+    public function getAddFileAction($request)
+    {
+        assert(false);
+    }
+
+    /**
+     * Configures and returns the select files action.
+     *
+     * NB: Must be overridden by subclasses (if implemented).
+     *
+     * @param $request Request
+     *
+     * @return SelectFilesLinkAction
+     */
+    public function getSelectAction($request)
+    {
+        assert(false);
+    }
+
+
+    //
+    // Protected helper methods
+    //
+    /**
+     * Get the authorized submission.
+     *
+     * @return Submission
+     */
+    protected function getSubmission()
+    {
+        return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+    }
 }
-
-

@@ -15,39 +15,43 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
-use \APP\core\Services;
+use APP\core\Services;
 
-class NavigationMenuItemsGridCellProvider extends GridCellProvider {
-	/**
-	 * @copydoc GridCellProvider::getCellActions()
-	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
+class NavigationMenuItemsGridCellProvider extends GridCellProvider
+{
+    /**
+     * @copydoc GridCellProvider::getCellActions()
+     */
+    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    {
+        return parent::getCellActions($request, $row, $column, $position);
+    }
 
-		return parent::getCellActions($request, $row, $column, $position);
-	}
+    /**
+     * Extracts variables for a given column from a data element
+     * so that they may be assigned to template before rendering.
+     *
+     * @param $row GridRow
+     * @param $column GridColumn
+     *
+     * @return array
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        $navigationMenuItem = $row->getData();
+        $columnId = $column->getId();
+        assert(is_a($navigationMenuItem, 'NavigationMenuItem') && !empty($columnId));
 
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		$navigationMenuItem = $row->getData();
-		$columnId = $column->getId();
-		assert(is_a($navigationMenuItem, 'NavigationMenuItem') && !empty($columnId));
+        switch ($columnId) {
+            case 'title':
+                $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
+                Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
 
-		switch ($columnId) {
-			case 'title':
-				$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
-				Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
+                return ['label' => $navigationMenuItem->getLocalizedTitle()];
+            default:
+                break;
+        }
 
-				return array('label' => $navigationMenuItem->getLocalizedTitle());
-			default:
-				break;
-		}
-
-		return parent::getTemplateVarsFromRowColumn($row, $column);
-	}
+        return parent::getTemplateVarsFromRowColumn($row, $column);
+    }
 }

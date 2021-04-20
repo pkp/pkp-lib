@@ -17,254 +17,272 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
 
-class ExportableUsersGridHandler extends GridHandler {
+class ExportableUsersGridHandler extends GridHandler
+{
+    public $_pluginName;
 
-	var $_pluginName;
-
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(array(
-			ROLE_ID_MANAGER),
-			array('fetchGrid', 'fetchRow')
-		);
-	}
-
-
-	//
-	// Implement template methods from PKPHandler.
-	//
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-		return parent::authorize($request, $args, $roleAssignments);
-	}
-
-	/**
-	 * @copydoc GridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
-
-		// Load user-related translations.
-		AppLocale::requireComponents(
-			LOCALE_COMPONENT_PKP_USER,
-			LOCALE_COMPONENT_PKP_MANAGER,
-			LOCALE_COMPONENT_APP_MANAGER
-		);
-
-		// Basic grid configuration.
-		$this->setTitle('grid.user.currentUsers');
-
-		// Grid actions.
-		$router = $request->getRouter();
-		$pluginName = $request->getUserVar('pluginName');
-		assert(!empty($pluginName));
-		$this->_pluginName = $pluginName;
-
-		$dispatcher = $request->getDispatcher();
-		$url = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'importexport', array('plugin', $pluginName, 'exportAllUsers'));
-
-		$this->addAction(
-			new LinkAction(
-				'exportAllUsers',
-				new RedirectConfirmationModal(
-					__('grid.users.confirmExportAllUsers'),
-					null,
-					$url
-				),
-				__('grid.action.exportAllUsers'),
-				'export_users'
-			)
-		);
-
-		//
-		// Grid columns.
-		//
-
-		// First Name.
-		$cellProvider = new DataObjectGridCellProvider();
-		$this->addColumn(
-			new GridColumn(
-				'givenName',
-				'user.givenName',
-				null,
-				null,
-				$cellProvider
-			)
-		);
-
-		// Last Name.
-		$cellProvider = new DataObjectGridCellProvider();
-		$this->addColumn(
-			new GridColumn(
-				'familyName',
-				'user.familyName',
-				null,
-				null,
-				$cellProvider
-			)
-		);
-
-		// User name.
-		$cellProvider = new DataObjectGridCellProvider();
-		$this->addColumn(
-				new GridColumn(
-					'username',
-					'user.username',
-					null,
-					null,
-					$cellProvider
-				)
-		);
-
-		// Email.
-		$cellProvider = new DataObjectGridCellProvider();
-		$this->addColumn(
-			new GridColumn(
-				'email',
-				'user.email',
-				null,
-				null,
-				$cellProvider
-			)
-		);
-	}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            [
+                ROLE_ID_MANAGER],
+            ['fetchGrid', 'fetchRow']
+        );
+    }
 
 
-	//
-	// Implement methods from GridHandler.
-	//
-	/**
-	 * @copydoc GridHandler::initFeatures()
-	 */
-	function initFeatures($request, $args) {
-		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
-		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
-		return array(new SelectableItemsFeature(), new PagingFeature());
-	}
+    //
+    // Implement template methods from PKPHandler.
+    //
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-	/**
-	 * @copydoc GridHandler::getSelectName()
-	 */
-	function getSelectName() {
-		return 'selectedUsers';
-	}
+    /**
+     * @copydoc GridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        parent::initialize($request, $args);
 
-	//
-	// Implemented methods from GridHandler.
-	//
-	/**
-	 * @copydoc GridHandler::isDataElementSelected()
-	 */
-	function isDataElementSelected($gridDataElement) {
-		return false; // Nothing is selected by default
-	}
+        // Load user-related translations.
+        AppLocale::requireComponents(
+            LOCALE_COMPONENT_PKP_USER,
+            LOCALE_COMPONENT_PKP_MANAGER,
+            LOCALE_COMPONENT_APP_MANAGER
+        );
 
-	/**
-	 * @copydoc GridHandler::loadData()
-	 * @param $request PKPRequest
-	 * @return array Grid data.
-	 */
-	protected function loadData($request, $filter) {
-		// Get the context.
-		$context = $request->getContext();
+        // Basic grid configuration.
+        $this->setTitle('grid.user.currentUsers');
 
-		// Get all users for this context that match search criteria.
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+        // Grid actions.
+        $router = $request->getRouter();
+        $pluginName = $request->getUserVar('pluginName');
+        assert(!empty($pluginName));
+        $this->_pluginName = $pluginName;
 
-		return $users = $userGroupDao->getUsersById(
-			$filter['userGroup'],
-			$context->getId(),
-			$filter['searchField'],
-			$filter['search']?$filter['search']:null,
-			$filter['searchMatch'],
-			$rangeInfo
-		);
-	}
+        $dispatcher = $request->getDispatcher();
+        $url = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'importexport', ['plugin', $pluginName, 'exportAllUsers']);
 
-	/**
-	 * @copydoc GridHandler::renderFilter()
-	 */
-	function renderFilter($request, $filterData = array()) {
-		$context = $request->getContext();
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$userGroups = $userGroupDao->getByContextId($context->getId());
-		$userGroupOptions = array('' => __('grid.user.allRoles'));
-		while ($userGroup = $userGroups->next()) {
-			$userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
-		}
+        $this->addAction(
+            new LinkAction(
+                'exportAllUsers',
+                new RedirectConfirmationModal(
+                    __('grid.users.confirmExportAllUsers'),
+                    null,
+                    $url
+                ),
+                __('grid.action.exportAllUsers'),
+                'export_users'
+            )
+        );
 
-		// Import UserDAO to define the USER_FIELD_* constants.
-		import('lib.pkp.classes.user.UserDAO');
-		$fieldOptions = array(
-			IDENTITY_SETTING_GIVENNAME => 'user.givenName',
-			IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
-			USER_FIELD_USERNAME => 'user.username',
-			USER_FIELD_EMAIL => 'user.email'
-		);
+        //
+        // Grid columns.
+        //
 
-		$matchOptions = array(
-			'contains' => 'form.contains',
-			'is' => 'form.is'
-		);
+        // First Name.
+        $cellProvider = new DataObjectGridCellProvider();
+        $this->addColumn(
+            new GridColumn(
+                'givenName',
+                'user.givenName',
+                null,
+                null,
+                $cellProvider
+            )
+        );
 
-		$filterData = array(
-			'userGroupOptions' => $userGroupOptions,
-			'fieldOptions' => $fieldOptions,
-			'matchOptions' => $matchOptions
-		);
+        // Last Name.
+        $cellProvider = new DataObjectGridCellProvider();
+        $this->addColumn(
+            new GridColumn(
+                'familyName',
+                'user.familyName',
+                null,
+                null,
+                $cellProvider
+            )
+        );
 
-		return parent::renderFilter($request, $filterData);
-	}
+        // User name.
+        $cellProvider = new DataObjectGridCellProvider();
+        $this->addColumn(
+            new GridColumn(
+                'username',
+                'user.username',
+                null,
+                null,
+                $cellProvider
+            )
+        );
 
-	/**
-	 * @copydoc GridHandler::getFilterSelectionData()
-	 * @return array Filter selection data.
-	 */
-	function getFilterSelectionData($request) {
-		// Get the search terms.
-		$userGroup = $request->getUserVar('userGroup') ? (int)$request->getUserVar('userGroup') : null;
-		$searchField = $request->getUserVar('searchField');
-		$searchMatch = $request->getUserVar('searchMatch');
-		$search = $request->getUserVar('search');
+        // Email.
+        $cellProvider = new DataObjectGridCellProvider();
+        $this->addColumn(
+            new GridColumn(
+                'email',
+                'user.email',
+                null,
+                null,
+                $cellProvider
+            )
+        );
+    }
 
-		return $filterSelectionData = array(
-			'userGroup' => $userGroup,
-			'searchField' => $searchField,
-			'searchMatch' => $searchMatch,
-			'search' => $search ? $search : ''
-		);
-	}
 
-	/**
-	 * @copydoc GridHandler::getFilterForm()
-	 * @return string Filter template.
-	 */
-	protected function getFilterForm() {
-		return 'controllers/grid/users/exportableUsers/userGridFilter.tpl';
-	}
+    //
+    // Implement methods from GridHandler.
+    //
+    /**
+     * @copydoc GridHandler::initFeatures()
+     */
+    public function initFeatures($request, $args)
+    {
+        import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
+        import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
+        return [new SelectableItemsFeature(), new PagingFeature()];
+    }
 
-	/**
-	 * @see GridHandler::getRequestArgs()
-	 */
-	function getRequestArgs() {
-		return array_merge(parent::getRequestArgs(), array('pluginName' => $this->_getPluginName()));
-	}
+    /**
+     * @copydoc GridHandler::getSelectName()
+     */
+    public function getSelectName()
+    {
+        return 'selectedUsers';
+    }
 
-	/**
-	 * Fetch the name of the plugin for this grid's calling context.
-	 * @return string
-	 */
-	function _getPluginName() {
-		return $this->_pluginName;
-	}
+    //
+    // Implemented methods from GridHandler.
+    //
+    /**
+     * @copydoc GridHandler::isDataElementSelected()
+     */
+    public function isDataElementSelected($gridDataElement)
+    {
+        return false; // Nothing is selected by default
+    }
+
+    /**
+     * @copydoc GridHandler::loadData()
+     *
+     * @param $request PKPRequest
+     *
+     * @return array Grid data.
+     */
+    protected function loadData($request, $filter)
+    {
+        // Get the context.
+        $context = $request->getContext();
+
+        // Get all users for this context that match search criteria.
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+
+        return $users = $userGroupDao->getUsersById(
+            $filter['userGroup'],
+            $context->getId(),
+            $filter['searchField'],
+            $filter['search'] ? $filter['search'] : null,
+            $filter['searchMatch'],
+            $rangeInfo
+        );
+    }
+
+    /**
+     * @copydoc GridHandler::renderFilter()
+     */
+    public function renderFilter($request, $filterData = [])
+    {
+        $context = $request->getContext();
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($context->getId());
+        $userGroupOptions = ['' => __('grid.user.allRoles')];
+        while ($userGroup = $userGroups->next()) {
+            $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
+        }
+
+        // Import UserDAO to define the USER_FIELD_* constants.
+        import('lib.pkp.classes.user.UserDAO');
+        $fieldOptions = [
+            IDENTITY_SETTING_GIVENNAME => 'user.givenName',
+            IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
+            USER_FIELD_USERNAME => 'user.username',
+            USER_FIELD_EMAIL => 'user.email'
+        ];
+
+        $matchOptions = [
+            'contains' => 'form.contains',
+            'is' => 'form.is'
+        ];
+
+        $filterData = [
+            'userGroupOptions' => $userGroupOptions,
+            'fieldOptions' => $fieldOptions,
+            'matchOptions' => $matchOptions
+        ];
+
+        return parent::renderFilter($request, $filterData);
+    }
+
+    /**
+     * @copydoc GridHandler::getFilterSelectionData()
+     *
+     * @return array Filter selection data.
+     */
+    public function getFilterSelectionData($request)
+    {
+        // Get the search terms.
+        $userGroup = $request->getUserVar('userGroup') ? (int)$request->getUserVar('userGroup') : null;
+        $searchField = $request->getUserVar('searchField');
+        $searchMatch = $request->getUserVar('searchMatch');
+        $search = $request->getUserVar('search');
+
+        return $filterSelectionData = [
+            'userGroup' => $userGroup,
+            'searchField' => $searchField,
+            'searchMatch' => $searchMatch,
+            'search' => $search ? $search : ''
+        ];
+    }
+
+    /**
+     * @copydoc GridHandler::getFilterForm()
+     *
+     * @return string Filter template.
+     */
+    protected function getFilterForm()
+    {
+        return 'controllers/grid/users/exportableUsers/userGridFilter.tpl';
+    }
+
+    /**
+     * @see GridHandler::getRequestArgs()
+     */
+    public function getRequestArgs()
+    {
+        return array_merge(parent::getRequestArgs(), ['pluginName' => $this->_getPluginName()]);
+    }
+
+    /**
+     * Fetch the name of the plugin for this grid's calling context.
+     *
+     * @return string
+     */
+    public function _getPluginName()
+    {
+        return $this->_pluginName;
+    }
 }
-
-

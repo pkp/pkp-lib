@@ -9,6 +9,7 @@
  *
  * @class SubmissionFileEventLogDAO
  * @ingroup log
+ *
  * @see EventLogDAO
  *
  * @brief Extension to EventLogDAO for submission file specific log entries.
@@ -17,26 +18,29 @@
 import('lib.pkp.classes.log.EventLogDAO');
 import('lib.pkp.classes.log.SubmissionFileEventLogEntry');
 
-class SubmissionFileEventLogDAO extends EventLogDAO {
+class SubmissionFileEventLogDAO extends EventLogDAO
+{
+    /**
+     * Instantiate a submission file event log entry.
+     *
+     * @return SubmissionFileEventLogEntry
+     */
+    public function newDataObject()
+    {
+        $returner = new SubmissionFileEventLogEntry();
+        $returner->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
+        return $returner;
+    }
 
-	/**
-	 * Instantiate a submission file event log entry.
-	 * @return SubmissionFileEventLogEntry
-	 */
-	function newDataObject() {
-		$returner = new SubmissionFileEventLogEntry();
-		$returner->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
-		return $returner;
-	}
-
-	/**
-	 * Get event log entries by submission file ID.
-	 * @param $submissionFileId int
-	 * @return DAOResultFactory
-	 */
-	function getBySubmissionFileId($submissionFileId) {
-		return $this->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFileId);
-	}
+    /**
+     * Get event log entries by submission file ID.
+     *
+     * @param $submissionFileId int
+     *
+     * @return DAOResultFactory
+     */
+    public function getBySubmissionFileId($submissionFileId)
+    {
+        return $this->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFileId);
+    }
 }
-
-

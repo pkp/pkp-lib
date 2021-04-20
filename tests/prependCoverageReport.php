@@ -18,5 +18,5 @@ $GLOBALS['PHPUNIT_COVERAGE_DATA_DIRECTORY'] = get_cfg_var('phpunit_coverage_data
 include get_cfg_var('selenium_coverage_prepend_file');
 
 if (basename($_SERVER['SCRIPT_NAME']) == 'phpunit_coverage.php') {
-	chdir(get_cfg_var('phpunit_coverage_data_directory'));
+    chdir(get_cfg_var('phpunit_coverage_data_directory'));
 }

@@ -19,215 +19,236 @@ import('classes.handler.Handler');
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
-use \PKP\core\JSONMessage;
+use PKP\core\JSONMessage;
 
-abstract class PKPWorkflowTabHandler extends Handler {
-
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT), array('fetchTab'));
-	}
-
-
-	//
-	// Extended methods from Handler
-	//
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		// Authorize stage id.
-		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request), PKPApplication::WORKFLOW_TYPE_EDITORIAL));
-
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+abstract class PKPWorkflowTabHandler extends Handler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment([ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT], ['fetchTab']);
+    }
 
 
-	//
-	// Public handler operations
-	//
-	/**
-	 * Fetch the specified workflow tab.
-	 * @param $args array
-	 * @param $request Request
-	 * @return JSONMessage JSON object
-	 */
-	function fetchTab($args, $request) {
+    //
+    // Extended methods from Handler
+    //
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        // Authorize stage id.
+        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+        $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request), PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 
-		$this->setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		$templateMgr->assign('stageId', $stageId);
 
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION); /** @var $submission Submission */
-		$templateMgr->assign('submission', $submission);
+    //
+    // Public handler operations
+    //
+    /**
+     * Fetch the specified workflow tab.
+     *
+     * @param $args array
+     * @param $request Request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function fetchTab($args, $request)
+    {
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
 
-		switch ($stageId) {
-			case WORKFLOW_STAGE_ID_SUBMISSION:
-				return $templateMgr->fetchJson('controllers/tab/workflow/submission.tpl');
-			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
-			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				// Retrieve the authorized submission and stage id.
-				$selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $templateMgr->assign('stageId', $stageId);
 
-				// Get all review rounds for this submission, on the current stage.
-				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
-				$reviewRoundsFactory = $reviewRoundDao->getBySubmissionId($submission->getId(), $selectedStageId);
-				$reviewRoundsArray = $reviewRoundsFactory->toAssociativeArray();
-				$lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $selectedStageId);
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $templateMgr->assign('submission', $submission);
 
-				// Get the review round number of the last review round to be used
-				// as the current review round tab index, if we have review rounds.
-				if ($lastReviewRound) {
-					$lastReviewRoundNumber = $lastReviewRound->getRound();
-					$lastReviewRoundId = $lastReviewRound->getId();
-					$templateMgr->assign('lastReviewRoundNumber', $lastReviewRoundNumber);
-				} else {
-					$lastReviewRoundId = null;
-				}
+        switch ($stageId) {
+            case WORKFLOW_STAGE_ID_SUBMISSION:
+                return $templateMgr->fetchJson('controllers/tab/workflow/submission.tpl');
+            case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+                // Retrieve the authorized submission and stage id.
+                $selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
-				// Add the round information to the template.
-				$templateMgr->assign('reviewRounds', $reviewRoundsArray);
-				$templateMgr->assign('reviewRoundOp', $this->_identifyReviewRoundOp($stageId));
+                // Get all review rounds for this submission, on the current stage.
+                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+                $reviewRoundsFactory = $reviewRoundDao->getBySubmissionId($submission->getId(), $selectedStageId);
+                $reviewRoundsArray = $reviewRoundsFactory->toAssociativeArray();
+                $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $selectedStageId);
 
-				if ($submission->getStageId() == $selectedStageId && count($reviewRoundsArray) > 0) {
-					$dispatcher = $request->getDispatcher();
+                // Get the review round number of the last review round to be used
+                // as the current review round tab index, if we have review rounds.
+                if ($lastReviewRound) {
+                    $lastReviewRoundNumber = $lastReviewRound->getRound();
+                    $lastReviewRoundId = $lastReviewRound->getId();
+                    $templateMgr->assign('lastReviewRoundNumber', $lastReviewRoundNumber);
+                } else {
+                    $lastReviewRoundId = null;
+                }
 
-					import('lib.pkp.classes.linkAction.request.AjaxModal');
-					$newRoundAction = new LinkAction(
-						'newRound',
-						new AjaxModal(
-							$dispatcher->url(
-								$request, PKPApplication::ROUTE_COMPONENT, null,
-								'modals.editorDecision.EditorDecisionHandler',
-								'newReviewRound', null, array(
-									'submissionId' => $submission->getId(),
-									'decision' => SUBMISSION_EDITOR_DECISION_NEW_ROUND,
-									'stageId' => $selectedStageId,
-									'reviewRoundId' => $lastReviewRoundId
-								)
-							),
-							__('editor.submission.newRound'),
-							'modal_add_item'
-						),
-						__('editor.submission.newRound'),
-						'add_item_small'
-					);
-					$templateMgr->assign('newRoundAction', $newRoundAction);
-				}
+                // Add the round information to the template.
+                $templateMgr->assign('reviewRounds', $reviewRoundsArray);
+                $templateMgr->assign('reviewRoundOp', $this->_identifyReviewRoundOp($stageId));
 
-				// Render the view.
-				return $templateMgr->fetchJson('controllers/tab/workflow/review.tpl');
-			case WORKFLOW_STAGE_ID_EDITING:
-				// Assign banner notifications to the template.
-				$notificationRequestOptions = array(
-					NOTIFICATION_LEVEL_NORMAL => array(
-						NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => array(ASSOC_TYPE_SUBMISSION, $submission->getId()),
-						NOTIFICATION_TYPE_AWAITING_COPYEDITS => array(ASSOC_TYPE_SUBMISSION, $submission->getId())),
-					NOTIFICATION_LEVEL_TRIVIAL => array()
-				);
-				$templateMgr->assign('editingNotificationRequestOptions', $notificationRequestOptions);
-				return $templateMgr->fetchJson('controllers/tab/workflow/editorial.tpl');
-			case WORKFLOW_STAGE_ID_PRODUCTION:
-				$templateMgr = TemplateManager::getManager($request);
-				$notificationRequestOptions = $this->getProductionNotificationOptions($submission->getId());
-				$selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-				$templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
+                if ($submission->getStageId() == $selectedStageId && count($reviewRoundsArray) > 0) {
+                    $dispatcher = $request->getDispatcher();
 
-				return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
-		}
-	}
+                    import('lib.pkp.classes.linkAction.request.AjaxModal');
+                    $newRoundAction = new LinkAction(
+                        'newRound',
+                        new AjaxModal(
+                            $dispatcher->url(
+                                $request,
+                                PKPApplication::ROUTE_COMPONENT,
+                                null,
+                                'modals.editorDecision.EditorDecisionHandler',
+                                'newReviewRound',
+                                null,
+                                [
+                                    'submissionId' => $submission->getId(),
+                                    'decision' => SUBMISSION_EDITOR_DECISION_NEW_ROUND,
+                                    'stageId' => $selectedStageId,
+                                    'reviewRoundId' => $lastReviewRoundId
+                                ]
+                            ),
+                            __('editor.submission.newRound'),
+                            'modal_add_item'
+                        ),
+                        __('editor.submission.newRound'),
+                        'add_item_small'
+                    );
+                    $templateMgr->assign('newRoundAction', $newRoundAction);
+                }
 
-	/**
-	 * Setup variables for the template
-	 * @param $request Request
-	 */
-	function setupTemplate($request) {
-		parent::setupTemplate($request);
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_EDITOR);
+                // Render the view.
+                return $templateMgr->fetchJson('controllers/tab/workflow/review.tpl');
+            case WORKFLOW_STAGE_ID_EDITING:
+                // Assign banner notifications to the template.
+                $notificationRequestOptions = [
+                    NOTIFICATION_LEVEL_NORMAL => [
+                        NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => [ASSOC_TYPE_SUBMISSION, $submission->getId()],
+                        NOTIFICATION_TYPE_AWAITING_COPYEDITS => [ASSOC_TYPE_SUBMISSION, $submission->getId()]],
+                    NOTIFICATION_LEVEL_TRIVIAL => []
+                ];
+                $templateMgr->assign('editingNotificationRequestOptions', $notificationRequestOptions);
+                return $templateMgr->fetchJson('controllers/tab/workflow/editorial.tpl');
+            case WORKFLOW_STAGE_ID_PRODUCTION:
+                $templateMgr = TemplateManager::getManager($request);
+                $notificationRequestOptions = $this->getProductionNotificationOptions($submission->getId());
+                $selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+                $templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
 
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+                return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
+        }
+    }
 
-		$templateMgr = TemplateManager::getManager($request);
+    /**
+     * Setup variables for the template
+     *
+     * @param $request Request
+     */
+    public function setupTemplate($request)
+    {
+        parent::setupTemplate($request);
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_EDITOR);
 
-		// Assign the authorized submission.
-		$templateMgr->assign('submission', $submission);
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 
-		// Assign workflow stages related data.
-		$templateMgr->assign('stageId', $stageId);
-		$templateMgr->assign('submissionStageId', $submission->getStageId());
+        $templateMgr = TemplateManager::getManager($request);
 
-		// Get the right notifications type based on current stage id.
-		$notificationMgr = new NotificationManager();
-		$editorAssignmentNotificationType = $this->getEditorAssignmentNotificationTypeByStageId($stageId);
+        // Assign the authorized submission.
+        $templateMgr->assign('submission', $submission);
 
-		// Define the workflow notification options.
-		$notificationRequestOptions = array(
-			NOTIFICATION_LEVEL_TASK => array(
-				$editorAssignmentNotificationType => array(ASSOC_TYPE_SUBMISSION, $submission->getId())
-			),
-			NOTIFICATION_LEVEL_TRIVIAL => array()
-		);
+        // Assign workflow stages related data.
+        $templateMgr->assign('stageId', $stageId);
+        $templateMgr->assign('submissionStageId', $submission->getStageId());
 
-		$templateMgr->assign('workflowNotificationRequestOptions', $notificationRequestOptions);
-	}
+        // Get the right notifications type based on current stage id.
+        $notificationMgr = new NotificationManager();
+        $editorAssignmentNotificationType = $this->getEditorAssignmentNotificationTypeByStageId($stageId);
 
-	/**
-	 * Return the editor assignment notification type based on stage id.
-	 * @param $stageId int
-	 * @return int
-	 */
-	protected function getEditorAssignmentNotificationTypeByStageId($stageId) {
-		switch ($stageId) {
-			case WORKFLOW_STAGE_ID_SUBMISSION:
-				return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION;
-			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW;
-			case WORKFLOW_STAGE_ID_EDITING:
-				return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING;
-			case WORKFLOW_STAGE_ID_PRODUCTION:
-				return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION;
-		}
-		return null;
-	}
+        // Define the workflow notification options.
+        $notificationRequestOptions = [
+            NOTIFICATION_LEVEL_TASK => [
+                $editorAssignmentNotificationType => [ASSOC_TYPE_SUBMISSION, $submission->getId()]
+            ],
+            NOTIFICATION_LEVEL_TRIVIAL => []
+        ];
 
-	/**
-	 * Get all production notification options to be used in the production stage tab.
-	 * @param $submissionId int
-	 * @return array
-	 */
-	abstract protected function getProductionNotificationOptions($submissionId);
+        $templateMgr->assign('workflowNotificationRequestOptions', $notificationRequestOptions);
+    }
 
-	/**
-	 * Translate the requested operation to a stage id.
-	 * @param $request Request
-	 * @return integer One of the WORKFLOW_STAGE_* constants.
-	 */
-	private function _identifyStageId($request) {
-		if ($stageId = $request->getUserVar('stageId')) {
-			return (int) $stageId;
-		}
-	}
+    /**
+     * Return the editor assignment notification type based on stage id.
+     *
+     * @param $stageId int
+     *
+     * @return int
+     */
+    protected function getEditorAssignmentNotificationTypeByStageId($stageId)
+    {
+        switch ($stageId) {
+            case WORKFLOW_STAGE_ID_SUBMISSION:
+                return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION;
+            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+                return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW;
+            case WORKFLOW_STAGE_ID_EDITING:
+                return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING;
+            case WORKFLOW_STAGE_ID_PRODUCTION:
+                return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION;
+        }
+        return null;
+    }
 
-	/**
-	 * Identifies the review round.
-	 * @param int $stageId
-	 * @return string
-	 */
-	private function _identifyReviewRoundOp($stageId) {
-		switch ($stageId) {
-			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
-				return 'internalReviewRound';
-			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-				return 'externalReviewRound';
-			default:
-				fatalError('unknown review round id.');
-		}
-	}
+    /**
+     * Get all production notification options to be used in the production stage tab.
+     *
+     * @param $submissionId int
+     *
+     * @return array
+     */
+    abstract protected function getProductionNotificationOptions($submissionId);
+
+    /**
+     * Translate the requested operation to a stage id.
+     *
+     * @param $request Request
+     *
+     * @return integer One of the WORKFLOW_STAGE_* constants.
+     */
+    private function _identifyStageId($request)
+    {
+        if ($stageId = $request->getUserVar('stageId')) {
+            return (int) $stageId;
+        }
+    }
+
+    /**
+     * Identifies the review round.
+     *
+     * @param int $stageId
+     *
+     * @return string
+     */
+    private function _identifyReviewRoundOp($stageId)
+    {
+        switch ($stageId) {
+            case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+                return 'internalReviewRound';
+            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+                return 'externalReviewRound';
+            default:
+                fatalError('unknown review round id.');
+        }
+    }
 }

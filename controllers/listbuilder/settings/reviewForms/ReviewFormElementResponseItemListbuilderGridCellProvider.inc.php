@@ -14,24 +14,23 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
-class ReviewFormElementResponseItemListbuilderGridCellProvider extends GridCellProvider {
-
-	//
-	// Template methods from GridCellProvider
-	//
-	/**
-	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		switch ($column->getId()) {
-			case 'possibleResponse':
-				$possibleResponse = $row->getData();
-				$contentColumn = $possibleResponse[0];
-				$content = $contentColumn['content'];
-				return array('label' => $content);
-		}
-		assert(false);
-	}
+class ReviewFormElementResponseItemListbuilderGridCellProvider extends GridCellProvider
+{
+    //
+    // Template methods from GridCellProvider
+    //
+    /**
+     * @see GridCellProvider::getTemplateVarsFromRowColumn()
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        switch ($column->getId()) {
+            case 'possibleResponse':
+                $possibleResponse = $row->getData();
+                $contentColumn = $possibleResponse[0];
+                $content = $contentColumn['content'];
+                return ['label' => $content];
+        }
+        assert(false);
+    }
 }
-
-

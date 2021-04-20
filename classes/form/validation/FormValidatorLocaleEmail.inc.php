@@ -9,6 +9,7 @@
  *
  * @class FormValidatorLocaleEmail
  * @ingroup form_validation
+ *
  * @see FormValidatorLocale
  *
  * @brief Form validation check for email addresses.
@@ -17,19 +18,20 @@
 import('lib.pkp.classes.form.validation.FormValidatorLocale');
 import('lib.pkp.classes.validation.ValidatorEmail');
 
-class FormValidatorLocaleEmail extends FormValidatorLocale {
-	/**
-	 * Constructor.
-	 * @param $form Form the associated form
-	 * @param $field string the name of the associated field
-	 * @param $type string the type of check, either "required" or "optional"
-	 * @param $message string the error message for validation failures (i18n key)
-	 * @param $requiredLocale string The symbolic name of the required locale
-	 */
-	function __construct(&$form, $field, $type, $message, $requiredLocale = null) {
-		$validator = new ValidatorEmail();
-		parent::__construct($form, $field, $type, $message, $requiredLocale, $validator);
-	}
+class FormValidatorLocaleEmail extends FormValidatorLocale
+{
+    /**
+     * Constructor.
+     *
+     * @param $form Form the associated form
+     * @param $field string the name of the associated field
+     * @param $type string the type of check, either "required" or "optional"
+     * @param $message string the error message for validation failures (i18n key)
+     * @param $requiredLocale string The symbolic name of the required locale
+     */
+    public function __construct(&$form, $field, $type, $message, $requiredLocale = null)
+    {
+        $validator = new ValidatorEmail();
+        parent::__construct($form, $field, $type, $message, $requiredLocale, $validator);
+    }
 }
-
-

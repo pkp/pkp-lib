@@ -15,51 +15,55 @@
 
 import('lib.pkp.classes.linkAction.LinkAction');
 
-class SubmissionInfoCenterLinkAction extends LinkAction {
+class SubmissionInfoCenterLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $submissionId int the ID of the submission to present link for
+     * to show information about.
+     * @param $linkKey string optional locale key to display for link
+     */
+    public function __construct($request, $submissionId, $linkKey = 'informationCenter.editorialHistory')
+    {
+        // Instantiate the information center modal.
 
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $submissionId int the ID of the submission to present link for
-	 * to show information about.
-	 * @param $linkKey string optional locale key to display for link
-	 */
-	function __construct($request, $submissionId, $linkKey = 'informationCenter.editorialHistory') {
-		// Instantiate the information center modal.
+        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        $submission = $submissionDao->getById($submissionId);
 
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submission = $submissionDao->getById($submissionId);
+        $primaryAuthor = $submission->getPrimaryAuthor();
+        if (!isset($primaryAuthor)) {
+            $authors = $submission->getAuthors();
+            if (sizeof($authors) > 0) {
+                $primaryAuthor = $authors[0];
+            }
+        }
 
-		$primaryAuthor = $submission->getPrimaryAuthor();
-		if (!isset($primaryAuthor)) {
-			$authors = $submission->getAuthors();
-			if (sizeof($authors) > 0) {
-				$primaryAuthor = $authors[0];
-			}
-		}
+        $title = (isset($primaryAuthor)) ? implode(', ', [$primaryAuthor->getFullName(), $submission->getLocalizedTitle()]) : $submission->getLocalizedTitle();
 
-		$title = (isset($primaryAuthor)) ? implode(', ', array($primaryAuthor->getFullName(), $submission->getLocalizedTitle())) : $submission->getLocalizedTitle();
+        $dispatcher = $request->getDispatcher();
+        import('lib.pkp.classes.linkAction.request.AjaxModal');
+        $ajaxModal = new AjaxModal(
+            $dispatcher->url(
+                $request,
+                PKPApplication::ROUTE_COMPONENT,
+                null,
+                'informationCenter.SubmissionInformationCenterHandler',
+                'viewInformationCenter',
+                null,
+                ['submissionId' => $submissionId]
+            ),
+            htmlspecialchars($title),
+            'modal_information'
+        );
 
-		$dispatcher = $request->getDispatcher();
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$ajaxModal = new AjaxModal(
-			$dispatcher->url(
-				$request, PKPApplication::ROUTE_COMPONENT, null,
-				'informationCenter.SubmissionInformationCenterHandler',
-				'viewInformationCenter',
-				null,
-				array('submissionId' => $submissionId)
-			),
-			htmlspecialchars($title),
-			'modal_information'
-		);
-
-		// Configure the link action.
-		parent::__construct(
-			'editorialHistory', $ajaxModal,
-			__($linkKey), 'more_info'
-		);
-	}
+        // Configure the link action.
+        parent::__construct(
+            'editorialHistory',
+            $ajaxModal,
+            __($linkKey),
+            'more_info'
+        );
+    }
 }
-
-

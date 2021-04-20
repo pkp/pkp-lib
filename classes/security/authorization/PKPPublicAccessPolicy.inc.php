@@ -15,32 +15,34 @@
 
 import('lib.pkp.classes.security.authorization.HandlerOperationPolicy');
 
-class PKPPublicAccessPolicy extends HandlerOperationPolicy {
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 * @param $operations array|string either a single operation or a list of operations that
-	 *  this policy is targeting.
-	 * @param $message string a message to be displayed if the authorization fails
-	 */
-	function __construct($request, $operations, $message = 'user.authorization.privateOperation') {
-		parent::__construct($request, $operations, $message);
-	}
+class PKPPublicAccessPolicy extends HandlerOperationPolicy
+{
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     * @param $operations array|string either a single operation or a list of operations that
+     *  this policy is targeting.
+     * @param $message string a message to be displayed if the authorization fails
+     */
+    public function __construct($request, $operations, $message = 'user.authorization.privateOperation')
+    {
+        parent::__construct($request, $operations, $message);
+    }
 
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		if ($this->_checkOperationWhitelist()) {
-			return AUTHORIZATION_PERMIT;
-		} else {
-			return AUTHORIZATION_DENY;
-		}
-	}
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        if ($this->_checkOperationWhitelist()) {
+            return AUTHORIZATION_PERMIT;
+        } else {
+            return AUTHORIZATION_DENY;
+        }
+    }
 }
-
-

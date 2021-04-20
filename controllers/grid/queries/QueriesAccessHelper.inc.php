@@ -23,141 +23,181 @@
  *  Delete Q   All       All	     If Blank	If Blank    If Blank
  */
 
-class QueriesAccessHelper {
-	/** @var array */
-	var $_authorizedContext;
+class QueriesAccessHelper
+{
+    /** @var array */
+    public $_authorizedContext;
 
-	/** @var User */
-	var $_user;
+    /** @var User */
+    public $_user;
 
-	/**
-	 * Constructor
-	 * @param $authorizedContext array
-	 * @param $user User
-	 */
-	function __construct($authorizedContext, $user) {
-		$this->_authorizedContext = $authorizedContext;
-		$this->_user = $user;
-	}
+    /**
+     * Constructor
+     *
+     * @param $authorizedContext array
+     * @param $user User
+     */
+    public function __construct($authorizedContext, $user)
+    {
+        $this->_authorizedContext = $authorizedContext;
+        $this->_user = $user;
+    }
 
-	/**
-	 * Retrieve authorized context objects from the authorized context.
-	 * @param $assocType integer any of the ASSOC_TYPE_* constants
-	 * @return mixed
-	 */
-	function getAuthorizedContextObject($assocType) {
-		return isset($this->_authorizedContext[$assocType])?$this->_authorizedContext[$assocType]:null;
-	}
+    /**
+     * Retrieve authorized context objects from the authorized context.
+     *
+     * @param $assocType integer any of the ASSOC_TYPE_* constants
+     */
+    public function getAuthorizedContextObject($assocType)
+    {
+        return $this->_authorizedContext[$assocType] ?? null;
+    }
 
-	/**
-	 * Determine whether the current user can open/close a query.
-	 * @param $query Query
-	 * @return boolean True if the user is allowed to open/close the query.
-	 */
-	function getCanOpenClose($query) {
-		// Managers and sub editors are always allowed
-		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) return true;
+    /**
+     * Determine whether the current user can open/close a query.
+     *
+     * @param $query Query
+     *
+     * @return boolean True if the user is allowed to open/close the query.
+     */
+    public function getCanOpenClose($query)
+    {
+        // Managers and sub editors are always allowed
+        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR])) {
+            return true;
+        }
 
-		// Assigned assistants are allowed
-		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_ASSISTANT)) && $this->isAssigned($this->_user->getId(), $query->getId())) return true;
+        // Assigned assistants are allowed
+        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_ASSISTANT]) && $this->isAssigned($this->_user->getId(), $query->getId())) {
+            return true;
+        }
 
-		// Otherwise, not allowed.
-		return false;
-	}
+        // Otherwise, not allowed.
+        return false;
+    }
 
-	/**
-	 * Determine whether the user can re-order the queries.
-	 * @param $stageId int
-	 * @return boolean
-	 */
-	function getCanOrder($stageId) {
-		return $this->hasStageRole($stageId, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR));
-	}
+    /**
+     * Determine whether the user can re-order the queries.
+     *
+     * @param $stageId int
+     *
+     * @return boolean
+     */
+    public function getCanOrder($stageId)
+    {
+        return $this->hasStageRole($stageId, [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]);
+    }
 
-	/**
-	 * Determine whether the user can create queries.
-	 * @param $stageId int
-	 * @return boolean
-	 */
-	function getCanCreate($stageId) {
-		return $this->hasStageRole($stageId, array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER));
-	}
+    /**
+     * Determine whether the user can create queries.
+     *
+     * @param $stageId int
+     *
+     * @return boolean
+     */
+    public function getCanCreate($stageId)
+    {
+        return $this->hasStageRole($stageId, [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER]);
+    }
 
-	/**
-	 * Determine whether the current user can edit a query.
-	 * @param $queryId int Query ID
-	 * @return boolean True iff the user is allowed to edit the query.
-	 */
-	function getCanEdit($queryId) {
-		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
-		$query = $queryDao->getById($queryId);
-		if (!$query) return false;
+    /**
+     * Determine whether the current user can edit a query.
+     *
+     * @param $queryId int Query ID
+     *
+     * @return boolean True iff the user is allowed to edit the query.
+     */
+    public function getCanEdit($queryId)
+    {
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $query = $queryDao->getById($queryId);
+        if (!$query) {
+            return false;
+        }
 
-		// Assistants, authors and reviewers are allowed, if they created the query
-		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER))) {
-			if ($query->getHeadNote()->getUserId() == $this->_user->getId()) return true;
-		}
+        // Assistants, authors and reviewers are allowed, if they created the query
+        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER])) {
+            if ($query->getHeadNote()->getUserId() == $this->_user->getId()) {
+                return true;
+            }
+        }
 
-		// Managers are always allowed
-		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) return true;
+        // Managers are always allowed
+        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR])) {
+            return true;
+        }
 
-		// Otherwise, not allowed.
-		return false;
-	}
+        // Otherwise, not allowed.
+        return false;
+    }
 
-	/**
-	 * Determine whether the current user can delete a query.
-	 * @param $queryId int Query ID
-	 * @return boolean True iff the user is allowed to delete the query.
-	 */
-	function getCanDelete($queryId) {
-		// Users can always delete their own placeholder queries.
-		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
-		$query = $queryDao->getById($queryId);
-		if ($query) {
-			$headNote = $query->getHeadNote();
-			if ($headNote->getUserId() == $this->_user->getId() && $headNote->getTitle()=='') return true;
-		}
+    /**
+     * Determine whether the current user can delete a query.
+     *
+     * @param $queryId int Query ID
+     *
+     * @return boolean True iff the user is allowed to delete the query.
+     */
+    public function getCanDelete($queryId)
+    {
+        // Users can always delete their own placeholder queries.
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $query = $queryDao->getById($queryId);
+        if ($query) {
+            $headNote = $query->getHeadNote();
+            if ($headNote->getUserId() == $this->_user->getId() && $headNote->getTitle() == '') {
+                return true;
+            }
+        }
 
-		// Managers are always allowed
-		if ($this->hasStageRole($query->getStageId(), array(ROLE_ID_MANAGER))) return true;
+        // Managers are always allowed
+        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_MANAGER])) {
+            return true;
+        }
 
-		// Otherwise, not allowed.
-		return false;
-	}
+        // Otherwise, not allowed.
+        return false;
+    }
 
 
-	/**
-	 * Determine whether the current user can list all queries on the submission
-	 * @param $stageId int The stage ID to load discussions for
-	 * @return boolean
-	 */
-	function getCanListAll($stageId) {
-		return $this->hasStageRole($stageId, array(ROLE_ID_MANAGER));
-	}
+    /**
+     * Determine whether the current user can list all queries on the submission
+     *
+     * @param $stageId int The stage ID to load discussions for
+     *
+     * @return boolean
+     */
+    public function getCanListAll($stageId)
+    {
+        return $this->hasStageRole($stageId, [ROLE_ID_MANAGER]);
+    }
 
-	/**
-	 * Determine whether the current user is assigned to the current query.
-	 * @param $userId int User ID
-	 * @param $queryId int Query ID
-	 * @return boolean
-	 */
-	protected function isAssigned($userId, $queryId) {
-		$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
-		return (boolean) $queryDao->getParticipantIds($queryId, $userId);
-	}
+    /**
+     * Determine whether the current user is assigned to the current query.
+     *
+     * @param $userId int User ID
+     * @param $queryId int Query ID
+     *
+     * @return boolean
+     */
+    protected function isAssigned($userId, $queryId)
+    {
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        return (bool) $queryDao->getParticipantIds($queryId, $userId);
+    }
 
-	/**
-	 * Determine whether the current user has role(s) in the current workflow
-	 * stage
-	 * @param $stageId int
-	 * @param $roles array [ROLE_ID_...]
-	 * @return boolean
-	 */
-	protected function hasStageRole($stageId, $roles) {
-		$stageRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-		return !empty(array_intersect($stageRoles[$stageId], $roles));
-	}
+    /**
+     * Determine whether the current user has role(s) in the current workflow
+     * stage
+     *
+     * @param $stageId int
+     * @param $roles array [ROLE_ID_...]
+     *
+     * @return boolean
+     */
+    protected function hasStageRole($stageId, $roles)
+    {
+        $stageRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        return !empty(array_intersect($stageRoles[$stageId], $roles));
+    }
 }
-
-

@@ -15,24 +15,26 @@
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
-class ManageCopyeditFilesForm extends ManageSubmissionFilesForm {
+class ManageCopyeditFilesForm extends ManageSubmissionFilesForm
+{
+    /**
+     * Constructor.
+     *
+     * @param $submissionId int Submission ID.
+     */
+    public function __construct($submissionId)
+    {
+        parent::__construct($submissionId, 'controllers/grid/files/copyedit/manageCopyeditFiles.tpl');
+    }
 
-	/**
-	 * Constructor.
-	 * @param $submissionId int Submission ID.
-	 */
-	function __construct($submissionId) {
-		parent::__construct($submissionId, 'controllers/grid/files/copyedit/manageCopyeditFiles.tpl');
-	}
-
-	/**
-	 * Save selection of copyedited files
-	 * @param $stageSubmissionFiles array List of submission files in this stage.
-	 * @param $fileStage int SUBMISSION_FILE_...
-	 */
-	function execute($stageSubmissionFiles, $fileStage = null) {
-		parent::execute($stageSubmissionFiles, SUBMISSION_FILE_COPYEDIT);
-	}
+    /**
+     * Save selection of copyedited files
+     *
+     * @param $stageSubmissionFiles array List of submission files in this stage.
+     * @param $fileStage int SUBMISSION_FILE_...
+     */
+    public function execute($stageSubmissionFiles, $fileStage = null)
+    {
+        parent::execute($stageSubmissionFiles, SUBMISSION_FILE_COPYEDIT);
+    }
 }
-
-

@@ -15,36 +15,37 @@
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
-class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
-		parent::__construct(
-			new FinalDraftFilesGridDataProvider(),
-			WORKFLOW_STAGE_ID_EDITING,
-			FILE_GRID_VIEW_NOTES
-		);
+class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
+        parent::__construct(
+            new FinalDraftFilesGridDataProvider(),
+            WORKFLOW_STAGE_ID_EDITING,
+            FILE_GRID_VIEW_NOTES
+        );
 
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT),
-			array('fetchGrid', 'fetchRow')
-		);
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+            ['fetchGrid', 'fetchRow']
+        );
 
-		// Set the grid title.
-		$this->setTitle('submission.finalDraft');
-	}
+        // Set the grid title.
+        $this->setTitle('submission.finalDraft');
+    }
 
-	//
-	// Implemented methods from GridHandler.
-	//
-	/**
-	 * @copydoc GridHandler::isDataElementSelected()
-	 */
-	function isDataElementSelected($gridDataElement) {
-		return false;
-	}
+    //
+    // Implemented methods from GridHandler.
+    //
+    /**
+     * @copydoc GridHandler::isDataElementSelected()
+     */
+    public function isDataElementSelected($gridDataElement)
+    {
+        return false;
+    }
 }
-
-

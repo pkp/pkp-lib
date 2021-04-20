@@ -12,45 +12,45 @@
  * @brief A class to prepare the data object for the editorial statistics
  *   UI component
  */
-namespace PKP\components;
 
-use PKP\components\PKPStatsComponent;
+namespace PKP\components;
 
 import('classes.statistics.StatisticsHelper');
 
-class PKPStatsEditorialPage extends PKPStatsComponent {
-	/** @var array A key/value array of active submissions by stage */
-	public $activeByStage = [];
+class PKPStatsEditorialPage extends PKPStatsComponent
+{
+    /** @var array A key/value array of active submissions by stage */
+    public $activeByStage = [];
 
-	/** @var string The URL to get the averages from the API */
-	public $averagesApiUrl = [];
+    /** @var string The URL to get the averages from the API */
+    public $averagesApiUrl = [];
 
-	/** @var array List of stats that should be converted to percentages */
-	public $percentageStats = [];
+    /** @var array List of stats that should be converted to percentages */
+    public $percentageStats = [];
 
-	/** @var array List of stats details to display in the table */
-	public $tableRows = [];
+    /** @var array List of stats details to display in the table */
+    public $tableRows = [];
 
-	/**
-	 * Retrieve the configuration data to be used when initializing this
-	 * handler on the frontend
-	 *
-	 * @return array Configuration data
-	 */
-	public function getConfig() {
+    /**
+     * Retrieve the configuration data to be used when initializing this
+     * handler on the frontend
+     *
+     * @return array Configuration data
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
 
-		$config = parent::getConfig();
+        $config = array_merge(
+            $config,
+            [
+                'activeByStage' => $this->activeByStage,
+                'averagesApiUrl' => $this->averagesApiUrl,
+                'percentageStats' => $this->percentageStats,
+                'tableRows' => $this->tableRows,
+            ]
+        );
 
-		$config = array_merge(
-			$config,
-			[
-				'activeByStage' => $this->activeByStage,
-				'averagesApiUrl' => $this->averagesApiUrl,
-				'percentageStats' => $this->percentageStats,
-				'tableRows' => $this->tableRows,
-			]
-		);
-
-		return $config;
-	}
+        return $config;
+    }
 }

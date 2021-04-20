@@ -20,48 +20,51 @@
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.tests.PKPTestHelper');
 
-abstract class DatabaseTestCase extends PKPTestCase {
+abstract class DatabaseTestCase extends PKPTestCase
+{
+    /**
+     * Override this method if you want to backup/restore
+     * tables before/after the test.
+     *
+     * @return array A list of tables to backup and restore.
+     */
+    protected function getAffectedTables()
+    {
+        return [];
+    }
 
-	/**
-	 * Override this method if you want to backup/restore
-	 * tables before/after the test.
-	 * @return array A list of tables to backup and restore.
-	 */
-	protected function getAffectedTables() {
-		return array();
-	}
+    /**
+     * @copydoc PHPUnit_Framework_TestCase::setUp()
+     */
+    protected function setUp(): void
+    {
+        // Switch off xdebug screaming (there are
+        // errors in adodb...).
+        PKPTestHelper::xdebugScream(false);
 
-	/**
-	 * @copydoc PHPUnit_Framework_TestCase::setUp()
-	 */
-	protected function setUp() : void {
-		// Switch off xdebug screaming (there are
-		// errors in adodb...).
-		PKPTestHelper::xdebugScream(false);
+        // Backup affected tables.
+        $affectedTables = $this->getAffectedTables();
+        if (is_array($affectedTables)) {
+            PKPTestHelper::backupTables($affectedTables, $this);
+        }
+        parent::setUp();
+    }
 
-		// Backup affected tables.
-		$affectedTables = $this->getAffectedTables();
-		if (is_array($affectedTables)) {
-			PKPTestHelper::backupTables($affectedTables, $this);
-		}
-		parent::setUp();
-	}
+    /**
+     * @copydoc PHPUnit_Framework_TestCase::tearDown()
+     */
+    protected function tearDown(): void
+    {
+        parent::tearDown();
 
-	/**
-	 * @copydoc PHPUnit_Framework_TestCase::tearDown()
-	 */
-	protected function tearDown() : void {
-		parent::tearDown();
+        $affectedTables = $this->getAffectedTables();
+        if (is_array($affectedTables)) {
+            PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
+        } elseif ($affectedTables === PKP_TEST_ENTIRE_DB) {
+            PKPTestHelper::restoreDB($this);
+        }
 
-		$affectedTables = $this->getAffectedTables();
-		if (is_array($affectedTables)) {
-			PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
-		} elseif ($affectedTables === PKP_TEST_ENTIRE_DB) {
-			PKPTestHelper::restoreDB($this);
-		}
-
-		// Switch xdebug screaming back on.
-		PKPTestHelper::xdebugScream(true);
-	}
+        // Switch xdebug screaming back on.
+        PKPTestHelper::xdebugScream(true);
+    }
 }
-

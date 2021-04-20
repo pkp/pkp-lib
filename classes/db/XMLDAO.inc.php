@@ -15,45 +15,55 @@
 
 namespace PKP\db;
 
-use \PKP\xml\PKPXMLParser;
+use PKP\xml\PKPXMLParser;
 
-class XMLDAO {
+class XMLDAO
+{
+    /**
+     * Parse an XML file and return data in an object.
+     *
+     * @see PKPXMLParser::parse()
+     *
+     * @param $file string
+     */
+    public function parse($file)
+    {
+        $parser = new PKPXMLParser();
+        return $parser->parse($file);
+    }
 
-	/**
-	 * Parse an XML file and return data in an object.
-	 * @see PKPXMLParser::parse()
-	 * @param $file string
-	 */
-	function parse($file) {
-		$parser = new PKPXMLParser();
-		return $parser->parse($file);
-	}
+    /**
+     * Parse an XML file with the specified handler and return data in an object.
+     *
+     * @see PKPXMLParser::parse()
+     *
+     * @param $file string
+     * @param $handler reference to the handler to use with the parser.
+     */
+    public function parseWithHandler($file, $handler)
+    {
+        $parser = new PKPXMLParser();
+        $parser->setHandler($handler);
+        return $parser->parse($file);
+    }
 
-	/**
-	 * Parse an XML file with the specified handler and return data in an object.
-	 * @see PKPXMLParser::parse()
-	 * @param $file string
-	 * @param $handler reference to the handler to use with the parser.
-	 */
-	function parseWithHandler($file, $handler) {
-		$parser = new PKPXMLParser();
-		$parser->setHandler($handler);
-		return $parser->parse($file);
-	}
-
-	/**
-	 * Parse an XML file and return data in an array.
-	 * @see PKPXMLParser::parseStruct()
-	 * @param $file string
-	 * @param $tagsToMatch array
-	 * @return array?
-	 */
-	function parseStruct($file, $tagsToMatch = array()) {
-		$parser = new PKPXMLParser();
-		return $parser->parseStruct($file, $tagsToMatch);
-	}
+    /**
+     * Parse an XML file and return data in an array.
+     *
+     * @see PKPXMLParser::parseStruct()
+     *
+     * @param $file string
+     * @param $tagsToMatch array
+     *
+     * @return array?
+     */
+    public function parseStruct($file, $tagsToMatch = [])
+    {
+        $parser = new PKPXMLParser();
+        return $parser->parseStruct($file, $tagsToMatch);
+    }
 }
 
 if (!PKP_STRICT_MODE) {
-	class_alias('\PKP\db\XMLDAO', '\XMLDAO');
+    class_alias('\PKP\db\XMLDAO', '\XMLDAO');
 }

@@ -15,53 +15,61 @@
 
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 
-class SetupListbuilderHandler extends ListbuilderHandler {
-	/** @var Context */
-	var $_context;
+class SetupListbuilderHandler extends ListbuilderHandler
+{
+    /** @var Context */
+    public $_context;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(
-			ROLE_ID_MANAGER,
-			array('fetch', 'fetchRow', 'save')
-		);
-	}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            ROLE_ID_MANAGER,
+            ['fetch', 'fetchRow', 'save']
+        );
+    }
 
-	/**
-	 * Set the current context
-	 * @param $context Context
-	 */
-	function setContext($context) {
-		$this->_context = $context;
-	}
+    /**
+     * Set the current context
+     *
+     * @param $context Context
+     */
+    public function setContext($context)
+    {
+        $this->_context = $context;
+    }
 
-	/**
-	 * Get the current context
-	 * @return Context
-	 */
-	function getContext() {
-		return $this->_context;
-	}
+    /**
+     * Get the current context
+     *
+     * @return Context
+     */
+    public function getContext()
+    {
+        return $this->_context;
+    }
 
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-	/**
-	 * @copydoc ListbuilderHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		$this->setContext($request->getContext());
-		return parent::initialize($request, $args);
-	}
+    /**
+     * @copydoc ListbuilderHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        $this->setContext($request->getContext());
+        return parent::initialize($request, $args);
+    }
 }
-
-

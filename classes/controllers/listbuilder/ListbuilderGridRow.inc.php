@@ -15,62 +15,66 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class ListbuilderGridRow extends GridRow {
+class ListbuilderGridRow extends GridRow
+{
+    /** @var boolean */
+    public $_hasDeleteItemLink;
 
-	/* @var boolean */
-	var $_hasDeleteItemLink;
+    /**
+     * Constructor
+     *
+     * @param $hasDeleteItemLink boolean
+     */
+    public function __construct($hasDeleteItemLink = true)
+    {
+        parent::__construct();
 
-	/**
-	 * Constructor
-	 * @param $hasDeleteItemLink boolean
-	 */
-	function __construct($hasDeleteItemLink = true) {
-		parent::__construct();
+        $this->setHasDeleteItemLink($hasDeleteItemLink);
+    }
 
-		$this->setHasDeleteItemLink($hasDeleteItemLink);
-	}
-
-	/**
-	 * Add a delete item link action or not.
-	 * @param $hasDeleteItemLink boolean
-	 */
-	function setHasDeleteItemLink($hasDeleteItemLink) {
-		$this->_hasDeleteItemLink = $hasDeleteItemLink;
-	}
+    /**
+     * Add a delete item link action or not.
+     *
+     * @param $hasDeleteItemLink boolean
+     */
+    public function setHasDeleteItemLink($hasDeleteItemLink)
+    {
+        $this->_hasDeleteItemLink = $hasDeleteItemLink;
+    }
 
 
-	//
-	// Overridden template methods
-	//
-	/**
-	 * @copydoc GridRow::initialize()
-	 */
-	function initialize($request, $template = 'controllers/listbuilder/listbuilderGridRow.tpl') {
-		parent::initialize($request);
+    //
+    // Overridden template methods
+    //
+    /**
+     * @copydoc GridRow::initialize()
+     */
+    public function initialize($request, $template = 'controllers/listbuilder/listbuilderGridRow.tpl')
+    {
+        parent::initialize($request);
 
-		// Set listbuilder row template
-		$this->setTemplate($template);
+        // Set listbuilder row template
+        $this->setTemplate($template);
 
-		if ($this->_hasDeleteItemLink) {
-			// Add deletion action (handled in JS-land)
-			import('lib.pkp.classes.linkAction.request.NullAction');
-			$this->addAction(
-				new LinkAction(
-					'delete',
-					new NullAction(),
-					'',
-					'remove_item'
-				)
-			);
-		}
-	}
+        if ($this->_hasDeleteItemLink) {
+            // Add deletion action (handled in JS-land)
+            import('lib.pkp.classes.linkAction.request.NullAction');
+            $this->addAction(
+                new LinkAction(
+                    'delete',
+                    new NullAction(),
+                    '',
+                    'remove_item'
+                )
+            );
+        }
+    }
 
-	/**
-	 * @see GridRow::addAction()
-	 */
-	function addAction($action, $position = GRID_ACTION_POSITION_ROW_LEFT) {
-		return parent::addAction($action, $position);
-	}
+    /**
+     * @see GridRow::addAction()
+     */
+    public function addAction($action, $position = GRID_ACTION_POSITION_ROW_LEFT)
+    {
+        return parent::addAction($action, $position);
+    }
 }
-
-

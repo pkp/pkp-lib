@@ -14,100 +14,113 @@
 
 import('lib.pkp.classes.form.Form');
 
-class ReviewerReviewForm extends Form {
+class ReviewerReviewForm extends Form
+{
+    /** @var ReviewerSubmission current submission */
+    public $_reviewerSubmission;
 
-	/** @var ReviewerSubmission current submission */
-	var $_reviewerSubmission;
+    /** @var \PKP\submission\reviewAssignment\ReviewAssignment */
+    public $_reviewAssignment;
 
-	/** @var \PKP\submission\reviewAssignment\ReviewAssignment */
-	var $_reviewAssignment;
+    /** @var int the current step */
+    public $_step;
 
-	/** @var int the current step */
-	var $_step;
+    /** @var PKPRequest the request object */
+    public $request;
 
-	/** @var PKPRequest the request object */
-	var $request;
-
-	/**
-	 * Constructor.
-	 * @param $reviewerSubmission ReviewerSubmission
-	 * @param $step integer
-	 * @param $request PKPRequest
-	 */
-	function __construct($request, $reviewerSubmission, $reviewAssignment, $step) {
-		parent::__construct(sprintf('reviewer/review/step%d.tpl', $step));
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
-		$this->request = $request;
-		$this->_step = (int) $step;
-		$this->_reviewerSubmission = $reviewerSubmission;
-		$this->_reviewAssignment = $reviewAssignment;
-	}
-
-
-	//
-	// Setters and Getters
-	//
-	/**
-	 * Get the reviewer submission.
-	 * @return ReviewerSubmission
-	 */
-	function getReviewerSubmission() {
-		return $this->_reviewerSubmission;
-	}
-
-	/**
-	 * Get the review assignment.
-	 * @return \PKP\submission\reviewAssignment\ReviewAssignment
-	 */
-	function getReviewAssignment() {
-		return $this->_reviewAssignment;
-	}
-
-	/**
-	 * Get the review step.
-	 * @return integer
-	 */
-	function getStep() {
-		return $this->_step;
-	}
+    /**
+     * Constructor.
+     *
+     * @param $reviewerSubmission ReviewerSubmission
+     * @param $step integer
+     * @param $request PKPRequest
+     */
+    public function __construct($request, $reviewerSubmission, $reviewAssignment, $step)
+    {
+        parent::__construct(sprintf('reviewer/review/step%d.tpl', $step));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
+        $this->request = $request;
+        $this->_step = (int) $step;
+        $this->_reviewerSubmission = $reviewerSubmission;
+        $this->_reviewAssignment = $reviewAssignment;
+    }
 
 
-	//
-	// Implement protected template methods from Form
-	//
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign(array(
-			'submission' => $this->getReviewerSubmission(),
-			'reviewIsClosed' => $this->getReviewAssignment()->getDateCompleted() || $this->getReviewAssignment()->getCancelled(),
-			'step' => $this->getStep(),
-		));
-		return parent::fetch($request, $template, $display);
-	}
+    //
+    // Setters and Getters
+    //
+    /**
+     * Get the reviewer submission.
+     *
+     * @return ReviewerSubmission
+     */
+    public function getReviewerSubmission()
+    {
+        return $this->_reviewerSubmission;
+    }
+
+    /**
+     * Get the review assignment.
+     *
+     * @return \PKP\submission\reviewAssignment\ReviewAssignment
+     */
+    public function getReviewAssignment()
+    {
+        return $this->_reviewAssignment;
+    }
+
+    /**
+     * Get the review step.
+     *
+     * @return integer
+     */
+    public function getStep()
+    {
+        return $this->_step;
+    }
 
 
-	//
-	// Protected helper methods
-	//
-	/**
-	 * Set the review step of the submission to the given
-	 * value if it is not already set to a higher value. Then
-	 * update the given reviewer submission.
-	 * @param $reviewerSubmission ReviewerSubmission
-	 */
-	function updateReviewStepAndSaveSubmission($reviewerSubmission) {
-		// Update the review step.
-		$nextStep = $this->getStep() + 1;
-		if($reviewerSubmission->getStep() < $nextStep) {
-			$reviewerSubmission->setStep($nextStep);
-		}
+    //
+    // Implement protected template methods from Form
+    //
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'submission' => $this->getReviewerSubmission(),
+            'reviewIsClosed' => $this->getReviewAssignment()->getDateCompleted() || $this->getReviewAssignment()->getCancelled(),
+            'step' => $this->getStep(),
+        ]);
+        return parent::fetch($request, $template, $display);
+    }
 
-		// Save the reviewer submission.
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
-		$reviewerSubmissionDao->updateReviewerSubmission($reviewerSubmission);
-	}
+
+    //
+    // Protected helper methods
+    //
+    /**
+     * Set the review step of the submission to the given
+     * value if it is not already set to a higher value. Then
+     * update the given reviewer submission.
+     *
+     * @param $reviewerSubmission ReviewerSubmission
+     */
+    public function updateReviewStepAndSaveSubmission($reviewerSubmission)
+    {
+        // Update the review step.
+        $nextStep = $this->getStep() + 1;
+        if ($reviewerSubmission->getStep() < $nextStep) {
+            $reviewerSubmission->setStep($nextStep);
+        }
+
+        // Save the reviewer submission.
+        $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
+        $reviewerSubmissionDao->updateReviewerSubmission($reviewerSubmission);
+    }
 }

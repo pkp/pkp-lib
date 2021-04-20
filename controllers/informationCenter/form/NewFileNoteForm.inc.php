@@ -16,52 +16,61 @@
 
 import('lib.pkp.controllers.informationCenter.form.NewNoteForm');
 
-class NewFileNoteForm extends NewNoteForm {
-	/** @var int The ID of the submission file to attach the note to */
-	var $fileId;
+class NewFileNoteForm extends NewNoteForm
+{
+    /** @var int The ID of the submission file to attach the note to */
+    public $fileId;
 
-	/**
-	 * Constructor.
-	 */
-	function __construct($fileId) {
-		parent::__construct();
+    /**
+     * Constructor.
+     */
+    public function __construct($fileId)
+    {
+        parent::__construct();
 
-		$this->fileId = $fileId;
-	}
+        $this->fileId = $fileId;
+    }
 
-	/**
-	 * Return the assoc type for this note.
-	 * @return int
-	 */
-	function getAssocType() {
-		return ASSOC_TYPE_SUBMISSION_FILE;
-	}
+    /**
+     * Return the assoc type for this note.
+     *
+     * @return int
+     */
+    public function getAssocType()
+    {
+        return ASSOC_TYPE_SUBMISSION_FILE;
+    }
 
-	/**
-	 * Return the submit note button locale key.
-	 * Can be overriden by subclasses.
-	 * @return string
-	 */
-	function getSubmitNoteLocaleKey() {
-		return 'informationCenter.addNote';
-	}
+    /**
+     * Return the submit note button locale key.
+     * Can be overriden by subclasses.
+     *
+     * @return string
+     */
+    public function getSubmitNoteLocaleKey()
+    {
+        return 'informationCenter.addNote';
+    }
 
-	/**
-	 * Return the assoc ID for this note.
-	 * @return int
-	 */
-	function getAssocId() {
-		return $this->fileId;
-	}
+    /**
+     * Return the assoc ID for this note.
+     *
+     * @return int
+     */
+    public function getAssocId()
+    {
+        return $this->fileId;
+    }
 
-	/**
-	 * @copydoc NewFileNoteForm::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('showEarlierEntries', true);
-		return parent::fetch($request, $template, $display);
-	}
+    /**
+     * @copydoc NewFileNoteForm::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('showEarlierEntries', true);
+        return parent::fetch($request, $template, $display);
+    }
 }
-
-

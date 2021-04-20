@@ -17,37 +17,40 @@
 import('lib.pkp.controllers.grid.files.LibraryFileGridHandler');
 import('lib.pkp.controllers.grid.settings.library.LibraryFileAdminGridDataProvider');
 
-class SelectableLibraryFileGridHandler extends LibraryFileGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
+class SelectableLibraryFileGridHandler extends LibraryFileGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct(new LibraryFileAdminGridDataProvider(true));
+    }
 
-		parent::__construct(new LibraryFileAdminGridDataProvider(true));
-	}
+    /**
+     * @copydoc GridHandler::initFeatures()
+     */
+    public function initFeatures($request, $args)
+    {
+        import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
+        return [new SelectableItemsFeature()];
+    }
 
-	/**
-	 * @copydoc GridHandler::initFeatures()
-	 */
-	function initFeatures($request, $args) {
-		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
-		return array(new SelectableItemsFeature());
-	}
+    /**
+     * @copydoc GridHandler::isDataElementInCategorySelected()
+     */
+    public function isDataElementInCategorySelected($categoryDataId, &$gridDataElement)
+    {
+        return false;
+    }
 
-	/**
-	 * @copydoc GridHandler::isDataElementInCategorySelected()
-	 */
-	function isDataElementInCategorySelected($categoryDataId, &$gridDataElement) {
-		return false;
-	}
-
-	/**
-	 * Get the selection name.
-	 * @return string
-	 */
-	function getSelectName() {
-		return 'selectedLibraryFiles';
-	}
+    /**
+     * Get the selection name.
+     *
+     * @return string
+     */
+    public function getSelectName()
+    {
+        return 'selectedLibraryFiles';
+    }
 }
-
-

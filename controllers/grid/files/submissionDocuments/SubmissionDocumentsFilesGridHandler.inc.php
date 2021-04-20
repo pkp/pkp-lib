@@ -16,133 +16,150 @@
 import('lib.pkp.controllers.grid.files.LibraryFileGridHandler');
 import('lib.pkp.controllers.grid.files.submissionDocuments.SubmissionDocumentsFilesGridDataProvider');
 
-class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
+class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct(new SubmissionDocumentsFilesGridDataProvider());
+        $this->addRoleAssignment(
+            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            [
+                'addFile', 'uploadFile', 'saveFile', // Adding new library files
+                'editFile', 'updateFile', // Editing existing library files
+                'deleteFile', 'viewLibrary'
+            ]
+        );
+    }
 
-		parent::__construct(new SubmissionDocumentsFilesGridDataProvider());
-		$this->addRoleAssignment(
-			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR),
-			array(
-				'addFile', 'uploadFile', 'saveFile', // Adding new library files
-				'editFile', 'updateFile', // Editing existing library files
-				'deleteFile', 'viewLibrary'
-			)
-		);
-	}
 
+    //
+    // Overridden template methods
+    //
+    /**
+     * Configure the grid
+     *
+     * @see LibraryFileGridHandler::initialize
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        $this->setCanEdit(true); // this grid can always be edited.
+        parent::initialize($request, $args);
 
-	//
-	// Overridden template methods
-	//
-	/**
-	 * Configure the grid
-	 * @see LibraryFileGridHandler::initialize
-	 */
-	function initialize($request, $args = null) {
-		$this->setCanEdit(true); // this grid can always be edited.
-		parent::initialize($request, $args);
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_MANAGER);
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_MANAGER);
+        $this->setTitle(null);
 
-		$this->setTitle(null);
+        $router = $request->getRouter();
 
-		$router = $request->getRouter();
+        // Add grid-level actions
 
-		// Add grid-level actions
+        if ($this->canEdit()) {
+            $this->addAction(
+                new LinkAction(
+                    'addFile',
+                    new AjaxModal(
+                        $router->url($request, null, null, 'addFile', null, $this->getActionArgs()),
+                        __('grid.action.addFile'),
+                        'modal_add_file'
+                    ),
+                    __('grid.action.addFile'),
+                    'add'
+                )
+            );
+        }
 
-		if ($this->canEdit()) {
-			$this->addAction(
-				new LinkAction(
-					'addFile',
-					new AjaxModal(
-						$router->url($request, null, null, 'addFile', null, $this->getActionArgs()),
-						__('grid.action.addFile'),
-						'modal_add_file'
-					),
-					__('grid.action.addFile'),
-					'add'
-				)
-			);
-		}
+        $this->addAction(
+            new LinkAction(
+                'viewLibrary',
+                new AjaxModal(
+                    $router->url($request, null, null, 'viewLibrary', null, $this->getActionArgs()),
+                    __('grid.action.viewLibrary'),
+                    'modal_information'
+                ),
+                __('grid.action.viewLibrary'),
+                'more_info'
+            )
+        );
+    }
 
-		$this->addAction(
-			new LinkAction(
-				'viewLibrary',
-				new AjaxModal(
-					$router->url($request, null, null, 'viewLibrary', null, $this->getActionArgs()),
-					__('grid.action.viewLibrary'),
-					'modal_information'
-				),
-				__('grid.action.viewLibrary'),
-				'more_info'
-			)
-		);
+    /**
+     * Retrieve the arguments for the 'add file' action.
+     *
+     * @return array
+     */
+    public function getActionArgs()
+    {
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $actionArgs = [
+            'submissionId' => $submission->getId(),
+        ];
 
-	}
+        return $actionArgs;
+    }
 
-	/**
-	 * Retrieve the arguments for the 'add file' action.
-	 * @return array
-	 */
-	function getActionArgs() {
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$actionArgs = array(
-			'submissionId' => $submission->getId(),
-		);
+    /**
+     * Get the row handler - override the default row handler
+     *
+     * @return LibraryFileGridRow
+     */
+    protected function getRowInstance()
+    {
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        return new LibraryFileGridRow($this->canEdit(), $submission);
+    }
 
-		return $actionArgs;
-	}
+    //
+    // Public File Grid Actions
+    //
 
-	/**
-	 * Get the row handler - override the default row handler
-	 * @return LibraryFileGridRow
-	 */
-	protected function getRowInstance() {
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		return new LibraryFileGridRow($this->canEdit(), $submission);
-	}
+    /**
+     * Load the (read only) context file library.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function viewLibrary($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('isModal', true);
+        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $templateMgr->assign('canEdit', !empty(array_intersect([ROLE_ID_MANAGER], $userRoles)));
+        return $templateMgr->fetchJson('controllers/modals/documentLibrary/publisherLibrary.tpl');
+    }
 
-	//
-	// Public File Grid Actions
-	//
+    /**
+     * Returns a specific instance of the new form for this grid.
+     *
+     * @param $context Context
+     *
+     * @return NewLibraryFileForm
+     */
+    public function _getNewFileForm($context)
+    {
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        import('lib.pkp.controllers.grid.files.submissionDocuments.form.NewLibraryFileForm');
+        return new NewLibraryFileForm($context->getId(), $submission->getId());
+    }
 
-	/**
-	 * Load the (read only) context file library.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function viewLibrary($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('isModal', true);
-		$userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-		$templateMgr->assign('canEdit', !empty(array_intersect([ROLE_ID_MANAGER], $userRoles)));
-		return $templateMgr->fetchJson('controllers/modals/documentLibrary/publisherLibrary.tpl');
-	}
-
-	/**
-	 * Returns a specific instance of the new form for this grid.
-	 * @param $context Context
-	 * @return NewLibraryFileForm
-	 */
-	function _getNewFileForm($context) {
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		import('lib.pkp.controllers.grid.files.submissionDocuments.form.NewLibraryFileForm');
-		return new NewLibraryFileForm($context->getId(), $submission->getId());
-	}
-
-	/**
-	 * Returns a specific instance of the edit form for this grid.
-	 * @param $context Press
-	 * @param $fileId int
-	 * @return EditLibraryFileForm
-	 */
-	function _getEditFileForm($context, $fileId) {
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		import('lib.pkp.controllers.grid.files.submissionDocuments.form.EditLibraryFileForm');
-		return new EditLibraryFileForm($context->getId(), $fileId, $submission->getId());
-	}
+    /**
+     * Returns a specific instance of the edit form for this grid.
+     *
+     * @param $context Press
+     * @param $fileId int
+     *
+     * @return EditLibraryFileForm
+     */
+    public function _getEditFileForm($context, $fileId)
+    {
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        import('lib.pkp.controllers.grid.files.submissionDocuments.form.EditLibraryFileForm');
+        return new EditLibraryFileForm($context->getId(), $fileId, $submission->getId());
+    }
 }

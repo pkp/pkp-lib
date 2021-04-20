@@ -15,59 +15,64 @@
 
 import('lib.pkp.classes.form.Form');
 
-class ReviewerGossipForm extends Form {
+class ReviewerGossipForm extends Form
+{
+    /** @var User The user to gossip about */
+    public $_user;
 
-	/** @var User The user to gossip about */
-	var $_user;
+    /** @var array Arguments used to route the form op */
+    public $_requestArgs;
 
-	/** @var array Arguments used to route the form op */
-	var $_requestArgs;
+    /**
+     * Constructor.
+     *
+     * @param $user User The user to gossip about
+     * @param $requestArgs array Arguments used to route the form op to the
+     *  correct submission, stage and review round
+     */
+    public function __construct($user, $requestArgs)
+    {
+        parent::__construct('controllers/grid/users/reviewer/form/reviewerGossipForm.tpl');
+        $this->_user = $user;
+        $this->_requestArgs = $requestArgs;
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
+    }
 
-	/**
-	 * Constructor.
-	 * @param $user User The user to gossip about
-	 * @param $requestArgs array Arguments used to route the form op to the
-	 *  correct submission, stage and review round
-	 */
-	function __construct($user, $requestArgs) {
-		parent::__construct('controllers/grid/users/reviewer/form/reviewerGossipForm.tpl');
-		$this->_user = $user;
-		$this->_requestArgs = $requestArgs;
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
-	}
+    /**
+     * @copydoc Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $this->readUserVars([
+            'gossip',
+        ]);
+    }
 
-	/**
-	 * @copydoc Form::readInputData()
-	 */
-	function readInputData() {
-		$this->readUserVars(array(
-			'gossip',
-		));
-	}
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'requestArgs' => $this->_requestArgs,
+            'gossip' => $this->_user->getGossip(),
+        ]);
 
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign(array(
-			'requestArgs' => $this->_requestArgs,
-			'gossip' => $this->_user->getGossip(),
-		));
+        return parent::fetch($request, $template, $display);
+    }
 
-		return parent::fetch($request, $template, $display);
-	}
-
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		$this->_user->setGossip($this->getData('gossip'));
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$userDao->updateObject($this->_user);
-		parent::execute(...$functionArgs);
-	}
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        $this->_user->setGossip($this->getData('gossip'));
+        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $userDao->updateObject($this->_user);
+        parent::execute(...$functionArgs);
+    }
 }
-
-

@@ -15,91 +15,96 @@
 
 import('lib.pkp.classes.form.Form');
 
-class UserForm extends Form {
+class UserForm extends Form
+{
+    /** @var Id of the user being edited */
+    public $userId;
 
-	/** @var Id of the user being edited */
-	var $userId;
+    /**
+     * Constructor.
+     *
+     * @param $userId int optional
+     */
+    public function __construct($template, $userId = null)
+    {
+        parent::__construct($template);
 
-	/**
-	 * Constructor.
-	 * @param $request PKPRequest
-	 * @param $userId int optional
-	 * @param $author Author optional
-	 */
-	function __construct($template, $userId = null) {
-		parent::__construct($template);
+        $this->userId = isset($userId) ? (int) $userId : null;
 
-		$this->userId = isset($userId) ? (int) $userId : null;
+        if (!is_null($userId)) {
+            $this->addCheck(new FormValidator($this, 'userGroupIds', 'required', 'manager.users.roleRequired'));
+        }
+    }
 
-		if (!is_null($userId)) {
-			$this->addCheck(new FormValidator($this, 'userGroupIds', 'required', 'manager.users.roleRequired'));
-		}
-	}
+    /**
+     * Initialize form data from current user profile.
+     */
+    public function initData()
+    {
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByUserId($this->userId);
+        $userGroupIds = [];
+        while ($userGroup = $userGroups->next()) {
+            $userGroupIds[] = $userGroup->getId();
+        }
+        $this->setData('userGroupIds', $userGroupIds);
 
-	/**
-	 * Initialize form data from current user profile.
-	 */
-	public function initData() {
+        parent::initData();
+    }
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$userGroups = $userGroupDao->getByUserId($this->userId);
-		$userGroupIds = array();
-		while ($userGroup = $userGroups->next()) {
-			$userGroupIds[] = $userGroup->getId();
-		}
-		$this->setData('userGroupIds', $userGroupIds);
+    /**
+     * @copydoc Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $this->readUserVars(['userGroupIds']);
+        parent::readInputData();
+    }
 
-		parent::initData();
-	}
+    /**
+     * @copydoc Form::display
+     *
+     * @param null|mixed $request
+     * @param null|mixed $template
+     */
+    public function display($request = null, $template = null)
+    {
+        $context = $request->getContext();
+        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+        $templateMgr = TemplateManager::getManager($request);
 
-	/**
-	 * @copydoc Form::readInputData()
-	 */
-	public function readInputData() {
-		$this->readUserVars(array('userGroupIds'));
-		parent::readInputData();
-	}
+        $allUserGroups = [];
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($contextId);
+        while ($userGroup = $userGroups->next()) {
+            $allUserGroups[(int) $userGroup->getId()] = $userGroup->getLocalizedName();
+        }
 
-	/**
-	 * @copydoc Form::display
-	 */
-	public function display($request = null, $template = null) {
-		$context = $request->getContext();
-		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
-		$templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'allUserGroups' => $allUserGroups,
+            'assignedUserGroups' => array_map('intval', $this->getData('userGroupIds')),
+        ]);
 
-		$allUserGroups = [];
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$userGroups = $userGroupDao->getByContextId($contextId);
-		while ($userGroup = $userGroups->next()) {
-			$allUserGroups[(int) $userGroup->getId()] = $userGroup->getLocalizedName();
-		}
+        return $this->fetch($request);
+    }
 
-		$templateMgr->assign([
-			'allUserGroups' => $allUserGroups,
-			'assignedUserGroups' => array_map('intval', $this->getData('userGroupIds')),
-		]);
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        if (isset($this->userId)) {
+            import('lib.pkp.classes.security.UserGroupAssignmentDAO');
+            $userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /** @var UserGroupAssignmentDAO $userGroupAssignmentDao */
+            $userGroupAssignmentDao->deleteAssignmentsByContextId(Application::get()->getRequest()->getContext()->getId(), $this->userId);
+            if ($this->getData('userGroupIds')) {
+                $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+                foreach ($this->getData('userGroupIds') as $userGroupId) {
+                    $userGroupDao->assignUserToGroup($this->userId, $userGroupId);
+                }
+            }
+        }
 
-		return $this->fetch($request);
-	}
-
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		if (isset($this->userId)) {
-			import('lib.pkp.classes.security.UserGroupAssignmentDAO');
-			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /* @var $userGroupAssignmentDao UserGroupAssignmentDAO */
-			$userGroupAssignmentDao->deleteAssignmentsByContextId(Application::get()->getRequest()->getContext()->getId(), $this->userId);
-			if ($this->getData('userGroupIds')) {
-				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-				foreach ($this->getData('userGroupIds') as $userGroupId) {
-					$userGroupDao->assignUserToGroup($this->userId, $userGroupId);
-				}
-			}
-		}
-
-		parent::execute(...$functionArgs);
-	}
-
+        parent::execute(...$functionArgs);
+    }
 }

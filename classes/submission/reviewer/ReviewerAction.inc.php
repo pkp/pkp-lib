@@ -17,120 +17,132 @@
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
-class ReviewerAction {
+class ReviewerAction
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-	}
+    //
+    // Actions.
+    //
+    /**
+     * Records whether or not the reviewer accepts the review assignment.
+     *
+     * @param $request PKPRequest
+     * @param $reviewAssignment ReviewAssignment
+     * @param $submission Submission
+     * @param $decline boolean
+     * @param $emailText string optional
+     */
+    public function confirmReview($request, $reviewAssignment, $submission, $decline, $emailText = null)
+    {
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 
-	//
-	// Actions.
-	//
-	/**
-	 * Records whether or not the reviewer accepts the review assignment.
-	 * @param $request PKPRequest
-	 * @param $reviewAssignment ReviewAssignment
-	 * @param $submission Submission
-	 * @param $decline boolean
-	 * @param $emailText string optional
-	 */
-	function confirmReview($request, $reviewAssignment, $submission, $decline, $emailText = null) {
-		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+        $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+        if (!isset($reviewer)) {
+            return true;
+        }
 
-		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
-		if (!isset($reviewer)) return true;
+        // Only confirm the review for the reviewer if
+        // he has not previously done so.
+        if ($reviewAssignment->getDateConfirmed() == null) {
+            $email = $this->getResponseEmail($submission, $reviewAssignment, $request, $decline);
+            // Must explicitly set sender because we may be here on an access
+            // key, in which case the user is not technically logged in
+            $email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
+            HookRegistry::call('ReviewerAction::confirmReview', [$request, &$submission, &$email, $decline]);
+            import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
+            $email->setEventType($decline ? SUBMISSION_EMAIL_REVIEW_DECLINE : SUBMISSION_EMAIL_REVIEW_CONFIRM);
+            if ($emailText) {
+                $email->setBody($emailText);
+            }
+            if (!$email->send($request)) {
+                import('classes.notification.NotificationManager');
+                $notificationMgr = new NotificationManager();
+                $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+            }
 
-		// Only confirm the review for the reviewer if
-		// he has not previously done so.
-		if ($reviewAssignment->getDateConfirmed() == null) {
-			$email = $this->getResponseEmail($submission, $reviewAssignment, $request, $decline);
-			// Must explicitly set sender because we may be here on an access
-			// key, in which case the user is not technically logged in
-			$email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
-			HookRegistry::call('ReviewerAction::confirmReview', array($request, &$submission, &$email, $decline));
-			import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
-			$email->setEventType($decline?SUBMISSION_EMAIL_REVIEW_DECLINE:SUBMISSION_EMAIL_REVIEW_CONFIRM);
-			if ($emailText) $email->setBody($emailText);
-			if (!$email->send($request)) {
-				import('classes.notification.NotificationManager');
-				$notificationMgr = new NotificationManager();
-				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
-			}
+            $reviewAssignment->setDateReminded(null);
+            $reviewAssignment->setReminderWasAutomatic(0);
+            $reviewAssignment->setDeclined($decline);
+            $reviewAssignment->setDateConfirmed(Core::getCurrentDate());
+            $reviewAssignment->stampModified();
+            $reviewAssignmentDao->updateObject($reviewAssignment);
 
-			$reviewAssignment->setDateReminded(null);
-			$reviewAssignment->setReminderWasAutomatic(0);
-			$reviewAssignment->setDeclined($decline);
-			$reviewAssignment->setDateConfirmed(Core::getCurrentDate());
-			$reviewAssignment->stampModified();
-			$reviewAssignmentDao->updateObject($reviewAssignment);
+            // Add log
+            import('lib.pkp.classes.log.SubmissionLog');
+            import('classes.log.SubmissionEventLogEntry');
 
-			// Add log
-			import('lib.pkp.classes.log.SubmissionLog');
-			import('classes.log.SubmissionEventLogEntry');
+            SubmissionLog::logEvent(
+                $request,
+                $submission,
+                $decline ? SUBMISSION_LOG_REVIEW_DECLINE : SUBMISSION_LOG_REVIEW_ACCEPT,
+                $decline ? 'log.review.reviewDeclined' : 'log.review.reviewAccepted',
+                [
+                    'reviewAssignmentId' => $reviewAssignment->getId(),
+                    'reviewerName' => $reviewer->getFullName(),
+                    'submissionId' => $reviewAssignment->getSubmissionId(),
+                    'round' => $reviewAssignment->getRound()
+                ]
+            );
+        }
+    }
 
-			SubmissionLog::logEvent(
-				$request,
-				$submission,
-				$decline?SUBMISSION_LOG_REVIEW_DECLINE:SUBMISSION_LOG_REVIEW_ACCEPT,
-				$decline?'log.review.reviewDeclined':'log.review.reviewAccepted',
-				array(
-					'reviewAssignmentId' => $reviewAssignment->getId(),
-					'reviewerName' => $reviewer->getFullName(),
-					'submissionId' => $reviewAssignment->getSubmissionId(),
-					'round' => $reviewAssignment->getRound()
-				)
-			);
-		}
-	}
+    /**
+     * Get the reviewer response email template.
+     */
+    public function getResponseEmail($submission, $reviewAssignment, $request, $decline)
+    {
+        import('lib.pkp.classes.mail.SubmissionMailTemplate');
+        $email = new SubmissionMailTemplate($submission, $decline ? 'REVIEW_DECLINE' : 'REVIEW_CONFIRM');
 
-	/**
-	 * Get the reviewer response email template.
-	 */
-	function getResponseEmail($submission, $reviewAssignment, $request, $decline) {
-		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$email = new SubmissionMailTemplate($submission, $decline?'REVIEW_DECLINE':'REVIEW_CONFIRM');
+        // Get reviewer
+        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
 
-		// Get reviewer
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+        // Get editorial contact name
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $reviewAssignment->getStageId());
+        $recipient = null;
+        $context = $request->getContext();
+        while ($stageAssignment = $stageAssignments->next()) {
+            $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+            if (!in_array($userGroup->getRoleId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR])) {
+                continue;
+            }
 
-		// Get editorial contact name
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-		$stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $reviewAssignment->getStageId());
-		$recipient = null;
-		$context = $request->getContext();
-		while ($stageAssignment = $stageAssignments->next()) {
-			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-			if (!in_array($userGroup->getRoleId(), array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR))) continue;
+            $recipient = $userDao->getById($stageAssignment->getUserId());
+            $email->addRecipient($recipient->getEmail(), $recipient->getFullName());
+        }
+        if (!$recipient) {
+            $email->addRecipient($context->getData('contactEmail'), $context->getData('contactName'));
+        }
 
-			$recipient = $userDao->getById($stageAssignment->getUserId());
-			$email->addRecipient($recipient->getEmail(), $recipient->getFullName());
-		}
-		if (!$recipient) {
-			$email->addRecipient($context->getData('contactEmail'), $context->getData('contactName'));
-		}
+        // Get due date
+        $reviewDueDate = strtotime($reviewAssignment->getDateDue());
+        $dateFormatShort = $context->getLocalizedDateFormatShort();
+        if ($reviewDueDate == -1) {
+            $reviewDueDate = $dateFormatShort;
+        } // Default to something human-readable if no date specified
+        else {
+            $reviewDueDate = strftime($dateFormatShort, $reviewDueDate);
+        }
 
-		// Get due date
-		$reviewDueDate = strtotime($reviewAssignment->getDateDue());
-		$dateFormatShort = $context->getLocalizedDateFormatShort();
-		if ($reviewDueDate == -1) $reviewDueDate = $dateFormatShort; // Default to something human-readable if no date specified
-		else $reviewDueDate = strftime($dateFormatShort, $reviewDueDate);
+        $email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
 
-		$email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
+        $email->assignParams([
+            'reviewerName' => $reviewer->getFullName(),
+            'reviewDueDate' => $reviewDueDate
+        ]);
+        $email->replaceParams();
 
-		$email->assignParams(array(
-			'reviewerName' => $reviewer->getFullName(),
-			'reviewDueDate' => $reviewDueDate
-		));
-		$email->replaceParams();
-
-		return $email;
-	}
+        return $email;
+    }
 }
-
-

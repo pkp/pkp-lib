@@ -16,49 +16,57 @@
 import('lib.pkp.classes.form.Form');
 import('lib.pkp.classes.site.VersionCheck');
 
-class MaintenanceForm extends Form {
-	/** @var PKPRequest */
-	var $_request;
+class MaintenanceForm extends Form
+{
+    /** @var PKPRequest */
+    public $_request;
 
-	/**
-	 * Constructor.
-	 */
-	function __construct($request, $template) {
-		parent::__construct($template);
-		$this->_request = $request;
-		$this->addCheck(new FormValidatorPost($this));
-	}
+    /**
+     * Constructor.
+     */
+    public function __construct($request, $template)
+    {
+        parent::__construct($template);
+        $this->_request = $request;
+        $this->addCheck(new FormValidatorPost($this));
+    }
 
-	/**
-	 * @copydoc Form::display
-	 */
-	function display($request = null, $template = null) {
-		$templateMgr = TemplateManager::getManager($this->_request);
-		$templateMgr->assign('version', VersionCheck::getCurrentCodeVersion());
-		parent::display($request, $template);
-	}
+    /**
+     * @copydoc Form::display
+     *
+     * @param null|mixed $request
+     * @param null|mixed $template
+     */
+    public function display($request = null, $template = null)
+    {
+        $templateMgr = TemplateManager::getManager($this->_request);
+        $templateMgr->assign('version', VersionCheck::getCurrentCodeVersion());
+        parent::display($request, $template);
+    }
 
-	/**
-	 * Fail with a generic installation error.
-	 * @param $errorMsg string
-	 * @param $translate boolean
-	 */
-	function installError($errorMsg, $translate = true) {
-		$templateMgr = TemplateManager::getManager($this->_request);
-		$templateMgr->assign(array('isInstallError' => true, 'errorMsg' => $errorMsg, 'translateErrorMsg' => $translate));
-		$this->display($this->_request);
-	}
+    /**
+     * Fail with a generic installation error.
+     *
+     * @param $errorMsg string
+     * @param $translate boolean
+     */
+    public function installError($errorMsg, $translate = true)
+    {
+        $templateMgr = TemplateManager::getManager($this->_request);
+        $templateMgr->assign(['isInstallError' => true, 'errorMsg' => $errorMsg, 'translateErrorMsg' => $translate]);
+        $this->display($this->_request);
+    }
 
-	/**
-	 * Fail with a database installation error.
-	 * @param $errorMsg string
-	 */
-	function dbInstallError($errorMsg) {
-		$templateMgr = TemplateManager::getManager($this->_request);
-		$templateMgr->assign(array('isInstallError' => true, 'dbErrorMsg' => empty($errorMsg) ? __('common.error.databaseErrorUnknown') : $errorMsg));
-		error_log($errorMsg);
-		$this->display($this->_request);
-	}
+    /**
+     * Fail with a database installation error.
+     *
+     * @param $errorMsg string
+     */
+    public function dbInstallError($errorMsg)
+    {
+        $templateMgr = TemplateManager::getManager($this->_request);
+        $templateMgr->assign(['isInstallError' => true, 'dbErrorMsg' => empty($errorMsg) ? __('common.error.databaseErrorUnknown') : $errorMsg]);
+        error_log($errorMsg);
+        $this->display($this->_request);
+    }
 }
-
-

@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2020-02-26 09:36+0000\n"
-"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
-"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/sv/>"
-"\n"
+"PO-Revision-Date: 2021-04-14 15:37+0000\n"
+"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"sv_SE/>\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,3 +58,102 @@ msgstr "Du har inte tillgång till den efterfrågade resursen."
 
 msgid "api.400.paramNotSupported"
 msgstr "{$param}-parametern stöds ej."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Du har inte behörighet att lägga till eller redigera dessa filer."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Du har inte tillgång till dessa filer."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Din förfrågan är inte giltig.  orderDirection måste vara \"ned\" eller \""
+"upp\"."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Din förfrågan är inte giltig.  Tidsintervallet måste vara \"dag\" eller \""
+"månad\"."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Slutdatum kan inte vara senare än igår."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Startdatum kan inte vara tidigare än 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Startdatum kan inte vara senare är slutdatumet."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Datum ska skrivas i formatet ÅÅÅÅ-MM-DD."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Publikationen du vill offentliggöra är redan publicerad."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Du har inte behörighet att ladda upp filer."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Filen du laddade upp stämde inte överens med filtillägget. Det kan hända när "
+"filen har fått ett nytt namn till inkompatibel typ, till exempel när "
+"photo.png ändras till photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Bilden du laddade upp är inte giltig."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Du kan bara ladda upp följande typer av filer: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Du måste avpublicera publikationen innan du kan ta bort den."
+
+msgid "api.files.400.config"
+msgstr ""
+"Filen kunde inte laddas upp på grund av ett fel i serverkonfigurationen. "
+"Kontakta system administratören."
+
+msgid "api.files.400.fileSize"
+msgstr "Filer som är större än {$maxSize} kan inte laddas upp."
+
+msgid "api.files.400.uploadFailed"
+msgstr "En eller flera filer kunde inte laddas upp."
+
+msgid "api.files.400.noUpload"
+msgstr "Ingen av filerna som ska laddas upp kunde hittas med den förfrågan."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Du kan inte skicka en e-post till användare med en eller flera av de valda "
+"rollerna."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Du måste ange en användarroll som ska motta e-posten."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Du måste uppge ett ämne för e-posten."
+
+msgid "api.emails.400.missingBody"
+msgstr "Du måste uppge en e-postadress som ska sändas."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Följande språk stödjs inte: {$locales}."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Meddelandet du efterfrågande hittades inte."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API-token kan inte användas för att få tillgång till webbsidan eftersom "
+"webbplatsadministratören inte har konfigurerat en hemlig nyckel."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Det är inte möjligt att ändra tidpunkten för när detta skapades."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "API-token kunde inte avkodas på grund av följande fel: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API-token kunde inte valideras. Detta kan indikera ett fel i API-token eller "
+"att API-token inte längre är giltig."

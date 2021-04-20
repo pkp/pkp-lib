@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-19 21:55+0000\n"
+"PO-Revision-Date: 2021-04-20 15:27+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -661,8 +661,8 @@ msgstr "Политика на отворен пристап"
 
 msgid "manager.setup.notifications.description"
 msgstr ""
-"Авторите автоматски се добијат е-пошта со која се потврдува нивното "
-"поднесување. Може да  добите копии од оваа е-пошта испратени на следново:"
+"Авторите автоматски ќе добијат е-пошта со која се потврдува нивното "
+"поднесување. Може да испратите копии од оваа е-пошта на следниве:"
 
 msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Испратете копија на оваа е-пошта"
@@ -1471,7 +1471,7 @@ msgid "manager.setup.notifyUsers.description"
 msgstr "Избери корисници кои кои треба да примат имејл нотификација."
 
 msgid "manager.setup.notifyUsers"
-msgstr "Забележи"
+msgstr "Извести"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Оневозможи поднесок"
@@ -2388,3 +2388,27 @@ msgstr ""
 
 msgid "manager.emails.otherTemplates"
 msgstr "Останати шаблони"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Една или повеќе од внесените адреси за е-пошта не се валидни."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Копија од е-поштата за потврда на поднескот ќе биде испратена до секоја од "
+"адресите за е-пошта внесена тука. Разделете повеќе адреси за е-пошта со "
+"запирка. На пример: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Извести кој било"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Не"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Да, испрати копија до {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Извести го главното лице за контакт"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Известувања"

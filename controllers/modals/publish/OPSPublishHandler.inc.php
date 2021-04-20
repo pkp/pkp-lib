@@ -16,17 +16,17 @@
 // Import the base Handler.
 import('lib.pkp.controllers.modals.publish.PublishHandler');
 
-class OPSPublishHandler extends PublishHandler {
-
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		$this->addRoleAssignment(
-			[ROLE_ID_AUTHOR],
-			['publish']
-		);
-		parent::__construct();
-	}
+class OPSPublishHandler extends PublishHandler
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->addRoleAssignment(
+            [ROLE_ID_AUTHOR],
+            ['publish']
+        );
+        parent::__construct();
+    }
 }
-

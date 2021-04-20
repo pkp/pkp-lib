@@ -9,6 +9,7 @@
  *
  * @class Publication
  * @ingroup publication
+ *
  * @see PublicationDAO
  *
  * @brief Class for Publication.
@@ -19,30 +20,30 @@ define('PUBLICATION_RELATION_NONE', 1);
 define('PUBLICATION_RELATION_SUBMITTED', 2);
 define('PUBLICATION_RELATION_PUBLISHED', 3);
 
-class Publication extends PKPPublication {
+class Publication extends PKPPublication
+{
+    /**
+     * Get the URL to a localized cover image
+     *
+     * @param int $contextId
+     *
+     * @return string
+     */
+    public function getLocalizedCoverImageUrl($contextId)
+    {
+        $coverImage = $this->getLocalizedData('coverImage');
 
-	/**
-	 * Get the URL to a localized cover image
-	 *
-	 * @param int $contextId
-	 * @return string
-	 */
-	public function getLocalizedCoverImageUrl($contextId) {
-		$coverImage = $this->getLocalizedData('coverImage');
+        if (!$coverImage) {
+            return '';
+        }
 
-		if (!$coverImage) {
-			return '';
-		}
+        import('classes.file.PublicFileManager');
+        $publicFileManager = new PublicFileManager();
 
-		import('classes.file.PublicFileManager');
-		$publicFileManager = new PublicFileManager();
-
-		return join('/', [
-			Application::get()->getRequest()->getBaseUrl(),
-			$publicFileManager->getContextFilesPath($contextId),
-			$coverImage['uploadName'],
-		]);
-	}
+        return join('/', [
+            Application::get()->getRequest()->getBaseUrl(),
+            $publicFileManager->getContextFilesPath($contextId),
+            $coverImage['uploadName'],
+        ]);
+    }
 }
-
-

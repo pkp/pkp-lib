@@ -9,6 +9,7 @@
  *
  * @class Author
  * @ingroup preprint
+ *
  * @see AuthorDAO
  *
  * @brief Preprint author metadata class.
@@ -17,6 +18,6 @@
 
 import('lib.pkp.classes.submission.PKPAuthor');
 
-class Author extends PKPAuthor {
+class Author extends PKPAuthor
+{
 }
-

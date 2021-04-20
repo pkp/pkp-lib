@@ -11,50 +11,53 @@
  *
  * @brief A preset form for configuring author screening options
  */
+
 namespace APP\components\forms\context;
-use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldHTML;
+
+use PKP\components\forms\FieldHTML;
+use PKP\components\forms\FormComponent;
 
 define('FORM_SCREENING', 'screening');
 
-class ScreeningForm extends FormComponent {
-	/** @copydoc FormComponent::$id */
-	public $id = FORM_SCREENING;
+class ScreeningForm extends FormComponent
+{
+    /** @copydoc FormComponent::$id */
+    public $id = FORM_SCREENING;
 
-	/** @copydoc FormComponent::$method */
-	public $method = 'PUT';
+    /** @copydoc FormComponent::$method */
+    public $method = 'PUT';
 
-	/**
-	 * Constructor
-	 *
-	 * @param $action string URL to submit the form to
-	 * @param $locales array Supported locales
-	 * @param $context Context to change settings for
-	 */
-	public function __construct($action, $locales, $context) {
-		$this->action = $action;
+    /**
+     * Constructor
+     *
+     * @param $action string URL to submit the form to
+     * @param $locales array Supported locales
+     * @param $context Context to change settings for
+     */
+    public function __construct($action, $locales, $context)
+    {
+        $this->action = $action;
 
-		$rules = [];
-		\HookRegistry::call('Settings::Workflow::listScreeningPlugins', array(&$rules));
-		if (!empty($rules)){
-			$screeningPluginRules .= "<table class=\"pkpTable\">\n";
-			foreach ($rules as $rule) {
-				$screeningPluginRules .= "<tr><td>" . $rule . "</td></tr>\n";
-			}
-			$screeningPluginRules .= "</table>\n";
-		}
+        $rules = [];
+        \HookRegistry::call('Settings::Workflow::listScreeningPlugins', [&$rules]);
+        if (!empty($rules)) {
+            $screeningPluginRules .= "<table class=\"pkpTable\">\n";
+            foreach ($rules as $rule) {
+                $screeningPluginRules .= '<tr><td>' . $rule . "</td></tr>\n";
+            }
+            $screeningPluginRules .= "</table>\n";
+        }
 
-		$this->addPage([
-				'id' => 'default',
-			]);
-		$this->addGroup([
-				'id' => 'default',
-				'pageId' => 'default',
-			])
-			->addField(new FieldHTML('screening', [
-				'description' => $screeningPluginRules,
-				'groupId' => 'default',
-			]));
-	}
-
+        $this->addPage([
+            'id' => 'default',
+        ]);
+        $this->addGroup([
+            'id' => 'default',
+            'pageId' => 'default',
+        ])
+            ->addField(new FieldHTML('screening', [
+                'description' => $screeningPluginRules,
+                'groupId' => 'default',
+            ]));
+    }
 }

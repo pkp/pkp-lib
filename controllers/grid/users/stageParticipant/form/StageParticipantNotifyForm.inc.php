@@ -16,38 +16,45 @@
 import('classes.mail.PreprintMailTemplate');
 import('lib.pkp.controllers.grid.users.stageParticipant.form.PKPStageParticipantNotifyForm');
 
-class StageParticipantNotifyForm extends PKPStageParticipantNotifyForm {
+class StageParticipantNotifyForm extends PKPStageParticipantNotifyForm
+{
+    /**
+     * Constructor.
+     *
+     * @param null|mixed $template
+     */
+    public function __construct($itemId, $itemType, $stageId, $template = null)
+    {
+        parent::__construct($itemId, $itemType, $stageId, $template);
+    }
 
-	/**
-	 * Constructor.
-	 */
-	function __construct($itemId, $itemType, $stageId, $template = null) {
-		parent::__construct($itemId, $itemType, $stageId, $template);
-	}
+    /**
+     * Return app-specific stage templates.
+     *
+     * @return array
+     */
+    protected function _getStageTemplates()
+    {
+        return [
+            WORKFLOW_STAGE_ID_PRODUCTION => ['EDITOR_ASSIGN']
+        ];
+    }
 
-	/**
-	 * Return app-specific stage templates.
-	 * @return array
-	 */
-	protected function _getStageTemplates() {
-		return array(
-			WORKFLOW_STAGE_ID_PRODUCTION => array('EDITOR_ASSIGN')
-		);
-	}
-
-	/**
-	 * return app-specific mail template.
-	 * @param $submission Submission
-	 * @param $templateKey string
-	 * @param $includeSignature boolean optional
-	 * @return array
-	 */
-	protected function _getMailTemplate($submission, $templateKey, $includeSignature = true) {
-		if ($includeSignature)
-			return new PreprintMailTemplate($submission, $templateKey);
-		else
-			return new PreprintMailTemplate($submission, $templateKey, null, null, null, false);
-	}
+    /**
+     * return app-specific mail template.
+     *
+     * @param $submission Submission
+     * @param $templateKey string
+     * @param $includeSignature boolean optional
+     *
+     * @return array
+     */
+    protected function _getMailTemplate($submission, $templateKey, $includeSignature = true)
+    {
+        if ($includeSignature) {
+            return new PreprintMailTemplate($submission, $templateKey);
+        } else {
+            return new PreprintMailTemplate($submission, $templateKey, null, null, null, false);
+        }
+    }
 }
-
-

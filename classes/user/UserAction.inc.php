@@ -9,6 +9,7 @@
  *
  * @class UserAction
  * @ingroup user
+ *
  * @see User
  *
  * @brief UserAction class.
@@ -16,4 +17,6 @@
 
 import('lib.pkp.classes.user.PKPUserAction');
 
-class UserAction extends PKPUserAction { }
+class UserAction extends PKPUserAction
+{
+}

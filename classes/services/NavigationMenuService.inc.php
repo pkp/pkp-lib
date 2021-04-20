@@ -16,81 +16,85 @@
 namespace APP\Services;
 
 /** types for all ops default navigationMenuItems */
-define('NMI_TYPE_ARCHIVES',	'NMI_TYPE_ARCHIVES');
+define('NMI_TYPE_ARCHIVES', 'NMI_TYPE_ARCHIVES');
 
-class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService {
+class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService
+{
+    /**
+     * Initialize hooks for extending PKPSubmissionService
+     */
+    public function __construct()
+    {
+        \HookRegistry::register('NavigationMenus::itemTypes', [$this, 'getMenuItemTypesCallback']);
+        \HookRegistry::register('NavigationMenus::displaySettings', [$this, 'getDisplayStatusCallback']);
+    }
 
-	/**
-	 * Initialize hooks for extending PKPSubmissionService
-	 */
-	public function __construct() {
+    /**
+     * Return all default navigationMenuItemTypes.
+     *
+     * @param $hookName string
+     * @param $args array of arguments passed
+     */
+    public function getMenuItemTypesCallback($hookName, $args)
+    {
+        $types = & $args[0];
 
-		\HookRegistry::register('NavigationMenus::itemTypes', array($this, 'getMenuItemTypesCallback'));
-		\HookRegistry::register('NavigationMenus::displaySettings', array($this, 'getDisplayStatusCallback'));
-	}
+        \AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_APP_EDITOR);
 
-	/**
-	 * Return all default navigationMenuItemTypes.
-	 * @param $hookName string
-	 * @param $args array of arguments passed
-	 */
-	public function getMenuItemTypesCallback($hookName, $args) {
-		$types =& $args[0];
+        $opsTypes = [
+            NMI_TYPE_ARCHIVES => [
+                'title' => __('navigation.archives'),
+                'description' => __('manager.navigationMenus.archives.description'),
+            ],
+        ];
 
-		\AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_APP_EDITOR);
+        $types = array_merge($types, $opsTypes);
+    }
 
-		$opsTypes = array(
-			NMI_TYPE_ARCHIVES => array(
-				'title' => __('navigation.archives'),
-				'description' => __('manager.navigationMenus.archives.description'),
-			),
-		);
+    /**
+     * Callback for display menu item functionallity
+     *
+     * @param $hookName string
+     * @param $args array of arguments passed
+     */
+    public function getDisplayStatusCallback($hookName, $args)
+    {
+        $navigationMenuItem = & $args[0];
 
-		$types = array_merge($types, $opsTypes);
-	}
+        $request = \Application::get()->getRequest();
+        $dispatcher = $request->getDispatcher();
+        $templateMgr = \TemplateManager::getManager(\Application::get()->getRequest());
 
-	/**
-	 * Callback for display menu item functionallity
-	 * @param $hookName string
-	 * @param $args array of arguments passed
-	 */
-	function getDisplayStatusCallback($hookName, $args) {
-		$navigationMenuItem =& $args[0];
+        $isUserLoggedIn = \Validation::isLoggedIn();
+        $isUserLoggedInAs = \Validation::isLoggedInAs();
+        $context = $request->getContext();
 
-		$request = \Application::get()->getRequest();
-		$dispatcher = $request->getDispatcher();
-		$templateMgr = \TemplateManager::getManager(\Application::get()->getRequest());
+        $this->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
 
-		$isUserLoggedIn = \Validation::isLoggedIn();
-		$isUserLoggedInAs = \Validation::isLoggedInAs();
-		$context = $request->getContext();
+        $menuItemType = $navigationMenuItem->getType();
 
-		$this->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
+        // Conditionally hide some items
+        switch ($menuItemType) {
+            case NMI_TYPE_ARCHIVES:
+                $navigationMenuItem->setIsDisplayed($context && $context->getData('publishingMode') != PUBLISHING_MODE_NONE);
+                break;
+        }
 
-		$menuItemType = $navigationMenuItem->getType();
+        if ($navigationMenuItem->getIsDisplayed()) {
 
-		// Conditionally hide some items
-		switch ($menuItemType) {
-			case NMI_TYPE_ARCHIVES:
-				$navigationMenuItem->setIsDisplayed($context && $context->getData('publishingMode') != PUBLISHING_MODE_NONE);
-				break;
-		}
-
-		if ($navigationMenuItem->getIsDisplayed()) {
-
-			// Set the URL
-			switch ($menuItemType) {
-				case NMI_TYPE_ARCHIVES:
-					$navigationMenuItem->setUrl($dispatcher->url(
-						$request,
-						\PKPApplication::ROUTE_PAGE,
-						null,
-						'preprints',
-						null,
-						null
-					));
-					break;
-			}
-		}
-	}
+            // Set the URL
+            switch ($menuItemType) {
+                case NMI_TYPE_ARCHIVES:
+                    $navigationMenuItem->setUrl($dispatcher->url(
+                        $request,
+                        \PKPApplication::ROUTE_PAGE,
+                        null,
+                        'preprints',
+                        null,
+                        null
+                    ));
+                    break;
+            }
+        }
+    }
 }

@@ -12,49 +12,52 @@
  * @brief A preset form for configuring the terms under which a server will
  *  allow access to its published content.
  */
+
 namespace APP\components\forms\context;
-use \PKP\components\forms\FormComponent;
-use \PKP\components\forms\FieldSelect;
-use \PKP\components\forms\FieldOptions;
+
+use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FormComponent;
 
 define('FORM_ACCESS', 'access');
 
-class AccessForm extends FormComponent {
-	/** @copydoc FormComponent::$id */
-	public $id = FORM_ACCESS;
+class AccessForm extends FormComponent
+{
+    /** @copydoc FormComponent::$id */
+    public $id = FORM_ACCESS;
 
-	/** @copydoc FormComponent::$method */
-	public $method = 'PUT';
+    /** @copydoc FormComponent::$method */
+    public $method = 'PUT';
 
-	/**
-	 * Constructor
-	 *
-	 * @param $action string URL to submit the form to
-	 * @param $locales array Supported locales
-	 * @param $context Context Journal, Server or Press to change settings for
-	 */
-	public function __construct($action, $locales, $context) {
-		$this->action = $action;
-		$this->locales = $locales;
+    /**
+     * Constructor
+     *
+     * @param $action string URL to submit the form to
+     * @param $locales array Supported locales
+     * @param $context Context Journal, Server or Press to change settings for
+     */
+    public function __construct($action, $locales, $context)
+    {
+        $this->action = $action;
+        $this->locales = $locales;
 
-		$this->addField(new FieldOptions('publishingMode', [
-				'label' => __('manager.distribution.publishingMode'),
-				'type' => 'radio',
-				'options' => [
-					['value' => PUBLISHING_MODE_OPEN, 'label' => __('manager.distribution.publishingMode.openAccess')],
-					['value' => PUBLISHING_MODE_NONE, 'label' => __('manager.distribution.publishingMode.none')],
-				],
-				'value' => $context->getData('publishingMode'),
-			]))
-			->addField(new FieldOptions('enableOai', [
-				'label' => __('manager.setup.enableOai'),
-				'description' => __('manager.setup.enableOai.description'),
-				'type' => 'radio',
-				'options' => [
-					['value' => true, 'label' => __('common.enable')],
-					['value' => false, 'label' => __('common.disable')],
-				],
-				'value' => $context->getData('enableOai'),
-			]));
-	}
+        $this->addField(new FieldOptions('publishingMode', [
+            'label' => __('manager.distribution.publishingMode'),
+            'type' => 'radio',
+            'options' => [
+                ['value' => PUBLISHING_MODE_OPEN, 'label' => __('manager.distribution.publishingMode.openAccess')],
+                ['value' => PUBLISHING_MODE_NONE, 'label' => __('manager.distribution.publishingMode.none')],
+            ],
+            'value' => $context->getData('publishingMode'),
+        ]))
+            ->addField(new FieldOptions('enableOai', [
+                'label' => __('manager.setup.enableOai'),
+                'description' => __('manager.setup.enableOai.description'),
+                'type' => 'radio',
+                'options' => [
+                    ['value' => true, 'label' => __('common.enable')],
+                    ['value' => false, 'label' => __('common.disable')],
+                ],
+                'value' => $context->getData('enableOai'),
+            ]));
+    }
 }

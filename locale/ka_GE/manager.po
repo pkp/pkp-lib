@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"PO-Revision-Date: 2021-04-22 01:44+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ka_GE/>\n"
@@ -84,7 +84,7 @@ msgid "manager.groups.membership"
 msgstr "წევრობა"
 
 msgid "manager.groups.membership.noneCreated"
-msgstr "ამ ჯგუფს არ ჰყავს მომხმარებლები"
+msgstr "ამ ჯგუფს არ ჰყავს მომხმარებლები."
 
 msgid "manager.groups.title"
 msgstr "სათაური"
@@ -327,3 +327,976 @@ msgstr "ყველა მომხმარებელი"
 
 msgid "stats.daily"
 msgstr "ყოველდღიური"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "ერთსტრიქონიანი ტექსტური ველი"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "გაფართოებული ტექსტური ველი"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "ერთი სიტყვიანი ტექსტური ველი"
+
+msgid "manager.reviewFormElements.included"
+msgstr "შეიცავს შეტყობინებას ავტორისათვის"
+
+msgid "manager.reviewFormElements.required"
+msgstr "შემმოწმებლები ვალდებულნი არიან შეავსონ ელემენტი"
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "ფორმის ელემენტისთვის საჭიროა შეკითხვა."
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "ფორმის ერთეულისთვის საჭიროა ელემენტის ტიპი."
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "ელემენტის ტიპი"
+
+msgid "manager.reviewFormElements.create"
+msgstr "ახალი ელემენტის შექმნა"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "კოპირება:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "დაადასტურეთ გამოქვეყნებული ფორმის ელემენტის წაშლა..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "ელემენტის ტიპის არჩევა"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "დარწმუნებული ხართ, რომ გსურთ შექმნათ ამ მიმოხილვის ფორმის ასლი?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ ამ მიმოხილვის ფორმის დეაქტივაცია? ის აღარ "
+"იქნება ხელმისაწვდომი ახალი მიმოხილვითი დავალებებისთვის."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ გაააქტიუროთ ეს მიმოხილვის ფორმა? მას შემდეგ, "
+"რაც მიმოხილვას დაემატება, ვეღარ შეძლებთ მისი გამორთვას."
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "სანახავად (ავტორებისთვის)"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "ფორმის ელემენტის ჩასწორება"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "ჩამოსაშლელი სია"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "რადიო ღილაკები (შეგიძლიათ აირჩიოთ მხოლოდ ერთი)"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "ამორჩევა"
+
+msgid "manager.emails.otherTemplates"
+msgstr "სხვა შაბლონები"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "ფორმის ელემენტი არ არის შექმნილი."
+
+msgid "manager.announcements.confirmDelete"
+msgstr "დარწმუნებული ხართ, რომ გსურთ სამუდამოდ წაშალოთ განცხადება {$title}?"
+
+msgid "manager.announcements.create"
+msgstr "შექმენით ახალი განცხადება"
+
+msgid "manager.announcements.dateExpire"
+msgstr "ვადის გასვლა"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "განცხადების წაშლა"
+
+msgid "manager.announcements.edit"
+msgstr "განცხადების ჩასწორება"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "ვადის გასვლის დღის გარდა, გთხოვთ, აირჩიოთ წელი და/ან თვე."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "ვადის გასვლის თარიღი"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"განცხადება ამ თარიღამდე გამოჩნდება მკითხველებისთვის. დატოვეთ ცარიელი, თუ "
+"განცხადება უნდა იყოს ნაჩვენები უსასრულოდ."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "ვადის გასვლის თვის გარდა, გთხოვთ, აირჩიოთ წელი და/ან დღე."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "გთხოვთ, შეარჩიოთ სწორი განცხადების მოქმედების ვადა."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "ვადის გასვლის წლის გარდა, გთხოვთ, აირჩიოთ თვე და/ან დღე."
+
+msgid "manager.announcements.form.description"
+msgstr "განცხადება"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "განცხადების სრული ტექსტი."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "განცხადების აღწერა აუცილებელია."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "მოკლე აღწერა, რომელიც გამოჩნდება განცხადების სათაურთან ერთად."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "საჭიროა განცხადების მოკლე აღწერა."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "შენახვა და ახლის შექმნა"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "განცხადების სათაური აუცილებელია."
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "გთხოვთ, აირჩიოთ სწორი განცხადების ტიპი."
+
+msgid "manager.announcements.noneCreated"
+msgstr "არანაირი განცხადება არ შექმნილა."
+
+msgid "manager.announcementTypes"
+msgstr "განცხადების ტიპები"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"გაფრთხილება! ყველა განცხადება, რომელიც ამ განცხადების ტიპს შეიცავს, "
+"წაიშლება. დარწმუნებული ხართ, რომ გსურთ გააგრძელოთ და წაშალოთ ამ განცხადების "
+"ტიპი?"
+
+msgid "manager.announcementTypes.create"
+msgstr "განცხადების ტიპის შექმნა"
+
+msgid "manager.announcementTypes.edit"
+msgstr "განცხადების ტიპის ჩასწორება"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "შენახვა და ახლის შექმნა"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "განცხადების ტიპი ამ სახელით უკვე არსებობს."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "განცხადების ტიპის დასახელება აუცილებელია."
+
+msgid "manager.distribution.license"
+msgstr "ლიცენზია"
+
+msgid "manager.distribution.license.other"
+msgstr "სხვა ლიცენზიის URL"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "ლიცენზიის პირობები"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"შეიტანეთ საზოგადოებრივი სალიცენზიო პირობები, რომელთა ჩვენებაც გსურთ "
+"გამოქვეყნებულ ნაწარმოებთან ერთად."
+
+msgid "manager.distribution.customHeaders"
+msgstr "მორგებული ჭდეები"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"დაამატეთ მორგებული HTML ტეგები, ასევე ცნობილი როგორც მეტა თეგები, რომელთა "
+"ჩასმა გსურთ ყველა გვერდის თავში. აქ თეგების დამატებამდე გაიარეთ კონსულტაცია "
+"ტექნიკურ მრჩეველთან."
+
+msgid "manager.paymentMethod.title"
+msgstr "გადახდის მეთოდები"
+
+msgid "manager.paymentMethod.none"
+msgstr "გადახდის მეთოდი არ არის არჩეული"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "აბრევიატურა"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "განცხადების ტიპები არ შექმნილა."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "განცხადების ტიპი"
+
+msgid "manager.publication.submissionStage"
+msgstr "ახალი შენატანი"
+
+msgid "manager.publication.editorialStage"
+msgstr "სარედაქციო"
+
+msgid "manager.publication.productionStage"
+msgstr "წარმოება"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "რეცენზენტის სახელმძღვანელო"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "მიმოხილვის შეხსენების დეტალები განახლდა."
+
+msgid "manager.emails.confirmDelete"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ელფოსტის შაბლონის წაშლა?"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ ელ.ფოსტის შაბლონის ნაგულისხმევ მნიშვნელობებზე "
+"დაბრუნება?"
+
+msgid "manager.emails.addEmail"
+msgstr "შაბლონის დამატება"
+
+msgid "manager.emails.createEmail"
+msgstr "ელფოსტის შექმნა"
+
+msgid "manager.emails.customTemplate"
+msgstr "მორგებული შაბლონი"
+
+msgid "manager.emails.data"
+msgstr "წერილის შაბლონის მონაცემები"
+
+msgid "manager.emails.details"
+msgstr "შაბლონის დეტალები"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"თქვენ აპირებთ გამორთოთ ელფოსტის შაბლონი. თუ ამ შაბლონის გამოყენებით "
+"განხორციელდა სისტემის პროცესები, ისინი მას აღარ გამოიყენებენ. გსურთ "
+"დაადასტუროთ ეს ოპერაცია?"
+
+msgid "manager.emails.editEmail"
+msgstr "ელფოსტის ჩასწორება"
+
+msgid "manager.emails.editTestExample"
+msgstr "ელფოსტის ტესტის მაგალითის ჩასწორება"
+
+msgid "manager.emails.emailKey"
+msgstr "ელფოსტის გასაღები"
+
+msgid "manager.emails.emailKey.description"
+msgstr ""
+"ელფოსტის გასაღები შეიძლება შეიცავდეს მხოლოდ ასოებს, ციფრებს და ქვედა ხაზებს."
+
+msgid "manager.emails.emailKeyExists"
+msgstr ""
+"ელწერილი მოცემული გასაღებით უკვე არსებობს. ელფოსტის გასაღებები უნდა იყოს "
+"უნიკალური."
+
+msgid "manager.emails.emailTemplate"
+msgstr "ელფოსტის შაბლონი"
+
+msgid "manager.emails.emailTemplates"
+msgstr "ელფოსტის შაბლონები"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "ელფოსტის შაბლონის დამატებისას უნდა მიუთითოთ კონტექსტის იდენტიფიკატორი."
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "თქვენს მიერ მითითებული გასაღები უკვე გამოიყენება."
+
+msgid "manager.emails.enabled"
+msgstr "ელფოსტის შაბლონის ჩართვა"
+
+msgid "manager.emails.enable.message"
+msgstr "თქვენ ამ ელფოსტის ჩართვას აპირებთ. გსურთ დაადასტუროთ ეს ოპერაცია?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"ელფოსტისთვის საჭიროა უნიკალური გასაღები, რომელიც არ შეიცავს ჰარის, ან "
+"სპეციალურ სიმბოლოებს."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "ელფოსტისთვის საჭიროა ტექსტი."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "ელფოსტისთვის საჭიროა თემა."
+
+msgid "manager.emails"
+msgstr "მზა ელწერილი"
+
+msgid "manager.emails.resetAll"
+msgstr "ყველას ჩამოყრა"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"ყველა თარგის გადატვირთვის შემთხვევაში, ელ.ფოსტის შაბლონების ყველა ცვლილება "
+"დაიკარგება. გსურთ დაადასტუროთ ეს ოპერაცია?"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "ნაგულისხმევი ელფოსტის შაბლონები აღდგენილია."
+
+msgid "manager.emails.resetComplete"
+msgstr "ელფოსტის შაბლონი წარმატებით გადაიტვირთა."
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"ამ შაბლონის გადატვირთვის შემთხვევაში, შეტყობინებების ყველა მონაცემი "
+"დაუბრუნდება ნაგულისხმევ მნიშვნელობას, დაკარგავს ყველა ცვლილებას. გსურთ "
+"დაადასტუროთ ეს ოპერაცია?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "ნაგულისხმევზე ჩამოყრა"
+
+msgid "manager.emails.sentFrom"
+msgstr "გამოგზავნილია"
+
+msgid "manager.emails.sentTo"
+msgstr "გაგზავნილია"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "თემა: {$subject}"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "ექსპორტი Excel/CSV-ში"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "აირჩიეთ მომხმარებლები, რომლებიც ექსპორტირდება Excel/CSV ფაილში."
+
+msgid "manager.filesBrowser"
+msgstr "ფაილების ბრაუზერი"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"გსურთ ამ ფაილის ან საქაღალდის წაშლა? გაითვალისწინეთ, რომ საქაღალდე უნდა იყოს "
+"ცარიელი, სანამ წაიშლება."
+
+msgid "manager.files.createDir"
+msgstr "საქაღალდის შექმნა"
+
+msgid "manager.files.emptyDir"
+msgstr "ამ საქარალდეში ფაილი ვერ მოიძებნა."
+
+msgid "manager.files.indexOfDir"
+msgstr "ინდექსი {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "მშობელი საქაღალდე"
+
+msgid "manager.files.uploadedFiles"
+msgstr "ატვირთული ფაილები"
+
+msgid "manager.groups.confirmDelete"
+msgstr "დარწმუნებული ხართ, რომ გსურთ წაშალოთ ეს შენიშვნა?"
+
+msgid "manager.groups.createTitle"
+msgstr "სათაურის შექმნა"
+
+msgid "manager.groups.editTitle"
+msgstr "სათაურის ჩასწორება"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "საჭიროა ჯგუფის სათაური."
+
+msgid "manager.groups.membership.addMember"
+msgstr "წევრის დამატება"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ ჯგუფის წევრობის წაშლა?"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "მომხმარებლები ვერ მოიძებნა."
+
+msgid "manager.importExport"
+msgstr "მონაცემების იმპორტი/ექსპორტი"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "ნაგულისხმევი ჩატვირთვა"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"ეს სისტემა სურვილისამებრ საშუალებას აძლევს გარკვეული კრიტიკული ინფორმაციის "
+"შეყვანას რამდენიმე დამატებით ენაზე. ამ ფუნქციის გამოსაყენებლად აირჩიეთ "
+"ალტერნატიული ენები და აირჩიეთ ქვემოთ ჩამოთვლილი ვარიანტებიდან."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"აირჩიეთ ყველა ენა, საიტის მხარდასაჭერად, ენის არჩევის მენიუს საშუალებით, "
+"რომელიც თითოეულ გვერდზე გამოჩნდება. მენიუ გამოჩნდება მხოლოდ იმ შემთხვევაში, "
+"თუ ერთზე მეტი ენაა არჩეული."
+
+msgid "manager.people.existingUserRequired"
+msgstr "უნდა შეიყვანოთ არსებული მომხმარებელი."
+
+msgid "manager.people.authSource"
+msgstr "ავთენტიფიკაციის წყაროს შექმნა"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "გსურთ ამ მომხმარებლის გაუქმება?"
+
+msgid "manager.people.createUser"
+msgstr "ახალი მომხმარებლის შექმნა"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "შექმენით შემთხვევითი პაროლი."
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"გაუგზავნეთ მომხმარებელს მისასალმებელი ელწერილი, რომელშიც შედის მათი "
+"მომხმარებლის სახელი და პაროლი."
+
+msgid "manager.people.doNotEnroll"
+msgstr "არანაირი როლი"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "ელფოსტით გაგზავნეთ არჩეული მომხმარებლები"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "ელფოსტის მომხმარებლები რეგისტრირებული არიან, როგორც"
+
+msgid "manager.people.emailUsers"
+msgstr "ელფოსტის მომხმარებლები"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "ენის არჩევა"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"აირჩიეთ მომხმარებლები, რომლებსაც გაუგზავნით ელფოსტას, მათი სახელების ველების "
+"მონიშვნით"
+
+msgid "manager.people.enroll"
+msgstr "მომხმარებლის ჩარიცხვა"
+
+msgid "manager.people.enrollment"
+msgstr "ჩარიცხვა"
+
+msgid "manager.people.enrollSelected"
+msgstr "მონშნული მომხმარებლების ჩარიცხვა"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "როლის სინქრონიზაცია"
+
+msgid "manager.people.enrollSync"
+msgstr "რეგისტრაციის სინქრონიზაცია"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "მომხმარებლებს ნებისმიერ დროს შეიძლება დაეკისროს როლი, ან ჩამოერთვას ის."
+
+msgid "manager.people.enrollUserAs"
+msgstr "მომხმარებლის ჩარიცხვა"
+
+msgid "manager.people.invalidUser"
+msgstr "უკაცრავად, მოთხოვნილი მომხმარებელი არ არსებობს."
+
+msgid "manager.people.mergeUser"
+msgstr "მომხმარებლის გაერთიანება"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ არჩეული {$oldAccountCount} ანგარიშების შერწყმა "
+"„{$newUsername}“ ანგარიშთან? არჩეული {$oldAccountCount} ანგარიშები ამის "
+"შემდეგ გაქრება. ამ მოქმედების გაუქმება შეუძლებელია."
+
+msgid "manager.people.mergeUsers"
+msgstr "მომხმარებლების გაერთიანება"
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"გთხოვთ, აირჩიოთ როლი გვერდის ზედა ნაწილში, სანამ დააწკაპუნებთ ღილაკზე \""
+"მომხმარებლის რეგისტრაცია\"."
+
+msgid "manager.people.mustProvideName"
+msgstr "გთხოვთ პირველ რიგში მიუთითოთ მომხმარებლის გვარი."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "შესაბამისი მომხმარებლები არ არიან."
+
+msgid "manager.people.noneEnrolled"
+msgstr "არ არის მოწვეული მომხმარებლები."
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "შენახვა და ახლის შექმნა"
+
+msgid "manager.people.signedInAs"
+msgstr "თქვენ ამჟამად შესული ხართ, როგორც {$username}"
+
+msgid "manager.people.signInAs"
+msgstr "შესვლა, როგორც"
+
+msgid "manager.people.signInAsUser"
+msgstr "შესვლა, როგორც მომხმარებელი"
+
+msgid "manager.people.syncUsers"
+msgstr "მომხმარებლის რეგისტრაციის სინქრონიზაცია"
+
+msgid "manager.people.unenroll"
+msgstr "რეგისტრაციის გაუქმება"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "მომხმარებელი წარმატებით შეიქმნა."
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"მოსთხოვეთ მომხმარებელს, შეცვალოს პაროლი შემდეგში, როდესაც შევა სისტემაში."
+
+msgid "manager.plugins.action"
+msgstr "ქმედება:"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "პლაგინის მენეჯმენტი"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"ეს არის საიტის მასშტაბის პლაგინი. მხოლოდ საიტის ადმინისტრატორს შეუძლია "
+"მართოს ეს პლაგინი."
+
+msgid "manager.plugins"
+msgstr "სისტემური პლაგინები"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"თქვენ არ შეგიძლიათ წაშალოთ ეს წარმომადგენელი, რადგან ისინი ენიჭებიან ბაზრის "
+"მეტამონაცემებს ერთი ან მეტი გამოქვეყნების ფორმატისთვის ამ წარდგენისთვის."
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "რეცენზენტების ძებნა სახელით"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "ძებნა სახელით"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "ინტერესების განხილვა"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"გამოიყენეთ ქვემოთ მოცემული ფორმა, რათა დააყენოთ მაქსიმალური მნიშვნელობები იმ "
+"ტერმინებისთვის, რომელთა ძებნა გსურთ. ფორმა წინასწარ არის დასახლებული ამ "
+"ველების გამოანგარიშებული საშუალოებით."
+
+msgid "manager.statistics.reports.filters"
+msgstr "ფილტრები"
+
+msgid "manager.affiliationAndSupport"
+msgstr "სპონსორი"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "საავტორო უფლებების შესახებ"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "ავტორის სახელმძღვანელო"
+
+msgid "manager.setup.competingInterests"
+msgstr "ინტერესთა კონფლიქტი"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "თქვენ ატვირთული ფაილი ვერ მოიძებნა. გთხოვთ, ხელახლა ატვირთოთ იგი."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "ღია წვდომის პოლიტიკა"
+
+msgid "manager.setup.principalContact"
+msgstr "ძირითადი კონტაქტი"
+
+msgid "manager.setup.privacyStatement"
+msgstr "კონფიდენციალურობის განცხადება"
+
+msgid "stats.submissionsActive"
+msgstr "აქტიური შენატანები"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "შეხსენება რეცენზენტს"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"პლაგინი წარმატებით არ გადაწერა. ეს შეიძლება იყოს წვდომის პრობლემა. გთხოვთ, "
+"დარწმუნდეთ, რომ ვებ-სერვერს შეუძლია დაემატოს პლაგინების დირექტორიას (ქვე-"
+"დირექტორიების ჩათვლით), მაგრამ არ დაგავიწყდეთ მოგვიანებით მისი დაცვა."
+
+msgid "manager.plugins.installConfirm"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ პლაგინის დაყენება?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ პლაგინის განახლება?"
+
+msgid "grid.action.installPlugin"
+msgstr "პლაგინის დაყენება, ან განახლება"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ პლაგინის წაშლა სისტემაში?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "წაშლაზე დაჭერით, თქვენ წაშლით პლაგინს სერვერის ფაილური სისტემიდან."
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"პლაგინი \"{$pluginName}\" ვერ წაიშალა ფაილური სისტემადან. ეს შეიძლება იყოს "
+"წვდომის პრობლემა. გთხოვთ, დარწმუნდეთ, რომ ვებ-სერვერს შეუძლია დაემატოს "
+"პლაგინების დირექტორიას (ქვე-დირექტორიების ჩათვლით), მაგრამ არ დაგავიწყდეთ "
+"მოგვიანებით მისი დაცვა."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "პლაგინი \"{$pluginName}\" წარმატებით წაიშალა"
+
+msgid "manager.plugins.description"
+msgstr ""
+"ეს გვერდი საშუალებას აძლევს მენეჯერს გადახედოს და პოტენციურად "
+"დააკონფიგურიროს დანამატები, რომლებიც ამჟამად დაინსტალირებულია. დანამატები "
+"დაყოფილია კატეგორიებად, მათი ფუნქციონირების მიხედვით. კატეგორიები "
+"ჩამოთვლილია ქვემოთ, და თითოეულ კატეგორიაში, მისი მიმდინარე დანამატების "
+"ნაკრები."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "პლაგინი \"{$pluginName}\" არ არსებობს"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "ჯერ აირჩიეთ ფაილი"
+
+msgid "manager.plugins.upload"
+msgstr "ახალი პლაგინის ატვირთვა"
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"ეს ფორმა საშუალებას გაძლევთ ატვირთოთ და დააინსტალიროთ ახალი პლაგინი. გთხოვთ, "
+"დარწმუნდეთ, რომ პლაგინი არის შეკუმშული, როგორც .tar.gz ფაილი."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "გთხოვთ, დარწმუნდეთ, რომ ფაილი მოინიშნა ასატვირთად."
+
+msgid "manager.plugins.pluginGallery"
+msgstr "პლაგინების გალერეა"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "უახლესი თავსებადი გამოცემა"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "ოფიციალური"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"ამ პლაგინის შემუშავება და შენარჩუნება ხდება საზოგადოებრივი ცოდნის პროექტის "
+"გუნდის მიერ."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"ეს პლაგინი განიხილა და დამტკიცდა საზოგადოებრივი ცოდნის პროექტის ჯგუფის მიერ."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "პარტნიორი"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "ამ პლაგინს უზრუნველყოფს ჩვენი განვითარების პარტნიორი."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "მხარდამჭერი"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} გამოვიდა: {$date}"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "პლაგინი ჯერ არ არის დაინსტალირებული."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "ამჟამად ამ პლაგინის თავსებადი ვერსია არ არის ხელმისაწვდომი."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"პლაგინი უკვე დაინსტალირებულია და უფრო ახალია, ვიდრე გალერეაში არსებული "
+"ვერსია."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"პლაგინი უკვე დაინსტალირებულია, მაგრამ მისი განახლება შესაძლებელია უფრო ახალ "
+"ვერსიად."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "პლაგინი უკვე დაინსტალირებულია და განახლებულია."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "უფრო ახალი, ვიდრე ხელმისაწვდომი ვერსია"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "განახლება შესაძლებელია"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "განახლებულია"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "მიუწვდომელი"
+
+msgid "manager.plugins.installFailed"
+msgstr "ინსტალაცია ჩაიშალა. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "წარმატებით დაინსტალირდა ვერსია {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"ატვირთული პლაგინის არქივი არ შეიცავს საქაღალდეს, რომელიც შეესაბამება მოდულის "
+"სახელს."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "ატვირთული პლაგინი არ ესადაგება განახლებული პლაგინის კატეგორიას."
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"ატვირთულ პლაგინში version.xml შეიცავს პლაგინის სახელს, რომელიც არ "
+"შეესაბამება განახლებული პლაგინის სახელს."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "პლაგინი არ არსებობს.  გთხოვთ, დააინსტალიროთ"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"პლაგინი უკვე არსებობს, მაგრამ უფრო ახალია, ვიდრე დაინსტალირებული ვერსია.  "
+"ამის ნაცვლად, განაახლეთ"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr ""
+"Tar ბრძანება მიუწვდომელია. გთხოვთ, სწორად დააკონფიგურიროთ ის თქვენს \""
+"config.inc.php\"-ში."
+
+msgid "manager.plugins.upgrade"
+msgstr "პლაგინის განახლება"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"ეს ფორმა საშუალებას გაძლევთ განაახლოთ პლაგინი. გთხოვთ, დარწმუნდეთ, რომ "
+"პლაგინი არის შეკუმშული, როგორც .tar.gz ფაილი."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "განახლება ჩაიშალა. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "წარმატებით განახლდა ვერსიაზე {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "ფაილის ატვირთვის შეცდომა"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "პლაგინის ფაილის არჩევა"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml პლაგინის დირექტორიაში შეიცავს არასწორ მონაცემებს."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml ვერ მოიძებნა პლაგინების დირექტორიაში"
+
+msgid "grid.action.addGenre"
+msgstr "კომპონენტის დამატება"
+
+msgid "grid.action.editGenre"
+msgstr "კომპონენტის ჩასწორება"
+
+msgid "grid.action.deleteGenre"
+msgstr "კომპონენტის წაშლა"
+
+msgid "grid.action.restoreGenres"
+msgstr "კომპონენტების ნაგულისხმევ პარამეტრებზე აღდგენა"
+
+msgid "manager.distribution"
+msgstr "განაწილება"
+
+msgid "manager.distribution.title"
+msgstr "განაწილების პარამეტრები"
+
+msgid "manager.reviewForms"
+msgstr "მიმოხილვის ფორმები"
+
+msgid "manager.reviewForms.inReview"
+msgstr "რეცენზირების რეჟიმში"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "ფორმის ელემენტის ტიპის შეცვლა..."
+
+msgid "manager.reviewFormElements"
+msgstr "ფორმის ელემენტები"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "მონშნულის დამატება"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "თოლია (შეგიძლიათ აირჩიოთ ერთი ან მეტი)"
+
+msgid "grid.action.createReviewForm"
+msgstr "ახალი მიმოხილვის ფორმის შექმნა"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "დაფარვა"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>ამ გვერდზე ხელმისაწვდომი იქნება:<blockquote> {$pagesPath}</blockquote> "
+"... სადაც %PATH% არის ზემოთ შეყვანილი გზა. <strong>შენიშვნა:</strong> ორ "
+"გვერდს არ შეიძლება ჰქონდეს იგივე გზა. სისტემაში ჩასმული ბილიკების "
+"გამოყენებამ შეიძლება დაკარგოს მნიშვნელოვან ფუნქციებზე წვდომა.</p>"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"გეზის ველი უნდა შეიცავდეს მხოლოდ ალფანუმერულ სიმბოლოებს, პლუს '.', '/', '-' "
+"და '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "ეს გზა უკვე არსებობს ნავიგაციის მენიუს სხვა ერთეულისთვის."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "ეს სათაური უკვე არსებობს ნავიგაციის სხვა მენიუსთვის."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "სათაური სავადებულოა"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "დანიშნული მენიუს ერთეულები"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "დანიშნულების მენიუს ელემენტები"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "აქტიური თემის ნავიგაციის არეები"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "აირჩიეთ სანავიგაციო არე"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "ამ ზონაში უკვე არის ნავიგაციის მენიუ."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "მითითებული უნდა იყოს URL"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"შეიტყვეთ მეტი იმის შესახებ, როდის გამოჩნდება ან იმალება მენიუს ეს ელემენტი."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"როდესაც მენიუს ელემენტი ხსნის ქვემენიუს, მისი ბმულის დაცვა შეუძლებელია ყველა "
+"მოწყობილობაზე. მაგალითად, თუ თქვენ გაქვთ “About” ერთეული, რომელიც ხსნის "
+"ქვემენიუს “Contact” და “Editor Team”, ბმულის “About” მიღება შეუძლებელია "
+"ყველა მოწყობილობაზე. ნაგულისხმევ მენიუში ამის მოგვარება ხდება მენიუს მეორე "
+"პუნქტის, “ჟურნალის შესახებ” შექმნით, რომელიც გამოჩნდება ქვემენიუში."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "ნავიგაციის მენიუს ტიპი"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "შეარჩიეთ ნავიგაციის მენიუს ტიპი ან მორგებული, რომ გააკეთოთ საკუთარი"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "მორგებული გვერდი"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"შექმენით საკუთარი გვერდი თქვენს საიტზე და მიაბით ის ნავიგაციის მენიუდან."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "დისტანციური URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "ბმული სხვა საიტზე ნებისმიერი URL-სთვის, მაგალითად https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"მიჰყევით გვერდს, რომელშიც ნაჩვენებია ჟურნალის შესახებ შინაარსის პარამეტრები >"
+" ჟურნალი"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"ეს ბმული გამოჩნდება მხოლოდ იმ შემთხვევაში, თუ შეავსეთ ჟურნალის შესახებ "
+"განყოფილება განყოფილებაში პარამეტრები > ჟურნალი."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"მიჰყევით გვერდს, სადაც ნაჩვენებია Masthead-ის შინაარსი პარამეტრებში > "
+"ჟურნალი."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"ეს ბმული მხოლოდ იმ შემთხვევაში გამოჩნდება, თუ შეავსეთ სარედაქციო ჯგუფის "
+"განყოფილება პარამეტრები > ჟურნალი."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "გვერდის ბმული, რომელიც აჩვენებს წარდგენის ინსტრუქციას."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "თქვენი მიმდინარე საკითხის ბმული."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "თქვენი საკითხის არქივის ბმული."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "თქვენი განცხადებების ამსახველი გვერდის ბმული."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"ეს ბმული გამოჩნდება მხოლოდ იმ შემთხვევაში, თუ თქვენ ჩართეთ განცხადებები "
+"პარამეტრები > ვებსაიტი."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "მომხმარებლის შესვლის გვერდის ბმული."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "მომხმარებლის რეგისტრაციის გვერდის ბმული."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "სარედაქციო კონსოლის ბმული."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "მომხმარებლის პროფილის გვერდის ბმული."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "საიტის ადმინისტრაციული საშუალებების ბმული."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "ეს ბმული გამოჩნდება მხოლოდ ადმინისტრაციული მომხმარებლებისთვის."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "ბმული, რომელითაც გამოვა მომხმარებელი."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "ეს ბმული გამოჩნდება მხოლოდ სტუმრის შესვლისას."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+"ეს ბმული მხოლოდ მაშინ გამოჩნდება, როდესაც ვიზიტორი არ არის სისტემაში შესული."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "ბმული გვერდზე, სადაც ნაჩვენებია თქვენი საკონტაქტო ინფორმაცია."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"ეს ბმული გამოჩნდება მხოლოდ იმ შემთხვევაში, თუ თქვენ შეავსეთ საკონტაქტო "
+"ინფორმაცია პარამეტრებში > კონტაქტი."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "გთხოვთ, აირჩიოთ სანავიგაციო მენიუს ტიპი."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"ეს ბმული მხოლოდ იმ შემთხვევაში გამოჩნდება, თუ გადახდები ჩართულია პარამეტრები "
+"> განაწილება > გადახდები."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"ეს ბმული გამოჩნდება მხოლოდ იმ შემთხვევაში, თუ ვიზიტორი შესულია, გადახდები "
+"ჩართულია პარამეტრები > განაწილება > გადახდები და ხელმოწერა საჭიროა "
+"პარამეტრები > განაწილება > წვდომა."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "ბმული ძიების გვერდზე."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "თქვენი საიტის კონფიდენციალურობის შესახებ ნაჩვენები გვერდის ბმული."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"ეს ბმული ნაჩვენები იქნება მხოლოდ იმ შემთხვევაში, თუ თქვენ შეიტანეთ "
+"კონფიდენციალურობის განაცხადი პარამეტრები > სამუშაო ნაკადი > გაგზავნა."
+
+msgid "grid.category.urlWillBe"
+msgstr "კატეგორიის URL იქნება: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "კატეგორიის გზა უნდა შედგებოდეს მხოლოდ ასოებისა და ციფრებისგან."
+
+msgid "grid.category.pathExists"
+msgstr "კატეგორიის გზა უკვე არსებობს. გთხოვთ, შეიყვანოთ უნიკალური გზა."
+
+msgid "grid.category.removeText"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ კატეგორიის ამოღება?"
+
+msgid "grid.category.nameRequired"
+msgstr "გთხოვთ, შეიყვანოთ კატეგორიის სახელი."
+
+msgid "grid.category.categoryDetails"
+msgstr "კატეგორიის დეტალები"

@@ -17,7 +17,7 @@ require(dirname(__FILE__) . '/bootstrap.inc.php');
 
 import('lib.pkp.classes.cliTool.InstallTool');
 
-class OPSInstallTool extends InstallTool
+class OPSInstallTool extends \PKP\cliTool\InstallTool
 {
     /**
      * Constructor.

@@ -13,9 +13,9 @@
  * @brief CLI tool for merging two user accounts.
  */
 
-import('lib.pkp.classes.cliTool.CliTool');
+namespace PKP\cliTool;
 
-class MergeUsersTool extends CommandLineTool
+class MergeUsersTool extends \PKP\cliTool\CommandLineTool
 {
     /** @var string $targetSpecifier */
     public $targetSpecifier;
@@ -120,4 +120,8 @@ class MergeUsersTool extends CommandLineTool
         }
         return $userDao->getByUsername($specifier);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\cliTool\MergeUsersTool', '\MergeUsersTool');
 }

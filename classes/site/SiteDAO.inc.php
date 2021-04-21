@@ -14,7 +14,8 @@
  *
  * @brief Operations for retrieving and modifying the Site object.
  */
-import('lib.pkp.classes.site.Site');
+
+namespace PKP\site;
 
 use APP\core\Services;
 
@@ -117,7 +118,7 @@ class SiteDAO extends \PKP\db\DAO
      *
      * @param $site Site
      */
-    public function insertSite(&$site)
+    public function insertSite($site)
     {
         $type = 'array';
         $returner = $this->update(
@@ -195,4 +196,8 @@ class SiteDAO extends \PKP\db\DAO
             $this->update("DELETE FROM site_settings WHERE setting_name in (${deleteSettingNames})");
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\site\SiteDAO', '\SiteDAO');
 }

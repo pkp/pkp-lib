@@ -15,10 +15,15 @@
  * @brief Provides methods to check for the latest version of OJS.
  */
 
+namespace PKP\site;
+
 define('VERSION_CODE_PATH', 'dbscripts/xml/version.xml');
 
-import('lib.pkp.classes.db.XMLDAO');
-import('lib.pkp.classes.site.Version');
+use APP\core\Application;
+use PKP\config\Config;
+use PKP\db\DAORegistry;
+
+use PKP\db\XMLDAO;
 
 class VersionCheck
 {
@@ -212,4 +217,8 @@ class VersionCheck
         }
         return false;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\site\VersionCheck', '\VersionCheck');
 }

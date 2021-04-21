@@ -15,7 +15,7 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-class RemoveLocaleKey extends CommandLineTool
+class RemoveLocaleKey extends \PKP\cliTool\CommandLineTool
 {
     /** @var string Locale key to be removed */
     public $localeKey = '';

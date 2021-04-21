@@ -15,7 +15,7 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-class CitationsParsingTool extends CommandLineTool
+class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
 {
     /**
      * Constructor.

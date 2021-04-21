@@ -6,7 +6,7 @@
  */
 
 /**
- * @file classes/cliTool/CliTool.inc.php
+ * @file classes/cliTool/CommandLineTool.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -21,6 +21,7 @@
  *  to bootstrap and route tool requests.
  */
 
+namespace PKP\cliTool;
 
 /** Initialization code */
 define('PWD', getcwd());
@@ -31,8 +32,12 @@ if (!defined('STDIN')) {
 define('SESSION_DISABLE_INIT', 1);
 require('./lib/pkp/includes/bootstrap.inc.php');
 
+use APP\core\Application;
+use APP\core\PageRouter;
 use APP\i18n\AppLocale;
 
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
 
 if (!isset($argc)) {
@@ -166,4 +171,8 @@ class CommandLineTool
         $this->usage();
         exit(0);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\cliTool\CommandLineTool', '\CommandLineTool');
 }

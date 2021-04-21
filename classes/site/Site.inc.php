@@ -20,6 +20,11 @@
  * @brief Describes system-wide site properties.
  */
 
+namespace PKP\site;
+
+use APP\i18n\AppLocale;
+
+use PKP\core\Registry;
 
 class Site extends \PKP\core\DataObject
 {
@@ -219,4 +224,8 @@ class Site extends \PKP\core\DataObject
     {
         $this->setData('supportedLocales', $supportedLocales);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\site\Site', '\Site');
 }

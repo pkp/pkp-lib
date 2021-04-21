@@ -20,7 +20,7 @@ require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php
 import('lib.pkp.classes.site.Version');
 import('lib.pkp.classes.site.VersionCheck');
 
-class InstallPluginVersionTool extends CommandLineTool
+class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
 {
     /** @var string Path to descriptor file to install */
     private $_descriptor;

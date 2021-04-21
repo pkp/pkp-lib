@@ -15,8 +15,11 @@
  * @brief Operations for retrieving and modifying Version objects.
  */
 
+namespace PKP\site;
 
-import('lib.pkp.classes.site.Version');
+use APP\core\Application;
+
+use PKP\plugins\HookRegistry;
 
 class VersionDAO extends \PKP\db\DAO
 {
@@ -234,4 +237,8 @@ class VersionDAO extends \PKP\db\DAO
             [$productType, $product]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\site\VersionDAO', '\VersionDAO');
 }

@@ -15,14 +15,18 @@
  * Note: Some functions require fopen wrappers to be enabled.
  */
 
+namespace PKP\cliTool;
 
 define('RUNNING_UPGRADE', 1);
 
 import('classes.install.Upgrade');
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
 
-class UpgradeTool extends CommandLineTool
+use APP\core\Application;
+
+use APP\i18n\AppLocale;
+use PKP\site\VersionCheck;
+
+class UpgradeTool extends \PKP\cliTool\CommandLineTool
 {
     /** @var string command to execute (check|upgrade|download) */
     public $command;
@@ -232,4 +236,8 @@ class UpgradeTool extends CommandLineTool
     {
         printf("[%s]\n", $message);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\cliTool\UpgradeTool', '\UpgradeTool');
 }

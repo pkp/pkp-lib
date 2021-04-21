@@ -13,7 +13,7 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-class migrationTool extends CommandLineTool
+class migrationTool extends \PKP\cliTool\CommandLineTool
 {
     /** @var string Name (fully qualified) of migration class */
     protected $class;

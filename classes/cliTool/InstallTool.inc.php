@@ -13,13 +13,16 @@
  * @brief CLI tool for installing a PKP app.
  */
 
+namespace PKP\cliTool;
 
 import('classes.install.Install');
 import('lib.pkp.classes.install.form.InstallForm');
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
 
-class InstallTool extends CommandLineTool
+
+// FIXME: Add namespacing
+use InstallForm;
+
+class InstallTool extends \PKP\cliTool\CommandLineTool
 {
     /** @var array installation parameters */
     public $params;
@@ -256,4 +259,8 @@ class InstallTool extends CommandLineTool
     {
         printf("[%s]\n", $message);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\cliTool\InstallTool', '\InstallTool');
 }

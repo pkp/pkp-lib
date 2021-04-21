@@ -13,6 +13,7 @@
  * @brief CLI tool to execute a set of scheduled tasks.
  */
 
+namespace PKP\cliTool;
 
 /** Default XML tasks file to parse if none is specified */
 define('TASKS_REGISTRY_FILE', 'registry/scheduledTasks.xml');
@@ -21,7 +22,7 @@ import('lib.pkp.classes.scheduledTask.ScheduledTask');
 import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 import('lib.pkp.classes.scheduledTask.ScheduledTaskDAO');
 
-class ScheduledTaskTool extends CommandLineTool
+class ScheduledTaskTool extends \PKP\cliTool\CommandLineTool
 {
     /** @var string the XML file listing the tasks to be executed */
     public $file;
@@ -118,4 +119,8 @@ class ScheduledTaskTool extends CommandLineTool
         $this->taskDao->updateLastRunTime($className);
         $task->execute();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\cliTool\ScheduledTaskTool', '\ScheduledTaskTool');
 }

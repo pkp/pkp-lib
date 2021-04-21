@@ -17,7 +17,7 @@
 define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(__FILE__)))) . '/index.php');
 require_once(dirname(dirname(__FILE__)) . '/classes/cliTool/CliTool.inc.php');
 
-class MergeCoverageReportTool extends CommandLineTool
+class MergeCoverageReportTool extends \PKP\cliTool\CommandLineTool
 {
     public $target = '';
     public $script = '';

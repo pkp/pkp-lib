@@ -16,7 +16,7 @@
 define('APP_ROOT', dirname(dirname(dirname(dirname(__FILE__)))));
 require(APP_ROOT . '/tools/bootstrap.inc.php');
 
-class buildSwagger extends CommandLineTool
+class buildSwagger extends \PKP\cliTool\CommandLineTool
 {
     public $outputFile;
     public $parameters;

@@ -19,7 +19,7 @@ require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php
 // Bring in the file loader folder constants.
 import('lib.pkp.classes.task.FileLoader');
 
-class CopyAccessLogFileTool extends CommandLineTool
+class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
 {
     public $_usageStatsDir;
 

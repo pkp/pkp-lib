@@ -15,6 +15,11 @@
  * @brief Describes system version history.
  */
 
+namespace PKP\site;
+
+use APP\core\Application;
+
+use PKP\core\Core;
 
 class Version extends \PKP\core\DataObject
 {
@@ -357,4 +362,8 @@ class Version extends \PKP\core\DataObject
 
         return $numericVersion;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\site\Version', '\Version');
 }

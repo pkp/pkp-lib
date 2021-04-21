@@ -15,7 +15,7 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-class SetVersionTool extends CommandLineTool
+class SetVersionTool extends \PKP\cliTool\CommandLineTool
 {
     /**
      * Set the version numbers

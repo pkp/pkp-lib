@@ -15,7 +15,7 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-class generateTestMetrics extends CommandLineTool
+class generateTestMetrics extends \PKP\cliTool\CommandLineTool
 {
     public $contextId;
     public $dateStart;

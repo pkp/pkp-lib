@@ -8,20 +8,43 @@
 
  describe('Filename support for different character sets', function() {
 	it('#6898 Tests submission file download name is correct', function() {
-		cy.login('dbarnes');
-		cy.visit('index.php/publicknowledge/workflow/access/1');
-		cy.get('.ui-tabs-anchor').contains('Submission').eq(0).click();
-		cy.get('#submissionFilesGridDiv .show_extras').eq(0).click();
-		cy.get('[id^="component-grid-files-submission"]').contains('Edit').eq(0).click();
-		cy.wait(3000);
-		cy.get('[name="name[en_US]"').clear().type('edição-£$L<->/4/ch 丹尼爾 a دانيال1d line \\n break.pdf');
-		cy.get('[name="name[fr_CA]"').clear().type('edição-£$L<->/4/ch 丹尼爾 a دانيال1d line \\n break.pdf');
-		cy.get('[id^="submitFormButton"]').contains('Save').click();
-		cy.get('.pkp_modal').should('not.exist');
+		var name = 'edição-£$L<->/4/ch 丹尼爾 a دانيال1d line \\n break.pdf';
+		var responseHeader = 'attachment; filename*=UTF-8\'\'"edi%C3%A7%C3%A3o-%C2%A3%24L%3C-%3E%2F4%2Fch+%E4%B8%B9%E5%B0%BC%E7%88%BE+a+%D8%AF%D8%A7%D9%86%D9%8A%D8%A7%D9%841d+line+%5Cn+break.pdf"';
+		var stageId = Cypress.env('contextTitles').en_US === 'Public Knowledge Preprint Server' ? 5 : 1;
+		var downloadUrl = 'index.php/publicknowledge/$$$call$$$/api/file/file-api/download-file?submissionFileId=1&submissionId=1&stageId=' + stageId;
 
-		cy.request('GET', 'index.php/publicknowledge/$$$call$$$/api/file/file-api/download-file?submissionFileId=1&submissionId=1&stageId=1')
-			.then((response) => {
-				expect(response.headers).to.have.property('content-disposition', 'attachment; filename*=UTF-8\'\'"edi%C3%A7%C3%A3o-%C2%A3%24L%3C-%3E%2F4%2Fch+%E4%B8%B9%E5%B0%BC%E7%88%BE+a+%D8%AF%D8%A7%D9%86%D9%8A%D8%A7%D9%841d+line+%5Cn+break.pdf"');
+		cy.login('dbarnes');
+		cy.visit('index.php/publicknowledge/workflow/access/1')
+			.then((thisWindow) => {
+
+				// Grab the CSRF token
+				cy.get('a:contains("Assign")').click();
+				cy.get('input[name="csrfToken"]').then(($el) => {
+					var csrfToken = $el.val();
+
+					// Change the filename
+					cy.request({
+						method: 'PUT',
+						url: 'index.php/publicknowledge/api/v1/submissions/1/files/1?stageId=' + stageId,
+						headers: {
+							'X-Csrf-Token': csrfToken
+						},
+						body: {
+							name: {
+								en_US: name,
+								fr_CA: name
+							}
+						}
+					}).then((response) => {
+
+						// Check the download filename
+						cy.request('GET', downloadUrl)
+							.then((response) => {
+								expect(response.headers).to.have.property('content-disposition', responseHeader);
+							});
+					});
+				})
+
 			});
 	});
 });

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"PO-Revision-Date: 2021-04-22 01:44+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -2134,11 +2134,11 @@ msgstr "M'envoyer une copie de ce courriel à {$email}."
 
 msgid "manager.setup.notifyUsers.description"
 msgstr ""
-"Sélectionner les utilisateurs-trices qui doivent recevoir votre notification "
-"par courriel."
+"Sélectionner les utilisateurs-trices qui doivent recevoir vos avis par "
+"courriel."
 
 msgid "manager.setup.notifyUsers"
-msgstr "Aviser"
+msgstr "Avis"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Désactiver les soumissions"
@@ -2162,3 +2162,15 @@ msgstr "ERREUR :"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Le chemin « {$contextPath} » de la revue n'existe pas."
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Non"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Oui, envoyer une copie à {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Aviser le contact principal"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Avis"

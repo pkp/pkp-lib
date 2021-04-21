@@ -17,6 +17,7 @@
 
 namespace PKP\citation;
 
+use PKP\db\DAOResultFactory;
 use PKP\plugins\HookRegistry;
 
 class CitationDAO extends \PKP\db\DAO

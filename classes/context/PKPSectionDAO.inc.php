@@ -15,6 +15,8 @@
  * @brief Operations for retrieving and modifying Section objects.
  */
 
+namespace PKP\context;
+
 abstract class PKPSectionDAO extends \PKP\db\DAO
 {
     /**
@@ -124,4 +126,8 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
         }
         return $sections;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\context\PKPSectionDAO', '\PKPSectionDAO');
 }

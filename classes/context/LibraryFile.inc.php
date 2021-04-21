@@ -15,16 +15,21 @@
  * @brief Library file class.
  */
 
-define('LIBRARY_FILE_TYPE_CONTRACT', 0x00001);
-define('LIBRARY_FILE_TYPE_MARKETING', 0x00002);
-define('LIBRARY_FILE_TYPE_PERMISSION', 0x00003);
-define('LIBRARY_FILE_TYPE_REPORT', 0x00004);
-define('LIBRARY_FILE_TYPE_OTHER', 0x00005);
+namespace PKP\context;
+
+use FileManager;
 
 import('lib.pkp.classes.file.FileManager');
+use PKP\config\Config;
 
 class LibraryFile extends \PKP\core\DataObject
 {
+    public const LIBRARY_FILE_TYPE_CONTRACT = 1;
+    public const LIBRARY_FILE_TYPE_MARKETING = 2;
+    public const LIBRARY_FILE_TYPE_PERMISSION = 3;
+    public const LIBRARY_FILE_TYPE_REPORT = 4;
+    public const LIBRARY_FILE_TYPE_OTHER = 5;
+
     /**
      * Return absolute path to the file on the host filesystem.
      *
@@ -292,5 +297,20 @@ class LibraryFile extends \PKP\core\DataObject
     public function setPublicAccess($publicAccess)
     {
         $this->setData('publicAccess', $publicAccess);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\context\LibraryFile', '\LibraryFile');
+    foreach ([
+        'LIBRARY_FILE_TYPE_CONTRACT',
+        'LIBRARY_FILE_TYPE_MARKETING',
+        'LIBRARY_FILE_TYPE_PERMISSION',
+        'LIBRARY_FILE_TYPE_REPORT',
+        'LIBRARY_FILE_TYPE_OTHER',
+    ] as $constantName) {
+        if (!defined($constantName)) {
+            define($constantName, constant('LibraryFile::' . $constantName));
+        }
     }
 }

@@ -15,7 +15,10 @@
  * @brief Operations for retrieving and modifying LibraryFile objects.
  */
 
-import('lib.pkp.classes.context.LibraryFile');
+namespace PKP\context;
+
+use PKP\db\DAOResultFactory;
+use PKP\plugins\HookRegistry;
 
 class LibraryFileDAO extends \PKP\db\DAO
 {
@@ -281,4 +284,8 @@ class LibraryFileDAO extends \PKP\db\DAO
     {
         return $this->_getInsertId('library_files', 'file_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\context\LibraryFileDAO', '\LibraryFileDAO');
 }

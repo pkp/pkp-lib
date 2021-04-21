@@ -13,6 +13,10 @@
  * @brief Describes basic section properties.
  */
 
+namespace PKP\context;
+
+use APP\core\Application;
+
 class PKPSection extends \PKP\core\DataObject
 {
     /**
@@ -171,4 +175,8 @@ class PKPSection extends \PKP\core\DataObject
     {
         return $this->setData('policy', $policy, $locale);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\context\PKPSection', '\PKPSection');
 }

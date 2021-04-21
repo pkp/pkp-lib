@@ -15,6 +15,8 @@
  * @brief Describes basic Category properties.
  */
 
+namespace PKP\context;
+
 class Category extends \PKP\core\DataObject
 {
     /**
@@ -204,4 +206,8 @@ class Category extends \PKP\core\DataObject
     {
         return $this->setData('sortOption', $sortOption);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\context\Category', '\Category');
 }

@@ -15,7 +15,10 @@
  * @brief Operations for retrieving and modifying Category objects.
  */
 
-import('lib.pkp.classes.context.Category');
+namespace PKP\context;
+
+use PKP\db\DAOResultFactory;
+use PKP\plugins\HookRegistry;
 
 class CategoryDAO extends \PKP\db\DAO
 {
@@ -460,4 +463,8 @@ class CategoryDAO extends \PKP\db\DAO
     {
         return $this->_getInsertId('categories', 'category_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\context\CategoryDAO', '\CategoryDAO');
 }

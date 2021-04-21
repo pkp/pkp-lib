@@ -13,6 +13,10 @@
  * @brief Base class associating sections, series and categories to sub editors.
  */
 
+namespace PKP\context;
+
+use PKP\db\DAORegistry;
+
 class SubEditorsDAO extends \PKP\db\DAO
 {
     /**
@@ -164,4 +168,8 @@ class SubEditorsDAO extends \PKP\db\DAO
         $row = $result->current();
         return $row ? (bool) $row->row_count : false;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\context\SubEditorsDAO', '\SubEditorsDAO');
 }

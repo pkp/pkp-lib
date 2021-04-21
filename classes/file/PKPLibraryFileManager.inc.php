@@ -13,8 +13,8 @@
  * @brief Wrapper class for uploading files to a site/context' library directory.
  */
 
+use PKP\context\LibraryFile;
 
-import('lib.pkp.classes.context.LibraryFile');
 import('lib.pkp.classes.file.PrivateFileManager');
 
 class PKPLibraryFileManager extends PrivateFileManager
@@ -142,10 +142,10 @@ class PKPLibraryFileManager extends PrivateFileManager
     public function &getTypeSuffixMap()
     {
         static $map = [
-            LIBRARY_FILE_TYPE_MARKETING => 'MAR',
-            LIBRARY_FILE_TYPE_PERMISSION => 'PER',
-            LIBRARY_FILE_TYPE_REPORT => 'REP',
-            LIBRARY_FILE_TYPE_OTHER => 'OTH'
+            LibraryFile::LIBRARY_FILE_TYPE_MARKETING => 'MAR',
+            LibraryFile::LIBRARY_FILE_TYPE_PERMISSION => 'PER',
+            LibraryFile::LIBRARY_FILE_TYPE_REPORT => 'REP',
+            LibraryFile::LIBRARY_FILE_TYPE_OTHER => 'OTH'
         ];
         return $map;
     }
@@ -173,10 +173,10 @@ class PKPLibraryFileManager extends PrivateFileManager
     public function &getTypeTitleKeyMap()
     {
         static $map = [
-            LIBRARY_FILE_TYPE_MARKETING => 'settings.libraryFiles.category.marketing',
-            LIBRARY_FILE_TYPE_PERMISSION => 'settings.libraryFiles.category.permissions',
-            LIBRARY_FILE_TYPE_REPORT => 'settings.libraryFiles.category.reports',
-            LIBRARY_FILE_TYPE_OTHER => 'settings.libraryFiles.category.other'
+            LibraryFile::LIBRARY_FILE_TYPE_MARKETING => 'settings.libraryFiles.category.marketing',
+            LibraryFile::LIBRARY_FILE_TYPE_PERMISSION => 'settings.libraryFiles.category.permissions',
+            LibraryFile::LIBRARY_FILE_TYPE_REPORT => 'settings.libraryFiles.category.reports',
+            LibraryFile::LIBRARY_FILE_TYPE_OTHER => 'settings.libraryFiles.category.other'
         ];
         return $map;
     }
@@ -200,10 +200,10 @@ class PKPLibraryFileManager extends PrivateFileManager
     public function &getTypeNameMap()
     {
         static $typeNameMap = [
-            LIBRARY_FILE_TYPE_MARKETING => 'marketing',
-            LIBRARY_FILE_TYPE_PERMISSION => 'permissions',
-            LIBRARY_FILE_TYPE_REPORT => 'reports',
-            LIBRARY_FILE_TYPE_OTHER => 'other',
+            LibraryFile::LIBRARY_FILE_TYPE_MARKETING => 'marketing',
+            LibraryFile::LIBRARY_FILE_TYPE_PERMISSION => 'permissions',
+            LibraryFile::LIBRARY_FILE_TYPE_REPORT => 'reports',
+            LibraryFile::LIBRARY_FILE_TYPE_OTHER => 'other',
         ];
         return $typeNameMap;
     }

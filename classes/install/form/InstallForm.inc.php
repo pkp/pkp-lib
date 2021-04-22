@@ -20,6 +20,8 @@ import('lib.pkp.classes.install.form.MaintenanceForm');
 
 use APP\i18n\AppLocale;
 
+use PKP\xsl\XSLTransformer;
+
 class InstallForm extends MaintenanceForm
 {
     /** @var array locales supported by this system */
@@ -111,7 +113,6 @@ class InstallForm extends MaintenanceForm
      */
     public function display($request = null, $template = null)
     {
-        import('lib.pkp.classes.xslt.XSLTransformer');
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'localeOptions' => $this->supportedLocales,

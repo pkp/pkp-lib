@@ -13,6 +13,8 @@
  * @brief Base class that converts a User XML document to a set of users
  */
 
+use PKP\mail\MailTemplate;
+
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
 class UserXmlPKPUserFilter extends NativeImportFilter
@@ -254,7 +256,6 @@ class UserXmlPKPUserFilter extends NativeImportFilter
             // send USER_REGISTER e-mail only if it is a new inserted/registered user
             // else, if the user already exists, its metadata will not be change (just groups will be re-assigned below)
             if ($password) {
-                import('lib.pkp.classes.mail.MailTemplate');
                 $mail = new MailTemplate('USER_REGISTER');
                 $mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
                 $mail->assignParams(['username' => $user->getUsername(), 'password' => $password, 'userFullName' => $user->getFullName()]);

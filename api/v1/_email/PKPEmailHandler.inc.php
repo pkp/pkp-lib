@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Queue as Queue;
 
 import('lib.pkp.classes.handler.APIHandler');
 
+use PKP\mail\Mail;
+
 use Psr\Http\Message\ServerRequestInterface;
 
 class PKPEmailHandler extends APIHandler
@@ -156,7 +158,6 @@ class PKPEmailHandler extends APIHandler
         $batches = array_chunk($userIds, self::EMAILS_PER_JOB);
         foreach ($batches as $userIds) {
             Queue::push(function () use ($userIds, $contextId, $subject, $body, $fromEmail, $fromName) {
-                import('lib.pkp.classes.mail.Mail');
                 $users = Services::get('user')->getMany([
                     'contextId' => $contextId,
                     'userIds' => $userIds,

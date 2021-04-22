@@ -21,6 +21,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\mail\SubmissionMailTemplate;
 use PKP\plugins\HookRegistry;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
@@ -425,8 +426,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                     }
                 }
 
-                import('lib.pkp.classes.mail.SubmissionMailTemplate');
-                $mail = new \SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
+                $mail = new SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
                 $mail->setEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
                 $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
                 // Get editors assigned to the submission, consider also the recommendOnly editors

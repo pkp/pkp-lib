@@ -18,6 +18,8 @@
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
+use PKP\mail\Mail;
+
 class ScheduledTaskHelperTest extends PKPTestCase
 {
     /**
@@ -112,7 +114,6 @@ class ScheduledTaskHelperTest extends PKPTestCase
             ->will($this->returnValue($message));
 
         // Helper will use the Mail::send() method. Mock it.
-        import('lib.pkp.classes.mail.Mail');
         $mailMock = $this->getMockBuilder(Mail::class)
             ->setMethods(['send', 'setBody', 'setSubject'])
             ->getMock();

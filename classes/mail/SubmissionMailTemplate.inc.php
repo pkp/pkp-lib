@@ -15,7 +15,13 @@
  * This allows for submission-specific functionality like logging, etc.
  */
 
-import('lib.pkp.classes.mail.MailTemplate');
+namespace PKP\mail;
+
+use APP\core\Application;
+use PKP\core\Core;
+use PKP\core\PKPString;
+
+use PKP\db\DAORegistry;
 
 class SubmissionMailTemplate extends MailTemplate
 {
@@ -220,4 +226,8 @@ class SubmissionMailTemplate extends MailTemplate
         }
         return $returner;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\mail\SubmissionMailTemplate', '\SubmissionMailTemplate');
 }

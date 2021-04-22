@@ -15,7 +15,7 @@
  * @brief Operations for retrieving and modifying Email Template objects.
  */
 
-import('lib.pkp.classes.mail.EmailTemplate');
+namespace PKP\mail;
 
 use APP\core\Services;
 
@@ -390,4 +390,8 @@ class EmailTemplateDAO extends SchemaDAO
         }
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\mail\EmailTemplateDAO', '\EmailTemplateDAO');
 }

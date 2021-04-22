@@ -13,6 +13,7 @@
  * @brief Form for sending an email to a user
  */
 
+use PKP\mail\SubmissionMailTemplate;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 import('lib.pkp.classes.form.Form');
@@ -87,7 +88,6 @@ class EmailReviewerForm extends Form
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $email = new SubmissionMailTemplate($submission);
 
         $email->addRecipient($toUser->getEmail(), $toUser->getFullName());

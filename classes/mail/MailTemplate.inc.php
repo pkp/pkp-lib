@@ -13,13 +13,18 @@
  * @brief Subclass of Mail for mailing a template email.
  */
 
+namespace PKP\mail;
 
-import('lib.pkp.classes.mail.Mail');
+use APP\core\Application;
 
-define('MAIL_ERROR_INVALID_EMAIL', 0x000001);
+use APP\core\Services;
+use APP\i18n\AppLocale;
+use PKP\core\PKPApplication;
 
 class MailTemplate extends Mail
 {
+    public const MAIL_ERROR_INVALID_EMAIL = 1;
+
     /** @var object The context this message relates to */
     public $context;
 
@@ -330,4 +335,9 @@ class MailTemplate extends Mail
 
         return $targetString;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\mail\MailTemplate', '\MailTemplate');
+    define('MAIL_ERROR_INVALID_EMAIL', \MailTemplate::MAIL_ERROR_INVALID_EMAIL);
 }

@@ -14,6 +14,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use PKP\mail\SubmissionMailTemplate;
+
 abstract class ReviewerNotifyActionForm extends Form
 {
     /** The review assignment to alter */
@@ -67,7 +69,6 @@ abstract class ReviewerNotifyActionForm extends Form
             'reviewerId' => $reviewerId,
         ]);
 
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $template = new SubmissionMailTemplate($submission, $this->getEmailKey());
         if ($template) {
             $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
@@ -96,7 +97,6 @@ abstract class ReviewerNotifyActionForm extends Form
         $reviewAssignment = $this->getReviewAssignment();
 
         // Notify the reviewer via email.
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $mail = new SubmissionMailTemplate($submission, $this->getEmailKey(), null, null, false);
 
         if ($mail->isEnabled() && !$this->getData('skipEmail')) {

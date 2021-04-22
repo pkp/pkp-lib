@@ -24,6 +24,7 @@ import('classes.log.SubmissionEventLogEntry'); // App-specific.
 import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 use PKP\core\JSONMessage;
+use PKP\mail\SubmissionMailTemplate;
 
 class StageParticipantGridHandler extends CategoryGridHandler
 {
@@ -566,7 +567,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
     public function fetchTemplateBody($args, $request)
     {
         $templateKey = $request->getUserVar('template');
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $template = new SubmissionMailTemplate($this->getSubmission(), $templateKey);
         if ($template) {
             $user = $request->getUser();

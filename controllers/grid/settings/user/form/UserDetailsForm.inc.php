@@ -16,6 +16,7 @@
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
 use APP\core\Services;
+use PKP\mail\MailTemplate;
 
 class UserDetailsForm extends UserForm
 {
@@ -344,7 +345,6 @@ class UserDetailsForm extends UserForm
 
             if ($sendNotify) {
                 // Send welcome email to user
-                import('lib.pkp.classes.mail.MailTemplate');
                 $mail = new MailTemplate('USER_REGISTER');
                 $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
                 $mail->assignParams(['username' => $this->getData('username'), 'password' => $password, 'userFullName' => $this->user->getFullName()]);

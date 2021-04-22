@@ -13,6 +13,7 @@
  * @brief Handle login/logout requests.
  */
 
+use PKP\mail\MailTemplate;
 
 import('classes.handler.Handler');
 
@@ -205,7 +206,6 @@ class LoginHandler extends Handler
             $templateMgr->display('frontend/pages/userLostPassword.tpl');
         } else {
             // Send email confirming password reset
-            import('lib.pkp.classes.mail.MailTemplate');
             $mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
             $site = $request->getSite();
             $this->_setMailFrom($request, $mail, $site);
@@ -273,7 +273,6 @@ class LoginHandler extends Handler
 
             // Send email with new password
             $site = $request->getSite();
-            import('lib.pkp.classes.mail.MailTemplate');
             $mail = new MailTemplate('PASSWORD_RESET');
             $this->_setMailFrom($request, $mail, $site);
             $mail->assignParams([

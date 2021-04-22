@@ -17,6 +17,7 @@
  * Subclasses can implement specific information.
  */
 
+
 use APP\i18n\AppLocale;
 
 import('classes.notification.Notification');
@@ -312,7 +313,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      */
     protected function getMailTemplate($emailKey = null)
     {
-        import('lib.pkp.classes.mail.MailTemplate');
         return new MailTemplate($emailKey, null, null, false);
     }
 

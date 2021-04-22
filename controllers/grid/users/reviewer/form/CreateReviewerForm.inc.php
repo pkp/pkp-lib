@@ -15,6 +15,8 @@
 
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
+use PKP\mail\MailTemplate;
+
 class CreateReviewerForm extends ReviewerForm
 {
     /**
@@ -138,7 +140,6 @@ class CreateReviewerForm extends ReviewerForm
 
         if (!$this->getData('skipEmail')) {
             // Send welcome email to user
-            import('lib.pkp.classes.mail.MailTemplate');
             $mail = new MailTemplate('REVIEWER_REGISTER');
             if ($mail->isEnabled()) {
                 $request = Application::get()->getRequest();

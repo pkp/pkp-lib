@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use PKP\mail\SubmissionMailTemplate;
+
 class ReviewReminderForm extends Form
 {
     /** The review assignment associated with the reviewer **/
@@ -68,7 +70,6 @@ class ReviewReminderForm extends Form
         $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $context = $request->getContext();
         $templateKey = $this->_getMailTemplateKey($context);
 
@@ -157,7 +158,6 @@ class ReviewReminderForm extends Form
         $dispatcher = $request->getDispatcher();
         $user = $request->getUser();
 
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $context = $request->getContext();
         $templateKey = $this->_getMailTemplateKey($context);
         $email = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);

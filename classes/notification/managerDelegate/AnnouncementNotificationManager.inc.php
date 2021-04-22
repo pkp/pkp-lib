@@ -12,6 +12,8 @@
  * @brief New announcement notification manager.
  */
 
+use PKP\mail\MailTemplate;
+
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
 class AnnouncementNotificationManager extends NotificationManagerDelegate
@@ -113,9 +115,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
         if ($context->getId() != $contextId) {
             $context = Services::get('context')->get($contextId);
         }
-        import('lib.pkp.classes.mail.MailTemplate');
-        $mail = new MailTemplate('ANNOUNCEMENT', null, $context, false);
-        return $mail;
+        return new MailTemplate('ANNOUNCEMENT', null, $context, false);
     }
 
     /**

@@ -28,11 +28,9 @@ namespace PKP\submission;
 use APP\core\Application;
 use APP\i18n\AppLocale;
 
-use Mail;
 use PKP\core\Core;
-
-// FIXME: Add namespaces
 use PKP\db\DAORegistry;
+use PKP\mail\Mail;
 
 abstract class PKPSubmission extends \PKP\core\DataObject
 {
@@ -503,7 +501,6 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     {
         $authors = $this->getAuthors();
 
-        import('lib.pkp.classes.mail.Mail');
         $returner = [];
         foreach ($authors as $author) {
             $returner[] = Mail::encodeDisplayName($author->getFullName()) . ' <' . $author->getEmail() . '>';

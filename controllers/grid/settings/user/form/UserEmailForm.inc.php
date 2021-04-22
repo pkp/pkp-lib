@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use PKP\mail\MailTemplate;
+
 class UserEmailForm extends Form
 {
     /** @var the user id of user to send email to */
@@ -82,7 +84,6 @@ class UserEmailForm extends Form
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 
-        import('lib.pkp.classes.mail.MailTemplate');
         $email = new MailTemplate();
 
         $email->addRecipient($toUser->getEmail(), $toUser->getFullName());

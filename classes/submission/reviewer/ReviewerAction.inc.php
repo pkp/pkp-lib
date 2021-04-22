@@ -14,6 +14,7 @@
  */
 
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\mail\SubmissionMailTemplate;
 
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
@@ -99,7 +100,6 @@ class ReviewerAction
      */
     public function getResponseEmail($submission, $reviewAssignment, $request, $decline)
     {
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $email = new SubmissionMailTemplate($submission, $decline ? 'REVIEW_DECLINE' : 'REVIEW_CONFIRM');
 
         // Get reviewer

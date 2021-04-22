@@ -14,6 +14,7 @@
  */
 
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\mail\SubmissionMailTemplate;
 
 import('lib.pkp.classes.form.Form');
 
@@ -107,7 +108,6 @@ class RecommendationForm extends Form
             }
         }
         // Get the editor recommendation e-mail template
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $email = new SubmissionMailTemplate($submission, 'EDITOR_RECOMMENDATION');
         $request = Application::get()->getRequest();
         $router = $request->getRouter();
@@ -193,7 +193,6 @@ class RecommendationForm extends Form
             $user = $request->getUser();
 
             // Send the email to the decision making editors assigned to this submission.
-            import('lib.pkp.classes.mail.SubmissionMailTemplate');
             $email = new SubmissionMailTemplate($submission, 'EDITOR_RECOMMENDATION', null, null, null, false);
             $email->setBody($this->getData('personalMessage'));
 

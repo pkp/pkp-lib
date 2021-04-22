@@ -18,14 +18,23 @@
  * @brief Class defining basic operations for handling and sending emails.
  */
 
-define('MAIL_WRAP', 76);
+namespace PKP\mail;
 
+use APP\core\Application;
 use League\OAuth2\Client\Provider\Google;
 use PHPMailer\PHPMailer\OAuth;
+use PHPMailer\PHPMailer\PHPMailer;
+
 use PHPMailer\PHPMailer\SMTP;
+use PKP\config\Config;
+use PKP\core\PKPString;
+
+use PKP\plugins\HookRegistry;
 
 class Mail extends \PKP\core\DataObject
 {
+    public const MAIL_WRAP = 76;
+
     /** @var array List of key => value private parameters for this message */
     public $privateParams;
 
@@ -559,7 +568,7 @@ class Mail extends \PKP\core\DataObject
             }
         }
 
-        $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+        $mailer = new PHPMailer();
         $mailer->IsHTML(true);
         $mailer->Encoding = 'base64';
         if (Config::getVar('email', 'smtp')) {
@@ -715,4 +724,9 @@ class Mail extends \PKP\core\DataObject
             $displayName
         )) . '"');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\mail\Mail', '\Mail');
+    define('MAIL_WRAP', \Mail::MAIL_WRAP);
 }

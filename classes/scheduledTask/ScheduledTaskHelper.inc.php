@@ -19,6 +19,8 @@ define('SCHEDULED_TASK_MESSAGE_TYPE_WARNING', 'common.warning');
 define('SCHEDULED_TASK_MESSAGE_TYPE_NOTICE', 'common.notice');
 define('SCHEDULED_TASK_EXECUTION_LOG_DIR', 'scheduledTaskLogs');
 
+use PKP\mail\Mail;
+
 class ScheduledTaskHelper
 {
     /** @var string Contact email. */
@@ -55,7 +57,6 @@ class ScheduledTaskHelper
     public function getMail()
     {
         // Instantiate a mail object.
-        import('lib.pkp.classes.mail.Mail');
         return new Mail();
     }
 

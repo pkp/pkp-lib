@@ -14,6 +14,7 @@
  */
 
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\mail\SubmissionMailTemplate;
 
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 
@@ -63,7 +64,6 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
         $submission = $this->getSubmission();
         $user = $request->getUser();
 
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $emailKeys = [
             SUBMISSION_EDITOR_DECISION_ACCEPT => 'EDITOR_DECISION_ACCEPT',
             SUBMISSION_EDITOR_DECISION_DECLINE => 'EDITOR_DECISION_DECLINE',
@@ -225,7 +225,6 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
     public function _sendReviewMailToAuthor($submission, $emailKey, $request)
     {
         // Send personal message to author.
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $email = new SubmissionMailTemplate($submission, $emailKey, null, null, null, false);
         $email->setBody($this->getData('personalMessage'));
 

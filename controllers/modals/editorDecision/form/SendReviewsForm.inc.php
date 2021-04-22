@@ -14,6 +14,8 @@
  *  resubmit for review), or to decline the submission.
  */
 
+use PKP\mail\SubmissionMailTemplate;
+
 import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailForm');
 
 // Access decision actions constants.
@@ -83,7 +85,6 @@ class SendReviewsForm extends EditorDecisionWithEmailForm
         $submission = $this->getSubmission();
         $user = $request->getUser();
 
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $revisionsEmail = new SubmissionMailTemplate($submission, 'EDITOR_DECISION_REVISIONS');
         $resubmitEmail = new SubmissionMailTemplate($submission, 'EDITOR_DECISION_RESUBMIT');
 

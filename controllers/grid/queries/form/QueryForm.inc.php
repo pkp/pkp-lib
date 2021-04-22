@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use PKP\mail\SubmissionMailTemplate;
+
 class QueryForm extends Form
 {
     /** @var int ASSOC_TYPE_... */
@@ -248,7 +250,6 @@ class QueryForm extends Form
                 }
             }
 
-            import('lib.pkp.classes.mail.SubmissionMailTemplate');
             $templates = [];
             foreach ($templateKeys as $templateKey) {
                 $mailTemplate = new SubmissionMailTemplate($submission, $templateKey);

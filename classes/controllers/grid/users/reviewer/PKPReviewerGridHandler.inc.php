@@ -28,6 +28,8 @@ define('REVIEWER_SELECT_ENROLL_EXISTING', 0x00000003);
 use APP\core\Services;
 use PKP\core\JSONMessage;
 
+use PKP\mail\SubmissionMailTemplate;
+
 class PKPReviewerGridHandler extends GridHandler
 {
     /** @var Submission */
@@ -945,7 +947,6 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function fetchTemplateBody($args, $request)
     {
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $template = new SubmissionMailTemplate($this->getSubmission(), $request->getUserVar('template'));
         if (!$template) {
             return;

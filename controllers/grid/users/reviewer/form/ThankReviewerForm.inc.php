@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use PKP\mail\SubmissionMailTemplate;
+
 class ThankReviewerForm extends Form
 {
     /** The review assignment associated with the reviewer **/
@@ -66,7 +68,6 @@ class ThankReviewerForm extends Form
         $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $email = new SubmissionMailTemplate($submission, 'REVIEW_ACK');
 
         $dispatcher = $request->getDispatcher();
@@ -109,7 +110,6 @@ class ThankReviewerForm extends Form
         $reviewer = $userDao->getById($reviewerId);
         $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
 
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $email = new SubmissionMailTemplate($submission, 'REVIEW_ACK', null, null, null, false);
 
         $email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());

@@ -20,6 +20,7 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 use PKP\core\JSONMessage;
+use PKP\mail\SubmissionMailTemplate;
 
 class QueriesGridHandler extends GridHandler
 {
@@ -689,7 +690,6 @@ class QueriesGridHandler extends GridHandler
     public function fetchTemplateBody(array $args, PKPRequest $request): JSONMessage
     {
         $templateId = $request->getUserVar('template');
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $template = new SubmissionMailTemplate($this->getSubmission(), $templateId);
         if ($template) {
             $user = $request->getUser();

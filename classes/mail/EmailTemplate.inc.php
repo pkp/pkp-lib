@@ -15,6 +15,8 @@
  * @brief Describes basic email template properties.
  */
 
+namespace PKP\mail;
+
 class EmailTemplate extends \PKP\core\DataObject
 {
     //
@@ -244,4 +246,8 @@ class EmailTemplate extends \PKP\core\DataObject
     {
         $this->setData('body', $body);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\mail\EmailTemplate', '\EmailTemplate');
 }

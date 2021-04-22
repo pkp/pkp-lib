@@ -13,6 +13,8 @@
  * @brief Class to perform automated reminders for reviewers.
  */
 
+use PKP\mail\SubmissionMailTemplate;
+
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
 define('REVIEW_REMIND_AUTO', 'REVIEW_REMIND_AUTO');
@@ -48,7 +50,6 @@ class ReviewReminder extends ScheduledTask
             return false;
         }
 
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $emailKey = $reminderType;
         $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
         switch (true) {

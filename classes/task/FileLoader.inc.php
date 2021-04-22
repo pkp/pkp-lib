@@ -23,6 +23,8 @@ define('FILE_LOADER_PATH_PROCESSING', 'processing');
 define('FILE_LOADER_PATH_REJECT', 'reject');
 define('FILE_LOADER_PATH_ARCHIVE', 'archive');
 
+use PKP\mail\Mail;
+
 abstract class FileLoader extends ScheduledTask
 {
     /** @var string The current claimed filename that the script is working on. */
@@ -392,7 +394,6 @@ abstract class FileLoader extends ScheduledTask
     private function _notify($message, $messageType)
     {
         // Instantiate the email to the admin.
-        import('lib.pkp.classes.mail.Mail');
         $mail = new Mail();
 
         // Recipient

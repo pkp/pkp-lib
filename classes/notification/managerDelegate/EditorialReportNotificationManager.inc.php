@@ -12,6 +12,8 @@
  * @brief Editorial report notification manager.
  */
 
+use PKP\mail\MailTemplate;
+
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
 class EditorialReportNotificationManager extends NotificationManagerDelegate
@@ -235,9 +237,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
      */
     protected function getMailTemplate($emailKey = null): MailTemplate
     {
-        import('lib.pkp.classes.mail.MailTemplate');
-        $mail = new MailTemplate('STATISTICS_REPORT_NOTIFICATION', $this->_context->getPrimaryLocale(), $this->_context, false);
-        return $mail;
+        return new MailTemplate('STATISTICS_REPORT_NOTIFICATION', $this->_context->getPrimaryLocale(), $this->_context, false);
     }
 
     /**

@@ -14,6 +14,7 @@
  * N.B. Requires a subclass to implement the "reviewerId" to be added.
  */
 
+use PKP\mail\SubmissionMailTemplate;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.form.Form');
@@ -50,8 +51,6 @@ class ReviewerForm extends Form
 
         $this->addCheck(new FormValidatorPost($this));
         $this->addCheck(new FormValidatorCSRF($this));
-
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
     }
 
     //
@@ -414,7 +413,6 @@ class ReviewerForm extends Form
         }
 
         // Notify the reviewer via email.
-        import('lib.pkp.classes.mail.SubmissionMailTemplate');
         $templateKey = $this->getData('template');
         $mail = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */

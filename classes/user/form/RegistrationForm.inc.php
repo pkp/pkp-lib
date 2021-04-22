@@ -18,6 +18,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use PKP\mail\MailTemplate;
+
 class RegistrationForm extends Form
 {
     /** @var User The user object being created (available to hooks during registrationform::execute hook) */
@@ -315,7 +317,6 @@ class RegistrationForm extends Form
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $this->getData('interests'));
 
-        import('lib.pkp.classes.mail.MailTemplate');
         if ($requireValidation) {
             // Create an access key
             import('lib.pkp.classes.security.AccessKeyManager');

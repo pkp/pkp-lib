@@ -21,6 +21,7 @@ use APP\core\Services;
 
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 use PKP\db\SchemaDAO;
 
 use PKP\services\PKPSchemaService;

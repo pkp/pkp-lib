@@ -473,7 +473,7 @@ class Filter extends \PKP\core\DataObject
         // Check the runtime environment
         if (!$this->isCompatibleWithRuntimeEnvironment()) {
             // Missing installation requirements.
-            fatalError(__('filter.error.missingRequirements'));
+            throw new Exception(__('filter.error.missingRequirements'));
         }
 
         // Validate the filter input

@@ -2,14 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2021-04-23 10:47+0000\n"
+"Last-Translator: Dobrica Pavlinušić <dpavlin@ffzg.hr>\n"
+"Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/hr_HR/>\n"
+"Language: hr_HR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "submission.agencies"
 msgstr "Ustanove"
@@ -228,7 +232,7 @@ msgid "submission.layout.galleys"
 msgstr "Prijelomi"
 
 msgid "submission.layout.galleyStylesheet"
-msgstr "Stilska tablica datoteke "
+msgstr "Stilska tablica datoteke"
 
 msgid "submission.layout.galleyStyle"
 msgstr "Stil"
@@ -381,7 +385,7 @@ msgid "submissions.queued"
 msgstr "Na čekanju"
 
 msgid "submissions.queuedUnassigned"
-msgstr "Čeka dodijeljivanje"
+msgstr "Čeka dodijeljivanje urednika."
 
 msgid "submissions.ruling"
 msgstr "Odluka"
@@ -433,3 +437,197 @@ msgstr "Recenzijski obrazac"
 
 msgid "submission.reviewFormResponse"
 msgstr "Odgovor na recenziju"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Unesite valjani broj."
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Unesite valjani broj svezaka."
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Unesite valjani datum objave (format GGGG-MM-DD)."
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Unesite valjani naslov Članka/Rada."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Naslov Članka/Rada"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Unesite važeću e-adresu za registraciju PubMed ako je imate."
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Da, pristajem se pridržavati uvjeta izjave o autorskim pravima."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Podnošenje završeno"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Prije nastavka morate pročitati i potvrditi da ste ispunili dolje navedene "
+"uvjete."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Pošaljite u bilo kojoj od sljedećih uloga ako želite sami urediti i objaviti "
+"ovu prijavu: {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Da, želio bih da me kontaktiraju u vezi s ovim podneskom."
+
+msgid "submission.submit.contactConsent"
+msgstr "Odgovarajući kontakt"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Odaberite ulogu koja najbolje opisuje vaš doprinos ovom podnošenju."
+
+msgid "submission.confirm.message"
+msgstr ""
+"Vaša prijava je prenesena i spremna je za slanje. Možete se vratiti na "
+"pregled i prilagodbu bilo koje informacije koju ste unijeli prije nastavka. "
+"Kada budete spremni, kliknite \"Završi predaju\"."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Jedan ili više recenzenata propustili su svoj rok. Urednički tim je "
+"obaviješten i poduzet će mjere kako bi osigurao da recenzije budu dovršene. "
+"Trenutno ne morate ništa poduzimati. Bit ćete obaviješteni kad se donese "
+"odluka."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Predane su nove recenzije i urednik ih razmatra."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Navedite formatirani popis referenci za djela navedena u ovom podnesku. "
+"Pojedinačne reference odvojite praznim retkom."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Svezak"
+
+msgid "metadata.property.displayName.issue"
+msgstr "Broj"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Unesite valjani datum pristupa (format GGGG-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Datum pristupa"
+
+msgid "metadata.property.displayName.date"
+msgstr "Datum objave"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Unesite valjani naslov publikacije."
+
+msgid "metadata.property.displayName.source"
+msgstr "Naslov publikacije"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Za najbolje rezultate urednike treba unijeti u sljedećem formatu: Coleman "
+"Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Urednici"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Za najbolje rezultate, autore treba unijeti u sljedećem formatu: Coleman Jr, "
+"D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.author"
+msgstr "Autori"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Interna pogreška. Za postavku 'opcionalni filtar' objavljena je nevažeća "
+"vrijednost. Molimo prijavite ovo kao grešku."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr ""
+"Ne upotrebljavaj prema zadanim postavkama (i dalje će biti dostupno uredniku)"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Molimo odaberite jedan od zadanih modula za citiranje."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Modul za citate"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Unesite važeći WorldCat API ključ ako ga imate."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API Ključ"
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "E-adresa za registraciju PubMed"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Unesite svoj ISBNdb API ključ. Ako još nemate ključ, možete ga besplatno "
+"zatražiti iz projekta ISBNdb."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API Ključ"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Unesite valjanu e-adresu za registraciju CrossRef-a. Svoju e-poštu možete "
+"besplatno registrirati na web mjestu CrossRef."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "CrossRef e-adresa za registraciju"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Prošireni metapodaci"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Vratite se na svoju nadzornu ploču"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Izradite novi podnesak"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Pregledajte ovaj podnesak"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Za sada možete:"
+
+msgid "submission.submit.whatNext"
+msgstr "Što se dalje događa?"
+
+msgid "submission.submit.removeConfirm"
+msgstr "Jeste li sigurni da želite ukloniti ovu datoteku?"
+
+msgid "submission.submit.genre.error"
+msgstr "Odaberite vrstu datoteke za svaki prijenos."
+
+msgid "submission.submit.genre.description"
+msgstr "Odaberite opciju koja najbolje opisuje ovu datoteku."
+
+msgid "submission.submit.genre.label"
+msgstr "O kakvoj je datoteci riječ?"
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Potvrdite izjavu o autorskim pravima"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Zahvaljujemo na vašem interesu za objavljivanje s {$contextName}."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Uvjeti za slanje"
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Pošalji kao"
+
+msgid "author.publicationNotFound"
+msgstr "Publikacija za ovog autora nije pronađena."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Autori ove publikacije se ne mogu editirati zato što je publikacija "
+"objavljena."
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"

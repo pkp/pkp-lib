@@ -17,13 +17,14 @@
  * Subclasses can implement specific information.
  */
 
-
 use APP\i18n\AppLocale;
+
+use Firebase\JWT\JWT;
 
 import('classes.notification.Notification');
 import('lib.pkp.classes.notification.INotificationInfoProvider');
 
-use Firebase\JWT\JWT;
+use PKP\mail\MailTemplate;
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider
 {

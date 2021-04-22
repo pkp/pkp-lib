@@ -21,6 +21,8 @@
  * @brief Preprint class.
  */
 
+namespace APP\submission;
+
 // Author display in ToC
 define('AUTHOR_TOC_DEFAULT', 0);
 define('AUTHOR_TOC_HIDE', 1);
@@ -30,6 +32,11 @@ define('AUTHOR_TOC_SHOW', 2);
 define('PREPRINT_ACCESS_OPEN', 1);
 
 use \PKP\submission\PKPSubmission;
+use \PKP\plugins\HookRegistry;
+
+use \APP\core\Application;
+use \APP\core\Services;
+use \APP\i18n\AppLocale;
 
 class Submission extends PKPSubmission
 {
@@ -324,3 +331,8 @@ class Submission extends PKPSubmission
         return $publication->getData('hideAuthor');
     }
 }
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\submission\Submission', '\Submission');
+}
+

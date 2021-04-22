@@ -15,10 +15,14 @@
  * @brief Operations for retrieving and modifying Preprint objects.
  */
 
-use \PKP\identity\Identity;
+namespace APP\submission;
 
-import('classes.submission.Submission');
-import('lib.pkp.classes.submission.PKPSubmissionDAO');
+use \PKP\identity\Identity;
+use \PKP\submission\PKPSubmissionDAO;
+use \PKP\db\DAORegistry;
+
+use \APP\submission\Submission;
+use \APP\core\Services;
 
 class SubmissionDAO extends PKPSubmissionDAO
 {
@@ -155,4 +159,8 @@ class SubmissionDAO extends PKPSubmissionDAO
 
         return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params, $rangeInfo); // Counted via paging in CrossRef export
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\submission\SubmissionDAO', '\SubmissionDAO');
 }

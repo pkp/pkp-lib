@@ -13,6 +13,8 @@
  * @brief Class for keeping track of item views.
  */
 
+namespace PKP\views;
+
 class ViewsDAO extends \PKP\db\DAO
 {
     /**
@@ -93,4 +95,8 @@ class ViewsDAO extends \PKP\db\DAO
             [(int)$assocType, $assocId]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\views\ViewsDAO', '\ViewsDAO');
 }

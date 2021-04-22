@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"PO-Revision-Date: 2021-04-22 09:32+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ka_GE/>\n"
@@ -214,3 +214,243 @@ msgstr "წვდომის უფლებები"
 
 msgid "submission.copyright"
 msgstr "საავტორო უფლება"
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"ამ პუბლიკაციის ავტორების რედაქტირება შეუძლებელია, რადგან ის უკვე "
+"გამოქვეყნებულია."
+
+msgid "author.publicationNotFound"
+msgstr "მოთხოვნილი სახელთა სივრცე ვერ მოიძებნა."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"მიუთითეთ მითითებების ფორმატირებული სია ამ წარდგენაში მითითებული "
+"სამუშაოებისათვის. გთხოვთ, ცალკეული ცნობები გამოყავით ცარიელი ხაზით."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "წარმოდგენილია ახალი მიმოხილვები, რომელსაც განიხილავს რედაქტორი."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"ერთმა ან მეტმა მიმომხილველმა ვადა დაკარგა. სარედაქციო გუნდს ეცნობა და "
+"იმოქმედებს, რომ მიმოხილვები დასრულდეს. ამ დროს არ გჭირდებათ რაიმე ზომების "
+"მიღება. თქვენ მიიღებთ შეტყობინებას, როდესაც გადაწყვეტილება მიიღებთ."
+
+msgid "metadata.property.displayName.editor"
+msgstr "რედაქტორები"
+
+msgid "submissions.queuedEditing"
+msgstr "მუშაობის რეჟიმში"
+
+msgid "submission.submission"
+msgstr "ახალი შენატანი"
+
+msgid "submission.submit.finishSubmission"
+msgstr "გაგზავნის დასრულება"
+
+msgid "metadata.property.displayName.date"
+msgstr "გამოქვეყნების თარიღი"
+
+msgid "metadata.property.displayName.issue"
+msgstr "გამოცემა"
+
+msgid "metadata.property.displayName.volume"
+msgstr "ტომი"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "გამომცემლის ადგილმდებარეობა"
+
+msgid "metadata.property.displayName.issn"
+msgstr "ბეჭდვითი ISSN"
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "ქვესათაური"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "აბსტრაქტი"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "მიუნიჭებელი"
+
+msgid "common.queue.long.myAssigned"
+msgstr "ჩემზე მინიჭებული"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "დაარქივებული შენატანები"
+
+msgid "submission.changeComments"
+msgstr "შეცვლილია"
+
+msgid "submission.changeFile"
+msgstr "ფაილის შეცვლა"
+
+msgid "submission.copyedited"
+msgstr "ლიტერატურული ჩასწორება გაიარა"
+
+msgid "submission.copyediting"
+msgstr "ლიტერატურული რედაქტირება"
+
+msgid "submission.editorial"
+msgstr "ლიტერატურული რედაქტირება"
+
+msgid "submission.history.submissionEventLog"
+msgstr "ღონისძიების ჟურნალი"
+
+msgid "submission.identifiers"
+msgstr "იდენტიფიკატორები"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "წარდგენის ინფორმაცია"
+
+msgid "submission.layout.galleys"
+msgstr "სვეტები"
+
+msgid "submission.list.reviewComplete"
+msgstr "რეცენზია წარდგენილია"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "სათაური (ა-ჰ)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "სათაური (ჰ-ა)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "გამოქვეყნების თარიღი (ჯერ უფრო ძველი)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "გამოქვეყნების თარიღი (ჯერ უფრო ახალი)"
+
+msgid "catalog.category.noItems"
+msgstr "ამ განყოფილებაში ჯერ არაფერი გამოქვეყნებულა."
+
+msgid "submissions.noSubmissions"
+msgstr "არ არის გაგზავნილი მასალები"
+
+msgid "submission.indexingInformation"
+msgstr "ინფორმაცია ინდექსაციისათვის"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "ძირითადი ავტორი რედაქციასთან მიმოწერისათვის."
+
+msgid "submission.submit.addAuthor"
+msgstr "წევრის დამატება"
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "გთხოვთ შეიტანოთ თემა."
+
+msgid "submission.status.review"
+msgstr "რეცენზირების რეჟიმში"
+
+msgid "submission.status.unassigned"
+msgstr "მიუნიჭებელი"
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "წარდგენა მიღებულია."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "გაგზავნა უარყოფილია."
+
+msgid "editor.submission.participant"
+msgstr "მონაწილე"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "მონაწილის დანიშვნა"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"მომხმარებლებს ენიჭებათ სამუშაო პროცესის ეტაპები მომხმარებლის ჯგუფის მიერ. ამ "
+"ეტაპზე დანიშნული ნებისმიერი მომხმარებელი ავტომატურად მიენიჭება სხვა ეტაპებს, "
+"რომლებსაც მიენიჭა მათი მომხმარებლის ჯგუფი. ეს ჩვეულებრივ რედაქტორებს, "
+"ავტორებს და თარჯიმნებს აქვთ."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "თქვენ უნდა აირჩიოთ მომხმარებლის ჯგუფი."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "თქვენ უნდა აირჩიოთ მომხმარებელი არჩეული მომხმარებლის ჯგუფისათვის."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"თქვენს მიერ არჩეულ მონაწილეს დაევალა ანონიმური განხილვის ჩატარება. თუ მათ "
+"დანიშნავთ როგორც მონაწილე, მათ ექნებათ წვდომა ავტორის პირადობაზე. გირჩევთ, "
+"არ დანიშნოთ ეს მონაწილე, თუ დამოუკიდებლად ვერ უზრუნველყოფთ განხილვის "
+"პროცესის მთლიანობას."
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "მეტა-მონაცემების ჩასწორების ნებართვა"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ ამ წარდგენის ავტორებს შეეძლოთ გაგზავნილი "
+"მეტამონაცემების ჩასწორება ამ ეტაპზე?"
+
+msgid "editor.submission.decision"
+msgstr "გადაწყვეტილება"
+
+msgid "editor.submission.decision.accept"
+msgstr "მასალის მიღება"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "შესწორებების მოთხოვნა"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "ხელახლა გაგზავნა განსახილველად"
+
+msgid "editor.submission.decision.newRound"
+msgstr "რეცენზიის ახალი რაუნდი"
+
+msgid "editor.submission.decision.decline"
+msgstr "მასალის უარყოფა"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"გვერდის მტკიცებულების ფაილი უნდა შემოწმდეს, როგორც დამტკიცებულია, რომ "
+"ხელმისაწვდომი გახდეს. გსურთ ამის დამტკიცება?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "დამტკიცება"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"ეს ფაილის მტკიცებულება აღარ იქნება საჯაროდ ხელმისაწვდომი ჩამოსატვირთად ან "
+"შესაძენად. გსურთ უარყო ეს?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "გადაწყვეტილების შეცვლა"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "დანიშნეთ რედაქტორი, ამ ეტაპის სარედაქციო გადაწყვეტილებების მისაღებად."
+
+msgid "editor.submission.changeRecommendation"
+msgstr "რეკომენდაციის შეცვლა"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "რეკომენდაციები: {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "რეკომენდაცია"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "შემდეგი: აირჩეიტ ფაილები {$stageName}"
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "წინა: ავტორების შეტყობინება"
+
+msgid "editor.submission.addAuditorError"
+msgstr "მიმოხილვის აღდგენისას მოხდა შეცდომა. გთხოვთ კიდევ სცადეთ."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "წარდგენა მიღებულია."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "გაგზავნა უარყოფილია."
+
+msgid "submission.review.status.declined"
+msgstr "მიმომხილველმა უარყო ეს მოთხოვნა."
+
+msgid "submission.supplementary.creator"
+msgstr "ფაილის ავტორი (ან მფლობელი)"
+
+msgid "submission.supplementary.publisher"
+msgstr "გამომცემელი"

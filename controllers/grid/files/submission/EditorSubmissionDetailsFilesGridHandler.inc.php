@@ -13,6 +13,8 @@
  * @brief Handle submission file grid requests on the editor's submission details pages.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
 class EditorSubmissionDetailsFilesGridHandler extends FileListGridHandler
@@ -23,7 +25,7 @@ class EditorSubmissionDetailsFilesGridHandler extends FileListGridHandler
     public function __construct()
     {
         import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
-        $dataProvider = new SubmissionFilesGridDataProvider(SUBMISSION_FILE_SUBMISSION);
+        $dataProvider = new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_SUBMISSION);
         parent::__construct(
             $dataProvider,
             WORKFLOW_STAGE_ID_SUBMISSION,

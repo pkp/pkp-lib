@@ -14,6 +14,8 @@
  *
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
 
 class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAccessPolicy
@@ -67,7 +69,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         }
 
         // Make sure the file stage is SUBMISSION_FILE_REVIEW_REVISION.
-        if ($submissionFile->getData('fileStage') != SUBMISSION_FILE_REVIEW_REVISION) {
+        if ($submissionFile->getData('fileStage') != SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION) {
             return AUTHORIZATION_DENY;
         }
 

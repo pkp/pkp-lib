@@ -15,12 +15,15 @@
  * @brief Operations for retrieving and modifying a user's review interests.
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
+namespace PKP\user;
 
-define('CONTROLLED_VOCAB_INTEREST', 'interest');
+use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\core\ArrayItemIterator;
+use PKP\db\DAORegistry;
 
 class InterestDAO extends ControlledVocabDAO
 {
+    public const CONTROLLED_VOCAB_INTEREST = 'interest';
     /**
      * Create or return the Controlled Vocabulary for interests
      *
@@ -28,7 +31,7 @@ class InterestDAO extends ControlledVocabDAO
      */
     public function build()
     {
-        return parent::_build(CONTROLLED_VOCAB_INTEREST);
+        return parent::_build(self::CONTROLLED_VOCAB_INTEREST);
     }
 
     /**
@@ -96,7 +99,6 @@ class InterestDAO extends ControlledVocabDAO
         });
 
         // Turn back into an iterator.
-        import('lib.pkp.classes.core.ArrayItemIterator');
         return new ArrayItemIterator($interests);
     }
 
@@ -147,4 +149,9 @@ class InterestDAO extends ControlledVocabDAO
             );
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\InterestDAO', '\InterestDAO');
+    define('CONTROLLED_VOCAB_INTEREST', \InterestDAO::CONTROLLED_VOCAB_INTEREST);
 }

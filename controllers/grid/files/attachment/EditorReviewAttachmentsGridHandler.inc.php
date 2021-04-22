@@ -13,6 +13,8 @@
  * @brief Editor's view of the Review Attachments Grid.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
 class EditorReviewAttachmentsGridHandler extends FileListGridHandler
@@ -25,7 +27,7 @@ class EditorReviewAttachmentsGridHandler extends FileListGridHandler
         import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
         // Pass in null stageId to be set in initialize from request var.
         parent::__construct(
-            new ReviewerReviewAttachmentGridDataProvider(SUBMISSION_FILE_REVIEW_ATTACHMENT),
+            new ReviewerReviewAttachmentGridDataProvider(SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT),
             null,
             FILE_GRID_DELETE | FILE_GRID_ADD | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
         );

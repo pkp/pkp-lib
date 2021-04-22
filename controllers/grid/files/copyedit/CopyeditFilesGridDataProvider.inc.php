@@ -13,6 +13,7 @@
  * @brief Provide access to copyedited files management.
  */
 
+use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
@@ -23,7 +24,7 @@ class CopyeditFilesGridDataProvider extends SubmissionFilesGridDataProvider
      */
     public function __construct()
     {
-        parent::__construct(SUBMISSION_FILE_COPYEDIT);
+        parent::__construct(SubmissionFile::SUBMISSION_FILE_COPYEDIT);
     }
 
     //

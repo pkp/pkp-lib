@@ -13,6 +13,12 @@
  * @brief Operations for retrieving and modifying editor decisions.
  */
 
+namespace PKP\submission;
+
+use APP\core\Services;
+
+use PKP\db\DAORegistry;
+
 // Bring in editor decision constants
 // FIXME: These should be standardized into lib-pkp.
 import('classes.workflow.EditorDecisionActionsManager');
@@ -194,7 +200,7 @@ class EditDecisionDAO extends \PKP\db\DAO
         import('lib.pkp.classes.submission.SubmissionFile'); // Bring the file constants.
         $submissionFilesIterator = Services::get('submissionFile')->getMany([
             'reviewRoundIds' => [$reviewRound->getId()],
-            'fileStages' => [SUBMISSION_FILE_REVIEW_REVISION],
+            'fileStages' => [SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION],
         ]);
 
         foreach ($submissionFilesIterator as $submissionFile) {
@@ -206,4 +212,8 @@ class EditDecisionDAO extends \PKP\db\DAO
 
         return $sentRevisions;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\EditDecisionDAO', '\EditDecisionDAO');
 }

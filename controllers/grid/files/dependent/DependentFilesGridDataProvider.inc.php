@@ -13,6 +13,7 @@
  * @brief Provide access to dependent file data for grids.
  */
 
+use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
@@ -34,7 +35,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider
     {
         assert(is_numeric($assocId));
         $this->_assocId = (int) $assocId;
-        parent::__construct(SUBMISSION_FILE_DEPENDENT);
+        parent::__construct(SubmissionFile::SUBMISSION_FILE_DEPENDENT);
     }
 
     /**

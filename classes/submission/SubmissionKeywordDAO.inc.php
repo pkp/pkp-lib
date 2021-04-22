@@ -15,12 +15,15 @@
  * @brief Operations for retrieving and modifying a submission's assigned keywords
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
+namespace PKP\submission;
 
-define('CONTROLLED_VOCAB_SUBMISSION_KEYWORD', 'submissionKeyword');
+use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\db\DAORegistry;
 
 class SubmissionKeywordDAO extends ControlledVocabDAO
 {
+    public const CONTROLLED_VOCAB_SUBMISSION_KEYWORD = 'submissionKeyword';
+
     /**
      * Build/fetch and return a controlled vocabulary for keywords.
      *
@@ -32,7 +35,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
     public function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION)
     {
         // may return an array of ControlledVocabs
-        return parent::_build(CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $assocType, $publicationId);
+        return parent::_build(self::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $assocType, $publicationId);
     }
 
     /**
@@ -83,7 +86,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
      */
     public function getAllUniqueKeywords()
     {
-        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_KEYWORD]);
+        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [self::CONTROLLED_VOCAB_SUBMISSION_KEYWORD]);
 
         $keywords = [];
         foreach ($result as $row) {
@@ -142,7 +145,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
         $submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /** @var SubmissionKeywordEntryDAO $submissionKeywordEntryDao */
         $currentKeywords = $this->build($publicationId);
 
-        $existingEntries = $keywordDao->enumerate($currentKeywords->getId(), CONTROLLED_VOCAB_SUBMISSION_KEYWORD);
+        $existingEntries = $keywordDao->enumerate($currentKeywords->getId(), self::CONTROLLED_VOCAB_SUBMISSION_KEYWORD);
         foreach ($existingEntries as $id => $entry) {
             $entry = trim($entry);
             $entryObj = $submissionKeywordEntryDao->getById($id);
@@ -151,4 +154,9 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
 
         return $currentKeywords;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionKeywordDAO', '\SubmissionKeywordDAO');
+    define('CONTROLLED_VOCAB_SUBMISSION_KEYWORD', \SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD);
 }

@@ -16,6 +16,7 @@
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
 use PKP\core\JSONMessage;
+use PKP\submission\SubmissionFile;
 
 class EditorReviewFilesGridHandler extends FileListGridHandler
 {
@@ -25,7 +26,7 @@ class EditorReviewFilesGridHandler extends FileListGridHandler
     public function __construct()
     {
         $stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
-        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE;
+        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
         import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
         parent::__construct(
             new ReviewGridDataProvider($fileStage),

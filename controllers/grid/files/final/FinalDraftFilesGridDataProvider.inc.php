@@ -13,6 +13,7 @@
  * @brief Provide access to final draft files management.
  */
 
+use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
@@ -23,7 +24,7 @@ class FinalDraftFilesGridDataProvider extends SubmissionFilesGridDataProvider
      */
     public function __construct()
     {
-        parent::__construct(SUBMISSION_FILE_FINAL);
+        parent::__construct(SubmissionFile::SUBMISSION_FILE_FINAL);
     }
 
     //

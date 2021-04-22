@@ -13,6 +13,8 @@
  * @brief Handle the fair copy files grid (displays copyedited files ready to move to proofreading)
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
 class ProductionReadyFilesGridHandler extends FileListGridHandler
@@ -24,7 +26,7 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler
     {
         import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
         parent::__construct(
-            new SubmissionFilesGridDataProvider(SUBMISSION_FILE_PRODUCTION_READY),
+            new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY),
             WORKFLOW_STAGE_ID_PRODUCTION,
             FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT | FILE_GRID_DOWNLOAD_ALL
         );

@@ -13,6 +13,8 @@
  * @brief An action to add a submission file.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.api.file.linkAction.BaseAddFileLinkAction');
 
 class AddFileLinkAction extends BaseAddFileLinkAction
@@ -29,7 +31,7 @@ class AddFileLinkAction extends BaseAddFileLinkAction
      * @param $uploaderRoles array The ids of all roles allowed to upload
      *  in the context of this action.
      * @param $fileStage integer The file stage the file should be
-     *  uploaded to (one of the SUBMISSION_FILE_* constants).
+     *  uploaded to (one of the SubmissionFile::SUBMISSION_FILE_* constants).
      * @param $assocType integer The type of the element the file should
      *  be associated with (one fo the ASSOC_TYPE_* constants).
      * @param $assocId integer The id of the element the file should be
@@ -97,62 +99,62 @@ class AddFileLinkAction extends BaseAddFileLinkAction
      * for upload to different file stages.
      *
      * @param $fileStage integer One of the
-     *  SUBMISSION_FILE_* constants.
+     *  SubmissionFile::SUBMISSION_FILE_* constants.
      *
      * @return array
      */
     public static function _getTextLabels($fileStage)
     {
         static $textLabels = [
-            SUBMISSION_FILE_SUBMISSION => [
+            SubmissionFile::SUBMISSION_FILE_SUBMISSION => [
                 'wizardTitle' => 'submission.submit.uploadSubmissionFile',
                 'buttonLabel' => 'submission.addFile'
             ],
-            SUBMISSION_FILE_REVIEW_FILE => [
+            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE => [
                 'wizardTitle' => 'editor.submissionReview.uploadFile',
                 'buttonLabel' => 'editor.submissionReview.uploadFile'
             ],
-            SUBMISSION_FILE_INTERNAL_REVIEW_FILE => [
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE => [
                 'wizardTitle' => 'editor.submissionReview.uploadFile',
                 'buttonLabel' => 'editor.submissionReview.uploadFile'
             ],
-            SUBMISSION_FILE_REVIEW_ATTACHMENT => [
+            SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT => [
                 'wizardTitle' => 'editor.submissionReview.uploadAttachment',
                 'buttonLabel' => 'editor.submissionReview.uploadAttachment'
             ],
-            SUBMISSION_FILE_ATTACHMENT => [
+            SubmissionFile::SUBMISSION_FILE_ATTACHMENT => [
                 'wizardTitle' => 'editor.submissionReview.uploadFile',
                 'buttonLabel' => 'submission.addFile'
             ],
-            SUBMISSION_FILE_REVIEW_REVISION => [
+            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION => [
                 'wizardTitle' => 'editor.submissionReview.uploadFile',
                 'buttonLabel' => 'submission.addFile'
             ],
-            SUBMISSION_FILE_INTERNAL_REVIEW_REVISION => [
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION => [
                 'wizardTitle' => 'editor.submissionReview.uploadFile',
                 'buttonLabel' => 'submission.addFile'
             ],
-            SUBMISSION_FILE_FINAL => [
+            SubmissionFile::SUBMISSION_FILE_FINAL => [
                 'wizardTitle' => 'submission.upload.finalDraft',
                 'buttonLabel' => 'submission.addFile'
             ],
-            SUBMISSION_FILE_COPYEDIT => [
+            SubmissionFile::SUBMISSION_FILE_COPYEDIT => [
                 'wizardTitle' => 'submission.upload.copyeditedVersion',
                 'buttonLabel' => 'submission.addFile'
             ],
-            SUBMISSION_FILE_PRODUCTION_READY => [
+            SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY => [
                 'wizardTitle' => 'submission.upload.productionReady',
                 'buttonLabel' => 'submission.addFile'
             ],
-            SUBMISSION_FILE_PROOF => [
+            SubmissionFile::SUBMISSION_FILE_PROOF => [
                 'wizardTitle' => 'submission.upload.proof',
                 'buttonLabel' => 'submission.changeFile'
             ],
-            SUBMISSION_FILE_DEPENDENT => [
+            SubmissionFile::SUBMISSION_FILE_DEPENDENT => [
                 'wizardTitle' => 'submission.upload.dependent',
                 'buttonLabel' => 'submission.addFile'
             ],
-            SUBMISSION_FILE_QUERY => [
+            SubmissionFile::SUBMISSION_FILE_QUERY => [
                 'wizardTitle' => 'submission.upload.query',
                 'buttonLabel' => 'submission.addFile'
             ],

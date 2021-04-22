@@ -15,7 +15,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+
 use PKP\db\XMLDAO;
+use PKP\submission\SubmissionFile;
 
 class PKPv3_3_0UpgradeMigration extends Migration
 {
@@ -293,8 +295,6 @@ class PKPv3_3_0UpgradeMigration extends Migration
      */
     private function _migrateSubmissionFiles()
     {
-        import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_ constants
-
         // pkp/pkp-lib#6616 Delete submission_files entries that correspond to nonexistent submissions
         $orphanedIds = DB::table('submission_files AS sf')->leftJoin('submissions AS s', 'sf.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('sf.submission_id', 'sf.file_id');
         foreach ($orphanedIds as $fileId => $submissionId) {
@@ -462,7 +462,7 @@ class PKPv3_3_0UpgradeMigration extends Migration
             // Run this before migration to internal review file stages
             DB::table('submission_files')
                 ->where('file_id', '=', $row->file_id)
-                ->whereIn('file_stage', [SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_REVISION])
+                ->whereIn('file_stage', [SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
                 ->update([
                     'assoc_type' => ASSOC_TYPE_REVIEW_ROUND,
                     'assoc_id' => $row->review_round_id,
@@ -480,7 +480,7 @@ class PKPv3_3_0UpgradeMigration extends Migration
         // Update file name of dependent files, see: pkp/pkp-lib#6801
         DB::table('submission_files')
             ->select('file_id', 'original_file_name')
-            ->where('file_stage', '=', SUBMISSION_FILE_DEPENDENT)
+            ->where('file_stage', '=', SubmissionFile::SUBMISSION_FILE_DEPENDENT)
             ->chunkById(1000, function ($dependentFiles) {
                 foreach ($dependentFiles as $dependentFile) {
                     DB::table('submission_file_settings')
@@ -584,7 +584,7 @@ class PKPv3_3_0UpgradeMigration extends Migration
     /**
      * Get the directory of a file based on its file stage
      *
-     * @param int $fileStage ONe of SUBMISSION_FILE_ constants
+     * @param int $fileStage One of SUBMISSION_FILE_ constants
      *
      * @return string
      */
@@ -592,20 +592,20 @@ class PKPv3_3_0UpgradeMigration extends Migration
     {
         import('lib.pkp.classes.submission.SubmissionFile');
         static $fileStagePathMap = [
-            SUBMISSION_FILE_SUBMISSION => 'submission',
-            SUBMISSION_FILE_NOTE => 'note',
-            SUBMISSION_FILE_REVIEW_FILE => 'submission/review',
-            SUBMISSION_FILE_REVIEW_ATTACHMENT => 'submission/review/attachment',
-            SUBMISSION_FILE_REVIEW_REVISION => 'submission/review/revision',
-            SUBMISSION_FILE_FINAL => 'submission/final',
+            SubmissionFile::SUBMISSION_FILE_SUBMISSION => 'submission',
+            SubmissionFile::SUBMISSION_FILE_NOTE => 'note',
+            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE => 'submission/review',
+            SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT => 'submission/review/attachment',
+            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION => 'submission/review/revision',
+            SubmissionFile::SUBMISSION_FILE_FINAL => 'submission/final',
             7 /* SUBMISSION_FILE_FAIR_COPY */ => 'submission/fairCopy',
             8 /* SUBMISSION_FILE_EDITOR */ => 'submission/editor',
-            SUBMISSION_FILE_COPYEDIT => 'submission/copyedit',
-            SUBMISSION_FILE_DEPENDENT => 'submission/proof',
-            SUBMISSION_FILE_PROOF => 'submission/proof',
-            SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
-            SUBMISSION_FILE_ATTACHMENT => 'attachment',
-            SUBMISSION_FILE_QUERY => 'submission/query',
+            SubmissionFile::SUBMISSION_FILE_COPYEDIT => 'submission/copyedit',
+            SubmissionFile::SUBMISSION_FILE_DEPENDENT => 'submission/proof',
+            SubmissionFile::SUBMISSION_FILE_PROOF => 'submission/proof',
+            SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
+            SubmissionFile::SUBMISSION_FILE_ATTACHMENT => 'attachment',
+            SubmissionFile::SUBMISSION_FILE_QUERY => 'submission/query',
         ];
 
         if (!isset($fileStagePathMap[$fileStage])) {

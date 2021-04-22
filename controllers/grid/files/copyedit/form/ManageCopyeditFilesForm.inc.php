@@ -13,6 +13,8 @@
  * @brief Form to add files to the copyedited files grid
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
 class ManageCopyeditFilesForm extends ManageSubmissionFilesForm
@@ -31,10 +33,10 @@ class ManageCopyeditFilesForm extends ManageSubmissionFilesForm
      * Save selection of copyedited files
      *
      * @param $stageSubmissionFiles array List of submission files in this stage.
-     * @param $fileStage int SUBMISSION_FILE_...
+     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
      */
     public function execute($stageSubmissionFiles, $fileStage = null)
     {
-        parent::execute($stageSubmissionFiles, SUBMISSION_FILE_COPYEDIT);
+        parent::execute($stageSubmissionFiles, SubmissionFile::SUBMISSION_FILE_COPYEDIT);
     }
 }

@@ -15,9 +15,9 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
-import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_ constants
+use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\submission\SubmissionFile;
 
 class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -227,8 +227,8 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
             $q->whereIn('sf.uploader_user_id', $this->uploaderUserIds);
         }
 
-        if (empty($this->includeDependentFiles) && !in_array(SUBMISSION_FILE_DEPENDENT, $this->fileStages)) {
-            $q->where('sf.file_stage', '!=', SUBMISSION_FILE_DEPENDENT);
+        if (empty($this->includeDependentFiles) && !in_array(SubmissionFile::SUBMISSION_FILE_DEPENDENT, $this->fileStages)) {
+            $q->where('sf.file_stage', '!=', SubmissionFile::SUBMISSION_FILE_DEPENDENT);
         }
 
         // Add app-specific query statements

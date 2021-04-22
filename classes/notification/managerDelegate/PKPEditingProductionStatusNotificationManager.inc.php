@@ -13,6 +13,8 @@
  * @brief Editing and productionstatus notifications types manager delegate.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
 class PKPEditingProductionStatusNotificationManager extends NotificationManagerDelegate
@@ -100,7 +102,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         import('lib.pkp.classes.submission.SubmissionFile');
         $countCopyeditedFiles = Services::get('submissionFile')->getCount([
             'submissionIds' => [$submissionId],
-            'fileStages' => [SUBMISSION_FILE_COPYEDIT],
+            'fileStages' => [SubmissionFile::SUBMISSION_FILE_COPYEDIT],
         ]);
 
         // Get representations

@@ -15,12 +15,15 @@
  * @brief Operations for retrieving and modifying a submission's assigned subjects
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
+namespace PKP\submission;
 
-define('CONTROLLED_VOCAB_SUBMISSION_SUBJECT', 'submissionSubject');
+use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\db\DAORegistry;
 
 class SubmissionSubjectDAO extends ControlledVocabDAO
 {
+    public const CONTROLLED_VOCAB_SUBMISSION_SUBJECT = 'submissionSubject';
+
     /**
      * Build/fetch and return a controlled vocabulary for subjects.
      *
@@ -134,4 +137,9 @@ class SubmissionSubjectDAO extends ControlledVocabDAO
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionSubjectDAO', '\SubmissionSubjectDAO');
+    define('CONTROLLED_VOCAB_SUBMISSION_SUBJECT', \SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT);
 }

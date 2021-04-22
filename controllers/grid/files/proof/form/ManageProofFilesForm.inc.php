@@ -13,6 +13,8 @@
  * @brief Form to add files to the proof files grid
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
 class ManageProofFilesForm extends ManageSubmissionFilesForm
@@ -70,6 +72,6 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm
         $newSubmissionFile->setData('assocId', $this->_representationId);
         $newSubmissionFile->setData('viewable', false); // Not approved by default
 
-        return parent::importFile($newSubmissionFile, SUBMISSION_FILE_PROOF);
+        return parent::importFile($newSubmissionFile, SubmissionFile::SUBMISSION_FILE_PROOF);
     }
 }

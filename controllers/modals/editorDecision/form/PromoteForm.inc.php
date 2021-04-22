@@ -13,6 +13,8 @@
  * @brief Form for promoting a submission (to external review or editing)
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailForm');
 
 // Access decision actions constants.
@@ -98,9 +100,6 @@ class PromoteForm extends EditorDecisionWithEmailForm
         $editorAction = new EditorAction();
         $editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound);
 
-        // Bring in the SUBMISSION_FILE_* constants.
-        import('lib.pkp.classes.submission.SubmissionFile');
-
         // Identify email key and status of round.
         switch ($decision) {
             case SUBMISSION_EDITOR_DECISION_ACCEPT:
@@ -118,7 +117,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
                     foreach ($selectedFiles as $submissionFileId) {
                         $submissionFile = Services::get('submissionFile')->get($submissionFileId);
                         $newSubmissionFile = clone $submissionFile;
-                        $newSubmissionFile->setData('fileStage', SUBMISSION_FILE_FINAL);
+                        $newSubmissionFile->setData('fileStage', SubmissionFile::SUBMISSION_FILE_FINAL);
                         $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
                         $newSubmissionFile->setData('assocType', null);
                         $newSubmissionFile->setData('assocId', null);
@@ -152,15 +151,12 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 // Move to the editing stage.
                 $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_PRODUCTION, $request);
 
-                // Bring in the SUBMISSION_FILE_* constants.
-                import('lib.pkp.classes.submission.SubmissionFile');
-
                 $selectedFiles = $this->getData('selectedFiles');
                 if (is_array($selectedFiles)) {
                     foreach ($selectedFiles as $submissionFileId) {
                         $submissionFile = Services::get('submissionFile')->get($submissionFileId);
                         $newSubmissionFile = clone $submissionFile;
-                        $newSubmissionFile->setData('fileStage', SUBMISSION_FILE_PRODUCTION_READY);
+                        $newSubmissionFile->setData('fileStage', SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY);
                         $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
                         $newSubmissionFile->setData('assocType', null);
                         $newSubmissionFile->setData('assocId', null);

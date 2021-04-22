@@ -23,6 +23,17 @@
  * scholarly submission.
  */
 
+namespace PKP\submission;
+
+use APP\core\Application;
+use APP\i18n\AppLocale;
+
+use Mail;
+use PKP\core\Core;
+
+// FIXME: Add namespaces
+use PKP\db\DAORegistry;
+
 abstract class PKPSubmission extends \PKP\core\DataObject
 {
     // Submission status constants
@@ -119,7 +130,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
             return [];
         }
         return array_filter($publications, function ($publication) {
-            return $publication->getData('status') === STATUS_PUBLISHED;
+            return $publication->getData('status') === self::STATUS_PUBLISHED;
         });
     }
 
@@ -159,10 +170,10 @@ abstract class PKPSubmission extends \PKP\core\DataObject
         static $statusMap;
         if (!isset($statusMap)) {
             $statusMap = [
-                STATUS_QUEUED => 'submissions.queued',
-                STATUS_PUBLISHED => 'submission.status.published',
-                STATUS_DECLINED => 'submission.status.declined',
-                STATUS_SCHEDULED => 'submission.status.scheduled',
+                self::STATUS_QUEUED => 'submissions.queued',
+                self::STATUS_PUBLISHED => 'submission.status.published',
+                self::STATUS_DECLINED => 'submission.status.declined',
+                self::STATUS_SCHEDULED => 'submission.status.scheduled',
             ];
         }
         return $statusMap;
@@ -1516,7 +1527,7 @@ if (!PKP_STRICT_MODE) {
         'PERMISSIONS_FIELD_LICENSE_URL', 'PERMISSIONS_FIELD_COPYRIGHT_HOLDER', 'PERMISSIONS_FIELD_COPYRIGHT_YEAR'
     ] as $constantName) {
         if (!defined($constantName)) {
-            define($constantName, constant('PKPSubmission::' . $constantName));
+            define($constantName, constant('\PKP\submission\PKPSubmission::' . $constantName));
         }
     }
 }

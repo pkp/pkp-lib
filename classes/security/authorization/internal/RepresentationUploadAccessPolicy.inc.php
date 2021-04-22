@@ -16,6 +16,8 @@
  *   authorized submission in the authorization context.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
 
 class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
@@ -47,7 +49,7 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
         AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION]);
 
         $assignedFileStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_FILE_STAGES);
-        if (empty($assignedFileStages) || !in_array(SUBMISSION_FILE_PROOF, $assignedFileStages)) {
+        if (empty($assignedFileStages) || !in_array(SubmissionFile::SUBMISSION_FILE_PROOF, $assignedFileStages)) {
             return AUTHORIZATION_DENY;
         }
 

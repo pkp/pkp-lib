@@ -16,6 +16,7 @@
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
 use PKP\core\JSONMessage;
+use PKP\submission\SubmissionFile;
 
 class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
 {
@@ -29,7 +30,7 @@ class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryG
     public function __construct()
     {
         $stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
-        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE;
+        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
         import('lib.pkp.controllers.grid.files.review.ReviewCategoryGridDataProvider');
         // Pass in null stageId to be set in initialize from request var.
         parent::__construct(

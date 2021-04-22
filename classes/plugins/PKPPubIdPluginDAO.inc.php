@@ -13,6 +13,8 @@
  * @brief Interface that DAOs would need to implement in order for pub ID support to be added.
  */
 
+namespace PKP\plugins;
+
 interface PKPPubIdPluginDAO
 {
     /**
@@ -60,4 +62,8 @@ interface PKPPubIdPluginDAO
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      */
     public function deleteAllPubIds($contextId, $pubIdType);
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\PKPPubIdPluginDAO', '\PKPPubIdPluginDAO');
 }

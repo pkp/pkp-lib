@@ -13,6 +13,8 @@
  * @brief Base class that converts a set of submissions to a Native XML document
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
 class SubmissionNativeXmlFilter extends NativeExportFilter
@@ -147,7 +149,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
         foreach ($submissionFilesIterator as $submissionFile) {
             // Skip files attached to objects that are not included in the export,
             // such as files uploaded to discussions and files uploaded by reviewers
-            if (in_array($submissionFile->getData('fileStage'), [SUBMISSION_FILE_QUERY, SUBMISSION_FILE_NOTE, SUBMISSION_FILE_REVIEW_ATTACHMENT])) {
+            if (in_array($submissionFile->getData('fileStage'), [SubmissionFile::SUBMISSION_FILE_QUERY, SubmissionFile::SUBMISSION_FILE_NOTE, SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])) {
                 $this->getDeployment()->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileSkipped', ['id' => $submissionFile->getId()]));
                 continue;
             }

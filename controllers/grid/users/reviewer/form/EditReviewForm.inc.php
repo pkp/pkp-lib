@@ -15,6 +15,7 @@
  */
 
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.form.Form');
 
@@ -128,11 +129,10 @@ class EditReviewForm extends Form
         $reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /** @var ReviewFilesDAO $reviewFilesDao */
         $reviewFilesDao->revokeByReviewId($this->_reviewAssignment->getId());
 
-        import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_... constants
         $submissionFilesIterator = Services::get('submissionFile')->getMany([
             'submissionIds' => [$this->_reviewAssignment->getSubmissionId()],
             'reviewRoundIds' => [$this->_reviewRound->getId()],
-            'fileStages' => [$this->_reviewRound->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE],
+            'fileStages' => [$this->_reviewRound->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE],
         ]);
         $selectedFiles = array_map(function ($id) {
             return (int) $id;

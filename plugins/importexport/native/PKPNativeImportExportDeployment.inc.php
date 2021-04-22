@@ -14,6 +14,8 @@
  * application's specifics.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.plugins.importexport.PKPImportExportDeployment');
 
 class PKPNativeImportExportDeployment extends PKPImportExportDeployment
@@ -79,20 +81,19 @@ class PKPNativeImportExportDeployment extends PKPImportExportDeployment
      */
     public function getStageNameStageIdMapping()
     {
-        import('lib.pkp.classes.submission.SubmissionFile'); // Get file constants
         return [
-            'submission' => SUBMISSION_FILE_SUBMISSION,
-            'note' => SUBMISSION_FILE_NOTE,
-            'review_file' => SUBMISSION_FILE_REVIEW_FILE,
-            'review_attachment' => SUBMISSION_FILE_REVIEW_ATTACHMENT,
-            'final' => SUBMISSION_FILE_FINAL,
-            'copyedit' => SUBMISSION_FILE_COPYEDIT,
-            'proof' => SUBMISSION_FILE_PROOF,
-            'production_ready' => SUBMISSION_FILE_PRODUCTION_READY,
-            'attachment' => SUBMISSION_FILE_ATTACHMENT,
-            'review_revision' => SUBMISSION_FILE_REVIEW_REVISION,
-            'dependent' => SUBMISSION_FILE_DEPENDENT,
-            'query' => SUBMISSION_FILE_QUERY,
+            'submission' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
+            'note' => SubmissionFile::SUBMISSION_FILE_NOTE,
+            'review_file' => SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+            'review_attachment' => SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+            'final' => SubmissionFile::SUBMISSION_FILE_FINAL,
+            'copyedit' => SubmissionFile::SUBMISSION_FILE_COPYEDIT,
+            'proof' => SubmissionFile::SUBMISSION_FILE_PROOF,
+            'production_ready' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
+            'attachment' => SubmissionFile::SUBMISSION_FILE_ATTACHMENT,
+            'review_revision' => SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+            'dependent' => SubmissionFile::SUBMISSION_FILE_DEPENDENT,
+            'query' => SubmissionFile::SUBMISSION_FILE_QUERY,
         ];
     }
 }

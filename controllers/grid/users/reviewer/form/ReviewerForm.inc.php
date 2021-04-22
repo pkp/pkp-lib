@@ -14,6 +14,8 @@
  * N.B. Requires a subclass to implement the "reviewerId" to be added.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.form.Form');
 
 class ReviewerForm extends Form
@@ -396,11 +398,10 @@ class ReviewerForm extends Form
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
         // Grant access for this review to all selected files.
-        import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_
         $submissionFilesIterator = Services::get('submissionFile')->getMany([
             'submissionIds' => [$submission->getId()],
             'reviewRoundIds' => [$currentReviewRound->getId()],
-            'fileStages' => [$stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE],
+            'fileStages' => [$stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE],
         ]);
         $selectedFiles = array_map(function ($id) {
             return (int) $id;

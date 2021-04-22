@@ -13,6 +13,9 @@
  * @brief Operations for managing review round / submission file associations.
  * These control which files are available for download by reviewers during review.
  */
+
+namespace PKP\submission;
+
 use Illuminate\Support\Facades\DB;
 
 class ReviewFilesDAO extends \PKP\db\DAO
@@ -76,4 +79,8 @@ class ReviewFilesDAO extends \PKP\db\DAO
             ->where('submission_file_id', (int) $submissionFileId)
             ->exists();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\ReviewFilesDAO', '\ReviewFilesDAO');
 }

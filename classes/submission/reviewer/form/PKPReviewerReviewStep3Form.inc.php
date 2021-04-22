@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
 
+use PKP\submission\SubmissionComment;
+
 class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 {
     /**
@@ -287,7 +289,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                     $comment = $submissionCommentDao->newDataObject();
                 }
 
-                $comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
+                $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
                 $comment->setRoleId(ROLE_ID_REVIEWER);
                 $comment->setAssocId($reviewAssignment->getId());
                 $comment->setSubmissionId($reviewAssignment->getSubmissionId());
@@ -316,7 +318,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                     $comment = $submissionCommentDao->newDataObject();
                 }
 
-                $comment->setCommentType(COMMENT_TYPE_PEER_REVIEW);
+                $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
                 $comment->setRoleId(ROLE_ID_REVIEWER);
                 $comment->setAssocId($reviewAssignment->getId());
                 $comment->setSubmissionId($reviewAssignment->getSubmissionId());

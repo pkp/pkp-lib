@@ -15,7 +15,10 @@
  * @brief Operations for retrieving and modifying ControlledVocabEntry objects
  */
 
-use PKP\controlledVocab\ControlledVocabEntry;
+namespace PKP\controlledVocab;
+
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 
 class ControlledVocabEntryDAO extends \PKP\db\DAO
 {
@@ -291,4 +294,8 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
     {
         return parent::_getInsertId('controlled_vocab_entries', 'controlled_vocab_entry_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controlledVocab\ControlledVocabEntryDAO', '\ControlledVocabEntryDAO');
 }

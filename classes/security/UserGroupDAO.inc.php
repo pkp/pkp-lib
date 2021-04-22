@@ -16,6 +16,7 @@
  */
 
 use PKP\db\DAOResultFactory;
+use PKP\identity\Identity;
 
 import('lib.pkp.classes.security.UserGroup');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
@@ -508,7 +509,7 @@ class UserGroupDAO extends DAO
      */
     public function getUsersNotInRole($roleId, $contextId = null, $search = null, $rangeInfo = null)
     {
-        $params = isset($search) ? [IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME] : [];
+        $params = isset($search) ? [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME] : [];
         $params[] = (int) $roleId;
         if ($contextId) {
             $params[] = (int) $contextId;
@@ -555,7 +556,7 @@ class UserGroupDAO extends DAO
     {
         $params = array_merge(
             $this->userDao->getFetchParameters(),
-            [IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME]
+            [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME]
         );
         if ($contextId) {
             $params[] = (int) $contextId;
@@ -910,8 +911,8 @@ class UserGroupDAO extends DAO
     public function _getSearchSql($searchType, $search, $searchMatch, &$params)
     {
         $searchTypeMap = [
-            IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
-            IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
+            Identity::IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
+            Identity::IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
             USER_FIELD_USERNAME => 'u.username',
             USER_FIELD_EMAIL => 'u.email',
             USER_FIELD_AFFILIATION => 'us.setting_value',

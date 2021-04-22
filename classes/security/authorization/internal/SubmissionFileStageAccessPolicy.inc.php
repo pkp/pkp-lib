@@ -14,6 +14,8 @@
  *  and workflow stage assignments in the authorized context.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
 class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
@@ -70,19 +72,19 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 
         // Authors may write to the submission files stage if the submission
         // is not yet complete
-        if ($this->_fileStage === SUBMISSION_FILE_SUBMISSION && $this->_action === SUBMISSION_FILE_ACCESS_MODIFY) {
+        if ($this->_fileStage === SubmissionFile::SUBMISSION_FILE_SUBMISSION && $this->_action === SUBMISSION_FILE_ACCESS_MODIFY) {
             if (!empty($stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION])
                     && count($stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION]) === 1
                     && in_array(ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION])
                     && $submission->getData('submissionProgress') > 0) {
-                $assignedFileStages[] = SUBMISSION_FILE_SUBMISSION;
+                $assignedFileStages[] = SubmissionFile::SUBMISSION_FILE_SUBMISSION;
             }
         }
 
         // Authors may write to the revision files stage if an accept or request revisions
         // decision has been made in the latest round
-        if (in_array($this->_fileStage, [SUBMISSION_FILE_INTERNAL_REVIEW_REVISION, SUBMISSION_FILE_REVIEW_REVISION]) && $this->_action === SUBMISSION_FILE_ACCESS_MODIFY) {
-            $reviewStage = $this->_fileStage === SUBMISSION_FILE_INTERNAL_REVIEW_REVISION
+        if (in_array($this->_fileStage, [SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION]) && $this->_action === SUBMISSION_FILE_ACCESS_MODIFY) {
+            $reviewStage = $this->_fileStage === SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION
                 ? WORKFLOW_STAGE_ID_INTERNAL_REVIEW
                 : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
 

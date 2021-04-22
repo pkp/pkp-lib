@@ -13,6 +13,8 @@
  * @brief Form for Step 2 of author submission: file upload
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 
 class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
@@ -35,10 +37,6 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
      */
     public function fetch($request, $template = null, $display = false)
     {
-
-        // SUBMISSION_FILE_ constants
-        import('lib.pkp.classes.submission.SubmissionFile');
-
         $genres = [];
         $genreResults = DAORegistry::getDAO('GenreDAO')->getEnabledByContextId($request->getContext()->getId());
         while ($genre = $genreResults->next()) {
@@ -60,7 +58,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
             $submissionFileForm = new \PKP\components\forms\submission\PKPSubmissionFileForm($fileUploadApiUrl, $genres);
 
             $submissionFilesIterator = Services::get('submissionFile')->getMany([
-                'fileStages' => [SUBMISSION_FILE_SUBMISSION],
+                'fileStages' => [SubmissionFile::SUBMISSION_FILE_SUBMISSION],
                 'submissionIds' => [$this->submission->getId()],
             ]);
             foreach ($submissionFilesIterator as $submissionFile) {
@@ -94,7 +92,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
                     ],
                     'emptyLabel' => __('submission.upload.instructions'),
                     'emptyAddLabel' => __('common.upload.addFile'),
-                    'fileStage' => SUBMISSION_FILE_SUBMISSION,
+                    'fileStage' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
                     'form' => isset($submissionFileForm) ? $submissionFileForm->getConfig() : null,
                     'genres' => array_map(function ($genre) {
                         return [
@@ -145,12 +143,9 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
     public function validate($callHooks = true)
     {
 
-        // SUBMISSION_FILE_ constants
-        import('lib.pkp.classes.submission.SubmissionFile');
-
         // Validate that all upload files have been assigned a genreId
         $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'fileStages' => [SUBMISSION_FILE_SUBMISSION],
+            'fileStages' => [SubmissionFile::SUBMISSION_FILE_SUBMISSION],
             'submissionIds' => [$this->submission->getId()],
         ]);
         foreach ($submissionFilesIterator as $submissionFile) {

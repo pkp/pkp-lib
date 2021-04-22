@@ -16,6 +16,7 @@
 import('classes.handler.Handler');
 
 use PKP\core\JSONMessage;
+use PKP\submission\SubmissionComment;
 
 class PKPEditorDecisionHandler extends Handler
 {
@@ -284,7 +285,7 @@ class PKPEditorDecisionHandler extends Handler
             // If the reviewer has completed the assignment, then import the review.
             if ($reviewAssignment->getDateCompleted() != null) {
                 // Get the comments associated with this review assignment
-                $submissionComments = $submissionCommentDao->getSubmissionComments($submission->getId(), COMMENT_TYPE_PEER_REVIEW, $reviewAssignment->getId());
+                $submissionComments = $submissionCommentDao->getSubmissionComments($submission->getId(), SubmissionComment::COMMENT_TYPE_PEER_REVIEW, $reviewAssignment->getId());
 
                 $body .= "<br><br>${textSeparator}<br>";
                 // If it is an open review, show reviewer's name.

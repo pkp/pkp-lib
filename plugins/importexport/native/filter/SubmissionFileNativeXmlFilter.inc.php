@@ -13,6 +13,8 @@
  * @brief Base class that converts a submissionFile to a Native XML document
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
 class SubmissionFileNativeXmlFilter extends NativeExportFilter
@@ -138,7 +140,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $this->createLocalizedNodes($doc, $submissionFileNode, 'subject', $submissionFile->getData('subject'));
 
         // If it is a dependent file, add submission_file_ref element
-        if ($submissionFile->getData('fileStage') == SUBMISSION_FILE_DEPENDENT && $submissionFile->getData('assocType') == ASSOC_TYPE_SUBMISSION_FILE) {
+        if ($submissionFile->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_DEPENDENT && $submissionFile->getData('assocType') == ASSOC_TYPE_SUBMISSION_FILE) {
             $fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
             $fileRefNode->setAttribute('id', $submissionFile->getData('assocId'));
             $submissionFileNode->appendChild($fileRefNode);

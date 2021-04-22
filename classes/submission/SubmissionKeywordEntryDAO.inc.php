@@ -15,8 +15,10 @@
  * @brief Operations for retrieving and modifying a submission's keywords
  */
 
-import('lib.pkp.classes.submission.SubmissionKeyword');
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
+namespace PKP\submission;
+
+use PKP\controlledVocab\ControlledVocabEntryDAO;
+use PKP\db\DAOResultFactory;
 
 class SubmissionKeywordEntryDAO extends ControlledVocabEntryDAO
 {
@@ -51,4 +53,8 @@ class SubmissionKeywordEntryDAO extends ControlledVocabEntryDAO
 
         return new DAOResultFactory($result, $this, '_fromRow');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionKeywordEntryDAO', '\SubmissionKeywordEntryDAO');
 }

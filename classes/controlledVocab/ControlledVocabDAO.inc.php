@@ -15,9 +15,11 @@
  * @brief Operations for retrieving and modifying ControlledVocab objects.
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocab');
+namespace PKP\controlledVocab;
 
 use APP\i18n\AppLocale;
+use PKP\db\DAORegistry;
+
 use PKP\xml\PKPXMLParser;
 
 class ControlledVocabDAO extends \PKP\db\DAO
@@ -331,4 +333,8 @@ class ControlledVocabDAO extends \PKP\db\DAO
         }
         return $controlledVocabs;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controlledVocab\ControlledVocabDAO', '\ControlledVocabDAO');
 }

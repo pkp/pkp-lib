@@ -13,6 +13,7 @@
  * @brief Provide access to submission files data for category grids.
  */
 
+use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.controllers.grid.CategoryGridDataProvider');
 
@@ -131,7 +132,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
             foreach ($submissionFiles as $key => $submissionFile) {
                 if (in_array($submissionFile->getData('fileStage'), (array) $fileStage)) {
                     $stageSubmissionFiles[$key] = $submissionFile;
-                } elseif ($submissionFile->getData('fileStage') == SUBMISSION_FILE_QUERY) {
+                } elseif ($submissionFile->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_QUERY) {
                     // Determine the stage from the query.
                     if ($submissionFile->getData('assocType') != ASSOC_TYPE_NOTE) {
                         break;
@@ -219,19 +220,19 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
     {
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_SUBMISSION:
-                return SUBMISSION_FILE_SUBMISSION;
+                return SubmissionFile::SUBMISSION_FILE_SUBMISSION;
                 break;
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
-                return SUBMISSION_FILE_INTERNAL_REVIEW_FILE;
+                return SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE;
                 break;
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                return SUBMISSION_FILE_REVIEW_FILE;
+                return SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
                 break;
             case WORKFLOW_STAGE_ID_EDITING:
-                return [SUBMISSION_FILE_FINAL, SUBMISSION_FILE_COPYEDIT];
+                return [SubmissionFile::SUBMISSION_FILE_FINAL, SubmissionFile::SUBMISSION_FILE_COPYEDIT];
                 break;
             case WORKFLOW_STAGE_ID_PRODUCTION:
-                return SUBMISSION_FILE_PRODUCTION_READY;
+                return SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY;
                 break;
             default:
                 break;

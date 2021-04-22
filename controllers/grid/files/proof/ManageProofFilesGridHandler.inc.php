@@ -16,6 +16,7 @@
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
 use PKP\core\JSONMessage;
+use PKP\submission\SubmissionFile;
 
 class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
 {
@@ -26,7 +27,7 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
     {
         import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
         parent::__construct(
-            new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_PROOF),
+            new SubmissionFilesCategoryGridDataProvider(SubmissionFile::SUBMISSION_FILE_PROOF),
             WORKFLOW_STAGE_ID_PRODUCTION
         );
 
@@ -100,7 +101,7 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
         if ($manageProofFilesForm->validate()) {
             $manageProofFilesForm->execute(
                 $this->getGridCategoryDataElements($request, $this->getStageId()),
-                SUBMISSION_FILE_PROOF
+                SubmissionFile::SUBMISSION_FILE_PROOF
             );
 
             // Let the calling grid reload itself

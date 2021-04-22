@@ -13,6 +13,8 @@
  * @brief Handle submission file grid requests in the editor's 'promote submission' modal.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
 class SelectableSubmissionDetailsFilesGridHandler extends SelectableFileListGridHandler
@@ -25,7 +27,7 @@ class SelectableSubmissionDetailsFilesGridHandler extends SelectableFileListGrid
         import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
         // Pass in null stageId to be set in initialize from request var.
         parent::__construct(
-            new SubmissionFilesGridDataProvider(SUBMISSION_FILE_SUBMISSION),
+            new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_SUBMISSION),
             null,
             FILE_GRID_ADD | FILE_GRID_VIEW_NOTES
         );

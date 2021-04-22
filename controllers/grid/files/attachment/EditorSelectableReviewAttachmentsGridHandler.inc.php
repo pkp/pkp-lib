@@ -12,6 +12,8 @@
  * @brief Selectable review attachment grid requests (editor's perspective).
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
 class EditorSelectableReviewAttachmentsGridHandler extends SelectableFileListGridHandler
@@ -25,7 +27,7 @@ class EditorSelectableReviewAttachmentsGridHandler extends SelectableFileListGri
         // Pass in null stageId to be set in initialize from request var.
         parent::__construct(
             // This grid lists all review round files, but creates attachments
-            new ReviewGridDataProvider(SUBMISSION_FILE_ATTACHMENT, false, true),
+            new ReviewGridDataProvider(SubmissionFile::SUBMISSION_FILE_ATTACHMENT, false, true),
             null,
             FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
         );
@@ -46,8 +48,8 @@ class EditorSelectableReviewAttachmentsGridHandler extends SelectableFileListGri
     {
         $file = $gridDataElement['submissionFile'];
         switch ($file->getFileStage()) {
-            case SUBMISSION_FILE_ATTACHMENT: return true;
-            case SUBMISSION_FILE_REVIEW_FILE: return false;
+            case SubmissionFile::SUBMISSION_FILE_ATTACHMENT: return true;
+            case SubmissionFile::SUBMISSION_FILE_REVIEW_FILE: return false;
         }
         return $file->getViewable();
     }

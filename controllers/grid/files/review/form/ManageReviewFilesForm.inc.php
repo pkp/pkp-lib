@@ -15,6 +15,8 @@
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
+use PKP\submission\SubmissionFile;
+
 class ManageReviewFilesForm extends ManageSubmissionFilesForm
 {
     /** @var int **/
@@ -91,13 +93,13 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm
      * @stageSubmissionFiles array The files that belongs to a file stage
      * that is currently being used by a grid inside this form.
      *
-     * @param $fileStage int SUBMISSION_FILE_...
+     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
      */
     public function execute($stageSubmissionFiles, $fileStage = null)
     {
         parent::execute(
             $stageSubmissionFiles,
-            $this->getReviewRound()->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE
+            $this->getReviewRound()->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE
         );
     }
 

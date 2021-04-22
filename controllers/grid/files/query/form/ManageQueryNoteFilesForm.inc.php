@@ -13,6 +13,8 @@
  * @brief Form to add files to the query files grid
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
 class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm
@@ -62,11 +64,11 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm
      * Save selection of query files
      *
      * @param $stageSubmissionFiles array The list of submission files in the stage.
-     * @param $fileStage int SUBMISSION_FILE_...
+     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
      */
     public function execute($stageSubmissionFiles, $fileStage = null)
     {
-        parent::execute($stageSubmissionFiles, SUBMISSION_FILE_QUERY);
+        parent::execute($stageSubmissionFiles, SubmissionFile::SUBMISSION_FILE_QUERY);
     }
 
     /**

@@ -13,6 +13,8 @@
  * @brief Provide reviewer access to review file data for review file grids.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 
 class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider
@@ -23,7 +25,7 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider
     public function __construct()
     {
         $stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
-        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SUBMISSION_FILE_REVIEW_FILE;
+        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
         parent::__construct($fileStage);
     }
 

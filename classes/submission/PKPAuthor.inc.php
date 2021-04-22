@@ -15,7 +15,12 @@
  * @brief Author metadata class.
  */
 
-import('lib.pkp.classes.identity.Identity');
+namespace PKP\submission;
+
+use APP\i18n\AppLocale;
+use PKP\db\DAORegistry;
+
+use PKP\identity\Identity;
 
 class PKPAuthor extends Identity
 {
@@ -276,4 +281,8 @@ class PKPAuthor extends Identity
         $userGroup = $this->getUserGroup();
         return $userGroup->getLocalizedName();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\PKPAuthor', '\PKPAuthor');
 }

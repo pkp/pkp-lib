@@ -14,6 +14,8 @@
  *  author.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
 
 class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
@@ -32,7 +34,7 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
         }
 
         // Allow if this is not a file submitted with a review
-        if ($submissionFile->getFileStage() != SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+        if ($submissionFile->getFileStage() != SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
             return AUTHORIZATION_PERMIT;
         }
 

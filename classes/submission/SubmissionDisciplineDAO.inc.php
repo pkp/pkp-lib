@@ -16,12 +16,15 @@
  * disciplines
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
+namespace PKP\submission;
 
-define('CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE', 'submissionDiscipline');
+use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\db\DAORegistry;
 
 class SubmissionDisciplineDAO extends ControlledVocabDAO
 {
+    public const CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE = 'submissionDiscipline';
+
     /**
      * Build/fetch a publication's discipline controlled vocabulary.
      *
@@ -32,7 +35,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
      */
     public function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION)
     {
-        return parent::_build(CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $assocType, $publicationId);
+        return parent::_build(self::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $assocType, $publicationId);
     }
 
     /**
@@ -83,7 +86,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
      */
     public function getAllUniqueDisciplines()
     {
-        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE]);
+        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [self::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE]);
 
         $disciplines = [];
         foreach ($result as $row) {
@@ -109,7 +112,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
         $currentDisciplines = $this->build($publicationId, $assocType);
 
         if ($deleteFirst) {
-            $existingEntries = $disciplineDao->enumerate($currentDisciplines->getId(), CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE);
+            $existingEntries = $disciplineDao->enumerate($currentDisciplines->getId(), self::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE);
 
             foreach ($existingEntries as $id => $entry) {
                 $entry = trim($entry);
@@ -134,4 +137,9 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionDisciplineDAO', '\SubmissionDisciplineDAO');
+    define('CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE', \SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE);
 }

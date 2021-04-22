@@ -13,6 +13,13 @@
  * @brief A submission's representation (Publication Format, Galley, ...)
  */
 
+namespace PKP\submission;
+
+use APP\core\Application;
+
+use APP\core\Services;
+use PKP\db\DAORegistry;
+
 class Representation extends \PKP\core\DataObject
 {
     /**
@@ -170,4 +177,8 @@ class Representation extends \PKP\core\DataObject
     {
         return Application::getRepresentationDAO();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\Representation', '\Representation');
 }

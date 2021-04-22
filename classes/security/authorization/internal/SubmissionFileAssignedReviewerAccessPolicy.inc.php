@@ -14,6 +14,8 @@
  *
  */
 
+use PKP\submission\submissionFile;
+
 import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
 
 class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAccessPolicy
@@ -63,7 +65,7 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 
             if (
                 $submissionFile->getData('submissionId') == $reviewAssignment->getSubmissionId() &&
-                $submissionFile->getData('fileStage') == SUBMISSION_FILE_REVIEW_FILE &&
+                $submissionFile->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_REVIEW_FILE &&
                 $reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getId())
             ) {
                 $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);

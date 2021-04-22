@@ -13,25 +13,31 @@
  * @brief Submission file class.
  */
 
+namespace PKP\submission;
+
+use APP\i18n\AppLocale;
+
+use PKP\db\DAORegistry;
+
 // Define the file stage identifiers.
-define('SUBMISSION_FILE_SUBMISSION', 2);
-define('SUBMISSION_FILE_NOTE', 3);
-define('SUBMISSION_FILE_REVIEW_FILE', 4);
-define('SUBMISSION_FILE_REVIEW_ATTACHMENT', 5);
-//	SUBMISSION_FILE_REVIEW_REVISION defined below (FIXME: re-order before release)
-define('SUBMISSION_FILE_FINAL', 6);
-define('SUBMISSION_FILE_COPYEDIT', 9);
-define('SUBMISSION_FILE_PROOF', 10);
-define('SUBMISSION_FILE_PRODUCTION_READY', 11);
-define('SUBMISSION_FILE_ATTACHMENT', 13);
-define('SUBMISSION_FILE_REVIEW_REVISION', 15);
-define('SUBMISSION_FILE_DEPENDENT', 17);
-define('SUBMISSION_FILE_QUERY', 18);
-define('SUBMISSION_FILE_INTERNAL_REVIEW_FILE', 19);
-define('SUBMISSION_FILE_INTERNAL_REVIEW_REVISION', 20);
 
 class SubmissionFile extends \PKP\core\DataObject
 {
+    public const SUBMISSION_FILE_SUBMISSION = 2;
+    public const SUBMISSION_FILE_NOTE = 3;
+    public const SUBMISSION_FILE_REVIEW_FILE = 4;
+    public const SUBMISSION_FILE_REVIEW_ATTACHMENT = 5;
+    public const SUBMISSION_FILE_FINAL = 6;
+    public const SUBMISSION_FILE_COPYEDIT = 9;
+    public const SUBMISSION_FILE_PROOF = 10;
+    public const SUBMISSION_FILE_PRODUCTION_READY = 11;
+    public const SUBMISSION_FILE_ATTACHMENT = 13;
+    public const SUBMISSION_FILE_REVIEW_REVISION = 15;
+    public const SUBMISSION_FILE_DEPENDENT = 17;
+    public const SUBMISSION_FILE_QUERY = 18;
+    public const SUBMISSION_FILE_INTERNAL_REVIEW_FILE = 19;
+    public const SUBMISSION_FILE_INTERNAL_REVIEW_REVISION = 20;
+
     /**
      * @copydoc \PKP\core\DataObject::getDAO()
      */
@@ -367,5 +373,27 @@ class SubmissionFile extends \PKP\core\DataObject
     public function setChapterId($chapterId)
     {
         $this->setData('chapterId', $chapterId);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionFile', '\SubmissionFile');
+    foreach ([
+        'SUBMISSION_FILE_SUBMISSION',
+        'SUBMISSION_FILE_NOTE',
+        'SUBMISSION_FILE_REVIEW_FILE',
+        'SUBMISSION_FILE_REVIEW_ATTACHMENT',
+        'SUBMISSION_FILE_FINAL',
+        'SUBMISSION_FILE_COPYEDIT',
+        'SUBMISSION_FILE_PROOF',
+        'SUBMISSION_FILE_PRODUCTION_READY',
+        'SUBMISSION_FILE_ATTACHMENT',
+        'SUBMISSION_FILE_REVIEW_REVISION',
+        'SUBMISSION_FILE_DEPENDENT',
+        'SUBMISSION_FILE_QUERY',
+        'SUBMISSION_FILE_INTERNAL_REVIEW_FILE',
+        'SUBMISSION_FILE_INTERNAL_REVIEW_REVISION',
+    ] as $constantName) {
+        define($constantName, constant('\SubmissionFile::' . $constantName));
     }
 }

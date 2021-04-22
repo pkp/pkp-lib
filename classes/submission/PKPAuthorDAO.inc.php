@@ -15,8 +15,11 @@
  * @brief Operations for retrieving and modifying PKPAuthor objects.
  */
 
-import('lib.pkp.classes.db.SchemaDAO');
-import('lib.pkp.classes.submission.PKPAuthor');
+namespace PKP\submission;
+
+use APP\submission\Author;
+use PKP\db\DAORegistry;
+use PKP\db\SchemaDAO;
 
 use PKP\services\PKPSchemaService;
 
@@ -49,10 +52,7 @@ abstract class PKPAuthorDAO extends SchemaDAO
      *
      * @return DataObject
      */
-    public function newDataObject()
-    {
-        return new Author();
-    }
+    abstract public function newDataObject();
 
     /**
      * @copydoc SchemaDAO::getById()
@@ -176,4 +176,8 @@ abstract class PKPAuthorDAO extends SchemaDAO
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\PKPAuthorDAO', '\PKPAuthorDAO');
 }

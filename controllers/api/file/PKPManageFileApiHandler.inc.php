@@ -17,6 +17,7 @@
 import('classes.handler.Handler');
 
 use PKP\core\JSONMessage;
+use PKP\submission\SubmissionFile;
 
 abstract class PKPManageFileApiHandler extends Handler
 {
@@ -84,7 +85,7 @@ abstract class PKPManageFileApiHandler extends Handler
     public function editMetadata($args, $request)
     {
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-        if ($submissionFile->getFileStage() == SUBMISSION_FILE_PROOF) {
+        if ($submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_PROOF) {
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('submissionFile', $submissionFile);
             $templateMgr->assign('stageId', $request->getUserVar('stageId'));

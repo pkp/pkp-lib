@@ -15,6 +15,8 @@
  * @brief Basic class describing a submission keyword
  */
 
+namespace PKP\submission;
+
 class SubmissionKeyword extends \PKP\controlledVocab\ControlledVocabEntry
 {
     //
@@ -46,4 +48,8 @@ class SubmissionKeyword extends \PKP\controlledVocab\ControlledVocabEntry
     {
         return ['submissionKeyword'];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionKeyword', '\SubmissionKeyword');
 }

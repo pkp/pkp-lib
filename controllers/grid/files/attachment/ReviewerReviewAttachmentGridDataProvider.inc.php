@@ -12,6 +12,7 @@
  * @brief Provide the reviewers access to their own review attachments data for grids.
  */
 
+use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
@@ -25,7 +26,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
      */
     public function __construct()
     {
-        parent::__construct(SUBMISSION_FILE_REVIEW_ATTACHMENT);
+        parent::__construct(SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT);
     }
 
 

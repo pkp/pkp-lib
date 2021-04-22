@@ -13,6 +13,8 @@
  * @brief Base class for the editor decision forms.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.form.Form');
 
 // Define review round and review stage id constants.
@@ -196,8 +198,8 @@ class EditorDecisionForm extends Form
         // Add the selected files to the new round.
         $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
         $fileStage = $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW
-            ? SUBMISSION_FILE_INTERNAL_REVIEW_FILE
-            : SUBMISSION_FILE_REVIEW_FILE;
+            ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE
+            : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
 
         foreach (['selectedFiles', 'selectedAttachments'] as $userVar) {
             $selectedFiles = $this->getData($userVar);

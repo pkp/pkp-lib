@@ -21,9 +21,6 @@ import('lib.pkp.controllers.grid.files.SubmissionFilesGridRow');
 import('lib.pkp.controllers.grid.files.FileNameGridColumn');
 import('lib.pkp.controllers.grid.files.FileDateGridColumn');
 
-// Import submission file class which contains the SUBMISSION_FILE_* constants.
-import('lib.pkp.classes.submission.SubmissionFile');
-
 // Import the class that defines file grids capabilities.
 import('lib.pkp.classes.controllers.grid.files.FilesGridCapabilities');
 

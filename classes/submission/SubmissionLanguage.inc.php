@@ -15,6 +15,8 @@
  * @brief Basic class describing a submission language
  */
 
+namespace PKP\submission;
+
 class SubmissionLanguage extends \PKP\controlledVocab\ControlledVocabEntry
 {
     //
@@ -49,4 +51,8 @@ class SubmissionLanguage extends \PKP\controlledVocab\ControlledVocabEntry
     {
         return ['submissionLanguage'];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionLanguage', '\SubmissionLanguage');
 }

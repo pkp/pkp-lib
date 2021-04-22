@@ -16,6 +16,7 @@ namespace PKP\Services;
 
 use APP\core\Application;
 use APP\core\Services;
+
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -23,9 +24,9 @@ use PKP\plugins\HookRegistry;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
-
 use PKP\services\PKPSchemaService;
 use PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder;
+use PKP\submission\SubmissionFile;
 
 class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -148,7 +149,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                         'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
                         'assocIds' => [$submissionFile->getId()],
                         'submissionIds' => [$submission->getId()],
-                        'fileStages' => [SUBMISSION_FILE_DEPENDENT],
+                        'fileStages' => [SubmissionFile::SUBMISSION_FILE_DEPENDENT],
                         'includeDependentFiles' => true,
                     ]);
                     $dependentFiles = [];
@@ -291,15 +292,15 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
             $validator->after(function ($validator) use ($props) {
                 if (empty($props['fileStage'])) {
                     $validator->errors()->add('assocType', __('api.submissionFiles.400.noFileStageId'));
-                } elseif ($props['assocType'] === ASSOC_TYPE_REVIEW_ROUND && !in_array($props['fileStage'], [SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION])) {
+                } elseif ($props['assocType'] === ASSOC_TYPE_REVIEW_ROUND && !in_array($props['fileStage'], [SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION])) {
                     $validator->errors()->add('assocType', __('api.submissionFiles.400.badReviewRoundAssocType'));
-                } elseif ($props['assocType'] === ASSOC_TYPE_REVIEW_ASSIGNMENT && $props['fileStage'] !== SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+                } elseif ($props['assocType'] === ASSOC_TYPE_REVIEW_ASSIGNMENT && $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
                     $validator->errors()->add('assocType', __('api.submissionFiles.400.badReviewAssignmentAssocType'));
-                } elseif ($props['assocType'] === ASSOC_TYPE_SUBMISSION_FILE && $props['fileStage'] !== SUBMISSION_FILE_DEPENDENT) {
+                } elseif ($props['assocType'] === ASSOC_TYPE_SUBMISSION_FILE && $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_DEPENDENT) {
                     $validator->errors()->add('assocType', __('api.submissionFiles.400.badDependentFileAssocType'));
-                } elseif ($props['assocType'] === ASSOC_TYPE_NOTE && $props['fileStage'] !== SUBMISSION_FILE_NOTE) {
+                } elseif ($props['assocType'] === ASSOC_TYPE_NOTE && $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_NOTE) {
                     $validator->errors()->add('assocType', __('api.submissionFiles.400.badNoteAssocType'));
-                } elseif ($props['assocType'] === ASSOC_TYPE_REPRESENTATION && $props['fileStage'] !== SUBMISSION_FILE_PROOF) {
+                } elseif ($props['assocType'] === ASSOC_TYPE_REPRESENTATION && $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_PROOF) {
                     $validator->errors()->add('assocType', __('api.submissionFiles.400.badRepresentationAssocType'));
                 }
             });
@@ -363,7 +364,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         );
 
         // Update status and notifications when revisions have been uploaded
-        if (in_array($submissionFile->getData('fileStage'), [SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION])) {
+        if (in_array($submissionFile->getData('fileStage'), [SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION])) {
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $reviewRound = $reviewRoundDao->getById($submissionFile->getData('assocId'));
             if (!$reviewRound) {
@@ -539,7 +540,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         // Delete dependent files
         $dependentFilesIterator = $this->getMany([
             'includeDependentFiles' => true,
-            'fileStages' => [SUBMISSION_FILE_DEPENDENT],
+            'fileStages' => [SubmissionFile::SUBMISSION_FILE_DEPENDENT],
             'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
             'assocIds' => [$submissionFile->getId()],
         ]);
@@ -548,7 +549,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         }
 
         // Delete review round associations
-        if ($submissionFile->getData('fileStage') === SUBMISSION_FILE_REVIEW_REVISION) {
+        if ($submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION) {
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());
             $submissionFileDao->deleteReviewRoundAssignment($submissionFile->getId());
@@ -563,7 +564,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         import('classes.notification.NotificationManager');
         $notificationMgr = new \NotificationManager();
         switch ($submissionFile->getData('fileStage')) {
-            case SUBMISSION_FILE_REVIEW_REVISION:
+            case SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION:
                 $authorUserIds = [];
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                 $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), ROLE_ID_AUTHOR);
@@ -579,7 +580,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 );
                 break;
 
-            case SUBMISSION_FILE_COPYEDIT:
+            case SubmissionFile::SUBMISSION_FILE_COPYEDIT:
                 $notificationMgr->updateNotification(
                     Application::get()->getRequest(),
                     [NOTIFICATION_TYPE_ASSIGN_COPYEDITOR, NOTIFICATION_TYPE_AWAITING_COPYEDITS],

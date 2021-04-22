@@ -18,6 +18,10 @@
  * @brief Basic class describing an controlled vocab.
  */
 
+namespace PKP\controlledVocab;
+
+use PKP\db\DAORegistry;
+
 class ControlledVocab extends \PKP\core\DataObject
 {
     //
@@ -96,4 +100,8 @@ class ControlledVocab extends \PKP\core\DataObject
         $controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /** @var ControlledVocabDAO $controlledVocabDao */
         return $controlledVocabDao->enumerate($this->getId(), $settingName);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controlledVocab\ControlledVocab', '\ControlledVocab');
 }

@@ -15,9 +15,9 @@
 
 // Import base class
 import('classes.handler.Handler');
-import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_REVIEW_...
 
 use PKP\services\PKPSchemaService;
+use PKP\submission\SubmissionFile;
 
 abstract class PKPAuthorDashboardHandler extends Handler
 {
@@ -111,11 +111,11 @@ abstract class PKPAuthorDashboardHandler extends Handler
     {
         switch ($currentStage) {
             case WORKFLOW_STAGE_ID_SUBMISSION:
-                return SUBMISSION_FILE_SUBMISSION;
+                return SubmissionFile::SUBMISSION_FILE_SUBMISSION;
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                return SUBMISSION_FILE_REVIEW_REVISION;
+                return SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION;
             case WORKFLOW_STAGE_ID_EDITING:
-                return SUBMISSION_FILE_FINAL;
+                return SubmissionFile::SUBMISSION_FILE_FINAL;
             default:
                 return null;
         }

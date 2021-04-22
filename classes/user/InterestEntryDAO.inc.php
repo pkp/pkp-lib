@@ -15,9 +15,10 @@
  * @brief Operations for retrieving and modifying a user's review interests.
  */
 
+namespace PKP\user;
 
-import('lib.pkp.classes.user.InterestEntry');
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
+use PKP\controlledVocab\ControlledVocabEntryDAO;
+use PKP\db\DAOResultFactory;
 
 class InterestEntryDAO extends ControlledVocabEntryDAO
 {
@@ -92,4 +93,8 @@ class InterestEntryDAO extends ControlledVocabEntryDAO
 
         return new DAOResultFactory($result, $this, '_fromRow');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\InterestEntryDAO', '\InterestEntryDAO');
 }

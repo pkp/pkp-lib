@@ -21,6 +21,7 @@ import('classes.handler.Handler');
 import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 
 use PKP\core\JSONMessage;
+use PKP\submission\SubmissionFile;
 
 class FileApiHandler extends Handler
 {
@@ -56,7 +57,7 @@ class FileApiHandler extends Handler
             $submissionFileIds = Services::get('submissionFile')->getIds([
                 'submissionIds' => [$submissionId],
                 'fileStages' => [$fileStage],
-                'includeDependentFiles' => $fileStage === SUBMISSION_FILE_DEPENDENT,
+                'includeDependentFiles' => $fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT,
             ]);
             import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
             $allFilesAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);

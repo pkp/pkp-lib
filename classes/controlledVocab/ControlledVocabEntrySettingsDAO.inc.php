@@ -13,6 +13,8 @@
  * @brief Operations for retrieving and modifying controlled vocabulary entry settings.
  */
 
+namespace PKP\controlledVocab;
+
 use PKP\db\SettingsDAO;
 
 class ControlledVocabEntrySettingsDAO extends SettingsDAO
@@ -36,4 +38,8 @@ class ControlledVocabEntrySettingsDAO extends SettingsDAO
     {
         return 'controlled_vocab_entry_id';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controlledVocab\ControlledVocabEntrySettingsDAO', '\ControlledVocabEntrySettingsDAO');
 }

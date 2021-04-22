@@ -18,15 +18,17 @@ namespace PKP\Services;
 use APP\core\Application;
 use APP\core\Services;
 use APP\Services\QueryBuilders\SubmissionQueryBuilder;
+
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
 use PKP\Services\interfaces\EntityPropertyInterface;
-
 use PKP\Services\interfaces\EntityReadInterface;
+
 use PKP\Services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
+use PKP\submission\SubmissionFile;
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
 
@@ -508,7 +510,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
                         $stage['files'] = [
                             'count' => Services::get('submissionFile')->getCount([
                                 'submissionIds' => [$submission->getId()],
-                                'fileStages' => [SUBMISSION_FILE_REVIEW_REVISION],
+                                'fileStages' => [SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION],
                                 'reviewRounds' => [$reviewRound->getId()],
                             ]),
                         ];
@@ -542,7 +544,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
                     $stage['files'] = [
                         'count' => Services::get('submissionFile')->getCount([
                             'submissionIds' => [$submission->getId()],
-                            'fileStages' => [WORKFLOW_STAGE_ID_EDITING ? SUBMISSION_FILE_COPYEDIT : SUBMISSION_FILE_PROOF],
+                            'fileStages' => [WORKFLOW_STAGE_ID_EDITING ? SubmissionFile::SUBMISSION_FILE_COPYEDIT : SubmissionFile::SUBMISSION_FILE_PROOF],
                         ]),
                     ];
                     break;

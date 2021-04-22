@@ -13,6 +13,8 @@
  * submission files.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
 import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
@@ -121,30 +123,28 @@ class SubmissionFileAccessPolicy extends ContextPolicy
 
             // ...or if we don't want to modify the file...
             if (!($mode & SUBMISSION_FILE_ACCESS_MODIFY)) {
-                import('lib.pkp.classes.submission.SubmissionFile'); // for SUBMISSION_FILE_...
-
                 // 3c) ...the file is at submission stage...
                 import('lib.pkp.classes.security.authorization.internal.SubmissionFileStageRequiredPolicy');
-                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SUBMISSION_FILE_SUBMISSION));
+                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SubmissionFile::SUBMISSION_FILE_SUBMISSION));
 
                 // 3d) ...or the file is a viewable reviewer response...
-                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SUBMISSION_FILE_REVIEW_ATTACHMENT, true));
+                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT, true));
 
                 // 3e) ...or if the file is part of a query assigned to the user...
                 import('lib.pkp.classes.security.authorization.internal.SubmissionFileAssignedQueryAccessPolicy');
                 $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileAssignedQueryAccessPolicy($request, $submissionFileId));
 
                 // 3f) ...or the file is at revision stage...
-                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SUBMISSION_FILE_REVIEW_REVISION));
+                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION));
 
                 // 3f) ...or the file is at revision stage...
-                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION));
+                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION));
 
                 // 3g) ...or the file is a copyedited file...
-                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SUBMISSION_FILE_COPYEDIT));
+                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SubmissionFile::SUBMISSION_FILE_COPYEDIT));
 
                 // 3h) ...or the file is a representation (galley/publication format)...
-                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SUBMISSION_FILE_PROOF));
+                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SubmissionFile::SUBMISSION_FILE_PROOF));
             }
 
             // Add the rules from 3)

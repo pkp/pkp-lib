@@ -15,6 +15,8 @@
  * The submission author and all context/editor roles have access to this grid.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
 class DependentFilesGridHandler extends FileListGridHandler
@@ -48,7 +50,7 @@ class DependentFilesGridHandler extends FileListGridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-        $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY, (int) $args['submissionFileId']));
+        $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFile::SUBMISSION_FILE_ACCESS_MODIFY, (int) $args['submissionFileId']));
 
         return parent::authorize($request, $args, $roleAssignments);
     }

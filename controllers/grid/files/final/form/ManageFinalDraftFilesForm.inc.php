@@ -13,6 +13,8 @@
  * @brief Form to add files to the final draft files grid
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
 class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm
@@ -36,12 +38,12 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm
      *
      * @param $stageSubmissionFiles array The files that belongs to a file stage
      * that is currently being used by a grid inside this form.
-     * @param $fileStage int SUBMISSION_FILE_...
+     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
      *
      * @return array a list of all submission files marked as "final".
      */
     public function execute($stageSubmissionFiles, $fileStage = null)
     {
-        parent::execute($stageSubmissionFiles, SUBMISSION_FILE_FINAL);
+        parent::execute($stageSubmissionFiles, SubmissionFile::SUBMISSION_FILE_FINAL);
     }
 }

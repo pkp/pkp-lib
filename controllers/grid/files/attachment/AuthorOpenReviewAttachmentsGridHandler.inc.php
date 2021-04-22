@@ -13,6 +13,8 @@
  * @brief Handle review attachment grid requests in open reviews (author's perspective)
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
@@ -27,7 +29,7 @@ class AuthorOpenReviewAttachmentsGridHandler extends FileListGridHandler
         // Pass in null stageId to be set in initialize from request var.
         // Show also files that are not viewable by default
         parent::__construct(
-            new ReviewerReviewAttachmentGridDataProvider(SUBMISSION_FILE_REVIEW_ATTACHMENT, false),
+            new ReviewerReviewAttachmentGridDataProvider(SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT, false),
             null
         );
 

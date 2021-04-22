@@ -18,6 +18,7 @@
 import('classes.handler.Handler');
 
 use PKP\core\JSONMessage;
+use PKP\submission\SubmissionFile;
 
 class FileUploadWizardHandler extends Handler
 {
@@ -103,7 +104,7 @@ class FileUploadWizardHandler extends Handler
             $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY, $submissionFileIdToValidate));
 
         // Allow uploading to review attachments
-        } elseif ($fileStage === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+        } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
             $stageId = (int) $request->getUserVar('stageId');
@@ -120,7 +121,7 @@ class FileUploadWizardHandler extends Handler
             $this->addPolicy(new ReviewAssignmentFileWritePolicy($request, $assocId));
 
         // Allow uploading to a note
-        } elseif ($fileStage === SUBMISSION_FILE_QUERY) {
+        } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_QUERY) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
             $stageId = (int) $request->getUserVar('stageId');
@@ -134,7 +135,7 @@ class FileUploadWizardHandler extends Handler
             $this->addPolicy(new NoteAccessPolicy($request, $assocId, NOTE_ACCESS_WRITE));
 
         // Allow uploading a dependent file to another file
-        } elseif ($fileStage === SUBMISSION_FILE_DEPENDENT) {
+        } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
             if (empty($assocType) || $assocType !== ASSOC_TYPE_SUBMISSION_FILE || empty($assocId)) {
@@ -158,14 +159,19 @@ class FileUploadWizardHandler extends Handler
             $this->addPolicy(new SubmissionFileStageAccessPolicy($fileStage, SUBMISSION_FILE_ACCESS_MODIFY, 'api.submissionFiles.403.unauthorizedFileStageIdWrite'));
 
             // Additional checks before uploading to a review file stage
-            if (in_array($fileStage, [SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION, SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SUBMISSION_FILE_ATTACHMENT])
-                    || $assocType === ASSOC_TYPE_REVIEW_ROUND) {
+            if (in_array($fileStage, [
+                SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+                SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+                SubmissionFile::SUBMISSION_FILE_ATTACHMENT
+            ]) || $assocType === ASSOC_TYPE_REVIEW_ROUND) {
                 import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
                 $this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
             }
 
             // Additional checks before uploading to a representation
-            if ($fileStage === SUBMISSION_FILE_PROOF || $assocType === ASSOC_TYPE_REPRESENTATION) {
+            if ($fileStage === SubmissionFile::SUBMISSION_FILE_PROOF || $assocType === ASSOC_TYPE_REPRESENTATION) {
                 if (empty($assocType) || $assocType !== ASSOC_TYPE_REPRESENTATION || empty($assocId)) {
                     return false;
                 }
@@ -249,7 +255,7 @@ class FileUploadWizardHandler extends Handler
 
     /**
      * Get the workflow stage file storage that
-     * we upload files to. One of the SUBMISSION_FILE_*
+     * we upload files to. One of the SubmissionFile::SUBMISSION_FILE_*
      * constants.
      *
      * @return integer

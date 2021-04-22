@@ -15,6 +15,8 @@
  * @brief Basic class describing a submission agency
  */
 
+namespace PKP\submission;
+
 class SubmissionAgency extends \PKP\controlledVocab\ControlledVocabEntry
 {
     //
@@ -46,4 +48,8 @@ class SubmissionAgency extends \PKP\controlledVocab\ControlledVocabEntry
     {
         return ['submissionAgency'];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionAgency', '\SubmissionAgency');
 }

@@ -14,12 +14,15 @@
  *
  * @brief Operations for retrieving and modifying submission files
  */
-use Illuminate\Support\Facades\DB;
 
-import('lib.pkp.classes.db.SchemaDAO');
-import('lib.pkp.classes.submission.Genre'); // GENRE_CATEGORY_... constants
-import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
-import('lib.pkp.classes.submission.SubmissionFile');
+namespace PKP\submission;
+
+use APP\core\Services;
+
+use Illuminate\Support\Facades\DB;
+use PKP\db\DAORegistry;
+use PKP\db\SchemaDAO;
+use PKP\plugins\PKPPubIdPluginDAO;
 
 use PKP\services\PKPSchemaService;
 
@@ -220,7 +223,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
 
         $submissionFile = Services::get('submissionFile')->get($submissionFileId);
 
-        if ($submissionFile->getData('fileStage') !== SUBMISSION_FILE_PROOF) {
+        if ($submissionFile->getData('fileStage') !== SubmissionFile::SUBMISSION_FILE_PROOF) {
             return $submissionFile;
         }
 
@@ -244,7 +247,7 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
         if (!isset($submissionFile)) {
             $submissionFile = Services::get('submissionFile')->get($bestId);
         }
-        if ($submissionFile && in_array($submissionFile->getData('fileStage'), [SUBMISSION_FILE_PROOF, SUBMISSION_FILE_DEPENDENT])) {
+        if ($submissionFile && in_array($submissionFile->getData('fileStage'), [SubmissionFile::SUBMISSION_FILE_PROOF, SubmissionFile::SUBMISSION_FILE_DEPENDENT])) {
             return $submissionFile;
         }
         return null;
@@ -381,4 +384,8 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
         }
         $this->flushCache();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\PKPSubmissionFileDAO', '\PKPSubmissionFileDAO');
 }

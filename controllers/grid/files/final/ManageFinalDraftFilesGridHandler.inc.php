@@ -16,6 +16,7 @@
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
 use PKP\core\JSONMessage;
+use PKP\submission\SubmissionFile;
 
 class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
 {
@@ -26,7 +27,7 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
     {
         import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
         parent::__construct(
-            new SubmissionFilesCategoryGridDataProvider(SUBMISSION_FILE_FINAL),
+            new SubmissionFilesCategoryGridDataProvider(SubmissionFile::SUBMISSION_FILE_FINAL),
             WORKFLOW_STAGE_ID_EDITING,
             FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
         );

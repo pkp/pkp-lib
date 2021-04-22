@@ -15,6 +15,8 @@
  * @brief Operations for retrieving and modifying User objects.
  */
 
+use PKP\identity\Identity;
+
 import('lib.pkp.classes.user.User');
 
 /* These constants are used user-selectable search fields. */
@@ -207,8 +209,8 @@ class UserDAO extends \PKP\db\DAO
             [(int) $submissionId, (int) $reviewRound->getId()]
         );
         if (!empty($name)) {
-            $nameSearchJoins = 'LEFT JOIN user_settings usgs ON (u.user_id = usgs.user_id AND usgs.setting_name = \'' . IDENTITY_SETTING_GIVENNAME . '\')
-				LEFT JOIN user_settings usfs ON (u.user_id = usfs.user_id AND usfs.setting_name = \'' . IDENTITY_SETTING_FAMILYNAME . '\')';
+            $nameSearchJoins = 'LEFT JOIN user_settings usgs ON (u.user_id = usgs.user_id AND usgs.setting_name = \'' . Identity::IDENTITY_SETTING_GIVENNAME . '\')
+				LEFT JOIN user_settings usfs ON (u.user_id = usfs.user_id AND usfs.setting_name = \'' . Identity::IDENTITY_SETTING_FAMILYNAME . '\')';
             $params[] = $params[] = $params[] = $params[] = "%${name}%";
         }
 
@@ -375,7 +377,7 @@ class UserDAO extends \PKP\db\DAO
     public function getLocaleFieldNames()
     {
         return ['biography', 'signature', 'affiliation',
-            IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName'];
+            Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName'];
     }
 
     /**
@@ -610,7 +612,7 @@ class UserDAO extends \PKP\db\DAO
     {
         // remove all empty user names in the new locale
         // so that we do not have to take care if we should insert or update them -- we can then only insert them if needed
-        $settingNames = [IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName'];
+        $settingNames = [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName'];
         foreach ($settingNames as $settingName) {
             $params = [$newLocale, $settingName];
             $this->update(
@@ -626,7 +628,7 @@ class UserDAO extends \PKP\db\DAO
 				LEFT JOIN user_settings usg ON (usg.user_id = us.user_id AND usg.locale = ? AND usg.setting_name = ?)
 				LEFT JOIN user_settings usf ON (usf.user_id = us.user_id AND usf.locale = ? AND usf.setting_name = ?)
 				LEFT JOIN user_settings usp ON (usp.user_id = us.user_id AND usp.locale = ? AND usp.setting_name = ?)',
-            [$newLocale, IDENTITY_SETTING_GIVENNAME, $newLocale, IDENTITY_SETTING_FAMILYNAME, $newLocale, 'preferredPublicName']
+            [$newLocale, Identity::IDENTITY_SETTING_GIVENNAME, $newLocale, Identity::IDENTITY_SETTING_FAMILYNAME, $newLocale, 'preferredPublicName']
         );
         foreach ($result as $row) {
             $userId = $row->user_id;
@@ -648,7 +650,7 @@ class UserDAO extends \PKP\db\DAO
 					SELECT DISTINCT us.user_id, ?, ?, us.setting_value, 'string'
 					FROM user_settings us
 					WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?",
-                    [$newLocale, IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_GIVENNAME, $oldLocale, $userId]
+                    [$newLocale, Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_GIVENNAME, $oldLocale, $userId]
                 );
             }
         }
@@ -677,10 +679,10 @@ class UserDAO extends \PKP\db\DAO
         $site = Application::get()->getRequest()->getSite();
         $primaryLocale = $site->getPrimaryLocale();
         return [
-            IDENTITY_SETTING_GIVENNAME, $locale,
-            IDENTITY_SETTING_GIVENNAME, $primaryLocale,
-            IDENTITY_SETTING_FAMILYNAME, $locale,
-            IDENTITY_SETTING_FAMILYNAME, $primaryLocale,
+            Identity::IDENTITY_SETTING_GIVENNAME, $locale,
+            Identity::IDENTITY_SETTING_GIVENNAME, $primaryLocale,
+            Identity::IDENTITY_SETTING_FAMILYNAME, $locale,
+            Identity::IDENTITY_SETTING_FAMILYNAME, $primaryLocale,
         ];
     }
 

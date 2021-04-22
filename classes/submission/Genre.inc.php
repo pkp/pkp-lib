@@ -15,12 +15,16 @@
  * @brief Basic class describing a genre.
  */
 
-define('GENRE_CATEGORY_DOCUMENT', 1);
-define('GENRE_CATEGORY_ARTWORK', 2);
-define('GENRE_CATEGORY_SUPPLEMENTARY', 3);
+namespace PKP\submission;
+
+use PKP\db\DAORegistry;
 
 class Genre extends \PKP\core\DataObject
 {
+    public const GENRE_CATEGORY_DOCUMENT = 1;
+    public const GENRE_CATEGORY_ARTWORK = 2;
+    public const GENRE_CATEGORY_SUPPLEMENTARY = 3;
+
     /**
      * Get ID of context.
      *
@@ -204,5 +208,12 @@ class Genre extends \PKP\core\DataObject
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $defaultKeys = $genreDao->getDefaultKeys();
         return in_array($this->getKey(), $defaultKeys);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\Genre', '\Genre');
+    foreach (['GENRE_CATEGORY_DOCUMENT', 'GENRE_CATEGORY_ARTWORK', 'GENRE_CATEGORY_SUPPLEMENTARY'] as $constantName) {
+        define($constantName, constant('\Genre::' . $constantName));
     }
 }

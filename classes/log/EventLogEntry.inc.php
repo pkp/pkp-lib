@@ -15,6 +15,8 @@
  * @brief Describes an entry in the event log.
  */
 
+use PKP\submission\SubmissionFile;
+
 // Information Center events
 define('SUBMISSION_LOG_NOTE_POSTED', 0x01000000);
 define('SUBMISSION_LOG_MESSAGE_SENT', 0x01000001);
@@ -204,7 +206,7 @@ class EventLogEntry extends \PKP\core\DataObject
                 }
             }
             // Files submitted by reviewers
-            if (isset($params['fileStage']) && $params['fileStage'] === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+            if (isset($params['fileStage']) && $params['fileStage'] === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
                 assert(isset($params['fileId']) && isset($params['submissionId']));
                 $anonymousAuthor = true;
                 $submissionFile = Services::get('submissionFile')->get($params['id']);

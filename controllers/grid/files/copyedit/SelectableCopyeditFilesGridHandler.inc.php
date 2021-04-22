@@ -13,6 +13,8 @@
  * @brief Handle copyedited files grid requests to promote to production stage.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
 class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler
@@ -25,7 +27,7 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler
         import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
         // Pass in null stageId to be set in initialize from request var.
         parent::__construct(
-            new SubmissionFilesGridDataProvider(SUBMISSION_FILE_COPYEDIT),
+            new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_COPYEDIT),
             null,
             FILE_GRID_VIEW_NOTES
         );

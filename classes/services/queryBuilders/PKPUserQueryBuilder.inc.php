@@ -15,6 +15,8 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Support\Facades\DB;
+
+use PKP\identity\Identity;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPUserQueryBuilder implements EntityQueryBuilderInterface
@@ -481,22 +483,22 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
             ->leftJoin('user_groups as ug', 'ug.user_group_id', '=', 'uug.user_group_id')
             ->leftJoin('user_settings as ugl', function ($join) use ($locale) {
                 $join->on('ugl.user_id', '=', 'u.user_id')
-                    ->where('ugl.setting_name', '=', IDENTITY_SETTING_GIVENNAME)
+                    ->where('ugl.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
                     ->where('ugl.locale', '=', $locale);
             })
             ->leftJoin('user_settings as ugpl', function ($join) use ($primaryLocale) {
                 $join->on('ugpl.user_id', '=', 'u.user_id')
-                    ->where('ugpl.setting_name', '=', IDENTITY_SETTING_GIVENNAME)
+                    ->where('ugpl.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
                     ->where('ugpl.locale', '=', $primaryLocale);
             })
             ->leftJoin('user_settings as ufl', function ($join) use ($locale) {
                 $join->on('ufl.user_id', '=', 'u.user_id')
-                    ->where('ufl.setting_name', '=', IDENTITY_SETTING_FAMILYNAME)
+                    ->where('ufl.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
                     ->where('ufl.locale', '=', $locale);
             })
             ->leftJoin('user_settings as ufpl', function ($join) use ($primaryLocale) {
                 $join->on('ufpl.user_id', '=', 'u.user_id')
-                    ->where('ufpl.setting_name', '=', IDENTITY_SETTING_FAMILYNAME)
+                    ->where('ufpl.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
                     ->where('ufpl.locale', '=', $primaryLocale);
             });
 
@@ -587,11 +589,11 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
                         $q->where(DB::raw('lower(u.username)'), 'LIKE', "%{$word}%")
                             ->orWhere(DB::raw('lower(u.email)'), 'LIKE', "%{$word}%")
                             ->orWhere(function ($q) use ($word) {
-                                $q->where('us.setting_name', IDENTITY_SETTING_GIVENNAME);
+                                $q->where('us.setting_name', Identity::IDENTITY_SETTING_GIVENNAME);
                                 $q->where(DB::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
                             })
                             ->orWhere(function ($q) use ($word) {
-                                $q->where('us.setting_name', IDENTITY_SETTING_FAMILYNAME);
+                                $q->where('us.setting_name', Identity::IDENTITY_SETTING_FAMILYNAME);
                                 $q->where(DB::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
                             })
                             ->orWhere(function ($q) use ($word) {

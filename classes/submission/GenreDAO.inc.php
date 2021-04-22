@@ -15,11 +15,14 @@
  * @brief Operations for retrieving and modifying Genre objects.
  */
 
-import('lib.pkp.classes.submission.Genre');
+namespace PKP\submission;
 
+use App\i18n\AppLocale;
 use PKP\db\DAO;
 use PKP\db\DAOResultFactory;
 use PKP\db\XMLDAO;
+
+use PKP\plugins\HookRegistry;
 
 class GenreDAO extends DAO
 {
@@ -445,4 +448,8 @@ class GenreDAO extends DAO
     {
         $this->update('DELETE FROM genre_settings WHERE locale = ?', [$locale]);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\GenreDAO', '\GenreDAO');
 }

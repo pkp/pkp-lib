@@ -15,6 +15,8 @@
  * @brief Basic class describing a submission subject
  */
 
+namespace PKP\submission;
+
 class SubmissionSubject extends \PKP\controlledVocab\ControlledVocabEntry
 {
     //
@@ -49,4 +51,8 @@ class SubmissionSubject extends \PKP\controlledVocab\ControlledVocabEntry
     {
         return ['submissionSubject'];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionSubject', '\SubmissionSubject');
 }

@@ -15,7 +15,10 @@
  * @brief Operations for retrieving and modifying SubmissionComment objects.
  */
 
-import('lib.pkp.classes.submission.SubmissionComment');
+namespace PKP\submission;
+
+use PKP\db\DAOResultFactory;
+use PKP\plugins\HookRegistry;
 
 class SubmissionCommentDAO extends \PKP\db\DAO
 {
@@ -282,4 +285,8 @@ class SubmissionCommentDAO extends \PKP\db\DAO
             ]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionCommentDAO', '\SubmissionCommentDAO');
 }

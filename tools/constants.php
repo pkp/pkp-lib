@@ -54,8 +54,6 @@ class constants extends \PKP\cliTool\CommandLineTool
      */
     public function execute()
     {
-        import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_
-
         $all = get_defined_constants(true);
         $app = $all['user'];
 

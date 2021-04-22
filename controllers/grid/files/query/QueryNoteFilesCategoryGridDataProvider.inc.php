@@ -12,6 +12,8 @@
  * @brief Provide access to query file data for category grids.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
 
 class QueryNoteFilesCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProvider
@@ -21,7 +23,7 @@ class QueryNoteFilesCategoryGridDataProvider extends SubmissionFilesCategoryGrid
      */
     public function __construct()
     {
-        parent::__construct(SUBMISSION_FILE_QUERY);
+        parent::__construct(SubmissionFile::SUBMISSION_FILE_QUERY);
     }
 
 

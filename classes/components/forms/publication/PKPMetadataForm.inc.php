@@ -42,19 +42,12 @@ class PKPMetadataForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        // Load constants
-        \DAORegistry::getDAO('SubmissionKeywordDAO');
-        \DAORegistry::getDAO('SubmissionSubjectDAO');
-        \DAORegistry::getDAO('SubmissionDisciplineDAO');
-        \DAORegistry::getDAO('SubmissionLanguageDAO');
-        \DAORegistry::getDAO('SubmissionAgencyDAO');
-
         if ($submissionContext->getData('keywords')) {
             $this->addField(new FieldControlledVocab('keywords', [
                 'label' => __('common.keywords'),
                 'tooltip' => __('manager.setup.metadata.keywords.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'selected' => (array) $publication->getData('keywords'),
             ]));
@@ -65,7 +58,7 @@ class PKPMetadataForm extends FormComponent
                 'label' => __('common.subjects'),
                 'tooltip' => __('manager.setup.metadata.subjects.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'selected' => (array) $publication->getData('subjects'),
             ]));
@@ -76,7 +69,7 @@ class PKPMetadataForm extends FormComponent
                 'label' => __('search.discipline'),
                 'tooltip' => __('manager.setup.metadata.disciplines.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'selected' => (array) $publication->getData('disciplines'),
             ]));
@@ -87,7 +80,7 @@ class PKPMetadataForm extends FormComponent
                 'label' => __('common.languages'),
                 'tooltip' => __('manager.setup.metadata.languages.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'selected' => (array) $publication->getData('languages'),
             ]));
@@ -98,7 +91,7 @@ class PKPMetadataForm extends FormComponent
                 'label' => __('submission.supportingAgencies'),
                 'tooltip' => __('manager.setup.metadata.agencies.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', CONTROLLED_VOCAB_SUBMISSION_AGENCY, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', \PKP\submission\SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'selected' => (array) $publication->getData('supportingAgencies'),
             ]));

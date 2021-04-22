@@ -15,7 +15,10 @@
  * @brief Operations for users as related to their stage assignments
  */
 
+use PKP\identity\Identity;
+
 import('lib.pkp.classes.user.UserDAO');
+
 class UserStageAssignmentDAO extends UserDAO
 {
     /**
@@ -118,10 +121,10 @@ class UserStageAssignmentDAO extends UserDAO
         $params = [
             (int) $submissionId,
             (int) $stageId,
-            IDENTITY_SETTING_GIVENNAME, $primaryLocale,
-            IDENTITY_SETTING_FAMILYNAME, $primaryLocale,
-            IDENTITY_SETTING_GIVENNAME, $locale,
-            IDENTITY_SETTING_FAMILYNAME, $locale,
+            Identity::IDENTITY_SETTING_GIVENNAME, $primaryLocale,
+            Identity::IDENTITY_SETTING_FAMILYNAME, $primaryLocale,
+            Identity::IDENTITY_SETTING_GIVENNAME, $locale,
+            Identity::IDENTITY_SETTING_FAMILYNAME, $locale,
             (int) $userGroupId,
         ];
         if ($name !== null) {

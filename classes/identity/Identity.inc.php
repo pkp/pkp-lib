@@ -18,14 +18,16 @@
  * @brief Basic class providing common functionality for users and authors in the system.
  */
 
+namespace PKP\identity;
 
-define('IDENTITY_SETTING_GIVENNAME', 'givenName');
-define('IDENTITY_SETTING_FAMILYNAME', 'familyName');
-
+use APP\core\Application;
 use APP\i18n\AppLocale;
 
 class Identity extends \PKP\core\DataObject
 {
+    public const IDENTITY_SETTING_GIVENNAME = 'givenName';
+    public const IDENTITY_SETTING_FAMILYNAME = 'familyName';
+
     /**
      * Get a piece of data for this object, localized to the current
      * locale if possible.
@@ -123,7 +125,7 @@ class Identity extends \PKP\core\DataObject
      */
     public function getGivenName($locale)
     {
-        return $this->getData(IDENTITY_SETTING_GIVENNAME, $locale);
+        return $this->getData(self::IDENTITY_SETTING_GIVENNAME, $locale);
     }
 
     /**
@@ -134,7 +136,7 @@ class Identity extends \PKP\core\DataObject
      */
     public function setGivenName($givenName, $locale)
     {
-        $this->setData(IDENTITY_SETTING_GIVENNAME, $givenName, $locale);
+        $this->setData(self::IDENTITY_SETTING_GIVENNAME, $givenName, $locale);
     }
 
     /**
@@ -146,7 +148,7 @@ class Identity extends \PKP\core\DataObject
      */
     public function getLocalizedGivenName($defaultLocale = null)
     {
-        return $this->getLocalizedData(IDENTITY_SETTING_GIVENNAME, $defaultLocale);
+        return $this->getLocalizedData(self::IDENTITY_SETTING_GIVENNAME, $defaultLocale);
     }
 
     /**
@@ -158,7 +160,7 @@ class Identity extends \PKP\core\DataObject
      */
     public function getFamilyName($locale)
     {
-        return $this->getData(IDENTITY_SETTING_FAMILYNAME, $locale);
+        return $this->getData(self::IDENTITY_SETTING_FAMILYNAME, $locale);
     }
 
     /**
@@ -169,7 +171,7 @@ class Identity extends \PKP\core\DataObject
      */
     public function setFamilyName($familyName, $locale)
     {
-        $this->setData(IDENTITY_SETTING_FAMILYNAME, $familyName, $locale);
+        $this->setData(self::IDENTITY_SETTING_FAMILYNAME, $familyName, $locale);
     }
 
     /**
@@ -383,5 +385,12 @@ class Identity extends \PKP\core\DataObject
     public function setBiography($biography, $locale)
     {
         $this->setData('biography', $biography, $locale);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\identity\Identity', '\Identity');
+    foreach (['IDENTITY_SETTING_GIVENNAME', 'IDENTITY_SETTING_FAMILYNAME'] as $constantName) {
+        define($constantName, constant('\Identity::' . $constantName));
     }
 }

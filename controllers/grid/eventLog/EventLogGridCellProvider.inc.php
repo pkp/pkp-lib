@@ -13,6 +13,8 @@
  * @brief Cell provider for event log entries.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class EventLogGridCellProvider extends DataObjectGridCellProvider
@@ -84,7 +86,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                         }
 
                         // Maybe anonymize files submitted by reviewers
-                        if (isset($params['fileStage']) && $params['fileStage'] === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+                        if (isset($params['fileStage']) && $params['fileStage'] === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
                             assert(isset($params['fileId']) && isset($params['submissionId']));
                             $submissionFile = Services::get('submissionFile')->get($params['id']);
                             if ($submissionFile && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {

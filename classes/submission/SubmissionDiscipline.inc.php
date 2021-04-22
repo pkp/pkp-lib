@@ -15,6 +15,8 @@
  * @brief Basic class describing a submission discipline
  */
 
+namespace PKP\submission;
+
 class SubmissionDiscipline extends \PKP\controlledVocab\ControlledVocabEntry
 {
     //
@@ -46,4 +48,8 @@ class SubmissionDiscipline extends \PKP\controlledVocab\ControlledVocabEntry
     {
         return ['submissionDiscipline'];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionDiscipline', '\SubmissionDiscipline');
 }

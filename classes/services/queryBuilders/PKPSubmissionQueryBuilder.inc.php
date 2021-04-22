@@ -16,6 +16,8 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Support\Facades\DB as DB;
+
+use PKP\identity\Identity;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
@@ -415,11 +417,11 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
                             $q->where(DB::raw('lower(ps.setting_value)'), 'LIKE', "%{$word}%");
                         })
                             ->orWhere(function ($q) use ($word) {
-                                $q->where('aus.setting_name', IDENTITY_SETTING_GIVENNAME);
+                                $q->where('aus.setting_name', Identity::IDENTITY_SETTING_GIVENNAME);
                                 $q->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
                             })
                             ->orWhere(function ($q) use ($word, $isAssignedOnly) {
-                                $q->where('aus.setting_name', IDENTITY_SETTING_FAMILYNAME);
+                                $q->where('aus.setting_name', Identity::IDENTITY_SETTING_FAMILYNAME);
                                 $q->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
                             })
                             ->orWhere(function ($q) use ($word, $isAssignedOnly) {

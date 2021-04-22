@@ -15,12 +15,15 @@
  * @brief Operations for retrieving and modifying a submission's assigned agencies
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
+namespace PKP\submission;
 
-define('CONTROLLED_VOCAB_SUBMISSION_AGENCY', 'submissionAgency');
+use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\db\DAORegistry;
 
 class SubmissionAgencyDAO extends ControlledVocabDAO
 {
+    public const CONTROLLED_VOCAB_SUBMISSION_AGENCY = 'submissionAgency';
+
     /**
      * Build/fetch and return a controlled vocabulary for agencies.
      *
@@ -31,7 +34,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
      */
     public function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION)
     {
-        return parent::_build(CONTROLLED_VOCAB_SUBMISSION_AGENCY, $assocType, $publicationId);
+        return parent::_build(self::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $assocType, $publicationId);
     }
 
     /**
@@ -82,7 +85,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
      */
     public function getAllUniqueAgencies()
     {
-        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_AGENCY]);
+        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [self::CONTROLLED_VOCAB_SUBMISSION_AGENCY]);
 
         $agencies = [];
         foreach ($result as $row) {
@@ -108,7 +111,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
         $currentAgencies = $this->build($publicationId, $assocType);
 
         if ($deleteFirst) {
-            $existingEntries = $agencyDao->enumerate($currentAgencies->getId(), CONTROLLED_VOCAB_SUBMISSION_AGENCY);
+            $existingEntries = $agencyDao->enumerate($currentAgencies->getId(), self::CONTROLLED_VOCAB_SUBMISSION_AGENCY);
 
             foreach ($existingEntries as $id => $entry) {
                 $entry = trim($entry);
@@ -133,4 +136,9 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionAgencyDAO', '\SubmissionAgencyDAO');
+    define('CONTROLLED_VOCAB_SUBMISSION_AGENCY', \SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY);
 }

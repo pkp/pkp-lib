@@ -13,6 +13,7 @@
  * @brief Form for adding/editing a submission file
  */
 
+use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.wizard.fileUpload.form.PKPSubmissionFilesUploadBaseForm');
 
@@ -73,7 +74,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         );
 
         // Disable the genre selector for review file attachments
-        if ($fileStage == SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+        if ($fileStage == SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
             $this->setData('isReviewAttachment', true);
         }
     }
@@ -122,7 +123,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         $router = $request->getRouter();
         $context = $router->getContext($request);
         if (
-            $this->getData('fileStage') != SUBMISSION_FILE_REVIEW_ATTACHMENT and
+            $this->getData('fileStage') != SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT and
             !$revisedFileId
         ) {
             // Add an additional check for the genre to the form.

@@ -17,7 +17,7 @@ import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccess
 
 class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
 {
-    /** @var int SUBMISSION_FILE_... */
+    /** @var int SubmissionFile::SUBMISSION_FILE_... */
     public $_fileStage;
 
     /** @var boolean Whether the file has to be viewable */
@@ -29,7 +29,7 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
      * @param $request PKPRequest
      * @param $submissionFileId int This policy will try to
      * get the submission file from this data.
-     * @param $fileStage int SUBMISSION_FILE_...
+     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
      * @param $viewable boolean Whether the file has to be viewable
      */
     public function __construct($request, $submissionFileId, $fileStage, $viewable = false)

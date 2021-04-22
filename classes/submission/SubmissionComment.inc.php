@@ -15,15 +15,18 @@
  * @brief Class for SubmissionComment.
  */
 
-/** Comment associative types. All types must be defined here. */
-define('COMMENT_TYPE_PEER_REVIEW', 0x01);
-define('COMMENT_TYPE_EDITOR_DECISION', 0x02);
-define('COMMENT_TYPE_COPYEDIT', 0x03);
-define('COMMENT_TYPE_LAYOUT', 0x04);
-define('COMMENT_TYPE_PROOFREAD', 0x05);
+namespace PKP\submission;
+
+use PKP\db\DAORegistry;
 
 class SubmissionComment extends \PKP\core\DataObject
 {
+    public const COMMENT_TYPE_PEER_REVIEW = 1;
+    public const COMMENT_TYPE_EDITOR_DECISION = 2;
+    public const COMMENT_TYPE_COPYEDIT = 3;
+    public const COMMENT_TYPE_LAYOUT = 4;
+    public const COMMENT_TYPE_PROOFREAD = 5;
+
     /**
      * get comment type
      *
@@ -258,5 +261,12 @@ class SubmissionComment extends \PKP\core\DataObject
     public function setViewable($viewable)
     {
         $this->setData('viewable', $viewable);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionComment', '\SubmissionComment');
+    foreach (['COMMENT_TYPE_PEER_REVIEW', 'COMMENT_TYPE_EDITOR_DECISION', 'COMMENT_TYPE_COPYEDIT', 'COMMENT_TYPE_LAYOUT', 'COMMENT_TYPE_PROOFREAD'] as $constantName) {
+        define($constantName, constant('\SubmissionComment::' . $constantName));
     }
 }

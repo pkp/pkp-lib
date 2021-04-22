@@ -27,7 +27,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
     /**
      * Constructor
      *
-     * @param $fileStage integer One of the SUBMISSION_FILE_* constants.
+     * @param $fileStage integer One of the SubmissionFile::SUBMISSION_FILE_* constants.
      * @param $viewableOnly boolean True iff only viewable files should be included.
      */
     public function __construct($fileStage, $viewableOnly = false)
@@ -83,7 +83,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
     /**
      * Get the file stage.
      *
-     * @return integer SUBMISSION_FILE_...
+     * @return integer SubmissionFile::SUBMISSION_FILE_...
      */
     public function getFileStage()
     {

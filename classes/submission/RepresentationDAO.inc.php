@@ -14,6 +14,8 @@
  * @brief Abstract DAO for fetching/working with DB storage of Representation objects
  */
 
+namespace PKP\submission;
+
 abstract class RepresentationDAO extends \PKP\db\DAO
 {
     /**
@@ -36,4 +38,8 @@ abstract class RepresentationDAO extends \PKP\db\DAO
     * @return DAOResultFactory
     */
     abstract public function getByPublicationId($publicationId, $contextId = null);
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\RepresentationDAO', '\RepresentationDAO');
 }

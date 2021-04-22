@@ -15,12 +15,15 @@
  * @brief Operations for retrieving and modifying a submission's assigned languages
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
+namespace PKP\submission;
 
-define('CONTROLLED_VOCAB_SUBMISSION_LANGUAGE', 'submissionLanguage');
+use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\db\DAORegistry;
 
 class SubmissionLanguageDAO extends ControlledVocabDAO
 {
+    public const CONTROLLED_VOCAB_SUBMISSION_LANGUAGE = 'submissionLanguage';
+
     /**
      * Build/fetch and return a controlled vocabulary for languages.
      *
@@ -32,7 +35,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
     public function build($publicationId, $assocType = ASSOC_TYPE_PUBLICATION)
     {
         // may return an array of ControlledVocabs
-        return parent::_build(CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $assocType, $publicationId);
+        return parent::_build(self::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $assocType, $publicationId);
     }
 
     /**
@@ -83,7 +86,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
      */
     public function getAllUniqueLanguages()
     {
-        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [CONTROLLED_VOCAB_SUBMISSION_LANGUAGE]);
+        $result = $this->retrieve('SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', [self::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE]);
 
         $languages = [];
         foreach ($result as $row) {
@@ -109,7 +112,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
         $currentLanguages = $this->build($publicationId, $assocType);
 
         if ($deleteFirst) {
-            $existingEntries = $languageDao->enumerate($currentLanguages->getId(), CONTROLLED_VOCAB_SUBMISSION_LANGUAGE);
+            $existingEntries = $languageDao->enumerate($currentLanguages->getId(), self::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE);
 
             foreach ($existingEntries as $id => $entry) {
                 $entry = trim($entry);
@@ -134,4 +137,9 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionLanguageDAO', '\SubmissionLanguageDAO');
+    define('CONTROLLED_VOCAB_SUBMISSION_LANGUAGE', \SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE);
 }

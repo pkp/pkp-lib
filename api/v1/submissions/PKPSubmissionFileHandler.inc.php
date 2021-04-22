@@ -15,9 +15,9 @@
  */
 
 import('lib.pkp.classes.handler.APIHandler');
-import('lib.pkp.classes.submission.SubmissionFile'); // SUBMISSION_FILE_ constants
 
 use PKP\services\PKPSchemaService;
+use PKP\submission\SubmissionFile;
 
 class PKPSubmissionFileHandler extends APIHandler
 {
@@ -140,16 +140,16 @@ class PKPSubmissionFileHandler extends APIHandler
             }
             // @see PKPSubmissionFileService::getAssignedFileStages() for excluded file stages
             $allowedFileStages = [
-                SUBMISSION_FILE_SUBMISSION,
-                SUBMISSION_FILE_REVIEW_FILE,
-                SUBMISSION_FILE_FINAL,
-                SUBMISSION_FILE_COPYEDIT,
-                SUBMISSION_FILE_PROOF,
-                SUBMISSION_FILE_PRODUCTION_READY,
-                SUBMISSION_FILE_ATTACHMENT,
-                SUBMISSION_FILE_REVIEW_REVISION,
-                SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
-                SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+                SubmissionFile::SUBMISSION_FILE_SUBMISSION,
+                SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+                SubmissionFile::SUBMISSION_FILE_FINAL,
+                SubmissionFile::SUBMISSION_FILE_COPYEDIT,
+                SubmissionFile::SUBMISSION_FILE_PROOF,
+                SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
+                SubmissionFile::SUBMISSION_FILE_ATTACHMENT,
+                SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
             ];
 
         // Set the allowed file stages based on stage assignment
@@ -175,13 +175,13 @@ class PKPSubmissionFileHandler extends APIHandler
             $allowedReviewRoundIds = [];
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
             $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-            if (!empty(array_intersect([SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION], $params['fileStages']))) {
+            if (!empty(array_intersect([SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION], $params['fileStages']))) {
                 $result = $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW);
                 while ($reviewRound = $result->next()) {
                     $allowedReviewRoundIds[] = $reviewRound->getId();
                 }
             }
-            if (!empty(array_intersect([SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_REVISION], $params['fileStages']))) {
+            if (!empty(array_intersect([SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION], $params['fileStages']))) {
                 $result = $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW);
                 while ($reviewRound = $result->next()) {
                     $allowedReviewRoundIds[] = $reviewRound->getId();
@@ -302,9 +302,9 @@ class PKPSubmissionFileHandler extends APIHandler
 
         // Review attachments and discussion files can not be uploaded through this API endpoint
         $notAllowedFileStages = [
-            SUBMISSION_FILE_NOTE,
-            SUBMISSION_FILE_REVIEW_ATTACHMENT,
-            SUBMISSION_FILE_QUERY,
+            SubmissionFile::SUBMISSION_FILE_NOTE,
+            SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+            SubmissionFile::SUBMISSION_FILE_QUERY,
         ];
         if (in_array($params['fileStage'], $notAllowedFileStages)) {
             return $response->withStatus(400)->withJsonError('api.submissionFiles.403.unauthorizedFileStageIdWrite');
@@ -312,10 +312,10 @@ class PKPSubmissionFileHandler extends APIHandler
 
         // A valid review round is required when uploading to a review file stage
         $reviewFileStages = [
-            SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
-            SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
-            SUBMISSION_FILE_REVIEW_FILE,
-            SUBMISSION_FILE_REVIEW_REVISION,
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
         ];
         if (in_array($params['fileStage'], $reviewFileStages)) {
             if (empty($params['assocType']) || $params['assocType'] !== ASSOC_TYPE_REVIEW_ROUND || empty($params['assocId'])) {
@@ -323,7 +323,7 @@ class PKPSubmissionFileHandler extends APIHandler
             }
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $reviewRound = $reviewRoundDao->getById($params['assocId']);
-            $stageId = in_array($params['fileStage'], [SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SUBMISSION_FILE_INTERNAL_REVIEW_REVISION])
+            $stageId = in_array($params['fileStage'], [SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION])
                 ? WORKFLOW_STAGE_ID_INTERNAL_REVIEW
                 : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
             if (!$reviewRound

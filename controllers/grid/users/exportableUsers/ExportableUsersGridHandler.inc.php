@@ -13,6 +13,8 @@
  * @brief Handle exportable user grid requests.
  */
 
+use PKP\identity\Identity;
+
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
@@ -217,8 +219,8 @@ class ExportableUsersGridHandler extends GridHandler
         // Import UserDAO to define the USER_FIELD_* constants.
         import('lib.pkp.classes.user.UserDAO');
         $fieldOptions = [
-            IDENTITY_SETTING_GIVENNAME => 'user.givenName',
-            IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
+            Identity::IDENTITY_SETTING_GIVENNAME => 'user.givenName',
+            Identity::IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
             USER_FIELD_USERNAME => 'user.username',
             USER_FIELD_EMAIL => 'user.email'
         ];

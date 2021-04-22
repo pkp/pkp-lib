@@ -13,6 +13,8 @@
  * @brief An action to upload a revision of file currently under review.
  */
 
+use PKP\submission\SubmissionFile;
+
 import('lib.pkp.controllers.api.file.linkAction.BaseAddFileLinkAction');
 
 class AddRevisionLinkAction extends BaseAddFileLinkAction
@@ -32,7 +34,7 @@ class AddRevisionLinkAction extends BaseAddFileLinkAction
 
         // Create the action arguments array.
         $actionArgs = [
-            'fileStage' => SUBMISSION_FILE_REVIEW_REVISION,
+            'fileStage' => SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
             'stageId' => $reviewRound->getStageId(),
             'reviewRoundId' => $reviewRound->getId(),
             'revisionOnly' => '1'

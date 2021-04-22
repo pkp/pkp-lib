@@ -14,6 +14,8 @@
  */
 
 use PKP\db\DAO;
+use PKP\db\DAORegistry;
+use PKP\identity\Identity;
 
 import('lib.pkp.classes.security.Role');
 import('lib.pkp.classes.security.UserGroupAssignment');
@@ -56,7 +58,7 @@ class RoleDAO extends DAO
      */
     public function getUsersByRoleId($roleId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null)
     {
-        $paramArray = [ASSOC_TYPE_USER, 'interest', IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME];
+        $paramArray = [ASSOC_TYPE_USER, 'interest', Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME];
         $paramArray = array_merge($paramArray, $this->userDao->getFetchParameters());
         if (isset($roleId)) {
             $paramArray[] = (int) $roleId;
@@ -73,8 +75,8 @@ class RoleDAO extends DAO
         $searchSql = '';
 
         $searchTypeMap = [
-            IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
-            IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
+            Identity::IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
+            Identity::IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
             USER_FIELD_USERNAME => 'u.username',
             USER_FIELD_EMAIL => 'u.email',
             USER_FIELD_INTERESTS => 'cves.setting_value'

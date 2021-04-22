@@ -15,8 +15,10 @@
  * @brief Operations for retrieving and modifying a submission's languages
  */
 
-import('lib.pkp.classes.submission.SubmissionLanguage');
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
+namespace PKP\submission;
+
+use PKP\controlledVocab\ControlledVocabEntryDAO;
+use PKP\db\DAOResultFactory;
 
 class SubmissionLanguageEntryDAO extends ControlledVocabEntryDAO
 {
@@ -49,7 +51,10 @@ class SubmissionLanguageEntryDAO extends ControlledVocabEntryDAO
             $rangeInfo
         );
 
-        $returner = new DAOResultFactory($result, $this, '_fromRow');
-        return $returner;
+        return new DAOResultFactory($result, $this, '_fromRow');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionLanguageEntryDAO', '\SubmissionLanguageEntryDAO');
 }

@@ -76,7 +76,7 @@ class ManageSubmissionFilesForm extends Form
      *
      * @param $stageSubmissionFiles array The files that belongs to a file stage
      * that is currently being used by a grid inside this form.
-     * @param $fileStage int SUBMISSION_FILE_...
+     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
      */
     public function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs)
     {
@@ -136,7 +136,7 @@ class ManageSubmissionFilesForm extends Form
      * Make a copy of the file to the specified file stage.
      *
      * @param $submissionFile SubmissionFile
-     * @param $fileStage int SUBMISSION_FILE_...
+     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
      *
      * @return SubmissionFile Resultant new submission file
      */

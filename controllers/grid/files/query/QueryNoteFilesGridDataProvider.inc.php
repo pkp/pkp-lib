@@ -13,6 +13,7 @@
  * @brief Provide access to query files management.
  */
 
+use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
@@ -28,7 +29,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
      */
     public function __construct($noteId)
     {
-        parent::__construct(SUBMISSION_FILE_QUERY);
+        parent::__construct(SubmissionFile::SUBMISSION_FILE_QUERY);
         $this->_noteId = $noteId;
     }
 

@@ -14,6 +14,18 @@
  * implement submission metadata data and form operations.
  */
 
+namespace PKP\submission;
+
+use APP\core\Application;
+
+use APP\core\Services;
+use FormValidatorCustom;
+
+// FIXME: Namespacing needed for the classes below
+use FormValidatorLocale;
+use PKP\db\DAORegistry;
+use SubmissionLog;
+
 class PKPSubmissionMetadataFormImplementation
 {
     /** @var Form Form that uses this implementation */
@@ -255,4 +267,8 @@ class PKPSubmissionMetadataFormImplementation
             SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\PKPSubmissionMetadataFormImplementation', '\PKPSubmissionMetadataFormImplementation');
 }

@@ -13,6 +13,8 @@
  * @brief EventLog grid row definition
  */
 
+use PKP\submission\SubmissionFile;
+
 // Parent class
 import('lib.pkp.classes.controllers.grid.GridRow');
 
@@ -73,7 +75,7 @@ class EventLogGridRow extends GridRow
                     $filename = $params['originalFileName'] ?? $submissionFile->getLocalizedData('name');
                     if ($submissionFile) {
                         $anonymousAuthor = false;
-                        $maybeAnonymousAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getData('fileStage') === SUBMISSION_FILE_REVIEW_ATTACHMENT;
+                        $maybeAnonymousAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT;
                         if ($maybeAnonymousAuthor && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                             $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                             $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
@@ -85,7 +87,7 @@ class EventLogGridRow extends GridRow
                             $workflowStageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
                             // If a submission file is attached to a query that has been deleted, we cannot
                             // determine its stage. Don't present a download link in this case.
-                            if ($workflowStageId || $submissionFile->getData('fileStage') != SUBMISSION_FILE_QUERY) {
+                            if ($workflowStageId || $submissionFile->getData('fileStage') != SubmissionFile::SUBMISSION_FILE_QUERY) {
                                 $this->addAction(new DownloadFileLinkAction($request, $submissionFile, $workflowStageId, __('common.download'), $fileId, $filename));
                             }
                         }

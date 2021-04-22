@@ -13,6 +13,7 @@
  *  review round) for grids.
  */
 
+use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 
@@ -24,7 +25,7 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider
     public function __construct()
     {
         $stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
-        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SUBMISSION_FILE_INTERNAL_REVIEW_REVISION : SUBMISSION_FILE_REVIEW_REVISION;
+        $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION : SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION;
         parent::__construct($fileStage);
     }
 

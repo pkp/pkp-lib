@@ -15,19 +15,21 @@
  * @brief Operations for retrieving and modifying Submission objects.
  */
 
+namespace PKP\submission;
+
+use APP\core\Services;
+
 use Illuminate\Support\Facades\DB;
-
-import('lib.pkp.classes.submission.PKPSubmission');
-import('lib.pkp.classes.db.SchemaDAO');
-
-define('ORDERBY_DATE_PUBLISHED', 'datePublished');
-define('ORDERBY_TITLE', 'title');
-
 use PKP\db\DAORegistry;
+use PKP\db\SchemaDAO;
+
 use PKP\services\PKPSchemaService;
 
 abstract class PKPSubmissionDAO extends SchemaDAO
 {
+    public const ORDERBY_DATE_PUBLISHED = 'datePublished';
+    public const ORDERBY_TITLE = 'title';
+
     public $cache;
     public $authorDao;
 
@@ -299,7 +301,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO
      */
     public function getDefaultSortOption()
     {
-        return $this->getSortOption(ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_DESC);
+        return $this->getSortOption(self::ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_DESC);
     }
 
     /**
@@ -310,10 +312,10 @@ abstract class PKPSubmissionDAO extends SchemaDAO
     public function getSortSelectOptions()
     {
         return [
-            $this->getSortOption(ORDERBY_TITLE, SORT_DIRECTION_ASC) => __('catalog.sortBy.titleAsc'),
-            $this->getSortOption(ORDERBY_TITLE, SORT_DIRECTION_DESC) => __('catalog.sortBy.titleDesc'),
-            $this->getSortOption(ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_ASC) => __('catalog.sortBy.datePublishedAsc'),
-            $this->getSortOption(ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_DESC) => __('catalog.sortBy.datePublishedDesc'),
+            $this->getSortOption(self::ORDERBY_TITLE, SORT_DIRECTION_ASC) => __('catalog.sortBy.titleAsc'),
+            $this->getSortOption(self::ORDERBY_TITLE, SORT_DIRECTION_DESC) => __('catalog.sortBy.titleDesc'),
+            $this->getSortOption(self::ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_ASC) => __('catalog.sortBy.datePublishedAsc'),
+            $this->getSortOption(self::ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_DESC) => __('catalog.sortBy.datePublishedDesc'),
         ];
     }
 
@@ -394,5 +396,12 @@ abstract class PKPSubmissionDAO extends SchemaDAO
             $q->where('context_id', '=', $contextId);
         }
         return $q->exists();
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\PKPSubmissionDAO', '\PKPSubmissionDAO');
+    foreach (['ORDERBY_DATE_PUBLISHED', 'ORDERBY_TITLE'] as $constantName) {
+        define($constantName, constant('\PKPSubmissionDAO::' . $constantName));
     }
 }

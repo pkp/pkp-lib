@@ -18,6 +18,7 @@ namespace APP\Services;
 use \PKP\db\DAORegistry;
 use \PKP\plugins\HookRegistry;
 use \PKP\submission\SubmissionFile;
+use \PKP\search\SubmissionSearch;
 
 use \APP\core\Application;
 
@@ -54,7 +55,7 @@ class SubmissionFileService extends \PKP\Services\PKPSubmissionFileService
             }
             import('lib.pkp.classes.search.SubmissionSearch');
             $preprintSearchIndex = Application::getSubmissionSearchIndex();
-            $preprintSearchIndex->deleteTextIndex($submissionFile->getData('submissionId'), SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile->getId());
+            $preprintSearchIndex->deleteTextIndex($submissionFile->getData('submissionId'), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile->getId());
         }
     }
 

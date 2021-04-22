@@ -15,8 +15,7 @@
  * @brief Extension to EmailLogDAO for submission-specific log entries.
  */
 
-import('lib.pkp.classes.log.EmailLogDAO');
-import('lib.pkp.classes.log.SubmissionEmailLogEntry');
+namespace PKP\log;
 
 class SubmissionEmailLogDAO extends EmailLogDAO
 {
@@ -36,7 +35,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO
      * Get submission email log entries by submission ID and event type
      *
      * @param $submissionId int
-     * @param $eventType SUBMISSION_EMAIL_...
+     * @param $eventType SubmissionEmailLogEntry::SUBMISSION_EMAIL_...
      * @param $userId int optional Return only emails sent to this user.
      *
      * @return DAOResultFactory
@@ -57,4 +56,8 @@ class SubmissionEmailLogDAO extends EmailLogDAO
     {
         return $this->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\SubmissionEmailLogDAO', '\SubmissionEmailLogDAO');
 }

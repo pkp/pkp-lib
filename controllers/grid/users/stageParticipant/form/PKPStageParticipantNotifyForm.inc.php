@@ -17,6 +17,8 @@ import('lib.pkp.classes.form.Form');
 
 use APP\core\Services;
 
+use PKP\log\EventLogEntry;
+
 abstract class PKPStageParticipantNotifyForm extends Form
 {
     /** @var int The file/submission ID this form is for */
@@ -340,7 +342,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
     public function _logEventAndCreateNotification($request, $submission)
     {
         import('lib.pkp.classes.log.SubmissionLog');
-        SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_MESSAGE_SENT, 'informationCenter.history.messageSent');
+        SubmissionLog::logEvent($request, $submission, EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT, 'informationCenter.history.messageSent');
 
         // Create trivial notification.
         $currentUser = $request->getUser();

@@ -13,6 +13,8 @@
  * @brief Editor recommendation form.
  */
 
+use PKP\log\SubmissionEmailLogEntry;
+
 import('lib.pkp.classes.form.Form');
 
 // Define review round and review stage id constants.
@@ -207,7 +209,7 @@ class RecommendationForm extends Form
             }
 
             DAORegistry::getDAO('SubmissionEmailLogDAO'); // Load constants
-            $email->setEventType(SUBMISSION_EMAIL_EDITOR_RECOMMEND_NOTIFY);
+            $email->setEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_RECOMMEND_NOTIFY);
 
             $dispatcher = $router->getDispatcher();
             $submissionUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'workflow', 'index', [$submission->getId(), $this->getStageId()]);

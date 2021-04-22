@@ -15,14 +15,20 @@
  * @brief Describes an entry in the event log.
  */
 
-use PKP\submission\SubmissionFile;
+namespace PKP\log;
 
-// Information Center events
-define('SUBMISSION_LOG_NOTE_POSTED', 0x01000000);
-define('SUBMISSION_LOG_MESSAGE_SENT', 0x01000001);
+use APP\core\Services;
+use APP\i18n\AppLocale;
+
+use PKP\db\DAORegistry;
+use PKP\submission\SubmissionFile;
 
 class EventLogEntry extends \PKP\core\DataObject
 {
+    // Information Center events
+    public const SUBMISSION_LOG_NOTE_POSTED = 0x01000000;
+    public const SUBMISSION_LOG_MESSAGE_SENT = 0x01000001;
+
     //
     // Get/set methods
     //
@@ -283,4 +289,10 @@ class EventLogEntry extends \PKP\core\DataObject
 
         return ($userEmail ? $userEmail : '');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\EventLogEntry', '\EventLogEntry');
+    define('SUBMISSION_LOG_NOTE_POSTED', \EventLogEntry::SUBMISSION_LOG_NOTE_POSTED);
+    define('SUBMISSION_LOG_MESSAGE_SENT', \EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT);
 }

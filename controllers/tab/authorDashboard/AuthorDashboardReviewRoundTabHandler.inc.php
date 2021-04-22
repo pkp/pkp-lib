@@ -17,6 +17,7 @@
 import('pages.authorDashboard.AuthorDashboardHandler');
 
 use PKP\core\JSONMessage;
+use PKP\log\SubmissionEmailLogEntry;
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
 {
@@ -101,7 +102,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
             $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
             $user = $request->getUser();
             $templateMgr->assign([
-                'submissionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId()),
+                'submissionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId()),
                 'showReviewAttachments' => true,
             ]);
         }

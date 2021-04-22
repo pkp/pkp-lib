@@ -15,8 +15,7 @@
  * @brief Describes an entry in the submission file history log.
  */
 
-import('lib.pkp.classes.log.EventLogEntry');
-
+namespace PKP\log;
 
 // File upload/delete event types.
 define('SUBMISSION_LOG_FILE_UPLOAD', 0x50000001);
@@ -35,4 +34,8 @@ define('SUBMISSION_LOG_FILE_REVISION_DELETE', 0x50000009); // uses submission.ev
 
 class SubmissionFileEventLogEntry extends EventLogEntry
 {
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\SubmissionFileEventLogEntry', '\SubmissionFileEventLogEntry');
 }

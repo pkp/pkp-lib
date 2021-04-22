@@ -15,6 +15,9 @@
  * @brief Describes an entry in the email log.
  */
 
+namespace PKP\log;
+
+use PKP\db\DAORegistry;
 
 class EmailLogEntry extends \PKP\core\DataObject
 {
@@ -230,4 +233,8 @@ class EmailLogEntry extends \PKP\core\DataObject
     {
         return __('submission.event.subjectPrefix') . ' ' . $this->getSubject();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\EmailLogEntry', '\EmailLogEntry');
 }

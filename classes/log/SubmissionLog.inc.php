@@ -18,7 +18,14 @@
  * @brief Static class for adding / accessing PKP log entries.
  */
 
-import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
+namespace PKP\log;
+
+use PKP\core\Core;
+use PKP\db\DAORegistry;
+use PKP\session\SessionManager;
+
+// FIXME: Add namespacing
+use Validation;
 
 class SubmissionLog
 {
@@ -75,4 +82,8 @@ class SubmissionLog
 
         return $entry;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\SubmissionLog', '\SubmissionLog');
 }

@@ -16,6 +16,7 @@
 // Import base class
 import('classes.handler.Handler');
 
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionFile;
 
@@ -89,7 +90,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         $submissionEmailId = $request->getUserVar('submissionEmailId');
 
-        $submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId());
+        $submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId());
         while ($email = $submissionEmailFactory->next()) { // validate the email id for this user.
             if ($email->getId() == $submissionEmailId) {
                 $templateMgr = TemplateManager::getManager($request);

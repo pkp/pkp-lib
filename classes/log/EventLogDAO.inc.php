@@ -15,8 +15,10 @@
  * @brief Class for inserting/accessing event log entries.
  */
 
+namespace PKP\log;
 
-import('lib.pkp.classes.log.EventLogEntry');
+use PKP\db\DAOResultFactory;
+use PKP\plugins\HookRegistry;
 
 class EventLogDAO extends \PKP\db\DAO
 {
@@ -212,4 +214,8 @@ class EventLogDAO extends \PKP\db\DAO
     {
         return $this->_getInsertId('event_log', 'log_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\EventLogDAO', '\EventLogDAO');
 }

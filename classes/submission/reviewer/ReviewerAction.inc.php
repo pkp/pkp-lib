@@ -13,6 +13,7 @@
  * @brief ReviewerAction class.
  */
 
+use PKP\log\SubmissionEmailLogEntry;
 
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
@@ -57,7 +58,7 @@ class ReviewerAction
             $email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
             HookRegistry::call('ReviewerAction::confirmReview', [$request, &$submission, &$email, $decline]);
             import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
-            $email->setEventType($decline ? SUBMISSION_EMAIL_REVIEW_DECLINE : SUBMISSION_EMAIL_REVIEW_CONFIRM);
+            $email->setEventType($decline ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_CONFIRM);
             if ($emailText) {
                 $email->setBody($emailText);
             }

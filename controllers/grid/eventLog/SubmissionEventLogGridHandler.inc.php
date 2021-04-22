@@ -121,7 +121,7 @@ class SubmissionEventLogGridHandler extends GridHandler
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         $this->setSubmission($submission);
 
-        $this->_stageId = (int) $args['stageId'] ?? null;
+        $this->_stageId = (int) ($args['stageId'] ?? null);
 
         // Load submission-specific translations
         AppLocale::requireComponents(

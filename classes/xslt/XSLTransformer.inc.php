@@ -19,7 +19,6 @@ use DOMDocument;
 use FileManager;
 
 use PKP\config\Config;
-use PKP\xsl\XSLTProcessor;
 
 // The default character encoding
 define('XSLT_PROCESSOR_ENCODING', Config::getVar('i18n', 'client_charset'));

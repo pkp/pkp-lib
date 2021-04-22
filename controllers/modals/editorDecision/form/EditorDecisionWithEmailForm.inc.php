@@ -13,6 +13,8 @@
  * @brief Base class for the editor decision forms.
  */
 
+use PKP\log\SubmissionEmailLogEntry;
+
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 
 class EditorDecisionWithEmailForm extends EditorDecisionForm
@@ -235,7 +237,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
         }
 
         DAORegistry::getDAO('SubmissionEmailLogDAO'); // Load constants
-        $email->setEventType(SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR);
+        $email->setEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR);
 
         // Get review round.
         $reviewRound = $this->getReviewRound();

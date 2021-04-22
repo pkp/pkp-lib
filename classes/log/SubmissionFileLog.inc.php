@@ -13,7 +13,10 @@
  * @brief Static class for adding / accessing submission file log entries.
  */
 
-import('lib.pkp.classes.log.SubmissionLog');
+namespace PKP\log;
+
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 
 class SubmissionFileLog extends SubmissionLog
 {
@@ -55,4 +58,8 @@ class SubmissionFileLog extends SubmissionLog
         $submissionFileEventLogDao->insertObject($entry);
         return $entry;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\SubmissionFileLog', '\SubmissionFileLog');
 }

@@ -15,8 +15,11 @@
  * @brief Class for inserting/accessing email log entries.
  */
 
+namespace PKP\log;
 
-import('lib.pkp.classes.log.EmailLogEntry');
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
+use PKP\plugins\HookRegistry;
 
 class EmailLogDAO extends \PKP\db\DAO
 {
@@ -263,4 +266,8 @@ class EmailLogDAO extends \PKP\db\DAO
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\EmailLogDAO', '\EmailLogDAO');
 }

@@ -17,6 +17,7 @@
 import('classes.handler.Handler');
 
 use PKP\core\JSONMessage;
+use PKP\log\SubmissionEmailLogEntry;
 
 class AuthorDashboardTabHandler extends Handler
 {
@@ -109,11 +110,11 @@ class AuthorDashboardTabHandler extends Handler
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/externalReview.tpl');
             case WORKFLOW_STAGE_ID_EDITING:
-                $templateMgr->assign('copyeditingEmails', $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR, $user->getId()));
+                $templateMgr->assign('copyeditingEmails', $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR, $user->getId()));
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/editorial.tpl');
             case WORKFLOW_STAGE_ID_PRODUCTION:
                 $templateMgr->assign([
-                    'productionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR, $user->getId()),
+                    'productionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR, $user->getId()),
                 ]);
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/production.tpl');
         }

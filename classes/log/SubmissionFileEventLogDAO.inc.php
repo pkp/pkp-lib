@@ -15,8 +15,7 @@
  * @brief Extension to EventLogDAO for submission file specific log entries.
  */
 
-import('lib.pkp.classes.log.EventLogDAO');
-import('lib.pkp.classes.log.SubmissionFileEventLogEntry');
+namespace PKP\log;
 
 class SubmissionFileEventLogDAO extends EventLogDAO
 {
@@ -43,4 +42,8 @@ class SubmissionFileEventLogDAO extends EventLogDAO
     {
         return $this->getByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFileId);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\SubmissionFileEventLogDAO', '\SubmissionFileEventLogDAO');
 }

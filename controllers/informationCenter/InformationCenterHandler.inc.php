@@ -14,9 +14,9 @@
  */
 
 import('classes.handler.Handler');
-import('classes.log.SubmissionEventLogEntry');
 
 use PKP\core\JSONMessage;
+use PKP\log\EventLogEntry;
 
 abstract class InformationCenterHandler extends Handler
 {
@@ -184,10 +184,10 @@ abstract class InformationCenterHandler extends Handler
     {
         // Get the log event message
         switch ($eventType) {
-            case SUBMISSION_LOG_NOTE_POSTED:
+            case EventLogEntry::SUBMISSION_LOG_NOTE_POSTED:
                 $logMessage = 'informationCenter.history.notePosted';
                 break;
-            case SUBMISSION_LOG_MESSAGE_SENT:
+            case EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT:
                 $logMessage = 'informationCenter.history.messageSent';
                 break;
             default:

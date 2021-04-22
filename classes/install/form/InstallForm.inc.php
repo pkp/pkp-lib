@@ -20,7 +20,7 @@ import('lib.pkp.classes.install.form.MaintenanceForm');
 
 use APP\i18n\AppLocale;
 
-use PKP\xsl\XSLTransformer;
+use PKP\xslt\XSLTransformer;
 
 class InstallForm extends MaintenanceForm
 {

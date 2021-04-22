@@ -14,9 +14,9 @@
  */
 
 import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
-import('classes.log.SubmissionEventLogEntry');
 
 use PKP\core\JSONMessage;
+use PKP\log\EventLogEntry;
 
 class SubmissionInformationCenterHandler extends InformationCenterHandler
 {
@@ -108,7 +108,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
             $notesForm->execute();
 
             // Save to event log
-            $this->_logEvent($request, $this->_submission, SUBMISSION_LOG_NOTE_POSTED, 'SubmissionLog');
+            $this->_logEvent($request, $this->_submission, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, 'SubmissionLog');
 
             $user = $request->getUser();
             NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);

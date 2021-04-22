@@ -20,6 +20,7 @@ use APP\core\Services;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\plugins\HookRegistry;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
@@ -410,7 +411,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 // Fetch the latest notification email timestamp
                 import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
                 $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-                $submissionEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
+                $submissionEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
                 $lastNotification = null;
                 $sentDates = [];
                 if ($submissionEmails) {
@@ -426,7 +427,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 
                 import('lib.pkp.classes.mail.SubmissionMailTemplate');
                 $mail = new \SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
-                $mail->setEventType(SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
+                $mail->setEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
                 $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
                 // Get editors assigned to the submission, consider also the recommendOnly editors
                 $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */

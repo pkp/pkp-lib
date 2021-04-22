@@ -15,6 +15,8 @@
  * @brief DAO class for submission search index.
  */
 
+namespace PKP\search;
+
 class SubmissionSearchDAO extends \PKP\db\DAO
 {
     /**
@@ -144,4 +146,8 @@ class SubmissionSearchDAO extends \PKP\db\DAO
         $this->update('DELETE FROM submission_search_objects');
         $this->update('DELETE FROM submission_search_keyword_list');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\search\SubmissionSearchDAO', '\SubmissionSearchDAO');
 }

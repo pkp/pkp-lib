@@ -17,25 +17,32 @@
  * FIXME: NEAR; precedence w/o parens?; stemming; weighted counting
  */
 
-// Search types
-define('SUBMISSION_SEARCH_AUTHOR', 0x00000001);
-define('SUBMISSION_SEARCH_TITLE', 0x00000002);
-define('SUBMISSION_SEARCH_ABSTRACT', 0x00000004);
-define('SUBMISSION_SEARCH_DISCIPLINE', 0x00000008);
-define('SUBMISSION_SEARCH_SUBJECT', 0x00000010);
-define('SUBMISSION_SEARCH_KEYWORD', 0x00000011);
-define('SUBMISSION_SEARCH_TYPE', 0x00000020);
-define('SUBMISSION_SEARCH_COVERAGE', 0x00000040);
-define('SUBMISSION_SEARCH_GALLEY_FILE', 0x00000080);
-define('SUBMISSION_SEARCH_SUPPLEMENTARY_FILE', 0x00000100);
-define('SUBMISSION_SEARCH_INDEX_TERMS', 0x00000078);
+namespace PKP\search;
 
-define('SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT', 20);
+use APP\core\Application;
+use PKP\config\Config;
+use PKP\core\PKPString;
+use PKP\core\VirtualArrayIterator;
 
-import('lib.pkp.classes.search.SubmissionSearchIndex');
+use PKP\plugins\HookRegistry;
 
 abstract class SubmissionSearch
 {
+    // Search types
+    public const SUBMISSION_SEARCH_AUTHOR = 1;
+    public const SUBMISSION_SEARCH_TITLE = 2;
+    public const SUBMISSION_SEARCH_ABSTRACT = 4;
+    public const SUBMISSION_SEARCH_DISCIPLINE = 8;
+    public const SUBMISSION_SEARCH_SUBJECT = 16;
+    public const SUBMISSION_SEARCH_KEYWORD = 17;
+    public const SUBMISSION_SEARCH_TYPE = 32;
+    public const SUBMISSION_SEARCH_COVERAGE = 64;
+    public const SUBMISSION_SEARCH_GALLEY_FILE = 128;
+    public const SUBMISSION_SEARCH_SUPPLEMENTARY_FILE = 256;
+    public const SUBMISSION_SEARCH_INDEX_TERMS = 120;
+
+    public const SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT = 20;
+
     /**
      * Constructor
      */
@@ -249,7 +256,7 @@ abstract class SubmissionSearch
             $itemsPerPage = $rangeInfo->getCount();
         } else {
             $page = 1;
-            $itemsPerPage = SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT;
+            $itemsPerPage = self::SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT;
         }
 
         // Result set ordering.
@@ -305,7 +312,6 @@ abstract class SubmissionSearch
         $results = $this->formatResults($results, $request->getUser());
 
         // Return the appropriate iterator.
-        import('lib.pkp.classes.core.VirtualArrayIterator');
         return new VirtualArrayIterator($results, $totalResults, $page, $itemsPerPage);
     }
 
@@ -399,4 +405,24 @@ abstract class SubmissionSearch
      * @return DAO
      */
     abstract protected function getSearchDao();
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\search\SubmissionSearch', '\SubmissionSearch');
+    foreach ([
+        'SUBMISSION_SEARCH_AUTHOR',
+        'SUBMISSION_SEARCH_TITLE',
+        'SUBMISSION_SEARCH_ABSTRACT',
+        'SUBMISSION_SEARCH_DISCIPLINE',
+        'SUBMISSION_SEARCH_SUBJECT',
+        'SUBMISSION_SEARCH_KEYWORD',
+        'SUBMISSION_SEARCH_TYPE',
+        'SUBMISSION_SEARCH_COVERAGE',
+        'SUBMISSION_SEARCH_GALLEY_FILE',
+        'SUBMISSION_SEARCH_SUPPLEMENTARY_FILE',
+        'SUBMISSION_SEARCH_INDEX_TERMS',
+        'SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT',
+    ] as $constantName) {
+        define($constantName, constant('\SubmissionSearch::' . $constantName));
+    }
 }

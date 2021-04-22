@@ -13,8 +13,9 @@
  * @brief Class to extract text from a file using an external helper program.
  */
 
+namespace PKP\search;
 
-import('lib.pkp.classes.search.SearchFileParser');
+use PKP\config\Config;
 
 class SearchHelperParser extends SearchFileParser
 {
@@ -44,4 +45,8 @@ class SearchHelperParser extends SearchFileParser
     {
         pclose($this->fp);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\search\SearchHelperParser', '\SearchHelperParser');
 }

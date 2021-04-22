@@ -13,17 +13,18 @@
  * @brief Class to maintain a submission search index.
  */
 
-import('lib.pkp.classes.search.SearchFileParser');
-import('lib.pkp.classes.search.SearchHTMLParser');
-import('lib.pkp.classes.search.SearchHelperParser');
+namespace PKP\search;
 
-define('SEARCH_STOPWORDS_FILE', 'lib/pkp/registry/stopwords.txt');
-
-// Words are truncated to at most this length
-define('SEARCH_KEYWORD_MAX_LENGTH', 40);
+use PKP\config\Config;
+use PKP\core\PKPString;
 
 abstract class SubmissionSearchIndex
 {
+    public const SEARCH_STOPWORDS_FILE = 'lib/pkp/registry/stopwords.txt';
+
+    // Words are truncated to at most this length
+    public const SEARCH_KEYWORD_MAX_LENGTH = 40;
+
     /**
      * Split a string into a clean array of keywords
      *
@@ -57,7 +58,7 @@ abstract class SubmissionSearchIndex
         $keywords = [];
         foreach ($words as $k) {
             if (!isset($stopwords[$k]) && PKPString::strlen($k) >= $minLength && !is_numeric($k)) {
-                $keywords[] = PKPString::substr($k, 0, SEARCH_KEYWORD_MAX_LENGTH);
+                $keywords[] = PKPString::substr($k, 0, self::SEARCH_KEYWORD_MAX_LENGTH);
             }
         }
         return $keywords;
@@ -77,7 +78,7 @@ abstract class SubmissionSearchIndex
             // Load stopwords only once per request
             $searchStopwords = array_count_values(
                 array_filter(
-                    array_map('trim', file(SEARCH_STOPWORDS_FILE)),
+                    array_map('trim', file(self::SEARCH_STOPWORDS_FILE)),
                     function ($a) {
                         return !empty($a) && $a[0] != '#';
                     }
@@ -114,4 +115,11 @@ abstract class SubmissionSearchIndex
      * @param $submission Submission
      */
     abstract public function clearSubmissionFiles($submission);
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\search\SubmissionSearchIndex', '\SubmissionSearchIndex');
+    foreach (['SEARCH_STOPWORDS_FILE', 'SEARCH_KEYWORD_MAX_LENGTH'] as $constantName) {
+        define($constantName, constant('\SubmissionSearchIndex::' . $constantName));
+    }
 }

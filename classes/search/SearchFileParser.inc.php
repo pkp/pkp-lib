@@ -19,6 +19,9 @@
  * @brief Abstract class to extract search text from a given file.
  */
 
+namespace PKP\search;
+
+use PKP\config\Config;
 
 class SearchFileParser
 {
@@ -115,7 +118,7 @@ class SearchFileParser
     public static function fromFile($submissionFile)
     {
         $fullPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
-        return SearchFileParser::fromFileType($submissionFile->getData('mimetype'), $fullPath);
+        return self::fromFileType($submissionFile->getData('mimetype'), $fullPath);
     }
 
     /**
@@ -123,22 +126,26 @@ class SearchFileParser
      *
      * @param $type string
      * @param $path string
+     *
+     * @return SearchFileParser
      */
     public static function fromFileType($type, $path)
     {
         switch ($type) {
             case 'text/plain':
-                $returner = new SearchFileParser($path);
+                return new self($path);
                 break;
             case 'text/html':
             case 'text/xml':
             case 'application/xhtml':
             case 'application/xml':
-                $returner = new SearchHTMLParser($path);
+                return new \PKP\search\SearchHTMLParser($path);
                 break;
-            default:
-                $returner = new SearchHelperParser($type, $path);
         }
-        return $returner;
+        return new \PKP\search\SearchHelperParser($type, $path);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\search\SearchFileParser', '\SearchFileParser');
 }

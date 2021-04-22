@@ -13,9 +13,7 @@
  * @brief Class to extract text from an HTML file.
  */
 
-
-import('lib.pkp.classes.search.SearchFileParser');
-import('lib.pkp.classes.core.PKPString');
+namespace PKP\search;
 
 class SearchHTMLParser extends SearchFileParser
 {
@@ -28,8 +26,12 @@ class SearchHTMLParser extends SearchFileParser
         $line = html_entity_decode($line, ENT_COMPAT, 'UTF-8');
 
         // slightly (~10%) faster than above, but not quite as accurate, and requires html_entity_decode()
-        //		$line = html_entity_decode($line, ENT_COMPAT, strtoupper(Config::getVar('i18n', 'client_charset')));
+        // $line = html_entity_decode($line, ENT_COMPAT, strtoupper(Config::getVar('i18n', 'client_charset')));
 
         return $line;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\search\SearchHTMLParser', '\SearchHTMLParser');
 }

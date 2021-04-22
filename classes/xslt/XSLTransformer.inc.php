@@ -18,7 +18,10 @@ namespace PKP\xslt;
 use DOMDocument;
 use FileManager;
 
+// FIXME: Add namespacing
 use PKP\config\Config;
+
+use XSLTProcessor;
 
 // The default character encoding
 define('XSLT_PROCESSOR_ENCODING', Config::getVar('i18n', 'client_charset'));

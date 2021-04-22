@@ -13,8 +13,9 @@
  * @brief Class that transforms XML via XSL.
  */
 
+namespace PKP\xslt;
+
 import('lib.pkp.classes.filter.PersistableFilter');
-import('lib.pkp.classes.xslt.XSLTransformer');
 
 class XSLTransformationFilter extends PersistableFilter
 {
@@ -79,9 +80,9 @@ class XSLTransformationFilter extends PersistableFilter
     {
         // Determine the xsl type
         if (is_string($xsl)) {
-            $this->setData('xslType', XSL_TRANSFORMER_DOCTYPE_STRING);
+            $this->setData('xslType', XSLTransformer::XSL_TRANSFORMER_DOCTYPE_STRING);
         } elseif (is_a($xsl, 'DOMDocument')) {
-            $this->setData('xslType', XSL_TRANSFORMER_DOCTYPE_DOM);
+            $this->setData('xslType', XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM);
         } else {
             assert(false);
         }
@@ -96,7 +97,7 @@ class XSLTransformationFilter extends PersistableFilter
      */
     public function setXSLFilename($xslFile)
     {
-        $this->setData('xslType', XSL_TRANSFORMER_DOCTYPE_FILE);
+        $this->setData('xslType', XSLTransformer::XSL_TRANSFORMER_DOCTYPE_FILE);
         $this->setData('xsl', $xslFile);
     }
 
@@ -149,9 +150,9 @@ class XSLTransformationFilter extends PersistableFilter
     {
         // Determine the input type
         if (is_string($xml)) {
-            $xmlType = XSL_TRANSFORMER_DOCTYPE_STRING;
+            $xmlType = XSLTransformer::XSL_TRANSFORMER_DOCTYPE_STRING;
         } elseif (is_a($xml, 'DOMDocument')) {
-            $xmlType = XSL_TRANSFORMER_DOCTYPE_DOM;
+            $xmlType = XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM;
         } else {
             assert(false);
         }
@@ -168,4 +169,8 @@ class XSLTransformationFilter extends PersistableFilter
         $result = $xslTransformer->transform($xml, $xmlType, $this->getXsl(), $this->getXslType(), $this->getResultType());
         return $result;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\xslt\XSLTransformationFilter', '\XSLTransformationFilter');
 }

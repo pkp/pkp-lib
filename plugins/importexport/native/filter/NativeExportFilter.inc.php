@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.plugins.importexport.PKPImportExportFilter');
 
+use PKP\xslt\XMLTypeDescription;
+
 class NativeExportFilter extends PKPImportExportFilter
 {
     /** @var boolean If set to true no validation (e.g. XML validation) will be done */
@@ -61,8 +63,8 @@ class NativeExportFilter extends PKPImportExportFilter
         // Validate output
         $outputType = & $this->getOutputType();
 
-        if (is_a($outputType, 'XMLTypeDescription') && $this->getNoValidation()) {
-            $outputType->setValidationStrategy(XML_TYPE_DESCRIPTION_VALIDATE_NONE);
+        if ($outputType instanceof XMLTypeDescription && $this->getNoValidation()) {
+            $outputType->setValidationStrategy(XMLTypeDescription::XML_TYPE_DESCRIPTION_VALIDATE_NONE);
         }
         $validOutput = $outputType->isCompatible($output);
 

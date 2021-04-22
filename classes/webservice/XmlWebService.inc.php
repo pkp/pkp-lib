@@ -13,9 +13,9 @@
  * @brief A web service that returns XML data.
  */
 
+use PKP\xslt\XSLTransformer;
 
 import('lib.pkp.classes.webservice.WebService');
-import('lib.pkp.classes.xslt.XSLTransformer');
 
 class XmlWebService extends WebService
 {
@@ -29,9 +29,9 @@ class XmlWebService extends WebService
     {
         // Parent constructor intentionally not called
         if (extension_loaded('dom')) {
-            $this->_returnType = XSL_TRANSFORMER_DOCTYPE_DOM;
+            $this->_returnType = XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM;
         } else {
-            $this->_returnType = XSL_TRANSFORMER_DOCTYPE_STRING;
+            $this->_returnType = XSLTransformer::XSL_TRANSFORMER_DOCTYPE_STRING;
         }
     }
 
@@ -52,7 +52,7 @@ class XmlWebService extends WebService
      */
     public function setReturnType($returnType)
     {
-        if ($returnType == XSL_TRANSFORMER_DOCTYPE_DOM) {
+        if ($returnType == XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM) {
             if (!extension_loaded('dom')) {
                 fatalError('This system does not meet minimum requirements!');
             }
@@ -83,7 +83,7 @@ class XmlWebService extends WebService
         }
 
         switch ($this->_returnType) {
-            case XSL_TRANSFORMER_DOCTYPE_DOM:
+            case XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM:
                 // Create DOM document
                 $resultDOM = new DOMDocument('1.0', Config::getVar('i18n', 'client_charset'));
                 // Try to handle non-well-formed responses
@@ -91,7 +91,7 @@ class XmlWebService extends WebService
                 $resultDOM->loadXML($xmlResult);
                 return $resultDOM;
 
-            case XSL_TRANSFORMER_DOCTYPE_STRING:
+            case XSLTransformer::XSL_TRANSFORMER_DOCTYPE_STRING:
                 return $xmlResult;
 
             default:

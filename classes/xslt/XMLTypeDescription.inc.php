@@ -23,33 +23,23 @@
  *  NB: XML validation currently requires PHP5
  */
 
+namespace PKP\xslt;
+
 import('lib.pkp.classes.filter.TypeDescription');
 import('lib.pkp.classes.filter.TypeDescriptionFactory');
 
-define('XML_TYPE_DESCRIPTION_VALIDATE_NONE', '*');
-define('XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA', 'schema');
-define('XML_TYPE_DESCRIPTION_VALIDATE_DTD', 'dtd');
-define('XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG', 'relax-ng');
-
 class XMLTypeDescription extends TypeDescription
 {
+    public const XML_TYPE_DESCRIPTION_VALIDATE_NONE = '*';
+    public const XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA = 'schema';
+    public const XML_TYPE_DESCRIPTION_VALIDATE_DTD = 'dtd';
+    public const XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG = 'relax-ng';
+
     /** @var string a validation strategy, see the XML_TYPE_DESCRIPTION_VALIDATE_* constants */
-    public $_validationStrategy = XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA;
+    public $_validationStrategy = self::XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA;
 
     /** @var string a validation document as string or filename pointer (xsd or rng only) */
     public $_validationSource;
-
-
-    /**
-     * Constructor
-     *
-     * @param $typeName string Allowed primitive types are
-     *  'integer', 'string', 'float' and 'boolean'.
-     */
-    public function __construct($typeName)
-    {
-        parent::__construct($typeName);
-    }
 
 
     //
@@ -87,8 +77,8 @@ class XMLTypeDescription extends TypeDescription
             case 1:
                 // No argument present (only dtd or no validation)
                 $validationStrategy = $typeName;
-                if ($validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_NONE
-                        && $validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_DTD) {
+                if ($validationStrategy != self::XML_TYPE_DESCRIPTION_VALIDATE_NONE
+                        && $validationStrategy != self::XML_TYPE_DESCRIPTION_VALIDATE_DTD) {
                     return false;
                 }
                 $validationSource = null;
@@ -97,8 +87,8 @@ class XMLTypeDescription extends TypeDescription
             case 2:
                 // We have an argument (only available for schema and relax-ng)
                 $validationStrategy = $typeNameParts[0];
-                if ($validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA
-                        && $validationStrategy != XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG) {
+                if ($validationStrategy != self::XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA
+                        && $validationStrategy != self::XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG) {
                     return false;
                 }
                 $validationSource = trim($typeNameParts[1], ')');
@@ -125,7 +115,7 @@ class XMLTypeDescription extends TypeDescription
         }
 
         // No validation...
-        if ($this->_validationStrategy == XML_TYPE_DESCRIPTION_VALIDATE_NONE) {
+        if ($this->_validationStrategy == self::XML_TYPE_DESCRIPTION_VALIDATE_NONE) {
             return true;
         }
 
@@ -140,13 +130,13 @@ class XMLTypeDescription extends TypeDescription
         switch ($this->_validationStrategy) {
             // We have to suppress validation errors, otherwise the script
             // will stop when validation errors occur.
-            case XML_TYPE_DESCRIPTION_VALIDATE_DTD:
+            case self::XML_TYPE_DESCRIPTION_VALIDATE_DTD:
                 if (!$xmlDom->validate()) {
                     return false;
                 }
                 break;
 
-            case XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA:
+            case self::XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA:
                 libxml_use_internal_errors(true);
                 if (!$xmlDom->schemaValidate($this->_validationSource)) {
                     $errors = libxml_get_errors();
@@ -155,7 +145,7 @@ class XMLTypeDescription extends TypeDescription
 
                 break;
 
-            case XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG:
+            case self::XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG:
                 if (!$xmlDom->relaxNGValidate($this->_validationSource)) {
                     return false;
                 }
@@ -166,5 +156,12 @@ class XMLTypeDescription extends TypeDescription
         }
 
         return true;
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\xslt\XMLTypeDescription', '\XMLTypeDescription');
+    foreach (['XML_TYPE_DESCRIPTION_VALIDATE_NONE', 'XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA', 'XML_TYPE_DESCRIPTION_VALIDATE_DTD', 'XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG'] as $constantName) {
+        define($constantName, constant('\XMLTypeDescription::' . $constantName));
     }
 }

@@ -13,16 +13,17 @@
  * @brief Wrapper class for running XSL transformations using PHP 4.x or 5.x
  */
 
+namespace PKP\xslt;
 
 // The default character encoding
 define('XSLT_PROCESSOR_ENCODING', Config::getVar('i18n', 'client_charset'));
 
-define('XSL_TRANSFORMER_DOCTYPE_STRING', 0x01);
-define('XSL_TRANSFORMER_DOCTYPE_FILE', 0x02);
-define('XSL_TRANSFORMER_DOCTYPE_DOM', 0x03);
-
 class XSLTransformer
 {
+    public const XSL_TRANSFORMER_DOCTYPE_STRING = 1;
+    public const XSL_TRANSFORMER_DOCTYPE_FILE = 2;
+    public const XSL_TRANSFORMER_DOCTYPE_DOM = 3;
+
     /** @var string determining the XSLT processor to use for this object */
     public static $processor;
 
@@ -130,7 +131,7 @@ class XSLTransformer
      */
     public function transformFiles($xmlFile, $xslFile)
     {
-        return $this->transform($xmlFile, XSL_TRANSFORMER_DOCTYPE_FILE, $xslFile, XSL_TRANSFORMER_DOCTYPE_FILE, XSL_TRANSFORMER_DOCTYPE_STRING);
+        return $this->transform($xmlFile, self::XSL_TRANSFORMER_DOCTYPE_FILE, $xslFile, self::XSL_TRANSFORMER_DOCTYPE_FILE, self::XSL_TRANSFORMER_DOCTYPE_STRING);
     }
 
     /**
@@ -143,7 +144,7 @@ class XSLTransformer
      */
     public function transformStrings($xml, $xsl)
     {
-        return $this->transform($xml, XSL_TRANSFORMER_DOCTYPE_STRING, $xsl, XSL_TRANSFORMER_DOCTYPE_STRING, XSL_TRANSFORMER_DOCTYPE_STRING);
+        return $this->transform($xml, self::XSL_TRANSFORMER_DOCTYPE_STRING, $xsl, self::XSL_TRANSFORMER_DOCTYPE_STRING, self::XSL_TRANSFORMER_DOCTYPE_STRING);
     }
 
     /**
@@ -154,7 +155,7 @@ class XSLTransformer
      * @param $xmlType integer
      * @param $xsl mixed
      * @param $xslType integer
-     * @param $resultType integer XSL_TRANSFORMER_DOCTYPE_...
+     * @param $resultType integer self::XSL_TRANSFORMER_DOCTYPE_...
      *
      * @return mixed return type depends on the $resultType parameter and can be
      *  DOMDocument or string. The method returns a boolean value of false if the
@@ -164,19 +165,19 @@ class XSLTransformer
     {
         // If either XML or XSL file don't exist, then fail without trying to process XSLT
         $fileManager = new FileManager();
-        if ($xmlType == XSL_TRANSFORMER_DOCTYPE_FILE) {
+        if ($xmlType == self::XSL_TRANSFORMER_DOCTYPE_FILE) {
             if (!$fileManager->fileExists($xml)) {
                 return false;
             }
         }
-        if ($xslType == XSL_TRANSFORMER_DOCTYPE_FILE) {
+        if ($xslType == self::XSL_TRANSFORMER_DOCTYPE_FILE) {
             if (!$fileManager->fileExists($xsl)) {
                 return false;
             }
         }
 
         // The result type can only be string or DOM
-        assert($resultType != XSL_TRANSFORMER_DOCTYPE_FILE);
+        assert($resultType != self::XSL_TRANSFORMER_DOCTYPE_FILE);
 
         switch (self::$processor) {
             case 'External':
@@ -201,7 +202,7 @@ class XSLTransformer
      * @param $xmlType integer
      * @param $xsl mixed
      * @param $xslType integer
-     * @param $resultType integer XSL_TRANSFORMER_DOCTYPE_...
+     * @param $resultType integer self::XSL_TRANSFORMER_DOCTYPE_...
      *
      * @return mixed return type depends on the $resultType parameter and can be
      *  DOMDocument or string. Returns boolean "false" on error.
@@ -210,7 +211,7 @@ class XSLTransformer
     {
 
         // External transformation can only be done on files
-        if ($xmlType != XSL_TRANSFORMER_DOCTYPE_FILE || $xslType != XSL_TRANSFORMER_DOCTYPE_FILE) {
+        if ($xmlType != self::XSL_TRANSFORMER_DOCTYPE_FILE || $xslType != self::XSL_TRANSFORMER_DOCTYPE_FILE) {
             return false;
         }
 
@@ -251,11 +252,11 @@ class XSLTransformer
         $resultXML = implode("\n", $contents);
 
         switch ($resultType) {
-            case XSL_TRANSFORMER_DOCTYPE_STRING:
+            case self::XSL_TRANSFORMER_DOCTYPE_STRING:
                 // Directly return the XML string
                 return $resultXML;
 
-            case XSL_TRANSFORMER_DOCTYPE_DOM:
+            case self::XSL_TRANSFORMER_DOCTYPE_DOM:
                 // Instantiate and configure the result DOM
                 $resultDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
                 $resultDOM->recover = true;
@@ -278,7 +279,7 @@ class XSLTransformer
      * @param $xmlType integer
      * @param $xsl mixed
      * @param $xslType integer
-     * @param $resultType integer XSL_TRANSFORMER_DOCTYPE_...
+     * @param $resultType integer self::XSL_TRANSFORMER_DOCTYPE_...
      *
      * @return mixed return type depends on the $resultType parameter and can be
      *  DOMDocument or string. Returns boolean "false" on error.
@@ -286,7 +287,7 @@ class XSLTransformer
     public function _transformPHP($xml, $xmlType, $xsl, $xslType, $resultType)
     {
         // Prepare the XML DOM
-        if ($xmlType == XSL_TRANSFORMER_DOCTYPE_DOM) {
+        if ($xmlType == self::XSL_TRANSFORMER_DOCTYPE_DOM) {
             // We already have a DOM document, no need to create one
             assert(is_a($xml, 'DOMDocument'));
             $xmlDOM = $xml;
@@ -305,11 +306,11 @@ class XSLTransformer
 
             // Load the XML based on its type
             switch ($xmlType) {
-                case XSL_TRANSFORMER_DOCTYPE_FILE:
+                case self::XSL_TRANSFORMER_DOCTYPE_FILE:
                     $xmlDOM->load($xml);
                     break;
 
-                case XSL_TRANSFORMER_DOCTYPE_STRING:
+                case self::XSL_TRANSFORMER_DOCTYPE_STRING:
                     $xmlDOM->loadXML($xml);
                     break;
 
@@ -319,7 +320,7 @@ class XSLTransformer
         }
 
         // Prepare the XSL DOM
-        if ($xslType == XSL_TRANSFORMER_DOCTYPE_DOM) {
+        if ($xslType == self::XSL_TRANSFORMER_DOCTYPE_DOM) {
             // We already have a DOM document, no need to create one
             assert(is_a($xsl, 'DOMDocument'));
             $xslDOM = $xsl;
@@ -329,11 +330,11 @@ class XSLTransformer
 
             // Load the XSL based on its type
             switch ($xslType) {
-                case XSL_TRANSFORMER_DOCTYPE_FILE:
+                case self::XSL_TRANSFORMER_DOCTYPE_FILE:
                     $xslDOM->load($xsl);
                     break;
 
-                case XSL_TRANSFORMER_DOCTYPE_STRING:
+                case self::XSL_TRANSFORMER_DOCTYPE_STRING:
                     $xslDOM->loadXML($xsl);
                     break;
 
@@ -363,11 +364,11 @@ class XSLTransformer
 
         // Process depending on the requested result type
         switch ($resultType) {
-            case XSL_TRANSFORMER_DOCTYPE_STRING:
+            case self::XSL_TRANSFORMER_DOCTYPE_STRING:
                 $resultXML = $processor->transformToXML($xmlDOM);
                 return $resultXML;
 
-            case XSL_TRANSFORMER_DOCTYPE_DOM:
+            case self::XSL_TRANSFORMER_DOCTYPE_DOM:
                 $resultDOM = $processor->transformToDoc($xmlDOM);
                 return $resultDOM;
 
@@ -384,5 +385,12 @@ class XSLTransformer
     public function addError($error)
     {
         array_push($this->errors, $error);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\xslt\XSLTransformer', '\XSLTransformer');
+    foreach (['XSL_TRANSFORMER_DOCTYPE_STRING', 'XSL_TRANSFORMER_DOCTYPE_FILE', 'XSL_TRANSFORMER_DOCTYPE_DOM'] as $constantName) {
+        define($constantName, constant('\XSLTransformer::' . $constantName));
     }
 }

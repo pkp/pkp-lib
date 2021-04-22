@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.xslt.XMLTypeDescription');
+
+use PKP\xslt\XMLTypeDescription;
 
 class XMLTypeDescriptionTest extends PKPTestCase
 {

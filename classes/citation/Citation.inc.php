@@ -19,6 +19,8 @@
 
 namespace PKP\citation;
 
+use PKP\core\PKPString;
+
 class Citation extends \PKP\core\DataObject
 {
     /**

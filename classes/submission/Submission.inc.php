@@ -29,7 +29,7 @@ define('AUTHOR_TOC_SHOW', 2);
 // Preprint access constants -- see Publication::getData('accessStatus')
 define('PREPRINT_ACCESS_OPEN', 1);
 
-import('lib.pkp.classes.submission.PKPSubmission');
+use \PKP\submission\PKPSubmission;
 
 class Submission extends PKPSubmission
 {

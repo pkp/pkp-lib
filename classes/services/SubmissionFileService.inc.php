@@ -15,9 +15,11 @@
 
 namespace APP\Services;
 
-use Application;
-use DAORegistry;
-use HookRegistry;
+use \PKP\db\DAORegistry;
+use \PKP\plugins\HookRegistry;
+use \PKP\submission\SubmissionFile;
+
+use \APP\core\Application;
 
 class SubmissionFileService extends \PKP\Services\PKPSubmissionFileService
 {
@@ -70,7 +72,7 @@ class SubmissionFileService extends \PKP\Services\PKPSubmissionFileService
 
         if (array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $stageAssignments)
                 && in_array(ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION])) {
-            $allowedFileStages[] = SUBMISSION_FILE_PROOF;
+            $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_PROOF;
         }
     }
 }

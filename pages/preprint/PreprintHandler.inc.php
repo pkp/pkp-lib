@@ -14,6 +14,8 @@
  *
  */
 
+use \PKP\submission\SubmissionFile;
+
 import('classes.handler.Handler');
 
 use Firebase\JWT\JWT;
@@ -345,7 +347,7 @@ class PreprintHandler extends Handler
                 $dependentFileIds = Services::get('submissionFile')->getIds([
                     'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
                     'assocIds' => [$this->galley->getFileId()],
-                    'fileStages' => [SUBMISSION_FILE_DEPENDENT],
+                    'fileStages' => [SubmissionFile::SUBMISSION_FILE_DEPENDENT],
                     'includeDependentFiles' => true,
                 ]);
                 if (!in_array($this->fileId, $dependentFileIds)) {

@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB as DB;
 
 use PKP\identity\Identity;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\submission\PKPSubmissionDAO;
 
 abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -88,7 +89,6 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
     public function orderBy($column, $direction = 'DESC')
     {
         // Bring in orderby constants
-        import('classes.submission.SubmissionDAO');
         if ($column === 'lastModified') {
             $this->orderColumn = 's.last_modified';
         } elseif ($column === 'dateLastActivity') {
@@ -97,7 +97,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
             $this->orderColumn = DB::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
         } elseif ($column === 'seq') {
             $this->orderColumn = 'po.seq';
-        } elseif ($column === ORDERBY_DATE_PUBLISHED) {
+        } elseif ($column === PKPSubmissionDAO::ORDERBY_DATE_PUBLISHED) {
             $this->orderColumn = 'po.date_published';
         } else {
             $this->orderColumn = 's.date_submitted';

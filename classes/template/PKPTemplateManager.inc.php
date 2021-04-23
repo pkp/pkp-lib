@@ -28,18 +28,20 @@ use APP\core\Services;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use FormBuilderVocabulary;
+use Less_Parser;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\core\Core;
-use PKP\core\JSONMessage;
 
+use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
 
 // FIXME: Use namespacing
+use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
+
 use PublicFileManager;
 use Smarty;
 

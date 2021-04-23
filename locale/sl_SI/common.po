@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-03-24 12:55+0000\n"
+"PO-Revision-Date: 2021-04-23 14:55+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl_SI/>\n"
@@ -2011,3 +2011,14 @@ msgstr "Ni vas bilo mogoče odjaviti"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Ste uspešno odjavljeni"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML vozlišča ni bilo mogoče uvoziti"
+
+msgid "filter.error.missingRequirements"
+msgstr "Poskus zagona transformacije, ki ni podprt na vašem okolju."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filter ({$displayName}) podpira na vhodu {$inputTypeName} - podan je bil "
+"{$typeofInput}"

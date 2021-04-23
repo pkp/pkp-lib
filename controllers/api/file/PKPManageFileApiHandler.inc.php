@@ -16,7 +16,9 @@
 // Import the base handler.
 import('classes.handler.Handler');
 
+use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+
 use PKP\submission\SubmissionFile;
 
 abstract class PKPManageFileApiHandler extends Handler

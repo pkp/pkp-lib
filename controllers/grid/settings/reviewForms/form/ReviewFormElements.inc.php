@@ -14,6 +14,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 class ReviewFormElements extends Form

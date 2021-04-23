@@ -16,7 +16,9 @@
 // Import the base Handler.
 import('pages.authorDashboard.AuthorDashboardHandler');
 
+use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+
 use PKP\log\SubmissionEmailLogEntry;
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler

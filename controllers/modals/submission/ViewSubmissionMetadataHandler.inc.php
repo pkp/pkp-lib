@@ -15,6 +15,8 @@
 // Import the base Handler.
 import('classes.handler.Handler');
 
+use APP\template\TemplateManager;
+
 class ViewSubmissionMetadataHandler extends handler
 {
     /**

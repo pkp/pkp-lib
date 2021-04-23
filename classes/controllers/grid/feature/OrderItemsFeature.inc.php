@@ -16,6 +16,8 @@
 
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 
+use APP\template\TemplateManager;
+
 class OrderItemsFeature extends GridFeature
 {
     /** @var boolean */

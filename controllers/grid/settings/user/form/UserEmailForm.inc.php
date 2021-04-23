@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 use PKP\mail\MailTemplate;
 
 class UserEmailForm extends Form

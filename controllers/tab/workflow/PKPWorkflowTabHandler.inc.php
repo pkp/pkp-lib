@@ -19,6 +19,8 @@ import('classes.handler.Handler');
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 abstract class PKPWorkflowTabHandler extends Handler

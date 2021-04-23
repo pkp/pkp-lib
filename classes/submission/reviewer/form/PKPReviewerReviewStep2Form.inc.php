@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
 
+use APP\template\TemplateManager;
+
 class PKPReviewerReviewStep2Form extends ReviewerReviewForm
 {
     /**

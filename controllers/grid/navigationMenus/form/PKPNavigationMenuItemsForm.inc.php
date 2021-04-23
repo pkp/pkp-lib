@@ -16,6 +16,7 @@
 import('lib.pkp.classes.form.Form');
 
 use APP\core\Services;
+use APP\template\TemplateManager;
 
 class PKPNavigationMenuItemsForm extends Form
 {

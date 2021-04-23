@@ -32,6 +32,8 @@ define('LISTBUILDER_SAVE_TYPE_INTERNAL', 1); // Using ListbuilderHandler::save
  * array[columnIndex][LISTBUILDER_OPTGROUP_LABEL][optgroupId] */
 define('LISTBUILDER_OPTGROUP_LABEL', 'optGroupLabel');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 class ListbuilderHandler extends GridHandler

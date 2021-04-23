@@ -13,9 +13,11 @@
  * @brief Form to edit user's API key settings.
  */
 
-use Firebase\JWT\JWT;
+use APP\template\TemplateManager;
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
+
+use Firebase\JWT\JWT;
 
 class APIProfileForm extends BaseProfileForm
 {

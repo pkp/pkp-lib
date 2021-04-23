@@ -19,6 +19,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 class PKPNotificationsUnsubscribeForm extends Form
 {
     /** @var Notification The notification that triggered the unsubscribe event */

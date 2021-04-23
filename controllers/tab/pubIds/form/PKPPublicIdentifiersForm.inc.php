@@ -16,6 +16,8 @@
 import('lib.pkp.classes.form.Form');
 import('lib.pkp.classes.plugins.PKPPubIdPluginHelper');
 
+use APP\template\TemplateManager;
+
 class PKPPublicIdentifiersForm extends Form
 {
     /** @var int The context id */

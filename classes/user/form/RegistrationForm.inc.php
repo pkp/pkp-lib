@@ -18,7 +18,9 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
 use PKP\mail\MailTemplate;
+
 use PKP\user\InterestManager;
 
 class RegistrationForm extends Form

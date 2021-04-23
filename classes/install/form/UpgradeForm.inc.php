@@ -16,6 +16,8 @@
 import('classes.install.Upgrade');
 import('lib.pkp.classes.install.form.MaintenanceForm');
 
+use APP\template\TemplateManager;
+
 class UpgradeForm extends MaintenanceForm
 {
     /**

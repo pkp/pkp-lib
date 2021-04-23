@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
 
+use APP\template\TemplateManager;
+
 use PKP\user\InterestManager;
 
 class RolesForm extends BaseProfileForm

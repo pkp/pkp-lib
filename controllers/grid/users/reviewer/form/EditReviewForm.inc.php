@@ -14,7 +14,9 @@
  * reviewer after the assignment has taken place.
  */
 
+use APP\template\TemplateManager;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.form.Form');

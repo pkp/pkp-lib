@@ -13,6 +13,8 @@
  * @brief Form for adding/editing a submission file
  */
 
+use APP\template\TemplateManager;
+
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.form.Form');

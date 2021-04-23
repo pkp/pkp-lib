@@ -16,6 +16,8 @@
 import('classes.handler.Handler');
 
 use APP\core\Services;
+
+use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 
 abstract class PKPSubmissionHandler extends Handler

@@ -17,6 +17,8 @@
 
 import('lib.pkp.classes.controllers.grid.feature.GeneralPagingFeature');
 
+use APP\template\TemplateManager;
+
 class InfiniteScrollingFeature extends GeneralPagingFeature
 {
     /**

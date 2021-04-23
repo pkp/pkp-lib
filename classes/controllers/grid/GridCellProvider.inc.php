@@ -16,6 +16,7 @@
  * For general information about grids, see GridHandler.
  */
 
+use APP\template\TemplateManager;
 
 class GridCellProvider
 {

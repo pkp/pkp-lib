@@ -17,6 +17,8 @@ import('lib.pkp.classes.plugins.ImportExportPlugin');
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIDeployment');
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIToolKit');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 abstract class PKPNativeImportExportPlugin extends ImportExportPlugin

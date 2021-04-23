@@ -14,7 +14,9 @@
  */
 
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
-import('classes.publication.Publication');
+
+use APP\publication\Publication;
+use APP\template\TemplateManager;
 
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 {

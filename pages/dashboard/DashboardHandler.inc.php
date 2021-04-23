@@ -19,6 +19,8 @@ define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
 define('SUBMISSIONS_LIST_MY_QUEUE', 'myQueue');
 define('SUBMISSIONS_LIST_UNASSIGNED', 'unassigned');
 
+use APP\template\TemplateManager;
+
 class DashboardHandler extends Handler
 {
     /** @copydoc PKPHandler::_isBackendPage */

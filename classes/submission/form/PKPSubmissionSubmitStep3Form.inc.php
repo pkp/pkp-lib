@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 
+use APP\template\TemplateManager;
+
 class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
 {
     /** @var SubmissionMetadataFormImplementation */

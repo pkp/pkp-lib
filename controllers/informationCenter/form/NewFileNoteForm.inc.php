@@ -13,8 +13,9 @@
  * @brief Form to display and post notes on a file
  */
 
-
 import('lib.pkp.controllers.informationCenter.form.NewNoteForm');
+
+use APP\template\TemplateManager;
 
 class NewFileNoteForm extends NewNoteForm
 {

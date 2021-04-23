@@ -15,6 +15,8 @@
 
 import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm');
 
+use APP\template\TemplateManager;
+
 class AddParticipantForm extends StageParticipantNotifyForm
 {
     /** @var Submission The submission associated with the submission contributor being edited **/

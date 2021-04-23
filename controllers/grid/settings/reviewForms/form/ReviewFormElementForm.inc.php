@@ -18,6 +18,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 class ReviewFormElementForm extends Form
 {
     /** @var int $reviewFormId The ID of the review form being edited */

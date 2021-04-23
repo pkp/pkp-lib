@@ -20,6 +20,8 @@ import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 // empty category constant
 define('GRID_CATEGORY_NONE', 'NONE');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 class CategoryGridHandler extends GridHandler

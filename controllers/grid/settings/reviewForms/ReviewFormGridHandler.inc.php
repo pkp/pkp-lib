@@ -22,6 +22,8 @@ import('lib.pkp.controllers.grid.settings.reviewForms.form.ReviewFormElements');
 
 import('lib.pkp.controllers.grid.settings.reviewForms.form.PreviewReviewForm');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 class ReviewFormGridHandler extends GridHandler

@@ -20,6 +20,8 @@ import('lib.pkp.classes.controllers.grid.users.reviewer.PKPReviewerGridHandler')
 import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridCellProvider');
 import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridRow');
 
+use APP\template\TemplateManager;
+
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class AuthorReviewerGridHandler extends PKPReviewerGridHandler

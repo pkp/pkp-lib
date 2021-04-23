@@ -16,7 +16,9 @@
 // Import the base Handler.
 import('classes.handler.Handler');
 
+use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+
 use PKP\log\SubmissionEmailLogEntry;
 
 class AuthorDashboardTabHandler extends Handler

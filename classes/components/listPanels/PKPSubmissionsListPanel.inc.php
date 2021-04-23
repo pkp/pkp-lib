@@ -17,9 +17,6 @@ namespace PKP\components\listPanels;
 use PKP\components\forms\FieldAutosuggestPreset;
 use PKP\components\forms\FieldSelectUsers;
 
-import('lib.pkp.classes.submission.PKPSubmission');
-
-
 abstract class PKPSubmissionsListPanel extends ListPanel
 {
     /** @var string URL to the API endpoint where items can be retrieved */

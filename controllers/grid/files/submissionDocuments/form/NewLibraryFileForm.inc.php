@@ -15,6 +15,8 @@
 
 import('lib.pkp.controllers.grid.files.form.LibraryFileForm');
 
+use APP\template\TemplateManager;
+
 class NewLibraryFileForm extends LibraryFileForm
 {
     /** @var int */

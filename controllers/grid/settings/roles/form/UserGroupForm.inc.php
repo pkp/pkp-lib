@@ -16,6 +16,8 @@
 import('lib.pkp.classes.form.Form');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 class UserGroupForm extends Form

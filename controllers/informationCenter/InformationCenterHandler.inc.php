@@ -15,7 +15,9 @@
 
 import('classes.handler.Handler');
 
+use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+
 use PKP\log\EventLogEntry;
 
 abstract class InformationCenterHandler extends Handler

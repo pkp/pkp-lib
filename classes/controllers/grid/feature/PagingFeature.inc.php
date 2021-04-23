@@ -16,6 +16,8 @@
 
 import('lib.pkp.classes.controllers.grid.feature.GeneralPagingFeature');
 
+use APP\template\TemplateManager;
+
 class PagingFeature extends GeneralPagingFeature
 {
     /**

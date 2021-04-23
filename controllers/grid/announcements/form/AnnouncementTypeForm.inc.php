@@ -18,6 +18,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 class AnnouncementTypeForm extends Form
 {
     /** @var int Context ID */

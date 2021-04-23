@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 class UserDisableForm extends Form
 {
     /** @var the user id of user to enable/disable */

@@ -14,6 +14,8 @@
 
 import('lib.pkp.controllers.listbuilder.settings.SetupListbuilderHandler');
 
+use APP\template\TemplateManager;
+
 class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHandler
 {
     /** @var int Review form element ID **/

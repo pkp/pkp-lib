@@ -26,8 +26,10 @@ define('REVIEWER_SELECT_CREATE', 0x00000002);
 define('REVIEWER_SELECT_ENROLL_EXISTING', 0x00000003);
 
 use APP\core\Services;
-use PKP\core\JSONMessage;
 
+use APP\template\TemplateManager;
+
+use PKP\core\JSONMessage;
 use PKP\mail\SubmissionMailTemplate;
 
 class PKPReviewerGridHandler extends GridHandler

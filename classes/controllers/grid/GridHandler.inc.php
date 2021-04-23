@@ -52,6 +52,8 @@ define('GRID_ACTION_POSITION_ABOVE', 'above');
 define('GRID_ACTION_POSITION_LASTCOL', 'lastcol');
 define('GRID_ACTION_POSITION_BELOW', 'below');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 class GridHandler extends PKPHandler

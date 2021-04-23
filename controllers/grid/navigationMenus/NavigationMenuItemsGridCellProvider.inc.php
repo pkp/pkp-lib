@@ -16,6 +16,7 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 use APP\core\Services;
+use APP\template\TemplateManager;
 
 class NavigationMenuItemsGridCellProvider extends GridCellProvider
 {

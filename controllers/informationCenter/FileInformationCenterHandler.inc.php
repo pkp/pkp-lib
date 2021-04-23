@@ -15,7 +15,9 @@
 
 import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
 
+use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+
 use PKP\log\EventLogEntry;
 
 class FileInformationCenterHandler extends InformationCenterHandler

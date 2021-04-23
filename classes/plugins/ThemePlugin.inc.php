@@ -19,6 +19,7 @@ define('LESS_FILENAME_SUFFIX', '.less');
 define('THEME_OPTION_PREFIX', 'themeOption_');
 
 use APP\core\Application;
+use APP\template\TemplateManager;
 
 abstract class ThemePlugin extends LazyLoadPlugin
 {

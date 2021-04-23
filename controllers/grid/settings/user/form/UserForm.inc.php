@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 class UserForm extends Form
 {
     /** @var Id of the user being edited */

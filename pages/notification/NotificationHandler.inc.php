@@ -16,6 +16,8 @@
 import('classes.handler.Handler');
 import('classes.notification.Notification');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 class NotificationHandler extends Handler

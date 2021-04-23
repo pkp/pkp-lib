@@ -14,6 +14,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 class ReviewerReviewForm extends Form
 {
     /** @var ReviewerSubmission current submission */

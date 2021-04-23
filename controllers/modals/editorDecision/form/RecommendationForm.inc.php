@@ -13,7 +13,9 @@
  * @brief Editor recommendation form.
  */
 
+use APP\template\TemplateManager;
 use PKP\log\SubmissionEmailLogEntry;
+
 use PKP\mail\SubmissionMailTemplate;
 
 import('lib.pkp.classes.form.Form');

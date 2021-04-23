@@ -16,6 +16,7 @@
 import('classes.handler.Handler');
 
 use APP\core\Services;
+use APP\template\TemplateManager;
 
 class NavigationMenuItemHandler extends Handler
 {

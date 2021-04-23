@@ -19,6 +19,8 @@ import('lib.pkp.classes.form.Form');
 import('lib.pkp.classes.plugins.PluginHelper');
 import('lib.pkp.classes.file.FileManager');
 
+use APP\template\TemplateManager;
+
 class UploadPluginForm extends Form
 {
     /** @var String PLUGIN_ACTION_... */

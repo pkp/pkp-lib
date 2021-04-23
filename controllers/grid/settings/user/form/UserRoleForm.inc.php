@@ -15,6 +15,8 @@
 
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
+use APP\template\TemplateManager;
+
 class UserRoleForm extends UserForm
 {
     /** @var string User full name */

@@ -14,6 +14,8 @@
 
 import('lib.pkp.classes.handler.APIHandler');
 
+use APP\template\TemplateManager;
+
 use PKP\services\PKPSchemaService;
 
 class PKPContextHandler extends APIHandler

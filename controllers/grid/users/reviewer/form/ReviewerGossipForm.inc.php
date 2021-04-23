@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 class ReviewerGossipForm extends Form
 {
     /** @var User The user to gossip about */

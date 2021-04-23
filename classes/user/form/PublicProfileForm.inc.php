@@ -13,6 +13,8 @@
  * @brief Form to edit user's public profile.
  */
 
+use APP\template\TemplateManager;
+
 import('lib.pkp.classes.user.form.BaseProfileForm');
 import('classes.file.PublicFileManager');
 

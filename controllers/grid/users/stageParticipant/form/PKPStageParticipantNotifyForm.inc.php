@@ -17,6 +17,7 @@ import('lib.pkp.classes.form.Form');
 
 use APP\core\Services;
 
+use APP\template\TemplateManager;
 use PKP\log\EventLogEntry;
 
 abstract class PKPStageParticipantNotifyForm extends Form

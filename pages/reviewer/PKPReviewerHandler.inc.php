@@ -16,6 +16,8 @@
 import('classes.handler.Handler');
 import('lib.pkp.classes.submission.reviewer.ReviewerAction');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 class PKPReviewerHandler extends Handler

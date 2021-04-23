@@ -19,6 +19,7 @@ import('classes.handler.Handler');
 import('lib.pkp.classes.linkAction.LinkAction');
 
 use APP\core\Services;
+use APP\template\TemplateManager;
 
 class PKPCatalogHandler extends Handler
 {

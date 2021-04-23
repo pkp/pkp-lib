@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 class CategoryForm extends Form
 {
     /** @var Id of the category being edited */

@@ -16,6 +16,8 @@
 
 import('pages.user.UserHandler');
 
+use APP\template\TemplateManager;
+
 class ProfileHandler extends UserHandler
 {
     /** @copydoc PKPHandler::_isBackendPage */

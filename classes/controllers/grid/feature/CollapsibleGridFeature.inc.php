@@ -17,6 +17,8 @@
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 import('lib.pkp.classes.linkAction.request.NullAction');
 
+use APP\template\TemplateManager;
+
 class CollapsibleGridFeature extends GridFeature
 {
     /**

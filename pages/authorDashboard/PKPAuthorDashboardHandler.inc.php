@@ -16,8 +16,10 @@
 // Import base class
 import('classes.handler.Handler');
 
+use APP\template\TemplateManager;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\services\PKPSchemaService;
+
 use PKP\submission\SubmissionFile;
 
 abstract class PKPAuthorDashboardHandler extends Handler

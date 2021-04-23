@@ -16,6 +16,8 @@
 // Import the base Form.
 import('lib.pkp.classes.form.Form');
 
+use APP\template\TemplateManager;
+
 class InstallLanguageForm extends Form
 {
     /**

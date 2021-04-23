@@ -13,6 +13,8 @@
  * @brief Form to add files to the query files grid
  */
 
+use APP\template\TemplateManager;
+
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');

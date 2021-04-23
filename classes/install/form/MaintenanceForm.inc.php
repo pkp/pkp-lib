@@ -16,6 +16,8 @@
 import('lib.pkp.classes.form.Form');
 import('lib.pkp.classes.site.VersionCheck');
 
+use APP\template\TemplateManager;
+
 class MaintenanceForm extends Form
 {
     /** @var PKPRequest */

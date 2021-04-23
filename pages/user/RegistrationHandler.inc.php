@@ -16,6 +16,8 @@
 
 import('pages.user.UserHandler');
 
+use APP\template\TemplateManager;
+
 class RegistrationHandler extends UserHandler
 {
     /**

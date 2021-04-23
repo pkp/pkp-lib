@@ -14,6 +14,7 @@
  * other statistics plugins.
  */
 
+use APP\template\TemplateManager;
 
 import('lib.pkp.classes.plugins.GenericPlugin');
 

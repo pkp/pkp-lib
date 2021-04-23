@@ -19,7 +19,9 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
+use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+
 use PKP\mail\SubmissionMailTemplate;
 
 class QueriesGridHandler extends GridHandler

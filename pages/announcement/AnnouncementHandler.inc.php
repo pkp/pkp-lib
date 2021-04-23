@@ -15,6 +15,8 @@
 
 import('classes.handler.Handler');
 
+use APP\template\TemplateManager;
+
 use PKP\db\DBResultRange;
 
 class AnnouncementHandler extends Handler

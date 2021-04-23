@@ -16,6 +16,8 @@
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
 use APP\core\Services;
+
+use APP\template\TemplateManager;
 use PKP\mail\MailTemplate;
 
 class UserDetailsForm extends UserForm

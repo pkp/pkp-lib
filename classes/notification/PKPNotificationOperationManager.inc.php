@@ -19,11 +19,12 @@
 
 use APP\i18n\AppLocale;
 
-use Firebase\JWT\JWT;
-
 import('classes.notification.Notification');
 import('lib.pkp.classes.notification.INotificationInfoProvider');
 
+use APP\template\TemplateManager;
+
+use Firebase\JWT\JWT;
 use PKP\mail\MailTemplate;
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider

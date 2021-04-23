@@ -13,7 +13,9 @@
  * @brief Base class for the editor decision forms.
  */
 
+use APP\template\TemplateManager;
 use PKP\log\SubmissionEmailLogEntry;
+
 use PKP\mail\SubmissionMailTemplate;
 
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');

@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.plugins.Plugin');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 abstract class ImportExportPlugin extends Plugin

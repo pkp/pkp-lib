@@ -15,6 +15,8 @@
 
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
+use APP\template\TemplateManager;
+
 class AdvancedSearchReviewerForm extends ReviewerForm
 {
     /**

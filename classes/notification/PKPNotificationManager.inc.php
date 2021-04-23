@@ -18,6 +18,8 @@
 import('lib.pkp.classes.notification.PKPNotificationOperationManager');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
+use APP\template\TemplateManager;
+
 class PKPNotificationManager extends PKPNotificationOperationManager
 {
     /**

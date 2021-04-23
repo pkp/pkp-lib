@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
 
+use APP\template\TemplateManager;
+
 class IdentityForm extends BaseProfileForm
 {
     /**

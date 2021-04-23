@@ -14,6 +14,8 @@
  *
  */
 
+use APP\template\TemplateManager;
+
 use PKP\db\DBResultRange;
 
 class PKPHandler

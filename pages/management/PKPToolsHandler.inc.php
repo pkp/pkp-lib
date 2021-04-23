@@ -18,6 +18,8 @@ import('lib.pkp.pages.management.ManagementHandler');
 
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
+use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 
 class PKPToolsHandler extends ManagementHandler

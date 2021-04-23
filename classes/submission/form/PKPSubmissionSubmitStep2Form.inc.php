@@ -13,6 +13,8 @@
  * @brief Form for Step 2 of author submission: file upload
  */
 
+use APP\template\TemplateManager;
+
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');

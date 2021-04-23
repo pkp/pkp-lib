@@ -16,6 +16,8 @@
 // Import the base Handler.
 import('classes.handler.Handler');
 
+use APP\template\TemplateManager;
+
 class ManagementHandler extends Handler
 {
     /** @copydoc PKPHandler::_isBackendPage */

@@ -14,6 +14,8 @@
  *  resubmit for review), or to decline the submission.
  */
 
+use APP\template\TemplateManager;
+
 use PKP\mail\SubmissionMailTemplate;
 
 import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailForm');

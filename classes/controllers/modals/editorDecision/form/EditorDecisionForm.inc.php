@@ -13,6 +13,8 @@
  * @brief Base class for the editor decision forms.
  */
 
+use APP\template\TemplateManager;
+
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.form.Form');

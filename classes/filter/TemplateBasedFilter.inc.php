@@ -16,6 +16,8 @@
 
 import('lib.pkp.classes.filter.PersistableFilter');
 
+use APP\template\TemplateManager;
+
 class TemplateBasedFilter extends PersistableFilter
 {
     //

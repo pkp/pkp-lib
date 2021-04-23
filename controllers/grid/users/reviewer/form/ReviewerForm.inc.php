@@ -14,7 +14,9 @@
  * N.B. Requires a subclass to implement the "reviewerId" to be added.
  */
 
+use APP\template\TemplateManager;
 use PKP\mail\SubmissionMailTemplate;
+
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.form.Form');

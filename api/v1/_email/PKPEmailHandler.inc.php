@@ -15,10 +15,9 @@
  */
 use APP\core\Services;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Queue as Queue;
+use Illuminate\Support\Facades\Queue;
 
-import('lib.pkp.classes.handler.APIHandler');
-
+use PKP\handler\APIHandler;
 use PKP\mail\Mail;
 
 use Psr\Http\Message\ServerRequestInterface;

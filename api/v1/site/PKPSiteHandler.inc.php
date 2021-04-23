@@ -12,9 +12,8 @@
  * @brief Base class to handle API requests for the site object.
  */
 
-import('lib.pkp.classes.handler.APIHandler');
-
 use APP\template\TemplateManager;
+use PKP\handler\APIHandler;
 
 use PKP\services\PKPSchemaService;
 

@@ -13,9 +13,10 @@
  *  possible to deprecate this when we have a working endpoint for plugin
  *  settings.
  */
-import('lib.pkp.classes.handler.APIHandler');
 
 use APP\core\Services;
+
+use PKP\handler\APIHandler;
 
 class PKPBackendPaymentsSettingsHandler extends APIHandler
 {

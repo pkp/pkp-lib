@@ -13,7 +13,7 @@
  * @brief Parent class for file/submission information center handlers.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;

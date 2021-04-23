@@ -12,9 +12,8 @@
  * @brief Base class to handle API requests for contexts (journals/presses).
  */
 
-import('lib.pkp.classes.handler.APIHandler');
-
 use APP\template\TemplateManager;
+use PKP\handler\APIHandler;
 
 use PKP\services\PKPSchemaService;
 

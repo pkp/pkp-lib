@@ -13,7 +13,7 @@
  * @brief Handle site index requests.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 class PKPIndexHandler extends Handler
 {

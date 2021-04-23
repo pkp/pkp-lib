@@ -13,7 +13,7 @@
  * @brief Produce a sitemap in XML format for submitting to search engines.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 define('SITEMAP_XSD_URL', 'https://www.sitemaps.org/schemas/sitemap/0.9');
 

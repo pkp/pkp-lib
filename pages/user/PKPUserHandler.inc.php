@@ -13,7 +13,7 @@
  * @brief Handle requests for user functions.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;

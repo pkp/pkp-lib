@@ -11,7 +11,7 @@
  *
  * @brief Handle API requests to upload a file to a user's public directory.
  */
-import('lib.pkp.classes.handler.APIHandler');
+use PKP\handler\APIHandler;
 
 class PKPUploadPublicFileHandler extends APIHandler
 {

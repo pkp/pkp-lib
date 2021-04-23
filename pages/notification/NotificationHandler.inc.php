@@ -13,7 +13,8 @@
  * @brief Handle requests for viewing notifications.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
+
 import('classes.notification.Notification');
 
 use APP\template\TemplateManager;

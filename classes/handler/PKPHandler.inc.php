@@ -14,9 +14,23 @@
  *
  */
 
-use APP\template\TemplateManager;
+namespace PKP\handler;
 
+use APP\i18n\AppLocale;
+use APP\template\TemplateManager;
+use AuthorizationDecisionManager;
+use HttpsPolicy;
+use PKP\config\Config;
+
+use PKP\core\Dispatcher;
+use PKP\core\PKPString;
+
+// FIXME: add namespaces
+use PKP\core\Registry;
 use PKP\db\DBResultRange;
+use RestrictedSiteAccessPolicy;
+use UserRolesRequiredPolicy;
+use Validation;
 
 class PKPHandler
 {

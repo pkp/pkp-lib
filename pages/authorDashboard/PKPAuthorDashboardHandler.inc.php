@@ -14,7 +14,7 @@
  */
 
 // Import base class
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 use APP\template\TemplateManager;
 use PKP\log\SubmissionEmailLogEntry;

@@ -14,9 +14,9 @@
  *
  */
 
-import('lib.pkp.classes.handler.APIHandler');
-
 use APP\core\Services;
+use PKP\handler\APIHandler;
+
 use PKP\services\PKPSchemaService;
 
 class PKPSubmissionHandler extends APIHandler

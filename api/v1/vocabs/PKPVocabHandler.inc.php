@@ -14,8 +14,7 @@
  *
  */
 
-import('lib.pkp.classes.handler.APIHandler');
-
+use PKP\handler\APIHandler;
 
 class PKPVocabHandler extends APIHandler
 {

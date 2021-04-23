@@ -13,9 +13,9 @@
  * @brief Handle requests for site administration functions.
  */
 
-import('classes.handler.Handler');
-
 use APP\core\Services;
+
+use APP\handler\Handler;
 use APP\template\TemplateManager;
 
 use Illuminate\Support\Facades\DB;

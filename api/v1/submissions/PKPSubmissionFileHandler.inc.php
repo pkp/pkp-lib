@@ -14,8 +14,7 @@
  *
  */
 
-import('lib.pkp.classes.handler.APIHandler');
-
+use PKP\handler\APIHandler;
 use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionFile;
 

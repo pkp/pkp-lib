@@ -13,9 +13,9 @@
  * @brief Handle requests for navigationMenuItem functions.
  */
 
-import('classes.handler.Handler');
-
 use APP\core\Services;
+
+use APP\handler\Handler;
 use APP\template\TemplateManager;
 
 class NavigationMenuItemHandler extends Handler

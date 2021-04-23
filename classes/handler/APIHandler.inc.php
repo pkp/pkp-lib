@@ -12,14 +12,26 @@
  *
  * @brief Base request API handler
  */
-AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
-import('lib.pkp.classes.handler.PKPHandler');
 
+namespace PKP\handler;
+
+use ApiAuthorizationMiddleware;
+use ApiCsrfMiddleware;
+use ApiTokenDecodingMiddleware;
+
+use APP\core\Application;
 use APP\core\Services;
+use APP\i18n\AppLocale;
 
-import('lib.pkp.classes.core.APIResponse');
-
+// FIXME: add namespaces
+use PKP\config\Config;
+use PKP\core\APIResponse;
+use PKP\plugins\HookRegistry;
 use Slim\App;
+
+use ValidatorFactory;
+
+AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
 
 class APIHandler extends PKPHandler
 {
@@ -407,7 +419,7 @@ class APIHandler extends PKPHandler
     protected function _validateStatDates($params, $dateStartParam = 'dateStart', $dateEndParam = 'dateEnd')
     {
         import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $params,
             [
                 $dateStartParam => [
@@ -450,4 +462,8 @@ class APIHandler extends PKPHandler
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\handler\APIHandler', '\APIHandler');
 }

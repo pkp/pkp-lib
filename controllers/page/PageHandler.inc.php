@@ -14,7 +14,7 @@
  *  usernav, and CSS.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 use APP\template\TemplateManager;
 

@@ -13,7 +13,8 @@
  * @brief Handle requests for reviewer functions.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
+
 import('lib.pkp.classes.submission.reviewer.ReviewerAction');
 
 use APP\template\TemplateManager;

@@ -13,7 +13,8 @@
  * @brief Handle requests for report generator functions.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
+
 import('classes.statistics.StatisticsHelper');
 
 use PKP\core\JSONMessage;

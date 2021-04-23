@@ -13,11 +13,11 @@
  * @brief Handle login/logout requests.
  */
 
+use APP\handler\Handler;
+
 use APP\template\TemplateManager;
 
 use PKP\mail\MailTemplate;
-
-import('classes.handler.Handler');
 
 class LoginHandler extends Handler
 {

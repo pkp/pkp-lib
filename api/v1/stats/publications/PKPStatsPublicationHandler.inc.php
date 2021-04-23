@@ -14,11 +14,13 @@
  *
  */
 
-import('lib.pkp.classes.handler.APIHandler');
+
 import('classes.statistics.StatisticsHelper');
-import('lib.pkp.classes.submission.PKPSubmission'); // import STATUS_ constants
 
 use APP\core\Services;
+use PKP\handler\APIHandler;
+
+use PKP\submission\PKPSubmission;
 
 abstract class PKPStatsPublicationHandler extends APIHandler
 {
@@ -656,7 +658,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $searchPhraseSubmissionIds = \Services::get('submission')->getIds([
             'contextId' => \Application::get()->getRequest()->getContext()->getId(),
             'searchPhrase' => $searchPhrase,
-            'status' => STATUS_PUBLISHED,
+            'status' => PKPSubmission::STATUS_PUBLISHED,
         ]);
 
         if (!empty($submissionIds)) {

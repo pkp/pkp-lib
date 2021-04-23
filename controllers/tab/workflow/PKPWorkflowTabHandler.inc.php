@@ -14,7 +14,7 @@
  */
 
 // Import the base Handler.
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');

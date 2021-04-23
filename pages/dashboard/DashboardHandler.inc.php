@@ -12,7 +12,7 @@
  * @brief Handle requests for user's dashboard.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');

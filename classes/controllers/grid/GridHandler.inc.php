@@ -36,9 +36,6 @@
  * AnnouncementTypeGridHandler.
  */
 
-// Import the base Handler.
-import('lib.pkp.classes.handler.PKPHandler');
-
 // Import action class.
 import('lib.pkp.classes.linkAction.LinkAction');
 
@@ -53,8 +50,9 @@ define('GRID_ACTION_POSITION_LASTCOL', 'lastcol');
 define('GRID_ACTION_POSITION_BELOW', 'below');
 
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+
+use PKP\handler\PKPHandler;
 
 class GridHandler extends PKPHandler
 {

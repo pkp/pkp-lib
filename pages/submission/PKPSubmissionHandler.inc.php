@@ -13,9 +13,9 @@
  * @brief Base handler for submission requests.
  */
 
-import('classes.handler.Handler');
-
 use APP\core\Services;
+
+use APP\handler\Handler;
 
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;

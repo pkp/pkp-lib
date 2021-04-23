@@ -11,7 +11,8 @@
  *
  * @brief Handle API requests to upload a file and receive a temporary file ID.
  */
-import('lib.pkp.classes.handler.APIHandler');
+
+use PKP\handler\APIHandler;
 
 class PKPTemporaryFilesHandler extends APIHandler
 {

@@ -137,6 +137,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             class_alias('\PKP\core\Registry', '\Registry');
             class_alias('\PKP\core\Core', '\Core');
             class_alias('\PKP\cache\CacheManager', '\CacheManager');
+            class_alias('\PKP\handler\PKPHandler', '\PKPHandler');
         }
 
         // If not in strict mode, globally expose constants on this class.

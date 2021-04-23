@@ -17,7 +17,7 @@
  * @brief Handle requests for profile tab operations.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 use PKP\core\JSONMessage;
 

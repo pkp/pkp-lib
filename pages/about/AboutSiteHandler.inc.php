@@ -13,7 +13,7 @@
  * @brief Handle requests for site-wide about functions.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 use APP\template\TemplateManager;
 

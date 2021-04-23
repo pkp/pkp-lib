@@ -13,9 +13,9 @@
  * @brief Handle requests for editors to make a decision
  */
 
-import('classes.handler.Handler');
-
+use APP\handler\Handler;
 use PKP\core\JSONMessage;
+
 use PKP\submission\SubmissionComment;
 
 class PKPEditorDecisionHandler extends Handler

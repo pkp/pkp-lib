@@ -13,7 +13,8 @@
  * @brief Handle requests for the submssion workflow.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
+
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 

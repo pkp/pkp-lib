@@ -17,7 +17,8 @@
  */
 
 // Import the base handler.
-import('classes.handler.Handler');
+use APP\handler\Handler;
+
 import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 
 use PKP\core\JSONMessage;

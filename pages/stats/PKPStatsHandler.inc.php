@@ -13,10 +13,11 @@
  * @brief Handle requests for statistics pages.
  */
 
-import('classes.handler.Handler');
+use APP\core\Request;
+
 import('classes.statistics.StatisticsHelper');
 
-use APP\core\Request;
+use APP\handler\Handler;
 use APP\template\TemplateManager;
 
 class PKPStatsHandler extends Handler

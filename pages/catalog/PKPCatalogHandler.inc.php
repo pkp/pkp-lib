@@ -13,12 +13,12 @@
  * @brief Handle requests for the public-facing catalog.
  */
 
-import('classes.handler.Handler');
+use APP\core\Services;
 
 // import UI base classes
 import('lib.pkp.classes.linkAction.LinkAction');
 
-use APP\core\Services;
+use APP\handler\Handler;
 use APP\template\TemplateManager;
 
 class PKPCatalogHandler extends Handler

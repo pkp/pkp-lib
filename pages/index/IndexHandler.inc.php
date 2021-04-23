@@ -13,6 +13,8 @@
  * @brief Handle site index requests.
  */
 
+use \APP\template\TemplateManager;
+
 import('lib.pkp.pages.index.PKPIndexHandler');
 
 class IndexHandler extends PKPIndexHandler
@@ -98,7 +100,7 @@ class IndexHandler extends PKPIndexHandler
                 'servers' => $serverDao->getAll(true),
                 'site' => $site,
             ]);
-            $templateMgr->setCacheability(CACHEABILITY_PUBLIC);
+            $templateMgr->setCacheability(TemplateManager::CACHEABILITY_PUBLIC);
             $templateMgr->display('frontend/pages/indexSite.tpl');
         }
     }

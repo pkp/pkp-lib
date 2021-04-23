@@ -13,6 +13,8 @@
  * @brief Handle site index requests.
  */
 
+use \APP\template\TemplateManager;
+
 import('classes.search.PreprintSearch');
 import('classes.handler.Handler');
 
@@ -145,7 +147,7 @@ class SearchHandler extends Handler
         // Prepare and display the search template.
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->setCacheability(CACHEABILITY_NO_STORE);
+        $templateMgr->setCacheability(TemplateManager::CACHEABILITY_NO_STORE);
 
         // Result set ordering options.
         $orderByOptions = $preprintSearch->getResultSetOrderingOptions($request);
@@ -314,7 +316,7 @@ class SearchHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $server = $request->getServer();
         if (!$server || !$server->getData('restrictSiteAccess')) {
-            $templateMgr->setCacheability(CACHEABILITY_PUBLIC);
+            $templateMgr->setCacheability(TemplateManager::CACHEABILITY_PUBLIC);
         }
     }
 }

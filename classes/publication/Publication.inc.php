@@ -14,14 +14,17 @@
  *
  * @brief Class for Publication.
  */
-import('lib.pkp.classes.publication.PKPPublication');
 
-define('PUBLICATION_RELATION_NONE', 1);
-define('PUBLICATION_RELATION_SUBMITTED', 2);
-define('PUBLICATION_RELATION_PUBLISHED', 3);
+namespace APP\publication;
+
+use \PKP\publication\PKPPublication;
 
 class Publication extends PKPPublication
 {
+    public const PUBLICATION_RELATION_NONE = 1;
+    public const PUBLICATION_RELATION_SUBMITTED = 2;
+    public const PUBLICATION_RELATION_PUBLISHED = 3;
+
     /**
      * Get the URL to a localized cover image
      *
@@ -45,5 +48,12 @@ class Publication extends PKPPublication
             $publicFileManager->getContextFilesPath($contextId),
             $coverImage['uploadName'],
         ]);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\publication\Publication', '\Publication');
+    foreach (['PUBLICATION_RELATION_NONE', 'PUBLICATION_RELATION_SUBMITTED', 'PUBLICATION_RELATION_PUBLISHED'] as $constantName) {
+        define($constantName, constant('\Publication::' . $constantName));
     }
 }

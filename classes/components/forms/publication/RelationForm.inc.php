@@ -14,9 +14,11 @@
 
 namespace APP\components\forms\publication;
 
-use PKP\components\forms\FieldOptions;
-use PKP\components\forms\FieldText;
-use PKP\components\forms\FormComponent;
+use \PKP\components\forms\FieldOptions;
+use \PKP\components\forms\FieldText;
+use \PKP\components\forms\FormComponent;
+
+use \APP\publication\Publication;
 
 define('FORM_ID_RELATION', 'relation');
 
@@ -52,7 +54,7 @@ class RelationForm extends FormComponent
                 'label' => __('publication.relation.vorDoi'),
                 'value' => $publication->getData('vorDoi'),
                 'size' => 'large',
-                'showWhen' => ['relationStatus', PUBLICATION_RELATION_PUBLISHED],
+                'showWhen' => ['relationStatus', Publication::PUBLICATION_RELATION_PUBLISHED],
             ]));
     }
 }

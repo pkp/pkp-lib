@@ -78,9 +78,9 @@
 	{/if}
 
 	{* Crossref requirements: The landing page must link to the AM/VOR when it is made available.*}
-	{if $publication->getData('relationStatus') == PUBLICATION_RELATION_SUBMITTED || $publication->getData('relationStatus') == PUBLICATION_RELATION_PUBLISHED}
+	{if $publication->getData('relationStatus') == \APP\publication\Publication::PUBLICATION_RELATION_SUBMITTED || $publication->getData('relationStatus') == \APP\publication\Publication::PUBLICATION_RELATION_PUBLISHED}
 		<div class="cmp_notification notice">
-			{if $publication->getData('relationStatus') == PUBLICATION_RELATION_PUBLISHED}
+			{if $publication->getData('relationStatus') == \APP\publication\Publication::PUBLICATION_RELATION_PUBLISHED}
 				{translate key="publication.relation.published"}
 				{if $publication->getData('vorDoi')}
 					<br />

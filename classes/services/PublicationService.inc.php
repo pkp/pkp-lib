@@ -15,13 +15,15 @@
 
 namespace APP\Services;
 
-use Application;
-use AppLocale;
-use DAORegistry;
-use HookRegistry;
-use PKP\Services\PKPPublicationService;
-use PluginRegistry;
-use Services;
+use \PKP\db\DAORegistry;
+use \PKP\plugins\HookRegistry;
+use \PKP\Services\PKPPublicationService;
+use \PKP\plugins\PluginRegistry;
+
+use \APP\core\Services;
+use \APP\i18n\AppLocale;
+use \APP\publication\Publication;
+use \APP\core\Application;
 
 class PublicationService extends PKPPublicationService
 {
@@ -399,15 +401,15 @@ class PublicationService extends PKPPublicationService
     {
         return [
             [
-                'value' => PUBLICATION_RELATION_NONE,
+                'value' => Publication::PUBLICATION_RELATION_NONE,
                 'label' => __('publication.relation.none')
             ],
             [
-                'value' => PUBLICATION_RELATION_SUBMITTED,
+                'value' => Publication::PUBLICATION_RELATION_SUBMITTED,
                 'label' => __('publication.relation.submitted')
             ],
             [
-                'value' => PUBLICATION_RELATION_PUBLISHED,
+                'value' => Publication::PUBLICATION_RELATION_PUBLISHED,
                 'label' => __('publication.relation.published')
             ]
         ];

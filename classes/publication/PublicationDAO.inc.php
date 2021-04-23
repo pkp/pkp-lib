@@ -14,7 +14,12 @@
  *
  * @brief Add OPS-specific functions for PKPPublicationDAO
  */
-import('lib.pkp.classes.publication.PKPPublicationDAO');
+
+namespace APP\publication;
+
+use \PKP\publication\PKPPublicationDAO;
+
+use \APP\core\Services;
 
 class PublicationDAO extends PKPPublicationDAO
 {
@@ -44,3 +49,8 @@ class PublicationDAO extends PKPPublicationDAO
         return $publication;
     }
 }
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\publication\PublicationDAO', '\PublicationDAO');
+}
+

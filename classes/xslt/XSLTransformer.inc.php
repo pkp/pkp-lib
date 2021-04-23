@@ -16,11 +16,11 @@
 namespace PKP\xslt;
 
 use DOMDocument;
-use FileManager;
 
-// FIXME: Add namespacing
+use FileManager;
 use PKP\config\Config;
 
+// FIXME: Add namespacing
 use XSLTProcessor;
 
 // The default character encoding

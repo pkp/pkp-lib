@@ -21,6 +21,8 @@ import('lib.pkp.classes.workflow.WorkflowStageDAO');
 import('lib.pkp.classes.linkAction.LinkAction');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
+use APP\template\TemplateManager;
+
 use PKP\services\PKPSchemaService;
 
 abstract class PKPWorkflowHandler extends Handler
@@ -412,7 +414,7 @@ abstract class PKPWorkflowHandler extends Handler
                 $submission->getShortAuthorString(),
                 $submission->getLocalizedTitle()
             ]),
-            'pageWidth' => PAGE_WIDTH_WIDE,
+            'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
             'requestedStageId' => $requestedStageId,
             'submission' => $submission,
             'workflowStages' => $workflowStages,

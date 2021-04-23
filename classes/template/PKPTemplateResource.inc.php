@@ -13,7 +13,11 @@
  * @brief Representation for a PKP template resource (template directory).
  */
 
-class PKPTemplateResource extends Smarty_Resource_Custom
+namespace PKP\template;
+
+use PKP\plugins\HookRegistry;
+
+class PKPTemplateResource extends \Smarty_Resource_Custom
 {
     /** @var array|string Template path or list of paths */
     protected $_templateDir;
@@ -82,4 +86,8 @@ class PKPTemplateResource extends Smarty_Resource_Custom
         HookRegistry::call('TemplateResource::getFilename', [&$filePath, $template]);
         return $filePath;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\template\PKPTemplateResource', '\PKPTemplateResource');
 }

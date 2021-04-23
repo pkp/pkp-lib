@@ -45,6 +45,7 @@
  */
 
 use APP\i18n\AppLocale;
+use APP\template\TemplateManager;
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');

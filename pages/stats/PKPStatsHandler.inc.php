@@ -17,6 +17,7 @@ import('classes.handler.Handler');
 import('classes.statistics.StatisticsHelper');
 
 use APP\core\Request;
+use APP\template\TemplateManager;
 
 class PKPStatsHandler extends Handler
 {
@@ -324,7 +325,7 @@ class PKPStatsHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'StatsPublicationsPage',
             'pageTitle' => __('stats.publicationStats'),
-            'pageWidth' => PAGE_WIDTH_WIDE,
+            'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
         ]);
 
         $templateMgr->display('stats/publications.tpl');

@@ -45,6 +45,7 @@ import('lib.pkp.classes.form.validation.FormValidatorISSN');
 import('lib.pkp.classes.form.validation.FormValidatorORCID');
 
 use APP\i18n\AppLocale;
+use APP\template\TemplateManager;
 
 class Form
 {
@@ -195,7 +196,7 @@ class Form
         }
 
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->setCacheability(CACHEABILITY_NO_STORE);
+        $templateMgr->setCacheability(TemplateManager::CACHEABILITY_NO_STORE);
 
 
         // Attach this form object to the Form Builder Vocabulary for validation to work

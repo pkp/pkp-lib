@@ -19,37 +19,55 @@
  * Currently integrated with Smarty (from http://smarty.php.net/).
  */
 
-/* This definition is required by Smarty */
-define('SMARTY_DIR', Core::getBaseDir() . '/lib/pkp/lib/vendor/smarty/smarty/libs/');
+namespace PKP\template;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
-define('CACHEABILITY_NO_CACHE', 'no-cache');
-define('CACHEABILITY_NO_STORE', 'no-store');
-define('CACHEABILITY_PUBLIC', 'public');
-define('CACHEABILITY_MUST_REVALIDATE', 'must-revalidate');
-define('CACHEABILITY_PROXY_REVALIDATE', 'proxy-revalidate');
-
-define('STYLE_SEQUENCE_CORE', 0);
-define('STYLE_SEQUENCE_NORMAL', 10);
-define('STYLE_SEQUENCE_LATE', 15);
-define('STYLE_SEQUENCE_LAST', 20);
-
-define('CSS_FILENAME_SUFFIX', 'css');
-
-define('PAGE_WIDTH_NARROW', 'narrow');
-define('PAGE_WIDTH_NORMAL', 'normal');
-define('PAGE_WIDTH_WIDE', 'wide');
-define('PAGE_WIDTH_FULL', 'full');
-
-import('lib.pkp.classes.template.PKPTemplateResource');
-
+use APP\core\Application;
 use APP\core\Services;
+use APP\i18n\AppLocale;
+use APP\template\TemplateManager;
+use FormBuilderVocabulary;
+use PKP\cache\CacheManager;
+use PKP\config\Config;
+use PKP\core\Core;
 use PKP\core\JSONMessage;
+
+use PKP\core\PKPApplication;
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
+
+// FIXME: Use namespacing
 use PKP\plugins\PluginRegistry;
+use PublicFileManager;
+use Smarty;
+
+use Validation;
+
+/* This definition is required by Smarty */
+define('SMARTY_DIR', Core::getBaseDir() . '/lib/pkp/lib/vendor/smarty/smarty/libs/');
 
 class PKPTemplateManager extends Smarty
 {
+    public const CACHEABILITY_NO_CACHE = 'no-cache';
+    public const CACHEABILITY_NO_STORE = 'no-store';
+    public const CACHEABILITY_PUBLIC = 'public';
+    public const CACHEABILITY_MUST_REVALIDATE = 'must-revalidate';
+    public const CACHEABILITY_PROXY_REVALIDATE = 'proxy-revalidate';
+
+    public const STYLE_SEQUENCE_CORE = 0;
+    public const STYLE_SEQUENCE_NORMAL = 10;
+    public const STYLE_SEQUENCE_LATE = 15;
+    public const STYLE_SEQUENCE_LAST = 20;
+
+    public const CSS_FILENAME_SUFFIX = 'css';
+
+    public const PAGE_WIDTH_NARROW = 'narrow';
+    public const PAGE_WIDTH_NORMAL = 'normal';
+    public const PAGE_WIDTH_WIDE = 'wide';
+    public const PAGE_WIDTH_FULL = 'full';
+
     /** @var array of URLs to stylesheets */
     private $_styleSheets = [];
 
@@ -93,7 +111,7 @@ class PKPTemplateManager extends Smarty
         $this->config_dir = $cachePath . DIRECTORY_SEPARATOR . 't_config';
         $this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
 
-        $this->_cacheability = CACHEABILITY_NO_STORE; // Safe default
+        $this->_cacheability = self::CACHEABILITY_NO_STORE; // Safe default
 
         // Register the template resources.
         $this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'templates'));
@@ -198,7 +216,7 @@ class PKPTemplateManager extends Smarty
                     $this->addStyleSheet(
                         'contextStylesheet',
                         $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getId()) . '/' . $contextStyleSheet['uploadName'] . '?d=' . urlencode($contextStyleSheet['dateUploaded']),
-                        ['priority' => STYLE_SEQUENCE_LATE]
+                        ['priority' => self::STYLE_SEQUENCE_LATE]
                     );
                 }
             }
@@ -373,7 +391,7 @@ class PKPTemplateManager extends Smarty
      *
      * @param $cacheability boolean optional
      */
-    public function setCacheability($cacheability = CACHEABILITY_PUBLIC)
+    public function setCacheability($cacheability = self::CACHEABILITY_PUBLIC)
     {
         $this->_cacheability = $cacheability;
     }
@@ -476,7 +494,7 @@ class PKPTemplateManager extends Smarty
     {
         $args = array_merge(
             [
-                'priority' => STYLE_SEQUENCE_NORMAL,
+                'priority' => self::STYLE_SEQUENCE_NORMAL,
                 'contexts' => ['frontend'],
                 'inline' => false,
             ],
@@ -510,7 +528,7 @@ class PKPTemplateManager extends Smarty
     {
         $args = array_merge(
             [
-                'priority' => STYLE_SEQUENCE_NORMAL,
+                'priority' => self::STYLE_SEQUENCE_NORMAL,
                 'contexts' => ['frontend'],
                 'inline' => false,
             ],
@@ -541,7 +559,7 @@ class PKPTemplateManager extends Smarty
     {
         $args = array_merge(
             [
-                'priority' => STYLE_SEQUENCE_NORMAL,
+                'priority' => self::STYLE_SEQUENCE_NORMAL,
                 'contexts' => ['frontend'],
             ],
             $args
@@ -613,7 +631,7 @@ class PKPTemplateManager extends Smarty
 
         // Common $args array used for all our core JS files
         $args = [
-            'priority' => STYLE_SEQUENCE_CORE,
+            'priority' => self::STYLE_SEQUENCE_CORE,
             'contexts' => 'backend',
         ];
 
@@ -653,7 +671,7 @@ class PKPTemplateManager extends Smarty
             'pkpApp',
             $baseUrl . '/js/build.js',
             [
-                'priority' => STYLE_SEQUENCE_LATE,
+                'priority' => self::STYLE_SEQUENCE_LATE,
                 'contexts' => ['backend']
             ]
         );
@@ -664,7 +682,7 @@ class PKPTemplateManager extends Smarty
                 'pkpLib',
                 $baseUrl . '/js/pkp.min.js',
                 [
-                    'priority' => STYLE_SEQUENCE_CORE,
+                    'priority' => self::STYLE_SEQUENCE_CORE,
                     'contexts' => ['backend']
                 ]
             );
@@ -742,7 +760,7 @@ class PKPTemplateManager extends Smarty
             'pkpLibData',
             $output,
             [
-                'priority' => STYLE_SEQUENCE_CORE,
+                'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',
                 'inline' => true,
             ]
@@ -840,7 +858,7 @@ class PKPTemplateManager extends Smarty
             'jquery',
             $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js',
             [
-                'priority' => STYLE_SEQUENCE_CORE,
+                'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',
             ]
         );
@@ -848,7 +866,7 @@ class PKPTemplateManager extends Smarty
             'jqueryUI',
             $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js',
             [
-                'priority' => STYLE_SEQUENCE_CORE,
+                'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',
             ]
         );
@@ -862,7 +880,7 @@ class PKPTemplateManager extends Smarty
             'fontAwesome',
             $request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css',
             [
-                'priority' => STYLE_SEQUENCE_CORE,
+                'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',
             ]
         );
@@ -872,7 +890,7 @@ class PKPTemplateManager extends Smarty
             'build',
             $request->getBaseUrl() . '/styles/build.css',
             [
-                'priority' => STYLE_SEQUENCE_CORE,
+                'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',
             ]
         );
@@ -882,7 +900,7 @@ class PKPTemplateManager extends Smarty
             'pkpLib',
             $dispatcher->url($request, PKPApplication::ROUTE_COMPONENT, null, 'page.PageHandler', 'css'),
             [
-                'priority' => STYLE_SEQUENCE_CORE,
+                'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',
             ]
         );
@@ -1205,7 +1223,7 @@ class PKPTemplateManager extends Smarty
             'pkpAppData',
             $output,
             [
-                'priority' => STYLE_SEQUENCE_LATE,
+                'priority' => self::STYLE_SEQUENCE_LATE,
                 'contexts' => ['backend'],
                 'inline' => true,
             ]
@@ -1255,7 +1273,7 @@ class PKPTemplateManager extends Smarty
     {
         $cacheDirectory = CacheManager::getFileCachePath();
         $files = scandir($cacheDirectory);
-        array_map('unlink', glob(CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . '*.' . CSS_FILENAME_SUFFIX));
+        array_map('unlink', glob(CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . '*.' . self::CSS_FILENAME_SUFFIX));
     }
 
     /**
@@ -2451,5 +2469,17 @@ class PKPTemplateManager extends Smarty
             trigger_error('Deprecated call to Smarty2 function ' . __FUNCTION__);
         }
         $this->registerPlugin('function', $name, $impl, $cacheable, $cache_attrs);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\template\PKPTemplateManager', '\PKPTemplateManager');
+    foreach ([
+        'CACHEABILITY_NO_CACHE', 'CACHEABILITY_NO_STORE', 'CACHEABILITY_PUBLIC', 'CACHEABILITY_MUST_REVALIDATE', 'CACHEABILITY_PROXY_REVALIDATE',
+        'STYLE_SEQUENCE_CORE', 'STYLE_SEQUENCE_NORMAL', 'STYLE_SEQUENCE_LATE', 'STYLE_SEQUENCE_LAST',
+        'CSS_FILENAME_SUFFIX',
+        'PAGE_WIDTH_NARROW', 'PAGE_WIDTH_NORMAL', 'PAGE_WIDTH_WIDE', 'PAGE_WIDTH_FULL',
+    ] as $constantName) {
+        define($constantName, constant('\PKPTemplateManager::' . $constantName));
     }
 }

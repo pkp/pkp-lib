@@ -15,6 +15,8 @@
 
 import('classes.handler.Handler');
 
+use APP\template\TemplateManager;
+
 class AboutContextHandler extends Handler
 {
     /**
@@ -34,7 +36,7 @@ class AboutContextHandler extends Handler
         $context = $request->getContext();
         if (!$context || !$context->getData('restrictSiteAccess')) {
             $templateMgr = TemplateManager::getManager($request);
-            $templateMgr->setCacheability(CACHEABILITY_PUBLIC);
+            $templateMgr->setCacheability(TemplateManager::CACHEABILITY_PUBLIC);
         }
 
         import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');

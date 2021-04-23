@@ -296,7 +296,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *   `context` string Whether to load this on the `frontend` or `backend`.
      *      default: frontend
      *   `priority` int Controls order in which scripts are printed
-     *      default: STYLE_SEQUENCE_NORMAL
+     *      default: TemplateManager::STYLE_SEQUENCE_NORMAL
      *   `inline` bool Whether the $script value should be output directly as
      *      script data. Used to pass backend data to the scripts.
      */

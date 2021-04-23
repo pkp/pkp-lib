@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-22 09:32+0000\n"
+"PO-Revision-Date: 2021-04-23 10:47+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ka_GE/>\n"
@@ -454,3 +454,295 @@ msgstr "ფაილის ავტორი (ან მფლობელი)"
 
 msgid "submission.supplementary.publisher"
 msgstr "გამომცემელი"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "CrossRef რეგისტრაციის ელფოსტა"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"გთხოვთ, შეიყვანოთ სწორი CrossRef სარეგისტრაციო ელწერილი. თქვენი ელფოსტის "
+"რეგისტრაცია შეგიძლიათ უფასოდ CrossRef ვებსაიტზე."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API გასაღები"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"გთხოვთ, შეიყვანოთ თქვენი ISBNdb API გასაღები. თუ ჯერ არ გაქვთ გასაღები, "
+"შეგიძლიათ უფასოდ მოითხოვოთ იგი ISBNdb პროექტიდან."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed რეგისტრაციის ელფოსტა"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "გთხოვთ, შეიყვანოთ PubMed რეგისტრაციის სწორი ელწერილი, თუ გაქვთ."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API გასაღები"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "გთხოვთ, შეიყვანოთ მოქმედი WorldCat API გასაღები, თუ გაქვთ."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "ციტირების მოდული"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "გთხოვთ, აირჩიოთ ციტირების მოცემული მოდულებიდან ერთი."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "ნუ გამოიყენებთ სტანდარტულად (კვლავ ხელმისაწვდომი იქნება რედაქტორისთვის)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"შიდა შეცდომა. არასწორი მნიშვნელობა გამოქვეყნდა \"არასავალდებულო ფილტრის\" "
+"პარამეტრისთვის. გთხოვთ, შეატყობინოთ ამის შესახებ როგორც შეცდომას."
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"საუკეთესო შედეგის მისაღწევად, ავტორები უნდა შევიდნენ შემდეგ ფორმატში: "
+"Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "სტატიის/ნაშრომის სათაური"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "გთხოვთ, შეიყვანოთ სწორი სტატიის/ქაღალდის სათაური."
+
+msgid "metadata.property.displayName.source"
+msgstr "პუბლიკაციის სათაური"
+
+msgid "metadata.property.displayName.access-date"
+msgstr "წვდომის თარიღი"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "გთხოვთ, მიუთითოთ წვდომის სწორი თარიღი (ფორმატი: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.season"
+msgstr "სეზონი"
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "თავის სათაური"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "გთხოვთ, შეიყვანოთ სწორი თვლის სათაური."
+
+msgid "metadata.property.displayName.series"
+msgstr "სერია"
+
+msgid "metadata.property.displayName.supplement"
+msgstr "დანამატი"
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "კონფერენციის თარიღი"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "გთხოვთ, მიუთითოთ კონფერენციის სწორი თარიღი (ფორმატი: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "კონფერენციის მდებარეობა"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "გთხოვთ, შეიყვანოთ კონფერენციის სწორი ადგილმდებარეობა."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "კონფერენციის სახელი"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "გთხოვთ, შეიყვანოთ კონფერენციის სწორი სახელი."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "კონფერენციის სპონსორი"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "ბოლო გვერდი"
+
+msgid "metadata.property.displayName.size"
+msgstr "გვერდების რაოდენობა"
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "გამომცემლის სახელი"
+
+msgid "metadata.property.displayName.isbn"
+msgstr "{$submissionId}"
+
+msgid "metadata.property.displayName.eissn"
+msgstr "{$submissionId}"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "მორგებული პუბლიკაციის იდენტიფიკატორი"
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "გთხოვთ, შეიყვანოთ სწორი CODEN."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.displayName.uri"
+msgstr "პუბლიკაციის ბმული"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "გთხოვთ, შეიყვანოთ სწორი კომენტარი."
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "გთხოვთ, შეიყვანოთ სწორი ანოტაცია."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "გამოქვეყნების თარიღი"
+
+msgid "metadata.property.displayName.title-type"
+msgstr "სათაურის ტიპი"
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "სათაურის ნაწილი უგულებელყოფილია დახარისხების დროს"
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "ნაწილის ნომერი"
+
+msgid "metadata.property.displayName.partName"
+msgstr "ნაწილის სახელი"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "სახელის ტიპი"
+
+msgid "grid.action.openNoteForm"
+msgstr "დაამატეთ ახალი პასუხი დისკუსიას"
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "მოითხოვნილია შესწორებები."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "შესწორებები შევიდა."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "წარდგენა ხელახლა უნდა გაიგზავნოს განხილვის სხვა რაუნდისთვის."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "წარდგენა ხელახლა გაიგზავნა განხილვის სხვა რაუნდისთვის."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "გაგზავნილია გარე განხილვისთვის."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "ელოდება რეცენზენტების დანიშვნას."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "ელოდება მიმოხილვების პასუხებს."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "გაგზავნილია ახალი მიმოხილვები."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "ყველა მიმომხილველმა უპასუხა და გადაწყვეტილება საჭიროა {$stage}-ზე."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "განხილვა დაგვიანებულია."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "რედაქტორებისგან რეკომენდაციების მოლოდინში."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "წარმოდგენილია ახალი სარედაქციო რეკომენდაციები."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "ყველა რეკომენდაცია შედის და საჭიროა გადაწყვეტილების მიღება."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Მონაწილეები"
+
+msgid "editor.submission.noneAssigned"
+msgstr "არცერთი არ არის მინიჭებული"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "დავალების ჩასწორება"
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "მონაწილის ამოღება"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "თქვენ აპირებთ ამ მონაწილის ამოღებას <strong>ყველა</strong> ეტაპიდან."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "მეტამონაცემების ჩასწორების აკრძალვა"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ ამ წარდგენის ავტორებმა ვერ შეცვალონ გაგზავნის "
+"მეტამონაცემები?"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "წარმოებაში გაგზავნა"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "მიიღეთ და გამოტოვეთ მიმოხილვა"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "გაგზავნეთ შიდა მიმოხილვაზე"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "გააკეთეთ რეკომენდაცია"
+
+msgid "editor.submission.recommendation.display"
+msgstr "რეკომენდაცია: {$recommendation}"
+
+msgid "editor.submission.recommendation.description"
+msgstr "გირჩევთ სარედაქციო გადაწყვეტილებას ამ წარდგინებისთვის."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "დაფიქსირებული რეკომენდაციები"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "შეარჩიეთ ფაილები, რომელთა გადაგზავნა გსურთ ეტაპზე {$stageName}."
+
+msgid "grid.reviewAttachments.title"
+msgstr "რეცენზენტის დანართები"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "შეარჩიეთ განხილვის ფაილები ავტორ(ებ)თან გასაზიარებლად"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName}-ს მიენიჭა მიმოხილვისთვის{$submissionId} {$round} წარდგენის "
+"განხილვა."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"{$round} მიმოხილვა {$reviewerName}-ის მიერ {$submissionId} წარსადგენად "
+"გაიწმინდა."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName}-მა მონიშნა რაუნდი {$round} მიმოხილვა წარდგენისთვის "
+"{$submissionId}, როგორც მიუღებელი."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"რაუნდი {$round} მიმოხილვა {$reviewerName}-ის მიერ {$submissionId} "
+"წარსადგენად ხელახლა დაიწყო."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"რედაქტორმა {$userName} დაადასტურა მიმოხილვა მიმოხილვაზე მრგვალი {$round} "
+"მიმოხილვა წარდგენისთვის {$submissionId}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName}-მა დაასრულა მიმოხილვა {$round} მიმოხილვის წარსადგენად "
+"{$submissionId}."
+
+msgid "grid.action.itemWorkflow"
+msgstr "გადადით ამ წარდგენის სამუშაო პროცესზე"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "ახალი მიმოხილვის ფორმის შექმნა"
+
+msgid "grid.action.editMetadata"
+msgstr "მეტა-მონაცემების ჩასწორება"

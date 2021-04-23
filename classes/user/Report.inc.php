@@ -16,7 +16,7 @@
  * @brief Generates a CSV report with basic user information given a list of users and an output stream.
  */
 
-namespace PKP\User;
+namespace PKP\user;
 
 class Report
 {

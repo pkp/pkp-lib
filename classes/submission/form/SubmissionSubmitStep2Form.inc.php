@@ -13,6 +13,8 @@
  * @brief Form for Step 2 of author manuscript submission.
  */
 
+use \APP\template\TemplateManager;
+
 import('lib.pkp.classes.submission.form.PKPSubmissionSubmitStep2Form');
 
 class SubmissionSubmitStep2Form extends PKPSubmissionSubmitStep2Form

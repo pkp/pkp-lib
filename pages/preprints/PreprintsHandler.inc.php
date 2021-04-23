@@ -13,6 +13,8 @@
  * @brief Handle requests for preprints archive functions.
  */
 
+use \APP\template\TemplateManager;
+
 import('classes.handler.Handler');
 
 class PreprintsHandler extends Handler

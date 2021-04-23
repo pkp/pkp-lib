@@ -23,6 +23,7 @@ use \PKP\core\PKPApplication;
 
 use \APP\core\Application;
 use \APP\i18n\AppLocale;
+use \APP\template\TemplateManager;
 
 // FIXME: Add namespacing
 use \PublicFileManager;

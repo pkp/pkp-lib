@@ -13,6 +13,8 @@
  * @brief Form for Step 3 of author submission.
  */
 
+use \APP\template\TemplateManager;
+
 import('lib.pkp.classes.submission.form.PKPSubmissionSubmitStep3Form');
 import('classes.submission.SubmissionMetadataFormImplementation');
 

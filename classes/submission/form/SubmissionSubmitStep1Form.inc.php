@@ -13,6 +13,8 @@
  * @brief Form for Step 1 of author submission.
  */
 
+use \APP\template\TemplateManager;
+
 import('lib.pkp.classes.submission.form.PKPSubmissionSubmitStep1Form');
 
 class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form

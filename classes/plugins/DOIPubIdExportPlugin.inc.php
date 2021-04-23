@@ -13,6 +13,8 @@
  * @brief Basis class for DOI XML metadata export plugins
  */
 
+use \APP\template\TemplateManager;
+
 import('classes.plugins.PubObjectsExportPlugin');
 
 // Configuration errors.

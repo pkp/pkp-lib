@@ -13,6 +13,8 @@
  * @brief Basis class for XML metadata export plugins
  */
 
+use \APP\template\TemplateManager;
+
 import('lib.pkp.classes.plugins.ImportExportPlugin');
 
 // The statuses.

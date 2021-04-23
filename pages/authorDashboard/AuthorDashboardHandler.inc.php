@@ -16,6 +16,8 @@
 // Import base class
 import('lib.pkp.pages.authorDashboard.PKPAuthorDashboardHandler');
 
+use \APP\template\TemplateManager;
+
 class AuthorDashboardHandler extends PKPAuthorDashboardHandler
 {
     /**

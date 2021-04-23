@@ -15,6 +15,8 @@
 
 namespace APP\Services;
 
+use \APP\template\TemplateManager;
+
 /** types for all ops default navigationMenuItems */
 define('NMI_TYPE_ARCHIVES', 'NMI_TYPE_ARCHIVES');
 

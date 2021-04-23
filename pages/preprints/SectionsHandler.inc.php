@@ -14,6 +14,8 @@
  *
  */
 
+use \APP\template\TemplateManager;
+
 import('classes.handler.Handler');
 
 class SectionsHandler extends Handler

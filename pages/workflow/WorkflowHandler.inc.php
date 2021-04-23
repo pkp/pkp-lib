@@ -13,6 +13,8 @@
  * @brief Handle requests for the submssion workflow.
  */
 
+use \APP\template\TemplateManager;
+
 import('lib.pkp.pages.workflow.PKPWorkflowHandler');
 
 // Access decision actions constants.

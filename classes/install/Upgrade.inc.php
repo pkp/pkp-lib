@@ -13,6 +13,8 @@
  * @brief Perform system upgrade.
  */
 
+use \APP\template\TemplateManager;
+
 import('lib.pkp.classes.install.Installer');
 
 class Upgrade extends Installer

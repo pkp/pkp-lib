@@ -13,6 +13,8 @@
  * @brief Counter report plugin
  */
 
+use \APP\template\TemplateManager;
+
 define('OPS_METRIC_TYPE_LEGACY_COUNTER', 'ops::legacyCounterPlugin');
 
 define('COUNTER_CLASS_SUFFIX', '.inc.php');

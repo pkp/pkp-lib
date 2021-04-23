@@ -14,6 +14,9 @@
  * @brief Class for Note.
  */
 
+namespace PKP\note;
+
+use PKP\db\DAORegistry;
 
 class Note extends \PKP\core\DataObject
 {
@@ -167,4 +170,8 @@ class Note extends \PKP\core\DataObject
     {
         $this->setData('assocId', $assocId);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\note\Note', '\Note');
 }

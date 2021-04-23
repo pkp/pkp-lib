@@ -15,7 +15,10 @@
  * @brief Class for Query.
  */
 
-import('lib.pkp.classes.note.NoteDAO'); // Constants
+namespace PKP\query;
+
+use PKP\db\DAORegistry;
+use PKP\note\NoteDAO;
 
 class Query extends \PKP\core\DataObject
 {
@@ -126,7 +129,7 @@ class Query extends \PKP\core\DataObject
      */
     public function getHeadNote()
     {
-        $notes = $this->getReplies(null, NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC, true);
+        $notes = $this->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC, true);
         return $notes->next();
     }
 
@@ -134,15 +137,19 @@ class Query extends \PKP\core\DataObject
      * Get all notes on a query.
      *
      * @param $userId int Optional user ID
-     * @param $sortBy int Optional NOTE_ORDER_...
+     * @param $sortBy int Optional NoteDAO::NOTE_ORDER_...
      * @param $sortOrder int Optional SORT_DIRECTION_...
      * @param $isAdmin bool Optional user sees all
      *
      * @return DAOResultFactory
      */
-    public function getReplies($userId = null, $sortBy = NOTE_ORDER_ID, $sortOrder = SORT_DIRECTION_ASC, $isAdmin = false)
+    public function getReplies($userId = null, $sortBy = NoteDAO::NOTE_ORDER_ID, $sortOrder = SORT_DIRECTION_ASC, $isAdmin = false)
     {
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
         return $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder, $isAdmin);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\query\Query', '\Query');
 }

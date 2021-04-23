@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
+use PKP\note\NoteDAO;
+
 class QueriesGridCellProvider extends DataObjectGridCellProvider
 {
     /** @var Submission **/
@@ -61,7 +63,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
 
         $headNote = $element->getHeadNote();
         $user = $headNote ? $headNote->getUser() : null;
-        $notes = $element->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
+        $notes = $element->getReplies(null, NoteDAO::NOTE_ORDER_ID, SORT_DIRECTION_DESC);
         $context = \Application::get()->getRequest()->getContext();
         $datetimeFormatShort = $context->getLocalizedDateTimeFormatShort();
 

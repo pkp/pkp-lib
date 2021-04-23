@@ -15,13 +15,17 @@
  * @brief Operations for retrieving and modifying Note objects.
  */
 
-import('lib.pkp.classes.note.Note');
+namespace PKP\note;
 
-define('NOTE_ORDER_DATE_CREATED', 0x0001);
-define('NOTE_ORDER_ID', 0x0002);
+use PKP\core\Core;
+use PKP\db\DAOResultFactory;
+use PKP\plugins\HookRegistry;
 
 class NoteDAO extends \PKP\db\DAO
 {
+    public const NOTE_ORDER_DATE_CREATED = 1;
+    public const NOTE_ORDER_ID = 2;
+
     /**
      * Create a new data object
      *
@@ -74,12 +78,12 @@ class NoteDAO extends \PKP\db\DAO
      * @param $assocId int ASSOC_TYPE_...
      * @param $assocType int Assoc ID (per $assocType)
      * @param $userId int Optional user ID
-     * @param $orderBy int Optional sorting field constant: NOTE_ORDER_...
+     * @param $orderBy int Optional sorting field constant: self::NOTE_ORDER_...
      * @param $sortDirection int Optional sorting order constant: SORT_DIRECTION_...
      *
      * @return object DAOResultFactory containing matching Note objects
      */
-    public function getByAssoc($assocType, $assocId, $userId = null, $orderBy = NOTE_ORDER_DATE_CREATED, $sortDirection = SORT_DIRECTION_DESC, $isAdmin = false)
+    public function getByAssoc($assocType, $assocId, $userId = null, $orderBy = self::NOTE_ORDER_DATE_CREATED, $sortDirection = SORT_DIRECTION_DESC, $isAdmin = false)
     {
         $params = [(int) $assocId, (int) $assocType];
         if ($userId) {
@@ -88,10 +92,10 @@ class NoteDAO extends \PKP\db\DAO
 
         // Sanitize sort ordering
         switch ($orderBy) {
-            case NOTE_ORDER_ID:
+            case self::NOTE_ORDER_ID:
                 $orderSanitized = 'note_id';
                 break;
-            case NOTE_ORDER_DATE_CREATED:
+            case self::NOTE_ORDER_DATE_CREATED:
             default:
                 $orderSanitized = 'date_created';
         }
@@ -319,4 +323,10 @@ class NoteDAO extends \PKP\db\DAO
     {
         return $this->_getInsertId('notes', 'note_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\note\NoteDAO', '\NoteDAO');
+    define('NOTE_ORDER_DATE_CREATED', \NoteDAO::NOTE_ORDER_DATE_CREATED);
+    define('NOTE_ORDER_ID', \NoteDAO::NOTE_ORDER_ID);
 }

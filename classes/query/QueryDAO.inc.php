@@ -15,8 +15,11 @@
  * @brief Operations for retrieving and modifying Query objects.
  */
 
+namespace PKP\query;
 
-import('lib.pkp.classes.query.Query');
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
+use PKP\plugins\HookRegistry;
 
 class QueryDAO extends \PKP\db\DAO
 {
@@ -331,4 +334,8 @@ class QueryDAO extends \PKP\db\DAO
             $this->deleteObject($query);
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\query\QueryDAO', '\QueryDAO');
 }

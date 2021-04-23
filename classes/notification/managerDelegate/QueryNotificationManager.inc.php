@@ -14,7 +14,10 @@
  */
 
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
+
 use APP\core\Services;
+
+use PKP\note\NoteDAO;
 
 class QueryNotificationManager extends NotificationManagerDelegate
 {
@@ -65,7 +68,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                     'noteTitle' => substr($headNote->getTitle(), 0, 200),
                 ]);
             case NOTIFICATION_TYPE_QUERY_ACTIVITY:
-                $notes = $query->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
+                $notes = $query->getReplies(null, NoteDAO::NOTE_ORDER_ID, SORT_DIRECTION_DESC);
                 $latestNote = $notes->next();
                 $user = $latestNote->getUser();
                 return __('submission.query.activity', [

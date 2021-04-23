@@ -21,6 +21,7 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 use PKP\core\JSONMessage;
+use PKP\note\NoteDAO;
 
 class QueryNotesGridHandler extends GridHandler
 {
@@ -172,7 +173,7 @@ class QueryNotesGridHandler extends GridHandler
      */
     public function loadData($request, $filter = null)
     {
-        return $this->getQuery()->getReplies(null, NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC, $this->getCanManage(null));
+        return $this->getQuery()->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC, $this->getCanManage(null));
     }
 
     //

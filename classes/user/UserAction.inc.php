@@ -15,8 +15,14 @@
  * @brief UserAction class.
  */
 
-import('lib.pkp.classes.user.PKPUserAction');
+namespace APP\user;
+
+use \PKP\user\PKPUserAction;
 
 class UserAction extends PKPUserAction
 {
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\user\UserAction', '\UserAction');
 }

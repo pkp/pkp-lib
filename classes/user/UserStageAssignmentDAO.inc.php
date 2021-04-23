@@ -18,8 +18,9 @@
 namespace PKP\user;
 
 use APP\core\Application;
-use PKP\db\DAOResultFactory;
+use APP\i18n\AppLocale;
 
+use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
 
 class UserStageAssignmentDAO extends UserDAO

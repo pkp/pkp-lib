@@ -24,7 +24,7 @@ use PKP\Services\interfaces\EntityReadInterface;
 use PKP\services\PKPSchemaService;
 
 use PKP\Services\QueryBuilders\PKPUserQueryBuilder;
-use PKP\User\Report;
+use PKP\user\Report;
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface
 {
@@ -407,11 +407,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
                 case 'interests':
                     $values[$prop] = [];
                     if ($context) {
-                        import('lib.pkp.classes.user.InterestDAO');
                         $interestDao = DAORegistry::getDAO('InterestDAO'); /** @var InterestDAO $interestDao */
                         $interestEntryIds = $interestDao->getUserInterestIds($user->getId());
                         if (!empty($interestEntryIds)) {
-                            import('lib.pkp.classes.user.InterestEntryDAO');
                             $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /** @var InterestEntryDAO $interestEntryDao */
                             $results = $interestEntryDao->getByIds($interestEntryIds);
                             $values[$prop] = [];

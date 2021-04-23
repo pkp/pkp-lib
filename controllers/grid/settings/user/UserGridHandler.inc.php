@@ -19,8 +19,11 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.settings.user.UserGridRow');
 import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 
+use APP\user\UserAction;
 use PKP\core\JSONMessage;
 use PKP\identity\Identity;
+
+use PKP\user\UserDAO;
 
 class UserGridHandler extends GridHandler
 {
@@ -206,13 +209,12 @@ class UserGridHandler extends GridHandler
             $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
         }
 
-        // Import UserDAO to define the USER_FIELD_* constants.
-        import('lib.pkp.classes.user.UserDAO');
+        // Import UserDAO to define the UserDAO::USER_FIELD_* constants.
         $fieldOptions = [
             Identity::IDENTITY_SETTING_GIVENNAME => 'user.givenName',
             Identity::IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
-            USER_FIELD_USERNAME => 'user.username',
-            USER_FIELD_EMAIL => 'user.email'
+            UserDAO::USER_FIELD_USERNAME => 'user.username',
+            UserDAO::USER_FIELD_EMAIL => 'user.email'
         ];
 
         $matchOptions = [
@@ -607,7 +609,6 @@ class UserGridHandler extends GridHandler
             if (!$request->checkCSRF()) {
                 return new JSONMessage(false);
             }
-            import('classes.user.UserAction');
             $userAction = new UserAction();
             $userAction->mergeUsers($oldUserId, $newUserId);
             $json = new JSONMessage(true);

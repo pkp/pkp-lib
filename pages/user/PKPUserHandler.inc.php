@@ -16,6 +16,7 @@
 import('classes.handler.Handler');
 
 use PKP\core\JSONMessage;
+use PKP\user\InterestManager;
 
 class PKPUserHandler extends Handler
 {
@@ -69,7 +70,6 @@ class PKPUserHandler extends Handler
      */
     public function getInterests($args, $request)
     {
-        import('lib.pkp.classes.user.InterestManager');
         return new JSONMessage(
             true,
             (new InterestManager())->getAllInterests($request->getUserVar('term'))

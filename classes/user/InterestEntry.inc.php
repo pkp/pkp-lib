@@ -15,6 +15,8 @@
  * @brief Basic class describing a reviewer interest
  */
 
+namespace PKP\user;
+
 class InterestEntry extends \PKP\controlledVocab\ControlledVocabEntry
 {
     //
@@ -40,4 +42,8 @@ class InterestEntry extends \PKP\controlledVocab\ControlledVocabEntry
     {
         $this->setData('interest', $interest);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\InterestEntry', '\InterestEntry');
 }

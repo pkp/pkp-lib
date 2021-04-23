@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
 
+use PKP\user\InterestManager;
+
 class RolesForm extends BaseProfileForm
 {
     /**
@@ -61,7 +63,6 @@ class RolesForm extends BaseProfileForm
      */
     public function initData()
     {
-        import('lib.pkp.classes.user.InterestManager');
         $interestManager = new InterestManager();
 
         $user = $this->getUser();
@@ -100,7 +101,6 @@ class RolesForm extends BaseProfileForm
         $userFormHelper->saveRoleContent($this, $user);
 
         // Insert the user interests
-        import('lib.pkp.classes.user.InterestManager');
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $this->getData('interests'));
 

@@ -15,21 +15,27 @@
  * @brief Operations for retrieving and modifying User objects.
  */
 
+namespace PKP\user;
+
+use APP\core\Application;
+use APP\i18n\AppLocale;
+use PKP\core\Core;
+use PKP\db\DAOResultFactory;
+
 use PKP\identity\Identity;
-
-import('lib.pkp.classes.user.User');
-
-/* These constants are used user-selectable search fields. */
-define('USER_FIELD_USERID', 'user_id');
-define('USER_FIELD_USERNAME', 'username');
-define('USER_FIELD_EMAIL', 'email');
-define('USER_FIELD_URL', 'url');
-define('USER_FIELD_INTERESTS', 'interests');
-define('USER_FIELD_AFFILIATION', 'affiliation');
-define('USER_FIELD_NONE', null);
+use PKP\plugins\HookRegistry;
 
 class UserDAO extends \PKP\db\DAO
 {
+    /* These constants are used user-selectable search fields. */
+    public const USER_FIELD_USERID = 'user_id';
+    public const USER_FIELD_USERNAME = 'username';
+    public const USER_FIELD_EMAIL = 'email';
+    public const USER_FIELD_URL = 'url';
+    public const USER_FIELD_INTERESTS = 'interests';
+    public const USER_FIELD_AFFILIATION = 'affiliation';
+    public const USER_FIELD_NONE = null;
+
     /**
      * Construct a new User object.
      *
@@ -718,5 +724,20 @@ class UserDAO extends \PKP\db\DAO
     public function getOrderBy()
     {
         return 'ORDER BY user_family, user_given';
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\UserDAO', '\UserDAO');
+    foreach ([
+        'USER_FIELD_USERID',
+        'USER_FIELD_USERNAME',
+        'USER_FIELD_EMAIL',
+        'USER_FIELD_URL',
+        'USER_FIELD_INTERESTS',
+        'USER_FIELD_AFFILIATION',
+        'USER_FIELD_NONE',
+    ] as $constantName) {
+        define($constantName, constant('\UserDAO::' . $constantName));
     }
 }

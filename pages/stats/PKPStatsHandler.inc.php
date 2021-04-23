@@ -16,6 +16,8 @@
 import('classes.handler.Handler');
 import('classes.statistics.StatisticsHelper');
 
+use APP\core\Request;
+
 class PKPStatsHandler extends Handler
 {
     /** @copydoc PKPHandler::_isBackendPage */
@@ -331,9 +333,8 @@ class PKPStatsHandler extends Handler
     /**
      * Display users stats
      *
-     * @param Request $request
      */
-    public function users(array $args, \Request $request): void
+    public function users(array $args, Request $request): void
     {
         $dispatcher = $request->getDispatcher();
         $context = $request->getContext();

@@ -13,6 +13,8 @@
  * @brief Base class that converts a set of users to a User XML document
  */
 
+use PKP\user\InterestManager;
+
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
 class PKPUserUserXmlFilter extends NativeExportFilter
@@ -147,7 +149,6 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         }
 
         // Add Reviewing Interests, if any.
-        import('lib.pkp.classes.user.InterestManager');
         $interestManager = new InterestManager();
         $interests = $interestManager->getInterestsString($user);
         $this->createOptionalNode($doc, $userNode, 'review_interests', $interests);

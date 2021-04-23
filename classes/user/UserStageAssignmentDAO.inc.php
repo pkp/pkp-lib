@@ -15,9 +15,12 @@
  * @brief Operations for users as related to their stage assignments
  */
 
-use PKP\identity\Identity;
+namespace PKP\user;
 
-import('lib.pkp.classes.user.UserDAO');
+use APP\core\Application;
+use PKP\db\DAOResultFactory;
+
+use PKP\identity\Identity;
 
 class UserStageAssignmentDAO extends UserDAO
 {
@@ -150,4 +153,8 @@ class UserStageAssignmentDAO extends UserDAO
         );
         return new DAOResultFactory($result, $this, '_returnUserFromRowWithData', [], $sql, $params, $rangeInfo);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\UserStageAssignmentDAO', '\UserStageAssignmentDAO');
 }

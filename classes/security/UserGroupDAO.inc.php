@@ -17,6 +17,7 @@
 
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
+use PKP\user\UserDAO;
 
 import('lib.pkp.classes.security.UserGroup');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
@@ -913,9 +914,9 @@ class UserGroupDAO extends DAO
         $searchTypeMap = [
             Identity::IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
             Identity::IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
-            USER_FIELD_USERNAME => 'u.username',
-            USER_FIELD_EMAIL => 'u.email',
-            USER_FIELD_AFFILIATION => 'us.setting_value',
+            UserDAO::USER_FIELD_USERNAME => 'u.username',
+            UserDAO::USER_FIELD_EMAIL => 'u.email',
+            UserDAO::USER_FIELD_AFFILIATION => 'us.setting_value',
         ];
 
         $searchSql = '';
@@ -956,7 +957,7 @@ class UserGroupDAO extends DAO
             }
         } else {
             switch ($searchType) {
-                case USER_FIELD_USERID:
+                case UserDAO::USER_FIELD_USERID:
                     $searchSql = 'AND u.user_id = ?';
                     break;
             }

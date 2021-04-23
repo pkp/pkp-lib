@@ -19,6 +19,7 @@
 import('lib.pkp.classes.form.Form');
 
 use PKP\mail\MailTemplate;
+use PKP\user\InterestManager;
 
 class RegistrationForm extends Form
 {
@@ -313,7 +314,6 @@ class RegistrationForm extends Form
         }
 
         // Insert the user interests
-        import('lib.pkp.classes.user.InterestManager');
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $this->getData('interests'));
 

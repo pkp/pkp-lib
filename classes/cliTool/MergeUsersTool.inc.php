@@ -15,6 +15,8 @@
 
 namespace PKP\cliTool;
 
+use PKP\user\UserAction;
+
 class MergeUsersTool extends \PKP\cliTool\CommandLineTool
 {
     /** @var string $targetSpecifier */
@@ -92,7 +94,6 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
         }
 
         // Merge the accounts.
-        import('classes.user.UserAction');
         $userAction = new UserAction();
         foreach ($mergeArray as $userId => $username) {
             $userAction->mergeUsers($userId, $targetUser->getId());

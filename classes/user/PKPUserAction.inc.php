@@ -15,6 +15,10 @@
  * @brief PKPUserAction class.
  */
 
+namespace PKP\user;
+
+use PKP\db\DAORegistry;
+
 class PKPUserAction
 {
     /**
@@ -115,4 +119,8 @@ class PKPUserAction
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\PKPUserAction', '\PKPUserAction');
 }

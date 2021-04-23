@@ -16,6 +16,7 @@
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
+use PKP\user\UserDAO;
 
 import('lib.pkp.classes.security.Role');
 import('lib.pkp.classes.security.UserGroupAssignment');
@@ -77,9 +78,9 @@ class RoleDAO extends DAO
         $searchTypeMap = [
             Identity::IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
             Identity::IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
-            USER_FIELD_USERNAME => 'u.username',
-            USER_FIELD_EMAIL => 'u.email',
-            USER_FIELD_INTERESTS => 'cves.setting_value'
+            UserDAO::USER_FIELD_USERNAME => 'u.username',
+            UserDAO::USER_FIELD_EMAIL => 'u.email',
+            UserDAO::USER_FIELD_INTERESTS => 'cves.setting_value'
         ];
 
         if (!empty($search) && isset($searchTypeMap[$searchType])) {
@@ -100,7 +101,7 @@ class RoleDAO extends DAO
             }
         } elseif (!empty($search)) {
             switch ($searchType) {
-            case USER_FIELD_USERID:
+            case UserDAO::USER_FIELD_USERID:
                 $searchSql = 'AND u.user_id=?';
                 $paramArray[] = $search;
                 break;

@@ -14,6 +14,7 @@
  */
 
 use PKP\mail\MailTemplate;
+use PKP\user\InterestManager;
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
@@ -247,7 +248,6 @@ class UserXmlPKPUserFilter extends NativeImportFilter
                 $n = $interestNodeList->item(0);
                 if ($n) {
                     $interests = preg_split('/,\s*/', $n->textContent);
-                    import('lib.pkp.classes.user.InterestManager');
                     $interestManager = new InterestManager();
                     $interestManager->setInterestsForUser($user, $interests);
                 }

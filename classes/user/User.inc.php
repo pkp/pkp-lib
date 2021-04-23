@@ -19,7 +19,12 @@
  * @brief Basic class describing users existing in the system.
  */
 
-import('lib.pkp.classes.identity.Identity');
+namespace PKP\user;
+
+use APP\i18n\AppLocale;
+use PKP\db\DAORegistry;
+
+use PKP\identity\Identity;
 
 class User extends Identity
 {
@@ -188,7 +193,6 @@ class User extends Identity
      */
     public function getInterestString()
     {
-        import('lib.pkp.classes.user.InterestManager');
         $interestManager = new InterestManager();
         return $interestManager->getInterestsString($this);
     }
@@ -526,4 +530,8 @@ class User extends Identity
         $userSettingsDao = DAORegistry::getDAO('UserSettingsDAO'); /** @var UserSettingsDAO $userSettingsDao */
         return $userSettingsDao->updateSetting($this->getId(), $name, $value, $type, $contextId);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\User', '\User');
 }

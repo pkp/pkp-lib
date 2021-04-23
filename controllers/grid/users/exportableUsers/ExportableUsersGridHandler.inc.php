@@ -14,6 +14,7 @@
  */
 
 use PKP\identity\Identity;
+use PKP\user\UserDAO;
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
@@ -216,13 +217,11 @@ class ExportableUsersGridHandler extends GridHandler
             $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
         }
 
-        // Import UserDAO to define the USER_FIELD_* constants.
-        import('lib.pkp.classes.user.UserDAO');
         $fieldOptions = [
             Identity::IDENTITY_SETTING_GIVENNAME => 'user.givenName',
             Identity::IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
-            USER_FIELD_USERNAME => 'user.username',
-            USER_FIELD_EMAIL => 'user.email'
+            UserDAO::USER_FIELD_USERNAME => 'user.username',
+            UserDAO::USER_FIELD_EMAIL => 'user.email'
         ];
 
         $matchOptions = [

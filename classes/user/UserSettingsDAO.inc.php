@@ -15,6 +15,12 @@
  * @brief Operations for retrieving and modifying user settings.
  */
 
+namespace PKP\user;
+
+use APP\core\Application;
+use PKP\db\DAORegistry;
+
+use PKP\db\DAOResultFactory;
 
 class UserSettingsDAO extends \PKP\db\DAO
 {
@@ -193,4 +199,8 @@ class UserSettingsDAO extends \PKP\db\DAO
             [(int) $userId]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\UserSettingsDAO', '\UserSettingsDAO');
 }

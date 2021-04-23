@@ -14,6 +14,10 @@
  * @brief Handle user interest functions.
  */
 
+namespace PKP\user;
+
+use PKP\db\DAORegistry;
+
 class InterestManager
 {
     /**
@@ -99,4 +103,8 @@ class InterestManager
         $interests = is_array($interests) ? $interests : (empty($interests) ? null : explode(',', $interests));
         $interestDao->setUserInterests($interests, $user->getId());
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\InterestManager', '\InterestManager');
 }

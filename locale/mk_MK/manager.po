@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-20 15:27+0000\n"
+"PO-Revision-Date: 2021-04-23 10:47+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
@@ -2420,3 +2420,47 @@ msgstr "Извести го главното лице за контакт"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Известувања"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Процесот не успеа да ги парсира изданијата"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Процесот не успеа да ги парсира авторите"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Назначената патека на списание, \"{$contextPath}\", не постои."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ГРЕШКА:"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Погрешна конфигурација на филтерот [{$filterName}]: {$filterCount} појави. "
+"Би требало да има само една."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Генерички елементи"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Превземете ја експортираната датотека преку копчето подолу."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Експортирањето успешно заврши."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Превземете ја експортираната датотека"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Експортирајте ги резултатите за поднесоците"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Процесот беше неуспешен. Проверете ги грешките/предупредувањата подолу."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Недостасува корисничка група за името на авторот {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "ИД: {$id}"

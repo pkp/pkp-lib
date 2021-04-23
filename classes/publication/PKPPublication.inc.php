@@ -15,6 +15,13 @@
  * @brief Base class for Publication.
  */
 
+namespace PKP\publication;
+
+use APP\i18n\AppLocale;
+use PKP\core\Core;
+
+use PKP\core\PKPString;
+
 class PKPPublication extends \PKP\core\DataObject
 {
     /**
@@ -336,4 +343,8 @@ class PKPPublication extends \PKP\core\DataObject
     {
         return $this->getData('pub-id::' . $pubIdType);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\publication\PKPPublication', '\PKPPublication');
 }

@@ -14,12 +14,17 @@
  *
  * @brief Operations for retrieving and modifying publication objects.
  */
+
+namespace PKP\publication;
+
+use APP\core\Services;
+
+use APP\publication\Publication;
 use Illuminate\Support\Facades\DB;
+use PKP\db\DAORegistry;
+use PKP\db\SchemaDAO;
 
-import('lib.pkp.classes.db.SchemaDAO');
-import('lib.pkp.classes.plugins.PKPPubIdPluginDAO');
-import('classes.publication.Publication');
-
+use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\services\PKPSchemaService;
 
 class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO
@@ -368,4 +373,8 @@ class PKPPublicationDAO extends SchemaDAO implements PKPPubIdPluginDAO
         }
         return $q->exists();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\publication\PKPPublicationDAO', '\PKPPublicationDAO');
 }

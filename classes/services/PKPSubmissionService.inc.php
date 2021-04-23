@@ -447,7 +447,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
             // Discussions in this stage
             $stage['queries'] = [];
             $request = Application::get()->getRequest();
-            import('lib.pkp.classes.query.QueryDAO');
             $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
             $queries = $queryDao->getByAssoc(
                 ASSOC_TYPE_SUBMISSION,

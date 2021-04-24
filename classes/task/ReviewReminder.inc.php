@@ -14,6 +14,7 @@
  */
 
 use PKP\mail\SubmissionMailTemplate;
+use PKP\submission\PKPSubmission;
 
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
@@ -154,7 +155,7 @@ class ReviewReminder extends ScheduledTask
                 }
             }
 
-            if ($submission->getStatus() != STATUS_QUEUED) {
+            if ($submission->getStatus() != PKPSubmission::STATUS_QUEUED) {
                 continue;
             }
 

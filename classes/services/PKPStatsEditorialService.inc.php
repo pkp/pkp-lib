@@ -349,7 +349,7 @@ class PKPStatsEditorialService
      * Date restrictions will not be applied. It will return the count of
      * all submissions with the passed statuses.
      *
-     * @param int|array $statuses One or more STATUS_*
+     * @param int|array $statuses One or more PKPSubmission::STATUS_*
      * @param array $args See self::getQueryBuilder()
      *
      * @return int

@@ -13,9 +13,11 @@
  * @brief Wrapper class for uploading files to a site/context' library directory.
  */
 
-use PKP\context\LibraryFile;
+namespace PKP\file;
 
-import('lib.pkp.classes.file.PrivateFileManager');
+use PKP\context\LibraryFile;
+use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 
 class PKPLibraryFileManager extends PrivateFileManager
 {
@@ -207,4 +209,8 @@ class PKPLibraryFileManager extends PrivateFileManager
         ];
         return $typeNameMap;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\PKPLibraryFileManager', '\PKPLibraryFileManager');
 }

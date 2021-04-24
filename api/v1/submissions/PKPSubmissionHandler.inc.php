@@ -16,8 +16,9 @@
 
 use APP\core\Services;
 use PKP\handler\APIHandler;
-
 use PKP\services\PKPSchemaService;
+
+use PKP\submission\PKPSubmission;
 
 class PKPSubmissionHandler extends APIHandler
 {
@@ -719,7 +720,7 @@ class PKPSubmissionHandler extends APIHandler
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
         }
 
@@ -792,7 +793,7 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
         }
 
-        if ($publication->getData('status') === STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return $response->withStatus(403)->withJsonError('api.publication.403.alreadyPublished');
         }
 
@@ -848,7 +849,7 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
         }
 
-        if (!in_array($publication->getData('status'), [STATUS_PUBLISHED, STATUS_SCHEDULED])) {
+        if (!in_array($publication->getData('status'), [PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED])) {
             return $response->withStatus(403)->withJsonError('api.publication.403.alreadyUnpublished');
         }
 
@@ -892,7 +893,7 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
         }
 
-        if ($publication->getData('status') === STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return $response->withStatus(403)->withJsonError('api.publication.403.cantDeletePublished');
         }
 

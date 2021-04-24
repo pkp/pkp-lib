@@ -13,6 +13,10 @@
  * @brief Base PKP file class.
  */
 
+namespace PKP\file;
+
+use APP\core\Services;
+
 class PKPFile extends \PKP\core\DataObject
 {
     //
@@ -139,4 +143,8 @@ class PKPFile extends \PKP\core\DataObject
     {
         assert(false);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\PKPFile', '\PKPFile');
 }

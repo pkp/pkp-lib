@@ -18,6 +18,8 @@ namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Support\Facades\DB;
 
+use PKP\submission\PKPSubmission;
+
 abstract class PKPStatsEditorialQueryBuilder
 {
     /** @var array Return stats for activity in these contexts */
@@ -154,9 +156,9 @@ abstract class PKPStatsEditorialQueryBuilder
         // decisions we are looking for.
         $declineDecisions = [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE];
         if (count(array_intersect($declineDecisions, $decisions))) {
-            $q->where('s.status', '=', STATUS_DECLINED);
+            $q->where('s.status', '=', PKPSubmission::STATUS_DECLINED);
         } else {
-            $q->where('s.status', '!=', STATUS_DECLINED);
+            $q->where('s.status', '!=', PKPSubmission::STATUS_DECLINED);
         }
 
         $q->select(DB::raw('COUNT(DISTINCT s.submission_id) as count'));
@@ -167,7 +169,7 @@ abstract class PKPStatsEditorialQueryBuilder
     /**
      * Get the count of submissions by one or more status
      *
-     * @param int|array $status One or more of STATUS_*
+     * @param int|array $status One or more of PKPSubmission::STATUS_*
      *
      * @return int
      */
@@ -190,7 +192,7 @@ abstract class PKPStatsEditorialQueryBuilder
         import('lib.pkp.classes.submission.PKPSubmission');
 
         return $this->_getObject()
-            ->where('s.status', '=', STATUS_QUEUED)
+            ->where('s.status', '=', PKPSubmission::STATUS_QUEUED)
             ->whereIn('s.stage_id', $stages)
             ->count();
     }
@@ -203,7 +205,7 @@ abstract class PKPStatsEditorialQueryBuilder
     public function countPublished()
     {
         $q = $this->_getObject()
-            ->where('s.status', '=', STATUS_PUBLISHED);
+            ->where('s.status', '=', PKPSubmission::STATUS_PUBLISHED);
 
         // Only match against the publication date of a
         // submission's first published publication so
@@ -213,7 +215,7 @@ abstract class PKPStatsEditorialQueryBuilder
                 $q->where('p.publication_id', function ($q) {
                     $q->from('publications as p2')
                         ->where('p2.submission_id', '=', DB::raw('s.submission_id'))
-                        ->where('p2.status', '=', STATUS_PUBLISHED)
+                        ->where('p2.status', '=', PKPSubmission::STATUS_PUBLISHED)
                         ->orderBy('p2.date_published', 'ASC')
                         ->limit(1)
                         ->select('p2.publication_id');
@@ -290,7 +292,7 @@ abstract class PKPStatsEditorialQueryBuilder
         import('lib.pkp.classes.submission.PKPSubmission');
 
         $q = $this->_getObject()
-            ->where('s.status', '=', STATUS_PUBLISHED)
+            ->where('s.status', '=', PKPSubmission::STATUS_PUBLISHED)
             // Only match against the publication date of a
             // submission's first published publication so
             // that updated versions are excluded.
@@ -298,7 +300,7 @@ abstract class PKPStatsEditorialQueryBuilder
                 $q->where('p.publication_id', function ($q) {
                     $q->from('publications as p2')
                         ->where('p2.submission_id', '=', DB::raw('s.submission_id'))
-                        ->where('p2.status', '=', STATUS_PUBLISHED)
+                        ->where('p2.status', '=', PKPSubmission::STATUS_PUBLISHED)
                         ->orderBy('p2.date_published', 'ASC')
                         ->limit(1)
                         ->select('p2.publication_id');
@@ -329,9 +331,9 @@ abstract class PKPStatsEditorialQueryBuilder
         // decisions we are looking for.
         $declineDecisions = [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE];
         if (count(array_intersect($declineDecisions, $decisions))) {
-            $q->where('s.status', '=', STATUS_DECLINED);
+            $q->where('s.status', '=', PKPSubmission::STATUS_DECLINED);
         } else {
-            $q->where('s.status', '!=', STATUS_DECLINED);
+            $q->where('s.status', '!=', PKPSubmission::STATUS_DECLINED);
         }
 
         return [$q->min('ed.date_decided'), $q->max('ed.date_decided')];
@@ -367,7 +369,7 @@ abstract class PKPStatsEditorialQueryBuilder
             $q->where('pi.publication_id', function ($q) {
                 $q->from('publications as pi2')
                     ->where('pi2.submission_id', '=', DB::raw('s.submission_id'))
-                    ->where('pi2.status', '=', STATUS_PUBLISHED)
+                    ->where('pi2.status', '=', PKPSubmission::STATUS_PUBLISHED)
                     ->orderBy('pi2.date_published', 'ASC')
                     ->limit(1)
                     ->select('pi2.publication_id');

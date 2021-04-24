@@ -18,6 +18,8 @@ import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionFor
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
+use PKP\submission\PKPSubmission;
+
 class RevertDeclineForm extends EditorDecisionForm
 {
     /**
@@ -72,7 +74,7 @@ class RevertDeclineForm extends EditorDecisionForm
         $editorAction->recordDecision($request, $submission, $this->getDecision(), $actionLabels);
 
         $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission->setStatus(STATUS_QUEUED); // Always return submission to STATUS_QUEUED
+        $submission->setStatus(PKPSubmission::STATUS_QUEUED); // Always return submission to STATUS_QUEUED
 
         // If we are on a review round, return the round status
         // prior to the decline decision

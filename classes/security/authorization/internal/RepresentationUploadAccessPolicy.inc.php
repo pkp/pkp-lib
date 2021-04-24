@@ -16,6 +16,7 @@
  *   authorized submission in the authorization context.
  */
 
+use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
@@ -84,7 +85,7 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
         }
 
         // Representations can not be modified on published publications
-        if ($publication->getData('status') === STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, 'galley.editPublishedDisabled');
             return AUTHORIZATION_DENY;
         }

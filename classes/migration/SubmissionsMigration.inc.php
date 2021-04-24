@@ -16,6 +16,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
+use PKP\submission\PKPSubmission;
+
 class SubmissionsMigration extends Migration
 {
     /**
@@ -35,7 +37,7 @@ class SubmissionsMigration extends Migration
             $table->string('locale', 14)->nullable();
 
             import('lib.pkp.classes.submission.PKPSubmission'); // for constant
-            $table->smallInteger('status')->default(STATUS_QUEUED);
+            $table->smallInteger('status')->default(PKPSubmission::STATUS_QUEUED);
 
             $table->smallInteger('submission_progress')->default(1);
             //  Used in OMP only; should not be null there

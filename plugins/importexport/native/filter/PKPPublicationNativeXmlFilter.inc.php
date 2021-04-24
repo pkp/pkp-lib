@@ -15,6 +15,8 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
+use PKP\submission\PKPSubmission;
+
 class PKPPublicationNativeXmlFilter extends NativeExportFilter
 {
     /**
@@ -93,7 +95,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
         }
         $entityNode->setAttribute('url_path', $entity->getData('urlPath'));
 
-        if ($entity->getData('status') === STATUS_PUBLISHED) {
+        if ($entity->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             $entityNode->setAttribute('seq', (int) $entity->getData('seq'));
         } else {
             $entityNode->setAttribute('seq', '0');

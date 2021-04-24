@@ -14,13 +14,16 @@
 
 namespace PKP\Services;
 
-use Application;
-use Config;
+use APP\core\Application;
 use Exception;
-use HookRegistry;
 use Illuminate\Support\Facades\DB;
+
 use League\Flysystem\Adapter\Local;
+
 use League\Flysystem\Filesystem;
+use PKP\config\Config;
+use PKP\file\FileManager;
+use PKP\plugins\HookRegistry;
 
 class PKPFileService
 {
@@ -38,8 +41,8 @@ class PKPFileService
             Local::DISALLOW_LINKS,
             [
                 'file' => [
-                    'public' => FILE_MODE_MASK,
-                    'private' => FILE_MODE_MASK,
+                    'public' => FileManager::FILE_MODE_MASK,
+                    'private' => FileManager::FILE_MODE_MASK,
                 ],
                 'dir' => [
                     'public' => DIRECTORY_MODE_MASK,
@@ -195,7 +198,7 @@ class PKPFileService
      *
      * @param string $mimetype
      *
-     * @return string One of the DOCUMENT_TYPE_ constants
+     * @return string One of the FileManager::DOCUMENT_TYPE_ constants
      */
     public function getDocumentType($mimetype)
     {
@@ -204,27 +207,27 @@ class PKPFileService
             case 'application/x-pdf':
             case 'text/pdf':
             case 'text/x-pdf':
-                return DOCUMENT_TYPE_PDF;
+                return FileManager::DOCUMENT_TYPE_PDF;
             case 'application/msword':
             case 'application/word':
             case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-                return DOCUMENT_TYPE_WORD;
+                return FileManager::DOCUMENT_TYPE_WORD;
             case 'application/excel':
             case 'application/vnd.ms-excel':
             case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-                return DOCUMENT_TYPE_EXCEL;
+                return FileManager::DOCUMENT_TYPE_EXCEL;
             case 'text/html':
-                return DOCUMENT_TYPE_HTML;
+                return FileManager::DOCUMENT_TYPE_HTML;
             case 'application/zip':
             case 'application/x-zip':
             case 'application/x-zip-compressed':
             case 'application/x-compress':
             case 'application/x-compressed':
             case 'multipart/x-zip':
-                return DOCUMENT_TYPE_ZIP;
+                return FileManager::DOCUMENT_TYPE_ZIP;
             case 'application/epub':
             case 'application/epub+zip':
-                return DOCUMENT_TYPE_EPUB;
+                return FileManager::DOCUMENT_TYPE_EPUB;
             case 'image/gif':
             case 'image/jpeg':
             case 'image/pjpeg':
@@ -236,7 +239,7 @@ class PKPFileService
             case 'image/ico':
             case 'image/svg+xml':
             case 'image/svg':
-                return DOCUMENT_TYPE_IMAGE;
+                return FileManager::DOCUMENT_TYPE_IMAGE;
             case 'application/x-shockwave-flash':
             case 'video/x-flv':
             case 'application/x-flash-video':
@@ -244,13 +247,13 @@ class PKPFileService
             case 'video/mpeg':
             case 'video/quicktime':
             case 'video/mp4':
-                return DOCUMENT_TYPE_VIDEO;
+                return FileManager::DOCUMENT_TYPE_VIDEO;
             case 'audio/mpeg':
             case 'audio/x-aiff':
             case 'audio/x-wav':
-                return DOCUMENT_TYPE_AUDIO;
+                return FileManager::DOCUMENT_TYPE_AUDIO;
             default:
-                return DOCUMENT_TYPE_DEFAULT;
+                return FileManager::DOCUMENT_TYPE_DEFAULT;
         }
     }
 

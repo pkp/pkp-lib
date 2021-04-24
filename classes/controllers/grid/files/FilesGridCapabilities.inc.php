@@ -14,6 +14,8 @@
  * that handle submission files to store which capabilities the grid has.
  */
 
+use PKP\file\FileArchive;
+
 // Define the grid capabilities.
 define('FILE_GRID_ADD', 0x00000001);
 define('FILE_GRID_DOWNLOAD_ALL', 0x00000002);
@@ -109,7 +111,6 @@ class FilesGridCapabilities
      */
     public function canDownloadAll()
     {
-        import('lib.pkp.classes.file.FileArchive');
         return $this->_canDownloadAll && FileArchive::isFunctional();
     }
 

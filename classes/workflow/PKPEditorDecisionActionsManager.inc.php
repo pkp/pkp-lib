@@ -21,6 +21,8 @@ define('SUBMISSION_EDITOR_RECOMMEND_RESUBMIT', 13);
 define('SUBMISSION_EDITOR_RECOMMEND_DECLINE', 14);
 define('SUBMISSION_EDITOR_DECISION_REVERT_DECLINE', 17);
 
+use PKP\submission\PKPSubmission;
+
 abstract class PKPEditorDecisionActionsManager
 {
     /**
@@ -108,7 +110,7 @@ abstract class PKPEditorDecisionActionsManager
                 ];
             }
 
-            if ($submission->getStatus() == STATUS_QUEUED) {
+            if ($submission->getStatus() == PKPSubmission::STATUS_QUEUED) {
                 $decisions = $decisions + [
                     SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => [
                         'name' => 'decline',
@@ -117,7 +119,7 @@ abstract class PKPEditorDecisionActionsManager
                     ],
                 ];
             }
-            if ($submission->getStatus() == STATUS_DECLINED) {
+            if ($submission->getStatus() == PKPSubmission::STATUS_DECLINED) {
                 $decisions = $decisions + [
                     SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => [
                         'name' => 'revert',

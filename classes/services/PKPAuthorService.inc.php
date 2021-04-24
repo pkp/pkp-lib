@@ -18,11 +18,13 @@ namespace PKP\Services;
 use APP\core\Services;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\plugins\HookRegistry;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
-
 use PKP\Services\QueryBuilders\PKPAuthorQueryBuilder;
+
+use PKP\submission\PKPSubmission;
 
 class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, EntityPropertyInterface
 {
@@ -115,7 +117,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
             $authorQB->filterByAffiliation($args['affiliation']);
         }
 
-        \HookRegistry::call('Author::getMany::queryBuilder', [&$authorQB, $args]);
+        HookRegistry::call('Author::getMany::queryBuilder', [&$authorQB, $args]);
 
         return $authorQB;
     }
@@ -142,7 +144,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
         $locales = $request->getContext()->getSupportedFormLocales();
         $values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_AUTHOR, $values, $locales);
 
-        \HookRegistry::call('Author::getProperties::values', [&$values, $author, $props, $args]);
+        HookRegistry::call('Author::getProperties::values', [&$values, $author, $props, $args]);
 
         ksort($values);
 
@@ -205,7 +207,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
                 $publication = Services::get('publication')->get($props['publicationId']);
                 if (!$publication) {
                     $validator->errors()->add('publicationId', __('author.publicationNotFound'));
-                } elseif ($publication->getData('status') === STATUS_PUBLISHED) {
+                } elseif ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
                     $validator->errors()->add('publicationId', __('author.editPublishedDisabled'));
                 }
             }
@@ -215,7 +217,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
             $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
         }
 
-        \HookRegistry::call('Author::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
+        HookRegistry::call('Author::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -229,7 +231,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
         $authorId = $authorDao->insertObject($author);
         $author = $this->get($authorId);
 
-        \HookRegistry::call('Author::add', [&$author, $request]);
+        HookRegistry::call('Author::add', [&$author, $request]);
 
         return $author;
     }
@@ -244,7 +246,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
         $newAuthor = $authorDao->newDataObject();
         $newAuthor->_data = array_merge($author->_data, $params);
 
-        \HookRegistry::call('Author::edit', [&$newAuthor, $author, $params, $request]);
+        HookRegistry::call('Author::edit', [&$newAuthor, $author, $params, $request]);
 
         $authorDao->updateObject($newAuthor);
         $newAuthor = $this->get($newAuthor->getId());
@@ -257,9 +259,9 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
      */
     public function delete($author)
     {
-        \HookRegistry::call('Author::delete::before', [&$author]);
+        HookRegistry::call('Author::delete::before', [&$author]);
         $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
         $authorDao->deleteObject($author);
-        \HookRegistry::call('Author::delete', [&$author]);
+        HookRegistry::call('Author::delete', [&$author]);
     }
 }

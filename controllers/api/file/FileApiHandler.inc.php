@@ -16,12 +16,12 @@
  * @brief Class defining an AJAX API for supplying file information.
  */
 
-// Import the base handler.
-use APP\handler\Handler;
-
 import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 
+use APP\handler\Handler;
 use PKP\core\JSONMessage;
+use PKP\file\FileArchive;
+
 use PKP\submission\SubmissionFile;
 
 class FileApiHandler extends Handler
@@ -159,7 +159,6 @@ class FileApiHandler extends Handler
         $filename = $args['submissionId'] . '-' . $filename;
         $filename = \Stringy\Stringy::create($filename)->toLowerCase()->dasherize()->regexReplace('[^a-z0-9\-\_.]', '');
 
-        import('lib.pkp.classes.file.FileArchive');
         $fileArchive = new FileArchive();
         $archivePath = $fileArchive->create($files, rtrim(Config::getVar('files', 'files_dir'), '/'));
         if (file_exists($archivePath)) {

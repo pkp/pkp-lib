@@ -22,6 +22,7 @@ import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 use PKP\core\JSONMessage;
+use PKP\submission\PKPSubmission;
 
 class AuthorGridHandler extends GridHandler
 {
@@ -273,7 +274,7 @@ class AuthorGridHandler extends GridHandler
         $submission = $this->getSubmission();
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
-        if ($publication->getData('status') === STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return false;
         }
 

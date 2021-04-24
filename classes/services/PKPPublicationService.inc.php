@@ -26,6 +26,9 @@ use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
 
 use PKP\Services\QueryBuilders\PKPPublicationQueryBuilder;
+use PKP\submission\PKPSubmission;
+
+// FIXME: add namespacing
 use SubmissionLog;
 
 class PKPPublicationService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
@@ -409,7 +412,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         $errors = [];
 
         // Don't allow declined submissions to be published
-        if ($submission->getData('status') === STATUS_DECLINED) {
+        if ($submission->getData('status') === PKPSubmission::STATUS_DECLINED) {
             $errors['declined'] = __('publication.required.declined');
         }
 
@@ -484,7 +487,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         $newPublication = clone $publication;
         $newPublication->setData('id', null);
         $newPublication->setData('datePublished', null);
-        $newPublication->setData('status', STATUS_QUEUED);
+        $newPublication->setData('status', PKPSubmission::STATUS_QUEUED);
         $newPublication->setData('version', $publication->getData('version') + 1);
         $newPublication->stampModified();
         $newPublication = $this->add($newPublication, $request);
@@ -588,16 +591,16 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         }
 
         if (strtotime($newPublication->getData('datePublished')) <= strtotime(Core::getCurrentDate())) {
-            $newPublication->setData('status', STATUS_PUBLISHED);
+            $newPublication->setData('status', PKPSubmission::STATUS_PUBLISHED);
         } else {
-            $newPublication->setData('status', STATUS_SCHEDULED);
+            $newPublication->setData('status', PKPSubmission::STATUS_SCHEDULED);
         }
 
         $newPublication->stampModified();
 
         // Set the copyright and license information
         $submission = Services::get('submission')->get($newPublication->getData('submissionId'));
-        if ($newPublication->getData('status') === STATUS_PUBLISHED) {
+        if ($newPublication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             if (!$newPublication->getData('copyrightHolder')) {
                 $newPublication->setData('copyrightHolder', $submission->_getContextLicenseFieldValue(null, PERMISSIONS_FIELD_COPYRIGHT_HOLDER, $newPublication));
             }
@@ -625,9 +628,9 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         // Log an event when publication is published. Adjust the message depending
         // on whether this is the first publication or a subsequent version
         if (count($submission->getData('publications')) > 1) {
-            $msg = $newPublication->getData('status') === STATUS_SCHEDULED ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
+            $msg = $newPublication->getData('status') === PKPSubmission::STATUS_SCHEDULED ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
         } else {
-            $msg = $newPublication->getData('status') === STATUS_SCHEDULED ? 'publication.event.scheduled' : 'publication.event.published';
+            $msg = $newPublication->getData('status') === PKPSubmission::STATUS_SCHEDULED ? 'publication.event.scheduled' : 'publication.event.published';
         }
         import('lib.pkp.classes.log.SubmissionLog');
         import('classes.log.SubmissionEventLogEntry');
@@ -636,7 +639,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         HookRegistry::call('Publication::publish', [&$newPublication, $publication, $submission]);
 
         // Update the search index.
-        if ($newPublication->getData('status') === STATUS_PUBLISHED) {
+        if ($newPublication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
             Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);
             Application::getSubmissionSearchDAO()->flushCache();
@@ -656,7 +659,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
     public function unpublish($publication)
     {
         $newPublication = clone $publication;
-        $newPublication->setData('status', STATUS_QUEUED);
+        $newPublication->setData('status', PKPSubmission::STATUS_QUEUED);
         $newPublication->stampModified();
 
         HookRegistry::call('Publication::unpublish::before', [&$newPublication, $publication]);
@@ -681,7 +684,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         HookRegistry::call('Publication::unpublish', [&$newPublication, $publication, $submission]);
 
         // Update the metadata in the search index.
-        if ($submission->getData('status') !== STATUS_PUBLISHED) {
+        if ($submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
             Application::getSubmissionSearchIndex()->deleteTextIndex($submission->getId());
             Application::getSubmissionSearchIndex()->clearSubmissionFiles($submission);
         } else {

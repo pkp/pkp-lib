@@ -21,6 +21,7 @@
 namespace PKP\cache;
 
 use PKP\config\Config;
+use PKP\file\FileManager;
 
 class FileCache extends GenericCache
 {
@@ -104,7 +105,7 @@ class FileCache extends GenericCache
         ) !== false) {
             $umask = Config::getVar('files', 'umask');
             if ($umask) {
-                @chmod($this->filename, FILE_MODE_MASK & ~$umask);
+                chmod($this->filename, FileManager::FILE_MODE_MASK & ~$umask);
             }
         }
         $this->cache = $contents;

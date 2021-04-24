@@ -15,8 +15,9 @@
  * @brief Operations for retrieving and modifying TemporaryFile objects.
  */
 
+namespace PKP\file;
 
-import('lib.pkp.classes.file.TemporaryFile');
+use PKP\plugins\HookRegistry;
 
 class TemporaryFileDAO extends \PKP\db\DAO
 {
@@ -180,4 +181,8 @@ class TemporaryFileDAO extends \PKP\db\DAO
     {
         return $this->_getInsertId('temporary_files', 'file_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\TemporaryFileDAO', '\TemporaryFileDAO');
 }

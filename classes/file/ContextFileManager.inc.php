@@ -13,8 +13,9 @@
  * @brief Class defining operations for private context file management.
  */
 
+namespace PKP\file;
 
-import('lib.pkp.classes.file.PrivateFileManager');
+use APP\core\Application;
 
 class ContextFileManager extends PrivateFileManager
 {
@@ -41,4 +42,8 @@ class ContextFileManager extends PrivateFileManager
         $dirNames = Application::getFileDirectories();
         return parent::getBasePath() . $dirNames['context'] . $this->contextId . '/';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\ContextFileManager', '\ContextFileManager');
 }

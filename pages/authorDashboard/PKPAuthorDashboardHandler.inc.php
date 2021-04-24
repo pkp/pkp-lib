@@ -13,13 +13,11 @@
  * @brief Handle requests for the author dashboard.
  */
 
-// Import base class
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
 use PKP\log\SubmissionEmailLogEntry;
-use PKP\services\PKPSchemaService;
 
+use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionFile;
 
 abstract class PKPAuthorDashboardHandler extends Handler

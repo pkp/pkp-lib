@@ -13,7 +13,9 @@
  * @brief Class defining operations for private file management.
  */
 
-import('lib.pkp.classes.file.FileManager');
+namespace PKP\file;
+
+use PKP\config\Config;
 
 class PrivateFileManager extends FileManager
 {
@@ -38,4 +40,8 @@ class PrivateFileManager extends FileManager
     {
         return Config::getVar('files', 'files_dir');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\PrivateFileManager', '\PrivateFileManager');
 }

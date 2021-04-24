@@ -16,7 +16,9 @@
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 
 use APP\publication\Publication;
+
 use APP\template\TemplateManager;
+use PKP\submission\PKPSubmission;
 
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 {
@@ -404,7 +406,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
             // Create a publication
             $publication = new Publication();
             $this->setPublicationData($publication, $this->submission);
-            $publication->setData('status', STATUS_QUEUED);
+            $publication->setData('status', PKPSubmission::STATUS_QUEUED);
             $publication->setData('version', 1);
             $publication = Services::get('publication')->add($publication, $request);
             $this->submission = Services::get('submission')->edit($this->submission, ['currentPublicationId' => $publication->getId()], $request);

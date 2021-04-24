@@ -15,11 +15,12 @@
 
 use APP\core\Services;
 
-// import UI base classes
-import('lib.pkp.classes.linkAction.LinkAction');
-
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\submission\PKPSubmission;
+
+// FIXME: add namespacing
+import('lib.pkp.classes.linkAction.LinkAction');
 
 class PKPCatalogHandler extends Handler
 {
@@ -62,8 +63,6 @@ class PKPCatalogHandler extends Handler
         }
 
         $this->setupTemplate($request);
-        import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_ constants
-
         $orderOption = $category->getSortOption() ? $category->getSortOption() : ORDERBY_DATE_PUBLISHED . '-' . SORT_DIRECTION_DESC;
         [$orderBy, $orderDir] = explode('-', $orderOption);
 
@@ -78,7 +77,7 @@ class PKPCatalogHandler extends Handler
             'orderDirection' => $orderDir == SORT_DIRECTION_ASC ? 'ASC' : 'DESC',
             'count' => $count,
             'offset' => $offset,
-            'status' => STATUS_PUBLISHED,
+            'status' => PKPSubmission::STATUS_PUBLISHED,
         ];
         $submissionsIterator = Services::get('submission')->getMany($params);
         $total = Services::get('submission')->getMax($params);

@@ -19,23 +19,30 @@
  * @brief Class defining basic operations for file management.
  */
 
+namespace PKP\file;
 
-define('FILE_MODE_MASK', 0666);
-define('DIRECTORY_MODE_MASK', 0777);
-
-define('DOCUMENT_TYPE_DEFAULT', 'default');
-define('DOCUMENT_TYPE_AUDIO', 'audio');
-define('DOCUMENT_TYPE_EXCEL', 'excel');
-define('DOCUMENT_TYPE_HTML', 'html');
-define('DOCUMENT_TYPE_IMAGE', 'image');
-define('DOCUMENT_TYPE_PDF', 'pdf');
-define('DOCUMENT_TYPE_WORD', 'word');
-define('DOCUMENT_TYPE_EPUB', 'epub');
-define('DOCUMENT_TYPE_VIDEO', 'video');
-define('DOCUMENT_TYPE_ZIP', 'zip');
+use PKP\config\Config;
+use PKP\core\Core;
+use PKP\core\PKPString;
+use PKP\i18n\PKPLocale;
+use PKP\plugins\HookRegistry;
 
 class FileManager
 {
+    public const FILE_MODE_MASK = 0666;
+    public const DIRECTORY_MODE_MASK = 0777;
+
+    public const DOCUMENT_TYPE_DEFAULT = 'default';
+    public const DOCUMENT_TYPE_AUDIO = 'audio';
+    public const DOCUMENT_TYPE_EXCEL = 'excel';
+    public const DOCUMENT_TYPE_HTML = 'html';
+    public const DOCUMENT_TYPE_IMAGE = 'image';
+    public const DOCUMENT_TYPE_PDF = 'pdf';
+    public const DOCUMENT_TYPE_WORD = 'word';
+    public const DOCUMENT_TYPE_EPUB = 'epub';
+    public const DOCUMENT_TYPE_VIDEO = 'video';
+    public const DOCUMENT_TYPE_ZIP = 'zip';
+
     /**
      * Constructor
      */
@@ -170,7 +177,7 @@ class FileManager
             return false;
         }
         if (move_uploaded_file($_FILES[$fileName]['tmp_name'], $destFileName)) {
-            return $this->setMode($destFileName, FILE_MODE_MASK);
+            return $this->setMode($destFileName, self::FILE_MODE_MASK);
         }
         return false;
     }
@@ -200,7 +207,7 @@ class FileManager
         @fclose($f);
 
         if ($success) {
-            return $this->setMode($dest, FILE_MODE_MASK);
+            return $this->setMode($dest, self::FILE_MODE_MASK);
         }
         return false;
     }
@@ -221,7 +228,7 @@ class FileManager
             $this->mkdirtree($destDir);
         }
         if (copy($source, $dest)) {
-            return $this->setMode($dest, FILE_MODE_MASK);
+            return $this->setMode($dest, self::FILE_MODE_MASK);
         }
         return false;
     }
@@ -481,7 +488,7 @@ class FileManager
     public function getDocumentType($type)
     {
         if ($this->getImageExtension($type)) {
-            return DOCUMENT_TYPE_IMAGE;
+            return self::DOCUMENT_TYPE_IMAGE;
         }
 
         switch ($type) {
@@ -489,26 +496,26 @@ class FileManager
             case 'application/x-pdf':
             case 'text/pdf':
             case 'text/x-pdf':
-                return DOCUMENT_TYPE_PDF;
+                return self::DOCUMENT_TYPE_PDF;
             case 'application/msword':
             case 'application/word':
-                return DOCUMENT_TYPE_WORD;
+                return self::DOCUMENT_TYPE_WORD;
             case 'application/excel':
-                return DOCUMENT_TYPE_EXCEL;
+                return self::DOCUMENT_TYPE_EXCEL;
             case 'text/html':
-                return DOCUMENT_TYPE_HTML;
+                return self::DOCUMENT_TYPE_HTML;
             case 'application/zip':
             case 'application/x-zip':
             case 'application/x-zip-compressed':
             case 'application/x-compress':
             case 'application/x-compressed':
             case 'multipart/x-zip':
-                return DOCUMENT_TYPE_ZIP;
+                return self::DOCUMENT_TYPE_ZIP;
             case 'application/epub':
             case 'application/epub+zip':
-                return DOCUMENT_TYPE_EPUB;
+                return self::DOCUMENT_TYPE_EPUB;
             default:
-                return DOCUMENT_TYPE_DEFAULT;
+                return self::DOCUMENT_TYPE_DEFAULT;
         }
     }
 
@@ -741,5 +748,16 @@ class FileManager
         } else {
             return $filePath . '.gz';
         }
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\FileManager', '\FileManager');
+    foreach ([
+        'FILE_MODE_MASK',
+        'DIRECTORY_MODE_MASK',
+        'DOCUMENT_TYPE_DEFAULT', 'DOCUMENT_TYPE_AUDIO', 'DOCUMENT_TYPE_EXCEL', 'DOCUMENT_TYPE_HTML', 'DOCUMENT_TYPE_IMAGE', 'DOCUMENT_TYPE_PDF', 'DOCUMENT_TYPE_WORD', 'DOCUMENT_TYPE_EPUB', 'DOCUMENT_TYPE_VIDEO', 'DOCUMENT_TYPE_ZIP',
+    ] as $constantName) {
+        define($constantName, constant('\FileManager::' . $constantName));
     }
 }

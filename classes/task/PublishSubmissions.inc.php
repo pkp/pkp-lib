@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
+use PKP\submission\PKPSubmission;
+
 class PublishSubmissions extends ScheduledTask
 {
     /**
@@ -38,7 +40,7 @@ class PublishSubmissions extends ScheduledTask
         foreach ($contextIds as $contextId) {
             $submissionsIterator = Services::get('submission')->getMany([
                 'contextId' => $contextId,
-                'status' => STATUS_SCHEDULED,
+                'status' => PKPSubmission::STATUS_SCHEDULED,
             ]);
             foreach ($submissionsIterator as $submission) {
                 $datePublished = $submission->getCurrentPublication()->getData('datePublished');

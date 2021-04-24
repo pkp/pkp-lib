@@ -14,17 +14,16 @@
  */
 
 use APP\handler\Handler;
+use APP\template\TemplateManager;
+
+use PKP\services\PKPSchemaService;
+use PKP\submission\PKPSubmission;
 
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
-
 
 // import UI base classes
 import('lib.pkp.classes.linkAction.LinkAction');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
-
-use APP\template\TemplateManager;
-
-use PKP\services\PKPSchemaService;
 
 abstract class PKPWorkflowHandler extends Handler
 {
@@ -660,7 +659,7 @@ abstract class PKPWorkflowHandler extends Handler
         $hasSubmissionPassedThisStage = $submission->getStageId() > $stageId;
         $lastDecision = null;
         switch ($submission->getStatus()) {
-            case STATUS_QUEUED:
+            case PKPSubmission::STATUS_QUEUED:
                 switch ($stageId) {
                     case WORKFLOW_STAGE_ID_SUBMISSION:
                         if ($hasSubmissionPassedThisStage) {
@@ -682,10 +681,10 @@ abstract class PKPWorkflowHandler extends Handler
                         break;
                 }
                 break;
-            case STATUS_PUBLISHED:
+            case PKPSubmission::STATUS_PUBLISHED:
                 $lastDecision = 'editor.submission.workflowDecision.submission.published';
                 break;
-            case STATUS_DECLINED:
+            case PKPSubmission::STATUS_DECLINED:
                 $lastDecision = 'editor.submission.workflowDecision.submission.declined';
                 break;
         }

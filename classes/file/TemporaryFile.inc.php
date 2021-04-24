@@ -15,7 +15,7 @@
  * @brief Temporary file class.
  */
 
-import('lib.pkp.classes.file.PKPFile');
+namespace PKP\file;
 
 class TemporaryFile extends PKPFile
 {
@@ -26,7 +26,6 @@ class TemporaryFile extends PKPFile
      */
     public function getFilePath()
     {
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
         return $temporaryFileManager->getBasePath() . $this->getServerFileName();
     }
@@ -54,4 +53,8 @@ class TemporaryFile extends PKPFile
     {
         $this->setData('userId', $userId);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\TemporaryFile', '\TemporaryFile');
 }

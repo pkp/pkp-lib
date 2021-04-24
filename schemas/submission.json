@@ -188,7 +188,7 @@
 		},
 		"status": {
 			"type": "integer",
-			"description": "Whether the submission is Published, Declined, Scheduled or Queued (still in the workflow). One of the `STATUS_*` constants. Default is `STATUS_QUEUED`.",
+			"description": "Whether the submission is Published, Declined, Scheduled or Queued (still in the workflow). One of the `PKPSubmission::STATUS_*` constants. Default is `PKPSubmission::STATUS_QUEUED`.",
 			"apiSummary": true,
 			"default": 1,
 			"validation": [

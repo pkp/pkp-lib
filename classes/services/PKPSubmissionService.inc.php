@@ -18,16 +18,16 @@ namespace PKP\Services;
 use APP\core\Application;
 use APP\core\Services;
 use APP\Services\QueryBuilders\SubmissionQueryBuilder;
-
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
-
 use PKP\Services\interfaces\EntityWriteInterface;
+
 use PKP\services\PKPSchemaService;
+use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
@@ -902,7 +902,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
         // Get the new current publication after status changes or deletions
         // Use the latest published publication or, failing that, the latest publication
         $newCurrentPublicationId = array_reduce($publications, function ($a, $b) {
-            return $b->getData('status') === STATUS_PUBLISHED && $b->getId() > $a ? $b->getId() : $a;
+            return $b->getData('status') === PKPSubmission::STATUS_PUBLISHED && $b->getId() > $a ? $b->getId() : $a;
         }, 0);
         if (!$newCurrentPublicationId) {
             $newCurrentPublicationId = array_reduce($publications, function ($a, $b) {
@@ -912,15 +912,15 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
         // Declined submissions should remain declined even if their
         // publications change
-        if ($status !== STATUS_DECLINED) {
-            $newStatus = STATUS_QUEUED;
+        if ($status !== PKPSubmission::STATUS_DECLINED) {
+            $newStatus = PKPSubmission::STATUS_QUEUED;
             foreach ($publications as $publication) {
-                if ($publication->getData('status') === STATUS_PUBLISHED) {
-                    $newStatus = STATUS_PUBLISHED;
+                if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+                    $newStatus = PKPSubmission::STATUS_PUBLISHED;
                     break;
                 }
-                if ($publication->getData('status') === STATUS_SCHEDULED) {
-                    $newStatus = STATUS_SCHEDULED;
+                if ($publication->getData('status') === PKPSubmission::STATUS_SCHEDULED) {
+                    $newStatus = PKPSubmission::STATUS_SCHEDULED;
                     continue;
                 }
             }

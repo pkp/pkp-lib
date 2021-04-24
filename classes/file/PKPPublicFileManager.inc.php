@@ -13,8 +13,9 @@
  * @brief Wrapper class for uploading files to a site/journal's public directory.
  */
 
+namespace PKP\file;
 
-import('lib.pkp.classes.file.FileManager');
+use PKP\config\Config;
 
 abstract class PKPPublicFileManager extends FileManager
 {
@@ -116,4 +117,8 @@ abstract class PKPPublicFileManager extends FileManager
     {
         return $this->deleteByPath($this->getSiteFilesPath() . '/' . $fileName);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\PKPPublicFileManager', '\PKPPublicFileManager');
 }

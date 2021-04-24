@@ -11,6 +11,9 @@
  *
  * @brief Deposit DOIs during the publish action
  */
+
+use PKP\file\FileManager;
+
 class CrossrefDepositPlugin extends GenericPlugin
 {
     /**
@@ -65,7 +68,6 @@ class CrossrefDepositPlugin extends GenericPlugin
         $objectsFileNamePart = 'preprints';
         $noValidation = null;
 
-        import('lib.pkp.classes.file.FileManager');
         $fileManager = new FileManager();
         $resultErrors = [];
         $errorsOccured = false;

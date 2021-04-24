@@ -21,6 +21,7 @@ use \PKP\services\PKPSchemaService;
 use \PKP\identity\Identity;
 use \PKP\db\SchemaDAO;
 use \PKP\plugins\PKPPubIdPluginDAO;
+use PKP\submission\PKPSubmission;
 
 class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO
 {
@@ -309,8 +310,7 @@ class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO
         if ($pubIdSettingName) {
             $params[] = $pubIdSettingName;
         }
-        import('classes.submission.Submission'); // STATUS_PUBLISHED constant
-        $params[] = STATUS_PUBLISHED;
+        $params[] = PKPSubmission::STATUS_PUBLISHED;
         $params[] = (int) $contextId;
         if ($pubIdType) {
             $params[] = 'pub-id::' . $pubIdType;

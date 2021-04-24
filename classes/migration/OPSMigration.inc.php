@@ -96,8 +96,7 @@ class OPSMigration extends Migration
             $table->bigInteger('primary_contact_id')->nullable();
             $table->bigInteger('section_id')->nullable();
             $table->bigInteger('submission_id');
-            //  STATUS_QUEUED
-            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('status')->default(1); // PKPSubmission::STATUS_QUEUED
             $table->string('url_path', 64)->nullable();
             $table->bigInteger('version')->nullable();
             $table->index(['submission_id'], 'publications_submission_id');

@@ -13,6 +13,8 @@
  * @brief Basis class for DOI XML metadata export plugins
  */
 
+use PKP\submission\PKPSubmission;
+
 use \APP\template\TemplateManager;
 
 import('classes.plugins.PubObjectsExportPlugin');
@@ -166,7 +168,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin {
 			return Services::get('submission')->get($submissionId);
 		}, $submissionIds);
 		return array_filter($submissions, function($submission) {
-			return $submission->getData('status') === STATUS_PUBLISHED && !!$submission->getStoredPubId('doi');
+			return $submission->getData('status') === PKPSubmission::STATUS_PUBLISHED && !!$submission->getStoredPubId('doi');
 		});
 	}
 

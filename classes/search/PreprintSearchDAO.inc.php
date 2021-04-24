@@ -15,6 +15,8 @@
  * @brief DAO class for preprint search index.
  */
 
+use PKP\submission\PKPSubmission;
+
 import('classes.search.PreprintSearch');
 import('lib.pkp.classes.search.SubmissionSearchDAO');
 
@@ -76,7 +78,6 @@ class PreprintSearchDAO extends SubmissionSearchDAO
             $params[] = $server->getId();
         }
 
-        import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_PUBLISHED
         $result = $this->retrieve(
             'SELECT
 				o.submission_id,
@@ -89,7 +90,7 @@ class PreprintSearchDAO extends SubmissionSearchDAO
 				submission_search_objects o NATURAL JOIN ' . $sqlFrom . '
 			WHERE
 				s.submission_id = o.submission_id AND
-				s.status = ' . STATUS_PUBLISHED . ' AND
+				s.status = ' . PKPSubmission::STATUS_PUBLISHED . ' AND
 				' . $sqlWhere . '
 			GROUP BY o.submission_id
 			ORDER BY count DESC

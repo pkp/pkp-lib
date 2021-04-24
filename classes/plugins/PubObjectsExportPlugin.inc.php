@@ -13,7 +13,11 @@
  * @brief Basis class for XML metadata export plugins
  */
 
-use \APP\template\TemplateManager;
+use PKP\submission\PKPSubmission;
+use PKP\core\JSONMessage;
+use PKP\file\FileManager;
+
+use APP\template\TemplateManager;
 
 import('lib.pkp.classes.plugins.ImportExportPlugin');
 
@@ -30,8 +34,6 @@ define('EXPORT_ACTION_DEPOSIT', 'deposit');
 
 // Configuration errors.
 define('EXPORT_CONFIG_ERROR_SETTINGS', 0x02);
-
-use PKP\core\JSONMessage;
 
 abstract class PubObjectsExportPlugin extends ImportExportPlugin
 {
@@ -200,7 +202,6 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             assert($filter != null);
             // Get the XML
             $exportXml = $this->exportXML($objects, $filter, $context, $noValidation);
-            import('lib.pkp.classes.file.FileManager');
             $fileManager = new FileManager();
             $exportFileName = $this->getExportFileName($this->getExportPath(), $objectsFileNamePart, $context, '.xml');
             $fileManager->writeFile($exportFileName, $exportXml);
@@ -212,7 +213,6 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             $exportXml = $this->exportXML($objects, $filter, $context, $noValidation);
             // Write the XML to a file.
             // export file name example: crossref-20160723-160036-preprints-1.xml
-            import('lib.pkp.classes.file.FileManager');
             $fileManager = new FileManager();
             $exportFileName = $this->getExportFileName($this->getExportPath(), $objectsFileNamePart, $context, '.xml');
             $fileManager->writeFile($exportFileName, $exportXml);
@@ -650,7 +650,6 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
         }
 
         if ($command == 'register') {
-            import('lib.pkp.classes.file.FileManager');
             $fileManager = new FileManager();
             $exportFileName = $this->getExportFileName($this->getExportPath(), $objectsFileNamePart, $context, '.xml');
             $fileManager->writeFile($exportFileName, $exportXml);
@@ -689,7 +688,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             return Services::get('submission')->get($submissionId);
         }, $submissionIds);
         return array_filter($submissions, function ($submission) {
-            return $submission->getData('status') === STATUS_PUBLISHED;
+            return $submission->getData('status') === PKPSubmission::STATUS_PUBLISHED;
         });
     }
 

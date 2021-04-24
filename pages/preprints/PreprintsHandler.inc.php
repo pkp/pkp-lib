@@ -13,9 +13,10 @@
  * @brief Handle requests for preprints archive functions.
  */
 
-use \APP\template\TemplateManager;
+use PKP\submission\PKPSubmission;
 
-import('classes.handler.Handler');
+use APP\template\TemplateManager;
+use APP\handler\Handler;
 
 class PreprintsHandler extends Handler
 {
@@ -66,7 +67,7 @@ class PreprintsHandler extends Handler
             'count' => $count,
             'offset' => $offset,
             'orderBy' => 'datePublished',
-            'status' => STATUS_PUBLISHED,
+            'status' => PKPSubmission::STATUS_PUBLISHED,
         ];
         $publishedSubmissions = $submissionService->getMany($params);
         $total = $submissionService->getMax($params);

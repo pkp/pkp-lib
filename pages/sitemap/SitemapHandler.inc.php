@@ -13,6 +13,8 @@
  * @brief Produce a sitemap in XML format for submitting to search engines.
  */
 
+use PKP\submission\PKPSubmission;
+
 import('lib.pkp.pages.sitemap.PKPSitemapHandler');
 
 class SitemapHandler extends PKPSitemapHandler
@@ -34,7 +36,7 @@ class SitemapHandler extends PKPSitemapHandler
         // Preprints
         import('classes.submission.Submission'); // Import status constants
         $submissionIds = Services::get('submission')->getIds([
-            'status' => STATUS_PUBLISHED,
+            'status' => PKPSubmission::STATUS_PUBLISHED,
             'contextId' => $server->getId(),
         ]);
         foreach ($submissionIds as $submissionId) {

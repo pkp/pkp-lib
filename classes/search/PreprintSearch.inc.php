@@ -16,7 +16,8 @@
  *
  */
 
-use \PKP\search\SubmissionSearch;
+use PKP\search\SubmissionSearch;
+use PKP\submission\PKPSubmission;
 
 class PreprintSearch extends SubmissionSearch
 {
@@ -306,7 +307,7 @@ class PreprintSearch extends SubmissionSearch
         if ($result === false) {
             // Retrieve the preprint.
             $preprint = Services::get('submission')->get($submissionId);
-            if ($preprint->getData('status') === STATUS_PUBLISHED) {
+            if ($preprint->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
                 // Retrieve keywords (if any).
                 $submissionSubjectDao = DAORegistry::getDAO('SubmissionKeywordDAO');
                 $allSearchTerms = array_filter($submissionSubjectDao->getKeywords($preprint->getId(), [AppLocale::getLocale(), $preprint->getLocale(), AppLocale::getPrimaryLocale()]));

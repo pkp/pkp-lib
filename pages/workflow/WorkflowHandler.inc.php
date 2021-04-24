@@ -13,7 +13,8 @@
  * @brief Handle requests for the submssion workflow.
  */
 
-use \APP\template\TemplateManager;
+use APP\template\TemplateManager;
+use APP\file\PublicFileManager;
 
 import('lib.pkp.pages.workflow.PKPWorkflowHandler');
 
@@ -72,7 +73,6 @@ class WorkflowHandler extends PKPWorkflowHandler
         $temporaryFileApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'temporaryFiles');
         $relatePublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId()) . '/relate';
 
-        import('classes.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($submissionContext->getId());
 

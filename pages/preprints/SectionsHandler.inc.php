@@ -14,9 +14,10 @@
  *
  */
 
-use \APP\template\TemplateManager;
+use PKP\submission\PKPSubmission;
 
-import('classes.handler.Handler');
+use APP\template\TemplateManager;
+use APP\handler\Handler;
 
 class SectionsHandler extends Handler
 {
@@ -92,7 +93,7 @@ class SectionsHandler extends Handler
             'offset' => $page ? ($page - 1) * $context->getData('itemsPerPage') : 0,
             'orderBy' => 'datePublished',
             'sectionIds' => [(int) $section->getId()],
-            'status' => STATUS_PUBLISHED,
+            'status' => PKPSubmission::STATUS_PUBLISHED,
         ];
 
         $result = Services::get('submission')->getMany($params);

@@ -15,15 +15,16 @@
 
 namespace APP\Services;
 
-use \PKP\db\DAORegistry;
-use \PKP\plugins\HookRegistry;
-use \PKP\Services\PKPPublicationService;
-use \PKP\plugins\PluginRegistry;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
+use PKP\Services\PKPPublicationService;
+use PKP\plugins\PluginRegistry;
+use PKP\submission\PKPSubmission;
 
-use \APP\core\Services;
-use \APP\i18n\AppLocale;
-use \APP\publication\Publication;
-use \APP\core\Application;
+use APP\core\Services;
+use APP\i18n\AppLocale;
+use APP\publication\Publication;
+use APP\core\Application;
 
 class PublicationService extends PKPPublicationService
 {
@@ -273,7 +274,7 @@ class PublicationService extends PKPPublicationService
         // If the publish date is in the future, set the status to scheduled
         $datePublished = $oldPublication->getData('datePublished');
         if ($datePublished && strtotime($datePublished) > strtotime(\Core::getCurrentDate())) {
-            $newPublication->setData('status', STATUS_SCHEDULED);
+            $newPublication->setData('status', PKPSubmission::STATUS_SCHEDULED);
         }
     }
 

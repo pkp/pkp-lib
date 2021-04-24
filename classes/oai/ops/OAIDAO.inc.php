@@ -15,6 +15,8 @@
  * @brief DAO operations for the OPS OAI interface.
  */
 
+use PKP\submission\PKPSubmission;
+
 import('lib.pkp.classes.oai.PKPOAIDAO');
 
 class OAIDAO extends PKPOAIDAO
@@ -209,7 +211,7 @@ class OAIDAO extends PKPOAIDAO
         $serverId = array_shift($setIds);
         $sectionId = array_shift($setIds);
 
-        $params = ['enableOai', (int) STATUS_PUBLISHED];
+        $params = ['enableOai', (int) PKPSubmission::STATUS_PUBLISHED];
         if (isset($serverId)) {
             $params[] = (int) $serverId;
         }

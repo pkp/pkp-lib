@@ -13,7 +13,9 @@
  * @brief Handle site index requests.
  */
 
-use \APP\template\TemplateManager;
+use PKP\submission\PKPSubmission;
+
+use APP\template\TemplateManager;
 
 import('lib.pkp.pages.index.PKPIndexHandler');
 
@@ -66,7 +68,7 @@ class IndexHandler extends PKPIndexHandler
                 'contextId' => $server->getId(),
                 'count' => '10',
                 'orderBy' => 'datePublished',
-                'status' => STATUS_PUBLISHED,
+                'status' => PKPSubmission::STATUS_PUBLISHED,
             ];
             $publishedSubmissions = $submissionService->getMany($params);
 

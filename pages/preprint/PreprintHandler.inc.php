@@ -14,11 +14,11 @@
  *
  */
 
-use \PKP\submission\SubmissionFile;
+use PKP\submission\SubmissionFile;
+use PKP\submission\PKPSubmission;
 
-use \APP\template\TemplateManager;
-
-import('classes.handler.Handler');
+use APP\template\TemplateManager;
+use APP\handler\Handler;
 
 use Firebase\JWT\JWT;
 
@@ -87,7 +87,7 @@ class PreprintHandler extends Handler
             }
         }
 
-        if (!$submission || $submission->getData('status') !== STATUS_PUBLISHED) {
+        if (!$submission || $submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
             $request->getDispatcher()->handle404();
         }
 
@@ -120,7 +120,7 @@ class PreprintHandler extends Handler
             $galleyId = $subPath;
         }
 
-        if ($this->publication->getData('status') !== STATUS_PUBLISHED) {
+        if ($this->publication->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
             $request->getDispatcher()->handle404();
         }
 
@@ -387,7 +387,7 @@ class PreprintHandler extends Handler
     public function userCanViewGalley($request, $preprintId, $galleyId = null)
     {
         $submission = $this->preprint;
-        if ($submission->getStatus() == STATUS_PUBLISHED) {
+        if ($submission->getStatus() == PKPSubmission::STATUS_PUBLISHED) {
             return true;
         } else {
             $request->redirect(null, 'search');

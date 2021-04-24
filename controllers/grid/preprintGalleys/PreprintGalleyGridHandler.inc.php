@@ -20,8 +20,9 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 use PKP\core\JSONMessage;
+use PKP\submission\PKPSubmission;
 
-use \APP\template\TemplateManager;
+use APP\template\TemplateManager;
 
 class PreprintGalleyGridHandler extends GridHandler
 {
@@ -485,7 +486,7 @@ class PreprintGalleyGridHandler extends GridHandler
         $submission = $this->getSubmission();
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
-        if ($publication->getData('status') === STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return false;
         }
 

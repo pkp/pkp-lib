@@ -16,6 +16,9 @@
 
 namespace APP\Services;
 
+use PKP\submission\PKPSubmission;
+use PKP\plugins\HookRegistry;
+
 class SubmissionService extends \PKP\Services\PKPSubmissionService
 {
     /**
@@ -23,10 +26,10 @@ class SubmissionService extends \PKP\Services\PKPSubmissionService
      */
     public function __construct()
     {
-        \HookRegistry::register('API::submissions::params', [$this, 'modifyAPISubmissionsParams']);
-        \HookRegistry::register('Submission::getMany::queryBuilder', [$this, 'modifySubmissionQueryBuilder']);
-        \HookRegistry::register('Submission::getMany::queryObject', [$this, 'modifySubmissionListQueryObject']);
-        \HookRegistry::register('Submission::getProperties::values', [$this, 'modifyPropertyValues']);
+        HookRegistry::register('API::submissions::params', [$this, 'modifyAPISubmissionsParams']);
+        HookRegistry::register('Submission::getMany::queryBuilder', [$this, 'modifySubmissionQueryBuilder']);
+        HookRegistry::register('Submission::getMany::queryObject', [$this, 'modifySubmissionListQueryObject']);
+        HookRegistry::register('Submission::getProperties::values', [$this, 'modifyPropertyValues']);
     }
 
     /**
@@ -150,10 +153,9 @@ class SubmissionService extends \PKP\Services\PKPSubmissionService
      */
     public function getInSections($contextId)
     {
-        import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_...
         $submissions = $this->getMany([
             'contextId' => $contextId,
-            'status' => [STATUS_PUBLISHED, STATUS_SCHEDULED],
+            'status' => [PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED],
             'orderBy' => 'seq',
             'orderDirection' => 'ASC',
         ]);

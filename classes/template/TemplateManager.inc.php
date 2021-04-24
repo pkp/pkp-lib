@@ -17,18 +17,17 @@
 
 namespace APP\template;
 
-use \PKP\template\PKPTemplateManager;
-use \PKP\db\DAORegistry;
-use \PKP\core\PKPApplication;
+use PKP\template\PKPTemplateManager;
+use PKP\db\DAORegistry;
+use PKP\core\PKPApplication;
 
-use \APP\core\Application;
-use \APP\i18n\AppLocale;
-use \APP\template\TemplateManager;
+use APP\core\Application;
+use APP\i18n\AppLocale;
+use APP\template\TemplateManager;
+use APP\file\PublicFileManager;
 
 // FIXME: Add namespacing
-use \PublicFileManager;
 import('classes.search.PreprintSearch');
-import('classes.file.PublicFileManager');
 
 class TemplateManager extends PKPTemplateManager
 {

@@ -18,6 +18,7 @@
 namespace PKP\file;
 
 use PKP\core\Core;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 
 class TemporaryFileManager extends PrivateFileManager

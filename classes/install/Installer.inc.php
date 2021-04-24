@@ -24,14 +24,15 @@ define('INSTALLER_ERROR_DB', 2);
 // Default data
 define('INSTALLER_DEFAULT_LOCALE', 'en_US');
 
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionDAO');
-
+use APP\file\LibraryFileManager;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 
+use Illuminate\Support\Facades\Schema;
 use PKP\db\DBDataXMLParser;
+use PKP\site\Version;
+use PKP\site\VersionDAO;
+
 use PKP\xml\PKPXMLParser;
 
 class Installer
@@ -1119,7 +1120,6 @@ class Installer
      */
     public function fixLibraryFiles()
     {
-        import('classes.file.LibraryFileManager');
         // Fetch all library files (no method currently in LibraryFileDAO for this)
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
         $result = $libraryFileDao->retrieve('SELECT * FROM library_files');

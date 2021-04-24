@@ -14,8 +14,8 @@
  */
 
 import('lib.pkp.classes.form.Form');
-import('classes.file.LibraryFileManager');
 
+use APP\file\LibraryFileManager;
 use APP\template\TemplateManager;
 
 class LibraryFileForm extends Form

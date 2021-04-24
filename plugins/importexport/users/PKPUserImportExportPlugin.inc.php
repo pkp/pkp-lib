@@ -16,8 +16,10 @@
 import('lib.pkp.classes.plugins.ImportExportPlugin');
 
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+use PKP\file\FileManager;
+
+use PKP\file\TemporaryFileManager;
 
 abstract class PKPUserImportExportPlugin extends ImportExportPlugin
 {
@@ -95,7 +97,6 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
                 break;
             case 'uploadImportXML':
                 $user = $request->getUser();
-                import('lib.pkp.classes.file.TemporaryFileManager');
                 $temporaryFileManager = new TemporaryFileManager();
                 $temporaryFile = $temporaryFileManager->handleUpload('uploadedFile', $user->getId());
                 if ($temporaryFile) {
@@ -156,7 +157,6 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
                     $request->getUser(),
                     $filter
                 );
-                import('lib.pkp.classes.file.FileManager');
                 $fileManager = new FileManager();
                 $exportFileName = $this->getExportFileName($this->getExportPath(), 'users', $context, '.xml');
                 $fileManager->writeFile($exportFileName, $exportXml);
@@ -171,7 +171,6 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
                     $request->getUser(),
                     $filter
                 );
-                import('lib.pkp.classes.file.FileManager');
                 $fileManager = new FileManager();
                 $exportFileName = $this->getExportFileName($this->getExportPath(), 'users', $context, '.xml');
                 $fileManager->writeFile($exportFileName, $exportXml);

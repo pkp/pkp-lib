@@ -759,7 +759,6 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
                     }
                 }
                 if (!$fileInUse) {
-                    import('classes.file.PublicFileManager');
                     $publicFileManager = new \PublicFileManager();
                     $publicFileManager->removeContextFile($submission->getData('contextId'), $fileName);
                 }
@@ -778,7 +777,6 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
             $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
 
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new \TemporaryFileManager();
         $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
         $fileNameBase = join('_', ['submission', $submission->getId(), $publication->getId(), $settingName]); // eg - submission_1_1_coverImage

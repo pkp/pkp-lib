@@ -16,6 +16,8 @@
  * All scheduled task classes must extend this class and implement execute().
  */
 
+use PKP\file\PrivateFileManager;
+
 import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 
 abstract class ScheduledTask
@@ -47,7 +49,6 @@ abstract class ScheduledTask
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_PKP_COMMON);
 
         // Check the scheduled task execution log folder.
-        import('lib.pkp.classes.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR;

@@ -13,9 +13,10 @@
  * @brief Helper class implementing plugin administration functions.
  */
 
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
-import('lib.pkp.classes.file.FileManager');
+use PKP\file\FileManager;
+use PKP\site\Version;
+use PKP\site\VersionCheck;
+
 import('classes.install.Install');
 import('classes.install.Upgrade');
 

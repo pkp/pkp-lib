@@ -17,9 +17,10 @@
 import('lib.pkp.classes.form.Form');
 
 import('lib.pkp.classes.plugins.PluginHelper');
-import('lib.pkp.classes.file.FileManager');
 
 use APP\template\TemplateManager;
+
+use PKP\file\TemporaryFileManager;
 
 class UploadPluginForm extends Form
 {
@@ -82,7 +83,6 @@ class UploadPluginForm extends Form
         $notificationMgr = new NotificationManager();
 
         // Retrieve the temporary file.
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
         $temporaryFile = $temporaryFileDao->getTemporaryFile($this->getData('temporaryFileId'), $user->getId());

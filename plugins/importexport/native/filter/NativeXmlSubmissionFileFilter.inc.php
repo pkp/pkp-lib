@@ -13,6 +13,8 @@
  * @brief Base class that converts a Native XML document to a submission file
  */
 
+use PKP\file\FileManager;
+use PKP\file\TemporaryFileManager;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
@@ -258,7 +260,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             if (is_a($childNode, 'DOMElement')) {
                 switch ($childNode->tagName) {
                     case 'href':
-                        import('lib.pkp.classes.file.TemporaryFileManager');
                         $temporaryFileManager = new TemporaryFileManager();
                         $temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'src');
                         $filesrc = $childNode->getAttribute('src');
@@ -294,7 +295,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                         }
                         break;
                     case 'embed':
-                        import('lib.pkp.classes.file.TemporaryFileManager');
                         $temporaryFileManager = new TemporaryFileManager();
                         $temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'embed');
                         if (($e = $childNode->getAttribute('encoding')) != 'base64') {
@@ -327,7 +327,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 $deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.filesizeMismatch', ['expected' => $expectedFileSize, 'actual' => $fileSizeOnDisk]));
             } else {
                 clearstatcache(true, $temporaryFilename);
-                import('lib.pkp.classes.file.FileManager');
                 $fileManager = new FileManager();
                 $submissionDir = Services::get('submissionFile')->getSubmissionDir($submission->getData('contextId'), $submission->getId());
                 $newFileId = Services::get('file')->add(

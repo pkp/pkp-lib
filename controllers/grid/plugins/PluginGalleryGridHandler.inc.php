@@ -24,6 +24,7 @@ define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 use APP\template\TemplateManager;
 
 use PKP\core\JSONMessage;
+use PKP\file\TemporaryFileManager;
 
 class PluginGalleryGridHandler extends GridHandler
 {
@@ -327,7 +328,6 @@ class PluginGalleryGridHandler extends GridHandler
         } catch (Exception $e) {
             $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
             if (!$isUpgrade) {
-                import('lib.pkp.classes.file.TemporaryFileManager');
                 $temporaryFileManager = new TemporaryFileManager();
                 $temporaryFileManager->rmtree($pluginDir);
             }

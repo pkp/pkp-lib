@@ -25,26 +25,25 @@ require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.ph
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\file\PublicFileManager;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use FormBuilderVocabulary;
 use Less_Parser;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
-use PKP\core\Core;
 
+use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 
-// FIXME: Use namespacing
+// FIXME: add namespacing
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 
-use PublicFileManager;
 use Smarty;
-
 use Validation;
 
 /* This definition is required by Smarty */
@@ -213,7 +212,6 @@ class PKPTemplateManager extends Smarty
             if ($currentContext) {
                 $contextStyleSheet = $currentContext->getData('styleSheet');
                 if ($contextStyleSheet) {
-                    import('classes.file.PublicFileManager');
                     $publicFileManager = new PublicFileManager();
                     $this->addStyleSheet(
                         'contextStylesheet',

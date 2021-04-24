@@ -16,8 +16,9 @@
 import('lib.pkp.classes.plugins.Plugin');
 
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+
+use PKP\file\FileManager;
 
 abstract class ImportExportPlugin extends Plugin
 {
@@ -434,7 +435,6 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function downloadExportedFile($exportFileName)
     {
-        import('lib.pkp.classes.file.FileManager');
         $fileManager = new FileManager();
         $fileManager->downloadByPath($exportFileName);
         $fileManager->deleteByPath($exportFileName);
@@ -451,7 +451,6 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function writeExportedFile($filename, $fileContent, $context)
     {
-        import('lib.pkp.classes.file.FileManager');
         $fileManager = new FileManager();
         $exportFileName = $this->getExportFileName($this->getExportPath(), $filename, $context, '.xml');
         $fileManager->writeFile($exportFileName, $fileContent);

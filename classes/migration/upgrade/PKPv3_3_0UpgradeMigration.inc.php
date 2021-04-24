@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 use PKP\db\XMLDAO;
+use PKP\file\FileManager;
 use PKP\submission\SubmissionFile;
 
 class PKPv3_3_0UpgradeMigration extends Migration
@@ -333,7 +334,6 @@ class PKPv3_3_0UpgradeMigration extends Migration
         });
 
         // Create entry in files and revisions tables for every submission_file
-        import('lib.pkp.classes.file.FileManager');
         $fileManager = new FileManager();
         $rows = DB::table('submission_files')
             ->join('submissions', 'submission_files.submission_id', '=', 'submissions.submission_id')

@@ -13,7 +13,7 @@
  * @brief Base class for all management page handlers.
  */
 
-// Import the base Handler.
+use APP\file\PublicFileManager;
 use APP\handler\Handler;
 
 use APP\template\TemplateManager;
@@ -166,7 +166,6 @@ class ManagementHandler extends Handler
         $temporaryFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'temporaryFiles');
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
-        import('classes.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
 

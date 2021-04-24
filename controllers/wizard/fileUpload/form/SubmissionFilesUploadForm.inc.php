@@ -13,6 +13,7 @@
  * @brief Form for adding/editing a submission file
  */
 
+use PKP\file\FileManager;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.wizard.fileUpload.form.PKPSubmissionFilesUploadBaseForm');
@@ -172,7 +173,6 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         assert(is_a($user, 'User'));
 
         // Upload the file.
-        import('lib.pkp.classes.file.FileManager');
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($_FILES['uploadedFile']['name']);
 

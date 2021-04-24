@@ -13,9 +13,10 @@
  * @brief Base class for the editor decision forms.
  */
 
+use APP\file\LibraryFileManager;
 use APP\template\TemplateManager;
-use PKP\log\SubmissionEmailLogEntry;
 
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\SubmissionMailTemplate;
 
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
@@ -313,7 +314,6 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
         }
 
         // Attach the selected Library files as attachments to the email.
-        import('classes.file.LibraryFileManager');
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
         $selectedLibraryFilesAttachments = $this->getData('selectedLibraryFiles');
         if (is_array($selectedLibraryFilesAttachments)) {

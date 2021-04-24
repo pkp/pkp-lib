@@ -16,6 +16,9 @@
 import('lib.pkp.classes.form.Form');
 
 use APP\template\TemplateManager;
+use PKP\file\ContextFileManager;
+
+use PKP\file\TemporaryFileManager;
 
 class CategoryForm extends Form
 {
@@ -141,7 +144,6 @@ class CategoryForm extends Form
     public function validate($callHooks = true)
     {
         if ($temporaryFileId = $this->getData('temporaryFileId')) {
-            import('lib.pkp.classes.file.TemporaryFileManager');
             $temporaryFileManager = new TemporaryFileManager();
             $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
             $temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $this->_userId);
@@ -286,7 +288,6 @@ class CategoryForm extends Form
 
             $temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $this->_userId);
             $temporaryFilePath = $temporaryFile->getFilePath();
-            import('lib.pkp.classes.file.ContextFileManager');
             $contextFileManager = new ContextFileManager($this->getContextId());
             $basePath = $contextFileManager->getBasePath() . '/categories/';
 
@@ -347,7 +348,6 @@ class CategoryForm extends Form
             ]);
 
             // Clean up the temporary file
-            import('lib.pkp.classes.file.TemporaryFileManager');
             $temporaryFileManager = new TemporaryFileManager();
             $temporaryFileManager->deleteById($temporaryFileId, $this->_userId);
         }

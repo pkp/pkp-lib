@@ -13,10 +13,10 @@
  * @brief Form to edit user's public profile.
  */
 
+use APP\file\PublicFileManager;
 use APP\template\TemplateManager;
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
-import('classes.file.PublicFileManager');
 
 define('PROFILE_IMAGE_MAX_WIDTH', 150);
 define('PROFILE_IMAGE_MAX_HEIGHT', 150);
@@ -72,7 +72,6 @@ class PublicProfileForm extends BaseProfileForm
      */
     public function uploadProfileImage()
     {
-        import('classes.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
 
         $user = $this->getUser();

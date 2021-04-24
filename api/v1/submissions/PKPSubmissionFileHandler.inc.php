@@ -14,6 +14,7 @@
  *
  */
 
+use PKP\file\FileManager;
 use PKP\handler\APIHandler;
 use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionFile;
@@ -261,7 +262,6 @@ class PKPSubmissionFileHandler extends APIHandler
             return $this->getUploadErrorResponse($response, $_FILES['file']['error']);
         }
 
-        import('lib.pkp.classes.file.FileManager');
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
 
@@ -385,7 +385,6 @@ class PKPSubmissionFileHandler extends APIHandler
                 return $this->getUploadErrorResponse($response, $_FILES['file']['error']);
             }
 
-            import('lib.pkp.classes.file.FileManager');
             $fileManager = new FileManager();
             $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
             $submissionDir = Services::get('submissionFile')->getSubmissionDir($request->getContext()->getId(), $submission->getId());

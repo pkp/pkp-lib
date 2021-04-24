@@ -14,9 +14,10 @@
  */
 
 use APP\core\Services;
-
 use APP\handler\Handler;
+
 use APP\template\TemplateManager;
+use PKP\file\ContextFileManager;
 use PKP\submission\PKPSubmission;
 
 // FIXME: add namespacing
@@ -115,7 +116,6 @@ class PKPCatalogHandler extends Handler
                     $this->getDispatcher()->handle404();
                 }
                 $imageInfo = $category->getImage();
-                import('lib.pkp.classes.file.ContextFileManager');
                 $contextFileManager = new ContextFileManager($context->getId());
                 $contextFileManager->downloadByPath($contextFileManager->getBasePath() . '/categories/' . $imageInfo['name'], null, true);
                 break;
@@ -141,7 +141,6 @@ class PKPCatalogHandler extends Handler
                     $this->getDispatcher()->handle404();
                 }
                 $imageInfo = $category->getImage();
-                import('lib.pkp.classes.file.ContextFileManager');
                 $contextFileManager = new ContextFileManager($context->getId());
                 $contextFileManager->downloadByPath($contextFileManager->getBasePath() . '/categories/' . $imageInfo['thumbnailName'], null, true);
                 break;

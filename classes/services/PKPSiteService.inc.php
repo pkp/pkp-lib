@@ -229,9 +229,7 @@ class PKPSiteService implements EntityPropertyInterface
      */
     public function moveTemporaryFile($context, $temporaryFile, $fileNameBase, $userId, $localeKey = '')
     {
-        import('classes.file.PublicFileManager');
         $publicFileManager = new \PublicFileManager();
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new \TemporaryFileManager();
 
         $fileName = $fileNameBase;
@@ -278,7 +276,6 @@ class PKPSiteService implements EntityPropertyInterface
      */
     protected function _saveFileParam($site, $value, $settingName, $userId, $localeKey = '', $isImage = false)
     {
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new \TemporaryFileManager();
 
         // If the value is null, clean up any existing file in the system
@@ -286,7 +283,6 @@ class PKPSiteService implements EntityPropertyInterface
             $setting = $site->getData($settingName, $localeKey);
             if ($setting) {
                 $fileName = $isImage ? $setting['uploadName'] : $setting;
-                import('classes.file.PublicFileManager');
                 $publicFileManager = new \PublicFileManager();
                 $publicFileManager->removeSiteFile($fileName);
             }
@@ -304,7 +300,6 @@ class PKPSiteService implements EntityPropertyInterface
         if ($fileName) {
             // Get the details for image uploads
             if ($isImage) {
-                import('classes.file.PublicFileManager');
                 $publicFileManager = new \PublicFileManager();
 
                 [$width, $height] = getimagesize($publicFileManager->getSiteFilesPath() . '/' . $fileName);

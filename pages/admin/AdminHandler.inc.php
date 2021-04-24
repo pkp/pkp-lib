@@ -14,7 +14,7 @@
  */
 
 use APP\core\Services;
-
+use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 
@@ -170,7 +170,6 @@ class AdminHandler extends Handler
         $themeApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'site/theme');
         $temporaryFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'temporaryFiles');
 
-        import('classes.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
 

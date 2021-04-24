@@ -14,7 +14,8 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridCategoryRow');
-import('classes.file.LibraryFileManager');
+
+use APP\file\LibraryFileManager;
 
 class LibraryFileGridCategoryRow extends GridCategoryRow
 {

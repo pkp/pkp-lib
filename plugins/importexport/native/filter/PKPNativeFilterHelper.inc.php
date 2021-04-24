@@ -12,6 +12,8 @@
  * @brief Class that provides native import/export filter-related helper methods.
  */
 
+use APP\file\PublicFileManager;
+
 class PKPNativeFilterHelper
 {
     /**
@@ -41,7 +43,6 @@ class PKPNativeFilterHelper
                 $coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image', htmlspecialchars($coverImageName, ENT_COMPAT, 'UTF-8')));
                 $coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image_alt_text', htmlspecialchars($coverImage['altText'], ENT_COMPAT, 'UTF-8')));
 
-                import('classes.file.PublicFileManager');
                 $publicFileManager = new PublicFileManager();
 
                 $contextId = $context->getId();
@@ -116,7 +117,6 @@ class PKPNativeFilterHelper
                         $coverImage['altText'] = $n->textContent;
                         break;
                     case 'embed':
-                        import('classes.file.PublicFileManager');
                         $publicFileManager = new PublicFileManager();
                         $filePath = $publicFileManager->getContextFilesPath($context->getId()) . '/' . $coverImage['uploadName'];
                         file_put_contents($filePath, base64_decode($n->textContent));

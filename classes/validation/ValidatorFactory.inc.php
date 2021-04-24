@@ -17,6 +17,8 @@ use Illuminate\Translation\FileLoader;
 use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory;
 
+use PKP\file\TemporaryFileManager;
+
 // Import VALIDATE_ACTION_... constants
 import('lib.pkp.classes.services.interfaces.EntityWriteInterface');
 
@@ -361,7 +363,6 @@ class ValidatorFactory
     public static function temporaryFilesExist($validator, $uploadProps, $multilingualUploadProps, $props, $allowedLocales, $userId)
     {
         $validator->after(function ($validator) use ($uploadProps, $multilingualUploadProps, $props, $allowedLocales, $userId) {
-            import('lib.pkp.classes.file.TemporaryFileManager');
             $temporaryFileManager = new TemporaryFileManager();
             foreach ($uploadProps as $uploadProp) {
                 if (!isset($props[$uploadProp])) {

@@ -17,6 +17,8 @@ import('lib.pkp.controllers.grid.files.form.LibraryFileForm');
 
 use APP\template\TemplateManager;
 
+use PKP\file\TemporaryFileManager;
+
 class NewLibraryFileForm extends LibraryFileForm
 {
     /** @var int */
@@ -86,7 +88,6 @@ class NewLibraryFileForm extends LibraryFileForm
         $fileId = $libraryFileDao->insertObject($libraryFile);
 
         // Clean up the temporary file
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFileManager->deleteById($this->getData('temporaryFileId'), $userId);
 

@@ -18,6 +18,7 @@ import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
 import('lib.pkp.controllers.grid.plugins.PluginGalleryGridHandler');
 
 use PKP\core\JSONMessage;
+use PKP\file\TemporaryFileManager;
 
 abstract class PluginGridHandler extends CategoryGridHandler
 {
@@ -351,7 +352,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
      */
     public function uploadPluginFile($args, $request)
     {
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
         $user = $request->getUser();
 

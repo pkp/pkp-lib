@@ -25,13 +25,15 @@
  *  - Update the config file with installation parameters.
  */
 
-
 import('lib.pkp.classes.install.Installer');
 
 use APP\core\Services;
-use Illuminate\Config\Repository;
 
+use Illuminate\Config\Repository;
+use PKP\file\FileManager;
 use PKP\services\PKPSchemaService;
+
+use PKP\site\Version;
 
 class PKPInstall extends Installer
 {
@@ -143,7 +145,6 @@ class PKPInstall extends Installer
         } else {
             // Create required subdirectories
             $dirsToCreate = $this->getCreateDirectories();
-            import('lib.pkp.classes.file.FileManager');
             $fileManager = new FileManager();
             foreach ($dirsToCreate as $dirName) {
                 $dirToCreate = $this->getParam('filesDir') . '/' . $dirName;
@@ -165,7 +166,6 @@ class PKPInstall extends Installer
         } else {
             // Create required subdirectories
             $dirsToCreate = $this->getCreateDirectories();
-            import('lib.pkp.classes.file.FileManager');
             $fileManager = new FileManager();
             foreach ($dirsToCreate as $dirName) {
                 $dirToCreate = $publicFilesDir . '/' . $dirName;

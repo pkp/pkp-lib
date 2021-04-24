@@ -16,6 +16,7 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
 use PKP\core\JSONMessage;
+use PKP\file\TemporaryFileManager;
 
 class SetupGridHandler extends GridHandler
 {
@@ -69,7 +70,6 @@ class SetupGridHandler extends GridHandler
         $context = $request->getContext();
         $user = $request->getUser();
 
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFile = $temporaryFileManager->handleUpload('uploadedFile', $user->getId());
         if ($temporaryFile) {

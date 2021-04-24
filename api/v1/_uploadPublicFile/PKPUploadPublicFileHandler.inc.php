@@ -11,6 +11,8 @@
  *
  * @brief Handle API requests to upload a file to a user's public directory.
  */
+
+use PKP\file\FileManager;
 use PKP\handler\APIHandler;
 
 class PKPUploadPublicFileHandler extends APIHandler
@@ -127,7 +129,6 @@ class PKPUploadPublicFileHandler extends APIHandler
             ]);
         }
 
-        import('lib.pkp.classes.file.FileManager');
         $fileManager = new FileManager();
         $filename = $fileManager->getUploadedFileName('file');
         $filename = trim(

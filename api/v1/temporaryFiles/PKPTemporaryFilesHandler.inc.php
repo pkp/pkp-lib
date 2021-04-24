@@ -12,6 +12,7 @@
  * @brief Handle API requests to upload a file and receive a temporary file ID.
  */
 
+use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
 
 class PKPTemporaryFilesHandler extends APIHandler
@@ -90,7 +91,6 @@ class PKPTemporaryFilesHandler extends APIHandler
             return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
         }
 
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
         $fileName = $temporaryFileManager->getFirstUploadedPostName();
         $uploadedFile = $temporaryFileManager->handleUpload($fileName, $request->getUser()->getId());

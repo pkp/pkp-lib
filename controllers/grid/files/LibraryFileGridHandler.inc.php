@@ -16,13 +16,14 @@
 import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
 import('lib.pkp.controllers.grid.files.LibraryFileGridRow');
 import('lib.pkp.controllers.grid.files.LibraryFileGridCategoryRow');
-import('classes.file.LibraryFileManager');
-import('lib.pkp.classes.context.LibraryFile');
+
+use APP\file\LibraryFileManager;
+use PKP\core\JSONMessage;
+
+use PKP\file\TemporaryFileManager;
 
 // Link action & modal classes
 import('lib.pkp.classes.linkAction.request.AjaxModal');
-
-use PKP\core\JSONMessage;
 
 class LibraryFileGridHandler extends CategoryGridHandler
 {
@@ -324,7 +325,6 @@ class LibraryFileGridHandler extends CategoryGridHandler
         $context = $request->getContext();
         $user = $request->getUser();
 
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFile = $temporaryFileManager->handleUpload('uploadedFile', $user->getId());
         if ($temporaryFile) {

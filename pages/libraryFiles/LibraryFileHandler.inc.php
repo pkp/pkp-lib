@@ -12,7 +12,7 @@
  * @brief Class defining a handler for library file access
  */
 
-// Import the base handler.
+use APP\file\LibraryFileManager;
 use APP\handler\Handler;
 
 class LibraryFileHandler extends Handler
@@ -42,7 +42,6 @@ class LibraryFileHandler extends Handler
      */
     public function downloadPublic($args, $request)
     {
-        import('classes.file.LibraryFileManager');
         $context = $request->getContext();
         $libraryFileManager = new LibraryFileManager($context->getId());
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
@@ -67,7 +66,6 @@ class LibraryFileHandler extends Handler
      */
     public function downloadLibraryFile($args, $request)
     {
-        import('classes.file.LibraryFileManager');
         $context = $request->getContext();
         $libraryFileManager = new LibraryFileManager($context->getId());
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */

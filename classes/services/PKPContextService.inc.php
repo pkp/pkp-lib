@@ -497,7 +497,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $managerUserGroup = $userGroupDao->getDefaultByRoleId($context->getId(), ROLE_ID_MANAGER);
         $userGroupDao->assignUserToGroup($currentUser->getId(), $managerUserGroup->getId());
 
-        import('lib.pkp.classes.file.FileManager');
         $fileManager = new \FileManager();
         foreach ($this->installFileDirs as $dir) {
             $fileManager->mkdir(sprintf($dir, $this->contextsFileDirName, $context->getId()));
@@ -588,7 +587,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
         $navigationMenuItemDao->deleteByContextId($context->getId());
 
-        import('lib.pkp.classes.file.FileManager');
         $fileManager = new \FileManager($context->getId());
         $contextPath = \Config::getVar('files', 'files_dir') . '/' . $this->contextsFileDirName . '/' . $context->getId();
         $fileManager->rmtree($contextPath);
@@ -659,9 +657,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function moveTemporaryFile($context, $temporaryFile, $fileNameBase, $userId, $localeKey = '')
     {
-        import('classes.file.PublicFileManager');
         $publicFileManager = new \PublicFileManager();
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new \TemporaryFileManager();
 
         $fileName = $fileNameBase;
@@ -716,7 +712,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     protected function _saveFileParam($context, $value, $settingName, $userId, $localeKey = '', $isImage = false)
     {
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new \TemporaryFileManager();
 
         // If the value is null, clean up any existing file in the system
@@ -724,7 +719,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $setting = $context->getData($settingName, $localeKey);
             if ($setting) {
                 $fileName = $isImage ? $setting['uploadName'] : $setting;
-                import('classes.file.PublicFileManager');
                 $publicFileManager = new \PublicFileManager();
                 $publicFileManager->removeContextFile($context->getId(), $fileName);
             }
@@ -742,7 +736,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         if ($fileName) {
             // Get the details for image uploads
             if ($isImage) {
-                import('classes.file.PublicFileManager');
                 $publicFileManager = new \PublicFileManager();
 
                 $filePath = $publicFileManager->getContextFilesPath($context->getId());

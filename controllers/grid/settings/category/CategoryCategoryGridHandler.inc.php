@@ -24,6 +24,7 @@ import('lib.pkp.controllers.grid.settings.category.CategoryGridCategoryRow');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 use PKP\core\JSONMessage;
+use PKP\file\TemporaryFileManager;
 
 class CategoryCategoryGridHandler extends CategoryGridHandler
 {
@@ -295,7 +296,6 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     {
         $user = $request->getUser();
 
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFile = $temporaryFileManager->handleUpload('uploadedFile', $user->getId());
         if ($temporaryFile) {

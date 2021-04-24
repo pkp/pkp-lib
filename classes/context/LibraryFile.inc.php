@@ -17,10 +17,8 @@
 
 namespace PKP\context;
 
-use FileManager;
-
-import('lib.pkp.classes.file.FileManager');
 use PKP\config\Config;
+use PKP\file\FileManager;
 
 class LibraryFile extends \PKP\core\DataObject
 {

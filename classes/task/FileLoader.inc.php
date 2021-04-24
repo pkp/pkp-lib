@@ -23,6 +23,7 @@ define('FILE_LOADER_PATH_PROCESSING', 'processing');
 define('FILE_LOADER_PATH_REJECT', 'reject');
 define('FILE_LOADER_PATH_ARCHIVE', 'archive');
 
+use PKP\file\FileManager;
 use PKP\mail\Mail;
 
 abstract class FileLoader extends ScheduledTask
@@ -248,7 +249,6 @@ abstract class FileLoader extends ScheduledTask
                 if ($install) {
                     // Try installing the folder if it is missing.
                     if (is_null($fileManager)) {
-                        import('lib.pkp.classes.file.FileManager');
                         $fileManager = new FileManager();
                     }
                     $fileManager->mkdirtree($path);

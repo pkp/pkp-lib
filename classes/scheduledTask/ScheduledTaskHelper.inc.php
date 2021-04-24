@@ -19,6 +19,7 @@ define('SCHEDULED_TASK_MESSAGE_TYPE_WARNING', 'common.warning');
 define('SCHEDULED_TASK_MESSAGE_TYPE_NOTICE', 'common.notice');
 define('SCHEDULED_TASK_EXECUTION_LOG_DIR', 'scheduledTaskLogs');
 
+use PKP\file\PrivateFileManager;
 use PKP\mail\Mail;
 
 class ScheduledTaskHelper
@@ -198,7 +199,6 @@ class ScheduledTaskHelper
      */
     public static function clearExecutionLogs()
     {
-        import('lib.pkp.classes.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         $fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR);
@@ -211,7 +211,6 @@ class ScheduledTaskHelper
      */
     public static function downloadExecutionLog($file)
     {
-        import('lib.pkp.classes.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         $fileMgr->downloadByPath($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);

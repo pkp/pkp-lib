@@ -14,6 +14,8 @@
  * stores/retrieves from an associative array
  */
 
+use PKP\file\TemporaryFileManager;
+
 import('lib.pkp.controllers.grid.files.form.LibraryFileForm');
 
 class NewLibraryFileForm extends LibraryFileForm
@@ -69,7 +71,6 @@ class NewLibraryFileForm extends LibraryFileForm
         $fileId = $libraryFileDao->insertObject($libraryFile);
 
         // Clean up the temporary file
-        import('lib.pkp.classes.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFileManager->deleteById($this->getData('temporaryFileId'), $userId);
         parent::execute(...$functionArgs);

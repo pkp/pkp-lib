@@ -66,8 +66,8 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
         import('classes.components.forms.publication.RelationForm');
 
         $templateMgr->setConstants([
-            'FORM_ID_RELATION',
-            'FORM_PUBLISH',
+            'FORM_ID_RELATION' => FORM_ID_RELATION,
+            'FORM_PUBLISH' => FORM_PUBLISH,
         ]);
 
         $components = $templateMgr->getState('components');

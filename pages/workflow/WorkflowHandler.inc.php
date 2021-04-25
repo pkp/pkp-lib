@@ -80,12 +80,10 @@ class WorkflowHandler extends PKPWorkflowHandler
         $relationForm = new APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication, $submissionContext, $baseUrl, $temporaryFileApiUrl);
 
         import('classes.components.forms.publication.IssueEntryForm'); // Constant import
-        $templateMgr->setConstants([
-            'FORM_ISSUE_ENTRY',
-        ]);
         import('classes.components.forms.publication.RelationForm'); // Constant import
         $templateMgr->setConstants([
-            'FORM_ID_RELATION',
+            'FORM_ISSUE_ENTRY' => FORM_ISSUE_ENTRY,
+            'FORM_ID_RELATION' => FORM_ID_RELATION,
         ]);
 
         $sectionWordLimits = [];

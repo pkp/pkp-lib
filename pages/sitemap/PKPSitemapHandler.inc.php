@@ -17,6 +17,8 @@ use APP\handler\Handler;
 
 define('SITEMAP_XSD_URL', 'https://www.sitemaps.org/schemas/sitemap/0.9');
 
+use DOMDocument;
+
 class PKPSitemapHandler extends Handler
 {
     /**

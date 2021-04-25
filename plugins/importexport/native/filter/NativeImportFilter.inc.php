@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.plugins.importexport.PKPImportExportFilter');
 
+use DOMDocument;
+
 class NativeImportFilter extends PKPImportExportFilter
 {
     //

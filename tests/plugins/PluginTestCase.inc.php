@@ -25,6 +25,8 @@ import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.plugins.Plugin');
 
 use APP\core\Request;
+use DOMDocument;
+
 use PKP\core\Registry;
 
 class PluginTestCase extends DatabaseTestCase

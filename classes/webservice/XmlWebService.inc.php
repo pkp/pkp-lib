@@ -13,9 +13,11 @@
  * @brief A web service that returns XML data.
  */
 
-use PKP\xslt\XSLTransformer;
+use DOMDocument;
 
 import('lib.pkp.classes.webservice.WebService');
+
+use PKP\xslt\XSLTransformer;
 
 class XmlWebService extends WebService
 {

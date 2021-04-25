@@ -26,10 +26,12 @@
 namespace PKP\xslt;
 
 // FIXME: Add namespacing
-use TypeDescription;
+use DOMDocument;
 
 import('lib.pkp.classes.filter.TypeDescription');
 import('lib.pkp.classes.filter.TypeDescriptionFactory');
+
+use TypeDescription;
 
 class XMLTypeDescription extends TypeDescription
 {

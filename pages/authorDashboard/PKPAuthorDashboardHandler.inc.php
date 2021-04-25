@@ -18,6 +18,7 @@ use APP\template\TemplateManager;
 use PKP\log\SubmissionEmailLogEntry;
 
 use PKP\services\PKPSchemaService;
+use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 
 abstract class PKPAuthorDashboardHandler extends Handler
@@ -237,12 +238,12 @@ abstract class PKPAuthorDashboardHandler extends Handler
         import('classes.components.forms.publication.PublishForm');
 
         $templateMgr->setConstants([
-            'STATUS_QUEUED',
-            'STATUS_PUBLISHED',
-            'STATUS_DECLINED',
-            'STATUS_SCHEDULED',
-            'FORM_TITLE_ABSTRACT',
-            'FORM_CITATIONS',
+            'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
+            'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
+            'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
+            'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
+            'FORM_TITLE_ABSTRACT' => FORM_TITLE_ABSTRACT,
+            'FORM_CITATIONS' => FORM_CITATIONS,
         ]);
 
         // Get the submission props without the full publication details. We'll
@@ -351,7 +352,9 @@ abstract class PKPAuthorDashboardHandler extends Handler
         if ($metadataEnabled) {
             $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
             $metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
-            $templateMgr->setConstants(['FORM_METADATA']);
+            $templateMgr->setConstants([
+                'FORM_METADATA' => FORM_METADATA,
+            ]);
             $state['components'][FORM_METADATA] = $metadataForm->getConfig();
             $state['publicationFormIds'][] = FORM_METADATA;
         }

@@ -14,8 +14,12 @@
 
 namespace PKP\components\listPanels;
 
+use APP\core\Services;
+use APP\template\TemplateManager;
 use PKP\components\forms\FieldAutosuggestPreset;
+
 use PKP\components\forms\FieldSelectUsers;
+use PKP\submission\PKPSubmission;
 
 abstract class PKPSubmissionsListPanel extends ListPanel
 {
@@ -169,36 +173,36 @@ abstract class PKPSubmissionsListPanel extends ListPanel
         import('lib.pkp.classes.submission.reviewRound.ReviewRound');
         import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignment');
         import('lib.pkp.classes.services.PKPSubmissionService'); // STAGE_STATUS_SUBMISSION_UNASSIGNED
-        $templateMgr = \TemplateManager::getManager($request);
+        $templateMgr = TemplateManager::getManager($request);
         $templateMgr->setConstants([
-            'STATUS_QUEUED',
-            'STATUS_PUBLISHED',
-            'STATUS_DECLINED',
-            'STATUS_SCHEDULED',
-            'WORKFLOW_STAGE_ID_SUBMISSION',
-            'WORKFLOW_STAGE_ID_INTERNAL_REVIEW',
-            'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW',
-            'WORKFLOW_STAGE_ID_EDITING',
-            'WORKFLOW_STAGE_ID_PRODUCTION',
-            'STAGE_STATUS_SUBMISSION_UNASSIGNED',
-            'REVIEW_ROUND_STATUS_PENDING_REVIEWERS',
-            'REVIEW_ROUND_STATUS_REVIEWS_READY',
-            'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED',
-            'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE',
-            'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED',
-            'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED',
-            'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW',
-            'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED',
-            'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE',
-            'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE',
-            'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE',
-            'REVIEW_ASSIGNMENT_STATUS_ACCEPTED',
-            'REVIEW_ASSIGNMENT_STATUS_RECEIVED',
-            'REVIEW_ASSIGNMENT_STATUS_COMPLETE',
-            'REVIEW_ASSIGNMENT_STATUS_THANKED',
-            'REVIEW_ASSIGNMENT_STATUS_CANCELLED',
-            'REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY',
-            'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED',
+            'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
+            'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
+            'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
+            'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
+            'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
+            'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
+            'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW' => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
+            'WORKFLOW_STAGE_ID_EDITING' => WORKFLOW_STAGE_ID_EDITING,
+            'WORKFLOW_STAGE_ID_PRODUCTION' => WORKFLOW_STAGE_ID_PRODUCTION,
+            'STAGE_STATUS_SUBMISSION_UNASSIGNED' => STAGE_STATUS_SUBMISSION_UNASSIGNED,
+            'REVIEW_ROUND_STATUS_PENDING_REVIEWERS' => REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
+            'REVIEW_ROUND_STATUS_REVIEWS_READY' => REVIEW_ROUND_STATUS_REVIEWS_READY,
+            'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED' => REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
+            'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE' => REVIEW_ROUND_STATUS_REVIEWS_OVERDUE,
+            'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED' => REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
+            'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED' => REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
+            'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW' => REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW,
+            'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED' => REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED,
+            'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE' => REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE,
+            'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE' => REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE,
+            'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE' => REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE,
+            'REVIEW_ASSIGNMENT_STATUS_ACCEPTED' => REVIEW_ASSIGNMENT_STATUS_ACCEPTED,
+            'REVIEW_ASSIGNMENT_STATUS_RECEIVED' => REVIEW_ASSIGNMENT_STATUS_RECEIVED,
+            'REVIEW_ASSIGNMENT_STATUS_COMPLETE' => REVIEW_ASSIGNMENT_STATUS_COMPLETE,
+            'REVIEW_ASSIGNMENT_STATUS_THANKED' => REVIEW_ASSIGNMENT_STATUS_THANKED,
+            'REVIEW_ASSIGNMENT_STATUS_CANCELLED' => REVIEW_ASSIGNMENT_STATUS_CANCELLED,
+            'REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY' => REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY,
+            'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED' => REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED,
         ]);
 
         $templateMgr->setLocaleKeys([
@@ -238,10 +242,10 @@ abstract class PKPSubmissionsListPanel extends ListPanel
      */
     public function getItems($request)
     {
-        $submissionsIterator = \Services::get('submission')->getMany($this->_getItemsParams());
+        $submissionsIterator = Services::get('submission')->getMany($this->_getItemsParams());
         $items = [];
         foreach ($submissionsIterator as $submission) {
-            $items[] = \Services::get('submission')->getBackendListProperties($submission, ['request' => $request]);
+            $items[] = Services::get('submission')->getBackendListProperties($submission, ['request' => $request]);
         }
 
         return $items;

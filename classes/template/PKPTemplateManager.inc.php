@@ -339,9 +339,9 @@ class PKPTemplateManager extends Smarty
         // ListBuilderHandler is no longer needed.
         import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
         $this->setConstants([
-            'LISTBUILDER_SOURCE_TYPE_TEXT',
-            'LISTBUILDER_SOURCE_TYPE_SELECT',
-            'LISTBUILDER_OPTGROUP_LABEL',
+            'LISTBUILDER_SOURCE_TYPE_TEXT' => LISTBUILDER_SOURCE_TYPE_TEXT,
+            'LISTBUILDER_SOURCE_TYPE_SELECT' => LISTBUILDER_SOURCE_TYPE_SELECT,
+            'LISTBUILDER_OPTGROUP_LABEL' => LISTBUILDER_OPTGROUP_LABEL,
         ]);
 
         /**
@@ -576,12 +576,12 @@ class PKPTemplateManager extends Smarty
     /**
      * Set constants to be exposed in JavaScript at pkp.const.<constant>
      *
-     * @param array $names Array of constant names
+     * @param array $names Array mapping constant names to values
      */
     public function setConstants($names)
     {
-        foreach ($names as $name) {
-            $this->_constants[$name] = constant($name);
+        foreach ($names as $name => $value) {
+            $this->_constants[$name] = $value;
         }
     }
 
@@ -781,23 +781,23 @@ class PKPTemplateManager extends Smarty
         }
 
         $this->setConstants([
-            'REALLY_BIG_NUMBER',
-            'UPLOAD_MAX_FILESIZE',
-            'WORKFLOW_STAGE_ID_PUBLISHED',
-            'WORKFLOW_STAGE_ID_SUBMISSION',
-            'WORKFLOW_STAGE_ID_INTERNAL_REVIEW',
-            'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW',
-            'WORKFLOW_STAGE_ID_EDITING',
-            'WORKFLOW_STAGE_ID_PRODUCTION',
-            'INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT',
-            'ROLE_ID_MANAGER',
-            'ROLE_ID_SITE_ADMIN',
-            'ROLE_ID_AUTHOR',
-            'ROLE_ID_REVIEWER',
-            'ROLE_ID_ASSISTANT',
-            'ROLE_ID_READER',
-            'ROLE_ID_SUB_EDITOR',
-            'ROLE_ID_SUBSCRIPTION_MANAGER',
+            'REALLY_BIG_NUMBER' => REALLY_BIG_NUMBER,
+            'UPLOAD_MAX_FILESIZE' => UPLOAD_MAX_FILESIZE,
+            'WORKFLOW_STAGE_ID_PUBLISHED' => WORKFLOW_STAGE_ID_PUBLISHED,
+            'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
+            'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
+            'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW' => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
+            'WORKFLOW_STAGE_ID_EDITING' => WORKFLOW_STAGE_ID_EDITING,
+            'WORKFLOW_STAGE_ID_PRODUCTION' => WORKFLOW_STAGE_ID_PRODUCTION,
+            'INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+            'ROLE_ID_MANAGER' => ROLE_ID_MANAGER,
+            'ROLE_ID_SITE_ADMIN' => ROLE_ID_SITE_ADMIN,
+            'ROLE_ID_AUTHOR' => ROLE_ID_AUTHOR,
+            'ROLE_ID_REVIEWER' => ROLE_ID_REVIEWER,
+            'ROLE_ID_ASSISTANT' => ROLE_ID_ASSISTANT,
+            'ROLE_ID_READER' => ROLE_ID_READER,
+            'ROLE_ID_SUB_EDITOR' => ROLE_ID_SUB_EDITOR,
+            'ROLE_ID_SUBSCRIPTION_MANAGER' => ROLE_ID_SUBSCRIPTION_MANAGER,
         ]);
 
         // Common locale keys available in the browser for every page

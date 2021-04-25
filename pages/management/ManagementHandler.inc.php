@@ -185,7 +185,7 @@ class ManagementHandler extends Handler
         $dateTimeForm = new \PKP\components\forms\context\PKPDateTimeForm($contextApiUrl, $locales, $context);
 
         $templateMgr->setConstants([
-            'FORM_ANNOUNCEMENT_SETTINGS',
+            'FORM_ANNOUNCEMENT_SETTINGS' => FORM_ANNOUNCEMENT_SETTINGS,
         ]);
 
         $templateMgr->setState([
@@ -307,7 +307,7 @@ class ManagementHandler extends Handler
 
         $paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
         $templateMgr->setConstants([
-            'FORM_PAYMENT_SETTINGS',
+            'FORM_PAYMENT_SETTINGS' => FORM_PAYMENT_SETTINGS,
         ]);
 
         $templateMgr->setState([
@@ -408,7 +408,7 @@ class ManagementHandler extends Handler
         ]);
 
         $templateMgr->setConstants([
-            'FORM_NOTIFY_USERS',
+            'FORM_NOTIFY_USERS' => FORM_NOTIFY_USERS,
         ]);
 
         $templateMgr->setState([

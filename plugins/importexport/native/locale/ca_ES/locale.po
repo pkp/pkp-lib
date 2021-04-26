@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-06-16 22:10+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/ojs/"
+"importexport-native/ca_ES/>\n"
+"Language: ca_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.importexport.native.error.unknownUser"
+msgstr "L'usuari/ària especificat (\"{$userName}\") no existeix."
+
+msgid "plugins.importexport.native.error.unknownSection"
+msgstr "Secció desconeguda {$param}"
+
+#, fuzzy
+msgid "plugins.importexport.native.cliUsage"
+msgstr ""
+"Ús: {$scriptName} {$pluginName} [command] ...\n"
+"Ordres:\n"
+"\timport [xmlFileName] [journal_path] [user_name] ...\n"
+"\texport [xmlFileName] [journal_path] articles [articleId1] [articleId2] ..."
+"\n"
+"\texport [xmlFileName] [journal_path] article [articleId]\n"
+"\n"
+"Són necessaris paràmetres addicionals per importar dades de la següent "
+"manera,\n"
+"en funció del node arrel del document XML.\n"
+"\n"
+"Si el node arrel és <article> o <articles>, seran necessaris paràmetres "
+"addicionals.\n"
+"S'accepten els formats següents:\n"
+"\n"
+"{$scriptName} {$pluginName} import [xmlFileName] [journal_path] [user_name]\n"
+"\tissue_id [issueId] section_id [sectionId]\n"
+"\n"
+"{$scriptName} {$pluginName} import [xmlFileName] [journal_path] [user_name]\n"
+"\tissue_id [issueId] section_name [name]\n"
+"\n"
+"{$scriptName} {$pluginName} import [xmlFileName] [journal_path]\n"
+"\tissue_id [issueId] section_abbrev [abbrev]\n"
+
+msgid "plugins.importexport.native.importComplete"
+msgstr ""
+"La importació s'ha completat correctament. S'han importat els elements "
+"següents:"
+
+msgid "plugins.inportexport.native.uploadFile"
+msgstr "Carregueu un arxiu en l'apartat \"Importar\" per continuar."
+
+msgid "plugins.importexport.native.results"
+msgstr "Resultats"
+
+msgid "plugins.importexport.native.exportSubmissions"
+msgstr "Exportar articles"
+
+#, fuzzy
+msgid "plugins.importexport.native.exportSubmissionsSelect"
+msgstr "Seleccioneu els articles per exportar"
+
+msgid "plugins.importexport.native.import.instructions"
+msgstr "Carregar arxiu XML per importar"
+
+msgid "plugins.importexport.native.import"
+msgstr "Importar"
+
+msgid "plugins.importexport.native.description"
+msgstr "Importar i exportar articles i números en el format XML nadiu d'OJS."
+
+#, fuzzy
+msgid "plugins.importexport.native.displayName"
+msgstr "Mòdul XML nadiu"

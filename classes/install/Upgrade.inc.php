@@ -13,9 +13,11 @@
  * @brief Perform system upgrade.
  */
 
-use \APP\template\TemplateManager;
+namespace APP\install;
 
-import('lib.pkp.classes.install.Installer');
+use PKP\install\Installer;
+
+use APP\template\TemplateManager;
 
 class Upgrade extends Installer
 {
@@ -81,4 +83,8 @@ class Upgrade extends Installer
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\install\Upgrade', '\Upgrade');
 }

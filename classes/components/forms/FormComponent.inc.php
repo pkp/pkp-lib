@@ -15,6 +15,8 @@
 
 namespace PKP\components\forms;
 
+use Exception;
+
 define('FIELD_POSITION_BEFORE', 'before');
 define('FIELD_POSITION_AFTER', 'after');
 

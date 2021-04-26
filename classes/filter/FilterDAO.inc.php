@@ -42,6 +42,8 @@
 
 import('lib.pkp.classes.filter.Filter');
 
+use Exception;
+
 class FilterDAO extends \PKP\db\DAO
 {
     /** @var array names of additional settings for the currently persisted/retrieved filter */

@@ -13,12 +13,14 @@
  * @brief Helper class implementing plugin administration functions.
  */
 
+use APP\install\Install;
+use APP\install\Upgrade;
+use Exception;
+
 use PKP\file\FileManager;
 use PKP\site\Version;
-use PKP\site\VersionCheck;
 
-import('classes.install.Install');
-import('classes.install.Upgrade');
+use PKP\site\VersionCheck;
 
 define('PLUGIN_ACTION_UPLOAD', 'upload');
 define('PLUGIN_ACTION_UPGRADE', 'upgrade');

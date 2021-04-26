@@ -13,6 +13,8 @@
  * @brief Provide access to query files management.
  */
 
+use Exception;
+
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');

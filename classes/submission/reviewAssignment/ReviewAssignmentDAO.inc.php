@@ -15,6 +15,8 @@
  * @brief Class for DAO relating reviewers to submissions.
  */
 
+use Exception;
+
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentDAO extends \PKP\db\DAO

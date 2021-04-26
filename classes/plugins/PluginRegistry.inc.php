@@ -20,7 +20,9 @@ namespace PKP\plugins;
 define('PLUGINS_PREFIX', 'plugins/');
 
 use APP\core\Application;
+use Exception;
 use PKP\config\Config;
+
 use PKP\core\Registry;
 
 class PluginRegistry

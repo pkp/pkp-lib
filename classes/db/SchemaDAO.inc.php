@@ -17,6 +17,8 @@ namespace PKP\db;
 
 use APP\core\Services;
 
+use Exception;
+
 use Illuminate\Support\Facades\DB;
 
 abstract class SchemaDAO extends DAO

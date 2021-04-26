@@ -15,12 +15,11 @@
 
 namespace PKP\cliTool;
 
-import('classes.install.Install');
-import('lib.pkp.classes.install.form.InstallForm');
-
+use InstallForm;
 
 // FIXME: Add namespacing
-use InstallForm;
+import('lib.pkp.classes.install.form.InstallForm');
+use PKP\install\Install;
 
 class InstallTool extends \PKP\cliTool\CommandLineTool
 {

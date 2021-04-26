@@ -17,6 +17,8 @@ import('lib.pkp.classes.form.Form');
 
 use APP\template\TemplateManager;
 
+use Exception;
+
 class PKPAuthorForm extends Form
 {
     /** The publication associated with the contributor being edited **/

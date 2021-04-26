@@ -19,9 +19,11 @@ namespace PKP\submission;
 
 use APP\core\Services;
 
+use Exception;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
 use PKP\db\SchemaDAO;
+
 use PKP\plugins\PKPPubIdPluginDAO;
 
 use PKP\services\PKPSchemaService;

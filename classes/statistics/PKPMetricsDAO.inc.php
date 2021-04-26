@@ -18,7 +18,9 @@
 
 import('classes.statistics.StatisticsHelper'); //STATISTICS_DIMENSION_
 
+use Exception;
 use PKP\core\PKPApplication;
+
 use PKP\db\DBResultRange;
 
 class PKPMetricsDAO extends \PKP\db\DAO

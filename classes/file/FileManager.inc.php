@@ -21,10 +21,12 @@
 
 namespace PKP\file;
 
+use Exception;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\i18n\PKPLocale;
+
 use PKP\plugins\HookRegistry;
 
 class FileManager

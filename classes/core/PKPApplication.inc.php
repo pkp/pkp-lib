@@ -19,9 +19,14 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\core\Request;
 use APP\i18n\AppLocale;
+
+use Exception;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
+
+// FIXME: Add namespacing
 use PKP\plugins\PluginRegistry;
+
 use StatisticsHelper;
 
 interface iPKPApplicationInfoProvider

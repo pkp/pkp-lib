@@ -14,6 +14,7 @@
  */
 
 use DOMDocument;
+use Exception;
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 

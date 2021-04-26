@@ -15,6 +15,8 @@
 
 namespace PKP\file;
 
+use Exception;
+
 use PKP\config\Config;
 
 class FileArchive

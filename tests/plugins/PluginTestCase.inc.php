@@ -25,6 +25,8 @@ import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.plugins.Plugin');
 
 use APP\core\Request;
+
+use APP\install\Install;
 use DOMDocument;
 
 use PKP\core\Registry;
@@ -80,7 +82,6 @@ class PluginTestCase extends DatabaseTestCase
         Registry::set('request', $mockRequest);
 
         // Instantiate the installer.
-        import('classes.install.Install');
         $installFile = './lib/pkp/tests/plugins/testPluginInstall.xml';
         $params = $this->getConnectionParams();
         $installer = new Install($params, $installFile, true);

@@ -21,10 +21,12 @@
 namespace PKP\mail;
 
 use APP\core\Application;
+use Exception;
 use League\OAuth2\Client\Provider\Google;
-use PHPMailer\PHPMailer\OAuth;
-use PHPMailer\PHPMailer\PHPMailer;
 
+use PHPMailer\PHPMailer\OAuth;
+
+use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PKP\config\Config;
 use PKP\core\PKPString;

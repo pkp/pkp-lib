@@ -13,6 +13,8 @@
  * @brief Form for promoting a submission (to external review or editing)
  */
 
+use Exception;
+
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailForm');

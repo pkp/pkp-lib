@@ -17,16 +17,18 @@
 
 namespace PKP\site;
 
-define('VERSION_CODE_PATH', 'dbscripts/xml/version.xml');
-
 use APP\core\Application;
+use Exception;
 use PKP\config\Config;
+
 use PKP\db\DAORegistry;
 
 use PKP\db\XMLDAO;
 
 class VersionCheck
 {
+    public const VERSION_CODE_PATH = 'dbscripts/xml/version.xml';
+
     /**
      * Return information about the latest available version.
      *
@@ -73,7 +75,7 @@ class VersionCheck
      */
     public static function getCurrentCodeVersion()
     {
-        $versionInfo = self::parseVersionXML(VERSION_CODE_PATH);
+        $versionInfo = self::parseVersionXML(self::VERSION_CODE_PATH);
         if ($versionInfo) {
             return $versionInfo['version'];
         }
@@ -221,4 +223,5 @@ class VersionCheck
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\site\VersionCheck', '\VersionCheck');
+    define('VERSION_CODE_PATH', \VersionCheck::VERSION_CODE_PATH);
 }

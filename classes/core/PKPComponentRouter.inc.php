@@ -65,7 +65,10 @@ import('lib.pkp.classes.core.PKPRouter');
 import('classes.core.Request');
 
 use APP\i18n\AppLocale;
+use Exception;
+
 use PKP\config\Config;
+
 use PKP\plugins\HookRegistry;
 
 class PKPComponentRouter extends PKPRouter

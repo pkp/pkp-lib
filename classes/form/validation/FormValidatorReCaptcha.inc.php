@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.validation.FormValidator');
 
+use Exception;
+
 class FormValidatorReCaptcha extends FormValidator
 {
     /** @var string The response field containing the reCaptcha response */

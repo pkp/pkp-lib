@@ -19,7 +19,9 @@
 
 namespace PKP\core;
 
+use Exception;
 use PKP\config\Config;
+
 use PKP\session\SessionManager;
 
 class APIRouter extends PKPRouter

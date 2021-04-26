@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.filter.PersistableFilter');
 
+use Exception;
+
 class PKPImportExportFilter extends PersistableFilter
 {
     /** @var PKPNativeImportExportDeployment */

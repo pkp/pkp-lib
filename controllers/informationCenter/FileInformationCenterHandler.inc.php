@@ -16,6 +16,8 @@
 import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
 
 use APP\template\TemplateManager;
+use Exception;
+
 use PKP\core\JSONMessage;
 
 use PKP\log\EventLogEntry;

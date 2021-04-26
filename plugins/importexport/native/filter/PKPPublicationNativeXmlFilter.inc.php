@@ -16,6 +16,7 @@
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
 use DOMDocument;
+use Exception;
 
 use PKP\submission\PKPSubmission;
 

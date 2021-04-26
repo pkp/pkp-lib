@@ -15,8 +15,8 @@
 
 import('lib.pkp.classes.install.form.InstallForm');
 import('lib.pkp.classes.install.form.UpgradeForm');
-use APP\handler\Handler;
 
+use APP\handler\Handler;
 use APP\template\TemplateManager;
 
 class InstallHandler extends Handler

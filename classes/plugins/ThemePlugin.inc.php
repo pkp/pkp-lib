@@ -21,6 +21,8 @@ define('THEME_OPTION_PREFIX', 'themeOption_');
 use APP\core\Application;
 use APP\template\TemplateManager;
 
+use Exception;
+
 abstract class ThemePlugin extends LazyLoadPlugin
 {
     /**

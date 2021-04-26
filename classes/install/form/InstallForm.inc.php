@@ -15,13 +15,14 @@
  * @brief Form for system installation.
  */
 
-import('classes.install.Install');
-import('lib.pkp.classes.install.form.MaintenanceForm');
-
 use APP\i18n\AppLocale;
+use APP\install\Install;
 
 use APP\template\TemplateManager;
+use PKP\install\Installer;
 use PKP\xslt\XSLTransformer;
+
+import('lib.pkp.classes.install.form.MaintenanceForm');
 
 class InstallForm extends MaintenanceForm
 {
@@ -216,7 +217,7 @@ class InstallForm extends MaintenanceForm
             $templateMgr->display('install/installComplete.tpl');
         } else {
             switch ($installer->getErrorType()) {
-                case INSTALLER_ERROR_DB:
+                case Installer::INSTALLER_ERROR_DB:
                     $this->dbInstallError($installer->getErrorMsg());
                     break;
                 default:

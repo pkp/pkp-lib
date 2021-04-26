@@ -17,8 +17,10 @@ define('RUNNING_UPGRADE', 1);
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
+use APP\install\Upgrade;
+use PKP\site\Version;
+
+use PKP\site\VersionCheck;
 
 class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
 {
@@ -75,7 +77,6 @@ class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
         }
         $plugin = PluginRegistry::getPlugin($matches[1], $plugin->getName());
 
-        import('classes.install.Upgrade');
         $installer = new Upgrade([]);
         $result = true;
         $param = [&$installer, &$result];

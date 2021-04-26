@@ -15,10 +15,11 @@
 
 use APP\template\TemplateManager;
 
+use Exception;
+
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.submission.SubmissionFile');
 
 class PKPSubmissionFilesUploadBaseForm extends Form
 {

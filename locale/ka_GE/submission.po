@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-23 10:47+0000\n"
+"PO-Revision-Date: 2021-04-26 11:12+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ka_GE/>\n"
@@ -746,3 +746,332 @@ msgstr "ახალი მიმოხილვის ფორმის შე
 
 msgid "grid.action.editMetadata"
 msgstr "მეტა-მონაცემების ჩასწორება"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.confirm.message"
+msgstr ""
+"თქვენი გაგზავნა აიტვირთა და მზად არის გასაგზავნად. გაგრძელებამდე შეგიძლიათ "
+"დაუბრუნდეთ თქვენს მიერ შეყვანილი ინფორმაციის გადახედვას და შესწორებას. "
+"როდესაც თქვენ მზად იქნებით, დააჭირეთ \"დასრულების გაგზავნას\"."
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"საუკეთესო შედეგის მისაღწევად, რედაქტორები უნდა შეიყვანოთ შემდეგ ფორმატში: "
+"Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.validationMessage.source"
+msgstr "გთხოვთ, მიუთითოთ გამოცემის სწორი სათაური."
+
+msgid "metadata.property.validationMessage.date"
+msgstr "გთხოვთ, მიუთითოთ გამოქვეყნების სწორი თარიღი (ფორმატი: YYYY-MM-DD)."
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "გთხოვთ, შეიყვანოთ სწორი გამოცემა."
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "გთხოვთ, შეიყვანოთ სწორი ტომი."
+
+msgid "metadata.property.validationMessage.season"
+msgstr "გთხოვთ, შეიყვანოთ სეზონის სწორი იდენტიფიკატორი."
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "გთხოვთ, შეიყვანოთ სწორი გამოცემა."
+
+msgid "metadata.property.validationMessage.series"
+msgstr "გთხოვთ, შეიყვანოთ სწორი სერია."
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "გთხოვთ, შეიყვანოთ სწორი დამატება."
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "გთხოვთ, შეიყვანოთ კონფერენციის მოქმედი სპონსორი."
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "გთხოვთ, შეიყვანოთ მოქმედი დაწესებულება."
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr ""
+"გთხოვთ, შეიყვანოთ სწორი პირველი გვერდი (უნდა იყოს რიცხვითი მნიშვნელობა)."
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "გთხოვთ, შეიყვანოთ სწორი ბოლო გვერდი (უნდა იყოს რიცხვითი მნიშვნელობა)."
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+"გთხოვთ, შეიყვანოთ გვერდების მართებული საერთო რაოდენობა (რიცხვითი მნიშვნელობა "
+"უნდა იყოს)."
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "გთხოვთ, შეიყვანოთ გამომცემლის სწორი ადგილმდებარეობა."
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "გთხოვთ, მიუთითოთ გამომცემლის სწორი სახელი."
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "გთხოვთ, შეიყვანოთ სწორი ISBN (9 ან 13 ციფრი)."
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "გთხოვთ, შეიყვანოთ სწორი ბეჭდვითი ISSN."
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "გთხოვთ, შეიყვანოთ სწორი eISSN."
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "გთხოვთ, შეიყვანოთ სწორი DOI."
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "გთხოვთ, შეიყვანოთ მორგებული პუბლიკაციის იდენტიფიკატორი."
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "გთხოვთ, შეიყვანოთ სწორი SICI."
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "გთხოვთ, შეიყვანოთ სწორი PMID."
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "გთხოვთ, შეიყვანოთ გამოცემის სწორი ალტერნატიული ბმული."
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"გთხოვთ, დარწმუნდეთ, რომ ყოველთვის დააყენეთ გამოცემის ტიპი. ამჟამად "
+"მხარდაჭერილი მნიშვნელობებია წიგნი (წიგნების ან წიგნების თავებისთვის) და "
+"ჟურნალი (ჟურნალების სტატიებისთვის). წინააღმდეგ შემთხვევაში ციტირების "
+"შედეგების ფორმატირება არ იმუშავებს სწორად."
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"გთხოვთ, დარწმუნდეთ, რომ მითითებული გაქვთ სათაურის სწორი ტიპი. მხარდაჭერილი "
+"მნიშვნელობებია 'შემოკლებული', 'თარგმნილი', 'ალტერნატიული' და 'უნიფორმა'."
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"გთხოვთ, შეიტანოთ მხოლოდ სათაურის საწყისი სიმბოლოები, რომლებიც უნდა იქნას "
+"უგულებელყოფილი სათაურის დახარისხებისას."
+
+msgid "metadata.property.validationMessage.title"
+msgstr "გთხოვთ შეიყვანოთ სწორი სათაური."
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "გთხოვთ, შეიყვანოთ სწორი ქვესათაური."
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "გთხოვთ, შეიყვანოთ სწორი რიცხვი."
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "გთხოვთ შეიყვანოთ მენიუს ელემენტისთვის ვარგისი სახელი."
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"გთხოვთ, დარწმუნდეთ, რომ სახელის სწორი ტიპი გაქვთ მითითებული. მხარდაჭერილი "
+"მნიშვნელობებია 'პირადი', 'კორპორატიული' და 'კონფერენცია'."
+
+msgid "submission.authorBiography"
+msgstr "ავტორის ბიოგრაფია"
+
+msgid "submission.authorBiographies"
+msgstr "ავტორის ბიოგრაფიები"
+
+msgid "submission.additionalFiles"
+msgstr "დამატებითი ფაილები"
+
+msgid "submission.agencies"
+msgstr "სააგენტოები"
+
+msgid "submission.abstractViews"
+msgstr "სტატიის აბსტრაქტის გვერდის ნახვები"
+
+msgid "submission.acknowledge"
+msgstr "დადასტურება"
+
+msgid "submission.ask"
+msgstr "იკითხეთ"
+
+msgid "submission.attachedFile"
+msgstr "Მიმაგრებული ფაილი"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "წარდგენის ჩასწორებაზე დაბრუნება"
+
+msgid "submission.citations"
+msgstr "წყაროები"
+
+msgid "submission.citations.description"
+msgstr ""
+"შეიყვანეთ თითოეული მითითება ახალ სტრიქონზე ისე, რომ მათი მოპოვება და ჩაწერა "
+"ცალკე მოხდეს."
+
+msgid "submission.comments.confirmDelete"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ კომენტარის წაშლა?"
+
+msgid "submission.comments.corrections"
+msgstr "შესწორებები"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "კოლეგების მიმოხილვების იმპორტი"
+
+msgid "submission.comments.addReviews"
+msgstr "დაამატეთ მიმოხილვები ელფოსტაში"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "მიმომხილველი {$reviewerLetter}:"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "რეცენზენტთა სარედაქციო გადაწყვეტილების გაგზავნა"
+
+msgid "submission.contributors"
+msgstr "ავტორთა სია"
+
+msgid "submission.coverage"
+msgstr "დაფარვის ინფორმაცია"
+
+msgid "submission.currentCoverImage"
+msgstr "მიმდინარე სურათი"
+
+msgid "publication.createVersion"
+msgstr "ახალი ვერსიის შექმნა"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "თარიღი უნდა იყოს ფორმატში YYYY-MM-DD, მაგალითად, 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "შეიქმნა ახალი ვერსია."
+
+msgid "publication.publicationLicense"
+msgstr "ნებართვები და გამჟღავნება"
+
+msgid "publication.titleAbstract"
+msgstr "სათაური და აბსტრაქტი"
+
+msgid "publication.unschedule"
+msgstr "განრიგიდან ამოღება"
+
+msgid "publication.urlPath"
+msgstr "URL-მდებარეობა"
+
+msgid "publication.urlPath.description"
+msgstr ""
+"არასავალდებულო გზა, რომელიც უნდა გამოიყენოთ URL-ში, იდენტიფიკატორის ნაცვლად."
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL გზა უკვე გამოყენებულია და მისი გამოყენება აღარ შეიძლება."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL მდებარეობა არ შეიძლება იყოს რიცხვი."
+
+msgid "publication.version.all"
+msgstr "ყველა ვერსია"
+
+msgid "publication.version.confirm"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ახალი ვერსიის შექმნა?"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"რეზიუმე ძალიან გრძელია. ეს უნდა იყოს {$limit} სიტყვა, ან ნაკლები. ამჟამად "
+"მისი სიგრძეა {$count} სიტყვა."
+
+msgid "publication.wordCount"
+msgstr "სიტყვების რაოდენობა: {$count}/{$limit}"
+
+msgid "submission.currentAgencies"
+msgstr "მიმდინარე სააგენტოები"
+
+msgid "submission.createRemote"
+msgstr "დისტანციურად შექმნა"
+
+msgid "submission.artworkFileDetails"
+msgstr "ნამუშევრების ფაილის დეტალები"
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-MM-DD"
+
+msgid "submission.currentStage"
+msgstr "მიმდინარე ეტაპი"
+
+msgid "submission.actionNeeded"
+msgstr "საჭიროებს ქმედებას"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "ფაილების გადახედვა"
+
+msgid "notification.type.editorAssign"
+msgstr "თქვენ დაინიშნეთ როგორც რედაქტორი წარდგინებაში “{$title}”."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "თქვენ მოგეთხოვებათ გადახედოთ კოპირებულ მასალას “{$title}”."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "თქვენ მოგეთხოვათ გადახედოთ განლაგებებს “{$title}”."
+
+msgid "notification.type.indexRequest"
+msgstr "თქვენ მოგეთხოვებათ შექმნათ ინდექსი “{$title}”."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "რედაქტორის უახლესი გადაწყვეტილება."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "გარე განხილვის პროცესი დაიწყო."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "საჭიროა შესწორება."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "ხელახლა გაგზავნა განსახილველად."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "განხილვების ახალი რაუნდი დაიწყო."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "უარყოფილი გაგზავნა კვლავ გააქტიურდა."
+
+msgid "notification.uploadedResponse"
+msgstr "პასუხი აიტვირთა."
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"განხილვის დაწყებამდე რედაქტორი უნდა დაინიშნოს. გთხოვთ დაამატოთ რედაქტორი "
+"მონაწილეთა სიის გამოყენებით."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "შეიქმნა გაგზავნის ახალი ვერსია"
+
+msgid "notification.type.revertDecline"
+msgstr "გადაწყვეტილება გაუქმდა ამ წარდგინებას."
+
+msgid "submission.art"
+msgstr "ნამუშევრები"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "წარმოების პროცესი დაიწყო."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"წარმოების რედაქტორი უნდა დაინიშნოს წარმოების პროცესის დაწყებამდე. გთხოვთ, "
+"დაამატოთ პროდუქციის რედაქტორი მონაწილეთა სიის გამოყენებით."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"წარმოების რედაქტორი უნდა დაინიშნოს სარედაქციო პროცესის დაწყებამდე. გთხოვთ, "
+"დაამატოთ პროდუქციის რედაქტორი მონაწილეთა სიის გამოყენებით."
+
+msgid "submission.attachPermissions"
+msgstr "წარდგენას დაურთეთ შემდეგი ნებართვები:"
+
+msgid "submission.copyrightHolder"
+msgstr "საავტორო უფლებები"
+
+msgid "submission.copyrightHolder.other"
+msgstr "საავტორო უფლებების მორგებული განცხადება"
+
+msgid "submission.copyrightOther"
+msgstr "საავტორო უფლებების შესახებ განცხადება"
+
+msgid "submission.copyrightYear"
+msgstr "საავტორო უფლების წელი"
+
+msgid "submission.copyrightStatement"
+msgstr "საავტორო უფლებები (c) {$copyrightYear} {$copyrightHolder}"

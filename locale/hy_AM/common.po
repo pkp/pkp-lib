@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-25 17:49+0000\n"
-"Last-Translator: anau vpn <anauvpn@gmail.com>\n"
+"PO-Revision-Date: 2021-04-26 11:12+0000\n"
+"Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -1223,3 +1223,100 @@ msgstr ""
 "Commons Attribution 3.0 License</a>.\n"
 "\t</div>\n"
 "\t"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Ընտրեք ստանդարտ հաղորդագրություն ներքոհիշյալ նմուշը օգտագործելու կամ "
+"լրացնելու համար։"
+
+msgid "informationCenter.pastNotes"
+msgstr "Նախորդ տարբերակների նշումներ"
+
+msgid "help.upALevel"
+msgstr "Մեկ մակարդակ վերև"
+
+msgid "help.toc"
+msgstr "Բովանդակություն"
+
+msgid "form.saveToUpload"
+msgstr "Ֆայլերի պահպանման համար կիրառեք «Պահպանել» կոճակը։"
+
+msgid "form.saved"
+msgstr "Պահպանված է"
+
+msgid "form.errors"
+msgstr ""
+"Ձևանմուշը չի պահպանվել, քանի որ {$count} հատ սխալներ են հայտնաբերվել։ "
+"Խնդրում ենք ուղղել  այդ սխալները և փորձել կրկին։"
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Խնդրում ենք օգտագործեք ներքևում նշված նմուշը ֆայլերի ներբեռնման համար։"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Ձեր բրաուզերը չի խրախուսում drag'n'drop ֆայլերի ներբեռնումը։"
+
+msgid "form.url.invalid"
+msgstr "Նշված հղումը անվավեր է։Խնդրում ենք ստուգել այն և փորձել կրկին։"
+
+msgid "email.body"
+msgstr "Մարմին"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Հասանելի չափիչներ"
+
+msgid "defaultMetric.title"
+msgstr "Դեֆոլտ չափիչ"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Լեզվի ֆայլում բացակայում է բանալին \"{$key}\"։"
+
+msgid "common.metric"
+msgstr "Չափում"
+
+msgid "common.viewWithName"
+msgstr "Դիտել {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Գոյություն չունեցող օգտատեր]"
+
+msgid "common.addFile"
+msgstr "Ավելացնել ֆայլ"
+
+msgid "common.up"
+msgstr "Վերև"
+
+msgid "common.unknownError"
+msgstr "Տեղի է ունեցել չսպասված սխալ։ Խնդրում ենք թարմացրել էջը և նորից փորձեք։"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Ընտրել  {$name}"
+
+msgid "common.editItem"
+msgstr "Խմբագրել {$name}ը։"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tThis work is licensed under a <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0  License</a>.\n"
+"\t"
+
+msgid "common.addSelf"
+msgstr "Ավելացնել ինձ"
+
+msgid "common.inactive"
+msgstr "Ոչ ակտիվ"
+
+msgid "about.contact.principalContact"
+msgstr "Հրատարակչության ներկայացուցիչ"

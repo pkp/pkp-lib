@@ -57,15 +57,13 @@ class UserDetailsForm extends UserForm
             $this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [$this->userId, true], true));
             $this->addCheck(new FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 
-            if (!Config::getVar('security', 'implicit_auth')) {
-                $this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
-                $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
-                    return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
-                }, [], false, ['length' => $site->getMinPasswordLength()]));
-                $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
-                    return $password == $form->getData('password2');
-                }));
-            }
+            $this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
+            $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
+                return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
+            }, [], false, ['length' => $site->getMinPasswordLength()]));
+            $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
+                return $password == $form->getData('password2');
+            }));
         } else {
             $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
             $this->user = $userDao->getById($userId);

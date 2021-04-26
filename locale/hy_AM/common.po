@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-26 11:12+0000\n"
+"PO-Revision-Date: 2021-04-26 16:31+0000\n"
 "Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -1320,3 +1320,409 @@ msgstr "Ոչ ակտիվ"
 
 msgid "about.contact.principalContact"
 msgstr "Հրատարակչության ներկայացուցիչ"
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Դուք չունեք թույլտվություն այս քննարկմանը մասնակցելու համար։"
+
+msgid "user.authorization.invalidQuery"
+msgstr "Անվավեր քննարկում։"
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Գրախոսման անվավեր փուլ։"
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Անվավեր ներկայացում։"
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Անվավեր նյութ։"
+
+msgid "user.authorization.invalidPublication"
+msgstr "Անվավեր հրապարակում։"
+
+msgid "user.email"
+msgstr "էլ․ փոստի հասցե"
+
+msgid "notification.signedFile"
+msgstr "Ֆայլը դիտված է։"
+
+msgid "notification.type.metadataModified"
+msgstr "\"{$title}'ի\" մետա տվյալները փոփոխվել են։"
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Նախադիտումները/Դիտողությունները կցված են"
+
+msgid "notification.type.allReviewsIn"
+msgstr "Բոլոր գրախոսողները պատասխանել են և որոշումը  {$stage} փուլում է։"
+
+msgid "notification.type.auditorRequest"
+msgstr "Ստուգել հարցումը  \"{$file}\"ի համար։"
+
+msgid "notification.type.reviewAssignment"
+msgstr "Գրախոսումը սպասվում է։"
+
+msgid "notification.type.newAnnouncement"
+msgstr "Նոր հայտարարություն"
+
+msgid "notification.editStageParticipant"
+msgstr "Փուլի անունը փոխվել է։"
+
+msgid "notification.addedStageParticipant"
+msgstr "Օգտատերը վերականգնված է որպես այս փուլի մասնակից։"
+
+msgid "notification.reinstatedReviewer"
+msgstr "Գրախոսողը վերականգնված է։"
+
+msgid "notification.cancelledReviewer"
+msgstr "Գրախոսողը չեղարկված է։"
+
+msgid "notification.removedReviewer"
+msgstr "Գրախոսողը հեռացված է։"
+
+msgid "navigation.goBack"
+msgstr "Գնալ հետ"
+
+msgid "submission.task.responseDueDate"
+msgstr "Գրախոսման ամսաթիվ"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Գրախոսման ամսաթիվ"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Պատասխանի ամսաթիվ"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Խմբագրի հարցում"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Գրախոսման գրաֆիկ"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Ինչպես երաշխավորել, որ բոլոր ֆայլերը անանուն են"
+
+msgid "dashboard.myQueue"
+msgstr "Իմ գործերը"
+
+msgid "dashboard.tasks"
+msgstr "Առաջադրանքներ"
+
+msgid "grid.action.markRead"
+msgstr "Նշել որպես կարդացած"
+
+msgid "grid.action.markNew"
+msgstr "Նշել նորը"
+
+msgid "grid.action.deleteNotification"
+msgstr "Ջնջել առաջադրանքը"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Կարդալ ընթացիկ գրախոսման քաղաքականությունը"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Ինչպես երաշխավորել, որ բոլոր ֆայլերը անանուն են"
+
+msgid "context.path"
+msgstr "Ճանապարհ"
+
+msgid "grid.action.downloadFile"
+msgstr "Ներբեռնել այս ֆայլը"
+
+msgid "search.typeMethodApproach"
+msgstr "Տիպ (մեթոդ/մոտեցում)"
+
+msgid "search.title"
+msgstr "Վերնագիր"
+
+msgid "search.titleIndex"
+msgstr "Ցուցադրել վերնագրի ցուցիչը"
+
+msgid "search.subject"
+msgstr "Բանալի բառ(եր)"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Գտնվել է {$count} արդյունք։"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Գտնվել է մեկ արդյունք"
+
+msgid "search.searchResults"
+msgstr "Որոնման արդյունքներ"
+
+msgid "search.SearchFor"
+msgstr "Փնտրել"
+
+msgid "search.operator.or"
+msgstr "կամ"
+
+msgid "search.operator.not"
+msgstr "ոչ"
+
+msgid "search.operator.and"
+msgstr "և"
+
+msgid "search.noResults"
+msgstr "Արդյունք չի գտնվել"
+
+msgid "search.matchAll"
+msgstr "Միացնել բոլոր կատեգորիաները"
+
+msgid "search.indexTermsLong"
+msgstr "Բոլոր ինդեքսների պայմանների դաշտեր"
+
+msgid "search.indexTerms"
+msgstr "Ինդեքսավորման պայմաններ"
+
+msgid "search.fullText"
+msgstr "Ամբողջական տեքստ"
+
+msgid "search.discipline"
+msgstr "Կանոնակարգեր"
+
+msgid "search.deleteFilter"
+msgstr "Ջնջել"
+
+msgid "search.dateTo"
+msgstr "Նախքան հրապարակելը"
+
+msgid "search.dateFrom"
+msgstr "Հրատարակումից հետո"
+
+msgid "search.date"
+msgstr "Հրատարակման ամսաթիվ"
+
+msgid "search.coverage"
+msgstr "Արդյունք"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} ինդեքսավորված հոդված"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "սխալ"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "կատարված է"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Մաքրել ինդեքսը"
+
+msgid "search.searchAgain"
+msgstr "Փնտրել կրկին"
+
+msgid "search.advancedSearchLess"
+msgstr "Թաքցնել"
+
+msgid "search.advancedSearchMore"
+msgstr "Ավելի շատ որոնման տարբերակներ"
+
+msgid "search.advancedFilters"
+msgstr "Ընդլայնված զտիչներ"
+
+msgid "search.abstract"
+msgstr "Ամփոփագիր"
+
+msgid "search.author"
+msgstr "Հոդվածագրի կողմից"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Ուղարկել նամակ բոլոր գրանցված օգտատերերին։"
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Նյութի մետա տվյալները պահպանվել են։"
+
+msgid "notification.reminderSent"
+msgstr ""
+"Ձեր նոր գաղտնաբառը ուղարկված է այն էլ․ փոստի հասցեին, որը Դուք տրամադրել եք։"
+
+msgid "notification.reminderError"
+msgstr ""
+"Ձեր գաղտնաբառի ուղարկման հետ կապված կա խնդիր։ Խնդրում ենք, ստուգեք Ձեր էլ․ "
+"փոստի հասցեն։"
+
+msgid "notification.settingsDescription"
+msgstr "Ընտրեք համակարգի միջոցառում, որի մասին ցանկանում եք տեղեկացված լինել։"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} {$total}ից"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} ընդամենը {$total}ից"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Թույլ տալ այս մասնակցին կատարելու փոփոխություններ հրապարակման մեջ, այնպիսի "
+"փոփոխություններ ինչպիսիք են վերնագիրը, ամփոփագիրը, մետա տվյալները և այլ "
+"փոփոխություններ կապված հրապարակման հետ։ Դուք կարող եք չեղարկել այս "
+"թույլտվությունները, եթե հոդվածը անցել է վերջնական ստուգումը և պատրաստ է "
+"հրապարակման։"
+
+msgid "form.is"
+msgstr "է"
+
+msgid "email.to"
+msgstr "մինչև"
+
+msgid "email.from"
+msgstr "Սկսած"
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Դուք հաճախակի եք փորձում ուղարկել նամակ։ Խնդրում ենք մի քիչ սպասեք նախորդ "
+"նամակի ուղարկումից հետո նախքան հաջորդ նամակը ուղարկելը։"
+
+msgid "common.on"
+msgstr "Միացնել"
+
+msgid "common.off"
+msgstr "Անջատել"
+
+msgid "common.from"
+msgstr "Սկսած"
+
+msgid "notification.settings"
+msgstr "Հաղորդագրության կարգաբերումներ"
+
+msgid "notification.sentNotification"
+msgstr "Հաղորդագրությունը ուղարկված է։"
+
+msgid "notification.notifications"
+msgstr "Հաղորդագրություններ"
+
+msgid "notification.notification"
+msgstr "Հաղորդագրություն"
+
+msgid "notification.removedSubmission"
+msgstr "Ջնջված հայտ։"
+
+msgid "notification.removedFile"
+msgstr "Հեռացնել  ֆայլը։"
+
+msgid "notification.removedNote"
+msgstr "Նշումը ջնջված է։"
+
+msgid "notification.addedNote"
+msgstr "Նշումը հրապարակված է։"
+
+msgid "notification.noneExist"
+msgstr "Դուք հաղորդագրություններ չունեք այս պահին։"
+
+msgid "notification.email"
+msgstr "Ինձ նամակ մի ուղարկեք այս տեսակի հաղորդագրությունների համար։"
+
+msgid "notification.confirmSuccess"
+msgstr "Ձեր գրանցումը հաջողությամբ կատարվել է։"
+
+msgid "notification.confirmError"
+msgstr "Ձեր գրանցման հետ կապված տեղի է ունեցել սխալ։"
+
+msgid "notification.editedAuthor"
+msgstr "Հեղինակի հաշիվը խմբագրված է։"
+
+msgid "notification.addedAuthor"
+msgstr "Հեղինակը ավելացված է"
+
+msgid "notification.removedAnnouncement"
+msgstr "Հայտարարությունը հեռացված է։"
+
+msgid "notification.removedAnnouncementType"
+msgstr "Հայտարարության ձևը հեռացված է։"
+
+msgid "notification.editedAnnouncementType"
+msgstr "Հայտարարության ձևը խմբագրված է։"
+
+msgid "notification.addedAnnouncementType"
+msgstr "Հայտարարության տիպը ավելացված է։"
+
+msgid "notification.allow"
+msgstr "Միացնել այս տիպի հաղորդագրությունները։"
+
+msgid "notification.updatedReviewFiles"
+msgstr "Գրախոսման ֆայլերը թարմացված են։"
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Շնորհակալական նամակը ուղարկված է գրախոսողին։"
+
+msgid "notification.addedQuery"
+msgstr "Ավելացված է քննարկում"
+
+msgid "notification.removedAuditor"
+msgstr "Աուդիտորը հեռացված է։"
+
+msgid "notification.addedAuditor"
+msgstr "Աուդիտորը կցված է։"
+
+msgid "navigation.viewFrontend"
+msgstr "Դիտել կայքը"
+
+msgid "navigation.userManagement"
+msgstr "Օգտատիրոջ կառավարում"
+
+msgid "navigation.user"
+msgstr "Օգտատեր"
+
+msgid "navigation.userHome"
+msgstr "Օգտագործողի էջ"
+
+msgid "navigation.system"
+msgstr "Համակարգ"
+
+msgid "navigation.submissions"
+msgstr "Ուղարկված հայտեր"
+
+msgid "navigation.stepNumber"
+msgstr "Քայլ {$step}"
+
+msgid "navigation.skip.footer"
+msgstr "Անցնել կայքի ներքևի մենյուին"
+
+msgid "navigation.skip.nav"
+msgstr "Անցնել հիմնական նավիգացիայի մենյուին"
+
+msgid "navigation.skip.main"
+msgstr "Անցնել հիմնական բովանդակությանը"
+
+msgid "navigation.skip.announcements"
+msgstr "Անցնել հայտարարություններին"
+
+msgid "navigation.skip.description"
+msgstr "Անցնել բովանդակության հղմամբ"
+
+msgid "navigation.sitemap"
+msgstr "Կայքի քարտեզ"
+
+msgid "navigation.setup"
+msgstr "Տեղադրում"
+
+msgid "navigation.settings"
+msgstr "Կարգաբերումներ"
+
+msgid "navigation.search"
+msgstr "Որոնում"
+
+msgid "navigation.register"
+msgstr "Գրանցում"
+
+msgid "navigation.publicMenu"
+msgstr "Ընդհանուր մենյու"
+
+msgid "navigation.previousStep"
+msgstr "Նախորդ քայլ"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextStep"
+msgstr "Հաջորդ քայլ"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.login"
+msgstr "Մուտք"
+
+msgid "navigation.backTo"
+msgstr "⟵ Հետ {$page}"
+
+msgid "navigation.browse"
+msgstr "Դիտել"
+
+msgid "navigation.about"
+msgstr "Մասին"

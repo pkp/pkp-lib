@@ -297,6 +297,17 @@ class PKPContextHandler extends APIHandler
 
         $primaryLocale = $site->getPrimaryLocale();
         $allowedLocales = $site->getSupportedLocales();
+
+        // If the site only supports a single locale, set the context's locales
+        if (count($allowedLocales) === 1) {
+            if (!isset($params['primaryLocale'])) {
+                $params['primaryLocale'] = $primaryLocale;
+            }
+            if (!isset($params['supportedLocales'])) {
+                $params['supportedLocales'] = $allowedLocales;
+            }
+        }
+
         $contextService = Services::get('context');
         $errors = $contextService->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 

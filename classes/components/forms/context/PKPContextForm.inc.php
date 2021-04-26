@@ -70,7 +70,7 @@ class PKPContextForm extends FormComponent
                 'size' => 'large',
             ]));
 
-        if (!$context) {
+        if (!$context && count($locales) > 1) {
             $localeOptions = [];
             foreach ($locales as $locale) {
                 $localeOptions[] = [

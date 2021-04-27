@@ -63,10 +63,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Külső metaadatok"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef regisztrációs email"
+msgstr "Crossref regisztrációs email"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Kérjük, adjon meg egy érvényes CrossRef regisztrációs emailt. Ingyenesen regisztrálhatja az email címét a CrossRef weboldalon."
+msgstr "Kérjük, adjon meg egy érvényes Crossref regisztrációs emailt. Ingyenesen regisztrálhatja az email címét a Crossref weboldalon."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API Key"

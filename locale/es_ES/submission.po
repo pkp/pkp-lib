@@ -42,10 +42,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Metadatos ampliados"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Correo electrónico de registro de CrossRef"
+msgstr "Correo electrónico de registro de Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Por favor, introduce un correo electrónico de registro de CrossRef válido. Puedes registrar tu correo electrónico de manera gratuita en el sitio web de CrossRef."
+msgstr "Por favor, introduce un correo electrónico de registro de Crossref válido. Puedes registrar tu correo electrónico de manera gratuita en el sitio web de Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Clave API de ISBNdb"

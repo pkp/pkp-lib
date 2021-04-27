@@ -636,10 +636,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Rozšířená metadata"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Registrační email pro CrossRef"
+msgstr "Registrační email pro Crossref\"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Zadejte platný registrační email pro CrossRef. Svůj email můžete bezplatně zaregistrovat na webových stránkách CrossRef."
+msgstr "Zadejte platný registrační email pro Crossref. Svůj email můžete bezplatně zaregistrovat na webových stránkách Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API klíč"

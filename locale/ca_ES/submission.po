@@ -48,10 +48,10 @@ msgid "submission.submit.expediteSubmission"
 msgstr "Accelera la tramesa"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Correu electrònic de registre de CrossRef"
+msgstr "Correu electrònic de registre de Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Introduïu un correu electrònic de registre a CrossRef vàlid. Podeu registrar el vostre correu electrònic gratuïtament al lloc web de CrossRef."
+msgstr "Introduïu un correu electrònic de registre a Crossref vàlid. Podeu registrar el vostre correu electrònic gratuïtament al lloc web de Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Clau API d'ISBNdb"

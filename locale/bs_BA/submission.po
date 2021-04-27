@@ -466,11 +466,11 @@ msgstr "ISBNdb API ključ"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Unesite važeću e-mail adresu za registraciju CrossRef-a. Možete besplatno "
-"registrovati svoj e-mail na web stranici CrossRef."
+"Unesite važeću e-mail adresu za registraciju Crossref-a. Možete besplatno "
+"registrovati svoj e-mail na web stranici Crossref."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef E-mail za registraciju"
+msgstr "Crossref E-mail za registraciju"
 
 msgid "submission.submit.extendedMetadata"
 msgstr "Prošireni metapodaci"

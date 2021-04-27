@@ -18,10 +18,10 @@ msgid "author.submit.submissionCitations"
 msgstr "Gönderide atıf yapılan kaynaklar için biçimlendirilmiş bir referans listesi verin. Lütfen her referansı yeni bir satırdan başlatın."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef Kayıt E-postası"
+msgstr "Crossref Kayıt E-postası"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Lütfen geçerli bir CrossRef e-postas adresi kaydediniz. E-postanızı CrossRef web sayfasında ücretsiz olarak kayıt edebilirsiniz."
+msgstr "Lütfen geçerli bir Crossref e-postas adresi kaydediniz. E-postanızı Crossref web sayfasında ücretsiz olarak kayıt edebilirsiniz."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API Anahtarı"

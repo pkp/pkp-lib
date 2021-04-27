@@ -494,11 +494,11 @@ msgstr ""
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Vă rugăm să introduceți un e-mail de înregistrare CrossRef valid. Puteți să "
-"vă înregistrați gratuit e-mailul pe site-ul web CrossRef."
+"Vă rugăm să introduceți un e-mail de înregistrare Crossref valid. Puteți să "
+"vă înregistrați gratuit e-mailul pe site-ul web Crossref."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "E-mail de înregistrare CrossRef"
+msgstr "E-mail de înregistrare Crossref"
 
 msgid "submission.submit.extendedMetadata"
 msgstr "Metadate extinse"

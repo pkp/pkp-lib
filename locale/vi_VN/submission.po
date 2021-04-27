@@ -774,11 +774,11 @@ msgstr "Khóa API ISBNdb"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Vui lòng nhập một email đăng ký CrossRef hợp lệ. Bạn có thể đăng ký email "
-"của mình miễn phí trên trang web CrossRef."
+"Vui lòng nhập một email đăng ký Crossref hợp lệ. Bạn có thể đăng ký email "
+"của mình miễn phí trên trang web Crossref."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Email đăng ký CrossRef"
+msgstr "Email đăng ký Crossref"
 
 msgid "submission.submit.extendedMetadata"
 msgstr "Siêu dữ liệu mở rộng"

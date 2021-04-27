@@ -18,10 +18,10 @@ msgid "author.submit.submissionCitations"
 msgstr "Sediakan daftar referensi yang telah diformat untuk karya yang dikutip di penyerahan ini. Pisahkan referensi individu dengan garis kosong."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Email Registrasi CrossRef"
+msgstr "Email Registrasi Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Masukkan email registrasi CrossRef yang valid. Anda bisa mendaftarkan email Anda secara gratis di web site CrossRef."
+msgstr "Masukkan email registrasi Crossref yang valid. Anda bisa mendaftarkan email Anda secara gratis di web site Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Kunci ISBNdb API"

@@ -60,10 +60,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Laajat metatiedot"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRefiin rekisteröity sähköposti"
+msgstr "Crossrefiin rekisteröity sähköposti"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Anna voimassa oleva CrossRefiin rekisteröity sähköpostiosoite. Voit rekisteröidä sähköpostiosoitteesi ilmaiseksi CrossRefin verkkosivustolla."
+msgstr "Anna voimassa oleva Crossrefiin rekisteröity sähköpostiosoite. Voit rekisteröidä sähköpostiosoitteesi ilmaiseksi Crossrefin verkkosivustolla."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API -avain"

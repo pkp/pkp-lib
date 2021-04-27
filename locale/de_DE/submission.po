@@ -75,10 +75,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Erweiterte Metadaten"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Bei CrossRef registrierte E-Mail-Adresse"
+msgstr "Bei Crossref registrierte E-Mail-Adresse"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Bitte geben Sie eine gültige bei CrossRef registrierte E-Mail-Adresse ein. Sie können Ihre E-Mail-Adresse kostenlos auf der CrossRef-Webseite registrieren."
+msgstr "Bitte geben Sie eine gültige bei Crossref registrierte E-Mail-Adresse ein. Sie können Ihre E-Mail-Adresse kostenlos auf der Crossref-Webseite registrieren."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API Key"

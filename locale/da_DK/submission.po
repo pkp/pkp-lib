@@ -451,10 +451,10 @@ msgid "author.submit.submissionCitations"
 msgstr "Indsæt en formatteret litteraturliste over værker, der er citeret i det indsendte bidrag. Adskil hver enkelt henvisning med en tom linje."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Registrerings-e-mail for CrossRef"
+msgstr "Registrerings-e-mail for Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Indtast en gyldig registrerings-e-mail for CrossRef. Du kan gratis registrere din e-mail på CrossRef-webstedet."
+msgstr "Indtast en gyldig registrerings-e-mail for Crossref. Du kan gratis registrere din e-mail på Crossref-webstedet."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "API-nøgle for ISBNdb"

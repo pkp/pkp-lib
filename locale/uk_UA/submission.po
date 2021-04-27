@@ -61,10 +61,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Розширені метадані"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Email реєстрації у CrossRef"
+msgstr "Email реєстрації у Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Будь ласка, введіть працездатну адресу email, з якою був зареєстрований обліковий запис у CrossRef. Ви можете безкоштовно зареєструвати ваш email на веб-сайті CrossRef."
+msgstr "Будь ласка, введіть працездатну адресу email, з якою був зареєстрований обліковий запис у Crossref. Ви можете безкоштовно зареєструвати ваш email на веб-сайті Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Ключ API ISBNdb"

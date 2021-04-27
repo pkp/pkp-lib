@@ -1861,11 +1861,11 @@ msgstr "Clave API de ISBNdb"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Insire un correo electrónico de rexistro en CrossRef válido. Podes rexistrar "
-"o teu correo de balde no sitio web de CrossRef."
+"Insire un correo electrónico de rexistro en Crossref válido. Podes rexistrar "
+"o teu correo de balde no sitio web de Crossref."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Correo electrónico de rexistro en CrossRef"
+msgstr "Correo electrónico de rexistro en Crossref"
 
 msgid "submission.submit.extendedMetadata"
 msgstr "Metadatos ampliados"

@@ -1363,11 +1363,11 @@ msgstr "ISBNdb API کلیلی"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"تکایە ئیمەیڵێکی تۆمارکراوی CrossRefی دروست بنوسە. تۆ دەتوانیت بەخۆڕایی "
-"ئیمەیڵەکەت لە CrossRef تۆمار بکەیت."
+"تکایە ئیمەیڵێکی تۆمارکراوی Crossrefی دروست بنوسە. تۆ دەتوانیت بەخۆڕایی "
+"ئیمەیڵەکەت لە Crossref تۆمار بکەیت."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "تۆمارکردنی ئیمەیڵی CrossRef"
+msgstr "تۆمارکردنی ئیمەیڵی Crossref"
 
 msgid "submission.submit.extendedMetadata"
 msgstr "زانیاریی ناسێنەری فراوانکراو"

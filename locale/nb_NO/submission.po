@@ -2008,11 +2008,11 @@ msgstr "E-post for PubMed-registrering"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Oppgi en gyldig e-post for registrering hos CrossRef. Du kan registrere e-"
-"posten din gratis på nettsiden til CrossRef."
+"Oppgi en gyldig e-post for registrering hos Crossref. Du kan registrere e-"
+"posten din gratis på nettsiden til Crossref."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "E-post for CrossRef-registrering"
+msgstr "E-post for Crossref-registrering"
 
 msgid "submission.submit.extendedMetadata"
 msgstr "Utvidet metadata"

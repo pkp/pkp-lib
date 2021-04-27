@@ -441,10 +441,10 @@ msgid "submission.views"
 msgstr "Viste"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Email di registrazione a CrossRef"
+msgstr "Email di registrazione a Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Inserisci la email di registrazione a CrossRef. Puoi registrare gratuitamente la tua email sul sito web di CrossRef."
+msgstr "Inserisci la email di registrazione a Crossref. Puoi registrare gratuitamente la tua email sul sito web di Crossref."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
 msgstr "Email di registrazione a PubMed"

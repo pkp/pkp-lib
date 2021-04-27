@@ -52,10 +52,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Metadados Extendidos"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "E-mail de cadastro CrossRef"
+msgstr "E-mail de cadastro Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Informe um e-mail de cadastro CrossRef válido. O cadastro é gratuito no site do CrossRef."
+msgstr "Informe um e-mail de cadastro Crossref válido. O cadastro é gratuito no site do Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Chave de API ISBNdb"

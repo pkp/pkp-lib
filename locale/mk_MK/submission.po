@@ -27,11 +27,11 @@ msgstr "ISBNdb API Key"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Внесете е-пошта за регистрација на CrossRef. Можете да ја регистрирате "
-"вашата е-пошта бесплатно на веб-страницата CrossRef."
+"Внесете е-пошта за регистрација на Crossref. Можете да ја регистрирате "
+"вашата е-пошта бесплатно на веб-страницата Crossref."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Е-пошта за регистрација на CrossRef"
+msgstr "Е-пошта за регистрација на Crossref"
 
 msgid "submission.submit.extendedMetadata"
 msgstr "Проширена метадата"

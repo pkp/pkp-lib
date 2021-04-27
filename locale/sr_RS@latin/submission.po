@@ -15,10 +15,10 @@ msgid "author.submit.submissionCitations"
 msgstr "Daje formatiranu listu referenci za radove citiran dokumentu. Odvojte reference prazninama."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef registracioni imejl"
+msgstr "Crossref registracioni imejl"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Unesite imejl za koji je urađena registracija na CrossRef sajtu."
+msgstr "Unesite imejl za koji je urađena registracija na Crossref sajtu."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API ključ"

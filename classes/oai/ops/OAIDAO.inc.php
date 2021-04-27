@@ -16,8 +16,8 @@
  */
 
 use PKP\submission\PKPSubmission;
-
-import('lib.pkp.classes.oai.PKPOAIDAO');
+use PKP\oai\PKPOAIDAO;
+use PKP\oai\OAISet;
 
 class OAIDAO extends PKPOAIDAO
 {

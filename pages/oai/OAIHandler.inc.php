@@ -18,6 +18,8 @@ define('SESSION_DISABLE_INIT', 1); // FIXME?
 import('classes.oai.ops.ServerOAI');
 import('classes.handler.Handler');
 
+use PKP\oai\OAIConfig;
+
 use Firebase\JWT\JWT;
 
 class OAIHandler extends Handler

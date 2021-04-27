@@ -13,9 +13,9 @@
  * @brief Base helper class for import/export filters
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
-
 use Exception;
+
+use PKP\filter\PersistableFilter;
 
 class PKPImportExportFilter extends PersistableFilter
 {

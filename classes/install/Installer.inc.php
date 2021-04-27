@@ -19,7 +19,6 @@ use APP\core\Application;
 use APP\file\LibraryFileManager;
 use APP\i18n\AppLocale;
 
-use FilterHelper;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -30,14 +29,13 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\DBDataXMLParser;
 use PKP\file\FileManager;
+use PKP\filter\FilterHelper;
 use PKP\plugins\HookRegistry;
-
 use PKP\plugins\PluginRegistry;
 use PKP\site\Version;
+
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
-
-// FIXME: Add namespacing
 use PKP\xml\PKPXMLParser;
 
 class Installer
@@ -756,7 +754,6 @@ class Installer
 
         // Get the filter helper.
         if ($filterHelper === false) {
-            import('lib.pkp.classes.filter.FilterHelper');
             $filterHelper = new FilterHelper();
         }
 

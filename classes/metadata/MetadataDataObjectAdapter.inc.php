@@ -21,7 +21,9 @@
  *  by plug-ins via the filter registry.
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
+use PKP\filter\PersistableFilter;
+
+// FIXME: Add namespacing
 import('lib.pkp.classes.metadata.MetadataDescription');
 
 define('METADATA_DOA_INJECTION_MODE', 0x01);

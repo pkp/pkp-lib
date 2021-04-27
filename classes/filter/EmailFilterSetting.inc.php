@@ -14,7 +14,9 @@
  *  must be an email.
  */
 
-import('lib.pkp.classes.filter.FilterSetting');
+namespace PKP\filter;
+
+// FIXME: Add namespacing
 import('lib.pkp.classes.form.validation.FormValidatorEmail');
 
 class EmailFilterSetting extends FilterSetting
@@ -43,4 +45,8 @@ class EmailFilterSetting extends FilterSetting
         $check = new FormValidatorEmail($form, $this->getName(), $this->getRequired(), $this->getValidationMessage());
         return $check;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\EmailFilterSetting', '\EmailFilterSetting');
 }

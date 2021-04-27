@@ -12,6 +12,11 @@
  * @brief Class that provides filter-related helper methods.
  */
 
+namespace PKP\filter;
+
+use PKP\core\PKPString;
+use PKP\db\DAORegistry;
+
 class FilterHelper
 {
     /**
@@ -27,7 +32,6 @@ class FilterHelper
     {
         // Install filter groups.
         $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /** @var FilterGroupDAO $filterGroupDao */
-        import('lib.pkp.classes.filter.FilterGroup');
 
         foreach ($filterGroupsNode->getChildren() as $filterGroupNode) { /** @var XMLNode $filterGroupNode */
             $filterGroupSymbolic = $filterGroupNode->getAttribute('symbolic');
@@ -280,4 +284,8 @@ class FilterHelper
 
         return $resultArray;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\FilterHelper', '\FilterHelper');
 }

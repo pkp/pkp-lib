@@ -14,8 +14,8 @@
  */
 
 use DOMDocument;
-use PKP\mail\MailTemplate;
 
+use PKP\mail\MailTemplate;
 use PKP\user\InterestManager;
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');

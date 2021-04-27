@@ -40,9 +40,12 @@
  * 3) The DAO implementation must be scalable, fast and memory efficient.
  */
 
-import('lib.pkp.classes.filter.Filter');
+namespace PKP\filter;
 
 use Exception;
+use PKP\db\DAORegistry;
+
+use PKP\db\DAOResultFactory;
 
 class FilterDAO extends \PKP\db\DAO
 {
@@ -636,4 +639,8 @@ class FilterDAO extends \PKP\db\DAO
             $this->_deleteSubFiltersByParentFilterId($subFilterId);
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\FilterDAO', '\FilterDAO');
 }

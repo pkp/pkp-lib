@@ -14,7 +14,9 @@
  *  be one of a given set of values.
  */
 
-import('lib.pkp.classes.filter.FilterSetting');
+namespace PKP\filter;
+
+// FIXME: Add namespacing
 import('lib.pkp.classes.form.validation.FormValidatorInSet');
 
 class SetFilterSetting extends FilterSetting
@@ -88,4 +90,8 @@ class SetFilterSetting extends FilterSetting
         $check = new FormValidatorInSet($form, $this->getName(), $this->getRequired(), $this->getValidationMessage(), $this->getAcceptedValues());
         return $check;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\SetFilterSetting', '\SetFilterSetting');
 }

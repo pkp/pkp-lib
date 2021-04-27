@@ -17,10 +17,7 @@
 namespace PKP\validation;
 
 use PKP\core\PKPString;
-
-// FIXME: Add namespacing
-import('lib.pkp.classes.filter.PrimitiveTypeDescription');
-use PrimitiveTypeDescription;
+use PKP\filter\PrimitiveTypeDescription;
 
 class ValidatorTypeDescription extends PrimitiveTypeDescription
 {

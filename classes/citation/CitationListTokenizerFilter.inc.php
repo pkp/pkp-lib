@@ -17,8 +17,7 @@
 namespace PKP\citation;
 
 use PKP\core\PKPString;
-
-import('lib.pkp.classes.filter.Filter');
+use PKP\filter\Filter;
 
 class CitationListTokenizerFilter extends \Filter
 {

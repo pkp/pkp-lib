@@ -14,9 +14,11 @@
  *  their input via smarty templates.
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
+namespace PKP\filter;
 
 use APP\template\TemplateManager;
+
+use PKPK\filter\PersistableFilter;
 
 class TemplateBasedFilter extends PersistableFilter
 {
@@ -100,4 +102,8 @@ class TemplateBasedFilter extends PersistableFilter
 
         return $output;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\TemplateBasedFilter', '\TemplateBasedFilter');
 }

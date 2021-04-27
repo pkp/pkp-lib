@@ -17,8 +17,7 @@
  *  to a de-multiplexer filter.
  */
 
-
-import('lib.pkp.classes.filter.CompositeFilter');
+namespace PKP\filter;
 
 class GenericMultiplexerFilter extends CompositeFilter
 {
@@ -135,4 +134,8 @@ class GenericMultiplexerFilter extends CompositeFilter
 
         return $output;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\GenericMultiplexerFilter', '\GenericMultiplexerFilter');
 }

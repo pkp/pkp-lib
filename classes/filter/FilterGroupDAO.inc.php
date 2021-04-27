@@ -15,7 +15,9 @@
  * @brief Operations for retrieving and modifying FilterGroup objects.
  */
 
-import('lib.pkp.classes.filter.FilterGroup');
+namespace PKP\filter;
+
+use PKP\db\DAORegistry;
 
 class FilterGroupDAO extends \PKP\db\DAO
 {
@@ -232,4 +234,8 @@ class FilterGroupDAO extends \PKP\db\DAO
 
         return $filterGroup;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\FilterGroupDAO', '\FilterGroupDAO');
 }

@@ -15,7 +15,7 @@
  *  the result of the last filter in the chain to the caller.
  */
 
-import('lib.pkp.classes.filter.CompositeFilter');
+namespace PKP\filter;
 
 class GenericSequencerFilter extends CompositeFilter
 {
@@ -79,4 +79,8 @@ class GenericSequencerFilter extends CompositeFilter
         }
         return $output;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\GenericSequencerFilter', '\GenericSequencerFilter');
 }

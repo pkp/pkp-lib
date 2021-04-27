@@ -14,7 +14,9 @@
  *  be either true or false.
  */
 
-import('lib.pkp.classes.filter.FilterSetting');
+namespace PKP\filter;
+
+// FIXME: Add validation
 import('lib.pkp.classes.form.validation.FormValidatorBoolean');
 
 class BooleanFilterSetting extends FilterSetting
@@ -43,4 +45,8 @@ class BooleanFilterSetting extends FilterSetting
         $check = new FormValidatorBoolean($form, $this->getName(), $this->getValidationMessage());
         return $check;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\BooleanFilterSetting', '\BooleanFilterSetting');
 }

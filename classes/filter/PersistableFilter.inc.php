@@ -36,8 +36,7 @@
  * child relationships. See CompositeFilter for more details.
  */
 
-import('lib.pkp.classes.filter.Filter');
-import('lib.pkp.classes.filter.FilterGroup');
+namespace PKP\filter;
 
 define('FILTER_GROUP_TEMPORARY_ONLY', '$$$temporary$$$');
 
@@ -315,4 +314,8 @@ class PersistableFilter extends Filter
     {
         return ['id', 'displayName', 'isTemplate', 'parentFilterId', 'seq'];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\PersistableFilter', '\PersistableFilter');
 }

@@ -14,8 +14,7 @@
  * Example type identifier: 'class::lib.pkp.classes.submission.PKPSubmission'
  */
 
-import('lib.pkp.classes.filter.TypeDescription');
-import('lib.pkp.classes.filter.TypeDescriptionFactory');
+namespace PKP\filter;
 
 class ClassTypeDescription extends TypeDescription
 {
@@ -113,4 +112,8 @@ class ClassTypeDescription extends TypeDescription
         $packageName = implode('.', $typeNameParts);
         return [$packageName, $className];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\ClassTypeDescription', '\ClassTypeDescription');
 }

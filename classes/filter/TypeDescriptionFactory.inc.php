@@ -14,6 +14,10 @@
  *  the descriptor's namespace.
  */
 
+namespace PKP\filter;
+
+use PKP\core\Registry;
+
 // Currently supported type descriptor namespaces
 define('TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE', 'primitive');
 define('TYPE_DESCRIPTION_NAMESPACE_CLASS', 'class');
@@ -128,4 +132,8 @@ class TypeDescriptionFactory
         }
         return $namespaceMap[$namespace];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\TypeDescriptionFactory', '\TypeDescriptionFactory');
 }

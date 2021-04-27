@@ -42,6 +42,8 @@
  * to choose compatible filters for a given input/output type.
  */
 
+namespace PKP\filter;
+
 define('TYPE_DESCRIPTION_CARDINALITY_SCALAR', '-1');
 define('TYPE_DESCRIPTION_CARDINALITY_UNKNOWN', '0');
 
@@ -252,4 +254,8 @@ class TypeDescription
         // Delegate to the subclass to parse the actual type name.
         return $this->parseTypeName($typeName);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\TypeDescription', '\TypeDescription');
 }

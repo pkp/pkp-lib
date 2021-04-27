@@ -18,7 +18,7 @@
  *  implementations.
  */
 
-import('lib.pkp.classes.filter.Filter');
+use PKP\filter\Filter;
 
 class CrosswalkFilter extends Filter
 {

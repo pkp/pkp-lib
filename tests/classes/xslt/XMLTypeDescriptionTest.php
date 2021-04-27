@@ -17,8 +17,6 @@
 
 import('lib.pkp.tests.PKPTestCase');
 
-use DOMDocument;
-
 use PKP\xslt\XMLTypeDescription;
 
 class XMLTypeDescriptionTest extends PKPTestCase

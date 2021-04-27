@@ -39,6 +39,8 @@
  * contributions to certain filter groups (e.g. citation parsers).
  */
 
+namespace PKP\filter;
+
 class FilterGroup extends \PKP\core\DataObject
 {
     //
@@ -143,4 +145,8 @@ class FilterGroup extends \PKP\core\DataObject
     {
         return $this->getData('outputType');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\FilterGroup', '\FilterGroup');
 }

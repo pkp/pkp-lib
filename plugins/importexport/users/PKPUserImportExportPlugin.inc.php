@@ -13,15 +13,14 @@
  * @brief User XML import/export plugin
  */
 
-import('lib.pkp.classes.plugins.ImportExportPlugin');
-
 use APP\template\TemplateManager;
 use Exception;
 use PKP\core\JSONMessage;
-
 use PKP\file\FileManager;
 
 use PKP\file\TemporaryFileManager;
+
+use PKP\plugins\ImportExportPlugin;
 
 abstract class PKPUserImportExportPlugin extends ImportExportPlugin
 {

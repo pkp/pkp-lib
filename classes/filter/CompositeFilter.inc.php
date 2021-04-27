@@ -13,7 +13,7 @@
  *  filters into filter networks.
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
+namespace PKP\filter;
 
 class CompositeFilter extends PersistableFilter
 {
@@ -433,4 +433,8 @@ class CompositeFilter extends PersistableFilter
         // Return the result.
         return [&$filter, $settingName];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\CompositeFilter', '\CompositeFilter');
 }

@@ -18,7 +18,7 @@
  * It can be '*' to designate any assoc type.
  */
 
-import('lib.pkp.classes.filter.ClassTypeDescription');
+use PKP\filter\ClassTypeDescription;
 
 define('ASSOC_TYPE_ANY', -1);
 

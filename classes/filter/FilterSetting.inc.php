@@ -13,6 +13,9 @@
  * @brief Class that describes a configurable filter setting.
  */
 
+namespace PKP\filter;
+
+// FIXME: add namespacinu
 import('lib.pkp.classes.form.validation.FormValidator');
 
 class FilterSetting
@@ -174,4 +177,8 @@ class FilterSetting
         $check = new FormValidator($form, $this->getName(), $this->getRequired(), $this->getValidationMessage());
         return $check;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\FilterSetting', '\FilterSetting');
 }

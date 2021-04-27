@@ -12,8 +12,7 @@
  * @brief Class that describes a primitive input/output type.
  */
 
-import('lib.pkp.classes.filter.TypeDescription');
-import('lib.pkp.classes.filter.TypeDescriptionFactory');
+namespace PKP\filter;
 
 class PrimitiveTypeDescription extends TypeDescription
 {
@@ -110,4 +109,8 @@ class PrimitiveTypeDescription extends TypeDescription
         ];
         return $supportedPrimitiveTypes;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\PrimitiveTypeDescription', '\PrimitiveTypeDescription');
 }

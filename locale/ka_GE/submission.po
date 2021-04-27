@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-26 11:12+0000\n"
+"PO-Revision-Date: 2021-04-27 18:17+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ka_GE/>\n"
@@ -1075,3 +1075,449 @@ msgstr "საავტორო უფლების წელი"
 
 msgid "submission.copyrightStatement"
 msgstr "საავტორო უფლებები (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$name}\"-მა ({$username}) დაამტკიცა მტკიცებულებები \"{$formatName}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) ხელი მოაწერა სისტემაში შესვლისას \"{$file}.\""
+
+msgid "submission.dueDate"
+msgstr "შესრულების ბოლო ვადა"
+
+msgid "submission.editing"
+msgstr "ჩასწორება"
+
+msgid "submission.editMetadata"
+msgstr "მეტა-მონაცემების ჩასწორება"
+
+msgid "submission.email.backToEmailLog"
+msgstr "ელფოსტის ჟურნალში დაბრუნება"
+
+msgid "submission.email.confirmClearLog"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ ელფოსტის ჟურნალის გასუფთავება ამ გაგზავნისთვის?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ ელფოსტის ჟურნალის ჩანაწერის წაშლა?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "ჟურნალის ჩანაწერის წაშლა"
+
+msgid "submission.emailLog"
+msgstr "ელფოსტის ჟურნალი"
+
+msgid "submission.event.participantAdded"
+msgstr "{$name} ({$username}) ამ წარდგენას მიენიჭა, როგორც {$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$\\username}) წაიშალა, როგორც {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "ღონისძიების ჟურნალში დაბრუნება"
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ ამ წარდგენის ღონისძიების ჟურნალის გასუფთავება?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ ღონისძიების ჟურნალის ჩანაწერის წაშლა?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "ჟურნალის ჩანაწერის წაშლა"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "პირველადი გაგზავნა დასრულდა."
+
+msgid "submission.event.fileRevised"
+msgstr "რედაქცია \"{$name}\" აიტვირთა ფაილისთვის {$submissionFileId}."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "გაგზავნის მეტამონაცემები განახლებულია"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "წარდგენის ფაილი განახლდა"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "პროქსის მიერ მიღებული დავალების განხილვა"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "განხილვის დავალება მიღებულია"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "განხილვის დავალება უარყოფილია"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "გადახედვის ვადა შეიცვალა"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "რეფერენტი დაევალა წარდგენას"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "მიმოხილვის ნიშანი გაგზავნილია"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "რეცენზენტი არ არის მინიჭებული წარდგენისგან"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "განხილვის ფაილი განახლდა"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "განხილვის დავალება დაიწყო"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "გადახედეთ სარეკომენდაციო ფაილს"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "მიმოხილვის დავალება ხელახლა დაიწყო"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "განხილვა ხელახლა გაიგზავნა"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "რეცენზენტის გადასინჯვის ფაილი განახლდა"
+
+msgid "submission.event.subjectPrefix"
+msgstr "ელწერილი გაიგზავნა:"
+
+msgid "submission.event.viewEmail"
+msgstr "ელფოსტის ნახვა"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"ავტორებს ახლა უფლება აქვთ შეცვალონ მეტამონაცემები, როდესაც ისინი წარდგებიან "
+"ეტაპზე {stage}."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"ავტორებს ახლა უფლება არ აქვთ შეცვალონ მეტამონაცემები {stage} ეტაპზე "
+"გაგზავნისას."
+
+msgid "submission.files.downloadAll"
+msgstr "ყველას ჩამოტვირთვა"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"ფაილის ამტვირთავის ჩანაწერი ინახება ფაილის შექმნისას და მისი შეცვლა "
+"შეუძლებელია."
+
+msgid "submission.galley"
+msgstr "სვეტი"
+
+msgid "submission.history.clearLog"
+msgstr "ჩანაწერების გასუფთავება"
+
+msgid "submission.history.noLogEntries"
+msgstr "არ არის ჩანაწერი."
+
+msgid "submission.history.recentLogEntries"
+msgstr "ბოლო ჩანაწერები"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "ელფოსტის ჟურნალი"
+
+msgid "submission.history.submissionNotes"
+msgstr "წარდგენის შენიშვნები"
+
+msgid "submission.history.viewLog"
+msgstr "ჟურნალის ნახვა"
+
+msgid "submission.howToCite"
+msgstr "როგორ უნდა ციტირება"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "მეტი ციტირების ფორმატები"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "ჩამოტვირთეთ ციტირება"
+
+msgid "submission.initiated"
+msgstr "წამოწყებული"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "მოვლენების ჩვენება წინა ვერსიებიდან"
+
+msgid "submission.lastModified"
+msgstr "ბოლოს შეცვლილი"
+
+msgid "submission.layout.addGalley"
+msgstr "დაამატეთ განლაგების სვეტი"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "დარწმუნებული ხართ, რომ გსურთ სამუდამოდ წაშალოთ ეს სვეტი?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ სურათის ამოღება სვეტიდან?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "ამ სტილის ფაილის წაშლა."
+
+msgid "submission.layout.editGalley"
+msgstr "შეცვალეთ განლაგების სვეტი"
+
+msgid "submission.layout.galleyFormat"
+msgstr "სვეტის ფორმატი"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML სვეტის ფაილები"
+
+msgid "submission.layout.galleyLabel"
+msgstr "სვეტის ეტიკეტი"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"როგორც წესი, გამოიყენება ფაილის ფორმატის დასადგენად (მაგ. PDF, HTML და ა.შ.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "საჭიროა სვეტის ეტიკეტი."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "საჭიროა სვეტის ენა."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "საჭიროა სვეტის ენა."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "დისტანციური URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "გთხოვთ, მიუთითოთ სწორი დისტანციური URL (შეიტანეთ http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "სურათების გარეშე"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "სტილის ფაილი"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 Unported ლიცენზიით</a> .</p>"
+
+msgid "submission.list.empty"
+msgstr "წარწერები ვერ მოიძებნა."
+
+msgid "submission.list.confirmDelete"
+msgstr "წაიშალოს წარდგენა?"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "ლიტერატურული ჩასწორება გაიარა"
+
+msgid "submission.list.galleysCreated"
+msgstr "წარმოების სვეტები შეიქმნა"
+
+msgid "submission.list.filesPrepared"
+msgstr "ფაილები მომზადებულია"
+
+msgid "submission.list.discussions"
+msgstr "ღია დისკუსიები"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"ამ წარდგენისთვის თქვენ დაგნიშნეთ მრავალი როლი. გსურთ შეხვიდეთ <a href=\""
+"{$urlAuthorWorkflow}\">ავტორის სამუშაო პროცესზე</a> ან <a href=\""
+"{$urlEditorialWorkflow}\">სარედაქციო სამუშაოზე</a> ?"
+
+msgid "submission.list.currentStage"
+msgstr "ამჟამად {$stage} ეტაპზეა."
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "დღეები ბოლო აქტივობიდან"
+
+msgid "submission.list.assignEditor"
+msgstr "რედაქტორის დანიშვნა"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "თავდაპირველი სვეტის შექმნა"
+
+msgid "submission.layout.layoutFile"
+msgstr "განლაგების ფაილი"
+
+msgid "submission.layout.layoutVersion"
+msgstr "განლაგების ვერსია"
+
+msgid "submission.layout.newGalley"
+msgstr "ახალი სვეტის შექმნა"
+
+msgid "submission.layout.noStyleFile"
+msgstr "ამ სვეტს არ დაემატა სტილის ფაილი."
+
+msgid "submission.layout.viewingGalley"
+msgstr "წარდგენის სვეტის ნახვა"
+
+msgid "submission.layout.viewProof"
+msgstr "კორექტურის ნახვა"
+
+msgid "submission.fileDetails"
+msgstr "ფაილის დეტალები"
+
+msgid "submission.form.name"
+msgstr "დაასახელეთ ფაილი (მაგ., ხელნაწერი; ცხრილი 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "ჩანაცვლდეს არსებული ფაილი?"
+
+msgid "submission.finalDraft"
+msgstr "ფაილების პროექტი"
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"მეტამონაცემები ფაილისთვის \"{$originalFileName}\" რედაქტირებულია {$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"ფაილი \"{$originalFileName}\" წაიშალა {$submissionId} წარსადგენად, "
+"{$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"ფაილი \"{$originalFileName}\" წაიშალა {$submissionId} წარსადგენად, "
+"{$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"ფაილის შესწორება \"{$originalFileName}\" აიტვირთა წარსადგენად {$submissionId}"
+" {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"ფაილი \"{$originalFileName}\" წაიშალა {$submissionId} წარსადგენად, "
+"{$username}."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "ფაილის \"{$title}\" ბოლო შესწორება წაშალა {$username}."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "\"{$name}\" ({$username}) დაემატა აუდიტორის სახით ფაილის \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr "\"{$name}\" ({$username}) წაიშალა, როგორც აუდიტორი ფაილი \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) დაასრულა აუდიტი და ატვირთა \"{$file}.\""
+
+msgid "submission.documents"
+msgstr "წარდგენის დოკუმენტები"
+
+msgid "submission.license"
+msgstr "ლიცენზია"
+
+msgid "submission.licenseURLValid"
+msgstr "გთხოვთ, მიუთითოთ სწორი დისტანციური URL (შეიტანეთ http://)."
+
+msgid "submission.licenseURL"
+msgstr "ლიცენზიის URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivators 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 საერთაშორისო "
+"ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
+"0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"Attribution-NonCommercial 4.0 საერთაშორისო ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 4.0 საერთაშორისო "
+"ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"Attribution-NoDerivatives 4.0 საერთაშორისო ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
+"88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution "
+"4.0 საერთაშორისო ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"Attribution-ShareAlike 4.0 საერთაშორისო ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
+"ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 Unported ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
+"ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 Unported ლიცენზიით</a> .</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0 Unported ლიცენზიით</a> .</p>"

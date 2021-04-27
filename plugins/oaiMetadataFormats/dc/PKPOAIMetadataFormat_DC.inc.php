@@ -14,6 +14,8 @@
  * @brief OAI metadata format class -- Dublin Core.
  */
 
+use PKP\oai\OAIMetadataFormat;
+
 class PKPOAIMetadataFormat_DC extends OAIMetadataFormat
 {
     /**

@@ -15,6 +15,7 @@
  * @brief Utility functions used by OAI related classes.
  */
 
+namespace PKP\oai;
 
 class OAIUtils
 {
@@ -145,4 +146,8 @@ class OAIUtils
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\oai\OAIUtils', '\OAIUtils');
 }

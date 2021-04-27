@@ -15,7 +15,9 @@
  * @brief Base class for DAO operations for the OAI interface.
  */
 
-import('lib.pkp.classes.oai.OAI');
+namespace PKP\oai;
+
+use PKP\plugins\HookRegistry;
 
 abstract class PKPOAIDAO extends \PKP\db\DAO
 {
@@ -270,9 +272,9 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
         if (isset($row['tombstone_id'])) {
             $record->identifier = $row['oai_identifier'];
             $record->sets = [$row['set_spec']];
-            $record->status = OAIRECORD_STATUS_DELETED;
+            $record->status = OAI::OAIRECORD_STATUS_DELETED;
         } else {
-            $record->status = OAIRECORD_STATUS_ALIVE;
+            $record->status = OAI::OAIRECORD_STATUS_ALIVE;
             $record = $this->setOAIData($record, $row, is_a($record, 'OAIRecord'));
         }
 
@@ -293,4 +295,8 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      * @return Iterable
      */
     abstract public function _getRecordsRecordSet($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id');
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\oai\PKPOAIDAO', '\PKPOAIDAO');
 }

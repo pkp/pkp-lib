@@ -15,9 +15,6 @@
 
 namespace PKP\plugins;
 
-// FIXME: Add namespacing
-import('lib.pkp.classes.oai.OAIStruct');
-
 abstract class OAIMetadataFormatPlugin extends Plugin
 {
     /**

@@ -21,12 +21,17 @@
  * @brief Class to process and respond to OAI requests.
  */
 
+namespace PKP\oai;
 
-import('lib.pkp.classes.oai.OAIStruct');
-import('lib.pkp.classes.oai.OAIUtils');
+use APP\core\Application;
+
+use PKP\plugins\HookRegistry;
 
 abstract class OAI
 {
+    public const OAIRECORD_STATUS_DELETED = 0;
+    public const OAIRECORD_STATUS_ALIVE = 1;
+
     /** @var OAIConfig configuration parameters */
     public $config;
 
@@ -258,7 +263,7 @@ abstract class OAI
         // Display response
         $response = "\t<GetRecord>\n" .
             "\t\t<record>\n" .
-            "\t\t\t<header" . (($record->status == OAIRECORD_STATUS_DELETED) ? " status=\"deleted\">\n" : ">\n") .
+            "\t\t\t<header" . (($record->status == self::OAIRECORD_STATUS_DELETED) ? " status=\"deleted\">\n" : ">\n") .
             "\t\t\t\t<identifier>" . $record->identifier . "</identifier>\n" .
             "\t\t\t\t<datestamp>" . $record->datestamp . "</datestamp>\n";
         // Output set memberships
@@ -404,7 +409,7 @@ abstract class OAI
         // Output identifiers
         for ($i = 0, $num = count($records); $i < $num; $i++) {
             $record = $records[$i];
-            $response .= "\t\t<header" . (($record->status == OAIRECORD_STATUS_DELETED) ? " status=\"deleted\">\n" : ">\n") .
+            $response .= "\t\t<header" . (($record->status == self::OAIRECORD_STATUS_DELETED) ? " status=\"deleted\">\n" : ">\n") .
                 "\t\t\t<identifier>" . $record->identifier . "</identifier>\n" .
                 "\t\t\t<datestamp>" . $record->datestamp . "</datestamp>\n";
             // Output set memberships
@@ -545,7 +550,7 @@ abstract class OAI
         for ($i = 0, $num = count($records); $i < $num; $i++) {
             $record = $records[$i];
             $response .= "\t\t<record>\n" .
-                "\t\t\t<header" . (($record->status == OAIRECORD_STATUS_DELETED) ? " status=\"deleted\">\n" : ">\n") .
+                "\t\t\t<header" . (($record->status == self::OAIRECORD_STATUS_DELETED) ? " status=\"deleted\">\n" : ">\n") .
                 "\t\t\t\t<identifier>" . $record->identifier . "</identifier>\n" .
                 "\t\t\t\t<datestamp>" . $record->datestamp . "</datestamp>\n";
             // Output set memberships
@@ -887,4 +892,10 @@ abstract class OAI
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\oai\OAI', '\OAI');
+    define('OAIRECORD_STATUS_DELETED', \OAI::OAIRECORD_STATUS_DELETED);
+    define('OAIRECORD_STATUS_ALIVE', \OAI::OAIRECORD_STATUS_ALIVE);
 }

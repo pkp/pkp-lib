@@ -20,6 +20,7 @@ use PKP\plugins\HookRegistry;
 use PKP\Services\PKPPublicationService;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
+use PKP\Services\Interfaces\EntityWriteInterface;
 
 use APP\core\Services;
 use APP\i18n\AppLocale;
@@ -135,7 +136,7 @@ class PublicationService extends PKPPublicationService
         if ($section) {
 
             // Require abstracts if the section requires them
-            if ($action === VALIDATE_ACTION_ADD && !$section->getData('abstractsNotRequired') && empty($props['abstract'])) {
+            if ($action === EntityWriteInterface::VALIDATE_ACTION_ADD && !$section->getData('abstractsNotRequired') && empty($props['abstract'])) {
                 $errors['abstract'][$primaryLocale] = [__('author.submit.form.abstractRequired')];
             }
 

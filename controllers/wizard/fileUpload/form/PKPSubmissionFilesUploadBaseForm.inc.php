@@ -15,10 +15,9 @@
 
 use APP\template\TemplateManager;
 
-use Exception;
-
 use PKP\submission\SubmissionFile;
 
+// FIXME: Add namespaces
 import('lib.pkp.classes.form.Form');
 
 class PKPSubmissionFilesUploadBaseForm extends Form

@@ -13,13 +13,13 @@
  * @brief Form for adding/editing a author
  */
 
-import('lib.pkp.classes.form.Form');
 
 use APP\template\TemplateManager;
 
-use Exception;
-
 use PKP\Services\Interfaces\EntityWriteInterface;
+
+// FIXME: Use namespaces
+import('lib.pkp.classes.form.Form');
 
 class PKPAuthorForm extends Form
 {

@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.classes.form.validation.FormValidator');
-import('lib.pkp.classes.validation.ValidatorUrl');
+
+use PKP\validation\ValidatorUrl;
 
 class FormValidatorUrl extends FormValidator
 {

@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.validation.ValidatorUrl');
+
+use PKP\validation\ValidatorUrl;
 
 class ValidatorUrlTest extends PKPTestCase
 {

@@ -13,6 +13,7 @@
  */
 
 use PKP\handler\APIHandler;
+use PKP\Services\Interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 
 class PKPEmailTemplateHandler extends APIHandler
@@ -200,7 +201,7 @@ class PKPEmailTemplateHandler extends APIHandler
 
         $primaryLocale = $requestContext->getData('primaryLocale');
         $allowedLocales = $requestContext->getData('supportedFormLocales');
-        $errors = Services::get('emailTemplate')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = Services::get('emailTemplate')->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -254,7 +255,7 @@ class PKPEmailTemplateHandler extends APIHandler
         }
 
         $errors = Services::get('emailTemplate')->validate(
-            VALIDATE_ACTION_EDIT,
+            EntityWriteInterface::VALIDATE_ACTION_EDIT,
             $params,
             $requestContext->getData('supportedFormLocales'),
             $requestContext->getData('primaryLocale')

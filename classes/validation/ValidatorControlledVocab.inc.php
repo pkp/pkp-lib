@@ -14,7 +14,9 @@
  *  from the database.
  */
 
-import('lib.pkp.classes.validation.Validator');
+namespace PKP\validation;
+
+use PKP\db\DAORegistry;
 
 class ValidatorControlledVocab extends Validator
 {
@@ -55,4 +57,8 @@ class ValidatorControlledVocab extends Validator
     {
         return in_array($value, $this->_acceptedValues);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorControlledVocab', '\ValidatorControlledVocab');
 }

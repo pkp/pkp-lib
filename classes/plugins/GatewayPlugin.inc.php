@@ -13,7 +13,9 @@
  * @brief Abstract class for gateway plugins
  */
 
-import('lib.pkp.classes.plugins.Plugin');
+namespace PKP\plugins;
+
+use APP\core\Application;
 
 abstract class GatewayPlugin extends Plugin
 {
@@ -87,4 +89,8 @@ abstract class GatewayPlugin extends Plugin
     {
         return [];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\GatewayPlugin', '\GatewayPlugin');
 }

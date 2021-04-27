@@ -25,10 +25,11 @@ use PKP\db\DBResultRange;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
-
 use PKP\services\PKPSchemaService;
+
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
+use PKP\validation\ValidatorFactory;
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
 
@@ -738,14 +739,13 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     {
         $schemaService = Services::get('schema');
 
-        import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $props,
             $schemaService->getValidationRules(PKPSchemaService::SCHEMA_SUBMISSION, $allowedLocales)
         );
 
         // Check required fields
-        \ValidatorFactory::required(
+        ValidatorFactory::required(
             $validator,
             $action,
             $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_SUBMISSION),
@@ -755,7 +755,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
         );
 
         // Check for input from disallowed locales
-        \ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION), $allowedLocales);
+        ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION), $allowedLocales);
 
         // The contextId must match an existing context
         $validator->after(function ($validator) use ($props) {

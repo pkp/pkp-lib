@@ -13,14 +13,19 @@
  * @brief Abstract class for import/export plugins
  */
 
-import('lib.pkp.classes.plugins.Plugin');
+namespace PKP\plugins;
 
 use APP\template\TemplateManager;
 use Exception;
+use LinkAction;
 
 use PKP\core\JSONMessage;
 
+// FIXME: Add namespacing
+use PKP\core\PKPApplication;
 use PKP\file\FileManager;
+
+use RedirectAction;
 
 abstract class ImportExportPlugin extends Plugin
 {
@@ -459,4 +464,8 @@ abstract class ImportExportPlugin extends Plugin
 
         return $exportFileName;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\ImportExportPlugin', '\ImportExportPlugin');
 }

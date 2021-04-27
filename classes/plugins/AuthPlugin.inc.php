@@ -16,6 +16,8 @@
  * TODO: Support importing user accounts from the authentication source into OJS/OMP.
  */
 
+namespace PKP\plugins;
+
 define('AUTH_PLUGIN_CATEGORY', 'auth');
 import('lib.pkp.classes.plugins.Plugin');
 
@@ -233,4 +235,8 @@ abstract class AuthPlugin extends Plugin
     {
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\AuthPlugin', '\AuthPlugin');
 }

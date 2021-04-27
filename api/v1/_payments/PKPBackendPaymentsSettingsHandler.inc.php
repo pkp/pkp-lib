@@ -15,8 +15,9 @@
  */
 
 use APP\core\Services;
-
 use PKP\handler\APIHandler;
+
+use PKP\Services\Interfaces\EntityWriteInterface;
 
 class PKPBackendPaymentsSettingsHandler extends APIHandler
 {
@@ -87,7 +88,7 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
 
         if (isset($params['currency'])) {
             $errors = $contextService->validate(
-                VALIDATE_ACTION_EDIT,
+                EntityWriteInterface::VALIDATE_ACTION_EDIT,
                 ['currency' => $params['currency']],
                 $context->getSupportedFormLocales(),
                 $context->getPrimaryLocale()

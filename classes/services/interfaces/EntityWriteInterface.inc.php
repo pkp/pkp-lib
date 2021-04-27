@@ -15,13 +15,13 @@
 
 namespace PKP\Services\Interfaces;
 
-// The type of action against which data should be validated. When adding an
-// entity, required properties must be present and not empty.
-define('VALIDATE_ACTION_ADD', 'add');
-define('VALIDATE_ACTION_EDIT', 'edit');
-
 interface EntityWriteInterface
 {
+    // The type of action against which data should be validated. When adding an
+    // entity, required properties must be present and not empty.
+    public const VALIDATE_ACTION_ADD = 'add';
+    public const VALIDATE_ACTION_EDIT = 'edit';
+
     /**
      * Validate the properties of an object
      *
@@ -78,4 +78,9 @@ interface EntityWriteInterface
      * @return boolean
      */
     public function delete($object);
+}
+
+if (!PKP_STRICT_MODE) {
+    define('VALIDATE_ACTION_ADD', EntityWriteInterface::VALIDATE_ACTION_ADD);
+    define('VALIDATE_ACTION_EDIT', EntityWriteInterface::VALIDATE_ACTION_EDIT);
 }

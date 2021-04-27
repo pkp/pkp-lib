@@ -11,16 +11,19 @@
  *
  * @brief A factory class for creating a Validator from the Laravel framework.
  */
+
+namespace PKP\validation;
+
+use APP\i18n\AppLocale;
 use Illuminate\Container\Container;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Translation\FileLoader;
 use Illuminate\Translation\Translator;
-use Illuminate\Validation\Factory;
 
+use Illuminate\Validation\Factory;
 use PKP\file\TemporaryFileManager;
 
-// Import VALIDATE_ACTION_... constants
-import('lib.pkp.classes.services.interfaces.EntityWriteInterface');
+use PKP\Services\Interfaces\EntityWriteInterface;
 
 class ValidatorFactory
 {
@@ -126,7 +129,7 @@ class ValidatorFactory
             return isset($currency);
         });
 
-        $validator = $validation->make($props, $rules, ValidatorFactory::getMessages($messages));
+        $validator = $validation->make($props, $rules, self::getMessages($messages));
 
         return $validator;
     }
@@ -282,7 +285,7 @@ class ValidatorFactory
                 // Required multilingual props should only be
                 // required in the primary locale
                 if (in_array($requiredProp, $multilingualProps)) {
-                    if ($action === VALIDATE_ACTION_ADD) {
+                    if ($action === EntityWriteInterface::VALIDATE_ACTION_ADD) {
                         if (self::isEmpty($props[$requiredProp]) || self::isEmpty($props[$requiredProp][$primaryLocale])) {
                             $validator->errors()->add($requiredProp . '.' . $primaryLocale, __('validator.required'));
                         }
@@ -296,8 +299,8 @@ class ValidatorFactory
                         }
                     }
                 } else {
-                    if (($action === VALIDATE_ACTION_ADD && self::isEmpty($props[$requiredProp])) ||
-                            ($action === VALIDATE_ACTION_EDIT && array_key_exists($requiredProp, $props) && self::isEmpty($props[$requiredProp]))) {
+                    if (($action === EntityWriteInterface::VALIDATE_ACTION_ADD && self::isEmpty($props[$requiredProp])) ||
+                            ($action === EntityWriteInterface::VALIDATE_ACTION_EDIT && array_key_exists($requiredProp, $props) && self::isEmpty($props[$requiredProp]))) {
                         $validator->errors()->add($requiredProp, __('validator.required'));
                     }
                 }
@@ -390,4 +393,8 @@ class ValidatorFactory
             }
         });
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorFactory', '\ValidatorFactory');
 }

@@ -20,7 +20,9 @@
  *  re-use of complex validation code.
  */
 
-class Validator
+namespace PKP\validation;
+
+abstract class Validator
 {
     /**
      * Check whether the given value is valid.
@@ -29,9 +31,9 @@ class Validator
      *
      * @return boolean
      */
-    public function isValid($value)
-    {
-        // To be implemented by sub-classes
-        assert(false);
-    }
+    abstract public function isValid($value);
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\Validator', '\Validator');
 }

@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.classes.form.validation.FormValidatorRegExp');
-import('lib.pkp.classes.validation.ValidatorEmail');
+
+use PKP\validation\ValidatorEmail;
 
 class FormValidatorEmail extends FormValidator
 {

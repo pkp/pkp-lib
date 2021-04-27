@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.validation.FormValidator');
 
+use PKP\validation\ValidatorControlledVocab;
+
 class FormValidatorControlledVocab extends FormValidator
 {
     /**
@@ -30,7 +32,6 @@ class FormValidatorControlledVocab extends FormValidator
      */
     public function __construct(&$form, $field, $type, $message, $symbolic, $assocType, $assocId)
     {
-        import('lib.pkp.classes.validation.ValidatorControlledVocab');
         $validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
         parent::__construct($form, $field, $type, $message, $validator);
     }

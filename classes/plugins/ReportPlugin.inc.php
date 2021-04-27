@@ -13,7 +13,13 @@
  * @brief Abstract class for report plugins
  */
 
-import('lib.pkp.classes.plugins.Plugin');
+namespace PKP\plugins;
+
+use LinkAction;
+
+// FIXME: Add namespacing
+use PKP\core\PKPApplication;
+use RedirectAction;
 
 abstract class ReportPlugin extends Plugin
 {
@@ -169,4 +175,8 @@ abstract class ReportPlugin extends Plugin
             parent::getActions($request, $actionArgs)
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\ReportPlugin', '\ReportPlugin');
 }

@@ -16,6 +16,7 @@
 
 use APP\core\Services;
 use PKP\handler\APIHandler;
+use PKP\Services\Interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 
 use PKP\submission\PKPSubmission;
@@ -352,7 +353,7 @@ class PKPSubmissionHandler extends APIHandler
         $primaryLocale = $request->getContext()->getPrimaryLocale();
         $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
-        $errors = Services::get('submission')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = Services::get('submission')->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -408,7 +409,7 @@ class PKPSubmissionHandler extends APIHandler
         $primaryLocale = $request->getContext()->getPrimaryLocale();
         $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
-        $errors = Services::get('submission')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+        $errors = Services::get('submission')->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -616,7 +617,7 @@ class PKPSubmissionHandler extends APIHandler
             $primaryLocale = $params['locale'];
         }
 
-        $errors = Services::get('publication')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = Services::get('publication')->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -746,7 +747,7 @@ class PKPSubmissionHandler extends APIHandler
         $primaryLocale = $publication->getData('locale');
         $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
-        $errors = Services::get('publication')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+        $errors = Services::get('publication')->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);

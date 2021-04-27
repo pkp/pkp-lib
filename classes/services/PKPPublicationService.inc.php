@@ -20,16 +20,15 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
+use PKP\log\SubmissionLog;
 use PKP\plugins\HookRegistry;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
-
 use PKP\Services\QueryBuilders\PKPPublicationQueryBuilder;
-use PKP\submission\PKPSubmission;
 
-// FIXME: add namespacing
-use SubmissionLog;
+use PKP\submission\PKPSubmission;
+use PKP\validation\ValidatorFactory;
 
 class PKPPublicationService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -296,8 +295,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
         $schemaService = Services::get('schema');
 
-        import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $props,
             $schemaService->getValidationRules(PKPSchemaService::SCHEMA_PUBLICATION, $allowedLocales),
             [
@@ -308,7 +306,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         );
 
         // Check required fields
-        \ValidatorFactory::required(
+        ValidatorFactory::required(
             $validator,
             $action,
             $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_PUBLICATION),
@@ -318,7 +316,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         );
 
         // Check for input from disallowed locales
-        \ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_PUBLICATION), $allowedLocales);
+        ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_PUBLICATION), $allowedLocales);
 
         // The submissionId must match an existing submission
         if (isset($props['submissionId'])) {
@@ -343,9 +341,9 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
                     }
 
                     // If there is no submissionId the validator will throw it back anyway
-                    if ($action === VALIDATE_ACTION_ADD && !empty($props['submissionId'])) {
+                    if ($action === EntityWriteInterface::VALIDATE_ACTION_ADD && !empty($props['submissionId'])) {
                         $submission = Services::get('submission')->get($props['submissionId']);
-                    } elseif ($action === VALIDATE_ACTION_EDIT) {
+                    } elseif ($action === EntityWriteInterface::VALIDATE_ACTION_EDIT) {
                         $publication = Services::get('publication')->get($props['id']);
                         $submission = Services::get('submission')->get($publication->getData('submissionId'));
                     }
@@ -368,7 +366,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         // If a new file has been uploaded, check that the temporary file exists and
         // the current user owns it
         $user = Application::get()->getRequest()->getUser();
-        \ValidatorFactory::temporaryFilesExist(
+        ValidatorFactory::temporaryFilesExist(
             $validator,
             ['coverImage'],
             ['coverImage'],

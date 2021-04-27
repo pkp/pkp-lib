@@ -13,6 +13,11 @@
  * @brief Class describing a plugin in the Plugin Gallery.
  */
 
+namespace PKP\plugins;
+
+use PKP\core\Core;
+use PKP\db\DAORegistry;
+
 define('PLUGIN_GALLERY_STATE_AVAILABLE', 0);
 define('PLUGIN_GALLERY_STATE_INCOMPATIBLE', 0);
 define('PLUGIN_GALLERY_STATE_UPGRADABLE', 1);
@@ -458,4 +463,8 @@ class GalleryPlugin extends \PKP\core\DataObject
 
         return PLUGIN_GALLERY_STATE_CURRENT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\GalleryPlugin', '\GalleryPlugin');
 }

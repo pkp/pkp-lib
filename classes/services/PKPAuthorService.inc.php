@@ -23,8 +23,9 @@ use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
 use PKP\Services\QueryBuilders\PKPAuthorQueryBuilder;
-
 use PKP\submission\PKPSubmission;
+
+use PKP\validation\ValidatorFactory;
 
 class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, EntityPropertyInterface
 {
@@ -182,14 +183,13 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     {
         $schemaService = Services::get('schema');
 
-        import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $props,
             $schemaService->getValidationRules(PKPSchemaService::SCHEMA_AUTHOR, $allowedLocales)
         );
 
         // Check required fields
-        \ValidatorFactory::required(
+        ValidatorFactory::required(
             $validator,
             $action,
             $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_AUTHOR),
@@ -199,7 +199,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
         );
 
         // Check for input from disallowed locales
-        \ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
+        ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
         // The publicationId must match an existing publication that is not yet published
         $validator->after(function ($validator) use ($props) {

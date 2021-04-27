@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.validation.ValidatorTypeDescription');
+
+use PKP\validation\ValidatorTypeDescription;
 
 class ValidatorTypeDescriptionTest extends PKPTestCase
 {

@@ -13,7 +13,7 @@
  * @brief Abstract class for block plugins
  */
 
-import('lib.pkp.classes.plugins.LazyLoadPlugin');
+namespace PKP\plugins;
 
 abstract class BlockPlugin extends LazyLoadPlugin
 {
@@ -72,4 +72,8 @@ abstract class BlockPlugin extends LazyLoadPlugin
         }
         return $templateMgr->fetch($this->getTemplateResource($blockTemplateFilename));
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\BlockPlugin', '\BlockPlugin');
 }

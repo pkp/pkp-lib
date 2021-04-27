@@ -13,13 +13,19 @@
  * @brief Helper class implementing plugin administration functions.
  */
 
+namespace PKP\plugins;
+
 use APP\install\Install;
+
 use APP\install\Upgrade;
 use Exception;
-
+use PKP\config\Config;
+use PKP\core\Core;
+use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 use PKP\file\FileManager;
-use PKP\site\Version;
 
+use PKP\site\Version;
 use PKP\site\VersionCheck;
 
 define('PLUGIN_ACTION_UPLOAD', 'upload');
@@ -269,4 +275,8 @@ class PluginHelper
         $versionDao->insertVersion($pluginVersion, true);
         return $pluginVersion;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\PluginHelper', '\PluginHelper');
 }

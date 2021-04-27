@@ -14,10 +14,10 @@
  */
 
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
 
 use PKP\mail\MailTemplate;
+use PKP\validation\FormValidatorReCaptcha;
 
 class LoginHandler extends Handler
 {
@@ -118,7 +118,6 @@ class LoginHandler extends Handler
         if ($isCaptchaEnabled) {
             $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
             try {
-                import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
                 FormValidatorReCaptcha::validateResponse($request->getUserVar('g-recaptcha-response'), $request->getRemoteAddr(), $request->getServerHost());
             } catch (Exception $exception) {
                 $error = 'common.captcha.error.missing-input-response';

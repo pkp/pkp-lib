@@ -13,8 +13,7 @@
  * @brief Abstract class for metadata plugins
  */
 
-
-import('lib.pkp.classes.plugins.Plugin');
+namespace PKP\plugins;
 
 // Define the well-known file name for controlled vocabulary data.
 define('METADATA_PLUGIN_VOCAB_DATAFILE', 'controlledVocabs.xml');
@@ -81,4 +80,8 @@ abstract class MetadataPlugin extends Plugin
      *  the plugin supports multiple formats.
      */
     abstract public function getSchemaObject($format);
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\MetadataPlugin', '\MetadataPlugin');
 }

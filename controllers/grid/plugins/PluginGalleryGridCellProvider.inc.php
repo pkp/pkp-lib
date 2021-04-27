@@ -15,6 +15,8 @@
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 
+use PKP\plugins\GalleryPlugin;
+
 class PluginGalleryGridCellProvider extends GridCellProvider
 {
     /**
@@ -30,7 +32,7 @@ class PluginGalleryGridCellProvider extends GridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert(is_a($element, 'GalleryPlugin') && !empty($columnId));
+        assert(($element instanceof GalleryPlugin) && !empty($columnId));
         switch ($columnId) {
             case 'name':
                 // The name is returned as an action.

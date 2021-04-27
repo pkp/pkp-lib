@@ -17,6 +17,8 @@
 
 import('lib.pkp.classes.form.validation.FormValidator');
 
+use PKP\validation\ValidatorRegExp;
+
 class FormValidatorUsername extends FormValidator
 {
     /**
@@ -29,7 +31,6 @@ class FormValidatorUsername extends FormValidator
      */
     public function __construct(&$form, $field, $type, $message)
     {
-        import('lib.pkp.classes.validation.ValidatorRegExp');
         parent::__construct(
             $form,
             $field,

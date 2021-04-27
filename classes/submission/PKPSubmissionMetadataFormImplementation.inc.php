@@ -17,14 +17,14 @@
 namespace PKP\submission;
 
 use APP\core\Application;
-
 use APP\core\Services;
+
 use FormValidatorCustom;
+use FormValidatorLocale;
 
 // FIXME: Namespacing needed for the classes below
-use FormValidatorLocale;
 use PKP\db\DAORegistry;
-use SubmissionLog;
+use PKP\log\SubmissionLog;
 
 class PKPSubmissionMetadataFormImplementation
 {

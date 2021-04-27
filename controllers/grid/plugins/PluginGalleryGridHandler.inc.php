@@ -23,10 +23,11 @@ define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 
 use APP\template\TemplateManager;
 use Exception;
-
 use PKP\core\JSONMessage;
 
 use PKP\file\TemporaryFileManager;
+
+use PKP\plugins\PluginHelper;
 
 class PluginGalleryGridHandler extends GridHandler
 {
@@ -306,7 +307,6 @@ class PluginGalleryGridHandler extends GridHandler
         }
 
         // Extract the plugin
-        import('lib.pkp.classes.plugins.PluginHelper');
         $pluginHelper = new PluginHelper();
         try {
             $pluginDir = $pluginHelper->extractPlugin($destPath, $plugin->getProduct() . '-' . $plugin->getVersion());

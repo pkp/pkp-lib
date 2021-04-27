@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.validation.ValidatorISSN');
+
+use PKP\validation\ValidatorISSN;
 
 class ValidatorISSNTest extends PKPTestCase
 {

@@ -16,8 +16,9 @@
 
 use APP\core\Services;
 use Exception;
-
 use PKP\handler\APIHandler;
+
+use PKP\Services\Interfaces\EntityWriteInterface;
 
 use PKP\services\PKPSchemaService;
 
@@ -204,7 +205,7 @@ class PKPAnnouncementHandler extends APIHandler
 
         $primaryLocale = $request->getContext()->getPrimaryLocale();
         $allowedLocales = $request->getContext()->getSupportedFormLocales();
-        $errors = Services::get('announcement')->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = Services::get('announcement')->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -256,7 +257,7 @@ class PKPAnnouncementHandler extends APIHandler
         $primaryLocale = $context->getPrimaryLocale();
         $allowedLocales = $context->getSupportedFormLocales();
 
-        $errors = Services::get('announcement')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+        $errors = Services::get('announcement')->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }

@@ -13,8 +13,12 @@
  * @brief Abstract class for generic plugins
  */
 
-import('lib.pkp.classes.plugins.LazyLoadPlugin');
+namespace PKP\plugins;
 
 abstract class GenericPlugin extends LazyLoadPlugin
 {
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\GenericPlugin', '\GenericPlugin');
 }

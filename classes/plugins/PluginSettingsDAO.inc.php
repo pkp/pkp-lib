@@ -15,6 +15,11 @@
  * @brief Operations for retrieving and modifying plugin settings.
  */
 
+namespace PKP\plugins;
+
+use PKP\cache\CacheManager;
+use PKP\xml\PKPXMLParser;
+
 class PluginSettingsDAO extends \PKP\db\DAO
 {
     /**
@@ -229,7 +234,9 @@ class PluginSettingsDAO extends \PKP\db\DAO
      */
     public function _performReplacement($rawInput, $paramArray = [])
     {
-        $value = preg_replace_callback('{{translate key="([^"]+)"}}', '_installer_plugin_regexp_callback', $rawInput);
+        $value = preg_replace_callback('{{translate key="([^"]+)"}}', function ($matches) {
+            return __($matches[1]);
+        }, $rawInput);
         foreach ($paramArray as $pKey => $pValue) {
             $value = str_replace('{$' . $pKey . '}', $pValue, $value);
         }
@@ -321,4 +328,8 @@ class PluginSettingsDAO extends \PKP\db\DAO
 function _installer_plugin_regexp_callback($matches)
 {
     return __($matches[1]);
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\PluginSettingsDAO', '\PluginSettingsDAO');
 }

@@ -13,8 +13,7 @@
  * @brief Validation check using a regular expression.
  */
 
-import('lib.pkp.classes.validation.Validator');
-import('lib.pkp.classes.validation.ValidatorFactory');
+namespace PKP\validation;
 
 class ValidatorRegExp extends Validator
 {
@@ -36,11 +35,15 @@ class ValidatorRegExp extends Validator
      */
     public function isValid($value)
     {
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             ['value' => $value],
             ['value' => ['required', 'regex:' . $this->_regExp]]
         );
 
         return $validator->passes();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorRegExp', '\ValidatorRegExp');
 }

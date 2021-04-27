@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.validation.FormValidator');
 
+use PKP\validation\ValidatorISSN;
+
 class FormValidatorISSN extends FormValidator
 {
     /**
@@ -27,7 +29,6 @@ class FormValidatorISSN extends FormValidator
      */
     public function __construct($form, $field, $type, $message)
     {
-        import('lib.pkp.classes.validation.ValidatorISSN');
         $validator = new ValidatorISSN();
         parent::__construct($form, $field, $type, $message, $validator);
     }

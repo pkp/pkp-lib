@@ -20,6 +20,7 @@ import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 
 use PKP\core\JSONMessage;
+use PKP\Services\Interfaces\EntityWriteInterface;
 
 class AdminLanguageGridHandler extends LanguageGridHandler
 {
@@ -443,7 +444,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
                 $params['primaryLocale'] = $site->getPrimaryLocale();
                 $primaryLocale = $params['primaryLocale'];
             }
-            $errors = $contextService->validate(VALIDATE_ACTION_EDIT, $params, $params['supportedLocales'], $primaryLocale);
+            $errors = $contextService->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $params['supportedLocales'], $primaryLocale);
             // If there are errors, it's too late to do anything about it
             assert(empty($errors));
             $contextService->edit($context, $params, $request);

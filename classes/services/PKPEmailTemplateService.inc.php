@@ -22,9 +22,10 @@ use PKP\plugins\HookRegistry;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
-
 use PKP\services\PKPSchemaService;
+
 use PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder;
+use PKP\validation\ValidatorFactory;
 
 define('EMAIL_TEMPLATE_STAGE_DEFAULT', 0);
 
@@ -223,8 +224,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
     {
         $schemaService = Services::get('schema');
 
-        import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $props,
             $schemaService->getValidationRules(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $allowedLocales)
         );
@@ -235,7 +235,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
         );
 
         // Check required fields
-        \ValidatorFactory::required(
+        ValidatorFactory::required(
             $validator,
             $action,
             $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE),
@@ -244,7 +244,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
             $primaryLocale
         );
 
-        if ($action === VALIDATE_ACTION_ADD) {
+        if ($action === EntityWriteInterface::VALIDATE_ACTION_ADD) {
 
             // Require a context id
             $validator->after(function ($validator) use ($props) {
@@ -266,7 +266,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
         }
 
         // Check for input from disallowed locales
-        \ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE), $allowedLocales);
+        ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE), $allowedLocales);
 
         if ($validator->fails()) {
             $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE), $allowedLocales);

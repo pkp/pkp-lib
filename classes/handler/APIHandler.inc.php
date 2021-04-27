@@ -22,14 +22,13 @@ use ApiTokenDecodingMiddleware;
 use APP\core\Application;
 use APP\core\Services;
 use APP\i18n\AppLocale;
-
-// FIXME: add namespaces
 use PKP\config\Config;
+
 use PKP\core\APIResponse;
 use PKP\plugins\HookRegistry;
-use Slim\App;
+use PKP\validation\ValidatorFactory;
 
-use ValidatorFactory;
+use Slim\App;
 
 AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
 
@@ -418,7 +417,6 @@ class APIHandler extends PKPHandler
      */
     protected function _validateStatDates($params, $dateStartParam = 'dateStart', $dateEndParam = 'dateEnd')
     {
-        import('lib.pkp.classes.validation.ValidatorFactory');
         $validator = ValidatorFactory::make(
             $params,
             [

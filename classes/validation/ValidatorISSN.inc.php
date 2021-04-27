@@ -15,8 +15,7 @@
  * @brief Validation check for ISSNs.
  */
 
-import('lib.pkp.classes.validation.Validator');
-import('lib.pkp.classes.validation.ValidatorFactory');
+namespace PKP\validation;
 
 class ValidatorISSN extends Validator
 {
@@ -25,11 +24,15 @@ class ValidatorISSN extends Validator
      */
     public function isValid($value)
     {
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             ['value' => $value],
             ['value' => ['required', 'issn']]
         );
 
         return $validator->passes();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorISSN', '\ValidatorISSN');
 }

@@ -15,14 +15,18 @@
  * @brief Operations for retrieving content from the PKP plugin gallery.
  */
 
-import('lib.pkp.classes.plugins.GalleryPlugin');
+namespace PKP\plugins;
 
-define('PLUGIN_GALLERY_XML_URL', 'https://pkp.sfu.ca/ojs/xml/plugins.xml');
+use APP\core\Application;
 
 use DOMDocument;
 
+use PKP\core\PKPString;
+
 class PluginGalleryDAO extends \PKP\db\DAO
 {
+    public const PLUGIN_GALLERY_XML_URL = 'https://pkp.sfu.ca/ojs/xml/plugins.xml';
+
     /**
      * Get a set of GalleryPlugin objects describing the available
      * compatible plugins in their newest versions.
@@ -252,4 +256,9 @@ class PluginGalleryDAO extends \PKP\db\DAO
         // No applicable compatibility statement found.
         return false;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\PluginGalleryDAO', '\PluginGalleryDAO');
+    define('PLUGIN_GALLERY_XML_URL', \PluginGalleryDAO::PLUGIN_GALLERY_XML_URL);
 }

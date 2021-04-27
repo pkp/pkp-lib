@@ -13,6 +13,9 @@
  * @brief Helper class for public identifiers plugins
  */
 
+namespace PKP\plugins;
+
+use APP\core\Application;
 
 class PKPPubIdPluginHelper
 {
@@ -214,7 +217,7 @@ class PKPPubIdPluginHelper
                     // delete the pubId from the DB
                     $dao = $pubObject->getDAO();
                     $pubObjectId = $pubObject->getId();
-                    if (is_a($pubObject, 'SubmissionFile')) {
+                    if ($pubObject instanceof SubmissionFile) {
                         $pubObjectId = $pubObject->getId();
                     }
                     $dao->deletePubId($pubObjectId, $pubIdPlugin->getPubIdType());
@@ -226,4 +229,8 @@ class PKPPubIdPluginHelper
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\PKPPubIdPluginHelper', '\PKPPubIdPluginHelper');
 }

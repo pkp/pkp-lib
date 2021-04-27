@@ -16,11 +16,10 @@
 // Import the base Form.
 import('lib.pkp.classes.form.Form');
 
-import('lib.pkp.classes.plugins.PluginHelper');
-
 use APP\template\TemplateManager;
-
 use PKP\file\TemporaryFileManager;
+
+use PKP\plugins\PluginHelper;
 
 class UploadPluginForm extends Form
 {

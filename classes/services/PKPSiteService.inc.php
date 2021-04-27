@@ -17,9 +17,11 @@ namespace PKP\Services;
 use APP\core\Application;
 use APP\core\Services;
 use PKP\db\DAORegistry;
-
 use PKP\Services\interfaces\EntityPropertyInterface;
+use PKP\Services\Interfaces\EntityWriteInterface;
+
 use PKP\services\PKPSchemaService;
+use PKP\validation\ValidatorFactory;
 
 class PKPSiteService implements EntityPropertyInterface
 {
@@ -94,8 +96,7 @@ class PKPSiteService implements EntityPropertyInterface
         );
         $schemaService = Services::get('schema');
 
-        import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $props,
             $schemaService->getValidationRules(PKPSchemaService::SCHEMA_SITE, $allowedLocales),
             [
@@ -105,9 +106,9 @@ class PKPSiteService implements EntityPropertyInterface
         );
 
         // Check required fields
-        \ValidatorFactory::required(
+        ValidatorFactory::required(
             $validator,
-            VALIDATE_ACTION_EDIT,
+            EntityWriteInterface::VALIDATE_ACTION_EDIT,
             $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_PUBLICATION),
             $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_PUBLICATION),
             $allowedLocales,
@@ -115,7 +116,7 @@ class PKPSiteService implements EntityPropertyInterface
         );
 
         // Check for input from disallowed locales
-        \ValidatorFactory::allowedLocales(
+        ValidatorFactory::allowedLocales(
             $validator,
             $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SITE),
             $allowedLocales
@@ -124,7 +125,7 @@ class PKPSiteService implements EntityPropertyInterface
         // If a new file has been uploaded, check that the temporary file exists and
         // the current user owns it
         $user = Application::get()->getRequest()->getUser();
-        \ValidatorFactory::temporaryFilesExist(
+        ValidatorFactory::temporaryFilesExist(
             $validator,
             ['pageHeaderTitleImage', 'styleSheet'],
             ['pageHeaderTitleImage'],

@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.validation.ValidatorEmail');
+
+use PKP\validation\ValidatorEmail;
 
 class ValidatorEmailTest extends PKPTestCase
 {

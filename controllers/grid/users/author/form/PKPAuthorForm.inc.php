@@ -19,6 +19,8 @@ use APP\template\TemplateManager;
 
 use Exception;
 
+use PKP\Services\Interfaces\EntityWriteInterface;
+
 class PKPAuthorForm extends Form
 {
     /** The publication associated with the contributor being edited **/
@@ -240,7 +242,7 @@ class PKPAuthorForm extends Form
             $context = Services::get('context')->get($submission->getData('contextId'));
             $params = ['primaryContactId' => $authorId];
             $errors = Services::get('publication')->validate(
-                VALIDATE_ACTION_EDIT,
+                EntityWriteInterface::VALIDATE_ACTION_EDIT,
                 $params,
                 $context->getData('supportedLocales'),
                 $publication->getData('locale')

@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.form.validation.FormValidator');
 
+use PKP\validation\ValidatorORCID;
+
 class FormValidatorORCID extends FormValidator
 {
     /**
@@ -27,7 +29,6 @@ class FormValidatorORCID extends FormValidator
      */
     public function __construct($form, $field, $type, $message)
     {
-        import('lib.pkp.classes.validation.ValidatorORCID');
         $validator = new ValidatorORCID();
         parent::__construct($form, $field, $type, $message, $validator);
     }

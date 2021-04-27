@@ -15,9 +15,13 @@
  * @brief Class for DAO relating reviewers to submissions.
  */
 
+namespace PKP\submission\reviewAssignment;
+
+use APP\i18n\AppLocale;
+
 use Exception;
 
-use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\db\DAORegistry;
 
 class ReviewAssignmentDAO extends \PKP\db\DAO
 {
@@ -657,4 +661,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         return 'SELECT r.*, r2.review_revision FROM review_assignments r
 			LEFT JOIN review_rounds r2 ON (r.review_round_id = r2.review_round_id)';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\reviewAssignment\ReviewAssignmentDAO', '\ReviewAssignmentDAO');
 }

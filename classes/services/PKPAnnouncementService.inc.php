@@ -23,8 +23,9 @@ use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
-
 use PKP\Services\QueryBuilders\PKPAnnouncementQueryBuilder;
+
+use PKP\validation\ValidatorFactory;
 
 class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -196,8 +197,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
         );
         $schemaService = Services::get('schema');
 
-        import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $props,
             $schemaService->getValidationRules(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $allowedLocales),
             [
@@ -206,7 +206,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
         );
 
         // Check required fields if we're adding a context
-        \ValidatorFactory::required(
+        ValidatorFactory::required(
             $validator,
             $action,
             $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_ANNOUNCEMENT),
@@ -216,7 +216,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
         );
 
         // Check for input from disallowed locales
-        \ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_ANNOUNCEMENT), $allowedLocales);
+        ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_ANNOUNCEMENT), $allowedLocales);
 
         if ($validator->fails()) {
             $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_ANNOUNCEMENT), $allowedLocales);

@@ -16,7 +16,6 @@ namespace PKP\Services;
 
 use APP\core\Application;
 use APP\core\Services;
-
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -28,7 +27,9 @@ use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 use PKP\Services\QueryBuilders\PKPSubmissionFileQueryBuilder;
+
 use PKP\submission\SubmissionFile;
+use PKP\validation\ValidatorFactory;
 
 class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -258,14 +259,13 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         );
         $schemaService = Services::get('schema');
 
-        import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $props,
             $schemaService->getValidationRules(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $allowedLocales)
         );
 
         // Check required fields if we're adding a context
-        \ValidatorFactory::required(
+        ValidatorFactory::required(
             $validator,
             $action,
             $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE),
@@ -275,10 +275,10 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         );
 
         // Check for input from disallowed locales
-        \ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE), $allowedLocales);
+        ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE), $allowedLocales);
 
         // Do not allow the uploaderUserId or createdAt properties to be modified
-        if ($action === VALIDATE_ACTION_EDIT) {
+        if ($action === EntityWriteInterface::VALIDATE_ACTION_EDIT) {
             $validator->after(function ($validator) use ($props) {
                 if (!empty($props['uploaderUserId']) && !$validator->errors()->get('uploaderUserId')) {
                     $validator->errors()->add('uploaderUserId', __('submission.file.notAllowedUploaderUserId'));

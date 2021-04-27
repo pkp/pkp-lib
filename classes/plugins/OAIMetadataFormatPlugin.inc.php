@@ -13,7 +13,9 @@
  * @brief Abstract class for OAI Metadata format plugins
  */
 
-import('lib.pkp.classes.plugins.Plugin');
+namespace PKP\plugins;
+
+// FIXME: Add namespacing
 import('lib.pkp.classes.oai.OAIStruct');
 
 abstract class OAIMetadataFormatPlugin extends Plugin
@@ -75,4 +77,8 @@ abstract class OAIMetadataFormatPlugin extends Plugin
         }
         return false;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\OAIMetadataFormatPlugin', '\OAIMetadataFormatPlugin');
 }

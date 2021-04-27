@@ -21,6 +21,8 @@ require_mock_env('env1');
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.form.Form');
 
+use PKP\validation\ValidatorUrl;
+
 class FormValidatorTest extends PKPTestCase
 {
     private $form;
@@ -41,7 +43,6 @@ class FormValidatorTest extends PKPTestCase
     public function testConstructor()
     {
         // Instantiate a test validator
-        import('lib.pkp.classes.validation.ValidatorUrl');
         $validator = new ValidatorUrl();
 
         // Test CSS validation flags

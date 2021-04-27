@@ -15,8 +15,7 @@
  * @brief Validation check for email addresses.
  */
 
-import('lib.pkp.classes.validation.Validator');
-import('lib.pkp.classes.validation.ValidatorFactory');
+namespace PKP\validation;
 
 class ValidatorEmail extends Validator
 {
@@ -25,11 +24,15 @@ class ValidatorEmail extends Validator
      */
     public function isValid($value)
     {
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             ['value' => $value],
             ['value' => ['required', 'email_or_localhost']]
         );
 
         return $validator->passes();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorEmail', '\ValidatorEmail');
 }

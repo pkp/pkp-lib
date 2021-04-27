@@ -13,9 +13,12 @@
  * @brief Abstract class for public identifiers plugins
  */
 
-import('lib.pkp.classes.plugins.Plugin');
+namespace PKP\plugins;
 
+use APP\core\Application;
 use PKP\core\JSONMessage;
+
+use PKP\db\DAORegistry;
 
 abstract class PKPPubIdPlugin extends LazyLoadPlugin
 {
@@ -508,4 +511,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
         $contextDao = Application::getContextDAO();
         return $contextDao->getById($contextId);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\PKPPubIdPlugin', '\PKPPubIdPlugin');
 }

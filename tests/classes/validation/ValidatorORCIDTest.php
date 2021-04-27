@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.validation.ValidatorORCID');
+
+use PKP\validation\ValidatorORCID;
 
 class ValidatorORCIDTest extends PKPTestCase
 {

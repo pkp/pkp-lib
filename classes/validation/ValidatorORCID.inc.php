@@ -15,8 +15,7 @@
  * @brief Validation check for ORCID iDs.
  */
 
-import('lib.pkp.classes.validation.Validator');
-import('lib.pkp.classes.validation.ValidatorFactory');
+namespace PKP\validation;
 
 class ValidatorORCID extends Validator
 {
@@ -25,11 +24,15 @@ class ValidatorORCID extends Validator
      */
     public function isValid($value)
     {
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             ['value' => $value],
             ['value' => ['required', 'orcid']]
         );
 
         return $validator->passes();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorORCID', '\ValidatorORCID');
 }

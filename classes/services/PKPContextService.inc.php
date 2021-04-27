@@ -22,10 +22,11 @@ use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
 use PKP\Services\interfaces\EntityPropertyInterface;
-
 use PKP\Services\interfaces\EntityReadInterface;
+
 use PKP\Services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
+use PKP\validation\ValidatorFactory;
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -247,8 +248,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         );
         $schemaService = Services::get('schema');
 
-        import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $props,
             $schemaService->getValidationRules(PKPSchemaService::SCHEMA_CONTEXT, $allowedLocales),
             [
@@ -261,7 +261,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         );
 
         // Check required fields
-        \ValidatorFactory::required(
+        ValidatorFactory::required(
             $validator,
             $action,
             $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_CONTEXT),
@@ -271,7 +271,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         );
 
         // Check for input from disallowed locales
-        \ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_CONTEXT), $allowedLocales);
+        ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_CONTEXT), $allowedLocales);
 
         // Ensure that a urlPath, if provided, does not already exist
         $validator->after(function ($validator) use ($action, $props) {
@@ -279,7 +279,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                 $contextDao = Application::getContextDAO();
                 $contextWithPath = $contextDao->getByPath($props['urlPath']);
                 if ($contextWithPath) {
-                    if (!($action === VALIDATE_ACTION_EDIT
+                    if (!($action === EntityWriteInterface::VALIDATE_ACTION_EDIT
                             && isset($props['id'])
                             && (int) $contextWithPath->getId() === $props['id'])) {
                         $validator->errors()->add('urlPath', __('admin.contexts.form.pathExists'));
@@ -328,7 +328,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         // If a new file has been uploaded, check that the temporary file exists and
         // the current user owns it
         $user = Application::get()->getRequest()->getUser();
-        \ValidatorFactory::temporaryFilesExist(
+        ValidatorFactory::temporaryFilesExist(
             $validator,
             ['favicon', 'homepageImage', 'pageHeaderLogoImage', 'styleSheet'],
             ['favicon', 'homepageImage', 'pageHeaderLogoImage'],
@@ -382,7 +382,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             foreach ($emails as $currentEmail) {
                 $value = trim($currentEmail);
 
-                $emailValidator = \ValidatorFactory::make(
+                $emailValidator = ValidatorFactory::make(
                     ['value' => $value],
                     ['value' => ['email_or_localhost']]
                 );

@@ -13,15 +13,19 @@
  * @brief Abstract class for theme plugins
  */
 
-import('lib.pkp.classes.plugins.LazyLoadPlugin');
+namespace PKP\plugins;
 
 define('LESS_FILENAME_SUFFIX', '.less');
 define('THEME_OPTION_PREFIX', 'themeOption_');
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-
 use Exception;
+
+use PKP\core\Core;
+use PKP\core\PKPApplication;
+
+use PKP\db\DAORegistry;
 
 abstract class ThemePlugin extends LazyLoadPlugin
 {
@@ -872,4 +876,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
         );
         return $contrast < $limit;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\ThemePlugin', '\ThemePlugin');
 }

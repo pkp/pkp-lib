@@ -13,7 +13,7 @@
  * @brief Abstract class for generic plugins
  */
 
-import('lib.pkp.classes.plugins.LazyLoadPlugin');
+namespace PKP\plugins;
 
 abstract class PaymethodPlugin extends LazyLoadPlugin
 {
@@ -52,4 +52,8 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
     {
         assert(false); // implement in child classes
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\PaymethodPlugin', '\PaymethodPlugin');
 }

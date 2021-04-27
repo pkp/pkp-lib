@@ -51,6 +51,9 @@ define('METADATA_PROPERTY_TYPE_COMPOSITE', 0x06);
 define('METADATA_PROPERTY_CARDINALITY_ONE', 0x01);
 define('METADATA_PROPERTY_CARDINALITY_MANY', 0x02);
 
+use PKP\validation\ValidatorControlledVocab;
+use PKP\validation\ValidatorFactory;
+
 class MetadataProperty
 {
     /** @var string property name */
@@ -425,7 +428,6 @@ class MetadataProperty
 
                             if (is_integer($value)) {
                                 // Validate with controlled vocabulary validator
-                                import('lib.pkp.classes.validation.ValidatorControlledVocab');
                                 $validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
                                 if ($validator->isValid($value)) {
                                     return [METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam];
@@ -435,7 +437,6 @@ class MetadataProperty
                             break;
 
                         case METADATA_PROPERTY_TYPE_URI:
-                            import('lib.pkp.classes.validation.ValidatorFactory');
                             $validator = ValidatorFactory::make(
                                 ['uri' => $value],
                                 ['uri' => 'url']

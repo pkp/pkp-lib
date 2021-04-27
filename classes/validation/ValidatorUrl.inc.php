@@ -15,8 +15,7 @@
  * @brief Validation check for URLs.
  */
 
-import('lib.pkp.classes.validation.Validator');
-import('lib.pkp.classes.validation.ValidatorFactory');
+namespace PKP\validation;
 
 class ValidatorUrl extends Validator
 {
@@ -25,11 +24,15 @@ class ValidatorUrl extends Validator
      */
     public function isValid($value)
     {
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             ['value' => $value],
             ['value' => ['required', 'url']]
         );
 
         return $validator->passes();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorUrl', '\ValidatorUrl');
 }

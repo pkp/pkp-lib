@@ -44,12 +44,19 @@
  *  <lazy-load>1</lazy-load>
  */
 
-use APP\i18n\AppLocale;
+namespace PKP\plugins;
 
+use APP\core\Application;
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use Exception;
+use PKP\config\Config;
 
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
 use PKP\install\Installer;
+
+use PKP\template\PKPTemplateResource;
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
@@ -907,4 +914,8 @@ abstract class Plugin
     {
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\Plugin', '\Plugin');
 }

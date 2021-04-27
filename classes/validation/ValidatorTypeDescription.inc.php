@@ -14,7 +14,13 @@
  *  additional validation (via standard validator classes).
  */
 
+namespace PKP\validation;
+
+use PKP\core\PKPString;
+
+// FIXME: Add namespacing
 import('lib.pkp.classes.filter.PrimitiveTypeDescription');
+use PrimitiveTypeDescription;
 
 class ValidatorTypeDescription extends PrimitiveTypeDescription
 {
@@ -113,4 +119,8 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorTypeDescription', '\ValidatorTypeDescription');
 }

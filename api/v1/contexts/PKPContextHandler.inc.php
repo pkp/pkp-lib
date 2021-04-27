@@ -14,6 +14,7 @@
 
 use APP\template\TemplateManager;
 use PKP\handler\APIHandler;
+use PKP\Services\Interfaces\EntityWriteInterface;
 
 use PKP\services\PKPSchemaService;
 
@@ -309,7 +310,7 @@ class PKPContextHandler extends APIHandler
         }
 
         $contextService = Services::get('context');
-        $errors = $contextService->validate(VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = $contextService->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -372,7 +373,7 @@ class PKPContextHandler extends APIHandler
         $primaryLocale = $context->getPrimaryLocale();
         $allowedLocales = $context->getSupportedFormLocales();
 
-        $errors = $contextService->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+        $errors = $contextService->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -432,7 +433,7 @@ class PKPContextHandler extends APIHandler
         $themePluginPath = empty($params['themePluginPath']) ? null : $params['themePluginPath'];
         if ($themePluginPath !== $context->getData('themePluginPath')) {
             $errors = $contextService->validate(
-                VALIDATE_ACTION_EDIT,
+                EntityWriteInterface::VALIDATE_ACTION_EDIT,
                 ['themePluginPath' => $themePluginPath],
                 $context->getSupportedFormLocales(),
                 $context->getPrimaryLocale()

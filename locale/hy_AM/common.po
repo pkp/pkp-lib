@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-26 16:31+0000\n"
+"PO-Revision-Date: 2021-04-27 18:17+0000\n"
 "Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -1726,3 +1726,190 @@ msgstr "Դիտել"
 
 msgid "navigation.about"
 msgstr "Մասին"
+
+msgid "validator.array"
+msgstr "Սա վավեր չէ։"
+
+msgid "validator.alpha_num"
+msgstr "Կարող է ներառել միայն տառեր և թվեր։"
+
+msgid "validator.alpha_dash"
+msgstr "Կարող է միայն ներառել տառեր, թվեր, գծեր և ընդգծումներ։"
+
+msgid "validator.alpha"
+msgstr "Սա կարող է ներառել միայն տառեր։"
+
+msgid "validator.after"
+msgstr "Այս ամսաթիվը պետք լինի {$date}ից հետո։"
+
+msgid "validator.active_url"
+msgstr "Այս URL-ը վավեր չէ։"
+
+msgid "validator.accepted"
+msgstr "Խնդրում ենք ընդունեք այս բաժինը։"
+
+msgid "list.viewLess"
+msgstr "Թաքցնել {$name} մասին ընդլայնված տվյալները։"
+
+msgid "list.viewMore"
+msgstr "{$name} համար ցուցադրել լրացուցիչ տվյալներ։"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Ապաբաժանորդագրվել"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Տեղի է ունեցել չսպասված սխալ և մենք չենք կարող ապաբաժանորդագրել {$email} էլ․ "
+"փոստի հասցեն։ Դուք կարող եք ապաբաժանորդագրվել  բոլոր էլ․ փոստերի "
+"ծանուցումներից Ձեր  <a href=\"{$profileNotificationUrl}\">օգտատիրոջ "
+"հաշվից</a> կամ ուղիղ կապ հաստատեք մեզ հետ։"
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"{$email} էլ․ փոստի հասցեն հաջողությամբ ապաբաժանորդագրվել է։ Մենք այլևս չենք "
+"ուղարկի Ձեզ այս նամակները։ Էլ․ ծանուցումներ ստանալու համար Դուք կարող եք "
+"ցանկացած պահի նորից բաժանորդագրվեք Ձեր  <a href=\"{$profileNotificationUrl}\""
+">օգտատիրոջ հաշվից</a>։"
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Դուք կարող եք ցանկացած պահի նորից գրանցվել էլ․ փաստի նամակներ ստանալու համար "
+"Ձեր  <a href=\"{$profileNotificationUrl}\">օգտատիրոջ էջից</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Ընտրեք էլ․ հասցեները, որոնք այլևս չեք ցանկանում ստանալ {$email}ից մինչև "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Մեզ չհաջողվեց Ձեզ ապաբաժանորդագրել։"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Դուք ապաբաժանորդագրվել եք"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Նավիգացիոն մենյուն հաջողությամբ հեռացվել է։"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Նավիգացիոն մենյուն հաջողությամբ թարմացվել է։"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Նավիգացիոն մենյուն հաջողությամբ ավելացվել է։"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Նավիգացիոն մենյուի բաժինը հաջողությամբ ավելացվել է։"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Նավիգացիոն մենյուի բաժինները հաջողությամբ ջնջվել են։"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Նավիգացիոն մենյուի բաժինները հաջողությամբ թարմացվել են։"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Սա Ձեզ համար հիշեցում է, որպեսզի ստուգեք Ձեր ամսագրի  վիճակը խմբագրական "
+"հաշվետվության միջոցով։"
+
+msgid "notification.type.editorialReport"
+msgstr "Վիճակագրության հաշվետվություն"
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Փուլ {$round} Ստատուս"
+
+msgid "notification.type.queryAdded"
+msgstr "Քննարկումը ավելացված է։"
+
+msgid "notification.type.queryActivity"
+msgstr "Քննարկում"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Գաղտնիության կարգաբերումներ"
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Այս օգտատերը պահանջված նյութի հեղինակը չէ։ Խնդրում ենք ճշտեք՝ արդյոք Դուք "
+"ճիշտ հաշվով եք մուտք գործել։"
+
+#, fuzzy
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Այս պահին Դուք չունեք համապատասխան թույլտվություն այս նյութը դիտելու համար։ "
+"Խնդրում ենք խմբագրել Ձեր անձնական հաշիվը"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Դուք չունեք հասանելիություն այս գրախոսման նշանակման համար։"
+
+msgid "user.authorization.submissionFile"
+msgstr "Ընթացիկ օգտատերը չունի հասանելիություն նշված ֆայլին։"
+
+msgid "notification.type.reviewerComment"
+msgstr "Գրախոսողը մեկնաբանություն է թողել \"{$title}\"։"
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Ֆայլի թարմացված տարբերակը ներբեռնվել է Ձեր խմբագրական որոշման համար - "
+"{$stage}։"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Գրախոսման նշանակումը թարմացված է։"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} նշանակված է այս հայտի գրախոսման համար․ ծանուցում էլ․ փոստով "
+"չի ուղարկվել։"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} նշանակված է այս նյութի գրախոսման համար․ ծանուցումը ուղարկված "
+"է էլ․ փոստով։"
+
+#, fuzzy
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>To ensure the integrity of anonymous peer-review, every effort should be "
+"made to prevent the identities of the authors and reviewers from being known "
+"to each other. This involves the authors, editors, and reviewers (who upload "
+"documents as part of their review) checking to see if the following steps "
+"have been taken with regard to the text and the file properties:</p>\n"
+"<ul><li>The authors of the document have deleted their names from the text, "
+"with \"Author\" and year used in the references and footnotes, instead of "
+"the authors' name, article title, etc.</li>\n"
+"<li>The authors of the document have removed personal information from the "
+"file properties by taking the following steps:\n"
+"<ul><li>Microsoft Word Windows-ի համար:\n"
+"<ul><li>Անցնել ֆայլերին</li>\n"
+"<li>Ընտրել տեղեկատվություն</li>\n"
+"<li>Սեղմեք Ստուգել խնդիրների համար Click on Check for Issues</li>\n"
+"<li>Սեղմեք Click on Inspect Document</li>\n"
+"<li> In the Document Inspector dialog box, select the check boxes to choose "
+"the type of hidden content that you want inspected.</li>\n"
+"<li>Սեղմեք «Հեռացնել բոլոր ֆայլերը»</li>\n"
+"<li>Սեղմեք Փակել</li>\n"
+"<li>Պահպանել փաստաթուղթը</li></ul>\n"
+"<li>Microsoft Word for MacOS:\n"
+"<ul><li>Անցնել գործիքներին</li>\n"
+"<li>Սեղմեք «Պաշտպանել փաստաթուղթը»</li>\n"
+"<li>Ընտրեք «Պահպանելու համար ջնջել այս ֆայլի անհատական տեղեկատվությունը» "
+"</li>\n"
+"<li>Սեղմեք OK և պահպանել ֆայլերը</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Անցնել ֆայլին</li>\n"
+"<li>Ընտրել հատկությունները</li>\n"
+"<li>Հեղինակի դաշտից ջնջել բոլոր անունները</li>\n"
+"<li>Սեղմեք OK</li>\n"
+"<li>Պահպանել փաստաթուղթը</li></ul></li></ul>\n"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Այս մասնակիցը թույլտվություն ունի միայն առաջարկելու խմբագրական կարծիք, իսկ "
+"խմբագրական կարծիք գրանցելու համար անհրաժեշտ է համապատասխան իրավունքով "
+"խմբագիր։"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Գրախոսումը նշված է որպես ընդունված։ Նամակը չի ուղարկվել։"
+
+msgid "common.titleSmallWords"
+msgstr " "

@@ -13,13 +13,18 @@
  * @brief Basis class for XML metadata export plugins
  */
 
+namespace APP\plugins;
+
 use PKP\submission\PKPSubmission;
 use PKP\core\JSONMessage;
 use PKP\file\FileManager;
+use PKP\plugins\ImportExportPlugin;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
 
+use APP\core\Application;
 use APP\template\TemplateManager;
-
-import('lib.pkp.classes.plugins.ImportExportPlugin');
+use APP\i18n\AppLocale;
 
 // The statuses.
 define('EXPORT_STATUS_ANY', '');
@@ -807,4 +812,8 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     {
         throw new BadMethodCallException();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\PubObjectsExportPlugin', '\PubObjectExportsPlugin');
 }

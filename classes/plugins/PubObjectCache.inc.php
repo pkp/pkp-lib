@@ -13,6 +13,7 @@
  * @brief A cache for publication objects required during export.
  */
 
+namespace APP\plugins;
 
 class PubObjectCache {
 	/* @var array */
@@ -138,3 +139,6 @@ class PubObjectCache {
 	}
 }
 
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\PubObjectCache', '\PubObjectCache');
+}

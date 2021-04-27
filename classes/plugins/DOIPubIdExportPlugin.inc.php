@@ -13,11 +13,15 @@
  * @brief Basis class for DOI XML metadata export plugins
  */
 
+namespace APP\plugins;
+
 use PKP\submission\PKPSubmission;
+use PKP\core\PKPString;
+use PKP\plugins\PluginRegistry;
 
-use \APP\template\TemplateManager;
-
-import('classes.plugins.PubObjectsExportPlugin');
+use APP\core\Services;
+use APP\template\TemplateManager;
+use APP\plugins\PubObjectsExportPlugin;
 
 // Configuration errors.
 define('DOI_EXPORT_CONFIG_ERROR_DOIPREFIX', 0x01);

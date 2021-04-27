@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-26 11:12+0000\n"
+"PO-Revision-Date: 2021-04-27 18:17+0000\n"
 "Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "hy_AM/>\n"
@@ -198,3 +198,30 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "API թոքենը հնարավոր չէ ստուգել։ Հնարավոր է կա API թոքենի սխալ կամ API  "
 "թոքենը այլևս վավեր չէ։"
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Գրախոսման փուլում Դուք չունեք ֆայլերի թույլտվություն։"
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Դուք չունեք թույլտվություն ֆալներ ավելացնելու կամ խմբագրելու համար։"
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Դուք չունեք այս ֆայլերի թույլտվություն։"
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Այս ֆայլի խմբագրման համար ըստ հարցման փոփոխություններ չեն գտնվել ։"
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Դուք պետք է նշեք ֆայլի փուլը։"
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Գրախոսման փուլում ֆայլի հարցման համար Դուք պետք է նշեք գրախոսման փուլը։"
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Դուք չեք կարող կցել ֆայլ գրախոսմանը այս ֆուլում։"
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Դուք չեք կարող կցել ֆայլ քննարկումների նշումին այս փուլում։"
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Այս փուլում  դուք չեք կարող միացնել ֆայլը դիմած այլ ֆայլի հետ։"

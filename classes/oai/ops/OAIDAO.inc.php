@@ -145,7 +145,7 @@ class OAIDAO extends PKPOAIDAO
      */
     public function getSetServerSectionId($serverSpec, $sectionSpec, $restrictServerId = null)
     {
-        $server = & $this->serverDao->getByPath($serverSpec);
+        $server = $this->serverDao->getByPath($serverSpec);
         if (!isset($server) || (isset($restrictServerId) && $server->getId() != $restrictServerId)) {
             return [0, 0];
         }

@@ -13,8 +13,6 @@
  * @brief Base helper class for import/export filters
  */
 
-use Exception;
-
 use PKP\filter\PersistableFilter;
 
 class PKPImportExportFilter extends PersistableFilter

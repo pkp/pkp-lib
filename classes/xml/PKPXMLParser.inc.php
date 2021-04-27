@@ -20,8 +20,9 @@
 
 namespace PKP\xml;
 
-use \PKP\config\Config;
-use \APP\core\Application;
+use PKP\config\Config;
+
+use APP\core\Application;
 
 // The default character encodings
 define('XML_PARSER_SOURCE_ENCODING', Config::getVar('i18n', 'client_charset'));

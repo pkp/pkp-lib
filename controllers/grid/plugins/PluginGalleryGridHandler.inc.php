@@ -22,9 +22,7 @@ import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 
 use APP\template\TemplateManager;
-use Exception;
 use PKP\core\JSONMessage;
-
 use PKP\file\TemporaryFileManager;
 
 use PKP\plugins\PluginHelper;

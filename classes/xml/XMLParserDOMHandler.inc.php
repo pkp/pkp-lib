@@ -18,7 +18,7 @@
 
 namespace PKP\xml;
 
-use \PKP\xml\XMLParserHandler;
+use PKP\xml\XMLParserHandler;
 
 class XMLParserDOMHandler extends XMLParserHandler {
 

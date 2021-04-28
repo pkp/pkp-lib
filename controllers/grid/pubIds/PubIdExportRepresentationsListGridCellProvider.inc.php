@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RedirectAction;
 
 class PubIdExportRepresentationsListGridCellProvider extends DataObjectGridCellProvider
 {
@@ -51,7 +53,6 @@ class PubIdExportRepresentationsListGridCellProvider extends DataObjectGridCellP
 
         $publication = Services::get('publication')->get($galley->getData('publicationId'));
         $submission = Services::get('submission')->get($publication->getData('submissionId'));
-        import('lib.pkp.classes.linkAction.request.RedirectAction');
         switch ($columnId) {
             case 'title':
                 $this->_titleColumn = $column;

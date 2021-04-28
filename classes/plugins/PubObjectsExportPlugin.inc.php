@@ -21,6 +21,8 @@ use PKP\file\FileManager;
 use PKP\plugins\ImportExportPlugin;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
+use PKP\linkAction\request\NullAction;
+use PKP\linkAction\LinkAction;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
@@ -152,7 +154,6 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                 // Add link actions
                 $actions = $this->getExportActions($context);
                 $actionNames = array_intersect_key($this->getExportActionNames(), array_flip($actions));
-                import('lib.pkp.classes.linkAction.request.NullAction');
                 $linkActions = [];
                 foreach ($actionNames as $action => $actionName) {
                     $linkActions[] = new LinkAction($action, new NullAction(), $actionName);

@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RedirectAction;
+
 class ExportPublishedSubmissionsListGridCellProvider extends DataObjectGridCellProvider
 {
     /** @var ImportExportPlugin */
@@ -48,7 +51,6 @@ class ExportPublishedSubmissionsListGridCellProvider extends DataObjectGridCellP
         $columnId = $column->getId();
         assert(is_a($submission, 'Submission') && !empty($columnId));
 
-        import('lib.pkp.classes.linkAction.request.RedirectAction');
         switch ($columnId) {
             case 'title':
                 $this->_titleColumn = $column;

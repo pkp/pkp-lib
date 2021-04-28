@@ -13,7 +13,10 @@
  * @brief Representation of an preprint galley grid row.
  */
 
-use \PKP\submission\SubmissionFile;
+use PKP\linkAction\LinkAction;
+use PKP\submission\SubmissionFile;
+use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
@@ -66,7 +69,6 @@ class PreprintGalleyGridRow extends GridRow
 
             if ($this->_isEditable) {
                 // Add row-level actions
-                import('lib.pkp.classes.linkAction.request.AjaxModal');
                 $this->addAction(new LinkAction(
                     'editGalley',
                     new AjaxModal(
@@ -94,7 +96,6 @@ class PreprintGalleyGridRow extends GridRow
                     ));
                 }
 
-                import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
                 $this->addAction(new LinkAction(
                     'deleteGalley',
                     new RemoteActionConfirmationModal(

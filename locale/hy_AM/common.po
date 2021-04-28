@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-27 18:17+0000\n"
+"PO-Revision-Date: 2021-04-28 15:11+0000\n"
 "Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -1833,11 +1833,11 @@ msgstr ""
 "Այս օգտատերը պահանջված նյութի հեղինակը չէ։ Խնդրում ենք ճշտեք՝ արդյոք Դուք "
 "ճիշտ հաշվով եք մուտք գործել։"
 
-#, fuzzy
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
 "Այս պահին Դուք չունեք համապատասխան թույլտվություն այս նյութը դիտելու համար։ "
-"Խնդրում ենք խմբագրել Ձեր անձնական հաշիվը"
+"Խնդրում ենք խմբագրել Ձեր անձնական հաշիվը, համոզվեք, որ «Գրանցվել որպես» "
+"դաշտում նշված է համապատասխան դերը։"
 
 msgid "user.authorization.unauthorizedReviewAssignment"
 msgstr "Դուք չունեք հասանելիություն այս գրախոսման նշանակման համար։"
@@ -1913,3 +1913,175 @@ msgstr "Գրախոսումը նշված է որպես ընդունված։ Նա�
 
 msgid "common.titleSmallWords"
 msgstr " "
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML Node-ը չի ներմուծվել"
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filter ({$displayName}) supports input {$inputTypeName} - {$typeofInput} "
+"given"
+
+msgid "validator.url"
+msgstr "URL հղումը վավեր չէ։"
+
+msgid "validator.unique"
+msgstr "{$attribute} արդեն կիրառված է։"
+
+msgid "validator.timezone"
+msgstr "Անվավեր ժամային գոտի։"
+
+msgid "validator.string"
+msgstr "Անվավեր փոփոխական։"
+
+msgid "validator.size.array"
+msgstr "Պետք է ներառի  {$size} միավոր։"
+
+msgid "validator.size.string"
+msgstr "Նշանների քանակը պետք է լինի {$size}։"
+
+msgid "validator.size.file"
+msgstr "Պետք է լինի {$size}  կիլոբայթ։"
+
+msgid "validator.size.numeric"
+msgstr "Չափը պետք է լինի - {$size}։"
+
+msgid "validator.same"
+msgstr "{$attribute}ը և {$other}ը պետք է համընկնեն։"
+
+msgid "validator.required_without_all"
+msgstr "Այս դաշտը չի պահանջվում, երբ  ոչ մի {$values} առկա չեն։"
+
+msgid "validator.required_without"
+msgstr "Այս դաշտը պարտադիր է, երբ  {$values}ը նշված չէ։"
+
+msgid "validator.required_with_all"
+msgstr "Այս դաշտը պարտադիր է, երբ  {$values}ն առկա է։"
+
+msgid "validator.required_with"
+msgstr "Այս դաշտը պարտադիր է, երբ {$values}ը նշված է։"
+
+msgid "validator.required_unless"
+msgstr "Այս դաշտը պարտադիր է, քանի դեռ  {$other}ը հավասար է {$values}։"
+
+msgid "validator.required_if"
+msgstr "Այս դաշտը պարտադիր է, երբ  {$other} = {$value}։"
+
+msgid "validator.required"
+msgstr "Պարտադիր դաշտ"
+
+msgid "validator.regex"
+msgstr "Ոչ ճիշտ ֆորմատավորված"
+
+msgid "validator.present"
+msgstr "{$attribute}ի դաշտը պարտադիր է։"
+
+msgid "validator.orcid"
+msgstr "ORCID-ը անվավեր է։"
+
+msgid "validator.numeric"
+msgstr "Թիվը վավեր չէ։"
+
+msgid "validator.not_in"
+msgstr "Ընտրված  {$attribute}ը վավեր չէ։"
+
+msgid "validator.min.array"
+msgstr "Միավորների նվազագույն քանակը պետք է լինի  {$min}։"
+
+msgid "validator.min.string"
+msgstr "Նշանների քանակը նվազագույնը պետք է լինի {$min}։"
+
+msgid "validator.min.file"
+msgstr "Նվազագույնը պետք է լինի {$min} կիլոբայթ։"
+
+msgid "validator.min.numeric"
+msgstr "Նվազագույնը պետք է լինի՝ {$min}։"
+
+msgid "validator.mimes"
+msgstr "Ֆայլի տիպը պետք է լինի {$values}։"
+
+msgid "validator.max.array"
+msgstr "Միավորները չեն կարող գերազանցել {$max}ը։"
+
+msgid "validator.max.string"
+msgstr "Նշանների քանակը {$max}ից մեծ լինեն չի կարող։"
+
+msgid "validator.max.file"
+msgstr "Սա չի կարող  {$max} կիլոբայթից մեծ լինի։"
+
+msgid "validator.max.numeric"
+msgstr "Սա չպետք է  {$max}ից մեծ լինի։"
+
+msgid "validator.localeKey"
+msgstr ""
+"Լեզուները պետք է նշվեն կիրառելով լոկալ կոդ։ Օրինակ՝ en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.locale"
+msgstr "Այս լեզուն ընդունված չէ։"
+
+msgid "validator.json"
+msgstr "JSON փոփոխականը  վավեր չէ։"
+
+msgid "validator.issn"
+msgstr "ISSN-ն վավեր չէ։"
+
+msgid "validator.ip"
+msgstr "IP հասցեն վավեր չէ։"
+
+msgid "validator.integer"
+msgstr "Սա վավեր ամբողջական թիվ չէ։"
+
+msgid "validator.in"
+msgstr "Ընտրված  {$attribute}ը անվավեր է։"
+
+msgid "validator.image"
+msgstr "Այստեղ պետք է նկար լինի։"
+
+msgid "validator.filled"
+msgstr "Պարտադիր դաշտ։"
+
+msgid "validator.exists"
+msgstr "Ընտրված  {$attribute}ը վավեր չէ։"
+
+msgid "validator.email"
+msgstr "Էլ․ փոստի հասցեն վավեր չէ։"
+
+msgid "validator.digits_between"
+msgstr "Թվանշանների սահմանը պետք է լինի՝   {$min}- {$max}"
+
+msgid "validator.digits"
+msgstr "Երկարությունը պետք է լինի - {$digits}"
+
+msgid "validator.different"
+msgstr "{$attribute}ը և {$other}ը պետք է լինեն տարբեր։"
+
+msgid "validator.date_format"
+msgstr "{$format}ի ֆորմատը չի համընկնում։"
+
+msgid "validator.date"
+msgstr "Այս ամսաթիվը վավեր չէ։"
+
+msgid "validator.currency"
+msgstr "Նշված արժույթը վավեր չէ։"
+
+msgid "validator.confirmed"
+msgstr "Այս դաշտի հաստատումը չի համընկնում։"
+
+msgid "validator.boolean"
+msgstr "Այս դաշտը պետք է լինի ճիշտ կամ սխալ։"
+
+msgid "validator.between.array"
+msgstr "Պետք է ունենա {$min}ից {$max} միավոր։"
+
+msgid "validator.between.string"
+msgstr "Նշանների քանակը պետք է լինի  {$min}ի և {$max}ի սահմանում։"
+
+msgid "validator.between.file"
+msgstr "Պետք է լինի {$min} և {$max} կիլոբայթի սահմանում։"
+
+msgid "validator.between.numeric"
+msgstr "Այն պետք է լինի {$min}ի և  {$max}ի սահմանում։"
+
+msgid "validator.before"
+msgstr "Այս ամսաթիվը  պետք է լինի  {$date} ամսաթվից առաջ։"

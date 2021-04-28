@@ -16,8 +16,11 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
+use LinkAction;
+
 use PKP\core\JSONMessage;
 
+// FIXME: Add namespacing
 use PKP\db\DAORegistry;
 
 abstract class PKPPubIdPlugin extends LazyLoadPlugin

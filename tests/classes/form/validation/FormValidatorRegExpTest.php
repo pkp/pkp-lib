@@ -16,7 +16,9 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
+
+use PKP\form\Form;
+use PKP\form\validation\FormValidator;
 
 class FormValidatorRegExpTest extends PKPTestCase
 {
@@ -29,10 +31,10 @@ class FormValidatorRegExpTest extends PKPTestCase
         $form = new Form('some template');
         $form->setData('testData', 'some data');
 
-        $validator = new FormValidatorRegExp($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', '/some.*/');
+        $validator = new \PKP\form\validation\FormValidatorRegExp($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', '/some.*/');
         self::assertTrue($validator->isValid());
 
-        $validator = new FormValidatorRegExp($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', '/some more.*/');
+        $validator = new \PKP\form\validation\FormValidatorRegExp($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', '/some more.*/');
         self::assertFalse($validator->isValid());
     }
 }

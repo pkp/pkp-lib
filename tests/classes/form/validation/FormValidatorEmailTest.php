@@ -16,7 +16,9 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
+
+use PKP\form\Form;
+use PKP\form\validation\FormValidator;
 
 class FormValidatorEmailTest extends PKPTestCase
 {
@@ -29,12 +31,12 @@ class FormValidatorEmailTest extends PKPTestCase
         $form = new Form('some template');
 
         $form->setData('testData', 'some.address@gmail.com');
-        $validator = new FormValidatorEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorEmail($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertTrue($validator->isValid());
         self::assertEquals(['testData' => ['required', 'email']], $form->cssValidation);
 
         $form->setData('testData', 'anything else');
-        $validator = new FormValidatorEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorEmail($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertFalse($validator->isValid());
     }
 }

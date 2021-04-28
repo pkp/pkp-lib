@@ -16,9 +16,8 @@
  * @brief Form for user registration.
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+use PKP\form\Form;
 use PKP\mail\MailTemplate;
 
 use PKP\user\InterestManager;
@@ -46,45 +45,45 @@ class RegistrationForm extends Form
 
         // Validation checks for this form
         $form = $this;
-        $this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [], true));
-        $this->addCheck(new FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
-        $this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
-        $this->addCheck(new FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
-        $this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
-        $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [], true));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
             return $password == $form->getData('password2');
         }));
 
-        $this->addCheck(new FormValidator($this, 'givenName', 'required', 'user.profile.form.givenNameRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'givenName', 'required', 'user.profile.form.givenNameRequired'));
 
-        $this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
 
         // Email checks
-        $this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
-        $this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'], [], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'], [], true));
 
         $this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
         if ($this->captchaEnabled) {
             $request = Application::get()->getRequest();
-            $this->addCheck(new FormValidatorReCaptcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response', $request->getServerHost()));
+            $this->addCheck(new \PKP\form\validation\FormValidatorReCaptcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response', $request->getServerHost()));
         }
 
         $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
         $this->defaultAuth = $authDao->getDefaultPlugin();
         if (isset($this->defaultAuth)) {
             $auth = $this->defaultAuth;
-            $this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', function ($username) use ($form, $auth) {
+            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', function ($username) use ($form, $auth) {
                 return (!$auth->userExists($username) || $auth->authenticate($username, $form->getData('password')));
             }));
         }
 
         $context = Application::get()->getRequest()->getContext();
         if ($context && $context->getData('privacyStatement')) {
-            $this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
         }
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

@@ -13,10 +13,9 @@
  * @brief Form for installing languages.
  */
 
-// Import the base Form.
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class InstallLanguageForm extends Form
 {

@@ -16,10 +16,9 @@
  * @brief Form to edit notification settings.
  */
 
-
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class PKPNotificationSettingsForm extends Form
 {
@@ -31,8 +30,8 @@ class PKPNotificationSettingsForm extends Form
         parent::__construct('user/notificationSettingsForm.tpl');
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

@@ -16,9 +16,9 @@
  * @brief Base class for author submit forms.
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class SubmissionSubmitForm extends Form
 {
@@ -43,8 +43,8 @@ class SubmissionSubmitForm extends Form
     public function __construct($context, $submission, $step)
     {
         parent::__construct(sprintf('submission/form/step%d.tpl', $step));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
         $this->step = (int) $step;
         $this->submission = $submission;
         $this->submissionId = $submission ? $submission->getId() : null;

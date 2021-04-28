@@ -16,7 +16,9 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
+
+use PKP\form\Form;
+use PKP\form\validation\FormValidator;
 
 class FormValidatorArrayTest extends PKPTestCase
 {
@@ -30,24 +32,24 @@ class FormValidatorArrayTest extends PKPTestCase
 
         // Tests are completely bypassed when the validation type is "optional" values.
         $form->setData('testData', '');
-        $validator = new FormValidatorArray($form, 'testData', FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorArray($form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key');
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
 
         // Field data must be an array, otherwise validation fails
         $form->setData('testData', '');
-        $validator = new FormValidatorArray($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorArray($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertFalse($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
 
         // We can either require all sub-fields (which is default)...
         $form->setData('testData', ['subfield1' => 'abc', 'subfield2' => '0']);
-        $validator = new FormValidatorArray($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorArray($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
 
         $form->setData('testData', ['subfield1' => '', 'subfield2' => null]);
-        $validator = new FormValidatorArray($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorArray($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertFalse($validator->isValid());
         self::assertEquals(['testData[subfield1]', 'testData[subfield2]'], $validator->getErrorFields());
 
@@ -57,7 +59,7 @@ class FormValidatorArrayTest extends PKPTestCase
             'subfield2' => ['subsubfield1' => '0', 'subsubfield2' => 0] // also test allowed boarder conditions
         ];
         $form->setData('testData', $testArray);
-        $validator = new FormValidatorArray($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', ['subsubfield1', 'subsubfield2']);
+        $validator = new \PKP\form\validation\FormValidatorArray($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', ['subsubfield1', 'subsubfield2']);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
 
@@ -66,7 +68,7 @@ class FormValidatorArrayTest extends PKPTestCase
             'subfield2' => ['subsubfield1' => '', 'subsubfield2' => 'xyz']
         ];
         $form->setData('testData', $testArray);
-        $validator = new FormValidatorArray($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', ['subsubfield1', 'subsubfield2']);
+        $validator = new \PKP\form\validation\FormValidatorArray($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', ['subsubfield1', 'subsubfield2']);
         self::assertFalse($validator->isValid());
         self::assertEquals(['testData[subfield2][subsubfield1]'], $validator->getErrorFields());
 
@@ -74,7 +76,7 @@ class FormValidatorArrayTest extends PKPTestCase
         // ...pass in a one-dimensional array where a two-dimensional array is expected
         $testArray = ['subfield1' => 'abc', 'subfield2' => 'def'];
         $form->setData('testData', $testArray);
-        $validator = new FormValidatorArray($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', ['subsubfield']);
+        $validator = new \PKP\form\validation\FormValidatorArray($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', ['subsubfield']);
         self::assertFalse($validator->isValid());
         self::assertEquals(['testData[subfield1]', 'testData[subfield2]'], $validator->getErrorFields());
 
@@ -84,7 +86,7 @@ class FormValidatorArrayTest extends PKPTestCase
             'subfield2' => ['subsubfield2' => 'xyz']
         ];
         $form->setData('testData', $testArray);
-        $validator = new FormValidatorArray($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', ['subsubfield1', 'subsubfield2']);
+        $validator = new \PKP\form\validation\FormValidatorArray($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', ['subsubfield1', 'subsubfield2']);
         self::assertFalse($validator->isValid());
         self::assertEquals(['testData[subfield1][subsubfield2]', 'testData[subfield2][subsubfield1]'], $validator->getErrorFields());
     }

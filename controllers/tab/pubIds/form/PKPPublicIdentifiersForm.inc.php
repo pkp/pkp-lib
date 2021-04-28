@@ -13,10 +13,10 @@
  * @brief Displays a pub ids form.
  */
 
-import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.plugins.PKPPubIdPluginHelper');
-
 use APP\template\TemplateManager;
+use PKP\form\Form;
+
+use PKP\plugins\PKPPubIdPluginHelper;
 
 class PKPPublicIdentifiersForm extends Form
 {
@@ -57,8 +57,8 @@ class PKPPublicIdentifiersForm extends Form
 
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
 
         // action links for pub id reset requests
         $pubIdPluginHelper = new PKPPubIdPluginHelper();

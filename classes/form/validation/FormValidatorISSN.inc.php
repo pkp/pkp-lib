@@ -13,7 +13,7 @@
  * @brief Form validation check for ISSNs.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
 use PKP\validation\ValidatorISSN;
 
@@ -32,4 +32,8 @@ class FormValidatorISSN extends FormValidator
         $validator = new ValidatorISSN();
         parent::__construct($form, $field, $type, $message, $validator);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorISSN', '\FormValidatorISSN');
 }

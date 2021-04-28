@@ -34,7 +34,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         // Validation checks for this form
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
         $requiredReviewFormElementIds = $reviewFormElementDao->getRequiredReviewFormElementIds($reviewAssignment->getReviewFormId());
-        $this->addCheck(new FormValidatorCustom($this, 'reviewFormResponses', 'required', 'reviewer.submission.reviewFormResponse.form.responseRequired', function ($reviewFormResponses) use ($requiredReviewFormElementIds) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'reviewFormResponses', 'required', 'reviewer.submission.reviewFormResponse.form.responseRequired', function ($reviewFormResponses) use ($requiredReviewFormElementIds) {
             foreach ($requiredReviewFormElementIds as $requiredReviewFormElementId) {
                 if (!isset($reviewFormResponses[$requiredReviewFormElementId]) || $reviewFormResponses[$requiredReviewFormElementId] == '') {
                     return false;
@@ -43,8 +43,8 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             return true;
         }));
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

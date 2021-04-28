@@ -13,9 +13,9 @@
  * @brief Base class for user forms.
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class UserForm extends Form
 {
@@ -34,7 +34,7 @@ class UserForm extends Form
         $this->userId = isset($userId) ? (int) $userId : null;
 
         if (!is_null($userId)) {
-            $this->addCheck(new FormValidator($this, 'userGroupIds', 'required', 'manager.users.roleRequired'));
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupIds', 'required', 'manager.users.roleRequired'));
         }
     }
 

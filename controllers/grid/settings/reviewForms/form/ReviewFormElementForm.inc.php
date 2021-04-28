@@ -16,9 +16,9 @@
  *
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class ReviewFormElementForm extends Form
 {
@@ -42,10 +42,10 @@ class ReviewFormElementForm extends Form
         $this->reviewFormElementId = $reviewFormElementId;
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorLocale($this, 'question', 'required', 'manager.reviewFormElements.form.questionRequired'));
-        $this->addCheck(new FormValidator($this, 'elementType', 'required', 'manager.reviewFormElements.form.elementTypeRequired'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'question', 'required', 'manager.reviewFormElements.form.questionRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'elementType', 'required', 'manager.reviewFormElements.form.elementTypeRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

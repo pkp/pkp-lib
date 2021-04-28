@@ -13,7 +13,7 @@
  * @brief Form validation check with a custom user function performing the validation check of an array of fields.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
 class FormValidatorArrayCustom extends FormValidator
 {
@@ -105,7 +105,7 @@ class FormValidatorArrayCustom extends FormValidator
         $isValid = true;
         foreach ($data as $key => $value) {
             // Bypass check for empty sub-fields if validation type is "optional"
-            if ($this->getType() == FORM_VALIDATOR_OPTIONAL_VALUE && ($value == [] || $value == '')) {
+            if ($this->getType() == FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE && ($value == [] || $value == '')) {
                 continue;
             }
 
@@ -138,7 +138,7 @@ class FormValidatorArrayCustom extends FormValidator
 
                 foreach ($this->_fields as $field) {
                     // Bypass check for empty sub-sub-fields if validation type is "optional"
-                    if ($this->getType() == FORM_VALIDATOR_OPTIONAL_VALUE) {
+                    if ($this->getType() == FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE) {
                         if (!isset($value[$field]) || $value[$field] == [] or $value[$field] == '') {
                             continue;
                         }
@@ -182,4 +182,8 @@ class FormValidatorArrayCustom extends FormValidator
     {
         return is_array($this->getFieldValue());
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorArrayCustom', '\FormValidatorArrayCustom');
 }

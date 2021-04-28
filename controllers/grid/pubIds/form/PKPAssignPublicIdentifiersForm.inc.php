@@ -13,10 +13,10 @@
  * @brief Displays the assign pub id form.
  */
 
-import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.plugins.PKPPubIdPluginHelper');
-
 use APP\template\TemplateManager;
+use PKP\form\Form;
+
+use PKP\plugins\PKPPubIdPluginHelper;
 
 class PKPAssignPublicIdentifiersForm extends Form
 {
@@ -57,8 +57,8 @@ class PKPAssignPublicIdentifiersForm extends Form
         $context = $request->getContext();
         $this->_contextId = $context->getId();
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

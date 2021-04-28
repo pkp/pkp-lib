@@ -20,32 +20,13 @@
  * @brief Class defining basic operations for handling HTML forms.
  */
 
-import('lib.pkp.classes.form.FormError');
-import('lib.pkp.classes.form.FormBuilderVocabulary');
+namespace PKP\form;
 
-// Import all form validators for convenient use in sub-classes
-import('lib.pkp.classes.form.validation.FormValidatorUsername');
-import('lib.pkp.classes.form.validation.FormValidatorArray');
-import('lib.pkp.classes.form.validation.FormValidatorArrayCustom');
-import('lib.pkp.classes.form.validation.FormValidatorBoolean');
-import('lib.pkp.classes.form.validation.FormValidatorControlledVocab');
-import('lib.pkp.classes.form.validation.FormValidatorCustom');
-import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
-import('lib.pkp.classes.form.validation.FormValidatorEmail');
-import('lib.pkp.classes.form.validation.FormValidatorInSet');
-import('lib.pkp.classes.form.validation.FormValidatorLength');
-import('lib.pkp.classes.form.validation.FormValidatorLocale');
-import('lib.pkp.classes.form.validation.FormValidatorLocaleEmail');
-import('lib.pkp.classes.form.validation.FormValidatorCSRF');
-import('lib.pkp.classes.form.validation.FormValidatorPost');
-import('lib.pkp.classes.form.validation.FormValidatorRegExp');
-import('lib.pkp.classes.form.validation.FormValidatorUrl');
-import('lib.pkp.classes.form.validation.FormValidatorLocaleUrl');
-import('lib.pkp.classes.form.validation.FormValidatorISSN');
-import('lib.pkp.classes.form.validation.FormValidatorORCID');
+use APP\core\Application;
 
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
+use PKP\plugins\HookRegistry;
 
 class Form
 {
@@ -518,4 +499,8 @@ class Form
         }
         return $returner;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\Form', '\Form');
 }

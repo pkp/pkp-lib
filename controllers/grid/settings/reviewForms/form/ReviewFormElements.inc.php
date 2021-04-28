@@ -12,11 +12,10 @@
  * @brief Form for manager to edit review form elements.
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+
+use PKP\form\Form;
 
 class ReviewFormElements extends Form
 {
@@ -35,8 +34,8 @@ class ReviewFormElements extends Form
         $this->reviewFormId = (int) $reviewFormId;
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

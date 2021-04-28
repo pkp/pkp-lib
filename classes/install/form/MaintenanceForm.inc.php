@@ -13,10 +13,10 @@
  * @brief Base form for system maintenance (install/upgrade).
  */
 
-import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.site.VersionCheck');
-
 use APP\template\TemplateManager;
+use PKP\form\Form;
+
+use PKP\site\VersionCheck;
 
 class MaintenanceForm extends Form
 {
@@ -30,7 +30,7 @@ class MaintenanceForm extends Form
     {
         parent::__construct($template);
         $this->_request = $request;
-        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
     }
 
     /**

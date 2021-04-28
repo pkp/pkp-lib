@@ -14,11 +14,10 @@
  */
 
 use APP\template\TemplateManager;
+use PKP\form\Form;
 use PKP\log\SubmissionEmailLogEntry;
 
 use PKP\mail\SubmissionMailTemplate;
-
-import('lib.pkp.classes.form.Form');
 
 // Define review round and review stage id constants.
 import('lib.pkp.classes.submission.reviewRound.ReviewRound');
@@ -49,8 +48,8 @@ class RecommendationForm extends Form
         $this->_reviewRound = $reviewRound;
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     //

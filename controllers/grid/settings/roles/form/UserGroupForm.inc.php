@@ -13,12 +13,13 @@
  * @brief Form to add/edit user group.
  */
 
-import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.workflow.WorkflowStageDAO');
-
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+
+use PKP\form\Form;
+
+// FIXME: Use namespacing
+import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 class UserGroupForm extends Form
 {
@@ -43,13 +44,13 @@ class UserGroupForm extends Form
         $this->_userGroupId = $userGroupId;
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'settings.roles.nameRequired'));
-        $this->addCheck(new FormValidatorLocale($this, 'abbrev', 'required', 'settings.roles.abbrevRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'name', 'required', 'settings.roles.nameRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'abbrev', 'required', 'settings.roles.abbrevRequired'));
         if ($this->getUserGroupId() == null) {
-            $this->addCheck(new FormValidator($this, 'roleId', 'required', 'settings.roles.roleIdRequired'));
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'roleId', 'required', 'settings.roles.roleIdRequired'));
         }
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     //

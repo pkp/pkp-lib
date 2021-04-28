@@ -13,9 +13,9 @@
  * @brief Form for viewing and editing gossip about a reviewer
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class ReviewerGossipForm extends Form
 {
@@ -37,8 +37,8 @@ class ReviewerGossipForm extends Form
         parent::__construct('controllers/grid/users/reviewer/form/reviewerGossipForm.tpl');
         $this->_user = $user;
         $this->_requestArgs = $requestArgs;
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

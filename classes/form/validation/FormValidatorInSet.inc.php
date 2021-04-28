@@ -13,7 +13,7 @@
  * @brief Form validation check that checks if value is within a certain set.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
 class FormValidatorInSet extends FormValidator
 {
@@ -50,4 +50,8 @@ class FormValidatorInSet extends FormValidator
     {
         return $this->isEmptyAndOptional() || in_array($this->getFieldValue(), $this->_acceptedValues);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorInSet', '\FormValidatorInSet');
 }

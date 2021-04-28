@@ -13,11 +13,10 @@
  * @brief Form to notify a user regarding a file
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\core\Services;
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 use PKP\log\EventLogEntry;
 
 abstract class PKPStageParticipantNotifyForm extends Form
@@ -57,11 +56,11 @@ abstract class PKPStageParticipantNotifyForm extends Form
         // Some other forms (e.g. the Add Participant form) subclass this form and
         // may not enforce the sending of an email.
         if ($this->isMessageRequired()) {
-            $this->addCheck(new FormValidator($this, 'message', 'required', 'stageParticipants.notify.warning'));
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'message', 'required', 'stageParticipants.notify.warning'));
         }
-        $this->addCheck(new FormValidator($this, 'userId', 'required', 'stageParticipants.notify.warning'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userId', 'required', 'stageParticipants.notify.warning'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

@@ -13,7 +13,10 @@
  * @brief Form validation check to make sure the form is POSTed.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
+
+
+use APP\core\Application;
 
 class FormValidatorPost extends FormValidator
 {
@@ -25,7 +28,7 @@ class FormValidatorPost extends FormValidator
      */
     public function __construct(&$form, $message = 'form.postRequired')
     {
-        parent::__construct($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
+        parent::__construct($form, 'dummy', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, $message);
     }
 
 
@@ -43,4 +46,8 @@ class FormValidatorPost extends FormValidator
         $request = Application::get()->getRequest();
         return $request->isPost();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorPost', '\FormValidatorPost');
 }

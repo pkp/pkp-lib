@@ -15,7 +15,7 @@
  * @brief Form validation check for email addresses.
  */
 
-import('lib.pkp.classes.form.validation.FormValidatorRegExp');
+namespace PKP\form\validation;
 
 use PKP\validation\ValidatorEmail;
 
@@ -40,4 +40,8 @@ class FormValidatorEmail extends FormValidator
     {
         return __($this->_message, ['email' => $this->getFieldValue()]);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorEmail', '\FormValidatorEmail');
 }

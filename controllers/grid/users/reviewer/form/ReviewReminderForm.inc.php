@@ -13,9 +13,8 @@
  * @brief Form for sending a review reminder to a reviewer
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+use PKP\form\Form;
 
 use PKP\mail\SubmissionMailTemplate;
 
@@ -34,8 +33,8 @@ class ReviewReminderForm extends Form
         AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     //

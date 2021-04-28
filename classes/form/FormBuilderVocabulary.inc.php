@@ -54,6 +54,8 @@
  *   required: Adds an asterisk and a .required class to the element's label
  */
 
+namespace PKP\form;
+
 use Exception;
 
 class FormBuilderVocabulary
@@ -962,4 +964,8 @@ class FormBuilderVocabulary
         }
         return $returner;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\FormBuilderVocabulary', '\FormBuilderVocabulary');
 }

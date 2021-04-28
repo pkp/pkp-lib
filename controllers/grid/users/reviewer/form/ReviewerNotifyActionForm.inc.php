@@ -12,8 +12,7 @@
  * @brief Perform an action on a review including a reviewer notification email.
  */
 
-import('lib.pkp.classes.form.Form');
-
+use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
 
 abstract class ReviewerNotifyActionForm extends Form

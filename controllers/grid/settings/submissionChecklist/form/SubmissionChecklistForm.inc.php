@@ -14,7 +14,7 @@
  * stores/retrieves from an associative array
  */
 
-import('lib.pkp.classes.form.Form');
+use PKP\form\Form;
 
 class SubmissionChecklistForm extends Form
 {
@@ -32,9 +32,9 @@ class SubmissionChecklistForm extends Form
         parent::__construct('controllers/grid/settings/submissionChecklist/form/submissionChecklistForm.tpl');
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorLocale($this, 'checklistItem', 'required', 'maganer.setup.submissionChecklistItemRequired'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'checklistItem', 'required', 'maganer.setup.submissionChecklistItemRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

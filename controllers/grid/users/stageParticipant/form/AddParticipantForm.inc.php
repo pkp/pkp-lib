@@ -51,9 +51,9 @@ class AddParticipantForm extends StageParticipantNotifyForm
 
         // add checks in addition to anything that the Notification form may apply.
         // FIXME: should use a custom validator to check that the userId belongs to this group.
-        $this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'editor.submission.addStageParticipant.form.userGroupRequired'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'editor.submission.addStageParticipant.form.userGroupRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
 
         $this->initialize();
     }

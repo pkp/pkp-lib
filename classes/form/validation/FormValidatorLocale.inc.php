@@ -13,6 +13,8 @@
  * @brief Class to represent a form validation check for localized fields.
  */
 
+namespace PKP\form\validation;
+
 use APP\i18n\AppLocale;
 
 class FormValidatorLocale extends FormValidator
@@ -75,4 +77,8 @@ class FormValidatorLocale extends FormValidator
         }
         return $fieldValue;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorLocale', '\FormValidatorLocale');
 }

@@ -13,9 +13,8 @@
  * @brief Form for adding/editing a new query
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+use PKP\form\Form;
 
 use PKP\mail\SubmissionMailTemplate;
 
@@ -85,13 +84,13 @@ class QueryForm extends Form
         $this->setQuery($query);
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorCustom($this, 'users', 'required', 'stageParticipants.notify.warning', function ($users) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'users', 'required', 'stageParticipants.notify.warning', function ($users) {
             return count($users) > 1;
         }));
-        $this->addCheck(new FormValidator($this, 'subject', 'required', 'submission.queries.subjectRequired'));
-        $this->addCheck(new FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'subject', 'required', 'submission.queries.subjectRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     //

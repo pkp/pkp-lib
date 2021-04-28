@@ -15,8 +15,9 @@
  * @brief Form validation check for usernames (lowercase alphanumeric with interior dash/underscore
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
+;
 use PKP\validation\ValidatorRegExp;
 
 class FormValidatorUsername extends FormValidator
@@ -39,4 +40,8 @@ class FormValidatorUsername extends FormValidator
             new ValidatorRegExp('/^[a-z0-9]+([\-_][a-z0-9]+)*$/')
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorUsername', '\FormValidatorUsername');
 }

@@ -16,7 +16,9 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
+
+use PKP\form\Form;
+use PKP\form\validation\FormValidator;
 
 class FormValidatorArrayCustomTest extends PKPTestCase
 {
@@ -43,26 +45,26 @@ class FormValidatorArrayCustomTest extends PKPTestCase
         // "optional" and the test data are empty. We make sure this is the
         // case by always returning 'false' for the custom validation function.
         $this->form->setData('testData', '');
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $this->subfieldValidation, [false]);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $this->subfieldValidation, [false]);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame([], $this->checkedValues);
 
         $this->form->setData('testData', []);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $this->subfieldValidation, [false]);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $this->subfieldValidation, [false]);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame([], $this->checkedValues);
 
         // The data are valid when they contain only empty (sub-)sub-fields and the validation type is "optional".
         $this->form->setData('testData', ['subfield1' => [], 'subfield2' => '']);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $this->subfieldValidation, [false]);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $this->subfieldValidation, [false]);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame([], $this->checkedValues);
 
         $this->form->setData('testData', ['subfield1' => ['subsubfield1' => [], 'subsubfield2' => '']]);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $this->subfieldValidation, [false], false, ['subsubfield1', 'subsubfield2']);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', $this->subfieldValidation, [false], false, ['subsubfield1', 'subsubfield2']);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame([], $this->checkedValues);
@@ -76,7 +78,7 @@ class FormValidatorArrayCustomTest extends PKPTestCase
     {
         // Field data must be an array, otherwise validation fails
         $this->form->setData('testData', '');
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true]);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true]);
         self::assertFalse($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame([], $this->checkedValues);
@@ -92,21 +94,21 @@ class FormValidatorArrayCustomTest extends PKPTestCase
     {
         // Check non-locale data
         $this->form->setData('testData', ['subfield1' => 'abc', 'subfield2' => '0']);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true]);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true]);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame(['abc', '0'], $this->checkedValues);
         $this->checkedValues = [];
 
         // Check complement return
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [false], true);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [false], true);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame(['abc', '0'], $this->checkedValues);
         $this->checkedValues = [];
 
         // Simulate invalid data (check function returns false)
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [false]);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [false]);
         self::assertFalse($validator->isValid());
         self::assertEquals(['testData[subfield1]', 'testData[subfield2]'], $validator->getErrorFields());
         self::assertSame(['abc', '0'], $this->checkedValues);
@@ -114,14 +116,14 @@ class FormValidatorArrayCustomTest extends PKPTestCase
 
         // Check locale data
         $this->form->setData('testData', ['en_US' => 'abc', 'de_DE' => 'def']);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [true], false, [], true);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [true], false, [], true);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame(['en_US' => ['abc'], 'de_DE' => ['def']], $this->checkedValues);
         $this->checkedValues = [];
 
         // Simulate invalid locale data
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [false], false, [], true);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [false], false, [], true);
         self::assertFalse($validator->isValid());
         self::assertEquals(['en_US' => 'testData[en_US]', 'de_DE' => 'testData[de_DE]'], $validator->getErrorFields());
         self::assertSame(['en_US' => ['abc'], 'de_DE' => ['def']], $this->checkedValues);
@@ -142,21 +144,21 @@ class FormValidatorArrayCustomTest extends PKPTestCase
             'subfield2' => ['subsubfield1' => '0', 'subsubfield2' => 0] // also test allowed boarder conditions
         ];
         $this->form->setData('testData', $testArray);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true], false, ['subsubfield1', 'subsubfield2']);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true], false, ['subsubfield1', 'subsubfield2']);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame(['abc', 'def', '0', 0], $this->checkedValues);
         $this->checkedValues = [];
 
         // Check complement return
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [false], true, ['subsubfield1', 'subsubfield2']);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [false], true, ['subsubfield1', 'subsubfield2']);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame(['abc', 'def', '0', 0], $this->checkedValues);
         $this->checkedValues = [];
 
         // Simulate invalid data (check function returns false)
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [false], false, ['subsubfield1', 'subsubfield2']);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [false], false, ['subsubfield1', 'subsubfield2']);
         self::assertFalse($validator->isValid());
         $expectedErrors = [
             'testData[subfield1][subsubfield1]', 'testData[subfield1][subsubfield2]',
@@ -172,14 +174,14 @@ class FormValidatorArrayCustomTest extends PKPTestCase
             'de_DE' => ['subsubfield1' => 'uvw', 'subsubfield2' => 'xyz']
         ];
         $this->form->setData('testData', $testArray);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [true], false, ['subsubfield1', 'subsubfield2'], true);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [true], false, ['subsubfield1', 'subsubfield2'], true);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame(['en_US' => ['abc', 'def'], 'de_DE' => ['uvw', 'xyz']], $this->checkedValues);
         $this->checkedValues = [];
 
         // Simulate invalid locale data
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [false], false, ['subsubfield1', 'subsubfield2'], true);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [false], false, ['subsubfield1', 'subsubfield2'], true);
         self::assertFalse($validator->isValid());
         $expectedErrors = [
             'en_US' => [
@@ -209,7 +211,7 @@ class FormValidatorArrayCustomTest extends PKPTestCase
             'subfield2' => ['subsubfield2' => 0]
         ];
         $this->form->setData('testData', $testArray);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true], false, ['subsubfield1', 'subsubfield2']);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true], false, ['subsubfield1', 'subsubfield2']);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
         self::assertSame([null, '', null, 0], $this->checkedValues);
@@ -218,7 +220,7 @@ class FormValidatorArrayCustomTest extends PKPTestCase
         // Pass in a one-dimensional array where a two-dimensional array is expected
         $testArray = ['subfield1' => 'abc', 'subfield2' => 'def'];
         $this->form->setData('testData', $testArray);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true], false, ['subsubfield']);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation, [true], false, ['subsubfield']);
         self::assertFalse($validator->isValid());
         self::assertEquals(['testData[subfield1]', 'testData[subfield2]'], $validator->getErrorFields());
         self::assertSame([], $this->checkedValues);
@@ -227,7 +229,7 @@ class FormValidatorArrayCustomTest extends PKPTestCase
         // Pass in a one-dimensional locale array where a two-dimensional array is expected
         $testArray = ['en_US' => 'abc', 'de_DE' => 'def'];
         $this->form->setData('testData', $testArray);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [true], false, ['subsubfield'], true);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [true], false, ['subsubfield'], true);
         self::assertFalse($validator->isValid());
         self::assertEquals(['en_US' => 'testData[en_US]', 'de_DE' => 'testData[de_DE]'], $validator->getErrorFields());
         self::assertSame([], $this->checkedValues);
@@ -242,7 +244,7 @@ class FormValidatorArrayCustomTest extends PKPTestCase
     public function testIsArray()
     {
         $this->form->setData('testData', ['subfield' => 'abc']);
-        $validator = new FormValidatorArrayCustom($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation);
+        $validator = new \PKP\form\validation\FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->subfieldValidation);
         self::assertTrue($validator->isArray());
 
         $this->form->setData('testData', 'field');

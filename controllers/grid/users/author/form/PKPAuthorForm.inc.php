@@ -13,13 +13,10 @@
  * @brief Form for adding/editing a author
  */
 
-
-use APP\template\TemplateManager;
-
+use PKP\form\Form;
 use PKP\Services\Interfaces\EntityWriteInterface;
 
-// FIXME: Use namespaces
-import('lib.pkp.classes.form.Form');
+use APP\template\TemplateManager;
 
 class PKPAuthorForm extends Form
 {
@@ -43,8 +40,8 @@ class PKPAuthorForm extends Form
 
         // Validation checks for this form
         $form = $this;
-        $this->addCheck(new FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $this->defaultLocale));
-        $this->addCheck(new FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function ($familyName) use ($form) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $this->defaultLocale));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function ($familyName) use ($form) {
             $givenNames = $form->getData('givenName');
             foreach ($familyName as $locale => $value) {
                 if (!empty($value) && empty($givenNames[$locale])) {
@@ -53,12 +50,12 @@ class PKPAuthorForm extends Form
             }
             return true;
         }));
-        $this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'form.emailRequired'));
-        $this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
-        $this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'submission.submit.form.contributorRoleRequired'));
-        $this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'form.emailRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'submission.submit.form.contributorRoleRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     //

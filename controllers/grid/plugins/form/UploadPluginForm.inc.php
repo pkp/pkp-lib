@@ -13,11 +13,9 @@
  * @brief Form to upload a plugin file.
  */
 
-// Import the base Form.
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
 use PKP\file\TemporaryFileManager;
+use PKP\form\Form;
 
 use PKP\plugins\PluginHelper;
 
@@ -38,7 +36,7 @@ class UploadPluginForm extends Form
 
         $this->_function = $function;
 
-        $this->addCheck(new FormValidator($this, 'temporaryFileId', 'required', 'manager.plugins.uploadFailed'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'temporaryFileId', 'required', 'manager.plugins.uploadFailed'));
     }
 
     //

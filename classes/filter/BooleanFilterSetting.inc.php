@@ -16,8 +16,7 @@
 
 namespace PKP\filter;
 
-// FIXME: Add validation
-import('lib.pkp.classes.form.validation.FormValidatorBoolean');
+use PKP\form\validation\FormValidator;
 
 class BooleanFilterSetting extends FilterSetting
 {
@@ -30,7 +29,7 @@ class BooleanFilterSetting extends FilterSetting
      */
     public function __construct($name, $displayName, $validationMessage)
     {
-        parent::__construct($name, $displayName, $validationMessage, FORM_VALIDATOR_OPTIONAL_VALUE);
+        parent::__construct($name, $displayName, $validationMessage, FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE);
     }
 
 
@@ -42,7 +41,7 @@ class BooleanFilterSetting extends FilterSetting
      */
     public function &getCheck(&$form)
     {
-        $check = new FormValidatorBoolean($form, $this->getName(), $this->getValidationMessage());
+        $check = new \PKP\form\validation\FormValidatorBoolean($form, $this->getName(), $this->getValidationMessage());
         return $check;
     }
 }

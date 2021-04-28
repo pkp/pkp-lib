@@ -13,9 +13,9 @@
  * @brief Form for editing a submission file's metadata
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class SubmissionFilesMetadataForm extends Form
 {
@@ -55,9 +55,9 @@ class SubmissionFilesMetadataForm extends Form
         $this->setDefaultFormLocale($submissionLocale);
 
         // Add validation checks.
-        $this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'submission.submit.fileNameRequired', $submissionLocale));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'name', 'required', 'submission.submit.fileNameRequired', $submissionLocale));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
 

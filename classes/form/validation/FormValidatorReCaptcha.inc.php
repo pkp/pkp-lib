@@ -13,7 +13,7 @@
  * @brief Form validation check reCaptcha values.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
 use Exception;
 
@@ -38,7 +38,7 @@ class FormValidatorReCaptcha extends FormValidator
      */
     public function __construct(Form $form, string $userIp, string $message, ?string $hostname = null)
     {
-        parent::__construct($form, self::RECAPTCHA_RESPONSE_FIELD, FORM_VALIDATOR_REQUIRED_VALUE, $message);
+        parent::__construct($form, self::RECAPTCHA_RESPONSE_FIELD, FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, $message);
         $this->_userIp = $userIp;
         $this->_hostname = $hostname;
     }
@@ -123,4 +123,8 @@ class FormValidatorReCaptcha extends FormValidator
             throw new Exception(implode("\n", $errors) ?: 'The reCaptcha validation failed.');
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorReCaptcha', '\FormValidatorReCaptcha');
 }

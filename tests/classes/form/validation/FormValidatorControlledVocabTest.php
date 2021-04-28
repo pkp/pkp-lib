@@ -16,7 +16,9 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
+
+use PKP\form\Form;
+use PKP\form\validation\FormValidator;
 
 class FormValidatorControlledVocabTest extends PKPTestCase
 {
@@ -66,7 +68,7 @@ class FormValidatorControlledVocabTest extends PKPTestCase
         DAORegistry::registerDAO('ControlledVocabDAO', $mockControlledVocabDao);
 
         // Instantiate validator
-        $validator = new FormValidatorControlledVocab($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', 'testVocab', ASSOC_TYPE_CITATION, 333);
+        $validator = new \PKP\form\validation\FormValidatorControlledVocab($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', 'testVocab', ASSOC_TYPE_CITATION, 333);
 
         $form->setData('testData', '1');
         self::assertTrue($validator->isValid());

@@ -16,9 +16,9 @@
  */
 
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class AnnouncementTypeForm extends Form
 {
@@ -42,10 +42,10 @@ class AnnouncementTypeForm extends Form
         parent::__construct('manager/announcement/announcementTypeForm.tpl');
 
         // Type name is provided
-        $this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.announcementTypes.form.typeNameRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'name', 'required', 'manager.announcementTypes.form.typeNameRequired'));
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

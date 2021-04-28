@@ -53,30 +53,30 @@ class UserDetailsForm extends UserForm
         // Validation checks for this form
         $form = $this;
         if ($userId == null) {
-            $this->addCheck(new FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
-            $this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [$this->userId, true], true));
-            $this->addCheck(new FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
+            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [$this->userId, true], true));
+            $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 
-            $this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
-            $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
+            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
                 return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
             }, [], false, ['length' => $site->getMinPasswordLength()]));
-            $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
+            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
                 return $password == $form->getData('password2');
             }));
         } else {
             $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
             $this->user = $userDao->getById($userId);
 
-            $this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
+            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
                 return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
             }, [], false, ['length' => $site->getMinPasswordLength()]));
-            $this->addCheck(new FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
+            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
                 return $password == $form->getData('password2');
             }));
         }
-        $this->addCheck(new FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
-        $this->addCheck(new FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function ($familyName) use ($form) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function ($familyName) use ($form) {
             $givenNames = $form->getData('givenName');
             foreach ($familyName as $locale => $value) {
                 if (!empty($value) && empty($givenNames[$locale])) {
@@ -85,12 +85,12 @@ class UserDetailsForm extends UserForm
             }
             return true;
         }));
-        $this->addCheck(new FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
-        $this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
-        $this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'], [$this->userId, true], true));
-        $this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'], [$this->userId, true], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

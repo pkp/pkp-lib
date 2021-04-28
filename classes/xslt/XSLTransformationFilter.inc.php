@@ -17,6 +17,7 @@ namespace PKP\xslt;
 
 use PKP\filter\FilterSetting;
 use PKP\filter\PersistableFilter;
+use PKP\form\validation\FormValidator;
 
 class XSLTransformationFilter extends PersistableFilter
 {
@@ -40,7 +41,7 @@ class XSLTransformationFilter extends PersistableFilter
         // Instantiate the settings of this filter
         $this->addSetting(new FilterSetting('xsl', null, null));
         $this->addSetting(new FilterSetting('xslType', null, null));
-        $this->addSetting(new FilterSetting('resultType', null, null, FORM_VALIDATOR_OPTIONAL_VALUE));
+        $this->addSetting(new FilterSetting('resultType', null, null, FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE));
 
         $this->setDisplayName($displayName);
 

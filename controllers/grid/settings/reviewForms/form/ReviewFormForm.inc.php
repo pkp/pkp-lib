@@ -13,11 +13,10 @@
  * @brief Form for manager to edit a review form.
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+
+use PKP\form\Form;
 
 class ReviewFormForm extends Form
 {
@@ -35,9 +34,9 @@ class ReviewFormForm extends Form
         $this->reviewFormId = $reviewFormId ? (int) $reviewFormId : null;
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'manager.reviewForms.form.titleRequired'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'title', 'required', 'manager.reviewForms.form.titleRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

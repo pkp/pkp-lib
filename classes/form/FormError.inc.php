@@ -13,6 +13,8 @@
  * @brief Class to represent a form validation error.
  */
 
+namespace PKP\form;
+
 class FormError
 {
     /** The name of the field */
@@ -52,4 +54,8 @@ class FormError
     {
         return $this->message;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\FormError', '\FormError');
 }

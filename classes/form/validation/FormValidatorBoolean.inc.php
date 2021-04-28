@@ -15,7 +15,7 @@
  *  'false', a value of '1' is considered 'true'.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
 class FormValidatorBoolean extends FormValidator
 {
@@ -28,7 +28,7 @@ class FormValidatorBoolean extends FormValidator
      */
     public function __construct(&$form, $field, $message)
     {
-        parent::__construct($form, $field, FORM_VALIDATOR_OPTIONAL_VALUE, $message);
+        parent::__construct($form, $field, FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, $message);
     }
 
 
@@ -62,4 +62,8 @@ class FormValidatorBoolean extends FormValidator
             return false;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorBoolean', '\FormValidatorBoolean');
 }

@@ -13,9 +13,9 @@
  * @brief Form for adding/editing a section
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class PKPSectionForm extends Form
 {
@@ -48,8 +48,8 @@ class PKPSectionForm extends Form
         parent::__construct($template);
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
 
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_PKP_MANAGER);
     }

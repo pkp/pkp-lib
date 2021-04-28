@@ -13,7 +13,7 @@
  * @brief Form validation check that checks an array of fields.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
 class FormValidatorArray extends FormValidator
 {
@@ -65,7 +65,7 @@ class FormValidatorArray extends FormValidator
      */
     public function isValid()
     {
-        if ($this->getType() == FORM_VALIDATOR_OPTIONAL_VALUE) {
+        if ($this->getType() == FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE) {
             return true;
         }
 
@@ -102,4 +102,8 @@ class FormValidatorArray extends FormValidator
 
         return $isValid;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorArray', '\FormValidatorArray');
 }

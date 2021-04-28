@@ -13,8 +13,8 @@
  * @brief Form for add or removing files from a review
  */
 
-import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.submission.SubmissionFile');
+use PKP\form\Form;
+use PKP\submission\SubmissionFile;
 
 class ManageSubmissionFilesForm extends Form
 {
@@ -32,8 +32,8 @@ class ManageSubmissionFilesForm extends Form
         parent::__construct($template);
         $this->_submissionId = (int)$submissionId;
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
 

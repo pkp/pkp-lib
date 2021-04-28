@@ -13,8 +13,9 @@
  * @brief Form validation check using a regular expression.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
+;
 use PKP\validation\ValidatorRegExp;
 
 class FormValidatorRegExp extends FormValidator
@@ -33,4 +34,8 @@ class FormValidatorRegExp extends FormValidator
         $validator = new ValidatorRegExp($regExp);
         parent::__construct($form, $field, $type, $message, $validator);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorRegExp', '\FormValidatorRegExp');
 }

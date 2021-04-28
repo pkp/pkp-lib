@@ -29,7 +29,7 @@ class FormValidatorBooleanTest extends PKPTestCase
         $form = new Form('some template');
 
         // Instantiate test validator
-        $validator = new FormValidatorBoolean($form, 'testData', 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorBoolean($form, 'testData', 'some.message.key');
 
         $form->setData('testData', '');
         self::assertTrue($validator->isValid());

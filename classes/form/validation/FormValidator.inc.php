@@ -16,12 +16,14 @@
  * @brief Class to represent a form validation check.
  */
 
-// The two allowed states for the type field
-define('FORM_VALIDATOR_OPTIONAL_VALUE', 'optional');
-define('FORM_VALIDATOR_REQUIRED_VALUE', 'required');
+namespace PKP\form\validation;
 
 class FormValidator
 {
+    // The two allowed states for the type field
+    public const FORM_VALIDATOR_OPTIONAL_VALUE = 'optional';
+    public const FORM_VALIDATOR_REQUIRED_VALUE = 'required';
+
     /** @var Form The Form associated with the check */
     public $_form;
 
@@ -55,7 +57,7 @@ class FormValidator
         $this->_validator = & $validator;
 
         $form->cssValidation[$field] = [];
-        if ($type == FORM_VALIDATOR_REQUIRED_VALUE) {
+        if ($type == self::FORM_VALIDATOR_REQUIRED_VALUE) {
             array_push($form->cssValidation[$field], 'required');
         }
     }
@@ -168,7 +170,7 @@ class FormValidator
      */
     public function isEmptyAndOptional()
     {
-        if ($this->getType() != FORM_VALIDATOR_OPTIONAL_VALUE) {
+        if ($this->getType() != self::FORM_VALIDATOR_OPTIONAL_VALUE) {
             return false;
         }
 
@@ -179,4 +181,10 @@ class FormValidator
             return empty($fieldValue);
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidator', '\FormValidator');
+    define('FORM_VALIDATOR_OPTIONAL_VALUE', \FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE);
+    define('FORM_VALIDATOR_REQUIRED_VALUE', \FormValidator::FORM_VALIDATOR_REQUIRED_VALUE);
 }

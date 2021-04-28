@@ -35,8 +35,8 @@ class IdentityForm extends BaseProfileForm
 
         // Validation checks for this form
         $form = $this;
-        $this->addCheck(new FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
-        $this->addCheck(new FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function ($familyName) use ($form) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function ($familyName) use ($form) {
             $givenNames = $form->getData('givenName');
             foreach ($familyName as $locale => $value) {
                 if (!empty($value) && empty($givenNames[$locale])) {

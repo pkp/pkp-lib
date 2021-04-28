@@ -12,9 +12,9 @@
  * @brief Base class for reviewer forms.
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class ReviewerReviewForm extends Form
 {
@@ -40,8 +40,8 @@ class ReviewerReviewForm extends Form
     public function __construct($request, $reviewerSubmission, $reviewAssignment, $step)
     {
         parent::__construct(sprintf('reviewer/review/step%d.tpl', $step));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
         $this->request = $request;
         $this->_step = (int) $step;
         $this->_reviewerSubmission = $reviewerSubmission;

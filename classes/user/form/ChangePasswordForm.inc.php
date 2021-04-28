@@ -13,10 +13,9 @@
  * @brief Form to change a user's password.
  */
 
-
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class ChangePasswordForm extends Form
 {
@@ -37,21 +36,21 @@ class ChangePasswordForm extends Form
         $this->_site = $site;
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorCustom($this, 'oldPassword', 'required', 'user.profile.form.oldPasswordInvalid', function ($password) use ($user) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'oldPassword', 'required', 'user.profile.form.oldPasswordInvalid', function ($password) use ($user) {
             return Validation::checkCredentials($user->getUsername(), $password);
         }));
-        $this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
-        $this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.newPasswordRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.newPasswordRequired'));
         $form = $this;
-        $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
             return $password == $form->getData('password2');
         }));
-        $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.profile.form.passwordSameAsOld', function ($password) use ($form) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.profile.form.passwordSameAsOld', function ($password) use ($form) {
             return $password != $form->getData('oldPassword');
         }));
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

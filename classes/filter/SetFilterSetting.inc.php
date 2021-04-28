@@ -16,8 +16,7 @@
 
 namespace PKP\filter;
 
-// FIXME: Add namespacing
-import('lib.pkp.classes.form.validation.FormValidatorInSet');
+use PKP\form\validation\FormValidator;
 
 class SetFilterSetting extends FilterSetting
 {
@@ -33,7 +32,7 @@ class SetFilterSetting extends FilterSetting
      * @param $acceptedValues array
      * @param $required boolean
      */
-    public function __construct($name, $displayName, $validationMessage, $acceptedValues, $required = FORM_VALIDATOR_REQUIRED_VALUE)
+    public function __construct($name, $displayName, $validationMessage, $acceptedValues, $required = FormValidator::FORM_VALIDATOR_REQUIRED_VALUE)
     {
         $this->_acceptedValues = $acceptedValues;
         parent::__construct($name, $displayName, $validationMessage, $required);
@@ -87,7 +86,7 @@ class SetFilterSetting extends FilterSetting
      */
     public function &getCheck(&$form)
     {
-        $check = new FormValidatorInSet($form, $this->getName(), $this->getRequired(), $this->getValidationMessage(), $this->getAcceptedValues());
+        $check = new \PKP\form\validation\FormValidatorInSet($form, $this->getName(), $this->getRequired(), $this->getValidationMessage(), $this->getAcceptedValues());
         return $check;
     }
 }

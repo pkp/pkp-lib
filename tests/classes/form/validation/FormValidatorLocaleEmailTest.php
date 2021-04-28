@@ -16,7 +16,9 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
+
+use PKP\form\Form;
+use PKP\form\validation\FormValidator;
 
 class FormValidatorLocaleEmailTest extends PKPTestCase
 {
@@ -30,15 +32,15 @@ class FormValidatorLocaleEmailTest extends PKPTestCase
         $form = new Form('some template');
 
         $form->setData('testData', ['en_US' => 'some.address@gmail.com']);
-        $validator = new FormValidatorLocaleEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorLocaleEmail($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertTrue($validator->isValid());
 
         $form->setData('testData', 'some.address@gmail.com');
-        $validator = new FormValidatorLocaleEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorLocaleEmail($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertFalse($validator->isValid());
 
         $form->setData('testData', ['en_US' => 'anything else']);
-        $validator = new FormValidatorLocaleEmail($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        $validator = new \PKP\form\validation\FormValidatorLocaleEmail($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertFalse($validator->isValid());
     }
 }

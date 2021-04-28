@@ -15,7 +15,7 @@
  * @brief Base form class to generate custom statistics reports.
  */
 
-import('lib.pkp.classes.form.Form');
+use PKP\form\Form;
 
 define('TIME_FILTER_OPTION_YESTERDAY', 0);
 define('TIME_FILTER_OPTION_CURRENT_MONTH', 1);
@@ -72,9 +72,9 @@ abstract class PKPReportGeneratorForm extends Form
         $this->_defaultReportTemplates = $defaultReportTemplates;
         $this->_reportTemplateIndex = $reportTemplateIndex;
 
-        $this->addCheck(new FormValidatorArray($this, 'columns', 'required', 'manager.statistics.reports.form.columnsRequired'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorArray($this, 'columns', 'required', 'manager.statistics.reports.form.columnsRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

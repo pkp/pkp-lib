@@ -15,11 +15,10 @@
  */
 
 use APP\template\TemplateManager;
+use PKP\form\Form;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 use PKP\submission\SubmissionFile;
-
-import('lib.pkp.classes.form.Form');
 
 class EditReviewForm extends Form
 {
@@ -46,10 +45,10 @@ class EditReviewForm extends Form
         parent::__construct('controllers/grid/users/reviewer/form/editReviewForm.tpl');
 
         // Validation checks for this form
-        $this->addCheck(new FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
-        $this->addCheck(new FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     //

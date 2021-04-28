@@ -13,12 +13,10 @@
  * @brief Form for adding/editing a submission file
  */
 
-use APP\template\TemplateManager;
-
 use PKP\submission\SubmissionFile;
+use PKP\form\Form;
 
-// FIXME: Add namespaces
-import('lib.pkp.classes.form.Form');
+use APP\template\TemplateManager;
 
 class PKPSubmissionFilesUploadBaseForm extends Form
 {
@@ -99,7 +97,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
         $this->setData('queryId', $queryId ? (int) $queryId : null);
 
         // Add validators.
-        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
     }
 
 

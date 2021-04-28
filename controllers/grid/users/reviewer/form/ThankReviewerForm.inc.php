@@ -13,8 +13,7 @@
  * @brief Form for sending a thank you to a reviewer
  */
 
-import('lib.pkp.classes.form.Form');
-
+use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
 
 class ThankReviewerForm extends Form
@@ -31,8 +30,8 @@ class ThankReviewerForm extends Form
         $this->_reviewAssignment = $reviewAssignment;
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     //

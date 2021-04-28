@@ -13,10 +13,10 @@
  * @brief Form for managers to create/edit navigationMenuItems.
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\core\Services;
+
 use APP\template\TemplateManager;
+use PKP\form\Form;
 
 class PKPNavigationMenuItemsForm extends Form
 {
@@ -39,8 +39,8 @@ class PKPNavigationMenuItemsForm extends Form
 
         parent::__construct('controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
 

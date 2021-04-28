@@ -16,7 +16,9 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
+
+use PKP\form\Form;
+use PKP\form\validation\FormValidator;
 
 class FormValidatorInSetTest extends PKPTestCase
 {
@@ -30,7 +32,7 @@ class FormValidatorInSetTest extends PKPTestCase
 
         // Instantiate test validator
         $acceptedValues = ['val1', 'val2'];
-        $validator = new FormValidatorInSet($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $acceptedValues);
+        $validator = new \PKP\form\validation\FormValidatorInSet($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $acceptedValues);
 
         $form->setData('testData', 'val1');
         self::assertTrue($validator->isValid());

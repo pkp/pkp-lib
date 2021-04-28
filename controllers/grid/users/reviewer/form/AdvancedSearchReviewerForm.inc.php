@@ -30,7 +30,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         parent::__construct($submission, $reviewRound);
         $this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerForm.tpl');
 
-        $this->addCheck(new FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
     }
 
     /**

@@ -13,7 +13,7 @@
  * @brief Base form to edit an aspect of user profile.
  */
 
-import('lib.pkp.classes.form.Form');
+use PKP\form\Form;
 
 abstract class BaseProfileForm extends Form
 {
@@ -33,8 +33,8 @@ abstract class BaseProfileForm extends Form
         $this->_user = $user;
         assert(isset($user));
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

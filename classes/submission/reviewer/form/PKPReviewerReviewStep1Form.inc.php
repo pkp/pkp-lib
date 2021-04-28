@@ -30,7 +30,7 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
         parent::__construct($request, $reviewerSubmission, $reviewAssignment, 1);
         $context = $request->getContext();
         if (!$reviewAssignment->getDateConfirmed() && $context->getData('privacyStatement')) {
-            $this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
         }
     }
 

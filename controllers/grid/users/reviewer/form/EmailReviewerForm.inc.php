@@ -14,11 +14,10 @@
  */
 
 use APP\template\TemplateManager;
+use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
 
 use PKP\submission\reviewAssignment\ReviewAssignment;
-
-import('lib.pkp.classes.form.Form');
 
 class EmailReviewerForm extends Form
 {
@@ -36,10 +35,10 @@ class EmailReviewerForm extends Form
 
         $this->_reviewAssignment = $reviewAssignment;
 
-        $this->addCheck(new FormValidator($this, 'subject', 'required', 'email.subjectRequired'));
-        $this->addCheck(new FormValidator($this, 'message', 'required', 'email.bodyRequired'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'subject', 'required', 'email.subjectRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'message', 'required', 'email.bodyRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

@@ -15,8 +15,7 @@
 
 namespace PKP\filter;
 
-// FIXME: add namespacinu
-import('lib.pkp.classes.form.validation.FormValidator');
+use PKP\form\validation\FormValidator;
 
 class FilterSetting
 {
@@ -44,7 +43,7 @@ class FilterSetting
      * @param $required string
      * @param $isLocalized boolean
      */
-    public function __construct($name, $displayName, $validationMessage, $required = FORM_VALIDATOR_REQUIRED_VALUE, $isLocalized = false)
+    public function __construct($name, $displayName, $validationMessage, $required = FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, $isLocalized = false)
     {
         $this->setName($name);
         $this->setDisplayName($displayName);
@@ -168,13 +167,13 @@ class FilterSetting
     public function &getCheck(&$form)
     {
         // A validator is only required if this setting is mandatory.
-        if ($this->getRequired() == FORM_VALIDATOR_OPTIONAL_VALUE) {
+        if ($this->getRequired() == FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE) {
             $nullVar = null;
             return $nullVar;
         }
 
         // Instantiate a simple form validator.
-        $check = new FormValidator($form, $this->getName(), $this->getRequired(), $this->getValidationMessage());
+        $check = new \PKP\form\validation\FormValidator($form, $this->getName(), $this->getRequired(), $this->getValidationMessage());
         return $check;
     }
 }

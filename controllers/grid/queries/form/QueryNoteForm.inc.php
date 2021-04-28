@@ -13,9 +13,9 @@
  * @brief Form for adding/editing a new query note.
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class QueryNoteForm extends Form
 {
@@ -61,9 +61,9 @@ class QueryNoteForm extends Form
         }
 
         // Validation checks for this form
-        $this->addCheck(new FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     //

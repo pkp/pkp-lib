@@ -15,8 +15,9 @@
  * @brief Form validation check for URL addresses.
  */
 
-import('lib.pkp.classes.form.validation.FormValidatorLocale');
+namespace PKP\form\validation;
 
+;
 use PKP\validation\ValidatorUrl;
 
 class FormValidatorLocaleUrl extends FormValidatorLocale
@@ -35,4 +36,8 @@ class FormValidatorLocaleUrl extends FormValidatorLocale
         $validator = new ValidatorUrl();
         parent::__construct($form, $field, $type, $message, $requiredLocale, $validator);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorLocaleUrl', '\FormValidatorLocaleUrl');
 }

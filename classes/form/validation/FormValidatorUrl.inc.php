@@ -15,8 +15,9 @@
  * @brief Form validation check for URLs.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
+;
 use PKP\validation\ValidatorUrl;
 
 class FormValidatorUrl extends FormValidator
@@ -35,4 +36,8 @@ class FormValidatorUrl extends FormValidator
         parent::__construct($form, $field, $type, $message, $validator);
         array_push($form->cssValidation[$field], 'url');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorUrl', '\FormValidatorUrl');
 }

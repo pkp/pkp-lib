@@ -13,9 +13,9 @@
  * @brief Form for enabling/disabling a user
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class UserDisableForm extends Form
 {
@@ -35,8 +35,8 @@ class UserDisableForm extends Form
         $this->_userId = (int) $userId;
         $this->_enable = (bool) $enable;
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

@@ -33,7 +33,7 @@ class NewLibraryFileForm extends LibraryFileForm
     {
         parent::__construct('controllers/grid/files/submissionDocuments/form/newFileForm.tpl', $contextId);
         $this->submissionId = $submissionId;
-        $this->addCheck(new FormValidator($this, 'temporaryFileId', 'required', 'settings.libraryFiles.fileRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'temporaryFileId', 'required', 'settings.libraryFiles.fileRequired'));
     }
 
     /**

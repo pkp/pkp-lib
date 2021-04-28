@@ -13,8 +13,9 @@
  * @brief Form validation check for ORCID iDs.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
+;
 use PKP\validation\ValidatorORCID;
 
 class FormValidatorORCID extends FormValidator
@@ -32,4 +33,8 @@ class FormValidatorORCID extends FormValidator
         $validator = new ValidatorORCID();
         parent::__construct($form, $field, $type, $message, $validator);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorORCID', '\FormValidatorORCID');
 }

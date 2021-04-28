@@ -13,9 +13,9 @@
  * @brief Form to display and post notes on a file
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class NewNoteForm extends Form
 {
@@ -26,8 +26,8 @@ class NewNoteForm extends Form
     {
         parent::__construct('controllers/informationCenter/notes.tpl');
 
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

@@ -47,17 +47,17 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
         if (!is_array($supportedSubmissionLocales) || count($supportedSubmissionLocales) < 1) {
             $supportedSubmissionLocales = [$context->getPrimaryLocale()];
         }
-        $this->addCheck(new FormValidatorInSet($this, 'locale', 'required', 'submission.submit.form.localeRequired', $supportedSubmissionLocales));
+        $this->addCheck(new \PKP\form\validation\FormValidatorInSet($this, 'locale', 'required', 'submission.submit.form.localeRequired', $supportedSubmissionLocales));
         if ((bool) $context->getData('copyrightNotice')) {
-            $this->addCheck(new FormValidator($this, 'copyrightNoticeAgree', 'required', 'submission.submit.copyrightNoticeAgreeRequired'));
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'copyrightNoticeAgree', 'required', 'submission.submit.copyrightNoticeAgreeRequired'));
         }
-        $this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'submission.submit.availableUserGroupsDescription'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'submission.submit.availableUserGroupsDescription'));
         if ($this->hasPrivacyStatement) {
-            $this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
         }
 
         foreach ((array) $context->getLocalizedData('submissionChecklist') as $key => $checklistItem) {
-            $this->addCheck(new FormValidator($this, "checklist-${key}", 'required', 'submission.submit.checklistErrors'));
+            $this->addCheck(new \PKP\form\validation\FormValidator($this, "checklist-${key}", 'required', 'submission.submit.checklistErrors'));
         }
     }
 

@@ -13,11 +13,11 @@
  * @brief Base class for the editor decision forms.
  */
 
+
 use APP\template\TemplateManager;
+use PKP\form\Form;
 
 use PKP\submission\SubmissionFile;
-
-import('lib.pkp.classes.form.Form');
 
 // Define review round and review stage id constants.
 import('lib.pkp.classes.submission.reviewRound.ReviewRound');
@@ -54,8 +54,8 @@ class EditorDecisionForm extends Form
         $this->_decision = $decision;
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     //

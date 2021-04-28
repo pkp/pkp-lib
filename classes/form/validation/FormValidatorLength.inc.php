@@ -13,7 +13,9 @@
  * @brief Form validation check that checks if a field's length meets certain requirements.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
+
+use PKP\core\PKPString;
 
 class FormValidatorLength extends FormValidator
 {
@@ -87,4 +89,8 @@ class FormValidatorLength extends FormValidator
             return false;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorLength', '\FormValidatorLength');
 }

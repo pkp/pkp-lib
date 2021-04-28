@@ -13,9 +13,9 @@
  * @brief Form for adding/editing a Submission File Genre.
  */
 
-import('lib.pkp.classes.form.Form');
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class GenreForm extends Form
 {
@@ -58,14 +58,14 @@ class GenreForm extends Form
 
         // Validation checks for this form
         $form = $this;
-        $this->addCheck(new FormValidatorLocale($this, 'name', 'required', 'manager.setup.form.genre.nameRequired'));
-        $this->addCheck(new FormValidatorCustom($this, 'key', 'optional', 'manager.setup.genres.key.exists', function ($key) use ($context, $form) {
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'name', 'required', 'manager.setup.form.genre.nameRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'key', 'optional', 'manager.setup.genres.key.exists', function ($key) use ($context, $form) {
             $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
             return $key == '' || !$genreDao->keyExists($key, $context->getId(), $form->getGenreId());
         }));
-        $this->addCheck(new FormValidatorRegExp($this, 'key', 'optional', 'manager.setup.genres.key.alphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
-        $this->addCheck(new FormValidatorPost($this));
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorRegExp($this, 'key', 'optional', 'manager.setup.genres.key.alphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

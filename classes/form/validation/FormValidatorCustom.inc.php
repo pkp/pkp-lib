@@ -13,7 +13,7 @@
  * @brief Form validation check with a custom user function performing the validation check.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
 class FormValidatorCustom extends FormValidator
 {
@@ -80,4 +80,8 @@ class FormValidatorCustom extends FormValidator
             return $this->_complementReturn ? !$ret : $ret;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorCustom', '\FormValidatorCustom');
 }

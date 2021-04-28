@@ -110,6 +110,10 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                         $val = [$val];
                     }
                     $params[$param] = array_map('intval', $val);
+                    // Special case: assignedTo can be -1 for unassigned
+                    if ($param == 'assignedTo' && $val == [-1]) {
+                        $params[$param] = -1;
+                    }
                     break;
 
                 case 'daysInactive':

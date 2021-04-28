@@ -14,6 +14,7 @@
  * @brief OAI metadata format class -- Dublin Core.
  */
 
+use PKP\metadata\MetadataDescription;
 use PKP\oai\OAIMetadataFormat;
 
 class PKPOAIMetadataFormat_DC extends OAIMetadataFormat
@@ -74,7 +75,7 @@ class PKPOAIMetadataFormat_DC extends OAIMetadataFormat
                 $key = str_replace('_', '-', $key);
                 assert(is_array($value));
                 foreach ($value as $subValue) {
-                    if ($key == METADATA_DESCRIPTION_UNKNOWN_LOCALE) {
+                    if ($key == MetadataDescription::METADATA_DESCRIPTION_UNKNOWN_LOCALE) {
                         $response .= "\t<${openingElement}>" . OAIUtils::prepOutput($subValue) . "</${closingElement}>\n";
                     } else {
                         $response .= "\t<${openingElement} xml:lang=\"${key}\">" . OAIUtils::prepOutput($subValue) . "</${closingElement}>\n";

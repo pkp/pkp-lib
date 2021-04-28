@@ -21,16 +21,15 @@
  *  by plug-ins via the filter registry.
  */
 
+namespace PKP\metadata;
+
 use PKP\filter\PersistableFilter;
-
-// FIXME: Add namespacing
-import('lib.pkp.classes.metadata.MetadataDescription');
-
-define('METADATA_DOA_INJECTION_MODE', 0x01);
-define('METADATA_DOA_EXTRACTION_MODE', 0x02);
 
 class MetadataDataObjectAdapter extends PersistableFilter
 {
+    public const METADATA_DOA_INJECTION_MODE = 1;
+    public const METADATA_DOA_EXTRACTION_MODE = 2;
+
     /** @var integer */
     public $_mode;
 
@@ -469,4 +468,10 @@ class MetadataDataObjectAdapter extends PersistableFilter
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\metadata\MetadataDataObjectExtractor', '\MetadataDataObjectExtractor');
+    define('METADATA_DOA_INJECTION_MODE', \MetadataDataObjectExtractor::METADATA_DOA_INJECTION_MODE);
+    define('METADATA_DOA_INJECTION_MODE', \MetadataDataObjectExtractor::METADATA_DOA_EXTRACTION_MODE);
 }

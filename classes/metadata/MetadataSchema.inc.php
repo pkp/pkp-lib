@@ -63,8 +63,7 @@
  *  installation of new schemas.
  */
 
-
-import('lib.pkp.classes.metadata.MetadataProperty');
+namespace PKP\metadata;
 
 class MetadataSchema
 {
@@ -233,9 +232,9 @@ class MetadataSchema
      */
     public function addProperty(
         $name,
-        $allowedTypes = METADATA_PROPERTY_TYPE_STRING,
+        $allowedTypes = MetadataProperty::METADATA_PROPERTY_TYPE_STRING,
         $translated = false,
-        $cardinality = METADATA_PROPERTY_CARDINALITY_ONE,
+        $cardinality = MetadataProperty::METADATA_PROPERTY_CARDINALITY_ONE,
         $displayName = null,
         $validationMessage = null,
         $mandatory = false
@@ -293,4 +292,8 @@ class MetadataSchema
     {
         return isset($this->_properties[$propertyName]);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\metadata\MetadataSchema', '\MetadataSchema');
 }

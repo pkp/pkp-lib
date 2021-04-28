@@ -18,6 +18,8 @@
  * It can be '*' to designate any assoc type.
  */
 
+namespace PKP\metadata;
+
 use PKP\filter\ClassTypeDescription;
 
 define('ASSOC_TYPE_ANY', -1);
@@ -140,4 +142,8 @@ class MetadataTypeDescription extends ClassTypeDescription
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\metadata\MetadataTypeDescription', '\MetadataTypeDescription');
 }

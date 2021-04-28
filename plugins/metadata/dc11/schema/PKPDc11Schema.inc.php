@@ -21,7 +21,8 @@
  *  For details see <http://dublincore.org/documents/dces/>,
  */
 
-import('lib.pkp.classes.metadata.MetadataSchema');
+use PKP\metadata\MetadataProperty;
+use PKP\metadata\MetadataSchema;
 
 class PKPDc11Schema extends MetadataSchema
 {
@@ -40,20 +41,20 @@ class PKPDc11Schema extends MetadataSchema
             $appSpecificAssocType
         );
 
-        $this->addProperty('dc:title', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:creator', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:subject', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:description', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:publisher', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:contributor', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:date', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:type', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:format', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:identifier', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:source', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:language', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:relation', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:coverage', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:rights', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:title', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:creator', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:subject', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:description', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:publisher', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:contributor', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:date', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:type', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:format', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:identifier', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:source', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:language', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:relation', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:coverage', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:rights', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
     }
 }

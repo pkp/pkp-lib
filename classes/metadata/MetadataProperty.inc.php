@@ -30,32 +30,36 @@
  *  make available, persist or enter in their application.
  */
 
+namespace PKP\metadata;
 
-// literal values (plain)
-define('METADATA_PROPERTY_TYPE_STRING', 0x01);
-
-// literal values (typed)
-define('METADATA_PROPERTY_TYPE_DATE', 0x02); // This is W3CDTF encoding without time (YYYY[-MM[-DD]])!
-define('METADATA_PROPERTY_TYPE_INTEGER', 0x03);
-
-// non-literal value string from a controlled vocabulary
-define('METADATA_PROPERTY_TYPE_VOCABULARY', 0x04);
-
-// non-literal value URI
-define('METADATA_PROPERTY_TYPE_URI', 0x05);
-
-// non-literal value pointing to a separate description set instance (=another MetadataRecord object)
-define('METADATA_PROPERTY_TYPE_COMPOSITE', 0x06);
-
-// allowed cardinality of statements for a given property type in a meta-data schema
-define('METADATA_PROPERTY_CARDINALITY_ONE', 0x01);
-define('METADATA_PROPERTY_CARDINALITY_MANY', 0x02);
-
+use InvalidArgumentException;
+use PKP\core\PKPString;
 use PKP\validation\ValidatorControlledVocab;
+
 use PKP\validation\ValidatorFactory;
 
 class MetadataProperty
 {
+    // literal values (plain)
+    public const METADATA_PROPERTY_TYPE_STRING = 1;
+
+    // literal values (typed)
+    public const METADATA_PROPERTY_TYPE_DATE = 2; // This is W3CDTF encoding without time (YYYY[-MM[-DD]])!
+    public const METADATA_PROPERTY_TYPE_INTEGER = 3;
+
+    // non-literal value string from a controlled vocabulary
+    public const METADATA_PROPERTY_TYPE_VOCABULARY = 4;
+
+    // non-literal value URI
+    public const METADATA_PROPERTY_TYPE_URI = 5;
+
+    // non-literal value pointing to a separate description set instance (=another MetadataRecord object)
+    public const METADATA_PROPERTY_TYPE_COMPOSITE = 6;
+
+    // allowed cardinality of statements for a given property type in a meta-data schema
+    public const METADATA_PROPERTY_CARDINALITY_ONE = 1;
+    public const METADATA_PROPERTY_CARDINALITY_MANY = 2;
+
     /** @var string property name */
     public $_name;
 
@@ -96,9 +100,9 @@ class MetadataProperty
     public function __construct(
         $name,
         $assocTypes = [],
-        $allowedTypes = METADATA_PROPERTY_TYPE_STRING,
+        $allowedTypes = self::METADATA_PROPERTY_TYPE_STRING,
         $translated = false,
-        $cardinality = METADATA_PROPERTY_CARDINALITY_ONE,
+        $cardinality = self::METADATA_PROPERTY_CARDINALITY_ONE,
         $displayName = null,
         $validationMessage = null,
         $mandatory = false
@@ -149,7 +153,7 @@ class MetadataProperty
 
             // Validate additional type parameter.
             switch ($allowedTypeId) {
-                case METADATA_PROPERTY_TYPE_COMPOSITE:
+                case self::METADATA_PROPERTY_TYPE_COMPOSITE:
                     // Validate the assoc id of the composite.
                     if (!is_integer($allowedTypeParam)) {
                         throw new InvalidArgumentException('Allowed type parameter should be an integer.');
@@ -160,7 +164,7 @@ class MetadataProperty
                     }
                     break;
 
-                case METADATA_PROPERTY_TYPE_VOCABULARY:
+                case self::METADATA_PROPERTY_TYPE_VOCABULARY:
                     // Validate the symbolic name of the vocabulary.
                     if (!is_string($allowedTypeParam)) {
                         throw new InvalidArgumentException('Allowed type parameter should be a string.');
@@ -358,7 +362,7 @@ class MetadataProperty
                 foreach ($allowedTypes[$testedType] as $allowedTypeParam) {
                     // Type specific validation
                     switch ($testedType) {
-                        case METADATA_PROPERTY_TYPE_COMPOSITE:
+                        case self::METADATA_PROPERTY_TYPE_COMPOSITE:
                             // Composites can either be represented by a meta-data description
                             // or by a string of the form AssocType:AssocId if the composite
                             // has already been persisted in the database.
@@ -390,11 +394,11 @@ class MetadataProperty
                             // with the allowed association type (which
                             // is configured as an additional type parameter).
                             if (isset($assocType) && $assocType === $allowedTypeParam) {
-                                return [METADATA_PROPERTY_TYPE_COMPOSITE => $assocType];
+                                return [self::METADATA_PROPERTY_TYPE_COMPOSITE => $assocType];
                             }
                             break;
 
-                        case METADATA_PROPERTY_TYPE_VOCABULARY:
+                        case self::METADATA_PROPERTY_TYPE_VOCABULARY:
                             // Interpret the type parameter of this type like this:
                             // symbolic[:assoc-type:assoc-id]. If no assoc type/id are
                             // given then we assume :0:0 to represent site-wide vocabs.
@@ -422,7 +426,7 @@ class MetadataProperty
                                 $controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO'); /** @var ControlledVocabEntryDAO $controlledVocabEntryDao */
                                 if (!is_null($controlledVocabEntryDao->getBySetting($value, $symbolic, $assocType, $assocId, 'name', $locale))) {
                                     // The string was successfully translated so mark it as "valid".
-                                    return [METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam];
+                                    return [self::METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam];
                                 }
                             }
 
@@ -430,23 +434,23 @@ class MetadataProperty
                                 // Validate with controlled vocabulary validator
                                 $validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
                                 if ($validator->isValid($value)) {
-                                    return [METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam];
+                                    return [self::METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam];
                                 }
                             }
 
                             break;
 
-                        case METADATA_PROPERTY_TYPE_URI:
+                        case self::METADATA_PROPERTY_TYPE_URI:
                             $validator = ValidatorFactory::make(
                                 ['uri' => $value],
                                 ['uri' => 'url']
                             );
                             if (!$validator->fails()) {
-                                return [METADATA_PROPERTY_TYPE_URI => null];
+                                return [self::METADATA_PROPERTY_TYPE_URI => null];
                             }
                             break;
 
-                        case METADATA_PROPERTY_TYPE_DATE:
+                        case self::METADATA_PROPERTY_TYPE_DATE:
                             // We allow the following patterns:
                             // YYYY-MM-DD, YYYY-MM and YYYY
                             $datePattern = '/^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$/';
@@ -463,19 +467,19 @@ class MetadataProperty
                             // Validate the date (only leap days will pass unnoticed ;-) )
                             // Who invented this argument order?
                             if (checkdate($month, $day, $year)) {
-                                return [METADATA_PROPERTY_TYPE_DATE => null];
+                                return [self::METADATA_PROPERTY_TYPE_DATE => null];
                             }
                             break;
 
-                        case METADATA_PROPERTY_TYPE_INTEGER:
+                        case self::METADATA_PROPERTY_TYPE_INTEGER:
                             if (is_integer($value)) {
-                                return [METADATA_PROPERTY_TYPE_INTEGER => null];
+                                return [self::METADATA_PROPERTY_TYPE_INTEGER => null];
                             }
                             break;
 
-                        case METADATA_PROPERTY_TYPE_STRING:
+                        case self::METADATA_PROPERTY_TYPE_STRING:
                             if (is_string($value)) {
-                                return [METADATA_PROPERTY_TYPE_STRING => null];
+                                return [self::METADATA_PROPERTY_TYPE_STRING => null];
                             }
                             break;
 
@@ -510,12 +514,12 @@ class MetadataProperty
     public static function getSupportedTypes()
     {
         static $_supportedTypes = [
-            METADATA_PROPERTY_TYPE_COMPOSITE,
-            METADATA_PROPERTY_TYPE_VOCABULARY,
-            METADATA_PROPERTY_TYPE_URI,
-            METADATA_PROPERTY_TYPE_DATE,
-            METADATA_PROPERTY_TYPE_INTEGER,
-            METADATA_PROPERTY_TYPE_STRING
+            self::METADATA_PROPERTY_TYPE_COMPOSITE,
+            self::METADATA_PROPERTY_TYPE_VOCABULARY,
+            self::METADATA_PROPERTY_TYPE_URI,
+            self::METADATA_PROPERTY_TYPE_DATE,
+            self::METADATA_PROPERTY_TYPE_INTEGER,
+            self::METADATA_PROPERTY_TYPE_STRING
         ];
         return $_supportedTypes;
     }
@@ -528,9 +532,25 @@ class MetadataProperty
     public static function getSupportedCardinalities()
     {
         static $_supportedCardinalities = [
-            METADATA_PROPERTY_CARDINALITY_ONE,
-            METADATA_PROPERTY_CARDINALITY_MANY
+            self::METADATA_PROPERTY_CARDINALITY_ONE,
+            self::METADATA_PROPERTY_CARDINALITY_MANY
         ];
         return $_supportedCardinalities;
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\metadata\MetadataProperty', '\MetadataProperty');
+    foreach ([
+        'METADATA_PROPERTY_TYPE_STRING',
+        'METADATA_PROPERTY_TYPE_DATE',
+        'METADATA_PROPERTY_TYPE_INTEGER',
+        'METADATA_PROPERTY_TYPE_VOCABULARY',
+        'METADATA_PROPERTY_TYPE_URI',
+        'METADATA_PROPERTY_TYPE_COMPOSITE',
+        'METADATA_PROPERTY_CARDINALITY_ONE',
+        'METADATA_PROPERTY_CARDINALITY_MANY',
+    ] as $constantName) {
+        define($constantName, constant('\MetadataProperty::' . $constantName));
     }
 }

@@ -98,15 +98,18 @@
  *    compliant encoding and back without any data loss.
  */
 
+namespace PKP\metadata;
 
-define('METADATA_DESCRIPTION_REPLACE_ALL', 0x01);
-define('METADATA_DESCRIPTION_REPLACE_PROPERTIES', 0x02);
-define('METADATA_DESCRIPTION_REPLACE_NOTHING', 0x03);
-
-define('METADATA_DESCRIPTION_UNKNOWN_LOCALE', 'unknown');
+use APP\core\Application;
 
 class MetadataDescription extends \PKP\core\DataObject
 {
+    public const METADATA_DESCRIPTION_REPLACE_ALL = 1;
+    public const METADATA_DESCRIPTION_REPLACE_PROPERTIES = 2;
+    public const METADATA_DESCRIPTION_REPLACE_NOTHING = 3;
+
+    public const METADATA_DESCRIPTION_UNKNOWN_LOCALE = 'unknown';
+
     /** @var string fully qualified class name of the meta-data schema this description complies to */
     public $_metadataSchemaName;
 
@@ -300,14 +303,14 @@ class MetadataDescription extends \PKP\core\DataObject
         // Handle cardinality
         $existingValue = & $this->getStatement($propertyName, $locale);
         switch ($property->getCardinality()) {
-            case METADATA_PROPERTY_CARDINALITY_ONE:
+            case MetadataProperty::METADATA_PROPERTY_CARDINALITY_ONE:
                 if (isset($existingValue) && !$replace) {
                     return false;
                 }
                 $newValue = $value;
                 break;
 
-            case METADATA_PROPERTY_CARDINALITY_MANY:
+            case MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY:
                 if (isset($existingValue) && !$replace) {
                     assert(is_array($existingValue));
                     $newValue = $existingValue;
@@ -426,14 +429,14 @@ class MetadataDescription extends \PKP\core\DataObject
      *
      * @return boolean true if all statements could be added, false otherwise
      */
-    public function setStatements(&$statements, $replace = METADATA_DESCRIPTION_REPLACE_PROPERTIES)
+    public function setStatements(&$statements, $replace = self::METADATA_DESCRIPTION_REPLACE_PROPERTIES)
     {
         assert(in_array($replace, $this->_allowedReplaceLevels()));
 
         // Make a backup copy of all existing statements.
         $statementsBackup = $this->getAllData();
 
-        if ($replace == METADATA_DESCRIPTION_REPLACE_ALL) {
+        if ($replace == self::METADATA_DESCRIPTION_REPLACE_ALL) {
             // Delete existing statements
             $emptyArray = [];
             $this->setAllData($emptyArray);
@@ -452,7 +455,7 @@ class MetadataDescription extends \PKP\core\DataObject
                 $values = & $content;
             }
 
-            if ($replace == METADATA_DESCRIPTION_REPLACE_PROPERTIES) {
+            if ($replace == self::METADATA_DESCRIPTION_REPLACE_PROPERTIES) {
                 $replaceProperty = true;
             } else {
                 $replaceProperty = false;
@@ -629,10 +632,22 @@ class MetadataDescription extends \PKP\core\DataObject
     public static function _allowedReplaceLevels()
     {
         static $allowedReplaceLevels = [
-            METADATA_DESCRIPTION_REPLACE_ALL,
-            METADATA_DESCRIPTION_REPLACE_PROPERTIES,
-            METADATA_DESCRIPTION_REPLACE_NOTHING
+            self::METADATA_DESCRIPTION_REPLACE_ALL,
+            self::METADATA_DESCRIPTION_REPLACE_PROPERTIES,
+            self::METADATA_DESCRIPTION_REPLACE_NOTHING
         ];
         return $allowedReplaceLevels;
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\metadata\MetadataDescription', '\MetadataDescription');
+    foreach ([
+        'METADATA_DESCRIPTION_REPLACE_ALL',
+        'METADATA_DESCRIPTION_REPLACE_PROPERTIES',
+        'METADATA_DESCRIPTION_REPLACE_NOTHING',
+        'METADATA_DESCRIPTION_UNKNOWN_LOCALE'
+    ] as $constantName) {
+        define($constantName, constant('\MetadataDescription::' . $constantName));
     }
 }

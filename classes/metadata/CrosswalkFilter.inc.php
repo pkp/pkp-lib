@@ -18,6 +18,8 @@
  *  implementations.
  */
 
+namespace PKP\metadata;
+
 use PKP\filter\Filter;
 
 class CrosswalkFilter extends Filter
@@ -32,4 +34,8 @@ class CrosswalkFilter extends Filter
     {
         parent::__construct('metadata::' . $fromSchema . '(*)', 'metadata::' . $toSchema . '(*)');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\metadata\CrosswalkFilter', '\CrosswalkFilter');
 }

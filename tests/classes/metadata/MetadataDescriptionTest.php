@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.metadata.MetadataDescription');
+
+use PKP\metadata\MetadataDescription;
 
 class MetadataDescriptionTest extends PKPTestCase
 {
@@ -106,7 +107,7 @@ class MetadataDescriptionTest extends PKPTestCase
         // Trying to replace a property with METADATA_DESCRIPTION_REPLACE_NOTHING
         // should provoke an error.
         $previousData = self::$testStatementsData;
-        self::assertFalse($this->metadataDescription->setStatements($testStatements, METADATA_DESCRIPTION_REPLACE_NOTHING));
+        self::assertFalse($this->metadataDescription->setStatements($testStatements, MetadataDescription::METADATA_DESCRIPTION_REPLACE_NOTHING));
         self::assertEquals($previousData, $this->metadataDescription->getAllData());
 
         // Unset the offending property and try again - this should work
@@ -126,7 +127,7 @@ class MetadataDescriptionTest extends PKPTestCase
         $expectedResult['translated-many']['de_DE'][] = 'tm2_de-new';
         unset($expectedResult['not-translated-one']);
         $expectedResult['not-translated-one'] = 'nto-new';
-        self::assertTrue($this->metadataDescription->setStatements($testStatements, METADATA_DESCRIPTION_REPLACE_NOTHING));
+        self::assertTrue($this->metadataDescription->setStatements($testStatements, MetadataDescription::METADATA_DESCRIPTION_REPLACE_NOTHING));
         self::assertEquals($expectedResult, $this->metadataDescription->getAllData());
 
         // Using the default replacement level (METADATA_DESCRIPTION_REPLACE_PROPERTY)
@@ -138,7 +139,7 @@ class MetadataDescriptionTest extends PKPTestCase
         self::assertEquals($testStatements, $this->metadataDescription->getAllData());
 
         // Now test METADATA_DESCRIPTION_REPLACE_ALL
-        self::assertTrue($this->metadataDescription->setStatements($testStatements, METADATA_DESCRIPTION_REPLACE_ALL));
+        self::assertTrue($this->metadataDescription->setStatements($testStatements, MetadataDescription::METADATA_DESCRIPTION_REPLACE_ALL));
         self::assertEquals($testStatements, $this->metadataDescription->getAllData());
 
         // Test that an error in the test statements maintains the previous state

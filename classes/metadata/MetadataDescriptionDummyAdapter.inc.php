@@ -16,7 +16,7 @@
  * description object for direct metadata description persistence.
  */
 
-import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
+namespace PKP\metadata;
 
 class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter
 {
@@ -118,4 +118,8 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter
         // Return the field names
         return $this->_metadataFieldNames[$translated];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\metadata\MetadataDescriptionDummyAdapter', '\MetadataDescriptionDummyAdapter');
 }

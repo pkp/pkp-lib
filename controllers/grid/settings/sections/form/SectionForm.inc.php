@@ -35,9 +35,9 @@ class SectionForm extends PKPSectionForm
         );
 
         // Validation checks for this form
-        $this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'manager.setup.form.section.nameRequired'));
-        $this->addCheck(new FormValidatorLocale($this, 'abbrev', 'required', 'manager.sections.form.abbrevRequired'));
-        $this->addCheck(new FormValidator($this, 'path', 'required', 'manager.setup.form.section.pathRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'title', 'required', 'manager.setup.form.section.nameRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'abbrev', 'required', 'manager.sections.form.abbrevRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'path', 'required', 'manager.setup.form.section.pathRequired'));
         $server = $request->getServer();
     }
 

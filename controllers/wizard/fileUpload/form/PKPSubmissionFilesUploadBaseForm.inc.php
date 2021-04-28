@@ -13,10 +13,12 @@
  * @brief Form for adding/editing a submission file
  */
 
-use PKP\submission\SubmissionFile;
-use PKP\form\Form;
-
 use APP\template\TemplateManager;
+use PKP\form\Form;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\ConfirmationModal;
+
+use PKP\submission\SubmissionFile;
 
 class PKPSubmissionFilesUploadBaseForm extends Form
 {
@@ -334,7 +336,6 @@ class PKPSubmissionFilesUploadBaseForm extends Form
         // Show ensuring an anonymous review link.
         $context = $request->getContext();
         if ($context->getData('showEnsuringLink') && in_array($this->getStageId(), [WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
-            import('lib.pkp.classes.linkAction.request.ConfirmationModal');
             $ensuringLink = new LinkAction(
                 'addUser',
                 new ConfirmationModal(

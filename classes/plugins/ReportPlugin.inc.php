@@ -15,11 +15,9 @@
 
 namespace PKP\plugins;
 
-use LinkAction;
-
-// FIXME: Add namespacing
 use PKP\core\PKPApplication;
-use RedirectAction;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RedirectAction;
 
 abstract class ReportPlugin extends Plugin
 {
@@ -154,7 +152,6 @@ abstract class ReportPlugin extends Plugin
     public function getActions($request, $actionArgs)
     {
         $dispatcher = $request->getDispatcher();
-        import('lib.pkp.classes.linkAction.request.RedirectAction');
         return array_merge(
             $this->getEnabled() ? [
                 new LinkAction(

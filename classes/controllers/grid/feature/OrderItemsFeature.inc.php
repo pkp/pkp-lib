@@ -17,6 +17,9 @@
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 
 use APP\template\TemplateManager;
+use PKP\linkAction\LinkAction;
+
+use PKP\linkAction\request\NullAction;
 
 class OrderItemsFeature extends GridFeature
 {
@@ -154,7 +157,6 @@ class OrderItemsFeature extends GridFeature
         $grid = & $args['grid'];
 
         if ($this->isOrderActionNecessary()) {
-            import('lib.pkp.classes.linkAction.request.NullAction');
             $grid->addAction(
                 new LinkAction(
                     'orderItems',
@@ -181,7 +183,6 @@ class OrderItemsFeature extends GridFeature
             $row->setTemplate('controllers/grid/gridRow.tpl');
         }
 
-        import('lib.pkp.classes.linkAction.request.NullAction');
         $row->addAction(
             new LinkAction(
                 'moveItem',

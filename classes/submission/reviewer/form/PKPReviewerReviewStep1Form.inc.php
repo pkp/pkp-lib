@@ -16,6 +16,10 @@
 import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
 
 use APP\template\TemplateManager;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+
+use PKP\linkAction\request\ConfirmationModal;
 
 class PKPReviewerReviewStep1Form extends ReviewerReviewForm
 {
@@ -78,8 +82,6 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
         //
         // Assign the link actions
         //
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
-        import('lib.pkp.classes.linkAction.request.ConfirmationModal');
 
         // "View metadata" action.
         import('lib.pkp.controllers.modals.review.ReviewerViewMetadataLinkAction');
@@ -108,7 +110,6 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
 
         $templateMgr->assign('aboutDueDatesAction', $aboutDueDateAction);
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $declineReviewLinkAction = new LinkAction(
             'declineReview',
             new AjaxModal(

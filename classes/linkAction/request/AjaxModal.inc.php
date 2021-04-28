@@ -12,8 +12,7 @@
  * @brief A modal that retrieves its content from via AJAX.
  */
 
-
-import('lib.pkp.classes.linkAction.request.Modal');
+namespace PKP\linkAction\request;
 
 class AjaxModal extends Modal
 {
@@ -76,4 +75,8 @@ class AjaxModal extends Modal
             ]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\AjaxModal', '\AjaxModal');
 }

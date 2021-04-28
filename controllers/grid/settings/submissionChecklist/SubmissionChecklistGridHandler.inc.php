@@ -17,6 +17,8 @@ import('lib.pkp.controllers.grid.settings.SetupGridHandler');
 import('lib.pkp.controllers.grid.settings.submissionChecklist.SubmissionChecklistGridRow');
 
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class SubmissionChecklistGridHandler extends SetupGridHandler
 {
@@ -49,7 +51,6 @@ class SubmissionChecklistGridHandler extends SetupGridHandler
         $this->setTitle('manager.setup.submissionPreparationChecklist');
 
         // Add grid-level actions
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $router = $request->getRouter();
         $this->addAction(
             new LinkAction(

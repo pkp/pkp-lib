@@ -16,6 +16,9 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 
 use APP\core\Services;
+use PKP\linkAction\LinkAction;
+
+use PKP\linkAction\request\RedirectConfirmationModal;
 
 class ReviewerGridRow extends GridRow
 {
@@ -163,7 +166,6 @@ class ReviewerGridRow extends GridRow
                 !$reviewAssignment->getCancelled()
             ) {
                 $dispatcher = $router->getDispatcher();
-                import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
                 $this->addAction(
                     new LinkAction(
                         'logInAs',

@@ -15,10 +15,13 @@
  * hook implementation.
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
-import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
-
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxAction;
+use PKP\plugins\GenericPlugin;
 use PKP\xml\XMLNode;
+
+// FIXME: Add namespacing
+import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 
 // TODO: Error handling. If a scheduled task encounters an error...?
 
@@ -98,7 +101,6 @@ class PKPAcronPlugin extends GenericPlugin
      */
     public function getActions($request, $actionArgs)
     {
-        import('lib.pkp.classes.linkAction.request.AjaxAction');
         $router = $request->getRouter();
         return array_merge(
             $this->getEnabled() ? [

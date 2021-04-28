@@ -12,11 +12,11 @@
  * @brief Abstract base class for all modal dialogs.
  */
 
+namespace PKP\linkAction\request;
 
 define('MODAL_WIDTH_DEFAULT', '710');
 define('MODAL_WIDTH_AUTO', 'auto');
 
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
 class Modal extends LinkActionRequest
 {
@@ -131,4 +131,8 @@ class Modal extends LinkActionRequest
             'closeButtonText' => $this->getCloseButtonText(),
         ];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\Modal', '\Modal');
 }

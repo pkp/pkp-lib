@@ -15,6 +15,10 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
+
 class PluginGridCellProvider extends GridCellProvider
 {
     /**
@@ -70,7 +74,6 @@ class PluginGridCellProvider extends GridCellProvider
                 switch (true) {
                     case $plugin->getEnabled() && $plugin->getCanDisable():
                         // Create an action to disable the plugin
-                        import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
                         return [new LinkAction(
                             'disable',
                             new RemoteActionConfirmationModal(
@@ -85,7 +88,6 @@ class PluginGridCellProvider extends GridCellProvider
                         break;
                     case !$plugin->getEnabled() && $plugin->getCanEnable():
                         // Create an action to enable the plugin
-                        import('lib.pkp.classes.linkAction.request.AjaxAction');
                         return [new LinkAction(
                             'enable',
                             new AjaxAction(

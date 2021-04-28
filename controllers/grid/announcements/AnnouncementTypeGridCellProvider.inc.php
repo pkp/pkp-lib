@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+
 class AnnouncementTypeGridCellProvider extends GridCellProvider
 {
     /**
@@ -28,7 +31,6 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider
                 $router = $request->getRouter();
                 $actionArgs = ['announcementTypeId' => $row->getId()];
 
-                import('lib.pkp.classes.linkAction.request.AjaxModal');
                 return [new LinkAction(
                     'edit',
                     new AjaxModal(

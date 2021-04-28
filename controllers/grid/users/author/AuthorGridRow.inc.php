@@ -15,6 +15,10 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
+
 class AuthorGridRow extends GridRow
 {
     /** @var Submission **/
@@ -63,7 +67,6 @@ class AuthorGridRow extends GridRow
 
             if (!$this->isReadOnly()) {
                 // Add row-level actions
-                import('lib.pkp.classes.linkAction.request.AjaxModal');
                 $this->addAction(
                     new LinkAction(
                         'editAuthor',
@@ -77,7 +80,6 @@ class AuthorGridRow extends GridRow
                     )
                 );
 
-                import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
                 $this->addAction(
                     new LinkAction(
                         'deleteAuthor',

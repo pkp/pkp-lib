@@ -13,7 +13,8 @@
  * @brief An action to open up the information center for a submission.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class SubmissionInfoCenterLinkAction extends LinkAction
 {
@@ -43,7 +44,6 @@ class SubmissionInfoCenterLinkAction extends LinkAction
         $title = (isset($primaryAuthor)) ? implode(', ', [$primaryAuthor->getFullName(), $submission->getLocalizedTitle()]) : $submission->getLocalizedTitle();
 
         $dispatcher = $request->getDispatcher();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $ajaxModal = new AjaxModal(
             $dispatcher->url(
                 $request,

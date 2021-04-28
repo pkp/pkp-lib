@@ -14,6 +14,8 @@
 
 import('lib.pkp.controllers.api.file.linkAction.FileLinkAction');
 
+use PKP\linkAction\request\AjaxModal;
+
 class EditFileLinkAction extends FileLinkAction
 {
     /**
@@ -28,7 +30,6 @@ class EditFileLinkAction extends FileLinkAction
         // Instantiate the AJAX modal request.
         $router = $request->getRouter();
         $dispatcher = $router->getDispatcher();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $modal = new AjaxModal(
             $dispatcher->url(
                 $request,

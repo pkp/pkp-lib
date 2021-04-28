@@ -16,7 +16,8 @@
  * @brief An action to download all files in a submission file grid.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\PostAndRedirectAction;
 
 class DownloadAllLinkAction extends LinkAction
 {
@@ -30,7 +31,6 @@ class DownloadAllLinkAction extends LinkAction
     {
         // Instantiate the redirect action request.
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
         $redirectRequest = new PostAndRedirectAction(
             $router->url($request, null, 'api.file.FileApiHandler', 'recordDownload', null, $actionArgs),
             $router->url($request, null, 'api.file.FileApiHandler', 'downloadAllFiles', null, $actionArgs)

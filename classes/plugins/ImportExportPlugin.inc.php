@@ -16,16 +16,14 @@
 namespace PKP\plugins;
 
 use APP\template\TemplateManager;
+
 use Exception;
-use LinkAction;
-
 use PKP\core\JSONMessage;
-
-// FIXME: Add namespacing
 use PKP\core\PKPApplication;
 use PKP\file\FileManager;
+use PKP\linkAction\LinkAction;
 
-use RedirectAction;
+use PKP\linkAction\request\RedirectAction;
 
 abstract class ImportExportPlugin extends Plugin
 {
@@ -56,7 +54,6 @@ abstract class ImportExportPlugin extends Plugin
     public function getActions($request, $actionArgs)
     {
         $dispatcher = $request->getDispatcher();
-        import('lib.pkp.classes.linkAction.request.RedirectAction');
         return array_merge(
             [
                 new LinkAction(

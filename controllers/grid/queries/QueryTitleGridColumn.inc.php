@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.controllers.grid.GridColumn');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+
 class QueryTitleGridColumn extends GridColumn
 {
     /** @var array Action args for link actions */
@@ -74,7 +77,6 @@ class QueryTitleGridColumn extends GridColumn
         $headNote = $query->getHeadNote();
 
         // Create the cell action to download a file.
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $router = $request->getRouter();
         $actionArgs = array_merge(
             $this->_actionArgs,

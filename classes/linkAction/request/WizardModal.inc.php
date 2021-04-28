@@ -12,8 +12,7 @@
  * @brief A modal that contains a wizard retrieved via AJAX.
  */
 
-
-import('lib.pkp.classes.linkAction.request.AjaxModal');
+namespace PKP\linkAction\request;
 
 class WizardModal extends AjaxModal
 {
@@ -43,4 +42,8 @@ class WizardModal extends AjaxModal
         $options['modalHandler'] = '$.pkp.controllers.modal.WizardModalHandler';
         return $options;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\WizardModal', '\WizardModal');
 }

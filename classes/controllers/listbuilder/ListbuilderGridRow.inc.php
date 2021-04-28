@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\NullAction;
+
 class ListbuilderGridRow extends GridRow
 {
     /** @var boolean */
@@ -58,7 +61,6 @@ class ListbuilderGridRow extends GridRow
 
         if ($this->_hasDeleteItemLink) {
             // Add deletion action (handled in JS-land)
-            import('lib.pkp.classes.linkAction.request.NullAction');
             $this->addAction(
                 new LinkAction(
                     'delete',

@@ -12,7 +12,8 @@
  * @brief An action to download a library file.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\PostAndRedirectAction;
 
 class DownloadLibraryFileLinkAction extends LinkAction
 {
@@ -27,7 +28,6 @@ class DownloadLibraryFileLinkAction extends LinkAction
     {
         // Instantiate the redirect action request.
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
         $redirectRequest = new PostAndRedirectAction(
             $router->url(
                 $request,

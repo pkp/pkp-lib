@@ -14,6 +14,8 @@
 
 import('lib.pkp.controllers.api.file.linkAction.FileLinkAction');
 
+use PKP\linkAction\request\AjaxModal;
+
 class FileInfoCenterLinkAction extends FileLinkAction
 {
     /**
@@ -49,7 +51,6 @@ class FileInfoCenterLinkAction extends FileLinkAction
      */
     public function getModal($request, $submissionFile, $stageId)
     {
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $router = $request->getRouter();
 
         $title = (isset($submissionFile)) ? implode(': ', [__('informationCenter.informationCenter'), htmlspecialchars($submissionFile->getLocalizedData('name'))]) : __('informationCenter.informationCenter');

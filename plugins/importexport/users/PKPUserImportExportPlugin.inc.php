@@ -14,10 +14,8 @@
  */
 
 use APP\template\TemplateManager;
-use Exception;
 use PKP\core\JSONMessage;
 use PKP\file\FileManager;
-
 use PKP\file\TemporaryFileManager;
 
 use PKP\plugins\ImportExportPlugin;

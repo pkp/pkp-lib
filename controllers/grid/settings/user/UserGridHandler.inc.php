@@ -22,6 +22,8 @@ import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 use APP\user\UserAction;
 use PKP\core\JSONMessage;
 use PKP\identity\Identity;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 use PKP\user\UserDAO;
 
@@ -82,7 +84,6 @@ class UserGridHandler extends GridHandler
         // Grid actions.
         $router = $request->getRouter();
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $this->addAction(
             new LinkAction(
                 'addUser',

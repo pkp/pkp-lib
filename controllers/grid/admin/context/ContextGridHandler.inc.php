@@ -17,9 +17,11 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.admin.context.ContextGridRow');
 
 use APP\core\Services;
-
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class ContextGridHandler extends GridHandler
 {
@@ -81,7 +83,6 @@ class ContextGridHandler extends GridHandler
         // Grid actions.
         $router = $request->getRouter();
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $this->addAction(
             new LinkAction(
                 'createContext',

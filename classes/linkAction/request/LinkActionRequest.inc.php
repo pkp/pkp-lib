@@ -16,6 +16,8 @@
  * @brief Abstract base class defining an action to be taken when a link action is activated.
  */
 
+namespace PKP\linkAction\request;
+
 class LinkActionRequest
 {
     /**
@@ -51,4 +53,8 @@ class LinkActionRequest
     {
         return [];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\LinkActionRequest', '\LinkActionRequest');
 }

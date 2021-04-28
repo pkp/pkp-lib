@@ -13,7 +13,8 @@
  * @brief An action to open up a modal to send a thank you email to users assigned to a review task.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class SendThankYouLinkAction extends LinkAction
 {
@@ -27,7 +28,6 @@ class SendThankYouLinkAction extends LinkAction
     {
         // Instantiate the send thank you modal.
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
 
         $ajaxModal = new AjaxModal(
             $router->url($request, null, null, 'editThankReviewer', null, $actionArgs),

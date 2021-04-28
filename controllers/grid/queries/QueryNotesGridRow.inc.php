@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
+
 class QueryNotesGridRow extends GridRow
 {
     /** @var array **/
@@ -68,7 +71,6 @@ class QueryNotesGridRow extends GridRow
 
             // Add row-level actions
             if ($this->_queryNotesGrid->getCanManage($this->getData())) {
-                import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
                 $this->addAction(
                     new LinkAction(
                         'deleteNote',

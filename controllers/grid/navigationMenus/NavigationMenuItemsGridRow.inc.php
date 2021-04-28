@@ -14,7 +14,9 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridRow');
-import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
+
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 class NavigationMenuItemsGridRow extends GridRow
 {

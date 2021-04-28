@@ -19,11 +19,10 @@ import('lib.pkp.controllers.grid.files.LibraryFileGridCategoryRow');
 
 use APP\file\LibraryFileManager;
 use PKP\core\JSONMessage;
-
 use PKP\file\TemporaryFileManager;
+use PKP\linkAction\LinkAction;
 
-// Link action & modal classes
-import('lib.pkp.classes.linkAction.request.AjaxModal');
+use PKP\linkAction\request\AjaxModal;
 
 class LibraryFileGridHandler extends CategoryGridHandler
 {

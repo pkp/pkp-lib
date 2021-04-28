@@ -16,7 +16,8 @@
  * @brief An action to open the review guidelines confirmation modal.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\ConfirmationModal;
 
 class ViewReviewGuidelinesLinkAction extends LinkAction
 {
@@ -37,7 +38,6 @@ class ViewReviewGuidelinesLinkAction extends LinkAction
         $this->_context = $request->getContext();
         $this->_stageId = $stageId;
 
-        import('lib.pkp.classes.linkAction.request.ConfirmationModal');
         $viewGuidelinesModal = new ConfirmationModal(
             $this->getGuidelines(),
             __('reviewer.submission.guidelines'),

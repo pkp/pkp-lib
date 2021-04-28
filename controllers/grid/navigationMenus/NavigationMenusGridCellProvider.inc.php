@@ -18,6 +18,9 @@ import('lib.pkp.classes.controllers.grid.GridCellProvider');
 use APP\core\Services;
 use APP\template\TemplateManager;
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+
 class NavigationMenusGridCellProvider extends GridCellProvider
 {
     /**
@@ -31,7 +34,6 @@ class NavigationMenusGridCellProvider extends GridCellProvider
                 $router = $request->getRouter();
                 $actionArgs = ['navigationMenuId' => $row->getId()];
 
-                import('lib.pkp.classes.linkAction.request.AjaxModal');
                 return [new LinkAction(
                     'edit',
                     new AjaxModal(

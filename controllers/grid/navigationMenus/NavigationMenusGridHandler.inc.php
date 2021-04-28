@@ -17,6 +17,8 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuForm');
 
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class NavigationMenusGridHandler extends GridHandler
 {
@@ -116,7 +118,6 @@ class NavigationMenusGridHandler extends GridHandler
         // Add grid action.
         $router = $request->getRouter();
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $this->addAction(
             new LinkAction(
                 'addNavigationMenu',

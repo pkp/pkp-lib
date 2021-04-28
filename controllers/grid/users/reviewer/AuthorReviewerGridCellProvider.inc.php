@@ -15,8 +15,6 @@
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
-import('lib.pkp.classes.linkAction.request.AjaxModal');
-import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
 {

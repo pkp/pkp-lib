@@ -13,7 +13,8 @@
  * @brief An action to open up the submission documents modal.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class SubmissionLibraryLinkAction extends LinkAction
 {
@@ -28,7 +29,6 @@ class SubmissionLibraryLinkAction extends LinkAction
     {
         $dispatcher = $request->getDispatcher();
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         parent::__construct(
             'editorialHistory',
             new AjaxModal(

@@ -15,7 +15,8 @@
  * @brief An action to open the submission meta-data modal.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class ReviewerViewMetadataLinkAction extends LinkAction
 {
@@ -30,7 +31,6 @@ class ReviewerViewMetadataLinkAction extends LinkAction
     {
         // Instantiate the meta-data modal.
         $dispatcher = $request->getDispatcher();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $modal = new AjaxModal(
             $dispatcher->url(
                 $request,

@@ -12,7 +12,7 @@
  * @brief An abstract file action.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
 
 class FileLinkAction extends LinkAction
 {

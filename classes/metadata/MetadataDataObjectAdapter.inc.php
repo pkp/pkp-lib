@@ -72,14 +72,14 @@ class MetadataDataObjectAdapter extends PersistableFilter
         $outputType = & $this->getOutputType();
         if (is_null($mode)) {
             if (is_a($inputType, 'MetadataTypeDescription')) {
-                $mode = METADATA_DOA_INJECTION_MODE;
+                $mode = self::METADATA_DOA_INJECTION_MODE;
             } else {
-                $mode = METADATA_DOA_EXTRACTION_MODE;
+                $mode = self::METADATA_DOA_EXTRACTION_MODE;
             }
         }
         $this->_mode = $mode;
 
-        if ($mode == METADATA_DOA_INJECTION_MODE) {
+        if ($mode == self::METADATA_DOA_INJECTION_MODE) {
             // We are in meta-data injection mode (or both input and output are meta-data descriptions).
             $metadataTypeDescription = & $inputType; /** @var MetadataTypeDescription $metadataTypeDescription */
             assert(is_a($outputType, 'ClassTypeDescription'));
@@ -98,7 +98,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
         $this->_dataObjectName = $dataObjectTypeDescription->getTypeName();
 
         // Set the display name.
-        if ($mode == METADATA_DOA_INJECTION_MODE) {
+        if ($mode == self::METADATA_DOA_INJECTION_MODE) {
             $this->setDisplayName('Inject metadata into a(n) ' . $this->getDataObjectClass());
         } else {
             $this->setDisplayName('Extract metadata from a(n) ' . $this->getDataObjectClass());
@@ -283,7 +283,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     {
         // Do we inject or extract metadata?
         switch ($this->getMode()) {
-            case METADATA_DOA_INJECTION_MODE:
+            case self::METADATA_DOA_INJECTION_MODE:
                 $targetDataObject = & $this->getTargetDataObject();
 
                 // Instantiate a new data object if none was given.
@@ -296,7 +296,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
                 $output = & $this->injectMetadataIntoDataObject($input, $targetDataObject);
                 break;
 
-            case METADATA_DOA_EXTRACTION_MODE:
+            case self::METADATA_DOA_EXTRACTION_MODE:
                 $output = $this->extractMetadataFromDataObject($input);
                 break;
 
@@ -473,5 +473,5 @@ class MetadataDataObjectAdapter extends PersistableFilter
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\metadata\MetadataDataObjectAdapter', '\MetadataDataObjectAdapter');
     define('METADATA_DOA_INJECTION_MODE', \MetadataDataObjectAdapter::METADATA_DOA_INJECTION_MODE);
-    define('METADATA_DOA_INJECTION_MODE', \MetadataDataObjectAdapter::METADATA_DOA_EXTRACTION_MODE);
+    define('METADATA_DOA_EXTRACTION_MODE', \MetadataDataObjectAdapter::METADATA_DOA_EXTRACTION_MODE);
 }

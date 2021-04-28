@@ -20,9 +20,6 @@ use APP\template\TemplateManager;
 use PKP\file\ContextFileManager;
 use PKP\submission\PKPSubmission;
 
-// FIXME: add namespacing
-import('lib.pkp.classes.linkAction.LinkAction');
-
 class PKPCatalogHandler extends Handler
 {
     //

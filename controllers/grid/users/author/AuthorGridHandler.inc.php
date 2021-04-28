@@ -18,10 +18,9 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.users.author.PKPAuthorGridCellProvider');
 import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 
-// Link action & modal classes
-import('lib.pkp.classes.linkAction.request.AjaxModal');
-
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 use PKP\submission\PKPSubmission;
 
 class AuthorGridHandler extends GridHandler

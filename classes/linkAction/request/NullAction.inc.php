@@ -12,8 +12,7 @@
  * @brief This action does nothing.
  */
 
-
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+namespace PKP\linkAction\request;
 
 class NullAction extends LinkActionRequest
 {
@@ -27,4 +26,8 @@ class NullAction extends LinkActionRequest
     {
         return '$.pkp.classes.linkAction.NullAction';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\NullAction', '\NullAction');
 }

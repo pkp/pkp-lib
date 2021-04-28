@@ -19,6 +19,10 @@
  *  in the user interface.
  */
 
+namespace PKP\linkAction;
+
+use PKP\plugins\HookRegistry;
+
 class LinkAction
 {
     /** @var string the id of the action */
@@ -121,4 +125,8 @@ class LinkAction
     {
         return $this->_image;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\LinkAction', '\LinkAction');
 }

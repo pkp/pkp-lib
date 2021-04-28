@@ -14,6 +14,8 @@
 
 import('lib.pkp.controllers.api.file.linkAction.FileLinkAction');
 
+use PKP\linkAction\request\PostAndRedirectAction;
+
 class DownloadFileLinkAction extends FileLinkAction
 {
     /** @var string Optional label to use instead of file name */
@@ -34,7 +36,6 @@ class DownloadFileLinkAction extends FileLinkAction
     {
         // Instantiate the redirect action request.
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
         $this->label = $label;
         $actionArgs = $this->getActionArgs($submissionFile, $stageId);
         if ($fileId) {

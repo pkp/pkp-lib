@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxAction;
+
 class UserGroupGridCellProvider extends GridCellProvider
 {
     /**
@@ -89,7 +92,6 @@ class UserGroupGridCellProvider extends GridCellProvider
                 );
 
                 $actionUrl = $router->url($request, null, null, $operation, null, $actionArgs);
-                import('lib.pkp.classes.linkAction.request.AjaxAction');
                 $actionRequest = new AjaxAction($actionUrl);
 
                 $linkAction = new LinkAction(

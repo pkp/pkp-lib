@@ -12,8 +12,7 @@
  * @brief Class defining a simple confirmation modal with a remote action and ok/cancel buttons.
  */
 
-
-import('lib.pkp.classes.linkAction.request.ConfirmationModal');
+namespace PKP\linkAction\request;
 
 class RemoteActionConfirmationModal extends ConfirmationModal
 {
@@ -91,4 +90,8 @@ class RemoteActionConfirmationModal extends ConfirmationModal
             ]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\RemoteActionConfirmationModal', '\RemoteActionConfirmationModal');
 }

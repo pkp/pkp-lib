@@ -21,9 +21,10 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 import('classes.log.SubmissionEventLogEntry'); // App-specific.
 
-import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\RedirectAction;
 use PKP\mail\SubmissionMailTemplate;
 
 class StageParticipantGridHandler extends CategoryGridHandler
@@ -145,7 +146,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 'access',
                 $submissionId
             );
-            import('lib.pkp.classes.linkAction.request.RedirectAction');
             $this->addAction(
                 new LinkAction(
                     'signOutAsUser',

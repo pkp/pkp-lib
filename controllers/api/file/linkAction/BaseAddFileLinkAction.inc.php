@@ -16,7 +16,8 @@
  * @brief Abstract base class for file upload actions.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\WizardModal;
 
 class BaseAddFileLinkAction extends LinkAction
 {
@@ -55,7 +56,6 @@ class BaseAddFileLinkAction extends LinkAction
 
         // Instantiate the file upload modal.
         $dispatcher = $request->getDispatcher();
-        import('lib.pkp.classes.linkAction.request.WizardModal');
         $modal = new WizardModal(
             $dispatcher->url(
                 $request,

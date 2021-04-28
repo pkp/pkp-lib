@@ -12,7 +12,8 @@
  * @brief An action to open up the notify part of the stage participants grid.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class NotifyLinkAction extends LinkAction
 {
@@ -35,7 +36,6 @@ class NotifyLinkAction extends LinkAction
             $requestArgs['userId'] = $userId;
         }
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $router = $request->getRouter();
         $ajaxModal = new AjaxModal(
             $router->url(

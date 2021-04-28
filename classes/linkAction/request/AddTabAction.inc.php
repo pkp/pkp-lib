@@ -12,7 +12,7 @@
  * @brief This action triggers a containing tabset to add a new tab.
  */
 
-import('lib.pkp.classes.linkAction.request.EventAction');
+namespace PKP\linkAction\request;
 
 class AddTabAction extends EventAction
 {
@@ -28,4 +28,8 @@ class AddTabAction extends EventAction
             'title' => $title,
         ]);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\AddTabAction', '\AddTabAction');
 }

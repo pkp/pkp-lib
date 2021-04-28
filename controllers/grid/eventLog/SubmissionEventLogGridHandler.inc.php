@@ -16,8 +16,6 @@
 // import grid base classes
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
-// Link action & modal classes
-import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 // Other classes used by this grid
 import('lib.pkp.controllers.grid.eventLog.EventLogGridRow');

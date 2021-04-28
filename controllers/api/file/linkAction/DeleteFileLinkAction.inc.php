@@ -14,6 +14,8 @@
 
 import('lib.pkp.controllers.api.file.linkAction.FileLinkAction');
 
+use PKP\linkAction\request\RemoteActionConfirmationModal;
+
 class DeleteFileLinkAction extends FileLinkAction
 {
     /**
@@ -28,7 +30,6 @@ class DeleteFileLinkAction extends FileLinkAction
     public function __construct($request, $submissionFile, $stageId, $localeKey = 'grid.action.delete')
     {
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
         parent::__construct(
             'deleteFile',
             new RemoteActionConfirmationModal(

@@ -20,11 +20,10 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 // Import user group grid specific classes
 import('lib.pkp.controllers.grid.settings.category.CategoryGridCategoryRow');
 
-// Link action & modal classes
-import('lib.pkp.classes.linkAction.request.AjaxModal');
-
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class CategoryCategoryGridHandler extends CategoryGridHandler
 {

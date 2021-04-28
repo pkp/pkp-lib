@@ -15,9 +15,11 @@
 
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
-import('lib.pkp.classes.linkAction.request.AjaxAction');
 
 use APP\template\TemplateManager;
+use PKP\linkAction\LinkAction;
+
+use PKP\linkAction\request\AjaxAction;
 
 class NotificationsGridCellProvider extends GridCellProvider
 {

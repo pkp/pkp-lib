@@ -23,8 +23,10 @@ import('lib.pkp.controllers.grid.settings.reviewForms.form.ReviewFormElements');
 import('lib.pkp.controllers.grid.settings.reviewForms.form.PreviewReviewForm');
 
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+
+use PKP\linkAction\request\AjaxModal;
 
 class ReviewFormGridHandler extends GridHandler
 {
@@ -70,7 +72,6 @@ class ReviewFormGridHandler extends GridHandler
         // Grid actions.
         $router = $request->getRouter();
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $this->addAction(
             new LinkAction(
                 'createReviewForm',

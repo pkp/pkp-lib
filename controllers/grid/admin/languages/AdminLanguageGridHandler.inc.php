@@ -20,6 +20,8 @@ import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 use PKP\Services\Interfaces\EntityWriteInterface;
 
 class AdminLanguageGridHandler extends LanguageGridHandler
@@ -80,7 +82,6 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         // Grid actions.
         $router = $request->getRouter();
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $this->addAction(
             new LinkAction(
                 'installLocale',

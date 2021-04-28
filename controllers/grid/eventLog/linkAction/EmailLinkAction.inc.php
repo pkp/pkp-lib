@@ -13,8 +13,8 @@
  * @brief An action to open up a modal to view an email sent to a user.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
-import('lib.pkp.classes.linkAction.request.AjaxModal');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class EmailLinkAction extends LinkAction
 {

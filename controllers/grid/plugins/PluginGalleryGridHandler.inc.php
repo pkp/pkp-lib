@@ -14,7 +14,6 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 
 /**
  * Global value for 'all' category string value
@@ -24,6 +23,8 @@ define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 use PKP\plugins\PluginHelper;
 

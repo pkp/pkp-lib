@@ -13,9 +13,6 @@
  * @brief Base class that converts a set of submissions to a Native XML document
  */
 
-use DOMDocument;
-use Exception;
-
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
 use PKP\submission\SubmissionFile;

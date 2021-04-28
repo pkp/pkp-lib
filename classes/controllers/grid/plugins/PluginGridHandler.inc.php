@@ -19,6 +19,8 @@ import('lib.pkp.controllers.grid.plugins.PluginGalleryGridHandler');
 
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 abstract class PluginGridHandler extends CategoryGridHandler
 {
@@ -106,7 +108,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
         // Grid level actions.
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         if (in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
-            import('lib.pkp.classes.linkAction.request.AjaxModal');
 
             // Install plugin.
             $this->addAction(

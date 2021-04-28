@@ -12,11 +12,11 @@
  * @brief Class defining an AJAX action.
  */
 
+namespace PKP\linkAction\request;
 
 define('AJAX_REQUEST_TYPE_GET', 'get');
 define('AJAX_REQUEST_TYPE_POST', 'post');
 
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
 class AjaxAction extends LinkActionRequest
 {
@@ -86,4 +86,8 @@ class AjaxAction extends LinkActionRequest
             'requestType' => $this->getRequestType()
         ];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\AjaxAction', '\AjaxAction');
 }

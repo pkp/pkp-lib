@@ -18,10 +18,9 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
-// Link action & modal classes
-import('lib.pkp.classes.linkAction.request.AjaxModal');
-
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class UserGroupGridHandler extends GridHandler
 {

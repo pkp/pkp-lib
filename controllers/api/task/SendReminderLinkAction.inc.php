@@ -13,7 +13,8 @@
  * @brief An action to open up a modal to send a reminder to users assigned to a task.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class SendReminderLinkAction extends LinkAction
 {
@@ -27,7 +28,6 @@ class SendReminderLinkAction extends LinkAction
     {
         // Instantiate the send review modal.
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
 
         $ajaxModal = new AjaxModal(
             $router->url($request, null, null, 'editReminder', null, $actionArgs),

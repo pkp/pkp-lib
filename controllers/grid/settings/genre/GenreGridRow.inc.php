@@ -15,6 +15,10 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
+
 class GenreGridRow extends GridRow
 {
     //
@@ -38,7 +42,6 @@ class GenreGridRow extends GridRow
                 'genreId' => $rowId
             ];
 
-            import('lib.pkp.classes.linkAction.request.AjaxModal');
             $this->addAction(
                 new LinkAction(
                     'editGenre',
@@ -53,7 +56,6 @@ class GenreGridRow extends GridRow
                 )
             );
 
-            import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
             $this->addAction(
                 new LinkAction(
                     'deleteGenre',

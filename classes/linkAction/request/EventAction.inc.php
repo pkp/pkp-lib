@@ -12,8 +12,7 @@
  * @brief This action triggers a Javascript event.
  */
 
-
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+namespace PKP\linkAction\request;
 
 class EventAction extends LinkActionRequest
 {
@@ -65,4 +64,8 @@ class EventAction extends LinkActionRequest
             ]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\EventAction', '\EventAction');
 }

@@ -15,6 +15,10 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RedirectConfirmationModal;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
+
 class StageParticipantGridRow extends GridRow
 {
     /** @var Submission */
@@ -57,7 +61,6 @@ class StageParticipantGridRow extends GridRow
         if (!empty($rowId) && is_numeric($rowId)) {
             // Only add row actions if this is an existing row.
             $router = $request->getRouter();
-            import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
             if ($this->_canAdminister) {
                 $this->addAction(
                     new LinkAction(
@@ -104,7 +107,6 @@ class StageParticipantGridRow extends GridRow
                 Validation::canAdminister($userId, $user->getId())
             ) {
                 $dispatcher = $router->getDispatcher();
-                import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
                 $userGroupDAO = DAORegistry::getDAO('UserGroupDAO');
                 $userGroup = $userGroupDAO->getById($userGroupId, $context->getId());
 

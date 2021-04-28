@@ -14,6 +14,8 @@
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
+use PKP\linkAction\LinkAction;
+
 class ReviewFormGridCellProvider extends GridCellProvider
 {
     /**
@@ -53,7 +55,6 @@ class ReviewFormGridCellProvider extends GridCellProvider
                 $element = $row->getData(); /** @var \PKP\core\DataObject $element */
 
                 $router = $request->getRouter();
-                import('lib.pkp.classes.linkAction.LinkAction');
 
                 if ($element->getActive()) {
                     return [new LinkAction(

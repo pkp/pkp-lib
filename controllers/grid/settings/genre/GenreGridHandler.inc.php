@@ -18,6 +18,9 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.settings.genre.GenreGridRow');
 
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 class GenreGridHandler extends SetupGridHandler
 {
@@ -67,7 +70,6 @@ class GenreGridHandler extends SetupGridHandler
         $router = $request->getRouter();
         $actionArgs = ['gridId' => $this->getId()];
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $this->addAction(
             new LinkAction(
                 'addGenre',
@@ -82,7 +84,6 @@ class GenreGridHandler extends SetupGridHandler
             )
         );
 
-        import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
         $this->addAction(
             new LinkAction(
                 'restoreGenres',

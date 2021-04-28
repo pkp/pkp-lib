@@ -19,6 +19,9 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 // Other classes associated with this grid
 import('lib.pkp.controllers.grid.notifications.NotificationsGridCellProvider');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\NullAction;
+
 class NotificationsGridHandler extends GridHandler
 {
     /** @var array $_selectedNotificationIds Set of selected IDs */
@@ -53,7 +56,6 @@ class NotificationsGridHandler extends GridHandler
         // Set the no items row text
         $this->setEmptyRowText('grid.noItems');
 
-        import('lib.pkp.classes.linkAction.request.NullAction');
         $this->addAction(
             new LinkAction(
                 'markNew',

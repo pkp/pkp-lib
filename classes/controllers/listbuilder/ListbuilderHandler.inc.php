@@ -33,8 +33,10 @@ define('LISTBUILDER_SAVE_TYPE_INTERNAL', 1); // Using ListbuilderHandler::save
 define('LISTBUILDER_OPTGROUP_LABEL', 'optGroupLabel');
 
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+
+use PKP\linkAction\request\NullAction;
 
 class ListbuilderHandler extends GridHandler
 {
@@ -57,7 +59,6 @@ class ListbuilderHandler extends GridHandler
         parent::initialize($request, $args);
 
         if ($this->canAddItems()) {
-            import('lib.pkp.classes.linkAction.request.NullAction');
             $this->addAction($this->getAddItemLinkAction(new NullAction()));
         }
     }

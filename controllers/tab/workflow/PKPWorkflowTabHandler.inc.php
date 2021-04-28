@@ -13,15 +13,15 @@
  * @brief Handle AJAX operations for workflow tabs.
  */
 
-// Import the base Handler.
-use APP\handler\Handler;
-
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
+use APP\handler\Handler;
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 abstract class PKPWorkflowTabHandler extends Handler
 {
@@ -104,7 +104,6 @@ abstract class PKPWorkflowTabHandler extends Handler
                 if ($submission->getStageId() == $selectedStageId && count($reviewRoundsArray) > 0) {
                     $dispatcher = $request->getDispatcher();
 
-                    import('lib.pkp.classes.linkAction.request.AjaxModal');
                     $newRoundAction = new LinkAction(
                         'newRound',
                         new AjaxModal(

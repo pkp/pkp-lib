@@ -12,8 +12,7 @@
  * @brief Class defining a simple confirmation modal either with remote action or not.
  */
 
-
-import('lib.pkp.classes.linkAction.request.Modal');
+namespace PKP\linkAction\request;
 
 class ConfirmationModal extends Modal
 {
@@ -112,4 +111,8 @@ class ConfirmationModal extends Modal
             'cancelButton' => $this->getCancelButton(),
             'dialogText' => $this->getDialogText()]);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\ConfirmationModal', '\ConfirmationModal');
 }

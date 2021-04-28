@@ -13,7 +13,8 @@
  * @brief An action to open the competing interests confirmation modal.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\ConfirmationModal;
 
 class ViewCompetingInterestGuidelinesLinkAction extends LinkAction
 {
@@ -26,7 +27,6 @@ class ViewCompetingInterestGuidelinesLinkAction extends LinkAction
     {
         $context = $request->getContext();
         // Instantiate the view competing interests modal.
-        import('lib.pkp.classes.linkAction.request.ConfirmationModal');
         $viewCompetingInterestsModal = new ConfirmationModal(
             $context->getLocalizedData('competingInterests'),
             __('reviewer.submission.competingInterests'),

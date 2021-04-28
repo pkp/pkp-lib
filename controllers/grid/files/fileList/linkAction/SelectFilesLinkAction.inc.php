@@ -13,7 +13,8 @@
  *  select files from a file list grid.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class SelectFilesLinkAction extends LinkAction
 {
@@ -30,7 +31,6 @@ class SelectFilesLinkAction extends LinkAction
     {
         // Create an ajax action request that'll contain
         // the file selection grid.
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $modalTitle = $modalTitle ?? $actionLabel;
         $router = $request->getRouter();
         $ajaxModal = new AjaxModal(

@@ -17,6 +17,8 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.announcements.form.AnnouncementTypeForm');
 
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class AnnouncementTypeGridHandler extends GridHandler
 {
@@ -98,7 +100,6 @@ class AnnouncementTypeGridHandler extends GridHandler
         // Add grid action.
         $router = $request->getRouter();
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $this->addAction(
             new LinkAction(
                 'addAnnouncementType',

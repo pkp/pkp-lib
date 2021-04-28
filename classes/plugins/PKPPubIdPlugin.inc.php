@@ -16,12 +16,11 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
-use LinkAction;
-
 use PKP\core\JSONMessage;
-
-// FIXME: Add namespacing
 use PKP\db\DAORegistry;
+use PKP\linkAction\LinkAction;
+
+use PKP\linkAction\request\AjaxModal;
 
 abstract class PKPPubIdPlugin extends LazyLoadPlugin
 {
@@ -61,7 +60,6 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     public function getActions($request, $actionArgs)
     {
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         return array_merge(
             $this->getEnabled() ? [
                 new LinkAction(

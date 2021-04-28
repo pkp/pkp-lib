@@ -12,8 +12,7 @@
  * @brief Class defining a simple confirmation modal with a redirect url and ok/cancel buttons.
  */
 
-
-import('lib.pkp.classes.linkAction.request.ConfirmationModal');
+namespace PKP\linkAction\request;
 
 class RedirectConfirmationModal extends ConfirmationModal
 {
@@ -72,4 +71,8 @@ class RedirectConfirmationModal extends ConfirmationModal
         $parentLocalizedOptions['remoteUrl'] = $this->getRemoteUrl();
         return $parentLocalizedOptions;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\RedirectConfirmationModal', '\RedirectConfirmationModal');
 }

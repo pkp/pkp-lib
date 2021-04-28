@@ -18,6 +18,8 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class NavigationMenuItemsGridHandler extends GridHandler
 {
@@ -103,8 +105,6 @@ class NavigationMenuItemsGridHandler extends GridHandler
 
         // Add grid action.
         $router = $request->getRouter();
-
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
 
         $this->addAction(
             new LinkAction(

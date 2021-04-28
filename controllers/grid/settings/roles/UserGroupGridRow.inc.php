@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
+
 class UserGroupGridRow extends GridRow
 {
     //
@@ -52,7 +55,6 @@ class UserGroupGridRow extends GridRow
                 'edit'
             ));
 
-            import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
             $this->addAction(new LinkAction(
                 'removeUserGroup',
                 new RemoteActionConfirmationModal(

@@ -12,8 +12,7 @@
  * @brief This action request redirects to another page.
  */
 
-
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+namespace PKP\linkAction\request;
 
 class OpenWindowAction extends LinkActionRequest
 {
@@ -64,4 +63,8 @@ class OpenWindowAction extends LinkActionRequest
     {
         return ['url' => $this->getUrl()];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\OpenWindowAction', '\OpenWindowAction');
 }

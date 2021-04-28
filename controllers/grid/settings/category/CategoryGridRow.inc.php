@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
+
 class CategoryGridRow extends GridRow
 {
     //
@@ -52,7 +55,6 @@ class CategoryGridRow extends GridRow
                 'edit'
             ));
 
-            import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
             $this->addAction(new LinkAction(
                 'removeCategory',
                 new RemoteActionConfirmationModal(

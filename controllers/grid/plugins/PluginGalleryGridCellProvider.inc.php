@@ -13,8 +13,9 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');
-import('lib.pkp.classes.linkAction.request.AjaxModal');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 use PKP\plugins\GalleryPlugin;
 
 class PluginGalleryGridCellProvider extends GridCellProvider

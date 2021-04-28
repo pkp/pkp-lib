@@ -16,6 +16,7 @@
 
 use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\linkAction\LinkAction;
 use PKP\mail\SubmissionMailTemplate;
 
 use PKP\submission\SubmissionFile;

@@ -13,7 +13,8 @@
  * @brief An action to open up the review notes for a review assignments.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 class ReviewNotesLinkAction extends LinkAction
 {
@@ -32,7 +33,6 @@ class ReviewNotesLinkAction extends LinkAction
     {
         // Instantiate the information center modal.
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $actionArgs = [
             'submissionId' => $reviewAssignment->getSubmissionId(),
             'reviewAssignmentId' => $reviewAssignment->getId(),

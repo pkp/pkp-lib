@@ -15,15 +15,13 @@
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
-
-// import UI base classes
-import('lib.pkp.classes.linkAction.LinkAction');
-import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 abstract class PKPWorkflowHandler extends Handler
 {
@@ -559,7 +557,6 @@ abstract class PKPWorkflowHandler extends Handler
             }
         }
 
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
         $editorActions = [];
         $editorDecisions = [];
         $lastRecommendation = $allRecommendations = null;

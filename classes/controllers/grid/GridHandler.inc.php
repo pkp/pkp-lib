@@ -36,9 +36,6 @@
  * AnnouncementTypeGridHandler.
  */
 
-// Import action class.
-import('lib.pkp.classes.linkAction.LinkAction');
-
 // Import grid classes.
 import('lib.pkp.classes.controllers.grid.GridColumn');
 import('lib.pkp.classes.controllers.grid.GridRow');
@@ -51,8 +48,10 @@ define('GRID_ACTION_POSITION_BELOW', 'below');
 
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-
 use PKP\handler\PKPHandler;
+use PKP\linkAction\LinkAction;
+
+use PKP\linkAction\request\NullAction;
 
 class GridHandler extends PKPHandler
 {
@@ -677,7 +676,6 @@ class GridHandler extends PKPHandler
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APP_COMMON);
 
         if ($this->getFilterForm() && $this->isFilterFormCollapsible()) {
-            import('lib.pkp.classes.linkAction.request.NullAction');
             $this->addAction(
                 new LinkAction(
                     'search',

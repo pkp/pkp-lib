@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
+
 class PluginGridRow extends GridRow
 {
     /** @var Array */
@@ -67,7 +70,6 @@ class PluginGridRow extends GridRow
 
             // Administrative functions.
             if (in_array(ROLE_ID_SITE_ADMIN, $this->_userRoles)) {
-                import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
                 $this->addAction(new LinkAction(
                     'delete',
                     new RemoteActionConfirmationModal(

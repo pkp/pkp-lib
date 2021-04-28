@@ -16,7 +16,8 @@
  * @brief An action to allow editors to unconsider a review.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 class UnconsiderReviewLinkAction extends LinkAction
 {
@@ -31,7 +32,6 @@ class UnconsiderReviewLinkAction extends LinkAction
     public function __construct($request, $reviewAssignment, $submission)
     {
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
         parent::__construct(
             'unconsiderReview',
             new RemoteActionConfirmationModal(

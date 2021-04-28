@@ -13,8 +13,7 @@
  * to detailed description.
  */
 
-
-import('lib.pkp.classes.linkAction.request.RedirectAction');
+namespace PKP\linkAction\request;
 
 class PostAndRedirectAction extends RedirectAction
 {
@@ -70,4 +69,8 @@ class PostAndRedirectAction extends RedirectAction
             ['postUrl' => $this->getPostUrl()]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\PostAndRedirectAction', '\PostAndRedirectAction');
 }

@@ -12,8 +12,7 @@
  * @brief Class defining a simple confirmation modal which generates a JS event and ok/cancel buttons.
  */
 
-
-import('lib.pkp.classes.linkAction.request.ConfirmationModal');
+namespace PKP\linkAction\request;
 
 use PKP\core\JSONMessage;
 
@@ -94,4 +93,8 @@ class JsEventConfirmationModal extends ConfirmationModal
         }
         return $parentLocalizedOptions;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\JsEventConfirmationModal', '\JsEventConfirmationModal');
 }

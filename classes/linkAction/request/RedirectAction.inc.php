@@ -12,8 +12,7 @@
  * @brief This action request redirects to another page.
  */
 
-
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+namespace PKP\linkAction\request;
 
 class RedirectAction extends LinkActionRequest
 {
@@ -100,4 +99,8 @@ class RedirectAction extends LinkActionRequest
             'specs' => $this->getSpecs()
         ];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\RedirectAction', '\RedirectAction');
 }

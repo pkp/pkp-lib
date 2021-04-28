@@ -26,7 +26,6 @@ require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.ph
 use APP\core\Application;
 use APP\core\Services;
 use APP\file\PublicFileManager;
-
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use Exception;
@@ -36,10 +35,13 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
-use PKP\core\Registry;
 
+use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\form\FormBuilderVocabulary;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\NullAction;
+
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 use Smarty;
@@ -1438,8 +1440,6 @@ class PKPTemplateManager extends Smarty
         $image = $params['image'] ?? null;
         $translate = isset($params['translate']) ? false : true;
 
-        import('lib.pkp.classes.linkAction.request.NullAction');
-        import('lib.pkp.classes.linkAction.LinkAction');
         $key = $translate ? __($key) : $key;
         $this->assign('action', new LinkAction(
             $id,

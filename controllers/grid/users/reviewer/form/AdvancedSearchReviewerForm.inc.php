@@ -16,6 +16,9 @@
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
 use APP\template\TemplateManager;
+use PKP\linkAction\LinkAction;
+
+use PKP\linkAction\request\AjaxAction;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
 {

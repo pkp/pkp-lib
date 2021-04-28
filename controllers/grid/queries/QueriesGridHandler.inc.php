@@ -16,11 +16,11 @@
 // import grid base classes
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
-// Link action & modal classes
-import('lib.pkp.classes.linkAction.request.AjaxModal');
-
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 use PKP\mail\SubmissionMailTemplate;
 
@@ -465,7 +465,6 @@ class QueriesGridHandler extends GridHandler
 
         // If appropriate, create an Edit action for the participants list
         if ($this->getAccessHelper()->getCanEdit($query->getId())) {
-            import('lib.pkp.classes.linkAction.request.AjaxModal');
             $editAction = new LinkAction(
                 'editQuery',
                 new AjaxModal(
@@ -480,7 +479,6 @@ class QueriesGridHandler extends GridHandler
             $editAction = null;
         }
 
-        import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
         $leaveQueryLinkAction = new LinkAction(
             'leaveQuery',
             new RemoteActionConfirmationModal(

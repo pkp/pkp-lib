@@ -26,10 +26,11 @@ define('REVIEWER_SELECT_CREATE', 0x00000002);
 define('REVIEWER_SELECT_ENROLL_EXISTING', 0x00000003);
 
 use APP\core\Services;
-
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+
+use PKP\linkAction\request\AjaxModal;
 use PKP\mail\SubmissionMailTemplate;
 
 class PKPReviewerGridHandler extends GridHandler
@@ -201,7 +202,6 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Grid actions
         if (!$this->_isCurrentUserAssignedAuthor) {
-            import('lib.pkp.classes.linkAction.request.AjaxModal');
             $router = $request->getRouter();
             $actionArgs = array_merge($this->getRequestArgs(), ['selectionType' => REVIEWER_SELECT_ADVANCED_SEARCH]);
             $this->addAction(

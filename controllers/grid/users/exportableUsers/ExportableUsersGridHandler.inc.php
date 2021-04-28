@@ -14,11 +14,12 @@
  */
 
 use PKP\identity\Identity;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\user\UserDAO;
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-import('lib.pkp.classes.linkAction.request.RedirectConfirmationModal');
 
 class ExportableUsersGridHandler extends GridHandler
 {

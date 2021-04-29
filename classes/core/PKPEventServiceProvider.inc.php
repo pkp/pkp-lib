@@ -16,7 +16,10 @@
 namespace PKP\core;
 
 use Illuminate\Events\EventServiceProvider;
+use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Str;
+use SplFileInfo;
 
 class PKPEventServiceProvider extends EventServiceProvider
 {
@@ -48,7 +51,10 @@ class PKPEventServiceProvider extends EventServiceProvider
      */
     public function getEvents()
     {
-        return $this->listens();
+        return array_merge_recursive(
+            $this->discoveredEvents(),
+            $this->listens()
+        );
     }
 
     /**
@@ -77,6 +83,82 @@ class PKPEventServiceProvider extends EventServiceProvider
         foreach ($this->subscribe as $subscriber) {
             Event::subscribe($subscriber);
         }
+    }
+
+    /**
+     * Determine if events and listeners should be automatically discovered.
+     *
+     * @return bool
+     */
+    public function shouldDiscoverEvents()
+    {
+        return true;
+    }
+
+    /**
+     * Get the discovered events for the application.
+     *
+     * @return array
+     */
+    protected function discoveredEvents()
+    {
+        return $this->shouldDiscoverEvents()
+            ? $this->discoverEvents()
+            : [];
+    }
+
+    /**
+     * Discover the events and listeners for the application.
+     *
+     * @return array
+     */
+    public function discoverEvents()
+    {
+
+        // Adapt classes naming convention
+        $discoverEvents = new class extends DiscoverEvents
+        {
+            /**
+             * @param SplFileInfo $file
+             * @param string $basePath base path of the application
+             * @return string listener's full class name
+             */
+            protected static function classFromFile(SplFileInfo $file, $basePath): string
+            {
+                $pathFromBase = trim(Str::replaceFirst($basePath, '', $file->getRealPath()), DIRECTORY_SEPARATOR);
+                $libPath = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR;
+                $namespace = Str::startsWith($pathFromBase, $libPath) ? 'PKP\\' : 'APP\\';
+
+                $path = $pathFromBase;
+                if ($namespace === 'PKP\\') $path = Str::replaceFirst($libPath, '', $path);
+                if (Str::startsWith($path, 'classes'))  $path = Str::replaceFirst('classes' . DIRECTORY_SEPARATOR, '', $path);
+                return $namespace . str_replace('/', '\\', Str::replaceLast('.inc.php', '', $path));
+            }
+        };
+
+        return collect($this->discoverEventsWithin())
+            ->reject(function ($directory) {
+                return ! is_dir($directory);
+            })
+            ->reduce(function ($discovered, $directory) use ($discoverEvents) {
+                return array_merge_recursive(
+                    $discovered,
+                    $discoverEvents::within($directory, base_path())
+                );
+            }, []);
+    }
+
+    /**
+     * Get the listener directories that should be used to discover events.
+     *
+     * @return array
+     */
+    protected function discoverEventsWithin()
+    {
+        return [
+            $this->app->basePath('lib/pkp/classes/observers/listeners'),
+            $this->app->basePath('classes/observers/listeners'),
+        ];
     }
 }
 

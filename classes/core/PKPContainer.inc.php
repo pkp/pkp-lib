@@ -18,16 +18,22 @@ namespace PKP\core;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Facade;
-
 use PKP\config\Config;
 
 class PKPContainer extends Container
 {
     /**
+     * @var string
+     * @brief the base path of the application, needed for base_path helper
+     */
+    protected string $basePath;
+
+    /**
      * @brief Create own container instance, initialize bindings
      */
     public function __construct()
     {
+        $this->basePath = BASE_SYS_DIR;
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
     }
@@ -41,6 +47,7 @@ class PKPContainer extends Container
         static::setInstance($this);
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
+        $this->instance('path', $this->basePath);
         $this->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
             return new class() implements Illuminate\Contracts\Debug\ExceptionHandler {
                 public function shouldReport(Throwable $e)
@@ -155,6 +162,22 @@ class PKPContainer extends Container
         ];
 
         $this->instance('config', new Repository($items)); // create instance and bind to use globally
+    }
+
+    /**
+     * @param string $path appended to the base path
+     * @brief see Illuminate\Foundation\Application::basePath
+     */
+    public function basePath($path = '') {
+        return $this->basePath . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+    }
+
+    /**
+     * @param string $path appended to the path
+     * @brief alias of basePath(), Laravel app path differs from installation path
+     */
+    public function path($path = '') {
+        return $this->basePath($path);
     }
 }
 

@@ -13,14 +13,12 @@
  * @brief Handle requests for reviewer functions.
  */
 
-use APP\handler\Handler;
 
 import('lib.pkp.classes.submission.reviewer.ReviewerAction');
 
+use APP\handler\Handler;
+
 use APP\template\TemplateManager;
-
-use Exception;
-
 use PKP\core\JSONMessage;
 
 class PKPReviewerHandler extends Handler

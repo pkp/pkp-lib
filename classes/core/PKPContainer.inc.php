@@ -27,7 +27,7 @@ class PKPContainer extends Container
      * @var string
      * @brief the base path of the application, needed for base_path helper
      */
-    protected string $basePath;
+    protected $basePath;
 
     /**
      * @brief Create own container instance, initialize bindings

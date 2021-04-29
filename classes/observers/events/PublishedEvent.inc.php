@@ -24,13 +24,13 @@ class PublishedEvent
     use Dispatchable;
 
     /** @var PKPPublication $newPublication The publication being published */
-    public PKPPublication $newPublication;
+    public $newPublication;
 
     /** @var PKPPublication $publication Old publication, before processing */
-    public PKPPublication $publication;
+    public $publication;
 
     /** @var PKPSubmission $submission Submission associated with the publication */
-    public PKPSubmission $submission;
+    public $submission;
 
     public function __construct(PKPPublication $newPublication, PKPPublication $publication, PKPSubmission $submission)
     {

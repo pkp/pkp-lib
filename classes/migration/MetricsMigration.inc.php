@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -55,4 +57,8 @@ class MetricsMigration extends Migration
     {
         Schema::drop('metrics');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\MetricsMigration', '\MetricsMigration');
 }

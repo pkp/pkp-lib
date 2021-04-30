@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema as Schema;
@@ -75,4 +77,8 @@ class AnnouncementsMigration extends Migration
         Schema::drop('announcements');
         Schema::drop('announcement_settings');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\AnnouncementsMigration', '\AnnouncementsMigration');
 }

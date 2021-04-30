@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -68,4 +70,8 @@ class ControlledVocabMigration extends Migration
         Schema::drop('controlled_vocab_entries');
         Schema::drop('controlled_vocabs');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\ControlledVocabMigration', '\ControlledVocabMigration');
 }

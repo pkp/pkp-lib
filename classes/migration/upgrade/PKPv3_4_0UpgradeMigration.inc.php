@@ -11,6 +11,8 @@
  * @brief Describe upgrade/downgrade operations from 3.3.x to 3.4.0.
  */
 
+namespace PKP\migration\upgrade;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -77,4 +79,8 @@ class PKPv3_4_0UpgradeMigration extends Migration
             $table->dropUnique('review_assignment_reviewer_round_unique');
         });
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\upgrade\PKPv3_4_0UpgradeMigration', '\PKPv3_4_0UpgradeMigration');
 }

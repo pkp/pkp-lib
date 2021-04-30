@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -59,4 +61,8 @@ class LibraryFilesMigration extends Migration
         Schema::drop('library_file_settings');
         Schema::drop('libraryR_files');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\LibraryFilesMigration', '\LibraryFilesMigration');
 }

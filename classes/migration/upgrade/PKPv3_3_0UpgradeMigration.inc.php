@@ -11,12 +11,19 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration\upgrade;
+
+use APP\core\Application;
+use APP\core\Services;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-
+use PKP\config\Config;
+use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
+
 use PKP\file\FileManager;
 use PKP\submission\SubmissionFile;
 
@@ -690,4 +697,8 @@ class PKPv3_3_0UpgradeMigration extends Migration
             error_log('Failed to create title for custom blocks. This can be fixed manually by editing each custom block and adding a title.');
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\upgrade\PKPv3_3_0UpgradeMigration', '\PKPv3_3_0UpgradeMigration');
 }

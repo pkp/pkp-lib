@@ -93,7 +93,7 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
      */
     public function upgrade()
     {
-        $installer = new \Upgrade([]);
+        $installer = new Upgrade([]);
         $installer->setLogger($this);
 
         if ($installer->execute()) {

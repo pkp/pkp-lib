@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -264,4 +266,8 @@ class CommonMigration extends Migration
         Schema::drop('site');
         Schema::drop('versions');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\CommonMigration', '\CommonMigration');
 }

@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -81,4 +83,8 @@ class NavigationMenusMigration extends Migration
         Schema::drop('navigation_menu_items');
         Schema::drop('navigation_menus');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\NavigationMenusMigration', '\NavigationMenusMigration');
 }

@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -114,4 +116,8 @@ class MetadataMigration extends Migration
         Schema::drop('citation_settings');
         Schema::drop('citations');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\MetadataMigration', '\MetadataMigration');
 }

@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -74,4 +76,8 @@ class SubmissionFilesMigration extends Migration
         Schema::drop('submission_file_settings');
         Schema::drop('submission_files');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\SubmissionFilesMigration', '\SubmissionFilesMigration');
 }

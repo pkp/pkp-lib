@@ -11,6 +11,8 @@
  * @brief pkp/pkp-lib#5694 Allow subeditors to be assigned to Categories
  */
 
+namespace PKP\migration\upgrade;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -54,4 +56,8 @@ class PKPv3_2_1SubeditorCategoriesMigration extends Migration
     {
         throw new PKP\install\DowngradeNotSupportedException();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\upgrade\PKPv3_2_1SubeditorCategoriesMigration', '\PKPv3_2_1SubeditorCategoriesMigration');
 }

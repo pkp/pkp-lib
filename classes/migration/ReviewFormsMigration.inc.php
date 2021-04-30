@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -85,4 +87,8 @@ class ReviewFormsMigration extends Migration
         Schema::drop('review_form_settings');
         Schema::drop('review_forms');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\ReviewFormsMigration', '\ReviewFormsMigration');
 }

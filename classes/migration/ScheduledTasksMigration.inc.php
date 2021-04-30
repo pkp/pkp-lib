@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -37,4 +39,8 @@ class ScheduledTasksMigration extends Migration
     {
         Schema::drop('scheduled_tasks');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\ScheduledTasksMigration', '\ScheduledTasksMigration');
 }

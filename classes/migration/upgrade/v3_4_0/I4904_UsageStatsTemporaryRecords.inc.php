@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/3_4_0/I4904_UsageStatsTemporaryRecords.inc.php
+ * @file classes/migration/upgrade/v3_4_0/I4904_UsageStatsTemporaryRecords.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -10,6 +10,8 @@
  * @class I4904_UsageStatsTemporaryRecords
  * @brief Describe upgrade/downgrade operations for DB table usage_stats_temporary_records.
  */
+
+namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -36,4 +38,8 @@ class I4904_UsageStatsTemporaryRecords extends Migration
     public function down()
     {
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\upgrade\v3_4_0\I4904_UsageStatsTemporaryRecords', '\I4904_UsageStatsTemporaryRecords');
 }

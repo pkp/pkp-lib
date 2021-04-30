@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -93,4 +95,8 @@ class RolesAndUserGroupsMigration extends Migration
         Schema::drop('user_group_settings');
         Schema::drop('user_groups');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\RolesAndUserGroupsMigration', '\RolesAndUserGroupsMigration');
 }

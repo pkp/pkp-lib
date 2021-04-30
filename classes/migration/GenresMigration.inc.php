@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -57,4 +59,8 @@ class GenresMigration extends Migration
         Schema::drop('genre_settings');
         Schema::drop('genres');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\GenresMigration', '\GenresMigration');
 }

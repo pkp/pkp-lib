@@ -11,6 +11,8 @@
  * @brief Create the files database table
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -37,4 +39,8 @@ class FilesMigration extends Migration
     {
         Schema::drop('files');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\FilesMigration', '\FilesMigration');
 }

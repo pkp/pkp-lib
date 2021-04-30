@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -63,4 +65,8 @@ class TombstoneMigration extends Migration
         Schema::drop('data_object_tombstone_settings');
         Schema::drop('data_object_tombstones');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\TombstoneMigration', '\TombstoneMigration');
 }

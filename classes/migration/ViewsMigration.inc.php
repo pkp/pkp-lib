@@ -11,6 +11,8 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -39,4 +41,8 @@ class ViewsMigration extends Migration
     {
         Schema::drop('item_views');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\ViewsMigration', '\ViewsMigration');
 }

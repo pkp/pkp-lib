@@ -11,12 +11,17 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration\upgrade;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 use PKP\services\PKPSchemaService;
+use PKP\db\DAORegistry;
+
+use APP\core\Services;
 
 class OPSv3_3_0UpgradeMigration extends Migration
 {
@@ -216,4 +221,8 @@ class OPSv3_3_0UpgradeMigration extends Migration
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
         });
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\upgrade\OPSv3_3_0UpgradeMigration', '\OPSv3_3_0UpgradeMigration');
 }

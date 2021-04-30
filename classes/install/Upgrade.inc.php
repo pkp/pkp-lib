@@ -16,7 +16,11 @@
 namespace APP\install;
 
 use PKP\install\Installer;
+use PKP\db\DAORegistry;
+use PKP\core\PKPString;
 
+use APP\core\Application;
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 
 class Upgrade extends Installer

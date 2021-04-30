@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/3_4_0/I6759_RenameVariables.inc.php
+ * @file classes/migration/upgrade/v3_4_0/I6759_RenameVariables.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,10 +11,16 @@
  * @brief Describe database table structures.
  */
 
+namespace PKP\migration\upgrade\v3_4_0;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+
+use PKP\config\Config;
+
+use APP\core\Application;
 
 class I6759_RenameVariables extends Migration
 {
@@ -132,4 +138,8 @@ class I6759_RenameVariables extends Migration
         $publicFilesDir = Config::getVar('files', 'public_files_dir');
         rename($publicFilesDir . '/journals/', $publicFilesDir . '/contexts/');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\upgrade\v3_4_0\I6759_RenameVariables', '\I6759_RenameVariables');
 }

@@ -11,6 +11,8 @@
  * @brief Update last modification dates where they are not yet set.
  */
 
+namespace APP\migration\upgrade\v3_4_0;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
@@ -32,4 +34,8 @@ class I6807_SetLastModified extends Migration
     {
         // We don't have the data to downgrade and downgrades are unwanted here anyway.
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\migration\upgrade\v3_4_0\I6807_SetLastModified', '\I6807_SetLastModified');
 }

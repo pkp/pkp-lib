@@ -13,6 +13,10 @@
  * @brief Base class for data object tombstones.
  */
 
+namespace PKP\tombstone;
+
+use PKP\core\Core;
+
 class DataObjectTombstone extends \PKP\core\DataObject
 {
     /**
@@ -177,4 +181,8 @@ class DataObjectTombstone extends \PKP\core\DataObject
     {
         $this->setData('OAISetObjectsIds', $OAISetObjectsIds);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\tombstone\DataObjectTombstone', '\DataObjectTombstone');
 }

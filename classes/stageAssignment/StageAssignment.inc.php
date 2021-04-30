@@ -21,6 +21,8 @@
  * @brief Basic class describing a Stage Assignment.
  */
 
+namespace PKP\stageAssignment;
+
 class StageAssignment extends \PKP\core\DataObject
 {
     //
@@ -163,4 +165,8 @@ class StageAssignment extends \PKP\core\DataObject
     {
         $this->setData('canChangeMetadata', $canChangeMetadata);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\stageAssignment\StageAssignment', '\StageAssignment');
 }

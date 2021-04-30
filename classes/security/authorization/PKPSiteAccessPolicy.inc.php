@@ -12,8 +12,6 @@
  * @brief Class to that makes sure that a user is logged in.
  */
 
-use Exception;
-
 define('SITE_ACCESS_ALL_ROLES', 0x01);
 
 import('lib.pkp.classes.security.authorization.PolicySet');

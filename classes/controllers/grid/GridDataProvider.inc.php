@@ -16,8 +16,6 @@
  * For general information about grids, see GridHandler.
  */
 
-use Exception;
-
 class GridDataProvider
 {
     /** @var array */

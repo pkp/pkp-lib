@@ -13,6 +13,7 @@
  * @brief Operations for retrieving and modifying submission tombstone settings.
  */
 
+namespace PKP\tombstone;
 
 class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
 {
@@ -126,4 +127,8 @@ class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
             [(int) $tombstoneId]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\tombstone\DataObjectTombstoneSettingsDAO', '\DataObjectTombstoneSettingsDAO');
 }

@@ -15,7 +15,11 @@
  * @brief Operations for retrieving and modifying StageAssignment objects.
  */
 
-import('lib.pkp.classes.stageAssignment.StageAssignment');
+namespace PKP\stageAssignment;
+
+use PKP\core\Core;
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 
 class StageAssignmentDAO extends \PKP\db\DAO
 {
@@ -403,4 +407,8 @@ class StageAssignmentDAO extends \PKP\db\DAO
         return 'SELECT ugs.stage_id AS stage_id, sa.* FROM stage_assignments sa
 			JOIN user_group_stage ugs ON sa.user_group_id = ugs.user_group_id ';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\stageAssignment\StageAssignmentDAO', '\StageAssignmentDAO');
 }

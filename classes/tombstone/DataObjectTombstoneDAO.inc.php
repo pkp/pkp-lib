@@ -15,7 +15,9 @@
  * @brief Base class for retrieving and modifying DataObjectTombstone objects.
  */
 
-import('lib.pkp.classes.tombstone.DataObjectTombstone');
+namespace PKP\tombstone;
+
+use PKP\db\DAORegistry;
 
 class DataObjectTombstoneDAO extends \PKP\db\DAO
 {
@@ -337,4 +339,8 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
 			WHERE dot.tombstone_id = ?' .
             (isset($assocId) && isset($assocType) ? 'AND oso.assoc_type = ? AND oso.assoc_id = ?' : '');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\tombstone\DataObjectTombstoneDAO', '\DataObjectTombstoneDAO');
 }

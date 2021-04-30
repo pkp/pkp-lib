@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-28 15:11+0000\n"
+"PO-Revision-Date: 2021-04-30 18:33+0000\n"
 "Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -2085,3 +2085,6 @@ msgstr "Այն պետք է լինի {$min}ի և  {$max}ի սահմանում։"
 
 msgid "validator.before"
 msgstr "Այս ամսաթիվը  պետք է լինի  {$date} ամսաթվից առաջ։"
+
+msgid "notification.type.pendingRevisions"
+msgstr "Revisions to consider in {$stage}."

@@ -19,9 +19,7 @@
 import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 
 use APP\handler\Handler;
-use Exception;
 use PKP\core\JSONMessage;
-
 use PKP\file\FileArchive;
 
 use PKP\submission\SubmissionFile;

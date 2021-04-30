@@ -15,9 +15,7 @@
  */
 
 use APP\core\Services;
-use Exception;
 use PKP\handler\APIHandler;
-
 use PKP\Services\Interfaces\EntityWriteInterface;
 
 use PKP\services\PKPSchemaService;

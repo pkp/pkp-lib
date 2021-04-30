@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-27 18:17+0000\n"
+"PO-Revision-Date: 2021-04-30 07:17+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ka_GE/>\n"
@@ -1521,3 +1521,588 @@ msgstr ""
 "88x31.png\" /></a><p>ეს ნამუშევარი ლიცენზირებულია <a rel=\"license\" href=\""
 "https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
 "3.0 Unported ლიცენზიით</a> .</p>"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.submit.availableUserGroups"
+msgstr "შეტანა, როგორც"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "აირჩიეთ როლი, რომელიც საუკეთესოდ აღწერს თქვენს წვლილს ამ წარდგენაში."
+
+msgid "submission.submit.contactConsent"
+msgstr "შესაბამისი კონტაქტი"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "დიახ, მსურს დამიკავშირდნენ ამ წარდგენის შესახებ."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"წარადგინეთ შემდეგი რომელიმე როლი, თუ გსურთ ამ რედაქტირების რედაქტირება და "
+"გამოქვეყნება თავად შეძლოთ: {$managerGroups}"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "მასალების მოთხოვნები"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"გაგრძელებამდე უნდა გაეცნოთ და დაადასტუროთ, რომ შეავსეთ ქვემოთ მოცემული "
+"მოთხოვნები."
+
+msgid "submission.submit.submissionComplete"
+msgstr "შეტანა დასრულებულია"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "გმადლობთ დაინტერესებისთვის, რომ გამოაქვეყნოთ გამოცემა {$contextName}."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "საავტორო უფლებების შესახებ განცხადება"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "დიახ, მე ვეთანხმები საავტორო უფლებების შესახებ განცხადების პირობებს."
+
+msgid "submission.submit.genre.label"
+msgstr "რა სახის ფაილია ეს?"
+
+msgid "submission.submit.genre.description"
+msgstr "აირჩიეთ ვარიანტი, რომელიც საუკეთესოდ აღწერს ამ ფაილს."
+
+msgid "submission.submit.genre.error"
+msgstr "გთხოვთ, აირჩიოთ ფაილის სახეობა თითოეული ატვირთვისთვის."
+
+msgid "submission.submit.removeConfirm"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ ფაილის წაშლა?"
+
+msgid "submission.submit.whatNext"
+msgstr "Შემდეგ რა მოხდება?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "ახლა თქვენ შეგიძლიათ:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "ამ შენატანის მიმოხილვა"
+
+msgid "submission.submit.whatNext.create"
+msgstr "ახალი შენატანის შექმნა"
+
+msgid "submission.submit.whatNext.return"
+msgstr "კონსოლში დაბრუნება"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "გაფართოებული მეტა-მონაცემები"
+
+msgid "submissions.queued"
+msgstr "რიგში"
+
+msgid "submissions.queuedUnassigned"
+msgstr "ამ წარდგინებას არცერთი რედაქტორი არ დაუნიშნავს."
+
+msgid "submissions.ruling"
+msgstr "მმართველი"
+
+msgid "submission.source.tip"
+msgstr ""
+"ეს წარდგენა სხვა რესურსიდან მომდინარეობს? თუ ასეა, შეგიძლიათ მიუთითოთ ამ "
+"რესურსის URL ან აღწერა."
+
+msgid "submissions.submitted"
+msgstr "დამატებულია"
+
+msgid "submission.submissionTitle"
+msgstr "წარდგენის სათაური:"
+
+msgid "submission.submissionHistory"
+msgstr "შეტანის ისტორია"
+
+msgid "submission.submissionManuscript"
+msgstr "წარდგენის ხელნაწერი"
+
+msgid "submission.submissionReview"
+msgstr "წარდგენის მიმოხილვა"
+
+msgid "submission.submit.selectFile"
+msgstr "ფაილის არჩევა"
+
+msgid "submission.submit.fileInformation"
+msgstr "ცნობები ფაილის შესახებ"
+
+msgid "submission.submit.fileAdded"
+msgstr "ფაილი დამატებულია"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "გსურთ ამ კონტრიბუტორის ჩართვა დაათვალიეროთ სიებში?"
+
+msgid "submission.submit.newFile"
+msgstr "სხვა ფაილის დამატება"
+
+msgid "submission.submit.metadataForm"
+msgstr "დამატებითი დახვეწები"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"დაამატეთ ინფორმაცია თქვენი წარდგენისთვის.  ყოველი ტერმინის შემდეგ დააჭირეთ "
+"ღილაკს 'enter'."
+
+msgid "submission.submit.submissionLocale"
+msgstr "შეტანის ენა"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"მასალები მიიღება რამდენიმე ენაზე. შეარჩიეთ წარდგენის ძირითადი ენა ზემოთ "
+"მოყვანილი სტრიქონიდან."
+
+msgid "submission.submit.submissionFiles"
+msgstr "შეტანის ფაილები"
+
+msgid "submission.submit.dependentFiles"
+msgstr "დაკავშირებული ფაილები"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"ატვირთეთ ნებისმიერი ფაილი, სარედაქციო ჯგუფს დასჭირდება თქვენი წარდგენის "
+"შეფასება."
+
+msgid "submission.upload.percentComplete"
+msgstr "ატვირთვა დასრულებულია {$percent}%"
+
+msgid "submission.upload.dependent"
+msgstr "დამოკიდებული ფაილის ატვირთვა"
+
+msgid "submission.upload.query"
+msgstr "ატვირთეთ სადისკუსიო ფაილი"
+
+msgid "submission.supportingAgencies"
+msgstr "მხარდამჭერი სააგენტოები"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} და სხვები."
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — განახლებულია {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "ვერსიები"
+
+msgid "submission.rights.tip"
+msgstr ""
+"თუ გსურთ, შეგიძლიათ შეიტანოთ მოკლე განცხადება ამ წარდგინებაში ან მის "
+"საფუძველზე დაცული წვდომის უფლებების შესახებ."
+
+msgid "submission.saveMetadata"
+msgstr "მეტა-მონაცემების შენახვა"
+
+msgid "submissions.incomplete"
+msgstr "დაუსრულებელი"
+
+msgid "submission.titleAndAbstract"
+msgstr "სათაური და აბსტრაქტი"
+
+msgid "submission.type.tip"
+msgstr ""
+"წარდგენის ტიპი, როგორც წესი, არის ერთ-ერთი: \"გამოსახულება”, \"ტექსტი”, ან "
+"სხვა მულტიმედიური ტიპის, მათ შორის \"პროგრამული უზრუნველყოფა\" ან \""
+"ინტერაქტიული\". გთხოვთ, აირჩიოთ ყველაზე შესაფერისი თქვენი წარდგენისთვის. "
+"მაგალითები შეგიძლიათ იხილოთ <a target=\"_blank\" href=\"http://dublincore."
+"org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore."
+"org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.underway"
+msgstr "მიმდინარეობს"
+
+msgid "submission.uploadFileTo"
+msgstr "ფაილის ატვირთვა"
+
+msgid "submission.viewMetadata"
+msgstr "მეტამონაცემების ნახვა"
+
+msgid "submission.uploadSuccessful"
+msgstr "თქვენი ფაილი აიტვირთა."
+
+msgid "submission.submit.contributorRole"
+msgstr "კონტრიბუტორის როლი"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "გთხოვთ, შეიტანოთ ენა."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "გთხოვთ, შეიტანოთ დისციპლინა."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "გთხოვთ, შეიტანოთ საკვანძო სიტყვა."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "გთხოვთ, შეიტანოთ ინფორმაცია დაფარვის შესახებ."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "გთხოვთ, შეიტანოთ ტიპი."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "გთხოვთ, შეიტანოთ წყარო."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "გთხოვთ, შეიტანოთ უფლებები."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "გთხოვთ, შეიტანოთ მითითებები."
+
+msgid "workflow.review.internalReview"
+msgstr "შიდა მიმოხილვა"
+
+msgid "workflow.stage.any"
+msgstr "ნებისმიერი ეტაპი"
+
+msgid "workflow.stage"
+msgstr "ეტაპი"
+
+msgid "submission.status.editorial"
+msgstr "მიმდინარეობს ლიტერატურული რედაქტირება"
+
+msgid "submission.status.production"
+msgstr "მიმდინარეობს კორექტურა"
+
+msgid "submission.status.submission"
+msgstr "ელოდება რედაქტორის გადაწყვეტილებას"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. ფაილის ატვირთვა"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "შეტანის ფაილის ატვირთვა"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. მიმოხილვის დეტალები"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. დადასტურება"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "ამ ფაილისთვის უნდა მიუთითოთ ფაილის სახელი"
+
+msgid "submission.upload.noGenre"
+msgstr "დაკარგული ან არასწორი კომპონენტი!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "დაკარგული ან არასწორი მომხმარებლის ჯგუფი!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "გამოვლენილია შესაძლო დუბლირება ან შესწორება"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"ატვირთული ფაილის სახელი ჰგავს ადრე ატვირთულ ფაილის სახელს, \""
+"{$revisedFileName}\". ეს ფაილი აპირებს შეცვალოს \"{$revisedFileName}\" "
+"ფაილი? თუ ასეა, აირჩიეთ ფაილი ქვემოთ. წინააღმდეგ შემთხვევაში, გაგრძელებამდე "
+"აირჩიეთ \"ეს არ არის არსებული ფაილის გადახედვა\"."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "გთხოვთ, აირჩიოთ ფაილი, რომლის გადახედვაც გსურთ."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "თუ ატვირთავთ არსებულ ფაილს, გთხოვთ მიუთითოთ რომელი ფაილია."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "ეს არ არის არსებული ფაილის გადახედვა"
+
+msgid "submission.upload.userGroup"
+msgstr "ატვირთე ეს ფაილი ჩემს როლში, როგორც..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"თუ შესწორებულ ტომს გაგზავნით, უნდა ატვირთოთ ყველა ტომის თავი ინდივიდუალურად, "
+"ტომის რედაქტორის როლში."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "ბიბლიოთეკის ფაილის ატვირთვა"
+
+msgid "submission.upload.libraryCategory"
+msgstr "წარდგენის დოკუმენტის კატეგორია"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "ლიტერატურული ჩასწორების ფაილის ატვირთვა"
+
+msgid "submission.upload.uploadFiles"
+msgstr "ფაილების ატვირთვა"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"დანიშნულ ფაილის განხილვის შემდეგ ჩაიწერეთ ნებისმიერი კომენტარი ქვემოთ "
+"მოცემულ ფაილში ან/და ატვირთეთ ფაილის ანოტაციის ასლი (ან სხვა ფაილი)."
+
+msgid "submission.upload.productionReady"
+msgstr "ატვირთეთ პროდუქციისთვის გამზადებული ფაილი"
+
+msgid "submission.upload.proof"
+msgstr "ატვირთეთ ფაილი გამოსაქვეყნებლად"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "ამ დროისთვის თქვენს გადასასწორებელ ფაილებს არ შეიცავს."
+
+msgid "submission.submit.currentFile"
+msgstr "მიმდინარე ფაილი"
+
+msgid "submission.stageNotInitiated"
+msgstr "სცენა არ არის წამოწყებული."
+
+msgid "submission.supplementary"
+msgstr "დამატებითი შინაარსი"
+
+msgid "submission.supplementary.sponsor"
+msgstr "კონტრიბუტორი ან სპონსორი სააგენტო"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.peerReview"
+msgstr "რეცენზირება"
+
+msgid "submission.manageDependentFiles"
+msgstr "დაკავშირებული ფაილების ნახვა"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} — {$title}"
+
+msgid "submission.mySubmissions"
+msgstr "ჩემზე მინიჭებული"
+
+msgid "submission.parsedCitations"
+msgstr "წყაროების ამოღება"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr "შემდეგი ცნობები ამოღებულია და დაუკავშირდება წარდგენის მეტამონაცემებს."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "წყაროების ამოღება და შენახვა"
+
+msgid "submission.queryNoteFiles"
+msgstr "დისკუსიის ფაილები"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"ეს არის მოძველებული ვერსია, რომელიც გამოქვეყნდა {$datePublished}. წაიკითხეთ <"
+"a href=\"{$urlRecentVersion}\">უახლესი ვერსია</a>."
+
+msgid "submission.publisherId"
+msgstr "გამომცემლის იდენტიფიკატორი"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"გამომცემლის იდენტიფიკატორი შეიძლება გამოყენებულ იყოს გარე მონაცემთა ბაზაში "
+"ჩასაწერად. მაგალითად, PubMed-ში დეპოზიტზე ექსპორტირებული ელემენტები შეიძლება "
+"შეიცავდეს გამომცემლის იდენტიფიკატორს. ეს არ უნდა იქნას გამოყენებული "
+"DOI-სთვის."
+
+msgid "submission.publisherId.enable"
+msgstr "ჩრთვა: {$objects}"
+
+msgid "submission.queries.submission"
+msgstr "მიმოხილვიებს წინასწარი დისკუსიები"
+
+msgid "submission.queries.review"
+msgstr "მიმოხილვიებს დისკუსიები"
+
+msgid "submission.queries.editorial"
+msgstr "ლიტერატურული რედაქტირების დისკუსია"
+
+msgid "submission.query.lastReply"
+msgstr "ბოლო პასუხი"
+
+msgid "submission.query.leaveQuery"
+msgstr "დისკუსიიდან გასვლა"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"თუ ამ დისკუსიას დატოვებთ, აღარ მიიღებთ შეტყობინებებს ახალი შეტყობინებების "
+"შესახებ. გსურთ დატოვოთ დისკუსია?"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} — {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} წამოიწყო დისკუსია: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"დისკუსიაში ახალი აქტივობაა სათაურით “{$queryTitle}” წარდგენის შესახებ "
+"“{$submissionTitle}”."
+
+msgid "submission.query.new.contents"
+msgstr ""
+"თქვენ დაემატეთ დისკუსიას სათაურით \"{$queryTitle}\" წარდგენის შესახებ \""
+"{$submissionTitle}\"."
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"დისკუსიის დაწყებამდე ამ წარდგინებაში მინიმუმ ერთი მონაწილე უნდა დანიშნოთ."
+
+msgid "submission.list.infoCenter"
+msgstr "აქტივობის ჟურნალი და შენიშვნები"
+
+msgid "submission.list.responseDue"
+msgstr "პასუხის ვადა: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "განხილვის დავალება უარყოფილია"
+
+msgid "submission.list.reviewDue"
+msgstr "განხილვის ვადა: {$date}"
+
+msgid "submission.list.reviewCancelled"
+msgstr "გაუქმებული"
+
+msgid "submission.list.viewSubmission"
+msgstr "მასალის ნახვა"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "მინიჭებული მიმოხილვები დასრულებულია"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "შესწორებები შეტანილია"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"თქვენ მოგეცათ სარედაქციო როლი ამ წარდგენისთვის. გსურთ შეხვიდეთ <a href=\""
+"{$urlEditorialWorkflow}\">სარედაქციო სამუშაო ნაკადზე</a>?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "ეს წარდგენა უნდა დასრულდეს, სანამ რედაქტორი განიხილავს მას."
+
+msgid "submission.metadata"
+msgstr "მასალის მეტა-მონაცემები"
+
+msgid "submission.noReviewAssignments"
+msgstr "განხილვის დავალებები არ არის"
+
+msgid "submission.notes.addNewNote"
+msgstr "ახალი შენიშვნა დამატება"
+
+msgid "submission.notes.attachedFile"
+msgstr "დანართი"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "წარდგენის ჩასწორებაზე დაბრუნება"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "ყველა შენიშვნის გასუფთავება"
+
+msgid "submission.notes.collapseNotes"
+msgstr "შენიშვნების აკეცვა"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "გსურთ ყველა წარდგენის შენიშვნა?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "გსურთ ამ წარდგენის შენიშვნა?"
+
+msgid "submission.notes.createNewNote"
+msgstr "ახალი შენიშვნის შექმნა"
+
+msgid "submission.notes.deleteNote"
+msgstr "შენიშვნის წაშლა"
+
+msgid "submission.notes.editNote"
+msgstr "შენიშვნის ჩასწორება"
+
+msgid "submission.notes.expandNotes"
+msgstr "შენიშვნების გაშლა"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "წარდგენის შენიშვნები არ არის"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "ატვირთული ფაილის ამოღება"
+
+msgid "submission.notes"
+msgstr "წარდგენის შენიშვნები"
+
+msgid "submission.notes.updateNote"
+msgstr "შენიშვნის განახლება"
+
+msgid "submission.notes.viewNotes"
+msgstr "შენიშვნების ნახვა"
+
+msgid "submission.originalFile"
+msgstr "საწყისი ფაილი"
+
+msgid "submission.page.editing"
+msgstr "#{$id} ჩასწორება"
+
+msgid "submission.page.history"
+msgstr "#{$id} ისტორია"
+
+msgid "submission.page.review"
+msgstr "#{$id} მიმოხილვა"
+
+msgid "submission.page.summary"
+msgstr "#{$id} შეჯამება"
+
+msgid "submission.page.citations"
+msgstr "#{$id} ციტატა"
+
+msgid "submission.production"
+msgstr "წარმოება"
+
+msgid "submission.recommendation"
+msgstr "რეკომენდაცია: {$recommendation}"
+
+msgid "submission.restrictions"
+msgstr "შეზღუდვები"
+
+msgid "submission.reviewMetadata"
+msgstr "მიმოხილვის მეტა-მონაცემები"
+
+msgid "submission.reviewVersion"
+msgstr "მიმოხილვის ვერსია"
+
+msgid "submission.rights"
+msgstr "უფლებები"
+
+msgid "submission.loadMessage"
+msgstr "გთხოვთ, დაელოდოთ, სანამ თქვენი ფაილი აიტვირთება სერვერზე."
+
+msgid "submission.nameRequired"
+msgstr "საჭიროა სახელი ამ ელემენტისათვის."
+
+msgid "submission.noActionRequired"
+msgstr "მოქმედება არ არის საჭირო"
+
+msgid "submission.overview"
+msgstr "შენატანის მიმოხილვა"
+
+msgid "submission.productionReady"
+msgstr "წიგნი ხელმისაწვდომია"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "შემოწმებული ფაილის ატვირთვა"
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "მიმოხილვის პასუხის მოლოდინში."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "მიმომხილველმა გამოტოვა პასუხის ვადა."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "მიმომხილველმა გამოტოვა განხილვის ვადა."
+
+msgid "submission.review.status.accepted"
+msgstr "განხილვის დავალება მიღებულია."
+
+msgid "submission.review.status.received"
+msgstr "რეცენზენტმა წარადგინა რეცენზია."
+
+msgid "submission.review.status.complete"
+msgstr "დასრულებულია მონაცემთა მიმოხილვა."
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"ეს მიმოხილვა დასრულებულია და მიმომხილველს მადლობა გადაუხადა შეტანილი "
+"წვლილისთვის."
+
+msgid "submission.reviewForm"
+msgstr "მიმოხილვის ფორმა"
+
+msgid "submission.reviewFormResponse"
+msgstr "მიმოხილვის ფორმის გამოხმაურება"

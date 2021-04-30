@@ -15,20 +15,28 @@
 
 namespace APP\Services;
 
-use \APP\template\TemplateManager;
+use PKP\plugins\HookRegistry;
+use PKP\core\PKPApplication;
 
-/** types for all ops default navigationMenuItems */
-define('NMI_TYPE_ARCHIVES', 'NMI_TYPE_ARCHIVES');
+use APP\template\TemplateManager;
+use APP\i18n\AppLocale;
+use APP\core\Application;
+
+// FIXME: Use namespacing
+use \Validation;
 
 class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService
 {
+/** types for all ops default navigationMenuItems */
+    public const NMI_TYPE_ARCHIVES = 'NMI_TYPE_ARCHIVES';
+
     /**
      * Initialize hooks for extending PKPSubmissionService
      */
     public function __construct()
     {
-        \HookRegistry::register('NavigationMenus::itemTypes', [$this, 'getMenuItemTypesCallback']);
-        \HookRegistry::register('NavigationMenus::displaySettings', [$this, 'getDisplayStatusCallback']);
+        HookRegistry::register('NavigationMenus::itemTypes', [$this, 'getMenuItemTypesCallback']);
+        HookRegistry::register('NavigationMenus::displaySettings', [$this, 'getDisplayStatusCallback']);
     }
 
     /**
@@ -41,10 +49,10 @@ class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService
     {
         $types = & $args[0];
 
-        \AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_APP_EDITOR);
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_APP_EDITOR);
 
         $opsTypes = [
-            NMI_TYPE_ARCHIVES => [
+            self::NMI_TYPE_ARCHIVES => [
                 'title' => __('navigation.archives'),
                 'description' => __('manager.navigationMenus.archives.description'),
             ],
@@ -63,12 +71,12 @@ class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService
     {
         $navigationMenuItem = & $args[0];
 
-        $request = \Application::get()->getRequest();
+        $request = Application::get()->getRequest();
         $dispatcher = $request->getDispatcher();
-        $templateMgr = \TemplateManager::getManager(\Application::get()->getRequest());
+        $templateMgr = TemplateManager::getManager(\Application::get()->getRequest());
 
-        $isUserLoggedIn = \Validation::isLoggedIn();
-        $isUserLoggedInAs = \Validation::isLoggedInAs();
+        $isUserLoggedIn = Validation::isLoggedIn();
+        $isUserLoggedInAs = Validation::isLoggedInAs();
         $context = $request->getContext();
 
         $this->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
@@ -77,7 +85,7 @@ class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService
 
         // Conditionally hide some items
         switch ($menuItemType) {
-            case NMI_TYPE_ARCHIVES:
+            case self::NMI_TYPE_ARCHIVES:
                 $navigationMenuItem->setIsDisplayed($context && $context->getData('publishingMode') != PUBLISHING_MODE_NONE);
                 break;
         }
@@ -86,10 +94,10 @@ class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService
 
             // Set the URL
             switch ($menuItemType) {
-                case NMI_TYPE_ARCHIVES:
+                case self::NMI_TYPE_ARCHIVES:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
-                        \PKPApplication::ROUTE_PAGE,
+                        PKPApplication::ROUTE_PAGE,
                         null,
                         'preprints',
                         null,
@@ -99,4 +107,8 @@ class NavigationMenuService extends \PKP\Services\PKPNavigationMenuService
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    define('NMI_TYPE_ARCHIVES', \APP\Services\NavigationMenuService::NMI_TYPE_ARCHIVES);
 }

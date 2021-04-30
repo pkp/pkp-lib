@@ -22,14 +22,12 @@
 require_mock_env('env2');
 
 import('lib.pkp.tests.DatabaseTestCase');
-import('lib.pkp.classes.plugins.Plugin');
 
 use APP\core\Request;
-
 use APP\install\Install;
-use DOMDocument;
 
 use PKP\core\Registry;
+use PKP\plugins\Plugin;
 
 class PluginTestCase extends DatabaseTestCase
 {

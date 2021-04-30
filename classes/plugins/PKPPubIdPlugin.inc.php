@@ -16,10 +16,13 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
+use NotificationManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
+
 use PKP\linkAction\LinkAction;
 
+// FIXME: Add namespacing
 use PKP\linkAction\request\AjaxModal;
 
 abstract class PKPPubIdPlugin extends LazyLoadPlugin

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-22 09:32+0000\n"
+"PO-Revision-Date: 2021-04-30 13:35+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ka_GE/>\n"
@@ -2391,7 +2391,7 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.editorialActivity"
-msgstr "ჟურნალის აქტოვობა"
+msgstr "ჟურნალის აქტივობა"
 
 msgid "stats.descriptionForStat"
 msgstr "აღწერა {$stat}-ისთვის"

@@ -18,20 +18,17 @@ namespace PKP\Services;
 use APP\core\Application;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
-
-use NavigationMenu;
-use NavigationMenuItem;
-use NavigationMenuItemAssignment;
-
-// FIXME: Add namespaces
 use NavigationMenuItemHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+
+use PKP\navigationMenu\NavigationMenu;
+use PKP\navigationMenu\NavigationMenuItem;
+use PKP\navigationMenu\NavigationMenuItemAssignment;
+
+// FIXME: Add namespaces
 use PKP\plugins\HookRegistry;
 use Validation;
-
-import('lib.pkp.classes.navigationMenu.NavigationMenuItemAssignment');
-import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
 
 class PKPNavigationMenuService
 {
@@ -44,73 +41,73 @@ class PKPNavigationMenuService
     {
         AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
         $types = [
-            NMI_TYPE_CUSTOM => [
+            NavigationMenuItem::NMI_TYPE_CUSTOM => [
                 'title' => __('manager.navigationMenus.customPage'),
                 'description' => __('manager.navigationMenus.customPage.description'),
             ],
-            NMI_TYPE_REMOTE_URL => [
+            NavigationMenuItem::NMI_TYPE_REMOTE_URL => [
                 'title' => __('manager.navigationMenus.remoteUrl'),
                 'description' => __('manager.navigationMenus.remoteUrl.description'),
             ],
-            NMI_TYPE_ABOUT => [
+            NavigationMenuItem::NMI_TYPE_ABOUT => [
                 'title' => __('navigation.about'),
                 'description' => __('manager.navigationMenus.about.description'),
                 'conditionalWarning' => __('manager.navigationMenus.about.conditionalWarning'),
             ],
-            NMI_TYPE_EDITORIAL_TEAM => [
+            NavigationMenuItem::NMI_TYPE_EDITORIAL_TEAM => [
                 'title' => __('about.editorialTeam'),
                 'description' => __('manager.navigationMenus.editorialTeam.description'),
                 'conditionalWarning' => __('manager.navigationMenus.editorialTeam.conditionalWarning'),
             ],
-            NMI_TYPE_SUBMISSIONS => [
+            NavigationMenuItem::NMI_TYPE_SUBMISSIONS => [
                 'title' => __('about.submissions'),
                 'description' => __('manager.navigationMenus.submissions.description'),
             ],
-            NMI_TYPE_ANNOUNCEMENTS => [
+            NavigationMenuItem::NMI_TYPE_ANNOUNCEMENTS => [
                 'title' => __('announcement.announcements'),
                 'description' => __('manager.navigationMenus.announcements.description'),
                 'conditionalWarning' => __('manager.navigationMenus.announcements.conditionalWarning'),
             ],
-            NMI_TYPE_USER_LOGIN => [
+            NavigationMenuItem::NMI_TYPE_USER_LOGIN => [
                 'title' => __('navigation.login'),
                 'description' => __('manager.navigationMenus.login.description'),
                 'conditionalWarning' => __('manager.navigationMenus.loggedIn.conditionalWarning'),
             ],
-            NMI_TYPE_USER_REGISTER => [
+            NavigationMenuItem::NMI_TYPE_USER_REGISTER => [
                 'title' => __('navigation.register'),
                 'description' => __('manager.navigationMenus.register.description'),
                 'conditionalWarning' => __('manager.navigationMenus.loggedIn.conditionalWarning'),
             ],
-            NMI_TYPE_USER_DASHBOARD => [
+            NavigationMenuItem::NMI_TYPE_USER_DASHBOARD => [
                 'title' => __('navigation.dashboard'),
                 'description' => __('manager.navigationMenus.dashboard.description'),
                 'conditionalWarning' => __('manager.navigationMenus.loggedOut.conditionalWarning'),
             ],
-            NMI_TYPE_USER_PROFILE => [
+            NavigationMenuItem::NMI_TYPE_USER_PROFILE => [
                 'title' => __('common.viewProfile'),
                 'description' => __('manager.navigationMenus.profile.description'),
                 'conditionalWarning' => __('manager.navigationMenus.loggedOut.conditionalWarning'),
             ],
-            NMI_TYPE_ADMINISTRATION => [
+            NavigationMenuItem::NMI_TYPE_ADMINISTRATION => [
                 'title' => __('navigation.admin'),
                 'description' => __('manager.navigationMenus.administration.description'),
                 'conditionalWarning' => __('manager.navigationMenus.loggedOut.conditionalWarning'),
             ],
-            NMI_TYPE_USER_LOGOUT => [
+            NavigationMenuItem::NMI_TYPE_USER_LOGOUT => [
                 'title' => __('user.logOut'),
                 'description' => __('manager.navigationMenus.logOut.description'),
                 'conditionalWarning' => __('manager.navigationMenus.loggedOut.conditionalWarning'),
             ],
-            NMI_TYPE_CONTACT => [
+            NavigationMenuItem::NMI_TYPE_CONTACT => [
                 'title' => __('about.contact'),
                 'description' => __('manager.navigationMenus.contact.description'),
                 'conditionalWarning' => __('manager.navigationMenus.contact.conditionalWarning'),
             ],
-            NMI_TYPE_SEARCH => [
+            NavigationMenuItem::NMI_TYPE_SEARCH => [
                 'title' => __('common.search'),
                 'description' => __('manager.navigationMenus.search.description'),
             ],
-            NMI_TYPE_PRIVACY => [
+            NavigationMenuItem::NMI_TYPE_PRIVACY => [
                 'title' => __('manager.setup.privacyStatement'),
                 'description' => __('manager.navigationMenus.privacyStatement.description'),
                 'conditionalWarning' => __('manager.navigationMenus.privacyStatement.conditionalWarning'),
@@ -130,10 +127,10 @@ class PKPNavigationMenuService
     public function getMenuItemCustomEditTemplates()
     {
         $templates = [
-            NMI_TYPE_CUSTOM => [
+            NavigationMenuItem::NMI_TYPE_CUSTOM => [
                 'template' => 'core:controllers/grid/navigationMenus/customNMIType.tpl',
             ],
-            NMI_TYPE_REMOTE_URL => [
+            NavigationMenuItem::NMI_TYPE_REMOTE_URL => [
                 'template' => 'core:controllers/grid/navigationMenus/remoteUrlNMIType.tpl',
             ],
         ];
@@ -166,33 +163,33 @@ class PKPNavigationMenuService
 
         // Conditionally hide some items
         switch ($menuItemType) {
-            case NMI_TYPE_ANNOUNCEMENTS:
+            case NavigationMenuItem::NMI_TYPE_ANNOUNCEMENTS:
                 $navigationMenuItem->setIsDisplayed($context && $context->getData('enableAnnouncements'));
                 break;
-            case NMI_TYPE_EDITORIAL_TEAM:
+            case NavigationMenuItem::NMI_TYPE_EDITORIAL_TEAM:
                 $navigationMenuItem->setIsDisplayed($context && $context->getLocalizedData('editorialTeam'));
                 break;
-            case NMI_TYPE_CONTACT:
+            case NavigationMenuItem::NMI_TYPE_CONTACT:
                 $navigationMenuItem->setIsDisplayed($context && ($context->getData('mailingAddress') || $context->getData('contactName')));
                 break;
-            case NMI_TYPE_USER_REGISTER:
+            case NavigationMenuItem::NMI_TYPE_USER_REGISTER:
                 $navigationMenuItem->setIsDisplayed(!$isUserLoggedIn && !($context && $context->getData('disableUserReg')));
                 break;
-            case NMI_TYPE_USER_LOGIN:
+            case NavigationMenuItem::NMI_TYPE_USER_LOGIN:
                 $navigationMenuItem->setIsDisplayed(!$isUserLoggedIn);
                 break;
-            case NMI_TYPE_USER_LOGOUT:
-            case NMI_TYPE_USER_PROFILE:
-            case NMI_TYPE_USER_DASHBOARD:
+            case NavigationMenuItem::NMI_TYPE_USER_LOGOUT:
+            case NavigationMenuItem::NMI_TYPE_USER_PROFILE:
+            case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
                 $navigationMenuItem->setIsDisplayed($isUserLoggedIn);
                 break;
-            case NMI_TYPE_ADMINISTRATION:
+            case NavigationMenuItem::NMI_TYPE_ADMINISTRATION:
                 $navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE));
                 break;
-            case NMI_TYPE_SEARCH:
+            case NavigationMenuItem::NMI_TYPE_SEARCH:
                 $navigationMenuItem->setIsDisplayed($context);
                 break;
-            case NMI_TYPE_PRIVACY:
+            case NavigationMenuItem::NMI_TYPE_PRIVACY:
                 $navigationMenuItem->setIsDisplayed($context && $context->getLocalizedData('privacyStatement'));
                 break;
         }
@@ -200,13 +197,13 @@ class PKPNavigationMenuService
         if ($navigationMenuItem->getIsDisplayed()) {
             // Adjust some titles
             switch ($menuItemType) {
-                case NMI_TYPE_USER_LOGOUT:
+                case NavigationMenuItem::NMI_TYPE_USER_LOGOUT:
                     if ($isUserLoggedInAs) {
                         $userName = $request->getUser() ? ' ' . $request->getUser()->getUserName() : '';
                         $navigationMenuItem->setTitle(__('user.logOutAs', ['username' => $userName]), AppLocale::getLocale());
                     }
                     break;
-                case NMI_TYPE_USER_DASHBOARD:
+                case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
                     $templateMgr->assign('navigationMenuItem', $navigationMenuItem);
                     if ($currentUser->hasRole([ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE)) {
                         $displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
@@ -217,7 +214,7 @@ class PKPNavigationMenuService
 
             // Set the URL
             switch ($menuItemType) {
-                case NMI_TYPE_ANNOUNCEMENTS:
+                case NavigationMenuItem::NMI_TYPE_ANNOUNCEMENTS:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -227,7 +224,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_ABOUT:
+                case NavigationMenuItem::NMI_TYPE_ABOUT:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -237,7 +234,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_SUBMISSIONS:
+                case NavigationMenuItem::NMI_TYPE_SUBMISSIONS:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -247,7 +244,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_EDITORIAL_TEAM:
+                case NavigationMenuItem::NMI_TYPE_EDITORIAL_TEAM:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -257,7 +254,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_CONTACT:
+                case NavigationMenuItem::NMI_TYPE_CONTACT:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -267,7 +264,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_USER_LOGOUT:
+                case NavigationMenuItem::NMI_TYPE_USER_LOGOUT:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -277,7 +274,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_USER_PROFILE:
+                case NavigationMenuItem::NMI_TYPE_USER_PROFILE:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -287,7 +284,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_ADMINISTRATION:
+                case NavigationMenuItem::NMI_TYPE_ADMINISTRATION:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -297,7 +294,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_USER_DASHBOARD:
+                case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
                     if ($currentUser->hasRole([ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE)) {
                         $navigationMenuItem->setUrl($dispatcher->url(
                             $request,
@@ -319,7 +316,7 @@ class PKPNavigationMenuService
                     }
 
                     break;
-                case NMI_TYPE_USER_REGISTER:
+                case NavigationMenuItem::NMI_TYPE_USER_REGISTER:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -329,7 +326,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_USER_LOGIN:
+                case NavigationMenuItem::NMI_TYPE_USER_LOGIN:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -339,7 +336,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_CUSTOM:
+                case NavigationMenuItem::NMI_TYPE_CUSTOM:
                     if ($navigationMenuItem->getPath()) {
                         $path = explode('/', $navigationMenuItem->getPath());
                         $page = array_shift($path);
@@ -354,7 +351,7 @@ class PKPNavigationMenuService
                         ));
                     }
                     break;
-                case NMI_TYPE_SEARCH:
+                case NavigationMenuItem::NMI_TYPE_SEARCH:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -364,7 +361,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_PRIVACY:
+                case NavigationMenuItem::NMI_TYPE_PRIVACY:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
@@ -374,7 +371,7 @@ class PKPNavigationMenuService
                         null
                     ));
                     break;
-                case NMI_TYPE_REMOTE_URL:
+                case NavigationMenuItem::NMI_TYPE_REMOTE_URL:
                     $navigationMenuItem->setUrl($navigationMenuItem->getLocalizedRemoteUrl());
                     break;
             }

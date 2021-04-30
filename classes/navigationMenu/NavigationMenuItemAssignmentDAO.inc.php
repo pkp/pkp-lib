@@ -16,9 +16,10 @@
  *  objects
  */
 
-import('lib.pkp.classes.navigationMenu.NavigationMenu');
-import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
-import('lib.pkp.classes.navigationMenu.NavigationMenuItemAssignment');
+namespace PKP\navigationMenu;
+
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 
 class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
 {
@@ -321,11 +322,15 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     public function unCacheRelatedNavigationMenus($id)
     {
         if ($navigationMenuItemAssignment = $this->getById($id)) {
-            $navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+            $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
             $cache = $navigationMenuDao->getCache($navigationMenuItemAssignment->getMenuId());
             if ($cache) {
                 $cache->flush();
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\navigationMenu\NavigationMenuItemAssignmentDAO', '\NavigationMenuItemAssignmentDAO');
 }

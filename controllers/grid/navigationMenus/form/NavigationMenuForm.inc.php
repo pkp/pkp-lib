@@ -16,9 +16,10 @@
  */
 
 use APP\core\Services;
-
 use APP\template\TemplateManager;
+
 use PKP\form\Form;
+use PKP\navigationMenu\NavigationMenuItemAssignment;
 
 class NavigationMenuForm extends Form
 {

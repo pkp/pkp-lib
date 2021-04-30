@@ -17,6 +17,8 @@
  *  including it's position and if it's nested within another NavigationMenuItem
  */
 
+namespace PKP\navigationMenu;
+
 class NavigationMenuItemAssignment extends \PKP\core\DataObject
 {
     /** @var NavigationMenuItem $navigationMenuItem The object this assignment refers to */
@@ -161,4 +163,8 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
     {
         $this->setData('title', $title, $locale);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\navigationMenu\NavigationMenuItemAssignment', '\NavigationMenuItemAssignment');
 }

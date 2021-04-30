@@ -15,27 +15,29 @@
  * @brief Basic class describing a NavigationMenuItem.
  */
 
-/** types for all default navigationMenuItems */
-define('NMI_TYPE_ABOUT', 'NMI_TYPE_ABOUT');
-define('NMI_TYPE_SUBMISSIONS', 'NMI_TYPE_SUBMISSIONS');
-define('NMI_TYPE_EDITORIAL_TEAM', 'NMI_TYPE_EDITORIAL_TEAM');
-define('NMI_TYPE_CONTACT', 'NMI_TYPE_CONTACT');
-define('NMI_TYPE_ANNOUNCEMENTS', 'NMI_TYPE_ANNOUNCEMENTS');
-define('NMI_TYPE_CUSTOM', 'NMI_TYPE_CUSTOM');
-define('NMI_TYPE_REMOTE_URL', 'NMI_TYPE_REMOTE_URL');
-
-define('NMI_TYPE_USER_LOGOUT', 'NMI_TYPE_USER_LOGOUT');
-define('NMI_TYPE_USER_LOGOUT_AS', 'NMI_TYPE_USER_LOGOUT_AS');
-define('NMI_TYPE_USER_PROFILE', 'NMI_TYPE_USER_PROFILE');
-define('NMI_TYPE_ADMINISTRATION', 'NMI_TYPE_ADMINISTRATION');
-define('NMI_TYPE_USER_DASHBOARD', 'NMI_TYPE_USER_DASHBOARD');
-define('NMI_TYPE_USER_REGISTER', 'NMI_TYPE_USER_REGISTER');
-define('NMI_TYPE_USER_LOGIN', 'NMI_TYPE_USER_LOGIN');
-define('NMI_TYPE_SEARCH', 'NMI_TYPE_SEARCH');
-define('NMI_TYPE_PRIVACY', 'NMI_TYPE_PRIVACY');
+namespace PKP\navigationMenu;
 
 class NavigationMenuItem extends \PKP\core\DataObject
 {
+    /** types for all default navigationMenuItems */
+    public const NMI_TYPE_ABOUT = 'NMI_TYPE_ABOUT';
+    public const NMI_TYPE_SUBMISSIONS = 'NMI_TYPE_SUBMISSIONS';
+    public const NMI_TYPE_EDITORIAL_TEAM = 'NMI_TYPE_EDITORIAL_TEAM';
+    public const NMI_TYPE_CONTACT = 'NMI_TYPE_CONTACT';
+    public const NMI_TYPE_ANNOUNCEMENTS = 'NMI_TYPE_ANNOUNCEMENTS';
+    public const NMI_TYPE_CUSTOM = 'NMI_TYPE_CUSTOM';
+    public const NMI_TYPE_REMOTE_URL = 'NMI_TYPE_REMOTE_URL';
+
+    public const NMI_TYPE_USER_LOGOUT = 'NMI_TYPE_USER_LOGOUT';
+    public const NMI_TYPE_USER_LOGOUT_AS = 'NMI_TYPE_USER_LOGOUT_AS';
+    public const NMI_TYPE_USER_PROFILE = 'NMI_TYPE_USER_PROFILE';
+    public const NMI_TYPE_ADMINISTRATION = 'NMI_TYPE_ADMINISTRATION';
+    public const NMI_TYPE_USER_DASHBOARD = 'NMI_TYPE_USER_DASHBOARD';
+    public const NMI_TYPE_USER_REGISTER = 'NMI_TYPE_USER_REGISTER';
+    public const NMI_TYPE_USER_LOGIN = 'NMI_TYPE_USER_LOGIN';
+    public const NMI_TYPE_SEARCH = 'NMI_TYPE_SEARCH';
+    public const NMI_TYPE_PRIVACY = 'NMI_TYPE_PRIVACY';
+
     /** @var array $navigationMenuItems The navigationMenuItems underneath this navigationMenuItem */
     public $navigationMenuItems = [];
 
@@ -301,5 +303,29 @@ class NavigationMenuItem extends \PKP\core\DataObject
     public function setRemoteUrl($url, $locale)
     {
         $this->setData('remoteUrl', $url, $locale);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\navigationMenu\NavigationMenuItem', '\NavigationMenuItem');
+    foreach ([
+        'NMI_TYPE_ABOUT',
+        'NMI_TYPE_SUBMISSIONS',
+        'NMI_TYPE_EDITORIAL_TEAM',
+        'NMI_TYPE_CONTACT',
+        'NMI_TYPE_ANNOUNCEMENTS',
+        'NMI_TYPE_CUSTOM',
+        'NMI_TYPE_REMOTE_URL',
+        'NMI_TYPE_USER_LOGOUT',
+        'NMI_TYPE_USER_LOGOUT_AS',
+        'NMI_TYPE_USER_PROFILE',
+        'NMI_TYPE_ADMINISTRATION',
+        'NMI_TYPE_USER_DASHBOARD',
+        'NMI_TYPE_USER_REGISTER',
+        'NMI_TYPE_USER_LOGIN',
+        'NMI_TYPE_SEARCH',
+        'NMI_TYPE_PRIVACY',
+    ] as $constantName) {
+        define($constantName, constant('\NavigationMenuItem::' . $constantName));
     }
 }

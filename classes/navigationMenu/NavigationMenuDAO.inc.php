@@ -15,9 +15,14 @@
  * @brief Operations for retrieving and modifying NavigationMenu objects.
  */
 
-import('lib.pkp.classes.navigationMenu.NavigationMenu');
+namespace PKP\navigationMenu;
 
 use APP\core\Services;
+use PKP\cache\CacheManager;
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
+
+use PKP\xml\PKPXMLParser;
 
 class NavigationMenuDAO extends \PKP\db\DAO
 {
@@ -332,7 +337,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
             $navigationMenuCache = [];
         }
         if (!isset($navigationMenuCache[$id])) {
-            $cacheManager = \CacheManager::getManager();
+            $cacheManager = CacheManager::getManager();
             $navigationMenuCache[$id] = $cacheManager->getCache(
                 'navigationMenu',
                 $id,
@@ -350,10 +355,14 @@ class NavigationMenuDAO extends \PKP\db\DAO
      */
     public function _cacheMiss($cache, $id)
     {
-        $navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
         $navigationMenu = $navigationMenuDao->GetById($cache->getCacheId());
         Services::get('navigationMenu')->getMenuTree($navigationMenu);
 
         return $navigationMenu;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\navigationMenu\NavigationMenuDAO', '\NavigationMenuDAO');
 }

@@ -15,8 +15,10 @@
  * @brief Operations for retrieving and modifying NavigationMenuItem objects. NMI = NavigationMenuItem
  */
 
-import('lib.pkp.classes.navigationMenu.NavigationMenu');
-import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
+namespace PKP\navigationMenu;
+
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 
 class NavigationMenuItemDAO extends \PKP\db\DAO
 {
@@ -545,7 +547,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 
             $navigationMenuItem->setPath($path);
             $navigationMenuItem->setContextId($contextId);
-            $navigationMenuItem->setType(NMI_TYPE_CUSTOM);
+            $navigationMenuItem->setType(NavigationMenuItem::NMI_TYPE_CUSTOM);
 
             $navigationMenuItem->setTitle($staticPage->getTitle(null), null);
             $navigationMenuItem->setContent($staticPage->getContent(null), null);
@@ -555,4 +557,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 
         return $retNavigationMenuItemId;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\navigationMenu\NavigationMenuItemDAO', '\NavigationMenuItemDAO');
 }

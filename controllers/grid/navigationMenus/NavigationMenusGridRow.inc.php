@@ -33,7 +33,7 @@ class NavigationMenusGridRow extends GridRow
         parent::initialize($request, $template);
 
         $element = $this->getData();
-        assert(is_a($element, 'NavigationMenu'));
+        assert($element instanceof \PKP\navigationMenu\NavigationMenu);
 
         $rowId = $this->getId();
 

@@ -17,13 +17,22 @@ namespace PKP\Services;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\file\PublicFileManager;
+use APP\i18n\AppLocale;
 use APP\Services\QueryBuilders\ContextQueryBuilder;
+use PKP\config\Config;
+use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
+use PKP\file\FileManager;
+use PKP\file\TemporaryFileManager;
+use PKP\plugins\HookRegistry;
+use PKP\plugins\PluginRegistry;
+
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
-
 use PKP\Services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -156,7 +165,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             ->filterByUserId($args['userId'])
             ->searchPhrase($args['searchPhrase']);
 
-        \HookRegistry::call('Context::getMany::queryBuilder', [&$contextListQB, $args]);
+        HookRegistry::call('Context::getMany::queryBuilder', [&$contextListQB, $args]);
 
         return $contextListQB;
     }
@@ -179,7 +188,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                 case 'url':
                     $values[$prop] = $dispatcher->url(
                         $request,
-                        \PKPApplication::ROUTE_PAGE,
+                        PKPApplication::ROUTE_PAGE,
                         $context->getPath()
                     );
                     break;
@@ -189,7 +198,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                         $route = $slimRequest->getAttribute('route');
                         $values[$prop] = $dispatcher->url(
                             $args['request'],
-                            \PKPApplication::ROUTE_API,
+                            PKPApplication::ROUTE_API,
                             $context->getData('urlPath'),
                             'contexts/' . $context->getId()
                         );
@@ -204,7 +213,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $supportedLocales = empty($args['supportedLocales']) ? $context->getSupportedFormLocales() : $args['supportedLocales'];
         $values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_CONTEXT, $values, $supportedLocales);
 
-        \HookRegistry::call('Context::getProperties', [&$values, $context, $props, $args]);
+        HookRegistry::call('Context::getProperties', [&$values, $context, $props, $args]);
 
         ksort($values);
 
@@ -240,7 +249,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
-        \AppLocale::requireComponents(
+        AppLocale::requireComponents(
             LOCALE_COMPONENT_PKP_ADMIN,
             LOCALE_COMPONENT_APP_ADMIN,
             LOCALE_COMPONENT_PKP_MANAGER,
@@ -341,7 +350,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         // enabled
         $validator->after(function ($validator) use ($props) {
             if (!empty($props['sidebar']) && !$validator->errors()->get('sidebar')) {
-                $plugins = \PluginRegistry::loadCategory('blocks', true);
+                $plugins = PluginRegistry::loadCategory('blocks', true);
                 foreach ($props['sidebar'] as $pluginName) {
                     if (empty($plugins[$pluginName])) {
                         $validator->errors()->add('sidebar', __('manager.setup.layout.sidebar.invalidBlock', ['name' => $pluginName]));
@@ -353,7 +362,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         // Ensure the theme plugin is installed and enabled
         $validator->after(function ($validator) use ($props) {
             if (!empty($props['themePluginPath']) && !$validator->errors()->get('themePluginPath')) {
-                $plugins = \PluginRegistry::loadCategory('themes', true);
+                $plugins = PluginRegistry::loadCategory('themes', true);
                 $found = false;
                 foreach ($plugins as $plugin) {
                     if ($props['themePluginPath'] === $plugin->getDirName()) {
@@ -409,7 +418,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_CONTEXT), $allowedLocales);
         }
 
-        \HookRegistry::call('Context::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
+        HookRegistry::call('Context::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -438,13 +447,13 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             'contextPath' => $context->getData('urlPath'),
             'contextUrl' => $request->getDispatcher()->url(
                 $request,
-                \PKPApplication::ROUTE_PAGE,
+                PKPApplication::ROUTE_PAGE,
                 $context->getPath()
             ),
         ];
 
         // Allow plugins to extend the $localeParams for new property defaults
-        \HookRegistry::call('Context::defaults::localeParams', [&$localeParams, $context, $request]);
+        HookRegistry::call('Context::defaults::localeParams', [&$localeParams, $context, $request]);
 
         $context = Services::get('schema')->setDefaults(
             PKPSchemaService::SCHEMA_CONTEXT,
@@ -488,27 +497,27 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         }
         $context = $this->edit($context, $params, $request);
 
-        $genreDao = \DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO');
         $genreDao->installDefaults($context->getId(), $context->getData('supportedLocales'));
 
-        $userGroupDao = \DAORegistry::getDAO('UserGroupDAO');
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
         $userGroupDao->installSettings($context->getId(), 'registry/userGroups.xml');
 
         $managerUserGroup = $userGroupDao->getDefaultByRoleId($context->getId(), ROLE_ID_MANAGER);
         $userGroupDao->assignUserToGroup($currentUser->getId(), $managerUserGroup->getId());
 
-        $fileManager = new \FileManager();
+        $fileManager = new FileManager();
         foreach ($this->installFileDirs as $dir) {
             $fileManager->mkdir(sprintf($dir, $this->contextsFileDirName, $context->getId()));
         }
 
-        $navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
         $navigationMenuDao->installSettings($context->getId(), 'registry/navigationMenus.xml');
 
         // Load all plugins so they can hook in and add their installation settings
-        \PluginRegistry::loadAllPlugins();
+        PluginRegistry::loadAllPlugins();
 
-        \HookRegistry::call('Context::add', [&$context, $request]);
+        HookRegistry::call('Context::add', [&$context, $request]);
 
         return $context;
     }
@@ -542,7 +551,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $newContext = $contextDao->newDataObject();
         $newContext->_data = array_merge($context->_data, $params);
 
-        \HookRegistry::call('Context::edit', [&$newContext, $context, $params, $request]);
+        HookRegistry::call('Context::edit', [&$newContext, $context, $params, $request]);
 
         $contextDao->updateObject($newContext);
         $newContext = $this->get($newContext->getId());
@@ -555,43 +564,43 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function delete($context)
     {
-        \HookRegistry::call('Context::delete::before', [&$context]);
+        HookRegistry::call('Context::delete::before', [&$context]);
 
         $contextDao = Application::getContextDao();
         $contextDao->deleteObject($context);
 
-        $userGroupDao = \DAORegistry::getDAO('UserGroupDAO');
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
         $userGroupDao->deleteAssignmentsByContextId($context->getId());
         $userGroupDao->deleteByContextId($context->getId());
 
-        $genreDao = \DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO');
         $genreDao->deleteByContextId($context->getId());
 
-        $announcementDao = \DAORegistry::getDAO('AnnouncementDAO');
+        $announcementDao = DAORegistry::getDAO('AnnouncementDAO');
         $announcementDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
-        $announcementTypeDao = \DAORegistry::getDAO('AnnouncementTypeDAO');
+        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
         $announcementTypeDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
         Services::get('emailTemplate')->restoreDefaults($context->getId());
 
-        $pluginSettingsDao = \DAORegistry::getDAO('PluginSettingsDAO');
+        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
         $pluginSettingsDao->deleteByContextId($context->getId());
 
-        $reviewFormDao = \DAORegistry::getDAO('ReviewFormDAO');
+        $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
         $reviewFormDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
-        $navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
         $navigationMenuDao->deleteByContextId($context->getId());
 
-        $navigationMenuItemDao = \DAORegistry::getDAO('NavigationMenuItemDAO');
+        $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
         $navigationMenuItemDao->deleteByContextId($context->getId());
 
-        $fileManager = new \FileManager($context->getId());
-        $contextPath = \Config::getVar('files', 'files_dir') . '/' . $this->contextsFileDirName . '/' . $context->getId();
+        $fileManager = new FileManager($context->getId());
+        $contextPath = Config::getVar('files', 'files_dir') . '/' . $this->contextsFileDirName . '/' . $context->getId();
         $fileManager->rmtree($contextPath);
 
-        \HookRegistry::call('Context::delete', [&$context]);
+        HookRegistry::call('Context::delete', [&$context]);
     }
 
     /**
@@ -608,8 +617,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function restoreLocaleDefaults($context, $request, $locale)
     {
-        \AppLocale::reloadLocale($locale);
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT, LOCALE_COMPONENT_APP_DEFAULT, $locale);
+        AppLocale::reloadLocale($locale);
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT, LOCALE_COMPONENT_APP_DEFAULT, $locale);
 
         // Specify values needed to render default locale strings
         $localeParams = [
@@ -621,13 +630,13 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             'contextName' => $context->getData('name', $locale),
             'contextUrl' => $request->getDispatcher()->url(
                 $request,
-                \PKPApplication::ROUTE_PAGE,
+                PKPApplication::ROUTE_PAGE,
                 $context->getPath()
             ),
         ];
 
         // Allow plugins to extend the $localeParams for new property defaults
-        \HookRegistry::call('Context::restoreLocaleDefaults::localeParams', [&$localeParams, $context, $request, $locale]);
+        HookRegistry::call('Context::restoreLocaleDefaults::localeParams', [&$localeParams, $context, $request, $locale]);
 
         $localeDefaults = Services::get('schema')->getLocaleDefaults(PKPSchemaService::SCHEMA_CONTEXT, $locale, $localeParams);
 
@@ -657,8 +666,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function moveTemporaryFile($context, $temporaryFile, $fileNameBase, $userId, $localeKey = '')
     {
-        $publicFileManager = new \PublicFileManager();
-        $temporaryFileManager = new \TemporaryFileManager();
+        $publicFileManager = new PublicFileManager();
+        $temporaryFileManager = new TemporaryFileManager();
 
         $fileName = $fileNameBase;
         if ($localeKey) {
@@ -712,14 +721,14 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     protected function _saveFileParam($context, $value, $settingName, $userId, $localeKey = '', $isImage = false)
     {
-        $temporaryFileManager = new \TemporaryFileManager();
+        $temporaryFileManager = new TemporaryFileManager();
 
         // If the value is null, clean up any existing file in the system
         if (is_null($value)) {
             $setting = $context->getData($settingName, $localeKey);
             if ($setting) {
                 $fileName = $isImage ? $setting['uploadName'] : $setting;
-                $publicFileManager = new \PublicFileManager();
+                $publicFileManager = new PublicFileManager();
                 $publicFileManager->removeContextFile($context->getId(), $fileName);
             }
             return null;
@@ -736,7 +745,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         if ($fileName) {
             // Get the details for image uploads
             if ($isImage) {
-                $publicFileManager = new \PublicFileManager();
+                $publicFileManager = new PublicFileManager();
 
                 $filePath = $publicFileManager->getContextFilesPath($context->getId());
                 [$width, $height] = getimagesize($filePath . '/' . $fileName);
@@ -747,14 +756,14 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                     'uploadName' => $fileName,
                     'width' => $width,
                     'height' => $height,
-                    'dateUploaded' => \Core::getCurrentDate(),
+                    'dateUploaded' => Core::getCurrentDate(),
                     'altText' => $altText,
                 ];
             } else {
                 return [
                     'name' => $temporaryFile->getOriginalFileName(),
                     'uploadName' => $fileName,
-                    'dateUploaded' => \Core::getCurrentDate(),
+                    'dateUploaded' => Core::getCurrentDate(),
                 ];
             }
         }

@@ -15,6 +15,8 @@
  * @brief Class describing a NavigationMenu.
  */
 
+namespace PKP\navigationMenu;
+
 class NavigationMenu extends \PKP\core\DataObject
 {
     /** @var array $menuTree Hierarchical array of NavigationMenuItems */
@@ -83,4 +85,8 @@ class NavigationMenu extends \PKP\core\DataObject
     {
         $this->setData('areaName', $areaName);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\navigationMenu\NavigationMenu', '\NavigationMenu');
 }

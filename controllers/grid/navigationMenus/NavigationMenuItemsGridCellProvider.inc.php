@@ -41,7 +41,7 @@ class NavigationMenuItemsGridCellProvider extends GridCellProvider
     {
         $navigationMenuItem = $row->getData();
         $columnId = $column->getId();
-        assert(is_a($navigationMenuItem, 'NavigationMenuItem') && !empty($columnId));
+        assert($navigationMenuItem instanceof \PKP\navigationMenu\NavigationMenuItem && !empty($columnId));
 
         switch ($columnId) {
             case 'title':

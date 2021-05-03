@@ -37,5 +37,5 @@ class I6807_SetLastModified extends Migration
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\upgrade\v3_4_0\I6807_SetLastModified', '\I6807_SetLastModified');
+    class_alias('\APP\migration\upgrade\v3_4_0\I6807_SetLastModified', '\I6807_SetLastModified');
 }

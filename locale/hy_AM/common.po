@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-30 18:33+0000\n"
+"PO-Revision-Date: 2021-05-04 01:41+0000\n"
 "Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -2088,3 +2088,20 @@ msgstr "Այս ամսաթիվը  պետք է լինի  {$date} ամսաթվից 
 
 msgid "notification.type.pendingRevisions"
 msgstr "Revisions to consider in {$stage}."
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Trying to run a transformation that is not supported in your installation "
+"environment."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Այս փայլը բազմալեզու է։ Առանձին նշանակությունները պետք է տրամադրվեն "
+"յուրաքանչյուր աջակցվող լեզվի համար։"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Սպասվող խմբագրում"
+
+#, fuzzy
+msgid "notification.type.assignCopyeditors"
+msgstr "Assign a copyeditor using the Assign link in the Participants list."

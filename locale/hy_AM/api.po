@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-27 18:17+0000\n"
+"PO-Revision-Date: 2021-05-04 01:41+0000\n"
 "Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "hy_AM/>\n"
@@ -225,3 +225,6 @@ msgstr "Դուք չեք կարող կցել ֆայլ քննարկումների 
 
 msgid "api.submissionFiles.400.badDependentFileAssocType"
 msgstr "Այս փուլում  դուք չեք կարող միացնել ֆայլը դիմած այլ ֆայլի հետ։"
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Գրախոսման նշված փուլը այս նյութի մաս չէ։"

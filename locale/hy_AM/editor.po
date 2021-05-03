@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-28 15:11+0000\n"
+"PO-Revision-Date: 2021-05-04 01:41+0000\n"
 "Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy_AM/>\n"
@@ -490,3 +490,23 @@ msgstr "Անանուն գրախոսող/Թաքնված հեղինակ"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ջնջել այս հայտը/նյութը։"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Գրախոսողի հետաքրքրություններ"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Մերժել այս  սրբագրումը, որպեսզի ցույց տաք, որ սրբագրումը դեռ ավարտված չէ, և "
+"ֆայլը պատրաստ չէ հրապարակման։"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Հաստատել այս խմբագրին, որպեսզի ցույց տաք, որ խմագրումը ավարտված է և ֆայլը "
+"պատրաստ է հրապարակման։"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"<em>Use <em>+Add Reviewer</em> to invite readers to review the submission "
+"files. The notebook icon indicates that a review has been submitted, which "
+"is then checked <em>Acknowledged</em> after it has been consulted. When "
+"reviews are overdue, a red envelope icon appears for reminding reviewers."

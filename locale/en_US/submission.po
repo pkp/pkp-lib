@@ -1903,3 +1903,6 @@ msgstr "The abstract is too long. It shoud be {$limit} words or less. It is curr
 
 msgid "publication.wordCount"
 msgstr "Word Count: {$count}/{$limit}"
+
+msgid "submission.viewingPreview"
+msgstr "This is a preview and has not been published. <a href=\"{$url}\">View submission</a>"

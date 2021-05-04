@@ -44,7 +44,8 @@ class DAO
         if ($callHooks === true) {
             // Call hooks based on the object name. Results
             // in hook calls named e.g. "sessiondao::_Constructor"
-            if (HookRegistry::call(strtolower_codesafe(get_class($this)) . '::_Constructor', [$this])) {
+            $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+            if (HookRegistry::call(strtolower_codesafe(end($classNameParts)) . '::_Constructor', [$this])) {
                 return;
             }
         }
@@ -422,7 +423,8 @@ class DAO
         // this method is only called by a subclass. Results
         // in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
         // (class names lowercase)
-        HookRegistry::call(strtolower_codesafe(get_class($this)) . '::getAdditionalFieldNames', [$this, &$returner]);
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        HookRegistry::call(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', [$this, &$returner]);
 
         return $returner;
     }
@@ -442,7 +444,8 @@ class DAO
         // this method is only called by a subclass. Results
         // in hook calls named e.g. "sessiondao::getLocaleFieldNames"
         // (class names lowercase)
-        HookRegistry::call(strtolower_codesafe(get_class($this)) . '::getLocaleFieldNames', [$this, &$returner]);
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        HookRegistry::call(strtolower_codesafe(end($classNameParts)) . '::getLocaleFieldNames', [$this, &$returner]);
 
         return $returner;
     }

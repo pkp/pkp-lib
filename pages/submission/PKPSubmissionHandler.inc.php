@@ -16,7 +16,7 @@
 use APP\core\Services;
 
 use APP\handler\Handler;
-
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 
@@ -62,13 +62,13 @@ abstract class PKPSubmissionHandler extends Handler
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
         // Permit if there is no submission set, but request is for initial step.
-        if (!is_a($submission, 'Submission') && $step == 1) {
+        if (!($submission instanceof Submission) && $step == 1) {
             return true;
         }
 
         // In all other cases we expect an authorized submission due to
         // the submission access policy above.
-        assert(is_a($submission, 'Submission'));
+        assert($submission instanceof Submission);
 
         // Deny if submission is complete (==0 means complete) and at
         // any step other than the "complete" step (the last one)

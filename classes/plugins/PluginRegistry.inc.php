@@ -151,7 +151,7 @@ class PluginRegistry
             foreach ($products as $product) {
                 $file = $product->getProduct();
                 $plugin = self::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
-                if ($plugin instanceof \Plugin) {
+                if ($plugin instanceof \PKP\plugins\Plugin) {
                     $plugins[$plugin->getSeq()]["${categoryDir}/${file}"] = $plugin;
                 }
             }
@@ -297,7 +297,7 @@ class PluginRegistry
         $pluginWrapper = "${pluginPath}/index.php";
         if (file_exists($pluginWrapper)) {
             $plugin = include($pluginWrapper);
-            assert(is_a($plugin, $classToCheck ?: 'Plugin'));
+            assert(is_a($plugin, $classToCheck ?: '\PKP\plugins\Plugin'));
             return $plugin;
         } else {
             // Try the well-known plug-in class name next.
@@ -307,7 +307,7 @@ class PluginRegistry
                 // Try to instantiate the plug-in class.
                 $pluginPackage = 'plugins.' . $category . '.' . $file;
                 $plugin = instantiate($pluginPackage . '.' . $pluginClassName, $pluginClassName, $pluginPackage, 'register');
-                assert(is_a($plugin, $classToCheck ?: 'Plugin'));
+                assert(is_a($plugin, $classToCheck ?: '\PKP\plugins\Plugin'));
                 return $plugin;
             }
         }

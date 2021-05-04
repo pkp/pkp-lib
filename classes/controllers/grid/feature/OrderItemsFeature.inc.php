@@ -17,8 +17,11 @@
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 
 use APP\template\TemplateManager;
+use GridRow;
+
 use PKP\linkAction\LinkAction;
 
+// FIXME: Add namespacing
 use PKP\linkAction\request\NullAction;
 
 class OrderItemsFeature extends GridFeature
@@ -70,7 +73,7 @@ class OrderItemsFeature extends GridFeature
     {
         // Make sure we don't return the override row template
         // flag to objects that are not instances of GridRow class.
-        if (get_class($gridRow) == 'GridRow') {
+        if ($gridRow instanceof GridRow) {
             return $this->_overrideRowTemplate;
         } else {
             return false;

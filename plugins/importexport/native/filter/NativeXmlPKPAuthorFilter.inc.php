@@ -76,7 +76,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         $context = $deployment->getContext();
 
         $publication = $deployment->getPublication();
-        assert(is_a($publication, 'PKPPublication'));
+        assert($publication instanceof \PKP\publication\PKPPublication);
 
         // Create the data object
         $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */

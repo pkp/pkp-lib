@@ -15,6 +15,8 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
+use APP\submission\Submission;
+
 class NativeXmlSubmissionFilter extends NativeImportFilter
 {
     /**
@@ -97,7 +99,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         $deployment->addProcessedObjectId(ASSOC_TYPE_SUBMISSION, $submission->getId());
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if (is_a($n, 'DOMElement')) {
+            if ($n instanceof \DOMElement) {
                 $this->handleChildElement($n, $submission);
             }
         }
@@ -204,7 +206,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         // Index imported content
         $submissionSearchIndex = Application::getSubmissionSearchIndex();
         foreach ($importedObjects as $submission) {
-            assert(is_a($submission, 'Submission'));
+            assert($submission instanceof Submission);
             $submissionSearchIndex->submissionMetadataChanged($submission);
             $submissionSearchIndex->submissionFilesChanged($submission);
         }

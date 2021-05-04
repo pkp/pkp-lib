@@ -13,6 +13,9 @@
  * @brief Base helper class for import/export filters
  */
 
+use NativeExportFilter;
+
+// FIXME: Use namespacing
 use PKP\filter\PersistableFilter;
 
 class PKPImportExportFilter extends PersistableFilter
@@ -72,7 +75,7 @@ class PKPImportExportFilter extends PersistableFilter
         $currentFilter = array_shift($filters);
         $currentFilter->setDeployment($deployment);
 
-        if (is_a($currentFilter, 'NativeExportFilter')) {
+        if ($currentFilter instanceof NativeExportFilter) {
             $currentFilter->setOpts($opts);
         }
 

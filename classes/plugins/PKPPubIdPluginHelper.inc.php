@@ -212,7 +212,8 @@ class PKPPubIdPluginHelper
         $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $contextId);
         if (!empty($pubIdPlugins)) {
             foreach ($pubIdPlugins as $pubIdPlugin) {
-                if (get_class($pubIdPlugin) == $pubIdPlugInClassName) {
+                $classNameParts = explode('\\', get_class($pubIdPlugin)); // Separate namespace info from class name
+                if (end($classNameParts) == $pubIdPlugInClassName) {
                     // clear the pubId:
                     // delete the pubId from the DB
                     $dao = $pubObject->getDAO();

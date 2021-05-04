@@ -110,7 +110,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
         assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
-        assert(is_a($query, 'Query'));
+        assert($query instanceof \PKP\query\Query);
         $submission = $this->getQuerySubmission($query);
 
         return Services::get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
@@ -124,10 +124,10 @@ class QueryNotificationManager extends NotificationManagerDelegate
         assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
-        assert(is_a($query, 'Query'));
+        assert($query instanceof \PKP\query\Query);
 
         $submission = $this->getQuerySubmission($query);
-        assert(is_a($submission, 'Submission'));
+        assert($submission instanceof \APP\submission\Submission);
 
         switch ($notification->getType()) {
             case NOTIFICATION_TYPE_NEW_QUERY:

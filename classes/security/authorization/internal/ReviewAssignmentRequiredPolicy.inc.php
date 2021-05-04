@@ -14,6 +14,8 @@
 
 import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
 
+use APP\submission\Submission;
+
 class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
 {
     /** @var Allowed review methods */
@@ -65,7 +67,7 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
         // Ensure that the review assignment actually belongs to the
         // authorized submission.
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        assert(is_a($submission, 'Submission'));
+        assert($submission instanceof Submission);
         if ($reviewAssignment->getSubmissionId() != $submission->getId()) {
             return AUTHORIZATION_DENY;
         }

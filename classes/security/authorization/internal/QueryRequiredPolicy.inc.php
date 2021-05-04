@@ -14,6 +14,9 @@
 
 import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
 
+use APP\submission\Submission;
+use PKP\query\Query;
+
 class QueryRequiredPolicy extends DataObjectRequiredPolicy
 {
     /**
@@ -44,13 +47,13 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy
         // Make sure the query belongs to the submission.
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($queryId);
-        if (!is_a($query, 'Query')) {
+        if (!$query instanceof Query) {
             return AUTHORIZATION_DENY;
         }
         switch ($query->getAssocType()) {
             case ASSOC_TYPE_SUBMISSION:
                 $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-                if (!is_a($submission, 'Submission')) {
+                if (!$submission instanceof Submission) {
                     return AUTHORIZATION_DENY;
                 }
                 if ($query->getAssocId() != $submission->getId()) {

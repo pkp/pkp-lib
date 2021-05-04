@@ -96,7 +96,8 @@ class Form
             // this method is only called by a subclass. Results
             // in hook calls named e.g. "papergalleyform::Constructor"
             // Note that class names are always lower case.
-            HookRegistry::call(strtolower_codesafe(get_class($this)) . '::Constructor', [$this, &$template]);
+            $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+            HookRegistry::call(strtolower_codesafe(end($classNameParts)) . '::Constructor', [$this, &$template]);
         }
     }
 
@@ -172,7 +173,8 @@ class Form
         // in hook calls named e.g. "papergalleyform::display"
         // Note that class names are always lower case.
         $returner = null;
-        if (HookRegistry::call(strtolower_codesafe(get_class($this)) . '::display', [$this, &$returner])) {
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        if (HookRegistry::call(strtolower_codesafe(end($classNameParts)) . '::display', [$this, &$returner])) {
             return $returner;
         }
 
@@ -244,7 +246,8 @@ class Form
         // in hook calls named e.g. "papergalleyform::initData"
         // Note that class and function names are always lower
         // case.
-        HookRegistry::call(strtolower_codesafe(get_class($this) . '::initData'), [$this]);
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::initData'), [$this]);
     }
 
     /**
@@ -289,7 +292,8 @@ class Form
             // Note that class and function names are always lower
             // case.
             $value = null;
-            if (HookRegistry::call(strtolower_codesafe(get_class($this) . '::validate'), [$this, &$value])) {
+            $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+            if (HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::validate'), [$this, &$value])) {
                 return $value;
             }
         }
@@ -327,7 +331,8 @@ class Form
         // Note that class and function names are always lower
         // case.
         $returner = null;
-        HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array_merge([$this], $functionArgs, [&$returner]));
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::execute'), array_merge([$this], $functionArgs, [&$returner]));
         return $returner;
     }
 
@@ -344,7 +349,8 @@ class Form
         // Note that class and function names are always lower
         // case.
         $returner = [];
-        HookRegistry::call(strtolower_codesafe(get_class($this) . '::getLocaleFieldNames'), [$this, &$returner]);
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::getLocaleFieldNames'), [$this, &$returner]);
         return $returner;
     }
 
@@ -400,7 +406,8 @@ class Form
         // in hook calls named e.g. "papergalleyform::readUserVars"
         // Note that class and function names are always lower
         // case.
-        HookRegistry::call(strtolower_codesafe(get_class($this) . '::readUserVars'), [$this, &$vars]);
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::readUserVars'), [$this, &$vars]);
         $request = Application::get()->getRequest();
         foreach ($vars as $k) {
             $this->setData($k, $request->getUserVar($k));

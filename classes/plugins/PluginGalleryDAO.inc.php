@@ -20,6 +20,7 @@ namespace PKP\plugins;
 use APP\core\Application;
 
 use DOMDocument;
+use DOMElement;
 
 use PKP\core\PKPString;
 
@@ -97,7 +98,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
         $doc = $element->ownerDocument;
         $foundRelease = false;
         for ($n = $element->firstChild; $n; $n = $n->nextSibling) {
-            if (!is_a($n, 'DOMElement')) {
+            if (!($n instanceof DOMElement)) {
                 continue;
             }
             switch ($n->tagName) {
@@ -146,7 +147,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
     public function _handleMaintainer($element, $plugin)
     {
         for ($n = $element->firstChild; $n; $n = $n->nextSibling) {
-            if (!is_a($n, 'DOMElement')) {
+            if (!($n instanceof DOMElement)) {
                 continue;
             }
             switch ($n->tagName) {
@@ -182,7 +183,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
 
         $compatible = false;
         for ($n = $element->firstChild; $n; $n = $n->nextSibling) {
-            if (!is_a($n, 'DOMElement')) {
+            if (!($n instanceof DOMElement)) {
                 continue;
             }
             switch ($n->tagName) {
@@ -239,7 +240,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
         }
 
         for ($n = $element->firstChild; $n; $n = $n->nextSibling) {
-            if (!is_a($n, 'DOMElement')) {
+            if (!($n instanceof DOMElement)) {
                 continue;
             }
             switch ($n->tagName) {

@@ -18,6 +18,7 @@ namespace PKP\Services;
 use APP\core\Application;
 use APP\core\Services;
 use APP\Services\QueryBuilders\SubmissionQueryBuilder;
+use APP\submission\Submission;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -25,8 +26,8 @@ use PKP\db\DBResultRange;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
-use PKP\services\PKPSchemaService;
 
+use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 use PKP\validation\ValidatorFactory;
@@ -670,7 +671,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
      */
     public function canCurrentUserDelete($submission)
     {
-        if (!is_a($submission, 'Submission')) {
+        if (!($submission instanceof Submission)) {
             $submission = $this->get((int) $submission);
             if (!$submission) {
                 return false;

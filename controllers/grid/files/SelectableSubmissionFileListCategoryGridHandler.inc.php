@@ -88,7 +88,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
     {
         // We assume proper authentication by the data provider.
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        assert(is_a($submission, 'Submission'));
+        assert($submission instanceof \APP\submission\Submission);
         return $submission;
     }
 

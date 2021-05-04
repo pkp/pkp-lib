@@ -497,7 +497,8 @@ class Filter extends \PKP\core\DataObject
         // Process the filter
         $preliminaryOutput = & $this->process($input);
 
-        HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), [&$preliminaryOutput]);
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::execute'), [&$preliminaryOutput]);
 
         // Validate the filter output
         if ((!is_null($preliminaryOutput) && $this->supports($input, $preliminaryOutput)) || $returnErrors) {

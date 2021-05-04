@@ -97,7 +97,8 @@ class PKPNotificationSettingsForm extends Form
             ],
         ];
 
-        HookRegistry::call(strtolower_codesafe(get_class($this) . '::getNotificationSettingCategories'), [$this, &$result]);
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::getNotificationSettingCategories'), [$this, &$result]);
 
         return $result;
     }

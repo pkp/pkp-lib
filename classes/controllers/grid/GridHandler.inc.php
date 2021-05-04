@@ -1085,7 +1085,8 @@ class GridHandler extends PKPHandler
     protected function initFeatures($request, $args)
     {
         $returner = [];
-        HookRegistry::call(strtolower_codesafe(get_class($this) . '::initFeatures'), [$this, $request, $args, &$returner]);
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        HookRegistry::call(strtolower_codesafe(end($classNameParts) . '::initFeatures'), [$this, $request, $args, &$returner]);
         return $returner;
     }
 

@@ -13,10 +13,16 @@
  * @brief Displays a pub ids form.
  */
 
+use APP\submission\Publication;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
-use PKP\form\Form;
+use Chapter;
 
+use PKP\form\Form;
 use PKP\plugins\PKPPubIdPluginHelper;
+use PKP\submission\Representation;
+
+use PKP\submission\SubmissionFile; // FIXME: Add namespacing; remove OMP-specific code from pkp-lib
 
 class PKPPublicIdentifiersForm extends Form
 {
@@ -79,7 +85,7 @@ class PKPPublicIdentifiersForm extends Form
             'stageId' => $this->getStageId(),
             'formParams' => $this->getFormParams(),
         ]);
-        if (is_a($this->getPubObject(), 'Representation') || is_a($this->getPubObject(), 'Chapter')) {
+        if ($this->getPubObject() instanceof Representation || $this->getPubObject() instanceof Chapter) {
             $publicationId = $this->getPubObject()->getData('publicationId');
             $publication = Services::get('publication')->get($publicationId);
             $templateMgr->assign([
@@ -182,7 +188,7 @@ class PKPPublicIdentifiersForm extends Form
             } elseif (count(explode('/', $publisherId)) > 1) {
                 $this->addError('publisherId', __('editor.publicIdentificationPatternNotAllowed', ['pattern' => '"/"']));
                 $this->addErrorField('$publisherId');
-            } elseif (is_a($pubObject, 'SubmissionFile') && preg_match('/^(\d+)-(\d+)$/', $publisherId)) {
+            } elseif ($pubObject instanceof SubmissionFile && preg_match('/^(\d+)-(\d+)$/', $publisherId)) {
                 $this->addError('publisherId', __('editor.publicIdentificationPatternNotAllowed', ['pattern' => '\'/^(\d+)-(\d+)$/\' i.e. \'number-number\'']));
                 $this->addErrorField('$publisherId');
             } elseif ($contextDao->anyPubIdExists($this->getContextId(), 'publisher-id', $publisherId, $assocType, $pubObjectId, true)) {
@@ -210,10 +216,10 @@ class PKPPublicIdentifiersForm extends Form
         $pubIdPluginHelper = new PKPPubIdPluginHelper();
         $pubIdPluginHelper->execute($this->getContextId(), $this, $pubObject);
 
-        if (is_a($pubObject, 'Representation')) {
+        if ($pubObject instanceof Representation) {
             $representationDao = Application::getRepresentationDAO();
             $representationDao->updateObject($pubObject);
-        } elseif (is_a($pubObject, 'SubmissionFile')) {
+        } elseif ($pubObject instanceof SubmissionFile) {
             $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
             $submissionFileDao->updateObject($pubObject);
         }
@@ -240,13 +246,13 @@ class PKPPublicIdentifiersForm extends Form
     public function getAssocType($pubObject)
     {
         $assocType = null;
-        if (is_a($pubObject, 'Submission')) {
+        if ($pubObject instanceof Submission) {
             $assocType = ASSOC_TYPE_SUBMISSION;
-        } elseif (is_a($pubObject, 'Publication')) {
+        } elseif ($pubObject instanceof Publication) {
             $assocType = ASSOC_TYPE_PUBLICATION;
-        } elseif (is_a($pubObject, 'Representation')) {
+        } elseif ($pubObject instanceof Representation) {
             $assocType = ASSOC_TYPE_REPRESENTATION;
-        } elseif (is_a($pubObject, 'SubmissionFile')) {
+        } elseif ($pubObject instanceof SubmissionFile) {
             $assocType = ASSOC_TYPE_SUBMISSION_FILE;
         }
         return $assocType;

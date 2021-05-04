@@ -14,6 +14,8 @@
 
 import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
 
+use APP\submission\Submission;
+
 class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
 {
     /**
@@ -53,7 +55,7 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
         // Validate the submission id.
         $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $submission = $submissionDao->getById($submissionId);
-        if (!is_a($submission, 'Submission')) {
+        if (!$submission instanceof Submission) {
             return AUTHORIZATION_DENY;
         }
 

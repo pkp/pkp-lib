@@ -14,6 +14,8 @@
 
 import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
 
+use APP\publication\Publication;
+
 class PublicationRequiredPolicy extends DataObjectRequiredPolicy
 {
     /**
@@ -51,7 +53,7 @@ class PublicationRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         $publication = Services::get('publication')->get($publicationId);
-        if (!is_a($publication, 'Publication')) {
+        if (!$publication instanceof Publication) {
             return AUTHORIZATION_DENY;
         }
 

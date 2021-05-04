@@ -17,6 +17,8 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
+use PKP\user\User;
+
 class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
 {
     /** @var PKPRequest */
@@ -48,13 +50,13 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
     {
         // Get the user
         $user = $this->_request->getUser();
-        if (!is_a($user, 'User')) {
+        if (!$user instanceof User) {
             return AUTHORIZATION_DENY;
         }
 
         // Get the submission
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        if (!is_a($submission, 'Submission')) {
+        if (!$submission instanceof Submission) {
             return AUTHORIZATION_DENY;
         }
 

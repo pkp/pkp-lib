@@ -140,13 +140,13 @@ class NotificationsGridCellProvider extends GridCellProvider
             case ASSOC_TYPE_REVIEW_ROUND:
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
-                assert(is_a($reviewRound, 'ReviewRound'));
+                assert($reviewRound instanceof \ReviewRound); // FIXME: Add namespacing
                 $submissionId = $reviewRound->getSubmissionId();
                 break;
             case ASSOC_TYPE_QUERY:
                 $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
                 $query = $queryDao->getById($notification->getAssocId());
-                assert(is_a($query, 'Query'));
+                assert($query instanceof \PKP\query\Query);
                 switch ($query->getAssocType()) {
                     case ASSOC_TYPE_SUBMISSION:
                         $submissionId = $query->getAssocId();
@@ -167,12 +167,12 @@ class NotificationsGridCellProvider extends GridCellProvider
         if (!isset($submissionId) && isset($fileId)) {
             assert(is_numeric($fileId));
             $submissionFile = Services::get('submissionFile')->get($fileId);
-            assert(is_a($submissionFile, 'SubmissionFile'));
+            assert($submissionFile instanceof \PKP\submissionFile\SubmissionFile);
             $submissionId = $submissionFile->getData('submissionId');
         }
         assert(is_numeric($submissionId));
         $submission = Services::get('submission')->get($submissionId);
-        assert(is_a($submission, 'Submission'));
+        assert($submission instanceof \APP\submission\Submission);
 
         return $submission->getLocalizedTitle();
     }

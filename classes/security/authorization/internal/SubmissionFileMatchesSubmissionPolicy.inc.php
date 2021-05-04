@@ -17,6 +17,10 @@
 
 import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
 
+use APP\submission\Submission;
+
+use PKP\submission\SubmissionFile;
+
 class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPolicy
 {
     /**
@@ -41,13 +45,13 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
         // Get the submission file
         $request = $this->getRequest();
         $submissionFile = $this->getSubmissionFile($request);
-        if (!is_a($submissionFile, 'SubmissionFile')) {
+        if (!$submissionFile instanceof SubmissionFile) {
             return AUTHORIZATION_DENY;
         }
 
         // Get the submission
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        if (!is_a($submission, 'Submission')) {
+        if (!$submission instanceof Submission) {
             return AUTHORIZATION_DENY;
         }
 

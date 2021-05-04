@@ -19,6 +19,7 @@ use APP\core\Application;
 use NotificationManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
+use PKP\db\SchemaDAO;
 
 use PKP\linkAction\LinkAction;
 
@@ -49,7 +50,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
                     HookRegistry::register('Schema::get::' . $dao->schemaName, [$this, 'addToSchema']);
                 } else {
                     // For non-schema-backed DAOs, DAOName::getAdditionalFieldNames can be used.
-                    HookRegistry::register(strtolower_codesafe(get_class($dao)) . '::getAdditionalFieldNames', [$this, 'getAdditionalFieldNames']);
+                    $classNameParts = explode('\\', get_class($dao)); // Separate namespace info from class name
+                    HookRegistry::register(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', [$this, 'getAdditionalFieldNames']);
                 }
             }
         }
@@ -265,7 +267,11 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      */
     public function getPubObjectTypes()
     {
-        return ['Publication', 'Representation', 'SubmissionFile'];
+        return [
+            'Publication' => '\APP\publication\Publication',
+            'Representation' => '\PKP\submission\Representation',
+            'SubmissionFile' => '\PKP\submission\SubmissionFile',
+        ];
     }
 
     /**
@@ -429,9 +435,9 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     {
         $allowedTypes = $this->getPubObjectTypes();
         $pubObjectType = null;
-        foreach ($allowedTypes as $allowedType) {
-            if (is_a($pubObject, $allowedType)) {
-                $pubObjectType = $allowedType;
+        foreach ($allowedTypes as $type => $fqcn) {
+            if (is_a($pubObject, $fqcn)) {
+                $pubObjectType = $type;
                 break;
             }
         }
@@ -475,7 +481,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      */
     public function checkDuplicate($pubId, $pubObjectType, $excludeId, $contextId)
     {
-        foreach ($this->getPubObjectTypes() as $type) {
+        foreach ($this->getPubObjectTypes() as $type => $fqcn) {
             if ($type === 'Publication') {
                 $typeDao = DAORegistry::getDAO('PublicationDAO'); /** @var PublicationDAO $typeDao */
             } elseif ($type === 'Representation') {

@@ -18,6 +18,10 @@
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 
+use APP\submission\Submission;
+
+use PKP\user\User;
+
 class SubmissionAuthorPolicy extends AuthorizationPolicy
 {
     /** @var PKPRequest */
@@ -44,13 +48,13 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
     {
         // Get the user
         $user = $this->_request->getUser();
-        if (!is_a($user, 'User')) {
+        if (!$user instanceof User) {
             return AUTHORIZATION_DENY;
         }
 
         // Get the submission
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        if (!is_a($submission, 'Submission')) {
+        if (!$submission instanceof Submission) {
             return AUTHORIZATION_DENY;
         }
 

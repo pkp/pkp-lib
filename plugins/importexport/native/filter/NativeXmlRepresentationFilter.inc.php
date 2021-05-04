@@ -53,7 +53,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
         $context = $deployment->getContext();
 
         $publication = $deployment->getPublication();
-        assert(is_a($publication, 'PKPPublication'));
+        assert($publication instanceof \PKP\publication\PKPPublication);
 
         // Create the data object
         $representationDao = Application::getRepresentationDAO();
@@ -65,7 +65,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
         // Handle metadata in subelements.  Look for the 'name' and 'seq' elements.
         // All other elements are handled by subclasses.
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if (is_a($n, 'DOMElement')) {
+            if ($n instanceof \DOMElement) {
                 switch ($n->tagName) {
             case 'id': $this->parseIdentifier($n, $representation); break;
             case 'name':

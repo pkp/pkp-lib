@@ -19,12 +19,13 @@ define('LESS_FILENAME_SUFFIX', '.less');
 define('THEME_OPTION_PREFIX', 'themeOption_');
 
 use APP\core\Application;
+
 use APP\template\TemplateManager;
 use Exception;
-
+use PKP\context\Context;
 use PKP\core\Core;
-use PKP\core\PKPApplication;
 
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 
 abstract class ThemePlugin extends LazyLoadPlugin
@@ -160,7 +161,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
         }
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        if (is_a($context, 'Context')) {
+        if ($context instanceof Context) {
             $activeTheme = $context->getData('themePluginPath');
         } else {
             $site = $request->getSite();
@@ -727,7 +728,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     {
         $parent = PluginRegistry::getPlugin('themes', $parent);
 
-        if (!is_a($parent, 'ThemePlugin')) {
+        if (!($parent instanceof self)) {
             return;
         }
 
@@ -743,7 +744,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     {
 
         // Register parent theme template directory
-        if (isset($this->parent) && is_a($this->parent, 'ThemePlugin')) {
+        if (isset($this->parent) && $this->parent instanceof self) {
             $this->parent->_registerTemplates();
         }
 

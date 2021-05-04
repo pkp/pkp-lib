@@ -17,6 +17,8 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
+use APP\submission\Submission;
+
 class ManagerRequiredPolicy extends AuthorizationPolicy
 {
     /** @var PKPRequest */
@@ -43,7 +45,7 @@ class ManagerRequiredPolicy extends AuthorizationPolicy
     {
         // Get the submission
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        if (!is_a($submission, 'Submission')) {
+        if (!$submission instanceof Submission) {
             return AUTHORIZATION_DENY;
         }
 

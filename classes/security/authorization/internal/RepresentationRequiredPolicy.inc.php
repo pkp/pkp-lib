@@ -14,6 +14,11 @@
 
 import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
 
+use APP\publication\Publication;
+
+use APP\submission\Submission;
+use PKP\submission\Representation;
+
 class RepresentationRequiredPolicy extends DataObjectRequiredPolicy
 {
     /**
@@ -43,20 +48,20 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy
 
         // Need a valid submission in request.
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        if (!is_a($submission, 'Submission')) {
+        if (!$submission instanceof Submission) {
             return AUTHORIZATION_DENY;
         }
 
         // Need a valid publication in request
         $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
-        if (!is_a($publication, 'Publication')) {
+        if (!$publication instanceof Publication) {
             return AUTHORIZATION_DENY;
         }
 
         // Make sure the representation belongs to the submission.
         $representationDao = Application::getRepresentationDAO();
         $representation = $representationDao->getById($representationId, $publication->getId(), null);
-        if (!is_a($representation, 'Representation')) {
+        if (!$representation instanceof Representation) {
             return AUTHORIZATION_DENY;
         }
 

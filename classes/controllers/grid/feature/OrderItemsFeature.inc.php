@@ -17,12 +17,12 @@
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
 
 use APP\template\TemplateManager;
-use GridRow;
-
 use PKP\linkAction\LinkAction;
 
-// FIXME: Add namespacing
 use PKP\linkAction\request\NullAction;
+
+// FIXME: Add namespacing
+//use \GridRow;
 
 class OrderItemsFeature extends GridFeature
 {

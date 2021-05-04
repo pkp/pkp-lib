@@ -30,14 +30,14 @@ class I6759_RenameVariables extends Migration
     public function up()
     {
 
+        // pkp/pkp-lib#6759 rename tables
+        $this->_updateTablesWithReference();
+
         // pkp/pkp-lib#6759 rename folders
         $this->_renameFolders();
 
         // pkp/pkp-lib#6759 rename values
         $this->_updateValuesWithReference();
-
-        // pkp/pkp-lib#6759 rename tables
-        $this->_updateTablesWithReference();
     }
 
     /**
@@ -59,7 +59,7 @@ class I6759_RenameVariables extends Migration
             $table->dropIndex('journals_path');
             $table->renameColumn('journal_id', 'server_id');
             $table->float('seq', 8, 2)->comment('Used to order lists of servers')->change();
-            $table->tinyInteger('enabled')->comment('Controls whether or not the server is considered "live" and will appear on the website. (Note that disabled servers may still be accessible, but only if the user knows the URL.)')->change();
+            $table->smallInteger('enabled')->default(1)->comment('Controls whether or not the server is considered "live" and will appear on the website. (Note that disabled servers may still be accessible, but only if the user knows the URL.)')->change();
             $table->unique(['path'], 'servers_path');
         });
 
@@ -128,15 +128,19 @@ class I6759_RenameVariables extends Migration
 
         // Rename the current contexts folder and store for backup
         $oldContextFolder = $filesDir . '/contexts/';
-        $oldContextBackUpFolder = $filesDir . '/contextsOld/';
-        rename($oldContextFolder, $oldContextBackUpFolder);
+        if (is_dir($oldContextFolder)) {
+            $oldContextBackUpFolder = $filesDir . '/contextsOld/';
+            rename($oldContextFolder, $oldContextBackUpFolder);
+        }
 
         // Rename journals folder to contexts folder in files
         rename($filesDir . '/journals/', $filesDir . '/contexts/');
 
         // Rename journals folder to contexts folder in public
         $publicFilesDir = Config::getVar('files', 'public_files_dir');
-        rename($publicFilesDir . '/journals/', $publicFilesDir . '/contexts/');
+        if (is_dir($publicFilesDir)) {
+            rename($publicFilesDir . '/journals/', $publicFilesDir . '/contexts/');
+        }
     }
 }
 

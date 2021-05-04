@@ -59,7 +59,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
      */
     public function &extractMetadataFromDataObject(&$submission)
     {
-        assert(is_a($submission, 'Submission'));
+        assert($submission instanceof \APP\submission\Submission);
 
         AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_SUBMISSION);
 

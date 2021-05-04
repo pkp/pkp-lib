@@ -328,7 +328,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         self::assertEquals('PreprintSearchIndex::preprintMetadataChanged', $hook);
 
         [$preprint] = $params;
-        self::assertInstanceOf('Submission', $preprint);
+        self::assertInstanceOf('\APP\submission\Submission', $preprint);
 
         // Returning "true" is required so that the default submissionMetadataChanged()
         // code won't run.
@@ -346,7 +346,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         self::assertEquals('PreprintSearchIndex::submissionFilesChanged', $hook);
 
         [$preprint] = $params;
-        self::assertInstanceOf('Submission', $preprint);
+        self::assertInstanceOf('\APP\submission\Submission', $preprint);
 
         // Returning "true" is required so that the default submissionMetadataChanged()
         // code won't run.

@@ -15,6 +15,11 @@
 
 namespace APP\plugins;
 
+use PKP\submission\Genre;
+
+use APP\submission\Submission;
+use APP\preprint\PreprintGalley;
+
 class PubObjectCache {
 	/* @var array */
 	var $_objectCache = array();
@@ -29,15 +34,15 @@ class PubObjectCache {
 	 * @param $parent Submission|null Only required when adding a galley.
 	 */
 	function add($object, $parent) {
-		if (is_a($object, 'Submission')) {
+		if ($object instanceof Submission) {
 			$this->_insertInternally($object, 'preprints', $object->getId());
 		}
-		if (is_a($object, 'PreprintGalley')) {
-			assert(is_a($parent, 'Submission'));
+		if ($object instanceof PreprintGalley) {
+			assert($parent instanceof Submission);
 			$this->_insertInternally($object, 'galleys', $object->getId());
 			$this->_insertInternally($object, 'galleysByPreprint', $object->getData('submissionId'), $object->getId());
 		}
-		if (is_a($object, 'Genre')) {
+		if ($object instanceof Genre) {
 			$this->_insertInternally($object, 'genres', $object->getId());
 		}
 	}

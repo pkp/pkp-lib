@@ -13,7 +13,8 @@
  * @brief Implement application specifics for generating usage events.
  */
 
-use \APP\template\TemplateManager;
+use APP\template\TemplateManager;
+use APP\submission\Submission;
 
 import('lib.pkp.plugins.generic.usageEvent.PKPUsageEventPlugin');
 
@@ -154,6 +155,6 @@ class UsageEventPlugin extends PKPUsageEventPlugin
      */
     protected function isPubIdObjectType($pubObject)
     {
-        return is_a($pubObject, 'Submission');
+        return $pubObject instanceof Submission;
     }
 }

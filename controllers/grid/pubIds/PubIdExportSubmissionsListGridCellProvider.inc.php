@@ -35,7 +35,7 @@ class PubIdExportSubmissionsListGridCellProvider extends ExportPublishedSubmissi
     {
         $submission = $row->getData();
         $columnId = $column->getId();
-        assert(is_a($submission, 'Submission') && !empty($columnId));
+        assert($submission instanceof \APP\submission\Submission && !empty($columnId));
 
         switch ($columnId) {
             case 'pubId':

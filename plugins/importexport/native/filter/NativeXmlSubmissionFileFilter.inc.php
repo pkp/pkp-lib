@@ -78,20 +78,18 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		// Build a cached list of genres by context ID by name
 		if ($genreName) {
 			if (!isset($genresByContextId[$context->getId()])) {
-				$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
+				$genreDao = DAORegistry::getDAO('GenreDAO'); /** @var $genreDao GenreDAO */
 				$genres = $genreDao->getByContextId($context->getId());
 				while ($genre = $genres->next()) {
-					foreach ($genre->getName(null) as $locale => $name) {
-						$genresByContextId[$context->getId()][$name] = $genre;
+					if ($genre->getData('key') == $genreName) {
+						$genreId = $genre->getId();
 					}
 				}
 			}
-			if (!isset($genresByContextId[$context->getId()][$genreName])) {
+
+			if (!isset($genreId)) {
 				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', array('param' => $genreName)));
 				$errorOccured = true;
-			} else {
-				$genre = $genresByContextId[$context->getId()][$genreName];
-				$genreId = $genre->getId();
 			}
 		}
 

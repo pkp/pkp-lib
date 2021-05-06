@@ -83,6 +83,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				while ($genre = $genres->next()) {
 					if ($genre->getData('key') == $genreName) {
 						$genreId = $genre->getId();
+						break;
 					}
 				}
 			}
@@ -135,7 +136,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$submissionFile->setData('salesType', $salesType);
 		}
 		if ($sourceSubmissionFileId = $node->getAttribute('source_submission_file_id')) {
-			$submissionFile->setData('sourceSubmissionFileId', $sourceSubmissionFileId);
+			$submissionFile->setData('sourceSubmissionFileId', $deployment->getSubmissionFileDBId($sourceSubmissionFileId));
 		}
 		if ($terms = $node->getAttribute('terms')) {
 			$submissionFile->setData('terms', $terms);

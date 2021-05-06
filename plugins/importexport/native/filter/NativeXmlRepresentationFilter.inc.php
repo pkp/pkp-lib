@@ -39,7 +39,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 	/**
 	 * Handle a Representation element
 	 * @param $node DOMElement
-	 * @return Representation 
+	 * @return Representation
 	 */
 	function handleElement($node) {
 		$deployment = $this->getDeployment();
@@ -54,7 +54,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 
 		$representation->setData('publicationId', $publication->getId());
 		$representation->setData('urlPath', $node->getAttribute('url_path'));
-		
+
 		// Handle metadata in subelements.  Look for the 'name' and 'seq' elements.
 		// All other elements are handled by subclasses.
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
@@ -96,6 +96,25 @@ class NativeXmlRepresentationFilter extends NativeImportFilter {
 					$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
 					$representation->setStoredPubId($element->getAttribute('type'), $element->textContent);
 				}
+		}
+	}
+
+	/**
+	 * Process the self_file_ref node found inside the representation node.
+	 * @param $node DOMElement
+	 * @param $deployment PKPImportExportDeployment
+	 * @param $representation Representation
+	 */
+	function _processFileRef($node, $deployment, &$representation) {
+		$fileId = $node->getAttribute('id');
+		$DBId = $deployment->getSubmissionFileDBId($fileId);
+		if ($DBId) {
+			// Update the submission file.
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var $submissionFileDao SubmissionFileDAO */
+			$submissionFile = Services::get('submissionFile')->get($DBId); /** @var $submissionFile SubmissionFile */
+			$submissionFile->setData('assocType', ASSOC_TYPE_REPRESENTATION);
+			$submissionFile->setData('assocId', $representation->getId());
+			$submissionFileDao->updateObject($submissionFile);
 		}
 	}
 }

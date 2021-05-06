@@ -15,12 +15,15 @@
 
 namespace PKP\plugins;
 
+use APP\core\Services;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use Exception;
+use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 
+use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\linkAction\LinkAction;
 

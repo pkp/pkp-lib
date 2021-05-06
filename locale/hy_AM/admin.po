@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-04 01:41+0000\n"
+"PO-Revision-Date: 2021-05-06 09:24+0000\n"
 "Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy_AM/>\n"
@@ -350,7 +350,6 @@ msgstr "Անջատել դերերը"
 msgid "admin.settings.restrictBulkEmails"
 msgstr "Արգելել մասսայական էլ․ նամակների ուղարկումը"
 
-#, fuzzy
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
 "Copy the passed apache access log file(s), filtering the entries related "

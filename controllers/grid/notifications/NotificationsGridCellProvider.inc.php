@@ -110,7 +110,7 @@ class NotificationsGridCellProvider extends GridCellProvider
                 $queuedPayment = $queuedPaymentDao->getById($notification->getAssocId());
                 if ($queuedPayment) {
                     switch ($queuedPayment->getType()) {
-                    case PAYMENT_TYPE_PUBLICATION:
+                    case \PKP\payment\PaymentManager::PAYMENT_TYPE_PUBLICATION: // FIXME: This is OJS-only; move out of pkp-lib
                         $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
                         return $submissionDao->getById($queuedPayment->getAssocId())->getLocalizedTitle();
                 }

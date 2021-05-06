@@ -386,6 +386,12 @@ msgstr "{$count} ({$percentage}%)"
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} novih)"
 
+msgid "manager.setup.publishing"
+msgstr "Detalji objavljivanja"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Ime nakladnika koje se pojavljuje u časopisu u rubrici \"o časopisu\". Nakladnik je pravna ili fizička osoba koja pokreće objavljivanje publikacije, snosi troškove izdavanja i tiskanja te je odgovorna za proizvodnju i distribuciju."
+
 msgid "manager.users"
 msgstr "Korisnici"
 

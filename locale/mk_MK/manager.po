@@ -761,6 +761,14 @@ msgstr "Додадена содржина"
 msgid "manager.affiliationAndSupport"
 msgstr "Спонзор"
 
+msgid "manager.setup.publishing"
+msgstr "Детали за објавување"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Овие детали може да бидат вклучени во метаподатоците доставени до архивски "
+"тела на трети страни."
+
 msgid "manager.statistics.reports.filters.byLocation.description"
 msgstr "Стесни ги резултати според земја, регион и / или град."
 

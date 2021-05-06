@@ -587,6 +587,12 @@ msgstr "Avgränsa reslutat efter land, region och/eller stad."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishing"
+msgstr "Publiceringsinformation"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Namn på tidskriftens utgivare som kan inkluderas i metadatan som skickas till tredje parts arkiv."
+
 msgid "manager.setup.additionalContent"
 msgstr "Ytterligare innehåll"
 

@@ -587,6 +587,12 @@ msgstr "Redueix els resultats per país, regió i/o ciutat."
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinadors"
 
+msgid "manager.setup.publishing"
+msgstr "Detalls de publicació"
+
+msgid "manager.setup.publishingDescription"
+msgstr "El nom de l’organització que publica la revista apareix a la pàgina «Sobre la revista»."
+
 msgid "manager.setup.authorGuidelines"
 msgstr "Directrius per a l’autor/a"
 

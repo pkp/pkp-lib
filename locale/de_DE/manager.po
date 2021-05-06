@@ -593,6 +593,14 @@ msgstr "Ergebnisse nach Land, Region und/oder Stadt filtern.."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishing"
+msgstr "Veröffentlichungsdetails"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Diese Details werden in den Metadaten bereitgestellt, die von Dritten "
+"ausgelesen werden können."
+
 msgid "manager.setup.additionalContent"
 msgstr "Weiterer Inhalt"
 

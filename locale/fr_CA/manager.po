@@ -637,6 +637,12 @@ msgstr "Limiter les résultats selon le pays, la région ou la ville."
 msgid "manager.affiliationAndSupport"
 msgstr "Organisme subventionnaire"
 
+msgid "manager.setup.publishing"
+msgstr "Renseignements au sujet de la publication"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Le nom de l'organisation qui publie la revue pourrait être inclus dans les métadonnées fournies aux agents d'achivage externes."
+
 msgid "manager.setup.additionalContent"
 msgstr "Contenu additionnel"
 

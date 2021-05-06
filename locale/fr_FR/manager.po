@@ -613,6 +613,12 @@ msgstr "Par l'emplacement géo"
 msgid "manager.affiliationAndSupport"
 msgstr "Commanditaire"
 
+msgid "manager.setup.publishing"
+msgstr "Renseignements relatifs à la publication"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Le nom de l'organisation qui publie la revue apparaîtra dans À propos de la revue."
+
 msgid "manager.setup.authorGuidelines"
 msgstr "Normes pour les auteurs"
 

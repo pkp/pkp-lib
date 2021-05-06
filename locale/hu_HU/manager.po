@@ -625,6 +625,14 @@ msgstr "Országhoz, régióhoz és/vagy városhoz közeli eredmények."
 msgid "manager.affiliationAndSupport"
 msgstr "Szponzor"
 
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Ezek az adatok szerepelhetnek harmadik archiváló félnek átadott "
+"metaadatokban."
+
+msgid "manager.setup.publishing"
+msgstr "Megjelenítési részletek"
+
 msgid "manager.setup.additionalContent"
 msgstr "Hozzáadott tartalom"
 

@@ -1666,6 +1666,14 @@ msgstr "Conținut suplimentar"
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Aceste detalii pot fi incluse în metadatele furnizate unor organisme de "
+"arhivare terțe."
+
+msgid "manager.setup.publishing"
+msgstr "Detalii de publicare"
+
 msgid "manager.statistics.reports.filters.byLocation.description"
 msgstr "Rezultate restrânse după țară, regiune și / sau oraș."
 

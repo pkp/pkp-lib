@@ -164,6 +164,14 @@ msgstr "ზრდადობით"
 msgid "manager.statistics.reports.orderDir.desc"
 msgstr "კლებადობით"
 
+msgid "manager.setup.publishing"
+msgstr "გამოცემის დეტალები"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"ეს დეტალები შეიძლება შეიტანოს მეტდანაცემებში, რომლებიც მესამე მხარის "
+"საარქივო ორგანოებს მიეწოდება."
+
 msgid "manager.setup.advanced"
 msgstr "დამატებით"
 

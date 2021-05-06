@@ -576,6 +576,9 @@ msgstr "محدودتر کردن نتایج بر اساس شهر، منطقه و 
 msgid "manager.affiliationAndSupport"
 msgstr "حامی مالی"
 
+msgid "manager.setup.publishingDescription"
+msgstr "نام ناشر در صفحه «درباره مجله» خواهد آمد."
+
 msgid "manager.setup.additionalContent"
 msgstr "سایر اطلاعات"
 

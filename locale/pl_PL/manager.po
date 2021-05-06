@@ -709,6 +709,14 @@ msgstr "Filtruj wyniki wg kraju, regionu oraz/lub miasta."
 msgid "manager.affiliationAndSupport"
 msgstr "Instytucja finansująca"
 
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Te szczegóły mogą być zawarte w metadanych dostarczanych do innego, "
+"archiwalnego zespołu."
+
+msgid "manager.setup.publishing"
+msgstr "Szczegóły publikacji"
+
 msgid "manager.setup.additionalContent"
 msgstr "Dodatkowa zawartość"
 

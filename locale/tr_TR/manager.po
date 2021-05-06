@@ -1096,6 +1096,14 @@ msgstr "Sonuçları ülke, bölge ve / veya şehre göre daralt."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishing"
+msgstr "Yayın Ayrıntıları"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Bu ayrıntılar, üçüncü taraf arşiv organlarına sağlanan üstverilere dahil "
+"edilebilir."
+
 msgid "manager.setup.additionalContent"
 msgstr "Ek İçerik"
 

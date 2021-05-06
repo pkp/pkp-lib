@@ -724,6 +724,15 @@ msgstr "Επιπλέον περιεχόμενο"
 msgid "manager.affiliationAndSupport"
 msgstr "Χορηγοί"
 
+msgid "manager.setup.publishing"
+msgstr "Λεπτομέρειες Δημοσίευσης"
+
+#, fuzzy
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Αυτές οι λεπτομέρειες μπορεί να περιλαμβάνονται στα μεταδεδομένα που "
+"εμφανίζονται στην σελίδα \"Σχετικά με το περιοδικό\"."
+
 msgid "manager.statistics.reports.filters.byLocation.description"
 msgstr "Περιορίστε τα αποτελέσματα κατά χώρα, περιοχή και/ή πόλη."
 

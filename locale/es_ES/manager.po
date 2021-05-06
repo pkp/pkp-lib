@@ -580,6 +580,12 @@ msgstr "Resultados reducidos por país, región y/o ciudad."
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
 
+msgid "manager.setup.publishing"
+msgstr "Detalles de publicación"
+
+msgid "manager.setup.publishingDescription"
+msgstr "El nombre de la organización que publica la revista aparecerá en la sección Acerca de la revista."
+
 msgid "manager.setup.authorGuidelines"
 msgstr "Directrices para autores"
 

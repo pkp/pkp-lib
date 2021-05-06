@@ -1161,6 +1161,12 @@ msgstr "附加内容"
 msgid "manager.affiliationAndSupport"
 msgstr "赞助者"
 
+msgid "manager.setup.publishing"
+msgstr "出版细节"
+
+msgid "manager.setup.publishingDescription"
+msgstr "出版这份期刊的组织单位名称会出现在这份期刊的「期刊介绍」中。"
+
 msgid "manager.statistics.reports.filters.byLocation.description"
 msgstr "按国家，地区和/或城市缩小结果范围。"
 

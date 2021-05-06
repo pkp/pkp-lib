@@ -362,6 +362,12 @@ msgstr "Alati za čitanje"
 msgid "manager.roles"
 msgstr "Uloge"
 
+msgid "manager.setup.publishing"
+msgstr "Detalji objavljivanja"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Ime nakladnika koje se pojavljuje u časopisu u rubrici \"o časopisu\". Nakladnik je pravna ili fizička osoba koja pokreće objavljivanje publikacije, snosi troškove izdavanja i tiskanja te je odgovorna za proizvodnju i distribuciju."
+
 msgid "manager.setup.homepageImageInvalid"
 msgstr "Neispravan format slike naslovne stranice. Prihvaćeni formati su .gif, .jpg, ili .png."
 

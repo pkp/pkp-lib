@@ -1542,6 +1542,12 @@ msgstr "Isi Tambahan"
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishing"
+msgstr "Rincian Terbitan"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Nama organisasi yang menerbitkan jurnal dapat disertakan dalam metadata yang diberikan ke badan pengarsipan luar."
+
 msgid "manager.statistics.reports.filters.byLocation.description"
 msgstr "Persempit pencarian berdasarkan negara, wilayah dan/atau kota."
 

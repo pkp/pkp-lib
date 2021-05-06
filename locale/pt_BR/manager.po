@@ -618,6 +618,12 @@ msgstr "Por localização geográfica"
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
 
+msgid "manager.setup.publishing"
+msgstr "Detalhes da publicação"
+
+msgid "manager.setup.publishingDescription"
+msgstr "O nome da editora aparecerá na página Sobre a revista."
+
 msgid "manager.setup.authorGuidelines"
 msgstr "Diretrizes para autores"
 

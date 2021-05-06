@@ -832,6 +832,12 @@ msgstr "Snevre inn resultatene etter land, region og/eller by."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishing"
+msgstr "Publiseringsopplysninger"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Navnet til organisasjonen som publiserer tidsskriftet vil bli vist i 'Om' tidsskriftet."
+
 msgid "manager.setup.additionalContent"
 msgstr "Annet innhold"
 

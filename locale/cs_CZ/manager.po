@@ -825,6 +825,12 @@ msgstr "Z´úžit výsledky podle státu, regionu a/nebo města."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponzor"
 
+msgid "manager.setup.publishing"
+msgstr "Podrobnosti o publikování"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Název organizace vydávající časopis bude zobrazen v části O časopisu."
+
 msgid "manager.setup.additionalContent"
 msgstr "Další obsah"
 

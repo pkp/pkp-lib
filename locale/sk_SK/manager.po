@@ -16,3 +16,10 @@ msgstr "Vybraná adresa časopisu  \"{$contextPath}\" neexistuje."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "CHYBA:"
+
+msgid "manager.setup.publishing"
+msgstr "Podrobnosti o publikovaní"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Názov organizácie vydávajúcej časopis bude zobrazený v časti O časopise."

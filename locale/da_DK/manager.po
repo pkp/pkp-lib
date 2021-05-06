@@ -835,6 +835,14 @@ msgstr "Genindlæs standardindstillinger"
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishing"
+msgstr "Publiceringsoplysninger"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Disse detaljer kan inkluderes i metadata leveret til arkivorganisationer fra "
+"tredjepart."
+
 msgid "manager.setup.openAccessPolicy"
 msgstr "Open Access-politik"
 

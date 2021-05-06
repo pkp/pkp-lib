@@ -448,6 +448,14 @@ msgstr "Nội dung bổ sung"
 msgid "manager.affiliationAndSupport"
 msgstr "Nhà tài trợ"
 
+msgid "manager.setup.publishing"
+msgstr "Chi tiết xuất bản"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Các chi tiết này có thể được bao gồm trong siêu dữ liệu được cung cấp cho "
+"các cơ quan lưu trữ của bên thứ ba."
+
 msgid "manager.statistics.reports.filters.byLocation.description"
 msgstr "Thu hẹp kết quả theo quốc gia, khu vực và/hoặc thành phố."
 

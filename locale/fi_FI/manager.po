@@ -582,6 +582,12 @@ msgstr "Rajaa tuloksia maan, alueen ja/tai kaupungin mukaan."
 msgid "manager.affiliationAndSupport"
 msgstr "Tukija"
 
+msgid "manager.setup.publishingDescription"
+msgstr "Julkaisevan organisaation nimi saatetaan sisällyttää metatietoihin, jotka annetaan ulkopuolisille arkistointielimille."
+
+msgid "manager.setup.publishing"
+msgstr "Julkaisua koskevat tiedot"
+
 msgid "manager.setup.additionalContent"
 msgstr "Lisäsisältö"
 

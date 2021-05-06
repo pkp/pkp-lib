@@ -627,6 +627,12 @@ msgstr "ضيِّق النتائج حسب الدولة، المنطقة و/أو �
 msgid "manager.affiliationAndSupport"
 msgstr "الراعي"
 
+msgid "manager.setup.publishing"
+msgstr "تفاصيل النشر"
+
+msgid "manager.setup.publishingDescription"
+msgstr "هذه التفاصيل قد يجري تضمينها في بيانات وصفية تذهب إلى أطراف ثالثة عند حفظ محتوى المجلة."
+
 msgid "manager.setup.additionalContent"
 msgstr "المحتوى الإضافي"
 

@@ -592,6 +592,14 @@ msgstr "Zoži rezultate po državi, regiji in/ali mestu."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponzor"
 
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Te podrobnosti so lahko vključene v metapodatke tretjih oseb, ki arhivirajo "
+"ali indeksirajo revijo."
+
+msgid "manager.setup.publishing"
+msgstr "Podrobnosti objavljanja"
+
 msgid "manager.setup.additionalContent"
 msgstr "Dodatna vsebina"
 

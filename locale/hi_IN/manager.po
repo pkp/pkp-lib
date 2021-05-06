@@ -26,3 +26,13 @@ msgstr "त्रुटि:"
 # (pofilter) startcaps: Different capitalization at the start
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "निर्दिष्ट जर्नल पथ, \"{$contextPath}\", मौजूद नहीं है।"
+
+msgid "manager.setup.publishing"
+msgstr "प्रकाशन विवरण"
+
+# (pofilter) endpunc: Different punctuation at the end
+# (pofilter) simplecaps: Different capitalization
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"ये विवरण तृतीय-पक्ष अभिलेखीय निकायों को प्रदान किए गए मेटाडेटा में शामिल किए "
+"जा सकते हैं।"

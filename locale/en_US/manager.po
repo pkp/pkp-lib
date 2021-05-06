@@ -649,6 +649,12 @@ msgstr "Narrow results by country, region and/or city."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishing"
+msgstr "Publishing Details"
+
+msgid "manager.setup.publishingDescription"
+msgstr "These details may be included in metadata provided to third-party archival bodies."
+
 msgid "manager.setup.additionalContent"
 msgstr "Additional Content"
 

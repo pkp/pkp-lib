@@ -15,8 +15,10 @@
 namespace PKP\components\forms\context;
 
 use PKP\components\forms\FieldRichTextarea;
+use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use Sokil\IsoCodes\IsoCodesFactory;
 
 define('FORM_MASTHEAD', 'masthead');
 
@@ -41,6 +43,18 @@ class PKPMastheadForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
+        $isoCodes = new IsoCodesFactory();
+        $countries = [];
+        foreach ($isoCodes->getCountries() as $country) {
+            $countries[] = [
+                'value' => $country->getAlpha2(),
+                'label' => $country->getLocalName()
+            ];
+        }
+        usort($countries, function ($a, $b) {
+            return strcmp($a['label'], $b['label']);
+        });
+
         $this->addGroup([
             'id' => 'identity',
             'label' => __('manager.setup.identity'),
@@ -60,6 +74,19 @@ class PKPMastheadForm extends FormComponent
                 'isMultilingual' => true,
                 'groupId' => 'identity',
                 'value' => $context->getData('acronym'),
+            ]))
+            ->addGroup([
+                'id' => 'publishing',
+                'label' => __('manager.setup.publishing'),
+                'description' => __('manager.setup.publishingDescription'),
+            ])
+            ->addField(new FieldSelect('country', [
+                'groupId' => 'publishing',
+                'label' => __('common.country'),
+                'description' => __('manager.setup.selectCountry'),
+                'options' => $countries,
+                'isRequired' => true,
+                'value' => $context ? $context->getData('country') : null,
             ]))
             ->addGroup([
                 'id' => 'keyInfo',

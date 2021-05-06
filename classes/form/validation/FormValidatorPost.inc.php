@@ -15,7 +15,6 @@
 
 namespace PKP\form\validation;
 
-
 use APP\core\Application;
 
 class FormValidatorPost extends FormValidator

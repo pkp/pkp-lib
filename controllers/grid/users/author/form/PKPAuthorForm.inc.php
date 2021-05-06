@@ -13,10 +13,10 @@
  * @brief Form for adding/editing a author
  */
 
-use PKP\form\Form;
-use PKP\Services\Interfaces\EntityWriteInterface;
-
 use APP\template\TemplateManager;
+use PKP\form\Form;
+
+use PKP\Services\Interfaces\EntityWriteInterface;
 
 class PKPAuthorForm extends Form
 {

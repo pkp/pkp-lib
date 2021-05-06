@@ -16,13 +16,14 @@
 use APP\submission\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use Chapter;
-
 use PKP\form\Form;
+
 use PKP\plugins\PKPPubIdPluginHelper;
 use PKP\submission\Representation;
+use PKP\submission\SubmissionFile;
 
-use PKP\submission\SubmissionFile; // FIXME: Add namespacing; remove OMP-specific code from pkp-lib
+// FIXME: Add namespacing; remove OMP-specific code from pkp-lib
+//use Chapter;
 
 class PKPPublicIdentifiersForm extends Form
 {

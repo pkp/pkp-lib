@@ -19,6 +19,8 @@
  *
  */
 
+namespace PKP\payment;
+
 /** DOES NOT inherit from DataObject for the sake of concise serialization */
 class Payment
 {
@@ -210,4 +212,8 @@ class Payment
     {
         return $this->assocId;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\payment\Payment', '\Payment');
 }

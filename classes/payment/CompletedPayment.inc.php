@@ -15,7 +15,7 @@
  * @brief Class describing a completed payment.
  */
 
-import('lib.pkp.classes.payment.Payment');
+namespace PKP\payment;
 
 class CompletedPayment extends Payment
 {
@@ -64,4 +64,8 @@ class CompletedPayment extends Payment
     {
         $this->_paymentPluginName = $paymentPluginName;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\payment\CompletedPayment', '\CompletedPayment');
 }

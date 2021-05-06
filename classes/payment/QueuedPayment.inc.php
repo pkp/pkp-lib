@@ -16,23 +16,12 @@
  *
  */
 
-import('lib.pkp.classes.payment.Payment');
+namespace PKP\payment;
 
 class QueuedPayment extends Payment
 {
     /** @var string URL associated with this payment */
     public $requestUrl;
-
-    /**
-     * @copydoc Payment::Payment
-     *
-     * @param null|mixed $userId
-     * @param null|mixed $assocId
-     */
-    public function __construct($amount, $currencyCode, $userId = null, $assocId = null)
-    {
-        parent::__construct($amount, $currencyCode, $userId, $assocId);
-    }
 
     /**
      * Set the request URL.
@@ -56,3 +45,5 @@ class QueuedPayment extends Payment
         return $this->requestUrl;
     }
 }
+
+// (#6091 Class aliasing applied in PKPApplication for the sake of deserializing legacy content.)

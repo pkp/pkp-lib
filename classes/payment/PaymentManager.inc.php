@@ -16,6 +16,8 @@
  *
  */
 
+namespace PKP\payment;
+
 abstract class PaymentManager
 {
     /** @var Context */
@@ -130,4 +132,8 @@ abstract class PaymentManager
      * @return boolean success/failure
      */
     abstract public function fulfillQueuedPayment($request, $queuedPayment);
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\payment\PaymentManager', '\PaymentManager');
 }

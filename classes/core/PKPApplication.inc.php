@@ -143,6 +143,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             class_alias('\PKP\core\Core', '\Core');
             class_alias('\PKP\cache\CacheManager', '\CacheManager');
             class_alias('\PKP\handler\PKPHandler', '\PKPHandler');
+            class_alias('\PKP\payment\QueuedPayment', '\QueuedPayment'); // QueuedPayment instances may be serialized
         }
 
         // If not in strict mode, globally expose constants on this class.

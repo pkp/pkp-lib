@@ -16,7 +16,7 @@
  *
  */
 
-import('lib.pkp.classes.payment.QueuedPayment');
+namespace PKP\payment;
 
 class QueuedPaymentDAO extends \PKP\db\DAO
 {
@@ -123,4 +123,8 @@ class QueuedPaymentDAO extends \PKP\db\DAO
     {
         $this->update('DELETE FROM queued_payments WHERE expiry_date < now()');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\payment\QueuedPaymentDAO', '\QueuedPaymentDAO');
 }

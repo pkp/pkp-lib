@@ -2018,3 +2018,8 @@ msgstr ""
 "notificada e irá proceder para assegurar-se que as revisões ficam "
 "concluídas. Não precisa de tomar qualquer ação neste momento. Será "
 "notificado quando uma decisão for tomada."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Isto é uma visualização prévia e não foi ainda publicado.  <a href=\"{$url}\""
+">Ver submissão</a>"

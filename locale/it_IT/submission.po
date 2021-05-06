@@ -1933,3 +1933,9 @@ msgstr ""
 "e si adopererà per garantire il completamento delle revisioni. Non è "
 "necessario eseguire alcuna azione in questo momento. Riceverai una notifica "
 "quando sarà stata presa una decisione."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Questa è una preview non ancora pubblicata  <a href=\"{$url}\">Vai "
+"all'articolo</a>"

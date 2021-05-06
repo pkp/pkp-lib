@@ -2107,3 +2107,9 @@ msgstr "Zgłoszenie przywrócone do kolejki."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Przywróć"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"To jest wgląd do artykułu, który jeszcze nie był publikowany.<a href=\"{$url}"
+"\">Wyświetl zgłoszenie</a>"

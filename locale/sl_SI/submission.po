@@ -1990,3 +1990,9 @@ msgstr ""
 "Eden ali več recenzentov zamuja z recenzijo. Uredništvo je bilo obveščeno o "
 "tem in bo reagiralo, da bo zagotovilo dokončanje recenzije. Ta trenutek vam "
 "ni potrebno storiti ničesar. Ko bo odločitev sprejeta boste obveščeni."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"To je le predogled, še ni bilo objavljeno. <a href=\"{$url}\">View "
+"submission</a>"

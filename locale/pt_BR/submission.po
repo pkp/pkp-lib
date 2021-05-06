@@ -2335,3 +2335,7 @@ msgstr "Reverter Rejeição"
 
 msgid "notification.type.revertDecline"
 msgstr "A decisão de recusar esta submissão foi revertida."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Esta é uma prévia e não foi publicada. <a href=\"{$url}\"> Ver submissão</a>"

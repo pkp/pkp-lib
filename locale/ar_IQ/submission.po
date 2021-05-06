@@ -1916,3 +1916,8 @@ msgstr "طلب التقديم المرفوض أعيد تنشيطه."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "التراجع عن الرفض"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"هذه معاينة استعراضية ولم يتم نشرها بعد. <a href=\"{$url}\">View ""submission</a>"

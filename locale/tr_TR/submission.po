@@ -2004,3 +2004,9 @@ msgstr "Reddedilen aday makale yeniden etkinleştirildi."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Reddetmeyi Geri Al"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Bu bir önizlemedir ve yayınlanmamıştır.  <a href=\"{$url}\">Makaleyi "
+"görüntüle</a>"

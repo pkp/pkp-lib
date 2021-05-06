@@ -2120,3 +2120,9 @@ msgstr ""
 "pour s'assurer que les évaluations soient réalisées. Vous n'avez aucune "
 "action à effectuer pour le moment. Vous recevrez une notification lorsque la "
 "décision aura été prise."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Ceci est un aperçu et n'a pas été publié. <a href=\"{$url}\">Voir la "
+"soumission</a>"

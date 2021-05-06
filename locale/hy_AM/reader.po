@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-16 06:49+0000\n"
-"Last-Translator: anau vpn <anauvpn@gmail.com>\n"
+"PO-Revision-Date: 2021-05-04 01:41+0000\n"
+"Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "reader.fullText"
-msgstr "Ամբողջական տեքստ"
+msgstr "Ամբողջական տեքստ։"
 
 msgid "comments.viewAllComments"
 msgstr "Տեսնել բոլոր մեկնաբանությունները"
@@ -42,7 +42,7 @@ msgid "comments.nReplies"
 msgstr "({$num} պատասխաններ)"
 
 msgid "comments.noComments"
-msgstr "Մեկնաբանություն չի հրապարակվել"
+msgstr "Որևէ կարդացողի մեկնաբանություն չի հրապարակվել"
 
 msgid "comments.name"
 msgstr "Հրապարակողի անուն"
@@ -60,18 +60,18 @@ msgid "comments.email"
 msgstr "Հրապարակողի էլ. հասցեն"
 
 msgid "comments.delete"
-msgstr "Ջնջել մեկնաբանությունը"
+msgstr "Ջնջել  այս մեկնաբանությունը"
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
-"Եթե ջնջեք այս մեկնաբանությունը, ապա կջնջեք նաև դրա պատասխանները: Դուք վստա՞հ "
-"եք, որ ցանկանում եք ջնջել:"
+"Եթե ջնջեք այս մեկնաբանությունը, ապա կջնջեք նաև դրա բոլոր պատասխանները: Դուք "
+"վստա՞հ եք, որ ցանկանում եք ջնջել:"
 
 msgid "comments.titleRequired"
-msgstr "Պահանջվում է մեկնաբանության վերնագիր:"
+msgstr "Մեկնաբանության վերնագիրը պարտադիր է։"
 
 msgid "comments.body"
-msgstr "հատված"
+msgstr "Մարմին"
 
 msgid "comments.anonymousNamed"
 msgstr "\"{$userName}\""

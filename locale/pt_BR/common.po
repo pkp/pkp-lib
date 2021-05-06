@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2021-03-05 18:44+0000\n"
+"PO-Revision-Date: 2021-05-06 15:57+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -2081,3 +2081,19 @@ msgstr "Não foi possível cancelar sua inscrição"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Sua inscrição foi cancelada"
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtro ({$displayName}) suporta entrada {$inputTypeName} - {$typeofInput} "
+"fornecido"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Não foi possível importar XML Node"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Tentando executar uma transformação que não é suportada em seu ambiente de "
+"instalação."
+
+msgid "validator.country"
+msgstr "Este não é um pais válido."

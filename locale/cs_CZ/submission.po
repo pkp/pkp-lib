@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-02-17 09:54+0000\n"
-"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"PO-Revision-Date: 2021-05-04 01:41+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs_CZ/>\n"
 "Language: cs_CZ\n"
@@ -984,7 +984,7 @@ msgid "submission.event.fileUploaded"
 msgstr "Soubor \"{$originalFileName}\" byl nahrán pro příspěvek {$submissionId} uživatelem {$username}."
 
 msgid "submission.event.fileRevised"
-msgstr "Revize \"{$name}\" souboru {$submissionFileId}) byla nahrána."
+msgstr "Úprava \"{$name}\" pro soubor {$submissionFileId}) byla nahrána."
 
 msgid "submission.event.participantAdded"
 msgstr "Uživatel {$name}  ({$username}) byl přiřazen k příspěvku jako {$userGroupName}."
@@ -1083,7 +1083,7 @@ msgid "submission.upload.invalidUserGroup"
 msgstr "Chybějící nebo neplatná uživatelská skupina!"
 
 msgid "submission.upload.possibleRevision"
-msgstr "Byla detekována možná duplicita nebo revize"
+msgstr "Byla detekována možná duplicita nebo úprava"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr "Název nahraného souboru se podobá názvu dříve nahraného souboru\"{$revisedFileName}.\"  Je tento soubor určen k nahrazení \"{$revisedFileName}\"? Pokud ano, vyberte níže uvedený soubor. V opačném případě vyberte \"Nejedná se o revizi stávajícího souboru\", než budete pokračovat."
@@ -1095,7 +1095,7 @@ msgid "submission.upload.selectOptionalFileToRevise"
 msgstr "Pokud nahráváte revizi existujícího souboru, uveďte, který soubor."
 
 msgid "submission.upload.uploadNewFile"
-msgstr "Toto není revize existujícího souboru"
+msgstr "Toto není úprava existujícího souboru"
 
 msgid "submission.upload.userGroup"
 msgstr "Nahrát tento soubor v rámci mé role..."
@@ -1131,7 +1131,7 @@ msgid "submission.upload.noAvailableReviewFiles"
 msgstr "Nejsou pro vás dostupné žádné soubory ke recenzi."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
-msgstr "Byly vyžádány revize rukopisu."
+msgstr "Byly vyžádány úpravy rukopisu."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Odesláno k externí recenzi."
@@ -1236,13 +1236,19 @@ msgid "submission.event.fileDeleted"
 msgstr "Soubor \"{$originalFileName}\" v rámci příspěvku {$submissionId} byl smazán uživatelm {$username}."
 
 msgid "submission.event.revisionUploaded"
-msgstr "Revize souboru \"{$originalFileName}\" byla nahrána k příspěvku {$submissionId} uživatelem {$username}."
+msgstr ""
+"Úprava souboru \"{$originalFileName}\" byla nahrána k příspěvku "
+"{$submissionId} uživatelem {$username}."
 
 msgid "submission.event.revisionDeleted"
-msgstr "Revize souboru \"{$originalFileName}\" v rámci příspěvku {$submissionId} byla smazána uživatelem {$username}."
+msgstr ""
+"Úprava souboru \"{$originalFileName}\" v rámci příspěvku {$submissionId} "
+"byla smazána uživatelem {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "Pro soubor \"{$title}\" byla jeho poslední revize odebrána uživatelem {$username}."
+msgstr ""
+"Pro soubor \"{$title}\" byla jeho poslední úprava odebrána uživatelem "
+"{$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr "Uživatel \"{$name}\" ({$username}) byl přidán jako posuzovatel pro soubor \"{$file}.\""
@@ -1464,7 +1470,7 @@ msgid "submission.howToCite.downloadCitation"
 msgstr "Stánhout citace"
 
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Revize rukopisu byly odevzdány."
+msgstr "Úpravy rukopisu byly odevzdány."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Vypršel termín pro recenzi."
@@ -1548,7 +1554,7 @@ msgid "submission.list.reviewsCompleted"
 msgstr "Přidělené recenze jsou hotovy"
 
 msgid "submission.list.revisionsSubmitted"
-msgstr "Revize rukopisu byly nahrány"
+msgstr "Úpravy rukopisu byly nahrány"
 
 msgid "submission.list.copyeditsSubmitted"
 msgstr "Soubory s editacemi byly nahrány"
@@ -1704,7 +1710,7 @@ msgid "publication.urlPath"
 msgstr "Cesta URL"
 
 msgid "publication.unschedule"
-msgstr "Neplánovaný"
+msgstr "Není naplánováno vydání"
 
 msgid "publication.titleAbstract.success"
 msgstr "Název a abstrakt byly aktualizovány."
@@ -1743,7 +1749,7 @@ msgid "publication.createVersion"
 msgstr "Vytvořit novou verzi"
 
 msgid "publication.contributors"
-msgstr "Autoři"
+msgstr "Přispěvatelé"
 
 msgid "publication.citations.success"
 msgstr "Reference byly aktualizovány."
@@ -1938,10 +1944,10 @@ msgid "submission.list.activity"
 msgstr "Aktivita"
 
 msgid "notification.type.editorDecisionNewRound"
-msgstr "Bylo zahájeno nové kolo revizí."
+msgstr "Bylo zahájeno nové recenzní kolo."
 
 msgid "editor.submission.decision.newRound"
-msgstr "Nové kolo revize"
+msgstr "Nové kolo recenzí"
 
 msgid "submission.downloads"
 msgstr "Stahování"

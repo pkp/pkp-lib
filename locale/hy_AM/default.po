@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-18 12:49+0000\n"
-"Last-Translator: anau vpn <anauvpn@gmail.com>\n"
+"PO-Revision-Date: 2021-05-04 01:41+0000\n"
+"Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/hy_AM/>\n"
 "Language: hy_AM\n"
@@ -124,3 +124,21 @@ msgstr "Սրբագրիչներ"
 
 msgid "default.groups.plural.productionEditor"
 msgstr "Թողարկման խմբագիրներ"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
+">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
+"mailto: {$contactEmail}\">{$contactEmail}</a></p>"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML Stylesheet"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "Խմբագիր"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Խմբագիրներ"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Խմբագիր"

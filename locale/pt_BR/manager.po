@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2021-03-24 12:24+0000\n"
+"PO-Revision-Date: 2021-04-23 21:50+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2197,3 +2197,65 @@ msgstr "ERRO:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "O caminho especificado da revista, \"{$contextPath}\", não existe."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "O processo falhou ao analisar publicações"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "O processo falhou ao analisar os autores"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Configuração de filtro errada [{$filterName}]: {$filterCount} ocorrências. "
+"Deveria existir apenas um."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Itens genéricos"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Baixe o arquivo exportado no botão abaixo."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "A exportação foi concluída com sucesso."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Baixar arquivo exportado"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportar resultados de submissões"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "O processo falhou. Verifique abaixo os erros / avisos."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "UserGroup ausente para o nome do autor {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Um ou mais desses endereços de e-mail não são válidos."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Uma cópia do e-mail de confirmação da submissão será enviada para qualquer "
+"um dos endereços de e-mail inseridos aqui. Separe vários endereços de e-mail "
+"com uma vírgula. Exemplo: um@exemplo.com.br, dois@ exemplo.com.br"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Notificar qualquer pessoa"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Não"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Sim, envie uma cópia para {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notificar o contato principal"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notificações"

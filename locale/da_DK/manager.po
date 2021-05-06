@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-04-20 15:27+0000\n"
+"PO-Revision-Date: 2021-04-26 11:12+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2280,3 +2280,41 @@ msgstr "Informér primær kontakt"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Meddelelser"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Download den eksporterede fil via nedenstående knap."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Processen mislykkedes med at parse publiceringer"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Processen mislykkedes med at parse forfattere"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Forkert filterkonfiguration [{$filterName}]: {$filterCount} forekomster. Bør "
+"kun være en."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Generiske elementer"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Eksporten blev gennemført."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Download eksporteret fil"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Eksport-indsendelses-resultater"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Processen fejlede. Kontroller nedenstående for fejl/advarsler."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "UserGroup mangler forfatternavn {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"

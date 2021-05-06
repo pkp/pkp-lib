@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-04 18:17+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2021-04-23 10:47+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -2147,3 +2147,16 @@ msgstr "Не мое да ве одзачлениме"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Бевте одзачленет"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Не може да се импортира XML Node"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Се обидувате да извршите трансформација која што не е поддржана во вашата "
+"околина за инсталација."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Филтерот ({$displayName}) поддржува влез на {$inputTypeName} - даден "
+"{$typeofInput}"

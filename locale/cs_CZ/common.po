@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-03-29 10:30+0000\n"
-"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"PO-Revision-Date: 2021-05-06 15:57+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "cs_CZ/>\n"
 "Language: cs_CZ\n"
@@ -753,7 +753,7 @@ msgid "search.abstract"
 msgstr "Abstrakt"
 
 msgid "search.author"
-msgstr "Autoři"
+msgstr "Podle autora"
 
 msgid "search.coverage"
 msgstr "Pokrytí"
@@ -1179,10 +1179,10 @@ msgid "informationCenter.deleteConfirm"
 msgstr "Jste si jisti, že chcete smazat tuto poznámku?"
 
 msgid "informationCenter.currentHistory"
-msgstr "Aktuální revize"
+msgstr "Aktuální úprava"
 
 msgid "informationCenter.pastHistory"
-msgstr "Dřívější revize"
+msgstr "Dřívější úpravy"
 
 msgid "informationCenter.history.noItems"
 msgstr "Žádné události nejsou zaznamenány."
@@ -1395,7 +1395,7 @@ msgid "notification.type.allRevisionsIn"
 msgstr "Opravený soubor byl nahrán pro rozhodnutí redaktora ve fázi {$stage}."
 
 msgid "notification.type.pendingRevisions"
-msgstr "Revize, které je třeba ve fázi  {$stage} vzít v úvahu."
+msgstr "Úpravy, které je třeba ve fázi  {$stage} vzít v úvahu."
 
 msgid "notification.type.pendingRevisions.title"
 msgstr "Ve fázi {$stage} byla nahrána recenze."
@@ -2049,3 +2049,19 @@ msgstr "Nemohli jsme vás odhlásit"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Byli jste odhlášeni"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Nelze importovat uzel XML"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Pokoušíte se spustit transformaci, která není ve vašem instalačním prostředí "
+"podporována."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtr ({$displayName}) podporuje vstup typu {$inputTypeName} – byl však "
+"zadán typ {$typeofInput}"
+
+msgid "validator.country"
+msgstr "Toto není platný název státu."

@@ -954,8 +954,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
      */
     public function canPreview($user, $submission)
     {
-        // Don't grant access until submission reaches Copyediting stage
-        if ($submission->getData('stageId') < WORKFLOW_STAGE_ID_EDITING) {
+        // Only grant access when in copyediting or production stage
+        if (!in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION])) {
             return false;
         }
 
@@ -983,7 +983,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
      *
      * @return bool
      */
-    public function _roleCanPreview($user, $submission)
+    protected function _roleCanPreview($user, $submission)
     {
         $roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
         if ($user && $submission) {

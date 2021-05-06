@@ -126,14 +126,14 @@ class ValidatorFactory
         // Add custom validation rule for currency
         $validation->extend('currency', function ($attribute, $value, $parameters, $validator) {
             $isoCodes = new IsoCodesFactory();
-            $currency = $isoCodes->getCurrencies()->getByLetterCode($value);
+            $currency = $isoCodes->getCurrencies()->getByLetterCode((string) $value);
             return isset($currency);
         });
 
         // Add custom validation rule for country
         $validation->extend('country', function ($attribute, $value, $parameters, $validator) {
             $isoCodes = new IsoCodesFactory();
-            $country = $isoCodes->getCountries()->getByAlpha2($value);
+            $country = $isoCodes->getCountries()->getByAlpha2((string) $value);
             return isset($country);
         });
 

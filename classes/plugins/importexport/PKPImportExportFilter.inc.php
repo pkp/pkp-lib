@@ -13,6 +13,8 @@
  * @brief Base helper class for import/export filters
  */
 
+use PKP\filter\PersistableFilter;
+
 // use NativeExportFilter; // FIXME: Add namespacing
 
 class PKPImportExportFilter extends PersistableFilter

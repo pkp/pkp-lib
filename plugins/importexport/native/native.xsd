@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+
+<!--
+  * plugins/importexport/native/native.xsd
+  *
+  * Copyright (c) 2014-2021 Simon Fraser University
+  * Copyright (c) 2003-2021 John Willinsky
+  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+  *
+  * Schema describing native XML import/export elements specific to OJS
+  -->
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pkp.sfu.ca" xmlns:pkp="http://pkp.sfu.ca" elementFormDefault="qualified">
+
+	<!--
+	  - Base the native import/export schema on the PKP submission model.
+	  -->
+	<include schemaLocation="../../../lib/pkp/plugins/importexport/native/pkp-native.xsd" />
+
+	<!-- Allow the use of "preprint" in place of "submission" -->
+	<element name="preprint" substitutionGroup="pkp:submission">
+		<complexType>
+			<complexContent>
+				<extension base="pkp:submission">
+					<attribute name="stage" use="required">
+						<simpleType>
+							<restriction base="string">
+								<enumeration value="production" />
+							</restriction>
+						</simpleType>
+					</attribute>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<element name="preprints" substitutionGroup="pkp:submissions" />
+
+	<!-- Permit "citation" as a root element to keep the filters happy -->
+	<element name="citation" type="string" />
+
+	<element name="publication" substitutionGroup="pkp:pkppublication">
+		<complexType>
+			<complexContent>
+				<extension base="pkp:pkppublication">
+					<sequence>
+						<element maxOccurs="1" minOccurs="0" name="pages" type="string" />
+						<element ref="pkp:covers" minOccurs="0" maxOccurs="1" />
+						<element ref="pkp:citations" minOccurs="0" maxOccurs="unbounded"/>
+					</sequence>
+					<attribute name="section_ref" type="string" use="required" />
+					<attribute name="seq" type="int" />
+					<attribute name="access_status" type="int" />
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<!-- Configure the use of the "preprint_galley" representation -->
+	<element name="preprint_galley" substitutionGroup="pkp:representation">
+		<complexType>
+			<complexContent>
+				<extension base="pkp:representation">
+					<attribute name="approved" type="boolean"/>
+					<attribute name="galley_type" type="string"/>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<!--
+	  - Composite / root elements
+	  -->
+	<element name="covers">
+		<complexType>
+			<sequence>
+				<element ref="pkp:cover" minOccurs="1" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="cover">
+		<complexType>
+			<sequence>
+				<element name="cover_image" type="string" minOccurs="1" maxOccurs="1" />
+				<element name="cover_image_alt_text" type="string" minOccurs="1" maxOccurs="1" />
+				<element name="embed" type="pkp:embed" />
+			</sequence>
+			<attribute name="locale" type="string" />
+		</complexType>
+	</element>
+
+	<element name="sections">
+		<complexType>
+			<sequence>
+				<element ref="pkp:section" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="section">
+		<sequence>
+			<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
+			<element name="abbrev" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="policy" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="title" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="ref" type="string" />
+		<attribute name="review_form_id" type="int" use="optional" />
+		<attribute name="seq" type="string" />
+		<attribute name="editor_restricted" type="int" />
+		<attribute name="meta_indexed" type="int" />
+		<attribute name="meta_reviewed" type="int" />
+		<attribute name="abstracts_not_required" type="int" />
+		<attribute name="hide_title" type="int" />
+		<attribute name="hide_author" type="int" />
+		<attribute name="abstract_word_count" type="int" />
+	</complexType>
+
+	<!-- Permit "section" as a root element -->
+	<element name="section" type="pkp:section" />
+</schema>

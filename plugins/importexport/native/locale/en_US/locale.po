@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-30T06:56:45-07:00\n"
+"PO-Revision-Date: 2019-09-30T06:56:45-07:00\n"
+"Language: \n"
+
+msgid "plugins.importexport.native.displayName"
+msgstr "Native XML Plugin"
+
+msgid "plugins.importexport.native.description"
+msgstr "Import and export submissions in OPS's native XML format."
+
+msgid "plugins.importexport.native.import"
+msgstr "Import"
+
+msgid "plugins.importexport.native.import.instructions"
+msgstr "Upload XML file to import"
+
+msgid "plugins.importexport.native.exportSubmissionsSelect"
+msgstr "Select preprints to export"
+
+#, fuzzy
+msgid "plugins.importexport.native.exportSubmissions"
+msgstr "Export Preprints"
+
+msgid "plugins.importexport.native.results"
+msgstr "Import Results"
+
+msgid "plugins.inportexport.native.uploadFile"
+msgstr "Please upload a file under \"Import\" in order to continue."
+
+msgid "plugins.importexport.native.importComplete"
+msgstr "The import completed successfully. The following items were imported:"
+
+#, fuzzy
+msgid "plugins.importexport.native.cliUsage"
+msgstr ""
+"Usage: {$scriptName} {$pluginName} [command] ...\n"
+"Commands:\n"
+"\timport [xmlFileName] [server_path] [user_name] ...\n"
+"\texport [xmlFileName] [server_path] preprints [preprintId1] [preprintId2] ...\n"
+"\texport [xmlFileName] [server_path] preprint [preprintId]\n"
+"\n"
+"Additional parameters are required for importing data as follows, depending\n"
+"on the root node of the XML document.\n"
+"\n"
+""
+
+msgid "plugins.importexport.native.error.unknownSection"
+msgstr "Unknown section {$param}"
+
+msgid "plugins.importexport.native.error.unknownUser"
+msgstr "The specified user, \"{$userName}\", does not exist."

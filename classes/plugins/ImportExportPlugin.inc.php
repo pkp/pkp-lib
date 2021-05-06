@@ -270,34 +270,6 @@ abstract class ImportExportPlugin extends Plugin
     }
 
     /**
-     * Define the appropriate import filter given the imported XML file path
-     *
-     * @param $xmlFile string
-     *
-     * @return array Containing the filter and the xmlString of the imported file
-     */
-    abstract public function getImportFilter($xmlFile);
-
-    /**
-     * Define the appropriate export filter given the export operation
-     *
-     * @param $exportType string
-     *
-     * @return string
-     */
-    abstract public function getExportFilter($exportType);
-
-    /**
-     * Get the application specific deployment object
-     *
-     * @param $context Context
-     * @param $user User
-     *
-     * @return PKPImportExportDeployment
-     */
-    abstract public function getAppSpecificDeployment($context, $user);
-
-    /**
      * Save the export result as an XML
      *
      * @param $deployment PKPNativeImportExportDeployment

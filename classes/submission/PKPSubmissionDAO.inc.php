@@ -22,6 +22,7 @@ use APP\submission\Submission;
 
 use Exception;
 use Illuminate\Support\Facades\DB;
+use PKP\cache\CacheManager;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 

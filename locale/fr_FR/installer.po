@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2020-08-04 07:48+0000\n"
+"PO-Revision-Date: 2021-02-01 13:53+0000\n"
 "Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"installer/fr/>\n"
+"installer/fr_FR/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -206,3 +206,7 @@ msgstr "Procure un identifiant unique de site et un URL pour le protocole OAI po
 
 msgid "installer.unsupportedPhpError"
 msgstr "La version de PHP n'est pas supportée. Lire docs/README."
+
+#, fuzzy
+msgid "installer.installMigrationError"
+msgstr "Erreur lors de l'exécution de la classe de migration <tt>{$class}</tt>."

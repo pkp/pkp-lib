@@ -1,8 +1,8 @@
 {**
  * templates/controllers/modals/editorDecision/form/initiateExternalReviewForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form used to initiate the first review round.
@@ -23,7 +23,7 @@
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 
 	<!-- Available submission files -->
-	{capture assign=filesForReviewUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.submission.SelectableSubmissionDetailsFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
+	{capture assign=filesForReviewUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.submission.SelectableSubmissionDetailsFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
 	{load_url_in_div id="filesForReviewGrid" url=$filesForReviewUrl}
 	{fbvFormButtons submitText="editor.submission.decision.sendExternalReview"}
 </form>

@@ -3,682 +3,840 @@
 /**
  * @file classes/submission/reviewAssignment/ReviewAssignment.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignment
  * @ingroup submission
+ *
  * @see ReviewAssignmentDAO
  *
  * @brief Describes review assignment properties.
  */
 
-define('SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT', 1);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS', 2);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE', 3);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE', 4);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE', 5);
-define('SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS', 6);
-
-define('SUBMISSION_REVIEWER_RATING_VERY_GOOD', 5);
-define('SUBMISSION_REVIEWER_RATING_GOOD', 4);
-define('SUBMISSION_REVIEWER_RATING_AVERAGE', 3);
-define('SUBMISSION_REVIEWER_RATING_POOR', 2);
-define('SUBMISSION_REVIEWER_RATING_VERY_POOR', 1);
-
-define('SUBMISSION_REVIEW_METHOD_ANONYMOUS', 1);
-define('SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS', 2);
-define('SUBMISSION_REVIEW_METHOD_OPEN', 3);
-
-// A review is "unconsidered" when it is confirmed by an editor and then that
-// confirmation is later revoked.
-define('REVIEW_ASSIGNMENT_NOT_UNCONSIDERED', 0); // Has never been unconsidered
-define('REVIEW_ASSIGNMENT_UNCONSIDERED', 1); // Has been unconsindered and is awaiting re-confirmation by an editor
-define('REVIEW_ASSIGNMENT_UNCONSIDERED_READ', 2); // Has been reconfirmed by an editor
-
-define('REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE', 0); // request has been sent but reviewer has not responded
-define('REVIEW_ASSIGNMENT_STATUS_DECLINED', 1); // reviewer declined review request
-define('REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE', 4); // review not responded within due date
-define('REVIEW_ASSIGNMENT_STATUS_ACCEPTED', 5); // reviewer has agreed to the review
-define('REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE', 6); // review not submitted within due date
-define('REVIEW_ASSIGNMENT_STATUS_RECEIVED', 7); // review has been submitted
-define('REVIEW_ASSIGNMENT_STATUS_COMPLETE', 8); // review has been confirmed by an editor
-define('REVIEW_ASSIGNMENT_STATUS_THANKED', 9); // reviewer has been thanked
-define('REVIEW_ASSIGNMENT_STATUS_CANCELLED', 10); // reviewer cancelled review request
-
-class ReviewAssignment extends DataObject {
-
-	//
-	// Get/set methods
-	//
-
-	/**
-	 * Get ID of review assignment's submission.
-	 * @return int
-	 */
-	function getSubmissionId() {
-		return $this->getData('submissionId');
-	}
-
-	/**
-	 * Set ID of review assignment's submission
-	 * @param $submissionId int
-	 */
-	function setSubmissionId($submissionId) {
-		$this->setData('submissionId', $submissionId);
-	}
-
-	/**
-	 * Get ID of reviewer.
-	 * @return int
-	 */
-	function getReviewerId() {
-		return $this->getData('reviewerId');
-	}
-
-	/**
-	 * Set ID of reviewer.
-	 * @param $reviewerId int
-	 */
-	function setReviewerId($reviewerId) {
-		$this->setData('reviewerId', $reviewerId);
-	}
-
-	/**
-	 * Get full name of reviewer.
-	 * @return string
-	 */
-	function getReviewerFullName() {
-		return $this->getData('reviewerFullName');
-	}
-
-	/**
-	 * Set full name of reviewer.
-	 * @param $reviewerFullName string
-	 */
-	function setReviewerFullName($reviewerFullName) {
-		$this->setData('reviewerFullName', $reviewerFullName);
-	}
-
-	/**
-	 * Get reviewer comments.
-	 * @return string
-	 */
-	function getComments() {
-		return $this->getData('comments');
-	}
-
-	/**
-	 * Set reviewer comments.
-	 * @param $comments string
-	 */
-	function setComments($comments) {
-		$this->setData('comments', $comments);
-	}
-
-	/**
-	 * Get competing interests.
-	 * @return string
-	 */
-	function getCompetingInterests() {
-		return $this->getData('competingInterests');
-	}
-
-	/**
-	 * Set competing interests.
-	 * @param $competingInterests string
-	 */
-	function setCompetingInterests($competingInterests) {
-		$this->setData('competingInterests', $competingInterests);
-	}
-
-	/**
-	 * Get the workflow stage id.
-	 * @return int WORKFLOW_STAGE_ID_...
-	 */
-	function getStageId() {
-		return $this->getData('stageId');
-	}
-
-	/**
-	 * Set the workflow stage id.
-	 * @param $stageId int WORKFLOW_STAGE_ID_...
-	 */
-	function setStageId($stageId) {
-		$this->setData('stageId', $stageId);
-	}
-
-	/**
-	 * Get the method of the review (open, anonymous, or double-anonymous).
-	 * @return int
-	 */
-	function getReviewMethod() {
-		return $this->getData('reviewMethod');
-	}
-
-	/**
-	 * Set the type of review.
-	 * @param $method int
-	 */
-	function setReviewMethod($method) {
-		$this->setData('reviewMethod', $method);
-	}
-
-	/**
-	 * Get review round id.
-	 * @return int
-	 */
-	function getReviewRoundId() {
-		return $this->getData('reviewRoundId');
-	}
-
-	/**
-	 * Set review round id.
-	 * @param $reviewRoundId int
-	 */
-	function setReviewRoundId($reviewRoundId) {
-		$this->setData('reviewRoundId', $reviewRoundId);
-	}
-
-	/**
-	 * Get reviewer recommendation.
-	 * @return string
-	 */
-	function getRecommendation() {
-		return $this->getData('recommendation');
-	}
-
-	/**
-	 * Set reviewer recommendation.
-	 * @param $recommendation string
-	 */
-	function setRecommendation($recommendation) {
-		$this->setData('recommendation', $recommendation);
-	}
-
-	/**
-	 * Get unconsidered state.
-	 * @return int
-	 */
-	function getUnconsidered() {
-		return $this->getData('unconsidered');
-	}
-
-	/**
-	 * Set unconsidered state.
-	 * @param $unconsidered int
-	 */
-	function setUnconsidered($unconsidered) {
-		$this->setData('unconsidered', $unconsidered);
-	}
-
-	/**
-	 * Get the date the reviewer was rated.
-	 * @return string
-	 */
-	function getDateRated() {
-		return $this->getData('dateRated');
-	}
-
-	/**
-	 * Set the date the reviewer was rated.
-	 * @param $dateRated string
-	 */
-	function setDateRated($dateRated) {
-		$this->setData('dateRated', $dateRated);
-	}
-
-	/**
-	 * Get the date of the last modification.
-	 * @return date
-	 */
-	function getLastModified() {
-		return $this->getData('lastModified');
-	}
-
-	/**
-	 * Set the date of the last modification.
-	 * @param $dateModified date
-	 */
-	function setLastModified($dateModified) {
-		$this->setData('lastModified', $dateModified);
-	}
-
-	/**
-	 * Stamp the date of the last modification to the current time.
-	 */
-	function stampModified() {
-		return $this->setLastModified(Core::getCurrentDate());
-	}
-
-	/**
-	 * Get the reviewer's assigned date.
-	 * @return string
-	 */
-	function getDateAssigned() {
-		return $this->getData('dateAssigned');
-	}
-
-	/**
-	 * Set the reviewer's assigned date.
-	 * @param $dateAssigned string
-	 */
-	function setDateAssigned($dateAssigned) {
-		$this->setData('dateAssigned', $dateAssigned);
-	}
-
-	/**
-	 * Get the reviewer's notified date.
-	 * @return string
-	 */
-	function getDateNotified() {
-		return $this->getData('dateNotified');
-	}
-
-	/**
-	 * Set the reviewer's notified date.
-	 * @param $dateNotified string
-	 */
-	function setDateNotified($dateNotified) {
-		$this->setData('dateNotified', $dateNotified);
-	}
-
-	/**
-	 * Get the reviewer's confirmed date.
-	 * @return string
-	 */
-	function getDateConfirmed() {
-		return $this->getData('dateConfirmed');
-	}
-
-	/**
-	 * Set the reviewer's confirmed date.
-	 * @param $dateConfirmed string
-	 */
-	function setDateConfirmed($dateConfirmed) {
-		$this->setData('dateConfirmed', $dateConfirmed);
-	}
-
-	/**
-	 * Get the reviewer's completed date.
-	 * @return string
-	 */
-	function getDateCompleted() {
-		return $this->getData('dateCompleted');
-	}
-
-	/**
-	 * Set the reviewer's completed date.
-	 * @param $dateCompleted string
-	 */
-	function setDateCompleted($dateCompleted) {
-		$this->setData('dateCompleted', $dateCompleted);
-	}
-
-	/**
-	 * Get the reviewer's acknowledged date.
-	 * @return string
-	 */
-	function getDateAcknowledged() {
-		return $this->getData('dateAcknowledged');
-	}
-
-	/**
-	 * Set the reviewer's acknowledged date.
-	 * @param $dateAcknowledged string
-	 */
-	function setDateAcknowledged($dateAcknowledged) {
-		$this->setData('dateAcknowledged', $dateAcknowledged);
-	}
-
-	/**
-	 * Get the reviewer's last reminder date.
-	 * @return string
-	 */
-	function getDateReminded() {
-		return $this->getData('dateReminded');
-	}
-
-	/**
-	 * Set the reviewer's last reminder date.
-	 * @param $dateReminded string
-	 */
-	function setDateReminded($dateReminded) {
-		$this->setData('dateReminded', $dateReminded);
-	}
-
-	/**
-	 * Get the reviewer's due date.
-	 * @return string
-	 */
-	function getDateDue() {
-		return $this->getData('dateDue');
-	}
-
-	/**
-	 * Set the reviewer's due date.
-	 * @param $dateDue string
-	 */
-	function setDateDue($dateDue) {
-		$this->setData('dateDue', $dateDue);
-	}
-
-	/**
-	 * Get the reviewer's response due date.
-	 * @return string
-	 */
-	function getDateResponseDue() {
-		return $this->getData('dateResponseDue');
-	}
-
-	/**
-	 * Set the reviewer's response due date.
-	 * @param $dateResponseDue string
-	 */
-	function setDateResponseDue($dateResponseDue) {
-		$this->setData('dateResponseDue', $dateResponseDue);
-	}
-
-	/**
-	 * Get the declined value.
-	 * @return boolean
-	 */
-	function getDeclined() {
-		return $this->getData('declined');
-	}
-
-	/**
-	 * Set the reviewer's declined value.
-	 * @param $declined boolean
-	 */
-	function setDeclined($declined) {
-		$this->setData('declined', $declined);
-	}
-
-	/**
-	 * Get the cancelled value.
-	 * @return boolean
-	 */
-	function getCancelled() {
-		return $this->getData('cancelled');
-	}
-
-	/**
-	 * Set the reviewer's cancelled value.
-	 * @param $cancelled boolean
-	 */
-	function setCancelled($cancelled) {
-		$this->setData('cancelled', $cancelled);
-	}
-
-	/**
-	 * Get a boolean indicating whether or not the last reminder was automatic.
-	 * @return boolean
-	 */
-	function getReminderWasAutomatic() {
-		return $this->getData('reminderWasAutomatic')==1?1:0;
-	}
-
-	/**
-	 * Set the boolean indicating whether or not the last reminder was automatic.
-	 * @param $wasAutomatic boolean
-	 */
-	function setReminderWasAutomatic($wasAutomatic) {
-		$this->setData('reminderWasAutomatic', $wasAutomatic);
-	}
-
-	/**
-	 * Get quality.
-	 * @return int|null
-	 */
-	function getQuality() {
-		return $this->getData('quality');
-	}
-
-	/**
-	 * Set quality.
-	 * @param $quality int|null
-	 */
-	function setQuality($quality) {
-		$this->setData('quality', $quality);
-	}
-
-	/**
-	 * Get round.
-	 * @return int
-	 */
-	function getRound() {
-		return $this->getData('round');
-	}
-
-	/**
-	 * Set round.
-	 * @param $round int
-	 */
-	function setRound($round) {
-		$this->setData('round', $round);
-	}
-
-	/**
-	 * Get review form id.
-	 * @return int
-	 */
-	function getReviewFormId() {
-		return $this->getData('reviewFormId');
-	}
-
-	/**
-	 * Set review form id.
-	 * @param $reviewFormId int
-	 */
-	function setReviewFormId($reviewFormId) {
-		$this->setData('reviewFormId', $reviewFormId);
-	}
-
-	/**
-	 * Get the current status of this review assignment
-	 * @return int REVIEW_ASSIGNMENT_STATUS_...
-	 */
-	function getStatus() {
-		if ($this->getDeclined()) return REVIEW_ASSIGNMENT_STATUS_DECLINED;
-		if ($this->getCancelled()) return REVIEW_ASSIGNMENT_STATUS_CANCELLED;
-
-		if (!$this->getDateCompleted()) {
-			$dueTimes = array_map(function($dateTime) {
-					// If no due time, set it to the end of the day
-					if (substr($dateTime, 11) === '00:00:00') {
-						$dateTime = substr($dateTime, 0, 11) . '23:59:59';
-					}
-					return strtotime($dateTime);
-				}, array($this->getDateResponseDue(), $this->getDateDue()));
-			$responseDueTime = $dueTimes[0];
-			$reviewDueTime = $dueTimes[1];
-			if (!$this->getDateConfirmed()){ // no response
-				if($responseDueTime < time()) { // response overdue
-					return REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE;
-				} elseif ($reviewDueTime < strtotime('tomorrow')) { // review overdue but not response
-					return REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
-				} else { // response not due yet
-					return REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
-				}
-			} else { // response given
-				if ($reviewDueTime < strtotime('tomorrow')) { // review due
-					return REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
-				} else {
-					return REVIEW_ASSIGNMENT_STATUS_ACCEPTED;
-				}
-			}
-		} elseif ($this->getDateAcknowledged()) { // reviewer thanked...
-			if ($this->getUnconsidered() == REVIEW_ASSIGNMENT_UNCONSIDERED) { // ...but review later unconsidered
-				return REVIEW_ASSIGNMENT_STATUS_RECEIVED;
-			}
-			return REVIEW_ASSIGNMENT_STATUS_THANKED;
-		} elseif ($this->getDateCompleted()) { // review submitted...
-			if ($this->getUnconsidered() != REVIEW_ASSIGNMENT_UNCONSIDERED && $this->isRead()) { // ...and confirmed by an editor
-				return REVIEW_ASSIGNMENT_STATUS_COMPLETE;
-			}
-			return REVIEW_ASSIGNMENT_STATUS_RECEIVED;
-		}
-
-		return REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
-	}
-
-	/**
-	 * Determine whether an editorial user has read this review
-	 *
-	 * @return bool
-	 */
-	function isRead() {
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
-		$viewsDao = DAORegistry::getDAO('ViewsDAO'); /* @var $viewsDao ViewsDAO */
-
-		$submission = $submissionDao->getById($this->getSubmissionId());
-
-		// Get the user groups for this stage
-		$userGroups = $userGroupDao->getUserGroupsByStage(
-			$submission->getContextId(),
-			$this->getStageId()
-		);
-		while ($userGroup = $userGroups->next()) {
-			$roleId = $userGroup->getRoleId();
-			if ($roleId != ROLE_ID_MANAGER && $roleId != ROLE_ID_SUB_EDITOR) {
-				continue;
-			}
-
-			// Get the users assigned to this stage and user group
-			$stageUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId(
-				$this->getSubmissionId(),
-				$this->getStageId(),
-				$userGroup->getId()
-			);
-
-			// Check if any of these users have viewed it
-			while ($user = $stageUsers->next()) {
-				if ($viewsDao->getLastViewDate(
-					ASSOC_TYPE_REVIEW_RESPONSE,
-					$this->getId(),
-					$user->getId()
-				)) {
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Get the translation key for the current status
-	 *
-	 * @param int $status Optionally pass a status to retrieve a specific key.
-	 *  Default will return the key for the current status.
-	 * @return string
-	 */
-	public function getStatusKey($status = null) {
-
-		if (is_null($status)) {
-			$status = $this->getStatus();
-		}
-
-		switch ($status) {
-			case REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
-				return 'submission.review.status.awaitingResponse';
-			case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
-				return 'common.cancelled';
-			case REVIEW_ASSIGNMENT_STATUS_DECLINED:
-				return 'submission.review.status.declined';
-			case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
-				return 'submission.review.status.responseOverdue';
-			case REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
-				return 'submission.review.status.reviewOverdue';
-			case REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
-				return 'submission.review.status.accepted';
-			case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
-				return 'submission.review.status.received';
-			case REVIEW_ASSIGNMENT_STATUS_COMPLETE:
-				return 'submission.review.status.complete';
-			case REVIEW_ASSIGNMENT_STATUS_THANKED:
-				return 'submission.review.status.thanked';
-		}
-
-		assert(false, 'No status key could be found for ' . get_class($this) . ' on ' . __LINE__);
-
-		return '';
-	}
-
-	/**
-	 * Get the translation key for the review method
-	 *
-	 * @param $method int|null Optionally pass a method to retrieve a specific key.
-	 *  Default will return the key for the current review method
-	 * @return string
-	 */
-	public function getReviewMethodKey($method = null) {
-
-		if (is_null($method)) {
-			$method = $this->getReviewMethod();
-		}
-
-		switch ($method) {
-			case SUBMISSION_REVIEW_METHOD_OPEN:
-				return 'editor.submissionReview.open';
-			case SUBMISSION_REVIEW_METHOD_ANONYMOUS:
-				return 'editor.submissionReview.anonymous';
-			case SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS:
-				return 'editor.submissionReview.doubleAnonymous';
-		}
-
-		assert(false, 'No review method key could be found for ' . get_class($this) . ' on ' . __LINE__);
-
-		return '';
-	}
-
-	//
-	// Files
-	//
-
-	/**
-	 * Get number of weeks until review is due (or number of weeks overdue).
-	 * @return int
-	 */
-	function getWeeksDue() {
-		$dateDue = $this->getDateDue();
-		if ($dateDue === null) return null;
-		return round((strtotime($dateDue) - time()) / (86400 * 7.0));
-	}
-
-	/**
-	 * Get an associative array matching reviewer recommendation codes with locale strings.
-	 * (Includes default '' => "Choose One" string.)
-	 * @return array recommendation => localeString
-	 */
-	static function getReviewerRecommendationOptions() {
-
-		static $reviewerRecommendationOptions = array(
-				'' => 'common.chooseOne',
-				SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.article.decision.accept',
-				SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.article.decision.pendingRevisions',
-				SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE => 'reviewer.article.decision.resubmitHere',
-				SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE => 'reviewer.article.decision.resubmitElsewhere',
-				SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.article.decision.decline',
-				SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS => 'reviewer.article.decision.seeComments'
-		);
-		return $reviewerRecommendationOptions;
-	}
-
-	/**
-	 * Return a localized string representing the reviewer recommendation.
-	 */
-	function getLocalizedRecommendation() {
-
-		$options = self::getReviewerRecommendationOptions();
-		if (array_key_exists($this->getRecommendation(), $options)) {
-			return __($options[$this->getRecommendation()]);
-		} else {
-			return '';
-		}
-	}
+namespace PKP\submission\reviewAssignment;
+
+class ReviewAssignment extends \PKP\core\DataObject
+{
+    public const SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT = 1;
+    public const SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS = 2;
+    public const SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE = 3;
+    public const SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE = 4;
+    public const SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE = 5;
+    public const SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS = 6;
+
+    public const SUBMISSION_REVIEWER_RATING_VERY_GOOD = 5;
+    public const SUBMISSION_REVIEWER_RATING_GOOD = 4;
+    public const SUBMISSION_REVIEWER_RATING_AVERAGE = 3;
+    public const SUBMISSION_REVIEWER_RATING_POOR = 2;
+    public const SUBMISSION_REVIEWER_RATING_VERY_POOR = 1;
+
+    public const SUBMISSION_REVIEW_METHOD_ANONYMOUS = 1;
+    public const SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS = 2;
+    public const SUBMISSION_REVIEW_METHOD_OPEN = 3;
+
+    // A review is "unconsidered" when it is confirmed by an editor and then that
+    // confirmation is later revoked.
+    public const REVIEW_ASSIGNMENT_NOT_UNCONSIDERED = 0; // Has never been unconsidered
+    public const REVIEW_ASSIGNMENT_UNCONSIDERED = 1; // Has been unconsindered and is awaiting re-confirmation by an editor
+    public const REVIEW_ASSIGNMENT_UNCONSIDERED_READ = 2; // Has been reconfirmed by an editor
+
+    public const REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE = 0; // request has been sent but reviewer has not responded
+    public const REVIEW_ASSIGNMENT_STATUS_DECLINED = 1; // reviewer declined review request
+    public const REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE = 4; // review not responded within due date
+    public const REVIEW_ASSIGNMENT_STATUS_ACCEPTED = 5; // reviewer has agreed to the review
+    public const REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE = 6; // review not submitted within due date
+    public const REVIEW_ASSIGNMENT_STATUS_RECEIVED = 7; // review has been submitted
+    public const REVIEW_ASSIGNMENT_STATUS_COMPLETE = 8; // review has been confirmed by an editor
+    public const REVIEW_ASSIGNMENT_STATUS_THANKED = 9; // reviewer has been thanked
+    public const REVIEW_ASSIGNMENT_STATUS_CANCELLED = 10; // reviewer cancelled review request
+
+    //
+    // Get/set methods
+    //
+
+    /**
+     * Get ID of review assignment's submission.
+     *
+     * @return int
+     */
+    public function getSubmissionId()
+    {
+        return $this->getData('submissionId');
+    }
+
+    /**
+     * Set ID of review assignment's submission
+     *
+     * @param $submissionId int
+     */
+    public function setSubmissionId($submissionId)
+    {
+        $this->setData('submissionId', $submissionId);
+    }
+
+    /**
+     * Get ID of reviewer.
+     *
+     * @return int
+     */
+    public function getReviewerId()
+    {
+        return $this->getData('reviewerId');
+    }
+
+    /**
+     * Set ID of reviewer.
+     *
+     * @param $reviewerId int
+     */
+    public function setReviewerId($reviewerId)
+    {
+        $this->setData('reviewerId', $reviewerId);
+    }
+
+    /**
+     * Get full name of reviewer.
+     *
+     * @return string
+     */
+    public function getReviewerFullName()
+    {
+        return $this->getData('reviewerFullName');
+    }
+
+    /**
+     * Set full name of reviewer.
+     *
+     * @param $reviewerFullName string
+     */
+    public function setReviewerFullName($reviewerFullName)
+    {
+        $this->setData('reviewerFullName', $reviewerFullName);
+    }
+
+    /**
+     * Get reviewer comments.
+     *
+     * @return string
+     */
+    public function getComments()
+    {
+        return $this->getData('comments');
+    }
+
+    /**
+     * Set reviewer comments.
+     *
+     * @param $comments string
+     */
+    public function setComments($comments)
+    {
+        $this->setData('comments', $comments);
+    }
+
+    /**
+     * Get competing interests.
+     *
+     * @return string
+     */
+    public function getCompetingInterests()
+    {
+        return $this->getData('competingInterests');
+    }
+
+    /**
+     * Set competing interests.
+     *
+     * @param $competingInterests string
+     */
+    public function setCompetingInterests($competingInterests)
+    {
+        $this->setData('competingInterests', $competingInterests);
+    }
+
+    /**
+     * Get the workflow stage id.
+     *
+     * @return int WORKFLOW_STAGE_ID_...
+     */
+    public function getStageId()
+    {
+        return $this->getData('stageId');
+    }
+
+    /**
+     * Set the workflow stage id.
+     *
+     * @param $stageId int WORKFLOW_STAGE_ID_...
+     */
+    public function setStageId($stageId)
+    {
+        $this->setData('stageId', $stageId);
+    }
+
+    /**
+     * Get the method of the review (open, anonymous, or double-anonymous).
+     *
+     * @return int
+     */
+    public function getReviewMethod()
+    {
+        return $this->getData('reviewMethod');
+    }
+
+    /**
+     * Set the type of review.
+     *
+     * @param $method int
+     */
+    public function setReviewMethod($method)
+    {
+        $this->setData('reviewMethod', $method);
+    }
+
+    /**
+     * Get review round id.
+     *
+     * @return int
+     */
+    public function getReviewRoundId()
+    {
+        return $this->getData('reviewRoundId');
+    }
+
+    /**
+     * Set review round id.
+     *
+     * @param $reviewRoundId int
+     */
+    public function setReviewRoundId($reviewRoundId)
+    {
+        $this->setData('reviewRoundId', $reviewRoundId);
+    }
+
+    /**
+     * Get reviewer recommendation.
+     *
+     * @return string
+     */
+    public function getRecommendation()
+    {
+        return $this->getData('recommendation');
+    }
+
+    /**
+     * Set reviewer recommendation.
+     *
+     * @param $recommendation string
+     */
+    public function setRecommendation($recommendation)
+    {
+        $this->setData('recommendation', $recommendation);
+    }
+
+    /**
+     * Get unconsidered state.
+     *
+     * @return int
+     */
+    public function getUnconsidered()
+    {
+        return $this->getData('unconsidered');
+    }
+
+    /**
+     * Set unconsidered state.
+     *
+     * @param $unconsidered int
+     */
+    public function setUnconsidered($unconsidered)
+    {
+        $this->setData('unconsidered', $unconsidered);
+    }
+
+    /**
+     * Get the date the reviewer was rated.
+     *
+     * @return string
+     */
+    public function getDateRated()
+    {
+        return $this->getData('dateRated');
+    }
+
+    /**
+     * Set the date the reviewer was rated.
+     *
+     * @param $dateRated string
+     */
+    public function setDateRated($dateRated)
+    {
+        $this->setData('dateRated', $dateRated);
+    }
+
+    /**
+     * Get the date of the last modification.
+     *
+     * @return date
+     */
+    public function getLastModified()
+    {
+        return $this->getData('lastModified');
+    }
+
+    /**
+     * Set the date of the last modification.
+     *
+     * @param $dateModified date
+     */
+    public function setLastModified($dateModified)
+    {
+        $this->setData('lastModified', $dateModified);
+    }
+
+    /**
+     * Stamp the date of the last modification to the current time.
+     */
+    public function stampModified()
+    {
+        return $this->setLastModified(\Core::getCurrentDate());
+    }
+
+    /**
+     * Get the reviewer's assigned date.
+     *
+     * @return string
+     */
+    public function getDateAssigned()
+    {
+        return $this->getData('dateAssigned');
+    }
+
+    /**
+     * Set the reviewer's assigned date.
+     *
+     * @param $dateAssigned string
+     */
+    public function setDateAssigned($dateAssigned)
+    {
+        $this->setData('dateAssigned', $dateAssigned);
+    }
+
+    /**
+     * Get the reviewer's notified date.
+     *
+     * @return string
+     */
+    public function getDateNotified()
+    {
+        return $this->getData('dateNotified');
+    }
+
+    /**
+     * Set the reviewer's notified date.
+     *
+     * @param $dateNotified string
+     */
+    public function setDateNotified($dateNotified)
+    {
+        $this->setData('dateNotified', $dateNotified);
+    }
+
+    /**
+     * Get the reviewer's confirmed date.
+     *
+     * @return string
+     */
+    public function getDateConfirmed()
+    {
+        return $this->getData('dateConfirmed');
+    }
+
+    /**
+     * Set the reviewer's confirmed date.
+     *
+     * @param $dateConfirmed string
+     */
+    public function setDateConfirmed($dateConfirmed)
+    {
+        $this->setData('dateConfirmed', $dateConfirmed);
+    }
+
+    /**
+     * Get the reviewer's completed date.
+     *
+     * @return string
+     */
+    public function getDateCompleted()
+    {
+        return $this->getData('dateCompleted');
+    }
+
+    /**
+     * Set the reviewer's completed date.
+     *
+     * @param $dateCompleted string
+     */
+    public function setDateCompleted($dateCompleted)
+    {
+        $this->setData('dateCompleted', $dateCompleted);
+    }
+
+    /**
+     * Get the reviewer's acknowledged date.
+     *
+     * @return string
+     */
+    public function getDateAcknowledged()
+    {
+        return $this->getData('dateAcknowledged');
+    }
+
+    /**
+     * Set the reviewer's acknowledged date.
+     *
+     * @param $dateAcknowledged string
+     */
+    public function setDateAcknowledged($dateAcknowledged)
+    {
+        $this->setData('dateAcknowledged', $dateAcknowledged);
+    }
+
+    /**
+     * Get the reviewer's last reminder date.
+     *
+     * @return string
+     */
+    public function getDateReminded()
+    {
+        return $this->getData('dateReminded');
+    }
+
+    /**
+     * Set the reviewer's last reminder date.
+     *
+     * @param $dateReminded string
+     */
+    public function setDateReminded($dateReminded)
+    {
+        $this->setData('dateReminded', $dateReminded);
+    }
+
+    /**
+     * Get the reviewer's due date.
+     *
+     * @return string
+     */
+    public function getDateDue()
+    {
+        return $this->getData('dateDue');
+    }
+
+    /**
+     * Set the reviewer's due date.
+     *
+     * @param $dateDue string
+     */
+    public function setDateDue($dateDue)
+    {
+        $this->setData('dateDue', $dateDue);
+    }
+
+    /**
+     * Get the reviewer's response due date.
+     *
+     * @return string
+     */
+    public function getDateResponseDue()
+    {
+        return $this->getData('dateResponseDue');
+    }
+
+    /**
+     * Set the reviewer's response due date.
+     *
+     * @param $dateResponseDue string
+     */
+    public function setDateResponseDue($dateResponseDue)
+    {
+        $this->setData('dateResponseDue', $dateResponseDue);
+    }
+
+    /**
+     * Get the declined value.
+     *
+     * @return boolean
+     */
+    public function getDeclined()
+    {
+        return $this->getData('declined');
+    }
+
+    /**
+     * Set the reviewer's declined value.
+     *
+     * @param $declined boolean
+     */
+    public function setDeclined($declined)
+    {
+        $this->setData('declined', $declined);
+    }
+
+    /**
+     * Get the cancelled value.
+     *
+     * @return boolean
+     */
+    public function getCancelled()
+    {
+        return $this->getData('cancelled');
+    }
+
+    /**
+     * Set the reviewer's cancelled value.
+     *
+     * @param $cancelled boolean
+     */
+    public function setCancelled($cancelled)
+    {
+        $this->setData('cancelled', $cancelled);
+    }
+
+    /**
+     * Get a boolean indicating whether or not the last reminder was automatic.
+     *
+     * @return boolean
+     */
+    public function getReminderWasAutomatic()
+    {
+        return $this->getData('reminderWasAutomatic') == 1 ? 1 : 0;
+    }
+
+    /**
+     * Set the boolean indicating whether or not the last reminder was automatic.
+     *
+     * @param $wasAutomatic boolean
+     */
+    public function setReminderWasAutomatic($wasAutomatic)
+    {
+        $this->setData('reminderWasAutomatic', $wasAutomatic);
+    }
+
+    /**
+     * Get quality.
+     *
+     * @return int|null
+     */
+    public function getQuality()
+    {
+        return $this->getData('quality');
+    }
+
+    /**
+     * Set quality.
+     *
+     * @param $quality int|null
+     */
+    public function setQuality($quality)
+    {
+        $this->setData('quality', $quality);
+    }
+
+    /**
+     * Get round.
+     *
+     * @return int
+     */
+    public function getRound()
+    {
+        return $this->getData('round');
+    }
+
+    /**
+     * Set round.
+     *
+     * @param $round int
+     */
+    public function setRound($round)
+    {
+        $this->setData('round', $round);
+    }
+
+    /**
+     * Get review form id.
+     *
+     * @return int
+     */
+    public function getReviewFormId()
+    {
+        return $this->getData('reviewFormId');
+    }
+
+    /**
+     * Set review form id.
+     *
+     * @param $reviewFormId int
+     */
+    public function setReviewFormId($reviewFormId)
+    {
+        $this->setData('reviewFormId', $reviewFormId);
+    }
+
+    /**
+     * Get the current status of this review assignment
+     *
+     * @return int REVIEW_ASSIGNMENT_STATUS_...
+     */
+    public function getStatus()
+    {
+        if ($this->getDeclined()) {
+            return self::REVIEW_ASSIGNMENT_STATUS_DECLINED;
+        }
+        if ($this->getCancelled()) {
+            return self::REVIEW_ASSIGNMENT_STATUS_CANCELLED;
+        }
+
+        if (!$this->getDateCompleted()) {
+            $dueTimes = array_map(function ($dateTime) {
+                // If no due time, set it to the end of the day
+                if (substr($dateTime, 11) === '00:00:00') {
+                    $dateTime = substr($dateTime, 0, 11) . '23:59:59';
+                }
+                return strtotime($dateTime);
+            }, [$this->getDateResponseDue(), $this->getDateDue()]);
+            $responseDueTime = $dueTimes[0];
+            $reviewDueTime = $dueTimes[1];
+            if (!$this->getDateConfirmed()) { // no response
+                if ($responseDueTime < time()) { // response overdue
+                    return self::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE;
+                } elseif ($reviewDueTime < strtotime('tomorrow')) { // review overdue but not response
+                    return self::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
+                } else { // response not due yet
+                    return self::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
+                }
+            } else { // response given
+                if ($reviewDueTime < strtotime('tomorrow')) { // review due
+                    return self::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE;
+                } else {
+                    return self::REVIEW_ASSIGNMENT_STATUS_ACCEPTED;
+                }
+            }
+        } elseif ($this->getDateAcknowledged()) { // reviewer thanked...
+            if ($this->getUnconsidered() == self::REVIEW_ASSIGNMENT_UNCONSIDERED) { // ...but review later unconsidered
+                return self::REVIEW_ASSIGNMENT_STATUS_RECEIVED;
+            }
+            return self::REVIEW_ASSIGNMENT_STATUS_THANKED;
+        } elseif ($this->getDateCompleted()) { // review submitted...
+            if ($this->getUnconsidered() != self::REVIEW_ASSIGNMENT_UNCONSIDERED && $this->isRead()) { // ...and confirmed by an editor
+                return self::REVIEW_ASSIGNMENT_STATUS_COMPLETE;
+            }
+            return self::REVIEW_ASSIGNMENT_STATUS_RECEIVED;
+        }
+
+        return self::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE;
+    }
+
+    /**
+     * Determine whether an editorial user has read this review
+     *
+     * @return bool
+     */
+    public function isRead()
+    {
+        $submissionDao = \DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        $userGroupDao = \DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userStageAssignmentDao = \DAORegistry::getDAO('UserStageAssignmentDAO'); /** @var UserStageAssignmentDAO $userStageAssignmentDao */
+        $viewsDao = \DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
+
+        $submission = $submissionDao->getById($this->getSubmissionId());
+
+        // Get the user groups for this stage
+        $userGroups = $userGroupDao->getUserGroupsByStage(
+            $submission->getContextId(),
+            $this->getStageId()
+        );
+        while ($userGroup = $userGroups->next()) {
+            $roleId = $userGroup->getRoleId();
+            if ($roleId != ROLE_ID_MANAGER && $roleId != ROLE_ID_SUB_EDITOR) {
+                continue;
+            }
+
+            // Get the users assigned to this stage and user group
+            $stageUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId(
+                $this->getSubmissionId(),
+                $this->getStageId(),
+                $userGroup->getId()
+            );
+
+            // Check if any of these users have viewed it
+            while ($user = $stageUsers->next()) {
+                if ($viewsDao->getLastViewDate(
+                    ASSOC_TYPE_REVIEW_RESPONSE,
+                    $this->getId(),
+                    $user->getId()
+                )) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Get the translation key for the current status
+     *
+     * @param int $status Optionally pass a status to retrieve a specific key.
+     *  Default will return the key for the current status.
+     *
+     * @return string
+     */
+    public function getStatusKey($status = null)
+    {
+        if (is_null($status)) {
+            $status = $this->getStatus();
+        }
+
+        switch ($status) {
+            case self::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
+                return 'submission.review.status.awaitingResponse';
+            case self::REVIEW_ASSIGNMENT_STATUS_CANCELLED:
+                return 'common.cancelled';
+            case self::REVIEW_ASSIGNMENT_STATUS_DECLINED:
+                return 'submission.review.status.declined';
+            case self::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
+                return 'submission.review.status.responseOverdue';
+            case self::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
+                return 'submission.review.status.reviewOverdue';
+            case self::REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
+                return 'submission.review.status.accepted';
+            case self::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+                return 'submission.review.status.received';
+            case self::REVIEW_ASSIGNMENT_STATUS_COMPLETE:
+                return 'submission.review.status.complete';
+            case self::REVIEW_ASSIGNMENT_STATUS_THANKED:
+                return 'submission.review.status.thanked';
+        }
+
+        assert(false, 'No status key could be found for ' . get_class($this) . ' on ' . __LINE__);
+
+        return '';
+    }
+
+    /**
+     * Get the translation key for the review method
+     *
+     * @param $method int|null Optionally pass a method to retrieve a specific key.
+     *  Default will return the key for the current review method
+     *
+     * @return string
+     */
+    public function getReviewMethodKey($method = null)
+    {
+        if (is_null($method)) {
+            $method = $this->getReviewMethod();
+        }
+
+        switch ($method) {
+            case self::SUBMISSION_REVIEW_METHOD_OPEN:
+                return 'editor.submissionReview.open';
+            case self::SUBMISSION_REVIEW_METHOD_ANONYMOUS:
+                return 'editor.submissionReview.anonymous';
+            case self::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS:
+                return 'editor.submissionReview.doubleAnonymous';
+        }
+
+        assert(false, 'No review method key could be found for ' . get_class($this) . ' on ' . __LINE__);
+
+        return '';
+    }
+
+    //
+    // Files
+    //
+
+    /**
+     * Get number of weeks until review is due (or number of weeks overdue).
+     *
+     * @return int
+     */
+    public function getWeeksDue()
+    {
+        $dateDue = $this->getDateDue();
+        if ($dateDue === null) {
+            return null;
+        }
+        return round((strtotime($dateDue) - time()) / (86400 * 7.0));
+    }
+
+    /**
+     * Get an associative array matching reviewer recommendation codes with locale strings.
+     * (Includes default '' => "Choose One" string.)
+     *
+     * @return array recommendation => localeString
+     */
+    public static function getReviewerRecommendationOptions()
+    {
+        static $reviewerRecommendationOptions = [
+            '' => 'common.chooseOne',
+            self::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.article.decision.accept',
+            self::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.article.decision.pendingRevisions',
+            self::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE => 'reviewer.article.decision.resubmitHere',
+            self::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE => 'reviewer.article.decision.resubmitElsewhere',
+            self::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.article.decision.decline',
+            self::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS => 'reviewer.article.decision.seeComments'
+        ];
+        return $reviewerRecommendationOptions;
+    }
+
+    /**
+     * Return a localized string representing the reviewer recommendation.
+     */
+    public function getLocalizedRecommendation()
+    {
+        $options = self::getReviewerRecommendationOptions();
+        if (array_key_exists($this->getRecommendation(), $options)) {
+            return __($options[$this->getRecommendation()]);
+        } else {
+            return '';
+        }
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\reviewAssignment\ReviewAssignment', '\ReviewAssignment');
+    foreach ([
+        'SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT',
+        'SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS',
+        'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE',
+        'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE',
+        'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE',
+        'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS',
+        'SUBMISSION_REVIEWER_RATING_VERY_GOOD',
+        'SUBMISSION_REVIEWER_RATING_GOOD',
+        'SUBMISSION_REVIEWER_RATING_AVERAGE',
+        'SUBMISSION_REVIEWER_RATING_POOR',
+        'SUBMISSION_REVIEWER_RATING_VERY_POOR',
+        'SUBMISSION_REVIEW_METHOD_ANONYMOUS',
+        'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS',
+        'SUBMISSION_REVIEW_METHOD_OPEN',
+        'REVIEW_ASSIGNMENT_NOT_UNCONSIDERED',
+        'REVIEW_ASSIGNMENT_UNCONSIDERED',
+        'REVIEW_ASSIGNMENT_UNCONSIDERED_READ',
+        'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE',
+        'REVIEW_ASSIGNMENT_STATUS_DECLINED',
+        'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE',
+        'REVIEW_ASSIGNMENT_STATUS_ACCEPTED',
+        'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE',
+        'REVIEW_ASSIGNMENT_STATUS_RECEIVED',
+        'REVIEW_ASSIGNMENT_STATUS_COMPLETE',
+        'REVIEW_ASSIGNMENT_STATUS_THANKED',
+        'REVIEW_ASSIGNMENT_STATUS_CANCELLED',
+    ] as $constantName) {
+        if (!defined($constantName)) {
+            define($constantName, constant('\PKP\submission\reviewAssignment\ReviewAssignment::' . $constantName));
+        }
+    }
 }

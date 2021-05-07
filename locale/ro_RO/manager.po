@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-28 19:43+0000\n"
+"PO-Revision-Date: 2021-04-06 14:32+0000\n"
 "Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
 "Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ro_RO/>\n"
@@ -209,7 +209,7 @@ msgid "manager.publication.reviewStage"
 msgstr "Revizuire"
 
 msgid "manager.publication.submissionStage"
-msgstr "Înregistrare manuscris"
+msgstr "Depunere manuscris"
 
 msgid "manager.announcementTypes.typeName"
 msgstr "Tip anunț"
@@ -1666,6 +1666,14 @@ msgstr "Conținut suplimentar"
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Aceste detalii pot fi incluse în metadatele furnizate unor organisme de "
+"arhivare terțe."
+
+msgid "manager.setup.publishing"
+msgstr "Detalii de publicare"
+
 msgid "manager.statistics.reports.filters.byLocation.description"
 msgstr "Rezultate restrânse după țară, regiune și / sau oraș."
 
@@ -2299,3 +2307,9 @@ msgstr "Titlu"
 
 msgid "manager.groups.membership.noUsers"
 msgstr "Nu a fost găsit niciun utilizator."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "EROARE:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Calea jurnalului specificat,\"{$contextPath}\", nu există."

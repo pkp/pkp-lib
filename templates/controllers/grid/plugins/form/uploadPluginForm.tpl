@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/plugins/uploadPluginForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form to upload plugin files.
@@ -15,14 +15,14 @@
 			{ldelim}
 				$uploader: $('#plupload'),
 				uploaderOptions: {ldelim}
-					uploadUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT op="uploadPluginFile" function=$function escape=false},
+					uploadUrl: {url|json_encode router=PKPApplication::ROUTE_COMPONENT op="uploadPluginFile" function=$function escape=false},
 					baseUrl: {$baseUrl|json_encode}
 				{rdelim}
 			{rdelim});
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="uploadPluginForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="saveUploadPlugin" function=$function category=$category plugin=$plugin}" method="post">
+<form class="pkp_form" id="uploadPluginForm" action="{url router=PKPApplication::ROUTE_COMPONENT op="saveUploadPlugin" function=$function category=$category plugin=$plugin}" method="post">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="uploadPluginNotification"}
 

@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/SubmissionAuthorPolicy.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionAuthorPolicy
@@ -18,59 +18,68 @@
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
 
-class SubmissionAuthorPolicy extends AuthorizationPolicy {
-	/** @var PKPRequest */
-	var $_request;
+use APP\submission\Submission;
 
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 */
-	function __construct($request) {
-		parent::__construct('user.authorization.submissionAuthor');
-		$this->_request = $request;
-	}
+use PKP\user\User;
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		// Get the user
-		$user = $this->_request->getUser();
-		if (!is_a($user, 'User')) return AUTHORIZATION_DENY;
+class SubmissionAuthorPolicy extends AuthorizationPolicy
+{
+    /** @var PKPRequest */
+    public $_request;
 
-		// Get the submission
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     */
+    public function __construct($request)
+    {
+        parent::__construct('user.authorization.submissionAuthor');
+        $this->_request = $request;
+    }
 
-		$context = $this->_request->getContext();
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        // Get the user
+        $user = $this->_request->getUser();
+        if (!$user instanceof User) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Check authorship of the submission. Any ROLE_ID_AUTHOR assignment will do.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
-		$workflowStages = Application::getApplicationStages();
-		while ($assignment = $submitterAssignments->next()) {
-			$userGroup = $userGroupDao->getById($assignment->getUserGroupId());
-			if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
+        // Get the submission
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        if (!$submission instanceof Submission) {
+            return AUTHORIZATION_DENY;
+        }
 
-				$accessibleWorkflowStages = array();
-				foreach ($workflowStages as $stageId) {
-					$accessibleStageRoles = Services::get('user')->getAccessibleStageRoles($user->getId(), $context->getId(), $submission, $stageId);
-					if (!empty($accessibleStageRoles)) {
-						$accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
-					}
-				}
-				$this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+        $context = $this->_request->getContext();
 
-				return AUTHORIZATION_PERMIT;
-			}
-		}
-		return AUTHORIZATION_DENY;
-	}
+        // Check authorship of the submission. Any ROLE_ID_AUTHOR assignment will do.
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
+        $workflowStages = Application::getApplicationStages();
+        while ($assignment = $submitterAssignments->next()) {
+            $userGroup = $userGroupDao->getById($assignment->getUserGroupId());
+            if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
+                $accessibleWorkflowStages = [];
+                foreach ($workflowStages as $stageId) {
+                    $accessibleStageRoles = Services::get('user')->getAccessibleStageRoles($user->getId(), $context->getId(), $submission, $stageId);
+                    if (!empty($accessibleStageRoles)) {
+                        $accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
+                    }
+                }
+                $this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+
+                return AUTHORIZATION_PERMIT;
+            }
+        }
+        return AUTHORIZATION_DENY;
+    }
 }
-
-

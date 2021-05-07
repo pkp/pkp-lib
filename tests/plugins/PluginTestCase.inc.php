@@ -7,12 +7,13 @@
 /**
  * @file tests/plugins/PluginTestCase.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginTestCase
  * @ingroup tests_plugins
+ *
  * @see Plugin
  *
  * @brief Abstract base class for Plugin tests.
@@ -21,118 +22,129 @@
 require_mock_env('env2');
 
 import('lib.pkp.tests.DatabaseTestCase');
-import('lib.pkp.classes.plugins.Plugin');
 
-class PluginTestCase extends DatabaseTestCase {
-	/**
-	 * @copydoc DatabaseTestCase::getAffectedTables()
-	 */
-	protected function getAffectedTables() {
-		return array(
-			'filters', 'filter_settings', 'filter_groups',
-			'versions', 'plugin_settings'
-		);
-	}
+use APP\core\Request;
+use APP\install\Install;
 
-	/**
-	 * @copydoc PKPTestCase::getMockedRegistryKeys()
-	 */
-	protected function getMockedRegistryKeys() {
-		return array('request', 'hooks');
-	}
+use PKP\core\Registry;
+use PKP\plugins\Plugin;
 
-	/**
-	 * Executes the plug-in test.
-	 * @param $pluginCategory string
-	 * @param $pluginDir string
-	 * @param $pluginName string
-	 * @param $filterGroups array
-	 */
-	protected function executePluginTest($pluginCategory, $pluginDir, $pluginName, $filterGroups) {
-		// Make sure that the xml configuration is valid.
-		$filterConfigFile = 'plugins/'.$pluginCategory.'/'.$pluginDir.'/filter/'.PLUGIN_FILTER_DATAFILE;
-		$this->validateXmlConfig(array('./'.$filterConfigFile, './lib/pkp/'.$filterConfigFile));
+class PluginTestCase extends DatabaseTestCase
+{
+    /**
+     * @copydoc DatabaseTestCase::getAffectedTables()
+     */
+    protected function getAffectedTables()
+    {
+        return [
+            'filters', 'filter_settings', 'filter_groups',
+            'versions', 'plugin_settings'
+        ];
+    }
 
-		// Mock request and router.
-		import('lib.pkp.classes.core.PKPRouter');
-		import('classes.core.Request');
-		$mockRequest = $this->getMockBuilder(Request::class)
-			->setMethods(array('getRouter', 'getUser'))
-			->getMock();
-		$router = new PKPRouter();
-		$mockRequest->expects($this->any())
-		            ->method('getRouter')
-		            ->will($this->returnValue($router));
-		$mockRequest->expects($this->any())
-		            ->method('getUser')
-		            ->will($this->returnValue(null));
-		Registry::set('request', $mockRequest);
+    /**
+     * @copydoc PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys()
+    {
+        return ['request', 'hooks'];
+    }
 
-		// Instantiate the installer.
-		import('classes.install.Install');
-		$installFile = './lib/pkp/tests/plugins/testPluginInstall.xml';
-		$params = $this->getConnectionParams();
-		$installer = new Install($params, $installFile, true);
+    /**
+     * Executes the plug-in test.
+     *
+     * @param $pluginCategory string
+     * @param $pluginDir string
+     * @param $pluginName string
+     * @param $filterGroups array
+     */
+    protected function executePluginTest($pluginCategory, $pluginDir, $pluginName, $filterGroups)
+    {
+        // Make sure that the xml configuration is valid.
+        $filterConfigFile = 'plugins/' . $pluginCategory . '/' . $pluginDir . '/filter/' . PLUGIN_FILTER_DATAFILE;
+        $this->validateXmlConfig(['./' . $filterConfigFile, './lib/pkp/' . $filterConfigFile]);
 
-		// Parse the plug-ins version.xml.
-		import('lib.pkp.classes.site.VersionCheck');
-		self::assertFileExists($versionFile = './plugins/'.$pluginCategory.'/'.$pluginDir.'/version.xml');
-		self::assertArrayHasKey('version', $versionInfo = VersionCheck::parseVersionXML($versionFile));
-		self::assertInstanceOf('Version', $pluginVersion = $versionInfo['version']);
-		$installer->setCurrentVersion($pluginVersion);
+        // Mock request and router.
+        import('lib.pkp.classes.core.PKPRouter');
+        import('classes.core.Request');
+        $mockRequest = $this->getMockBuilder(Request::class)
+            ->setMethods(['getRouter', 'getUser'])
+            ->getMock();
+        $router = new PKPRouter();
+        $mockRequest->expects($this->any())
+            ->method('getRouter')
+            ->will($this->returnValue($router));
+        $mockRequest->expects($this->any())
+            ->method('getUser')
+            ->will($this->returnValue(null));
+        Registry::set('request', $mockRequest);
 
-		// Install the plug-in.
-		self::assertTrue($installer->execute());
+        // Instantiate the installer.
+        $installFile = './lib/pkp/tests/plugins/testPluginInstall.xml';
+        $params = $this->getConnectionParams();
+        $installer = new Install($params, $installFile, true);
 
-		// Reset the hook registry.
-		$nullVar = null;
-		Registry::set('hooks', $nullVar);
+        // Parse the plug-ins version.xml.
+        import('lib.pkp.classes.site.VersionCheck');
+        self::assertFileExists($versionFile = './plugins/' . $pluginCategory . '/' . $pluginDir . '/version.xml');
+        self::assertArrayHasKey('version', $versionInfo = VersionCheck::parseVersionXML($versionFile));
+        self::assertInstanceOf('Version', $pluginVersion = $versionInfo['version']);
+        $installer->setCurrentVersion($pluginVersion);
 
-		// Test whether the installation is idempotent.
-		$this->markTestIncomplete('Idempotence test disabled temporarily.');
-		// self::assertTrue($installer->execute());
+        // Install the plug-in.
+        self::assertTrue($installer->execute());
 
-		// Test whether the filter groups have been installed.
-		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
-		foreach($filterGroups as $filterGroupSymbolic) {
-			// Check the group.
-			self::assertInstanceOf('FilterGroup', $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic), $filterGroupSymbolic);
-		}
-	}
+        // Reset the hook registry.
+        $nullVar = null;
+        Registry::set('hooks', $nullVar);
 
+        // Test whether the installation is idempotent.
+        $this->markTestIncomplete('Idempotence test disabled temporarily.');
+        // self::assertTrue($installer->execute());
 
-	//
-	// Protected helper function
-	//
-	protected function validateXmlConfig($configFiles) {
-		foreach($configFiles as $configFile) {
-			if(file_exists($configFile)) {
-				$xmlDom = new DOMDocument();
-				$xmlDom->load($configFile);
-				self::assertTrue($xmlDom->validate());
-				unset($xmlDom);
-			}
-		}
-	}
+        // Test whether the filter groups have been installed.
+        $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /** @var FilterGroupDAO $filterGroupDao */
+        foreach ($filterGroups as $filterGroupSymbolic) {
+            // Check the group.
+            self::assertInstanceOf('FilterGroup', $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic), $filterGroupSymbolic);
+        }
+    }
 
 
-	//
-	// Private helper function
-	//
-	/**
-	 * Load database connection parameters into an array (needed for upgrade).
-	 * @return array
-	 */
-	private function getConnectionParams() {
-		return array(
-			'clientCharset' => Config::getVar('i18n', 'client_charset'),
-			'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
-			'databaseDriver' => Config::getVar('database', 'driver'),
-			'databaseHost' => Config::getVar('database', 'host'),
-			'databaseUsername' => Config::getVar('database', 'username'),
-			'databasePassword' => Config::getVar('database', 'password'),
-			'databaseName' => Config::getVar('database', 'name')
-		);
-	}
+    //
+    // Protected helper function
+    //
+    protected function validateXmlConfig($configFiles)
+    {
+        foreach ($configFiles as $configFile) {
+            if (file_exists($configFile)) {
+                $xmlDom = new DOMDocument();
+                $xmlDom->load($configFile);
+                self::assertTrue($xmlDom->validate());
+                unset($xmlDom);
+            }
+        }
+    }
+
+
+    //
+    // Private helper function
+    //
+    /**
+     * Load database connection parameters into an array (needed for upgrade).
+     *
+     * @return array
+     */
+    private function getConnectionParams()
+    {
+        return [
+            'clientCharset' => Config::getVar('i18n', 'client_charset'),
+            'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
+            'databaseDriver' => Config::getVar('database', 'driver'),
+            'databaseHost' => Config::getVar('database', 'host'),
+            'databaseUsername' => Config::getVar('database', 'username'),
+            'databasePassword' => Config::getVar('database', 'password'),
+            'databaseName' => Config::getVar('database', 'name')
+        ];
+    }
 }
-

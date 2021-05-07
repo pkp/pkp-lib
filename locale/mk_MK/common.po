@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-10-21 11:37+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"PO-Revision-Date: 2021-04-23 10:47+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -1419,7 +1419,7 @@ msgid "navigation.about"
 msgstr "За"
 
 msgid "navigation.access"
-msgstr "Корисник  &amp; улоги"
+msgstr "Корисници и улоги"
 
 msgid "locale.supported"
 msgstr "Поддржани локалитети"
@@ -1548,7 +1548,7 @@ msgid "search.author"
 msgstr "По автор"
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Испратете е-пошта за известување до сите регистрирани корисници"
+msgstr "Испратете е-пошта за известување до сите регистрирани корисници."
 
 msgid "notification.savedSubmissionMetadata"
 msgstr "Метаподатоците за поднесување се зачувани."
@@ -2019,3 +2019,144 @@ msgstr "Одговара на сите категории"
 
 msgid "search.indexTermsLong"
 msgstr "Сите полиња со термини  за индекс"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Опции за приватност"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Немате пристап до оваа задача за преглед."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Немате пристап до оваа порака за дискусија."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Невалидна дискусија."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Невалиден круг за преглед."
+
+msgid "user.email"
+msgstr "е-пошта"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p> За да се обезбеди интегритет на анонимната рецензија, треба да се вложат "
+"сите напори да се спречи идентитетот на авторите и рецензентите да бидат "
+"познати едни на други. Ова вклучува авторите, уредниците и рецензентите (кои "
+"поставуваат документи како дел од нивниот преглед) да проверат дали се "
+"преземени следниве чекори во однос на текстот и својствата на датотеката: "
+"</p>\n"
+"<ul> <li> Авторите на документот ги избришаа своите имиња од текстот, со "
+"„Автор“ и година користени во референците и фуснотите, наместо името на "
+"авторите, насловот на статијата итн. </li>\n"
+"<li> Авторите на документот отстранија лични информации од својствата на "
+"датотеката со преземање на следниве чекори:\n"
+"<ul> <li> Microsoft Word за Windows:\n"
+"<ul> <li> Одете во Датотека </li>\n"
+"<li> Изберете информации </li>\n"
+"<li> Кликнете на Проверка за проблеми </li>\n"
+"<li> Кликнете на Увид во документот </li>\n"
+"<li> Во прозорецот за проверка на документи, изберете ги полињата за избор "
+"за да изберете тип на скриена содржина што сакате да ја прегледате. </li>\n"
+"<li> Кликнете Отстрани ги сите </li>\n"
+"<li> Кликнете Затвори </li>\n"
+"<li> Зачувајте го документот </li> </ul>\n"
+"<li> Microsoft Word за MacOS:\n"
+"<ul> <li> Одете во Алатки </li>\n"
+"<li> Кликнете на Заштитен документ </li>\n"
+"<li> Изберете Отстрани лични информации за оваа датотека зачувај </li>\n"
+"<li> Кликнете ОК и зачувајте ја датотеката </li> </ul> </li>\n"
+"<li> PDF:\n"
+"<ul> <li> Одете во Датотека </li>\n"
+"<li> Изберете својства </li>\n"
+"<li> Отстрани кое било име во полето за автор </li>\n"
+"<li> Кликнете ОК </li>\n"
+"<li> Зачувајте го документот </li> </ul> </li> </ul>\n"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Како да се осигуриме дека сите датотеки се анонимни"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Како да се осигура дека сите датотеки се анонимни"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Најдени се {$count} резултати."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Најден е еден резултат."
+
+msgid "navigation.backTo"
+msgstr "⟵ Назад до {$page}"
+
+msgid "form.saved"
+msgstr "Снимено"
+
+msgid "common.viewWithName"
+msgstr "Види {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Nonexistent user]"
+
+msgid "common.addFile"
+msgstr "Додади фајл"
+
+msgid "common.unknownError"
+msgstr ""
+"Се случи неочекувана грешка. Повторно вчитајте ја страницата и обидете се "
+"повторно."
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Избери {$name}"
+
+msgid "common.editItem"
+msgstr "Уреди {$name}"
+
+msgid "common.inactive"
+msgstr "Неактивен"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Одзачлени се"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Има неочекувана грешка и не можеме да ве одзачлениме од имејл адресата "
+"{$email}. Можете да се одзачлените од нотификацијата на имејли во вашиот <a "
+"href=\"{$profileNotificationUrl}\">кориснички профил </a> или да не "
+"контактирата директно за помош."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Имејл адресата {$email} успешно е одзачленета. Повеќе нема да ви ги праќаме "
+"тие мејли.Можете да презачлените кон нотификацијата за имејли во секое време "
+"од вашиот <a href=\"{$profileNotificationUrl}\">кориснички профил</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Може да се презачлените за нотификација на имејли во било кое време од  <a "
+"href=\"{$profileNotificationUrl}\">кориснички профил</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Изберете кои имејли не сакате да ги примате на {$email} од {$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Не мое да ве одзачлениме"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Бевте одзачленет"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Не може да се импортира XML Node"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Се обидувате да извршите трансформација која што не е поддржана во вашата "
+"околина за инсталација."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Филтерот ({$displayName}) поддржува влез на {$inputTypeName} - даден "
+"{$typeofInput}"

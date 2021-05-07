@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2021-04-30 07:17+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -1977,3 +1977,46 @@ msgstr "تحرير {$name}"
 
 msgid "common.inactive"
 msgstr "غير فعال"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "إلغاء الاشتراك"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"لقد وقع خطأ غير متوقع ولم نتمكن من إلغاء اشتراك عنوان البريد {$email}. يمكنك "
+"إلغاء اشتراكك من كل إشعارات البريد الالكتروني في <a href=\""
+"{$profileNotificationUrl}\">ملفك الشخصي</a> أو الاتصال بنا مباشرة لطلب "
+"المساعدة."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"عنوان البريد الالكتروني {$email} تم إلغاء اشتراكه بنجاح. لن نرسل لك مستقبلاً "
+"تلك الرسائل. يمكنك إعادة الاشتراك في إشعارات البريد الالكتروني في أي وقت من <"
+"a href=\"{$profileNotificationUrl}\">ملفك الشخصي</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"يمكنك إعادة الاشتراك في إشعارات البريد الالكتروني في أي وقت من <a href=\""
+"{$profileNotificationUrl}\">ملفك الشخصي</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"إختر رسائل البريد الالكتروني التي لا ترغب بتلقيها مستقبلاً في {$email} من "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "لم نتمكن من إلغاء اشتراكك"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "لقد تم إلغاء اشتراكك"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "تعذر استيراد عقدة XML"
+
+msgid "filter.error.missingRequirements"
+msgstr "محالة تنفيذ تحويل ليس مدعومًا في بيئة تنصيبك."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"المرشِّح ({$displayName}) يدعم الإدخال {$inputTypeName} - المعطى "
+"{$typeofInput}"

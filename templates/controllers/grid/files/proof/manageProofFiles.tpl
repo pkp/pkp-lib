@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/files/proof/manageProofFiles.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Allows editor to add more files to the publication format
@@ -29,7 +29,7 @@
 				{if $publicationId}
 					<input type="hidden" name="publicationId" value="{$publicationId|escape}">
 				{/if}
-				{capture assign=availableReviewFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.proof.ManageProofFilesGridHandler" op="fetchGrid" submissionId=$submissionId publicationId=$publicationId representationId=$representationId escape=false}{/capture}
+				{capture assign=availableReviewFilesGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.proof.ManageProofFilesGridHandler" op="fetchGrid" submissionId=$submissionId publicationId=$publicationId representationId=$representationId escape=false}{/capture}
 				{load_url_in_div id="availableReviewFilesGrid" url=$availableReviewFilesGridUrl}
 			{/fbvFormSection}
 

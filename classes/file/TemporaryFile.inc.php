@@ -3,50 +3,58 @@
 /**
  * @file classes/file/TemporaryFile.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TemporaryFile
  * @ingroup file
+ *
  * @see TemporaryFileDAO
  *
  * @brief Temporary file class.
  */
 
-import('lib.pkp.classes.file.PKPFile');
+namespace PKP\file;
 
-class TemporaryFile extends PKPFile {
+class TemporaryFile extends PKPFile
+{
+    /**
+     * Return absolute path to the file on the host filesystem.
+     *
+     * @return string
+     */
+    public function getFilePath()
+    {
+        $temporaryFileManager = new TemporaryFileManager();
+        return $temporaryFileManager->getBasePath() . $this->getServerFileName();
+    }
 
-	/**
-	 * Return absolute path to the file on the host filesystem.
-	 * @return string
-	 */
-	function getFilePath() {
-		import('lib.pkp.classes.file.TemporaryFileManager');
-		$temporaryFileManager = new TemporaryFileManager();
-		return $temporaryFileManager->getBasePath() . $this->getServerFileName();
-	}
+    //
+    // Get/set methods
+    //
 
-	//
-	// Get/set methods
-	//
+    /**
+     * Get ID of associated user.
+     *
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->getData('userId');
+    }
 
-	/**
-	 * Get ID of associated user.
-	 * @return int
-	 */
-	function getUserId() {
-		return $this->getData('userId');
-	}
-
-	/**
-	 * Set ID of associated user.
-	 * @param $userId int
-	 */
-	function setUserId($userId) {
-		$this->setData('userId', $userId);
-	}
+    /**
+     * Set ID of associated user.
+     *
+     * @param $userId int
+     */
+    public function setUserId($userId)
+    {
+        $this->setData('userId', $userId);
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\TemporaryFile', '\TemporaryFile');
+}

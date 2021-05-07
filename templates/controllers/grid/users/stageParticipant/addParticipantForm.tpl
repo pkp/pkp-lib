@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/users/stageParticipant/addParticipantForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form that holds the stage participants list
@@ -22,7 +22,7 @@
 				anonymousReviewerIds: {$anonymousReviewerIds|@json_encode},
 				anonymousReviewerWarning: {$anonymousReviewerWarning|@json_encode},
 				anonymousReviewerWarningOk: {$anonymousReviewerWarningOk|@json_encode},
-				templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false},
+				templateUrl: {url|json_encode router=PKPApplication::ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false},
 				notChangeMetadataEditPermissionRoles: {$notPossibleEditSubmissionMetadataPermissionChange|@json_encode},
 				permitMetadataEditUserGroupIds: {$permitMetadataEditUserGroupIds|@json_encode}
 			{rdelim}
@@ -63,7 +63,7 @@
 				{translate key="stageParticipants.noOptionsToHandle"}
 			{/if}
 		{else}
-			{capture assign=userSelectGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.users.userSelect.UserSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
+			{capture assign=userSelectGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.users.userSelect.UserSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
 			{load_url_in_div id='userSelectGridContainer' url=$userSelectGridUrl}
 
 			{fbvFormSection title="stageParticipants.options" list="true" class="recommendOnlyWrapper"}

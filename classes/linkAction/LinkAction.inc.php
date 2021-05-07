@@ -8,8 +8,8 @@
 /**
  * @file classes/linkAction/LinkAction.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LinkAction
@@ -19,93 +19,114 @@
  *  in the user interface.
  */
 
-class LinkAction {
-	/** @var string the id of the action */
-	var $_id;
+namespace PKP\linkAction;
 
-	/** @var LinkActionRequest The action to be taken when the link action is activated */
-	var $_actionRequest;
+use PKP\plugins\HookRegistry;
 
-	/** @var string The localized title of the action. */
-	var $_title;
+class LinkAction
+{
+    /** @var string the id of the action */
+    public $_id;
 
-	/** @var string The localized tool tip of the action. */
-	var $_toolTip;
+    /** @var LinkActionRequest The action to be taken when the link action is activated */
+    public $_actionRequest;
 
-	/** @var string The name of an icon for the action. */
-	var $_image;
+    /** @var string The localized title of the action. */
+    public $_title;
 
-	/**
-	 * Constructor
-	 * @param $id string
-	 * @param $actionRequest LinkActionRequest The action to be taken when the link action is activated.
-	 * @param $title string (optional) The localized title of the action.
-	 * @param $image string (optional) The name of an icon for the
-	 *  action.
-	 * @param $toolTip string (optional) A localized tool tip to display when hovering over
-	 *  the link action.
-	 */
-	function __construct($id, $actionRequest, $title = null, $image = null, $toolTip = null) {
-		$this->_id = $id;
-		assert(is_a($actionRequest, 'LinkActionRequest'));
-		$this->_actionRequest = $actionRequest;
-		$this->_title = $title;
-		$this->_image = $image;
-		$this->_toolTip = $toolTip;
-		HookRegistry::call('LinkAction::construct', array($this));
-	}
+    /** @var string The localized tool tip of the action. */
+    public $_toolTip;
+
+    /** @var string The name of an icon for the action. */
+    public $_image;
+
+    /**
+     * Constructor
+     *
+     * @param $id string
+     * @param $actionRequest LinkActionRequest The action to be taken when the link action is activated.
+     * @param $title string (optional) The localized title of the action.
+     * @param $image string (optional) The name of an icon for the
+     *  action.
+     * @param $toolTip string (optional) A localized tool tip to display when hovering over
+     *  the link action.
+     */
+    public function __construct($id, $actionRequest, $title = null, $image = null, $toolTip = null)
+    {
+        $this->_id = $id;
+        assert(is_a($actionRequest, 'LinkActionRequest'));
+        $this->_actionRequest = $actionRequest;
+        $this->_title = $title;
+        $this->_image = $image;
+        $this->_toolTip = $toolTip;
+        HookRegistry::call('LinkAction::construct', [$this]);
+    }
 
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the action id.
-	 * @return string
-	 */
-	function getId() {
-		return $this->_id;
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the action id.
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->_id;
+    }
 
-	/**
-	 * Get the action handler.
-	 * @return LinkActionRequest
-	 */
-	function getActionRequest() {
-		return $this->_actionRequest;
-	}
+    /**
+     * Get the action handler.
+     *
+     * @return LinkActionRequest
+     */
+    public function getActionRequest()
+    {
+        return $this->_actionRequest;
+    }
 
-	/**
-	 * Get the localized action title.
-	 * @return string
-	 */
-	function getTitle() {
-		return $this->_title;
-	}
+    /**
+     * Get the localized action title.
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->_title;
+    }
 
-	/**
-	 * Set the localized action title.
-	 * @return string
-	 */
-	function setTitle($title) {
-		$this->_title = $title;
-	}
+    /**
+     * Set the localized action title.
+     *
+     * @return string
+     */
+    public function setTitle($title)
+    {
+        $this->_title = $title;
+    }
 
-	/**
-	 * Get the localized tool tip.
-	 * @return string
-	 */
-	function getToolTip() {
-		return $this->_toolTip;
-	}
+    /**
+     * Get the localized tool tip.
+     *
+     * @return string
+     */
+    public function getToolTip()
+    {
+        return $this->_toolTip;
+    }
 
-	/**
-	 * Get the action image.
-	 * @return string
-	 */
-	function getImage() {
-		return $this->_image;
-	}
+    /**
+     * Get the action image.
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->_image;
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\LinkAction', '\LinkAction');
+}

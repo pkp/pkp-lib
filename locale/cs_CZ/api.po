@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-14 11:00+0000\n"
+"PO-Revision-Date: 2021-01-27 14:28+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -224,3 +224,19 @@ msgstr ""
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr "V požadavku na úpravu tohoto souboru nebyly nalezeny žádné změny."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Token API nelze použít pro přístup k tomuto webu, protože správce webu "
+"nenakonfiguroval tajný klíč."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Api token nelze dekódovat z důvodu následující chyby: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Token API se nepodařilo ověřit. To může znamenat chybu v tokenu API nebo to, "
+"že token API již není platný."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Následující lokalizace nejsou podporovány:  {$locales}."

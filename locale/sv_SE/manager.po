@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2020-12-18 16:52+0000\n"
+"PO-Revision-Date: 2021-04-22 01:44+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
@@ -586,6 +586,12 @@ msgstr "Avgränsa reslutat efter land, region och/eller stad."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
+
+msgid "manager.setup.publishing"
+msgstr "Publiceringsinformation"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Namn på tidskriftens utgivare som kan inkluderas i metadatan som skickas till tredje parts arkiv."
 
 msgid "manager.setup.additionalContent"
 msgstr "Ytterligare innehåll"
@@ -1825,7 +1831,7 @@ msgid "manager.setup.metadata.languages.noRequest"
 msgstr "Kräv inte att författaren ska ange språk vid inskickandet av bidrag."
 
 msgid "manager.setup.metadata.languages.enable"
-msgstr "Gör det möjligt att lägga till metadata om språk"
+msgstr "Gör det möjligt att lägga in metadata om språk"
 
 msgid "manager.setup.metadata.languages.description"
 msgstr ""
@@ -1888,7 +1894,6 @@ msgstr "Annan licens-URL"
 msgid "manager.setup.theme.notFound"
 msgstr "Det tema som du valde är inte installerat eller aktiverat."
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Visa länken <button type=\"button\">Garantera anonym granskning</button> "
@@ -1937,7 +1942,7 @@ msgid "manager.emails.emailKey.description"
 msgstr "E-postnyckeln kan bara innehålla bokstäver, nummer eller understreck."
 
 msgid "manager.emails.customTemplate"
-msgstr "Specialmall"
+msgstr "Anpassad mall"
 
 msgid "manager.emails.addEmail"
 msgstr "Lägg till mall"
@@ -1956,7 +1961,7 @@ msgstr ""
 "Be författaren att ange metadata om bidragets typ vid inskickandet av bidrag."
 
 msgid "manager.setup.metadata.type.enable"
-msgstr "Aktivera metadata om typ"
+msgstr "Gör det möjligt att ange metadata om bidragets typ"
 
 msgid "manager.setup.metadata.source.require"
 msgstr ""
@@ -1971,12 +1976,12 @@ msgstr ""
 "Kräv inte en URL för källan från författarna vid inskickandet av bidrag."
 
 msgid "manager.setup.metadata.source.enable"
-msgstr "Gör det möjligt att lägga metadata för en källa"
+msgstr "Gör det möjligt att ange metadata för källan"
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
-"Bidragets upphovsrättsvillkor som t ex Intellectual Property Rights (IPR), "
-"Copyright, och andra olika upphovsrättsvillkor."
+"Immateriella rättigheter till bidraget som t.ex. upphovsrätt, patent, eller "
+"övriga rättigheter."
 
 msgid "stats.dateRange.thisYear"
 msgstr "Nuvarande år"
@@ -2107,3 +2112,88 @@ msgstr "Default e-postmall har återställts."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Ta bort meddelande"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Väl vilken typ av metadata dessa filer får. <em>Dokument</em> bör väljas för "
+"de huvudsakliga publikationsfilerna, t.ex. nedladdningsbara PDFer, så dessa "
+"filer tilldelas metadata från publikationen. Välj annars "
+"<em>Extramaterial</em> för de flesta övriga filtyper. <em>Grafik</em> är "
+"lämplig för filer som kräver särskild metadata för erkännande, bildtext "
+"eller licensiering."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Språkinställningen sparades inte. Minst ett språk måste vara aktiverat för "
+"varje alternativ"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Andra mallar"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "FEL:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Sökvägen för tidskriften, \"{$contextPath}\", existerar inte."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Misslyckades med att tolka publikationer"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Misslyckades med att tolka författare"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Fel i filterinställningarna i [{$filterName}]: {$filterCount} förekomster. "
+"Får endast vara en."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Generiska objekt"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Ladda ned den exporterade filen med knappen nedan."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Exporten är färdig."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Ladda ned exporterad fil"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Resultat av bidragsexport"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Processen misslyckades. Kontrollera fel eller varningar nedan."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "UserGroup saknas för författarnamn {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "En eller flera e-postadresser är ogilitg(a)."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"En kopia av bidragets bekräftelsemail kommer skickas till samtliga e-"
+"postadresser i detta fält. Avskilj e-postadresser med ett kommatecken. "
+"Exempelvis: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Informera alla"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nej"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ja, skicka en kopia till {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Informera primär kontakt"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Meddelanden"

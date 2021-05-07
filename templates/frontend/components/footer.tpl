@@ -1,8 +1,8 @@
 {**
  * templates/frontend/components/footer.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Common site frontend footer.
@@ -36,7 +36,7 @@
 			</div>
 		{/if}
 
-		<div class="pkp_brand_footer" role="complementary">
+		<div class="pkp_brand_footer">
 			<a href="{url page="about" op="aboutThisPublishingSystem"}">
 				<img alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
 			</a>

@@ -3,8 +3,8 @@
 /**
  * @file classes/cache/GenericCache.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GenericCache
@@ -15,127 +15,140 @@
  * null cache.
  */
 
+namespace PKP\cache;
 
 // Pseudotype to represent a cache miss
-class generic_cache_miss {
+class generic_cache_miss
+{
 }
 
-class GenericCache {
-	/**
-	 * The unique string identifying the context of this cache.
-	 * Must be suitable for a filename.
-	 */
-	var $context;
+class GenericCache
+{
+    /**
+     * The unique string identifying the context of this cache.
+     * Must be suitable for a filename.
+     */
+    public $context;
 
-	/**
-	 * The ID of this particular cache within the context
-	 */
-	var $cacheId;
+    /**
+     * The ID of this particular cache within the context
+     */
+    public $cacheId;
 
-	var $cacheMiss;
+    public $cacheMiss;
 
-	/**
-	 * The getter fallback callback (for a cache miss)
-	 * This function is called with two parameters:
-	 *  1. The cache object that is suffering a miss
-	 *  2. The id of the value to fetch
-	 * The function is responsible for loading data into the
-	 * cache, using setEntireCache or setCache.
-	 */
-	var $fallback;
+    /**
+     * The getter fallback callback (for a cache miss)
+     * This function is called with two parameters:
+     *  1. The cache object that is suffering a miss
+     *  2. The id of the value to fetch
+     * The function is responsible for loading data into the
+     * cache, using setEntireCache or setCache.
+     */
+    public $fallback;
 
-	/**
-	 * Instantiate a cache.
-	 */
-	function __construct($context, $cacheId, $fallback) {
-		$this->context = $context;
-		$this->cacheId = $cacheId;
-		$this->fallback = $fallback;
-		$this->cacheMiss = new generic_cache_miss;
-	}
+    /**
+     * Instantiate a cache.
+     */
+    public function __construct($context, $cacheId, $fallback)
+    {
+        $this->context = $context;
+        $this->cacheId = $cacheId;
+        $this->fallback = $fallback;
+        $this->cacheMiss = new generic_cache_miss();
+    }
 
-	/**
-	 * Get an object from cache, using the fallback if necessary.
-	 */
-	function get($id) {
-		$result = $this->getCache($id);
-		if (is_object($result) && get_class($result) === 'generic_cache_miss') {
-			$result = call_user_func_array($this->fallback, array($this, $id));
-		}
-		return $result;
-	}
+    /**
+     * Get an object from cache, using the fallback if necessary.
+     */
+    public function get($id)
+    {
+        $result = $this->getCache($id);
+        if (is_object($result) && $result instanceof generic_cache_miss) {
+            $result = call_user_func_array($this->fallback, [$this, $id]);
+        }
+        return $result;
+    }
 
-	/**
-	 * Set an object in the cache. This function should be overridden
-	 * by subclasses.
-	 */
-	function set($id, $value) {
-		return $this->setCache($id, $value);
-	}
+    /**
+     * Set an object in the cache. This function should be overridden
+     * by subclasses.
+     */
+    public function set($id, $value)
+    {
+        return $this->setCache($id, $value);
+    }
 
-	/**
-	 * Flush the cache.
-	 */
-	function flush() {
-	}
+    /**
+     * Flush the cache.
+     */
+    public function flush()
+    {
+    }
 
-	/**
-	 * Set the entire contents of the cache. May (should) be overridden
-	 * by subclasses.
-	 * @param $array array of id -> value pairs
-	 */
-	function setEntireCache($contents) {
-		$this->flush();
-		foreach ($contents as $id => $value) {
-			$this->setCache($id, $value);
-		}
-	}
+    /**
+     * Set the entire contents of the cache. May (should) be overridden
+     * by subclasses.
+     */
+    public function setEntireCache($contents)
+    {
+        $this->flush();
+        foreach ($contents as $id => $value) {
+            $this->setCache($id, $value);
+        }
+    }
 
-	/**
-	 * Get an object from the cache. This function should be overridden
-	 * by subclasses.
-	 * @param $id
-	 */
-	function getCache($id) {
-		return $this->cacheMiss;
-	}
+    /**
+     * Get an object from the cache. This function should be overridden
+     * by subclasses.
+     *
+     * @param $id
+     */
+    public function getCache($id)
+    {
+        return $this->cacheMiss;
+    }
 
-	/**
-	 * Set an object in the cache. This function should be overridden
-	 * by subclasses.
-	 * @param $id
-	 * @param $value
-	 */
-	function setCache($id, $value) {
-	}
+    /**
+     * Set an object in the cache. This function should be overridden
+     * by subclasses.
+     *
+     * @param $id
+     * @param $value
+     */
+    public function setCache($id, $value)
+    {
+    }
 
-	/**
-	 * Close the cache. (Optionally overridden by subclasses.)
-	 */
-	function close() {
-	}
+    /**
+     * Close the cache. (Optionally overridden by subclasses.)
+     */
+    public function close()
+    {
+    }
 
-	/**
-	 * Get the context.
-	 */
-	function getContext() {
-		return $this->context;
-	}
+    /**
+     * Get the context.
+     */
+    public function getContext()
+    {
+        return $this->context;
+    }
 
-	/**
-	 * Get the cache ID within its context
-	 */
-	function getCacheId() {
-		return $this->cacheId;
-	}
+    /**
+     * Get the cache ID within its context
+     */
+    public function getCacheId()
+    {
+        return $this->cacheId;
+    }
 
-	/**
-	 * Get the time at which the data was cached.
-	 */
-	function getCacheTime() {
-		// Since it's not really cached, we'll consider it to have been cached just now.
-		return time();
-	}
+    /**
+     * Get the time at which the data was cached.
+     */
+    public function getCacheTime()
+    {
+        // Since it's not really cached, we'll consider it to have been cached just now.
+        return time();
+    }
 }
-
-

@@ -1,8 +1,8 @@
 {**
  * templates/frontend/pages/userLogin.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * User login form.
@@ -47,7 +47,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true">
+					<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true" autocomplete="username">
 				</label>
 			</div>
 			<div class="password">
@@ -59,7 +59,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required aria-required="true">
+					<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required aria-required="true" autocomplete="current-password">
 					<a href="{url page="login" op="lostPassword"}">
 						{translate key="user.login.forgotPassword"}
 					</a>
@@ -73,6 +73,19 @@
 					</span>
 				</label>
 			</div>
+
+			{* recaptcha spam blocker *}
+			{if $recaptchaPublicKey}
+				<fieldset class="recaptcha_wrapper">
+					<div class="fields">
+						<div class="recaptcha">
+							<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			{/if}
+
 			<div class="buttons">
 				<button class="submit" type="submit">
 					{translate key="user.login"}

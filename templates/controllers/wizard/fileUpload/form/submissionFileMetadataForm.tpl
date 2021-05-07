@@ -1,8 +1,8 @@
 {**
  * templates/controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * File metadata form.
@@ -65,7 +65,7 @@
 	{/fbvFormArea}
 
 	{if $supportsDependentFiles}
-		{capture assign=dependentFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.dependent.DependentFilesGridHandler" op="fetchGrid" submissionId=$submissionFile->getData('submissionId') submissionFileId=$submissionFile->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+		{capture assign=dependentFilesGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.dependent.DependentFilesGridHandler" op="fetchGrid" submissionId=$submissionFile->getData('submissionId') submissionFileId=$submissionFile->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{load_url_in_div id="dependentFilesGridDiv" url=$dependentFilesGridUrl}
 	{/if}
 

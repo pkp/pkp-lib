@@ -1,8 +1,8 @@
 {**
  * templates/frontend/pages/contact.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to view the press's contact details.
@@ -39,9 +39,9 @@
 		{* Primary contact *}
 		{if $contactTitle || $contactName || $contactAffiliation || $contactPhone || $contactEmail}
 			<div class="contact primary">
-				<h3>
+				<h2>
 					{translate key="about.contact.principalContact"}
-				</h3>
+				</h2>
 
 				{if $contactName}
 				<div class="name">
@@ -83,9 +83,9 @@
 		{* Technical contact *}
 		{if $supportName || $supportPhone || $supportEmail}
 			<div class="contact support">
-				<h3>
+				<h2>
 					{translate key="about.contact.supportContact"}
-				</h3>
+				</h2>
 
 				{if $supportName}
 				<div class="name">

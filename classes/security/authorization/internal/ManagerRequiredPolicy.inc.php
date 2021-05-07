@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/ManagerRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManagerRequiredPolicy
@@ -17,41 +17,49 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class ManagerRequiredPolicy extends AuthorizationPolicy {
-	/** @var PKPRequest */
-	var $_request;
+use APP\submission\Submission;
 
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 */
-	function __construct($request) {
-		parent::__construct('user.authorization.managerRequired');
-		$this->_request = $request;
-	}
+class ManagerRequiredPolicy extends AuthorizationPolicy
+{
+    /** @var PKPRequest */
+    public $_request;
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		// Get the submission
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		if (!is_a($submission, 'Submission')) return AUTHORIZATION_DENY;
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     */
+    public function __construct($request)
+    {
+        parent::__construct('user.authorization.managerRequired');
+        $this->_request = $request;
+    }
 
-		// Get the stage
-		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		if (!is_numeric($stageId)) return AUTHORIZATION_DENY;
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        // Get the submission
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        if (!$submission instanceof Submission) {
+            return AUTHORIZATION_DENY;
+        }
 
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId)) {
-			return AUTHORIZATION_PERMIT;
-		} else {
-			return AUTHORIZATION_DENY;
-		}
-	}
+        // Get the stage
+        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        if (!is_numeric($stageId)) {
+            return AUTHORIZATION_DENY;
+        }
+
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId)) {
+            return AUTHORIZATION_PERMIT;
+        } else {
+            return AUTHORIZATION_DENY;
+        }
+    }
 }
-
-

@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/queries/form/queryForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Query grid form
@@ -16,9 +16,10 @@
 		// Attach the handler.
 		$(function() {ldelim}
 			$('#queryForm').pkpHandler(
-				'$.pkp.controllers.form.CancelActionAjaxFormHandler',
+				'$.pkp.controllers.grid.queries.QueryFormHandler',
 				{ldelim}
-					cancelUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" queryId=$queryId csrfToken=$csrfToken params=$actionArgs escape=false}'{else}null{/if}
+					cancelUrl: {if $isNew}'{url|escape:javascript op="deleteQuery" queryId=$queryId csrfToken=$csrfToken params=$actionArgs escape=false}'{else}null{/if},
+					templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.queries.QueriesGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$assocId escape=false},
 				{rdelim}
 			);
 		{rdelim});
@@ -35,6 +36,14 @@
 			{/foreach}
 		{/fbvFormSection}
 
+		{if count($templates)}
+			{fbvFormArea id="queryTemplateArea"}
+				{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
+					{fbvElement type="select" from=$templates translate=false id="template" selected=$template defaultValue="" defaultLabel=""}
+				{/fbvFormSection}
+			{/fbvFormArea}
+		{/if}
+
 		{fbvFormArea id="queryContentsArea"}
 			{fbvFormSection title="common.subject" for="subject" required="true"}
 				{fbvElement type="text" id="subject" value=$subject required="true"}
@@ -46,7 +55,7 @@
 		{/fbvFormArea}
 
 		{fbvFormArea id="queryNoteFilesArea"}
-			{capture assign=queryNoteFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs queryId=$queryId noteId=$noteId escape=false}{/capture}
+			{capture assign=queryNoteFilesGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs queryId=$queryId noteId=$noteId escape=false}{/capture}
 			{load_url_in_div id="queryNoteFilesGrid" url=$queryNoteFilesGridUrl}
 		{/fbvFormArea}
 

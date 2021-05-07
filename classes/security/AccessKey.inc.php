@@ -8,103 +8,120 @@
 /**
  * @file classes/security/AccessKey.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AccessKey
  * @ingroup security
+ *
  * @see AccessKeyDAO
  *
  * @brief AccessKey class.
  */
 
-class AccessKey extends DataObject {
+class AccessKey extends \PKP\core\DataObject
+{
+    //
+    // Get/set methods
+    //
+    /**
+     * Get context.
+     *
+     * @return string
+     */
+    public function getContext()
+    {
+        return $this->getData('context');
+    }
 
-	//
-	// Get/set methods
-	//
-	/**
-	 * Get context.
-	 * @return string
-	 */
-	function getContext() {
-		return $this->getData('context');
-	}
+    /**
+     * Set context.
+     *
+     * @param $context string
+     */
+    public function setContext($context)
+    {
+        $this->setData('context', $context);
+    }
 
-	/**
-	 * Set context.
-	 * @param $context string
-	 */
-	function setContext($context) {
-		$this->setData('context', $context);
-	}
+    /**
+     * Get key hash.
+     *
+     * @return string
+     */
+    public function getKeyHash()
+    {
+        return $this->getData('keyHash');
+    }
 
-	/**
-	 * Get key hash.
-	 * @return string
-	 */
-	function getKeyHash() {
-		return $this->getData('keyHash');
-	}
+    /**
+     * Set key hash.
+     *
+     * @param $keyHash string
+     */
+    public function setKeyHash($keyHash)
+    {
+        $this->setData('keyHash', $keyHash);
+    }
 
-	/**
-	 * Set key hash.
-	 * @param $keyHash string
-	 */
-	function setKeyHash($keyHash) {
-		$this->setData('keyHash', $keyHash);
-	}
+    /**
+     * Get user ID.
+     *
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->getData('userId');
+    }
 
-	/**
-	 * Get user ID.
-	 * @return int
-	 */
-	function getUserId() {
-		return $this->getData('userId');
-	}
+    /**
+     * Set user ID.
+     *
+     * @param $userId int
+     */
+    public function setUserId($userId)
+    {
+        $this->setData('userId', $userId);
+    }
 
-	/**
-	 * Set user ID.
-	 * @param $userId int
-	 */
-	function setUserId($userId)
-	{
-		$this->setData('userId', $userId);
-	}
+    /**
+     * Get associated ID.
+     *
+     * @return int
+     */
+    public function getAssocId()
+    {
+        return $this->getData('assocId');
+    }
 
-	/**
-	 * Get associated ID.
-	 * @return int
-	 */
-	function getAssocId() {
-		return $this->getData('assocId');
-	}
+    /**
+     * Set associated ID.
+     *
+     * @param $assocId int
+     */
+    public function setAssocId($assocId)
+    {
+        $this->setData('assocId', $assocId);
+    }
 
-	/**
-	 * Set associated ID.
-	 * @param $assocId int
-	 */
-	function setAssocId($assocId)
-	{
-		$this->setData('assocId', $assocId);
-	}
+    /**
+     * Get expiry date.
+     *
+     * @return string
+     */
+    public function getExpiryDate()
+    {
+        return $this->getData('expiryDate');
+    }
 
-	/**
-	 * Get expiry date.
-	 * @return string
-	 */
-	function getExpiryDate() {
-		return $this->getData('expiryDate');
-	}
-
-	/**
-	 * Set expiry date.
-	 * @param $expiryDate string
-	 */
-	function setExpiryDate($expiryDate) {
-		$this->setData('expiryDate', $expiryDate);
-	}
+    /**
+     * Set expiry date.
+     *
+     * @param $expiryDate string
+     */
+    public function setExpiryDate($expiryDate)
+    {
+        $this->setData('expiryDate', $expiryDate);
+    }
 }
-
-

@@ -1,8 +1,8 @@
 {**
  * controllers/notification/notificationOptions.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Notification options.
@@ -11,7 +11,7 @@
 {if $refreshOn}
 	refreshOn: {$refreshOn|json_encode},
 {/if}
-fetchNotificationUrl: {url|json_encode router=$smarty.const.ROUTE_PAGE page='notification' op='fetchNotification' escape=false},
+fetchNotificationUrl: {url|json_encode router=PKPApplication::ROUTE_PAGE page='notification' op='fetchNotification' escape=false},
 hasSystemNotifications: {$hasSystemNotifications|json_encode}
 {if $requestOptions}
 	,

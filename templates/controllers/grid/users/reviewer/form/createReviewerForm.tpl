@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/users/reviewer/createReviewerForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Create a reviewer and assign to a submission form.
@@ -14,9 +14,9 @@
 		// Attach the form handler.
 		$('#createReviewerForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.AddReviewerFormHandler',
 			{ldelim}
-				fetchUsernameSuggestionUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" givenName="GIVEN_NAME_PLACEHOLDER" familyName="FAMILY_NAME_PLACEHOLDER" escape=false},
+				fetchUsernameSuggestionUrl: {url|json_encode router=PKPApplication::ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" givenName="GIVEN_NAME_PLACEHOLDER" familyName="FAMILY_NAME_PLACEHOLDER" escape=false},
 				usernameSuggestionTextAlert: {translate|json_encode key="grid.user.mustProvideName"},
-				templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.users.reviewer.ReviewerGridHandler' op='fetchTemplateBody' stageId=$stageId reviewRoundId=$reviewRoundId submissionId=$submissionId escape=false}
+				templateUrl: {url|json_encode router=PKPApplication::ROUTE_COMPONENT component='grid.users.reviewer.ReviewerGridHandler' op='fetchTemplateBody' stageId=$stageId reviewRoundId=$reviewRoundId submissionId=$submissionId escape=false}
 			{rdelim}
 		);
 	{rdelim});

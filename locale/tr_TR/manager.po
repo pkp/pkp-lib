@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2020-12-04 12:35+0000\n"
+"PO-Revision-Date: 2021-04-22 01:44+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -1095,6 +1095,14 @@ msgstr "Sonuçları ülke, bölge ve / veya şehre göre daralt."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
+
+msgid "manager.setup.publishing"
+msgstr "Yayın Ayrıntıları"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Bu ayrıntılar, üçüncü taraf arşiv organlarına sağlanan üstverilere dahil "
+"edilebilir."
 
 msgid "manager.setup.additionalContent"
 msgstr "Ek İçerik"
@@ -2205,3 +2213,78 @@ msgstr "Excel/CSV olarak dışarı aktarılacak kullanıcıları seçin."
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Excel/CSV olarak Dışarı Aktar"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Dil ayarı kaydedilemedi. Her seçenek için en az bir dil etkinleştirilmelidir"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Diğer Şablonlar"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "HATA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Belirtilen günlük yolu \"{$contextPath}\" mevcut değil."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Dışa aktarılan dosyayı aşağıda buton aracılığıyla indirin."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Yayınlar çözümlenemedi"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Yazarlar çözümlenemedi"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Yanlış filtre yapılandırması [{$filterName}]: {$filterCount} oluşumları tek "
+"olmalı."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Genel Ögeler"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Dışa aktarma başarıyla tamamlandı."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Dışa Aktarılan Dosyayı İndir"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Gönderi Sonuçlarını Dışa Aktar"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "İşlem başarısız oldu. Hatalar ve uyarılar için aşağıyı kontrol edin."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "{$param} yazar adı için kullanıcı grubu eksik"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Bu e-posta adreslerinden biri veya daha fazlası geçerli değil."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Gönderim onay e-postasının bir kopyası, buraya girilen e-posta adreslerinden "
+"her birine gönderilecektir. Birden çok e-posta adresi için virgülle ayırın. "
+"Örnek: bir@example.com, iki@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Herkese Bildir"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Hayır"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Evet, kopyasını {$email} adresine gönder"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Birincil Kişiye Bildir"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Bildirimler"

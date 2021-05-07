@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/editorDecision/form/EditorDecisionWithEmailForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionWithEmailForm
@@ -13,328 +13,376 @@
  * @brief Base class for the editor decision forms.
  */
 
+use APP\file\LibraryFileManager;
+use APP\template\TemplateManager;
+
+use PKP\log\SubmissionEmailLogEntry;
+use PKP\mail\SubmissionMailTemplate;
+
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 
-class EditorDecisionWithEmailForm extends EditorDecisionForm {
+class EditorDecisionWithEmailForm extends EditorDecisionForm
+{
+    /** @var string */
+    public $_saveFormOperation;
 
-	/** @var String */
-	var $_saveFormOperation;
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the operation to save this form.
+     *
+     * @return string
+     */
+    public function getSaveFormOperation()
+    {
+        return $this->_saveFormOperation;
+    }
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the operation to save this form.
-	 * @return string
-	 */
-	function getSaveFormOperation() {
-		return $this->_saveFormOperation;
-	}
+    /**
+     * Set the operation to save this form.
+     *
+     * @param string $saveFormOperation
+     */
+    public function setSaveFormOperation($saveFormOperation)
+    {
+        $this->_saveFormOperation = $saveFormOperation;
+    }
 
-	/**
-	 * Set the operation to save this form.
-	 * @param $saveFormOperation string
-	 */
-	function setSaveFormOperation($saveFormOperation) {
-		$this->_saveFormOperation = $saveFormOperation;
-	}
+    //
+    // Implement protected template methods from Form
+    //
+    /**
+     * @see Form::initData()
+     *
+     * @param array $actionLabels
+     */
+    public function initData($actionLabels = [])
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $router = $request->getRouter();
+        $dispatcher = $router->getDispatcher();
 
-	//
-	// Implement protected template methods from Form
-	//
-	/**
-	 * @see Form::initData()
-	 * @param $actionLabels array
-	 */
-	function initData($actionLabels = array()) {
-		$request = Application::get()->getRequest();
-		$context = $request->getContext();
-		$router = $request->getRouter();
-		$dispatcher = $router->getDispatcher();
+        $submission = $this->getSubmission();
+        $user = $request->getUser();
 
-		$submission = $this->getSubmission();
-		$user = $request->getUser();
+        $emailKeys = [
+            SUBMISSION_EDITOR_DECISION_ACCEPT => 'EDITOR_DECISION_ACCEPT',
+            SUBMISSION_EDITOR_DECISION_DECLINE => 'EDITOR_DECISION_DECLINE',
+            SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => 'EDITOR_DECISION_INITIAL_DECLINE',
+            SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW => 'EDITOR_DECISION_SEND_TO_EXTERNAL',
+            SUBMISSION_EDITOR_DECISION_RESUBMIT => 'EDITOR_DECISION_RESUBMIT',
+            SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS => 'EDITOR_DECISION_REVISIONS',
+            SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => 'EDITOR_DECISION_SEND_TO_PRODUCTION',
+        ];
 
-		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$emailKeys = array(
-			SUBMISSION_EDITOR_DECISION_ACCEPT => 'EDITOR_DECISION_ACCEPT',
-			SUBMISSION_EDITOR_DECISION_DECLINE => 'EDITOR_DECISION_DECLINE',
-			SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => 'EDITOR_DECISION_INITIAL_DECLINE',
-			SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW => 'EDITOR_DECISION_SEND_TO_EXTERNAL',
-			SUBMISSION_EDITOR_DECISION_RESUBMIT => 'EDITOR_DECISION_RESUBMIT',
-			SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS => 'EDITOR_DECISION_REVISIONS',
-			SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => 'EDITOR_DECISION_SEND_TO_PRODUCTION',
-		);
+        $email = new SubmissionMailTemplate($submission, $emailKeys[$this->getDecision()]);
 
-		$email = new SubmissionMailTemplate($submission, $emailKeys[$this->getDecision()]);
+        $submissionUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
+        $email->assignParams([
+            'authorName' => $submission->getAuthorString(),
+            'submissionUrl' => $submissionUrl,
+        ]);
+        $email->replaceParams();
 
-		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
-		$email->assignParams(array(
-			'authorName' => $submission->getAuthorString(),
-			'submissionUrl' => $submissionUrl,
-		));
-		$email->replaceParams();
+        // If we are in review stage we need a review round.
+        $reviewRound = $this->getReviewRound();
+        if (is_a($reviewRound, 'ReviewRound')) {
+            $this->setData('reviewRoundId', $reviewRound->getId());
+        }
 
-		// If we are in review stage we need a review round.
-		$reviewRound = $this->getReviewRound();
-		if (is_a($reviewRound, 'ReviewRound')) {
-			$this->setData('reviewRoundId', $reviewRound->getId());
-		}
+        $data = [
+            'submissionId' => $submission->getId(),
+            'decision' => $this->getDecision(),
+            'authorName' => $submission->getAuthorString(),
+            'personalMessage' => $email->getBody(),
+            'actionLabel' => $actionLabels[$this->getDecision()],
+            'bccReviewers' => []
+        ];
+        foreach ($data as $key => $value) {
+            $this->setData($key, $value);
+        }
 
-		$data = array(
-			'submissionId' => $submission->getId(),
-			'decision' => $this->getDecision(),
-			'authorName' => $submission->getAuthorString(),
-			'personalMessage' => $email->getBody(),
-			'actionLabel' => $actionLabels[$this->getDecision()]
-		);
-		foreach($data as $key => $value) {
-			$this->setData($key, $value);
-		}
+        return parent::initData();
+    }
 
-		return parent::initData();
-	}
+    /**
+     * @copydoc Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $this->readUserVars(['personalMessage', 'selectedAttachments', 'skipEmail', 'selectedLibraryFiles', 'bccReviewers']);
+        parent::readInputData();
+    }
 
-	/**
-	 * @copydoc Form::readInputData()
-	 */
-	function readInputData() {
-		$this->readUserVars(array('personalMessage', 'selectedAttachments', 'skipEmail', 'selectedLibraryFiles'));
-		parent::readInputData();
-	}
+    /**
+     * @copydoc EditorDecisionForm::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
+        $templateMgr = TemplateManager::getManager($request);
 
-	/**
-	 * @copydoc EditorDecisionForm::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
+        // On the review stage, determine if any reviews are available for import
+        $stageId = $this->getStageId();
+        if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
+            $reviewsAvailable = false;
+            $submission = $this->getSubmission();
+            $reviewRound = $this->getReviewRound();
+            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+            $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
 
-		$templateMgr = TemplateManager::getManager($request);
+            $reviewers = [];
+            /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+            foreach ($reviewAssignments as $reviewAssignment) {
+                if ($reviewAssignment->getDateCompleted() != null) {
+                    $reviewsAvailable = true;
+                }
+                if (in_array($reviewAssignment->getStatus(), [REVIEW_ASSIGNMENT_STATUS_COMPLETE, REVIEW_ASSIGNMENT_STATUS_RECEIVED, REVIEW_ASSIGNMENT_STATUS_THANKED])) {
+                    $reviewers[$reviewAssignment->getReviewerId()] = $reviewAssignment->getReviewerFullName();
+                }
+            }
 
-		// On the review stage, determine if any reviews are available for import
-		$stageId = $this->getStageId();
-		if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
-			$reviewsAvailable = false;
-			$submission = $this->getSubmission();
-			$reviewRound = $this->getReviewRound();
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-			$reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
-			foreach ($reviewAssignments as $reviewAssignment) {
-				if ($reviewAssignment->getDateCompleted() != null) {
-					$reviewsAvailable = true;
-					break;
-				}
-			}
+            $templateMgr->assign([
+                'reviewsAvailable' => $reviewsAvailable,
+                'reviewers' => $reviewers
+            ]);
 
-			$templateMgr->assign('reviewsAvailable', $reviewsAvailable);
+            // Retrieve a URL to fetch the reviews
+            if ($reviewsAvailable) {
+                $router = $request->getRouter();
+                $this->setData(
+                    'peerReviewUrl',
+                    $router->url(
+                        $request,
+                        null,
+                        null,
+                        'importPeerReviews',
+                        null,
+                        [
+                            'submissionId' => $submission->getId(),
+                            'stageId' => $stageId,
+                            'reviewRoundId' => $reviewRound->getId()
+                        ]
+                    )
+                );
+            }
+        }
 
-			// Retrieve a URL to fetch the reviews
-			if ($reviewsAvailable) {
-				$router = $request->getRouter();
-				$this->setData(
-					'peerReviewUrl',
-					$router->url(
-						$request, null, null,
-						'importPeerReviews', null,
-						array(
-							'submissionId' => $submission->getId(),
-							'stageId' => $stageId,
-							'reviewRoundId' => $reviewRound->getId()
-						)
-					)
-				);
+        // When this form is being used in review stages, we need a different
+        // save operation to allow the EditorDecisionHandler authorize the review
+        // round object.
+        if ($this->getSaveFormOperation()) {
+            $templateMgr = TemplateManager::getManager($request);
+            $templateMgr->assign('saveFormOperation', $this->getSaveFormOperation());
+        }
 
-			}
-		}
+        $templateMgr->assign('allowedVariables', $this->_getAllowedVariables($request));
+        $templateMgr->assign('allowedVariablesType', $this->_getAllowedVariablesType());
 
-		// When this form is being used in review stages, we need a different
-		// save operation to allow the EditorDecisionHandler authorize the review
-		// round object.
-		if ($this->getSaveFormOperation()) {
-			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('saveFormOperation', $this->getSaveFormOperation());
-		}
-
-		$templateMgr->assign('allowedVariables', $this->_getAllowedVariables($request));
-		$templateMgr->assign('allowedVariablesType', $this->_getAllowedVariablesType());
-
-		return parent::fetch($request, $template, $display);
-	}
+        return parent::fetch($request, $template, $display);
+    }
 
 
-	//
-	// Private helper methods
-	//
-	/**
-	 * Retrieve the last review round and update it with the new status.
-	 *
-	 * The review round status is typically set according to the statuses of its
-	 * ReviewAssignments. This method overrides that status and sets a new one
-	 * based on an EditorDecision.
-	 *
-	 * @param $submission Submission
-	 * @param $status integer One of the REVIEW_ROUND_STATUS_* constants.
-	 */
-	function _updateReviewRoundStatus($submission, $status, $reviewRound = null) {
-		$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
-		if (!$reviewRound) {
-			$reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId());
-		}
+    //
+    // Private helper methods
+    //
+    /**
+     * Retrieve the last review round and update it with the new status.
+     *
+     * The review round status is typically set according to the statuses of its
+     * ReviewAssignments. This method overrides that status and sets a new one
+     * based on an EditorDecision.
+     *
+     * @param Submission $submission
+     * @param integer $status One of the REVIEW_ROUND_STATUS_* constants.
+     * @param null|mixed $reviewRound
+     */
+    public function _updateReviewRoundStatus($submission, $status, $reviewRound = null)
+    {
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        if (!$reviewRound) {
+            $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId());
+        }
 
-		// If we don't have a review round, it's because the submission is being
-		// accepted without starting any of the review stages. In that case we
-		// do nothing.
-		if (is_a($reviewRound, 'ReviewRound')) {
-			$reviewRoundDao->updateStatus($reviewRound, $status);
-		}
-	}
+        // If we don't have a review round, it's because the submission is being
+        // accepted without starting any of the review stages. In that case we
+        // do nothing.
+        if (is_a($reviewRound, 'ReviewRound')) {
+            $reviewRoundDao->updateStatus($reviewRound, $status);
+        }
+    }
 
-	/**
-	 * Sends an email with a personal message and the selected
-	 * review attachements to the author. Also marks review attachments
-	 * selected by the editor as "viewable" for the author.
-	 * @param $submission Submission
-	 * @param $emailKey string An email template.
-	 * @param $request PKPRequest
-	 */
-	function _sendReviewMailToAuthor($submission, $emailKey, $request) {
-		// Send personal message to author.
-		import('lib.pkp.classes.mail.SubmissionMailTemplate');
-		$email = new SubmissionMailTemplate($submission, $emailKey, null, null, null, false);
-		$email->setBody($this->getData('personalMessage'));
+    /**
+     * Sends an email with a personal message and the selected
+     * review attachements to the author. Also marks review attachments
+     * selected by the editor as "viewable" for the author.
+     *
+     * @param Submission $submission
+     * @param string $emailKey An email template.
+     * @param PKPRequest $request
+     */
+    public function _sendReviewMailToAuthor($submission, $emailKey, $request)
+    {
+        // Send personal message to author.
+        $email = new SubmissionMailTemplate($submission, $emailKey, null, null, null, false);
+        $email->setBody($this->getData('personalMessage'));
 
-		// Get submission authors in the same way as for the email template form,
-		// that editor sees. This also ensures that the recipient list is not empty.
-		$authors = $submission->getAuthors(true);
-		foreach($authors as $author) {
-			$email->addRecipient($author->getEmail(), $author->getFullName());
-		}
+        // Get submission authors in the same way as for the email template form,
+        // that editor sees. This also ensures that the recipient list is not empty.
+        $authors = $submission->getAuthors(true);
+        foreach ($authors as $author) {
+            $email->addRecipient($author->getEmail(), $author->getFullName());
+        }
 
-		DAORegistry::getDAO('SubmissionEmailLogDAO'); // Load constants
-		$email->setEventType(SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR);
+        DAORegistry::getDAO('SubmissionEmailLogDAO'); // Load constants
+        $email->setEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR);
 
-		// Get review round.
-		$reviewRound = $this->getReviewRound();
+        // Get review round.
+        $reviewRound = $this->getReviewRound();
 
-		if(is_a($reviewRound, 'ReviewRound')) {
-			// Retrieve review indexes.
-			$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-			$reviewIndexes = $reviewAssignmentDao->getReviewIndexesForRound($submission->getId(), $reviewRound->getId());
-			assert(is_array($reviewIndexes));
+        if (is_a($reviewRound, 'ReviewRound')) {
+            // Retrieve review indexes.
+            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
 
-			// Add a review index for review attachments not associated with
-			// a review assignment (i.e. attachments uploaded by the editor).
-			$lastIndex = end($reviewIndexes);
-			$reviewIndexes[-1] = $lastIndex + 1;
+            $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
+            $reviewers = [];
+            /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+            foreach ($reviewAssignments as $reviewAssignment) {
+                if (in_array($reviewAssignment->getStatus(), [REVIEW_ASSIGNMENT_STATUS_COMPLETE, REVIEW_ASSIGNMENT_STATUS_RECEIVED, REVIEW_ASSIGNMENT_STATUS_THANKED])) {
+                    $reviewers[] = $reviewAssignment->getReviewerId();
+                }
+            }
 
-			// Attach the selected reviewer attachments to the email.
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-			$selectedAttachments = $this->getData('selectedAttachments');
-			if(is_array($selectedAttachments)) {
-				foreach ($selectedAttachments as $submissionFileId) {
+            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+            foreach (array_intersect($reviewers, (array) $this->getData('bccReviewers')) as $reviewerId) {
+                $user = $userDao->getById($reviewerId);
+                if ($user && !$user->getDisabled()) {
+                    $email->addBcc($user->getEmail(), $user->getFullName());
+                }
+            }
 
-					// Retrieve the submission file.
-					$submissionFile = Services::get('submissionFile')->get($submissionFileId);
-					assert(is_a($submissionFile, 'SubmissionFile'));
+            $reviewIndexes = $reviewAssignmentDao->getReviewIndexesForRound($submission->getId(), $reviewRound->getId());
+            assert(is_array($reviewIndexes));
 
-					// Check the association information.
-					if($submissionFile->getData('assocType') == ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-						// The review attachment has been uploaded by a reviewer.
-						$reviewAssignmentId = $submissionFile->getData('assocId');
-						assert(is_numeric($reviewAssignmentId));
-					} else {
-						// The review attachment has been uploaded by the editor.
-						$reviewAssignmentId = -1;
-					}
+            // Add a review index for review attachments not associated with
+            // a review assignment (i.e. attachments uploaded by the editor).
+            $lastIndex = end($reviewIndexes);
+            $reviewIndexes[-1] = $lastIndex + 1;
 
-					// Identify the corresponding review index.
-					assert(isset($reviewIndexes[$reviewAssignmentId]));
-					$reviewIndex = $reviewIndexes[$reviewAssignmentId];
-					assert(!is_null($reviewIndex));
+            // Attach the selected reviewer attachments to the email.
+            $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
+            $selectedAttachments = $this->getData('selectedAttachments');
+            if (is_array($selectedAttachments)) {
+                foreach ($selectedAttachments as $submissionFileId) {
 
-					// Add the attachment to the email.
-					$path = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
-					$email->addAttachment(
-						$path,
-						PKPString::enumerateAlphabetically($reviewIndex).'-'.$submissionFile->getLocalizedData('name')
-					);
+                    // Retrieve the submission file.
+                    $submissionFile = Services::get('submissionFile')->get($submissionFileId);
+                    assert(is_a($submissionFile, 'SubmissionFile'));
 
-					// Update submission file to set viewable as true, so author
-					// can view the file on their submission summary page.
-					$submissionFile->setViewable(true);
-					$submissionFileDao->updateObject($submissionFile);
-				}
-			}
-		}
+                    // Check the association information.
+                    if ($submissionFile->getData('assocType') == ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+                        // The review attachment has been uploaded by a reviewer.
+                        $reviewAssignmentId = $submissionFile->getData('assocId');
+                        assert(is_numeric($reviewAssignmentId));
+                    } else {
+                        // The review attachment has been uploaded by the editor.
+                        $reviewAssignmentId = -1;
+                    }
 
-		// Attach the selected Library files as attachments to the email.
-		import('classes.file.LibraryFileManager');
-		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
-		$selectedLibraryFilesAttachments = $this->getData('selectedLibraryFiles');
-		if(is_array($selectedLibraryFilesAttachments)) {
-			foreach ($selectedLibraryFilesAttachments as $fileId) {
-				// Retrieve the Library file.
-				$libraryFile = $libraryFileDao->getById($fileId);
-				assert(is_a($libraryFile, 'LibraryFile'));
+                    // Identify the corresponding review index.
+                    assert(isset($reviewIndexes[$reviewAssignmentId]));
+                    $reviewIndex = $reviewIndexes[$reviewAssignmentId];
+                    assert(!is_null($reviewIndex));
 
-				$libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
+                    // Add the attachment to the email.
+                    $path = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
+                    $email->addAttachment(
+                        $path,
+                        PKPString::enumerateAlphabetically($reviewIndex) . '-' . $submissionFile->getLocalizedData('name')
+                    );
 
-				// Add the attachment to the email.
-				$email->addAttachment($libraryFile->getFilePath(), $libraryFile->getOriginalFileName());
-			}
-		}
+                    // Update submission file to set viewable as true, so author
+                    // can view the file on their submission summary page.
+                    $submissionFile->setViewable(true);
+                    $submissionFileDao->updateObject($submissionFile);
+                }
+            }
+        }
 
-		// Send the email.
-		if (!$this->getData('skipEmail')) {
-			$router = $request->getRouter();
-			$dispatcher = $router->getDispatcher();
-			$context = $request->getContext();
-			$user = $request->getUser();
-			$email->assignParams(array(
-				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
-				'contextName' => $context->getLocalizedName(),
-				'authorName' => $submission->getAuthorString(),
-				'editorialContactSignature' => $user->getContactSignature(),
-			));
-			if (!$email->send($request)) {
-				import('classes.notification.NotificationManager');
-				$notificationMgr = new NotificationManager();
-				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));
-			}
-		}
-	}
+        // Attach the selected Library files as attachments to the email.
+        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
+        $selectedLibraryFilesAttachments = $this->getData('selectedLibraryFiles');
+        if (is_array($selectedLibraryFilesAttachments)) {
+            foreach ($selectedLibraryFilesAttachments as $fileId) {
+                // Retrieve the Library file.
+                $libraryFile = $libraryFileDao->getById($fileId);
+                assert(is_a($libraryFile, 'LibraryFile'));
 
-	/**
-	 * Get a list of allowed email template variables.
-	 * @param $request PKPRequest Request object
-	 * @return array
-	 */
-	function _getAllowedVariables($request) {
-		$router = $request->getRouter();
-		$dispatcher = $router->getDispatcher();
-		$submission = $this->getSubmission();
-		$user = $request->getUser();
-		return array(
-			'submissionUrl' => __('common.url'),
-			'contextName' => $request->getContext()->getLocalizedName(),
-			'editorialContactSignature' => strip_tags($user->getContactSignature(), "<br>"),
-			'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
-			'authorName' => strip_tags($submission->getAuthorString()),
-		);
-	}
+                $libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
 
-	/**
-	 * Get a list of allowed email template variables type.
-	 * @param $request PKPRequest Request object
-	 * @return array
-	 */
-	function _getAllowedVariablesType() {
-		return array(
-			'contextName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
-			'editorialContactSignature' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
-			'submissionTitle' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
-			'authorName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
-		);
-	}
+                // Add the attachment to the email.
+                $email->addAttachment($libraryFile->getFilePath(), $libraryFile->getOriginalFileName());
+            }
+        }
+
+        // Send the email.
+        if (!$this->getData('skipEmail')) {
+            $router = $request->getRouter();
+            $dispatcher = $router->getDispatcher();
+            $context = $request->getContext();
+            $user = $request->getUser();
+            $email->assignParams([
+                'submissionUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
+                'contextName' => $context->getLocalizedName(),
+                'authorName' => $submission->getAuthorString(),
+                'editorialContactSignature' => $user->getContactSignature(),
+            ]);
+            if (!$email->send($request)) {
+                import('classes.notification.NotificationManager');
+                $notificationMgr = new NotificationManager();
+                $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+            }
+        }
+    }
+
+    /**
+     * Get a list of allowed email template variables.
+     *
+     * @param PKPRequest $request Request object
+     *
+     * @return array
+     */
+    public function _getAllowedVariables($request)
+    {
+        $router = $request->getRouter();
+        $dispatcher = $router->getDispatcher();
+        $submission = $this->getSubmission();
+        $user = $request->getUser();
+        return [
+            'submissionUrl' => __('common.url'),
+            'contextName' => $request->getContext()->getLocalizedName(),
+            'editorialContactSignature' => strip_tags($user->getContactSignature(), '<br>'),
+            'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
+            'authorName' => strip_tags($submission->getAuthorString()),
+        ];
+    }
+
+    /**
+     * Get a list of allowed email template variables type.
+     *
+     * @return array
+     */
+    public function _getAllowedVariablesType()
+    {
+        return [
+            'contextName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+            'editorialContactSignature' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+            'submissionTitle' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+            'authorName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+        ];
+    }
 }
-
-

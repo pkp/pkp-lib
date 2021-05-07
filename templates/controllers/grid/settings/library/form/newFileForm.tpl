@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/library/form/newFileForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Library Files form
@@ -50,7 +50,7 @@
 		{capture assign=enablePublicAccess}{translate key="common.publicAccess"}{/capture}
 		{fbvElement type="checkbox" id="publicAccess" value="1" checked=false label=$enablePublicAccess translate=false}
 		<p>
-			{capture assign=downloadUrl}{url router=$smarty.const.ROUTE_PAGE page="libraryFiles" op="downloadPublic" path="id"}{/capture}
+			{capture assign=downloadUrl}{url router=PKPApplication::ROUTE_PAGE page="libraryFiles" op="downloadPublic" path="id"}{/capture}
 			{translate key="settings.libraryFiles.public.viewInstructions" downloadUrl=$downloadUrl}
 		</p>
 	{/fbvFormSection}

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2020-12-29 10:52+0000\n"
+"PO-Revision-Date: 2021-04-22 01:44+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -820,6 +820,12 @@ msgstr "Restringir resultados por país, região e/ou cidade."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
+
+msgid "manager.setup.publishing"
+msgstr "Detalhes de publicação"
+
+msgid "manager.setup.publishingDescription"
+msgstr "O nome da editora aparecerá na secção Sobre a Revista."
 
 msgid "manager.setup.additionalContent"
 msgstr "Conteúdo Adicional"
@@ -2142,3 +2148,79 @@ msgstr "O e-mail padrão foi restaurado."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Eliminar Notícia"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"A configuração de idioma não pôde ser guardada. Pelo menos um idioma deve "
+"estar ativo para cada opção"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Outros Modelos"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERRO:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "O caminho \"{$contextPath}\" da revista indicado não existe."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Um ou mais destes endereços de e-mail não é válido."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Uma cópia do e-mail de confirmação de submissão será enviada para qualquer "
+"um dos endereços de e-mail inseridos aqui. Separe os vários endereços de e-"
+"mail com vírgula. Exemplo: um@exemplo.pt,dois@exemplo.pt"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Notificar Qualquer Pessoa"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Não"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Sim, enviar cópia para {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notificar Contacto Principal"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notificações"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "O processo falhou ao analisar as publicações"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "O processo falhou ao analisar os autores"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Configuração de filtro errada [{$filterName}]: {$filterCount} ocorrências. "
+"Deveria existir apenas uma."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Itens genéricos"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Transfira o ficheiro exportado clicando no botão abaixo."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "A exportação foi concluída com sucesso."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Transferir Ficheiro exportado"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportar Resultados de Submissões"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "O processo falhou. Veja abaixo os erros/avisos."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Grupo de utilizadores em falta para nome de autor {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"

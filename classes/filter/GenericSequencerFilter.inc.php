@@ -2,8 +2,8 @@
 /**
  * @file classes/filter/GenericSequencerFilter.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GenericSequencerFilter
@@ -15,59 +15,72 @@
  *  the result of the last filter in the chain to the caller.
  */
 
-import('lib.pkp.classes.filter.CompositeFilter');
+namespace PKP\filter;
 
-class GenericSequencerFilter extends CompositeFilter {
-	/**
-	 * Constructor
-	 */
-	function __construct(&$filterGroup, $displayName = null) {
-		parent::__construct($filterGroup, $displayName);
-	}
-
-
-	//
-	// Implementing abstract template methods from PersistableFilter
-	//
-	/**
-	 * @see PersistableFilter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.classes.filter.GenericSequencerFilter';
-	}
+class GenericSequencerFilter extends CompositeFilter
+{
+    /**
+     * Constructor
+     *
+     * @param null|mixed $displayName
+     */
+    public function __construct(&$filterGroup, $displayName = null)
+    {
+        parent::__construct($filterGroup, $displayName);
+    }
 
 
-	//
-	// Implementing abstract template methods from Filter
-	//
-	/**
-	 * @see Filter::process()
-	 * @param $input mixed
-	 * @return mixed
-	 */
-	function &process(&$input) {
-		// Iterate over all filters and always feed the
-		// output of one filter as input to the next
-		// filter.
-		$previousOutput = null;
-		foreach($this->getFilters() as $filter) {
-			if(is_null($previousOutput)) {
-				// First filter
-				$previousOutput =& $input;
-			}
-			$output = $filter->execute($previousOutput);
+    //
+    // Implementing abstract template methods from PersistableFilter
+    //
+    /**
+     * @see PersistableFilter::getClassName()
+     */
+    public function getClassName()
+    {
+        return 'lib.pkp.classes.filter.GenericSequencerFilter';
+    }
 
-			// Propagate errors of sub-filters (if any)
-			foreach($filter->getErrors() as $errorMessage) $this->addError($errorMessage);
 
-			// If one filter returns null then we'll abort
-			// execution of the filter chain.
-			if (is_null($output)) break;
+    //
+    // Implementing abstract template methods from Filter
+    //
+    /**
+     * @see Filter::process()
+     *
+     * @param $input mixed
+     */
+    public function &process(&$input)
+    {
+        // Iterate over all filters and always feed the
+        // output of one filter as input to the next
+        // filter.
+        $previousOutput = null;
+        foreach ($this->getFilters() as $filter) {
+            if (is_null($previousOutput)) {
+                // First filter
+                $previousOutput = & $input;
+            }
+            $output = $filter->execute($previousOutput);
 
-			unset($previousOutput);
-			$previousOutput = $output;
-		}
-		return $output;
-	}
+            // Propagate errors of sub-filters (if any)
+            foreach ($filter->getErrors() as $errorMessage) {
+                $this->addError($errorMessage);
+            }
+
+            // If one filter returns null then we'll abort
+            // execution of the filter chain.
+            if (is_null($output)) {
+                break;
+            }
+
+            unset($previousOutput);
+            $previousOutput = $output;
+        }
+        return $output;
+    }
 }
 
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\GenericSequencerFilter', '\GenericSequencerFilter');
+}

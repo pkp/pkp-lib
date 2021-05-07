@@ -2,8 +2,8 @@
 /**
  * @file api/v1/site/PKPSiteHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSiteHandler
@@ -12,220 +12,230 @@
  * @brief Base class to handle API requests for the site object.
  */
 
-import('lib.pkp.classes.handler.APIHandler');
+use APP\template\TemplateManager;
+use PKP\handler\APIHandler;
 
-class PKPSiteHandler extends APIHandler {
-	/** @var string One of the SCHEMA_... constants */
-	public $schemaName = SCHEMA_SITE;
+use PKP\services\PKPSchemaService;
 
-	/**
-	 * @copydoc APIHandler::__construct()
-	 */
-	public function __construct() {
-		$this->_handlerPath = 'site';
-		$roles = [ROLE_ID_SITE_ADMIN];
-		$this->_endpoints = array(
-			'GET' => array(
-				array(
-					'pattern' => $this->getEndpointPattern(),
-					'handler' => array($this, 'get'),
-					'roles' => $roles,
-				),
-				array(
-					'pattern' => $this->getEndpointPattern() . '/theme',
-					'handler' => array($this, 'getTheme'),
-					'roles' => $roles,
-				),
-			),
-			'PUT' => array(
-				array(
-					'pattern' => $this->getEndpointPattern(),
-					'handler' => array($this, 'edit'),
-					'roles' => $roles,
-				),
-				array(
-					'pattern' => $this->getEndpointPattern() . '/theme',
-					'handler' => array($this, 'editTheme'),
-					'roles' => $roles,
-				),
-			),
-		);
-		parent::__construct();
-	}
+class PKPSiteHandler extends APIHandler
+{
+    /** @var string One of the SCHEMA_... constants */
+    public $schemaName = PKPSchemaService::SCHEMA_SITE;
 
-	/**
-	 * @copydoc PKPHandler::authorize
-	 */
-	public function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.PolicySet');
-		$rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+    /**
+     * @copydoc APIHandler::__construct()
+     */
+    public function __construct()
+    {
+        $this->_handlerPath = 'site';
+        $roles = [ROLE_ID_SITE_ADMIN];
+        $this->_endpoints = [
+            'GET' => [
+                [
+                    'pattern' => $this->getEndpointPattern(),
+                    'handler' => [$this, 'get'],
+                    'roles' => $roles,
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/theme',
+                    'handler' => [$this, 'getTheme'],
+                    'roles' => $roles,
+                ],
+            ],
+            'PUT' => [
+                [
+                    'pattern' => $this->getEndpointPattern(),
+                    'handler' => [$this, 'edit'],
+                    'roles' => $roles,
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/theme',
+                    'handler' => [$this, 'editTheme'],
+                    'roles' => $roles,
+                ],
+            ],
+        ];
+        parent::__construct();
+    }
 
-		import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
-		foreach($roleAssignments as $role => $operations) {
-			$rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
-		}
-		$this->addPolicy($rolePolicy);
+    /**
+     * @copydoc PKPHandler::authorize
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.PolicySet');
+        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
 
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+        foreach ($roleAssignments as $role => $operations) {
+            $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+        }
+        $this->addPolicy($rolePolicy);
 
-	/**
-	 * Get the site
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @param $response Response object
-	 * @param array $args arguments
-	 *
-	 * @return Response
-	 */
-	public function get($slimRequest, $response, $args) {
-		$request = $this->getRequest();
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-		$siteProps = Services::get('site')
-			->getFullProperties($request->getSite(), [
-				'request' => $request,
-			]);
+    /**
+     * Get the site
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function get($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
 
-		return $response->withJson($siteProps, 200);
-	}
+        $siteProps = Services::get('site')
+            ->getFullProperties($request->getSite(), [
+                'request' => $request,
+            ]);
 
-	/**
-	 * Get the active theme on the site
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @param $response Response object
-	 * @param array $args arguments
-	 *
-	 * @return Response
-	 */
-	public function getTheme($slimRequest, $response, $args) {
-		$site = $this->getRequest()->getSite();
+        return $response->withJson($siteProps, 200);
+    }
 
-		$allThemes = PluginRegistry::loadCategory('themes', true);
-		$activeTheme = null;
-		foreach ($allThemes as $theme) {
-			if ($site->getData('themePluginPath') === $theme->getDirName()) {
-				$activeTheme = $theme;
-				break;
-			}
-		}
+    /**
+     * Get the active theme on the site
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function getTheme($slimRequest, $response, $args)
+    {
+        $site = $this->getRequest()->getSite();
 
-		if (!$activeTheme) {
-			return $response->withStatus(404)->withJsonError('api.themes.404.themeUnavailable');
-		}
+        $allThemes = PluginRegistry::loadCategory('themes', true);
+        $activeTheme = null;
+        foreach ($allThemes as $theme) {
+            if ($site->getData('themePluginPath') === $theme->getDirName()) {
+                $activeTheme = $theme;
+                break;
+            }
+        }
 
-		$data = array_merge(
-			$activeTheme->getOptionValues(CONTEXT_ID_NONE),
-			['themePluginPath' => $theme->getDirName()]
-		);
+        if (!$activeTheme) {
+            return $response->withStatus(404)->withJsonError('api.themes.404.themeUnavailable');
+        }
 
-		ksort($data);
+        $data = array_merge(
+            $activeTheme->getOptionValues(CONTEXT_ID_NONE),
+            ['themePluginPath' => $theme->getDirName()]
+        );
 
-		return $response->withJson($data, 200);
-	}
+        ksort($data);
 
-	/**
-	 * Edit the site
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @param $response Response object
-	 * @param array $args arguments
-	 *
-	 * @return Response
-	 */
-	public function edit($slimRequest, $response, $args) {
-		$request = $this->getRequest();
-		$site = $request->getSite();
-		$siteService = Services::get('site');
+        return $response->withJson($data, 200);
+    }
 
-		$params = $this->convertStringsToSchema(SCHEMA_SITE, $slimRequest->getParsedBody());
+    /**
+     * Edit the site
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function edit($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
+        $site = $request->getSite();
+        $siteService = Services::get('site');
 
-		$errors = $siteService->validate($params, $site->getSupportedLocales(), $site->getPrimaryLocale());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SITE, $slimRequest->getParsedBody());
 
-		if (!empty($errors)) {
-			return $response->withStatus(400)->withJson($errors);
-		}
-		$site = $siteService->edit($site, $params, $request);
+        $errors = $siteService->validate($params, $site->getSupportedLocales(), $site->getPrimaryLocale());
 
-		$siteProps = $siteService->getFullProperties($site, array(
-			'request' => $request,
-			'slimRequest' 	=> $slimRequest
-		));
+        if (!empty($errors)) {
+            return $response->withStatus(400)->withJson($errors);
+        }
+        $site = $siteService->edit($site, $params, $request);
 
-		return $response->withJson($siteProps, 200);
-	}
+        $siteProps = $siteService->getFullProperties($site, [
+            'request' => $request,
+            'slimRequest' => $slimRequest
+        ]);
 
-	/**
-	 * Edit the active theme and theme options on the site
-	 *
-	 * @param $slimRequest Request Slim request object
-	 * @param $response Response object
-	 * @param array $args arguments
-	 *
-	 * @return Response
-	 */
-	public function editTheme($slimRequest, $response, $args) {
-		$request = $this->getRequest();
-		$site = $request->getSite();
-		$siteService = Services::get('site');
+        return $response->withJson($siteProps, 200);
+    }
 
-		$params = $slimRequest->getParsedBody();
+    /**
+     * Edit the active theme and theme options on the site
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function editTheme($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
+        $site = $request->getSite();
+        $siteService = Services::get('site');
 
-		// Validate the themePluginPath and allow themes to perform their own validation
-		$themePluginPath = empty($params['themePluginPath']) ? null : $params['themePluginPath'];
-		if ($themePluginPath !== $site->getData('themePluginPath')) {
-			$errors = $siteService->validate(
-				['themePluginPath' => $themePluginPath],
-				$site->getSupportedLocales(),
-				$site->getPrimaryLocale()
-			);
-			if (!empty($errors)) {
-				return $response->withJson($errors, 400);
-			}
-			$newSite = $siteService->edit($site, ['themePluginPath' => $themePluginPath], $request);
-		}
+        $params = $slimRequest->getParsedBody();
 
-		// Get the appropriate theme plugin
-		$allThemes = PluginRegistry::loadCategory('themes', true);
-		$selectedTheme = null;
-		foreach ($allThemes as $theme) {
-			if ($themePluginPath === $theme->getDirName()) {
-				$selectedTheme = $theme;
-				break;
-			}
-		}
+        // Validate the themePluginPath and allow themes to perform their own validation
+        $themePluginPath = empty($params['themePluginPath']) ? null : $params['themePluginPath'];
+        if ($themePluginPath !== $site->getData('themePluginPath')) {
+            $errors = $siteService->validate(
+                ['themePluginPath' => $themePluginPath],
+                $site->getSupportedLocales(),
+                $site->getPrimaryLocale()
+            );
+            if (!empty($errors)) {
+                return $response->withJson($errors, 400);
+            }
+            $newSite = $siteService->edit($site, ['themePluginPath' => $themePluginPath], $request);
+        }
 
-		// Run the theme's init() method if a new theme has been selected
-		if (isset($newSite)) {
-			$selectedTheme->init();
-		}
+        // Get the appropriate theme plugin
+        $allThemes = PluginRegistry::loadCategory('themes', true);
+        $selectedTheme = null;
+        foreach ($allThemes as $theme) {
+            if ($themePluginPath === $theme->getDirName()) {
+                $selectedTheme = $theme;
+                break;
+            }
+        }
 
-		$errors = $selectedTheme->validateOptions($params, $themePluginPath, CONTEXT_ID_NONE, $request);
-		if (!empty($errors)) {
-			return $response->withJson($errors, 400);
-		}
+        // Run the theme's init() method if a new theme has been selected
+        if (isset($newSite)) {
+            $selectedTheme->init();
+        }
 
-		// Only accept params that are defined in the theme options
-		$options = $selectedTheme->getOptionsConfig();
-		foreach ($options as $optionName => $optionConfig) {
-			if (!array_key_exists($optionName, $params)) {
-				continue;
-			}
-			$selectedTheme->saveOption($optionName, $params[$optionName], CONTEXT_ID_NONE);
-		}
+        $errors = $selectedTheme->validateOptions($params, $themePluginPath, CONTEXT_ID_NONE, $request);
+        if (!empty($errors)) {
+            return $response->withJson($errors, 400);
+        }
 
-		// Clear the template cache so that new settings can take effect
-		$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
-		$templateMgr->clearTemplateCache();
-		$templateMgr->clearCssCache();
+        // Only accept params that are defined in the theme options
+        $options = $selectedTheme->getOptionsConfig();
+        foreach ($options as $optionName => $optionConfig) {
+            if (!array_key_exists($optionName, $params)) {
+                continue;
+            }
+            $selectedTheme->saveOption($optionName, $params[$optionName], CONTEXT_ID_NONE);
+        }
 
-		$data = array_merge(
-			$selectedTheme->getOptionValues(CONTEXT_ID_NONE),
-			['themePluginPath' => $themePluginPath]
-		);
+        // Clear the template cache so that new settings can take effect
+        $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
+        $templateMgr->clearTemplateCache();
+        $templateMgr->clearCssCache();
 
-		ksort($data);
+        $data = array_merge(
+            $selectedTheme->getOptionValues(CONTEXT_ID_NONE),
+            ['themePluginPath' => $themePluginPath]
+        );
 
-		return $response->withJson($data, 200);
-	}
+        ksort($data);
+
+        return $response->withJson($data, 200);
+    }
 }

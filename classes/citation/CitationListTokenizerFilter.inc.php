@@ -3,8 +3,8 @@
 /**
  * @file classes/citation/CitationListTokenizerFilter.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CitationListTokenizerFilter
@@ -14,45 +14,56 @@
  *  and returns an array of raw citation strings.
  */
 
-import('lib.pkp.classes.filter.Filter');
+namespace PKP\citation;
 
-class CitationListTokenizerFilter extends Filter {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		$this->setDisplayName('Split a reference list into separate citations');
+use PKP\core\PKPString;
+use PKP\filter\Filter;
 
-		parent::__construct('primitive::string', 'primitive::string[]');
-	}
+class CitationListTokenizerFilter extends \Filter
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->setDisplayName('Split a reference list into separate citations');
 
-	//
-	// Implement template methods from Filter
-	//
-	/**
-	 * @see Filter::process()
-	 * @param $input string
-	 * @return mixed array
-	 */
-	function &process(&$input) {
-		// The default implementation assumes that raw citations are
-		// separated with line endings.
-		// 1) Remove empty lines and normalize line endings.
-		$input = PKPString::regexp_replace('/[\r\n]+/s', "\n", $input);
-		// 2) Remove trailing/leading line breaks.
-		$input = trim($input, "\n");
-		// 3) Break up at line endings.
-		if (empty($input)) {
-			$citations = array();
-		} else {
-			$citations = explode("\n", $input);
-		}
-		// 4) Remove numbers from the beginning of each citation.
-		foreach($citations as $index => $citation) {
-			$citations[$index] = PKPString::regexp_replace('/^\s*[\[#]?[0-9]+[.)\]]?\s*/', '', $citation);
-		}
+        parent::__construct('primitive::string', 'primitive::string[]');
+    }
 
-		return $citations;
-	}
+    //
+    // Implement template methods from Filter
+    //
+    /**
+     * @see Filter::process()
+     *
+     * @param $input string
+     *
+     * @return mixed array
+     */
+    public function &process(&$input)
+    {
+        // The default implementation assumes that raw citations are
+        // separated with line endings.
+        // 1) Remove empty lines and normalize line endings.
+        $input = PKPString::regexp_replace('/[\r\n]+/s', "\n", $input);
+        // 2) Remove trailing/leading line breaks.
+        $input = trim($input, "\n");
+        // 3) Break up at line endings.
+        if (empty($input)) {
+            $citations = [];
+        } else {
+            $citations = explode("\n", $input);
+        }
+        // 4) Remove numbers from the beginning of each citation.
+        foreach ($citations as $index => $citation) {
+            $citations[$index] = PKPString::regexp_replace('/^\s*[\[#]?[0-9]+[.)\]]?\s*/', '', $citation);
+        }
+
+        return $citations;
+    }
 }
 
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\citation\CitationListTokenizerFilter', '\CitationListTokenizerFilter');
+}

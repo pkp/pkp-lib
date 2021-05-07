@@ -3,8 +3,8 @@
 /**
  * @file classes/validation/ValidatorTypeDescription.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorTypeDescription
@@ -14,91 +14,110 @@
  *  additional validation (via standard validator classes).
  */
 
-import('lib.pkp.classes.filter.PrimitiveTypeDescription');
+namespace PKP\validation;
 
-class ValidatorTypeDescription extends PrimitiveTypeDescription {
-	/** @var string the validator class name */
-	var $_validatorClassName;
+use PKP\core\PKPString;
+use PKP\filter\PrimitiveTypeDescription;
 
-	/** @var array arguments to be passed to the validator constructor */
-	var $_validatorArgs;
+class ValidatorTypeDescription extends PrimitiveTypeDescription
+{
+    /** @var string the validator class name */
+    public $_validatorClassName;
 
-	/**
-	 * Constructor
-	 *
-	 * @param $typeName string Allowed primitive types are
-	 *  'integer', 'string', 'float' and 'boolean'.
-	 */
-	function __construct($typeName) {
-		parent::__construct($typeName);
-	}
+    /** @var array arguments to be passed to the validator constructor */
+    public $_validatorArgs;
 
-
-	//
-	// Setters and Getters
-	//
-	/**
-	 * @see TypeDescription::getNamespace()
-	 */
-	function getNamespace() {
-		return TYPE_DESCRIPTION_NAMESPACE_VALIDATOR;
-	}
+    /**
+     * Constructor
+     *
+     * @param $typeName string Allowed primitive types are
+     *  'integer', 'string', 'float' and 'boolean'.
+     */
+    public function __construct($typeName)
+    {
+        parent::__construct($typeName);
+    }
 
 
-	//
-	// Implement abstract template methods from TypeDescription
-	//
-	/**
-	 * @see TypeDescription::parseTypeName()
-	 */
-	function parseTypeName($typeName) {
-		// Standard validators are based on string input.
-		parent::parseTypeName('string');
+    //
+    // Setters and Getters
+    //
+    /**
+     * @see TypeDescription::getNamespace()
+     */
+    public function getNamespace()
+    {
+        return TYPE_DESCRIPTION_NAMESPACE_VALIDATOR;
+    }
 
-		// Split the type name into validator name and arguments.
-		$typeNameParts = explode('(', $typeName, 2);
-		switch (count($typeNameParts)) {
-			case 1:
-				// no argument
-				$this->_validatorArgs = '';
-				break;
 
-			case 2:
-				// parse arguments (no UTF8-treatment necessary)
-				if (substr($typeNameParts[1], -1) != ')') return false;
-				// FIXME: Escape for PHP code inclusion?
-				$this->_validatorArgs = substr($typeNameParts[1], 0, -1);
-				break;
-		}
+    //
+    // Implement abstract template methods from TypeDescription
+    //
+    /**
+     * @see TypeDescription::parseTypeName()
+     */
+    public function parseTypeName($typeName)
+    {
+        // Standard validators are based on string input.
+        parent::parseTypeName('string');
 
-		// Validator name must start with a lower case letter
-		// and may contain only alphanumeric letters.
-		if (!PKPString::regexp_match('/^[a-z][a-zA-Z0-9]+$/', $typeNameParts[0])) return false;
+        // Split the type name into validator name and arguments.
+        $typeNameParts = explode('(', $typeName, 2);
+        switch (count($typeNameParts)) {
+            case 1:
+                // no argument
+                $this->_validatorArgs = '';
+                break;
 
-		// Translate the validator name into a validator class name.
-		$this->_validatorClassName = 'Validator'.PKPString::ucfirst($typeNameParts[0]);
+            case 2:
+                // parse arguments (no UTF8-treatment necessary)
+                if (substr($typeNameParts[1], -1) != ')') {
+                    return false;
+                }
+                // FIXME: Escape for PHP code inclusion?
+                $this->_validatorArgs = substr($typeNameParts[1], 0, -1);
+                break;
+        }
 
-		return true;
-	}
+        // Validator name must start with a lower case letter
+        // and may contain only alphanumeric letters.
+        if (!PKPString::regexp_match('/^[a-z][a-zA-Z0-9]+$/', $typeNameParts[0])) {
+            return false;
+        }
 
-	/**
-	 * @see TypeDescription::checkType()
-	 */
-	function checkType(&$object) {
-		// Check primitive type.
-		if (!parent::checkType($object)) return false;
+        // Translate the validator name into a validator class name.
+        $this->_validatorClassName = 'Validator' . PKPString::ucfirst($typeNameParts[0]);
 
-		// Instantiate and call validator
-		import('lib.pkp.classes.validation.'.$this->_validatorClassName);
-		assert(class_exists($this->_validatorClassName));
-		$validatorConstructorCode = 'return new '.$this->_validatorClassName.'('.$this->_validatorArgs.');';
-		$validator = eval($validatorConstructorCode);
-		assert(is_a($validator, 'Validator'));
+        return true;
+    }
 
-		// Validate the object
-		if (!$validator->isValid($object)) return false;
+    /**
+     * @see TypeDescription::checkType()
+     */
+    public function checkType(&$object)
+    {
+        // Check primitive type.
+        if (!parent::checkType($object)) {
+            return false;
+        }
 
-		return true;
-	}
+        // Instantiate and call validator
+        import('lib.pkp.classes.validation.' . $this->_validatorClassName);
+        assert(class_exists($this->_validatorClassName));
+        $validatorConstructorCode = 'return new ' . $this->_validatorClassName . '(' . $this->_validatorArgs . ');';
+        $validator = eval($validatorConstructorCode);
+        assert(is_a($validator, 'Validator'));
+
+        // Validate the object
+        if (!$validator->isValid($object)) {
+            return false;
+        }
+
+        return true;
+    }
 }
 
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorTypeDescription', '\ValidatorTypeDescription');
+}

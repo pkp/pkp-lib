@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/PKPPublicationNativeXmlFilter.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublicationNativeXmlFilter
@@ -15,297 +15,342 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
-class PKPPublicationNativeXmlFilter extends NativeExportFilter {
-	/**
-	 * Constructor
-	 * @param $filterGroup FilterGroup
-	 */
-	function __construct($filterGroup) {
-		$this->setDisplayName('Native XML Publication export');
-		parent::__construct($filterGroup);
-	}
+use PKP\submission\PKPSubmission;
 
-	//
-	// Implement template methods from PersistableFilter
-	//
-	/**
-	 * @copydoc PersistableFilter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.plugins.importexport.native.filter.PKPPublicationNativeXmlFilter';
-	}
+class PKPPublicationNativeXmlFilter extends NativeExportFilter
+{
+    /**
+     * Constructor
+     *
+     * @param $filterGroup FilterGroup
+     */
+    public function __construct($filterGroup)
+    {
+        $this->setDisplayName('Native XML Publication export');
+        parent::__construct($filterGroup);
+    }
 
-	//
-	// Implement template methods from Filter
-	//
-	/**
-	 * @see Filter::process()
-	 * @param $entity PKPPublication
-	 * @return DOMDocument
-	 */
-	function &process(&$entity) {
-		// Create the XML document
-		$doc = new DOMDocument('1.0');
-		$doc->preserveWhiteSpace = false;
-		$doc->formatOutput = true;
-		$deployment = $this->getDeployment();
-		$rootNode = $this->createEntityNode($doc, $entity);
-		$doc->appendChild($rootNode);
-		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-		$rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
+    //
+    // Implement template methods from PersistableFilter
+    //
+    /**
+     * @copydoc PersistableFilter::getClassName()
+     */
+    public function getClassName()
+    {
+        return 'lib.pkp.plugins.importexport.native.filter.PKPPublicationNativeXmlFilter';
+    }
 
-		return $doc;
-	}
+    //
+    // Implement template methods from Filter
+    //
+    /**
+     * @see Filter::process()
+     *
+     * @param $entity PKPPublication
+     *
+     * @return DOMDocument
+     */
+    public function &process(&$entity)
+    {
+        // Create the XML document
+        $doc = new DOMDocument('1.0');
+        $doc->preserveWhiteSpace = false;
+        $doc->formatOutput = true;
+        $deployment = $this->getDeployment();
+        $rootNode = $this->createEntityNode($doc, $entity);
+        $doc->appendChild($rootNode);
+        $rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+        $rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
 
-	//
-	// Representation conversion functions
-	//
-	/**
-	 * Create and return an entity node.
-	 * @param $doc DOMDocument
-	 * @param $entity PKPPublication
-	 * @return DOMElement
-	 */
-	function createEntityNode($doc, $entity) {
-		$deployment = $this->getDeployment();
-		$context = $deployment->getContext();
+        return $doc;
+    }
 
-		// Create the entity node
-		$entityNode = $doc->createElementNS($deployment->getNamespace(), 'publication');
+    //
+    // Representation conversion functions
+    //
+    /**
+     * Create and return an entity node.
+     *
+     * @param $doc DOMDocument
+     * @param $entity PKPPublication
+     *
+     * @return DOMElement
+     */
+    public function createEntityNode($doc, $entity)
+    {
+        $deployment = $this->getDeployment();
+        $context = $deployment->getContext();
 
-		$this->addIdentifiers($doc, $entityNode, $entity);
+        // Create the entity node
+        $entityNode = $doc->createElementNS($deployment->getNamespace(), 'publication');
 
-		$entityNode->setAttribute('locale', $entity->getData('locale'));
-		$entityNode->setAttribute('version', $entity->getData('version') ?: 1);
-		$entityNode->setAttribute('status', $entity->getData('status'));
-		if ($primaryContactId = $entity->getData('primaryContactId')) $entityNode->setAttribute('primary_contact_id', $primaryContactId);
-		$entityNode->setAttribute('url_path', $entity->getData('urlPath'));
+        $this->addIdentifiers($doc, $entityNode, $entity);
 
-		$isPublished = $entity->getData('status') === STATUS_PUBLISHED;
-		$isPublished ? $entityNode->setAttribute('seq', (int) $entity->getData('seq')) : $entityNode->setAttribute('seq', '0');
+        $entityNode->setAttribute('locale', $entity->getData('locale'));
+        $entityNode->setAttribute('version', $entity->getData('version') ?: 1);
+        $entityNode->setAttribute('status', $entity->getData('status'));
+        if ($primaryContactId = $entity->getData('primaryContactId')) {
+            $entityNode->setAttribute('primary_contact_id', $primaryContactId);
+        }
+        $entityNode->setAttribute('url_path', $entity->getData('urlPath'));
 
-		$entityLanguages = $entity->getData('languages');
-		if ($entityLanguages) {
-			$entityNode->setAttribute('language', $entityLanguages);
-		}
+        if ($entity->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+            $entityNode->setAttribute('seq', (int) $entity->getData('seq'));
+        } else {
+            $entityNode->setAttribute('seq', '0');
+        }
 
-		if ($datePublished = $entity->getData('datePublished')) {
-			$entityNode->setAttribute('date_published', strftime('%Y-%m-%d', strtotime($datePublished)));
-		}
+        if ($entity->getData('accessStatus')) {
+            $entityNode->setAttribute('access_status', $entity->getData('accessStatus'));
+        } else {
+            $entityNode->setAttribute('access_status', '0');
+        }
 
-		$this->addMetadata($doc, $entityNode, $entity);
-		$this->addAuthors($doc, $entityNode, $entity);
-		$this->addRepresentations($doc, $entityNode, $entity);
+        $entityLanguages = $entity->getData('language');
+        if ($entityLanguages) {
+            $entityNode->setAttribute('language', $entityLanguages);
+        }
 
-		$citationsListNode = $this->createCitationsNode($doc, $deployment, $entity);
-		if ($citationsListNode->hasChildNodes() || $citationsListNode->hasAttributes()) {
-			$entityNode->appendChild($citationsListNode);
-		}
+        if ($datePublished = $entity->getData('datePublished')) {
+            $entityNode->setAttribute('date_published', strftime('%Y-%m-%d', strtotime($datePublished)));
+        }
 
-		return $entityNode;
-	}
+        $this->addMetadata($doc, $entityNode, $entity);
 
-	/**
-	 * Create and add identifier nodes to a submission node.
-	 * @param $doc DOMDocument
-	 * @param $entityNode DOMElement
-	 * @param $entity PKPPublication
-	 */
-	function addIdentifiers($doc, $entityNode, $entity) {
-		$deployment = $this->getDeployment();
+        $authors = $entity->getData('authors');
+        if ($authors && count($authors) > 0) {
+            $this->addAuthors($doc, $entityNode, $entity);
+        }
 
-		// Add internal ID
-		$entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $entity->getId()));
-		$node->setAttribute('type', 'internal');
-		$node->setAttribute('advice', 'ignore');
+        $this->addRepresentations($doc, $entityNode, $entity);
 
-		// Add public ID
-		if ($pubId = $entity->getStoredPubId('publisher-id')) {
-			$entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-			$node->setAttribute('type', 'public');
-			$node->setAttribute('advice', 'update');
-		}
+        $citationsListNode = $this->createCitationsNode($doc, $deployment, $entity);
+        if ($citationsListNode->hasChildNodes() || $citationsListNode->hasAttributes()) {
+            $entityNode->appendChild($citationsListNode);
+        }
 
-		// Add pub IDs by plugin
-		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-		foreach ($pubIdPlugins as $pubIdPlugin) {
-			$this->addPubIdentifier($doc, $entityNode, $entity, $pubIdPlugin);
-		}
-	}
+        return $entityNode;
+    }
 
-	/**
-	 * Add a single pub ID element for a given plugin to the document.
-	 * @param $doc DOMDocument
-	 * @param $entityNode DOMElement
-	 * @param $entity PKPPublication
-	 * @param $pubIdPlugin PubIdPlugin
-	 * @return DOMElement|null
-	 */
-	function addPubIdentifier($doc, $entityNode, $entity, $pubIdPlugin) {
-		$pubId = $entity->getStoredPubId($pubIdPlugin->getPubIdType());
-		if ($pubId) {
-			$deployment = $this->getDeployment();
-			$entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-			$node->setAttribute('type', $pubIdPlugin->getPubIdType());
-			$node->setAttribute('advice', 'update');
-			return $node;
-		}
-		return null;
-	}
+    /**
+     * Create and add identifier nodes to a submission node.
+     *
+     * @param $doc DOMDocument
+     * @param $entityNode DOMElement
+     * @param $entity PKPPublication
+     */
+    public function addIdentifiers($doc, $entityNode, $entity)
+    {
+        $deployment = $this->getDeployment();
 
-	/**
-	 * Add the publication metadata for a publication to its DOM element.
-	 * @param $doc DOMDocument
-	 * @param $entityNode DOMElement
-	 * @param $entity PKPPublication
-	 */
-	function addMetadata($doc, $entityNode, $entity) {
-		$deployment = $this->getDeployment();
-		$this->createLocalizedNodes($doc, $entityNode, 'title', $entity->getData('title'));
-		$this->createLocalizedNodes($doc, $entityNode, 'prefix', $entity->getData('prefix'));
-		$this->createLocalizedNodes($doc, $entityNode, 'subtitle', $entity->getData('subtitle'));
-		$this->createLocalizedNodes($doc, $entityNode, 'abstract', $entity->getData('abstract'));
-		$this->createLocalizedNodes($doc, $entityNode, 'coverage', $entity->getData('coverage'));
-		$this->createLocalizedNodes($doc, $entityNode, 'type', $entity->getData('type'));
-		$this->createLocalizedNodes($doc, $entityNode, 'source', $entity->getData('source'));
-		$this->createLocalizedNodes($doc, $entityNode, 'rights', $entity->getData('rights'));
+        // Add internal ID
+        $entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', $entity->getId()));
+        $node->setAttribute('type', 'internal');
+        $node->setAttribute('advice', 'ignore');
 
-		if ($entity->getData('licenseUrl')) {
-			$entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'licenseUrl', htmlspecialchars($entity->getData('licenseUrl'))));
-		}
+        // Add public ID
+        if ($pubId = $entity->getStoredPubId('publisher-id')) {
+            $entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
+            $node->setAttribute('type', 'public');
+            $node->setAttribute('advice', 'update');
+        }
 
-		$this->createLocalizedNodes($doc, $entityNode, 'copyrightHolder', $entity->getData('copyrightHolder'));
+        // Add pub IDs by plugin
+        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+        foreach ($pubIdPlugins as $pubIdPlugin) {
+            $this->addPubIdentifier($doc, $entityNode, $entity, $pubIdPlugin);
+        }
+    }
 
-		if ($entity->getData('copyrightYear')) {
-			$entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'copyrightYear', intval($entity->getData('copyrightYear'))));
-		}
+    /**
+     * Add a single pub ID element for a given plugin to the document.
+     *
+     * @param $doc DOMDocument
+     * @param $entityNode DOMElement
+     * @param $entity PKPPublication
+     * @param $pubIdPlugin PubIdPlugin
+     *
+     * @return DOMElement|null
+     */
+    public function addPubIdentifier($doc, $entityNode, $entity, $pubIdPlugin)
+    {
+        $pubId = $entity->getStoredPubId($pubIdPlugin->getPubIdType());
+        if ($pubId) {
+            $deployment = $this->getDeployment();
+            $entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
+            $node->setAttribute('type', $pubIdPlugin->getPubIdType());
+            $node->setAttribute('advice', 'update');
+            return $node;
+        }
+        return null;
+    }
 
-		// add controlled vocabularies
-		// get the supported locale keys
-		$supportedLocales = array_keys(AppLocale::getSupportedFormLocales());
-		$controlledVocabulariesMapping = $this->_getControlledVocabulariesMappings();
-		foreach ($controlledVocabulariesMapping as $controlledVocabulariesNodeName => $mappings) {
-			$dao = DAORegistry::getDAO($mappings[0]);
-			$getFunction = $mappings[1];
-			$controlledVocabularyNodeName = $mappings[2];
-			$controlledVocabulary = $dao->$getFunction($entity->getId(), $supportedLocales);
-			$this->addControlledVocabulary($doc, $entityNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
-		}
-	}
+    /**
+     * Add the publication metadata for a publication to its DOM element.
+     *
+     * @param $doc DOMDocument
+     * @param $entityNode DOMElement
+     * @param $entity PKPPublication
+     */
+    public function addMetadata($doc, $entityNode, $entity)
+    {
+        $deployment = $this->getDeployment();
+        $this->createLocalizedNodes($doc, $entityNode, 'title', $entity->getData('title'));
+        $this->createLocalizedNodes($doc, $entityNode, 'prefix', $entity->getData('prefix'));
+        $this->createLocalizedNodes($doc, $entityNode, 'subtitle', $entity->getData('subtitle'));
+        $this->createLocalizedNodes($doc, $entityNode, 'abstract', $entity->getData('abstract'));
+        $this->createLocalizedNodes($doc, $entityNode, 'coverage', $entity->getData('coverage'));
+        $this->createLocalizedNodes($doc, $entityNode, 'type', $entity->getData('type'));
+        $this->createLocalizedNodes($doc, $entityNode, 'source', $entity->getData('source'));
+        $this->createLocalizedNodes($doc, $entityNode, 'rights', $entity->getData('rights'));
 
-	/**
-	 * Add publication's controlled vocabulary to its DOM element.
-	 * @param $doc DOMDocument
-	 * @param $entityNode DOMElement
-	 * @param $controlledVocabulariesNodeName string Parent node name
-	 * @param $controlledVocabularyNodeName string Item node name
-	 * @param $controlledVocabulary array Associative array (locale => array of items)
-	 */
-	function addControlledVocabulary($doc, $entityNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary) {
-		$deployment = $this->getDeployment();
-		$locales = array_keys($controlledVocabulary);
-		foreach ($locales as $locale) {
-			if (!empty($controlledVocabulary[$locale])) {
-				$controlledVocabulariesNode = $doc->createElementNS($deployment->getNamespace(), $controlledVocabulariesNodeName);
-				$controlledVocabulariesNode->setAttribute('locale', $locale);
-				foreach ($controlledVocabulary[$locale] as $controlledVocabularyItem) {
-					$controlledVocabulariesNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $controlledVocabularyNodeName, htmlspecialchars($controlledVocabularyItem, ENT_COMPAT, 'UTF-8')));
-				}
+        if ($entity->getData('licenseUrl')) {
+            $entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'licenseUrl', htmlspecialchars($entity->getData('licenseUrl'))));
+        }
 
-				$entityNode->appendChild($controlledVocabulariesNode);
-			}
-		}
-	}
+        $this->createLocalizedNodes($doc, $entityNode, 'copyrightHolder', $entity->getData('copyrightHolder'));
 
-	/**
-	 * Add the author metadata for a submission to its DOM element.
-	 * @param $doc DOMDocument
-	 * @param $entityNode DOMElement
-	 * @param $entity PKPPublication
-	 */
-	function addAuthors($doc, $entityNode, $entity) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
-		$nativeExportFilters = $filterDao->getObjectsByGroup('author=>native-xml');
-		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-		$exportFilter = array_shift($nativeExportFilters);
-		$exportFilter->setDeployment($this->getDeployment());
+        if ($entity->getData('copyrightYear')) {
+            $entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'copyrightYear', intval($entity->getData('copyrightYear'))));
+        }
 
-		$authors = $entity->getData('authors');
-		$authorsDoc = $exportFilter->execute($authors);
-		if ($authorsDoc->documentElement instanceof DOMElement) {
-			$clone = $doc->importNode($authorsDoc->documentElement, true);
-			$entityNode->appendChild($clone);
-		}
-	}
+        // add controlled vocabularies
+        // get the supported locale keys
+        $supportedLocales = array_keys(AppLocale::getSupportedFormLocales());
+        $controlledVocabulariesMapping = $this->_getControlledVocabulariesMappings();
+        foreach ($controlledVocabulariesMapping as $controlledVocabulariesNodeName => $mappings) {
+            $dao = DAORegistry::getDAO($mappings[0]);
+            $getFunction = $mappings[1];
+            $controlledVocabularyNodeName = $mappings[2];
+            $controlledVocabulary = $dao->$getFunction($entity->getId(), $supportedLocales);
+            $this->addControlledVocabulary($doc, $entityNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
+        }
+    }
 
-	/**
-	 * Add the representations of a publication to its DOM element.
-	 * @param $doc DOMDocument
-	 * @param $entityNode DOMElement
-	 * @param $entity Publication
-	 */
-	function addRepresentations($doc, $entityNode, $entity) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
-		$nativeExportFilters = $filterDao->getObjectsByGroup($this->getRepresentationExportFilterGroupName());
-		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-		$exportFilter = array_shift($nativeExportFilters);
-		$exportFilter->setDeployment($this->getDeployment());
+    /**
+     * Add publication's controlled vocabulary to its DOM element.
+     *
+     * @param $doc DOMDocument
+     * @param $entityNode DOMElement
+     * @param $controlledVocabulariesNodeName string Parent node name
+     * @param $controlledVocabularyNodeName string Item node name
+     * @param $controlledVocabulary array Associative array (locale => array of items)
+     */
+    public function addControlledVocabulary($doc, $entityNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary)
+    {
+        $deployment = $this->getDeployment();
+        $locales = array_keys($controlledVocabulary);
+        foreach ($locales as $locale) {
+            if (!empty($controlledVocabulary[$locale])) {
+                $controlledVocabulariesNode = $doc->createElementNS($deployment->getNamespace(), $controlledVocabulariesNodeName);
+                $controlledVocabulariesNode->setAttribute('locale', $locale);
+                foreach ($controlledVocabulary[$locale] as $controlledVocabularyItem) {
+                    $controlledVocabulariesNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $controlledVocabularyNodeName, htmlspecialchars($controlledVocabularyItem, ENT_COMPAT, 'UTF-8')));
+                }
 
-		$representationDao = Application::getRepresentationDAO();
-		$representations = $representationDao->getByPublicationId($entity->getId());
-		while ($representation = $representations->next()) {
-			$representationDoc = $exportFilter->execute($representation);
-			$clone = $doc->importNode($representationDoc->documentElement, true);
-			$entityNode->appendChild($clone);
-		}
-	}
+                $entityNode->appendChild($controlledVocabulariesNode);
+            }
+        }
+    }
 
-	/**
-	 * Get controlled vocabularies parent node name to DAO, get function and item node name mapping.
-	 * @return array
-	 */
-	function _getControlledVocabulariesMappings() {
-		return array(
-				'keywords' => array('SubmissionKeywordDAO', 'getKeywords', 'keyword'),
-				'agencies' => array('SubmissionAgencyDAO', 'getAgencies', 'agency'),
-				'languages' => array('SubmissionLanguageDAO', 'getLanguages', 'language'),
-				'disciplines' => array('SubmissionDisciplineDAO', 'getDisciplines', 'discipline'),
-				'subjects' => array('SubmissionSubjectDAO', 'getSubjects', 'subject'),
-		);
-	}
+    /**
+     * Add the author metadata for a submission to its DOM element.
+     *
+     * @param $doc DOMDocument
+     * @param $entityNode DOMElement
+     * @param $entity PKPPublication
+     */
+    public function addAuthors($doc, $entityNode, $entity)
+    {
+        $currentFilter = PKPImportExportFilter::getFilter('author=>native-xml', $this->getDeployment());
 
-	//
-	// Abstract methods to be implemented by subclasses
-	//
-	/**
-	 * Get the submission files associated with this representation
-	 * @param $representation Representation
-	 * @return array
-	 */
-	function getFiles($representation) {
-		assert(false); // To be overridden by subclasses
-	}
+        $authors = $entity->getData('authors');
+        $authorsDoc = $currentFilter->execute($authors);
 
-	/**
-	 * Create and return a Citations node.
-	 * @param $doc DOMDocument
-	 * @param $deployment
-	 * @param $publication Publication
-	 * @return DOMElement
-	 */
-	private function createCitationsNode($doc, $deployment, $publication) {
-		$citationDao = DAORegistry::getDAO('CitationDAO'); /** @var $citationDao CitationDAO */
+        if ($authorsDoc && $authorsDoc->documentElement instanceof DOMElement) {
+            $clone = $doc->importNode($authorsDoc->documentElement, true);
+            $entityNode->appendChild($clone);
+        } else {
+            $deployment = $this->getDeployment();
+            $deployment->addError(ASSOC_TYPE_PUBLICATION, $entity->getId(), __('plugins.importexport.author.exportFailed'));
 
-		$nodeCitations = $doc->createElementNS($deployment->getNamespace(), 'citations');
-		$submissionCitations = $citationDao->getByPublicationId($publication->getId())->toAssociativeArray();
+            throw new Exception(__('plugins.importexport.author.exportFailed'));
+        }
+    }
 
-		foreach ($submissionCitations as $submissionCitation) {
-			$rawCitation = $submissionCitation->getRawCitation();
-			$nodeCitations->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'citation', htmlspecialchars($rawCitation, ENT_COMPAT, 'UTF-8')));
-		}
+    /**
+     * Add the representations of a publication to its DOM element.
+     *
+     * @param $doc DOMDocument
+     * @param $entityNode DOMElement
+     * @param $entity Publication
+     */
+    public function addRepresentations($doc, $entityNode, $entity)
+    {
+        $currentFilter = PKPImportExportFilter::getFilter($this->getRepresentationExportFilterGroupName(), $this->getDeployment());
 
-		return $nodeCitations;
-	}
+        $representationDao = Application::getRepresentationDAO();
+        $representations = $representationDao->getByPublicationId($entity->getId());
+        while ($representation = $representations->next()) {
+            $representationDoc = $currentFilter->execute($representation);
+            $clone = $doc->importNode($representationDoc->documentElement, true);
+            $entityNode->appendChild($clone);
+        }
+    }
+
+    /**
+     * Get controlled vocabularies parent node name to DAO, get function and item node name mapping.
+     *
+     * @return array
+     */
+    public function _getControlledVocabulariesMappings()
+    {
+        return [
+            'keywords' => ['SubmissionKeywordDAO', 'getKeywords', 'keyword'],
+            'agencies' => ['SubmissionAgencyDAO', 'getAgencies', 'agency'],
+            'languages' => ['SubmissionLanguageDAO', 'getLanguages', 'language'],
+            'disciplines' => ['SubmissionDisciplineDAO', 'getDisciplines', 'discipline'],
+            'subjects' => ['SubmissionSubjectDAO', 'getSubjects', 'subject'],
+        ];
+    }
+
+    //
+    // Abstract methods to be implemented by subclasses
+    //
+    /**
+     * Get the submission files associated with this representation
+     *
+     * @param $representation Representation
+     *
+     * @return array
+     */
+    public function getFiles($representation)
+    {
+        assert(false); // To be overridden by subclasses
+    }
+
+    /**
+     * Create and return a Citations node.
+     *
+     * @param $doc DOMDocument
+     * @param $deployment
+     * @param $publication Publication
+     *
+     * @return DOMElement
+     */
+    private function createCitationsNode($doc, $deployment, $publication)
+    {
+        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
+
+        $nodeCitations = $doc->createElementNS($deployment->getNamespace(), 'citations');
+        $submissionCitations = $citationDao->getByPublicationId($publication->getId())->toAssociativeArray();
+
+        foreach ($submissionCitations as $submissionCitation) {
+            $rawCitation = $submissionCitation->getRawCitation();
+            $nodeCitations->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'citation', htmlspecialchars($rawCitation, ENT_COMPAT, 'UTF-8')));
+        }
+
+        return $nodeCitations;
+    }
 }
-
-

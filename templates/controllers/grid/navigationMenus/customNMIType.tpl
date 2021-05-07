@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/navigationMenus/customNMIType.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Custom Custom NMI Type edit form part
@@ -12,7 +12,7 @@
 		{fbvFormSection title="manager.navigationMenus.form.path" for="path" required="true"}
 			{fbvElement type="text" id="path" value=$path required="true"}
 			<p>
-				{capture assign=exampleUrl}{url|replace:"REPLACEME":"%PATH%" router=$smarty.const.ROUTE_PAGE page="REPLACEME"}{/capture}
+				{capture assign=exampleUrl}{url|replace:"REPLACEME":"%PATH%" router=PKPApplication::ROUTE_PAGE page="REPLACEME"}{/capture}
 				{translate key="manager.navigationMenus.form.viewInstructions" pagesPath=$exampleUrl}
 			</p>
 		{/fbvFormSection}

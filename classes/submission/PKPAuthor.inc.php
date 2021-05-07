@@ -3,221 +3,286 @@
 /**
  * @file classes/submission/PKPAuthor.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthor
  * @ingroup submission
+ *
  * @see PKPAuthorDAO
  *
  * @brief Author metadata class.
  */
 
-import('lib.pkp.classes.identity.Identity');
+namespace PKP\submission;
 
-class PKPAuthor extends Identity {
+use APP\i18n\AppLocale;
+use PKP\db\DAORegistry;
 
-	/**
-	 * Get a piece of data for this object, localized to the current
-	 * locale if possible.
-	 * @param $key string
-	 * @param $preferredLocale string
-	 * @return mixed
-	 */
-	function &getLocalizedData($key, $preferredLocale = null) {
-		if (is_null($preferredLocale)) $preferredLocale = AppLocale::getLocale();
-		$localePrecedence = array($preferredLocale);
-		// the submission locale is the default locale
-		if (!in_array($this->getSubmissionLocale(), $localePrecedence)) $localePrecedence[] = $this->getSubmissionLocale();
-		// for settings other than givenName, familyName and affiliation (that are required)
-		// consider also the application primary locale
-		if (!in_array(AppLocale::getPrimaryLocale(), $localePrecedence)) $localePrecedence[] = AppLocale::getPrimaryLocale();
-		foreach ($localePrecedence as $locale) {
-			if (empty($locale)) continue;
-			$value =& $this->getData($key, $locale);
-			if (!empty($value)) return $value;
-			unset($value);
-		}
+use PKP\identity\Identity;
 
-		// Fallback: Get the first available piece of data.
-		$data =& $this->getData($key, null);
-		foreach ((array) $data as $dataValue) {
-			if (!empty($dataValue)) return $dataValue;
-		}
+class PKPAuthor extends Identity
+{
+    /**
+     * Get a piece of data for this object, localized to the current
+     * locale if possible.
+     *
+     * @param $key string
+     * @param $preferredLocale string
+     */
+    public function &getLocalizedData($key, $preferredLocale = null)
+    {
+        if (is_null($preferredLocale)) {
+            $preferredLocale = AppLocale::getLocale();
+        }
+        $localePrecedence = [$preferredLocale];
+        // the submission locale is the default locale
+        if (!in_array($this->getSubmissionLocale(), $localePrecedence)) {
+            $localePrecedence[] = $this->getSubmissionLocale();
+        }
+        // for settings other than givenName, familyName and affiliation (that are required)
+        // consider also the application primary locale
+        if (!in_array(AppLocale::getPrimaryLocale(), $localePrecedence)) {
+            $localePrecedence[] = AppLocale::getPrimaryLocale();
+        }
+        foreach ($localePrecedence as $locale) {
+            if (empty($locale)) {
+                continue;
+            }
+            $value = & $this->getData($key, $locale);
+            if (!empty($value)) {
+                return $value;
+            }
+            unset($value);
+        }
 
-		// No data available; return null.
-		unset($data);
-		$data = null;
-		return $data;
-	}
+        // Fallback: Get the first available piece of data.
+        $data = & $this->getData($key, null);
+        foreach ((array) $data as $dataValue) {
+            if (!empty($dataValue)) {
+                return $dataValue;
+            }
+        }
 
-	/**
-	 * @copydoc Identity::getLocalizedGivenName()
-	 */
-	function getLocalizedGivenName($defaultLocale = null) {
-		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
+        // No data available; return null.
+        unset($data);
+        $data = null;
+        return $data;
+    }
 
-		return parent::getLocalizedGivenName($defaultLocale);
-	}
+    /**
+     * @copydoc Identity::getLocalizedGivenName()
+     *
+     * @param null|mixed $defaultLocale
+     */
+    public function getLocalizedGivenName($defaultLocale = null)
+    {
+        if (!isset($defaultLocale)) {
+            $defaultLocale = $this->getSubmissionLocale();
+        }
 
-	/**
-	 * @copydoc Identity::getLocalizedFamilyName()
-	 */
-	function getLocalizedFamilyName($defaultLocale = null) {
-		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
+        return parent::getLocalizedGivenName($defaultLocale);
+    }
 
-		return parent::getLocalizedFamilyName($defaultLocale);
-	}
+    /**
+     * @copydoc Identity::getLocalizedFamilyName()
+     *
+     * @param null|mixed $defaultLocale
+     */
+    public function getLocalizedFamilyName($defaultLocale = null)
+    {
+        if (!isset($defaultLocale)) {
+            $defaultLocale = $this->getSubmissionLocale();
+        }
 
-	/**
-	 * @copydoc Identity::getFullName()
-	 */
-	function getFullName($preferred = true, $familyFirst = false, $defaultLocale =  null) {
-		if (!isset($defaultLocale)) $defaultLocale = $this->getSubmissionLocale();
-		return parent::getFullName($preferred, $familyFirst, $defaultLocale);
-	}
+        return parent::getLocalizedFamilyName($defaultLocale);
+    }
 
-	//
-	// Get/set methods
-	//
+    /**
+     * @copydoc Identity::getFullName()
+     *
+     * @param null|mixed $defaultLocale
+     */
+    public function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null)
+    {
+        if (!isset($defaultLocale)) {
+            $defaultLocale = $this->getSubmissionLocale();
+        }
+        return parent::getFullName($preferred, $familyFirst, $defaultLocale);
+    }
 
-	/**
-	 * Get ID of submission.
-	 * @return int
-	 */
-	function getSubmissionId() {
-		return $this->getData('submissionId');
-	}
+    //
+    // Get/set methods
+    //
 
-	/**
-	 * Set ID of submission.
-	 * @param $submissionId int
-	 */
-	function setSubmissionId($submissionId) {
-		$this->setData('submissionId', $submissionId);
-	}
+    /**
+     * Get ID of submission.
+     *
+     * @return int
+     */
+    public function getSubmissionId()
+    {
+        return $this->getData('submissionId');
+    }
 
-	/**
-	 * Get submission locale.
-	 * @return string
-	 */
-	function getSubmissionLocale() {
-		return $this->getData('submissionLocale');
-	}
+    /**
+     * Set ID of submission.
+     *
+     * @param $submissionId int
+     */
+    public function setSubmissionId($submissionId)
+    {
+        $this->setData('submissionId', $submissionId);
+    }
 
-	/**
-	 * Set submission locale.
-	 * @param $submissionLocale string
-	 */
-	function setSubmissionLocale($submissionLocale) {
-		return $this->setData('submissionLocale', $submissionLocale);
-	}
+    /**
+     * Get submission locale.
+     *
+     * @return string
+     */
+    public function getSubmissionLocale()
+    {
+        return $this->getData('submissionLocale');
+    }
 
-	/**
-	 * Set the user group id
-	 * @param $userGroupId int
-	 */
-	function setUserGroupId($userGroupId) {
-		$this->setData('userGroupId', $userGroupId);
-	}
+    /**
+     * Set submission locale.
+     *
+     * @param $submissionLocale string
+     */
+    public function setSubmissionLocale($submissionLocale)
+    {
+        return $this->setData('submissionLocale', $submissionLocale);
+    }
 
-	/**
-	 * Get the user group id
-	 * @return int
-	 */
-	function getUserGroupId() {
-		return $this->getData('userGroupId');
-	}
+    /**
+     * Set the user group id
+     *
+     * @param $userGroupId int
+     */
+    public function setUserGroupId($userGroupId)
+    {
+        $this->setData('userGroupId', $userGroupId);
+    }
 
-	/**
-	 * Set whether or not to include in browse lists.
-	 * @param $include boolean
-	 */
-	function setIncludeInBrowse($include) {
-		$this->setData('includeInBrowse', $include);
-	}
+    /**
+     * Get the user group id
+     *
+     * @return int
+     */
+    public function getUserGroupId()
+    {
+        return $this->getData('userGroupId');
+    }
 
-	/**
-	 * Get whether or not to include in browse lists.
-	 * @return boolean
-	 */
-	function getIncludeInBrowse() {
-		return $this->getData('includeInBrowse');
-	}
+    /**
+     * Set whether or not to include in browse lists.
+     *
+     * @param $include boolean
+     */
+    public function setIncludeInBrowse($include)
+    {
+        $this->setData('includeInBrowse', $include);
+    }
 
-	/**
-	 * Get the "show title" flag (whether or not the title of the role
-	 * should be included in the list of submission contributor names).
-	 * This is fetched from the user group for performance reasons.
-	 * @return boolean
-	 */
-	function getShowTitle() {
-		return $this->getData('showTitle');
-	}
+    /**
+     * Get whether or not to include in browse lists.
+     *
+     * @return boolean
+     */
+    public function getIncludeInBrowse()
+    {
+        return $this->getData('includeInBrowse');
+    }
 
-	/**
-	 * Set the "show title" flag. This attribute belongs to the user group,
-	 * NOT the author; fetched for performance reasons only.
-	 * @param $isDefault boolean
-	 */
-	function _setShowTitle($showTitle) {
-		$this->setData('showTitle', $showTitle);
-	}
+    /**
+     * Get the "show title" flag (whether or not the title of the role
+     * should be included in the list of submission contributor names).
+     * This is fetched from the user group for performance reasons.
+     *
+     * @return boolean
+     */
+    public function getShowTitle()
+    {
+        return $this->getData('showTitle');
+    }
 
-	/**
-	 * Get primary contact.
-	 * @return boolean
-	 */
-	function getPrimaryContact() {
-		return $this->getData('primaryContact');
-	}
+    /**
+     * Set the "show title" flag. This attribute belongs to the user group,
+     * NOT the author; fetched for performance reasons only.
+     */
+    public function _setShowTitle($showTitle)
+    {
+        $this->setData('showTitle', $showTitle);
+    }
 
-	/**
-	 * Set primary contact.
-	 * @param $primaryContact boolean
-	 */
-	function setPrimaryContact($primaryContact) {
-		$this->setData('primaryContact', $primaryContact);
-	}
+    /**
+     * Get primary contact.
+     *
+     * @return boolean
+     */
+    public function getPrimaryContact()
+    {
+        return $this->getData('primaryContact');
+    }
 
-	/**
-	 * Get sequence of author in submissions' author list.
-	 * @return float
-	 */
-	function getSequence() {
-		return $this->getData('seq');
-	}
+    /**
+     * Set primary contact.
+     *
+     * @param $primaryContact boolean
+     */
+    public function setPrimaryContact($primaryContact)
+    {
+        $this->setData('primaryContact', $primaryContact);
+    }
 
-	/**
-	 * Set sequence of author in submissions' author list.
-	 * @param $sequence float
-	 */
-	function setSequence($sequence) {
-		$this->setData('seq', $sequence);
-	}
+    /**
+     * Get sequence of author in submissions' author list.
+     *
+     * @return float
+     */
+    public function getSequence()
+    {
+        return $this->getData('seq');
+    }
 
-	/**
-	 * Get the user group for this contributor.
-	 */
-	function getUserGroup() {
-		//FIXME: should this be queried when fetching Author from DB? - see #5231.
-		static $userGroup; // Frequently we'll fetch the same one repeatedly
-		if (!$userGroup || $this->getUserGroupId() != $userGroup->getId()) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-			$userGroup = $userGroupDao->getById($this->getUserGroupId());
-		}
-		return $userGroup;
-	}
+    /**
+     * Set sequence of author in submissions' author list.
+     *
+     * @param $sequence float
+     */
+    public function setSequence($sequence)
+    {
+        $this->setData('seq', $sequence);
+    }
 
-	/**
-	 * Get a localized version of the User Group
-	 * @return string
-	 */
-	function getLocalizedUserGroupName() {
-		$userGroup = $this->getUserGroup();
-		return $userGroup->getLocalizedName();
-	}
+    /**
+     * Get the user group for this contributor.
+     */
+    public function getUserGroup()
+    {
+        //FIXME: should this be queried when fetching Author from DB? - see #5231.
+        static $userGroup; // Frequently we'll fetch the same one repeatedly
+        if (!$userGroup || $this->getUserGroupId() != $userGroup->getId()) {
+            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+            $userGroup = $userGroupDao->getById($this->getUserGroupId());
+        }
+        return $userGroup;
+    }
+
+    /**
+     * Get a localized version of the User Group
+     *
+     * @return string
+     */
+    public function getLocalizedUserGroupName()
+    {
+        $userGroup = $this->getUserGroup();
+        return $userGroup->getLocalizedName();
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\PKPAuthor', '\PKPAuthor');
+}

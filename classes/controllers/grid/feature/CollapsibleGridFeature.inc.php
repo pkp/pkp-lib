@@ -3,8 +3,8 @@
 /**
  * @file classes/controllers/grid/feature/CollapsibleGridFeature.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CollapsibleGridFeature
@@ -15,40 +15,47 @@
  */
 
 import('lib.pkp.classes.controllers.grid.feature.GridFeature');
-import('lib.pkp.classes.linkAction.request.NullAction');
 
-class CollapsibleGridFeature extends GridFeature {
+use APP\template\TemplateManager;
+use PKP\linkAction\LinkAction;
 
-	/**
-	 * @copydoc GridFeature::GridFeature()
-	 * Constructor.
-	 */
-	function __construct($id = 'collapsible') {
-		parent::__construct($id);
-	}
+use PKP\linkAction\request\NullAction;
 
-	/**
-	 * @copyDoc GridFeature::getJSClass()
-	 */
-	function getJSClass() {
-		return '$.pkp.classes.features.CollapsibleGridFeature';
-	}
+class CollapsibleGridFeature extends GridFeature
+{
+    /**
+     * @copydoc GridFeature::GridFeature()
+     * Constructor.
+     */
+    public function __construct($id = 'collapsible')
+    {
+        parent::__construct($id);
+    }
 
-	/**
-	 * @copyDoc GridFeature::fetchUIElement()
-	 */
-	function fetchUIElements($request, $grid) {
-		$controlLink = new LinkAction(
-			'expandGridControlLink',
-			new NullAction(),
-			null,
-			'expand_all'
-		);
+    /**
+     * @copyDoc GridFeature::getJSClass()
+     */
+    public function getJSClass()
+    {
+        return '$.pkp.classes.features.CollapsibleGridFeature';
+    }
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('controlLink', $controlLink);
-		$markup = $templateMgr->fetch('controllers/grid/feature/collapsibleGridFeature.tpl');
+    /**
+     * @copyDoc GridFeature::fetchUIElement()
+     */
+    public function fetchUIElements($request, $grid)
+    {
+        $controlLink = new LinkAction(
+            'expandGridControlLink',
+            new NullAction(),
+            null,
+            'expand_all'
+        );
 
-		return array('collapsibleLink' => $markup);
-	} 
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('controlLink', $controlLink);
+        $markup = $templateMgr->fetch('controllers/grid/feature/collapsibleGridFeature.tpl');
+
+        return ['collapsibleLink' => $markup];
+    }
 }

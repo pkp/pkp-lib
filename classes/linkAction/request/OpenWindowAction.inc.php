@@ -2,8 +2,8 @@
 /**
  * @file classes/linkAction/request/OpenWindowAction.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OpenWindowAction
@@ -12,51 +12,59 @@
  * @brief This action request redirects to another page.
  */
 
+namespace PKP\linkAction\request;
 
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+class OpenWindowAction extends LinkActionRequest
+{
+    /** @var string The URL this action will invoke */
+    public $_url;
 
-class OpenWindowAction extends LinkActionRequest {
-	/** @var string The URL this action will invoke */
-	var $_url;
-
-	/**
-	 * Constructor
-	 * @param $url string Target URL
-	 */
-	function __construct($url) {
-		parent::__construct();
-		$this->_url = $url;
-	}
-
-
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the target URL.
-	 * @return string
-	 */
-	function getUrl() {
-		return $this->_url;
-	}
+    /**
+     * Constructor
+     *
+     * @param $url string Target URL
+     */
+    public function __construct($url)
+    {
+        parent::__construct();
+        $this->_url = $url;
+    }
 
 
-	//
-	// Overridden protected methods from LinkActionRequest
-	//
-	/**
-	 * @see LinkActionRequest::getJSLinkActionRequest()
-	 */
-	function getJSLinkActionRequest() {
-		return '$.pkp.classes.linkAction.OpenWindowRequest';
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the target URL.
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->_url;
+    }
 
-	/**
-	 * @see LinkActionRequest::getLocalizedOptions()
-	 */
-	function getLocalizedOptions() {
-		return array('url' => $this->getUrl());
-	}
+
+    //
+    // Overridden protected methods from LinkActionRequest
+    //
+    /**
+     * @see LinkActionRequest::getJSLinkActionRequest()
+     */
+    public function getJSLinkActionRequest()
+    {
+        return '$.pkp.classes.linkAction.OpenWindowRequest';
+    }
+
+    /**
+     * @see LinkActionRequest::getLocalizedOptions()
+     */
+    public function getLocalizedOptions()
+    {
+        return ['url' => $this->getUrl()];
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\OpenWindowAction', '\OpenWindowAction');
+}

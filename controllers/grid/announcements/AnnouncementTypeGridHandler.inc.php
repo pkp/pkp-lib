@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/announcements/AnnouncementTypeGridHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeGridHandler
@@ -16,207 +16,229 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.announcements.form.AnnouncementTypeForm');
 
-class AnnouncementTypeGridHandler extends GridHandler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(
-			ROLE_ID_MANAGER,
-			array(
-				'fetchGrid', 'fetchRow',
-				'addAnnouncementType', 'editAnnouncementType',
-				'updateAnnouncementType',
-				'deleteAnnouncementType'
-			)
-		);
-	}
+use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
 
-	//
-	// Overridden template methods
-	//
-	/**
-	 * @copydoc GridHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
-		$this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-		$context = $request->getContext();
+class AnnouncementTypeGridHandler extends GridHandler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            ROLE_ID_MANAGER,
+            [
+                'fetchGrid', 'fetchRow',
+                'addAnnouncementType', 'editAnnouncementType',
+                'updateAnnouncementType',
+                'deleteAnnouncementType'
+            ]
+        );
+    }
 
-		$announcementTypeId = $request->getUserVar('announcementTypeId');
-		if ($announcementTypeId) {
-			// Ensure announcement type is valid and for this context
-			$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
-			$announcementType = $announcementTypeDao->getById($announcementTypeId);
-			if (!$announcementType || $announcementType->getAssocType() != $context->getAssocType() || $announcementType->getAssocId() != $context->getId()) {
-				return false;
-			}
-		}
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    //
+    // Overridden template methods
+    //
+    /**
+     * @copydoc GridHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        $context = $request->getContext();
 
-	/**
-	 * @copydoc GridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
+        $announcementTypeId = $request->getUserVar('announcementTypeId');
+        if ($announcementTypeId) {
+            // Ensure announcement type is valid and for this context
+            $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
+            $announcementType = $announcementTypeDao->getById($announcementTypeId);
+            if (!$announcementType || $announcementType->getAssocType() != $context->getAssocType() || $announcementType->getAssocId() != $context->getId()) {
+                return false;
+            }
+        }
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-		// Basic grid configuration
-		$this->setTitle('manager.announcementTypes');
+    /**
+     * @copydoc GridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        parent::initialize($request, $args);
 
-		// Set the no items row text
-		$this->setEmptyRowText('manager.announcementTypes.noneCreated');
+        // Basic grid configuration
+        $this->setTitle('manager.announcementTypes');
 
-		$context = $request->getContext();
+        // Set the no items row text
+        $this->setEmptyRowText('manager.announcementTypes.noneCreated');
 
-		// Columns
-		import('lib.pkp.controllers.grid.announcements.AnnouncementTypeGridCellProvider');
-		$announcementTypeCellProvider = new AnnouncementTypeGridCellProvider();
-		$this->addColumn(
-			new GridColumn('name',
-				'common.name',
-				null,
-				null,
-				$announcementTypeCellProvider,
-				array('width' => 60)
-			)
-		);
+        $context = $request->getContext();
 
-		// Load language components
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
+        // Columns
+        import('lib.pkp.controllers.grid.announcements.AnnouncementTypeGridCellProvider');
+        $announcementTypeCellProvider = new AnnouncementTypeGridCellProvider();
+        $this->addColumn(
+            new GridColumn(
+                'name',
+                'common.name',
+                null,
+                null,
+                $announcementTypeCellProvider,
+                ['width' => 60]
+            )
+        );
 
-		// Add grid action.
-		$router = $request->getRouter();
+        // Load language components
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 
-		import('lib.pkp.classes.linkAction.request.AjaxModal');
-		$this->addAction(
-			new LinkAction(
-				'addAnnouncementType',
-				new AjaxModal(
-					$router->url($request, null, null, 'addAnnouncementType', null, null),
-					__('grid.action.addAnnouncementType'),
-					'modal_add_item',
-					true
-				),
-				__('grid.action.addAnnouncementType'),
-				'add_item'
-			)
-		);
-	}
+        // Add grid action.
+        $router = $request->getRouter();
 
-	/**
-	 * @copydoc GridHandler::loadData()
-	 */
-	protected function loadData($request, $filter) {
-		$context = $request->getContext();
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
-		return $announcementTypeDao->getByAssoc($context->getAssocType(), $context->getId());
-	}
+        $this->addAction(
+            new LinkAction(
+                'addAnnouncementType',
+                new AjaxModal(
+                    $router->url($request, null, null, 'addAnnouncementType', null, null),
+                    __('grid.action.addAnnouncementType'),
+                    'modal_add_item',
+                    true
+                ),
+                __('grid.action.addAnnouncementType'),
+                'add_item'
+            )
+        );
+    }
 
-	/**
-	 * @copydoc GridHandler::getRowInstance()
-	 */
-	protected function getRowInstance() {
-		import('lib.pkp.controllers.grid.announcements.AnnouncementTypeGridRow');
-		return new AnnouncementTypeGridRow();
-	}
+    /**
+     * @copydoc GridHandler::loadData()
+     */
+    protected function loadData($request, $filter)
+    {
+        $context = $request->getContext();
+        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
+        return $announcementTypeDao->getByAssoc($context->getAssocType(), $context->getId());
+    }
 
-	//
-	// Public grid actions.
-	//
-	/**
-	 * Display form to add announcement type.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return string
-	 */
-	function addAnnouncementType($args, $request) {
-		return $this->editAnnouncementType($args, $request);
-	}
+    /**
+     * @copydoc GridHandler::getRowInstance()
+     */
+    protected function getRowInstance()
+    {
+        import('lib.pkp.controllers.grid.announcements.AnnouncementTypeGridRow');
+        return new AnnouncementTypeGridRow();
+    }
 
-	/**
-	 * Display form to edit an announcement type.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function editAnnouncementType($args, $request) {
-		$announcementTypeId = (int)$request->getUserVar('announcementTypeId');
-		$context = $request->getContext();
-		$contextId = $context->getId();
+    //
+    // Public grid actions.
+    //
+    /**
+     * Display form to add announcement type.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return string
+     */
+    public function addAnnouncementType($args, $request)
+    {
+        return $this->editAnnouncementType($args, $request);
+    }
 
-		$announcementTypeForm = new AnnouncementTypeForm($contextId, $announcementTypeId);
-		$announcementTypeForm->initData();
+    /**
+     * Display form to edit an announcement type.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function editAnnouncementType($args, $request)
+    {
+        $announcementTypeId = (int)$request->getUserVar('announcementTypeId');
+        $context = $request->getContext();
+        $contextId = $context->getId();
 
-		return new JSONMessage(true, $announcementTypeForm->fetch($request));
-	}
+        $announcementTypeForm = new AnnouncementTypeForm($contextId, $announcementTypeId);
+        $announcementTypeForm->initData();
 
-	/**
-	 * Save an edited/inserted announcement type.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function updateAnnouncementType($args, $request) {
+        return new JSONMessage(true, $announcementTypeForm->fetch($request));
+    }
 
-		// Identify the announcement type id.
-		$announcementTypeId = $request->getUserVar('announcementTypeId');
-		$context = $request->getContext();
-		$contextId = $context->getId();
+    /**
+     * Save an edited/inserted announcement type.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function updateAnnouncementType($args, $request)
+    {
 
-		// Form handling.
-		$announcementTypeForm = new AnnouncementTypeForm($contextId, $announcementTypeId);
-		$announcementTypeForm->readInputData();
+        // Identify the announcement type id.
+        $announcementTypeId = $request->getUserVar('announcementTypeId');
+        $context = $request->getContext();
+        $contextId = $context->getId();
 
-		if ($announcementTypeForm->validate()) {
-			$announcementTypeForm->execute();
+        // Form handling.
+        $announcementTypeForm = new AnnouncementTypeForm($contextId, $announcementTypeId);
+        $announcementTypeForm->readInputData();
 
-			if ($announcementTypeId) {
-				// Successful edit of an existing announcement type.
-				$notificationLocaleKey = 'notification.editedAnnouncementType';
-			} else {
-				// Successful added a new announcement type.
-				$notificationLocaleKey = 'notification.addedAnnouncementType';
-			}
+        if ($announcementTypeForm->validate()) {
+            $announcementTypeForm->execute();
 
-			// Record the notification to user.
-			$notificationManager = new NotificationManager();
-			$user = $request->getUser();
-			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
+            if ($announcementTypeId) {
+                // Successful edit of an existing announcement type.
+                $notificationLocaleKey = 'notification.editedAnnouncementType';
+            } else {
+                // Successful added a new announcement type.
+                $notificationLocaleKey = 'notification.addedAnnouncementType';
+            }
 
-			// Prepare the grid row data.
-			return DAO::getDataChangedEvent($announcementTypeId);
-		} else {
-			return new JSONMessage(false);
-		}
-	}
+            // Record the notification to user.
+            $notificationManager = new NotificationManager();
+            $user = $request->getUser();
+            $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __($notificationLocaleKey)]);
 
-	/**
-	 * Delete an announcement type.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function deleteAnnouncementType($args, $request) {
-		$announcementTypeId = (int) $request->getUserVar('announcementTypeId');
-		$context = $request->getContext();
+            // Prepare the grid row data.
+            return \PKP\db\DAO::getDataChangedEvent($announcementTypeId);
+        } else {
+            return new JSONMessage(false);
+        }
+    }
 
-		$announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
-		$announcementType = $announcementTypeDao->getById($announcementTypeId, $context->getAssocType(), $context->getId());
-		if ($announcementType && $request->checkCSRF()) {
-			$announcementTypeDao->deleteObject($announcementType);
+    /**
+     * Delete an announcement type.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function deleteAnnouncementType($args, $request)
+    {
+        $announcementTypeId = (int) $request->getUserVar('announcementTypeId');
+        $context = $request->getContext();
 
-			// Create notification.
-			$notificationManager = new NotificationManager();
-			$user = $request->getUser();
-			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedAnnouncementType')));
+        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
+        $announcementType = $announcementTypeDao->getById($announcementTypeId, $context->getAssocType(), $context->getId());
+        if ($announcementType && $request->checkCSRF()) {
+            $announcementTypeDao->deleteObject($announcementType);
 
-			return DAO::getDataChangedEvent($announcementTypeId);
-		}
+            // Create notification.
+            $notificationManager = new NotificationManager();
+            $user = $request->getUser();
+            $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedAnnouncementType')]);
 
-		return new JSONMessage(false);
-	}
+            return \PKP\db\DAO::getDataChangedEvent();
+        }
+
+        return new JSONMessage(false);
+    }
 }
-
-

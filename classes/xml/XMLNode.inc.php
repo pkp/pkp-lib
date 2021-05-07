@@ -3,17 +3,18 @@
 /**
  * @file classes/xml/XMLNode.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class XMLNode
  * @ingroup xml
  *
- * @brief Default handler for XMLParser returning a simple DOM-style object.
+ * @brief Default handler for PKPXMLParser returning a simple DOM-style object.
  * This handler parses an XML document into a tree structure of XMLNode objects.
  */
 
+namespace PKP\xml;
 
 class XMLNode {
 
@@ -237,4 +238,6 @@ class XMLNode {
 	}
 }
 
-
+if (!PKP_STRICT_MODE) {
+	class_alias('\PKP\xml\XMLNode', '\XMLNode');
+}

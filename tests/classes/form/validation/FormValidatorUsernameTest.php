@@ -3,42 +3,46 @@
 /**
  * @file tests/classes/form/validation/FormValidatorUsernameTest.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorUsernameTest
  * @ingroup tests_classes_form_validation
+ *
  * @see FormValidatorUsername
  *
  * @brief Test class for FormValidatorUsername.
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
 
-class FormValidatorUsernameTest extends PKPTestCase {
-	/**
-	 * @covers FormValidatorUsername
-	 * @covers FormValidator
-	 */
-	public function testIsValid() {
-		$form = new Form('some template');
+use PKP\form\Form;
+use PKP\form\validation\FormValidator;
 
-		// Allowed characters are a-z, 0-9, -, _. The characters - and _ are
-		// not allowed at the start of the string.
-		$form->setData('testData', 'a-z0123_bkj');
-		$validator = new FormValidatorUsername($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
-		self::assertTrue($validator->isValid());
+class FormValidatorUsernameTest extends PKPTestCase
+{
+    /**
+     * @covers FormValidatorUsername
+     * @covers FormValidator
+     */
+    public function testIsValid()
+    {
+        $form = new Form('some template');
 
-		// Test invalid strings
-		$form->setData('testData', '-z0123_bkj');
-		$validator = new FormValidatorUsername($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
-		self::assertFalse($validator->isValid());
+        // Allowed characters are a-z, 0-9, -, _. The characters - and _ are
+        // not allowed at the start of the string.
+        $form->setData('testData', 'a-z0123_bkj');
+        $validator = new \PKP\form\validation\FormValidatorUsername($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        self::assertTrue($validator->isValid());
 
-		$form->setData('testData', 'abc#def');
-		$validator = new FormValidatorUsername($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
-		self::assertFalse($validator->isValid());
-	}
+        // Test invalid strings
+        $form->setData('testData', '-z0123_bkj');
+        $validator = new \PKP\form\validation\FormValidatorUsername($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        self::assertFalse($validator->isValid());
+
+        $form->setData('testData', 'abc#def');
+        $validator = new \PKP\form\validation\FormValidatorUsername($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
+        self::assertFalse($validator->isValid());
+    }
 }
-

@@ -1,8 +1,8 @@
 {**
  * templates/frontend/components/registrationFormContexts.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display role selection for all of the journals/presses on this site
@@ -70,7 +70,7 @@
 								<div class="context_privacy {if $isSelected}context_privacy_visible{/if}">
 									<label>
 										<input type="checkbox" name="privacyConsent[{$contextId}]" id="privacyConsent[{$contextId}]" value="1"{if $privacyConsent[$contextId]} checked="checked"{/if}>
-										{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
+										{capture assign="privacyUrl"}{url router=PKPApplication::ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
 										{translate key="user.register.form.privacyConsentThisContext" privacyUrl=$privacyUrl}
 									</label>
 								</div>

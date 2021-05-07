@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/user/form/userRoleForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form for managing roles for a newly created user.
@@ -13,7 +13,7 @@
 		$('#userRoleForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
-<form class="pkp_form" id="userRoleForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUserRoles"}">
+<form class="pkp_form" id="userRoleForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUserRoles"}">
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userRoleFormNotification"}

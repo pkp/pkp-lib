@@ -221,5 +221,6 @@ msgstr ""
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Salah mengurai file konfigurasi filter <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Error mengeksekusi kelas migrasi <tt>{$class}</tt>."

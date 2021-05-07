@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2020-12-18 16:52+0000\n"
+"PO-Revision-Date: 2021-03-26 20:55+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru_RU/>\n"
@@ -646,6 +646,12 @@ msgstr "Фильтровать результаты по странам, рег�
 
 msgid "manager.affiliationAndSupport"
 msgstr "Спонсорство"
+
+msgid "manager.setup.publishing"
+msgstr "Информация о публикации журнала"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Эта информация может быть включена в метаданные, предоставляемые системам архивирования сторонних разработчиков."
 
 msgid "manager.setup.additionalContent"
 msgstr "Дополнительный контент"
@@ -2057,3 +2063,17 @@ msgstr "Выберите пользователей для экспорта в �
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Экспорт в Excel/CSV"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Настройки языка не удаётся сохранить. Хотя бы один язык должен быть включен "
+"для каждого параметра"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Другие шаблоны"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ОШИБКА:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Указанный путь журнала «{$contextPath}» не существует."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2020-12-14 10:13+0000\n"
+"PO-Revision-Date: 2021-04-23 14:55+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl_SI/>\n"
@@ -591,6 +591,14 @@ msgstr "Zoži rezultate po državi, regiji in/ali mestu."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponzor"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Te podrobnosti so lahko vključene v metapodatke tretjih oseb, ki arhivirajo "
+"ali indeksirajo revijo."
+
+msgid "manager.setup.publishing"
+msgstr "Podrobnosti objavljanja"
 
 msgid "manager.setup.additionalContent"
 msgstr "Dodatna vsebina"
@@ -2162,3 +2170,79 @@ msgstr "Privzete email predloge so bile ponastavljene."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Zbriši obvestilo"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Nastavitve jezika ni bilo možno shraniti. Vsaj en jezik mora biti omogočen "
+"za vsako opcijo"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Ostale predloge"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "NAPAKA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Podana pot revije, \"{$contextPath}\", ne obstaja."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Proces je neuspešno razčlenil publikacije"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Proces je neuspešno razčlenil avtorje"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Napačna nastavitev filtra  [{$filterName}]: {$filterCount} ponovitev. Lahko "
+"je le enkrat."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Splošne zadeve"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Prenesi izvoženo datoteko z gumbom spodaj."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Izvoz se je uspešno zaključil."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Prenesi izvoženo datoteko"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Izvozi rezultate oddaj"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Proces se je končal neuspešno. Spodaj preverite napake in opozorila."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Manjka uporabniška skupina za avtorma z imenom  {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Eden ali več email naslovov ni prvilnih."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Kopija potrditvenega emaila o oddaji prispevka bo poslana na vse email "
+"naslove vnešene tukaj. Posamezne email naslove ločite med seboj z vejico. "
+"Primer: prvi@primer.si, drugi@primer.si"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Obvesti vse"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Ne"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Da, pošlji kopijo na {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Obvesti primarni kontakt"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Obvestila"

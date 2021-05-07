@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/navigationMenus/form/PKPNavigationMenuItemsForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNavigationMenuItemsForm
@@ -13,225 +13,242 @@
  * @brief Form for managers to create/edit navigationMenuItems.
  */
 
+use APP\core\Services;
+use APP\template\TemplateManager;
 
-import('lib.pkp.classes.form.Form');
+use PKP\form\Form;
+use PKP\navigationMenu\NavigationMenuItem;
 
-class PKPNavigationMenuItemsForm extends Form {
-	/** @var $navigationMenuItemId int the ID of the navigationMenuItem */
-	var $navigationMenuItemId;
+class PKPNavigationMenuItemsForm extends Form
+{
+    /** @var int $navigationMenuItemId the ID of the navigationMenuItem */
+    public $navigationMenuItemId;
 
-	/** @var int */
-	var $_contextId;
+    /** @var int */
+    public $_contextId;
 
-	/**
-	 * Constructor
-	 * @param $contextId int
-	 * @param $navigationMenuItemId int
-	 */
-	function __construct($contextId, $navigationMenuItemId) {
-		$this->_contextId = $contextId;
-		$this->navigationMenuItemId = $navigationMenuItemId;
+    /**
+     * Constructor
+     *
+     * @param $contextId int
+     * @param $navigationMenuItemId int
+     */
+    public function __construct($contextId, $navigationMenuItemId)
+    {
+        $this->_contextId = $contextId;
+        $this->navigationMenuItemId = $navigationMenuItemId;
 
-		parent::__construct('controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
+        parent::__construct('controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
-	}
-
-
-	//
-	// Getters and setters.
-	//
-
-	/**
-	 * Get the current context id.
-	 * @return int
-	 */
-	function getContextId() {
-		return $this->_contextId;
-	}
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+    }
 
 
-	//
-	// Extended methods from Form.
-	//
+    //
+    // Getters and setters.
+    //
 
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
+    /**
+     * Get the current context id.
+     *
+     * @return int
+     */
+    public function getContextId()
+    {
+        return $this->_contextId;
+    }
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
 
-		$context = $request->getContext();
-		if ($context) $templateMgr->assign('allowedVariables', array(
-			'contactName' => __('plugins.generic.tinymce.variables.principalContactName', array('value' => $context->getData('contactName'))),
-			'contactEmail' => __('plugins.generic.tinymce.variables.principalContactEmail', array('value' => $context->getData('contactEmail'))),
-			'supportName' => __('plugins.generic.tinymce.variables.supportContactName', array('value' => $context->getData('supportName'))),
-			'supportPhone' => __('plugins.generic.tinymce.variables.supportContactPhone', array('value' => $context->getData('supportPhone'))),
-			'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', array('value' => $context->getData('supportEmail'))),
-		));
-		import('classes.core.Services');
-		$types = Services::get('navigationMenu')->getMenuItemTypes();
+    //
+    // Extended methods from Form.
+    //
 
-		$typeTitles = array(0 => __('grid.navigationMenus.navigationMenu.selectType'));
-		foreach ($types as $type => $settings) {
-			$typeTitles[$type] = $settings['title'];
-		}
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
-		$typeDescriptions = array();
-		foreach ($types as $type => $settings) {
-			$typeDescriptions[$type] = $settings['description'];
-		}
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
 
-		$typeConditionalWarnings = array();
-		foreach ($types as $type => $settings) {
-			if (array_key_exists('conditionalWarning', $settings)) {
-				$typeConditionalWarnings[$type] = $settings['conditionalWarning'];
-			}
-		}
+        $context = $request->getContext();
+        if ($context) {
+            $templateMgr->assign('allowedVariables', [
+                'contactName' => __('plugins.generic.tinymce.variables.principalContactName', ['value' => $context->getData('contactName')]),
+                'contactEmail' => __('plugins.generic.tinymce.variables.principalContactEmail', ['value' => $context->getData('contactEmail')]),
+                'supportName' => __('plugins.generic.tinymce.variables.supportContactName', ['value' => $context->getData('supportName')]),
+                'supportPhone' => __('plugins.generic.tinymce.variables.supportContactPhone', ['value' => $context->getData('supportPhone')]),
+                'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', ['value' => $context->getData('supportEmail')]),
+            ]);
+        }
+        $types = Services::get('navigationMenu')->getMenuItemTypes();
 
-		$customTemplates = Services::get('navigationMenu')->getMenuItemCustomEditTemplates();
+        $typeTitles = [0 => __('grid.navigationMenus.navigationMenu.selectType')];
+        foreach ($types as $type => $settings) {
+            $typeTitles[$type] = $settings['title'];
+        }
 
-		$templateArray = array(
-			'navigationMenuItemTypeTitles' => $typeTitles,
-			'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
-			'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
-			'customTemplates' => $customTemplates,
-		);
+        $typeDescriptions = [];
+        foreach ($types as $type => $settings) {
+            $typeDescriptions[$type] = $settings['description'];
+        }
 
-		$templateMgr->assign($templateArray);
+        $typeConditionalWarnings = [];
+        foreach ($types as $type => $settings) {
+            if (array_key_exists('conditionalWarning', $settings)) {
+                $typeConditionalWarnings[$type] = $settings['conditionalWarning'];
+            }
+        }
 
-		return parent::fetch($request, $template, $display);
-	}
+        $customTemplates = Services::get('navigationMenu')->getMenuItemCustomEditTemplates();
 
-	/**
-	 * Initialize form data from current navigation menu item.
-	 */
-	function initData() {
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
-		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
+        $templateArray = [
+            'navigationMenuItemTypeTitles' => $typeTitles,
+            'navigationMenuItemTypeDescriptions' => json_encode($typeDescriptions),
+            'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
+            'customTemplates' => $customTemplates,
+        ];
 
-		if ($navigationMenuItem) {
-			Services::get('navigationMenu')
-				->setAllNMILocalisedTitles($navigationMenuItem);
-			
-			$formData = array(
-				'path' => $navigationMenuItem->getPath(),
-				'title' => $navigationMenuItem->getTitle(null),
-				'url' => $navigationMenuItem->getUrl(),
-				'menuItemType' => $navigationMenuItem->getType(),
-			);
+        $templateMgr->assign($templateArray);
 
-			$this->_data =  $formData;
+        return parent::fetch($request, $template, $display);
+    }
 
-			$this->setData('content', $navigationMenuItem->getContent(null)); // Localized
-			$this->setData('remoteUrl', $navigationMenuItem->getRemoteUrl(null)); // Localized
-		}
-	}
+    /**
+     * Initialize form data from current navigation menu item.
+     */
+    public function initData()
+    {
+        $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
+        $navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
-	/**
-	 * Assign form data to user-submitted data.
-	 */
-	function readInputData() {
-		$this->readUserVars(array('navigationMenuItemId', 'path', 'content', 'title', 'remoteUrl', 'menuItemType'));
-	}
+        if ($navigationMenuItem) {
+            Services::get('navigationMenu')
+                ->setAllNMILocalisedTitles($navigationMenuItem);
 
-	/**
-	 * @copydoc Form::getLocaleFieldNames()
-	 */
-	function getLocaleFieldNames() {
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
-		return $navigationMenuItemDao->getLocaleFieldNames();
-	}
+            $formData = [
+                'path' => $navigationMenuItem->getPath(),
+                'title' => $navigationMenuItem->getTitle(null),
+                'url' => $navigationMenuItem->getUrl(),
+                'menuItemType' => $navigationMenuItem->getType(),
+            ];
 
-	/**
-	 * Save NavigationMenuItem.
-	 */
-	function execute(...$functionParams) {
-		parent::execute(...$functionParams);
+            $this->_data = $formData;
 
-		$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
+            $this->setData('content', $navigationMenuItem->getContent(null)); // Localized
+            $this->setData('remoteUrl', $navigationMenuItem->getRemoteUrl(null)); // Localized
+        }
+    }
 
-		$navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
-		if (!$navigationMenuItem) {
-			$navigationMenuItem = $navigationMenuItemDao->newDataObject();
-			$navigationMenuItem->setTitle($this->getData('title'), null);
-		} else {
-			$localizedTitlesFromDB = $navigationMenuItem->getTitle(null);
+    /**
+     * Assign form data to user-submitted data.
+     */
+    public function readInputData()
+    {
+        $this->readUserVars(['navigationMenuItemId', 'path', 'content', 'title', 'remoteUrl', 'menuItemType']);
+    }
 
-			Services::get('navigationMenu')
-				->setAllNMILocalisedTitles($navigationMenuItem);
-			
-			$localizedTitles = $navigationMenuItem->getTitle(null);
-			$inputLocalisedTitles = $this->getData('title');
-			foreach ($localizedTitles as $locale => $title) {
-				if ($inputLocalisedTitles[$locale] != $title) {
-					if (!isset($inputLocalisedTitles[$locale]) || trim($inputLocalisedTitles[$locale]) == '') {
-						$navigationMenuItem->setTitle(null, $locale);
-					} else {
-						$navigationMenuItem->setTitle($inputLocalisedTitles[$locale], $locale);
-					}
-				} else {
-					if (!$localizedTitlesFromDB 
-						|| !array_key_exists($locale, $localizedTitlesFromDB)) {
-						$navigationMenuItem->setTitle(null, $locale);
-					}
-				}
-			}
-		}
+    /**
+     * @copydoc Form::getLocaleFieldNames()
+     */
+    public function getLocaleFieldNames()
+    {
+        $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
+        return $navigationMenuItemDao->getLocaleFieldNames();
+    }
 
-		$navigationMenuItem->setPath($this->getData('path'));
-		$navigationMenuItem->setContent($this->getData('content'), null); // Localized
-		$navigationMenuItem->setContextId($this->getContextId());
-		$navigationMenuItem->setRemoteUrl($this->getData('remoteUrl'), null); // Localized
-		$navigationMenuItem->setType($this->getData('menuItemType'));
+    /**
+     * Save NavigationMenuItem.
+     */
+    public function execute(...$functionParams)
+    {
+        parent::execute(...$functionParams);
 
-		// Update or insert navigation menu item
-		if ($navigationMenuItem->getId()) {
-			$navigationMenuItemDao->updateObject($navigationMenuItem);
-		} else {
-			$navigationMenuItemDao->insertObject($navigationMenuItem);
-		}
+        $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
 
-		$this->navigationMenuItemId = $navigationMenuItem->getId();
+        $navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
+        if (!$navigationMenuItem) {
+            $navigationMenuItem = $navigationMenuItemDao->newDataObject();
+            $navigationMenuItem->setTitle($this->getData('title'), null);
+        } else {
+            $localizedTitlesFromDB = $navigationMenuItem->getTitle(null);
 
-		return $navigationMenuItem->getId();
-	}
+            Services::get('navigationMenu')
+                ->setAllNMILocalisedTitles($navigationMenuItem);
 
-	/**
-	 * Perform additional validation checks
-	 * @copydoc Form::validate
-	 */
-	function validate($callHooks = true) {
-		import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
-		if ($this->getData('menuItemType') && $this->getData('menuItemType') != "") {
-			if ($this->getData('menuItemType') == NMI_TYPE_CUSTOM) {
-				if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
-					$this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
-				}
+            $localizedTitles = $navigationMenuItem->getTitle(null);
+            $inputLocalisedTitles = $this->getData('title');
+            foreach ($localizedTitles as $locale => $title) {
+                if ($inputLocalisedTitles[$locale] != $title) {
+                    if (!isset($inputLocalisedTitles[$locale]) || trim($inputLocalisedTitles[$locale]) == '') {
+                        $navigationMenuItem->setTitle(null, $locale);
+                    } else {
+                        $navigationMenuItem->setTitle($inputLocalisedTitles[$locale], $locale);
+                    }
+                } else {
+                    if (!$localizedTitlesFromDB
+                        || !array_key_exists($locale, $localizedTitlesFromDB)) {
+                        $navigationMenuItem->setTitle(null, $locale);
+                    }
+                }
+            }
+        }
 
-				$navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /* @var $navigationMenuItemDao NavigationMenuItemDAO */
+        $navigationMenuItem->setPath($this->getData('path'));
+        $navigationMenuItem->setContent($this->getData('content'), null); // Localized
+        $navigationMenuItem->setContextId($this->getContextId());
+        $navigationMenuItem->setRemoteUrl($this->getData('remoteUrl'), null); // Localized
+        $navigationMenuItem->setType($this->getData('menuItemType'));
 
-				$navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
-				if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
-					$this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
-				}
-			} elseif ($this->getData('menuItemType') == NMI_TYPE_REMOTE_URL) {
-				$remoteUrls = $this->getData('remoteUrl');
-				foreach ($remoteUrls as $remoteUrl) {
-					if(!filter_var($remoteUrl, FILTER_VALIDATE_URL)) {
-						$this->addError('remoteUrl', __('manager.navigationMenus.form.customUrlError'));
-					}
-				}
-			}
-		} else {
-			$this->addError('path', __('manager.navigationMenus.form.typeMissing'));
-		}
+        // Update or insert navigation menu item
+        if ($navigationMenuItem->getId()) {
+            $navigationMenuItemDao->updateObject($navigationMenuItem);
+        } else {
+            $navigationMenuItemDao->insertObject($navigationMenuItem);
+        }
 
-		return parent::validate($callHooks);
-	}
+        $this->navigationMenuItemId = $navigationMenuItem->getId();
 
+        return $navigationMenuItem->getId();
+    }
+
+    /**
+     * Perform additional validation checks
+     *
+     * @copydoc Form::validate
+     */
+    public function validate($callHooks = true)
+    {
+        import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
+        if ($this->getData('menuItemType') && $this->getData('menuItemType') != '') {
+            if ($this->getData('menuItemType') == NavigationMenuItem::NMI_TYPE_CUSTOM) {
+                if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {
+                    $this->addError('path', __('manager.navigationMenus.form.pathRegEx'));
+                }
+
+                $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
+
+                $navigationMenuItem = $navigationMenuItemDao->getByPath($this->_contextId, $this->getData('path'));
+                if (isset($navigationMenuItem) && $navigationMenuItem->getId() != $this->navigationMenuItemId) {
+                    $this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
+                }
+            } elseif ($this->getData('menuItemType') == NavigationMenuItem::NMI_TYPE_REMOTE_URL) {
+                $remoteUrls = $this->getData('remoteUrl');
+                foreach ($remoteUrls as $remoteUrl) {
+                    if (!filter_var($remoteUrl, FILTER_VALIDATE_URL)) {
+                        $this->addError('remoteUrl', __('manager.navigationMenus.form.customUrlError'));
+                    }
+                }
+            }
+        } else {
+            $this->addError('path', __('manager.navigationMenus.form.typeMissing'));
+        }
+
+        return parent::validate($callHooks);
+    }
 }

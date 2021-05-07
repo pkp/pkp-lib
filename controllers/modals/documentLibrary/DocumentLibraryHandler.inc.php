@@ -3,8 +3,8 @@
 /**
  * @file controllers/modals/documentLibrary/DocumentLibraryHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DocumentLibraryHandler
@@ -14,72 +14,81 @@
  */
 
 // Import the base Handler.
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
-class DocumentLibraryHandler extends Handler {
+use APP\template\TemplateManager;
 
-	/** The submission **/
-	var $_submission;
+class DocumentLibraryHandler extends Handler
+{
+    /** The submission **/
+    public $_submission;
 
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(
-			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT),
-			array('documentLibrary'));
-	}
-
-
-	//
-	// Overridden methods from Handler
-	//
-	/**
-	 * @copydoc PKPHandler::initialize()
-	 */
-	function initialize($request) {
-		parent::initialize($request);
-
-		$this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$this->setupTemplate($request);
-	}
-
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
-		$this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            [ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT],
+            ['documentLibrary']
+        );
+    }
 
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the Submission
-	 * @return Submission
-	 */
-	function getSubmission() {
-		return $this->_submission;
-	}
+    //
+    // Overridden methods from Handler
+    //
+    /**
+     * @copydoc PKPHandler::initialize()
+     */
+    public function initialize($request)
+    {
+        parent::initialize($request);
 
-	//
-	// Public handler methods
-	//
-	/**
-	 * Display a list of the review form elements within a review form.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function documentLibrary($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('submission', $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION));
-		return $templateMgr->fetchJson('controllers/modals/documentLibrary/documentLibrary.tpl');
-	}
+        $this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $this->setupTemplate($request);
+    }
+
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
+        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
+
+
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the Submission
+     *
+     * @return Submission
+     */
+    public function getSubmission()
+    {
+        return $this->_submission;
+    }
+
+    //
+    // Public handler methods
+    //
+    /**
+     * Display a list of the review form elements within a review form.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function documentLibrary($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('submission', $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION));
+        return $templateMgr->fetchJson('controllers/modals/documentLibrary/documentLibrary.tpl');
+    }
 }
-
-

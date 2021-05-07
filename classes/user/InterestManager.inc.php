@@ -3,88 +3,108 @@
 /**
  * @file classes/user/InterestManager.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InterestManager
  * @ingroup user
+ *
  * @see InterestDAO
  * @brief Handle user interest functions.
  */
 
-class InterestManager {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-	}
+namespace PKP\user;
 
-	/**
-	 * Get all interests for all users in the system
-	 * @param $filter string
-	 * @return array
-	 */
-	function getAllInterests($filter = null) {
-		$interestDao = DAORegistry::getDAO('InterestDAO'); /* @var $interestDao InterestDAO */
-		$interests = $interestDao->getAllInterests($filter);
+use PKP\db\DAORegistry;
 
-		$interestReturner = array();
-		while($interest = $interests->next()) {
-			$interestReturner[] = $interest->getInterest();
-		}
+class InterestManager
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+    }
 
-		return $interestReturner;
-	}
+    /**
+     * Get all interests for all users in the system
+     *
+     * @param $filter string
+     *
+     * @return array
+     */
+    public function getAllInterests($filter = null)
+    {
+        $interestDao = DAORegistry::getDAO('InterestDAO'); /** @var InterestDAO $interestDao */
+        $interests = $interestDao->getAllInterests($filter);
 
-	/**
-	 * Get user reviewing interests. (Cached in memory for batch fetches.)
-	 * @param $user User
-	 * @return array
-	 */
-	function getInterestsForUser($user) {
-		static $interestsCache = array();
-		$interests = array();
+        $interestReturner = [];
+        while ($interest = $interests->next()) {
+            $interestReturner[] = $interest->getInterest();
+        }
 
-		$interestDao = DAORegistry::getDAO('InterestDAO'); /* @var $interestDao InterestDAO */
-		$interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /* @var $interestEntryDao InterestEntryDAO */
-		$controlledVocab = $interestDao->build();
-		foreach($interestDao->getUserInterestIds($user->getId()) as $interestEntryId) {
-			if (!isset($interestsCache[$interestEntryId])) {
-				$interestsCache[$interestEntryId] = $interestEntryDao->getById(
-					$interestEntryId,
-					$controlledVocab->getId()
-				);
-			}
-			if (isset($interestsCache[$interestEntryId])) {
-				$interests[] = $interestsCache[$interestEntryId]->getInterest();
-			}
-		}
+        return $interestReturner;
+    }
 
-		return $interests;
-	}
+    /**
+     * Get user reviewing interests. (Cached in memory for batch fetches.)
+     *
+     * @param $user User
+     *
+     * @return array
+     */
+    public function getInterestsForUser($user)
+    {
+        static $interestsCache = [];
+        $interests = [];
 
-	/**
-	 * Returns a comma separated string of a user's interests
-	 * @param $user User
-	 * @return string
-	 */
-	function getInterestsString($user) {
-		$interests = $this->getInterestsForUser($user);
+        $interestDao = DAORegistry::getDAO('InterestDAO'); /** @var InterestDAO $interestDao */
+        $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /** @var InterestEntryDAO $interestEntryDao */
+        $controlledVocab = $interestDao->build();
+        foreach ($interestDao->getUserInterestIds($user->getId()) as $interestEntryId) {
+            if (!isset($interestsCache[$interestEntryId])) {
+                $interestsCache[$interestEntryId] = $interestEntryDao->getById(
+                    $interestEntryId,
+                    $controlledVocab->getId()
+                );
+            }
+            if (isset($interestsCache[$interestEntryId])) {
+                $interests[] = $interestsCache[$interestEntryId]->getInterest();
+            }
+        }
 
-		return implode(', ', $interests);
-	}
+        return $interests;
+    }
 
-	/**
-	 * Set a user's interests
-	 * @param $user User
-	 * @param $interests mixed
-	 */
-	function setInterestsForUser($user, $interests) {
-		$interestDao = DAORegistry::getDAO('InterestDAO'); /* @var $interestDao InterestDAO */
-		$interests = is_array($interests) ? $interests : (empty($interests) ? null : explode(",", $interests));
-		$interestDao->setUserInterests($interests, $user->getId());
-	}
+    /**
+     * Returns a comma separated string of a user's interests
+     *
+     * @param $user User
+     *
+     * @return string
+     */
+    public function getInterestsString($user)
+    {
+        $interests = $this->getInterestsForUser($user);
+
+        return implode(', ', $interests);
+    }
+
+    /**
+     * Set a user's interests
+     *
+     * @param $user User
+     * @param $interests mixed
+     */
+    public function setInterestsForUser($user, $interests)
+    {
+        $interestDao = DAORegistry::getDAO('InterestDAO'); /** @var InterestDAO $interestDao */
+        $interests = is_array($interests) ? $interests : (empty($interests) ? null : explode(',', $interests));
+        $interestDao->setUserInterests($interests, $user->getId());
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\InterestManager', '\InterestManager');
+}

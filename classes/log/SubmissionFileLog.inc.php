@@ -3,8 +3,8 @@
 /**
  * @file classes/log/SubmissionFileLog.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileLog
@@ -13,42 +13,53 @@
  * @brief Static class for adding / accessing submission file log entries.
  */
 
-import('lib.pkp.classes.log.SubmissionLog');
+namespace PKP\log;
 
-class SubmissionFileLog extends SubmissionLog {
-	/**
-	 * Add a new file event log entry with the specified parameters
-	 * @param $request object
-	 * @param $submissionFile object
-	 * @param $eventType int
-	 * @param $messageKey string
-	 * @param $params array optional
-	 * @return object SubmissionLogEntry iff the event was logged
-	 */
-	static function logEvent($request, $submissionFile, $eventType, $messageKey, $params = array()) {
-		// Create a new entry object
-		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
-		$entry = $submissionFileEventLogDao->newDataObject();
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 
-		// Set implicit parts of the log entry
-		$entry->setDateLogged(Core::getCurrentDate());
+class SubmissionFileLog extends SubmissionLog
+{
+    /**
+     * Add a new file event log entry with the specified parameters
+     *
+     * @param $request object
+     * @param $submissionFile object
+     * @param $eventType int
+     * @param $messageKey string
+     * @param $params array optional
+     *
+     * @return object SubmissionLogEntry iff the event was logged
+     */
+    public static function logEvent($request, $submissionFile, $eventType, $messageKey, $params = [])
+    {
+        // Create a new entry object
+        $submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /** @var SubmissionFileEventLogDAO $submissionFileEventLogDao */
+        $entry = $submissionFileEventLogDao->newDataObject();
 
-		$user = $request->getUser();
-		if ($user) $entry->setUserId($user->getId());
+        // Set implicit parts of the log entry
+        $entry->setDateLogged(Core::getCurrentDate());
 
-		$entry->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
-		$entry->setAssocId($submissionFile->getId());
+        $user = $request->getUser();
+        if ($user) {
+            $entry->setUserId($user->getId());
+        }
 
-		// Set explicit parts of the log entry
-		$entry->setEventType($eventType);
-		$entry->setMessage($messageKey);
-		$entry->setParams($params);
-		$entry->setIsTranslated(0); // Legacy for other apps. All messages use locale keys.
+        $entry->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
+        $entry->setAssocId($submissionFile->getId());
 
-		// Insert the resulting object
-		$submissionFileEventLogDao->insertObject($entry);
-		return $entry;
-	}
+        // Set explicit parts of the log entry
+        $entry->setEventType($eventType);
+        $entry->setMessage($messageKey);
+        $entry->setParams($params);
+        $entry->setIsTranslated(0); // Legacy for other apps. All messages use locale keys.
+
+        // Insert the resulting object
+        $submissionFileEventLogDao->insertObject($entry);
+        return $entry;
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\log\SubmissionFileLog', '\SubmissionFileLog');
+}

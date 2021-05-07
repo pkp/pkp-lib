@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-12-04 12:35+0000\n"
+"PO-Revision-Date: 2021-04-26 11:12+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -834,6 +834,14 @@ msgstr "Genindlæs standardindstillinger"
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
+
+msgid "manager.setup.publishing"
+msgstr "Publiceringsoplysninger"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Disse detaljer kan inkluderes i metadata leveret til arkivorganisationer fra "
+"tredjepart."
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Open Access-politik"
@@ -2234,3 +2242,79 @@ msgstr "Udvælg de brugere, der skal eksporteres til en Excel/CSV-fil."
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Eksportér til Excel/CSV"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Sprogindstillingen kunne ikke gemmes. Mindst et sprog skal være aktiveret "
+"for hver valgmulighed"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Andre skabeloner"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "FEJL:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Den angivne tidsskriftssti, \"{$contextPath}\", findes ikke."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "En eller flere af disse e-mail-adresser er ikke gyldige."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"En kopi af indsendelsesbekræftelses-e-mailen vil blive sendt til enhver af "
+"de e-mail-adresser, der er angivet her. Adskil flere e-mail-adresser med et "
+"komma. Eksempel: et@eksempel.com,andet@eksempel.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Underret alle"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nej"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ja, send en kopi til {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Informér primær kontakt"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Meddelelser"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Download den eksporterede fil via nedenstående knap."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Processen mislykkedes med at parse publiceringer"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Processen mislykkedes med at parse forfattere"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Forkert filterkonfiguration [{$filterName}]: {$filterCount} forekomster. Bør "
+"kun være en."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Generiske elementer"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Eksporten blev gennemført."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Download eksporteret fil"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Eksport-indsendelses-resultater"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Processen fejlede. Kontroller nedenstående for fejl/advarsler."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "UserGroup mangler forfatternavn {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"

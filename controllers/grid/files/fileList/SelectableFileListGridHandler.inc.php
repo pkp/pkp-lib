@@ -2,8 +2,8 @@
 /**
  * @file controllers/grid/files/fileList/SelectableFileListGridHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SelectableFileListGridHandler
@@ -16,49 +16,52 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class SelectableFileListGridHandler extends FileListGridHandler {
-
-	/**
-	 * Constructor
-	 * @param $dataProvider GridDataProvider
-	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-	 * @param $capabilities integer A bit map with zero or more
-	 *  FILE_GRID_* capabilities set.
-	 */
-	function __construct($dataProvider, $stageId, $capabilities = 0) {
-		parent::__construct($dataProvider, $stageId, $capabilities);
-	}
-
-
-	//
-	// Overriden methods from GridHandler.
-	//
-	/**
-	 * @copydoc GridHandler::initFeatures()
-	 */
-	function initFeatures($request, $args) {
-		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
-		return array(new SelectableItemsFeature());
-	}
+class SelectableFileListGridHandler extends FileListGridHandler
+{
+    /**
+     * Constructor
+     *
+     * @param $dataProvider GridDataProvider
+     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
+     * @param $capabilities integer A bit map with zero or more
+     *  FILE_GRID_* capabilities set.
+     */
+    public function __construct($dataProvider, $stageId, $capabilities = 0)
+    {
+        parent::__construct($dataProvider, $stageId, $capabilities);
+    }
 
 
-	//
-	// Implemented methods from GridHandler.
-	//
-	/**
-	 * @copydoc GridHandler::isDataElementSelected()
-	 */
-	function isDataElementSelected($gridDataElement) {
-		$file = $gridDataElement['submissionFile'];
-		return $file->getViewable();
-	}
+    //
+    // Overriden methods from GridHandler.
+    //
+    /**
+     * @copydoc GridHandler::initFeatures()
+     */
+    public function initFeatures($request, $args)
+    {
+        import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
+        return [new SelectableItemsFeature()];
+    }
 
-	/**
-	 * @copydoc GridHandler::getSelectName()
-	 */
-	function getSelectName() {
-		return 'selectedFiles';
-	}
+
+    //
+    // Implemented methods from GridHandler.
+    //
+    /**
+     * @copydoc GridHandler::isDataElementSelected()
+     */
+    public function isDataElementSelected($gridDataElement)
+    {
+        $file = $gridDataElement['submissionFile'];
+        return $file->getViewable();
+    }
+
+    /**
+     * @copydoc GridHandler::getSelectName()
+     */
+    public function getSelectName()
+    {
+        return 'selectedFiles';
+    }
 }
-
-

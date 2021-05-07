@@ -2,8 +2,8 @@
 /**
  * @file classes/linkAction/request/AddTabAction.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AddTabAction
@@ -12,19 +12,24 @@
  * @brief This action triggers a containing tabset to add a new tab.
  */
 
-import('lib.pkp.classes.linkAction.request.EventAction');
+namespace PKP\linkAction\request;
 
-class AddTabAction extends EventAction {
-	/**
-	 * Constructor
-	 * @param $targetSelector string Selector for target to receive event.
-	 */
-	function __construct($targetSelector, $url, $title) {
-		parent::__construct($targetSelector, 'addTab', array(
-			'url' => $url,
-			'title' => $title,
-		));
-	}
+class AddTabAction extends EventAction
+{
+    /**
+     * Constructor
+     *
+     * @param $targetSelector string Selector for target to receive event.
+     */
+    public function __construct($targetSelector, $url, $title)
+    {
+        parent::__construct($targetSelector, 'addTab', [
+            'url' => $url,
+            'title' => $title,
+        ]);
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\AddTabAction', '\AddTabAction');
+}

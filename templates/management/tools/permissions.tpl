@@ -1,8 +1,8 @@
 {**
  * templates/management/tools/permissions.tpl
  *
- * Copyright (c) 2013-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2013-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Display the permissions tool page.
@@ -20,7 +20,7 @@ $(function() {ldelim}
 {rdelim});
 </script>
 
-<form class="pkp_form" id="resetPermissionsForm" method="post" action="{url router=$smarty.const.ROUTE_PAGE page="management" op="tools" path="resetPermissions"}">
+<form class="pkp_form" id="resetPermissionsForm" method="post" action="{url router=PKPApplication::ROUTE_PAGE page="management" op="tools" path="resetPermissions"}">
 	<div class="pkp_page_content pkp_page_permissions">
 		<h3>{translate key="manager.setup.resetPermissions"}</h3>
 		<p>{translate key="manager.setup.resetPermissions.description"}</p>

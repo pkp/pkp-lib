@@ -3,9 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-12-18 16:52+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2021-04-22 01:44+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -637,6 +636,12 @@ msgstr "Limiter les résultats selon le pays, la région ou la ville."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Organisme subventionnaire"
+
+msgid "manager.setup.publishing"
+msgstr "Renseignements au sujet de la publication"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Le nom de l'organisation qui publie la revue pourrait être inclus dans les métadonnées fournies aux agents d'achivage externes."
 
 msgid "manager.setup.additionalContent"
 msgstr "Contenu additionnel"
@@ -2129,11 +2134,11 @@ msgstr "M'envoyer une copie de ce courriel à {$email}."
 
 msgid "manager.setup.notifyUsers.description"
 msgstr ""
-"Sélectionner les utilisateurs-trices qui doivent recevoir votre notification "
-"par courriel."
+"Sélectionner les utilisateurs-trices qui doivent recevoir vos avis par "
+"courriel."
 
 msgid "manager.setup.notifyUsers"
-msgstr "Aviser"
+msgstr "Avis"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Désactiver les soumissions"
@@ -2143,3 +2148,29 @@ msgstr "Générateur de rapports personnalisés"
 
 msgid "manager.people.signedInAs"
 msgstr "Vous êtes actuellement connecté-e en tant que {$username}"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Le paramètre de langue n'a pas pu être sauvegardé. Au moins une langue doit "
+"être activée pour chaque option"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Autres modèles"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERREUR :"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Le chemin « {$contextPath} » de la revue n'existe pas."
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Non"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Oui, envoyer une copie à {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Aviser le contact principal"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Avis"

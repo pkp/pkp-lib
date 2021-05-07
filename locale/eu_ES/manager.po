@@ -380,6 +380,9 @@ msgstr "Irakurtzeko tresnak"
 msgid "manager.roles"
 msgstr "Funtzioak"
 
+msgid "manager.setup.publishingDescription"
+msgstr "Aldizkaria argitaratzen duen erakundearen izena Aldizkariari buruz orrian agertuko da."
+
 msgid "manager.setup.homepageImageInvalid"
 msgstr "Hasierako orriaren goiburuko irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira."
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2020-12-07 11:19+0000\n"
+"PO-Revision-Date: 2021-04-30 07:17+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -626,6 +626,12 @@ msgstr "ضيِّق النتائج حسب الدولة، المنطقة و/أو �
 
 msgid "manager.affiliationAndSupport"
 msgstr "الراعي"
+
+msgid "manager.setup.publishing"
+msgstr "تفاصيل النشر"
+
+msgid "manager.setup.publishingDescription"
+msgstr "هذه التفاصيل قد يجري تضمينها في بيانات وصفية تذهب إلى أطراف ثالثة عند حفظ محتوى المجلة."
 
 msgid "manager.setup.additionalContent"
 msgstr "المحتوى الإضافي"
@@ -2043,3 +2049,77 @@ msgstr "إختر المستخدمين المطلوب تصديرهم إلى مل�
 
 msgid "manager.export.usersToCsv.label"
 msgstr "التصدير إلى Excel/CSV"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr "تعذر حفظ إعداد اللغة. لا بد من تمكين لغة واحدة على الأقل لكل خيار"
+
+msgid "manager.emails.otherTemplates"
+msgstr "القوالب الأخرى"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "خطأ:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "المسار المخصص للمجلة، \"{$contextPath}\"، غير موجود."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "فشلت العملية في تحليل المنشورات"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "فشلت العملية في تحليل المؤلفين"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"تهيئة خاطئة للمرشح [{$filterName}]: {$filterCount} من التكرارات. ينبغي أن "
+"تكون واحدة فقط."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "العناصر العامة"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "تنزيل الملف المُصَدَّر من الزر أدناه."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "إكتمل التصدير بنجاح."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "تنزيل الملف المُصَّدر"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "نتائج تصدير طلبات التقديم"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "فشلت العملية. تحقق أدناه للتحري عن الأخطاء/التنبيهات."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "مجموعة المستخدم مفقودة لاسم المؤلف {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "المُعرَّف: {$id}"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "واحد أو أكثر من عناوين البريد الالكتروني تلك غير صحيح."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"سيتم إرسال نسخة من رسالة الإقرار بطلب التقديم لأيِّ من عناوين البريد "
+"الالكتروني المُدخلة هنا. أفصل ما بين عناوين البريد الالكتروني المتعددة "
+"بفارزة. مثال: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "إشعار أي شخص"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "لا"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "نعم، أرسل نسخة إلى {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "إشعار جهة الاتصال الرئيسية"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "الإشعارات"

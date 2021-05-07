@@ -2,8 +2,8 @@
 /**
  * @file classes/linkAction/request/PostAndRedirectAction.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PostAndRedirectAction
@@ -13,56 +13,64 @@
  * to detailed description.
  */
 
+namespace PKP\linkAction\request;
 
-import('lib.pkp.classes.linkAction.request.RedirectAction');
+class PostAndRedirectAction extends RedirectAction
+{
+    /** @var string The url to be used for posting data */
+    public $_postUrl;
 
-class PostAndRedirectAction extends RedirectAction {
-
-	/** @var string The url to be used for posting data */
-	var $_postUrl;
-
-	/**
-	 * Constructor
-	 * @param $postUrl string The target URL to post data.
-	 * @param $redirectUrl string The target URL to redirect.
-	 */
-	function __construct($postUrl, $redirectUrl) {
-		parent::__construct($redirectUrl);
-		$this->_postUrl = $postUrl;
-	}
-
-
-	//
-	// Getters and Setters
-	//
-	/**
-  	 * Get the url to post data.
-	 * @return string
-	 */
-	function getPostUrl() {
-		return $this->_postUrl;
-	}
+    /**
+     * Constructor
+     *
+     * @param $postUrl string The target URL to post data.
+     * @param $redirectUrl string The target URL to redirect.
+     */
+    public function __construct($postUrl, $redirectUrl)
+    {
+        parent::__construct($redirectUrl);
+        $this->_postUrl = $postUrl;
+    }
 
 
-	//
-	// Overridden protected methods from LinkActionRequest
-	//
-	/**
-	 * @see LinkActionRequest::getJSLinkActionRequest()
-	 */
-	function getJSLinkActionRequest() {
-		return '$.pkp.classes.linkAction.PostAndRedirectRequest';
-	}
+    //
+    // Getters and Setters
+    //
+    /**
+     * Get the url to post data.
+     *
+     * @return string
+     */
+    public function getPostUrl()
+    {
+        return $this->_postUrl;
+    }
 
-	/**
-	 * @see LinkActionRequest::getLocalizedOptions()
-	 */
-	function getLocalizedOptions() {
-		$options = parent::getLocalizedOptions();
-		return array_merge($options,
-			array('postUrl' => $this->getPostUrl())
-		);
-	}
+
+    //
+    // Overridden protected methods from LinkActionRequest
+    //
+    /**
+     * @see LinkActionRequest::getJSLinkActionRequest()
+     */
+    public function getJSLinkActionRequest()
+    {
+        return '$.pkp.classes.linkAction.PostAndRedirectRequest';
+    }
+
+    /**
+     * @see LinkActionRequest::getLocalizedOptions()
+     */
+    public function getLocalizedOptions()
+    {
+        $options = parent::getLocalizedOptions();
+        return array_merge(
+            $options,
+            ['postUrl' => $this->getPostUrl()]
+        );
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\PostAndRedirectAction', '\PostAndRedirectAction');
+}

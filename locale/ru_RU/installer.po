@@ -122,6 +122,7 @@ msgstr "Каталог, указанный в качестве каталога 
 msgid "installer.installParseDBFileError"
 msgstr "Ошибка синтаксического разбора файла установки БД <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Ошибка выполнения класса миграции <tt>{$class}</tt>."
 

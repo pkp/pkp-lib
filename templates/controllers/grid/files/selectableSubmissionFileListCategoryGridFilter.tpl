@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/files/selectableSubmissionFileListCategoryGridFilter.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Filter template for selectable submission file list category grid.
@@ -11,7 +11,7 @@
 	// Attach the form handler to the form.
 	$('#fileListFilterForm').pkpHandler('$.pkp.controllers.form.ToggleFormHandler');
 </script>
-<form class="pkp_form filter" id="fileListFilterForm" action="{url router=$smarty.const.ROUTE_COMPONENT op="fetchGrid"}" method="post">
+<form class="pkp_form filter" id="fileListFilterForm" action="{url router=PKPApplication::ROUTE_COMPONENT op="fetchGrid"}" method="post">
 	{csrf}
 	{fbvFormArea id="includeAllStagesArea"}
 		{fbvFormSection list="true"}

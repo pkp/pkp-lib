@@ -1,8 +1,8 @@
 {**
  * templates/controllers/modals/editorDecision/form/newReviewRoundForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form used to create a new review round (after the first round)
@@ -25,7 +25,7 @@
 	<input type="hidden" name="decision" value="{$smarty.const.SUBMISSION_EDITOR_DECISION_NEW_ROUND}" />
 
 	<!-- Revision files grid (Displays only revisions at first, and hides all other files which can then be displayed with filter button -->
-	{capture assign=newRoundRevisionsUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.review.SelectableReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+	{capture assign=newRoundRevisionsUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.review.SelectableReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 	{load_url_in_div id="newRoundRevisionsGrid" url=$newRoundRevisionsUrl}
 
 	{fbvFormButtons submitText="editor.submission.createNewRound"}

@@ -3,8 +3,8 @@
 /**
  * @file classes/core/APIRouter.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class APIRouter
@@ -17,185 +17,226 @@
  * context-level API requests.
  */
 
-import('lib.pkp.classes.core.PKPRouter');
-import('classes.core.Request');
-import('classes.handler.Handler');
+namespace PKP\core;
 
-class APIRouter extends PKPRouter {
+use APP\i18n\AppLocale;
 
-	/**
-	 * Determines path info parts depending of disable_path_info config value
-	 * @return array|NULL
-	 */
-	protected function getPathInfoParts() {
-		$pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
-		if ($pathInfoEnabled && isset($_SERVER['PATH_INFO'])) {
-			return explode('/', trim($_SERVER['PATH_INFO'], '/'));
-		}
+use Exception;
+use PKP\config\Config;
 
-		$request = $this->getApplication()->getRequest();
-		$queryString = $request->getQueryString();
-		$queryArray = array();
-		if (isset($queryString)) {
-			parse_str($queryString, $queryArray);
-		}
+use PKP\session\SessionManager;
 
-		if (in_array('endpoint', array_keys($queryArray)) && isset($queryArray['journal'])) {
-			$endpoint = $queryArray['endpoint'];
-			return explode('/', trim($endpoint, '/'));
-		}
+class APIRouter extends PKPRouter
+{
+    /**
+     * Determines path info parts depending of disable_path_info config value
+     *
+     * @return array|NULL
+     */
+    protected function getPathInfoParts()
+    {
+        $pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
+        if ($pathInfoEnabled && isset($_SERVER['PATH_INFO'])) {
+            return explode('/', trim($_SERVER['PATH_INFO'], '/'));
+        }
 
-		return null;
-	}
+        $request = $this->getApplication()->getRequest();
+        $queryString = $request->getQueryString();
+        $queryArray = [];
+        if (isset($queryString)) {
+            parse_str($queryString, $queryArray);
+        }
 
-	/**
-	 * Determines whether this router can route the given request.
-	 * @param $request PKPRequest
-	 * @return boolean true, if the router supports this request, otherwise false
-	 */
-	function supports($request) {
-		$pathInfoParts = $this->getPathInfoParts();
+        if (in_array('endpoint', array_keys($queryArray)) && isset($queryArray['journal'])) {
+            $endpoint = $queryArray['endpoint'];
+            return explode('/', trim($endpoint, '/'));
+        }
 
-		if (!is_null($pathInfoParts) && count($pathInfoParts)>=2 && $pathInfoParts[1] == 'api') {
-			// Context-specific API requests: [index.php]/{contextPath}/api
-			return true;
-		}
+        return null;
+    }
 
-		return false;
-	}
+    /**
+     * Determines whether this router can route the given request.
+     *
+     * @param $request PKPRequest
+     *
+     * @return boolean true, if the router supports this request, otherwise false
+     */
+    public function supports($request)
+    {
+        $pathInfoParts = $this->getPathInfoParts();
 
-	/**
-	 * Get the API version
-	 * @return string
-	 */
-	function getVersion() {
-		$pathInfoParts = $this->getPathInfoParts();
-		return Core::cleanFileVar(isset($pathInfoParts[2]) ? $pathInfoParts[2] : '');
-	}
+        if (!is_null($pathInfoParts) && count($pathInfoParts) >= 2 && $pathInfoParts[1] == 'api') {
+            // Context-specific API requests: [index.php]/{contextPath}/api
+            return true;
+        }
 
-	/**
-	 * Get the entity being requested
-	 * @return string
-	 */
-	function getEntity() {
-		$pathInfoParts = $this->getPathInfoParts();
-		return Core::cleanFileVar(isset($pathInfoParts[3]) ? $pathInfoParts[3] : '');
-	}
+        return false;
+    }
 
-	//
-	// Implement template methods from PKPRouter
-	//
-	/**
-	 * @copydoc PKPRouter::route()
-	 */
-	function route($request) {
-		// Ensure slim library is available
-		require_once('lib/pkp/lib/vendor/autoload.php');
+    /**
+     * Get the API version
+     *
+     * @return string
+     */
+    public function getVersion()
+    {
+        $pathInfoParts = $this->getPathInfoParts();
+        return Core::cleanFileVar($pathInfoParts[2] ?? '');
+    }
 
-		$sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
+    /**
+     * Get the entity being requested
+     *
+     * @return string
+     */
+    public function getEntity()
+    {
+        $pathInfoParts = $this->getPathInfoParts();
+        return Core::cleanFileVar($pathInfoParts[3] ?? '');
+    }
 
-		if (!file_exists($sourceFile)) {
-			AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
-			http_response_code('404');
-			header('Content-Type: application/json');
-			echo json_encode([
-				'error' => 'api.404.endpointNotFound',
-				'errorMessage' => __('api.404.endpointNotFound'),
-			]);
-			exit;
-		}
+    //
+    // Implement template methods from PKPRouter
+    //
+    /**
+     * @copydoc PKPRouter::route()
+     */
+    public function route($request)
+    {
+        // Ensure slim library is available
+        require_once('lib/pkp/lib/vendor/autoload.php');
 
-		if (!defined('SESSION_DISABLE_INIT')) {
-			// Initialize session
-			SessionManager::getManager();
-		}
+        $sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
 
-		$handler = require ('./'.$sourceFile);
-		$this->setHandler($handler);
-		$handler->getApp()->run();
-	}
+        if (!file_exists($sourceFile)) {
+            AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
+            http_response_code('404');
+            header('Content-Type: application/json');
+            echo json_encode([
+                'error' => 'api.404.endpointNotFound',
+                'errorMessage' => __('api.404.endpointNotFound'),
+            ]);
+            exit;
+        }
 
-	/**
-	 * Get the requested operation
-	 *
-	 * @param $request PKPRequest
-	 * @return string
-	 */
-	function getRequestedOp($request) {
-		$handler = $this->getHandler();
-		$container = $handler->getApp()->getContainer();
-		$router = $container->get('router');
-		$slimRequest = $handler->getSlimRequest();
-		$routeInfo = $router->dispatch($slimRequest);
-		if (isset($routeInfo[1])) {
-			$route = $router->lookupRoute($routeInfo[1]);
-			$callable = $route->getCallable();
-			if (is_array($callable) && count($callable) == 2)
-				return $callable[1];
-		}
-		return '';
-	}
+        if (!defined('SESSION_DISABLE_INIT')) {
+            // Initialize session
+            SessionManager::getManager();
+        }
 
-	/**
-	 * @copydoc PKPRouter::handleAuthorizationFailure()
-	 */
-	function handleAuthorizationFailure($request, $authorizationMessage) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
-		http_response_code('403');
-		header('Content-Type: application/json');
-		echo json_encode([
-			'error' => $authorizationMessage,
-			'errorMessage' => __($authorizationMessage),
-		]);
-		exit;
-	}
+        $handler = require('./' . $sourceFile);
+        $this->setHandler($handler);
+        $handler->getApp()->run();
+    }
 
-	/**
-	 * @copydoc PKPRouter::url()
-	 */
-	function url($request, $newContext = null, $endpoint = null, $op = null, $path = null,
-			$params = null, $anchor = null, $escape = false) {
+    /**
+     * Get the requested operation
+     *
+     * @param $request PKPRequest
+     *
+     * @return string
+     */
+    public function getRequestedOp($request)
+    {
+        $handler = $this->getHandler();
+        $container = $handler->getApp()->getContainer();
+        $router = $container->get('router');
+        $slimRequest = $handler->getSlimRequest();
+        $routeInfo = $router->dispatch($slimRequest);
+        if (isset($routeInfo[1])) {
+            $route = $router->lookupRoute($routeInfo[1]);
+            $callable = $route->getCallable();
+            if (is_array($callable) && count($callable) == 2) {
+                return $callable[1];
+            }
+        }
+        return '';
+    }
 
-		// APIHandlers do not understand $op, $path or $anchor. All routing is baked
-		// into the $endpoint string. It only accepts a string as the $newContext,
-		// since it relies on this when path info is disabled.
-		if (!is_null($op) || !is_null($path) || !is_null($anchor) || !is_scalar($newContext)) {
-			throw new Exception('APIRouter::url() should not be called with an op, path or anchor. If a new context is passed, the context path must be passed instead of the context object.');
-		}
+    /**
+     * @copydoc PKPRouter::handleAuthorizationFailure()
+     */
+    public function handleAuthorizationFailure(
+        $request,
+        $authorizationMessage,
+        array $messageParams = []
+    ) {
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
+        http_response_code('403');
+        header('Content-Type: application/json');
+        echo json_encode([
+            'error' => $authorizationMessage,
+            'errorMessage' => __($authorizationMessage, $messageParams),
+        ]);
+        exit;
+    }
 
-		//
-		// Base URL and Context
-		//
-		$baseUrlAndContext = $this->_urlGetBaseAndContext($request, $this->_urlCanonicalizeNewContext($newContext));
-		$baseUrl = array_shift($baseUrlAndContext);
-		$context = $baseUrlAndContext;
+    /**
+     * @copydoc PKPRouter::url()
+     *
+     * @param null|mixed $newContext
+     * @param null|mixed $endpoint
+     * @param null|mixed $op
+     * @param null|mixed $path
+     * @param null|mixed $params
+     * @param null|mixed $anchor
+     */
+    public function url(
+        $request,
+        $newContext = null,
+        $endpoint = null,
+        $op = null,
+        $path = null,
+        $params = null,
+        $anchor = null,
+        $escape = false
+    ) {
 
-		//
-		// Additional query parameters
-		//
-		$additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
+        // APIHandlers do not understand $op, $path or $anchor. All routing is baked
+        // into the $endpoint string. It only accepts a string as the $newContext,
+        // since it relies on this when path info is disabled.
+        if (!is_null($op) || !is_null($path) || !is_null($anchor) || !is_scalar($newContext)) {
+            throw new Exception('APIRouter::url() should not be called with an op, path or anchor. If a new context is passed, the context path must be passed instead of the context object.');
+        }
 
-		//
-		// Assemble URL
-		//
-		if ($request->isPathInfoEnabled()) {
-			// If path info is enabled, everything but params goes into the path
-			$pathInfoArray = array_merge(
-				$context,
-				['api',	API_VERSION, $endpoint]
-			);
-			$queryParametersArray = $additionalParameters;
-		} else {
-			// If path info is disabled, the context and endpoint must be passed as
-			// query params, and the context must be concatenated into the endpoint
-			$pathInfoArray = array();
-			$queryParametersArray = array_merge(
-				$context,
-				[sprintf('endpoint=/%s/api/%s/%s', $newContext, API_VERSION, $endpoint)],
-				$additionalParameters
-			);
-		}
+        //
+        // Base URL and Context
+        //
+        $baseUrlAndContext = $this->_urlGetBaseAndContext($request, $this->_urlCanonicalizeNewContext($newContext));
+        $baseUrl = array_shift($baseUrlAndContext);
+        $context = $baseUrlAndContext;
 
-		return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
-	}
+        //
+        // Additional query parameters
+        //
+        $additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
+
+        //
+        // Assemble URL
+        //
+        if ($request->isPathInfoEnabled()) {
+            // If path info is enabled, everything but params goes into the path
+            $pathInfoArray = array_merge(
+                $context,
+                ['api',	API_VERSION, $endpoint]
+            );
+            $queryParametersArray = $additionalParameters;
+        } else {
+            // If path info is disabled, the context and endpoint must be passed as
+            // query params, and the context must be concatenated into the endpoint
+            $pathInfoArray = [];
+            $queryParametersArray = array_merge(
+                $context,
+                [sprintf('endpoint=/%s/api/%s/%s', $newContext, API_VERSION, $endpoint)],
+                $additionalParameters
+            );
+        }
+
+        return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\core\APIRouter', '\APIRouter');
 }

@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2020-08-11 18:27+0000\n"
+"PO-Revision-Date: 2021-02-01 13:53+0000\n"
 "Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
-"fr/>\n"
+"fr_FR/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1366,7 +1366,7 @@ msgid "navigation.management"
 msgstr "Gestion"
 
 msgid "navigation.access"
-msgstr "Utilisateurs &amp; Rôles"
+msgstr "Utilisateurs/Utilisatrices &amp; Rôles"
 
 msgid "navigation.admin"
 msgstr "Administration"
@@ -1503,9 +1503,8 @@ msgstr "Recherché à nouveau"
 msgid "search.SearchFor"
 msgstr "Recherche pour"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Assurer un examen aveugle"
+msgstr "Comment s'assurer que l'ensemble des fichiers soient anonymisés"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Lire la politique actuelle concernant la révision"
@@ -1519,23 +1518,21 @@ msgstr "L'utilisateur actuel n'a pas accès au fichier de soumission spécifié.
 msgid "user.authorization.submissionAuthor"
 msgstr "L'utilisateur actuel n'est pas l'auteur de la soumission demandée. Veuillez vous assurer d'avoir ouvert une session avec le compte d'utilisateur approprié."
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>Afin d'assurer l'intégrité de l'évaluation par les pairs en double-"
-"aveugle des soumissions envoyées à cette revue, tous les efforts possibles "
-"devraient être faits pour éviter de révéler l'identité des auteurs et "
-"auteures et des évaluateurs et évaluatrices Cela implique que les auteurs et "
-"auteures, éditeurs et éditrices et évaluateurs et évaluatrices (qui "
-"téléversent des documents dans le cadre de leur évaluation) vérifient si les "
-"étapes suivantes ont été prises en ce qui concerne le texte et les "
-"propriétés du fichier :</p>\n"
-"<ul><li>Supprimer le nom de l'auteur ou auteure du texte. Dans la "
-"bibliographie et dans les notes en bas de page, on utilise le mot  « "
-"Auteur(-e) » et l'année au lieu du nom de l'auteur-e, du titre de l'article, "
-"etc.</li>\n"
-"<li>L'identification de l'auteur ou auteure ne doit plus apparaître dans les "
-"propriétés du fichier en suivant les étapes suivantes :\n"
+"<p>Afin d'assurer l'intégrité de l'évaluation anonyme par les pairs, tous "
+"les efforts possibles devraient être faits pour éviter de révéler l'identité "
+"des auteurs et autrices et des évaluateurs et évaluatrices .Cela implique "
+"que les auteurs et autrices, éditeurs et éditrices et évaluateurs et "
+"évaluatrices (qui téléversent des documents dans le cadre de leur évaluation)"
+" vérifient si les étapes suivantes ont été prises en ce qui concerne le "
+"texte et les propriétés du fichier :</p>\n"
+"<ul><li>Les auteurs ou autrices du document ont supprimé leurs noms du "
+"texte, avec l'indication « auteur » et l'année utilisées dans les références "
+"et les notes de bas de page en lieu du nom de l'auteur ou de l'autrice, du "
+"titre de l'article, etc.</li>\n"
+"<li>Les auteurs ou autrices du document ont retiré les informations "
+"personnelles des propriétés du fichier en suivant les étapes suivantes :\n"
 "<ul><li>Microsoft Word pour Windows :\n"
 "<ul><li>Aller à « Fichier »</li>\n"
 "<li>Sélectionner « Inspecter le document »</li>\n"
@@ -1607,7 +1604,9 @@ msgid "semicolon"
 msgstr "{$label} :"
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Envoyer un mail à tous les utilisateurs d'OJS"
+msgstr ""
+"Envoyer un courriel à ce sujet à l'ensemble des utilisatrices et "
+"utilisateurs enregistrés."
 
 msgid "stageParticipants.options"
 msgstr "Assignation de privilèges"
@@ -2060,3 +2059,57 @@ msgid "validator.alpha_dash"
 msgstr ""
 "Ceci ne peut contenir que des lettres, des chiffres, des tirets et des "
 "tirets bas."
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Options de confidentialité"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Vous n'avez pas accès à cette assignation d'évaluation."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Vous n'avez pas accès à ce message de la discussion."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discussion invalide."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Cycle d'évaluation invalide."
+
+msgid "user.email"
+msgstr "Adresse de courriel"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Comment s'assurer que l'ensemble des fichiers soient anonymisés"
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} éléments trouvés."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Un élément trouvé."
+
+msgid "navigation.backTo"
+msgstr "⟵ Revenir à {$page}"
+
+msgid "form.saved"
+msgstr "Enregistré"
+
+msgid "common.viewWithName"
+msgstr "Afficher {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Utilisatrice ou utilisateur inexistant]"
+
+msgid "common.addFile"
+msgstr "Ajouter un fichier"
+
+msgid "common.selectWithName"
+msgstr "Sélectionner {$name}"
+
+msgid "common.editItem"
+msgstr "Modifier {$name}"
+
+msgid "common.inactive"
+msgstr "Inactif"

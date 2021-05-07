@@ -2,8 +2,8 @@
 /**
  * @file classes/filter/FilterGroup.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FilterGroup
@@ -39,93 +39,114 @@
  * contributions to certain filter groups (e.g. citation parsers).
  */
 
+namespace PKP\filter;
 
-import('lib.pkp.classes.core.DataObject');
+class FilterGroup extends \PKP\core\DataObject
+{
+    //
+    // Setters and Getters
+    //
+    /**
+     * Set the symbolic name
+     *
+     * @param $symbolic string
+     */
+    public function setSymbolic($symbolic)
+    {
+        $this->setData('symbolic', $symbolic);
+    }
 
-class FilterGroup extends DataObject {
+    /**
+     * Get the symbolic name
+     *
+     * @return string
+     */
+    public function getSymbolic()
+    {
+        return $this->getData('symbolic');
+    }
 
-	//
-	// Setters and Getters
-	//
-	/**
-	 * Set the symbolic name
-	 * @param $symbolic string
-	 */
-	function setSymbolic($symbolic) {
-		$this->setData('symbolic', $symbolic);
-	}
+    /**
+     * Set the display name
+     *
+     * @param $displayName string
+     */
+    public function setDisplayName($displayName)
+    {
+        $this->setData('displayName', $displayName);
+    }
 
-	/**
-	 * Get the symbolic name
-	 * @return string
-	 */
-	function getSymbolic() {
-		return $this->getData('symbolic');
-	}
+    /**
+     * Get the display name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->getData('displayName');
+    }
 
-	/**
-	 * Set the display name
-	 * @param $displayName string
-	 */
-	function setDisplayName($displayName) {
-		$this->setData('displayName', $displayName);
-	}
+    /**
+     * Set the description
+     *
+     * @param $description string
+     */
+    public function setDescription($description)
+    {
+        $this->setData('description', $description);
+    }
 
-	/**
-	 * Get the display name
-	 * @return string
-	 */
-	function getDisplayName() {
-		return $this->getData('displayName');
-	}
+    /**
+     * Get the description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->getData('description');
+    }
 
-	/**
-	 * Set the description
-	 * @param $description string
-	 */
-	function setDescription($description) {
-		$this->setData('description', $description);
-	}
+    /**
+     * Set the input type
+     *
+     * @param $inputType string a string representation of a TypeDescription
+     */
+    public function setInputType($inputType)
+    {
+        $this->setData('inputType', $inputType);
+    }
 
-	/**
-	 * Get the description
-	 * @return string
-	 */
-	function getDescription() {
-		return $this->getData('description');
-	}
+    /**
+     * Get the input type
+     *
+     * @return string a string representation of a TypeDescription
+     */
+    public function getInputType()
+    {
+        return $this->getData('inputType');
+    }
 
-	/**
-	 * Set the input type
-	 * @param $inputType string a string representation of a TypeDescription
-	 */
-	function setInputType($inputType) {
-		$this->setData('inputType', $inputType);
-	}
+    /**
+     * Set the output type
+     *
+     * @param $outputType string a string representation of a TypeDescription
+     */
+    public function setOutputType($outputType)
+    {
+        $this->setData('outputType', $outputType);
+    }
 
-	/**
-	 * Get the input type
-	 * @return string a string representation of a TypeDescription
-	 */
-	function getInputType() {
-		return $this->getData('inputType');
-	}
-
-	/**
-	 * Set the output type
-	 * @param $outputType string a string representation of a TypeDescription
-	 */
-	function setOutputType($outputType) {
-		$this->setData('outputType', $outputType);
-	}
-
-	/**
-	 * Get the output type
-	 * @return string a string representation of a TypeDescription
-	 */
-	function getOutputType() {
-		return $this->getData('outputType');
-	}
-
+    /**
+     * Get the output type
+     *
+     * @return string a string representation of a TypeDescription
+     */
+    public function getOutputType()
+    {
+        return $this->getData('outputType');
+    }
 }
 
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\filter\FilterGroup', '\FilterGroup');
+}

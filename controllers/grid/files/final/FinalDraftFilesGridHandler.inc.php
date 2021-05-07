@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/final/FinalDraftFilesGridHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FinalDraftFilesGridHandler
@@ -15,47 +15,52 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
-class FinalDraftFilesGridHandler extends FileListGridHandler {
-	/**
-	 * Constructor
-	 *  FILE_GRID_* capabilities set.
-	 */
-	function __construct() {
-		import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
-		parent::__construct(
-			new FinalDraftFilesGridDataProvider(),
-			null,
-			FILE_GRID_DELETE|FILE_GRID_EDIT|FILE_GRID_MANAGE|FILE_GRID_VIEW_NOTES
-		);
-		$this->addRoleAssignment(
-			array(
-				ROLE_ID_SUB_EDITOR,
-				ROLE_ID_MANAGER,
-				ROLE_ID_ASSISTANT
-			),
-			array(
-				'fetchGrid', 'fetchRow', 'selectFiles'
-			)
-		);
+use PKP\core\JSONMessage;
 
-		$this->setTitle('submission.finalDraft');
-	}
+class FinalDraftFilesGridHandler extends FileListGridHandler
+{
+    /**
+     * Constructor
+     *  FILE_GRID_* capabilities set.
+     */
+    public function __construct()
+    {
+        import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
+        parent::__construct(
+            new FinalDraftFilesGridDataProvider(),
+            null,
+            FILE_GRID_DELETE | FILE_GRID_EDIT | FILE_GRID_MANAGE | FILE_GRID_VIEW_NOTES
+        );
+        $this->addRoleAssignment(
+            [
+                ROLE_ID_SUB_EDITOR,
+                ROLE_ID_MANAGER,
+                ROLE_ID_ASSISTANT
+            ],
+            [
+                'fetchGrid', 'fetchRow', 'selectFiles'
+            ]
+        );
 
-	//
-	// Public handler methods
-	//
-	/**
-	 * Show the form to allow the user to select files from previous stages
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function selectFiles($args, $request) {
-		import('lib.pkp.controllers.grid.files.final.form.ManageFinalDraftFilesForm');
-		$manageFinalDraftFilesForm = new ManageFinalDraftFilesForm($this->getSubmission()->getId());
-		$manageFinalDraftFilesForm->initData();
-		return new JSONMessage(true, $manageFinalDraftFilesForm->fetch($request));
-	}
+        $this->setTitle('submission.finalDraft');
+    }
+
+    //
+    // Public handler methods
+    //
+    /**
+     * Show the form to allow the user to select files from previous stages
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function selectFiles($args, $request)
+    {
+        import('lib.pkp.controllers.grid.files.final.form.ManageFinalDraftFilesForm');
+        $manageFinalDraftFilesForm = new ManageFinalDraftFilesForm($this->getSubmission()->getId());
+        $manageFinalDraftFilesForm->initData();
+        return new JSONMessage(true, $manageFinalDraftFilesForm->fetch($request));
+    }
 }
-
-

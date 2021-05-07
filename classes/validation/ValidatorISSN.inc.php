@@ -3,30 +3,36 @@
 /**
  * @file classes/validation/ValidatorISSN.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorISSN
  * @ingroup validation
+ *
  * @see Validator
  *
  * @brief Validation check for ISSNs.
  */
 
-import('lib.pkp.classes.validation.Validator');
-import('lib.pkp.classes.validation.ValidatorFactory');
+namespace PKP\validation;
 
-class ValidatorISSN extends Validator {
-	/**
-	 * @copydoc Validator::isValid()
-	 */
-	function isValid($value) {
-		$validator = \ValidatorFactory::make(
-			['value' => $value],
-			['value' => ['required', 'issn']]
-		);
+class ValidatorISSN extends Validator
+{
+    /**
+     * @copydoc Validator::isValid()
+     */
+    public function isValid($value)
+    {
+        $validator = ValidatorFactory::make(
+            ['value' => $value],
+            ['value' => ['required', 'issn']]
+        );
 
-		return $validator->passes();
-	}
+        return $validator->passes();
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\validation\ValidatorISSN', '\ValidatorISSN');
 }

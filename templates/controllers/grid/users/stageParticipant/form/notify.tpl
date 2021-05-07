@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/users/stageParticipant/form/notify.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Display a form to notify other users about this file.
@@ -13,7 +13,7 @@
 		$('#notifyForm').pkpHandler(
 			'$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler',
 			{ldelim}
-				templateUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false}
+				templateUrl: {url|json_encode router=PKPApplication::ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false}
 			{rdelim}
 		);
 	{rdelim});

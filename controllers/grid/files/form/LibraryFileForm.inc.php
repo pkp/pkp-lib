@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/form/LibraryFileForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileForm
@@ -13,60 +13,71 @@
  * @brief Form for adding/editing a file
  */
 
-import('lib.pkp.classes.form.Form');
-import('classes.file.LibraryFileManager');
+use APP\file\LibraryFileManager;
 
-class LibraryFileForm extends Form {
-	/** the id of the context this library file is attached to */
-	var $contextId;
+use APP\template\TemplateManager;
+use PKP\form\Form;
 
-	/** the library file manager instantiated in this form. */
-	var $libraryFileManager;
+class LibraryFileForm extends Form
+{
+    /** the id of the context this library file is attached to */
+    public $contextId;
 
-	/**
-	 * Constructor.
-	 * @param $template string
-	 * @param $contextId int
-	 */
-	function __construct($template, $contextId) {
-		$this->contextId = $contextId;
+    /** the library file manager instantiated in this form. */
+    public $libraryFileManager;
 
-		parent::__construct($template);
-		$this->libraryFileManager = $libraryFileManager = new LibraryFileManager($contextId);
+    /**
+     * Constructor.
+     *
+     * @param $template string
+     * @param $contextId int
+     */
+    public function __construct($template, $contextId)
+    {
+        $this->contextId = $contextId;
 
-		$this->addCheck(new FormValidatorLocale($this, 'libraryFileName', 'required', 'settings.libraryFiles.nameRequired'));
-		$this->addCheck(new FormValidatorCustom(
-			$this, 'fileType', 'required', 'settings.libraryFiles.typeRequired',
-			function($type) use ($libraryFileManager) {
-				return is_numeric($type) && $libraryFileManager->getNameFromType($type);
-			}
-		));
+        parent::__construct($template);
+        $this->libraryFileManager = $libraryFileManager = new LibraryFileManager($contextId);
 
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
-	}
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'libraryFileName', 'required', 'settings.libraryFiles.nameRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom(
+            $this,
+            'fileType',
+            'required',
+            'settings.libraryFiles.typeRequired',
+            function ($type) use ($libraryFileManager) {
+                return is_numeric($type) && $libraryFileManager->getNameFromType($type);
+            }
+        ));
 
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+    }
 
-		// load the file types for the selector on the form.
-		$templateMgr = TemplateManager::getManager($request);
-		$fileTypeKeys = $this->libraryFileManager->getTypeTitleKeyMap();
-		$templateMgr->assign('fileTypes', $fileTypeKeys);
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
-		return parent::fetch($request, $template, $display);
-	}
+        // load the file types for the selector on the form.
+        $templateMgr = TemplateManager::getManager($request);
+        $fileTypeKeys = $this->libraryFileManager->getTypeTitleKeyMap();
+        $templateMgr->assign('fileTypes', $fileTypeKeys);
 
-	/**
-	 * Assign form data to user-submitted data.
-	 * @see Form::readInputData()
-	 */
-	function readInputData() {
-		$this->readUserVars(array('libraryFileName', 'fileType', 'publicAccess'));
-	}
+        return parent::fetch($request, $template, $display);
+    }
+
+    /**
+     * Assign form data to user-submitted data.
+     *
+     * @see Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $this->readUserVars(['libraryFileName', 'fileType', 'publicAccess']);
+    }
 }
-
-

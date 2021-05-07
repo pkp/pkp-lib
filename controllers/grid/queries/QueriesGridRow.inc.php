@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesGridRow.inc.php
  *
- * Copyright (c) 2016-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2016-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridRow
@@ -15,111 +15,126 @@
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class QueriesGridRow extends GridRow {
-	/** @var Submission **/
-	var $_submission;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 
-	/** @var int **/
-	var $_stageId;
+class QueriesGridRow extends GridRow
+{
+    /** @var Submission **/
+    public $_submission;
 
-	/** @var QueriesAccessHelper */
+    /** @var int **/
+    public $_stageId;
 
-	/**
-	 * Constructor
-	 * @param $submission Submission
-	 * @param $stageId int
-	 * @param $queriesAccessHelper QueriesAccessHelper
-	 */
-	function __construct($submission, $stageId, $queriesAccessHelper) {
-		$this->_submission = $submission;
-		$this->_stageId = $stageId;
-		$this->_queriesAccessHelper = $queriesAccessHelper;
+    /** @var QueriesAccessHelper */
 
-		parent::__construct();
-	}
+    /**
+     * Constructor
+     *
+     * @param $submission Submission
+     * @param $stageId int
+     * @param $queriesAccessHelper QueriesAccessHelper
+     */
+    public function __construct($submission, $stageId, $queriesAccessHelper)
+    {
+        $this->_submission = $submission;
+        $this->_stageId = $stageId;
+        $this->_queriesAccessHelper = $queriesAccessHelper;
 
-	//
-	// Overridden methods from GridRow
-	//
-	/**
-	 * @copydoc GridRow::initialize()
-	 */
-	function initialize($request, $template = null) {
-		// Do the default initialization
-		parent::initialize($request, $template);
+        parent::__construct();
+    }
 
-		// Retrieve the submission from the request
-		$submission = $this->getSubmission();
+    //
+    // Overridden methods from GridRow
+    //
+    /**
+     * @copydoc GridRow::initialize()
+     *
+     * @param null|mixed $template
+     */
+    public function initialize($request, $template = null)
+    {
+        // Do the default initialization
+        parent::initialize($request, $template);
 
-		// Is this a new row or an existing row?
-		$rowId = $this->getId();
-		if (!empty($rowId) && is_numeric($rowId)) {
-			// Only add row actions if this is an existing row
-			$router = $request->getRouter();
-			$actionArgs = $this->getRequestArgs();
-			$actionArgs['queryId'] = $rowId;
+        // Retrieve the submission from the request
+        $submission = $this->getSubmission();
 
-			// Add row-level actions
-			if ($this->_queriesAccessHelper->getCanEdit($rowId)) {
-				import('lib.pkp.classes.linkAction.request.AjaxModal');
-				$this->addAction(
-					new LinkAction(
-						'editQuery',
-						new AjaxModal(
-							$router->url($request, null, null, 'editQuery', null, $actionArgs),
-							__('grid.action.updateQuery'),
-							'modal_edit'
-						),
-						__('grid.action.edit'),
-						'edit'
-					)
-				);
-			}
+        // Is this a new row or an existing row?
+        $rowId = $this->getId();
+        if (!empty($rowId) && is_numeric($rowId)) {
+            // Only add row actions if this is an existing row
+            $router = $request->getRouter();
+            $actionArgs = $this->getRequestArgs();
+            $actionArgs['queryId'] = $rowId;
 
-			if ($this->_queriesAccessHelper->getCanDelete($rowId)) {
-				import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-				$this->addAction(
-					new LinkAction(
-						'deleteQuery',
-						new RemoteActionConfirmationModal(
-							$request->getSession(),
-							__('common.confirmDelete'),
-							__('grid.action.delete'),
-							$router->url($request, null, null, 'deleteQuery', null, $actionArgs), 'modal_delete'),
-						__('grid.action.delete'),
-						'delete')
-				);
-			}
-		}
-	}
+            // Add row-level actions
+            if ($this->_queriesAccessHelper->getCanEdit($rowId)) {
+                $this->addAction(
+                    new LinkAction(
+                        'editQuery',
+                        new AjaxModal(
+                            $router->url($request, null, null, 'editQuery', null, $actionArgs),
+                            __('grid.action.updateQuery'),
+                            'modal_edit'
+                        ),
+                        __('grid.action.edit'),
+                        'edit'
+                    )
+                );
+            }
 
-	/**
-	 * Get the submission for this row (already authorized)
-	 * @return Submission
-	 */
-	function getSubmission() {
-		return $this->_submission;
-	}
+            if ($this->_queriesAccessHelper->getCanDelete($rowId)) {
+                $this->addAction(
+                    new LinkAction(
+                        'deleteQuery',
+                        new RemoteActionConfirmationModal(
+                            $request->getSession(),
+                            __('common.confirmDelete'),
+                            __('grid.action.delete'),
+                            $router->url($request, null, null, 'deleteQuery', null, $actionArgs),
+                            'modal_delete'
+                        ),
+                        __('grid.action.delete'),
+                        'delete'
+                    )
+                );
+            }
+        }
+    }
 
-	/**
-	 * Get the stageId
-	 * @return int
-	 */
-	function getStageId() {
-		return $this->_stageId;
-	}
+    /**
+     * Get the submission for this row (already authorized)
+     *
+     * @return Submission
+     */
+    public function getSubmission()
+    {
+        return $this->_submission;
+    }
 
-	/**
-	 * Get the base arguments that will identify the data in the grid.
-	 * @return array
-	 */
-	function getRequestArgs() {
-		$submission = $this->getSubmission();
-		return array(
-			'submissionId' => $submission->getId(),
-			'stageId' => $this->getStageId(),
-		);
-	}
+    /**
+     * Get the stageId
+     *
+     * @return int
+     */
+    public function getStageId()
+    {
+        return $this->_stageId;
+    }
+
+    /**
+     * Get the base arguments that will identify the data in the grid.
+     *
+     * @return array
+     */
+    public function getRequestArgs()
+    {
+        $submission = $this->getSubmission();
+        return [
+            'submissionId' => $submission->getId(),
+            'stageId' => $this->getStageId(),
+        ];
+    }
 }
-
-

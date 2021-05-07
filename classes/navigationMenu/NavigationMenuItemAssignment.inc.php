@@ -3,12 +3,13 @@
 /**
  * @file classes/navigationMenu/NavigationMenuItemAssignment.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItemAssignment
  * @ingroup navigationMenu
+ *
  * @see NavigationMenuItemAssignmentDAO
  *
  * @brief Basic class describing a NavigationMenuItemAssignment. Each
@@ -16,125 +17,154 @@
  *  including it's position and if it's nested within another NavigationMenuItem
  */
 
-class NavigationMenuItemAssignment extends DataObject {
-	/** @var $navigationMenuItem NavigationMenuItem The object this assignment refers to */
-	var $navigationMenuItem = null;
+namespace PKP\navigationMenu;
 
-	/** @var $children array List of NavigationMenuItem objects nested under this one. */
-	var $children = array();
+class NavigationMenuItemAssignment extends \PKP\core\DataObject
+{
+    /** @var NavigationMenuItem $navigationMenuItem The object this assignment refers to */
+    public $navigationMenuItem = null;
 
-	//
-	// Get/set methods
-	//
-	/**
-	 * Get menuId for this navigation menu item assignment.
-	 * @return int
-	 */
-	public function getMenuId() {
-		return $this->getData('menuId');
-	}
+    /** @var array $children List of NavigationMenuItem objects nested under this one. */
+    public $children = [];
 
-	/**
-	 * Set menuId for this navigation menu item assignment.
-	 * @param $menuId int
-	 */
-	public function setMenuId($menuId) {
-		$this->setData('menuId', $menuId);
-	}
+    //
+    // Get/set methods
+    //
+    /**
+     * Get menuId for this navigation menu item assignment.
+     *
+     * @return int
+     */
+    public function getMenuId()
+    {
+        return $this->getData('menuId');
+    }
 
-	/**
-	 * Get menuItemId for this navigation menu item assignment.
-	 * @return int
-	 */
-	public function getMenuItemId() {
-		return $this->getData('menuItemId');
-	}
+    /**
+     * Set menuId for this navigation menu item assignment.
+     *
+     * @param $menuId int
+     */
+    public function setMenuId($menuId)
+    {
+        $this->setData('menuId', $menuId);
+    }
 
-	/**
-	 * Set menuItemId for this navigation menu item assignment.
-	 * @param $menuItemId int
-	 */
-	public function setMenuItemId($menuItemId) {
-		$this->setData('menuItemId', $menuItemId);
-	}
+    /**
+     * Get menuItemId for this navigation menu item assignment.
+     *
+     * @return int
+     */
+    public function getMenuItemId()
+    {
+        return $this->getData('menuItemId');
+    }
 
-	/**
-	 * Get parent menu item ID
-	 * @return int
-	 */
-	public function getParentId() {
-		return $this->getData('parentId');
-	}
+    /**
+     * Set menuItemId for this navigation menu item assignment.
+     *
+     * @param $menuItemId int
+     */
+    public function setMenuItemId($menuItemId)
+    {
+        $this->setData('menuItemId', $menuItemId);
+    }
 
-	/**
-	 * Set parent menu item ID
-	 * @param $parentId int
-	 */
-	public function setParentId($parentId) {
-		$this->setData('parentId', $parentId);
-	}
+    /**
+     * Get parent menu item ID
+     *
+     * @return int
+     */
+    public function getParentId()
+    {
+        return $this->getData('parentId');
+    }
 
-	/**
-	 * Get seq for this navigation menu item.
-	 * @return int
-	 */
-	public function getSequence() {
-		return $this->getData('seq');
-	}
+    /**
+     * Set parent menu item ID
+     *
+     * @param $parentId int
+     */
+    public function setParentId($parentId)
+    {
+        $this->setData('parentId', $parentId);
+    }
 
-	/**
-	 * Set seq for this navigation menu item.
-	 * @param $seq int
-	 */
-	public function setSequence($seq) {
-		$this->setData('seq', $seq);
-	}
+    /**
+     * Get seq for this navigation menu item.
+     *
+     * @return int
+     */
+    public function getSequence()
+    {
+        return $this->getData('seq');
+    }
 
-	/**
-	 * Get the NavigationMenuItem this assignment represents.
-	 *
-	 * This object is only available in some cases, when the NavigationMenuItem
-	 * has been stored for re-use.
-	 *
-	 * @return int
-	 */
-	public function getMenuItem() {
-		return $this->navigationMenuItem;
-	}
+    /**
+     * Set seq for this navigation menu item.
+     *
+     * @param $seq int
+     */
+    public function setSequence($seq)
+    {
+        $this->setData('seq', $seq);
+    }
 
-	/**
-	 * Set the NavigationMenuItem this assignment represents
-	 * @param $seq int
-	 */
-	public function setMenuItem($obj) {
-		$this->navigationMenuItem = is_a($obj, 'NavigationMenuItem') ? $obj : null;
-	}
+    /**
+     * Get the NavigationMenuItem this assignment represents.
+     *
+     * This object is only available in some cases, when the NavigationMenuItem
+     * has been stored for re-use.
+     *
+     * @return int
+     */
+    public function getMenuItem()
+    {
+        return $this->navigationMenuItem;
+    }
 
-	/**
-	 * Get the title of the object.
-	 * @return string
-	 */
-	function getLocalizedTitle() {
-		return $this->getLocalizedData('title');
-	}
+    /**
+     * Set the NavigationMenuItem this assignment represents
+     */
+    public function setMenuItem($obj)
+    {
+        $this->navigationMenuItem = is_a($obj, 'NavigationMenuItem') ? $obj : null;
+    }
 
-	/**
-	 * Get the title of the object.
-	 * @param $locale string
-	 * @return string
-	 */
-	function getTitle($locale) {
-		return $this->getData('title', $locale);
-	}
+    /**
+     * Get the title of the object.
+     *
+     * @return string
+     */
+    public function getLocalizedTitle()
+    {
+        return $this->getLocalizedData('title');
+    }
 
-	/**
-	 * Set the title of the object.
-	 * @param $title string
-	 * @param $locale string
-	 */
-	function setTitle($title, $locale) {
-		$this->setData('title', $title, $locale);
-	}
+    /**
+     * Get the title of the object.
+     *
+     * @param $locale string
+     *
+     * @return string
+     */
+    public function getTitle($locale)
+    {
+        return $this->getData('title', $locale);
+    }
+
+    /**
+     * Set the title of the object.
+     *
+     * @param $title string
+     * @param $locale string
+     */
+    public function setTitle($title, $locale)
+    {
+        $this->setData('title', $title, $locale);
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\navigationMenu\NavigationMenuItemAssignment', '\NavigationMenuItemAssignment');
+}

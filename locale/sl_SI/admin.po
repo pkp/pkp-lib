@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2020-01-18 18:35+0000\n"
+"PO-Revision-Date: 2021-01-30 01:41+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"sl/>\n"
+"sl_SI/>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -313,3 +313,15 @@ msgstr "Ste prepričani, da želite spremeniti primarni jezik revije? Uporabniš
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Objavi prispevke načrtovane za objavo"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "To nastavitev lahko spreminja le administrator."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Onemogoči vloge"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Omeji masovne emaile"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Masovni emaili"

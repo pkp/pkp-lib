@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2020-12-12 08:52+0000\n"
+"PO-Revision-Date: 2021-04-07 23:27+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi_FI/>\n"
@@ -581,6 +581,12 @@ msgstr "Rajaa tuloksia maan, alueen ja/tai kaupungin mukaan."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Tukija"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Julkaisevan organisaation nimi saatetaan sisällyttää metatietoihin, jotka annetaan ulkopuolisille arkistointielimille."
+
+msgid "manager.setup.publishing"
+msgstr "Julkaisua koskevat tiedot"
 
 msgid "manager.setup.additionalContent"
 msgstr "Lisäsisältö"
@@ -2148,3 +2154,17 @@ msgstr "Alkuperäiset sähköpostipohjat palautettu."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Poista ilmoitus"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Kieliasetuksia ei voitu tallentaa. Vähintään yhden kielen kaikki valinnat "
+"tulee olla päällä"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Muut pohjat"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "VIRHE:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Annettua lehden polkua, \"{$contextPath}\", ei löydy."

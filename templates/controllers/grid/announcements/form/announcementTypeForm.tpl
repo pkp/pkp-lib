@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/announcements/form/announcementTypeForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form to read/create/edit announcement types.
@@ -15,7 +15,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="announcementTypeForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="updateAnnouncementType"}">
+<form class="pkp_form" id="announcementTypeForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="updateAnnouncementType"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="announcementTypeFormNotification"}
 	{fbvFormArea id="announcementTypeInfo"}

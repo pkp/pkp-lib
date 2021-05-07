@@ -3,287 +3,367 @@
 /**
  * @file classes/site/Version.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Version
  * @ingroup site
+ *
  * @see VersionDAO
  *
  * @brief Describes system version history.
  */
 
+namespace PKP\site;
 
-class Version extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct($major, $minor, $revision, $build, $dateInstalled, $current,
-			$productType, $product, $productClassName, $lazyLoad, $sitewide) {
+use APP\core\Application;
 
-		parent::__construct();
+use PKP\core\Core;
 
-		// Initialize object
-		$this->setMajor($major);
-		$this->setMinor($minor);
-		$this->setRevision($revision);
-		$this->setBuild($build);
-		$this->setDateInstalled($dateInstalled);
-		$this->setCurrent($current);
-		$this->setProductType($productType);
-		$this->setProduct($product);
-		$this->setProductClassName($productClassName);
-		$this->setLazyLoad($lazyLoad);
-		$this->setSitewide($sitewide);
-	}
+class Version extends \PKP\core\DataObject
+{
+    /**
+     * Constructor.
+     */
+    public function __construct(
+        $major,
+        $minor,
+        $revision,
+        $build,
+        $dateInstalled,
+        $current,
+        $productType,
+        $product,
+        $productClassName,
+        $lazyLoad,
+        $sitewide
+    ) {
+        parent::__construct();
 
-	/**
-	 * Compare this version with another version.
-	 * Returns:
-	 *     < 0 if this version is lower
-	 *     0 if they are equal
-	 *     > 0 if this version is higher
-	 * @param $version string/Version the version to compare against
-	 * @return int
-	 */
-	function compare($version) {
-		if (is_object($version)) {
-			return $this->compare($version->getVersionString());
-		}
-		return version_compare($this->getVersionString(), $version);
-	}
+        // Initialize object
+        $this->setMajor($major);
+        $this->setMinor($minor);
+        $this->setRevision($revision);
+        $this->setBuild($build);
+        $this->setDateInstalled($dateInstalled);
+        $this->setCurrent($current);
+        $this->setProductType($productType);
+        $this->setProduct($product);
+        $this->setProductClassName($productClassName);
+        $this->setLazyLoad($lazyLoad);
+        $this->setSitewide($sitewide);
+    }
 
-	/**
-	 * Static method to return a new version from a version string of the form "W.X.Y.Z".
-	 * @param $versionString string
-	 * @param $productType string
-	 * @param $product string
-	 * @param $productClass string
-	 * @param $lazyLoad integer
-	 * @param $sitewide integer
-	 * @return Version
-	 */
-	static function fromString($versionString, $productType = null, $product = null, $productClass = '', $lazyLoad = 0, $sitewide = 1) {
-		$versionArray = explode('.', $versionString);
+    /**
+     * Compare this version with another version.
+     * Returns:
+     *     < 0 if this version is lower
+     *     0 if they are equal
+     *     > 0 if this version is higher
+     *
+     * @param $version string/Version the version to compare against
+     *
+     * @return int
+     */
+    public function compare($version)
+    {
+        if (is_object($version)) {
+            return $this->compare($version->getVersionString());
+        }
+        return version_compare($this->getVersionString(), $version);
+    }
 
-		if(!$product && !$productType) {
-			$application = Application::get();
-			$product = $application->getName();
-			$productType = 'core';
-		}
+    /**
+     * Static method to return a new version from a version string of the form "W.X.Y.Z".
+     *
+     * @param $versionString string
+     * @param $productType string
+     * @param $product string
+     * @param $productClass string
+     * @param $lazyLoad integer
+     * @param $sitewide integer
+     *
+     * @return Version
+     */
+    public static function fromString($versionString, $productType = null, $product = null, $productClass = '', $lazyLoad = 0, $sitewide = 1)
+    {
+        $versionArray = explode('.', $versionString);
 
-		$version = new Version(
-			(isset($versionArray[0]) ? (int) $versionArray[0] : 0),
-			(isset($versionArray[1]) ? (int) $versionArray[1] : 0),
-			(isset($versionArray[2]) ? (int) $versionArray[2] : 0),
-			(isset($versionArray[3]) ? (int) $versionArray[3] : 0),
-			Core::getCurrentDate(),
-			1,
-			$productType,
-			$product,
-			$productClass,
-			$lazyLoad,
-			$sitewide
-		);
+        if (!$product && !$productType) {
+            $application = Application::get();
+            $product = $application->getName();
+            $productType = 'core';
+        }
 
-		return $version;
-	}
+        $version = new Version(
+            (isset($versionArray[0]) ? (int) $versionArray[0] : 0),
+            (isset($versionArray[1]) ? (int) $versionArray[1] : 0),
+            (isset($versionArray[2]) ? (int) $versionArray[2] : 0),
+            (isset($versionArray[3]) ? (int) $versionArray[3] : 0),
+            Core::getCurrentDate(),
+            1,
+            $productType,
+            $product,
+            $productClass,
+            $lazyLoad,
+            $sitewide
+        );
 
-	//
-	// Get/set methods
-	//
+        return $version;
+    }
 
-	/**
-	 * Get major version.
-	 * @return int
-	 */
-	function getMajor() {
-		return $this->getData('major');
-	}
+    //
+    // Get/set methods
+    //
 
-	/**
-	 * Set major version.
-	 * @param $major int
-	 */
-	function setMajor($major) {
-		$this->setData('major', $major);
-	}
+    /**
+     * Get major version.
+     *
+     * @return int
+     */
+    public function getMajor()
+    {
+        return $this->getData('major');
+    }
 
-	/**
-	 * Get minor version.
-	 * @return int
-	 */
-	function getMinor() {
-		return $this->getData('minor');
-	}
+    /**
+     * Set major version.
+     *
+     * @param $major int
+     */
+    public function setMajor($major)
+    {
+        $this->setData('major', $major);
+    }
 
-	/**
-	 * Set minor version.
-	 * @param $minor int
-	 */
-	function setMinor($minor) {
-		$this->setData('minor', $minor);
-	}
+    /**
+     * Get minor version.
+     *
+     * @return int
+     */
+    public function getMinor()
+    {
+        return $this->getData('minor');
+    }
 
-	/**
-	 * Get revision version.
-	 * @return int
-	 */
-	function getRevision() {
-		return $this->getData('revision');
-	}
+    /**
+     * Set minor version.
+     *
+     * @param $minor int
+     */
+    public function setMinor($minor)
+    {
+        $this->setData('minor', $minor);
+    }
 
-	/**
-	 * Set revision version.
-	 * @param $revision int
-	 */
-	function setRevision($revision) {
-		$this->setData('revision', $revision);
-	}
+    /**
+     * Get revision version.
+     *
+     * @return int
+     */
+    public function getRevision()
+    {
+        return $this->getData('revision');
+    }
 
-	/**
-	 * Get build version.
-	 * @return int
-	 */
-	function getBuild() {
-		return $this->getData('build');
-	}
+    /**
+     * Set revision version.
+     *
+     * @param $revision int
+     */
+    public function setRevision($revision)
+    {
+        $this->setData('revision', $revision);
+    }
 
-	/**
-	 * Set build version.
-	 * @param $build int
-	 */
-	function setBuild($build) {
-		$this->setData('build', $build);
-	}
+    /**
+     * Get build version.
+     *
+     * @return int
+     */
+    public function getBuild()
+    {
+        return $this->getData('build');
+    }
 
-	/**
-	 * Get date installed.
-	 * @return date
-	 */
-	function getDateInstalled() {
-		return $this->getData('dateInstalled');
-	}
+    /**
+     * Set build version.
+     *
+     * @param $build int
+     */
+    public function setBuild($build)
+    {
+        $this->setData('build', $build);
+    }
 
-	/**
-	 * Set date installed.
-	 * @param $dateInstalled date
-	 */
-	function setDateInstalled($dateInstalled) {
-		$this->setData('dateInstalled', $dateInstalled);
-	}
+    /**
+     * Get date installed.
+     *
+     * @return date
+     */
+    public function getDateInstalled()
+    {
+        return $this->getData('dateInstalled');
+    }
 
-	/**
-	 * Check if current version.
-	 * @return int
-	 */
-	function getCurrent() {
-		return $this->getData('current');
-	}
+    /**
+     * Set date installed.
+     *
+     * @param $dateInstalled date
+     */
+    public function setDateInstalled($dateInstalled)
+    {
+        $this->setData('dateInstalled', $dateInstalled);
+    }
 
-	/**
-	 * Set if current version.
-	 * @param $current int
-	 */
-	function setCurrent($current) {
-		$this->setData('current', $current);
-	}
+    /**
+     * Check if current version.
+     *
+     * @return int
+     */
+    public function getCurrent()
+    {
+        return $this->getData('current');
+    }
 
-	/**
-	 * Get product type.
-	 * @return string
-	 */
-	function getProductType() {
-		return $this->getData('productType');
-	}
+    /**
+     * Set if current version.
+     *
+     * @param $current int
+     */
+    public function setCurrent($current)
+    {
+        $this->setData('current', $current);
+    }
 
-	/**
-	 * Set product type.
-	 * @param $productType string
-	 */
-	function setProductType($productType) {
-		$this->setData('productType', $productType);
-	}
+    /**
+     * Get product type.
+     *
+     * @return string
+     */
+    public function getProductType()
+    {
+        return $this->getData('productType');
+    }
 
-	/**
-	 * Get product name.
-	 * @return string
-	 */
-	function getProduct() {
-		return $this->getData('product');
-	}
+    /**
+     * Set product type.
+     *
+     * @param $productType string
+     */
+    public function setProductType($productType)
+    {
+        $this->setData('productType', $productType);
+    }
 
-	/**
-	 * Set product name.
-	 * @param $product string
-	 */
-	function setProduct($product) {
-		$this->setData('product', $product);
-	}
+    /**
+     * Get product name.
+     *
+     * @return string
+     */
+    public function getProduct()
+    {
+        return $this->getData('product');
+    }
 
-	/**
-	 * Get the product's class name
-	 * @return string
-	 */
-	function getProductClassName() {
-		return $this->getData('productClassName');
-	}
+    /**
+     * Set product name.
+     *
+     * @param $product string
+     */
+    public function setProduct($product)
+    {
+        $this->setData('product', $product);
+    }
 
-	/**
-	 * Set the product's class name
-	 * @param $productClassName string
-	 */
-	function setProductClassName($productClassName) {
-		$this->setData('productClassName', $productClassName);
-	}
+    /**
+     * Get the product's class name
+     *
+     * @return string
+     */
+    public function getProductClassName()
+    {
+        return $this->getData('productClassName');
+    }
 
-	/**
-	 * Get the lazy load flag for this product
-	 * @return boolean
-	 */
-	function getLazyLoad() {
-		return $this->getData('lazyLoad');
-	}
+    /**
+     * Set the product's class name
+     *
+     * @param $productClassName string
+     */
+    public function setProductClassName($productClassName)
+    {
+        $this->setData('productClassName', $productClassName);
+    }
 
-	/**
-	 * Set the lazy load flag for this product
-	 * @param $lazyLoad boolean
-	 */
-	function setLazyLoad($lazyLoad) {
-		$this->setData('lazyLoad', $lazyLoad);
-	}
+    /**
+     * Get the lazy load flag for this product
+     *
+     * @return boolean
+     */
+    public function getLazyLoad()
+    {
+        return $this->getData('lazyLoad');
+    }
 
-	/**
-	 * Get the sitewide flag for this product
-	 * @return boolean
-	 */
-	function getSitewide() {
-		return $this->getData('sitewide');
-	}
+    /**
+     * Set the lazy load flag for this product
+     *
+     * @param $lazyLoad boolean
+     */
+    public function setLazyLoad($lazyLoad)
+    {
+        $this->setData('lazyLoad', $lazyLoad);
+    }
 
-	/**
-	 * Set the sitewide flag for this product
-	 * @param $sitewide boolean
-	 */
-	function setSitewide($sitewide) {
-		$this->setData('sitewide', $sitewide);
-	}
+    /**
+     * Get the sitewide flag for this product
+     *
+     * @return boolean
+     */
+    public function getSitewide()
+    {
+        return $this->getData('sitewide');
+    }
 
-	/**
-	 * Return complete version string.
-	 * @numeric boolean True (default) iff a numeric (comparable) version is to be returned.
-	 * @return string
-	 */
-	function getVersionString($numeric = true) {
-		$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
-		if (!$numeric && $this->getProduct() == 'omp' && preg_match('/^0\.9\.9\./', $numericVersion)) return ('1.0 Beta');
-		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.0\./', $numericVersion)) return ('3.0 Alpha 1');
-		if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.9\.0/', $numericVersion)) return ('3.0 Beta 1');
-		if (!$numeric && $this->getProduct() == 'ops' && preg_match('/^3\.2\.0\.0/', $numericVersion)) return ('3.2.0 Beta');
+    /**
+     * Set the sitewide flag for this product
+     *
+     * @param $sitewide boolean
+     */
+    public function setSitewide($sitewide)
+    {
+        $this->setData('sitewide', $sitewide);
+    }
 
-		return $numericVersion;
-	}
+    /**
+     * Return complete version string.
+     *
+     * @numeric boolean True (default) iff a numeric (comparable) version is to be returned.
+     *
+     * @return string
+     */
+    public function getVersionString($numeric = true)
+    {
+        $numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
+        if (!$numeric && $this->getProduct() == 'omp' && preg_match('/^0\.9\.9\./', $numericVersion)) {
+            return ('1.0 Beta');
+        }
+        if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.0\./', $numericVersion)) {
+            return ('3.0 Alpha 1');
+        }
+        if (!$numeric && $this->getProduct() == 'ojs2' && preg_match('/^2\.9\.9\.0/', $numericVersion)) {
+            return ('3.0 Beta 1');
+        }
+        if (!$numeric && $this->getProduct() == 'ops' && preg_match('/^3\.2\.0\.0/', $numericVersion)) {
+            return ('3.2.0 Beta');
+        }
+
+        return $numericVersion;
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\site\Version', '\Version');
+}

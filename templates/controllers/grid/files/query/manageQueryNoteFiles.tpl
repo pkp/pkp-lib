@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/files/query/manageQueryNoteFiles.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Allows users to manage the list of files available to a query.
@@ -23,7 +23,7 @@
 		{csrf}
 		{fbvFormArea id="manageQueryNoteFiles"}
 			{fbvFormSection}
-				{capture assign=manageQueryNoteFilesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.query.ManageQueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs submissionId=$submissionId queryId=$queryId noteId=$noteId escape=false}{/capture}
+				{capture assign=manageQueryNoteFilesGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.query.ManageQueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs submissionId=$submissionId queryId=$queryId noteId=$noteId escape=false}{/capture}
 				{load_url_in_div id="manageQueryNoteFilesGrid" url=$manageQueryNoteFilesGridUrl}
 			{/fbvFormSection}
 

@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/EditorDecisionAccessPolicy.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionAccessPolicy
@@ -14,26 +14,27 @@
 
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
 
-class EditorDecisionAccessPolicy extends ContextPolicy {
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 * @param $args array request arguments
-	 * @param $roleAssignments array
-	 * @param $submissionParameterName string
-	 * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-	 */
-	function __construct($request, &$args, $roleAssignments, $submissionParameterName, $stageId) {
-		parent::__construct($request);
+class EditorDecisionAccessPolicy extends ContextPolicy
+{
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     * @param $args array request arguments
+     * @param $roleAssignments array
+     * @param $submissionParameterName string
+     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
+     */
+    public function __construct($request, &$args, $roleAssignments, $submissionParameterName, $stageId)
+    {
+        parent::__construct($request);
 
-		// A decision can only be made if there is a valid workflow stage
-		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, $submissionParameterName, $stageId, WORKFLOW_TYPE_EDITORIAL));
+        // A decision can only be made if there is a valid workflow stage
+        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+        $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, $submissionParameterName, $stageId, PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 
-		// An editor decision can only be made if there is an editor assigned to the stage
-		import('lib.pkp.classes.security.authorization.internal.ManagerRequiredPolicy');
-		$this->addPolicy(new ManagerRequiredPolicy($request));
-	}
+        // An editor decision can only be made if there is an editor assigned to the stage
+        import('lib.pkp.classes.security.authorization.internal.ManagerRequiredPolicy');
+        $this->addPolicy(new ManagerRequiredPolicy($request));
+    }
 }
-
-

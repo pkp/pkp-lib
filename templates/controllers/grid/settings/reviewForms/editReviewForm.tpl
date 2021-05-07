@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/reviewForms/editReviewForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * The edit/preview a review form tabset.
@@ -21,8 +21,8 @@
 </script>
 <div id="editReviewFormTabs" class="pkp_controllers_tab">
 	<ul>
-		<li><a href="{url router=$smarty.const.ROUTE_COMPONENT op="reviewFormBasics" reviewFormId=$reviewFormId}">{translate key="manager.reviewForms.edit"}</a></li>
-		<li><a href="{url router=$smarty.const.ROUTE_COMPONENT op="reviewFormElements" reviewFormId=$reviewFormId}">{translate key="manager.reviewFormElements"}</a></li>
-		<li><a href="{url router=$smarty.const.ROUTE_COMPONENT op="reviewFormPreview" reviewFormId=$reviewFormId}">{translate key="manager.reviewForms.preview"}</a></li>
+		<li><a href="{url router=PKPApplication::ROUTE_COMPONENT op="reviewFormBasics" reviewFormId=$reviewFormId}">{translate key="manager.reviewForms.edit"}</a></li>
+		<li><a href="{url router=PKPApplication::ROUTE_COMPONENT op="reviewFormElements" reviewFormId=$reviewFormId}">{translate key="manager.reviewFormElements"}</a></li>
+		<li><a href="{url router=PKPApplication::ROUTE_COMPONENT op="reviewFormPreview" reviewFormId=$reviewFormId}">{translate key="manager.reviewForms.preview"}</a></li>
 	</ul>
 </div>

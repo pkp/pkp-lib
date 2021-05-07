@@ -3,8 +3,10 @@
 	"description": "A journal or press.",
 	"type": "object",
 	"required": [
-		"urlPath",
-		"name"
+		"name",
+		"primaryLocale",
+		"supportedLocales",
+		"urlPath"
 	],
 	"properties": {
 		"_href": {
@@ -127,6 +129,12 @@
 				"nullable"
 			]
 		},
+		"country": {
+			"type": "string",
+			"validation": [
+				"country"
+			]
+		},
 		"coverage": {
 			"type": "string",
 			"description": "Enable coverage metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
@@ -223,6 +231,22 @@
 		"editorialTeam": {
 			"type": "string",
 			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"copySubmissionAckPrimaryContact": {
+			"type": "boolean",
+			"default": false,
+			"description": "A copy of the submission acknowledgement email will be sent to this context's primary contact when true.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"copySubmissionAckAddress": {
+			"type": "string",
+			"default": "",
+			"description": "A copy of the submission acknowledgement email will be sent to any of the email addresses entered here. Separate multiple email addresses with a comma. Example: one@example.com,two@example.com",
 			"validation": [
 				"nullable"
 			]

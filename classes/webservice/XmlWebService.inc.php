@@ -3,8 +3,8 @@
 /**
  * @file classes/webservice/XmlWebService.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class XmlWebService
@@ -13,79 +13,91 @@
  * @brief A web service that returns XML data.
  */
 
+use DOMDocument;
 
 import('lib.pkp.classes.webservice.WebService');
-import('lib.pkp.classes.xslt.XSLTransformer');
 
-class XmlWebService extends WebService {
-	/** @var integer */
-	var $_returnType;
+use PKP\xslt\XSLTransformer;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		// Parent constructor intentionally not called
-		if (extension_loaded('dom')) {
-			$this->_returnType = XSL_TRANSFORMER_DOCTYPE_DOM;
-		} else {
-			$this->_returnType = XSL_TRANSFORMER_DOCTYPE_STRING;
-		}
-	}
+class XmlWebService extends WebService
+{
+    /** @var integer */
+    public $_returnType;
 
-	/**
-	 * Get the return type
-	 * @return integer
-	 */
-	function getReturnType() {
-		return $this->_returnType;
-	}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        // Parent constructor intentionally not called
+        if (extension_loaded('dom')) {
+            $this->_returnType = XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM;
+        } else {
+            $this->_returnType = XSLTransformer::XSL_TRANSFORMER_DOCTYPE_STRING;
+        }
+    }
 
-	/**
-	 * Set the return type
-	 * @param $returnType integer
-	 */
-	function setReturnType($returnType) {
-		if ($returnType == XSL_TRANSFORMER_DOCTYPE_DOM) {
-			if (!extension_loaded('dom')) {
-				fatalError('This system does not meet minimum requirements!');
-			}
-		}
+    /**
+     * Get the return type
+     *
+     * @return integer
+     */
+    public function getReturnType()
+    {
+        return $this->_returnType;
+    }
 
-		$this->_returnType = $returnType;
-	}
+    /**
+     * Set the return type
+     *
+     * @param $returnType integer
+     */
+    public function setReturnType($returnType)
+    {
+        if ($returnType == XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM) {
+            if (!extension_loaded('dom')) {
+                fatalError('This system does not meet minimum requirements!');
+            }
+        }
+
+        $this->_returnType = $returnType;
+    }
 
 
-	/**
-	 * @see WebService::call()
-	 * @param $webServiceRequest WebServiceRequest
-	 * @return DOMDocument|string the result of the web service or null in case of an error.
-	 */
-	function &call(&$webServiceRequest) {
-		// Call the web service
-		$xmlResult = parent::call($webServiceRequest);
+    /**
+     * @see WebService::call()
+     *
+     * @param $webServiceRequest WebServiceRequest
+     *
+     * @return DOMDocument|string the result of the web service or null in case of an error.
+     */
+    public function &call(&$webServiceRequest)
+    {
+        // Call the web service
+        $xmlResult = parent::call($webServiceRequest);
 
-		if (Config::getVar('debug', 'log_web_service_info')) {
-			error_log('Time: ' . date('c') . "\nRequest: " . print_r($webServiceRequest, true) . "\nResponse: " . print_r($xmlResult, true) . "\nLast response status: " . $this->_lastResponseStatus . "\n");
-		}
-		// Catch web service errors
-		if (is_null($xmlResult)) return $xmlResult;
+        if (Config::getVar('debug', 'log_web_service_info')) {
+            error_log('Time: ' . date('c') . "\nRequest: " . print_r($webServiceRequest, true) . "\nResponse: " . print_r($xmlResult, true) . "\nLast response status: " . $this->_lastResponseStatus . "\n");
+        }
+        // Catch web service errors
+        if (is_null($xmlResult)) {
+            return $xmlResult;
+        }
 
-		switch ($this->_returnType) {
-			case XSL_TRANSFORMER_DOCTYPE_DOM:
-				// Create DOM document
-				$resultDOM = new DOMDocument('1.0', Config::getVar('i18n', 'client_charset'));
-				// Try to handle non-well-formed responses
-				$resultDOM->recover = true;
-				$resultDOM->loadXML($xmlResult);
-				return $resultDOM;
+        switch ($this->_returnType) {
+            case XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM:
+                // Create DOM document
+                $resultDOM = new DOMDocument('1.0', Config::getVar('i18n', 'client_charset'));
+                // Try to handle non-well-formed responses
+                $resultDOM->recover = true;
+                $resultDOM->loadXML($xmlResult);
+                return $resultDOM;
 
-			case XSL_TRANSFORMER_DOCTYPE_STRING:
-				return $xmlResult;
+            case XSLTransformer::XSL_TRANSFORMER_DOCTYPE_STRING:
+                return $xmlResult;
 
-			default:
-				assert(false);
-		}
-	}
+            default:
+                assert(false);
+        }
+    }
 }
-

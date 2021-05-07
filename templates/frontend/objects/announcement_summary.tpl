@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/announcement_summary.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display a summary view of an announcement
@@ -16,7 +16,7 @@
 
 <article class="obj_announcement_summary">
 	<{$heading}>
-		<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+		<a href="{url router=PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
 			{$announcement->getLocalizedTitle()|escape}
 		</a>
 	</{$heading}>
@@ -25,7 +25,7 @@
 	</div>
 	<div class="summary">
 		{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
-		<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}" class="read_more">
+		<a href="{url router=PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}" class="read_more">
 			<span aria-hidden="true" role="presentation">
 				{translate key="common.readMore"}
 			</span>

@@ -543,3 +543,17 @@ msgstr ""
 "دیاریکراوە دەدات کە بە چەندین زمانی تر تۆماربکرێن و بخرێنە ناوییەوە. بۆ "
 "بەکارهێنانی ئەم تایبەتمەندییە، شوێنە جێگرەوەکان هەڵبژێرە پاشان لە ناو "
 "بژاردەکاندا کە لە خوارەوە بە لیست داندراون یەکێکیان هەڵبژێرە."
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "ڕێچکەی دیاریکراوی گۆڤار، \"{$contextPath}\"،  بەردەست نییە."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "هەڵە:"
+
+msgid "manager.setup.publishing"
+msgstr "وردەکارییەکانی بڵاوکردنەوە"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"ئەم وردەکارییانە لەوانەیە لە ناو زانیاری ناسێنەردا هەبن کە دراون بە "
+"لایەنەکانی سێیەمی ئەرشیفکردن."

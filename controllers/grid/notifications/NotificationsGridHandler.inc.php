@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/notifications/NotificationsGridHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationsGridHandler
@@ -19,228 +19,250 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 // Other classes associated with this grid
 import('lib.pkp.controllers.grid.notifications.NotificationsGridCellProvider');
 
-class NotificationsGridHandler extends GridHandler {
-	/** @var $_selectedNotificationIds array Set of selected IDs */
-	var $_selectedNotificationIds;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\NullAction;
+
+class NotificationsGridHandler extends GridHandler
+{
+    /** @var array $_selectedNotificationIds Set of selected IDs */
+    public $_selectedNotificationIds;
 
 
-	/**
-	 * @copydoc GridHandler::initialize()
-	 */
-	function initialize($request, $args = null) {
-		parent::initialize($request, $args);
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
+    /**
+     * @copydoc GridHandler::initialize()
+     *
+     * @param null|mixed $args
+     */
+    public function initialize($request, $args = null)
+    {
+        parent::initialize($request, $args);
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
 
-		$this->_selectedNotificationIds = (array) $request->getUserVar('selectedNotificationIds');
+        $this->_selectedNotificationIds = (array) $request->getUserVar('selectedNotificationIds');
 
-		$cellProvider = new NotificationsGridCellProvider();
-		$this->addColumn(
-			new GridColumn(
-				'task',
-				$this->getNotificationsColumnTitle(),
-				null,
-				null,
-				$cellProvider,
-				array('anyhtml' => true,
-						'alignment' => COLUMN_ALIGNMENT_LEFT)
-			)
-		);
+        $cellProvider = new NotificationsGridCellProvider();
+        $this->addColumn(
+            new GridColumn(
+                'task',
+                $this->getNotificationsColumnTitle(),
+                null,
+                null,
+                $cellProvider,
+                ['anyhtml' => true,
+                    'alignment' => COLUMN_ALIGNMENT_LEFT]
+            )
+        );
 
-		// Set the no items row text
-		$this->setEmptyRowText('grid.noItems');
+        // Set the no items row text
+        $this->setEmptyRowText('grid.noItems');
 
-		import('lib.pkp.classes.linkAction.request.NullAction');
-		$this->addAction(
-			new LinkAction(
-				'markNew',
-				new NullAction(),
-				__('grid.action.markNew'),
-				'edit' // FIXME: Icon
-			),
-			GRID_ACTION_POSITION_BELOW
-		);
-		$this->addAction(
-			new LinkAction(
-				'markRead',
-				new NullAction(),
-				__('grid.action.markRead'),
-				'edit' // FIXME: Icon
-			),
-			GRID_ACTION_POSITION_BELOW
-		);
+        $this->addAction(
+            new LinkAction(
+                'markNew',
+                new NullAction(),
+                __('grid.action.markNew'),
+                'edit' // FIXME: Icon
+            ),
+            GRID_ACTION_POSITION_BELOW
+        );
+        $this->addAction(
+            new LinkAction(
+                'markRead',
+                new NullAction(),
+                __('grid.action.markRead'),
+                'edit' // FIXME: Icon
+            ),
+            GRID_ACTION_POSITION_BELOW
+        );
 
-		$router = $request->getRouter();
-		$this->addAction(
-			new LinkAction(
-				'deleteNotification',
-				new NullAction(),
-				__('grid.action.delete'),
-				'delete'
-			),
-			GRID_ACTION_POSITION_BELOW
-		);
-	}
-
-
-	//
-	// Overridden methods from GridHandler
-	//
-	/**
-	 * @see GridHandler::getJSHandler()
-	 */
-	public function getJSHandler() {
-		return '$.pkp.controllers.grid.notifications.NotificationsGridHandler';
-	}
-
-	/**
-	 * @see GridHandler::setUrls()
-	 */
-	function setUrls($request, $extraUrls = array()) {
-		$router = $request->getRouter();
-		parent::setUrls(
-			$request,
-			array_merge(
-				$extraUrls,
-				array(
-					'markNewUrl' => $router->url($request, null, null, 'markNew', null, $this->getRequestArgs()),
-					'markReadUrl' => $router->url($request, null, null, 'markRead', null, $this->getRequestArgs()),
-					'deleteUrl' => $router->url($request, null, null, 'deleteNotifications', null, $this->getRequestArgs()),
-				)
-			)
-		);
-	}
-
-	/**
-	 * Get the list of "publish data changed" events.
-	 * Used to update the site context switcher upon create/delete.
-	 * @return array
-	 */
-	function getPublishChangeEvents() {
-		return array('updateUnreadNotificationsCount');
-	}
-
-	/**
-	 * @copydoc GridHandler::initFeatures()
-	 */
-	function initFeatures($request, $args) {
-		import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
-		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
-		return array(new SelectableItemsFeature(), new PagingFeature());
-	}
-
-	/**
-	 * @copydoc GridHandler::getSelectName()
-	 */
-	function getSelectName() {
-		return 'selectedNotifications';
-	}
-
-	/**
-	 * @copydoc GridHandler::isDataElementSelected()
-	 */
-	function isDataElementSelected($gridDataElement) {
-		return in_array($gridDataElement->getId(), $this->_selectedNotificationIds);
-	}
+        $router = $request->getRouter();
+        $this->addAction(
+            new LinkAction(
+                'deleteNotification',
+                new NullAction(),
+                __('grid.action.delete'),
+                'delete'
+            ),
+            GRID_ACTION_POSITION_BELOW
+        );
+    }
 
 
-	//
-	// Protected methods.
-	//
-	/**
-	 * Get the notifications column title.
-	 * @return string Locale key.
-	 */
-	protected function getNotificationsColumnTitle() {
-		return 'common.tasks';
-	}
+    //
+    // Overridden methods from GridHandler
+    //
+    /**
+     * @see GridHandler::getJSHandler()
+     */
+    public function getJSHandler()
+    {
+        return '$.pkp.controllers.grid.notifications.NotificationsGridHandler';
+    }
+
+    /**
+     * @see GridHandler::setUrls()
+     */
+    public function setUrls($request, $extraUrls = [])
+    {
+        $router = $request->getRouter();
+        parent::setUrls(
+            $request,
+            array_merge(
+                $extraUrls,
+                [
+                    'markNewUrl' => $router->url($request, null, null, 'markNew', null, $this->getRequestArgs()),
+                    'markReadUrl' => $router->url($request, null, null, 'markRead', null, $this->getRequestArgs()),
+                    'deleteUrl' => $router->url($request, null, null, 'deleteNotifications', null, $this->getRequestArgs()),
+                ]
+            )
+        );
+    }
+
+    /**
+     * Get the list of "publish data changed" events.
+     * Used to update the site context switcher upon create/delete.
+     *
+     * @return array
+     */
+    public function getPublishChangeEvents()
+    {
+        return ['updateUnreadNotificationsCount'];
+    }
+
+    /**
+     * @copydoc GridHandler::initFeatures()
+     */
+    public function initFeatures($request, $args)
+    {
+        import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
+        import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
+        return [new SelectableItemsFeature(), new PagingFeature()];
+    }
+
+    /**
+     * @copydoc GridHandler::getSelectName()
+     */
+    public function getSelectName()
+    {
+        return 'selectedNotifications';
+    }
+
+    /**
+     * @copydoc GridHandler::isDataElementSelected()
+     */
+    public function isDataElementSelected($gridDataElement)
+    {
+        return in_array($gridDataElement->getId(), $this->_selectedNotificationIds);
+    }
 
 
-	//
-	// Public methods
-	//
-	/**
-	 * Mark notifications unread
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function markNew($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		$user = $request->getUser();
+    //
+    // Protected methods.
+    //
+    /**
+     * Get the notifications column title.
+     *
+     * @return string Locale key.
+     */
+    protected function getNotificationsColumnTitle()
+    {
+        return 'common.tasks';
+    }
 
-		$selectedElements = (array) $request->getUserVar('selectedElements');
-		foreach ($selectedElements as $notificationId) {
-			if ($notificationDao->getById($notificationId, $user->getId())) {
-				$notificationDao->setDateRead($notificationId, null);
-			}
-		}
 
-		$json = DAO::getDataChangedEvent(null, null, $selectedElements);
-		$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
-		return $json;
-	}
+    //
+    // Public methods
+    //
+    /**
+     * Mark notifications unread
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function markNew($args, $request)
+    {
+        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+        $user = $request->getUser();
 
-	/**
-	 * Mark notifications unread
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function markRead($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		$user = $request->getUser();
+        $selectedElements = (array) $request->getUserVar('selectedElements');
+        foreach ($selectedElements as $notificationId) {
+            if ($notificationDao->getById($notificationId, $user->getId())) {
+                $notificationDao->setDateRead($notificationId, null);
+            }
+        }
 
-		$selectedElements = (array) $request->getUserVar('selectedElements');
-		foreach ($selectedElements as $notificationId) {
-			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
-				$notificationDao->setDateRead($notificationId, Core::getCurrentDate());
-			}
-		}
-		if ($request->getUserVar('redirect')) {
-			// In this case, the user has clicked on a notification
-			// and wants to view it. Mark it read first and redirect
-			$notificationMgr = new NotificationManager();
-			return $request->redirectUrlJson($notificationMgr->getNotificationUrl($request, $notification));
-		} else {
-			// The notification has been marked read explicitly.
-			// Update its status in the grid.
-			$json = DAO::getDataChangedEvent(null, null, $selectedElements);
-			$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
-			return $json;
-		}
-	}
+        $json = \PKP\db\DAO::getDataChangedEvent(null, null, $selectedElements);
+        $json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
+        return $json;
+    }
 
-	/**
-	 * Delete notifications
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function deleteNotifications($args, $request) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		$user = $request->getUser();
+    /**
+     * Mark notifications unread
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function markRead($args, $request)
+    {
+        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+        $user = $request->getUser();
 
-		$selectedElements = (array) $request->getUserVar('selectedElements');
-		foreach ($selectedElements as $notificationId) {
-			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
-				$notificationDao->deleteObject($notification);
-			}
-		}
-		$json = DAO::getDataChangedEvent(null, null, $selectedElements);
-		$json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
-		return $json;
-	}
+        $selectedElements = (array) $request->getUserVar('selectedElements');
+        foreach ($selectedElements as $notificationId) {
+            if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
+                $notificationDao->setDateRead($notificationId, Core::getCurrentDate());
+            }
+        }
+        if ($request->getUserVar('redirect')) {
+            // In this case, the user has clicked on a notification
+            // and wants to view it. Mark it read first and redirect
+            $notificationMgr = new NotificationManager();
+            return $request->redirectUrlJson($notificationMgr->getNotificationUrl($request, $notification));
+        } else {
+            // The notification has been marked read explicitly.
+            // Update its status in the grid.
+            $json = \PKP\db\DAO::getDataChangedEvent(null, null, $selectedElements);
+            $json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
+            return $json;
+        }
+    }
 
-	/**
-	 * Get unread notifications count
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function getUnreadNotificationsCount($user) {
-		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
-		return (int) $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK);
-	}
+    /**
+     * Delete notifications
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function deleteNotifications($args, $request)
+    {
+        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+        $user = $request->getUser();
+
+        $selectedElements = (array) $request->getUserVar('selectedElements');
+        foreach ($selectedElements as $notificationId) {
+            if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
+                $notificationDao->deleteObject($notification);
+            }
+        }
+        $json = \PKP\db\DAO::getDataChangedEvent(null, null, $selectedElements);
+        $json->setGlobalEvent('update:unread-tasks-count', ['count' => $this->getUnreadNotificationsCount($user)]);
+        return $json;
+    }
+
+    /**
+     * Get unread notifications count
+     *
+     * @return JSONMessage JSON object
+     */
+    public function getUnreadNotificationsCount($user)
+    {
+        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+        return (int) $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK);
+    }
 }
-
-

@@ -1,8 +1,8 @@
 {**
  * templates/submission/form/step3.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Step 3 of author submission.
@@ -27,7 +27,7 @@
 	{include file="submission/submissionMetadataFormTitleFields.tpl"}
 
 	<!--  Contributors -->
-	{capture assign=authorGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.users.author.AuthorGridHandler" op="fetchGrid" submissionId=$submissionId publicationId=$publicationId escape=false}{/capture}
+	{capture assign=authorGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.users.author.AuthorGridHandler" op="fetchGrid" submissionId=$submissionId publicationId=$publicationId escape=false}{/capture}
 	{load_url_in_div id="authorsGridContainer" url=$authorGridUrl}
 
 	{$additionalContributorsFields}

@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-04-16 05:46+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"ja_JP/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "{$locale}言語はサポートされていません。"
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "{$themePluginPath}というアクティブなテーマは有効になっていなく、インストールできません。"
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr "このエンドポイントはコンテキストからは使用できません。 サイト全体のネームスペースからアクセスする必要があります。"
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "この出版物を編集することはできません。"
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "この投稿を削除する権限がありません。"
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "自分が割り当てられている未公開の投稿のみを表示できます。"
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "このコンテキストに割り当てられていない投稿は削除できません。"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "リクエストが拒否されました。ログインの有効期限が切れている可能性があります。 ページを再ロードして、もう一度試してみてください。"
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "要求された巻号または年が無効です。"
+
+msgid "api.submissions.400.missingRequired"
+msgstr "リクエストに必要な情報が不足しているため、リクエストを実行できませんでした。"
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "この査読ラウンドのファイルにアクセスすることはできません。"
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "これらのファイルを追加および編集することはできません。"
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "これらのファイルへのアクセスは許可されていません。"
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "入力された査読ラウンドは、この投稿の一部ではありません。"
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "このファイルを編集するリクエストに変更が見つかりませんでした。"
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "ファイル段階を指定する必要があります。"
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "査読段階のファイルを要求する場合は、査読ラウンドを指定する必要があります。"
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "このファイル段階のファイルを査読ラウンドに関連付けることはできません。"
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "このファイル段階のファイルを査読割り当てに関連付けることはできません。"
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "このファイル段階のファイルをディスカッションメモに関連付けることはできません。"
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "このファイル段階のファイルを別の投稿ファイルに関連付けることはできません。"
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr "assocType と assocID を渡さないと、ファイルの関連付けを変更できません。"
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "要求が無効でした。 orderDirection には「desc」または「asc」を指定する必要があります。"
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "要求が無効でした。 timelineInterval には「day」または「month」を指定する必要があります。"
+
+msgid "api.stats.400.lateDateRange"
+msgstr "終了日は昨日より後にできません。"
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "開始日は 2001-01-01 より前にはできません。"
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "開始日は終了日より後にできません。"
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "日付は YYYY-MM-DD の形式にする必要があります。"
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr "公開ファイルディレクトリが見つからなかったか、ファイルを保存できません。 この問題を解決するには、管理者にお問い合わせください。"
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"ユーザーディレクトリに十分なスペースがありません。 アップロードするファイルは {$fileUploadSize} KB で、残りは "
+"{$dirSizeLeft} KB です。"
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "ファイルのアップロードは許可されていません。"
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"アップロードしたファイルがファイル拡張子と一致しませんでした。 これは、 photo.png を photo.jpg "
+"に変更するなど、ファイルの名前が互換性のないタイプに変更された場合に発生することがあります。"
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "アップロードした画像は無効です。"
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "アップロードできるファイルのタイプは、{$fileTypes}のみです。"
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "この出版物を削除するには、未公開にする必要があります。"
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"API を使用してステータスを直接変更することはできません。 代わりに、 /publish および /unpublish "
+"エンドポイントを使用してください。"
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "この出版物は既に公開されているため、編集できません。"
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "未公開しようとした出版物は発行されていません。"
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "発行しようとした出版物は既に発行されています。"
+
+msgid "api.files.400.config"
+msgstr "サーバー設定エラーのため、ファイルをアップロードできませんでした。 システム管理者にお問い合わせください。"
+
+msgid "api.files.400.fileSize"
+msgstr "{$maxSize}より大きいファイルはアップロードできません。"
+
+msgid "api.files.400.uploadFailed"
+msgstr "1 つまたは複数のファイルをアップロードできませんでした。"
+
+msgid "api.files.400.noUpload"
+msgstr "アップロードするファイルが要求で見つかりませんでした。"
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "要求されたメールテンプレートが見つかりませんでした。"
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr "選択した 1 つまたは複数のロールのユーザーにメールを送信することはできません。"
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "このメールを受信するユーザーロールを指定する必要があります。"
+
+msgid "api.emails.400.missingSubject"
+msgstr "メールの件名を入力する必要があります。"
+
+msgid "api.emails.400.missingBody"
+msgstr "送信するメールを含める必要があります。"
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "次の言語のみがサポートされていません: {$locales}。"
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "要求されたお知らせが見つかりませんでした。"
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr "サイト管理者が秘密鍵を設定していないため、 API トークンを使用してこのサイトにアクセスすることはできません。"
+
+msgid "api.404.endpointNotFound"
+msgstr "要求された URL が認識されませんでした。"
+
+msgid "api.404.resourceNotFound"
+msgstr "要求されたリソースが見つかりませんでした。"
+
+msgid "api.403.unauthorized"
+msgstr "要求されたリソースにアクセスする権限がありません。"
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "作成時刻を変更することはできません。"
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "次のエラーのため、 apiToken をデコードできませんでした： {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API トークンを検証できませんでした。 これは、 API トークンのエラーまたは API トークンが無効であることを示している可能性があります。"
+
+msgid "api.400.paramNotSupported"
+msgstr "{$param} パラメーターはサポートされていません。"

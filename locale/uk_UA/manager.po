@@ -603,6 +603,9 @@ msgstr "Відібрати результати за країною, регіо�
 msgid "manager.affiliationAndSupport"
 msgstr "Спонсорство"
 
+msgid "manager.setup.publishingDescription"
+msgstr "Назва установи-видавця журналу, яка має бути відображена на сторінці \"Про журнал\"."
+
 msgid "manager.setup.additionalContent"
 msgstr "Додатковий вміст"
 
@@ -2049,3 +2052,9 @@ msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Надіслати повідомлення з нагадуванням, якщо рецензент не завантажив рецензію "
 "протягом вказаної кількості днів після кінцевого терміну відповіді."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ПОМИЛКА:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Вказаний шлях журналу \"{$contextPath}\" не існує."

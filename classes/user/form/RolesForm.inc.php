@@ -3,8 +3,8 @@
 /**
  * @file classes/user/form/RolesForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPProfileForm
@@ -15,90 +15,97 @@
 
 import('lib.pkp.classes.user.form.BaseProfileForm');
 
-class RolesForm extends BaseProfileForm {
+use APP\template\TemplateManager;
 
-	/**
-	 * Constructor.
-	 * @param $template string
-	 * @param $user User
-	 */
-	function __construct($user) {
-		parent::__construct('user/rolesForm.tpl', $user);
+use PKP\user\InterestManager;
 
-		// Validation checks for this form
-	}
+class RolesForm extends BaseProfileForm
+{
+    /**
+     * Constructor.
+     *
+     * @param $user User
+     */
+    public function __construct($user)
+    {
+        parent::__construct('user/rolesForm.tpl', $user);
 
-	/**
-	 * @copydoc BaseProfileForm::fetch
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$templateMgr = TemplateManager::getManager($request);
+        // Validation checks for this form
+    }
 
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /* @var $userGroupAssignmentDao UserGroupAssignmentDAO */
-		$userGroupAssignments = $userGroupAssignmentDao->getByUserId($request->getUser()->getId());
-		$userGroupIds = array();
-		while ($assignment = $userGroupAssignments->next()) {
-			$userGroupIds[] = $assignment->getUserGroupId();
-		}
-		$templateMgr->assign('userGroupIds', $userGroupIds);
+    /**
+     * @copydoc BaseProfileForm::fetch
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $templateMgr = TemplateManager::getManager($request);
 
-		import('lib.pkp.classes.user.form.UserFormHelper');
-		$userFormHelper = new UserFormHelper();
-		$userFormHelper->assignRoleContent($templateMgr, $request);
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /** @var UserGroupAssignmentDAO $userGroupAssignmentDao */
+        $userGroupAssignments = $userGroupAssignmentDao->getByUserId($request->getUser()->getId());
+        $userGroupIds = [];
+        while ($assignment = $userGroupAssignments->next()) {
+            $userGroupIds[] = $assignment->getUserGroupId();
+        }
+        $templateMgr->assign('userGroupIds', $userGroupIds);
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
+        import('lib.pkp.classes.user.form.UserFormHelper');
+        $userFormHelper = new UserFormHelper();
+        $userFormHelper->assignRoleContent($templateMgr, $request);
 
-		return parent::fetch($request, $template, $display);
-	}
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 
-	/**
-	 * @copydoc BaseProfileForm::initData()
-	 */
-	function initData() {
-		import('lib.pkp.classes.user.InterestManager');
-		$interestManager = new InterestManager();
+        return parent::fetch($request, $template, $display);
+    }
 
-		$user = $this->getUser();
+    /**
+     * @copydoc BaseProfileForm::initData()
+     */
+    public function initData()
+    {
+        $interestManager = new InterestManager();
 
-		$this->_data = array(
-			'interests' => $interestManager->getInterestsForUser($user),
-		);
-	}
+        $user = $this->getUser();
 
-	/**
-	 * Assign form data to user-submitted data.
-	 */
-	function readInputData() {
-		parent::readInputData();
+        $this->_data = [
+            'interests' => $interestManager->getInterestsForUser($user),
+        ];
+    }
 
-		$this->readUserVars(array(
-			'authorGroup',
-			'reviewerGroup',
-			'readerGroup',
-			'interests',
-		));
-	}
+    /**
+     * Assign form data to user-submitted data.
+     */
+    public function readInputData()
+    {
+        parent::readInputData();
 
-	/**
-	 * @copydoc Form::execute()
-	 */
-	function execute(...$functionArgs) {
-		$request = Application::get()->getRequest();
-		$user = $request->getUser();
+        $this->readUserVars([
+            'authorGroup',
+            'reviewerGroup',
+            'readerGroup',
+            'interests',
+        ]);
+    }
 
-		// Save the roles
-		import('lib.pkp.classes.user.form.UserFormHelper');
-		$userFormHelper = new UserFormHelper();
-		$userFormHelper->saveRoleContent($this, $user);
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        $request = Application::get()->getRequest();
+        $user = $request->getUser();
 
-		// Insert the user interests
-		import('lib.pkp.classes.user.InterestManager');
-		$interestManager = new InterestManager();
-		$interestManager->setInterestsForUser($user, $this->getData('interests'));
+        // Save the roles
+        import('lib.pkp.classes.user.form.UserFormHelper');
+        $userFormHelper = new UserFormHelper();
+        $userFormHelper->saveRoleContent($this, $user);
 
-		parent::execute(...$functionArgs);
-	}
+        // Insert the user interests
+        $interestManager = new InterestManager();
+        $interestManager->setInterestsForUser($user, $this->getData('interests'));
+
+        parent::execute(...$functionArgs);
+    }
 }
-
-

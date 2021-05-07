@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/classes/plugins/OAIMetadataFormatPlugin.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormatPlugin
@@ -13,57 +13,69 @@
  * @brief Abstract class for OAI Metadata format plugins
  */
 
-import('lib.pkp.classes.plugins.Plugin');
-import('lib.pkp.classes.oai.OAIStruct');
+namespace PKP\plugins;
 
-abstract class OAIMetadataFormatPlugin extends Plugin {
+abstract class OAIMetadataFormatPlugin extends Plugin
+{
+    /**
+     * @copydoc Plugin::register()
+     *
+     * @param null|mixed $mainContextId
+     */
+    public function register($category, $path, $mainContextId = null)
+    {
+        if (!parent::register($category, $path, $mainContextId)) {
+            return false;
+        }
+        $this->addLocaleData();
+        if ($this->getEnabled()) {
+            HookRegistry::register('OAI::metadataFormats', [$this, 'callback_formatRequest']);
+        }
+        return true;
+    }
 
-	/**
-	 * @copydoc Plugin::register()
-	 */
-	function register($category, $path, $mainContextId = null) {
-		if (!parent::register($category, $path, $mainContextId)) return false;
-		$this->addLocaleData();
-		if ($this->getEnabled()) HookRegistry::register('OAI::metadataFormats', array($this, 'callback_formatRequest'));
-		return true;
-	}
+    /**
+     * Get the metadata prefix for this plugin's format.
+     */
+    public static function getMetadataPrefix()
+    {
+        assert(false); // Should always be overridden
+    }
 
-	/**
-	 * Get the metadata prefix for this plugin's format.
-	 */
-	static function getMetadataPrefix() {
-		assert(false); // Should always be overridden
-	}
+    public static function getSchema()
+    {
+        return '';
+    }
 
-	static function getSchema() {
-		return '';
-	}
+    public static function getNamespace()
+    {
+        return '';
+    }
 
-	static function getNamespace() {
-		return '';
-	}
+    /**
+     * Get a hold of the class that does the formatting.
+     */
+    abstract public function getFormatClass();
 
-	/**
-	 * Get a hold of the class that does the formatting.
-	 */
-	abstract function getFormatClass();
+    public function callback_formatRequest($hookName, $args)
+    {
+        $namesOnly = $args[0];
+        $identifier = $args[1];
+        $formats = & $args[2];
 
-	function callback_formatRequest($hookName, $args) {
-		$namesOnly = $args[0];
-		$identifier = $args[1];
-		$formats =& $args[2];
-
-		if ($namesOnly) {
-			$formats = array_merge($formats,array($this->getMetadataPrefix()));
-		} else {
-			$formatClass = $this->getFormatClass();
-			$formats = array_merge(
-				$formats,
-				array($this->getMetadataPrefix() => new $formatClass($this->getMetadataPrefix(), $this->getSchema(), $this->getNamespace()))
-			);
-		}
-		return false;
-	}
+        if ($namesOnly) {
+            $formats = array_merge($formats, [$this->getMetadataPrefix()]);
+        } else {
+            $formatClass = $this->getFormatClass();
+            $formats = array_merge(
+                $formats,
+                [$this->getMetadataPrefix() => new $formatClass($this->getMetadataPrefix(), $this->getSchema(), $this->getNamespace())]
+            );
+        }
+        return false;
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\plugins\OAIMetadataFormatPlugin', '\OAIMetadataFormatPlugin');
+}

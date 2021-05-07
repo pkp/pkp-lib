@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/stageParticipant/StageParticipantGridCategoryRow.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantGridCategoryRow
@@ -16,53 +16,57 @@
 import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 
 // Link actions
-import('lib.pkp.classes.linkAction.request.AjaxModal');
 
-class StageParticipantGridCategoryRow extends GridCategoryRow {
-	/** @var Submission **/
-	var $_submission;
+class StageParticipantGridCategoryRow extends GridCategoryRow
+{
+    /** @var Submission **/
+    public $_submission;
 
-	/** @var int */
-	var $_stageId;
+    /** @var int */
+    public $_stageId;
 
-	/**
-	 * Constructor
-	 */
-	function __construct($submission, $stageId) {
-		$this->_submission = $submission;
-		$this->_stageId = $stageId;
-		parent::__construct();
-	}
+    /**
+     * Constructor
+     */
+    public function __construct($submission, $stageId)
+    {
+        $this->_submission = $submission;
+        $this->_stageId = $stageId;
+        parent::__construct();
+    }
 
-	//
-	// Overridden methods from GridCategoryRow
-	//
-	/**
-	 * @copydoc GridCategoryRow::getCategoryLabel()
-	 */
-	function getCategoryLabel() {
-		$userGroup = $this->getData();
-		return $userGroup->getLocalizedName();
-	}
+    //
+    // Overridden methods from GridCategoryRow
+    //
+    /**
+     * @copydoc GridCategoryRow::getCategoryLabel()
+     */
+    public function getCategoryLabel()
+    {
+        $userGroup = $this->getData();
+        return $userGroup->getLocalizedName();
+    }
 
-	//
-	// Private methods
-	//
-	/**
-	 * Get the submission for this row (already authorized)
-	 * @return Submission
-	 */
-	function getSubmission() {
-		return $this->_submission;
-	}
+    //
+    // Private methods
+    //
+    /**
+     * Get the submission for this row (already authorized)
+     *
+     * @return Submission
+     */
+    public function getSubmission()
+    {
+        return $this->_submission;
+    }
 
-	/**
-	 * Get the stage ID for this grid.
-	 * @return int
-	 */
-	function getStageId() {
-		return $this->_stageId;
-	}
+    /**
+     * Get the stage ID for this grid.
+     *
+     * @return int
+     */
+    public function getStageId()
+    {
+        return $this->_stageId;
+    }
 }
-
-

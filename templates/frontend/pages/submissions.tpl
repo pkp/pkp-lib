@@ -1,8 +1,8 @@
 {**
  * templates/frontend/pages/submissions.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to view the editorial team.
@@ -19,10 +19,8 @@
 	</h1>
 
 	<div class="cmp_notification">
-		{if $sections|@count == 0}
+		{if $sections|@count == 0 || $currentContext->getData('disableSubmissions')}
 			{translate key="author.submit.notAccepting"}
-		{elseif $currentContext->getData('disableSubmissions')}
-			{translate key="manager.setup.disableSubmissions.notAccepting"}
 		{else}
 			{if $isUserLoggedIn}
 				{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}

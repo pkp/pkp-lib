@@ -3,8 +3,8 @@
 /**
  * @file pages/reviewer/PKPReviewerHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPReviewerHandler
@@ -13,217 +13,250 @@
  * @brief Handle requests for reviewer functions.
  */
 
-import('classes.handler.Handler');
-import('lib.pkp.classes.core.JSONMessage');
+
 import('lib.pkp.classes.submission.reviewer.ReviewerAction');
 
-class PKPReviewerHandler extends Handler {
+use APP\handler\Handler;
 
-	/** @copydoc PKPHandler::_isBackendPage */
-	var $_isBackendPage = true;
+use APP\template\TemplateManager;
+use PKP\core\JSONMessage;
 
-	/**
-	 * Display the submission review page.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function submission($args, $request) {
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
-		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
-		assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
+class PKPReviewerHandler extends Handler
+{
+    /** @copydoc PKPHandler::_isBackendPage */
+    public $_isBackendPage = true;
 
-		$this->setupTemplate($request);
+    /**
+     * Display the submission review page.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function submission($args, $request)
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
+        $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
+        $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
+        assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
 
-		$templateMgr = TemplateManager::getManager($request);
-		$reviewStep = max($reviewerSubmission->getStep(), 1);
-		$userStep = (int) $request->getUserVar('step');
-		$step = (int) (!empty($userStep) ? $userStep: $reviewStep);
-		if ($step > $reviewStep) $step = $reviewStep; // Reviewer can't go past incomplete steps
-		if ($step < 1 || $step > 4) throw new Exception('Invalid step!');
-		$templateMgr->assign([
-			'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewerSubmission->getLocalizedTitle(),
-			'reviewStep' => $reviewStep,
-			'selected' => $step - 1,
-			'submission' => $reviewerSubmission,
-		]);
+        $this->setupTemplate($request);
 
-		$templateMgr->display('reviewer/review/reviewStepHeader.tpl');
-	}
+        $templateMgr = TemplateManager::getManager($request);
+        $reviewStep = max($reviewerSubmission->getStep(), 1);
+        $userStep = (int) $request->getUserVar('step');
+        $step = (int) (!empty($userStep) ? $userStep : $reviewStep);
+        if ($step > $reviewStep) {
+            $step = $reviewStep;
+        } // Reviewer can't go past incomplete steps
+        if ($step < 1 || $step > 4) {
+            throw new Exception('Invalid step!');
+        }
+        $templateMgr->assign([
+            'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewerSubmission->getLocalizedTitle(),
+            'reviewStep' => $reviewStep,
+            'selected' => $step - 1,
+            'submission' => $reviewerSubmission,
+        ]);
 
-	/**
-	 * Display a step tab contents in the submission review page.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function step($args, $request) {
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
-		$reviewId = (int) $reviewAssignment->getId();
-		assert(!empty($reviewId));
+        $templateMgr->display('reviewer/review/reviewStepHeader.tpl');
+    }
 
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
-		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
-		assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
+    /**
+     * Display a step tab contents in the submission review page.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function step($args, $request)
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
+        $reviewId = (int) $reviewAssignment->getId();
+        assert(!empty($reviewId));
 
-		$this->setupTemplate($request);
+        $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
+        $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
+        assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
 
-		$reviewStep = max($reviewerSubmission->getStep(), 1); // Get the current saved step from the DB
-		$userStep = (int) $request->getUserVar('step');
-		$step = (int) (!empty($userStep) ? $userStep: $reviewStep);
-		if ($step > $reviewStep) $step = $reviewStep; // Reviewer can't go past incomplete steps
-		if ($step < 1 || $step > 4) fatalError('Invalid step!');
+        $this->setupTemplate($request);
 
-		if ($step < 4) {
-			$reviewerForm = $this->getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment);
-			$reviewerForm->initData();
-			return new JSONMessage(true, $reviewerForm->fetch($request));
-		} else {
-			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign([
-				'submission' => $reviewerSubmission,
-				'step' => 4,
-				'reviewAssignment' => $reviewAssignment,
-			]);
-			return $templateMgr->fetchJson('reviewer/review/reviewCompleted.tpl');
-		}
-	}
+        $reviewStep = max($reviewerSubmission->getStep(), 1); // Get the current saved step from the DB
+        $userStep = (int) $request->getUserVar('step');
+        $step = (int) (!empty($userStep) ? $userStep : $reviewStep);
+        if ($step > $reviewStep) {
+            $step = $reviewStep;
+        } // Reviewer can't go past incomplete steps
+        if ($step < 1 || $step > 4) {
+            fatalError('Invalid step!');
+        }
 
-	/**
-	 * Save a review step.
-	 * @param $args array first parameter is the step being saved
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function saveStep($args, $request) {
-		$step = (int)$request->getUserVar('step');
-		if ($step<1 || $step>3) fatalError('Invalid step!');
+        if ($step < 4) {
+            $reviewerForm = $this->getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment);
+            $reviewerForm->initData();
+            return new JSONMessage(true, $reviewerForm->fetch($request));
+        } else {
+            $templateMgr = TemplateManager::getManager($request);
+            $templateMgr->assign([
+                'submission' => $reviewerSubmission,
+                'step' => 4,
+                'reviewAssignment' => $reviewAssignment,
+            ]);
+            return $templateMgr->fetchJson('reviewer/review/reviewCompleted.tpl');
+        }
+    }
 
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
-		if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
+    /**
+     * Save a review step.
+     *
+     * @param $args array first parameter is the step being saved
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function saveStep($args, $request)
+    {
+        $step = (int)$request->getUserVar('step');
+        if ($step < 1 || $step > 3) {
+            fatalError('Invalid step!');
+        }
 
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
-		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
-		assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
+        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        if ($reviewAssignment->getDateCompleted()) {
+            fatalError('Review already completed!');
+        }
 
-		$reviewerForm = $this->getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment);
-		$reviewerForm->readInputData();
+        $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
+        $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
+        assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
 
-		// Save the available form data, but do not submit
-		if ($request->getUserVar('isSave')) {
-			$reviewerForm->saveForLater();
-			$notificationMgr = new NotificationManager();
-			$user = $request->getUser();
-			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('common.changesSaved')));
-			return DAO::getDataChangedEvent();			
-		}
-		// Submit the form data and move forward
-		else {
-			if ($reviewerForm->validate()) {
-				$reviewerForm->execute();
-				$json = new JSONMessage(true);
-				$json->setEvent('setStep', $step+1);
-				return $json;
-			} else {
-				$this->setupTemplate($request);
-				return new JSONMessage(true, $reviewerForm->fetch($request));
-			}
-		}
-	}
+        $reviewerForm = $this->getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment);
+        $reviewerForm->readInputData();
 
-	/**
-	 * Show a form for the reviewer to enter regrets into.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function showDeclineReview($args, $request) {
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
+        // Save the available form data, but do not submit
+        if ($request->getUserVar('isSave')) {
+            $reviewerForm->saveForLater();
+            $notificationMgr = new NotificationManager();
+            $user = $request->getUser();
+            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('common.changesSaved')]);
+            return \PKP\db\DAO::getDataChangedEvent();
+        }
+        // Submit the form data and move forward
+        else {
+            if ($reviewerForm->validate()) {
+                $reviewerForm->execute();
+                $json = new JSONMessage(true);
+                $json->setEvent('setStep', $step + 1);
+                return $json;
+            } else {
+                $this->setupTemplate($request);
+                return new JSONMessage(true, $reviewerForm->fetch($request));
+            }
+        }
+    }
 
-		$reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /* @var $reviewerSubmissionDao ReviewerSubmissionDAO */
-		$reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
-		assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
+    /**
+     * Show a form for the reviewer to enter regrets into.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function showDeclineReview($args, $request)
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
 
-		$this->setupTemplate($request);
+        $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
+        $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
+        assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('submissionId', $reviewerSubmission->getId());
+        $this->setupTemplate($request);
 
-		// Provide the email body to the template
-		$reviewerAction = new ReviewerAction();
-		$email = $reviewerAction->getResponseEmail($reviewerSubmission, $reviewAssignment, $request, 1);
-		$templateMgr->assign('declineMessageBody', $email->getBody());
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('submissionId', $reviewerSubmission->getId());
 
-		return $templateMgr->fetchJson('reviewer/review/modal/regretMessage.tpl');
-	}
+        // Provide the email body to the template
+        $reviewerAction = new ReviewerAction();
+        $email = $reviewerAction->getResponseEmail($reviewerSubmission, $reviewAssignment, $request, 1);
+        $templateMgr->assign('declineMessageBody', $email->getBody());
 
-	/**
-	 * Save the reviewer regrets form and decline the review.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function saveDeclineReview($args, $request) {
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
-		if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
+        return $templateMgr->fetchJson('reviewer/review/modal/regretMessage.tpl');
+    }
 
-		$reviewId = (int) $reviewAssignment->getId();
-		$declineReviewMessage = $request->getUserVar('declineReviewMessage');
+    /**
+     * Save the reviewer regrets form and decline the review.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function saveDeclineReview($args, $request)
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        if ($reviewAssignment->getDateCompleted()) {
+            fatalError('Review already completed!');
+        }
 
-		// Decline the review
-		$reviewerAction = new ReviewerAction();
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$reviewerAction->confirmReview($request, $reviewAssignment, $submission, 1, $declineReviewMessage);
+        $reviewId = (int) $reviewAssignment->getId();
+        $declineReviewMessage = $request->getUserVar('declineReviewMessage');
 
-		$dispatcher = $request->getDispatcher();
-		return $request->redirectUrlJson($dispatcher->url($request, ROUTE_PAGE, null, 'index'));
-	}
+        // Decline the review
+        $reviewerAction = new ReviewerAction();
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $reviewerAction->confirmReview($request, $reviewAssignment, $submission, 1, $declineReviewMessage);
 
-	/**
-	 * Setup common template variables.
-	 */
-	function setupTemplate($request) {
-		parent::setupTemplate($request);
-		AppLocale::requireComponents(
-			LOCALE_COMPONENT_PKP_SUBMISSION,
-			LOCALE_COMPONENT_APP_SUBMISSION,
-			LOCALE_COMPONENT_APP_COMMON,
-			LOCALE_COMPONENT_PKP_GRID,
-			LOCALE_COMPONENT_PKP_REVIEWER,
-			LOCALE_COMPONENT_PKP_EDITOR,
-			LOCALE_COMPONENT_PKP_USER
-		);
-	}
+        $dispatcher = $request->getDispatcher();
+        return $request->redirectUrlJson($dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'index'));
+    }
 
-	/**
-	 * Get a review form for the current step.
-	 * @param $step int current step
-	 * @param $request PKPRequest
-	 * @param $reviewerSubmission ReviewerSubmission
-	 * @param $reviewAssignment ReviewAssignment
-	 */
-	public function getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment) {
-	    switch ($step) {
-	        case 1:
-	        	import("lib.pkp.classes.submission.reviewer.form.PKPReviewerReviewStep1Form"); 
-	        	return new PKPReviewerReviewStep1Form($request, $reviewerSubmission, $reviewAssignment);
-	        case 2: 
-	        	import("lib.pkp.classes.submission.reviewer.form.PKPReviewerReviewStep2Form");
-	        	return new PKPReviewerReviewStep2Form($request, $reviewerSubmission, $reviewAssignment);
-	        case 3: 
-	        	import("lib.pkp.classes.submission.reviewer.form.PKPReviewerReviewStep3Form");
-	        	return new PKPReviewerReviewStep3Form($request, $reviewerSubmission, $reviewAssignment);
-	    }
-	}
+    /**
+     * Setup common template variables.
+     */
+    public function setupTemplate($request)
+    {
+        parent::setupTemplate($request);
+        AppLocale::requireComponents(
+            LOCALE_COMPONENT_PKP_SUBMISSION,
+            LOCALE_COMPONENT_APP_SUBMISSION,
+            LOCALE_COMPONENT_APP_COMMON,
+            LOCALE_COMPONENT_PKP_GRID,
+            LOCALE_COMPONENT_PKP_REVIEWER,
+            LOCALE_COMPONENT_PKP_EDITOR,
+            LOCALE_COMPONENT_PKP_USER
+        );
+    }
 
-	//
-	// Private helper methods
-	//
-	function _retrieveStep() {
-		$reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /* @var $reviewAssignment ReviewAssignment */
-		$reviewId = (int) $reviewAssignment->getId();
-		assert(!empty($reviewId));
-		return $reviewId;
-	}
+    /**
+     * Get a review form for the current step.
+     *
+     * @param $step int current step
+     * @param $request PKPRequest
+     * @param $reviewerSubmission ReviewerSubmission
+     * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment
+     */
+    public function getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment)
+    {
+        switch ($step) {
+            case 1:
+                import('lib.pkp.classes.submission.reviewer.form.PKPReviewerReviewStep1Form');
+                return new PKPReviewerReviewStep1Form($request, $reviewerSubmission, $reviewAssignment);
+            case 2:
+                import('lib.pkp.classes.submission.reviewer.form.PKPReviewerReviewStep2Form');
+                return new PKPReviewerReviewStep2Form($request, $reviewerSubmission, $reviewAssignment);
+            case 3:
+                import('lib.pkp.classes.submission.reviewer.form.PKPReviewerReviewStep3Form');
+                return new PKPReviewerReviewStep3Form($request, $reviewerSubmission, $reviewAssignment);
+        }
+    }
+
+    //
+    // Private helper methods
+    //
+    public function _retrieveStep()
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        $reviewId = (int) $reviewAssignment->getId();
+        assert(!empty($reviewId));
+        return $reviewId;
+    }
 }
-
-

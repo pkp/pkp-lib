@@ -584,6 +584,9 @@ msgstr "По контексту"
 msgid "manager.affiliationAndSupport"
 msgstr "Спонзор"
 
+msgid "manager.setup.publishingDescription"
+msgstr "Име организације која објављује часопис може бити укључено у метаподатке које дајете трећим лицима за архивирање."
+
 msgid "manager.setup.additionalContent"
 msgstr "Додатни садржај"
 

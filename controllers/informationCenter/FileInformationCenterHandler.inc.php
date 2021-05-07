@@ -3,8 +3,8 @@
 /**
  * @file controllers/informationCenter/FileInformationCenterHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileInformationCenterHandler
@@ -14,223 +14,251 @@
  */
 
 import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
-import('lib.pkp.classes.core.JSONMessage');
-import('classes.log.SubmissionEventLogEntry');
 
-class FileInformationCenterHandler extends InformationCenterHandler {
-	/** @var object */
-	var $submissionFile;
+use APP\template\TemplateManager;
+use Exception;
 
-	/** @var int */
-	var $_stageId;
+use PKP\core\JSONMessage;
 
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		$this->addRoleAssignment(
-			array(ROLE_ID_ASSISTANT),
-			array(
-				'viewInformationCenter',
-				'viewHistory',
-				'viewNotes', 'listNotes', 'saveNote', 'deleteNote',
-			)
-		);
-	}
+use PKP\log\EventLogEntry;
 
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		// Require stage access
-		import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
-		$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', (int) $request->getUserVar('stageId')));
+class FileInformationCenterHandler extends InformationCenterHandler
+{
+    /** @var object */
+    public $submissionFile;
 
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /** @var int */
+    public $_stageId;
 
-	/**
-	 * @copydoc InformationCenterHandler::initialize
-	 */
-	function initialize($request) {
-		parent::initialize($request);
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRoleAssignment(
+            [ROLE_ID_ASSISTANT],
+            [
+                'viewInformationCenter',
+                'viewHistory',
+                'viewNotes', 'listNotes', 'saveNote', 'deleteNote',
+            ]
+        );
+    }
 
-		$this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-		$this->submissionFile = Services::get('submissionFile')->get($request->getUserVar('submissionFileId'));
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        // Require stage access
+        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
+        $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', (int) $request->getUserVar('stageId')));
 
-		// Ensure data integrity.
-		if (!$this->_submission || !$this->submissionFile || $this->_submission->getId() != $this->submissionFile->getData('submissionId')) {
-			throw new Exception('Unknown or invalid submission or submission file!');
-		};
-	}
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-	/**
-	 * Display the main information center modal.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function viewInformationCenter($args, $request) {
-		$this->setupTemplate($request);
+    /**
+     * @copydoc InformationCenterHandler::initialize
+     */
+    public function initialize($request)
+    {
+        parent::initialize($request);
 
-		// Assign variables to the template manager and display
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('removeHistoryTab', (int) $request->getUserVar('removeHistoryTab'));
+        $this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $this->submissionFile = Services::get('submissionFile')->get($request->getUserVar('submissionFileId'));
 
-		return parent::viewInformationCenter($args, $request);
-	}
+        // Ensure data integrity.
+        if (!$this->_submission || !$this->submissionFile || $this->_submission->getId() != $this->submissionFile->getData('submissionId')) {
+            throw new Exception('Unknown or invalid submission or submission file!');
+        };
+    }
 
-	/**
-	 * Display the notes tab.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function viewNotes($args, $request) {
-		$this->setupTemplate($request);
+    /**
+     * Display the main information center modal.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function viewInformationCenter($args, $request)
+    {
+        $this->setupTemplate($request);
 
-		import('lib.pkp.controllers.informationCenter.form.NewFileNoteForm');
-		$notesForm = new NewFileNoteForm($this->submissionFile->getId());
-		$notesForm->initData();
+        // Assign variables to the template manager and display
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('removeHistoryTab', (int) $request->getUserVar('removeHistoryTab'));
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('notesList', $this->_listNotes($args, $request));
-		$templateMgr->assign('pastNotesList', $this->_listPastNotes($args, $request));
+        return parent::viewInformationCenter($args, $request);
+    }
 
-		return new JSONMessage(true, $notesForm->fetch($request));
-	}
+    /**
+     * Display the notes tab.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function viewNotes($args, $request)
+    {
+        $this->setupTemplate($request);
 
-	/**
-	 * Display the list of existing notes from prior files.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function _listPastNotes($args, $request) {
-		$this->setupTemplate($request);
+        import('lib.pkp.controllers.informationCenter.form.NewFileNoteForm');
+        $notesForm = new NewFileNoteForm($this->submissionFile->getId());
+        $notesForm->initData();
 
-		$templateMgr = TemplateManager::getManager($request);
-		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('notesList', $this->_listNotes($args, $request));
+        $templateMgr->assign('pastNotesList', $this->_listPastNotes($args, $request));
 
-		$submissionFile = $this->submissionFile;
-		$notes = $noteDao->getByAssoc($this->_getAssocType(), $submissionFile->getData('sourceSubmissionFileId'))->toArray();
-		import('lib.pkp.classes.core.ArrayItemIterator');
-		$templateMgr->assign('notes', new ArrayItemIterator($notes));
+        return new JSONMessage(true, $notesForm->fetch($request));
+    }
 
-		$user = $request->getUser();
-		$templateMgr->assign(array(
-			'currentUserId' => $user->getId(),
-			'notesDeletable' => false,
-		));
+    /**
+     * Display the list of existing notes from prior files.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function _listPastNotes($args, $request)
+    {
+        $this->setupTemplate($request);
 
-		return $templateMgr->fetch('controllers/informationCenter/notesList.tpl');
-	}
+        $templateMgr = TemplateManager::getManager($request);
+        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
 
-	/**
-	 * Save a note.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function saveNote($args, $request) {
-		$this->setupTemplate($request);
+        $submissionFile = $this->submissionFile;
+        $notes = $noteDao->getByAssoc($this->_getAssocType(), $submissionFile->getData('sourceSubmissionFileId'))->toArray();
+        import('lib.pkp.classes.core.ArrayItemIterator');
+        $templateMgr->assign('notes', new ArrayItemIterator($notes));
 
-		import('lib.pkp.controllers.informationCenter.form.NewFileNoteForm');
-		$notesForm = new NewFileNoteForm($this->submissionFile->getId());
-		$notesForm->readInputData();
+        $user = $request->getUser();
+        $templateMgr->assign([
+            'currentUserId' => $user->getId(),
+            'notesDeletable' => false,
+        ]);
 
-		if ($notesForm->validate()) {
-			$notesForm->execute();
+        return $templateMgr->fetch('controllers/informationCenter/notesList.tpl');
+    }
 
-			// Save to event log
-			$this->_logEvent($request, $this->submissionFile, SUBMISSION_LOG_NOTE_POSTED, 'SubmissionFileLog');
+    /**
+     * Save a note.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function saveNote($args, $request)
+    {
+        $this->setupTemplate($request);
 
-			$user = $request->getUser();
-			NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.addedNote')));
+        import('lib.pkp.controllers.informationCenter.form.NewFileNoteForm');
+        $notesForm = new NewFileNoteForm($this->submissionFile->getId());
+        $notesForm->readInputData();
 
-			$jsonViewNotesResponse = $this->viewNotes($args, $request);
-			$json = new JSONMessage(true);
-			$json->setEvent('dataChanged');
-			$json->setEvent('noteAdded', $jsonViewNotesResponse->_content);
+        if ($notesForm->validate()) {
+            $notesForm->execute();
 
-			return $json;
+            // Save to event log
+            $this->_logEvent($request, $this->submissionFile, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, 'SubmissionFileLog');
 
-		} else {
-			// Return a JSON string indicating failure
-			return new JSONMessage(false);
-		}
-	}
+            $user = $request->getUser();
+            NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);
 
-	/**
-	 * Fetch the contents of the event log.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON object
-	 */
-	function viewHistory($args, $request) {
-		$this->setupTemplate($request);
-		$templateMgr = TemplateManager::getManager($request);
-		$dispatcher = $request->getDispatcher();
-		return $templateMgr->fetchAjax(
-			'eventLogGrid',
-			$dispatcher->url($request, ROUTE_COMPONENT, null, 'grid.eventLog.SubmissionFileEventLogGridHandler', 'fetchGrid', null, $this->_getLinkParams())
-		);
-	}
+            $jsonViewNotesResponse = $this->viewNotes($args, $request);
+            $json = new JSONMessage(true);
+            $json->setEvent('dataChanged');
+            $json->setEvent('noteAdded', $jsonViewNotesResponse->_content);
 
-	/**
-	 * Get an array representing link parameters that subclasses
-	 * need to have passed to their various handlers (i.e. submission ID
-	 * to the delete note handler).
-	 * @return array
-	 */
-	function _getLinkParams() {
-		return array_merge(
-			parent::_getLinkParams(),
-			array(
-				'submissionFileId' => $this->submissionFile->getId(),
-				'stageId' => $this->_stageId,
-			)
-		);
-	}
+            return $json;
+        } else {
+            // Return a JSON string indicating failure
+            return new JSONMessage(false);
+        }
+    }
 
-	/**
-	 * Get the association ID for this information center view
-	 * @return int
-	 */
-	function _getAssocId() {
-		return $this->submissionFile->getId();
-	}
+    /**
+     * Fetch the contents of the event log.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function viewHistory($args, $request)
+    {
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
+        $dispatcher = $request->getDispatcher();
+        return $templateMgr->fetchAjax(
+            'eventLogGrid',
+            $dispatcher->url($request, PKPApplication::ROUTE_COMPONENT, null, 'grid.eventLog.SubmissionFileEventLogGridHandler', 'fetchGrid', null, $this->_getLinkParams())
+        );
+    }
 
-	/**
-	 * Get the association type for this information center view
-	 * @return int
-	 */
-	function _getAssocType() {
-		return ASSOC_TYPE_SUBMISSION_FILE;
-	}
+    /**
+     * Get an array representing link parameters that subclasses
+     * need to have passed to their various handlers (i.e. submission ID
+     * to the delete note handler).
+     *
+     * @return array
+     */
+    public function _getLinkParams()
+    {
+        return array_merge(
+            parent::_getLinkParams(),
+            [
+                'submissionFileId' => $this->submissionFile->getId(),
+                'stageId' => $this->_stageId,
+            ]
+        );
+    }
 
-	/**
-	 * Set up the template
-	 * @param $request PKPRequest
-	 */
-	function setupTemplate($request) {
-		$templateMgr = TemplateManager::getManager($request);
+    /**
+     * Get the association ID for this information center view
+     *
+     * @return int
+     */
+    public function _getAssocId()
+    {
+        return $this->submissionFile->getId();
+    }
 
-		// Get the latest history item to display in the header
-		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
-		$fileEvents = $submissionFileEventLogDao->getBySubmissionFileId($this->submissionFile->getId());
-		$lastEvent = $fileEvents->next();
-		if(isset($lastEvent)) {
-			$templateMgr->assign('lastEvent', $lastEvent);
+    /**
+     * Get the association type for this information center view
+     *
+     * @return int
+     */
+    public function _getAssocType()
+    {
+        return ASSOC_TYPE_SUBMISSION_FILE;
+    }
 
-			// Get the user who created the last event.
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-			$user = $userDao->getById($lastEvent->getUserId());
-			$templateMgr->assign('lastEventUser', $user);
-		}
+    /**
+     * Set up the template
+     *
+     * @param $request PKPRequest
+     */
+    public function setupTemplate($request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
 
-		return parent::setupTemplate($request);
-	}
+        // Get the latest history item to display in the header
+        $submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /** @var SubmissionFileEventLogDAO $submissionFileEventLogDao */
+        $fileEvents = $submissionFileEventLogDao->getBySubmissionFileId($this->submissionFile->getId());
+        $lastEvent = $fileEvents->next();
+        if (isset($lastEvent)) {
+            $templateMgr->assign('lastEvent', $lastEvent);
+
+            // Get the user who created the last event.
+            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+            $user = $userDao->getById($lastEvent->getUserId());
+            $templateMgr->assign('lastEventUser', $user);
+        }
+
+        return parent::setupTemplate($request);
+    }
 }
-
-

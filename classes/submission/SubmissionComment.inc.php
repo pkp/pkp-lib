@@ -3,217 +3,270 @@
 /**
  * @file classes/submission/SubmissionComment.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionComment
  * @ingroup submission
+ *
  * @see SubmissionCommentDAO
  *
  * @brief Class for SubmissionComment.
  */
 
-/** Comment associative types. All types must be defined here. */
-define('COMMENT_TYPE_PEER_REVIEW', 0x01);
-define('COMMENT_TYPE_EDITOR_DECISION', 0x02);
-define('COMMENT_TYPE_COPYEDIT', 0x03);
-define('COMMENT_TYPE_LAYOUT', 0x04);
-define('COMMENT_TYPE_PROOFREAD', 0x05);
+namespace PKP\submission;
 
-class SubmissionComment extends DataObject {
+use PKP\db\DAORegistry;
 
-	/**
-	 * get comment type
-	 * @return int COMMENT_TYPE_...
-	 */
-	function getCommentType() {
-		return $this->getData('commentType');
-	}
+class SubmissionComment extends \PKP\core\DataObject
+{
+    public const COMMENT_TYPE_PEER_REVIEW = 1;
+    public const COMMENT_TYPE_EDITOR_DECISION = 2;
+    public const COMMENT_TYPE_COPYEDIT = 3;
+    public const COMMENT_TYPE_LAYOUT = 4;
+    public const COMMENT_TYPE_PROOFREAD = 5;
 
-	/**
-	 * set comment type
-	 * @param $commentType int COMMENT_TYPE_...
-	 */
-	function setCommentType($commentType) {
-		$this->setData('commentType', $commentType);
-	}
+    /**
+     * get comment type
+     *
+     * @return int COMMENT_TYPE_...
+     */
+    public function getCommentType()
+    {
+        return $this->getData('commentType');
+    }
 
-	/**
-	 * get role id
-	 * @return int
-	 */
-	function getRoleId() {
-		return $this->getData('roleId');
-	}
+    /**
+     * set comment type
+     *
+     * @param $commentType int COMMENT_TYPE_...
+     */
+    public function setCommentType($commentType)
+    {
+        $this->setData('commentType', $commentType);
+    }
 
-	/**
-	 * set role id
-	 * @param $roleId int
-	 */
-	function setRoleId($roleId) {
-		$this->setData('roleId', $roleId);
-	}
+    /**
+     * get role id
+     *
+     * @return int
+     */
+    public function getRoleId()
+    {
+        return $this->getData('roleId');
+    }
 
-	/**
-	 * get submission id
-	 * @return int
-	 */
-	function getSubmissionId() {
-		return $this->getData('submissionId');
-	}
+    /**
+     * set role id
+     *
+     * @param $roleId int
+     */
+    public function setRoleId($roleId)
+    {
+        $this->setData('roleId', $roleId);
+    }
 
-	/**
-	 * set submission id
-	 * @param $submissionId int
-	 */
-	function setSubmissionId($submissionId) {
-		$this->setData('submissionId', $submissionId);
-	}
+    /**
+     * get submission id
+     *
+     * @return int
+     */
+    public function getSubmissionId()
+    {
+        return $this->getData('submissionId');
+    }
 
-	/**
-	 * get assoc id
-	 * @return int
-	 */
-	function getAssocId() {
-		return $this->getData('assocId');
-	}
+    /**
+     * set submission id
+     *
+     * @param $submissionId int
+     */
+    public function setSubmissionId($submissionId)
+    {
+        $this->setData('submissionId', $submissionId);
+    }
 
-	/**
-	 * set assoc id
-	 * @param $assocId int
-	 */
-	function setAssocId($assocId) {
-		$this->setData('assocId', $assocId);
-	}
+    /**
+     * get assoc id
+     *
+     * @return int
+     */
+    public function getAssocId()
+    {
+        return $this->getData('assocId');
+    }
 
-	/**
-	 * get author id
-	 * @return int
-	 */
-	function getAuthorId() {
-		return $this->getData('authorId');
-	}
+    /**
+     * set assoc id
+     *
+     * @param $assocId int
+     */
+    public function setAssocId($assocId)
+    {
+        $this->setData('assocId', $assocId);
+    }
 
-	/**
-	 * set author id
-	 * @param $authorId int
-	 */
-	function setAuthorId($authorId) {
-		$this->setData('authorId', $authorId);
-	}
+    /**
+     * get author id
+     *
+     * @return int
+     */
+    public function getAuthorId()
+    {
+        return $this->getData('authorId');
+    }
 
-	/**
-	 * get author name
-	 * @return string
-	 */
-	function getAuthorName() {
-		// Reference used to set if not already fetched
-		$authorFullName =& $this->getData('authorFullName');
+    /**
+     * set author id
+     *
+     * @param $authorId int
+     */
+    public function setAuthorId($authorId)
+    {
+        $this->setData('authorId', $authorId);
+    }
 
-		if(!isset($authorFullName)) {
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-			$authorFullName = $userDao->getUserFullName($this->getAuthorId(), true);
-		}
+    /**
+     * get author name
+     *
+     * @return string
+     */
+    public function getAuthorName()
+    {
+        // Reference used to set if not already fetched
+        $authorFullName = & $this->getData('authorFullName');
 
-		return $authorFullName ? $authorFullName : '';
-	}
+        if (!isset($authorFullName)) {
+            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+            $authorFullName = $userDao->getUserFullName($this->getAuthorId(), true);
+        }
 
-	/**
-	 * get author email
-	 * @return string
-	 */
-	function getAuthorEmail() {
-		// Reference used to set if not already fetched
-		$authorEmail =& $this->getData('authorEmail');
+        return $authorFullName ? $authorFullName : '';
+    }
 
-		if(!isset($authorEmail)) {
-			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
-			$authorEmail = $userDao->getUserEmail($this->getAuthorId(), true);
-		}
+    /**
+     * get author email
+     *
+     * @return string
+     */
+    public function getAuthorEmail()
+    {
+        // Reference used to set if not already fetched
+        $authorEmail = & $this->getData('authorEmail');
 
-		return $authorEmail ? $authorEmail : '';
-	}
+        if (!isset($authorEmail)) {
+            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+            $authorEmail = $userDao->getUserEmail($this->getAuthorId(), true);
+        }
 
-	/**
-	 * get comment title
-	 * @return string
-	 */
-	function getCommentTitle() {
-		return $this->getData('commentTitle');
-	}
+        return $authorEmail ? $authorEmail : '';
+    }
 
-	/**
-	 * set comment title
-	 * @param $commentTitle string
-	 */
-	function setCommentTitle($commentTitle) {
-		$this->setData('commentTitle', $commentTitle);
-	}
+    /**
+     * get comment title
+     *
+     * @return string
+     */
+    public function getCommentTitle()
+    {
+        return $this->getData('commentTitle');
+    }
 
-	/**
-	 * get comments
-	 * @return string
-	 */
-	function getComments() {
-		return $this->getData('comments');
-	}
+    /**
+     * set comment title
+     *
+     * @param $commentTitle string
+     */
+    public function setCommentTitle($commentTitle)
+    {
+        $this->setData('commentTitle', $commentTitle);
+    }
 
-	/**
-	 * set comments
-	 * @param $comments string
-	 */
-	function setComments($comments) {
-		$this->setData('comments', $comments);
-	}
+    /**
+     * get comments
+     *
+     * @return string
+     */
+    public function getComments()
+    {
+        return $this->getData('comments');
+    }
 
-	/**
-	 * get date posted
-	 * @return date
-	 */
-	function getDatePosted() {
-		return $this->getData('datePosted');
-	}
+    /**
+     * set comments
+     *
+     * @param $comments string
+     */
+    public function setComments($comments)
+    {
+        $this->setData('comments', $comments);
+    }
 
-	/**
-	 * set date posted
-	 * @param $datePosted date
-	 */
-	function setDatePosted($datePosted) {
-		$this->setData('datePosted', $datePosted);
-	}
+    /**
+     * get date posted
+     *
+     * @return date
+     */
+    public function getDatePosted()
+    {
+        return $this->getData('datePosted');
+    }
 
-	/**
-	 * get date modified
-	 * @return date
-	 */
-	function getDateModified() {
-		return $this->getData('dateModified');
-	}
+    /**
+     * set date posted
+     *
+     * @param $datePosted date
+     */
+    public function setDatePosted($datePosted)
+    {
+        $this->setData('datePosted', $datePosted);
+    }
 
-	/**
-	 * set date modified
-	 * @param $dateModified date
-	 */
-	function setDateModified($dateModified) {
-		$this->setData('dateModified', $dateModified);
-	}
+    /**
+     * get date modified
+     *
+     * @return date
+     */
+    public function getDateModified()
+    {
+        return $this->getData('dateModified');
+    }
 
-	/**
-	 * get viewable
-	 * @return boolean
-	 */
-	function getViewable() {
-		return $this->getData('viewable');
-	}
+    /**
+     * set date modified
+     *
+     * @param $dateModified date
+     */
+    public function setDateModified($dateModified)
+    {
+        $this->setData('dateModified', $dateModified);
+    }
 
-	/**
-	 * set viewable
-	 * @param $viewable boolean
-	 */
-	function setViewable($viewable) {
-		$this->setData('viewable', $viewable);
-	}
+    /**
+     * get viewable
+     *
+     * @return boolean
+     */
+    public function getViewable()
+    {
+        return $this->getData('viewable');
+    }
+
+    /**
+     * set viewable
+     *
+     * @param $viewable boolean
+     */
+    public function setViewable($viewable)
+    {
+        $this->setData('viewable', $viewable);
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\SubmissionComment', '\SubmissionComment');
+    foreach (['COMMENT_TYPE_PEER_REVIEW', 'COMMENT_TYPE_EDITOR_DECISION', 'COMMENT_TYPE_COPYEDIT', 'COMMENT_TYPE_LAYOUT', 'COMMENT_TYPE_PROOFREAD'] as $constantName) {
+        define($constantName, constant('\SubmissionComment::' . $constantName));
+    }
+}

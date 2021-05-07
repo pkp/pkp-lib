@@ -3,8 +3,8 @@
 <!--
   * plugins/importexport/native/pkp-native.xsd
   *
-  * Copyright (c) 2014-2020 Simon Fraser University
-  * Copyright (c) 2003-2020 John Willinsky
+  * Copyright (c) 2014-2021 Simon Fraser University
+  * Copyright (c) 2003-2021 John Willinsky
   * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * Schema describing native XML import/export elements shared across PKP applications
@@ -85,6 +85,7 @@
 
 	<complexType name="submission_file">
 		<sequence>
+			<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
 			<element name="creator" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="description" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
@@ -259,7 +260,7 @@
 			<element ref="pkp:languages" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:disciplines" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:subjects" minOccurs="0" maxOccurs="unbounded" />
-			<element ref="pkp:authors" minOccurs="1" maxOccurs="1" />
+			<element ref="pkp:authors" minOccurs="0" maxOccurs="1" />
 			<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:citations" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>

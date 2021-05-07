@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/sections/form/PKPSectionForm.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSectionForm
@@ -13,108 +13,120 @@
  * @brief Form for adding/editing a section
  */
 
-import('lib.pkp.classes.form.Form');
+use APP\template\TemplateManager;
 
-class PKPSectionForm extends Form {
-	/** the id for the section being edited **/
-	var $_sectionId;
+use PKP\form\Form;
 
-	/** @var int The current user ID */
-	var $_userId;
+class PKPSectionForm extends Form
+{
+    /** the id for the section being edited **/
+    public $_sectionId;
 
-	/** @var string Cover image extension */
-	var $_imageExtension;
+    /** @var int The current user ID */
+    public $_userId;
 
-	/** @var array Cover image information from getimagesize */
-	var $_sizeArray;
+    /** @var string Cover image extension */
+    public $_imageExtension;
 
-	/**
-	 * Constructor.
-	 * @param $request PKPRequest
-	 * @param $template string Template path
-	 * @param $sectionId int optional
-	 */
-	function __construct($request, $template, $sectionId = null) {
-		$this->setSectionId($sectionId);
+    /** @var array Cover image information from getimagesize */
+    public $_sizeArray;
 
-		$user = $request->getUser();
-		$this->_userId = $user->getId();
+    /**
+     * Constructor.
+     *
+     * @param $request PKPRequest
+     * @param $template string Template path
+     * @param $sectionId int optional
+     */
+    public function __construct($request, $template, $sectionId = null)
+    {
+        $this->setSectionId($sectionId);
 
-		parent::__construct($template);
+        $user = $request->getUser();
+        $this->_userId = $user->getId();
 
-		// Validation checks for this form
-		$this->addCheck(new FormValidatorPost($this));
-		$this->addCheck(new FormValidatorCSRF($this));
+        parent::__construct($template);
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_PKP_MANAGER);
-	}
+        // Validation checks for this form
+        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
 
-	/**
-	 * @copydoc Form::readInputData()
-	 */
-	function readInputData() {
-		$this->readUserVars(array('title', 'subEditors'));
-	}
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_PKP_MANAGER);
+    }
 
-	/**
-	 * Get the section ID for this section.
-	 * @return int
-	 */
-	function getSectionId() {
-		return $this->_sectionId;
-	}
+    /**
+     * @copydoc Form::readInputData()
+     */
+    public function readInputData()
+    {
+        $this->readUserVars(['title', 'subEditors']);
+    }
 
-	/**
-	 * Set the section ID for this section.
-	 * @param $sectionId int
-	 */
-	function setSectionId($sectionId) {
-		$this->_sectionId = $sectionId;
-	}
+    /**
+     * Get the section ID for this section.
+     *
+     * @return int
+     */
+    public function getSectionId()
+    {
+        return $this->_sectionId;
+    }
 
-	/**
-	 * @copydoc Form::fetch()
-	 */
-	function fetch($request, $template = null, $display = false) {
-		$params = [
-			'contextId' => $request->getContext()->getId(),
-			'roleIds' => ROLE_ID_SUB_EDITOR,
-		];
+    /**
+     * Set the section ID for this section.
+     *
+     * @param $sectionId int
+     */
+    public function setSectionId($sectionId)
+    {
+        $this->_sectionId = $sectionId;
+    }
 
-		$usersIterator = Services::get('user')->getMany($params);
-		$subeditors = [];
-		foreach ($usersIterator as $user) {
-			$subeditors[(int) $user->getId()] = $user->getFullName();
-		}
+    /**
+     * @copydoc Form::fetch()
+     *
+     * @param null|mixed $template
+     */
+    public function fetch($request, $template = null, $display = false)
+    {
+        $params = [
+            'contextId' => $request->getContext()->getId(),
+            'roleIds' => ROLE_ID_SUB_EDITOR,
+        ];
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign([
-			'subeditors' => $subeditors,
-		]);
+        $usersIterator = Services::get('user')->getMany($params);
+        $subeditors = [];
+        foreach ($usersIterator as $user) {
+            $subeditors[(int) $user->getId()] = $user->getFullName();
+        }
 
-		return parent::fetch($request, $template, $display);
-	}
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'subeditors' => $subeditors,
+        ]);
 
-	/**
-	 * Save changes to subeditors
-	 *
-	 * @param $contextId int
-	 */
-	public function execute(...$functionArgs) {
-		$contextId = Application::get()->getRequest()->getContext()->getId();
-		$subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /* @var $subEditorsDao SubEditorsDAO */
-		$subEditorsDao->deleteBySubmissionGroupId($this->getSectionId(), ASSOC_TYPE_SECTION, $contextId);
-		$subEditors = $this->getData('subEditors');
-		if (!empty($subEditors)) {
-			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
-			foreach ($subEditors as $subEditor) {
-				if ($roleDao->userHasRole($contextId, $subEditor, ROLE_ID_SUB_EDITOR)) {
-					$subEditorsDao->insertEditor($contextId, $this->getSectionId(), $subEditor, ASSOC_TYPE_SECTION);
-				}
-			}
-		}
+        return parent::fetch($request, $template, $display);
+    }
 
-		parent::execute($functionArgs);
-	}
+    /**
+     * Save changes to subeditors
+     *
+     */
+    public function execute(...$functionArgs)
+    {
+        $contextId = Application::get()->getRequest()->getContext()->getId();
+        $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
+        $subEditorsDao->deleteBySubmissionGroupId($this->getSectionId(), ASSOC_TYPE_SECTION, $contextId);
+        $subEditors = $this->getData('subEditors');
+        if (!empty($subEditors)) {
+            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+            foreach ($subEditors as $subEditor) {
+                if ($roleDao->userHasRole($contextId, $subEditor, ROLE_ID_SUB_EDITOR)) {
+                    $subEditorsDao->insertEditor($contextId, $this->getSectionId(), $subEditor, ASSOC_TYPE_SECTION);
+                }
+            }
+        }
 
+        parent::execute($functionArgs);
+    }
 }

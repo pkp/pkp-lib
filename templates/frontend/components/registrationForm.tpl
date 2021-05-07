@@ -1,8 +1,8 @@
 {**
  * templates/frontend/components/registrationForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the basic registration form fields
@@ -49,7 +49,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required aria-required="true">
+				<input type="text" name="affiliation" autocomplete="organization" id="affiliation" value="{$affiliation|escape}" required aria-required="true">
 			</label>
 		</div>
 		<div class="country">
@@ -61,7 +61,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<select name="country" id="country" required aria-required="true">
+				<select name="country" id="country" autocomplete="country-name" required aria-required="true">
 					<option></option>
 					{html_options options=$countries selected=$country}
 				</select>
@@ -108,7 +108,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password" id="password" password="true" maxlength="32" required aria-required="true">
+				<input type="password" name="password" id="password" password="true" maxlength="32" required aria-required="true" autocomplete="new-password">
 			</label>
 		</div>
 		<div class="password">
@@ -120,7 +120,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password2" id="password2" password="true" maxlength="32" required aria-required="true">
+				<input type="password" name="password2" id="password2" password="true" maxlength="32" required aria-required="true" autocomplete="new-password">
 			</label>
 		</div>
 	</div>

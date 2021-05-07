@@ -3,8 +3,8 @@
 /**
  * @file classes/controlledVocab/ControlledVocabEntrySettingsDAO.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ControlledVocabEntrySettingsDAO
@@ -13,25 +13,33 @@
  * @brief Operations for retrieving and modifying controlled vocabulary entry settings.
  */
 
-import('lib.pkp.classes.db.SettingsDAO');
+namespace PKP\controlledVocab;
 
-class ControlledVocabEntrySettingsDAO extends SettingsDAO {
+use PKP\db\SettingsDAO;
 
-	/**
-	 * Get the settings table name.
-	 * @return string
-	 */
-	protected function _getTableName() {
-		return 'controlled_vocab_entry_settings';
-	}
+class ControlledVocabEntrySettingsDAO extends SettingsDAO
+{
+    /**
+     * Get the settings table name.
+     *
+     * @return string
+     */
+    protected function _getTableName()
+    {
+        return 'controlled_vocab_entry_settings';
+    }
 
-	/**
-	 * Get the primary key column name.
-	 * @return string
-	 */
-	protected function _getPrimaryKeyColumn() {
-		return 'controlled_vocab_entry_id';
-	}
+    /**
+     * Get the primary key column name.
+     *
+     * @return string
+     */
+    protected function _getPrimaryKeyColumn()
+    {
+        return 'controlled_vocab_entry_id';
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controlledVocab\ControlledVocabEntrySettingsDAO', '\ControlledVocabEntrySettingsDAO');
+}

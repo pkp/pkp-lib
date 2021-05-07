@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/PublicationIsSubmissionPolicy.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublicationIsSubmissionPolicy
@@ -15,20 +15,20 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class PublicationIsSubmissionPolicy extends AuthorizationPolicy {
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-		$publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+class PublicationIsSubmissionPolicy extends AuthorizationPolicy
+{
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
 
-		if ($submission && $publication && $submission->getId() === $publication->getData('submissionId')) {
-			return AUTHORIZATION_PERMIT;
-		}
+        if ($submission && $publication && $submission->getId() === $publication->getData('submissionId')) {
+            return AUTHORIZATION_PERMIT;
+        }
 
-		return AUTHORIZATION_DENY;
-	}
+        return AUTHORIZATION_DENY;
+    }
 }
-
-

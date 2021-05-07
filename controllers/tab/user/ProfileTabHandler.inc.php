@@ -7,8 +7,8 @@
 /**
  * @file controllers/tab/user/ProfileTabHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ProfileTabHandler
@@ -17,306 +17,351 @@
  * @brief Handle requests for profile tab operations.
  */
 
+use APP\handler\Handler;
 
-import('classes.handler.Handler');
-import('lib.pkp.classes.core.JSONMessage');
+use PKP\core\JSONMessage;
 
-class ProfileTabHandler extends Handler {
+class ProfileTabHandler extends Handler
+{
+    //
+    // Implement template methods from PKPHandler
+    //
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
+    public function authorize($request, &$args, $roleAssignments)
+    {
+        // User must be logged in
+        import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
+        $this->addPolicy(new UserRequiredPolicy($request));
 
-	//
-	// Implement template methods from PKPHandler
-	//
-	/**
-	 * @copydoc PKPHandler::authorize()
-	 */
-	function authorize($request, &$args, $roleAssignments) {
-		// User must be logged in
-		import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
-		$this->addPolicy(new UserRequiredPolicy($request));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
 
-		return parent::authorize($request, $args, $roleAssignments);
-	}
+    /**
+     * Display form to edit user's identity.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function identity($args, $request)
+    {
+        $this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.IdentityForm');
+        $identityForm = new IdentityForm($request->getUser());
+        $identityForm->initData();
+        return new JSONMessage(true, $identityForm->fetch($request));
+    }
 
-	/**
-	 * Display form to edit user's identity.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function identity($args, $request) {
-		$this->setupTemplate($request);
-		import('lib.pkp.classes.user.form.IdentityForm');
-		$identityForm = new IdentityForm($request->getUser());
-		$identityForm->initData();
-		return new JSONMessage(true, $identityForm->fetch($request));
-	}
+    /**
+     * Validate and save changes to user's identity info.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function saveIdentity($args, $request)
+    {
+        $this->setupTemplate($request);
 
-	/**
-	 * Validate and save changes to user's identity info.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function saveIdentity($args, $request) {
-		$this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.IdentityForm');
+        $identityForm = new IdentityForm($request->getUser());
+        $identityForm->readInputData();
+        if ($identityForm->validate()) {
+            $identityForm->execute();
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification($request->getUser()->getId());
+            return new JSONMessage(true);
+        }
+        return new JSONMessage(true, $identityForm->fetch($request));
+    }
 
-		import('lib.pkp.classes.user.form.IdentityForm');
-		$identityForm = new IdentityForm($request->getUser());
-		$identityForm->readInputData();
-		if ($identityForm->validate()) {
-			$identityForm->execute();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($request->getUser()->getId());
-			return new JSONMessage(true);
-		}
-		return new JSONMessage(true, $identityForm->fetch($request));
-	}
+    /**
+     * Display form to edit user's contact information.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function contact($args, $request)
+    {
+        $this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.ContactForm');
+        $contactForm = new ContactForm($request->getUser());
+        $contactForm->initData();
+        return new JSONMessage(true, $contactForm->fetch($request));
+    }
 
-	/**
-	 * Display form to edit user's contact information.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function contact($args, $request) {
-		$this->setupTemplate($request);
-		import('lib.pkp.classes.user.form.ContactForm');
-		$contactForm = new ContactForm($request->getUser());
-		$contactForm->initData();
-		return new JSONMessage(true, $contactForm->fetch($request));
-	}
+    /**
+     * Validate and save changes to user's contact info.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function saveContact($args, $request)
+    {
+        $this->setupTemplate($request);
 
-	/**
-	 * Validate and save changes to user's contact info.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function saveContact($args, $request) {
-		$this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.ContactForm');
+        $contactForm = new ContactForm($request->getUser());
+        $contactForm->readInputData();
+        if ($contactForm->validate()) {
+            $contactForm->execute();
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification($request->getUser()->getId());
+            return new JSONMessage(true);
+        }
+        return new JSONMessage(true, $contactForm->fetch($request));
+    }
 
-		import('lib.pkp.classes.user.form.ContactForm');
-		$contactForm = new ContactForm($request->getUser());
-		$contactForm->readInputData();
-		if ($contactForm->validate()) {
-			$contactForm->execute();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($request->getUser()->getId());
-			return new JSONMessage(true);
-		}
-		return new JSONMessage(true, $contactForm->fetch($request));
-	}
+    /**
+     * Display form to edit user's roles information.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function roles($args, $request)
+    {
+        $this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.RolesForm');
+        $rolesForm = new RolesForm($request->getUser());
+        $rolesForm->initData();
+        return new JSONMessage(true, $rolesForm->fetch($request));
+    }
 
-	/**
-	 * Display form to edit user's roles information.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function roles($args, $request) {
-		$this->setupTemplate($request);
-		import('lib.pkp.classes.user.form.RolesForm');
-		$rolesForm = new RolesForm($request->getUser());
-		$rolesForm->initData();
-		return new JSONMessage(true, $rolesForm->fetch($request));
-	}
+    /**
+     * Validate and save changes to user's roles info.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function saveRoles($args, $request)
+    {
+        $this->setupTemplate($request);
 
-	/**
-	 * Validate and save changes to user's roles info.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function saveRoles($args, $request) {
-		$this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.RolesForm');
+        $rolesForm = new RolesForm($request->getUser());
+        $rolesForm->readInputData();
+        if ($rolesForm->validate()) {
+            $rolesForm->execute();
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification($request->getUser()->getId());
+            return new JSONMessage(true);
+        }
+        return new JSONMessage(false, $rolesForm->fetch($request));
+    }
 
-		import('lib.pkp.classes.user.form.RolesForm');
-		$rolesForm = new RolesForm($request->getUser());
-		$rolesForm->readInputData();
-		if ($rolesForm->validate()) {
-			$rolesForm->execute();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($request->getUser()->getId());
-			return new JSONMessage(true);
-		}
-		return new JSONMessage(false, $rolesForm->fetch($request));
-	}
+    /**
+     * Display form to edit user's publicProfile information.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function publicProfile($args, $request)
+    {
+        $this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.PublicProfileForm');
+        $publicProfileForm = new PublicProfileForm($request->getUser());
+        $publicProfileForm->initData();
+        return new JSONMessage(true, $publicProfileForm->fetch($request));
+    }
 
-	/**
-	 * Display form to edit user's publicProfile information.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function publicProfile($args, $request) {
-		$this->setupTemplate($request);
-		import('lib.pkp.classes.user.form.PublicProfileForm');
-		$publicProfileForm = new PublicProfileForm($request->getUser());
-		$publicProfileForm->initData();
-		return new JSONMessage(true, $publicProfileForm->fetch($request));
-	}
+    /**
+     * Upload a public profile image.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function uploadProfileImage($args, $request)
+    {
+        import('lib.pkp.classes.user.form.PublicProfileForm');
+        $publicProfileForm = new PublicProfileForm($request->getUser());
+        $result = $publicProfileForm->uploadProfileImage();
+        if ($result) {
+            return $request->redirectUrlJson($request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'user', 'profile', null, ['uniq' => uniqid()], 'publicProfile'));
+        } else {
+            return new JSONMessage(false, __('common.uploadFailed'));
+        }
+    }
 
-	/**
-	 * Upload a public profile image.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function uploadProfileImage($args, $request) {
-		import('lib.pkp.classes.user.form.PublicProfileForm');
-		$publicProfileForm = new PublicProfileForm($request->getUser());
-		$result = $publicProfileForm->uploadProfileImage();
-		if ($result) {
-			return $request->redirectUrlJson($request->getDispatcher()->url($request, ROUTE_PAGE, null, 'user', 'profile', null, array('uniq' => uniqid()), 'publicProfile'));
-		} else {
-			return new JSONMessage(false, __('common.uploadFailed'));
-		}
-	}
+    /**
+     * Remove a public profile image.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function deleteProfileImage($args, $request)
+    {
+        import('lib.pkp.classes.user.form.PublicProfileForm');
+        $publicProfileForm = new PublicProfileForm($request->getUser());
+        $publicProfileForm->deleteProfileImage();
+        $request->redirectUrl($request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'user', 'profile', null, ['uniq' => uniqid()], 'publicProfile'));
+    }
 
-	/**
-	 * Remove a public profile image.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function deleteProfileImage($args, $request) {
-		import('lib.pkp.classes.user.form.PublicProfileForm');
-		$publicProfileForm = new PublicProfileForm($request->getUser());
-		$publicProfileForm->deleteProfileImage();
-		$request->redirectUrl($request->getDispatcher()->url($request, ROUTE_PAGE, null, 'user', 'profile', null, array('uniq' => uniqid()), 'publicProfile'));
-	}
+    /**
+     * Validate and save changes to user's publicProfile info.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function savePublicProfile($args, $request)
+    {
+        $this->setupTemplate($request);
 
-	/**
-	 * Validate and save changes to user's publicProfile info.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function savePublicProfile($args, $request) {
-		$this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.PublicProfileForm');
+        $publicProfileForm = new PublicProfileForm($request->getUser());
+        $publicProfileForm->readInputData();
+        if ($publicProfileForm->validate()) {
+            $publicProfileForm->execute();
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification($request->getUser()->getId());
+            return new JSONMessage(true);
+        }
+        return new JSONMessage(true, $publicProfileForm->fetch($request));
+    }
 
-		import('lib.pkp.classes.user.form.PublicProfileForm');
-		$publicProfileForm = new PublicProfileForm($request->getUser());
-		$publicProfileForm->readInputData();
-		if ($publicProfileForm->validate()) {
-			$publicProfileForm->execute();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($request->getUser()->getId());
-			return new JSONMessage(true);
-		}
-		return new JSONMessage(true, $publicProfileForm->fetch($request));
-	}
+    /**
+     * Display form to edit user's API key settings.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function apiProfile($args, $request)
+    {
+        $this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.APIProfileForm');
+        $apiProfileForm = new APIProfileForm($request->getUser());
+        $apiProfileForm->initData();
+        return new JSONMessage(true, $apiProfileForm->fetch($request));
+    }
 
-	/**
-	 * Display form to edit user's API key settings.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function apiProfile($args, $request) {
-		$this->setupTemplate($request);
-		import('lib.pkp.classes.user.form.APIProfileForm');
-		$apiProfileForm = new APIProfileForm($request->getUser());
-		$apiProfileForm->initData();
-		return new JSONMessage(true, $apiProfileForm->fetch($request));
-	}
+    /**
+     * Validate and save changes to user's API key settings.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function saveAPIProfile($args, $request)
+    {
+        $this->setupTemplate($request);
 
-	/**
-	 * Validate and save changes to user's API key settings.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function saveAPIProfile($args, $request) {
-		$this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.APIProfileForm');
+        $apiProfileForm = new APIProfileForm($request->getUser());
+        $apiProfileForm->readInputData();
+        if ($apiProfileForm->validate()) {
+            $apiProfileForm->execute();
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification($request->getUser()->getId());
+            return new JSONMessage(true, $apiProfileForm->fetch($request));
+        }
+        return new JSONMessage(true, $apiProfileForm->fetch($request));
+    }
 
-		import('lib.pkp.classes.user.form.APIProfileForm');
-		$apiProfileForm = new APIProfileForm($request->getUser());
-		$apiProfileForm->readInputData();
-		if ($apiProfileForm->validate()) {
-			$apiProfileForm->execute();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($request->getUser()->getId());
-			return new JSONMessage(true, $apiProfileForm->fetch($request));
-		}
-		return new JSONMessage(true, $apiProfileForm->fetch($request));
-	}
+    /**
+     * Display form to change user's password.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function changePassword($args, $request)
+    {
+        $this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.ChangePasswordForm');
+        $passwordForm = new ChangePasswordForm($request->getUser(), $request->getSite());
+        $passwordForm->initData();
+        return new JSONMessage(true, $passwordForm->fetch($request));
+    }
 
-	/**
-	 * Display form to change user's password.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function changePassword($args, $request) {
-		$this->setupTemplate($request);
-		import('lib.pkp.classes.user.form.ChangePasswordForm');
-		$passwordForm = new ChangePasswordForm($request->getUser(), $request->getSite());
-		$passwordForm->initData();
-		return new JSONMessage(true, $passwordForm->fetch($request));
-	}
+    /**
+     * Save user's new password.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function savePassword($args, $request)
+    {
+        $this->setupTemplate($request);
+        import('lib.pkp.classes.user.form.ChangePasswordForm');
+        $passwordForm = new ChangePasswordForm($request->getUser(), $request->getSite());
+        $passwordForm->readInputData();
 
-	/**
-	 * Save user's new password.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function savePassword($args, $request) {
-		$this->setupTemplate($request);
-		import('lib.pkp.classes.user.form.ChangePasswordForm');
-		$passwordForm = new ChangePasswordForm($request->getUser(), $request->getSite());
-		$passwordForm->readInputData();
+        if ($passwordForm->validate()) {
+            $passwordForm->execute();
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification($request->getUser()->getId());
+            return new JSONMessage(true);
+        }
+        return new JSONMessage(true, $passwordForm->fetch($request));
+    }
 
-		if ($passwordForm->validate()) {
-			$passwordForm->execute();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($request->getUser()->getId());
-			return new JSONMessage(true);
+    /**
+     * Fetch notifications tab content.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function notificationSettings($args, $request)
+    {
+        $this->setupTemplate($request);
 
-		}
-		return new JSONMessage(true, $passwordForm->fetch($request));
-	}
+        $user = $request->getUser();
+        import('classes.notification.form.NotificationSettingsForm');
+        $notificationSettingsForm = new NotificationSettingsForm();
+        return new JSONMessage(true, $notificationSettingsForm->fetch($request));
+    }
 
-	/**
-	 * Fetch notifications tab content.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function notificationSettings($args, $request) {
-		$this->setupTemplate($request);
+    /**
+     * Save user notification settings.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON-formatted response
+     */
+    public function saveNotificationSettings($args, $request)
+    {
+        $this->setupTemplate($request);
 
-		$user = $request->getUser();
-		import('classes.notification.form.NotificationSettingsForm');
-		$notificationSettingsForm = new NotificationSettingsForm();
-		return new JSONMessage(true, $notificationSettingsForm->fetch($request));
-	}
+        import('classes.notification.form.NotificationSettingsForm');
 
-	/**
-	 * Save user notification settings.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return JSONMessage JSON-formatted response
-	 */
-	function saveNotificationSettings($args, $request) {
-		$this->setupTemplate($request);
+        $notificationSettingsForm = new NotificationSettingsForm();
+        $notificationSettingsForm->readInputData();
 
-		import('classes.notification.form.NotificationSettingsForm');
+        $json = new JSONMessage();
+        if ($notificationSettingsForm->validate()) {
+            $notificationSettingsForm->execute();
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification($request->getUser()->getId());
+        } else {
+            $json->setStatus(false);
+        }
 
-		$notificationSettingsForm = new NotificationSettingsForm();
-		$notificationSettingsForm->readInputData();
-
-		$json = new JSONMessage();
-		if ($notificationSettingsForm->validate()) {
-			$notificationSettingsForm->execute();
-			$notificationMgr = new NotificationManager();
-			$notificationMgr->createTrivialNotification($request->getUser()->getId());
-		} else {
-			$json->setStatus(false);
-		}
-
-		return $json;
-	}
+        return $json;
+    }
 }
-
-

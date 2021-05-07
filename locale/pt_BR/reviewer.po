@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2020-06-07 13:56+0000\n"
+"PO-Revision-Date: 2021-03-17 00:54+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/reviewer/pt_BR/>\n"
@@ -112,3 +112,11 @@ msgstr "O usuário atual não está designado como avaliador para o documento re
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Salvar para depois"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Enviar para Avaliadores"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Enviar uma cópia deste e-mail de notificação em BCC para os seguintes "
+"avaliadores."

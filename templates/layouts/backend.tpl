@@ -1,8 +1,8 @@
 {**
  * lib/pkp/templates/layouts/backend.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Common site header.
@@ -89,7 +89,7 @@
 									<ul>
 										{foreach from=$supportedLocales item="locale" key="localeKey"}
 											<li>
-												<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey}" class="pkpDropdown__action">
+												<a href="{url router=PKPApplication::ROUTE_PAGE page="user" op="setLocale" path=$localeKey}" class="pkpDropdown__action">
 													{if $localeKey == $currentLocale}
 														<icon icon="check" :inline="true"></icon>
 													{/if}
@@ -104,7 +104,7 @@
 								<div class="pkpDropdown__section">
 									<div class="app__userNav__loggedInAs">
 										{translate key="manager.people.signedInAs" username=$currentUser->getData('username')}
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('username')}</a>.
+										<a href="{url router=PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('username')}</a>.
 									</div>
 								</div>
 							{/if}
@@ -116,17 +116,17 @@
 										</a>
 									</li>
 									<li>
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}" class="pkpDropdown__action">
+										<a href="{url router=PKPApplication::ROUTE_PAGE page="user" op="profile"}" class="pkpDropdown__action">
 											{translate key="user.profile.editProfile"}
 										</a>
 									</li>
 									<li>
 										{if $isUserLoggedInAs}
-											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}" class="pkpDropdown__action">
+											<a href="{url router=PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="pkpDropdown__action">
 												{translate key="user.logOutAs" username=$currentUser->getData('username')}
 											</a>
 										{else}
-											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}" class="pkpDropdown__action">
+											<a href="{url router=PKPApplication::ROUTE_PAGE page="login" op="signOut"}" class="pkpDropdown__action">
 												{translate key="user.logOut"}
 											</a>
 										{/if}

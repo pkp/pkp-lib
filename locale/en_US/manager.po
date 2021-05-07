@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:20-07:00\n"
-"PO-Revision-Date: 2020-07-20 18:12+0000\n"
-"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
+"PO-Revision-Date: 2021-04-22 09:32+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: English (United States) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/en_US/>\n"
 "Language: en_US\n"
@@ -214,6 +214,9 @@ msgstr "Email Template"
 
 msgid "manager.emails.emailTemplates"
 msgstr "Email Templates"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Other Templates"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "You must provide a context ID when adding an email template."
@@ -646,6 +649,12 @@ msgstr "Narrow results by country, region and/or city."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.publishing"
+msgstr "Publishing Details"
+
+msgid "manager.setup.publishingDescription"
+msgstr "These details may be included in metadata provided to third-party archival bodies."
+
 msgid "manager.setup.additionalContent"
 msgstr "Additional Content"
 
@@ -717,6 +726,27 @@ msgstr "Notification of Author Submission"
 
 msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Send a copy to this email address"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notifications"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notify Primary Contact"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Yes, send a copy to {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "No"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Notify Anyone"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr "A copy of the submission acknowledgement email will be sent to any of the email addresses entered here. Separate multiple email addresses with a comma. Example: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "One or more of these email addresses is not valid."
 
 msgid "manager.setup.notifications.description"
 msgstr "Authors are automatically sent an email acknowledging their submission. You may have copies of this email sent to the following:"
@@ -1137,6 +1167,9 @@ msgstr "{$locale} locale reloaded for {$contextName}."
 
 msgid "notification.localeSettingsSaved"
 msgstr "Locale settings saved."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr "The language setting could not be saved. At least one language must be enabled for each option"
 
 msgid "notification.editedUser"
 msgstr "User edited."
@@ -1622,6 +1655,9 @@ msgstr "Warnings encountered:"
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "Errors occured:"
 
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Unknown element {$param}"
 
@@ -1636,6 +1672,9 @@ msgstr "The content is not encoded as {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Unknown user group {$param}"
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "UserGroup Missing for author name {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr "The author {$authorName} does not have a given name in the submission's language, {$localeName}. The submission can not be imported without this information."
@@ -2018,3 +2057,39 @@ msgstr "Desk Reject Rate"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "After Review Reject Rate"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "The process failed. Check bellow for errors/warnings."
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Export Submissions Results"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Download Exported File"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "The export completed successfully."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Download the exported file from the button below."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Generic Items"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr "Wrong filter configuration [{$filterName}]: {$filterCount} occurrences. Should be only one."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERROR:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "The specified journal path, \"{$contextPath}\", does not exist."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Process failed to parse authors"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Process failed to parse publications"

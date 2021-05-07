@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-09-17 10:49+0000\n"
-"Last-Translator: anau vpn <anauvpn@gmail.com>\n"
+"PO-Revision-Date: 2021-05-04 01:41+0000\n"
+"Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -418,3 +418,95 @@ msgstr "Ցուցադրել ֆայլերը բոլոր  հասանելի աշխա�
 
 msgid "editor.submission.findAndSelectUser"
 msgstr "Տեղադրել օգտագործող"
+
+msgid "reviewer.list.empty"
+msgstr "Գրախոսող չի գտնվել"
+
+msgid "reviewer.list.biography"
+msgstr "Կենսագրություն"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Հանել արգելքը"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Այս գրախոսողը արգելափակված է, քանի որ նրան նշանակված է դեր, որը նրան թույլ է "
+"տալիս տեսնել հոդվածագրին։ Այս դեպքում անանուն գրախոսում երաշխավորել հնարավոր "
+"չէ։"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Այս գրախոսողը արդել կցված եղել է այս նյութի գրախոսմանը։"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Երբեք չի նշանակվել գրախոսող"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Գրախոսման օրերի միջին թիվ"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Վերջին գրախոսումից անցած օրեր"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Դուք վստա՞հ եք, որ ցանկանում եք չեղարկել որոշումը այս նյութի համար։"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Նամակ, որը պետք է ուղարկվի օգտատիրոջը"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Այս ֆայլի համար աուդիտ չի հարցվել"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Գոյություն ունեցող օգտատիրոջը նշանակել որպես Գրախոսող"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Առաջադրանքի ժամանակացույց"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Առաջադրանքի կատարման ամսաթիվ"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Ընտրել Գրախոսող"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Ընտրված մասնակիցը այս փուլի համար նշանակված չէ։"
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Ընտրված մասնակիցների հետ հնարավոր չէ ստեղծել քննարկում, քանի որ դա կարող է "
+"ազդել գրախոսման գործընթացի անանունության վրա։"
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Այս գրախոսումը կարդալուց հետո սեղմեք «Հաստատել», որպեսզի ցույց տաք, որ "
+"գրախոսման գործընթացը կարող է շարունակվել։ Եթե գրախոսողը գրակոսումը ուղարկել "
+"է այլ կերպ, Դուք կարող են ներբեռնել ֆայլը ներքևում և սեղմեք «Հաստատել», "
+"որպեսզի շարունակեք։"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Անանուն գրախոսող/Անունուն հեղինակ"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Անանուն գրախոսող/Թաքնված հեղինակ"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ջնջել այս հայտը/նյութը։"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Գրախոսողի հետաքրքրություններ"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Մերժել այս  սրբագրումը, որպեսզի ցույց տաք, որ սրբագրումը դեռ ավարտված չէ, և "
+"ֆայլը պատրաստ չէ հրապարակման։"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Հաստատել այս խմբագրին, որպեսզի ցույց տաք, որ խմագրումը ավարտված է և ֆայլը "
+"պատրաստ է հրապարակման։"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"<em>Use <em>+Add Reviewer</em> to invite readers to review the submission "
+"files. The notebook icon indicates that a review has been submitted, which "
+"is then checked <em>Acknowledged</em> after it has been consulted. When "
+"reviews are overdue, a red envelope icon appears for reminding reviewers."

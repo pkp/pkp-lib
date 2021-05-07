@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-11-27 16:28+0000\n"
+"PO-Revision-Date: 2021-04-22 01:44+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "da_DK/>\n"
@@ -2021,3 +2021,48 @@ msgstr "Inaktiv"
 
 msgid "user.register.form.privacyConsentLabel"
 msgstr "Privatindstillinger"
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"E-mail-adressen {$email} blev afmeldt. Vi sender dig ikke længere disse e-"
+"mails. Du kan til enhver tid genabonnere på e-mail-notifikationerne via din <"
+"a href=\"{$profileNotificationUrl}\">brugerprofil</a>."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Afmeld"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Der opstod en uventet fejl. Vi kunne ikke afmelde e-mail-adressen {$email}. "
+"Du kan afmelde alle e-mail-notifikationer i din <a href=\""
+"{$profileNotificationUrl}\">brugerprofil</a> eller kontakte os direkte for "
+"at få hjælp."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Du kan til enhver tid genabonnere på e-mail-notifikationer via din  <a href="
+"\"{$profileNotificationUrl}\"> brugerprofil </a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Vælg de e-mails, som du ikke længere ønsker at modtage på {$email} fra "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Vi kunne ikke framelde dig"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Du er ikke længere tilmeldt"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Kunne ikke importere XML-node"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Forsøger at køre en transformation, der ikke understøttes i dit "
+"installationsmiljø."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filter ({$displayName}) understøtter input {$inputTypeName} - angivet "
+"{$typeofInput}"

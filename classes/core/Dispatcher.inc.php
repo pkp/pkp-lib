@@ -3,8 +3,8 @@
 /**
  * @file classes/core/Dispatcher.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Dispatcher
@@ -13,248 +13,297 @@
  * @brief Class dispatching HTTP requests to handlers.
  */
 
+namespace PKP\core;
 
-class Dispatcher {
-	/** @var PKPApplication */
-	var $_application;
+use APP\core\Services;
+use APP\i18n\AppLocale;
+use PKP\config\Config;
+use PKP\plugins\HookRegistry;
 
-	/** @var array an array of Router implementation class names */
-	var $_routerNames = array();
+use PKP\plugins\PluginRegistry;
+use PKP\services\PKPSchemaService;
 
-	/** @var array an array of Router instances */
-	var $_routerInstances = array();
+class Dispatcher
+{
+    /** @var PKPApplication */
+    public $_application;
 
-	/** @var PKPRouter */
-	var $_router;
+    /** @var array an array of Router implementation class names */
+    public $_routerNames = [];
 
-	/** @var PKPRequest Used for a callback hack - NOT GENERALLY SET. */
-	var $_requestCallbackHack;
+    /** @var array an array of Router instances */
+    public $_routerInstances = [];
 
-	/**
-	 * Get the application
-	 * @return PKPApplication
-	 */
-	function &getApplication() {
-		return $this->_application;
-	}
+    /** @var PKPRouter */
+    public $_router;
 
-	/**
-	 * Set the application
-	 * @param $application PKPApplication
-	 */
-	function setApplication($application) {
-		$this->_application = $application;
-	}
+    /** @var PKPRequest Used for a callback hack - NOT GENERALLY SET. */
+    public $_requestCallbackHack;
 
-	/**
-	 * Get the router names
-	 * @return array an array of Router names
-	 */
-	function &getRouterNames() {
-		return $this->_routerNames;
-	}
+    /**
+     * Get the application
+     *
+     * @return PKPApplication
+     */
+    public function &getApplication()
+    {
+        return $this->_application;
+    }
 
-	/**
-	 * Add a router name.
-	 *
-	 * NB: Routers will be called in the order that they
-	 * have been added to the dispatcher. The first router
-	 * that supports the request will be called. The last
-	 * router should always be a "catch-all" router that
-	 * supports all types of requests.
-	 *
-	 * NB: Routers must be part of the core package
-	 * to be accepted by this dispatcher implementation.
-	 *
-	 * @param $routerName string a class name of a router
-	 *  to be given the chance to route the request.
-	 *  NB: These are class names and not instantiated objects. We'll
-	 *  use lazy instantiation to reduce the performance/memory impact
-	 *  to a minimum.
-	 * @param $shortcut string a shortcut name for the router
-	 *  to be used for quick router instance retrieval.
-	 */
-	function addRouterName($routerName, $shortcut) {
-		assert(is_array($this->_routerNames) && is_string($routerName));
-		$this->_routerNames[$shortcut] = $routerName;
-	}
+    /**
+     * Set the application
+     *
+     * @param $application PKPApplication
+     */
+    public function setApplication($application)
+    {
+        $this->_application = $application;
+    }
 
-	/**
-	 * Determine the correct router for this request. Then
-	 * let the router dispatch the request to the appropriate
-	 * handler method.
-	 * @param $request PKPRequest
-	 */
-	function dispatch($request) {
-		// Make sure that we have at least one router configured
-		$routerNames = $this->getRouterNames();
-		assert(count($routerNames) > 0);
+    /**
+     * Get the router names
+     *
+     * @return array an array of Router names
+     */
+    public function &getRouterNames()
+    {
+        return $this->_routerNames;
+    }
 
-		// Go through all configured routers by priority
-		// and find out whether one supports the incoming request
-		foreach($routerNames as $shortcut => $routerCandidateName) {
-			$routerCandidate =& $this->_instantiateRouter($routerCandidateName, $shortcut);
+    /**
+     * Add a router name.
+     *
+     * NB: Routers will be called in the order that they
+     * have been added to the dispatcher. The first router
+     * that supports the request will be called. The last
+     * router should always be a "catch-all" router that
+     * supports all types of requests.
+     *
+     * NB: Routers must be part of the core package
+     * to be accepted by this dispatcher implementation.
+     *
+     * @param $routerName string a class name of a router
+     *  to be given the chance to route the request.
+     *  NB: These are class names and not instantiated objects. We'll
+     *  use lazy instantiation to reduce the performance/memory impact
+     *  to a minimum.
+     * @param $shortcut string a shortcut name for the router
+     *  to be used for quick router instance retrieval.
+     */
+    public function addRouterName($routerName, $shortcut)
+    {
+        assert(is_array($this->_routerNames) && is_string($routerName));
+        $this->_routerNames[$shortcut] = $routerName;
+    }
 
-			// Does this router support the current request?
-			if ($routerCandidate->supports($request)) {
-				// Inject router and dispatcher into request
-				$request->setRouter($routerCandidate);
-				$request->setDispatcher($this);
+    /**
+     * Determine the correct router for this request. Then
+     * let the router dispatch the request to the appropriate
+     * handler method.
+     *
+     * @param $request PKPRequest
+     */
+    public function dispatch($request)
+    {
+        // Make sure that we have at least one router configured
+        $routerNames = $this->getRouterNames();
+        assert(count($routerNames) > 0);
 
-				// We've found our router and can go on
-				// to handle the request.
-				$router =& $routerCandidate;
-				$this->_router =& $router;
-				break;
-			}
-		}
+        // Go through all configured routers by priority
+        // and find out whether one supports the incoming request
+        foreach ($routerNames as $shortcut => $routerCandidateName) {
+            $routerCandidate = & $this->_instantiateRouter($routerCandidateName, $shortcut);
 
-		// None of the router handles this request? This is a development-time
-		// configuration error.
-		if (is_null($router)) fatalError('None of the configured routers supports this request.');
+            // Does this router support the current request?
+            if ($routerCandidate->supports($request)) {
+                // Inject router and dispatcher into request
+                $request->setRouter($routerCandidate);
+                $request->setDispatcher($this);
 
-		AppLocale::initialize($request);
+                // We've found our router and can go on
+                // to handle the request.
+                $router = & $routerCandidate;
+                $this->_router = & $router;
+                break;
+            }
+        }
 
-		// Can we serve a cached response?
-		if ($router->isCacheable($request)) {
-			$this->_requestCallbackHack =& $request;
-			if (Config::getVar('cache', 'web_cache')) {
-				if ($this->_displayCached($router, $request)) exit(); // Success
-				ob_start(array($this, '_cacheContent'));
-			}
-		} else {
-			if (isset($_SERVER['HTTP_X_MOZ']) && $_SERVER['HTTP_X_MOZ'] == 'prefetch') {
-				header('HTTP/1.0 403 Forbidden');
-				echo '403: Forbidden<br><br>Pre-fetching not allowed.';
-				exit;
-			}
-		}
+        // None of the router handles this request? This is a development-time
+        // configuration error.
+        if (is_null($router)) {
+            fatalError('None of the configured routers supports this request.');
+        }
 
-		PluginRegistry::loadCategory('generic', true);
-		PluginRegistry::loadCategory('pubIds', true);
+        AppLocale::initialize($request);
 
-		HookRegistry::call('Dispatcher::dispatch', $request);
+        // Can we serve a cached response?
+        if ($router->isCacheable($request)) {
+            $this->_requestCallbackHack = & $request;
+            if (Config::getVar('cache', 'web_cache')) {
+                if ($this->_displayCached($router, $request)) {
+                    exit();
+                } // Success
+                ob_start([$this, '_cacheContent']);
+            }
+        } else {
+            if (isset($_SERVER['HTTP_X_MOZ']) && $_SERVER['HTTP_X_MOZ'] == 'prefetch') {
+                header('HTTP/1.0 403 Forbidden');
+                echo '403: Forbidden<br><br>Pre-fetching not allowed.';
+                exit;
+            }
+        }
 
-		// Reload the context after generic plugins have loaded so that changes to
-		// the context schema can take place
-		import('classes.core.Services');
-		$contextSchema = \Services::get('schema')->get(SCHEMA_CONTEXT, true);
-		$request->getRouter()->getContext($request, 1, true);
+        PluginRegistry::loadCategory('generic', true);
+        PluginRegistry::loadCategory('pubIds', true);
 
-		$router->route($request);
-	}
+        HookRegistry::call('Dispatcher::dispatch', $request);
 
-	/**
-	 * Build a handler request URL into PKPApplication.
-	 * @param $request PKPRequest the request to be routed
-	 * @param $shortcut string the short name of the router that should be used to construct the URL
-	 * @param $newContext mixed Optional contextual paths
-	 * @param $handler string Optional name of the handler to invoke
-	 * @param $op string Optional name of operation to invoke
-	 * @param $path mixed Optional string or array of args to pass to handler
-	 * @param $params array Optional set of name => value pairs to pass as user parameters
-	 * @param $anchor string Optional name of anchor to add to URL
-	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
-	 * @return string the URL
-	 */
-	function url($request, $shortcut, $newContext = null, $handler = null, $op = null, $path = null,
-				$params = null, $anchor = null, $escape = false) {
-		// Instantiate the requested router
-		assert(isset($this->_routerNames[$shortcut]));
-		$routerName = $this->_routerNames[$shortcut];
-		$router =& $this->_instantiateRouter($routerName, $shortcut);
+        // Reload the context after generic plugins have loaded so that changes to
+        // the context schema can take place
+        $contextSchema = Services::get('schema')->get(PKPSchemaService::SCHEMA_CONTEXT, true);
+        $request->getRouter()->getContext($request, 1, true);
 
-		return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape);
-	}
+        $router->route($request);
+    }
 
-	//
-	// Private helper methods
-	//
+    /**
+     * Build a handler request URL into PKPApplication.
+     *
+     * @param $request PKPRequest the request to be routed
+     * @param $shortcut string the short name of the router that should be used to construct the URL
+     * @param $newContext mixed Optional contextual paths
+     * @param $handler string Optional name of the handler to invoke
+     * @param $op string Optional name of operation to invoke
+     * @param $path mixed Optional string or array of args to pass to handler
+     * @param $params array Optional set of name => value pairs to pass as user parameters
+     * @param $anchor string Optional name of anchor to add to URL
+     * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
+     *
+     * @return string the URL
+     */
+    public function url(
+        $request,
+        $shortcut,
+        $newContext = null,
+        $handler = null,
+        $op = null,
+        $path = null,
+        $params = null,
+        $anchor = null,
+        $escape = false
+    ) {
+        // Instantiate the requested router
+        assert(isset($this->_routerNames[$shortcut]));
+        $routerName = $this->_routerNames[$shortcut];
+        $router = & $this->_instantiateRouter($routerName, $shortcut);
 
-	/**
-	 * Instantiate a router
-	 * @param $routerName string
-	 * @param $shortcut string
-	 */
-	function &_instantiateRouter($routerName, $shortcut) {
-		if (!isset($this->_routerInstances[$shortcut])) {
-			// Routers must belong to the classes.core or lib.pkp.classes.core package
-			// NB: This prevents code inclusion attacks.
-			$allowedRouterPackages = array(
-				'classes.core',
-				'lib.pkp.classes.core'
-			);
+        return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape);
+    }
 
-			// Instantiate the router
-			$router =& instantiate($routerName, 'PKPRouter', $allowedRouterPackages);
-			if (!is_object($router)) {
-				fatalError('Cannot instantiate requested router. Routers must belong to the core package and be of type "PKPRouter".');
-			}
-			$router->setApplication($this->_application);
-			$router->setDispatcher($this);
+    //
+    // Private helper methods
+    //
 
-			// Save the router instance for later re-use
-			$this->_routerInstances[$shortcut] =& $router;
-		}
+    /**
+     * Instantiate a router
+     *
+     * @param $routerName string
+     * @param $shortcut string
+     */
+    public function &_instantiateRouter($routerName, $shortcut)
+    {
+        if (!isset($this->_routerInstances[$shortcut])) {
+            // Routers must belong to the classes.core or lib.pkp.classes.core package
+            // NB: This prevents code inclusion attacks.
+            $allowedRouterPackages = [
+                'classes.core',
+                'lib.pkp.classes.core'
+            ];
 
-		return $this->_routerInstances[$shortcut];
-	}
+            // Instantiate the router
+            $router = & instantiate($routerName, '\PKP\core\PKPRouter', $allowedRouterPackages);
+            if (!is_object($router)) {
+                fatalError('Cannot instantiate requested router. Routers must belong to the core package and be of type "PKPRouter".');
+            }
+            $router->setApplication($this->_application);
+            $router->setDispatcher($this);
 
-	/**
-	 * Display the request contents from cache.
-	 * @param $router PKPRouter
-	 */
-	function _displayCached($router, $request) {
-		$filename = $router->getCacheFilename($request);
-		if (!file_exists($filename)) return false;
+            // Save the router instance for later re-use
+            $this->_routerInstances[$shortcut] = & $router;
+        }
 
-		// Allow a caching proxy to work its magic if possible
-		$ifModifiedSince = $request->getIfModifiedSince();
-		if ($ifModifiedSince !== null && $ifModifiedSince >= filemtime($filename)) {
-			header('HTTP/1.1 304 Not Modified');
-			exit();
-		}
+        return $this->_routerInstances[$shortcut];
+    }
 
-		$fp = fopen($filename, 'r');
-		$data = fread($fp, filesize($filename));
-		fclose($fp);
+    /**
+     * Display the request contents from cache.
+     *
+     * @param $router PKPRouter
+     */
+    public function _displayCached($router, $request)
+    {
+        $filename = $router->getCacheFilename($request);
+        if (!file_exists($filename)) {
+            return false;
+        }
 
-		$i = strpos($data, ':');
-		$time = substr($data, 0, $i);
-		$contents = substr($data, $i+1);
+        // Allow a caching proxy to work its magic if possible
+        $ifModifiedSince = $request->getIfModifiedSince();
+        if ($ifModifiedSince !== null && $ifModifiedSince >= filemtime($filename)) {
+            header('HTTP/1.1 304 Not Modified');
+            exit();
+        }
 
-		if (mktime() > $time + Config::getVar('cache', 'web_cache_hours') * 60 * 60) return false;
+        $fp = fopen($filename, 'r');
+        $data = fread($fp, filesize($filename));
+        fclose($fp);
 
-		header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
+        $i = strpos($data, ':');
+        $time = substr($data, 0, $i);
+        $contents = substr($data, $i + 1);
 
-		echo $contents;
-		return true;
-	}
+        if (mktime() > $time + Config::getVar('cache', 'web_cache_hours') * 60 * 60) {
+            return false;
+        }
 
-	/**
-	 * Cache content as a local file.
-	 * @param $contents string
-	 * @return string
-	 */
-	function _cacheContent($contents) {
-		assert(is_a($this->_router, 'PKPRouter'));
-		if ($contents == '') return $contents; // Do not cache empties
-		$filename = $this->_router->getCacheFilename($this->_requestCallbackHack);
-		$fp = fopen($filename, 'w');
-		if ($fp) {
-			fwrite($fp, mktime() . ':' . $contents);
-			fclose($fp);
-		}
-		return $contents;
-	}
+        header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
 
-	/**
-	 * Handle a 404 error (page not found).
-	 */
-	function handle404() {
-		header('HTTP/1.0 404 Not Found');
-		fatalError('404 Not Found');
-	}
+        echo $contents;
+        return true;
+    }
+
+    /**
+     * Cache content as a local file.
+     *
+     * @param $contents string
+     *
+     * @return string
+     */
+    public function _cacheContent($contents)
+    {
+        assert(is_a($this->_router, 'PKPRouter'));
+        if ($contents == '') {
+            return $contents;
+        } // Do not cache empties
+        $filename = $this->_router->getCacheFilename($this->_requestCallbackHack);
+        $fp = fopen($filename, 'w');
+        if ($fp) {
+            fwrite($fp, mktime() . ':' . $contents);
+            fclose($fp);
+        }
+        return $contents;
+    }
+
+    /**
+     * Handle a 404 error (page not found).
+     */
+    public function handle404()
+    {
+        header('HTTP/1.0 404 Not Found');
+        fatalError('404 Not Found');
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\core\Dispatcher', '\Dispatcher');
+}

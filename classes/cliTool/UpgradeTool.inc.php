@@ -3,8 +3,8 @@
 /**
  * @file classes/cliTool/UpgradeTool.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class upgradeTool
@@ -15,214 +15,228 @@
  * Note: Some functions require fopen wrappers to be enabled.
  */
 
+namespace PKP\cliTool;
 
 define('RUNNING_UPGRADE', 1);
 
-import('classes.install.Upgrade');
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
+use APP\core\Application;
 
-class UpgradeTool extends CommandLineTool {
+use APP\i18n\AppLocale;
+use APP\install\Upgrade;
+use PKP\site\VersionCheck;
 
-	/** @var string command to execute (check|upgrade|download) */
-	var $command;
+class UpgradeTool extends \PKP\cliTool\CommandLineTool
+{
+    /** @var string command to execute (check|upgrade|download) */
+    public $command;
 
-	/**
-	 * Constructor.
-	 * @param $argv array command-line arguments
-	 */
-	function __construct($argv = array()) {
-		Application::get()->initializeDatabaseConnection();
-		parent::__construct($argv);
+    /**
+     * Constructor.
+     *
+     * @param $argv array command-line arguments
+     */
+    public function __construct($argv = [])
+    {
+        Application::get()->initializeLaravelContainer();
+        parent::__construct($argv);
 
-		if (!isset($this->argv[0]) || !in_array($this->argv[0], array('check', 'latest', 'upgrade', 'download'))) {
-			$this->usage();
-			exit(1);
-		}
+        if (!isset($this->argv[0]) || !in_array($this->argv[0], ['check', 'latest', 'upgrade', 'download'])) {
+            $this->usage();
+            exit(1);
+        }
 
-		$this->command = $this->argv[0];
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
-	}
+        $this->command = $this->argv[0];
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
+    }
 
-	/**
-	 * Print command usage information.
-	 */
-	function usage() {
-		echo "Upgrade tool\n"
-			. "Usage: {$this->scriptName} command\n"
-			. "Supported commands:\n"
-			. "    check     perform version check\n"
-			. "    latest    display latest version info\n"
-			. "    upgrade   execute upgrade script\n"
-			. "    download  download latest version (does not unpack/install)\n";
-	}
+    /**
+     * Print command usage information.
+     */
+    public function usage()
+    {
+        echo "Upgrade tool\n"
+            . "Usage: {$this->scriptName} command\n"
+            . "Supported commands:\n"
+            . "    check     perform version check\n"
+            . "    latest    display latest version info\n"
+            . "    upgrade   execute upgrade script\n"
+            . "    download  download latest version (does not unpack/install)\n";
+    }
 
-	/**
-	 * Execute the specified command.
-	 */
-	function execute() {
-		$command = $this->command;
-		$this->$command();
-	}
+    /**
+     * Execute the specified command.
+     */
+    public function execute()
+    {
+        $command = $this->command;
+        $this->$command();
+    }
 
-	/**
-	 * Perform version check against latest available version.
-	 */
-	function check() {
-		$this->checkVersion(VersionCheck::getLatestVersion());
-	}
+    /**
+     * Perform version check against latest available version.
+     */
+    public function check()
+    {
+        $this->checkVersion(VersionCheck::getLatestVersion());
+    }
 
-	/**
-	 * Print information about the latest available version.
-	 */
-	function latest() {
-		$this->checkVersion(VersionCheck::getLatestVersion(), true);
-	}
+    /**
+     * Print information about the latest available version.
+     */
+    public function latest()
+    {
+        $this->checkVersion(VersionCheck::getLatestVersion(), true);
+    }
 
-	/**
-	 * Run upgrade script.
-	 */
-	function upgrade() {
-		$installer = new Upgrade(array());
-		$installer->setLogger($this);
+    /**
+     * Run upgrade script.
+     */
+    public function upgrade()
+    {
+        $installer = new Upgrade([]);
+        $installer->setLogger($this);
 
-		if ($installer->execute()) {
-			if (count($installer->getNotes()) > 0) {
-				printf("\nRelease Notes\n");
-				printf("----------------------------------------\n");
-				foreach ($installer->getNotes() as $note) {
-					printf("%s\n\n", $note);
-				}
-			}
+        if ($installer->execute()) {
+            if (count($installer->getNotes()) > 0) {
+                printf("\nRelease Notes\n");
+                printf("----------------------------------------\n");
+                foreach ($installer->getNotes() as $note) {
+                    printf("%s\n\n", $note);
+                }
+            }
 
-			$newVersion = $installer->getNewVersion();
-			printf("Successfully upgraded to version %s\n", $newVersion->getVersionString(false));
+            $newVersion = $installer->getNewVersion();
+            printf("Successfully upgraded to version %s\n", $newVersion->getVersionString(false));
+        } else {
+            printf("ERROR: Upgrade failed: %s\n", $installer->getErrorString());
+        }
+    }
 
-		} else {
-			printf("ERROR: Upgrade failed: %s\n", $installer->getErrorString());
-		}
-	}
+    /**
+     * Download latest package.
+     */
+    public function download()
+    {
+        $versionInfo = VersionCheck::getLatestVersion();
+        if (!$versionInfo) {
+            $application = Application::get();
+            printf("Failed to load version info from %s\n", $application->getVersionDescriptorUrl());
+            exit(1);
+        }
 
-	/**
-	 * Download latest package.
-	 */
-	function download() {
-		$versionInfo = VersionCheck::getLatestVersion();
-		if (!$versionInfo) {
-			$application = Application::get();
-			printf("Failed to load version info from %s\n", $application->getVersionDescriptorUrl());
-			exit(1);
-		}
+        $download = $versionInfo['package'];
+        $outFile = basename($download);
 
-		$download = $versionInfo['package'];
-		$outFile = basename($download);
+        printf("Download: %s\n", $download);
+        printf("File will be saved to: %s\n", $outFile);
 
-		printf("Download: %s\n", $download);
-		printf("File will be saved to: %s\n", $outFile);
+        if (!$this->promptContinue()) {
+            exit(0);
+        }
 
-		if (!$this->promptContinue()) {
-			exit(0);
-		}
+        $out = fopen($outFile, 'wb');
+        if (!$out) {
+            printf("Failed to open %s for writing\n", $outFile);
+            exit(1);
+        }
 
-		$out = fopen($outFile, 'wb');
-		if (!$out) {
-			printf("Failed to open %s for writing\n", $outFile);
-			exit(1);
-		}
+        $in = fopen($download, 'rb');
+        if (!$in) {
+            printf("Failed to open %s for reading\n", $download);
+            fclose($out);
+            exit(1);
+        }
 
-		$in = fopen($download, 'rb');
-		if (!$in) {
-			printf("Failed to open %s for reading\n", $download);
-			fclose($out);
-			exit(1);
-		}
+        printf('Downloading file...');
 
-		printf('Downloading file...');
+        while (($data = fread($in, 4096)) !== '') {
+            printf('.');
+            fwrite($out, $data);
+        }
 
-		while(($data = fread($in, 4096)) !== '') {
-			printf('.');
-			fwrite($out, $data);
-		}
+        printf("done\n");
 
-		printf("done\n");
+        fclose($in);
+        fclose($out);
+    }
 
-		fclose($in);
-		fclose($out);
-	}
+    /**
+     * Perform version check.
+     *
+     * @param $versionInfo array latest version info
+     * @param $displayInfo boolean just display info, don't perform check
+     */
+    public function checkVersion($versionInfo, $displayInfo = false)
+    {
+        if (!$versionInfo) {
+            $application = Application::get();
+            printf("Failed to load version info from %s\n", $application->getVersionDescriptorUrl());
+            exit(1);
+        }
 
-	/**
-	 * Perform version check.
-	 * @param $versionInfo array latest version info
-	 * @param $displayInfo boolean just display info, don't perform check
-	 */
-	function checkVersion($versionInfo, $displayInfo = false) {
-		if (!$versionInfo) {
-			$application = Application::get();
-			printf("Failed to load version info from %s\n", $application->getVersionDescriptorUrl());
-			exit(1);
-		}
+        $dbVersion = VersionCheck::getCurrentDBVersion();
+        $codeVersion = VersionCheck::getCurrentCodeVersion();
+        $latestVersion = $versionInfo['version'];
 
-		$dbVersion = VersionCheck::getCurrentDBVersion();
-		$codeVersion = VersionCheck::getCurrentCodeVersion();
-		$latestVersion = $versionInfo['version'];
+        printf("Code version:      %s\n", $codeVersion->getVersionString(false));
+        printf("Database version:  %s\n", $dbVersion->getVersionString(false));
+        printf("Latest version:    %s\n", $latestVersion->getVersionString(false));
 
-		printf("Code version:      %s\n", $codeVersion->getVersionString(false));
-		printf("Database version:  %s\n", $dbVersion->getVersionString(false));
-		printf("Latest version:    %s\n", $latestVersion->getVersionString(false));
+        $compare1 = $codeVersion->compare($latestVersion);
+        $compare2 = $dbVersion->compare($codeVersion);
 
-		$compare1 = $codeVersion->compare($latestVersion);
-		$compare2 = $dbVersion->compare($codeVersion);
+        if (!$displayInfo) {
+            if ($compare2 < 0) {
+                printf("Database version is older than code version\n");
+                printf("Run \"{$this->scriptName} upgrade\" to update\n");
+                exit(0);
+            } elseif ($compare2 > 0) {
+                printf("Database version is newer than code version!\n");
+                exit(1);
+            } elseif ($compare1 == 0) {
+                printf("Your system is up-to-date\n");
+            } elseif ($compare1 < 0) {
+                printf("A newer version is available:\n");
+                $displayInfo = true;
+            } else {
+                printf("Current version is newer than latest!\n");
+                exit(1);
+            }
+        }
 
-		if (!$displayInfo) {
-			if ($compare2 < 0) {
-				printf("Database version is older than code version\n");
-				printf("Run \"{$this->scriptName} upgrade\" to update\n");
-				exit(0);
+        if ($displayInfo) {
+            printf("         tag:     %s\n", $versionInfo['tag']);
+            printf("         date:    %s\n", $versionInfo['date']);
+            printf("         info:    %s\n", $versionInfo['info']);
+            printf("         package: %s\n", $versionInfo['package']);
+        }
 
-			} else if($compare2 > 0) {
-				printf("Database version is newer than code version!\n");
-				exit(1);
+        return $compare1;
+    }
 
-			} else if ($compare1 == 0) {
-				printf("Your system is up-to-date\n");
+    /**
+     * Prompt user for yes/no input (default no).
+     *
+     * @param $prompt string
+     */
+    public function promptContinue($prompt = 'Continue?')
+    {
+        printf('%s [y/N] ', $prompt);
+        $continue = fread(STDIN, 255);
+        return (strtolower(substr(trim($continue), 0, 1)) == 'y');
+    }
 
-			} else if($compare1 < 0) {
-				printf("A newer version is available:\n");
-				$displayInfo = true;
-			} else {
-				printf("Current version is newer than latest!\n");
-				exit(1);
-			}
-		}
-
-		if ($displayInfo) {
-			printf("         tag:     %s\n", $versionInfo['tag']);
-			printf("         date:    %s\n", $versionInfo['date']);
-			printf("         info:    %s\n", $versionInfo['info']);
-			printf("         package: %s\n", $versionInfo['package']);
-		}
-
-		return $compare1;
-	}
-
-	/**
-	 * Prompt user for yes/no input (default no).
-	 * @param $prompt string
-	 */
-	function promptContinue($prompt = "Continue?") {
-		printf("%s [y/N] ", $prompt);
-		$continue = fread(STDIN, 255);
-		return (strtolower(substr(trim($continue), 0, 1)) == 'y');
-	}
-
-	/**
-	 * Log install message to stdout.
-	 * @param $message string
-	 */
-	function log($message) {
-		printf("[%s]\n", $message);
-	}
-
+    /**
+     * Log install message to stdout.
+     *
+     * @param $message string
+     */
+    public function log($message)
+    {
+        printf("[%s]\n", $message);
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\cliTool\UpgradeTool', '\UpgradeTool');
+}

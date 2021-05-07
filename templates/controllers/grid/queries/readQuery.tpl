@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/queries/readQuery.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Read a query.
@@ -13,8 +13,8 @@
 		$('#readQueryContainer').pkpHandler(
 			'$.pkp.controllers.grid.queries.ReadQueryHandler',
 			{ldelim}
-				fetchNoteFormUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component=$queryNotesGridHandlerName op="addNote" params=$requestArgs queryId=$query->getId() escape=false},
-				fetchParticipantsListUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="participants" params=$requestArgs queryId=$query->getId() escape=false}
+				fetchNoteFormUrl: {url|json_encode router=PKPApplication::ROUTE_COMPONENT component=$queryNotesGridHandlerName op="addNote" params=$requestArgs queryId=$query->getId() escape=false},
+				fetchParticipantsListUrl: {url|json_encode router=PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="participants" params=$requestArgs queryId=$query->getId() escape=false}
 			{rdelim}
 		);
 	{rdelim});
@@ -29,7 +29,7 @@
     </h4>
     <ul id="participantsListPlaceholder" class="participants"></ul>
 
-	{capture assign=queryNotesGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component=$queryNotesGridHandlerName op="fetchGrid" params=$requestArgs queryId=$query->getId() escape=false}{/capture}
+	{capture assign=queryNotesGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component=$queryNotesGridHandlerName op="fetchGrid" params=$requestArgs queryId=$query->getId() escape=false}{/capture}
 	{load_url_in_div id="queryNotesGrid" url=$queryNotesGridUrl}
 
 	<div class="queryEditButtons">

@@ -3,8 +3,8 @@
 /**
  * @file classes/file/PKPFile.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPFile
@@ -13,110 +13,138 @@
  * @brief Base PKP file class.
  */
 
-class PKPFile extends DataObject {
+namespace PKP\file;
 
-	//
-	// Get/set methods
-	//
-	/**
-	 * Get server-side file name of the file.
-	 * @param return string
-	 */
-	function getServerFileName() {
-		return $this->getData('fileName');
-	}
+use APP\core\Services;
 
-	/**
-	 * Set server-side file name of the file.
-	 * @param $fileName string
-	 */
-	function setServerFileName($fileName) {
-		$this->setData('fileName', $fileName);
-	}
+class PKPFile extends \PKP\core\DataObject
+{
+    //
+    // Get/set methods
+    //
+    /**
+     * Get server-side file name of the file.
+     *
+     * @param return string
+     */
+    public function getServerFileName()
+    {
+        return $this->getData('fileName');
+    }
 
-	/**
-	 * Get original uploaded file name of the file.
-	 * @param return string
-	 */
-	function getOriginalFileName() {
-		return $this->getData('originalFileName');
-	}
+    /**
+     * Set server-side file name of the file.
+     *
+     * @param $fileName string
+     */
+    public function setServerFileName($fileName)
+    {
+        $this->setData('fileName', $fileName);
+    }
 
-	/**
-	 * Set original uploaded file name of the file.
-	 * @param $originalFileName string
-	 */
-	function setOriginalFileName($originalFileName) {
-		$this->setData('originalFileName', $originalFileName);
-	}
+    /**
+     * Get original uploaded file name of the file.
+     *
+     * @param return string
+     */
+    public function getOriginalFileName()
+    {
+        return $this->getData('originalFileName');
+    }
 
-	/**
-	 * Get type of the file.
-	 * @return string
-	 */
-	function getFileType() {
-		return $this->getData('filetype');
-	}
+    /**
+     * Set original uploaded file name of the file.
+     *
+     * @param $originalFileName string
+     */
+    public function setOriginalFileName($originalFileName)
+    {
+        $this->setData('originalFileName', $originalFileName);
+    }
 
-	/**
-	 * Set type of the file.
-	 * @param $type string
-	 */
-	function setFileType($fileType) {
-		$this->setData('filetype', $fileType);
-	}
+    /**
+     * Get type of the file.
+     *
+     * @return string
+     */
+    public function getFileType()
+    {
+        return $this->getData('filetype');
+    }
 
-	/**
-	 * Get uploaded date of file.
-	 * @return date
-	 */
-	function getDateUploaded() {
-		return $this->getData('dateUploaded');
-	}
+    /**
+     * Set type of the file.
+     */
+    public function setFileType($fileType)
+    {
+        $this->setData('filetype', $fileType);
+    }
 
-	/**
-	 * Set uploaded date of file.
-	 * @param $dateUploaded date
-	 */
-	function setDateUploaded($dateUploaded) {
-		return $this->SetData('dateUploaded', $dateUploaded);
-	}
+    /**
+     * Get uploaded date of file.
+     *
+     * @return date
+     */
+    public function getDateUploaded()
+    {
+        return $this->getData('dateUploaded');
+    }
 
-	/**
-	 * Get file size of file.
-	 * @return int
-	 */
-	function getFileSize() {
-		return $this->getData('fileSize');
-	}
+    /**
+     * Set uploaded date of file.
+     *
+     * @param $dateUploaded date
+     */
+    public function setDateUploaded($dateUploaded)
+    {
+        return $this->SetData('dateUploaded', $dateUploaded);
+    }
 
-	/**
-	 * Set file size of file.
-	 * @param $fileSize int
-	 */
-	function setFileSize($fileSize) {
-		return $this->SetData('fileSize', $fileSize);
-	}
+    /**
+     * Get file size of file.
+     *
+     * @return int
+     */
+    public function getFileSize()
+    {
+        return $this->getData('fileSize');
+    }
 
-	/**
-	 * Return pretty file size string (in B, KB, MB, or GB units).
-	 * @return string
-	 */
-	function getNiceFileSize() {
-		return Services::get('file')->getNiceFileSize($this->getFileSize());
-	}
+    /**
+     * Set file size of file.
+     *
+     * @param $fileSize int
+     */
+    public function setFileSize($fileSize)
+    {
+        return $this->SetData('fileSize', $fileSize);
+    }
+
+    /**
+     * Return pretty file size string (in B, KB, MB, or GB units).
+     *
+     * @return string
+     */
+    public function getNiceFileSize()
+    {
+        return Services::get('file')->getNiceFileSize($this->getFileSize());
+    }
 
 
-	//
-	// Abstract template methods to be implemented by subclasses.
-	//
-	/**
-	 * Return absolute path to the file on the host filesystem.
-	 * @return string
-	 */
-	function getFilePath() {
-		assert(false);
-	}
+    //
+    // Abstract template methods to be implemented by subclasses.
+    //
+    /**
+     * Return absolute path to the file on the host filesystem.
+     *
+     * @return string
+     */
+    public function getFilePath()
+    {
+        assert(false);
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\PKPFile', '\PKPFile');
+}

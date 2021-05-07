@@ -3,12 +3,13 @@
 /**
  * @file classes/metadata/CrosswalkFilter.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CrosswalkFilter
  * @ingroup metadata
+ *
  * @see MetadataDescription
  *
  * @brief Class that provides methods to convert one type of
@@ -17,16 +18,24 @@
  *  implementations.
  */
 
-import('lib.pkp.classes.filter.Filter');
+namespace PKP\metadata;
 
-class CrosswalkFilter extends Filter {
-	/**
-	 * Constructor
-	 * @param $fromSchema string fully qualified class name of supported input meta-data schema
-	 * @param $toSchema string fully qualified class name of supported output meta-data schema
-	 */
-	function __construct($fromSchema, $toSchema) {
-		parent::__construct('metadata::'.$fromSchema.'(*)', 'metadata::'.$toSchema.'(*)');
-	}
+use PKP\filter\Filter;
+
+class CrosswalkFilter extends Filter
+{
+    /**
+     * Constructor
+     *
+     * @param $fromSchema string fully qualified class name of supported input meta-data schema
+     * @param $toSchema string fully qualified class name of supported output meta-data schema
+     */
+    public function __construct($fromSchema, $toSchema)
+    {
+        parent::__construct('metadata::' . $fromSchema . '(*)', 'metadata::' . $toSchema . '(*)');
+    }
 }
 
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\metadata\CrosswalkFilter', '\CrosswalkFilter');
+}

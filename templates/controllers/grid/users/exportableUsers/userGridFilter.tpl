@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/user/userGridFilter.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Filter template for user grid.
@@ -15,7 +15,7 @@
 		{rdelim}
 	);
 </script>
-<form class="pkp_form filter" id="userSearchForm" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid"}" method="post">
+<form class="pkp_form filter" id="userSearchForm" action="{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid"}" method="post">
 	{csrf}
 	{fbvFormArea id="userSearchFormArea"}
 		{fbvFormSection title="common.search" for="search"}

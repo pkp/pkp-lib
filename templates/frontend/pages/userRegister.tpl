@@ -1,8 +1,8 @@
 {**
  * templates/frontend/pages/userRegister.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * User registration form.
@@ -39,7 +39,7 @@
 						<div class="optin optin-privacy">
 							<label>
 								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
-								{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+								{capture assign="privacyUrl"}{url router=PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 							</label>
 						</div>
@@ -121,7 +121,7 @@
 					<div class="optin optin-privacy">
 						<label>
 							<input type="checkbox" name="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" id="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" value="1"{if $privacyConsent[$smarty.const.CONTEXT_ID_NONE]} checked="checked"{/if}>
-							{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+							{capture assign="privacyUrl"}{url router=PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 						</label>
 					</div>
@@ -140,11 +140,12 @@
 		{/if}
 
 		{* recaptcha spam blocker *}
-		{if $reCaptchaHtml}
+		{if $recaptchaPublicKey}
 			<fieldset class="recaptcha_wrapper">
 				<div class="fields">
 					<div class="recaptcha">
-						{$reCaptchaHtml}
+						<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
+						</div>
 					</div>
 				</div>
 			</fieldset>

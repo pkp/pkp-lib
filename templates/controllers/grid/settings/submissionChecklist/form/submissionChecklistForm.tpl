@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/submissionChecklist/form/submissionChecklists.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * SubmissionChecklists grid form
@@ -15,7 +15,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="editSubmissionChecklistForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="updateItem"}">
+<form class="pkp_form" id="editSubmissionChecklistForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="updateItem"}">
 {csrf}
 
 {include file="controllers/notification/inPlaceNotification.tpl" notificationId="submissionChecklistFormNotification"}

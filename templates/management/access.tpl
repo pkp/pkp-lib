@@ -1,8 +1,8 @@
 {**
  * templates/management/access.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief The users, roles and site access settings page.
@@ -20,7 +20,7 @@
 		</tab>
 		<tab id="roles" label="{translate key="manager.roles"}">
 			{help file="users-and-roles" section="roles" class="pkp_help_tab"}
-			{capture assign=rolesUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="fetchGrid" escape=false}{/capture}
+			{capture assign=rolesUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="roleGridContainer" url=$rolesUrl}
 		</tab>
 		{if $enableBulkEmails}

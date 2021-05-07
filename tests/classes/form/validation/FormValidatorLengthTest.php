@@ -3,59 +3,63 @@
 /**
  * @file tests/classes/form/validation/FormValidatorLengthTest.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorLengthTest
  * @ingroup tests_classes_form_validation
+ *
  * @see FormValidatorLength
  *
  * @brief Test class for FormValidatorLength.
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
 
-class FormValidatorLengthTest extends PKPTestCase {
-	/**
-	 * @covers FormValidatorLength
-	 * @covers FormValidator
-	 */
-	public function testIsValid() {
-		$form = new Form('some template');
-		$form->setData('testData', 'test');
+use PKP\form\Form;
+use PKP\form\validation\FormValidator;
 
-		// Encode the tests to be run against the validator
-		$tests = array(
-			array('==', 4, true),
-			array('==', 5, false),
-			array('==', 3, false),
-			array('!=', 4, false),
-			array('!=', 5, true),
-			array('!=', 3, true),
-			array('<', 5, true),
-			array('<', 4, false),
-			array('>', 3, true),
-			array('>', 4, false),
-			array('<=', 4, true),
-			array('<=', 5, true),
-			array('<=', 3, false),
-			array('>=', 4, true),
-			array('>=', 3, true),
-			array('>=', 5, false),
-			array('...', 3, false)
-		);
+class FormValidatorLengthTest extends PKPTestCase
+{
+    /**
+     * @covers FormValidatorLength
+     * @covers FormValidator
+     */
+    public function testIsValid()
+    {
+        $form = new Form('some template');
+        $form->setData('testData', 'test');
 
-		foreach($tests as $test) {
-			$validator = new FormValidatorLength($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $test[0], $test[1]);
-			self::assertSame($test[2], $validator->isValid());
-		}
+        // Encode the tests to be run against the validator
+        $tests = [
+            ['==', 4, true],
+            ['==', 5, false],
+            ['==', 3, false],
+            ['!=', 4, false],
+            ['!=', 5, true],
+            ['!=', 3, true],
+            ['<', 5, true],
+            ['<', 4, false],
+            ['>', 3, true],
+            ['>', 4, false],
+            ['<=', 4, true],
+            ['<=', 5, true],
+            ['<=', 3, false],
+            ['>=', 4, true],
+            ['>=', 3, true],
+            ['>=', 5, false],
+            ['...', 3, false]
+        ];
 
-		// Test optional validation type
-		$form->setData('testData', '');
-		$validator = new FormValidatorLength($form, 'testData', FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', '==', 4);
-		self::assertTrue($validator->isValid());
-	}
+        foreach ($tests as $test) {
+            $validator = new \PKP\form\validation\FormValidatorLength($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $test[0], $test[1]);
+            self::assertSame($test[2], $validator->isValid());
+        }
+
+        // Test optional validation type
+        $form->setData('testData', '');
+        $validator = new \PKP\form\validation\FormValidatorLength($form, 'testData', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE, 'some.message.key', '==', 4);
+        self::assertTrue($validator->isValid());
+    }
 }
-

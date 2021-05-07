@@ -1,8 +1,8 @@
 {**
  * lib/pkp/templates/controllers/grid/settings/category/form/categoryForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form to edit or create a category
@@ -30,7 +30,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="categoryForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.category.CategoryCategoryGridHandler" op="updateCategory" categoryId=$categoryId}">
+<form class="pkp_form" id="categoryForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.category.CategoryCategoryGridHandler" op="updateCategory" categoryId=$categoryId}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="categoryFormNotification"}
 
@@ -48,7 +48,7 @@
 
 		{fbvFormSection title="grid.category.path" required=true for="path"}
 			{capture assign="instruct"}
-				{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path="path"}
+				{url router=PKPApplication::ROUTE_PAGE page="catalog" op="category" path="path"}
 				{translate key="grid.category.urlWillBe" sampleUrl=$sampleUrl}
 			{/capture}
 			{fbvElement type="text" id="path" value=$path maxlength="32" label=$instruct subLabelTranslate=false}
@@ -70,7 +70,7 @@
 		{if $image}
 			{fbvFormSection}
 				{capture assign="altTitle"}{translate key="submission.currentCoverImage"}{/capture}
-				<img class="pkp_helpers_container_center" height="{$image.thumbnailHeight}" width="{$image.thumbnailWidth}" src="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="thumbnail" type="category" id=$categoryId}" alt="{$altTitle|escape}" />
+				<img class="pkp_helpers_container_center" height="{$image.thumbnailHeight}" width="{$image.thumbnailWidth}" src="{url router=PKPApplication::ROUTE_PAGE page="catalog" op="thumbnail" type="category" id=$categoryId}" alt="{$altTitle|escape}" />
 			{/fbvFormSection}
 		{/if}
 

@@ -3,8 +3,8 @@
 /**
  * @file classes/form/validation/FormValidatorPost.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorPost
@@ -13,31 +13,40 @@
  * @brief Form validation check to make sure the form is POSTed.
  */
 
-import ('lib.pkp.classes.form.validation.FormValidator');
+namespace PKP\form\validation;
 
-class FormValidatorPost extends FormValidator {
-	/**
-	 * Constructor.
-	 * @param $form Form
-	 * @param $message string the locale key to use (optional)
-	 */
-	function __construct(&$form, $message = 'form.postRequired') {
-		parent::__construct($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
-	}
+use APP\core\Application;
+
+class FormValidatorPost extends FormValidator
+{
+    /**
+     * Constructor.
+     *
+     * @param $form Form
+     * @param $message string the locale key to use (optional)
+     */
+    public function __construct(&$form, $message = 'form.postRequired')
+    {
+        parent::__construct($form, 'dummy', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, $message);
+    }
 
 
-	//
-	// Public methods
-	//
-	/**
-	 * Check if form was posted.
-	 * overrides FormValidator::isValid()
-	 * @return boolean
-	 */
-	function isValid() {
-		$request = Application::get()->getRequest();
-		return $request->isPost();
-	}
+    //
+    // Public methods
+    //
+    /**
+     * Check if form was posted.
+     * overrides FormValidator::isValid()
+     *
+     * @return boolean
+     */
+    public function isValid()
+    {
+        $request = Application::get()->getRequest();
+        return $request->isPost();
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\form\validation\FormValidatorPost', '\FormValidatorPost');
+}

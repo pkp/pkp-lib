@@ -201,5 +201,6 @@ msgstr "<p>Twoja instalacja PHP nie posiada skonfigurowanego modułu XSL. Włąc
 msgid "installer.unsupportedPhpError"
 msgstr "Twoja wersja serwera PHP nie jest wspierana przez to oprogramowanie. Sprawdź wymagania instalacyjne w pliku docs/README."
 
+#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Wystąpił błąd w trakcie migracji klas <tt>{$class}</tt>."

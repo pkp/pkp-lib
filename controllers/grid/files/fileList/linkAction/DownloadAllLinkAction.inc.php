@@ -6,8 +6,8 @@
 /**
  * @file controllers/grid/files/fileList/linkAction/DownloadAllLinkAction.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DownloadAllLinkAction
@@ -16,26 +16,27 @@
  * @brief An action to download all files in a submission file grid.
  */
 
-import('lib.pkp.classes.linkAction.LinkAction');
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\PostAndRedirectAction;
 
-class DownloadAllLinkAction extends LinkAction {
+class DownloadAllLinkAction extends LinkAction
+{
+    /**
+     * Constructor
+     *
+     * @param $request Request
+     * @param $actionArgs array
+     */
+    public function __construct($request, $actionArgs)
+    {
+        // Instantiate the redirect action request.
+        $router = $request->getRouter();
+        $redirectRequest = new PostAndRedirectAction(
+            $router->url($request, null, 'api.file.FileApiHandler', 'recordDownload', null, $actionArgs),
+            $router->url($request, null, 'api.file.FileApiHandler', 'downloadAllFiles', null, $actionArgs)
+        );
 
-	/**
-	 * Constructor
-	 * @param $request Request
-	 * @param $actionArgs array
-	 * @param $files array Files to be downloaded.
-	 */
-	function __construct($request, $actionArgs) {
-		// Instantiate the redirect action request.
-		$router = $request->getRouter();
-		import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
-		$redirectRequest = new PostAndRedirectAction($router->url($request, null, 'api.file.FileApiHandler', 'recordDownload', null, $actionArgs),
-			$router->url($request, null, 'api.file.FileApiHandler', 'downloadAllFiles', null, $actionArgs));
-
-		// Configure the link action.
-		parent::__construct('downloadAll', $redirectRequest, __('submission.files.downloadAll'), 'getPackage');
-	}
+        // Configure the link action.
+        parent::__construct('downloadAll', $redirectRequest, __('submission.files.downloadAll'), 'getPackage');
+    }
 }
-
-

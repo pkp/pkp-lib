@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/TabHandler.js
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TabHandler
@@ -38,7 +38,6 @@
 		this.bind('tabscreate', this.tabsCreate);
 		this.bind('tabsbeforeload', this.tabsBeforeLoad);
 		this.bind('tabsload', this.tabsLoad);
-		this.bind('containerReloadRequested', this.tabsReloadRequested);
 		this.bind('addTab', this.addTab);
 
 		if (options.emptyLastTab) {
@@ -266,32 +265,6 @@
 			return '';
 		}
 		return JSON.stringify(jsonData.content);
-	};
-
-
-	/**
-	 * Callback that processes data returned by the server when
-	 * a 'tabsReloadRequested' event is bubbled up from a widget
-	 * on a tab.
-	 *
-	 * This is useful if you have a tabbed form on a modal and you
-	 * wish to reload the entire tabbed interface when one form is
-	 * submitted. Since this reloads the templates for the tabs you
-	 * have the opportunity to alter their state.
-	 *
-	 * @param {HTMLElement} divElement The parent DIV element
-	 *  which contains the tabs.
-	 * @param {Event} event The triggered event (tabsReloadRequested).
-	 * @param {{tabsUrl: string}} jsonContent The tabs ui data.
-	 */
-	$.pkp.controllers.TabHandler.prototype.tabsReloadRequested =
-			function(divElement, event, jsonContent) {
-
-		var $element = this.getHtmlElement(),
-				self = this;
-		$.get(jsonContent.tabsUrl, function(data) {
-			self.replaceWith(data.content);
-		});
 	};
 
 

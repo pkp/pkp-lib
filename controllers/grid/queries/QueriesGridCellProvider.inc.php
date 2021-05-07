@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesGridCellProvider.inc.php
  *
- * Copyright (c) 2016-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2016-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridCellProvider
@@ -15,117 +15,129 @@
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
-class QueriesGridCellProvider extends DataObjectGridCellProvider {
-	/** @var Submission **/
-	var $_submission;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxAction;
+use PKP\note\NoteDAO;
 
-	/** @var int **/
-	var $_stageId;
+class QueriesGridCellProvider extends DataObjectGridCellProvider
+{
+    /** @var Submission **/
+    public $_submission;
 
-	/** @var QueriesAccessHelper */
-	var $_queriesAccessHelper;
+    /** @var int **/
+    public $_stageId;
 
-	/**
-	 * Constructor
-	 * @param $submission Submission
-	 * @param $stageId int
-	 * @param $queriesAccessHelper QueriesAccessHelper
-	 */
-	function __construct($submission, $stageId, $queriesAccessHelper) {
-		parent::__construct();
-		$this->_submission = $submission;
-		$this->_stageId = $stageId;
-		$this->_queriesAccessHelper = $queriesAccessHelper;
-	}
+    /** @var QueriesAccessHelper */
+    public $_queriesAccessHelper;
 
-	//
-	// Template methods from GridCellProvider
-	//
-	/**
-	 * Extracts variables for a given column from a data element
-	 * so that they may be assigned to template before rendering.
-	 * @param $row GridRow
-	 * @param $column GridColumn
-	 * @return array
-	 */
-	function getTemplateVarsFromRowColumn($row, $column) {
-		$element = $row->getData();
-		$columnId = $column->getId();
-		assert(is_a($element, 'DataObject') && !empty($columnId));
+    /**
+     * Constructor
+     *
+     * @param $submission Submission
+     * @param $stageId int
+     * @param $queriesAccessHelper QueriesAccessHelper
+     */
+    public function __construct($submission, $stageId, $queriesAccessHelper)
+    {
+        parent::__construct();
+        $this->_submission = $submission;
+        $this->_stageId = $stageId;
+        $this->_queriesAccessHelper = $queriesAccessHelper;
+    }
 
-		$headNote = $element->getHeadNote();
-		$user = $headNote?$headNote->getUser():null;
-		$notes = $element->getReplies(null, NOTE_ORDER_ID, SORT_DIRECTION_DESC);
-		$context = \Application::get()->getRequest()->getContext();
-		$datetimeFormatShort = $context->getLocalizedDateTimeFormatShort();
+    //
+    // Template methods from GridCellProvider
+    //
+    /**
+     * Extracts variables for a given column from a data element
+     * so that they may be assigned to template before rendering.
+     *
+     * @param $row GridRow
+     * @param $column GridColumn
+     *
+     * @return array
+     */
+    public function getTemplateVarsFromRowColumn($row, $column)
+    {
+        $element = $row->getData();
+        $columnId = $column->getId();
+        assert($element instanceof \PKP\core\DataObject && !empty($columnId));
 
-		switch ($columnId) {
-			case 'replies':
-				return array('label' => max(0,$notes->getCount()-1));
-			case 'from':
-				return array('label' => ($user?$user->getUsername():'&mdash;') . '<br />' . ($headNote?strftime($datetimeFormatShort, strtotime($headNote->getDateCreated())):''));
-			case 'lastReply':
-				$latestReply = $notes->next();
-				if ($latestReply && $latestReply->getId() != $headNote->getId()) {
-					$repliedUser = $latestReply->getUser();
-					return array('label' => ($repliedUser?$repliedUser->getUsername():'&mdash;') . '<br />' . strftime($datetimeFormatShort, strtotime($latestReply->getDateCreated())));
-				} else {
-					return array('label' => '-');
-				}
-			case 'closed':
-				return array(
-					'selected' => $element->getIsClosed(),
-					'disabled' => !$this->_queriesAccessHelper->getCanOpenClose($element),
-				);
-		}
-		return parent::getTemplateVarsFromRowColumn($row, $column);
-	}
+        $headNote = $element->getHeadNote();
+        $user = $headNote ? $headNote->getUser() : null;
+        $notes = $element->getReplies(null, NoteDAO::NOTE_ORDER_ID, SORT_DIRECTION_DESC);
+        $context = \Application::get()->getRequest()->getContext();
+        $datetimeFormatShort = $context->getLocalizedDateTimeFormatShort();
 
-	/**
-	 * @copydoc GridCellProvider::getCellActions()
-	 */
-	function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-		import('lib.pkp.classes.linkAction.request.AjaxAction');
+        switch ($columnId) {
+            case 'replies':
+                return ['label' => max(0, $notes->getCount() - 1)];
+            case 'from':
+                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . ($headNote ? strftime($datetimeFormatShort, strtotime($headNote->getDateCreated())) : '')];
+            case 'lastReply':
+                $latestReply = $notes->next();
+                if ($latestReply && $latestReply->getId() != $headNote->getId()) {
+                    $repliedUser = $latestReply->getUser();
+                    return ['label' => ($repliedUser ? $repliedUser->getUsername() : '&mdash;') . '<br />' . strftime($datetimeFormatShort, strtotime($latestReply->getDateCreated()))];
+                } else {
+                    return ['label' => '-'];
+                }
+                // no break
+            case 'closed':
+                return [
+                    'selected' => $element->getIsClosed(),
+                    'disabled' => !$this->_queriesAccessHelper->getCanOpenClose($element),
+                ];
+        }
+        return parent::getTemplateVarsFromRowColumn($row, $column);
+    }
 
-		$element = $row->getData();
-		$router = $request->getRouter();
-		$actionArgs = $this->getRequestArgs($row);
-		switch ($column->getId()) {
-			case 'closed':
-				if ($this->_queriesAccessHelper->getCanOpenClose($element)) {
-					$enabled = !$element->getIsClosed();
-					if ($enabled) {
-						return array(new LinkAction(
-							'close-' . $row->getId(),
-							new AjaxAction($router->url($request, null, null, 'closeQuery', null, $actionArgs)),
-							null, null
-						));
-					} else {
-						return array(new LinkAction(
-							'open-' . $row->getId(),
-							new AjaxAction($router->url($request, null, null, 'openQuery', null, $actionArgs)),
-							null, null
-						));
-					}
-				}
-				break;
-		}
-		return parent::getCellActions($request, $row, $column, $position);
-	}
+    /**
+     * @copydoc GridCellProvider::getCellActions()
+     */
+    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    {
+        $element = $row->getData();
+        $router = $request->getRouter();
+        $actionArgs = $this->getRequestArgs($row);
+        switch ($column->getId()) {
+            case 'closed':
+                if ($this->_queriesAccessHelper->getCanOpenClose($element)) {
+                    $enabled = !$element->getIsClosed();
+                    if ($enabled) {
+                        return [new LinkAction(
+                            'close-' . $row->getId(),
+                            new AjaxAction($router->url($request, null, null, 'closeQuery', null, $actionArgs)),
+                            null,
+                            null
+                        )];
+                    } else {
+                        return [new LinkAction(
+                            'open-' . $row->getId(),
+                            new AjaxAction($router->url($request, null, null, 'openQuery', null, $actionArgs)),
+                            null,
+                            null
+                        )];
+                    }
+                }
+                break;
+        }
+        return parent::getCellActions($request, $row, $column, $position);
+    }
 
-	/**
-	 * Get request arguments.
-	 * @param $row GridRow
-	 * @return array
-	 */
-	function getRequestArgs($row) {
-		return array(
-			'submissionId' => $this->_submission->getId(),
-			'stageId' => $this->_stageId,
-			'queryId' => $row->getId(),
-		);
-	}
+    /**
+     * Get request arguments.
+     *
+     * @param $row GridRow
+     *
+     * @return array
+     */
+    public function getRequestArgs($row)
+    {
+        return [
+            'submissionId' => $this->_submission->getId(),
+            'stageId' => $this->_stageId,
+            'queryId' => $row->getId(),
+        ];
+    }
 }
-
-

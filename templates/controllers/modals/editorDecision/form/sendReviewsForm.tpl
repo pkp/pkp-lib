@@ -1,8 +1,8 @@
 {**
  * templates/controllers/modals/editorDecision/form/sendReviewsForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Form used to send reviews to author
@@ -80,12 +80,19 @@
 				</a>
 			{/fbvFormSection}
 		{/if}
+
+		{if isset($reviewers)}
+			{include file="controllers/modals/editorDecision/form/bccReviewers.tpl"
+				reviewers=$reviewers
+				selected=$bccReviewers
+			}
+		{/if}
 	</div>
 
 	{** Some decisions can be made before review is initiated (i.e. no attachments). **}
 	{if $reviewRoundId}
 		<div id="attachments" style="margin-top: 30px;">
-			{capture assign=reviewAttachmentsGridUrl}{url router=$smarty.const.ROUTE_COMPONENT component="grid.files.attachment.EditorSelectableReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+			{capture assign=reviewAttachmentsGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.attachment.EditorSelectableReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 			{load_url_in_div id="reviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
 		</div>
 	{/if}

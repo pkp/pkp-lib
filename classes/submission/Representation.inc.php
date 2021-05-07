@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/Representation.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Representation
@@ -13,134 +13,172 @@
  * @brief A submission's representation (Publication Format, Galley, ...)
  */
 
-import('lib.pkp.classes.core.DataObject');
+namespace PKP\submission;
 
-class Representation extends DataObject {
-	/**
-	 * Constructor.
-	 */
-	function __construct() {
-		// Switch on meta-data adapter support.
-		$this->setHasLoadableAdapters(true);
+use APP\core\Application;
 
-		parent::__construct();
-	}
+use APP\core\Services;
+use PKP\db\DAORegistry;
 
-	/**
-	 * Get sequence of format in format listings for the submission.
-	 * @return float
-	 */
-	function getSequence() {
-		return $this->getData('seq');
-	}
+class Representation extends \PKP\core\DataObject
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        // Switch on meta-data adapter support.
+        $this->setHasLoadableAdapters(true);
 
-	/**
-	 * Set sequence of format in format listings for the submission.
-	 * @param $seq float
-	 */
-	function setSequence($seq) {
-		$this->setData('seq', $seq);
-	}
+        parent::__construct();
+    }
 
-	/**
-	 * Get "localized" format name (if applicable).
-	 * @return string
-	 */
-	function getLocalizedName() {
-		return $this->getLocalizedData('name');
-	}
+    /**
+     * Get sequence of format in format listings for the submission.
+     *
+     * @return float
+     */
+    public function getSequence()
+    {
+        return $this->getData('seq');
+    }
 
-	/**
-	 * Get the format name (if applicable).
-	 * @param $locale string
-	 * @return string
-	 */
-	function getName($locale) {
-		return $this->getData('name', $locale);
-	}
+    /**
+     * Set sequence of format in format listings for the submission.
+     *
+     * @param $seq float
+     */
+    public function setSequence($seq)
+    {
+        $this->setData('seq', $seq);
+    }
 
-	/**
-	 * Set name.
-	 * @param $name string
-	 * @param $locale
-	 */
-	function setName($name, $locale = null) {
-		$this->setData('name', $name, $locale);
-	}
+    /**
+     * Get "localized" format name (if applicable).
+     *
+     * @return string
+     */
+    public function getLocalizedName()
+    {
+        return $this->getLocalizedData('name');
+    }
 
-	/**
-	 * Determines if a representation is approved or not.
-	 * @return boolean
-	 */
-	function getIsApproved() {
-		return (boolean) $this->getData('isApproved');
-	}
+    /**
+     * Get the format name (if applicable).
+     *
+     * @param $locale string
+     *
+     * @return string
+     */
+    public function getName($locale)
+    {
+        return $this->getData('name', $locale);
+    }
 
-	/**
-	 * Sets whether a representation is approved or not.
-	 * @param boolean $isApproved
-	 */
-	function setIsApproved($isApproved) {
-		return $this->setData('isApproved', $isApproved);
-	}
+    /**
+     * Set name.
+     *
+     * @param $name string
+     * @param $locale
+     */
+    public function setName($name, $locale = null)
+    {
+        $this->setData('name', $name, $locale);
+    }
 
-	/**
-	 * Get stored public ID of the submission.
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 * @return int
-	 */
-	function getStoredPubId($pubIdType) {
-		return $this->getData('pub-id::'.$pubIdType);
-	}
+    /**
+     * Determines if a representation is approved or not.
+     *
+     * @return boolean
+     */
+    public function getIsApproved()
+    {
+        return (bool) $this->getData('isApproved');
+    }
 
-	/**
-	 * Set the stored public ID of the submission.
-	 * @param $pubIdType string One of the NLM pub-id-type values or
-	 * 'other::something' if not part of the official NLM list
-	 * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-	 * @param $pubId string
-	 */
-	function setStoredPubId($pubIdType, $pubId) {
-		$this->setData('pub-id::'.$pubIdType, $pubId);
-	}
+    /**
+     * Sets whether a representation is approved or not.
+     *
+     * @param boolean $isApproved
+     */
+    public function setIsApproved($isApproved)
+    {
+        return $this->setData('isApproved', $isApproved);
+    }
 
-	/**
-	 * Get the remote URL at which this representation is retrievable.
-	 * @return string
-	 * @deprecated 3.2.0.0
-	 */
-	function getRemoteURL() {
-		return $this->getData('urlRemote');
-	}
+    /**
+     * Get stored public ID of the submission.
+     *
+     * @param $pubIdType string One of the NLM pub-id-type values or
+     * 'other::something' if not part of the official NLM list
+     * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+     *
+     * @return int
+     */
+    public function getStoredPubId($pubIdType)
+    {
+        return $this->getData('pub-id::' . $pubIdType);
+    }
 
-	/**
-	 * Set the remote URL for retrieving this representation.
-	 * @param $remoteURL string
-	 * @deprecated 3.2.0.0
-	 */
-	function setRemoteURL($remoteURL) {
-		return $this->setData('urlRemote', $remoteURL);
-	}
+    /**
+     * Set the stored public ID of the submission.
+     *
+     * @param $pubIdType string One of the NLM pub-id-type values or
+     * 'other::something' if not part of the official NLM list
+     * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+     * @param $pubId string
+     */
+    public function setStoredPubId($pubIdType, $pubId)
+    {
+        $this->setData('pub-id::' . $pubIdType, $pubId);
+    }
 
-	/**
-	 * Get the context id from the submission assigned to this representation.
-	 * @return int
-	 */
-	function getContextId() {
-		$publication = Services::get('publication')->get($this->getData('publicationId'));
-		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$submission = $submissionDao->getById($publication->getData('submissionId'));
-		return $submission->getContextId();
-	}
+    /**
+     * Get the remote URL at which this representation is retrievable.
+     *
+     * @return string
+     *
+     * @deprecated 3.2.0.0
+     */
+    public function getRemoteURL()
+    {
+        return $this->getData('urlRemote');
+    }
 
-	/**
-	 * @copydoc DataObject::getDAO()
-	 */
-	function getDAO() {
-		return Application::getRepresentationDAO();
-	}
+    /**
+     * Set the remote URL for retrieving this representation.
+     *
+     * @param $remoteURL string
+     *
+     * @deprecated 3.2.0.0
+     */
+    public function setRemoteURL($remoteURL)
+    {
+        return $this->setData('urlRemote', $remoteURL);
+    }
+
+    /**
+     * Get the context id from the submission assigned to this representation.
+     *
+     * @return int
+     */
+    public function getContextId()
+    {
+        $publication = Services::get('publication')->get($this->getData('publicationId'));
+        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        $submission = $submissionDao->getById($publication->getData('submissionId'));
+        return $submission->getContextId();
+    }
+
+    /**
+     * @copydoc \PKP\core\DataObject::getDAO()
+     */
+    public function getDAO()
+    {
+        return Application::getRepresentationDAO();
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\Representation', '\Representation');
+}

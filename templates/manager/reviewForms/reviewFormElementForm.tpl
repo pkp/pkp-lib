@@ -1,8 +1,8 @@
 {**
  * templates/manager/reviewForms/reviewFormElementForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form to create/modify a review form element.
@@ -30,7 +30,7 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 // -->
 </script>
 
-<form class="pkp_form" id="reviewFormElementForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormElementsGridHandler" op="updateReviewFormElement" anchor="possibleResponses"}">
+<form class="pkp_form" id="reviewFormElementForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormElementsGridHandler" op="updateReviewFormElement" anchor="possibleResponses"}">
 	{csrf}
 	{fbvElement id="reviewFormId" type="hidden" name="reviewFormId" value=$reviewFormId}
 	{fbvElement id="reviewFormElementId" type="hidden" name="reviewFormElementId" value=$reviewFormElementId}
@@ -80,7 +80,7 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 		<!-- Options listbuilder. Activated for some element types. -->
 		<div id="elementOptions" class="full left">
 			<div id="elementOptionsContainer" class="full left">
-				{capture assign=elementOptionsUrl}{url router=$smarty.const.ROUTE_COMPONENT component="listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderHandler" op="fetch" reviewFormId=$reviewFormId reviewFormElementId=$reviewFormElementId escape=false}{/capture}
+				{capture assign=elementOptionsUrl}{url router=PKPApplication::ROUTE_COMPONENT component="listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderHandler" op="fetch" reviewFormId=$reviewFormId reviewFormElementId=$reviewFormElementId escape=false}{/capture}
 				{load_url_in_div id="elementOptionsListbuilderContainer" url=$elementOptionsUrl}
 			</div>
 		</div>

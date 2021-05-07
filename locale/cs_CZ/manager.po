@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-01-03 17:40+0000\n"
+"PO-Revision-Date: 2021-05-04 01:41+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -426,10 +426,10 @@ msgid "plugins.categories.blocks.description"
 msgstr "Pluginy bloků jsou připojitelné UI komponenty, jako například různé postranní lišty s nástroji."
 
 msgid "plugins.categories.gateways.description"
-msgstr "Pluginy přenosové brány poskytují živá data externím systémům."
+msgstr "Pluginy brány poskytují živá data externím systémům."
 
 msgid "plugins.categories.gateways"
-msgstr "Pluginy přenosové brány"
+msgstr "Pluginy brány"
 
 msgid "plugins.categories.generic"
 msgstr "Všeobecné pluginy"
@@ -825,6 +825,12 @@ msgstr "Z´úžit výsledky podle státu, regionu a/nebo města."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponzor"
 
+msgid "manager.setup.publishing"
+msgstr "Podrobnosti o publikování"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Název organizace vydávající časopis bude zobrazen v části O časopisu."
+
 msgid "manager.setup.additionalContent"
 msgstr "Další obsah"
 
@@ -1039,7 +1045,7 @@ msgid "manager.setup.privacyStatement.description"
 msgstr "Toto oznámení se objeví autorovi během procesu podání příspěvku a je veřejně přístupný na stránce \"O časopisu\"."
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Počet týdnu k přijetí či odmítnutí požadavku na recenzi."
+msgstr "Počet týdnů k přijetí či odmítnutí požadavku na recenzi."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Počet týdnů na odevzdání hotové recenze"
@@ -1340,7 +1346,9 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "Tento obsah není kódování jako {$param}"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
-msgstr "Revize \"{$revisionId}\" souboru příspěvku \"{$fileId}\" vytvoří duplicitní záznam"
+msgstr ""
+"Úpravy \"{$revisionId}\" souboru příspěvku \"{$fileId}\" vytvoří duplicitní "
+"záznam"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Soubor příspěvku nelze importovat"
@@ -2166,3 +2174,79 @@ msgstr "Výchozí e-mailové šablony byly obnoveny."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Smazat oznámení"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Nastavení jazyka nelze uložit. Pro každou možnost musí být povolen alespoň "
+"jeden jazyk"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Další šablony"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "CHYBA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Vybraná adresa časopisu  \"{$contextPath}\" neexistuje."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Jedna nebo více z těchto e-mailových adres není platná."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Kopie e-mailu s potvrzením odeslání příspěvku bude zaslána na všechny zde "
+"zadané e-mailové adresy. Oddělte více e-mailových adres čárkou. Příklad: "
+"jeden@priklad.com, dva@priklad.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Upozornit kohokoli"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Ne"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ano, poslat kopii na email {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Upozornit primární kontakt"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Oznámení"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Stáhněte exportovaný soubor tlačítkem níže."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Procesu se nepodařilo analyzovat publikace"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Proces se nepodařilo analyzovat autory"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" – \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Chybná konfigurace filtru [{$filterName}]: Existuje {$filterCount} výskytů "
+"filtru. Měl by být jen jeden."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Obecné položky"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Export byl úspěšně dokončen."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Stáhnout exportovaný soubor"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportovat výsledky podání příspěvku"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Proces selhal. Zkontrolujte níže chyby a varování."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Chybí zařazení do uživatelské skupiny pro autora jménem {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"

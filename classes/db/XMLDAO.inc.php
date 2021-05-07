@@ -3,8 +3,8 @@
 /**
  * @file classes/db/XMLDAO.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class XMLDAO
@@ -13,44 +13,57 @@
  * @brief Operations for retrieving and modifying objects from an XML data source.
  */
 
+namespace PKP\db;
 
-import('lib.pkp.classes.xml.XMLParser');
+use PKP\xml\PKPXMLParser;
 
-class XMLDAO {
+class XMLDAO
+{
+    /**
+     * Parse an XML file and return data in an object.
+     *
+     * @see PKPXMLParser::parse()
+     *
+     * @param $file string
+     */
+    public function parse($file)
+    {
+        $parser = new PKPXMLParser();
+        return $parser->parse($file);
+    }
 
-	/**
-	 * Parse an XML file and return data in an object.
-	 * @see xml.XMLParser::parse()
-	 * @param $file string
-	 */
-	function parse($file) {
-		$parser = new XMLParser();
-		return $parser->parse($file);
-	}
+    /**
+     * Parse an XML file with the specified handler and return data in an object.
+     *
+     * @see PKPXMLParser::parse()
+     *
+     * @param $file string
+     * @param $handler reference to the handler to use with the parser.
+     */
+    public function parseWithHandler($file, $handler)
+    {
+        $parser = new PKPXMLParser();
+        $parser->setHandler($handler);
+        return $parser->parse($file);
+    }
 
-	/**
-	 * Parse an XML file with the specified handler and return data in an object.
-	 * @see xml.XMLParser::parse()
-	 * @param $file string
-	 * @param $handler reference to the handler to use with the parser.
-	 */
-	function parseWithHandler($file, $handler) {
-		$parser = new XMLParser();
-		$parser->setHandler($handler);
-		return $parser->parse($file);
-	}
-
-	/**
-	 * Parse an XML file and return data in an array.
-	 * @see xml.XMLParser::parseStruct()
-	 * @param $file string
-	 * @param $tagsToMatch array
-	 * @return array?
-	 */
-	function parseStruct($file, $tagsToMatch = array()) {
-		$parser = new XMLParser();
-		return $parser->parseStruct($file, $tagsToMatch);
-	}
+    /**
+     * Parse an XML file and return data in an array.
+     *
+     * @see PKPXMLParser::parseStruct()
+     *
+     * @param $file string
+     * @param $tagsToMatch array
+     *
+     * @return array?
+     */
+    public function parseStruct($file, $tagsToMatch = [])
+    {
+        $parser = new PKPXMLParser();
+        return $parser->parseStruct($file, $tagsToMatch);
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\db\XMLDAO', '\XMLDAO');
+}

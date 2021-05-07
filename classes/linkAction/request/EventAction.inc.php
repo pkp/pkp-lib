@@ -2,8 +2,8 @@
 /**
  * @file classes/linkAction/request/EventAction.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EventAction
@@ -12,54 +12,60 @@
  * @brief This action triggers a Javascript event.
  */
 
+namespace PKP\linkAction\request;
 
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+class EventAction extends LinkActionRequest
+{
+    /** @var string Target selector */
+    public $targetSelector;
 
-class EventAction extends LinkActionRequest {
-	/** @var string Target selector */
-	var $targetSelector;
+    /** @var string Event name */
+    public $eventName;
 
-	/** @var string Event name */
-	var $eventName;
+    /** @var array Event options */
+    public $options;
 
-	/** @var array Event options */
-	var $options;
-
-	/**
-	 * Constructor
-	 * @param $targetSelector string Selector for target to receive event.
-	 * @param $eventName string Name of Javascript event to trigger.
-	 */
-	function __construct($targetSelector, $eventName, $options = array()) {
-		parent::__construct();
-		$this->targetSelector = $targetSelector;
-		$this->eventName = $eventName;
-		$this->options = $options;
-	}
+    /**
+     * Constructor
+     *
+     * @param $targetSelector string Selector for target to receive event.
+     * @param $eventName string Name of Javascript event to trigger.
+     */
+    public function __construct($targetSelector, $eventName, $options = [])
+    {
+        parent::__construct();
+        $this->targetSelector = $targetSelector;
+        $this->eventName = $eventName;
+        $this->options = $options;
+    }
 
 
-	//
-	// Overridden protected methods from LinkActionRequest
-	//
-	/**
-	 * @see LinkActionRequest::getJSLinkActionRequest()
-	 */
-	function getJSLinkActionRequest() {
-		return '$.pkp.classes.linkAction.EventAction';
-	}
+    //
+    // Overridden protected methods from LinkActionRequest
+    //
+    /**
+     * @see LinkActionRequest::getJSLinkActionRequest()
+     */
+    public function getJSLinkActionRequest()
+    {
+        return '$.pkp.classes.linkAction.EventAction';
+    }
 
-	/**
-	 * @see LinkActionRequest::getLocalizedOptions()
-	 */
-	function getLocalizedOptions() {
-		return array_merge(
-			$this->options,
-			array(
-				'target' => $this->targetSelector,
-				'event' => $this->eventName,
-			)
-		);
-	}
+    /**
+     * @see LinkActionRequest::getLocalizedOptions()
+     */
+    public function getLocalizedOptions()
+    {
+        return array_merge(
+            $this->options,
+            [
+                'target' => $this->targetSelector,
+                'event' => $this->eventName,
+            ]
+        );
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\linkAction\request\EventAction', '\EventAction');
+}

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2021-01-06 13:52+0000\n"
+"PO-Revision-Date: 2021-01-29 12:17+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ar_IQ/>\n"
@@ -178,3 +178,22 @@ msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع
 
 msgid "api.submissionFiles.400.badDependentFileAssocType"
 msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع ملف طلب تقديم آخر."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "تعذر العثور في الطلب على تغييرات من شأنها تعديل هذا الملف."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "اللغات الآتية غير مدعومة: {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"لا يمكن استعمال ترميز واجهة برمجة التطبيق للوصول إلى هذا الموقع لأن مشرف "
+"الموقع لم يقم بتعريف مفتاح السر."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "تعذر فك شفرة ترميز واجهة برمجة التطبيق بسبب الخطأ الآتي: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"تعذر التحقق من ترميز واجهة برمجة التطبيق. قد يشير هذا إلى خطأ في ترميز واجهة "
+"برمجة التطبيق أو أنه لم يعد صالحاً."

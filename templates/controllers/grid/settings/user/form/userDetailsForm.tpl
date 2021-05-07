@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/settings/user/form/userDetailsForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form for creating/editing a user.
@@ -13,7 +13,7 @@
 		// Attach the form handler.
 		$('#userDetailsForm').pkpHandler('$.pkp.controllers.grid.settings.user.form.UserDetailsFormHandler',
 			{ldelim}
-				fetchUsernameSuggestionUrl: {url|json_encode router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" givenName="GIVEN_NAME_PLACEHOLDER" familyName="FAMILY_NAME_PLACEHOLDER" escape=false},
+				fetchUsernameSuggestionUrl: {url|json_encode router=PKPApplication::ROUTE_COMPONENT component="api.user.UserApiHandler" op="suggestUsername" givenName="GIVEN_NAME_PLACEHOLDER" familyName="FAMILY_NAME_PLACEHOLDER" escape=false},
 				usernameSuggestionTextAlert: {translate|json_encode key="grid.user.mustProvideName"}
 			{rdelim}
 		);
@@ -24,7 +24,7 @@
 	{assign var="passwordRequired" value="true"}
 {/if}{* !$userId *}
 
-<form class="pkp_form" id="userDetailsForm" method="post" action="{url router=$smarty.const.ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUser"}">
+<form class="pkp_form" id="userDetailsForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUser"}">
 	{csrf}
 	<input type="hidden" id="sitePrimaryLocale" name="sitePrimaryLocale" value="{$sitePrimaryLocale|escape}" />
 	<div id="userDetailsFormContainer">

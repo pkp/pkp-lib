@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileStageRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileStageRequiredPolicy
@@ -15,63 +15,68 @@
 
 import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
 
-class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy {
-	/** @var int SUBMISSION_FILE_... */
-	var $_fileStage;
+class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
+{
+    /** @var int SubmissionFile::SUBMISSION_FILE_... */
+    public $_fileStage;
 
-	/** @var boolean Whether the file has to be viewable */
-	var $_viewable;
+    /** @var boolean Whether the file has to be viewable */
+    public $_viewable;
 
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 * @param $submissionFileId int This policy will try to
-	 * get the submission file from this data.
-	 * @param $fileStage int SUBMISSION_FILE_...
-	 * @param $viewable boolean Whether the file has to be viewable
-	 */
-	function __construct($request, $submissionFileId, $fileStage, $viewable = false) {
-		parent::__construct($request, $submissionFileId);
-		$this->_fileStage = $fileStage;
-		$this->_viewable = $viewable;
-	}
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     * @param $submissionFileId int This policy will try to
+     * get the submission file from this data.
+     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
+     * @param $viewable boolean Whether the file has to be viewable
+     */
+    public function __construct($request, $submissionFileId, $fileStage, $viewable = false)
+    {
+        parent::__construct($request, $submissionFileId);
+        $this->_fileStage = $fileStage;
+        $this->_viewable = $viewable;
+    }
 
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		$request = $this->getRequest();
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        $request = $this->getRequest();
 
-		// Get the submission file.
-		$submissionFile = $this->getSubmissionFile($request);
-		if (!is_a($submissionFile, 'SubmissionFile')) return AUTHORIZATION_DENY;
+        // Get the submission file.
+        $submissionFile = $this->getSubmissionFile($request);
+        if (!is_a($submissionFile, 'SubmissionFile')) {
+            return AUTHORIZATION_DENY;
+        }
 
-		// Make sure that it's in the required stage
-		if ($submissionFile->getFileStage() != $this->_fileStage) return AUTHORIZATION_DENY;
+        // Make sure that it's in the required stage
+        if ($submissionFile->getFileStage() != $this->_fileStage) {
+            return AUTHORIZATION_DENY;
+        }
 
-		if ($this->_viewable) {
-			// Make sure the file is visible. Unless file is included in an open review.
-			if (!$submissionFile->getViewable()){
-				if ($submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT){
-					$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
-					$reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
-					if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN){
-						return AUTHORIZATION_DENY;
-					}
-				}
-				else{
-					return AUTHORIZATION_DENY;
-				}
-			}
-		}
+        if ($this->_viewable) {
+            // Make sure the file is visible. Unless file is included in an open review.
+            if (!$submissionFile->getViewable()) {
+                if ($submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+                    $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+                    $reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
+                    if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {
+                        return AUTHORIZATION_DENY;
+                    }
+                } else {
+                    return AUTHORIZATION_DENY;
+                }
+            }
+        }
 
-		// Made it through -- permit access.
-		return AUTHORIZATION_PERMIT;
-	}
+        // Made it through -- permit access.
+        return AUTHORIZATION_PERMIT;
+    }
 }
-
-

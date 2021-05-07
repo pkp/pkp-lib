@@ -3,8 +3,8 @@
 /**
  * @file pages/about/AboutSiteHandler.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AboutSiteHandler
@@ -13,62 +13,70 @@
  * @brief Handle requests for site-wide about functions.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
-class AboutSiteHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER);
-	}
+use APP\template\TemplateManager;
 
-	/**
-	 * Display aboutThisPublishingSystem page.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function aboutThisPublishingSystem($args, $request) {
-		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
-		$version = $versionDao->getCurrentVersion();
+class AboutSiteHandler extends Handler
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER);
+    }
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign([
-			'appVersion' => $version->getVersionString(false),
-			'contactUrl' => $request->getDispatcher()->url(
-				Application::get()->getRequest(),
-				ROUTE_PAGE,
-				null,
-				'about',
-				'contact',
-			),
-		]);
+    /**
+     * Display aboutThisPublishingSystem page.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function aboutThisPublishingSystem($args, $request)
+    {
+        $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
+        $version = $versionDao->getCurrentVersion();
 
-		$templateMgr->display('frontend/pages/aboutThisPublishingSystem.tpl');
-	}
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'appVersion' => $version->getVersionString(false),
+            'contactUrl' => $request->getDispatcher()->url(
+                Application::get()->getRequest(),
+                PKPApplication::ROUTE_PAGE,
+                null,
+                'about',
+                'contact'
+            ),
+        ]);
 
-	/**
-	 * Display privacy policy page.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function privacy($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-		$context = $request->getContext();
-		$enableSiteWidePrivacyStatement = Config::getVar('general', 'sitewide_privacy_statement');
-		if (!$enableSiteWidePrivacyStatement && $context) {
-			$privacyStatement = $context->getLocalizedData('privacyStatement');
-		} else {
-			$privacyStatement = $request->getSite()->getLocalizedData('privacyStatement');
-		}
-		if (!$privacyStatement) {
-			$dispatcher = $this->getDispatcher();
-			$dispatcher->handle404();
-		}
-		$templateMgr->assign('privacyStatement', $privacyStatement);
+        $templateMgr->display('frontend/pages/aboutThisPublishingSystem.tpl');
+    }
 
-		$templateMgr->display('frontend/pages/privacy.tpl');
-	}
+    /**
+     * Display privacy policy page.
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     */
+    public function privacy($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+        $context = $request->getContext();
+        $enableSiteWidePrivacyStatement = Config::getVar('general', 'sitewide_privacy_statement');
+        if (!$enableSiteWidePrivacyStatement && $context) {
+            $privacyStatement = $context->getLocalizedData('privacyStatement');
+        } else {
+            $privacyStatement = $request->getSite()->getLocalizedData('privacyStatement');
+        }
+        if (!$privacyStatement) {
+            $dispatcher = $this->getDispatcher();
+            $dispatcher->handle404();
+        }
+        $templateMgr->assign('privacyStatement', $privacyStatement);
+
+        $templateMgr->display('frontend/pages/privacy.tpl');
+    }
 }

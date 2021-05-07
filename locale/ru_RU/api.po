@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2021-01-08 17:52+0000\n"
+"PO-Revision-Date: 2021-01-28 15:01+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "ru_RU/>\n"
@@ -129,3 +129,84 @@ msgstr "Вы не можете связать файл с этого этапа 
 
 msgid "api.submissionFiles.400.badDependentFileAssocType"
 msgstr "Вы не можете связать файл с этого этапа с другим файлом отправки."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Язык {$locale} не поддерживается."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Активная тема «{$themePluginPath}» не включена и, возможно, не установлена "
+"на сервере."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Эта конечная точка не доступна из контекста. К ней нужно обращаться из "
+"пространства имен сайта."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "У вас нет прав для редактирования данной публикации."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "У вас нет прав на удаление этого материала."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Вы можете только просматривать неопубликованные материалы, в которых вы были "
+"назначены."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Вы не можете удалить материал, который не был назначен этому контексту."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Ваш запрос был отклонен. Возможно это произошло из-за того, что время "
+"доступа к системе истекло. Попробуйте перезагрузить страницу и войти снова."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Неправильно указан запрашиваемый том, номер или год."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Ваш запрос не может быть выполнен, так как в нем отсутствует необходимая "
+"информация."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"В запросе на редактирование данного файла нет никаких изменений, которые "
+"нужно внести."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Неправильный запрос. Параметр orderDirection должен быть `desc` or `asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Неправильный запрос. Параметр timelineInterval должен быть `day` или `month`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Дата окончания не может быть позже чем вчера."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Дата начала не может быть ранее 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Дата начала не может быть позже даты окончания."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Дата должна быть в формате ГГГГ-ММ-ДД."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Не поддерживаются следующие языки: {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Токен API нельзя использовать для доступа к этому сайту, так как "
+"администратор сайта не настроил секретный ключ."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Токен API не удаётся декодировать из-за следующей ошибки: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Токен API не удаётся проверить. Это может говорить об ошибке в токене API "
+"или о том, что данный токен API больше недействителен."

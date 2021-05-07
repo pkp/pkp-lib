@@ -3,170 +3,217 @@
 /**
  * @file classes/submission/Genre.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Genre
  * @ingroup submission
+ *
  * @see GenreDAO
  *
  * @brief Basic class describing a genre.
  */
 
-define('GENRE_CATEGORY_DOCUMENT', 1);
-define('GENRE_CATEGORY_ARTWORK', 2);
-define('GENRE_CATEGORY_SUPPLEMENTARY', 3);
+namespace PKP\submission;
 
-class Genre extends DataObject {
+use PKP\db\DAORegistry;
 
-	/**
-	 * Get ID of context.
-	 * @return int
-	 */
-	function getContextId() {
-		return $this->getData('contextId');
-	}
+class Genre extends \PKP\core\DataObject
+{
+    public const GENRE_CATEGORY_DOCUMENT = 1;
+    public const GENRE_CATEGORY_ARTWORK = 2;
+    public const GENRE_CATEGORY_SUPPLEMENTARY = 3;
 
-	/**
-	 * Set ID of context.
-	 * @param $contextId int
-	 */
-	function setContextId($contextId) {
-		$this->setData('contextId', $contextId);
-	}
+    /**
+     * Get ID of context.
+     *
+     * @return int
+     */
+    public function getContextId()
+    {
+        return $this->getData('contextId');
+    }
 
-	/**
-	 * Get sequence of genre.
-	 * @return float
-	 */
-	function getSequence() {
-		return $this->getData('sequence');
-	}
+    /**
+     * Set ID of context.
+     *
+     * @param $contextId int
+     */
+    public function setContextId($contextId)
+    {
+        $this->setData('contextId', $contextId);
+    }
 
-	/**
-	 * Set sequence of genre.
-	 * @param $sequence float
-	 */
-	function setSequence($sequence) {
-		$this->setData('sequence', $sequence);
-	}
+    /**
+     * Get sequence of genre.
+     *
+     * @return float
+     */
+    public function getSequence()
+    {
+        return $this->getData('sequence');
+    }
 
-	/**
-	 * Get key of genre.
-	 * @return string
-	 */
-	function getKey() {
-		return $this->getData('key');
-	}
+    /**
+     * Set sequence of genre.
+     *
+     * @param $sequence float
+     */
+    public function setSequence($sequence)
+    {
+        $this->setData('sequence', $sequence);
+    }
 
-	/**
-	 * Set key of genre.
-	 * @param $key string
-	 */
-	function setKey($key) {
-		$this->setData('key', $key);
-	}
+    /**
+     * Get key of genre.
+     *
+     * @return string
+     */
+    public function getKey()
+    {
+        return $this->getData('key');
+    }
 
-	/**
-	 * Get enabled status of genre.
-	 * @return boolean
-	 */
-	function getEnabled() {
-		return $this->getData('enabled');
-	}
+    /**
+     * Set key of genre.
+     *
+     * @param $key string
+     */
+    public function setKey($key)
+    {
+        $this->setData('key', $key);
+    }
 
-	/**
-	 * Set enabled status of genre.
-	 * @param $enabled boolean
-	 */
-	function setEnabled($enabled) {
-		$this->setData('enabled', $enabled);
-	}
+    /**
+     * Get enabled status of genre.
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->getData('enabled');
+    }
 
-	/**
-	 * Set the name of the genre
-	 * @param $name string
-	 * @param $locale string
-	 */
-	function setName($name, $locale) {
-		$this->setData('name', $name, $locale);
-	}
+    /**
+     * Set enabled status of genre.
+     *
+     * @param $enabled boolean
+     */
+    public function setEnabled($enabled)
+    {
+        $this->setData('enabled', $enabled);
+    }
 
-	/**
-	 * Get the name of the genre
-	 * @param $locale string
-	 * @return string
-	 */
-	function getName($locale) {
-		return $this->getData('name', $locale);
-	}
+    /**
+     * Set the name of the genre
+     *
+     * @param $name string
+     * @param $locale string
+     */
+    public function setName($name, $locale)
+    {
+        $this->setData('name', $name, $locale);
+    }
 
-	/**
-	 * Get the localized name of the genre
-	 * @return string
-	 */
-	function getLocalizedName() {
-		return $this->getLocalizedData('name');
-	}
+    /**
+     * Get the name of the genre
+     *
+     * @param $locale string
+     *
+     * @return string
+     */
+    public function getName($locale)
+    {
+        return $this->getData('name', $locale);
+    }
 
-	/**
-	 * Get context file category (e.g. artwork or document)
-	 * @return int GENRE_CATEGORY_...
-	 */
-	function getCategory() {
-		return $this->getData('category');
-	}
+    /**
+     * Get the localized name of the genre
+     *
+     * @return string
+     */
+    public function getLocalizedName()
+    {
+        return $this->getLocalizedData('name');
+    }
 
-	/**
-	 * Set context file category (e.g. artwork or document)
-	 * @param $category int GENRE_CATEGORY_...
-	 */
-	function setCategory($category) {
-		$this->setData('category', $category);
-	}
+    /**
+     * Get context file category (e.g. artwork or document)
+     *
+     * @return int GENRE_CATEGORY_...
+     */
+    public function getCategory()
+    {
+        return $this->getData('category');
+    }
 
-	/**
-	 * Get dependent flag
-	 * @return bool
-	 */
-	function getDependent() {
-		return $this->getData('dependent');
-	}
+    /**
+     * Set context file category (e.g. artwork or document)
+     *
+     * @param $category int GENRE_CATEGORY_...
+     */
+    public function setCategory($category)
+    {
+        $this->setData('category', $category);
+    }
 
-	/**
-	 * Set dependent flag
-	 * @param $dependent bool
-	 */
-	function setDependent($dependent) {
-		$this->setData('dependent', $dependent);
-	}
+    /**
+     * Get dependent flag
+     *
+     * @return bool
+     */
+    public function getDependent()
+    {
+        return $this->getData('dependent');
+    }
 
-	/**
-	 * Get supplementary flag
-	 * @return bool
-	 */
-	function getSupplementary() {
-		return $this->getData('supplementary');
-	}
+    /**
+     * Set dependent flag
+     *
+     * @param $dependent bool
+     */
+    public function setDependent($dependent)
+    {
+        $this->setData('dependent', $dependent);
+    }
 
-	/**
-	 * Set supplementary flag
-	 * @param $supplementary bool
-	 */
-	function setSupplementary($supplementary) {
-		$this->setData('supplementary', $supplementary);
-	}
+    /**
+     * Get supplementary flag
+     *
+     * @return bool
+     */
+    public function getSupplementary()
+    {
+        return $this->getData('supplementary');
+    }
 
-	/**
-	 * Is this a default genre.
-	 * @return bool
-	 */
-	function isDefault() {
-		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
-		$defaultKeys = $genreDao->getDefaultKeys();
-		return in_array($this->getKey(), $defaultKeys);
-	}
+    /**
+     * Set supplementary flag
+     *
+     * @param $supplementary bool
+     */
+    public function setSupplementary($supplementary)
+    {
+        $this->setData('supplementary', $supplementary);
+    }
+
+    /**
+     * Is this a default genre.
+     *
+     * @return bool
+     */
+    public function isDefault()
+    {
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+        $defaultKeys = $genreDao->getDefaultKeys();
+        return in_array($this->getKey(), $defaultKeys);
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\Genre', '\Genre');
+    foreach (['GENRE_CATEGORY_DOCUMENT', 'GENRE_CATEGORY_ARTWORK', 'GENRE_CATEGORY_SUPPLEMENTARY'] as $constantName) {
+        define($constantName, constant('\Genre::' . $constantName));
+    }
+}

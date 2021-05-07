@@ -2,8 +2,8 @@
 /**
  * @file tests/prependCoverageReport.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @ingroup tests
@@ -18,5 +18,5 @@ $GLOBALS['PHPUNIT_COVERAGE_DATA_DIRECTORY'] = get_cfg_var('phpunit_coverage_data
 include get_cfg_var('selenium_coverage_prepend_file');
 
 if (basename($_SERVER['SCRIPT_NAME']) == 'phpunit_coverage.php') {
-	chdir(get_cfg_var('phpunit_coverage_data_directory'));
+    chdir(get_cfg_var('phpunit_coverage_data_directory'));
 }

@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/PluginLevelRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginLevelRequiredPolicy
@@ -15,37 +15,40 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class PluginLevelRequiredPolicy extends AuthorizationPolicy {
+class PluginLevelRequiredPolicy extends AuthorizationPolicy
+{
+    /** @var boolean */
+    public $_contextPresent;
 
-	/** @var boolean */
-	var $_contextPresent;
+    /**
+     * Constructor
+     *
+     * @param $request PKPRequest
+     * @param $contextPresent boolean
+     */
+    public function __construct($request, $contextPresent)
+    {
+        parent::__construct('user.authorization.pluginLevel');
+        $this->_contextPresent = $contextPresent;
+    }
 
-	/**
-	 * Constructor
-	 * @param $request PKPRequest
-	 * @param $contextPresent boolean
-	 */
-	function __construct($request, $contextPresent) {
-		parent::__construct('user.authorization.pluginLevel');
-		$this->_contextPresent = $contextPresent;
-	}
+    //
+    // Implement template methods from AuthorizationPolicy
+    //
+    /**
+     * @see AuthorizationPolicy::effect()
+     */
+    public function effect()
+    {
+        // Get the plugin.
+        $plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
+        if (!is_a($plugin, 'Plugin')) {
+            return AUTHORIZATION_DENY;
+        }
 
-	//
-	// Implement template methods from AuthorizationPolicy
-	//
-	/**
-	 * @see AuthorizationPolicy::effect()
-	 */
-	function effect() {
-		// Get the plugin.
-		$plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
-		if (!is_a($plugin, 'Plugin')) return AUTHORIZATION_DENY;
-
-		if (!$this->_contextPresent) { // Site context
-			return $plugin->isSitePlugin()?AUTHORIZATION_PERMIT:AUTHORIZATION_DENY;
-		}
-		return $plugin->isSitePlugin()?AUTHORIZATION_DENY:AUTHORIZATION_PERMIT;
-	}
+        if (!$this->_contextPresent) { // Site context
+            return $plugin->isSitePlugin() ? AUTHORIZATION_PERMIT : AUTHORIZATION_DENY;
+        }
+        return $plugin->isSitePlugin() ? AUTHORIZATION_DENY : AUTHORIZATION_PERMIT;
+    }
 }
-
-

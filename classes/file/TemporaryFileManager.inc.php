@@ -3,127 +3,150 @@
 /**
  * @file classes/file/TemporaryFileManager.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTemporaryFileManager
  * @ingroup file
+ *
  * @see TemporaryFileDAO
  *
  * @brief Class defining operations for temporary file management.
  */
 
-import('lib.pkp.classes.file.PrivateFileManager');
+namespace PKP\file;
 
-class TemporaryFileManager extends PrivateFileManager {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
-		parent::__construct();
+use PKP\core\Core;
+use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 
-		$this->_performPeriodicCleanup();
-	}
+class TemporaryFileManager extends PrivateFileManager
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
 
-	/**
-	 * Get the base path for temporary file storage.
-	 * @return string
-	 */
-	function getBasePath() {
-		return parent::getBasePath() . '/temp/';
-	}
+        $this->_performPeriodicCleanup();
+    }
 
-	/**
-	 * Retrieve file information by file ID.
-	 * @return TemporaryFile
-	 */
-	function getFile($fileId, $userId) {
-		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
-		return $temporaryFileDao->getTemporaryFile($fileId, $userId);
-	}
+    /**
+     * Get the base path for temporary file storage.
+     *
+     * @return string
+     */
+    public function getBasePath()
+    {
+        return parent::getBasePath() . '/temp/';
+    }
 
-	/**
-	 * Delete a file by ID.
-	 * @param $fileId int
-	 */
-	function deleteById($fileId, $userId) {
-		$temporaryFile = $this->getFile($fileId, $userId);
+    /**
+     * Retrieve file information by file ID.
+     *
+     * @return TemporaryFile
+     */
+    public function getFile($fileId, $userId)
+    {
+        $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
+        return $temporaryFileDao->getTemporaryFile($fileId, $userId);
+    }
 
-		parent::deleteByPath($this->getBasePath() . $temporaryFile->getServerFileName());
+    /**
+     * Delete a file by ID.
+     *
+     * @param $fileId int
+     */
+    public function deleteById($fileId, $userId)
+    {
+        $temporaryFile = $this->getFile($fileId, $userId);
 
-		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
-		$temporaryFileDao->deleteTemporaryFileById($fileId, $userId);
-	}
+        parent::deleteByPath($this->getBasePath() . $temporaryFile->getServerFileName());
 
-	/**
-	 * Download a file.
-	 * @param $fileId int the file id of the file to download
-	 * @param $inline print file as inline instead of attachment, optional
-	 * @return boolean
-	 */
-	function downloadById($fileId, $userId, $inline = false) {
-		$temporaryFile = $this->getFile($fileId, $userId);
-		if (isset($temporaryFile)) {
-			$filePath = $this->getBasePath() . $temporaryFile->getServerFileName();
-			return parent::downloadByPath($filePath, null, $inline);
-		} else {
-			return false;
-		}
-	}
+        $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
+        $temporaryFileDao->deleteTemporaryFileById($fileId, $userId);
+    }
 
-	/**
-	 * Upload the file and add it to the database.
-	 * @param $fileName string index into the $_FILES array
-	 * @param $userId int
-	 * @return object|boolean The new TemporaryFile or false on failure
-	 */
-	function handleUpload($fileName, $userId) {
-		// Get the file extension, then rename the file.
-		$fileExtension = $this->parseFileExtension($this->getUploadedFileName($fileName));
+    /**
+     * Download a file.
+     *
+     * @param $fileId int the file id of the file to download
+     * @param $inline print file as inline instead of attachment, optional
+     *
+     * @return boolean
+     */
+    public function downloadById($fileId, $userId, $inline = false)
+    {
+        $temporaryFile = $this->getFile($fileId, $userId);
+        if (isset($temporaryFile)) {
+            $filePath = $this->getBasePath() . $temporaryFile->getServerFileName();
+            return parent::downloadByPath($filePath, null, $inline);
+        } else {
+            return false;
+        }
+    }
 
-		if (!$this->fileExists($this->getBasePath(), 'dir')) {
-			// Try to create destination directory
-			$this->mkdirtree($this->getBasePath());
-		}
+    /**
+     * Upload the file and add it to the database.
+     *
+     * @param $fileName string index into the $_FILES array
+     * @param $userId int
+     *
+     * @return object|boolean The new TemporaryFile or false on failure
+     */
+    public function handleUpload($fileName, $userId)
+    {
+        // Get the file extension, then rename the file.
+        $fileExtension = $this->parseFileExtension($this->getUploadedFileName($fileName));
 
-		$newFileName = basename(tempnam($this->getBasePath(), $fileExtension));
-		if (!$newFileName) return false;
+        if (!$this->fileExists($this->getBasePath(), 'dir')) {
+            // Try to create destination directory
+            $this->mkdirtree($this->getBasePath());
+        }
 
-		if ($this->uploadFile($fileName, $this->getBasePath() . $newFileName)) {
-			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
-			$temporaryFile = $temporaryFileDao->newDataObject();
+        $newFileName = basename(tempnam($this->getBasePath(), $fileExtension));
+        if (!$newFileName) {
+            return false;
+        }
 
-			$temporaryFile->setUserId($userId);
-			$temporaryFile->setServerFileName($newFileName);
-			$exploded = explode('.', $_FILES[$fileName]['name']);
-			$temporaryFile->setFileType(PKPString::mime_content_type($this->getBasePath() . $newFileName, array_pop($exploded)));
-			$temporaryFile->setFileSize($_FILES[$fileName]['size']);
-			$temporaryFile->setOriginalFileName($this->truncateFileName($_FILES[$fileName]['name'], 127));
-			$temporaryFile->setDateUploaded(Core::getCurrentDate());
+        if ($this->uploadFile($fileName, $this->getBasePath() . $newFileName)) {
+            $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
+            $temporaryFile = $temporaryFileDao->newDataObject();
 
-			$temporaryFileDao->insertObject($temporaryFile);
+            $temporaryFile->setUserId($userId);
+            $temporaryFile->setServerFileName($newFileName);
+            $exploded = explode('.', $_FILES[$fileName]['name']);
+            $temporaryFile->setFileType(PKPString::mime_content_type($this->getBasePath() . $newFileName, array_pop($exploded)));
+            $temporaryFile->setFileSize($_FILES[$fileName]['size']);
+            $temporaryFile->setOriginalFileName($this->truncateFileName($_FILES[$fileName]['name'], 127));
+            $temporaryFile->setDateUploaded(Core::getCurrentDate());
 
-			return $temporaryFile;
+            $temporaryFileDao->insertObject($temporaryFile);
 
-		} else {
-			return false;
-		}
-	}
+            return $temporaryFile;
+        } else {
+            return false;
+        }
+    }
 
-	/**
-	 * Perform periodic cleanup tasks. This is used to occasionally
-	 * remove expired temporary files.
-	 */
-	function _performPeriodicCleanup() {
-		if (time() % 100 == 0) {
-			$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
-			$expiredFiles = $temporaryFileDao->getExpiredFiles();
-			foreach ($expiredFiles as $expiredFile) {
-				$this->deleteById($expiredFile->getId(), $expiredFile->getUserId());
-			}
-		}
-	}
+    /**
+     * Perform periodic cleanup tasks. This is used to occasionally
+     * remove expired temporary files.
+     */
+    public function _performPeriodicCleanup()
+    {
+        if (time() % 100 == 0) {
+            $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
+            $expiredFiles = $temporaryFileDao->getExpiredFiles();
+            foreach ($expiredFiles as $expiredFile) {
+                $this->deleteById($expiredFile->getId(), $expiredFile->getUserId());
+            }
+        }
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\file\TemporaryFileManager', '\TemporaryFileManager');
+}

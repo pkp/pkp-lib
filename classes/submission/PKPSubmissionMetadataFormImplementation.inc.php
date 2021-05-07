@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/PKPSubmissionMetadataFormImplementation.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionMetadataFormImplementation
@@ -14,225 +14,254 @@
  * implement submission metadata data and form operations.
  */
 
-class PKPSubmissionMetadataFormImplementation {
+namespace PKP\submission;
 
-	/** @var Form Form that uses this implementation */
-	var $_parentForm;
+use APP\core\Application;
+use APP\core\Services;
 
-	/**
-	 * Constructor.
-	 * @param $parentForm Form A form that can use this form.
-	 */
-	function __construct($parentForm = null) {
-		assert(is_a($parentForm, 'Form'));
-		$this->_parentForm = $parentForm;
-	}
+use PKP\db\DAORegistry;
+use PKP\log\SubmissionLog;
 
-	/**
-	 * Determine whether or not abstracts are required.
-	 * @param $submission Submission
-	 * @return boolean
-	 */
-	function _getAbstractsRequired($submission) {
-		return true; // Required by default
-	}
+class PKPSubmissionMetadataFormImplementation
+{
+    /** @var Form Form that uses this implementation */
+    public $_parentForm;
 
-	/**
-	 * Add checks to form.
-	 * @param $submission Submission
-	 */
-	function addChecks($submission) {
-		import('lib.pkp.classes.form.validation.FormValidatorLocale');
-		import('lib.pkp.classes.form.validation.FormValidatorCustom');
+    /**
+     * Constructor.
+     *
+     * @param $parentForm Form A form that can use this form.
+     */
+    public function __construct($parentForm = null)
+    {
+        assert(is_a($parentForm, 'Form'));
+        $this->_parentForm = $parentForm;
+    }
 
-		// Validation checks.
-		$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, 'title', 'required', 'submission.submit.form.titleRequired', $submission->getCurrentPublication()->getData('locale')));
-		if ($this->_getAbstractsRequired($submission)) {
-			$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, 'abstract', 'required', 'submission.submit.form.abstractRequired', $submission->getCurrentPublication()->getData('locale')));
-		}
+    /**
+     * Determine whether or not abstracts are required.
+     *
+     * @param $submission Submission
+     *
+     * @return boolean
+     */
+    public function _getAbstractsRequired($submission)
+    {
+        return true; // Required by default
+    }
 
-		// Validates that at least one author has been added.
-		$this->_parentForm->addCheck(new FormValidatorCustom(
-			$this->_parentForm, 'authors', 'required', 'submission.submit.form.authorRequired',
-			function() use ($submission) {
-				return !empty($submission->getCurrentPublication()->getData('authors'));
-			}
-		));
+    /**
+     * Add checks to form.
+     *
+     * @param $submission Submission
+     */
+    public function addChecks($submission)
+    {
+        // Validation checks.
+        $this->_parentForm->addCheck(new \PKP\form\validation\FormValidatorLocale($this->_parentForm, 'title', 'required', 'submission.submit.form.titleRequired', $submission->getCurrentPublication()->getData('locale')));
+        if ($this->_getAbstractsRequired($submission)) {
+            $this->_parentForm->addCheck(new \PKP\form\validation\FormValidatorLocale($this->_parentForm, 'abstract', 'required', 'submission.submit.form.abstractRequired', $submission->getCurrentPublication()->getData('locale')));
+        }
 
-		$contextDao = Application::getContextDao();
-		$context = $contextDao->getById($submission->getContextId());
-		$metadataFields = Application::getMetadataFields();
-		foreach ($metadataFields as $field) {
-			$requiredLocaleKey = 'submission.submit.form.'.$field.'Required';
-			if ($context->getData($field) === METADATA_REQUIRE) {
-				switch($field) {
-					case in_array($field, $this->getLocaleFieldNames()):
-						$this->_parentForm->addCheck(new FormValidatorLocale($this->_parentForm, $field, 'required', $requiredLocaleKey, $submission->getCurrentPublication()->getData('locale')));
-						break;
-					case in_array($field, $this->getTagitFieldNames()):
-						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, $field, 'required', $requiredLocaleKey, create_function('$field,$form,$name', '$data = (array) $form->getData(\'keywords\'); return array_key_exists($name, $data);'), array($this->_parentForm, $submission->getCurrentPublication()->getData('locale').'-'.$field)));
-						break;
-					case 'citations':
-						$form = $this->_parentForm;
-						$this->_parentForm->addCheck(new FormValidatorCustom($this->_parentForm, 'citationsRaw', 'required', $requiredLocaleKey, function($key) use ($form) {
-							return !empty($form->getData('citationsRaw'));
-						}));
-						break;
-					default:
-						$this->_parentForm->addCheck(new FormValidator($this->_parentForm, $field, 'required', $requiredLocaleKey));
-				}
-			}
-		}
-	}
+        // Validates that at least one author has been added.
+        $this->_parentForm->addCheck(new \PKP\form\validation\FormValidatorCustom(
+            $this->_parentForm,
+            'authors',
+            'required',
+            'submission.submit.form.authorRequired',
+            function () use ($submission) {
+                return !empty($submission->getCurrentPublication()->getData('authors'));
+            }
+        ));
 
-	/**
-	 * Initialize form data from current submission.
-	 * @param $submission Submission
-	 */
-	function initData($submission) {
-		if (isset($submission)) {
-			$publication = $submission->getCurrentPublication();
-			$formData = array(
-				'title' => $publication->getData('title'),
-				'prefix' => $publication->getData('prefix'),
-				'subtitle' => $publication->getData('subtitle'),
-				'abstract' => $publication->getData('abstract'),
-				'coverage' => $publication->getData('coverage'),
-				'type' => $publication->getData('type'),
-				'source' =>$publication->getData('source'),
-				'rights' => $publication->getData('rights'),
-				'citationsRaw' => $publication->getData('citationsRaw'),
-				'locale' => $publication->getData('locale'),
-			);
+        $contextDao = Application::getContextDao();
+        $context = $contextDao->getById($submission->getContextId());
+        $metadataFields = Application::getMetadataFields();
+        foreach ($metadataFields as $field) {
+            $requiredLocaleKey = 'submission.submit.form.' . $field . 'Required';
+            if ($context->getData($field) === METADATA_REQUIRE) {
+                switch ($field) {
+                    case in_array($field, $this->getLocaleFieldNames()):
+                        $this->_parentForm->addCheck(new \PKP\form\validation\FormValidatorLocale($this->_parentForm, $field, 'required', $requiredLocaleKey, $submission->getCurrentPublication()->getData('locale')));
+                        break;
+                    case in_array($field, $this->getTagitFieldNames()):
+                        $this->_parentForm->addCheck(new \PKP\form\validation\FormValidatorCustom($this->_parentForm, $field, 'required', $requiredLocaleKey, create_function('$field,$form,$name', '$data = (array) $form->getData(\'keywords\'); return array_key_exists($name, $data);'), [$this->_parentForm, $submission->getCurrentPublication()->getData('locale') . '-' . $field]));
+                        break;
+                    case 'citations':
+                        $form = $this->_parentForm;
+                        $this->_parentForm->addCheck(new \PKP\form\validation\FormValidatorCustom($this->_parentForm, 'citationsRaw', 'required', $requiredLocaleKey, function ($key) use ($form) {
+                            return !empty($form->getData('citationsRaw'));
+                        }));
+                        break;
+                    default:
+                        $this->_parentForm->addCheck(new \PKP\form\validation\FormValidator($this->_parentForm, $field, 'required', $requiredLocaleKey));
+                }
+            }
+        }
+    }
 
-			foreach ($formData as $key => $data) {
-				$this->_parentForm->setData($key, $data);
-			}
+    /**
+     * Initialize form data from current submission.
+     *
+     * @param $submission Submission
+     */
+    public function initData($submission)
+    {
+        if (isset($submission)) {
+            $publication = $submission->getCurrentPublication();
+            $formData = [
+                'title' => $publication->getData('title'),
+                'prefix' => $publication->getData('prefix'),
+                'subtitle' => $publication->getData('subtitle'),
+                'abstract' => $publication->getData('abstract'),
+                'coverage' => $publication->getData('coverage'),
+                'type' => $publication->getData('type'),
+                'source' => $publication->getData('source'),
+                'rights' => $publication->getData('rights'),
+                'citationsRaw' => $publication->getData('citationsRaw'),
+                'locale' => $publication->getData('locale'),
+            ];
 
-			// get the supported locale keys
-			$locales = array_keys($this->_parentForm->supportedLocales);
+            foreach ($formData as $key => $data) {
+                $this->_parentForm->setData($key, $data);
+            }
 
-			// load the persisted metadata controlled vocabularies
-			$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
-			$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
-			$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
-			$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
-			$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
+            // get the supported locale keys
+            $locales = array_keys($this->_parentForm->supportedLocales);
 
-			$this->_parentForm->setData('subjects', $submissionSubjectDao->getSubjects($publication->getId(), $locales));
-			$this->_parentForm->setData('keywords', $submissionKeywordDao->getKeywords($publication->getId(), $locales));
-			$this->_parentForm->setData('disciplines', $submissionDisciplineDao->getDisciplines($publication->getId(), $locales));
-			$this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($publication->getId(), $locales));
-			$this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($publication->getId(), $locales));
-			$this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
-		}
-	}
+            // load the persisted metadata controlled vocabularies
+            $submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /** @var SubmissionKeywordDAO $submissionKeywordDao */
+            $submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /** @var SubmissionSubjectDAO $submissionSubjectDao */
+            $submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /** @var SubmissionDisciplineDAO $submissionDisciplineDao */
+            $submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /** @var SubmissionAgencyDAO $submissionAgencyDao */
+            $submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /** @var SubmissionLanguageDAO $submissionLanguageDao */
 
-	/**
-	 * Assign form data to user-submitted data.
-	 */
-	function readInputData() {
-		// 'keywords' is a tagit catchall that contains an array of values for each keyword/locale combination on the form.
-		$userVars = array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citationsRaw', 'locale');
-		$this->_parentForm->readUserVars($userVars);
-	}
+            $this->_parentForm->setData('subjects', $submissionSubjectDao->getSubjects($publication->getId(), $locales));
+            $this->_parentForm->setData('keywords', $submissionKeywordDao->getKeywords($publication->getId(), $locales));
+            $this->_parentForm->setData('disciplines', $submissionDisciplineDao->getDisciplines($publication->getId(), $locales));
+            $this->_parentForm->setData('agencies', $submissionAgencyDao->getAgencies($publication->getId(), $locales));
+            $this->_parentForm->setData('languages', $submissionLanguageDao->getLanguages($publication->getId(), $locales));
+            $this->_parentForm->setData('abstractsRequired', $this->_getAbstractsRequired($submission));
+        }
+    }
 
-	/**
-	 * Get the names of fields for which data should be localized
-	 * @return array
-	 */
-	function getLocaleFieldNames() {
-		return array('title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights');
-	}
+    /**
+     * Assign form data to user-submitted data.
+     */
+    public function readInputData()
+    {
+        // 'keywords' is a tagit catchall that contains an array of values for each keyword/locale combination on the form.
+        $userVars = ['title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights', 'keywords', 'citationsRaw', 'locale'];
+        $this->_parentForm->readUserVars($userVars);
+    }
 
-	/**
-	 * Get the names of fields for which tagit is used
-	 * @return array
-	 */
-	function getTagitFieldNames() {
-		return array('subjects', 'keywords', 'disciplines', 'agencies', 'languages');
-	}
+    /**
+     * Get the names of fields for which data should be localized
+     *
+     * @return array
+     */
+    public function getLocaleFieldNames()
+    {
+        return ['title', 'prefix', 'subtitle', 'abstract', 'coverage', 'type', 'source', 'rights'];
+    }
 
-	/**
-	 * Save changes to submission.
-	 * @param $submission Submission
-	 * @param $request PKPRequest
-	 * @return Submission
-	 */
-	function execute($submission, $request) {
-		$publication = $submission->getCurrentPublication();
-		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-		$context = $request->getContext();
+    /**
+     * Get the names of fields for which tagit is used
+     *
+     * @return array
+     */
+    public function getTagitFieldNames()
+    {
+        return ['subjects', 'keywords', 'disciplines', 'agencies', 'languages'];
+    }
 
-		// Get params to update
-		$params = [
-			'title' => $this->_parentForm->getData('title'),
-			'prefix' => $this->_parentForm->getData('prefix'),
-			'subtitle' => $this->_parentForm->getData('subtitle'),
-			'abstract' => $this->_parentForm->getData('abstract'),
-			'coverage' => $this->_parentForm->getData('coverage'),
-			'type' => $this->_parentForm->getData('type'),
-			'rights' => $this->_parentForm->getData('rights'),
-			'source' => $this->_parentForm->getData('source'),
-			'citationsRaw' => $this->_parentForm->getData('citationsRaw'),
-		];
+    /**
+     * Save changes to submission.
+     *
+     * @param $submission Submission
+     * @param $request PKPRequest
+     *
+     * @return Submission
+     */
+    public function execute($submission, $request)
+    {
+        $publication = $submission->getCurrentPublication();
+        $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
+        $context = $request->getContext();
 
-		// Update locale
-		$newLocale = $this->_parentForm->getData('locale');
-		if ($newLocale) {
-			$oldLocale = $publication->getData('locale');
-			if (in_array($newLocale, $context->getData('supportedSubmissionLocales'))) {
-				$params['locale'] = $newLocale;
-			}
-			if ($newLocale !== $oldLocale) {
-				$authorDao->changePublicationLocale($publication->getId(), $oldLocale, $newLocale);
-			}
-		}
+        // Get params to update
+        $params = [
+            'title' => $this->_parentForm->getData('title'),
+            'prefix' => $this->_parentForm->getData('prefix'),
+            'subtitle' => $this->_parentForm->getData('subtitle'),
+            'abstract' => $this->_parentForm->getData('abstract'),
+            'coverage' => $this->_parentForm->getData('coverage'),
+            'type' => $this->_parentForm->getData('type'),
+            'rights' => $this->_parentForm->getData('rights'),
+            'source' => $this->_parentForm->getData('source'),
+            'citationsRaw' => $this->_parentForm->getData('citationsRaw'),
+        ];
 
-		// Save the publication
-		$publication = Services::get('publication')->edit($publication, $params, $request);
+        // Update locale
+        $newLocale = $this->_parentForm->getData('locale');
+        if ($newLocale) {
+            $oldLocale = $publication->getData('locale');
+            if (in_array($newLocale, $context->getData('supportedSubmissionLocales'))) {
+                $params['locale'] = $newLocale;
+            }
+            if ($newLocale !== $oldLocale) {
+                $authorDao->changePublicationLocale($publication->getId(), $oldLocale, $newLocale);
+            }
+        }
 
-		// get the supported locale keys
-		$locales = array_keys($this->_parentForm->supportedLocales);
+        // Save the publication
+        $publication = Services::get('publication')->edit($publication, $params, $request);
 
-		// persist the metadata/keyword fields.
-		$submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /* @var $submissionKeywordDao SubmissionKeywordDAO */
-		$submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /* @var $submissionSubjectDao SubmissionSubjectDAO */
-		$submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /* @var $submissionDisciplineDao SubmissionDisciplineDAO */
-		$submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /* @var $submissionAgencyDao SubmissionAgencyDAO */
-		$submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /* @var $submissionLanguageDao SubmissionLanguageDAO */
+        // get the supported locale keys
+        $locales = array_keys($this->_parentForm->supportedLocales);
 
-		$keywords = array();
-		$agencies = array();
-		$disciplines = array();
-		$languages = array();
-		$subjects = array();
+        // persist the metadata/keyword fields.
+        $submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO'); /** @var SubmissionKeywordDAO $submissionKeywordDao */
+        $submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO'); /** @var SubmissionSubjectDAO $submissionSubjectDao */
+        $submissionDisciplineDao = DAORegistry::getDAO('SubmissionDisciplineDAO'); /** @var SubmissionDisciplineDAO $submissionDisciplineDao */
+        $submissionAgencyDao = DAORegistry::getDAO('SubmissionAgencyDAO'); /** @var SubmissionAgencyDAO $submissionAgencyDao */
+        $submissionLanguageDao = DAORegistry::getDAO('SubmissionLanguageDAO'); /** @var SubmissionLanguageDAO $submissionLanguageDao */
 
-		$tagitKeywords = $this->_parentForm->getData('keywords');
+        $keywords = [];
+        $agencies = [];
+        $disciplines = [];
+        $languages = [];
+        $subjects = [];
 
-		if (is_array($tagitKeywords)) {
-			foreach ($locales as $locale) {
-				$keywords[$locale] = array_key_exists($locale . '-keywords', $tagitKeywords) ? $tagitKeywords[$locale . '-keywords'] : array();
-				$agencies[$locale] = array_key_exists($locale . '-agencies', $tagitKeywords) ? $tagitKeywords[$locale . '-agencies'] : array();
-				$disciplines[$locale] = array_key_exists($locale . '-disciplines', $tagitKeywords) ? $tagitKeywords[$locale . '-disciplines'] : array();
-				$languages[$locale] = array_key_exists($locale . '-languages', $tagitKeywords) ? $tagitKeywords[$locale . '-languages'] : array();
-				$subjects[$locale] = array_key_exists($locale . '-subjects', $tagitKeywords) ?$tagitKeywords[$locale . '-subjects'] : array();
-			}
-		}
+        $tagitKeywords = $this->_parentForm->getData('keywords');
 
-		// persist the controlled vocabs
-		$submissionKeywordDao->insertKeywords($keywords, $submission->getCurrentPublication()->getId());
-		$submissionAgencyDao->insertAgencies($agencies, $submission->getCurrentPublication()->getId());
-		$submissionDisciplineDao->insertDisciplines($disciplines, $submission->getCurrentPublication()->getId());
-		$submissionLanguageDao->insertLanguages($languages, $submission->getCurrentPublication()->getId());
-		$submissionSubjectDao->insertSubjects($subjects, $submission->getCurrentPublication()->getId());
+        if (is_array($tagitKeywords)) {
+            foreach ($locales as $locale) {
+                $keywords[$locale] = array_key_exists($locale . '-keywords', $tagitKeywords) ? $tagitKeywords[$locale . '-keywords'] : [];
+                $agencies[$locale] = array_key_exists($locale . '-agencies', $tagitKeywords) ? $tagitKeywords[$locale . '-agencies'] : [];
+                $disciplines[$locale] = array_key_exists($locale . '-disciplines', $tagitKeywords) ? $tagitKeywords[$locale . '-disciplines'] : [];
+                $languages[$locale] = array_key_exists($locale . '-languages', $tagitKeywords) ? $tagitKeywords[$locale . '-languages'] : [];
+                $subjects[$locale] = array_key_exists($locale . '-subjects', $tagitKeywords) ? $tagitKeywords[$locale . '-subjects'] : [];
+            }
+        }
 
-		// Only log modifications on completed submissions
-		if ($submission->getSubmissionProgress() == 0) {
-			// Log the metadata modification event.
-			import('lib.pkp.classes.log.SubmissionLog');
-			import('classes.log.SubmissionEventLogEntry');
-			SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
-		}
-	}
+        // persist the controlled vocabs
+        $submissionKeywordDao->insertKeywords($keywords, $submission->getCurrentPublication()->getId());
+        $submissionAgencyDao->insertAgencies($agencies, $submission->getCurrentPublication()->getId());
+        $submissionDisciplineDao->insertDisciplines($disciplines, $submission->getCurrentPublication()->getId());
+        $submissionLanguageDao->insertLanguages($languages, $submission->getCurrentPublication()->getId());
+        $submissionSubjectDao->insertSubjects($subjects, $submission->getCurrentPublication()->getId());
+
+        // Only log modifications on completed submissions
+        if ($submission->getSubmissionProgress() == 0) {
+            // Log the metadata modification event.
+            import('lib.pkp.classes.log.SubmissionLog');
+            import('classes.log.SubmissionEventLogEntry');
+            SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
+        }
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\PKPSubmissionMetadataFormImplementation', '\PKPSubmissionMetadataFormImplementation');
 }

@@ -8,185 +8,224 @@
 /**
  * @file classes/site/Site.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Site
  * @ingroup site
+ *
  * @see SiteDAO
  *
  * @brief Describes system-wide site properties.
  */
 
+namespace PKP\site;
 
-class Site extends DataObject {
+use APP\i18n\AppLocale;
 
-	/**
-	 * Return associative array of all locales supported by the site.
-	 * These locales are used to provide a language toggle on the main site pages.
-	 * @return array
-	 */
-	function &getSupportedLocaleNames() {
-		$supportedLocales =& Registry::get('siteSupportedLocales', true, null);
+use PKP\core\Registry;
 
-		if ($supportedLocales === null) {
-			$supportedLocales = array();
-			$localeNames =& AppLocale::getAllLocales();
+class Site extends \PKP\core\DataObject
+{
+    /**
+     * Return associative array of all locales supported by the site.
+     * These locales are used to provide a language toggle on the main site pages.
+     *
+     * @return array
+     */
+    public function &getSupportedLocaleNames()
+    {
+        $supportedLocales = & Registry::get('siteSupportedLocales', true, null);
 
-			$locales = $this->getSupportedLocales();
-			foreach ($locales as $localeKey) {
-				$supportedLocales[$localeKey] = $localeNames[$localeKey];
-			}
+        if ($supportedLocales === null) {
+            $supportedLocales = [];
+            $localeNames = & AppLocale::getAllLocales();
 
-			asort($supportedLocales);
-		}
+            $locales = $this->getSupportedLocales();
+            foreach ($locales as $localeKey) {
+                $supportedLocales[$localeKey] = $localeNames[$localeKey];
+            }
 
-		return $supportedLocales;
-	}
+            asort($supportedLocales);
+        }
 
-	//
-	// Get/set methods
-	//
+        return $supportedLocales;
+    }
 
-	/**
-	 * Get site title.
-	 * @param $locale string Locale code to return, if desired.
-	 */
-	function getTitle($locale = null) {
-		return $this->getData('title', $locale);
-	}
+    //
+    // Get/set methods
+    //
 
-	/**
-	 * Get localized site title.
-	 */
-	function getLocalizedTitle() {
-		return $this->getLocalizedData('title');
-	}
+    /**
+     * Get site title.
+     *
+     * @param $locale string Locale code to return, if desired.
+     */
+    public function getTitle($locale = null)
+    {
+        return $this->getData('title', $locale);
+    }
 
-	/**
-	 * Get "localized" site page title (if applicable).
-	 * @return array|string
-	 * @deprecated 3.3.0
-	 */
-	function getLocalizedPageHeaderTitle() {
-		if ($this->getLocalizedData('pageHeaderTitleImage')) {
-			return $this->getLocalizedData('pageHeaderTitleImage');
-		}
-		if ($this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale())) {
-			return $this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale());
-		}
-		if ($this->getLocalizedData('title')) {
-			return $this->getLocalizedData('title');
-		}
-		if ($this->getData('title', AppLocale::getPrimaryLocale())) {
-			return $this->getData('title', AppLocale::getPrimaryLocale());
-		}
-		return '';
-	}
+    /**
+     * Get localized site title.
+     */
+    public function getLocalizedTitle()
+    {
+        return $this->getLocalizedData('title');
+    }
 
-	/**
-	 * Get redirect
-	 * @return int
-	 */
-	function getRedirect() {
-		return $this->getData('redirect');
-	}
+    /**
+     * Get "localized" site page title (if applicable).
+     *
+     * @return array|string
+     *
+     * @deprecated 3.3.0
+     */
+    public function getLocalizedPageHeaderTitle()
+    {
+        if ($this->getLocalizedData('pageHeaderTitleImage')) {
+            return $this->getLocalizedData('pageHeaderTitleImage');
+        }
+        if ($this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale())) {
+            return $this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale());
+        }
+        if ($this->getLocalizedData('title')) {
+            return $this->getLocalizedData('title');
+        }
+        if ($this->getData('title', AppLocale::getPrimaryLocale())) {
+            return $this->getData('title', AppLocale::getPrimaryLocale());
+        }
+        return '';
+    }
 
-	/**
-	 * Set redirect
-	 * @param $redirect int
-	 */
-	function setRedirect($redirect) {
-		$this->setData('redirect', (int)$redirect);
-	}
+    /**
+     * Get redirect
+     *
+     * @return int
+     */
+    public function getRedirect()
+    {
+        return $this->getData('redirect');
+    }
 
-	/**
-	 * Get localized site about statement.
-	 */
-	function getLocalizedAbout() {
-		return $this->getLocalizedData('about');
-	}
+    /**
+     * Set redirect
+     *
+     * @param $redirect int
+     */
+    public function setRedirect($redirect)
+    {
+        $this->setData('redirect', (int)$redirect);
+    }
 
-	/**
-	 * Get localized site contact name.
-	 */
-	function getLocalizedContactName() {
-		return $this->getLocalizedData('contactName');
-	}
+    /**
+     * Get localized site about statement.
+     */
+    public function getLocalizedAbout()
+    {
+        return $this->getLocalizedData('about');
+    }
 
-	/**
-	 * Get localized site contact email.
-	 */
-	function getLocalizedContactEmail() {
-		return $this->getLocalizedData('contactEmail');
-	}
+    /**
+     * Get localized site contact name.
+     */
+    public function getLocalizedContactName()
+    {
+        return $this->getLocalizedData('contactName');
+    }
 
-	/**
-	 * Get minimum password length.
-	 * @return int
-	 */
-	function getMinPasswordLength() {
-		return $this->getData('minPasswordLength');
-	}
+    /**
+     * Get localized site contact email.
+     */
+    public function getLocalizedContactEmail()
+    {
+        return $this->getLocalizedData('contactEmail');
+    }
 
-	/**
-	 * Set minimum password length.
-	 * @param $minPasswordLength int
-	 */
-	function setMinPasswordLength($minPasswordLength) {
-		$this->setData('minPasswordLength', $minPasswordLength);
-	}
+    /**
+     * Get minimum password length.
+     *
+     * @return int
+     */
+    public function getMinPasswordLength()
+    {
+        return $this->getData('minPasswordLength');
+    }
 
-	/**
-	 * Get primary locale.
-	 * @return string
-	 */
-	function getPrimaryLocale() {
-		return $this->getData('primaryLocale');
-	}
+    /**
+     * Set minimum password length.
+     *
+     * @param $minPasswordLength int
+     */
+    public function setMinPasswordLength($minPasswordLength)
+    {
+        $this->setData('minPasswordLength', $minPasswordLength);
+    }
 
-	/**
-	 * Set primary locale.
-	 * @param $primaryLocale string
-	 */
-	function setPrimaryLocale($primaryLocale) {
-		$this->setData('primaryLocale', $primaryLocale);
-	}
+    /**
+     * Get primary locale.
+     *
+     * @return string
+     */
+    public function getPrimaryLocale()
+    {
+        return $this->getData('primaryLocale');
+    }
 
-	/**
-	 * Get installed locales.
-	 * @return array
-	 */
-	function getInstalledLocales() {
-		$locales = $this->getData('installedLocales');
-		return isset($locales) ? $locales : array();
-	}
+    /**
+     * Set primary locale.
+     *
+     * @param $primaryLocale string
+     */
+    public function setPrimaryLocale($primaryLocale)
+    {
+        $this->setData('primaryLocale', $primaryLocale);
+    }
 
-	/**
-	 * Set installed locales.
-	 * @param $installedLocales array
-	 */
-	function setInstalledLocales($installedLocales) {
-		$this->setData('installedLocales', $installedLocales);
-	}
+    /**
+     * Get installed locales.
+     *
+     * @return array
+     */
+    public function getInstalledLocales()
+    {
+        $locales = $this->getData('installedLocales');
+        return $locales ?? [];
+    }
 
-	/**
-	 * Get array of all supported locales (for static text).
-	 * @return array
-	 */
-	function getSupportedLocales() {
-		$locales = $this->getData('supportedLocales');
-		return isset($locales) ? $locales : array();
-	}
+    /**
+     * Set installed locales.
+     *
+     * @param $installedLocales array
+     */
+    public function setInstalledLocales($installedLocales)
+    {
+        $this->setData('installedLocales', $installedLocales);
+    }
 
-	/**
-	 * Set array of all supported locales (for static text).
-	 * @param $supportedLocales array
-	 */
-	function setSupportedLocales($supportedLocales) {
-		$this->setData('supportedLocales', $supportedLocales);
-	}
+    /**
+     * Get array of all supported locales (for static text).
+     *
+     * @return array
+     */
+    public function getSupportedLocales()
+    {
+        $locales = $this->getData('supportedLocales');
+        return $locales ?? [];
+    }
+
+    /**
+     * Set array of all supported locales (for static text).
+     *
+     * @param $supportedLocales array
+     */
+    public function setSupportedLocales($supportedLocales)
+    {
+        $this->setData('supportedLocales', $supportedLocales);
+    }
 }
 
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\site\Site', '\Site');
+}

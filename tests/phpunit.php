@@ -13,7 +13,7 @@
 
 // This script may not be executed remotely.
 if (isset($_SERVER['SERVER_NAME'])) {
-	die('This script can only be executed from the command-line');
+    die('This script can only be executed from the command-line');
 }
 
 if (extension_loaded('xdebug')) {

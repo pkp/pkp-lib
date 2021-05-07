@@ -15,6 +15,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class PluginRequiredPolicy extends AuthorizationPolicy

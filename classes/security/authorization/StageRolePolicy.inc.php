@@ -14,7 +14,12 @@
  *   assignment is a "recommend only" assignment.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization;
+
+use APP\core\Application;
+
+use APP\i18n\AppLocale;
+use PKP\db\DAORegistry;
 
 class StageRolePolicy extends AuthorizationPolicy
 {
@@ -65,7 +70,7 @@ class StageRolePolicy extends AuthorizationPolicy
 
         if (array_key_exists($this->_stageId, $userAccessibleStages) && array_intersect($this->_roleIds, $userAccessibleStages[$this->_stageId])) {
             if ($this->_allowRecommendOnly) {
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
             $result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
@@ -77,7 +82,7 @@ class StageRolePolicy extends AuthorizationPolicy
                 $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
                 $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
                 if (in_array($userGroup->getRoleId(), $this->_roleIds) && !$stageAssignment->getRecommendOnly()) {
-                    return AUTHORIZATION_PERMIT;
+                    return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }
             }
         }
@@ -85,7 +90,7 @@ class StageRolePolicy extends AuthorizationPolicy
         // A manager is granted access when they are not assigned in any other role
         if (empty($userAccessibleStages) && in_array(ROLE_ID_MANAGER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES))) {
             if ($this->_allowRecommendOnly) {
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
             // Managers may have a stage assignment but no $userAccessibleStages, so they will
             // not be caught by the earlier code that checks stage assignments.
@@ -101,14 +106,18 @@ class StageRolePolicy extends AuthorizationPolicy
                 $noResults = false;
                 $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
                 if ($userGroup->getRoleId() == ROLE_ID_MANAGER && !$stageAssignment->getRecommendOnly()) {
-                    return AUTHORIZATION_PERMIT;
+                    return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }
             }
             if ($noResults) {
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }
 
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\StageRolePolicy', '\StageRolePolicy');
 }

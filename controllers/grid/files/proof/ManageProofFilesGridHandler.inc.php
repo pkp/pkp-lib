@@ -16,6 +16,9 @@
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
 use PKP\core\JSONMessage;
+use PKP\security\authorization\internal\RepresentationRequiredPolicy;
+use PKP\security\authorization\PublicationAccessPolicy;
+use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\submission\SubmissionFile;
 
 class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
@@ -49,12 +52,9 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
-        import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
         $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
-        import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');
         $this->addPolicy(new RepresentationRequiredPolicy($request, $args));
         return parent::authorize($request, $args, $roleAssignments);
     }

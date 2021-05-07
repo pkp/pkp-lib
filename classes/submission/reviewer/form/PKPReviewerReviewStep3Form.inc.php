@@ -15,8 +15,10 @@
 
 import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
 
+use APP\log\SubmissionEventLogEntry;
 use APP\template\TemplateManager;
 
+use PKP\log\SubmissionLog;
 use PKP\submission\SubmissionComment;
 
 class PKPReviewerReviewStep3Form extends ReviewerReviewForm
@@ -188,16 +190,13 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         );
 
         // Add log
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
-
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
         $request = Application::get()->getRequest();
         SubmissionLog::logEvent(
             $request,
             $submission,
-            SUBMISSION_LOG_REVIEW_READY,
+            SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_READY,
             'log.review.reviewReady',
             [
                 'reviewAssignmentId' => $reviewAssignment->getId(),

@@ -13,7 +13,10 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
+namespace PKP\security\authorization\internal;
+
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
 
 class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkflowStageRequiredPolicy
 {
@@ -26,7 +29,7 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
     public function effect()
     {
         $result = parent::effect();
-        if ($result === AUTHORIZATION_PERMIT) {
+        if ($result === AuthorizationPolicy::AUTHORIZATION_PERMIT) {
             return $result;
         }
 
@@ -49,10 +52,14 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
                     [ROLE_ID_REVIEWER]
                 );
                 $this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }
 
         return $result;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\QueryUserAccessibleWorkflowStageRequiredPolicy', '\QueryUserAccessibleWorkflowStageRequiredPolicy');
 }

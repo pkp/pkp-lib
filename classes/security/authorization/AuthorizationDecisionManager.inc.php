@@ -23,12 +23,12 @@
  *    applicable).
  */
 
-import('lib.pkp.classes.security.authorization.PolicySet');
-
-define('AUTHORIZATION_NOT_APPLICABLE', 0x03);
+namespace PKP\security\authorization;
 
 class AuthorizationDecisionManager
 {
+    public const AUTHORIZATION_NOT_APPLICABLE = 3;
+
     /** @var PolicySet the root policy set */
     public $_rootPolicySet;
 
@@ -44,7 +44,7 @@ class AuthorizationDecisionManager
     public function __construct()
     {
         // Instantiate the main policy set we'll add root policies to.
-        $this->_rootPolicySet = new PolicySet(COMBINING_DENY_OVERRIDES);
+        $this->_rootPolicySet = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
     }
 
 
@@ -138,10 +138,10 @@ class AuthorizationDecisionManager
         // all nested policy sets and return a single decision.
         $callOnDeny = null;
         $decision = $this->_decidePolicySet($this->_rootPolicySet, $callOnDeny);
-        assert($decision !== AUTHORIZATION_NOT_APPLICABLE);
+        assert($decision !== self::AUTHORIZATION_NOT_APPLICABLE);
 
         // Call the "call on deny" advice
-        if ($decision === AUTHORIZATION_DENY && !is_null($callOnDeny)) {
+        if ($decision === AuthorizationPolicy::AUTHORIZATION_DENY && !is_null($callOnDeny)) {
             assert(is_array($callOnDeny) && count($callOnDeny) == 3);
             [$classOrObject, $method, $parameters] = $callOnDeny;
             $methodCall = [$classOrObject, $method];
@@ -170,14 +170,14 @@ class AuthorizationDecisionManager
         // Configure the decision algorithm.
         $combiningAlgorithm = $policySet->getCombiningAlgorithm();
         switch ($combiningAlgorithm) {
-            case COMBINING_DENY_OVERRIDES:
-                $dominantEffect = AUTHORIZATION_DENY;
-                $overriddenEffect = AUTHORIZATION_PERMIT;
+            case PolicySet::COMBINING_DENY_OVERRIDES:
+                $dominantEffect = AuthorizationPolicy::AUTHORIZATION_DENY;
+                $overriddenEffect = AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 break;
 
-            case COMBINING_PERMIT_OVERRIDES:
-                $dominantEffect = AUTHORIZATION_PERMIT;
-                $overriddenEffect = AUTHORIZATION_DENY;
+            case PolicySet::COMBINING_PERMIT_OVERRIDES:
+                $dominantEffect = AuthorizationPolicy::AUTHORIZATION_PERMIT;
+                $overriddenEffect = AuthorizationPolicy::AUTHORIZATION_DENY;
                 break;
 
             default:
@@ -200,7 +200,7 @@ class AuthorizationDecisionManager
         foreach ($policySet->getPolicies() as $policy) {
             // Treat policies and policy sets differently.
             switch (true) {
-                case is_a($policy, 'AuthorizationPolicy'):
+                case $policy instanceof AuthorizationPolicy:
                     // Make sure that the policy can access the latest authorized context.
                     // NB: The authorized context is set by reference. This means that it
                     // will change globally if changed by the policy which is intended
@@ -213,11 +213,11 @@ class AuthorizationDecisionManager
                         // If the policy applies then retrieve its effect.
                         $effect = $policy->effect();
                     } else {
-                        $effect = AUTHORIZATION_NOT_APPLICABLE;
+                        $effect = self::AUTHORIZATION_NOT_APPLICABLE;
                     }
                     break;
 
-                case is_a($policy, 'PolicySet'):
+                case $policy instanceof PolicySet:
                     // We found a nested policy set.
                     $effect = $this->_decidePolicySet($policy, $callOnDeny);
                     break;
@@ -227,15 +227,15 @@ class AuthorizationDecisionManager
             }
 
             // Try the next policy if this policy didn't apply.
-            if ($effect === AUTHORIZATION_NOT_APPLICABLE) {
+            if ($effect === self::AUTHORIZATION_NOT_APPLICABLE) {
                 continue;
             }
-            assert($effect === AUTHORIZATION_PERMIT || $effect === AUTHORIZATION_DENY);
+            assert($effect === AuthorizationPolicy::AUTHORIZATION_PERMIT || $effect === AuthorizationPolicy::AUTHORIZATION_DENY);
 
             // "Deny" decision may cause a message to the end user.
-            if (is_a($policy, 'AuthorizationPolicy') && $effect == AUTHORIZATION_DENY
-                    && $policy->hasAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE)) {
-                $this->addAuthorizationMessage($policy->getAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE));
+            if ($policy instanceof AuthorizationPolicy && $effect == AuthorizationPolicy::AUTHORIZATION_DENY
+                    && $policy->hasAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE)) {
+                $this->addAuthorizationMessage($policy->getAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE));
             }
 
             // Process the effect.
@@ -243,9 +243,9 @@ class AuthorizationDecisionManager
                 $decidedByOverriddenEffect = true;
             } else {
                 // In case of a "deny overrides" we allow a "call-on-deny" advice.
-                if (is_a($policy, 'AuthorizationPolicy') && $dominantEffect == AUTHORIZATION_DENY
-                        && $policy->hasAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY)) {
-                    $callOnDeny = $policy->getAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY);
+                if ($policy instanceof AuthorizationPolicy && $dominantEffect == AuthorizationPolicy::AUTHORIZATION_DENY
+                        && $policy->hasAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY)) {
+                    $callOnDeny = $policy->getAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY);
                 }
 
                 // Only one dominant effect overrides all other effects
@@ -262,4 +262,9 @@ class AuthorizationDecisionManager
         }
         return $decision;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\AuthorizationDecisionManager', '\AuthorizationDecisionManager');
+    define('AUTHORIZATION_NOT_APPLICABLE', \AuthorizationDecisionManager::AUTHORIZATION_NOT_APPLICABLE);
 }

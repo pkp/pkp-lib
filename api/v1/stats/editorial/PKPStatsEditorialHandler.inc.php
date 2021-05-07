@@ -15,8 +15,11 @@
  */
 
 use APP\core\Services;
-
 use PKP\handler\APIHandler;
+use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\PolicySet;
+
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 
 abstract class PKPStatsEditorialHandler extends APIHandler
 {
@@ -48,12 +51,9 @@ abstract class PKPStatsEditorialHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-        import('lib.pkp.classes.security.authorization.PolicySet');
-        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
-        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }

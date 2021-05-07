@@ -14,11 +14,13 @@
  */
 
 use APP\core\Services;
+
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-
 use Illuminate\Support\Facades\DB;
+
+use PKP\security\authorization\PKPSiteAccessPolicy;
 
 class AdminHandler extends Handler
 {
@@ -55,7 +57,6 @@ class AdminHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
         $this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
         $returner = parent::authorize($request, $args, $roleAssignments);
 

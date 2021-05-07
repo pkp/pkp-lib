@@ -13,9 +13,13 @@
  * @brief Slim middleware which decodes and validates JSON Web Tokens
  */
 
-use Firebase\JWT\JWT;
+namespace PKP\security\authorization\internal;
 
+use Firebase\JWT\JWT;
 use Firebase\JWT\SignatureInvalidException;
+
+use PKP\config\Config;
+use PKP\handler\APIHandler;
 
 class ApiTokenDecodingMiddleware
 {
@@ -78,7 +82,7 @@ class ApiTokenDecodingMiddleware
              * If JSON decoding fails (of the JWT payload), it throws a 'DomainException'.
              * If token couldn't verified, it throws a 'SignatureInvalidException'.
              */
-            if (is_a($e, SignatureInvalidException::class)) {
+            if ($e instanceof SignatureInvalidException) {
                 $request = $this->_handler->getRequest();
                 return $request->getRouter()
                     ->handleAuthorizationFailure(
@@ -87,8 +91,8 @@ class ApiTokenDecodingMiddleware
                     );
             }
 
-            if (is_a($e, 'UnexpectedValueException') ||
-                is_a($e, 'DomainException')
+            if ($e instanceof \UnexpectedValueException ||
+                $e instanceof \DomainException
             ) {
                 $request = $this->_handler->getRequest();
                 return $request->getRouter()
@@ -127,4 +131,8 @@ class ApiTokenDecodingMiddleware
         $response = $next($request, $response);
         return $response;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\ApiTokenDecodingMiddleware', '\ApiTokenDecodingMiddleware');
 }

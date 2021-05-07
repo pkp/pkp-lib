@@ -14,9 +14,11 @@
  *  author.
  */
 
-use PKP\submission\SubmissionFile;
+namespace PKP\security\authorization\internal;
 
-import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
+use PKP\submission\SubmissionFile;
 
 class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -29,13 +31,13 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
 
         // Get the submission file.
         $submissionFile = $this->getSubmissionFile($request);
-        if (!is_a($submissionFile, 'SubmissionFile')) {
-            return AUTHORIZATION_DENY;
+        if (!$submissionFile instanceof SubmissionFile) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Allow if this is not a file submitted with a review
         if ($submissionFile->getFileStage() != SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
         // Deny if the user is assigned as an author to any stage, and this file is
@@ -46,12 +48,16 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
                 if ($reviewAssignment && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {
-                    return AUTHORIZATION_DENY;
+                    return AuthorizationPolicy::AUTHORIZATION_DENY;
                 }
                 break;
             }
         }
 
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionFileAuthorEditorPolicy', '\SubmissionFileAuthorEditorPolicy');
 }

@@ -14,11 +14,13 @@
  */
 
 use APP\core\Services;
-
 use APP\handler\Handler;
 use APP\submission\Submission;
+
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\authorization\UserRequiredPolicy;
 
 abstract class PKPSubmissionHandler extends Handler
 {
@@ -43,12 +45,10 @@ abstract class PKPSubmissionHandler extends Handler
         // Are we in step one without a submission present?
         if ($step === 1 && $submissionId === 0) {
             // Authorize submission creation. Author role not required.
-            import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
             $this->addPolicy(new UserRequiredPolicy($request));
             $this->markRoleAssignmentsChecked();
         } else {
             // Authorize editing of incomplete submissions.
-            import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId'));
         }
 

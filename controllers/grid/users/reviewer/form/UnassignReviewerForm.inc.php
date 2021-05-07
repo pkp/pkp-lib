@@ -14,6 +14,9 @@
 
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerNotifyActionForm');
 
+use APP\log\SubmissionEventLogEntry;
+use PKP\log\SubmissionLog;
+
 class UnassignReviewerForm extends ReviewerNotifyActionForm
 {
     /**
@@ -88,9 +91,7 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
             $notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => $reviewAssignment->getDateConfirmed() ? __('notification.cancelledReviewer') : __('notification.removedReviewer')]);
 
             // Add log
-            import('lib.pkp.classes.log.SubmissionLog');
-            import('classes.log.SubmissionEventLogEntry');
-            SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REVIEW_CLEAR, 'log.review.reviewCleared', ['reviewAssignmentId' => $reviewAssignment->getId(), 'reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $reviewAssignment->getStageId(), 'round' => $reviewAssignment->getRound()]);
+            SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CLEAR, 'log.review.reviewCleared', ['reviewAssignmentId' => $reviewAssignment->getId(), 'reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $reviewAssignment->getStageId(), 'round' => $reviewAssignment->getRound()]);
 
             return true;
         }

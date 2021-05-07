@@ -14,6 +14,8 @@
 
 use APP\template\TemplateManager;
 use PKP\handler\APIHandler;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\Services\Interfaces\EntityWriteInterface;
 
 use PKP\services\PKPSchemaService;
@@ -83,10 +85,8 @@ class PKPContextHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.PolicySet');
-        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
-        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }

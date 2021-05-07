@@ -23,6 +23,8 @@ import('lib.pkp.classes.controllers.grid.DateGridCellProvider');
 import('lib.pkp.controllers.grid.eventLog.EventLogGridCellProvider');
 
 use PKP\core\JSONMessage;
+use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
+use PKP\security\authorization\SubmissionAccessPolicy;
 
 class SubmissionEventLogGridHandler extends GridHandler
 {
@@ -84,10 +86,8 @@ class SubmissionEventLogGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
-        import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
         $this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 
         $success = parent::authorize($request, $args, $roleAssignments);

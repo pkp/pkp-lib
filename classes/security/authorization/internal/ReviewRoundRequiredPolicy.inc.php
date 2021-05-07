@@ -12,7 +12,14 @@
  * @brief Policy that ensures that the request contains a valid review round.
  */
 
-import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
+namespace PKP\security\authorization\internal;
+
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
+use PKP\security\authorization\DataObjectRequiredPolicy;
+
+// FIXME: Add namespacing
+use ReviewRound;
 
 class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy
 {
@@ -50,31 +57,35 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy
             $this->_reviewRoundId = $this->getDataObjectId();
         }
         if ($this->_reviewRoundId === false) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Validate the review round id.
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRound = $reviewRoundDao->getById($this->_reviewRoundId);
-        if (!is_a($reviewRound, 'ReviewRound')) {
-            return AUTHORIZATION_DENY;
+        if (!$reviewRound instanceof ReviewRound) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Ensure that the review round actually belongs to the
         // authorized submission.
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         if ($reviewRound->getSubmissionId() != $submission->getId()) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Ensure that the review round is for this workflow stage
         $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
         if ($reviewRound->getStageId() != $stageId) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the review round to the authorization context.
         $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND, $reviewRound);
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\ReviewRoundRequiredPolicy', '\ReviewRoundRequiredPolicy');
 }

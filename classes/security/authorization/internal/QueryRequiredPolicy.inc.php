@@ -12,10 +12,14 @@
  * @brief Policy that ensures that the request contains a valid query.
  */
 
-import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
+namespace PKP\security\authorization\internal;
 
 use APP\submission\Submission;
+use PKP\db\DAORegistry;
 use PKP\query\Query;
+use PKP\security\authorization\AuthorizationPolicy;
+
+use PKP\security\authorization\DataObjectRequiredPolicy;
 
 class QueryRequiredPolicy extends DataObjectRequiredPolicy
 {
@@ -41,31 +45,35 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy
     {
         $queryId = (int)$this->getDataObjectId();
         if (!$queryId) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Make sure the query belongs to the submission.
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($queryId);
         if (!$query instanceof Query) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
         switch ($query->getAssocType()) {
             case ASSOC_TYPE_SUBMISSION:
                 $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
                 if (!$submission instanceof Submission) {
-                    return AUTHORIZATION_DENY;
+                    return AuthorizationPolicy::AUTHORIZATION_DENY;
                 }
                 if ($query->getAssocId() != $submission->getId()) {
-                    return AUTHORIZATION_DENY;
+                    return AuthorizationPolicy::AUTHORIZATION_DENY;
                 }
                 break;
             default:
-                return AUTHORIZATION_DENY;
+                return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the query to the authorization context.
         $this->addAuthorizedContextObject(ASSOC_TYPE_QUERY, $query);
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\QueryRequiredPolicy', '\QueryRequiredPolicy');
 }

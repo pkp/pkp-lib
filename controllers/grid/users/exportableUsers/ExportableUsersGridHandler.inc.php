@@ -16,6 +16,7 @@
 use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectConfirmationModal;
+use PKP\security\authorization\ContextAccessPolicy;
 use PKP\user\UserDAO;
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
@@ -47,7 +48,6 @@ class ExportableUsersGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

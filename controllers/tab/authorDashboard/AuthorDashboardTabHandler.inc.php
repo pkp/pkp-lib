@@ -13,13 +13,12 @@
  * @brief Handle AJAX operations for authorDashboard tabs.
  */
 
-// Import the base Handler.
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\security\authorization\AuthorDashboardAccessPolicy;
 
 class AuthorDashboardTabHandler extends Handler
 {
@@ -41,7 +40,6 @@ class AuthorDashboardTabHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.AuthorDashboardAccessPolicy');
         $this->addPolicy(new AuthorDashboardAccessPolicy($request, $args, $roleAssignments), true);
 
         return parent::authorize($request, $args, $roleAssignments);

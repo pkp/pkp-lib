@@ -12,7 +12,9 @@
  * @brief Class to control access to PKP applications' setup components
  */
 
-import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
+namespace PKP\security\authorization;
+
+use PKP\security\authorization\internal\ContextPolicy;
 
 class ContextAccessPolicy extends ContextPolicy
 {
@@ -29,11 +31,14 @@ class ContextAccessPolicy extends ContextPolicy
         // On context level we don't have role-specific conditions
         // so we can simply add all role assignments. It's ok if
         // any of these role conditions permits access.
-        $contextRolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
-        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+        $contextRolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {
             $contextRolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
         $this->addPolicy($contextRolePolicy);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\ContextAccessPolicy', '\ContextAccessPolicy');
 }

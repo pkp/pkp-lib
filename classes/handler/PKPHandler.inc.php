@@ -19,20 +19,19 @@ namespace PKP\handler;
 use APP\core\Application;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
-use AuthorizationDecisionManager;
-use HttpsPolicy;
-
 use PKP\config\Config;
 use PKP\core\Dispatcher;
 use PKP\core\PKPString;
-
 use PKP\core\Registry;
 use PKP\db\DBResultRange;
+use PKP\security\authorization\AuthorizationDecisionManager;
+use PKP\security\authorization\AuthorizationPolicy;
 
+use PKP\security\authorization\HttpsPolicy;
+use PKP\security\authorization\RestrictedSiteAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 
 // FIXME: add namespaces
-use RestrictedSiteAccessPolicy;
-use UserRolesRequiredPolicy;
 use Validation;
 
 class PKPHandler
@@ -167,7 +166,6 @@ class PKPHandler
     {
         if (is_null($this->_authorizationDecisionManager)) {
             // Instantiate the authorization decision manager
-            import('lib.pkp.classes.security.authorization.AuthorizationDecisionManager');
             $this->_authorizationDecisionManager = new AuthorizationDecisionManager();
         }
 
@@ -320,13 +318,11 @@ class PKPHandler
     {
         // Enforce restricted site access if required.
         if ($this->_enforceRestrictedSite) {
-            import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
             $this->addPolicy(new RestrictedSiteAccessPolicy($request), true);
         }
 
         // Enforce SSL site-wide.
         if ($this->requireSSL()) {
-            import('lib.pkp.classes.security.authorization.HttpsPolicy');
             $this->addPolicy(new HttpsPolicy($request), true);
         }
 
@@ -334,7 +330,6 @@ class PKPHandler
             // Add user roles in authorized context.
             $user = $request->getUser();
             if (is_a($user, 'User') || is_a($request->getRouter(), 'APIRouter')) {
-                import('lib.pkp.classes.security.authorization.UserRolesRequiredPolicy');
                 $this->addPolicy(new UserRolesRequiredPolicy($request), true);
             }
         }
@@ -348,18 +343,18 @@ class PKPHandler
             // controllers to maintain backwards compatibility:
             // Requests are implicitly authorized if no policy
             // explicitly denies access.
-            $this->_authorizationDecisionManager->setDecisionIfNoPolicyApplies(AUTHORIZATION_PERMIT);
+            $this->_authorizationDecisionManager->setDecisionIfNoPolicyApplies(AuthorizationPolicy::AUTHORIZATION_PERMIT);
         } else {
             // We implement a strict whitelist approach for
             // all other components: Requests will only be
             // authorized if at least one policy explicitly
             // grants access and none denies access.
-            $this->_authorizationDecisionManager->setDecisionIfNoPolicyApplies(AUTHORIZATION_DENY);
+            $this->_authorizationDecisionManager->setDecisionIfNoPolicyApplies(AuthorizationPolicy::AUTHORIZATION_DENY);
         }
 
         // Let the authorization decision manager take a decision.
         $decision = $this->_authorizationDecisionManager->decide();
-        if ($decision == AUTHORIZATION_PERMIT && (empty($this->_roleAssignments) || $this->_roleAssignmentsChecked)) {
+        if ($decision == AuthorizationPolicy::AUTHORIZATION_PERMIT && (empty($this->_roleAssignments) || $this->_roleAssignmentsChecked)) {
             return true;
         } else {
             return false;

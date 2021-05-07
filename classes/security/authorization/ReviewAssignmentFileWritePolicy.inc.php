@@ -14,7 +14,9 @@
  *   in the authorized context.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization;
+
+use PKP\db\DAORegistry;
 
 class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
 {
@@ -46,7 +48,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
     public function effect()
     {
         if (!$this->_reviewAssignmentId) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
@@ -55,26 +57,26 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 
         if (!$reviewRound || !$submission) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $noteDao */
         $reviewAssignment = $reviewAssignmentDao->getById($this->_reviewAssignmentId);
 
         if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Review assignment, review round and submission must match
         if ($reviewAssignment->getReviewRoundId() != $reviewRound->getId()
                 || $reviewRound->getSubmissionId() != $submission->getId()) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Managers can write review attachments when they are not assigned to a submission
         if (empty($stageAssignments) && in_array(ROLE_ID_MANAGER, $userRoles)) {
             $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
         // Managers, editors and assistants can write review attachments when they are assigned
@@ -83,7 +85,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
             $allowedRoles = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT];
             if (!empty(array_intersect($allowedRoles, $assignedStages[$reviewRound->getStageId()]))) {
                 $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }
 
@@ -93,10 +95,14 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
             $notAllowedStatuses = [REVIEW_ASSIGNMENT_STATUS_DECLINED, REVIEW_ASSIGNMENT_STATUS_COMPLETE, REVIEW_ASSIGNMENT_STATUS_THANKED, REVIEW_ASSIGNMENT_STATUS_CANCELLED];
             if (!in_array($reviewAssignment->getStatus(), $notAllowedStatuses)) {
                 $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }
 
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\ReviewAssignmentFileWritePolicy', '\ReviewAssignmentFileWritePolicy');
 }

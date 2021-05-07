@@ -16,11 +16,12 @@
 import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
 
 use APP\template\TemplateManager;
+
 use Exception;
-
 use PKP\core\JSONMessage;
-
 use PKP\log\EventLogEntry;
+
+use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 class FileInformationCenterHandler extends InformationCenterHandler
 {
@@ -52,7 +53,6 @@ class FileInformationCenterHandler extends InformationCenterHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         // Require stage access
-        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
         $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', (int) $request->getUserVar('stageId')));
 
         return parent::authorize($request, $args, $roleAssignments);

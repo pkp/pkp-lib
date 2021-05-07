@@ -13,7 +13,7 @@
  *  operation whitelist.
  */
 
-import('lib.pkp.classes.security.authorization.HandlerOperationPolicy');
+namespace PKP\security\authorization;
 
 class PKPPublicAccessPolicy extends HandlerOperationPolicy
 {
@@ -40,9 +40,13 @@ class PKPPublicAccessPolicy extends HandlerOperationPolicy
     public function effect()
     {
         if ($this->_checkOperationWhitelist()) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         } else {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\PKPPublicAccessPolicy', '\PKPPublicAccessPolicy');
 }

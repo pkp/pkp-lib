@@ -12,10 +12,10 @@
  * @brief Display submission metadata.
  */
 
-// Import the base Handler.
 use APP\handler\Handler;
 
 use APP\template\TemplateManager;
+use PKP\security\authorization\SubmissionAccessPolicy;
 
 class ViewSubmissionMetadataHandler extends handler
 {
@@ -33,7 +33,6 @@ class ViewSubmissionMetadataHandler extends handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

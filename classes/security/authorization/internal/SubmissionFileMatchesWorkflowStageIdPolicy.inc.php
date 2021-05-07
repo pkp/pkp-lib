@@ -12,7 +12,11 @@
  * @brief Submission file policy to check if the file belongs to the specified workflow stage ID
  */
 
-import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
+namespace PKP\security\authorization\internal;
+
+use APP\core\Services;
+
+use PKP\security\authorization\AuthorizationPolicy;
 
 class SubmissionFileMatchesWorkflowStageIdPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -44,17 +48,21 @@ class SubmissionFileMatchesWorkflowStageIdPolicy extends SubmissionFileBaseAcces
         // Get the submission file
         $request = $this->getRequest();
         $submissionFile = $this->getSubmissionFile($request);
-        if (!is_a($submissionFile, 'SubmissionFile')) {
-            return AUTHORIZATION_DENY;
+        if (!$submissionFile instanceof \PKP\submission\SubmissionFile) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $workflowStageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
 
         // Check if the submission file belongs to the specified workflow stage.
         if ($workflowStageId != $this->_stageId) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionFileMatchesWorkflowStageIdPolicy', '\SubmissionFileMatchesWorkflowStageIdPolicy');
 }

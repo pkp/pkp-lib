@@ -12,7 +12,7 @@
  * @brief Abstract base class for policies that check for a data object from a parameter.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization;
 
 class DataObjectRequiredPolicy extends AuthorizationPolicy
 {
@@ -80,7 +80,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
     {
         // Check if the object is required for the requested Op. (No operations means check for all.)
         if (is_array($this->_operations) && !in_array($this->_request->getRequestedOp(), $this->_operations)) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         } else {
             return $this->dataObjectEffect();
         }
@@ -97,7 +97,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
     public function dataObjectEffect()
     {
         // Deny by default. Must be implemented by subclass.
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
 
     /**
@@ -113,7 +113,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
         // Identify the data object id.
         $router = $this->_request->getRouter();
         switch (true) {
-            case is_a($router, 'PKPPageRouter'):
+            case $router instanceof \PKP\core\PKPPageRouter:
                 if (ctype_digit((string) $this->_request->getUserVar($this->_parameterName))) {
                     // We may expect a object id in the user vars
                     return (int) $this->_request->getUserVar($this->_parameterName);
@@ -123,7 +123,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
                 }
                 break;
 
-            case is_a($router, 'PKPComponentRouter'):
+            case $router instanceof \PKP\core\PKPComponentRouter:
                 // We expect a named object id argument.
                 if (isset($this->_args[$this->_parameterName])
                         && ctype_digit((string) $this->_args[$this->_parameterName])) {
@@ -131,7 +131,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
                 }
                 break;
 
-            case is_a($router, 'APIRouter'):
+            case $router instanceof \PKP\core\APIRouter:
                 $handler = $router->getHandler();
                 return $handler->getParameter($this->_parameterName);
                 break;
@@ -142,4 +142,8 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
 
         return false;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\DataObjectRequiredPolicy', '\DataObjectRequiredPolicy');
 }

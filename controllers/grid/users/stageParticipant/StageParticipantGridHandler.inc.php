@@ -19,13 +19,16 @@ import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
 // import stageParticipant grid specific classes
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow');
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
-import('classes.log.SubmissionEventLogEntry'); // App-specific.
 
+use APP\log\SubmissionEventLogEntry;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
+use PKP\log\SubmissionLog;
 use PKP\mail\SubmissionMailTemplate;
+
+use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 class StageParticipantGridHandler extends CategoryGridHandler
 {
@@ -83,7 +86,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $stageId = (int) $request->getUserVar('stageId');
-        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
         $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -380,8 +382,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             // Log addition.
             $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
             $assignedUser = $userDao->getById($userId);
-            import('lib.pkp.classes.log.SubmissionLog');
-            SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_ADD_PARTICIPANT, 'submission.event.participantAdded', ['name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()]);
+            SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_ADD_PARTICIPANT, 'submission.event.participantAdded', ['name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()]);
 
             return \PKP\db\DAO::getDataChangedEvent($userGroupId);
         } else {
@@ -447,8 +448,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $assignedUser = $userDao->getById($stageAssignment->getUserId());
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-        import('lib.pkp.classes.log.SubmissionLog');
-        SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REMOVE_PARTICIPANT, 'submission.event.participantRemoved', ['name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()]);
+        SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_REMOVE_PARTICIPANT, 'submission.event.participantRemoved', ['name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()]);
 
         // Redraw the category
         return \PKP\db\DAO::getDataChangedEvent($stageAssignment->getUserGroupId());

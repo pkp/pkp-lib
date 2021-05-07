@@ -13,7 +13,7 @@
  *  to control access to handler operations.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization;
 
 class HandlerOperationPolicy extends AuthorizationPolicy
 {
@@ -87,4 +87,8 @@ class HandlerOperationPolicy extends AuthorizationPolicy
         assert(!empty($requestedOperation));
         return in_array($requestedOperation, $this->_operations);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\HandlerOperationPolicy', '\HandlerOperationPolicy');
 }

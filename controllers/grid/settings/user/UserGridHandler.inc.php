@@ -24,6 +24,7 @@ use PKP\core\JSONMessage;
 use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\authorization\ContextAccessPolicy;
 
 use PKP\user\UserDAO;
 
@@ -56,7 +57,6 @@ class UserGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

@@ -15,11 +15,14 @@
  * authorization context.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
-import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
+namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
+use APP\core\Services;
 use APP\submission\Submission;
 
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
 use PKP\user\User;
 
 class SubmissionAuthorPolicy extends AuthorizationPolicy
@@ -49,13 +52,13 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
         // Get the user
         $user = $this->_request->getUser();
         if (!$user instanceof User) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Get the submission
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         if (!$submission instanceof Submission) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $context = $this->_request->getContext();
@@ -77,9 +80,13 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
                 }
                 $this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
 
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionAuthorPolicy', '\SubmissionAuthorPolicy');
 }

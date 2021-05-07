@@ -14,7 +14,10 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
+namespace PKP\security\authorization\internal;
+
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
 
 class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -42,40 +45,44 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 
         // Get the user
         $user = $request->getUser();
-        if (!is_a($user, 'User')) {
-            return AUTHORIZATION_DENY;
+        if (!$user instanceof \PKP\user\User) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Get the submission file
         $submissionFile = $this->getSubmissionFile($request);
-        if (!is_a($submissionFile, 'SubmissionFile')) {
-            return AUTHORIZATION_DENY;
+        if (!$submissionFile instanceof \PKP\submission\SubmissionFile) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Check if it's associated with a note.
         if ($submissionFile->getData('assocType') != ASSOC_TYPE_NOTE) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
         $note = $noteDao->getById($submissionFile->getData('assocId'));
-        if (!is_a($note, 'Note')) {
-            return AUTHORIZATION_DENY;
+        if (!$note instanceof \PKP\note\Note) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         if ($note->getAssocType() != ASSOC_TYPE_QUERY) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($note->getAssocId());
         if (!$query) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         if ($queryDao->getParticipantIds($note->getAssocId(), $user->getId())) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionFileAssignedQueryAccessPolicy', '\SubmissionFileAssignedQueryAccessPolicy');
 }

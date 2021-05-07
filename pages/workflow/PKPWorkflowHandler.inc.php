@@ -17,10 +17,14 @@ use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
+use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
+use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 
+// FIXME: Add namespacing
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 abstract class PKPWorkflowHandler extends Handler
@@ -41,18 +45,15 @@ abstract class PKPWorkflowHandler extends Handler
 
         if ($operation == 'access') {
             // Authorize requested submission.
-            import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
             $this->addPolicy(new SubmissionRequiredPolicy($request, $args, 'submissionId'));
 
             // This policy will deny access if user has no accessible workflow stage.
             // Otherwise it will build an authorized object with all accessible
             // workflow stages and authorize user operation access.
-            import('lib.pkp.classes.security.authorization.internal.UserAccessibleWorkflowStageRequiredPolicy');
             $this->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request, PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 
             $this->markRoleAssignmentsChecked();
         } else {
-            import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
             $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args), PKPApplication::WORKFLOW_TYPE_EDITORIAL));
         }
 

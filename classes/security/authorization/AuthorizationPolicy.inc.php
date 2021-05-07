@@ -22,14 +22,16 @@
  * This of course doesn't mean that we are "XACML compliant" in any way.
  */
 
-define('AUTHORIZATION_PERMIT', 0x01);
-define('AUTHORIZATION_DENY', 0x02);
-
-define('AUTHORIZATION_ADVICE_DENY_MESSAGE', 0x01);
-define('AUTHORIZATION_ADVICE_CALL_ON_DENY', 0x02);
+namespace PKP\security\authorization;
 
 class AuthorizationPolicy
 {
+    public const AUTHORIZATION_PERMIT = 1;
+    public const AUTHORIZATION_DENY = 2;
+
+    public const AUTHORIZATION_ADVICE_DENY_MESSAGE = 1;
+    public const AUTHORIZATION_ADVICE_CALL_ON_DENY = 2;
+
     /** @var array advice to be returned to the decision point */
     public $_advice = [];
 
@@ -48,7 +50,7 @@ class AuthorizationPolicy
     public function __construct($message = null)
     {
         if (!is_null($message)) {
-            $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
+            $this->setAdvice(self::AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
         }
     }
 
@@ -177,6 +179,18 @@ class AuthorizationPolicy
     public function effect()
     {
         // Deny by default.
-        return AUTHORIZATION_DENY;
+        return self::AUTHORIZATION_DENY;
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\AuthorizationPolicy', '\AuthorizationPolicy');
+    foreach ([
+        'AUTHORIZATION_PERMIT',
+        'AUTHORIZATION_DENY',
+        'AUTHORIZATION_ADVICE_DENY_MESSAGE',
+        'AUTHORIZATION_ADVICE_CALL_ON_DENY',
+    ] as $constantName) {
+        define($constantName, constant('\AuthorizationPolicy::' . $constantName));
     }
 }

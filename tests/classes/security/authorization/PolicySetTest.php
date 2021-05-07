@@ -15,9 +15,10 @@
  * @brief Test class for the PolicySet class
  */
 
+use PKP\security\authorization\AuthorizationPolicy;
+use PKP\security\authorization\PolicySet;
+
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.security.authorization.PolicySet');
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
 class PolicySetTest extends PKPTestCase
 {
@@ -28,12 +29,12 @@ class PolicySetTest extends PKPTestCase
     {
         // Test combining algorithm and default effect.
         $policySet = new PolicySet();
-        self::assertEquals(COMBINING_DENY_OVERRIDES, $policySet->getCombiningAlgorithm());
-        self::assertEquals(AUTHORIZATION_DENY, $policySet->getEffectIfNoPolicyApplies());
-        $policySet = new PolicySet(COMBINING_PERMIT_OVERRIDES);
-        $policySet->setEffectIfNoPolicyApplies(AUTHORIZATION_PERMIT);
-        self::assertEquals(COMBINING_PERMIT_OVERRIDES, $policySet->getCombiningAlgorithm());
-        self::assertEquals(AUTHORIZATION_PERMIT, $policySet->getEffectIfNoPolicyApplies());
+        self::assertEquals(PolicySet::COMBINING_DENY_OVERRIDES, $policySet->getCombiningAlgorithm());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $policySet->getEffectIfNoPolicyApplies());
+        $policySet = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
+        $policySet->setEffectIfNoPolicyApplies(AuthorizationPolicy::AUTHORIZATION_PERMIT);
+        self::assertEquals(PolicySet::COMBINING_PERMIT_OVERRIDES, $policySet->getCombiningAlgorithm());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $policySet->getEffectIfNoPolicyApplies());
 
         // Test adding policies.
         $policySet->addPolicy($policy1 = new AuthorizationPolicy('policy1'));

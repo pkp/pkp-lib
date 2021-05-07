@@ -13,6 +13,10 @@
  * @brief Provide reviewer access to review file data for review file grids.
  */
 
+use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
+use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
+use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
+use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
@@ -40,20 +44,16 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider
      */
     public function getAuthorizationPolicy($request, $args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
         $context = $request->getContext();
         $policy = new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId', !$context->getData('restrictReviewerFileAccess'));
 
         $stageId = $request->getUserVar('stageId');
-        import('lib.pkp.classes.security.authorization.internal.WorkflowStageRequiredPolicy');
         $policy->addPolicy(new WorkflowStageRequiredPolicy($stageId));
 
         // Add policy to ensure there is a review round id.
-        import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
         $policy->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
 
         // Add policy to ensure there is a review assignment for certain operations.
-        import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
         $policy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId'));
 
         return $policy;

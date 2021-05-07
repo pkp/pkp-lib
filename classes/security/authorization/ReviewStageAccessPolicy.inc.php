@@ -12,8 +12,10 @@
  * @brief Class to control access to review stage components
  */
 
-import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
-import('lib.pkp.classes.security.authorization.PolicySet');
+namespace PKP\security\authorization;
+
+use PKP\security\authorization\internal\ContextPolicy;
+use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 
 class ReviewStageAccessPolicy extends ContextPolicy
 {
@@ -33,15 +35,13 @@ class ReviewStageAccessPolicy extends ContextPolicy
 
         // Create a "permit overrides" policy set that specifies
         // role-specific access to submission stage operations.
-        $workflowStagePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $workflowStagePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
         // Add the workflow policy, for editorial / context roles
-        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
         $workflowStagePolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, $submissionParameterName, $stageId));
 
         if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
             // Add the submission policy, for reviewer roles
-            import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
             $submissionPolicy = new SubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName, $permitDeclined);
             $submissionPolicy->addPolicy(new WorkflowStageRequiredPolicy($stageId));
             $workflowStagePolicy->addPolicy($submissionPolicy);
@@ -50,4 +50,8 @@ class ReviewStageAccessPolicy extends ContextPolicy
         // Add the role-specific policies to this policy set.
         $this->addPolicy($workflowStagePolicy);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\ReviewStageAccessPolicy', '\ReviewStageAccessPolicy');
 }

@@ -12,7 +12,9 @@
  * @brief Class to control access to handler operations based on protocol.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization;
+
+use PKP\config\Config;
 
 class HttpsPolicy extends AuthorizationPolicy
 {
@@ -31,7 +33,7 @@ class HttpsPolicy extends AuthorizationPolicy
 
         // Add advice
         $callOnDeny = [$request, 'redirectSSL', []];
-        $this->setAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY, $callOnDeny);
+        $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY, $callOnDeny);
     }
 
     //
@@ -52,9 +54,13 @@ class HttpsPolicy extends AuthorizationPolicy
     {
         // Check the request protocol
         if ($this->_request->getProtocol() == 'https') {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         } else {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\HttpsPolicy', '\HttpsPolicy');
 }

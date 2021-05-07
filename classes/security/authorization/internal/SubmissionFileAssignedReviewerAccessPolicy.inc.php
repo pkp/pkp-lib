@@ -14,9 +14,11 @@
  *
  */
 
-use PKP\submission\submissionFile;
+namespace PKP\security\authorization\internal;
 
-import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
+use PKP\submission\SubmissionFile;
 
 class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -44,14 +46,14 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 
         // Get the user
         $user = $request->getUser();
-        if (!is_a($user, 'User')) {
-            return AUTHORIZATION_DENY;
+        if (!$user instanceof \PKP\user\User) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Get the submission file
         $submissionFile = $this->getSubmissionFile($request);
-        if (!is_a($submissionFile, 'SubmissionFile')) {
-            return AUTHORIZATION_DENY;
+        if (!$submissionFile instanceof \PKP\submission\SubmissionFile) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $context = $request->getContext();
@@ -69,11 +71,15 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
                 $reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getId())
             ) {
                 $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }
 
         // If a pass condition wasn't found above, deny access.
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionFileAssignedReviewerAccessPolicy', '\SubmissionFileAssignedReviewerAccessPolicy');
 }

@@ -12,6 +12,8 @@
  * @brief Provide the reviewers access to their own review attachments data for grids.
  */
 
+use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
+use PKP\security\authorization\ReviewStageAccessPolicy;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
@@ -38,8 +40,6 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
      */
     public function getAuthorizationPolicy($request, $args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
-
         // Need to use the reviewId because this grid can either be
         // viewed by the reviewer (in which case, we could do a
         // $request->getUser()->getId() or by the editor when reading
@@ -51,7 +51,6 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
             assert($assocType == ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
             $this->setUploaderRoles($roleAssignments);
-            import('lib.pkp.classes.security.authorization.ReviewStageAccessPolicy');
 
             $authorizationPolicy = new ReviewStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $request->getUserVar('stageId'));
             $paramName = 'assocId';

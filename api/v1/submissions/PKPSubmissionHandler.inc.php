@@ -16,6 +16,10 @@
 
 use APP\core\Services;
 use PKP\handler\APIHandler;
+use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\PublicationWritePolicy;
+use PKP\security\authorization\StageRolePolicy;
+use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\Services\Interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 
@@ -163,21 +167,17 @@ class PKPSubmissionHandler extends APIHandler
     {
         $routeName = $this->getSlimRequest()->getAttribute('route')->getName();
 
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
         if (in_array($routeName, $this->requiresSubmissionAccess)) {
-            import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         }
 
         if (in_array($routeName, $this->requiresPublicationWriteAccess)) {
-            import('lib.pkp.classes.security.authorization.PublicationWritePolicy');
             $this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
         }
 
         if (in_array($routeName, $this->requiresProductionStageAccess)) {
-            import('lib.pkp.classes.security.authorization.StageRolePolicy');
             $this->addPolicy(new StageRolePolicy($this->productionStageAccessRoles, WORKFLOW_STAGE_ID_PRODUCTION, false));
         }
 

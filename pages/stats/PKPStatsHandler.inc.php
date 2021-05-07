@@ -15,10 +15,12 @@
 
 use APP\core\Request;
 
-import('classes.statistics.StatisticsHelper');
-
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\security\authorization\ContextAccessPolicy;
+
+// FIXME: Add namespacing
+import('classes.statistics.StatisticsHelper');
 
 class PKPStatsHandler extends Handler
 {
@@ -46,7 +48,6 @@ class PKPStatsHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

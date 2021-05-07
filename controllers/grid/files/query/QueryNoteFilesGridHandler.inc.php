@@ -17,6 +17,7 @@
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
 use PKP\core\JSONMessage;
+use PKP\security\authorization\QueryAccessPolicy;
 
 class QueryNoteFilesGridHandler extends FileListGridHandler
 {
@@ -53,7 +54,6 @@ class QueryNoteFilesGridHandler extends FileListGridHandler
         $this->_stageId = (int)$stageId;
 
         // Get the stage access policy
-        import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
         $queryAccessPolicy = new QueryAccessPolicy($request, $args, $roleAssignments, $stageId);
         $this->addPolicy($queryAccessPolicy);
         $result = parent::authorize($request, $args, $roleAssignments);

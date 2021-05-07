@@ -16,10 +16,16 @@
  *   authorized submission in the authorization context.
  */
 
+namespace PKP\security\authorization\internal;
+
+use APP\core\Application;
+use APP\core\Services;
+use APP\i18n\AppLocale;
+use PKP\security\authorization\AuthorizationPolicy;
+
+use PKP\security\authorization\DataObjectRequiredPolicy;
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
-
-import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
 
 class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
 {
@@ -51,47 +57,51 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
 
         $assignedFileStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_FILE_STAGES);
         if (empty($assignedFileStages) || !in_array(SubmissionFile::SUBMISSION_FILE_PROOF, $assignedFileStages)) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         if (empty($this->_representationId)) {
-            $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.authorization.representationNotFound');
-            return AUTHORIZATION_DENY;
+            $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.authorization.representationNotFound');
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $representationDao = Application::get()->getRepresentationDAO();
         $representation = $representationDao->getById($this->_representationId);
 
         if (!$representation) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         if (!$submission) {
-            $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.authorization.invalidSubmission');
-            return AUTHORIZATION_DENY;
+            $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.authorization.invalidSubmission');
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $publication = Services::get('publication')->get($representation->getData('publicationId'));
         if (!$publication) {
-            $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, 'galley.publicationNotFound');
-            return AUTHORIZATION_DENY;
+            $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'galley.publicationNotFound');
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Publication and submission must match
         if ($publication->getData('submissionId') !== $submission->getId()) {
-            $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.authorization.invalidPublication');
-            return AUTHORIZATION_DENY;
+            $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.authorization.invalidPublication');
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Representations can not be modified on published publications
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, 'galley.editPublishedDisabled');
-            return AUTHORIZATION_DENY;
+            $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'galley.editPublishedDisabled');
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $this->addAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION, $representation);
 
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\RepresentationUploadAccessPolicy', '\RepresentationUploadAccessPolicy');
 }

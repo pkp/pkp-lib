@@ -16,6 +16,8 @@
 // Access decision actions constants.
 import('classes.workflow.EditorDecisionActionsManager');
 
+use PKP\log\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionLog;
 use PKP\submission\PKPSubmission;
 
 class EditorAction
@@ -91,10 +93,8 @@ class EditorAction
             }
 
             // Add log entry
-            import('lib.pkp.classes.log.SubmissionLog');
-            import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
             AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_APP_EDITOR);
-            $eventType = $recommendation ? SUBMISSION_LOG_EDITOR_RECOMMENDATION : SUBMISSION_LOG_EDITOR_DECISION;
+            $eventType = $recommendation ? PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_RECOMMENDATION : PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_DECISION;
             $logKey = $recommendation ? 'log.editor.recommendation' : 'log.editor.decision';
             SubmissionLog::logEvent($request, $submission, $eventType, $logKey, ['editorName' => $user->getFullName(), 'submissionId' => $submission->getId(), 'decision' => __($decisionLabels[$decision])]);
         }
@@ -158,9 +158,7 @@ class EditorAction
             );
 
             // Add log
-            import('lib.pkp.classes.log.SubmissionLog');
-            import('lib.pkp.classes.log.PKPSubmissionEventLogEntry');
-            SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REVIEW_ASSIGN, 'log.review.reviewerAssigned', ['reviewAssignmentId' => $reviewAssignment->getId(), 'reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $stageId, 'round' => $round]);
+            SubmissionLog::logEvent($request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ASSIGN, 'log.review.reviewerAssigned', ['reviewAssignmentId' => $reviewAssignment->getId(), 'reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $stageId, 'round' => $round]);
         }
     }
 
@@ -202,12 +200,10 @@ class EditorAction
             // N.B. Only logging Date Due
             if ($logEntry) {
                 // Add log
-                import('lib.pkp.classes.log.SubmissionLog');
-                import('classes.log.SubmissionEventLogEntry');
                 SubmissionLog::logEvent(
                     $request,
                     $submission,
-                    SUBMISSION_LOG_REVIEW_SET_DUE_DATE,
+                    PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_SET_DUE_DATE,
                     'log.review.reviewDueDateSet',
                     [
                         'reviewAssignmentId' => $reviewAssignment->getId(),

@@ -12,9 +12,13 @@
  * @brief Policy that ensures that the request contains a valid submission.
  */
 
-import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
+namespace PKP\security\authorization\internal;
 
 use APP\submission\Submission;
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
+
+use PKP\security\authorization\DataObjectRequiredPolicy;
 
 class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
 {
@@ -33,7 +37,7 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
 
         $callOnDeny = [$request->getDispatcher(), 'handle404', []];
         $this->setAdvice(
-            AUTHORIZATION_ADVICE_CALL_ON_DENY,
+            AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY,
             $callOnDeny
         );
     }
@@ -49,24 +53,28 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
         // Get the submission id.
         $submissionId = $this->getDataObjectId();
         if ($submissionId === false) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Validate the submission id.
         $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $submission = $submissionDao->getById($submissionId);
         if (!$submission instanceof Submission) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Validate that this submission belongs to the current context.
         $context = $this->_request->getContext();
         if ($context->getId() != $submission->getData('contextId')) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the submission to the authorization context.
         $this->addAuthorizedContextObject(ASSOC_TYPE_SUBMISSION, $submission);
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionRequiredPolicy', '\SubmissionRequiredPolicy');
 }

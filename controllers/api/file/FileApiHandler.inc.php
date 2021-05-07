@@ -16,11 +16,12 @@
  * @brief Class defining an AJAX API for supplying file information.
  */
 
-import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-
 use APP\handler\Handler;
 use PKP\core\JSONMessage;
 use PKP\file\FileArchive;
+use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\SubmissionFileAccessPolicy;
 
 use PKP\submission\SubmissionFile;
 
@@ -49,10 +50,8 @@ class FileApiHandler extends Handler
         $libraryFileId = $request->getUserVar('libraryFileId');
 
         if (!empty($submissionFileId)) {
-            import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-            $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, $submissionFileId));
+            $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ, $submissionFileId));
         } elseif (is_numeric($libraryFileId)) {
-            import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
             $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         } elseif (!empty($fileStage) && empty($submissionFileId)) {
             $submissionFileIds = Services::get('submissionFile')->getIds([
@@ -60,10 +59,9 @@ class FileApiHandler extends Handler
                 'fileStages' => [$fileStage],
                 'includeDependentFiles' => $fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT,
             ]);
-            import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-            $allFilesAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+            $allFilesAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             foreach ($submissionFileIds as $submissionFileId) {
-                $allFilesAccessPolicy->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, $submissionFileId));
+                $allFilesAccessPolicy->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ, $submissionFileId));
             }
             $this->addPolicy($allFilesAccessPolicy);
         }

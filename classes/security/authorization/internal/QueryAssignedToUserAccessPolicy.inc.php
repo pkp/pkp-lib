@@ -13,7 +13,10 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization\internal;
+
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
 
 class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
 {
@@ -41,20 +44,20 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
     {
         // A query should already be in the context.
         $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
-        if (!is_a($query, 'Query')) {
-            return AUTHORIZATION_DENY;
+        if (!$query instanceof \PKP\query\Query) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Check that there is a currently logged in user.
         $user = $this->_request->getUser();
-        if (!is_a($user, 'User')) {
-            return AUTHORIZATION_DENY;
+        if (!$user instanceof \PKP\user\User) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Determine if the query is assigned to the user.
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         if ($queryDao->getParticipantIds($query->getId(), $user->getId())) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
         // Managers are allowed to access discussions they are not participants in
@@ -62,10 +65,14 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
         $accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $managerAssignments = array_intersect([ROLE_ID_MANAGER], $accessibleWorkflowStages[$query->getStageId()]);
         if (!empty($managerAssignments)) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
         // Otherwise, deny.
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\QueryAssignedToUserAccessPolicy', '\QueryAssignedToUserAccessPolicy');
 }

@@ -18,6 +18,10 @@ import('classes.statistics.StatisticsHelper');
 
 use APP\core\Services;
 use PKP\handler\APIHandler;
+use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\SubmissionAccessPolicy;
 
 use PKP\submission\PKPSubmission;
 
@@ -75,12 +79,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $routeName = null;
         $slimRequest = $this->getSlimRequest();
 
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-        import('lib.pkp.classes.security.authorization.PolicySet');
-        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
-        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
@@ -90,7 +91,6 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             $routeName = $route->getName();
         }
         if (in_array($routeName, ['get', 'getAbstract', 'getGalley'])) {
-            import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         }
 

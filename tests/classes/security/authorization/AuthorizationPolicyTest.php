@@ -16,7 +16,8 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+
+use PKP\security\authorization\AuthorizationPolicy;
 
 class AuthorizationPolicyTest extends PKPTestCase
 {
@@ -28,10 +29,10 @@ class AuthorizationPolicyTest extends PKPTestCase
         $policy = new AuthorizationPolicy('some message');
 
         // Test advice.
-        self::assertTrue($policy->hasAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE));
-        self::assertFalse($policy->hasAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY));
-        self::assertEquals('some message', $policy->getAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE));
-        self::assertNull($policy->getAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY));
+        self::assertTrue($policy->hasAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE));
+        self::assertFalse($policy->hasAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY));
+        self::assertEquals('some message', $policy->getAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE));
+        self::assertNull($policy->getAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY));
 
         // Test authorized context objects.
         self::assertFalse($policy->hasAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
@@ -51,6 +52,6 @@ class AuthorizationPolicyTest extends PKPTestCase
 
         // Test default policies.
         self::assertTrue($policy->applies());
-        self::assertEquals(AUTHORIZATION_DENY, $policy->effect());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $policy->effect());
     }
 }

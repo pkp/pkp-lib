@@ -22,6 +22,8 @@ import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\Services\Interfaces\EntityWriteInterface;
 
 class AdminLanguageGridHandler extends LanguageGridHandler
@@ -51,10 +53,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.PolicySet');
-        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
-        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }

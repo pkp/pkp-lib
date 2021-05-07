@@ -12,9 +12,9 @@
  * @brief Class to permit or deny write functions (add/edit) on a publication
  */
 
-import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
-import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
-import('lib.pkp.classes.security.authorization.StageRolePolicy');
+namespace PKP\security\authorization;
+
+use PKP\security\authorization\internal\ContextPolicy;
 
 class PublicationWritePolicy extends ContextPolicy
 {
@@ -36,4 +36,8 @@ class PublicationWritePolicy extends ContextPolicy
         // have access to the _current_ stage of the submission?
         $this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR]));
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\PublicationWritePolicy', '\PublicationWritePolicy');
 }

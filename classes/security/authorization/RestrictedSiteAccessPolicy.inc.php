@@ -13,7 +13,7 @@
  *  contains such a setting.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization;
 
 class RestrictedSiteAccessPolicy extends AuthorizationPolicy
 {
@@ -52,16 +52,16 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy
      */
     public function effect()
     {
-        if (is_a($this->_router, 'PKPPageRouter')) {
+        if ($this->_router instanceof \PKP\core\PKPPageRouter) {
             $page = $this->_router->getRequestedPage($this->_request);
         } else {
             $page = null;
         }
 
         if (Validation::isLoggedIn() || in_array($page, $this->_getLoginExemptions())) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         } else {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
     }
 
@@ -78,4 +78,8 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy
     {
         return ['user', 'login', 'help', 'header', 'sidebar', 'payment'];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\RestrictedSiteAccessPolicy', '\RestrictedSiteAccessPolicy');
 }

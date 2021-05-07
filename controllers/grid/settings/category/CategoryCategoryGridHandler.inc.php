@@ -24,6 +24,7 @@ use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\authorization\ContextAccessPolicy;
 
 class CategoryCategoryGridHandler extends CategoryGridHandler
 {
@@ -59,7 +60,6 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

@@ -15,17 +15,16 @@
 
 namespace PKP\handler;
 
-use ApiAuthorizationMiddleware;
-use ApiCsrfMiddleware;
-use ApiTokenDecodingMiddleware;
-
 use APP\core\Application;
 use APP\core\Services;
 use APP\i18n\AppLocale;
 use PKP\config\Config;
-
 use PKP\core\APIResponse;
 use PKP\plugins\HookRegistry;
+use PKP\security\authorization\internal\ApiAuthorizationMiddleware;
+
+use PKP\security\authorization\internal\ApiCsrfMiddleware;
+use PKP\security\authorization\internal\ApiTokenDecodingMiddleware;
 use PKP\validation\ValidatorFactory;
 
 use Slim\App;
@@ -51,9 +50,6 @@ class APIHandler extends PKPHandler
     public function __construct()
     {
         parent::__construct();
-        import('lib.pkp.classes.security.authorization.internal.ApiAuthorizationMiddleware');
-        import('lib.pkp.classes.security.authorization.internal.ApiTokenDecodingMiddleware');
-        import('lib.pkp.classes.security.authorization.internal.ApiCsrfMiddleware');
         $this->_app = new \Slim\App([
             // Load custom response handler
             'response' => function ($c) {

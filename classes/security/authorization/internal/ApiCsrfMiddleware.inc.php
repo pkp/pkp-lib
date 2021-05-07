@@ -14,6 +14,12 @@
  *  operations whenever an API Token is not in use.
  */
 
+namespace PKP\security\authorization\internal;
+
+use APP\core\Application;
+
+use PKP\handler\APIHandler;
+
 class ApiCsrfMiddleware
 {
     /** @var APIHandler $handler Reference to api handler */
@@ -81,4 +87,8 @@ class ApiCsrfMiddleware
         $session = Application::get()->getRequest()->getSession();
         return $session && $session->getCSRFToken() === $server['HTTP_X_CSRF_TOKEN'];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\ApiCsrfMiddleware', '\ApiCsrfMiddleware');
 }

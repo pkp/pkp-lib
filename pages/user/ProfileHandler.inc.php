@@ -13,10 +13,13 @@
  * @brief Handle requests for modifying user profiles.
  */
 
-
+// FIXME: Add namespacing
 import('pages.user.UserHandler');
 
 use APP\template\TemplateManager;
+use PKP\security\authorization\PKPSiteAccessPolicy;
+
+use PKP\security\authorization\UserRequiredPolicy;
 
 class ProfileHandler extends UserHandler
 {
@@ -36,11 +39,9 @@ class ProfileHandler extends UserHandler
         ];
 
         // Site access policy
-        import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
-        $this->addPolicy(new PKPSiteAccessPolicy($request, $operations, SITE_ACCESS_ALL_ROLES));
+        $this->addPolicy(new PKPSiteAccessPolicy($request, $operations, PKPSiteAccessPolicy::SITE_ACCESS_ALL_ROLES));
 
         // User must be logged in
-        import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
         $this->addPolicy(new UserRequiredPolicy($request));
 
         return parent::authorize($request, $args, $roleAssignments);

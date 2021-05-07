@@ -12,8 +12,12 @@
  * @brief Class to control access to queries.
  */
 
-import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
-import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+namespace PKP\security\authorization;
+
+use PKP\security\authorization\internal\ContextPolicy;
+use PKP\security\authorization\internal\QueryAssignedToUserAccessPolicy;
+use PKP\security\authorization\internal\QueryRequiredPolicy;
+use PKP\security\authorization\internal\QueryUserAccessibleWorkflowStageRequiredPolicy;
 
 class QueryAccessPolicy extends ContextPolicy
 {
@@ -30,21 +34,18 @@ class QueryAccessPolicy extends ContextPolicy
         parent::__construct($request);
 
         // We need a valid workflow stage.
-        import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy');
         $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 
         // We need a query matching the submission in the request.
-        import('lib.pkp.classes.security.authorization.internal.QueryRequiredPolicy');
         $this->addPolicy(new QueryRequiredPolicy($request, $args));
 
         // The query must be assigned to the current user, with exceptions for Managers
-        import('lib.pkp.classes.security.authorization.internal.QueryAssignedToUserAccessPolicy');
         $this->addPolicy(new QueryAssignedToUserAccessPolicy($request));
 
         // Authors, reviewers, context managers and sub editors potentially have
         // access to queries. We'll have to define
         // differentiated policies for those roles in a policy set.
-        $queryAccessPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $queryAccessPolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
         //
         // Managerial role
@@ -60,11 +61,10 @@ class QueryAccessPolicy extends ContextPolicy
         if (isset($roleAssignments[ROLE_ID_ASSISTANT])) {
 
             // 1) Assistants can access all operations on queries...
-            $assistantQueryAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+            $assistantQueryAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             $assistantQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT]));
 
             // 2) ... but only if they have access to the workflow stage.
-            import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy'); // pulled from context-specific class path.
             $assistantQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 
             $queryAccessPolicy->addPolicy($assistantQueryAccessPolicy);
@@ -75,11 +75,10 @@ class QueryAccessPolicy extends ContextPolicy
         //
         if (isset($roleAssignments[ROLE_ID_REVIEWER])) {
             // 1) Reviewers can access read operations on queries...
-            $reviewerQueryAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+            $reviewerQueryAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             $reviewerQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_REVIEWER, $roleAssignments[ROLE_ID_REVIEWER]));
 
             // 2) ... but only if they are assigned to the submissions as a reviewer
-            import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy');
             $reviewerQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 
             $queryAccessPolicy->addPolicy($reviewerQueryAccessPolicy);
@@ -90,11 +89,10 @@ class QueryAccessPolicy extends ContextPolicy
         //
         if (isset($roleAssignments[ROLE_ID_AUTHOR])) {
             // 1) Authors can access read operations on queries...
-            $authorQueryAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+            $authorQueryAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             $authorQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR]));
 
             // 2) ... but only if they are assigned to the workflow stage as an stage participant...
-            import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy');
             $authorQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 
             $queryAccessPolicy->addPolicy($authorQueryAccessPolicy);
@@ -105,11 +103,10 @@ class QueryAccessPolicy extends ContextPolicy
         //
         if (isset($roleAssignments[ROLE_ID_SUB_EDITOR])) {
             // 1) Sub editors can access all operations on submissions ...
-            $subEditorQueryAccessPolicy = new PolicySet(COMBINING_DENY_OVERRIDES);
+            $subEditorQueryAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             $subEditorQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
 
             // 2) ... but only if they have been assigned to the requested submission.
-            import('lib.pkp.classes.security.authorization.internal.QueryUserAccessibleWorkflowStageRequiredPolicy');
             $subEditorQueryAccessPolicy->addPolicy(new QueryUserAccessibleWorkflowStageRequiredPolicy($request));
 
             $queryAccessPolicy->addPolicy($subEditorQueryAccessPolicy);
@@ -118,4 +115,8 @@ class QueryAccessPolicy extends ContextPolicy
 
         return $queryAccessPolicy;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\QueryAccessPolicy', '\QueryAccessPolicy');
 }

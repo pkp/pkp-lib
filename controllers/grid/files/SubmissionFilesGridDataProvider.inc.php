@@ -12,8 +12,9 @@
  * @brief Provide access to submission file data for grids.
  */
 
-
 import('lib.pkp.controllers.grid.files.FilesGridDataProvider');
+
+use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 class SubmissionFilesGridDataProvider extends FilesGridDataProvider
 {
@@ -112,7 +113,6 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
     {
         $this->setUploaderRoles($roleAssignments);
 
-        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
         return new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->getStageId());
     }
 

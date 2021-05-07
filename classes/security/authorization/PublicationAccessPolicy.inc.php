@@ -12,10 +12,11 @@
  * @brief Class to control access to a publication
  */
 
-import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
-import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
-import('lib.pkp.classes.security.authorization.internal.PublicationRequiredPolicy');
-import('lib.pkp.classes.security.authorization.internal.PublicationIsSubmissionPolicy');
+namespace PKP\security\authorization;
+
+use PKP\security\authorization\internal\ContextPolicy;
+use PKP\security\authorization\internal\PublicationIsSubmissionPolicy;
+use PKP\security\authorization\internal\PublicationRequiredPolicy;
 
 class PublicationAccessPolicy extends ContextPolicy
 {
@@ -41,4 +42,8 @@ class PublicationAccessPolicy extends ContextPolicy
         // Is the publication attached to the correct submission?
         $this->addPolicy(new PublicationIsSubmissionPolicy(__('api.publications.403.submissionsDidNotMatch')));
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\PublicationAccessPolicy', '\PublicationAccessPolicy');
 }

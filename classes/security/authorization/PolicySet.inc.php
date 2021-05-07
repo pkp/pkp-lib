@@ -16,15 +16,13 @@
  *  NB: PolicySets can be nested.
  */
 
-define('COMBINING_DENY_OVERRIDES', 0x01);
-define('COMBINING_PERMIT_OVERRIDES', 0x02);
-
-// Include the authorization policy class which contains
-// definitions for the deny and permit effects.
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization;
 
 class PolicySet
 {
+    public const COMBINING_DENY_OVERRIDES = 1;
+    public const COMBINING_PERMIT_OVERRIDES = 2;
+
     /** @var array */
     public $_policies = [];
 
@@ -32,7 +30,7 @@ class PolicySet
     public $_combiningAlgorithm;
 
     /** @var integer the default effect if none of the policies in the set applies */
-    public $_effectIfNoPolicyApplies = AUTHORIZATION_DENY;
+    public $_effectIfNoPolicyApplies = AuthorizationPolicy::AUTHORIZATION_DENY;
 
 
     /**
@@ -40,7 +38,7 @@ class PolicySet
      *
      * @param $combiningAlgorithm int COMBINING_...
      */
-    public function __construct($combiningAlgorithm = COMBINING_DENY_OVERRIDES)
+    public function __construct($combiningAlgorithm = self::COMBINING_DENY_OVERRIDES)
     {
         $this->_combiningAlgorithm = $combiningAlgorithm;
     }
@@ -57,7 +55,7 @@ class PolicySet
      */
     public function addPolicy($policyOrPolicySet, $addToTop = false)
     {
-        assert(is_a($policyOrPolicySet, 'AuthorizationPolicy') || is_a($policyOrPolicySet, 'PolicySet'));
+        assert($policyOrPolicySet instanceof AuthorizationPolicy || $policyOrPolicySet instanceof self);
         if ($addToTop) {
             array_unshift($this->_policies, $policyOrPolicySet);
         } else {
@@ -92,9 +90,9 @@ class PolicySet
      */
     public function setEffectIfNoPolicyApplies($effectIfNoPolicyApplies)
     {
-        assert($effectIfNoPolicyApplies == AUTHORIZATION_PERMIT ||
-                $effectIfNoPolicyApplies == AUTHORIZATION_DENY ||
-                $effectIfNoPolicyApplies == AUTHORIZATION_NOT_APPLICABLE);
+        assert($effectIfNoPolicyApplies == AuthorizationPolicy::AUTHORIZATION_PERMIT ||
+                $effectIfNoPolicyApplies == AuthorizationPolicy::AUTHORIZATION_DENY ||
+                $effectIfNoPolicyApplies == AuthorizationDecisionManager::AUTHORIZATION_NOT_APPLICABLE);
         $this->_effectIfNoPolicyApplies = $effectIfNoPolicyApplies;
     }
 
@@ -107,4 +105,10 @@ class PolicySet
     {
         return $this->_effectIfNoPolicyApplies;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\PolicySet', '\PolicySet');
+    define('COMBINING_DENY_OVERRIDES', \PolicySet::COMBINING_DENY_OVERRIDES);
+    define('COMBINING_PERMIT_OVERRIDES', \PolicySet::COMBINING_PERMIT_OVERRIDES);
 }

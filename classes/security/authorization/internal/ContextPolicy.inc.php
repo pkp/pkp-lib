@@ -14,7 +14,10 @@
  *  extend this policy.
  */
 
-import('lib.pkp.classes.security.authorization.PolicySet');
+namespace PKP\security\authorization\internal;
+
+use PKP\security\authorization\ContextRequiredPolicy;
+use PKP\security\authorization\PolicySet;
 
 class ContextPolicy extends PolicySet
 {
@@ -28,7 +31,10 @@ class ContextPolicy extends PolicySet
         parent::__construct();
 
         // Ensure we're in a context
-        import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
         $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext'));
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\ContextPolicy', '\ContextPolicy');
 }

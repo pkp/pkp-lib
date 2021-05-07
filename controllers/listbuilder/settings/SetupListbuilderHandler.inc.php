@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
 
+use PKP\security\authorization\ContextAccessPolicy;
+
 class SetupListbuilderHandler extends ListbuilderHandler
 {
     /** @var Context */
@@ -57,7 +59,6 @@ class SetupListbuilderHandler extends ListbuilderHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

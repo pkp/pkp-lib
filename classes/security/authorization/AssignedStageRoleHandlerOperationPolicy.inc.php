@@ -13,7 +13,7 @@
  *  role(s) in a submission's workflow stage.
  */
 
-import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+namespace PKP\security\authorization;
 
 class AssignedStageRoleHandlerOperationPolicy extends RoleBasedHandlerOperationPolicy
 {
@@ -58,16 +58,20 @@ class AssignedStageRoleHandlerOperationPolicy extends RoleBasedHandlerOperationP
         // Get user roles grouped by context.
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         if (empty($userRoles) || empty($userRoles[$this->_stageId])) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         if (!$this->_checkUserRoleAssignment($userRoles[$this->_stageId])) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
         if (!$this->_checkOperationWhitelist()) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\AssignedStageRoleHandlerOperationPolicy', '\AssignedStageRoleHandlerOperationPolicy');
 }

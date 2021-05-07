@@ -15,6 +15,10 @@
 
 import('lib.pkp.classes.controllers.grid.plugins.PluginGridHandler');
 
+use PKP\security\authorization\PluginAccessPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+
 class AdminPluginGridHandler extends PluginGridHandler
 {
     /**
@@ -55,19 +59,16 @@ class AdminPluginGridHandler extends PluginGridHandler
         $verb = $request->getUserVar('verb');
 
         if ($category && $pluginName) {
-            import('lib.pkp.classes.security.authorization.PluginAccessPolicy');
             if ($verb) {
-                $accessMode = ACCESS_MODE_MANAGE;
+                $accessMode = PluginAccessPolicy::ACCESS_MODE_MANAGE;
             } else {
-                $accessMode = ACCESS_MODE_ADMIN;
+                $accessMode = PluginAccessPolicy::ACCESS_MODE_ADMIN;
             }
 
             $this->addPolicy(new PluginAccessPolicy($request, $args, $roleAssignments, $accessMode));
         } else {
-            import('lib.pkp.classes.security.authorization.PolicySet');
-            $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+            $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
-            import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
             foreach ($roleAssignments as $role => $operations) {
                 $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
             }

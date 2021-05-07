@@ -12,7 +12,11 @@
  * @brief Class to control access to submission workflow stage components
  */
 
-import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
+namespace PKP\security\authorization;
+
+use PKP\core\PKPApplication;
+use PKP\security\authorization\internal\ContextPolicy;
+use PKP\security\authorization\internal\ManagerRequiredPolicy;
 
 class EditorDecisionAccessPolicy extends ContextPolicy
 {
@@ -30,11 +34,13 @@ class EditorDecisionAccessPolicy extends ContextPolicy
         parent::__construct($request);
 
         // A decision can only be made if there is a valid workflow stage
-        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
         $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, $submissionParameterName, $stageId, PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 
         // An editor decision can only be made if there is an editor assigned to the stage
-        import('lib.pkp.classes.security.authorization.internal.ManagerRequiredPolicy');
         $this->addPolicy(new ManagerRequiredPolicy($request));
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\EditorDecisionAccessPolicy', '\EditorDecisionAccessPolicy');
 }

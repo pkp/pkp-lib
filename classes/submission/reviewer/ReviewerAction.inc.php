@@ -13,7 +13,9 @@
  * @brief ReviewerAction class.
  */
 
+use APP\log\SubmissionEventLogEntry;
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionLog;
 use PKP\mail\SubmissionMailTemplate;
 
 // Access decision actions constants.
@@ -77,13 +79,10 @@ class ReviewerAction
             $reviewAssignmentDao->updateObject($reviewAssignment);
 
             // Add log
-            import('lib.pkp.classes.log.SubmissionLog');
-            import('classes.log.SubmissionEventLogEntry');
-
             SubmissionLog::logEvent(
                 $request,
                 $submission,
-                $decline ? SUBMISSION_LOG_REVIEW_DECLINE : SUBMISSION_LOG_REVIEW_ACCEPT,
+                $decline ? SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_DECLINE : SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ACCEPT,
                 $decline ? 'log.review.reviewDeclined' : 'log.review.reviewAccepted',
                 [
                     'reviewAssignmentId' => $reviewAssignment->getId(),

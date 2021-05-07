@@ -18,8 +18,9 @@
  */
 
 use APP\handler\Handler;
-
 use PKP\core\JSONMessage;
+
+use PKP\security\authorization\UserRequiredPolicy;
 
 class ProfileTabHandler extends Handler
 {
@@ -32,7 +33,6 @@ class ProfileTabHandler extends Handler
     public function authorize($request, &$args, $roleAssignments)
     {
         // User must be logged in
-        import('lib.pkp.classes.security.authorization.UserRequiredPolicy');
         $this->addPolicy(new UserRequiredPolicy($request));
 
         return parent::authorize($request, $args, $roleAssignments);

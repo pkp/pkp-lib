@@ -12,9 +12,12 @@
  * @brief Class to control access to submission workflow stage components related to queries
  */
 
-import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
-import('lib.pkp.classes.security.authorization.PolicySet');
-import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+namespace PKP\security\authorization;
+
+use PKP\security\authorization\internal\ContextPolicy;
+use PKP\security\authorization\internal\QueryUserAccessibleWorkflowStageRequiredPolicy;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
+use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 
 class QueryWorkflowStageAccessPolicy extends ContextPolicy
 {
@@ -32,24 +35,25 @@ class QueryWorkflowStageAccessPolicy extends ContextPolicy
         parent::__construct($request);
 
         // A workflow stage component requires a valid workflow stage.
-        import('lib.pkp.classes.security.authorization.internal.WorkflowStageRequiredPolicy');
         $this->addPolicy(new WorkflowStageRequiredPolicy($stageId));
 
         // A workflow stage component can only be called if there's a
         // valid submission in the request.
-        import('lib.pkp.classes.security.authorization.internal.SubmissionRequiredPolicy');
         $this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
 
         // Extends UserAccessibleWorkflowStagePolicy in order to permit users with review assignments
         // to access the reviews grid
-        import('lib.pkp.classes.security.authorization.internal.QueryUserAccessibleWorkflowStageRequiredPolicy');
         $this->addPolicy(new QueryUserAccessibleWorkflowStageRequiredPolicy($request));
 
         // Users can access all whitelisted operations for submissions and workflow stages...
-        $roleBasedPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $roleBasedPolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $roleId => $operations) {
             $roleBasedPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $roleId, $operations));
         }
         $this->addPolicy($roleBasedPolicy);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\QueryWorkflowStageAccessPolicy', '\QueryWorkflowStageAccessPolicy');
 }

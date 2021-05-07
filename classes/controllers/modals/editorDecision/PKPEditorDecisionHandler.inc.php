@@ -15,6 +15,7 @@
 
 use APP\handler\Handler;
 use PKP\core\JSONMessage;
+use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 
 use PKP\submission\SubmissionComment;
 
@@ -30,7 +31,6 @@ class PKPEditorDecisionHandler extends Handler
     {
         // Some operations need a review round id in request.
         $reviewRoundOps = $this->_getReviewRoundOps();
-        import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
         $this->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $reviewRoundOps));
 
         if (!parent::authorize($request, $args, $roleAssignments)) {

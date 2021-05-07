@@ -16,10 +16,9 @@
  * @brief Class defining the headless AJAX API for backend user manipulation.
  */
 
-// import the base Handler
-import('lib.pkp.classes.handler.PKPHandler');
-
 use PKP\core\JSONMessage;
+use PKP\handler\PKPHandler;
+use PKP\security\authorization\PKPSiteAccessPolicy;
 
 class UserApiHandler extends PKPHandler
 {
@@ -31,11 +30,10 @@ class UserApiHandler extends PKPHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
         $this->addPolicy(new PKPSiteAccessPolicy(
             $request,
             ['updateUserMessageState', 'suggestUsername'],
-            SITE_ACCESS_ALL_ROLES
+            PKPSiteAccessPolicy::SITE_ACCESS_ALL_ROLES
         ));
         return parent::authorize($request, $args, $roleAssignments);
     }

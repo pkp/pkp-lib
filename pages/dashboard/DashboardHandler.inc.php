@@ -14,6 +14,8 @@
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+
+use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\submission\PKPSubmission;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
@@ -44,7 +46,6 @@ class DashboardHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
         $this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

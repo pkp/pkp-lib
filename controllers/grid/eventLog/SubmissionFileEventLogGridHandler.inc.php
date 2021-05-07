@@ -16,6 +16,8 @@
 // import grid base classes
 import('lib.pkp.controllers.grid.eventLog.SubmissionEventLogGridHandler');
 
+use PKP\security\authorization\SubmissionFileAccessPolicy;
+
 class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler
 {
     //
@@ -54,8 +56,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-        $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_READ, (int) $args['submissionFileId']));
+        $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ, (int) $args['submissionFileId']));
         return parent::authorize($request, $args, $roleAssignments);
     }
 

@@ -19,6 +19,7 @@ import('lib.pkp.controllers.grid.announcements.form.AnnouncementTypeForm');
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\authorization\ContextAccessPolicy;
 
 class AnnouncementTypeGridHandler extends GridHandler
 {
@@ -47,7 +48,6 @@ class AnnouncementTypeGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         $context = $request->getContext();
 

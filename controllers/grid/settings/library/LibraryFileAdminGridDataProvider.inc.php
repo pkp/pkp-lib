@@ -13,6 +13,7 @@
  * @brief The data provider for the admin library files grid.
  */
 
+use PKP\security\authorization\ContextAccessPolicy;
 
 import('lib.pkp.classes.controllers.grid.CategoryGridDataProvider');
 
@@ -44,7 +45,6 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider
     public function getAuthorizationPolicy($request, $args, $roleAssignments)
     {
         $this->_context = $request->getContext();
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         return new ContextAccessPolicy($request, $roleAssignments);
     }
 

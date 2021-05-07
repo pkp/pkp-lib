@@ -14,9 +14,14 @@
  *
  */
 
+namespace PKP\security\authorization\internal;
+
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
 use PKP\submission\SubmissionFile;
 
-import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
+// FIXME: Add namespacing
+use ReviewRound;
 
 class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -47,30 +52,30 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 
         // Get the submission file.
         $submissionFile = $this->getSubmissionFile($request);
-        if (!is_a($submissionFile, 'SubmissionFile')) {
-            return AUTHORIZATION_DENY;
+        if (!$submissionFile instanceof SubmissionFile) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Make sure the file is part of a review round
         // with a requested revision decision.
         $reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());
-        if (!is_a($reviewRound, 'ReviewRound')) {
-            return AUTHORIZATION_DENY;
+        if (!$reviewRound instanceof ReviewRound) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
         import('classes.workflow.EditorDecisionActionsManager');
         if (!(new EditorDecisionActionsManager())->getEditorTakenActionInReviewRound($request->getContext(), $reviewRound, [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS])) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Make sure review round stage is the same of the current stage in request.
         $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
         if ($reviewRound->getStageId() != $stageId) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Make sure the file stage is SUBMISSION_FILE_REVIEW_REVISION.
         if ($submissionFile->getData('fileStage') != SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -79,15 +84,19 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
         $reviewRoundDecisions = $editDecisionDao->getEditorDecisions($submissionFile->getData('submissionId'), $reviewRound->getStageId(), $reviewRound->getRound());
         if (empty($reviewRoundDecisions)) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $lastEditorDecision = array_pop($reviewRoundDecisions);
         if ($lastEditorDecision['decision'] != SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Made it through -- permit access.
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionFileRequestedRevisionRequiredPolicy', '\SubmissionFileRequestedRevisionRequiredPolicy');
 }

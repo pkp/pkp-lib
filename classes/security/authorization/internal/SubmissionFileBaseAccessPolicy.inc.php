@@ -13,7 +13,11 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization\internal;
+
+use APP\core\Services;
+
+use PKP\security\authorization\AuthorizationPolicy;
 
 class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy
 {
@@ -93,4 +97,8 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy
     {
         return $this->_request;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionFileBaseAccessPolicy', '\SubmissionFileBaseAccessPolicy');
 }

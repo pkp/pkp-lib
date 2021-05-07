@@ -13,12 +13,12 @@
  * @brief Handle AJAX operations for review round tabs on review stages workflow pages.
  */
 
-// Import the base Handler.
-use APP\handler\Handler;
 
+use APP\handler\Handler;
 use APP\template\TemplateManager;
 
 use PKP\core\JSONMessage;
+use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 
 class PKPReviewRoundTabHandler extends Handler
 {
@@ -31,7 +31,6 @@ class PKPReviewRoundTabHandler extends Handler
     public function authorize($request, &$args, $roleAssignments)
     {
         // We need a review round id in request.
-        import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
         $this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
 
         return parent::authorize($request, $args, $roleAssignments);

@@ -16,6 +16,7 @@ namespace PKP\Services;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\log\SubmissionEventLogEntry;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -25,8 +26,8 @@ use PKP\plugins\HookRegistry;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
-use PKP\Services\QueryBuilders\PKPPublicationQueryBuilder;
 
+use PKP\Services\QueryBuilders\PKPPublicationQueryBuilder;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
 
@@ -514,9 +515,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         HookRegistry::call('Publication::version', [&$newPublication, $publication, $request]);
 
         $submission = Services::get('submission')->get($newPublication->getData('submissionId'));
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
-        SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SUBMISSION_LOG_CREATE_VERSION, 'publication.event.versionCreated');
+        SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SubmissionEventLogEntry::SUBMISSION_LOG_CREATE_VERSION, 'publication.event.versionCreated');
 
         return $newPublication;
     }
@@ -565,9 +564,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         $submission = Services::get('submission')->get($newPublication->getData('submissionId'));
 
         // Log an event when publication data is updated
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
-        SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
+        SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
 
         return $newPublication;
     }
@@ -630,9 +627,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         } else {
             $msg = $newPublication->getData('status') === PKPSubmission::STATUS_SCHEDULED ? 'publication.event.scheduled' : 'publication.event.published';
         }
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
-        SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SUBMISSION_LOG_METADATA_PUBLISH, $msg);
+        SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH, $msg);
 
         HookRegistry::call('Publication::publish', [&$newPublication, $publication, $submission]);
 
@@ -675,9 +670,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         // Log an event when publication is unpublished. Adjust the message depending
         // on whether this is the first publication or a subsequent version
         $msg = count($submission->getData('publications')) > 1 ? 'publication.event.versionUnpublished' : 'publication.event.unpublished';
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
-        SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SUBMISSION_LOG_METADATA_UNPUBLISH, $msg);
+        SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UNPUBLISH, $msg);
 
         HookRegistry::call('Publication::unpublish', [&$newPublication, $publication, $submission]);
 

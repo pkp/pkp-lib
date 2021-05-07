@@ -26,12 +26,17 @@ define('REVIEWER_SELECT_CREATE', 0x00000002);
 define('REVIEWER_SELECT_ENROLL_EXISTING', 0x00000003);
 
 use APP\core\Services;
+use APP\log\SubmissionEventLogEntry;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
-
 use PKP\linkAction\request\AjaxModal;
+use PKP\log\SubmissionLog;
 use PKP\mail\SubmissionMailTemplate;
+
+use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
+use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
+use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 class PKPReviewerGridHandler extends GridHandler
 {
@@ -86,15 +91,12 @@ class PKPReviewerGridHandler extends GridHandler
             $this->_stageId = (int)$stageId;
 
             // Get the stage access policy
-            import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
             $workflowStageAccessPolicy = new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId, PKPApplication::WORKFLOW_TYPE_EDITORIAL);
 
             // Add policy to ensure there is a review round id.
-            import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
             $workflowStageAccessPolicy->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', $this->_getReviewRoundOps()));
 
             // Add policy to ensure there is a review assignment for certain operations.
-            import('lib.pkp.classes.security.authorization.internal.ReviewAssignmentRequiredPolicy');
             $workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', $this->_getReviewAssignmentOps()));
             $this->addPolicy($workflowStageAccessPolicy);
 
@@ -574,19 +576,10 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
         // log the unconsider.
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
-
-        $entry = new SubmissionEventLogEntry();
-        $entry->setSubmissionId($reviewAssignment->getSubmissionId());
-        $entry->setUserId($user->getId());
-        $entry->setDateLogged(Core::getCurrentDate());
-        $entry->setEventType(SUBMISSION_LOG_REVIEW_UNCONSIDERED);
-
         SubmissionLog::logEvent(
             $request,
             $submission,
-            SUBMISSION_LOG_REVIEW_UNCONSIDERED,
+            SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_UNCONSIDERED,
             'log.review.reviewUnconsidered',
             [
                 'editorName' => $user->getFullName(),
@@ -643,9 +636,6 @@ class PKPReviewerGridHandler extends GridHandler
 
         //if the review was read by an editor, log event
         if ($reviewAssignment->isRead()) {
-            import('lib.pkp.classes.log.SubmissionLog');
-            import('classes.log.SubmissionEventLogEntry');
-
             $submissionId = $reviewAssignment->getSubmissionId();
             $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
             $submission = $submissionDao->getById($submissionId);
@@ -653,7 +643,7 @@ class PKPReviewerGridHandler extends GridHandler
             SubmissionLog::logEvent(
                 $request,
                 $submission,
-                SUBMISSION_LOG_REVIEW_CONFIRMED,
+                SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED,
                 'log.review.reviewConfirmed',
                 [
                     'userName' => $user->getFullName(),

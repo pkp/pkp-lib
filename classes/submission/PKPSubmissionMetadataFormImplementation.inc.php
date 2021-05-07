@@ -19,6 +19,7 @@ namespace PKP\submission;
 use APP\core\Application;
 use APP\core\Services;
 
+use APP\log\SubmissionEventLogEntry;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 
@@ -255,9 +256,7 @@ class PKPSubmissionMetadataFormImplementation
         // Only log modifications on completed submissions
         if ($submission->getSubmissionProgress() == 0) {
             // Log the metadata modification event.
-            import('lib.pkp.classes.log.SubmissionLog');
-            import('classes.log.SubmissionEventLogEntry');
-            SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
+            SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
         }
     }
 }

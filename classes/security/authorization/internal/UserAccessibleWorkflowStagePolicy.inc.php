@@ -13,7 +13,12 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization\internal;
+
+use APP\core\Application;
+
+use APP\i18n\AppLocale;
+use PKP\security\authorization\AuthorizationPolicy;
 
 class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy
 {
@@ -54,21 +59,25 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy
 
         // User has no access to any stage in any workflow
         if (empty($userAccessibleStages)) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
 
         // Does user have access to this stage in the requested workflow?
         } elseif (!is_null($this->_workflowType)) {
             $workflowTypeRoles = Application::getWorkflowTypeRoles();
             if (array_key_exists($this->_stageId, $userAccessibleStages) && array_intersect($workflowTypeRoles[$this->_workflowType], $userAccessibleStages[$this->_stageId])) {
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
 
         // The user has access to this stage in any workflow
         } elseif (array_key_exists($this->_stageId, $userAccessibleStages)) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\UserAccessibleWorkflowStagePolicy', '\UserAccessibleWorkflowStagePolicy');
 }

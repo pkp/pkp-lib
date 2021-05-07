@@ -15,8 +15,10 @@
  * @brief Test class for the PKPPublicAccessPolicy class
  */
 
+use PKP\security\authorization\AuthorizationPolicy;
+use PKP\security\authorization\PKPPublicAccessPolicy;
+
 import('lib.pkp.tests.classes.security.authorization.PolicyTestCase');
-import('lib.pkp.classes.security.authorization.PKPPublicAccessPolicy');
 
 class PKPPublicAccessPolicyTest extends PolicyTestCase
 {
@@ -33,18 +35,18 @@ class PKPPublicAccessPolicyTest extends PolicyTestCase
         $policy = new PKPPublicAccessPolicy($request, 'permittedOperation');
 
         // Test default message.
-        self::assertEquals('user.authorization.privateOperation', $policy->getAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE));
+        self::assertEquals('user.authorization.privateOperation', $policy->getAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE));
 
         // Test getters.
         self::assertEquals($request, $policy->getRequest());
         self::assertEquals(['permittedOperation'], $policy->getOperations());
 
         // Test the effect with a public operation.
-        self::assertEquals(AUTHORIZATION_PERMIT, $policy->effect());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $policy->effect());
 
         // Test the effect with a private operation
         $request = $this->getMockRequest('privateOperation');
         $policy = new PKPPublicAccessPolicy($request, 'permittedOperation');
-        self::assertEquals(AUTHORIZATION_DENY, $policy->effect());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $policy->effect());
     }
 }

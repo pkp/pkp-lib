@@ -16,8 +16,10 @@
  */
 
 import('lib.pkp.tests.classes.security.authorization.PolicyTestCase');
-import('lib.pkp.classes.security.authorization.AuthorizationDecisionManager');
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+
+use PKP\security\authorization\AuthorizationDecisionManager;
+use PKP\security\authorization\AuthorizationPolicy;
+use PKP\security\authorization\PolicySet;
 
 class AuthorizationDecisionManagerTest extends PolicyTestCase
 {
@@ -44,11 +46,11 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         $this->decisionManager->addPolicy($mockPolicy);
 
         // The default decision should be "deny".
-        self::assertEquals(AUTHORIZATION_DENY, $this->decisionManager->decide());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $this->decisionManager->decide());
 
         // Try a non-default decision.
-        $this->decisionManager->setDecisionIfNoPolicyApplies(AUTHORIZATION_PERMIT);
-        self::assertEquals(AUTHORIZATION_PERMIT, $this->decisionManager->decide());
+        $this->decisionManager->setDecisionIfNoPolicyApplies(AuthorizationPolicy::AUTHORIZATION_PERMIT);
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $this->decisionManager->decide());
     }
 
     /**
@@ -67,18 +69,18 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
             ->getMock();
         $permitPolicy->expects($this->any())
             ->method('effect')
-            ->will($this->returnValue(AUTHORIZATION_PERMIT));
+            ->will($this->returnValue(AuthorizationPolicy::AUTHORIZATION_PERMIT));
 
         // Create a permit overrides policy set to make sure that
         // all policies will be tested even if several deny access.
-        $policySet = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $policySet = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         $policySet->addPolicy($denyPolicy1);
         $policySet->addPolicy($denyPolicy2);
         $policySet->addPolicy($permitPolicy);
 
         // Let the decision manager decide the policy set.
         $this->decisionManager->addPolicy($policySet);
-        self::assertEquals(AUTHORIZATION_PERMIT, $this->decisionManager->decide());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $this->decisionManager->decide());
 
         // Check that the messages for the policies that denied access
         // can be retrieved from the decision manager.
@@ -98,7 +100,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         self::assertNull($this->decisionManager->getAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
 
         // Check whether the authorized context is correctly returned from the policy.
-        self::assertEquals(AUTHORIZATION_PERMIT, $this->decisionManager->decide());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $this->decisionManager->decide());
         self::assertInstanceOf('UserGroup', $this->decisionManager->getAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
     }
 
@@ -123,7 +125,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         $decisionManager = new AuthorizationDecisionManager();
         $decisionManager->addPolicy($permitPolicy);
         $decisionManager->addPolicy($denyPolicy);
-        self::assertEquals(AUTHORIZATION_DENY, $decisionManager->decide());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $decisionManager->decide());
 
         // deny overrides
         // - permit policy
@@ -131,7 +133,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         $decisionManager = new AuthorizationDecisionManager();
         $decisionManager->addPolicy($permitPolicy);
         $decisionManager->addPolicy($permitPolicy);
-        self::assertEquals(AUTHORIZATION_PERMIT, $decisionManager->decide());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $decisionManager->decide());
 
         // deny overrides
         // - permit policy
@@ -144,7 +146,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         $policySet->addPolicy($denyPolicy);
         $policySet->addPolicy($denyPolicy);
         $decisionManager->addPolicy($policySet);
-        self::assertEquals(AUTHORIZATION_DENY, $decisionManager->decide());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $decisionManager->decide());
 
         // deny overrides
         // - permit policy
@@ -153,11 +155,11 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         // -- permit policy
         $decisionManager = new AuthorizationDecisionManager();
         $decisionManager->addPolicy($permitPolicy);
-        $policySet = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $policySet = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         $policySet->addPolicy($denyPolicy);
         $policySet->addPolicy($permitPolicy);
         $decisionManager->addPolicy($policySet);
-        self::assertEquals(AUTHORIZATION_PERMIT, $decisionManager->decide());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $decisionManager->decide());
     }
 
     /**
@@ -177,11 +179,11 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
             'callOnDeny',
             ['argument']
         ];
-        $policy->setAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY, $callOnDenyAdvice);
+        $policy->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY, $callOnDenyAdvice);
 
         // Configure and execute the decision manager.
         $this->decisionManager->addPolicy($policy);
-        self::assertEquals(AUTHORIZATION_DENY, $this->decisionManager->decide());
+        self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $this->decisionManager->decide());
     }
 
     /**

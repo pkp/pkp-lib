@@ -16,6 +16,8 @@
  *  for several types of policy tests.
  */
 
+use PKP\security\authorization\AuthorizationPolicy;
+
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.security.UserGroup');
 import('lib.pkp.classes.core.PKPRequest');
@@ -99,7 +101,7 @@ abstract class PolicyTestCase extends PKPTestCase
         // Add user roles array to the authorized context.
         $userRoles = [ROLE_ID_TEST, ROLE_ID_SITE_ADMIN];
         $policy->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $userRoles);
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 
     /**

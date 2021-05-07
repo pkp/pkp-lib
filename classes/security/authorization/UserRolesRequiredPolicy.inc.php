@@ -13,7 +13,11 @@
  * users with no roles, we don't deny access when no user roles are found.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization;
+
+use APP\core\Application;
+
+use PKP\db\DAORegistry;
 
 class UserRolesRequiredPolicy extends AuthorizationPolicy
 {
@@ -43,8 +47,8 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
         $request = $this->_request;
         $user = $request->getUser();
 
-        if (!is_a($user, 'User')) {
-            return AUTHORIZATION_DENY;
+        if (!$user instanceof \PKP\user\User) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Get all user roles.
@@ -64,7 +68,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
         $contextRoles = $this->_getContextRoles($roleContext, $contextDepth, $userRoles);
 
         $this->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $contextRoles);
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 
     /**
@@ -135,4 +139,8 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
         }
         return $contextRoles;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\UserRolesRequiredPolicy', '\UserRolesRequiredPolicy');
 }

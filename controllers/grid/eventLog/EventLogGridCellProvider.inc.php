@@ -13,6 +13,7 @@
  * @brief Cell provider for event log entries.
  */
 
+use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
@@ -66,13 +67,9 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
 
                         // Maybe anonymize reviewer log entries
                         $reviewerLogTypes = [
-                            SUBMISSION_LOG_REVIEW_ACCEPT,
-                            SUBMISSION_LOG_REVIEW_DECLINE,
-                            SUBMISSION_LOG_REVIEW_UNCONSIDERED,
-                            SUBMISSION_LOG_REVIEW_FILE,
-                            SUBMISSION_LOG_REVIEW_CANCEL,
-                            SUBMISSION_LOG_REVIEW_REVISION,
-                            SUBMISSION_LOG_REVIEW_RECOMMENDATION,
+                            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ACCEPT,
+                            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_DECLINE,
+                            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_UNCONSIDERED,
                         ];
                         $params = $element->getParams();
                         if (in_array($element->getEventType(), $reviewerLogTypes)) {

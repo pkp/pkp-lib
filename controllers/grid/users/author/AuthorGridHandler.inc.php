@@ -21,6 +21,7 @@ import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\submission\PKPSubmission;
 
 class AuthorGridHandler extends GridHandler
@@ -98,7 +99,6 @@ class AuthorGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
         $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

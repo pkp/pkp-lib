@@ -12,7 +12,7 @@
  * @brief Policy to deny access if a context cannot be found in the request.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization;
 
 class ContextRequiredPolicy extends AuthorizationPolicy
 {
@@ -41,9 +41,13 @@ class ContextRequiredPolicy extends AuthorizationPolicy
     {
         $router = $this->_request->getRouter();
         if (is_object($router->getContext($this->_request))) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         } else {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\ContextRequiredPolicy', '\ContextRequiredPolicy');
 }

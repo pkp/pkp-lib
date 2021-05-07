@@ -13,7 +13,15 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization\internal;
+
+use APP\core\Application;
+
+use APP\core\Services;
+use APP\i18n\AppLocale;
+use PKP\security\authorization\AuthorizationPolicy;
+
+// FIXME: Add namespacing
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
@@ -51,8 +59,8 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
         $context = $request->getContext();
         $contextId = $context->getId();
         $user = $request->getUser();
-        if (!is_a($user, 'User')) {
-            return AUTHORIZATION_DENY;
+        if (!$user instanceof \PKP\user\User) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $userId = $user->getId();
@@ -75,16 +83,20 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
             $workflowTypeRoles = Application::getWorkflowTypeRoles();
             foreach ($accessibleWorkflowStages as $stageId => $roles) {
                 if (array_intersect($workflowTypeRoles[$this->_workflowType], $roles)) {
-                    return AUTHORIZATION_PERMIT;
+                    return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }
             }
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
 
         // User has at least one role in any stage in any workflow
         } elseif (!empty($accessibleWorkflowStages)) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy', '\UserAccessibleWorkflowStageRequiredPolicy');
 }

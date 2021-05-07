@@ -13,6 +13,13 @@
  * @brief Slim middleware which enforces authorization policies
  */
 
+namespace PKP\security\authorization\internal;
+
+use APP\i18n\AppLocale;
+use PKP\core\JSONMessage;
+
+use PKP\handler\APIHandler;
+
 class ApiAuthorizationMiddleware
 {
     /** @var APIHandler $handler Reference to api handler */
@@ -56,7 +63,7 @@ class ApiAuthorizationMiddleware
             $result = $router->handleAuthorizationFailure($request, $authorizationMessage);
             switch (1) {
                 case is_string($result): return $result;
-                case is_a($result, 'JSONMessage'): return $result->getString();
+                case $result instanceof JSONMessage: return $result->getString();
                 default:
                     assert(false);
                     return null;
@@ -83,4 +90,8 @@ class ApiAuthorizationMiddleware
         $response = $next($request, $response);
         return $response;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\ApiAuthorizationMiddleware', '\ApiAuthorizationMiddleware');
 }

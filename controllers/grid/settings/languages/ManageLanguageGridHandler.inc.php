@@ -18,6 +18,8 @@ import('lib.pkp.controllers.grid.languages.LanguageGridHandler');
 use APP\core\Services;
 use PKP\core\JSONMessage;
 
+use PKP\security\authorization\ContextAccessPolicy;
+
 class ManageLanguageGridHandler extends LanguageGridHandler
 {
     /**
@@ -41,7 +43,6 @@ class ManageLanguageGridHandler extends LanguageGridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

@@ -16,6 +16,7 @@
 use APP\handler\Handler;
 
 use APP\template\TemplateManager;
+use PKP\security\authorization\ContextRequiredPolicy;
 
 class AboutContextHandler extends Handler
 {
@@ -39,7 +40,6 @@ class AboutContextHandler extends Handler
             $templateMgr->setCacheability(TemplateManager::CACHEABILITY_PUBLIC);
         }
 
-        import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
         $this->addPolicy(new ContextRequiredPolicy($request));
         return parent::authorize($request, $args, $roleAssignments);
     }

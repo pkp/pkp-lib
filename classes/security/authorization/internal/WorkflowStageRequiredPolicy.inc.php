@@ -12,7 +12,11 @@
  * @brief Policy that ensures that the given workflow stage is valid.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization\internal;
+
+use APP\core\Application;
+
+use PKP\security\authorization\AuthorizationPolicy;
 
 class WorkflowStageRequiredPolicy extends AuthorizationPolicy
 {
@@ -42,11 +46,15 @@ class WorkflowStageRequiredPolicy extends AuthorizationPolicy
         // Check the stage id.
         $validAppStages = Application::getApplicationStages();
         if (!in_array($this->_stageId, array_values($validAppStages))) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the workflow stage to the authorization context.
         $this->addAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE, $this->_stageId);
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\WorkflowStageRequiredPolicy', '\WorkflowStageRequiredPolicy');
 }

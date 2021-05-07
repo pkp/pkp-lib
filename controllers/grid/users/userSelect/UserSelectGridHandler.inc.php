@@ -16,6 +16,8 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.users.userSelect.UserSelectGridCellProvider');
 
+use PKP\security\authorization\WorkflowStageAccessPolicy;
+
 class UserSelectGridHandler extends GridHandler
 {
     /** @var array (user group ID => user group name) **/
@@ -43,7 +45,6 @@ class UserSelectGridHandler extends GridHandler
     {
         $stageId = (int)$request->getUserVar('stageId');
 
-        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
         $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
 
         return parent::authorize($request, $args, $roleAssignments);

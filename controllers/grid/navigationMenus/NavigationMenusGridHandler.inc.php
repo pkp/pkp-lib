@@ -19,6 +19,8 @@ import('lib.pkp.controllers.grid.navigationMenus.form.NavigationMenuForm');
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 
 class NavigationMenusGridHandler extends GridHandler
 {
@@ -51,10 +53,8 @@ class NavigationMenusGridHandler extends GridHandler
         $context = $request->getContext();
         $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
-        import('lib.pkp.classes.security.authorization.PolicySet');
-        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
-        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }

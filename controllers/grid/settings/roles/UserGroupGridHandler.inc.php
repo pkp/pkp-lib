@@ -21,6 +21,8 @@ import('lib.pkp.classes.workflow.WorkflowStageDAO');
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 
 class UserGroupGridHandler extends GridHandler
 {
@@ -62,13 +64,11 @@ class UserGroupGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
         $operation = $request->getRequestedOp();
         $workflowStageRequiredOps = ['assignStage', 'unassignStage'];
         if (in_array($operation, $workflowStageRequiredOps)) {
-            import('lib.pkp.classes.security.authorization.internal.WorkflowStageRequiredPolicy');
             $this->addPolicy(new WorkflowStageRequiredPolicy($request->getUserVar('stageId')));
         }
 

@@ -15,8 +15,9 @@
  */
 
 use APP\core\Services;
-
 use PKP\handler\APIHandler;
+
+use PKP\security\authorization\ContextAccessPolicy;
 
 class PKPUserHandler extends APIHandler
 {
@@ -59,7 +60,6 @@ class PKPUserHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

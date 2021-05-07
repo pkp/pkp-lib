@@ -14,9 +14,14 @@
  *  and workflow stage assignments in the authorized context.
  */
 
-use PKP\submission\SubmissionFile;
+namespace PKP\security\authorization\internal;
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+use APP\core\Services;
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
+use PKP\security\authorization\SubmissionFileAccessPolicy;
+
+use PKP\submission\SubmissionFile;
 
 class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 {
@@ -55,16 +60,16 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 
         // File stage required
         if (empty($this->_fileStage)) {
-            $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $msg = 'api.submissionFiles.400.noFileStageId');
-            return AUTHORIZATION_DENY;
+            $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, $msg = 'api.submissionFiles.400.noFileStageId');
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Managers can access file stages when not assigned or when assigned as a manager
         if (empty($stageAssignments)) {
             if (in_array(ROLE_ID_MANAGER, $userRoles)) {
-                return AUTHORIZATION_PERMIT;
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Determine the allowed file stages
@@ -72,7 +77,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 
         // Authors may write to the submission files stage if the submission
         // is not yet complete
-        if ($this->_fileStage === SubmissionFile::SUBMISSION_FILE_SUBMISSION && $this->_action === SUBMISSION_FILE_ACCESS_MODIFY) {
+        if ($this->_fileStage === SubmissionFile::SUBMISSION_FILE_SUBMISSION && $this->_action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY) {
             if (!empty($stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION])
                     && count($stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION]) === 1
                     && in_array(ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION])
@@ -83,7 +88,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 
         // Authors may write to the revision files stage if an accept or request revisions
         // decision has been made in the latest round
-        if (in_array($this->_fileStage, [SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION]) && $this->_action === SUBMISSION_FILE_ACCESS_MODIFY) {
+        if (in_array($this->_fileStage, [SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION]) && $this->_action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY) {
             $reviewStage = $this->_fileStage === SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION
                 ? WORKFLOW_STAGE_ID_INTERNAL_REVIEW
                 : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
@@ -111,9 +116,13 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 
         if (in_array($this->_fileStage, $assignedFileStages)) {
             $this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_FILE_STAGES, $assignedFileStages);
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionFileStageAccessPolicy', '\SubmissionFileStageAccessPolicy');
 }

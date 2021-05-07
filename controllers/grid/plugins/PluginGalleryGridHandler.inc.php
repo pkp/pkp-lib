@@ -13,6 +13,9 @@
  * @brief Handle review form grid requests.
  */
 
+use APP\template\TemplateManager;
+use PKP\core\JSONMessage;
+
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
 /**
@@ -20,13 +23,13 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
  */
 define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 
-use APP\template\TemplateManager;
-use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-
 use PKP\plugins\PluginHelper;
+use PKP\security\authorization\PolicySet;
+
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 
 class PluginGalleryGridHandler extends GridHandler
 {
@@ -110,10 +113,8 @@ class PluginGalleryGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.PolicySet');
-        $rolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
+        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
-        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }

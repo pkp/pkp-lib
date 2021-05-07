@@ -16,8 +16,9 @@
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\log\SubmissionEmailLogEntry;
-
+use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\services\PKPSchemaService;
+
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 
@@ -50,7 +51,6 @@ abstract class PKPAuthorDashboardHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.AuthorDashboardAccessPolicy');
         $this->addPolicy(new AuthorDashboardAccessPolicy($request, $args, $roleAssignments), true);
 
         return parent::authorize($request, $args, $roleAssignments);

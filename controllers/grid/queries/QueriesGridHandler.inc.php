@@ -21,8 +21,10 @@ use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-
 use PKP\mail\SubmissionMailTemplate;
+use PKP\security\authorization\QueryAccessPolicy;
+
+use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 
 class QueriesGridHandler extends GridHandler
 {
@@ -136,10 +138,8 @@ class QueriesGridHandler extends GridHandler
         $this->_request = $request;
 
         if ($request->getUserVar('queryId')) {
-            import('lib.pkp.classes.security.authorization.QueryAccessPolicy');
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $this->_stageId));
         } else {
-            import('lib.pkp.classes.security.authorization.QueryWorkflowStageAccessPolicy');
             $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
         }
 

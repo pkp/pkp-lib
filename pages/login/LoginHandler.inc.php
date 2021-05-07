@@ -15,8 +15,9 @@
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-
 use PKP\mail\MailTemplate;
+
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\validation\FormValidatorReCaptcha;
 
 class LoginHandler extends Handler
@@ -28,7 +29,6 @@ class LoginHandler extends Handler
     {
         switch ($op = $request->getRequestedOp()) {
             case 'signInAsUser':
-                import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
                 $this->addPolicy(new RoleBasedHandlerOperationPolicy($request, [ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN], ['signInAsUser']));
                 break;
         }

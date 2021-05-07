@@ -13,7 +13,10 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
+namespace PKP\security\authorization\internal;
+
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
 
 class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -52,13 +55,13 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
 
         // Get the submission file.
         $submissionFile = $this->getSubmissionFile($request);
-        if (!is_a($submissionFile, 'SubmissionFile')) {
-            return AUTHORIZATION_DENY;
+        if (!$submissionFile instanceof \PKP\submission\SubmissionFile) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Make sure that it's in the required stage
         if ($submissionFile->getFileStage() != $this->_fileStage) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         if ($this->_viewable) {
@@ -68,15 +71,19 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
                     $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                     $reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
                     if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {
-                        return AUTHORIZATION_DENY;
+                        return AuthorizationPolicy::AUTHORIZATION_DENY;
                     }
                 } else {
-                    return AUTHORIZATION_DENY;
+                    return AuthorizationPolicy::AUTHORIZATION_DENY;
                 }
             }
         }
 
         // Made it through -- permit access.
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionFileStageRequiredPolicy', '\SubmissionFileStageRequiredPolicy');
 }

@@ -12,9 +12,13 @@
  * @brief Policy that ensures that the request contains a valid review assignment.
  */
 
-import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
+namespace PKP\security\authorization\internal;
 
 use APP\submission\Submission;
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
+
+use PKP\security\authorization\DataObjectRequiredPolicy;
 
 class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
 {
@@ -48,19 +52,19 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
     {
         $reviewId = (int)$this->getDataObjectId();
         if (!$reviewId) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignment = $reviewAssignmentDao->getById($reviewId);
         if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // If reviewMethods is defined, check that the assignment uses the defined method(s)
         if ($this->_reviewMethods) {
             if (!in_array($reviewAssignment->getReviewMethod(), $this->_reviewMethods)) {
-                return AUTHORIZATION_DENY;
+                return AuthorizationPolicy::AUTHORIZATION_DENY;
             }
         }
 
@@ -69,17 +73,21 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         assert($submission instanceof Submission);
         if ($reviewAssignment->getSubmissionId() != $submission->getId()) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Ensure that the review assignment is for this workflow stage
         $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
         if ($reviewAssignment->getStageId() != $stageId) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the review Assignment to the authorization context.
         $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy', '\ReviewAssignmentRequiredPolicy');
 }

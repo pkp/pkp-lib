@@ -112,7 +112,7 @@ class Validation
      */
     public static function registerUserSession($user, &$reason, $remember = false)
     {
-        if (!is_a($user, 'User')) {
+        if (!$user instanceof \PKP\user\User) {
             return false;
         }
 

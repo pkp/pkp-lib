@@ -14,9 +14,10 @@
  */
 
 use APP\file\PublicFileManager;
-use APP\handler\Handler;
 
+use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\security\authorization\ContextAccessPolicy;
 
 class ManagementHandler extends Handler
 {
@@ -50,7 +51,6 @@ class ManagementHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

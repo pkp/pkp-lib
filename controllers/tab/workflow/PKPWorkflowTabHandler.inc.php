@@ -19,9 +19,10 @@ import('classes.workflow.EditorDecisionActionsManager');
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-
 use PKP\linkAction\LinkAction;
+
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 abstract class PKPWorkflowTabHandler extends Handler
 {
@@ -44,7 +45,6 @@ abstract class PKPWorkflowTabHandler extends Handler
     public function authorize($request, &$args, $roleAssignments)
     {
         // Authorize stage id.
-        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
         $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_identifyStageId($request), PKPApplication::WORKFLOW_TYPE_EDITORIAL));
 
         return parent::authorize($request, $args, $roleAssignments);

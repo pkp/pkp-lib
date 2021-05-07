@@ -12,9 +12,13 @@
  * @brief Policy that ensures that the request contains a valid publication id.
  */
 
-import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
+namespace PKP\security\authorization\internal;
 
+use APP\core\Services;
 use APP\publication\Publication;
+
+use PKP\security\authorization\AuthorizationPolicy;
+use PKP\security\authorization\DataObjectRequiredPolicy;
 
 class PublicationRequiredPolicy extends DataObjectRequiredPolicy
 {
@@ -33,7 +37,7 @@ class PublicationRequiredPolicy extends DataObjectRequiredPolicy
 
         $callOnDeny = [$request->getDispatcher(), 'handle404', []];
         $this->setAdvice(
-            AUTHORIZATION_ADVICE_CALL_ON_DENY,
+            AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY,
             $callOnDeny
         );
     }
@@ -49,16 +53,20 @@ class PublicationRequiredPolicy extends DataObjectRequiredPolicy
         // Get the publication id.
         $publicationId = $this->getDataObjectId();
         if ($publicationId === false) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $publication = Services::get('publication')->get($publicationId);
         if (!$publication instanceof Publication) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the publication to the authorization context.
         $this->addAuthorizedContextObject(ASSOC_TYPE_PUBLICATION, $publication);
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\PublicationRequiredPolicy', '\PublicationRequiredPolicy');
 }

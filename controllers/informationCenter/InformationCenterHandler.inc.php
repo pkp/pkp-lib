@@ -14,11 +14,11 @@
  */
 
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 
 use PKP\log\EventLogEntry;
+use PKP\security\authorization\SubmissionAccessPolicy;
 
 abstract class InformationCenterHandler extends Handler
 {
@@ -51,7 +51,6 @@ abstract class InformationCenterHandler extends Handler
     public function authorize($request, &$args, $roleAssignments)
     {
         // Require a submission
-        import('lib.pkp.classes.security.authorization.SubmissionAccessPolicy');
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId'));
         return parent::authorize($request, $args, $roleAssignments);
     }

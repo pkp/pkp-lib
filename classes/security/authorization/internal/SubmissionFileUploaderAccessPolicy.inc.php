@@ -14,7 +14,9 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.internal.SubmissionFileBaseAccessPolicy');
+namespace PKP\security\authorization\internal;
+
+use PKP\security\authorization\AuthorizationPolicy;
 
 class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -42,21 +44,25 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy
 
         // Get the user
         $user = $request->getUser();
-        if (!is_a($user, 'User')) {
-            return AUTHORIZATION_DENY;
+        if (!$user instanceof \PKP\user\User) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Get the submission file
         $submissionFile = $this->getSubmissionFile($request);
-        if (!is_a($submissionFile, 'SubmissionFile')) {
-            return AUTHORIZATION_DENY;
+        if (!$submissionFile instanceof \PKP\submission\SubmissionFile) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Check if the uploader is the current user.
         if ($submissionFile->getUploaderUserId() == $user->getId()) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         } else {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\SubmissionFileUploaderAccessPolicy', '\SubmissionFileUploaderAccessPolicy');
 }

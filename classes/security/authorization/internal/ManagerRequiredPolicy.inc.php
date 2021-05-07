@@ -15,9 +15,12 @@
  * in the authorization context.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization\internal;
 
 use APP\submission\Submission;
+use PKP\db\DAORegistry;
+
+use PKP\security\authorization\AuthorizationPolicy;
 
 class ManagerRequiredPolicy extends AuthorizationPolicy
 {
@@ -46,20 +49,24 @@ class ManagerRequiredPolicy extends AuthorizationPolicy
         // Get the submission
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         if (!$submission instanceof Submission) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Get the stage
         $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
         if (!is_numeric($stageId)) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId)) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         } else {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\ManagerRequiredPolicy', '\ManagerRequiredPolicy');
 }

@@ -18,6 +18,7 @@ use APP\handler\Handler;
 import('classes.statistics.StatisticsHelper');
 
 use PKP\core\JSONMessage;
+use PKP\security\authorization\ContextAccessPolicy;
 
 class ReportGeneratorHandler extends Handler
 {
@@ -38,7 +39,6 @@ class ReportGeneratorHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }

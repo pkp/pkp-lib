@@ -22,6 +22,7 @@ use PKP\db\DAOResultFactory;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\plugins\HookRegistry;
+use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\Services\interfaces\EntityPropertyInterface;
 use PKP\Services\interfaces\EntityReadInterface;
 use PKP\Services\interfaces\EntityWriteInterface;
@@ -663,7 +664,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 && !empty(array_intersect($allowedRoles, $stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION]))) {
             $hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION]));
             // Authors only have read access
-            if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
+            if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
                 $allowedFileStages[] = SUBMISSION_FILE_SUBMISSION;
             }
         }
@@ -671,7 +672,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         if (array_key_exists(WORKFLOW_STAGE_ID_INTERNAL_REVIEW, $stageAssignments)) {
             $hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $stageAssignments[WORKFLOW_STAGE_ID_INTERNAL_REVIEW]));
             // Authors can only write revision files under specific conditions
-            if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
+            if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
                 $allowedFileStages[] = SUBMISSION_FILE_INTERNAL_REVIEW_REVISION;
             }
             // Authors can never access review files
@@ -683,7 +684,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         if (array_key_exists(WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $stageAssignments)) {
             $hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $stageAssignments[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW]));
             // Authors can only write revision files under specific conditions
-            if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
+            if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
                 $allowedFileStages[] = SUBMISSION_FILE_REVIEW_REVISION;
                 $allowedFileStages[] = SUBMISSION_FILE_ATTACHMENT;
             }
@@ -697,7 +698,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 && !empty(array_intersect($allowedRoles, $stageAssignments[WORKFLOW_STAGE_ID_EDITING]))) {
             $hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $stageAssignments[WORKFLOW_STAGE_ID_EDITING]));
             // Authors only have read access
-            if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
+            if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
                 $allowedFileStages[] = SUBMISSION_FILE_COPYEDIT;
             }
             if ($hasEditorialAssignment) {
@@ -709,7 +710,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 && !empty(array_intersect($allowedRoles, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION]))) {
             $hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION]));
             // Authors only have read access
-            if ($action === SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
+            if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
                 $allowedFileStages[] = SUBMISSION_FILE_PROOF;
             }
             if ($hasEditorialAssignment) {

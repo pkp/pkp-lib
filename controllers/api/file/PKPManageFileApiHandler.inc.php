@@ -13,12 +13,11 @@
  * @brief Class defining an AJAX API for file manipulation.
  */
 
-// Import the base handler.
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 
+use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\submission\SubmissionFile;
 
 abstract class PKPManageFileApiHandler extends Handler
@@ -42,8 +41,7 @@ abstract class PKPManageFileApiHandler extends Handler
     //
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
-        $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY, (int) $args['submissionFileId']));
+        $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, (int) $args['submissionFileId']));
 
         return parent::authorize($request, $args, $roleAssignments);
     }

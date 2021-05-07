@@ -13,7 +13,9 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization\internal;
+
+use PKP\security\authorization\AuthorizationPolicy;
 
 class PluginLevelRequiredPolicy extends AuthorizationPolicy
 {
@@ -42,13 +44,17 @@ class PluginLevelRequiredPolicy extends AuthorizationPolicy
     {
         // Get the plugin.
         $plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
-        if (!is_a($plugin, 'Plugin')) {
-            return AUTHORIZATION_DENY;
+        if (!$plugin instanceof \PKP\plugins\Plugin) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         if (!$this->_contextPresent) { // Site context
-            return $plugin->isSitePlugin() ? AUTHORIZATION_PERMIT : AUTHORIZATION_DENY;
+            return $plugin->isSitePlugin() ? AuthorizationPolicy::AUTHORIZATION_PERMIT : AuthorizationPolicy::AUTHORIZATION_DENY;
         }
-        return $plugin->isSitePlugin() ? AUTHORIZATION_DENY : AUTHORIZATION_PERMIT;
+        return $plugin->isSitePlugin() ? AuthorizationPolicy::AUTHORIZATION_DENY : AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\PluginLevelRequiredPolicy', '\PluginLevelRequiredPolicy');
 }

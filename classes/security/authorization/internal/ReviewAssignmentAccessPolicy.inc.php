@@ -15,8 +15,11 @@
  * authorization context.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization\internal;
 
+use APP\submission\Submission;
+use PKP\db\DAORegistry;
+use PKP\security\authorization\AuthorizationPolicy;
 use PKP\user\User;
 
 class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
@@ -51,13 +54,13 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
         // Get the user
         $user = $this->_request->getUser();
         if (!$user instanceof User) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Get the submission
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         if (!$submission instanceof Submission) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Check if a review assignment exists between the submission and the user
@@ -66,21 +69,25 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
 
         // Ensure a valid review assignment was fetched from the database
         if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // If the assignment has been cancelled, deny access.
         if ($reviewAssignment->getCancelled()) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Ensure that the assignment isn't declined, unless that's permitted
         if (!$this->_permitDeclined && $reviewAssignment->getDeclined()) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the review assignment to the authorization context.
         $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\ReviewAssignmentAccessPolicy', '\ReviewAssignmentAccessPolicy');
 }

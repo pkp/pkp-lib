@@ -15,9 +15,10 @@
 
 use APP\core\Services;
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
+
 use PKP\file\ContextFileManager;
+use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\submission\PKPSubmission;
 
 class PKPCatalogHandler extends Handler
@@ -30,7 +31,6 @@ class PKPCatalogHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
         $this->addPolicy(new ContextRequiredPolicy($request));
         return parent::authorize($request, $args, $roleAssignments);
     }

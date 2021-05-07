@@ -13,7 +13,9 @@
  *
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+namespace PKP\security\authorization\internal;
+
+use PKP\security\authorization\AuthorizationPolicy;
 
 class PublicationIsSubmissionPolicy extends AuthorizationPolicy
 {
@@ -26,9 +28,13 @@ class PublicationIsSubmissionPolicy extends AuthorizationPolicy
         $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
 
         if ($submission && $publication && $submission->getId() === $publication->getData('submissionId')) {
-            return AUTHORIZATION_PERMIT;
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
-        return AUTHORIZATION_DENY;
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\internal\PublicationIsSubmissionPolicy', '\PublicationIsSubmissionPolicy');
 }

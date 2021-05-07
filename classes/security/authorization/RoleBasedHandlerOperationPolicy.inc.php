@@ -13,7 +13,7 @@
  *  control.
  */
 
-import('lib.pkp.classes.security.authorization.HandlerOperationPolicy');
+namespace PKP\security\authorization;
 
 class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
 {
@@ -67,20 +67,20 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
         // Get user roles grouped by context.
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         if (empty($userRoles)) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         if (!$this->_checkUserRoleAssignment($userRoles)) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
         if (!$this->_checkOperationWhitelist()) {
-            return AUTHORIZATION_DENY;
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         $handler = $this->getRequest()->getRouter()->getHandler();
         $handler->markRoleAssignmentsChecked();
 
-        return AUTHORIZATION_PERMIT;
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 
 
@@ -126,4 +126,8 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
             return false;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\authorization\RoleBasedHandlerOperationPolicy', '\RoleBasedHandlerOperationPolicy');
 }

@@ -13,21 +13,21 @@
  * @brief Wrapper class for create and assign editor decisions actions to template manager.
  */
 
-// Defining other decision types as well, because these are not defined in pkp-lib
-define('SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW', 8);
-define('SUBMISSION_EDITOR_DECISION_ACCEPT', 1);
-define('SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS', 2);
-define('SUBMISSION_EDITOR_DECISION_RESUBMIT', 3);
-define('SUBMISSION_EDITOR_DECISION_DECLINE', 4);
-define('SUBMISSION_EDITOR_DECISION_NEW_ROUND', 16);
-define('SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION', 7);
+namespace APP\workflow;
 
-import('lib.pkp.classes.workflow.PKPEditorDecisionActionsManager');
-
+use PKP\workflow\PKPEditorDecisionActionsManager;
 use PKP\submission\PKPSubmission;
 
 class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager
 {
+    public const SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW = 8;
+    public const SUBMISSION_EDITOR_DECISION_ACCEPT = 1;
+    public const SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS = 2;
+    public const SUBMISSION_EDITOR_DECISION_RESUBMIT = 3;
+    public const SUBMISSION_EDITOR_DECISION_DECLINE = 4;
+    public const SUBMISSION_EDITOR_DECISION_NEW_ROUND = 16;
+    public const SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION = 7;
+
     /**
      * Get decision actions labels.
      *
@@ -82,7 +82,7 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager
         if ($makeDecision) {
             if ($submission->getStatus() == PKPSubmission::STATUS_QUEUED) {
                 $decisions = $decisions + [
-                    SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => [
+                    self::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => [
                         'name' => 'decline',
                         'operation' => 'sendReviews',
                         'title' => 'editor.submission.decision.decline',
@@ -91,7 +91,7 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager
             }
             if ($submission->getStatus() == PKPSubmission::STATUS_DECLINED) {
                 $decisions = $decisions + [
-                    SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => [
+                    self::SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => [
                         'name' => 'revert',
                         'operation' => 'revertDecline',
                         'title' => 'editor.submission.decision.revertDecline',
@@ -100,5 +100,20 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager
             }
         }
         return $decisions;
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\workflow\EditorDecisionActionsManager', '\EditorDecisionActionsManager');
+    foreach ([
+        'SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW',
+        'SUBMISSION_EDITOR_DECISION_ACCEPT',
+        'SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS',
+        'SUBMISSION_EDITOR_DECISION_RESUBMIT',
+        'SUBMISSION_EDITOR_DECISION_DECLINE',
+        'SUBMISSION_EDITOR_DECISION_NEW_ROUND',
+        'SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION',
+    ] as $constantName) {
+        define($constantName, constant('\EditorDecisionActionsManager::' . $constantName));
     }
 }

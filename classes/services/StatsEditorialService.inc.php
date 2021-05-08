@@ -15,6 +15,9 @@
 
 namespace APP\Services;
 
+use APP\i18n\AppLocale;
+use APP\workflow\EditorDecisionActionsHandler;
+
 class StatsEditorialService extends \PKP\Services\PKPStatsEditorialService
 {
     /**
@@ -24,14 +27,12 @@ class StatsEditorialService extends \PKP\Services\PKPStatsEditorialService
      */
     public function getOverview($args = [])
     {
-        import('classes.workflow.EditorDecisionActionsManager');
-        import('lib.pkp.classes.submission.PKPSubmission');
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
 
         $received = $this->countSubmissionsReceived($args);
-        $accepted = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
-        $declinedDesk = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
-        $declinedReview = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_DECLINE, $args);
+        $accepted = $this->countByDecisions(EditorDecisionActionsHandler::SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
+        $declinedDesk = $this->countByDecisions(EditorDecisionActionsHandler::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
+        $declinedReview = $this->countByDecisions(EditorDecisionActionsHandler::SUBMISSION_EDITOR_DECISION_DECLINE, $args);
         $declined = $declinedDesk + $declinedReview;
 
         $overview = [

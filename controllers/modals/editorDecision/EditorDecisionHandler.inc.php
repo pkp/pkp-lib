@@ -15,10 +15,9 @@
 
 use PKP\security\authorization\EditorDecisionAccessPolicy;
 
-import('lib.pkp.classes.controllers.modals.editorDecision.PKPEditorDecisionHandler');
+use APP\workflow\EditorDecisionActionsHandler;
 
-// Access decision actions constants.
-import('classes.workflow.EditorDecisionActionsManager');
+import('lib.pkp.classes.controllers.modals.editorDecision.PKPEditorDecisionHandler');
 
 class EditorDecisionHandler extends PKPEditorDecisionHandler
 {
@@ -65,9 +64,9 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler
     protected function _getNotificationTypeByEditorDecision($decision)
     {
         switch ($decision) {
-            case SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE:
+            case EditorDecisionActionsHandler::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE:
                 return NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE;
-            case SUBMISSION_EDITOR_DECISION_REVERT_DECLINE:
+            case EditorDecisionActionsHandler::SUBMISSION_EDITOR_DECISION_REVERT_DECLINE:
                 return NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE;
             default:
                 assert(false);

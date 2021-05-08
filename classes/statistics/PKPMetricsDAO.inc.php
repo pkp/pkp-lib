@@ -18,7 +18,8 @@
 
 import('classes.statistics.StatisticsHelper'); //STATISTICS_DIMENSION_
 
-use Exception;
+// use Exception;
+
 use PKP\core\PKPApplication;
 
 use PKP\db\DBResultRange;

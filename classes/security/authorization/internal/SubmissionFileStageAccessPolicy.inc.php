@@ -17,10 +17,11 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Services;
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
-use PKP\security\authorization\SubmissionFileAccessPolicy;
 
+use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\submission\SubmissionFile;
 
 class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
@@ -101,10 +102,10 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                     $decisions = $editDecisionDao->getEditorDecisions($submission->getId(), $reviewRound->getStageId(), $reviewRound->getRound());
                     if (!empty($decisions)) {
                         foreach ($decisions as $decision) {
-                            if ($decision['decision'] == SUBMISSION_EDITOR_DECISION_ACCEPT
-                                    || $decision['decision'] == SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS
-                                    || $decision['decision'] == SUBMISSION_EDITOR_DECISION_NEW_ROUND
-                                    || $decision['decision'] == SUBMISSION_EDITOR_DECISION_RESUBMIT) {
+                            if ($decision['decision'] == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT
+                                    || $decision['decision'] == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS
+                                    || $decision['decision'] == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND
+                                    || $decision['decision'] == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_RESUBMIT) {
                                 $assignedFileStages[] = $this->_fileStage;
                                 break;
                             }

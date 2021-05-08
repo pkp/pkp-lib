@@ -16,6 +16,8 @@
 
 namespace PKP\Services\QueryBuilders;
 
+use APP\workflow\EditorDecisionActionsManager;
+
 use Illuminate\Support\Facades\DB;
 
 use PKP\submission\PKPSubmission;
@@ -154,7 +156,10 @@ abstract class PKPStatsEditorialQueryBuilder
         // and then later declined. We check the current status to
         // exclude submissions where the status doesn't match the
         // decisions we are looking for.
-        $declineDecisions = [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE];
+        $declineDecisions = [
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE,
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE
+        ];
         if (count(array_intersect($declineDecisions, $decisions))) {
             $q->where('s.status', '=', PKPSubmission::STATUS_DECLINED);
         } else {
@@ -329,7 +334,10 @@ abstract class PKPStatsEditorialQueryBuilder
         // and then later declined. We check the current status to
         // exclude submissions where the status doesn't match the
         // decisions we are looking for.
-        $declineDecisions = [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE];
+        $declineDecisions = [
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE,
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE
+        ];
         if (count(array_intersect($declineDecisions, $decisions))) {
             $q->where('s.status', '=', PKPSubmission::STATUS_DECLINED);
         } else {

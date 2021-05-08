@@ -13,11 +13,10 @@
  * @brief Editor actions.
  */
 
-// Access decision actions constants.
-import('classes.workflow.EditorDecisionActionsManager');
-
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
+
 use PKP\submission\PKPSubmission;
 
 class EditorAction
@@ -84,7 +83,7 @@ class EditorAction
 
             // Set a new submission status if necessary
             $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-            if ($decision == SUBMISSION_EDITOR_DECISION_DECLINE || $decision == SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE) {
+            if ($decision == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE || $decision == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE) {
                 $submission->setStatus(PKPSubmission::STATUS_DECLINED);
                 $submissionDao->updateObject($submission);
             } elseif ($submission->getStatus() == PKPSubmission::STATUS_DECLINED) {

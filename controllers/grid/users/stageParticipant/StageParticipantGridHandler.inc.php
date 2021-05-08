@@ -21,13 +21,14 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 
 use APP\log\SubmissionEventLogEntry;
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
 use PKP\log\SubmissionLog;
-use PKP\mail\SubmissionMailTemplate;
 
+use PKP\mail\SubmissionMailTemplate;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 class StageParticipantGridHandler extends CategoryGridHandler
@@ -350,7 +351,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
 
             $userGroup = $userGroupDao->getById($userGroupId);
-            import('classes.workflow.EditorDecisionActionsManager');
             if ($userGroup->getRoleId() == ROLE_ID_MANAGER) {
                 $notificationMgr->updateNotification(
                     $request,
@@ -416,7 +416,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
         // FIXME: perhaps we can just insert the notification on page load
         // instead of having it there all the time?
         $notificationMgr = new NotificationManager();
-        import('classes.workflow.EditorDecisionActionsManager');
         $notificationMgr->updateNotification(
             $request,
             (new EditorDecisionActionsManager())->getStageNotifications(),

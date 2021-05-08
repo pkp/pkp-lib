@@ -13,14 +13,12 @@
  * @brief Handle AJAX operations for workflow tabs.
  */
 
-// Access decision actions constants.
-import('classes.workflow.EditorDecisionActionsManager');
-
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
-use PKP\linkAction\LinkAction;
 
+use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 
@@ -116,7 +114,7 @@ abstract class PKPWorkflowTabHandler extends Handler
                                 null,
                                 [
                                     'submissionId' => $submission->getId(),
-                                    'decision' => SUBMISSION_EDITOR_DECISION_NEW_ROUND,
+                                    'decision' => EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND,
                                     'stageId' => $selectedStageId,
                                     'reviewRoundId' => $lastReviewRoundId
                                 ]

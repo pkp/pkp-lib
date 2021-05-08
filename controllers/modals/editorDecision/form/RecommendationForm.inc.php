@@ -14,9 +14,10 @@
  */
 
 use APP\template\TemplateManager;
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\form\Form;
-use PKP\log\SubmissionEmailLogEntry;
 
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\SubmissionMailTemplate;
 
 // Define review round and review stage id constants.

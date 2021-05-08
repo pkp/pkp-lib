@@ -16,6 +16,7 @@
 use APP\file\LibraryFileManager;
 use APP\template\TemplateManager;
 
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\SubmissionMailTemplate;
 
@@ -68,13 +69,13 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
         $user = $request->getUser();
 
         $emailKeys = [
-            SUBMISSION_EDITOR_DECISION_ACCEPT => 'EDITOR_DECISION_ACCEPT',
-            SUBMISSION_EDITOR_DECISION_DECLINE => 'EDITOR_DECISION_DECLINE',
-            SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => 'EDITOR_DECISION_INITIAL_DECLINE',
-            SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW => 'EDITOR_DECISION_SEND_TO_EXTERNAL',
-            SUBMISSION_EDITOR_DECISION_RESUBMIT => 'EDITOR_DECISION_RESUBMIT',
-            SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS => 'EDITOR_DECISION_REVISIONS',
-            SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => 'EDITOR_DECISION_SEND_TO_PRODUCTION',
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT => 'EDITOR_DECISION_ACCEPT',
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE => 'EDITOR_DECISION_DECLINE',
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => 'EDITOR_DECISION_INITIAL_DECLINE',
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW => 'EDITOR_DECISION_SEND_TO_EXTERNAL',
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_RESUBMIT => 'EDITOR_DECISION_RESUBMIT',
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS => 'EDITOR_DECISION_REVISIONS',
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => 'EDITOR_DECISION_SEND_TO_PRODUCTION',
         ];
 
         $email = new SubmissionMailTemplate($submission, $emailKeys[$this->getDecision()]);

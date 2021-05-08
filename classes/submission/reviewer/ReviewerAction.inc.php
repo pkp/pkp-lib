@@ -18,9 +18,6 @@ use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\mail\SubmissionMailTemplate;
 
-// Access decision actions constants.
-import('classes.workflow.EditorDecisionActionsManager');
-
 class ReviewerAction
 {
     /**

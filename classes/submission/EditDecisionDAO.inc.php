@@ -17,11 +17,8 @@ namespace PKP\submission;
 
 use APP\core\Services;
 
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\db\DAORegistry;
-
-// Bring in editor decision constants
-// FIXME: These should be standardized into lib-pkp.
-import('classes.workflow.EditorDecisionActionsManager');
 
 class EditDecisionDAO extends \PKP\db\DAO
 {
@@ -144,10 +141,10 @@ class EditDecisionDAO extends \PKP\db\DAO
      *
      * @return mixed array or null
      */
-    public function findValidPendingRevisionsDecision($submissionId, $expectedStageId, $revisionDecision = SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS)
+    public function findValidPendingRevisionsDecision($submissionId, $expectedStageId, $revisionDecision = EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS)
     {
-        $postReviewDecisions = [SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION];
-        $revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
+        $postReviewDecisions = [EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION];
+        $revisionDecisions = [EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_RESUBMIT];
         if (!in_array($revisionDecision, $revisionDecisions)) {
             return null;
         }

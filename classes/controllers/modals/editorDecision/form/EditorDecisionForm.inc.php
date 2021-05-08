@@ -15,11 +15,13 @@
 
 
 use APP\template\TemplateManager;
-use PKP\form\Form;
+use APP\workflow\EditorDecisionActionsManager;
 
+use PKP\form\Form;
 use PKP\submission\SubmissionFile;
 
 // Define review round and review stage id constants.
+// FIXME: Add namespacing
 import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 
 class EditorDecisionForm extends Form

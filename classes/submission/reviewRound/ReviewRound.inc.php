@@ -17,6 +17,9 @@
  *
  * @brief Basic class describing a review round.
  */
+
+use APP\workflow\EditorDecisionActionsManager;
+
 // The first four statuses are set explicitly by EditorDecisions, which override
 // the current status.
 define('REVIEW_ROUND_STATUS_REVISIONS_REQUESTED', 1);
@@ -152,7 +155,7 @@ class ReviewRound extends \PKP\core\DataObject
         if ($this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
             // get editor decisions
             $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
+            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
 
             if ($pendingRevisionDecision) {
                 if ($editDecisionDao->responseExists($pendingRevisionDecision, $this->getSubmissionId())) {
@@ -167,7 +170,7 @@ class ReviewRound extends \PKP\core\DataObject
         if ($this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->getStatus() == REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
             // get editor decisions
             $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), SUBMISSION_EDITOR_DECISION_RESUBMIT);
+            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_RESUBMIT);
 
             if ($pendingRevisionDecision) {
                 if ($editDecisionDao->responseExists($pendingRevisionDecision, $this->getSubmissionId())) {

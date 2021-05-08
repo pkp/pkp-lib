@@ -16,8 +16,10 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
+
 use PKP\submission\SubmissionFile;
 
 // FIXME: Add namespacing
@@ -62,8 +64,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         if (!$reviewRound instanceof ReviewRound) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
-        import('classes.workflow.EditorDecisionActionsManager');
-        if (!(new EditorDecisionActionsManager())->getEditorTakenActionInReviewRound($request->getContext(), $reviewRound, [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS])) {
+        if (!(new EditorDecisionActionsManager())->getEditorTakenActionInReviewRound($request->getContext(), $reviewRound, [EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS])) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
@@ -88,7 +89,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         }
 
         $lastEditorDecision = array_pop($reviewRoundDecisions);
-        if ($lastEditorDecision['decision'] != SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) {
+        if ($lastEditorDecision['decision'] != EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 
+use APP\workflow\EditorDecisionActionsManager;
+
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 {
     /**
@@ -129,7 +131,6 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         }
 
         // Update assignment notifications
-        import('classes.workflow.EditorDecisionActionsManager');
         $notificationManager->updateNotification(
             $request,
             (new EditorDecisionActionsManager())->getStageNotifications(),

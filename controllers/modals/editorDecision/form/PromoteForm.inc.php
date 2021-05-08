@@ -13,12 +13,12 @@
  * @brief Form for promoting a submission (to external review or editing)
  */
 
+use APP\workflow\EditorDecisionActionsManager;
+
 use PKP\submission\SubmissionFile;
 
+// FIXME: Add namespacing
 import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailForm');
-
-// Access decision actions constants.
-import('classes.workflow.EditorDecisionActionsManager');
 
 class PromoteForm extends EditorDecisionWithEmailForm
 {
@@ -102,7 +102,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
 
         // Identify email key and status of round.
         switch ($decision) {
-            case SUBMISSION_EDITOR_DECISION_ACCEPT:
+            case EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT:
                 $emailKey = 'EDITOR_DECISION_ACCEPT';
                 $status = REVIEW_ROUND_STATUS_ACCEPTED;
 
@@ -129,7 +129,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 $this->_sendReviewMailToAuthor($submission, $emailKey, $request);
                 break;
 
-            case SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW:
+            case EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW:
                 $emailKey = 'EDITOR_DECISION_SEND_TO_EXTERNAL';
                 $status = REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL;
 
@@ -144,7 +144,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 // Send email to the author.
                 $this->_sendReviewMailToAuthor($submission, $emailKey, $request);
                 break;
-            case SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION:
+            case EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION:
                 $emailKey = 'EDITOR_DECISION_SEND_TO_PRODUCTION';
                 // FIXME: this is copy-pasted from above, save the FILE_GALLEY.
 
@@ -216,9 +216,9 @@ class PromoteForm extends EditorDecisionWithEmailForm
     public function _getDecisions()
     {
         return [
-            SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW,
-            SUBMISSION_EDITOR_DECISION_ACCEPT,
-            SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW,
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT,
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION
         ];
     }
 }

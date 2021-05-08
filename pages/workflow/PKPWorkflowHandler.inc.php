@@ -15,6 +15,7 @@
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
@@ -23,9 +24,7 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
-
-// FIXME: Add namespacing
-import('lib.pkp.classes.workflow.WorkflowStageDAO');
+use PKP\workflow\WorkflowStageDAO;
 
 abstract class PKPWorkflowHandler extends Handler
 {
@@ -562,7 +561,6 @@ abstract class PKPWorkflowHandler extends Handler
         $editorDecisions = [];
         $lastRecommendation = $allRecommendations = null;
         if (!empty($editorsStageAssignments) && (!$reviewRoundId || ($lastReviewRound && $reviewRoundId == $lastReviewRound->getId()))) {
-            import('classes.workflow.EditorDecisionActionsManager');
             $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
             $recommendationOptions = (new EditorDecisionActionsManager())->getRecommendationOptions($stageId);
             // If this is a review stage and the user has "recommend only role"

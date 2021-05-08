@@ -13,18 +13,22 @@
  * @brief Wrapper class for create and assign editor decisions actions to template manager.
  */
 
-define('SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE', 9);
+namespace PKP\workflow;
 
-define('SUBMISSION_EDITOR_RECOMMEND_ACCEPT', 11);
-define('SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS', 12);
-define('SUBMISSION_EDITOR_RECOMMEND_RESUBMIT', 13);
-define('SUBMISSION_EDITOR_RECOMMEND_DECLINE', 14);
-define('SUBMISSION_EDITOR_DECISION_REVERT_DECLINE', 17);
+use APP\workflow\EditorDecisionActionsManager;
+use PKP\plugins\HookRegistry;
 
 use PKP\submission\PKPSubmission;
 
 abstract class PKPEditorDecisionActionsManager
 {
+    public const SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE = 9;
+    public const SUBMISSION_EDITOR_RECOMMEND_ACCEPT = 11;
+    public const SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS = 12;
+    public const SUBMISSION_EDITOR_RECOMMEND_RESUBMIT = 13;
+    public const SUBMISSION_EDITOR_RECOMMEND_DECLINE = 14;
+    public const SUBMISSION_EDITOR_DECISION_REVERT_DECLINE = 17;
+
     /**
      * Get the available decisions by stage ID and user making decision permissions,
      * if the user can make decisions or if it is recommendOnly user.
@@ -69,10 +73,10 @@ abstract class PKPEditorDecisionActionsManager
     {
         return [
             '' => 'common.chooseOne',
-            SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS => 'editor.submission.decision.requestRevisions',
-            SUBMISSION_EDITOR_RECOMMEND_RESUBMIT => 'editor.submission.decision.resubmit',
-            SUBMISSION_EDITOR_RECOMMEND_ACCEPT => 'editor.submission.decision.accept',
-            SUBMISSION_EDITOR_RECOMMEND_DECLINE => 'editor.submission.decision.decline',
+            self::SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS => 'editor.submission.decision.requestRevisions',
+            self::SUBMISSION_EDITOR_RECOMMEND_RESUBMIT => 'editor.submission.decision.resubmit',
+            self::SUBMISSION_EDITOR_RECOMMEND_ACCEPT => 'editor.submission.decision.accept',
+            self::SUBMISSION_EDITOR_RECOMMEND_DECLINE => 'editor.submission.decision.decline',
         ];
     }
 
@@ -91,7 +95,7 @@ abstract class PKPEditorDecisionActionsManager
     protected function _submissionStageDecisions($submission, $stageId, $makeDecision = true)
     {
         $decisions = [
-            SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW => [
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW => [
                 'operation' => 'externalReview',
                 'name' => 'externalReview',
                 'title' => 'editor.submission.decision.sendExternalReview',
@@ -101,7 +105,7 @@ abstract class PKPEditorDecisionActionsManager
         if ($makeDecision) {
             if ($stageId == WORKFLOW_STAGE_ID_SUBMISSION) {
                 $decisions = $decisions + [
-                    SUBMISSION_EDITOR_DECISION_ACCEPT => [
+                    EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT => [
                         'name' => 'accept',
                         'operation' => 'promote',
                         'title' => 'editor.submission.decision.skipReview',
@@ -112,7 +116,7 @@ abstract class PKPEditorDecisionActionsManager
 
             if ($submission->getStatus() == PKPSubmission::STATUS_QUEUED) {
                 $decisions = $decisions + [
-                    SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => [
+                    self::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => [
                         'name' => 'decline',
                         'operation' => 'sendReviews',
                         'title' => 'editor.submission.decision.decline',
@@ -121,7 +125,7 @@ abstract class PKPEditorDecisionActionsManager
             }
             if ($submission->getStatus() == PKPSubmission::STATUS_DECLINED) {
                 $decisions = $decisions + [
-                    SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => [
+                    self::SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => [
                         'name' => 'revert',
                         'operation' => 'revertDecline',
                         'title' => 'editor.submission.decision.revertDecline',
@@ -144,7 +148,7 @@ abstract class PKPEditorDecisionActionsManager
     protected function _editorialStageDecisions($makeDecision = true)
     {
         return [
-            SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => [
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => [
                 'operation' => 'promote',
                 'name' => 'sendToProduction',
                 'title' => 'editor.submission.decision.sendToProduction',
@@ -166,5 +170,21 @@ abstract class PKPEditorDecisionActionsManager
             NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING,
             NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION
         ];
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\workflow\PKPEditorDecisionActionsManager', '\PKPEditorDecisionActionsManager');
+    foreach ([
+        'SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE',
+        'SUBMISSION_EDITOR_RECOMMEND_ACCEPT',
+        'SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS',
+        'SUBMISSION_EDITOR_RECOMMEND_RESUBMIT',
+        'SUBMISSION_EDITOR_RECOMMEND_DECLINE',
+        'SUBMISSION_EDITOR_DECISION_REVERT_DECLINE',
+    ] as $constantName) {
+        if (!defined($constantName)) {
+            define($constantName, constant('\PKPEditorDecisionActionsManager::' . $constantName));
+        }
     }
 }

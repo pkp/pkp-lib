@@ -14,9 +14,11 @@
  */
 
 import('lib.pkp.classes.notification.NotificationManagerDelegate');
-import('lib.pkp.classes.workflow.WorkflowStageDAO');
 
 use APP\core\Services;
+
+use APP\workflow\EditorDecisionActionsManager;
+use PKP\workflow\WorkflowStageDAO;
 
 class PendingRevisionsNotificationManager extends NotificationManagerDelegate
 {
@@ -114,7 +116,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
         $expectedStageId = $stageData['id'];
 
         $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-        $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId, SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
+        $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($submissionId, $expectedStageId, EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
         $removeNotifications = false;
 
         if ($pendingRevisionDecision) {

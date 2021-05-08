@@ -16,6 +16,8 @@
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 
+use APP\workflow\EditorDecisionActionsManager;
+
 class NewReviewRoundForm extends EditorDecisionForm
 {
     /**
@@ -26,7 +28,7 @@ class NewReviewRoundForm extends EditorDecisionForm
      * @param stageid int
      * @param null|mixed $stageId
      */
-    public function __construct($submission, $decision = SUBMISSION_EDITOR_DECISION_NEW_ROUND, $stageId = null, $reviewRound)
+    public function __construct($submission, $decision = EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND, $stageId = null, $reviewRound)
     {
         parent::__construct($submission, $decision, $stageId, 'controllers/modals/editorDecision/form/newReviewRoundForm.tpl', $reviewRound);
         // WARNING: this constructor may be invoked dynamically by
@@ -56,7 +58,7 @@ class NewReviewRoundForm extends EditorDecisionForm
         $reviewRound = $this->getReviewRound();
         import('lib.pkp.classes.submission.action.EditorAction');
         $editorAction = new EditorAction();
-        $editorAction->recordDecision($request, $submission, SUBMISSION_EDITOR_DECISION_NEW_ROUND, $actionLabels, $reviewRound);
+        $editorAction->recordDecision($request, $submission, EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND, $actionLabels, $reviewRound);
 
         // Update the review round status.
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -86,7 +88,7 @@ class NewReviewRoundForm extends EditorDecisionForm
     public function _getDecisions()
     {
         return [
-            SUBMISSION_EDITOR_DECISION_NEW_ROUND
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND
         ];
     }
 }

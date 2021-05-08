@@ -15,10 +15,11 @@
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
-use PKP\services\PKPSchemaService;
 
+use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 
@@ -175,7 +176,10 @@ abstract class PKPAuthorDashboardHandler extends Handler
                 $editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $submission->getData('stageId'), $lastReviewRound->getRound());
                 if (!empty($editorDecisions)) {
                     $lastDecision = end($editorDecisions)['decision'];
-                    $revisionDecisions = [SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS, SUBMISSION_EDITOR_DECISION_RESUBMIT];
+                    $revisionDecisions = [
+                        EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS,
+                        EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_RESUBMIT
+                    ];
                     if (in_array($lastDecision, $revisionDecisions)) {
                         $actionArgs['submissionId'] = $submission->getId();
                         $actionArgs['stageId'] = $submission->getData('stageId');

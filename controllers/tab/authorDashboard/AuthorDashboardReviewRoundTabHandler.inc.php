@@ -17,9 +17,10 @@
 import('pages.authorDashboard.AuthorDashboardHandler');
 
 use APP\template\TemplateManager;
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
-use PKP\log\SubmissionEmailLogEntry;
 
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
@@ -99,7 +100,6 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         }
 
         // Editor has taken an action and sent an email; Display the email
-        import('classes.workflow.EditorDecisionActionsManager');
         if ((new EditorDecisionActionsManager())->getEditorTakenActionInReviewRound($request->getContext(), $reviewRound)) {
             $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
             $user = $request->getUser();

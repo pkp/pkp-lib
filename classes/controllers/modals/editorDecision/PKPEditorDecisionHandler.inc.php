@@ -14,9 +14,10 @@
  */
 
 use APP\handler\Handler;
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
-use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 
+use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\submission\SubmissionComment;
 
 class PKPEditorDecisionHandler extends Handler
@@ -113,7 +114,7 @@ class PKPEditorDecisionHandler extends Handler
             $request,
             'InitiateExternalReviewForm',
             $workflowStageDao::WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW,
-            SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW
         );
     }
 
@@ -560,8 +561,8 @@ class PKPEditorDecisionHandler extends Handler
 
             // Update submission notifications
             $submissionNotificationsToUpdate = [
-                SUBMISSION_EDITOR_DECISION_ACCEPT => [NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS],
-                SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => [
+                EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT => [NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS],
+                EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => [
                     NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
                     NOTIFICATION_TYPE_AWAITING_COPYEDITS,
                     NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
@@ -584,7 +585,7 @@ class PKPEditorDecisionHandler extends Handler
                 $redirectUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'workflow', $redirectOp, [$submission->getId()]);
                 return $request->redirectUrlJson($redirectUrl);
             } else {
-                if (in_array($decision, [SUBMISSION_EDITOR_DECISION_DECLINE, SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, SUBMISSION_EDITOR_DECISION_REVERT_DECLINE])) {
+                if (in_array($decision, [EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE, EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_REVERT_DECLINE])) {
                     $dispatcher = $this->getDispatcher();
                     $redirectUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'workflow', 'access', [$submission->getId()]);
                     return $request->redirectUrlJson($redirectUrl);

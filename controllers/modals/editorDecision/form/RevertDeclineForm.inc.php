@@ -15,8 +15,7 @@
 
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 
-// Access decision actions constants.
-import('classes.workflow.EditorDecisionActionsManager');
+use APP\workflow\EditorDecisionActionsManager;
 
 use PKP\submission\PKPSubmission;
 
@@ -67,7 +66,6 @@ class RevertDeclineForm extends EditorDecisionForm
         $submission = $this->getSubmission();
 
         // Record the decision.
-        import('classes.workflow.EditorDecisionActionsManager');
         $actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), [$this->getDecision()]);
         import('lib.pkp.classes.submission.action.EditorAction');
         $editorAction = new EditorAction();
@@ -100,7 +98,7 @@ class RevertDeclineForm extends EditorDecisionForm
     public function _getDecisions()
     {
         return [
-            SUBMISSION_EDITOR_DECISION_REVERT_DECLINE
+            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_REVERT_DECLINE
         ];
     }
 }

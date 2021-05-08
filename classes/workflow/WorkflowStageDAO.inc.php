@@ -14,6 +14,11 @@
  *
  */
 
+namespace PKP\workflow;
+
+use APP\core\Application;
+use APP\i18n\AppLocale;
+
 class WorkflowStageDAO extends \PKP\db\DAO
 {
     public const WORKFLOW_STAGE_PATH_SUBMISSION = 'submission';
@@ -164,6 +169,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
 
 // Expose global constants unless operating in strict mode.
 if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\workflow\WorkflowStageDAO', '\WorkflowStageDAO');
     foreach ([
         'WORKFLOW_STAGE_PATH_SUBMISSION',
         'WORKFLOW_STAGE_PATH_INTERNAL_REVIEW',
@@ -172,7 +178,7 @@ if (!PKP_STRICT_MODE) {
         'WORKFLOW_STAGE_PATH_PRODUCTION',
     ] as $constantName) {
         if (!defined($constantName)) {
-            define($constantName, constant('WorkflowStageDAO::' . $constantName));
+            define($constantName, constant('\WorkflowStageDAO::' . $constantName));
         }
     }
 }

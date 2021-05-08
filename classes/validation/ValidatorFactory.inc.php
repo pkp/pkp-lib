@@ -104,7 +104,7 @@ class ValidatorFactory
         $validation->extend('orcid', function ($attribute, $value, $parameters, $validator) use ($validation) {
             $orcidRegexValidator = $validation->make(
                 ['value' => $value],
-                ['value' => 'regex:/^http[s]?:\/\/(sandbox\.)?orcid.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])$/']
+                ['value' => 'regex:/^https:\/\/(sandbox\.)?orcid.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])$/']
             );
             if ($orcidRegexValidator->fails()) {
                 return false;

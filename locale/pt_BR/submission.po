@@ -1018,12 +1018,6 @@ msgstr "O servidor ainda está processando as citações do artigo. A lista de c
 msgid "submission.citations.filter.invalidMetadata"
 msgstr "Ocorreu um erro no filtro {$filterName}: Um dos elementos retornados da fonte de dados (um web service, por exemplo) não está em conformidade com o formato interno de metadados. Os resultados da fonte de dados foram rejeitados. Notifique o problema ao sistema de gestão de erros."
 
-msgid "submission.citations.filter.webserviceError"
-msgstr "O web service do filtro {$filterName} retornou um erro ao ser executado pela URL: {$webserviceUrl}. O serviço pode estar temporariamente indisponível. Ainda assim, é possível trabalhar com os outros serviços restantes e salvar seus resultados. Também poderá tentar novamente mais tarde. Caso o problema persista, solicite ao editor gerente que desabilite este serviço e notifique o problema ao sistema de gestão de erros."
-
-msgid "submission.citations.filter.webserviceResultTransformationError"
-msgstr "Ocorreu um erro no filtro {$filterName}: A transformação de resultados XML (provenientes de um web service, por exemplo) em metadados baseados em campos falhou. O web service pode ter retornado dados inválidos ou incompletos. Notifique o problema ao sistema de gestão de erros."
-
 msgid "submission.citations.metadata.changeWarning"
 msgstr "Deseja realmente atualizar a lista de referências? Caso clique em 'ok', quaisquer alterações realizadas no editor serão sobrescritas. Caso não tenha certeza se deve alterar a lista de referências, entre em contato com o editor responsável pelo acompanhamento da submissão."
 

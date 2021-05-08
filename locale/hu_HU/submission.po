@@ -633,12 +633,6 @@ msgstr "Néhány idézettségi szolgáltatás nem adott eredményt. Megpróbálh
 msgid "submission.citations.filter.unsupportedPublicationType"
 msgstr "Nem támogatott vagy hiányzó publikációs típus. Kérjük, szerkessze kézzel az idézetet és adja meg publikáció típusát (engedélyezett típusok 'könyv', 'folyóirat', 'tézis' és 'konferencia kiadvány')."
 
-msgid "submission.citations.filter.webserviceError"
-msgstr "A(z) {$filterName} webszolgáltatás hívása hibát adott vissza az alábbi URL címen: {$webserviceUrl}. Lehet, hogy a webszolgáltatás átmenetileg nem érhető el. A működő szolgálásokkal tud dolgozni és mentse el az eredményeket. Később újrapróbálhatja. Ha a hiba továbbra is fennáll, akkor kérje a menedzser segítségét, hogy kapcsolja ki ezt a szolgáltatást és küldjön egy hibajelzést."
-
-msgid "submission.citations.filter.webserviceResultTransformationError"
-msgstr "Hiba történt {$filterName}: Az átalakított XML eredmények (pl. webszolgáltatásokról) kinyerése a mezőalapú metaadat formátumba meghíúsult. Az ok valószínűleg az, hogy a webes szolgáltatás érvénytelen vagy hiányos adatokkal tért vissza. Kérjük, jelentse ezt a hibát."
-
 msgid "submission.citations.metadata.changeWarning"
 msgstr "Biztos benne, hogy frissíteni akarja ezt az idézettség listát? Ha rákattint az OK gombra, minden módosítás, amit a szerkesztők készítettek felülíródik. Ha nem biztos benne, hogy a hivatkozási listát meg kell változtatnia, akkor lépjen kapcsolatba a benyújtott anyag felelős szerkesztőjével."
 

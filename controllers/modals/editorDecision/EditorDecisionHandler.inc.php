@@ -13,6 +13,8 @@
  * @brief Handle requests for editors to make a decision
  */
 
+use PKP\security\authorization\EditorDecisionAccessPolicy;
+
 import('lib.pkp.classes.controllers.modals.editorDecision.PKPEditorDecisionHandler');
 
 // Access decision actions constants.
@@ -46,7 +48,6 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $stageId = (int) $request->getUserVar('stageId');
-        import('lib.pkp.classes.security.authorization.EditorDecisionAccessPolicy');
         $this->addPolicy(new EditorDecisionAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
         return parent::authorize($request, $args, $roleAssignments);
     }

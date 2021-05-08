@@ -20,6 +20,9 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\core\JSONMessage;
 use PKP\submission\PKPSubmission;
+use PKP\security\authorization\WorkflowStageAccessPolicy;
+use PKP\security\authorization\PublicationAccessPolicy;
+use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 
 use APP\template\TemplateManager;
 
@@ -93,14 +96,11 @@ class PreprintGalleyGridHandler extends GridHandler
     {
         $this->_request = $request;
 
-        import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
         $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', WORKFLOW_STAGE_ID_PRODUCTION));
 
-        import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
         $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
 
         if ($request->getUserVar('representationId')) {
-            import('lib.pkp.classes.security.authorization.internal.RepresentationRequiredPolicy');
             $this->addPolicy(new RepresentationRequiredPolicy($request, $args));
         }
 

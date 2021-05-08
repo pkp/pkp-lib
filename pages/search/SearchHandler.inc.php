@@ -13,7 +13,8 @@
  * @brief Handle site index requests.
  */
 
-use \APP\template\TemplateManager;
+use APP\template\TemplateManager;
+use APP\security\authorization\OpsServerMustPublishPolicy;
 
 import('classes.search.PreprintSearch');
 import('classes.handler.Handler');
@@ -25,7 +26,6 @@ class SearchHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        import('classes.security.authorization.OpsServerMustPublishPolicy');
         if ($request->getContext()) {
             $this->addPolicy(new OpsServerMustPublishPolicy($request));
         }

@@ -42,8 +42,6 @@ class PKPQueueProvider
             return;
         }
 
-        // $artisan = app()->make('Illuminate\Support\Facades\Artisan');
-        // dd(app()->call([$artisan, 'call'], ['queue:worker' => '--once']));
         $laravelContainer = PKPContainer::getInstance();
         $options = new WorkerOptions(
             $job->getDelay(),
@@ -55,13 +53,11 @@ class PKPQueueProvider
             $job->getStopWhenEmptyFlag(),
         );
 
-        $result = $laravelContainer['queue.worker']->runNextJob(
+        $laravelContainer['queue.worker']->runNextJob(
             'database',
             $job->queue,
             $options
         );
-
-        error_log(var_export($result, true));
     }
 
     public function register()

@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace PKP\Domains\Jobs;
 
 use Illuminate\Database\Eloquent\Builder;
-
 use Illuminate\Support\InteractsWithTime;
-use PKP\config\Config;
 
+use PKP\config\Config;
 use PKP\Domains\Jobs\Traits\Attributes;
 use PKP\Domains\Jobs\Traits\Worker;
 use PKP\Support\Database\Model;
-use Throwable;
 
 class Job extends Model
 {
@@ -20,7 +18,7 @@ class Job extends Model
     use InteractsWithTime;
     use Worker;
 
-    protected const DEFAULT_MAX_ATTEMPTS = 1;
+    protected const DEFAULT_MAX_ATTEMPTS = 3;
 
     /**
      * Default queue
@@ -204,15 +202,5 @@ class Job extends Model
         $this->attributes['reserved_at'] = (int) $value;
 
         return $this;
-    }
-
-    public function fire()
-    {
-        error_log('It\'s working!');
-    }
-
-    public function fail(Throwable $e)
-    {
-        error_log($e->getTraceAsString());
     }
 }

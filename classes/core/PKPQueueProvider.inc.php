@@ -65,7 +65,3 @@ class PKPQueueProvider
         register_shutdown_function([$this, 'runJobsAtShutdown']);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPQueueProvider', '\PKPQueueProvider');
-}

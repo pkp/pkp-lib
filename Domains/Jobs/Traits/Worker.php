@@ -2,6 +2,19 @@
 
 declare(strict_types=1);
 
+/**
+ * @file Domains/Jobs/Traits/Worker.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class Worker
+ * @ingroup domains
+ *
+ * @brief Worker trait for Jobs model
+ */
+
 namespace PKP\Domains\Jobs\Traits;
 
 trait Worker

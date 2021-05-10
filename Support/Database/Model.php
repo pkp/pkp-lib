@@ -2,6 +2,19 @@
 
 declare(strict_types=1);
 
+/**
+ * @file Support/Database/Model.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class Model
+ * @ingroup support
+ *
+ * @brief Abstract class for Eloquent Models
+ */
+
 namespace PKP\Support\Database;
 
 use Illuminate\Database\Eloquent\Model as BaseEloquent;

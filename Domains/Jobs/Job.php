@@ -2,6 +2,19 @@
 
 declare(strict_types=1);
 
+/**
+ * @file Domains/Jobs/Job.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class Job
+ * @ingroup domains
+ *
+ * @brief Laravel Eloquent model for Jobs table
+ */
+
 namespace PKP\Domains\Jobs;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -155,10 +168,9 @@ class Job extends Model
     /**
      * Get queue's size
      *
-     * @param string|null $queue
      *
      */
-    public function size($queue = null): int
+    public function size(?string $queue = null): int
     {
         return $this->queuedat($this->getQueue($queue))
             ->count();

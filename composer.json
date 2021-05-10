@@ -25,7 +25,8 @@
 		"staudenmeir/laravel-upsert": "^1.3",
 		"cweagans/composer-patches": "^1.7",
 		"kevinlebrun/colors.php": "^1.0",
-		"symfony/mailer": "^5.4"
+		"symfony/mailer": "^5.4",
+		"nesbot/carbon": "~2"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~9",

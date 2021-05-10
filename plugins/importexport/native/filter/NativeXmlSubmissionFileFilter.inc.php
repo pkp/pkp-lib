@@ -126,7 +126,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		if ($credit = $node->getAttribute('credit')) {
 			$submissionFile->setData('credit', $credit);
 		}
-		if ($directSalesPrice = $node->getAttribute('direct_sales_price')) {
+
+		$directSalesPrice = $node->getAttribute('direct_sales_price');
+		if (isset($directSalesPrice)) {
 			$submissionFile->setData('directSalesPrice', $directSalesPrice);
 		}
 		if ($genreId) {
@@ -146,6 +148,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		}
 		if ($node->getAttribute('viewable') == 'true') {
 			$submissionFile->setViewable(true);
+		} else {
+			$submissionFile->setViewable(false);
 		}
 
 		// Handle metadata in subelements

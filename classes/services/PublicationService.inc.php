@@ -13,14 +13,14 @@
  *  requirements.
  */
 
-namespace APP\Services;
+namespace APP\services;
 
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPPublicationService;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
-use PKP\services\Interfaces\EntityWriteInterface;
+use PKP\services\interfaces\EntityWriteInterface;
 
 use APP\core\Services;
 use APP\i18n\AppLocale;

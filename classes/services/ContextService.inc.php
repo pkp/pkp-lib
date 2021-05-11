@@ -13,9 +13,11 @@
  *  requirements.
  */
 
-namespace APP\Services;
+namespace APP\services;
 
 use PKP\file\TemporaryFileManager;
+use PKP\config\Config;
+
 use APP\file\PublicFileManager;
 
 class ContextService extends \PKP\services\PKPContextService
@@ -29,9 +31,9 @@ class ContextService extends \PKP\services\PKPContextService
     public function __construct()
     {
         $this->installFileDirs = [
-            \Config::getVar('files', 'files_dir') . '/%s/%d',
-            \Config::getVar('files', 'files_dir') . '/%s/%d/submissions',
-            \Config::getVar('files', 'public_files_dir') . '/%s/%d',
+            Config::getVar('files', 'files_dir') . '/%s/%d',
+            Config::getVar('files', 'files_dir') . '/%s/%d/submissions',
+            Config::getVar('files', 'public_files_dir') . '/%s/%d',
         ];
 
         \HookRegistry::register('Context::add', [$this, 'afterAddContext']);

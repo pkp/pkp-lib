@@ -13,7 +13,7 @@
  * @brief Helper class that encapsulates NavigationMenu business logic
  */
 
-namespace APP\Services;
+namespace APP\services;
 
 use PKP\plugins\HookRegistry;
 use PKP\core\PKPApplication;
@@ -110,5 +110,5 @@ class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
 }
 
 if (!PKP_STRICT_MODE) {
-    define('NMI_TYPE_ARCHIVES', \APP\Services\NavigationMenuService::NMI_TYPE_ARCHIVES);
+    define('NMI_TYPE_ARCHIVES', \APP\services\NavigationMenuService::NMI_TYPE_ARCHIVES);
 }

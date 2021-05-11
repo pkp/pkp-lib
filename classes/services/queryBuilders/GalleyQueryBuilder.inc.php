@@ -12,10 +12,10 @@
  * @brief Class for building database queries for galleys
  */
 
-namespace APP\Services\QueryBuilders;
+namespace APP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class GalleyQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -27,7 +27,7 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param array|int $publicationIds
      *
-     * @return \APP\Services\QueryBuilders\GalleyQueryBuilder
+     * @return \APP\services\queryBuilders\GalleyQueryBuilder
      */
     public function filterByPublicationIds($publicationIds)
     {
@@ -36,7 +36,7 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -48,7 +48,7 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getIds()
     {
@@ -60,7 +60,7 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getQuery()
     {

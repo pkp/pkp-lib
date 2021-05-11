@@ -12,16 +12,16 @@
  * @brief Server list query builder
  */
 
-namespace APP\Services\QueryBuilders;
+namespace APP\services\queryBuilders;
 
-class ContextQueryBuilder extends \PKP\services\QueryBuilders\PKPContextQueryBuilder
+class ContextQueryBuilder extends \PKP\services\queryBuilders\PKPContextQueryBuilder
 {
-    /** @copydoc \PKP\services\QueryBuilders\PKPContextQueryBuilder::$db */
+    /** @copydoc \PKP\services\queryBuilders\PKPContextQueryBuilder::$db */
     protected $db = 'servers';
 
-    /** @copydoc \PKP\services\QueryBuilders\PKPContextQueryBuilder::$dbSettings */
+    /** @copydoc \PKP\services\queryBuilders\PKPContextQueryBuilder::$dbSettings */
     protected $dbSettings = 'server_settings';
 
-    /** @copydoc \PKP\services\QueryBuilders\PKPContextQueryBuilder::$dbIdColumn */
+    /** @copydoc \PKP\services\queryBuilders\PKPContextQueryBuilder::$dbIdColumn */
     protected $dbIdColumn = 'server_id';
 }

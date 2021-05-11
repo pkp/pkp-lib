@@ -13,7 +13,7 @@
  * @brief Utility class to package all OPS services
  */
 
-namespace APP\Services;
+namespace APP\services;
 
 use Pimple\Container;
 use PKP\services\PKPAnnouncementService;

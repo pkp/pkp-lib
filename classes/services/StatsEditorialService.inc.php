@@ -13,7 +13,7 @@
  *   editorial stats
  */
 
-namespace APP\Services;
+namespace APP\services;
 
 use APP\i18n\AppLocale;
 use APP\workflow\EditorDecisionActionsHandler;

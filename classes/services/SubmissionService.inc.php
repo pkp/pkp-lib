@@ -14,7 +14,7 @@
  *  requirements.
  */
 
-namespace APP\Services;
+namespace APP\services;
 
 use PKP\submission\PKPSubmission;
 use PKP\plugins\HookRegistry;
@@ -67,12 +67,12 @@ class SubmissionService extends \PKP\services\PKPSubmissionService
      *
      * @param $hookName string
      * @param $args array [
-     *		@option \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     *		@option \APP\services\queryBuilders\SubmissionQueryBuilder
      *		@option int Context ID
      *		@option array Request args
      * ]
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function modifySubmissionQueryBuilder($hookName, $args)
     {
@@ -90,7 +90,7 @@ class SubmissionService extends \PKP\services\PKPSubmissionService
      * @param $hookName string
      * @param $args array [
      *		@option object $queryObject
-     *		@option \APP\Services\QueryBuilders\SubmissionQueryBuilder $queryBuilder
+     *		@option \APP\services\queryBuilders\SubmissionQueryBuilder $queryBuilder
      * ]
      *
      * @return object
@@ -178,7 +178,7 @@ class SubmissionService extends \PKP\services\PKPSubmissionService
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
      */
     public function add($submission, $request)
     {

@@ -13,10 +13,10 @@
  * @brief Helper class that encapsulates galley business logic
  */
 
-namespace APP\Services;
+namespace APP\services;
 
 use APP\core\Services;
-use APP\Services\QueryBuilders\GalleyQueryBuilder;
+use APP\services\queryBuilders\GalleyQueryBuilder;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\services\interfaces\EntityPropertyInterface;
@@ -202,7 +202,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::validate()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::validate()
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
@@ -253,7 +253,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
      */
     public function add($galley, $request)
     {
@@ -267,7 +267,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::edit()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::edit()
      */
     public function edit($galley, $params, $request)
     {
@@ -285,7 +285,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::delete()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::delete()
      */
     public function delete($galley)
     {

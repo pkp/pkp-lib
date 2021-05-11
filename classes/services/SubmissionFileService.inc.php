@@ -13,7 +13,7 @@
  *  requirements.
  */
 
-namespace APP\Services;
+namespace APP\services;
 
 use \PKP\db\DAORegistry;
 use \PKP\plugins\HookRegistry;

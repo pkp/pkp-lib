@@ -14,7 +14,7 @@
  */
 
 use PKP\linkAction\LinkAction;
-use PKP\Services\Interfaces\EntityWriteInterface;
+use PKP\services\Interfaces\EntityWriteInterface;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 use APP\plugins\PubIdPlugin;

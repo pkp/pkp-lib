@@ -18,7 +18,7 @@ namespace APP\Services;
 use APP\i18n\AppLocale;
 use APP\workflow\EditorDecisionActionsHandler;
 
-class StatsEditorialService extends \PKP\Services\PKPStatsEditorialService
+class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
 {
     /**
      * Get overview of key editorial stats

@@ -17,10 +17,10 @@ namespace APP\Services;
 
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
-use PKP\Services\PKPPublicationService;
+use PKP\services\PKPPublicationService;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
-use PKP\Services\Interfaces\EntityWriteInterface;
+use PKP\services\Interfaces\EntityWriteInterface;
 
 use APP\core\Services;
 use APP\i18n\AppLocale;

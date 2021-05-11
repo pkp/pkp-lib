@@ -22,7 +22,7 @@ use \PKP\search\SubmissionSearch;
 
 use \APP\core\Application;
 
-class SubmissionFileService extends \PKP\Services\PKPSubmissionFileService
+class SubmissionFileService extends \PKP\services\PKPSubmissionFileService
 {
     /**
      * Initialize hooks for extending PKPSubmissionService

@@ -19,7 +19,7 @@ namespace APP\Services;
 use PKP\submission\PKPSubmission;
 use PKP\plugins\HookRegistry;
 
-class SubmissionService extends \PKP\Services\PKPSubmissionService
+class SubmissionService extends \PKP\services\PKPSubmissionService
 {
     /**
      * Initialize hooks for extending PKPSubmissionService
@@ -178,7 +178,7 @@ class SubmissionService extends \PKP\Services\PKPSubmissionService
     }
 
     /**
-     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
      */
     public function add($submission, $request)
     {

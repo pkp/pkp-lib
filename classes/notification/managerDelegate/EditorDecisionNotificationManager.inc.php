@@ -19,16 +19,6 @@ use APP\core\Services;
 class EditorDecisionNotificationManager extends NotificationManagerDelegate
 {
     /**
-     * Constructor.
-     *
-     * @param $notificationType int NOTIFICATION_TYPE_...
-     */
-    public function __construct($notificationType)
-    {
-        parent::__construct($notificationType);
-    }
-
-    /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
     public function getNotificationMessage($request, $notification)

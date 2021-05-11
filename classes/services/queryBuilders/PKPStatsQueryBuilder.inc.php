@@ -14,7 +14,7 @@
  *  metrics table.
  */
 
-namespace PKP\services\QueryBuilders;
+namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
 
@@ -56,7 +56,7 @@ class PKPStatsQueryBuilder
      *
      * @param array|int $contextIds
      *
-     * @return \PKP\services\QueryBuilders\PKPStatsQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
     public function filterByContexts($contextIds)
     {
@@ -69,7 +69,7 @@ class PKPStatsQueryBuilder
      *
      * @param array|int $submissionIds
      *
-     * @return \PKP\services\QueryBuilders\PKPStatsQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
     public function filterBySubmissions($submissionIds)
     {
@@ -82,7 +82,7 @@ class PKPStatsQueryBuilder
      *
      * @param array|int $assocTypes
      *
-     * @return \PKP\services\QueryBuilders\PKPStatsQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
     public function filterByAssocTypes($assocTypes)
     {
@@ -95,7 +95,7 @@ class PKPStatsQueryBuilder
      *
      * @param array|int $assocIds
      *
-     * @return \PKP\services\QueryBuilders\PKPStatsQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
     public function filterByAssocIds($assocIds)
     {
@@ -108,7 +108,7 @@ class PKPStatsQueryBuilder
      *
      * @param array|int $fileTypes STATISTICS_FILE_TYPE_*
      *
-     * @return \PKP\services\QueryBuilders\PKPStatsQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
     public function filterByFileTypes($fileTypes)
     {
@@ -122,7 +122,7 @@ class PKPStatsQueryBuilder
      *
      * @param array|int $sectionIds
      *
-     * @return \PKP\services\QueryBuilders\PKPStatsQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
     public function filterBySections($sectionIds)
     {
@@ -135,7 +135,7 @@ class PKPStatsQueryBuilder
      *
      * @param string $dateEnd YYYY-MM-DD
      *
-     * @return \PKP\services\QueryBuilders\PKPStatsQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
     public function before($dateEnd)
     {
@@ -148,7 +148,7 @@ class PKPStatsQueryBuilder
      *
      * @param string $dateStart YYYY-MM-DD
      *
-     * @return \PKP\services\QueryBuilders\PKPStatsQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
     public function after($dateStart)
     {

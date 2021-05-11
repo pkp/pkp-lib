@@ -12,10 +12,10 @@
  * @brief Class for building database queries for announcements
  */
 
-namespace PKP\services\QueryBuilders;
+namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -33,7 +33,7 @@ class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param array|int $contextIds
      *
-     * @return \PKP\services\QueryBuilders\PKPAnnouncementQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPAnnouncementQueryBuilder
      */
     public function filterByContextIds($contextIds)
     {
@@ -46,7 +46,7 @@ class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param array|int $typeIds
      *
-     * @return \PKP\services\QueryBuilders\PKPAnnouncementQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPAnnouncementQueryBuilder
      */
     public function filterByTypeIds($typeIds)
     {
@@ -68,7 +68,7 @@ class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -80,7 +80,7 @@ class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
      */
     public function getIds()
     {

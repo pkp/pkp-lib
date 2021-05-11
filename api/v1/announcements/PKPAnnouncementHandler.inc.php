@@ -18,7 +18,7 @@ use APP\core\Services;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-use PKP\services\Interfaces\EntityWriteInterface;
+use PKP\services\interfaces\EntityWriteInterface;
 
 use PKP\services\PKPSchemaService;
 

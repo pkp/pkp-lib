@@ -12,10 +12,10 @@
  * @brief Class for building database queries for publications
  */
 
-namespace PKP\services\QueryBuilders;
+namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -36,7 +36,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param array|int $contextIds
      *
-     * @return \PKP\services\QueryBuilders\PKPPublicationQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPPublicationQueryBuilder
      */
     public function filterByContextIds($contextIds)
     {
@@ -49,7 +49,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param array|int $submissionIds
      *
-     * @return \PKP\services\QueryBuilders\PKPPublicationQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPPublicationQueryBuilder
      */
     public function filterBySubmissionIds($submissionIds)
     {
@@ -62,7 +62,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int $count
      *
-     * @return \PKP\services\QueryBuilders\PKPPublicationQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPPublicationQueryBuilder
      */
     public function limitTo($count)
     {
@@ -75,7 +75,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int $offset
      *
-     * @return \PKP\services\QueryBuilders\PKPPublicationQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPPublicationQueryBuilder
      */
     public function offsetBy($offset)
     {
@@ -84,7 +84,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -96,7 +96,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
      */
     public function getIds()
     {
@@ -108,7 +108,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
      *
      * @param $applyOrder boolean True iff an order by version (ascending) should be applied
      */

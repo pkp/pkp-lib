@@ -18,7 +18,7 @@ use APP\core\Application;
 use APP\core\Services;
 use PKP\db\DAORegistry;
 use PKP\services\interfaces\EntityPropertyInterface;
-use PKP\services\Interfaces\EntityWriteInterface;
+use PKP\services\interfaces\EntityWriteInterface;
 
 use PKP\validation\ValidatorFactory;
 

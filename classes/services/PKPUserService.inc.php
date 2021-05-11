@@ -22,7 +22,7 @@ use PKP\db\DBResultRange;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 
-use PKP\services\QueryBuilders\PKPUserQueryBuilder;
+use PKP\services\queryBuilders\PKPUserQueryBuilder;
 use PKP\user\Report;
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface

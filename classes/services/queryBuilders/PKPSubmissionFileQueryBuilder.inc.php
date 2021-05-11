@@ -12,11 +12,11 @@
  * @brief Class for building database queries for submission files
  */
 
-namespace PKP\services\QueryBuilders;
+namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
 
-use PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
 use PKP\submission\SubmissionFile;
 
 class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
@@ -51,7 +51,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set fileStages filter
      *
-     * @return \PKP\services\QueryBuilders\PKPSubmissionFileQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder
      */
     public function filterByFileStages(array $fileStages)
     {
@@ -62,7 +62,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set genreIds filter
      *
-     * @return \PKP\services\QueryBuilders\PKPSubmissionFileQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder
      */
     public function filterByGenreIds(array $genreIds)
     {
@@ -73,7 +73,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set review rounds filter
      *
-     * @return \PKP\services\QueryBuilders\PKPSubmissionFileQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder
      */
     public function filterByReviewRoundIds(array $reviewRoundIds)
     {
@@ -84,7 +84,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set review assignments filter
      *
-     * @return \PKP\services\QueryBuilders\PKPSubmissionFileQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder
      */
     public function filterByReviewIds(array $reviewIds)
     {
@@ -95,7 +95,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set submissionIds filter
      *
-     * @return \PKP\services\QueryBuilders\PKPSubmissionFileQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder
      */
     public function filterBySubmissionIds(array $submissionIds)
     {
@@ -106,7 +106,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set fileIds filter
      *
-     * @return \PKP\services\QueryBuilders\PKPSubmissionFileQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder
      */
     public function filterByFileIds(array $fileIds)
     {
@@ -120,7 +120,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
      * @param array $assocTypes One or more of the ASSOC_TYPE_ constants
      * @param array $assocIds Match with ids for these assoc types
      *
-     * @return \PKP\services\QueryBuilders\PKPSubmissionFileQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder
      */
     public function filterByAssoc(array $assocTypes, array $assocIds = [])
     {
@@ -134,7 +134,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set uploaderUserIds filter
      *
-     * @return \PKP\services\QueryBuilders\PKPSubmissionFileQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder
      */
     public function filterByUploaderUserIds(array $uploaderUserIds)
     {
@@ -147,7 +147,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param boolean $includeDependentFiles
      *
-     * @return \PKP\services\QueryBuilders\PKPSubmissionFileQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder
      */
     public function includeDependentFiles($includeDependentFiles)
     {
@@ -156,7 +156,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -168,7 +168,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
      */
     public function getIds()
     {

@@ -22,7 +22,7 @@ use Illuminate\Translation\Translator;
 
 use Illuminate\Validation\Factory;
 use PKP\file\TemporaryFileManager;
-use PKP\services\Interfaces\EntityWriteInterface;
+use PKP\services\interfaces\EntityWriteInterface;
 
 use Sokil\IsoCodes\IsoCodesFactory;
 

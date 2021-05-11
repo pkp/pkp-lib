@@ -54,7 +54,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
      */
     public function getByUrlPath($urlPath, $contextId)
     {
-        $qb = new \PKP\services\QueryBuilders\PKPPublicationQueryBuilder();
+        $qb = new \PKP\services\queryBuilders\PKPPublicationQueryBuilder();
         $firstResult = $qb->getQueryByUrlPath($urlPath, $contextId)->first();
 
         if (!$firstResult) {
@@ -733,7 +733,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::validate()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::validate()
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
@@ -777,7 +777,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
      */
     public function add($submission, $request)
     {
@@ -796,7 +796,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::edit()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::edit()
      */
     public function edit($submission, $params, $request)
     {
@@ -816,7 +816,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::delete()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::delete()
      */
     public function delete($submission)
     {

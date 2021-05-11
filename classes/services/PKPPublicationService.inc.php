@@ -27,7 +27,7 @@ use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 
-use PKP\services\QueryBuilders\PKPPublicationQueryBuilder;
+use PKP\services\queryBuilders\PKPPublicationQueryBuilder;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
 
@@ -289,7 +289,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::validate()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::validate()
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
@@ -426,7 +426,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
      */
     public function add($publication, $request)
     {
@@ -521,7 +521,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::edit()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::edit()
      */
     public function edit($publication, $params, $request)
     {
@@ -689,7 +689,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::delete()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::delete()
      */
     public function delete($publication)
     {

@@ -12,12 +12,12 @@
  * @brief Submission list Query builder
  */
 
-namespace PKP\services\QueryBuilders;
+namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
 
 use PKP\identity\Identity;
-use PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPUserQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -118,7 +118,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      * @param $column string
      * @param $direction string
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function orderBy($column, $direction = 'DESC')
     {
@@ -138,7 +138,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $status string
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByStatus($status)
     {
@@ -151,7 +151,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $roleIds int|array
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByRoleIds($roleIds)
     {
@@ -165,7 +165,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set user groups filter
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByUserGroupIds(array $userGroupIds)
     {
@@ -176,7 +176,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set user ID filter
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByUserIds(array $userIds)
     {
@@ -189,7 +189,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $categoryId int
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function assignedToCategory($categoryId)
     {
@@ -202,7 +202,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $sectionId int
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function assignedToSection($sectionId)
     {
@@ -215,7 +215,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $submissionId int
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function assignedToSubmission($submissionId, $submissionStage)
     {
@@ -231,7 +231,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $date string
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function registeredAfter($date)
     {
@@ -244,7 +244,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $date string
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function registeredBefore($date)
     {
@@ -260,7 +260,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $userIds array
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function includeUsers($userIds)
     {
@@ -276,7 +276,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $userIds array
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function excludeUsers($userIds)
     {
@@ -289,7 +289,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $phrase string
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function searchPhrase($phrase)
     {
@@ -302,7 +302,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $enable bool
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function getReviewerData($enable = true)
     {
@@ -315,7 +315,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $reviewStageId int WORKFLOW_STAGE_ID_*_REVIEW
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByReviewStage($reviewStageId = null)
     {
@@ -331,7 +331,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $reviewerRating int
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByReviewerRating($reviewerRating = null)
     {
@@ -347,7 +347,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $reviewsCompleted int|array
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByReviewsCompleted($reviewsCompleted = null)
     {
@@ -363,7 +363,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $reviewsActive int|array
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByReviewsActive($reviewsActive = null)
     {
@@ -380,7 +380,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $daysSinceLastAssignment int|array
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByDaysSinceLastAssignment($daysSinceLastAssignment = null)
     {
@@ -397,7 +397,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $averageCompletion int|array
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByAverageCompletion($averageCompletion = null)
     {
@@ -413,7 +413,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int $count
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function limitTo($count)
     {
@@ -426,7 +426,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int $offset
      *
-     * @return \PKP\services\QueryBuilders\PKPUserQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function offsetBy($offset)
     {
@@ -435,7 +435,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -449,7 +449,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
      */
     public function getIds()
     {

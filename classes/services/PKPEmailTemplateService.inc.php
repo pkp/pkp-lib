@@ -23,7 +23,7 @@ use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 
-use PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder;
+use PKP\services\queryBuilders\PKPEmailTemplateQueryBuilder;
 use PKP\validation\ValidatorFactory;
 
 define('EMAIL_TEMPLATE_STAGE_DEFAULT', 0);
@@ -217,7 +217,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::validate()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::validate()
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
@@ -277,7 +277,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
      */
     public function add($emailTemplate, $request)
     {
@@ -298,7 +298,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::edit()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::edit()
      */
     public function edit($emailTemplate, $params, $request)
     {
@@ -331,7 +331,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::delete()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::delete()
      */
     public function delete($emailTemplate)
     {

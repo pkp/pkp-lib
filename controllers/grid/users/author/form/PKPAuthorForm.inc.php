@@ -16,7 +16,7 @@
 use APP\template\TemplateManager;
 use PKP\form\Form;
 
-use PKP\services\Interfaces\EntityWriteInterface;
+use PKP\services\interfaces\EntityWriteInterface;
 
 class PKPAuthorForm extends Form
 {

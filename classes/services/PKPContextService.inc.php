@@ -244,7 +244,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::validate()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::validate()
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
@@ -423,7 +423,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
      */
     public function add($context, $request)
     {
@@ -522,7 +522,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::edit()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::edit()
      */
     public function edit($context, $params, $request)
     {
@@ -559,7 +559,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::delete()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::delete()
      */
     public function delete($context)
     {

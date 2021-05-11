@@ -20,7 +20,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
-use PKP\services\Interfaces\EntityWriteInterface;
+use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionFile;
 

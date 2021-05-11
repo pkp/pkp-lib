@@ -12,10 +12,10 @@
  * @brief Class for building database queries for authors
  */
 
-namespace PKP\services\QueryBuilders;
+namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -42,7 +42,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param array|int $contextIds
      *
-     * @return \PKP\services\QueryBuilders\PKPAuthorQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPAuthorQueryBuilder
      */
     public function filterByContextIds($contextIds)
     {
@@ -56,7 +56,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
      * @param string $givenName
      * @param string $familyName
      *
-     * @return \PKP\services\QueryBuilders\PKPAuthorQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPAuthorQueryBuilder
      */
     public function filterByName($givenName, $familyName)
     {
@@ -70,7 +70,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $country string Country code (2-letter)
      *
-     * @return \PKP\services\QueryBuilders\PKPAuthorQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPAuthorQueryBuilder
      * */
     public function filterByCountry($country)
     {
@@ -81,7 +81,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Filter by the specified affiliation code
      *
-     * @return \PKP\services\QueryBuilders\PKPAuthorQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPAuthorQueryBuilder
      * */
     public function filterByAffiliation($affiliation)
     {
@@ -94,7 +94,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param array|int $publicationIds
      *
-     * @return \PKP\services\QueryBuilders\PKPAuthorQueryBuilder
+     * @return \PKP\services\queryBuilders\PKPAuthorQueryBuilder
      */
     public function filterByPublicationIds($publicationIds)
     {
@@ -103,7 +103,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -115,7 +115,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
      */
     public function getIds()
     {
@@ -127,7 +127,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
      */
     public function getQuery()
     {

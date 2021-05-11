@@ -22,7 +22,7 @@ use PKP\db\DBResultRange;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
-use PKP\services\QueryBuilders\PKPAnnouncementQueryBuilder;
+use PKP\services\queryBuilders\PKPAnnouncementQueryBuilder;
 
 use PKP\validation\ValidatorFactory;
 
@@ -227,7 +227,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
      */
     public function add($announcement, $request)
     {
@@ -239,7 +239,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::edit()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::edit()
      */
     public function edit($announcement, $params, $request)
     {
@@ -255,7 +255,7 @@ class PKPAnnouncementService implements EntityPropertyInterface, EntityReadInter
     }
 
     /**
-     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::delete()
+     * @copydoc \PKP\services\entityProperties\EntityWriteInterface::delete()
      */
     public function delete($announcement)
     {

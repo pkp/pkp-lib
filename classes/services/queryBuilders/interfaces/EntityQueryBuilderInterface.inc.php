@@ -15,7 +15,7 @@
  *   entities.
  */
 
-namespace PKP\services\queryBuilders\Interfaces;
+namespace PKP\services\queryBuilders\interfaces;
 
 interface EntityQueryBuilderInterface
 {

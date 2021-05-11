@@ -379,13 +379,7 @@ function customAutoload($rootPath, $prefix, $class)
     }
 
     $className = cleanFileVar(array_pop($parts));
-    $parts = array_map(function ($part) {
-        $part = cleanFileVar($part);
-        if (strlen($part) > 1) {
-            $part[0] = strtolower_codesafe($part[0]);
-        } // pkp/pkp-lib#5731
-        return $part;
-    }, $parts);
+    $parts = array_map('cleanFileVar', $parts);
 
     $subParts = join('/', $parts);
     $filePath = "{$rootPath}/{$subParts}/{$className}.inc.php";

@@ -18,7 +18,7 @@ namespace PKP\services\queryBuilders;
 use Illuminate\Support\Facades\DB as DB;
 
 use PKP\identity\Identity;
-use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 use PKP\submission\PKPSubmissionDAO;
 
 abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
@@ -247,7 +247,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -259,7 +259,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getIds()
      */
     public function getIds()
     {
@@ -271,7 +271,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getQuery()
      */
     public function getQuery()
     {

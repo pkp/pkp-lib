@@ -15,7 +15,7 @@
 namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 
 class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -84,7 +84,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -96,7 +96,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getIds()
      */
     public function getIds()
     {
@@ -108,7 +108,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getQuery()
      *
      * @param $applyOrder boolean True iff an order by version (ascending) should be applied
      */

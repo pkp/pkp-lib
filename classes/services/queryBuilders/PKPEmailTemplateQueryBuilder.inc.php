@@ -15,7 +15,7 @@
 namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 
 class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -182,7 +182,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {

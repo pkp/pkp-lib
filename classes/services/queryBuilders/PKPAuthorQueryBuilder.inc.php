@@ -15,7 +15,7 @@
 namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 
 class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -103,7 +103,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -115,7 +115,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getIds()
      */
     public function getIds()
     {
@@ -127,7 +127,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getQuery()
      */
     public function getQuery()
     {

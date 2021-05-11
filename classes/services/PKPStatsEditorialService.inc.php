@@ -441,11 +441,11 @@ class PKPStatsEditorialService
      *    @option array|int sectionIds (will match seriesId in OMP)
      * ]
      *
-     * @return \APP\Services\QueryBuilders\StatsEditorialQueryBuilder
+     * @return \APP\services\queryBuilders\StatsEditorialQueryBuilder
      */
     protected function getQueryBuilder($args = [])
     {
-        $qb = new \APP\Services\QueryBuilders\StatsEditorialQueryBuilder();
+        $qb = new \APP\services\queryBuilders\StatsEditorialQueryBuilder();
 
         if (!empty($args['dateStart'])) {
             $qb->after($args['dateStart']);

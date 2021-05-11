@@ -17,7 +17,7 @@ namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
-use APP\Services\QueryBuilders\SubmissionQueryBuilder;
+use APP\services\queryBuilders\SubmissionQueryBuilder;
 use APP\submission\Submission;
 use PKP\core\Core;
 use PKP\db\DAORegistry;

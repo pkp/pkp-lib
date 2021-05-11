@@ -59,7 +59,7 @@ class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param string $phrase
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function searchPhrase($phrase)
     {

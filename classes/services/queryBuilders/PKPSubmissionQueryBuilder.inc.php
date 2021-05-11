@@ -70,7 +70,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int|string $contextId
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function filterByContext($contextId)
     {
@@ -84,7 +84,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      * @param string $column
      * @param string $direction
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function orderBy($column, $direction = 'DESC')
     {
@@ -127,7 +127,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int|array $statuses
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function filterByStatus($statuses)
     {
@@ -143,7 +143,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int|array $stageIds
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function filterByStageIds($stageIds)
     {
@@ -159,7 +159,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param boolean $isIncomplete
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function filterByIncomplete($isIncomplete)
     {
@@ -172,7 +172,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param boolean $isOverdue
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function filterByOverdue($isOverdue)
     {
@@ -199,7 +199,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      * @param int|array $assignedTo List of assigned user ids or -1 to
      *   get submissions with no user assigned.
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function assignedTo($assignedTo)
     {
@@ -212,7 +212,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param string $phrase
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function searchPhrase($phrase)
     {
@@ -225,7 +225,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int $count
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function limitTo($count)
     {
@@ -238,7 +238,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int $offset
      *
-     * @return \APP\Services\QueryBuilders\SubmissionQueryBuilder
+     * @return \APP\services\queryBuilders\SubmissionQueryBuilder
      */
     public function offsetBy($offset)
     {

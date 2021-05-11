@@ -261,7 +261,7 @@ abstract class ImportExportPlugin extends Plugin
 
         $submissions = [];
         foreach ($submissionIds as $submissionId) {
-            /** @var APP\Services\SubmissionService $submissionService */
+            /** @var APP\services\SubmissionService $submissionService */
             $submissionService = Services::get('submission');
             $submission = $submissionService->get($submissionId);
 

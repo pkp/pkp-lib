@@ -19,7 +19,7 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\file\PublicFileManager;
 use APP\i18n\AppLocale;
-use APP\Services\QueryBuilders\ContextQueryBuilder;
+use APP\services\queryBuilders\ContextQueryBuilder;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -29,8 +29,8 @@ use PKP\db\DBResultRange;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\HookRegistry;
-use PKP\plugins\PluginRegistry;
 
+use PKP\plugins\PluginRegistry;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;

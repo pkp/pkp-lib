@@ -104,7 +104,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int|string $contextId
      *
-     * @return \APP\Services\QueryBuilders\PKPUserQueryBuilder
+     * @return \APP\services\queryBuilders\PKPUserQueryBuilder
      */
     public function filterByContext($contextId)
     {

@@ -14,7 +14,7 @@
  *  typically evoked when producing a response to an API request.
  */
 
-namespace PKP\services\Interfaces;
+namespace PKP\services\interfaces;
 
 interface EntityPropertyInterface
 {

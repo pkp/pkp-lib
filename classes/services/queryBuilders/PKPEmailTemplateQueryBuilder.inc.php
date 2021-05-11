@@ -12,10 +12,10 @@
  * @brief Class for building database queries for email templates
  */
 
-namespace PKP\Services\QueryBuilders;
+namespace PKP\services\QueryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -48,7 +48,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $contextId integer
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function filterByContext($contextId)
     {
@@ -61,7 +61,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $isEnabled boolean
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function filterByIsEnabled($isEnabled)
     {
@@ -74,7 +74,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $isCustom boolean
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function filterByIsCustom($isCustom)
     {
@@ -87,7 +87,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $fromRoleIds array
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function filterByFromRoleIds($fromRoleIds)
     {
@@ -100,7 +100,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $toRoleIds array
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function filterByToRoleIds($toRoleIds)
     {
@@ -113,7 +113,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $keys array
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function filterByKeys($keys)
     {
@@ -126,7 +126,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $stageIds array
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function filterByStageIds($stageIds)
     {
@@ -139,7 +139,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $phrase string
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function searchPhrase($phrase)
     {
@@ -152,7 +152,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int $count
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function limitTo($count)
     {
@@ -165,7 +165,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param int $offset
      *
-     * @return \PKP\Services\QueryBuilders\PKPEmailTemplateQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPEmailTemplateQueryBuilder
      */
     public function offsetBy($offset)
     {
@@ -182,7 +182,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {

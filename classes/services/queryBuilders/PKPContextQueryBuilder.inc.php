@@ -12,10 +12,10 @@
  * @brief Base class for context (journals/presses) list query builder
  */
 
-namespace PKP\Services\QueryBuilders;
+namespace PKP\services\QueryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -42,7 +42,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $isEnabled boolean
      *
-     * @return \PKP\Services\QueryBuilders\PKPContextQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPContextQueryBuilder
      */
     public function filterByIsEnabled($isEnabled)
     {
@@ -59,7 +59,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $userId boolean
      *
-     * @return \PKP\Services\QueryBuilders\PKPContextQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPContextQueryBuilder
      */
     public function filterByUserId($userId)
     {
@@ -72,7 +72,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
      *
      * @param $phrase string
      *
-     * @return \PKP\Services\QueryBuilders\PKPContextQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPContextQueryBuilder
      */
     public function searchPhrase($phrase)
     {
@@ -81,7 +81,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -93,7 +93,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
+     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getIds()
      */
     public function getIds()
     {
@@ -137,7 +137,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
+     * @copydoc PKP\services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
      */
     public function getQuery()
     {

@@ -13,7 +13,7 @@
  *  get one object or a collection of objects.
  */
 
-namespace PKP\Services\Interfaces;
+namespace PKP\services\Interfaces;
 
 interface EntityReadInterface
 {

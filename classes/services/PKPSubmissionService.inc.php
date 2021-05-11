@@ -13,7 +13,7 @@
  * @brief Helper class that encapsulates submission business logic
  */
 
-namespace PKP\Services;
+namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
@@ -23,11 +23,10 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
-use PKP\Services\interfaces\EntityPropertyInterface;
-use PKP\Services\interfaces\EntityReadInterface;
-use PKP\Services\interfaces\EntityWriteInterface;
+use PKP\services\interfaces\EntityPropertyInterface;
+use PKP\services\interfaces\EntityReadInterface;
+use PKP\services\interfaces\EntityWriteInterface;
 
-use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 use PKP\validation\ValidatorFactory;
@@ -37,7 +36,7 @@ define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
 abstract class PKPSubmissionService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::get()
      */
     public function get($submissionId)
     {
@@ -55,7 +54,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
      */
     public function getByUrlPath($urlPath, $contextId)
     {
-        $qb = new \PKP\Services\QueryBuilders\PKPPublicationQueryBuilder();
+        $qb = new \PKP\services\QueryBuilders\PKPPublicationQueryBuilder();
         $firstResult = $qb->getQueryByUrlPath($urlPath, $contextId)->first();
 
         if (!$firstResult) {
@@ -66,7 +65,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getCount()
      */
     public function getCount($args = [])
     {
@@ -74,7 +73,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getIds()
      */
     public function getIds($args = [])
     {
@@ -122,7 +121,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getMax()
      */
     public function getMax($args = [])
     {
@@ -137,7 +136,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getQueryBuilder()
      *
      * @return SubmissionQueryBuilder
      */
@@ -185,7 +184,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getProperties()
      *
      * @param null|mixed $args
      */
@@ -284,7 +283,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getSummaryProperties()
      *
      * @param null|mixed $args
      */
@@ -296,7 +295,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getFullProperties()
      *
      * @param null|mixed $args
      */
@@ -734,7 +733,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::validate()
+     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::validate()
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
@@ -778,7 +777,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
      */
     public function add($submission, $request)
     {
@@ -797,7 +796,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
+     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::edit()
      */
     public function edit($submission, $params, $request)
     {
@@ -817,7 +816,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     }
 
     /**
-     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
+     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::delete()
      */
     public function delete($submission)
     {

@@ -13,16 +13,16 @@
  * @brief Helper class that encapsulates author business logic
  */
 
-namespace PKP\Services;
+namespace PKP\services;
 
 use APP\core\Services;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\HookRegistry;
-use PKP\Services\interfaces\EntityPropertyInterface;
-use PKP\Services\interfaces\EntityReadInterface;
-use PKP\Services\interfaces\EntityWriteInterface;
-use PKP\Services\QueryBuilders\PKPAuthorQueryBuilder;
+use PKP\services\interfaces\EntityPropertyInterface;
+use PKP\services\interfaces\EntityReadInterface;
+use PKP\services\interfaces\EntityWriteInterface;
+use PKP\services\QueryBuilders\PKPAuthorQueryBuilder;
 use PKP\submission\PKPSubmission;
 
 use PKP\validation\ValidatorFactory;
@@ -30,7 +30,7 @@ use PKP\validation\ValidatorFactory;
 class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, EntityPropertyInterface
 {
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::get()
      */
     public function get($authorId)
     {
@@ -39,7 +39,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getCount()
      */
     public function getCount($args = [])
     {
@@ -47,7 +47,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getIds()
      */
     public function getIds($args = [])
     {
@@ -78,7 +78,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getMax()
      */
     public function getMax($args = [])
     {
@@ -88,7 +88,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getQueryBuilder()
      *
      * @return PKPAuthorQueryBuilder
      */
@@ -124,7 +124,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getProperties()
      *
      * @param null|mixed $args
      */
@@ -153,7 +153,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getSummaryProperties()
      *
      * @param null|mixed $args
      */
@@ -165,7 +165,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getFullProperties()
      *
      * @param null|mixed $args
      */
@@ -177,7 +177,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::validate()
+     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::validate()
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
@@ -223,7 +223,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::add()
+     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::add()
      */
     public function add($author, $request)
     {
@@ -237,7 +237,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::edit()
+     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::edit()
      */
     public function edit($author, $params, $request)
     {
@@ -255,7 +255,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
     }
 
     /**
-     * @copydoc \PKP\Services\EntityProperties\EntityWriteInterface::delete()
+     * @copydoc \PKP\services\EntityProperties\EntityWriteInterface::delete()
      */
     public function delete($author)
     {

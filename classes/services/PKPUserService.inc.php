@@ -12,24 +12,23 @@
  * @brief Helper class that encapsulates users business logic
  */
 
-namespace PKP\Services;
+namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
-use PKP\Services\interfaces\EntityPropertyInterface;
-use PKP\Services\interfaces\EntityReadInterface;
-use PKP\services\PKPSchemaService;
+use PKP\services\interfaces\EntityPropertyInterface;
+use PKP\services\interfaces\EntityReadInterface;
 
-use PKP\Services\QueryBuilders\PKPUserQueryBuilder;
+use PKP\services\QueryBuilders\PKPUserQueryBuilder;
 use PKP\user\Report;
 
 class PKPUserService implements EntityPropertyInterface, EntityReadInterface
 {
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::get()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::get()
      */
     public function get($userId)
     {
@@ -38,7 +37,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getCount()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getCount()
      */
     public function getCount($args = [])
     {
@@ -46,7 +45,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getIds()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getIds()
      */
     public function getIds($args = [])
     {
@@ -99,7 +98,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getMax()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getMax()
      */
     public function getMax($args = [])
     {
@@ -114,7 +113,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityReadInterface::getQueryBuilder()
+     * @copydoc \PKP\services\interfaces\EntityReadInterface::getQueryBuilder()
      *
      * @return PKPUserQueryBuilder
      */
@@ -262,7 +261,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getProperties()
      *
      * @param null|mixed $args
      */
@@ -435,7 +434,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getSummaryProperties()
      *
      * @param null|mixed $args
      */
@@ -449,7 +448,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getFullProperties()
      *
      * @param null|mixed $args
      */

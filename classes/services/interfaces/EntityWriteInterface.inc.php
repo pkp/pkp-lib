@@ -13,7 +13,7 @@
  *  validate, add, edit and delete an object.
  */
 
-namespace PKP\Services\Interfaces;
+namespace PKP\services\Interfaces;
 
 interface EntityWriteInterface
 {

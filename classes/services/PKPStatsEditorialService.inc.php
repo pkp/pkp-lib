@@ -14,7 +14,7 @@
  *   editorial stats
  */
 
-namespace PKP\Services;
+namespace PKP\services;
 
 use APP\workflow\EditorDecisionActionsManager;
 

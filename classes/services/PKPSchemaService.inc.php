@@ -13,7 +13,7 @@
  *  validate objects, and installing default data.
  */
 
-namespace PKP\Services;
+namespace PKP\services;
 
 class PKPSchemaService
 {

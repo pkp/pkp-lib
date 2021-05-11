@@ -14,7 +14,7 @@
  *  metrics table.
  */
 
-namespace PKP\Services\QueryBuilders;
+namespace PKP\services\QueryBuilders;
 
 use APP\workflow\EditorDecisionActionsManager;
 
@@ -44,7 +44,7 @@ abstract class PKPStatsEditorialQueryBuilder
      *
      * @param array|int $contextIds
      *
-     * @return \PKP\Services\QueryBuilders\PKPStatsEditorialQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPStatsEditorialQueryBuilder
      */
     public function filterByContexts($contextIds)
     {
@@ -58,7 +58,7 @@ abstract class PKPStatsEditorialQueryBuilder
      *
      * @param array|int $sectionIds
      *
-     * @return \PKP\Services\QueryBuilders\PKPStatsEditorialQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPStatsEditorialQueryBuilder
      */
     public function filterBySections($sectionIds)
     {
@@ -71,7 +71,7 @@ abstract class PKPStatsEditorialQueryBuilder
      *
      * @param string $dateEnd YYYY-MM-DD
      *
-     * @return \PKP\Services\QueryBuilders\PKPStatsEditorialQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPStatsEditorialQueryBuilder
      */
     public function before($dateEnd)
     {
@@ -84,7 +84,7 @@ abstract class PKPStatsEditorialQueryBuilder
      *
      * @param string $dateStart YYYY-MM-DD
      *
-     * @return \PKP\Services\QueryBuilders\PKPStatsEditorialQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPStatsEditorialQueryBuilder
      */
     public function after($dateStart)
     {

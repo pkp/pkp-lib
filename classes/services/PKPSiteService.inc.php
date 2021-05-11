@@ -12,21 +12,20 @@
  * @brief Helper class that encapsulates business logic for the overall site
  */
 
-namespace PKP\Services;
+namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
 use PKP\db\DAORegistry;
-use PKP\Services\interfaces\EntityPropertyInterface;
-use PKP\Services\Interfaces\EntityWriteInterface;
+use PKP\services\interfaces\EntityPropertyInterface;
+use PKP\services\Interfaces\EntityWriteInterface;
 
-use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
 class PKPSiteService implements EntityPropertyInterface
 {
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getProperties()
      *
      * @param null|mixed $args
      */
@@ -51,7 +50,7 @@ class PKPSiteService implements EntityPropertyInterface
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getSummaryProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getSummaryProperties()
      *
      * @param null|mixed $args
      */
@@ -61,7 +60,7 @@ class PKPSiteService implements EntityPropertyInterface
     }
 
     /**
-     * @copydoc \PKP\Services\interfaces\EntityPropertyInterface::getFullProperties()
+     * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getFullProperties()
      *
      * @param null|mixed $args
      */

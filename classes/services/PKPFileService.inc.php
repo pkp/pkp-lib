@@ -12,7 +12,7 @@
  * @brief Helper class that encapsulates business logic for publications
  */
 
-namespace PKP\Services;
+namespace PKP\services;
 
 use APP\core\Application;
 use Exception;

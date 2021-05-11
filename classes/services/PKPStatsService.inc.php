@@ -13,7 +13,7 @@
  * @brief Helper class that encapsulates statistics business logic
  */
 
-namespace PKP\Services;
+namespace PKP\services;
 
 use PKP\db\DBResultRange;
 
@@ -312,11 +312,11 @@ class PKPStatsService
      *
      * @param array $args See self::getRecords()
      *
-     * @return \PKP\Services\QueryBuilders\PKPStatsQueryBuilder
+     * @return \PKP\services\QueryBuilders\PKPStatsQueryBuilder
      */
     protected function getQueryBuilder($args = [])
     {
-        $statsQB = new \PKP\Services\QueryBuilders\PKPStatsQueryBuilder();
+        $statsQB = new \PKP\services\QueryBuilders\PKPStatsQueryBuilder();
         $statsQB
             ->filterByContexts($args['contextIds'])
             ->before($args['dateEnd'])

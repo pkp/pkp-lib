@@ -15,7 +15,7 @@
 namespace APP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
-use PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 
 class GalleyQueryBuilder implements EntityQueryBuilderInterface
 {
@@ -36,7 +36,7 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getCount()
     {
@@ -48,7 +48,7 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getIds()
     {
@@ -60,7 +60,7 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface
     }
 
     /**
-     * @copydoc PKP\services\queryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
+     * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getCount()
      */
     public function getQuery()
     {

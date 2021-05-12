@@ -13,13 +13,19 @@
  * @brief Editor actions.
  */
 
+namespace PKP\submission\action;
+
+use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\log\PKPSubmissionEventLogEntry;
 
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
+use PKP\plugins\HookRegistry;
 use PKP\submission\PKPSubmission;
 
 class EditorAction
@@ -237,4 +243,8 @@ class EditorAction
         $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $submissionDao->updateObject($submission);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\action\EditorAction', '\EditorAction');
 }

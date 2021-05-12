@@ -13,12 +13,16 @@
  * @brief Form for Step 2 of author submission: file upload
  */
 
+namespace PKP\submission\form;
+
+use APP\core\Application;
+use APP\core\Services;
 use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
+
+use PKP\db\DAORegistry;
 use PKP\file\FileManager;
-
 use PKP\submission\SubmissionFile;
-
-import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 
 class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
 {
@@ -183,4 +187,8 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
 
         return $this->submissionId;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\form\PKPSubmissionSubmitStep2Form', '\PKPSubmissionSubmitStep2Form');
 }

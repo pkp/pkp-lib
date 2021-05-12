@@ -16,6 +16,7 @@
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 
 use APP\workflow\EditorDecisionActionsManager;
+use PKP\submission\action\EditorAction;
 
 use PKP\submission\PKPSubmission;
 
@@ -67,7 +68,6 @@ class RevertDeclineForm extends EditorDecisionForm
 
         // Record the decision.
         $actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), [$this->getDecision()]);
-        import('lib.pkp.classes.submission.action.EditorAction');
         $editorAction = new EditorAction();
         $editorAction->recordDecision($request, $submission, $this->getDecision(), $actionLabels);
 

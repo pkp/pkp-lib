@@ -16,6 +16,8 @@
  * @brief Base class for author submit forms.
  */
 
+namespace PKP\submission\form;
+
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
@@ -71,4 +73,8 @@ class SubmissionSubmitForm extends Form
         $templateMgr->assign('submissionProgress', $submissionProgress);
         return parent::fetch($request, $template, $display);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\form\SubmissionSubmitForm', '\SubmissionSubmitForm');
 }

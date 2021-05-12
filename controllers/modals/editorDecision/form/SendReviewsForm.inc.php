@@ -15,12 +15,12 @@
  */
 
 use APP\template\TemplateManager;
-
 use APP\workflow\EditorDecisionActionsManager;
 
-import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailForm');
-
 use PKP\mail\SubmissionMailTemplate;
+use PKP\submission\action\EditorAction;
+
+import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailForm');
 
 class SendReviewsForm extends EditorDecisionWithEmailForm
 {
@@ -122,7 +122,6 @@ class SendReviewsForm extends EditorDecisionWithEmailForm
         $reviewRound = $this->getReviewRound();
         $decision = $this->getDecision();
         $stageId = $this->getStageId();
-        import('lib.pkp.classes.submission.action.EditorAction');
         $editorAction = new EditorAction();
         $editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound, $stageId);
 

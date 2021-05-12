@@ -13,11 +13,17 @@
  * @brief Form for Step 1 of author submission: terms, conditions, etc.
  */
 
-import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
+namespace PKP\submission\form;
 
+use APP\core\Application;
+use APP\core\Services;
+use APP\i18n\AppLocale;
 use APP\publication\Publication;
 
 use APP\template\TemplateManager;
+use PKP\config\Config;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\submission\PKPSubmission;
 
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
@@ -465,4 +471,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 
         return $this->submissionId;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\form\PKPSubmissionSubmitStep1Form', '\PKPSubmissionSubmitStep1Form');
 }

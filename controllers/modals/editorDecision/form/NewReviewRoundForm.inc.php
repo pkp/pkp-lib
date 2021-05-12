@@ -17,6 +17,7 @@ import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionFor
 import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 
 use APP\workflow\EditorDecisionActionsManager;
+use PKP\submission\action\EditorAction;
 
 class NewReviewRoundForm extends EditorDecisionForm
 {
@@ -56,7 +57,6 @@ class NewReviewRoundForm extends EditorDecisionForm
 
         // Record the decision.
         $reviewRound = $this->getReviewRound();
-        import('lib.pkp.classes.submission.action.EditorAction');
         $editorAction = new EditorAction();
         $editorAction->recordDecision($request, $submission, EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND, $actionLabels, $reviewRound);
 

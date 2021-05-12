@@ -13,9 +13,12 @@
  * @brief Form for Step 3 of author submission: submission metadata
  */
 
-import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
+namespace PKP\submission\form;
+
+use APP\core\Application;
 
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 
 class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
 {
@@ -117,4 +120,8 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
 
         return $this->submissionId;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\form\PKPSubmissionSubmitStep3Form', '\PKPSubmissionSubmitStep3Form');
 }

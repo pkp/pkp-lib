@@ -16,11 +16,13 @@
 
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\mail\SubmissionMailTemplate;
 
 use PKP\notification\PKPNotification;
+use PKP\submission\action\EditorAction;
 use PKP\submission\SubmissionFile;
 
 class ReviewerForm extends Form
@@ -382,7 +384,6 @@ class ReviewerForm extends Form
 
         $reviewMethod = (int) $this->getData('reviewMethod');
 
-        import('lib.pkp.classes.submission.action.EditorAction');
         $editorAction = new EditorAction();
         $editorAction->addReviewer($request, $submission, $reviewerId, $currentReviewRound, $reviewDueDate, $responseDueDate, $reviewMethod);
 

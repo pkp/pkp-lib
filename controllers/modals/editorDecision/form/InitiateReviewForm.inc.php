@@ -17,6 +17,8 @@ import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionFor
 
 use APP\workflow\EditorDecisionActionsManager;
 
+use PKP\submission\action\EditorAction;
+
 class InitiateReviewForm extends EditorDecisionForm
 {
     /**
@@ -56,7 +58,6 @@ class InitiateReviewForm extends EditorDecisionForm
 
         // Record the decision.
         $actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), [$this->_decision]);
-        import('lib.pkp.classes.submission.action.EditorAction');
         $editorAction = new EditorAction();
         $editorAction->recordDecision($request, $submission, $this->_decision, $actionLabels);
 

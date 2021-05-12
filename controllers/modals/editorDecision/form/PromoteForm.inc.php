@@ -15,9 +15,10 @@
 
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
-
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\notification\PKPNotification;
+
+use PKP\submission\action\EditorAction;
 use PKP\submission\SubmissionFile;
 
 // FIXME: Add namespacing
@@ -99,7 +100,6 @@ class PromoteForm extends EditorDecisionWithEmailForm
         // Record the decision.
         $reviewRound = $this->getReviewRound();
         $decision = $this->getDecision();
-        import('lib.pkp.classes.submission.action.EditorAction');
         $editorAction = new EditorAction();
         $editorAction->recordDecision($request, $submission, $decision, $actionLabels, $reviewRound);
 

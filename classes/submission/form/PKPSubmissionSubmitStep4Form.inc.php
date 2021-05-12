@@ -13,12 +13,15 @@
  * @brief Form for Step 4 of author submission: confirm & complete
  */
 
-import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
+namespace PKP\submission\form;
 
+use APP\core\Application;
 use APP\notification\Notification;
-
 use APP\notification\NotificationManager;
+
 use APP\workflow\EditorDecisionActionsManager;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
 
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
@@ -189,4 +192,8 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 
         return $this->submissionId;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\form\PKPSubmissionSubmitStep4Form', '\PKPSubmissionSubmitStep4Form');
 }

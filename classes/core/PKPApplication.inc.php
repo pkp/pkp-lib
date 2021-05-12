@@ -180,6 +180,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 'ASSOC_TYPE_QUEUED_PAYMENT',
                 'ASSOC_TYPE_PUBLICATION',
                 'ASSOC_TYPE_ACCESSIBLE_FILE_STAGES',
+                'ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER',
             ] as $constantName) {
                 if (!defined($constantName)) {
                     define($constantName, constant('self::' . $constantName));

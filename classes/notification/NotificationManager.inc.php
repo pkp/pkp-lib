@@ -15,7 +15,14 @@
  * @brief Class for Notification Manager.
  */
 
-import('lib.pkp.classes.notification.PKPNotificationManager');
+namespace APP\notification;
+
+use PKP\notification\PKPNotificationManager;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
+
+use APP\core\Application;
+use APP\notification\managerDelegate\ApproveSubmissionNotificationManager;
 
 class NotificationManager extends PKPNotificationManager
 {
@@ -84,10 +91,13 @@ class NotificationManager extends PKPNotificationManager
         switch ($notificationType) {
             case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
                 assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-                import('classes.notification.managerDelegate.ApproveSubmissionNotificationManager');
                 return new ApproveSubmissionNotificationManager($notificationType);
         }
         // Otherwise, fall back on parent class
         return parent::getMgrDelegate($notificationType, $assocType, $assocId);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\notification\NotificationManager', '\NotificationManager');
 }

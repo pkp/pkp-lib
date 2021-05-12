@@ -25,6 +25,7 @@ use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 
 use APP\template\TemplateManager;
+use APP\notification\NotificationManager;
 
 class PreprintGalleyGridHandler extends GridHandler
 {

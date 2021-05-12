@@ -13,9 +13,14 @@
  * @brief Form to edit notification settings.
  */
 
+namespace APP\notification\form;
 
-import('lib.pkp.classes.notification.form.PKPNotificationSettingsForm');
+use PKP\notification\form\PKPNotificationSettingsForm;
 
 class NotificationSettingsForm extends PKPNotificationSettingsForm
 {
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\notification\form\NotificationSettingsForm', '\NotificationSettingsForm');
 }

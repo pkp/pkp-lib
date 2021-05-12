@@ -19,6 +19,8 @@ use PKP\plugins\PKPPubIdPlugin;
 use PKP\core\JSONMessage;
 use PKP\submission\PKPSubmission;
 
+use APP\notification\NotificationManager;
+
 abstract class PubIdPlugin extends PKPPubIdPlugin {
 
 	/**

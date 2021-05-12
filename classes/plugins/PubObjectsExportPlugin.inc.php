@@ -27,6 +27,7 @@ use PKP\linkAction\LinkAction;
 use APP\core\Application;
 use APP\template\TemplateManager;
 use APP\i18n\AppLocale;
+use APP\notification\NotificationManager;
 
 // The statuses.
 define('EXPORT_STATUS_ANY', '');
@@ -730,7 +731,6 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     {
         static $notificationManager = null;
         if (is_null($notificationManager)) {
-            import('classes.notification.NotificationManager');
             $notificationManager = new NotificationManager();
         }
         if (!is_null($param)) {

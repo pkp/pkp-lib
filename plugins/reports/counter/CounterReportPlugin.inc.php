@@ -13,7 +13,8 @@
  * @brief Counter report plugin
  */
 
-use \APP\template\TemplateManager;
+use APP\template\TemplateManager;
+use APP\notification\NotificationManager;
 
 define('OPS_METRIC_TYPE_LEGACY_COUNTER', 'ops::legacyCounterPlugin');
 
@@ -214,7 +215,6 @@ class CounterReportPlugin extends ReportPlugin
                         $errormessage = __('plugins.reports.counter.error.badRequest');
                     }
                     $user = $request->getUser();
-                    import('classes.notification.NotificationManager');
                     $notificationManager = new NotificationManager();
                     $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => $errormessage]);
             }

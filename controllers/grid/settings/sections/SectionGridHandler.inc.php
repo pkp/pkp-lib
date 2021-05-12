@@ -20,6 +20,8 @@ use PKP\linkAction\LinkAction;
 use PKP\core\JSONMessage;
 use PKP\linkAction\request\AjaxModal;
 
+use APP\notification\NotificationManager;
+
 class SectionGridHandler extends SetupGridHandler
 {
     /**

@@ -14,12 +14,14 @@
  * @brief OPS subclass for Notifications (defines OPS-specific types).
  */
 
-/** Notification associative types. */
-// OPS-specific trivial notifications
+namespace APP\notification;
 
-import('lib.pkp.classes.notification.PKPNotification');
-import('lib.pkp.classes.notification.NotificationDAO');
+use PKP\notification\PKPNotification;
 
 class Notification extends PKPNotification
 {
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\notification\Notification', '\Notification');
 }

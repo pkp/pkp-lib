@@ -15,9 +15,11 @@
 
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 
 use PKP\mail\MailTemplate;
+use PKP\notification\PKPNotification;
 
 class CreateReviewerForm extends ReviewerForm
 {
@@ -150,9 +152,8 @@ class CreateReviewerForm extends ReviewerForm
                 $mail->assignParams(['username' => $this->getData('username'), 'password' => $password, 'userFullName' => $user->getFullName()]);
                 $mail->addRecipient($user->getEmail(), $user->getFullName());
                 if (!$mail->send($request)) {
-                    import('classes.notification.NotificationManager');
                     $notificationMgr = new NotificationManager();
-                    $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                    $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
                 }
             }
         }

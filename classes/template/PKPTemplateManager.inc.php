@@ -26,7 +26,9 @@ require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.ph
 use APP\core\Application;
 use APP\core\Services;
 use APP\file\PublicFileManager;
+
 use APP\i18n\AppLocale;
+use APP\notification\Notification;
 use APP\template\TemplateManager;
 use Exception;
 use Less_Parser;
@@ -35,13 +37,12 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
-
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
-
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 use Smarty;
@@ -368,7 +369,7 @@ class PKPTemplateManager extends Smarty
                     // Assign the user name to be used in the sitenav
                     'loggedInUsername' => $user->getUserName(),
                     // Assign a count of unread tasks
-                    'unreadNotificationCount' => $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK),
+                    'unreadNotificationCount' => $notificationDao->getNotificationCount(false, $user->getId(), null, Notification::NOTIFICATION_LEVEL_TASK),
                 ]);
             }
         }
@@ -934,14 +935,14 @@ class PKPTemplateManager extends Smarty
                 // Get a count of unread tasks
                 $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
                 import('lib.pkp.controllers.grid.notifications.TaskNotificationsGridHandler');
-                $unreadTasksCount = (int) $notificationDao->getNotificationCount(false, $request->getUser()->getId(), null, NOTIFICATION_LEVEL_TASK);
+                $unreadTasksCount = (int) $notificationDao->getNotificationCount(false, $request->getUser()->getId(), null, Notification::NOTIFICATION_LEVEL_TASK);
 
                 // Get a URL to load the tasks grid
                 $tasksUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_COMPONENT, null, 'page.PageHandler', 'tasks');
 
                 // Load system notifications in SiteHandler.js
                 $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-                $notificationsCount = count($notificationDao->getByUserId($request->getUser()->getId(), NOTIFICATION_LEVEL_TRIVIAL)->toArray());
+                $notificationsCount = count($notificationDao->getByUserId($request->getUser()->getId(), Notification::NOTIFICATION_LEVEL_TRIVIAL)->toArray());
 
                 // Load context switcher
                 $isAdmin = in_array(ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'));

@@ -27,6 +27,7 @@ define('REVIEWER_SELECT_ENROLL_EXISTING', 0x00000003);
 
 use APP\core\Services;
 use APP\log\SubmissionEventLogEntry;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
@@ -34,6 +35,7 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
 use PKP\mail\SubmissionMailTemplate;
 
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -658,7 +660,7 @@ class PKPReviewerGridHandler extends GridHandler
             ASSOC_TYPE_REVIEW_ASSIGNMENT,
             $reviewAssignment->getId(),
             $reviewAssignment->getReviewerId(),
-            NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
+            PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
         );
 
         return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
@@ -768,7 +770,7 @@ class PKPReviewerGridHandler extends GridHandler
             $currentUser = $request->getUser();
             $notificationMgr = new NotificationManager();
             $messageKey = $thankReviewerForm->getData('skipEmail') ? __('notification.reviewAcknowledged') : __('notification.reviewerThankedEmail');
-            $notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => $messageKey]);
+            $notificationMgr->createTrivialNotification($currentUser->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => $messageKey]);
         } else {
             $json = new JSONMessage(false, __('editor.review.thankReviewerError'));
         }
@@ -819,7 +821,7 @@ class PKPReviewerGridHandler extends GridHandler
             // Insert a trivial notification to indicate the reviewer was reminded successfully.
             $currentUser = $request->getUser();
             $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.sentNotification')]);
+            $notificationMgr->createTrivialNotification($currentUser->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.sentNotification')]);
             return new JSONMessage(true);
         } else {
             return new JSONMessage(false, __('editor.review.reminderError'));

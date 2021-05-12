@@ -13,8 +13,11 @@
  * @brief Form for promoting a submission (to external review or editing)
  */
 
-use APP\workflow\EditorDecisionActionsManager;
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 
+use APP\workflow\EditorDecisionActionsManager;
+use PKP\notification\PKPNotification;
 use PKP\submission\SubmissionFile;
 
 // FIXME: Add namespacing
@@ -192,11 +195,11 @@ class PromoteForm extends EditorDecisionWithEmailForm
                         $notificationMgr->createNotification(
                             $request,
                             $stageAssignment->getUserId(),
-                            NOTIFICATION_TYPE_PAYMENT_REQUIRED,
+                            PKPNotification::NOTIFICATION_TYPE_PAYMENT_REQUIRED,
                             $context->getId(),
                             ASSOC_TYPE_QUEUED_PAYMENT,
                             $queuedPayment->getId(),
-                            NOTIFICATION_LEVEL_TASK
+                            Notification::NOTIFICATION_LEVEL_TASK
                         );
                         $userIds[] = $stageAssignment->getUserId();
                     }

@@ -16,9 +16,11 @@
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
 use APP\core\Services;
+use APP\notification\NotificationManager;
 
 use APP\template\TemplateManager;
 use PKP\mail\MailTemplate;
+use PKP\notification\PKPNotification;
 
 class UserDetailsForm extends UserForm
 {
@@ -350,9 +352,8 @@ class UserDetailsForm extends UserForm
                 $mail->assignParams(['username' => $this->getData('username'), 'password' => $password, 'userFullName' => $this->user->getFullName()]);
                 $mail->addRecipient($this->user->getEmail(), $this->user->getFullName());
                 if (!$mail->send()) {
-                    import('classes.notification.NotificationManager');
                     $notificationMgr = new NotificationManager();
-                    $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                    $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
                 }
             }
         }

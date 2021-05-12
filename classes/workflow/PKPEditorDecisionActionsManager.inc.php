@@ -16,6 +16,7 @@
 namespace PKP\workflow;
 
 use APP\workflow\EditorDecisionActionsManager;
+use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 
 use PKP\submission\PKPSubmission;
@@ -165,10 +166,10 @@ abstract class PKPEditorDecisionActionsManager
     public function getStageNotifications()
     {
         return [
-            NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,
-            NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW,
-            NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING,
-            NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW,
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING,
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION
         ];
     }
 }

@@ -15,9 +15,11 @@
 
 
 use APP\handler\Handler;
+use APP\notification\Notification;
 use APP\template\TemplateManager;
 
 use PKP\core\JSONMessage;
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 
 class PKPReviewRoundTabHandler extends Handler
@@ -94,9 +96,9 @@ class PKPReviewRoundTabHandler extends Handler
         // Assign editor decision actions to the template, only if
         // user is accessing the last review round for this stage.
         $notificationRequestOptions = [
-            NOTIFICATION_LEVEL_NORMAL => [
-                NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
-            NOTIFICATION_LEVEL_TRIVIAL => [],
+            Notification::NOTIFICATION_LEVEL_NORMAL => [
+                PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
+            Notification::NOTIFICATION_LEVEL_TRIVIAL => [],
         ];
         $templateMgr->assign('reviewRoundNotificationRequestOptions', $notificationRequestOptions);
 

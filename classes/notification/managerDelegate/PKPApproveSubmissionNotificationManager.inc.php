@@ -13,20 +13,18 @@
  * @brief Approve submission notification type manager delegate.
  */
 
-import('lib.pkp.classes.notification.NotificationManagerDelegate');
+namespace PKP\notification\managerDelegate;
+
+use APP\core\Application;
+use APP\notification\Notification;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
+
+use PKP\notification\NotificationManagerDelegate;
+use PKP\notification\PKPNotification;
 
 class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegate
 {
-    /**
-     * Constructor.
-     *
-     * @param $notificationType int NOTIFICATION_TYPE_...
-     */
-    public function __construct($notificationType)
-    {
-        parent::__construct($notificationType);
-    }
-
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
@@ -65,9 +63,9 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
 
         $notificationTypes = [
-            NOTIFICATION_TYPE_APPROVE_SUBMISSION => false,
-            NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION => false,
-            NOTIFICATION_TYPE_VISIT_CATALOG => true,
+            PKPNotification::NOTIFICATION_TYPE_APPROVE_SUBMISSION => false,
+            PKPNotification::NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION => false,
+            PKPNotification::NOTIFICATION_TYPE_VISIT_CATALOG => true,
         ];
 
         $isPublished = (bool) $submission->getDatePublished();
@@ -91,7 +89,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
                     $submission->getData('contextId'),
                     ASSOC_TYPE_SUBMISSION,
                     $submissionId,
-                    NOTIFICATION_LEVEL_NORMAL
+                    Notification::NOTIFICATION_LEVEL_NORMAL
                 );
             } elseif ($notification && $isPublished != $forPublicationState) {
                 // Delete existing notification.
@@ -107,4 +105,8 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     {
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\managerDelegate\PKPApproveSubmissionNotificationManager', '\PKPApproveSubmissionNotificationManager');
 }

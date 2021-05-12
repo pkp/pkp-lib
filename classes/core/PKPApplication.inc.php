@@ -202,7 +202,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
         import('lib.pkp.classes.security.RoleDAO');
         import('lib.pkp.classes.security.Validation');
-        import('classes.notification.NotificationManager');
         import('lib.pkp.classes.statistics.PKPStatisticsHelper');
 
         PKPString::init();

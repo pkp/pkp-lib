@@ -12,6 +12,8 @@
  * @brief Interface to retrieve notification presentation information.
  */
 
+namespace PKP\notification;
+
 define('NOTIFICATION_STYLE_CLASS_WARNING', 'notifyWarning');
 define('NOTIFICATION_STYLE_CLASS_INFORMATION', 'notifyInfo');
 define('NOTIFICATION_STYLE_CLASS_SUCCESS', 'notifySuccess');
@@ -93,4 +95,8 @@ interface INotificationInfoProvider
      * @return boolean
      */
     public function isVisibleToAllUsers($notificationType, $assocType, $assocId);
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\INotificationInfoProvider', '\INotificationInfoProvider');
 }

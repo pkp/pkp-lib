@@ -30,6 +30,7 @@ use PKP\db\DAORegistry;
 use PKP\db\DBDataXMLParser;
 use PKP\file\FileManager;
 use PKP\filter\FilterHelper;
+use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\site\Version;
@@ -1090,7 +1091,6 @@ class Installer
      */
     public function setStatsEmailSettings()
     {
-        import('lib.pkp.classes.notification.PKPNotification'); // NOTIFICATION_TYPE_EDITORIAL_REPORT
         $roleIds = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
@@ -1106,7 +1106,7 @@ class Installer
 								(?, ?, ?, ?, ?)',
                             [
                                 'blocked_emailed_notification',
-                                NOTIFICATION_TYPE_EDITORIAL_REPORT,
+                                PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
                                 $user->getId(),
                                 $context->getId(),
                                 'int'

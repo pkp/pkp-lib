@@ -15,10 +15,21 @@
  * @brief Class for Notification Manager.
  */
 
-import('lib.pkp.classes.notification.PKPNotificationOperationManager');
-import('lib.pkp.classes.workflow.WorkflowStageDAO');
+namespace PKP\notification;
 
+use APP\core\Application;
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
+use PKP\notification\managerDelegate\EditorAssignmentNotificationManager;
+use PKP\notification\managerDelegate\EditorDecisionNotificationManager;
+use PKP\notification\managerDelegate\EditorialReportNotificationManager;
+use PKP\notification\managerDelegate\PendingRevisionsNotificationManager;
+
+use PKP\notification\managerDelegate\PKPEditingProductionStatusNotificationManager;
+use PKP\notification\managerDelegate\QueryNotificationManager;
+use PKP\notification\managerDelegate\SubmissionNotificationManager;
 
 class PKPNotificationManager extends PKPNotificationOperationManager
 {
@@ -35,15 +46,15 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         $context = $contextDao->getById($notification->getContextId());
 
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_EDITOR_ASSIGN:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
-            case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
-            case NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
-            case NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
+            case PKPNotification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
+            case PKPNotification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
+            case PKPNotification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
-            case NOTIFICATION_TYPE_REVIEWER_COMMENT:
+            case PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
@@ -51,20 +62,20 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
                 $operation = $reviewAssignment->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? $workflowStageDao::WORKFLOW_STAGE_PATH_INTERNAL_REVIEW : $workflowStageDao::WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW;
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', $operation, $reviewAssignment->getSubmissionId());
-            case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
-            case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED:
+            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
+            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED:
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', $reviewAssignment->getSubmissionId());
-            case NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
+            case PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_ANNOUNCEMENT);
                 $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
                 $announcement = $announcementDao->getById($notification->getAssocId()); /** @var Announcement $announcement */
                 $context = $contextDao->getById($announcement->getAssocId());
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'announcement', 'view', [$notification->getAssocId()]);
-            case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
+            case PKPNotification::NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
                 return __('notification.type.configurePaymentMethod');
-            case NOTIFICATION_TYPE_PAYMENT_REQUIRED:
+            case PKPNotification::NOTIFICATION_TYPE_PAYMENT_REQUIRED:
                 $context = $contextDao->getById($notification->getContextId());
                 Application::getPaymentManager($context);
                 assert($notification->getAssocType() == ASSOC_TYPE_QUEUED_PAYMENT);
@@ -103,9 +114,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
 
         switch ($type) {
-            case NOTIFICATION_TYPE_SUCCESS:
-            case NOTIFICATION_TYPE_ERROR:
-            case NOTIFICATION_TYPE_WARNING:
+            case PKPNotification::NOTIFICATION_TYPE_SUCCESS:
+            case PKPNotification::NOTIFICATION_TYPE_ERROR:
+            case PKPNotification::NOTIFICATION_TYPE_WARNING:
                 if (!is_null($this->getNotificationSettings($notification->getId()))) {
                     $notificationSettings = $this->getNotificationSettings($notification->getId());
                     return $notificationSettings['contents'];
@@ -113,42 +124,42 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                     return __('common.changesSaved');
                 }
                 // no break
-            case NOTIFICATION_TYPE_FORM_ERROR:
-            case NOTIFICATION_TYPE_ERROR:
+            case PKPNotification::NOTIFICATION_TYPE_FORM_ERROR:
+            case PKPNotification::NOTIFICATION_TYPE_ERROR:
                 $notificationSettings = $this->getNotificationSettings($notification->getId());
                 assert(!is_null($notificationSettings['contents']));
                 return $notificationSettings['contents'];
-            case NOTIFICATION_TYPE_PLUGIN_ENABLED:
+            case PKPNotification::NOTIFICATION_TYPE_PLUGIN_ENABLED:
                 return $this->_getTranslatedKeyWithParameters('common.pluginEnabled', $notification->getId());
-            case NOTIFICATION_TYPE_PLUGIN_DISABLED:
+            case PKPNotification::NOTIFICATION_TYPE_PLUGIN_DISABLED:
                 return $this->_getTranslatedKeyWithParameters('common.pluginDisabled', $notification->getId());
-            case NOTIFICATION_TYPE_REVIEWER_COMMENT:
+            case PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
                 $submission = $submissionDao->getById($reviewAssignment->getSubmissionId()); /** @var Submission $submission */
                 return __('notification.type.reviewerComment', ['title' => $submission->getLocalizedTitle()]);
-            case NOTIFICATION_TYPE_EDITOR_ASSIGN:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 $submission = $submissionDao->getById($notification->getAssocId());
                 return __('notification.type.editorAssign', ['title' => $submission->getLocalizedTitle()]);
-            case NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
+            case PKPNotification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 $submission = $submissionDao->getById($notification->getAssocId());
                 return __('notification.type.copyeditorRequest', ['title' => $submission->getLocalizedTitle()]);
-            case NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
+            case PKPNotification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 $submission = $submissionDao->getById($notification->getAssocId());
                 return __('notification.type.layouteditorRequest', ['title' => $submission->getLocalizedTitle()]);
-            case NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
+            case PKPNotification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 $submission = $submissionDao->getById($notification->getAssocId());
                 return __('notification.type.indexRequest', ['title' => $submission->getLocalizedTitle()]);
-            case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
+            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
                 return __('notification.type.reviewAssignment');
-            case NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED:
+            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED:
                 return __('notification.type.reviewAssignmentUpdated');
-            case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
+            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
                 assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
@@ -159,12 +170,12 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), ROLE_ID_AUTHOR, null, $user->getId());
                 $isAuthor = (bool) $stageAssignments->next();
                 return __($reviewRound->getStatusKey($isAuthor));
-            case NOTIFICATION_TYPE_PAYMENT_REQUIRED:
+            case PKPNotification::NOTIFICATION_TYPE_PAYMENT_REQUIRED:
                 return __('payment.type.publication.required');
-            case NOTIFICATION_TYPE_EDITORIAL_REPORT:
+            case PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT:
                 $notificationSettings = $this->getNotificationSettings($notification->getId());
                 return $notificationSettings['contents'];
-            case NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
                 return __('notification.type.revertDecline');
             default:
                 $delegateResult = $this->getByDelegate(
@@ -200,9 +211,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         assert(isset($type));
 
         switch ($type) {
-            case NOTIFICATION_TYPE_FORM_ERROR:
+            case PKPNotification::NOTIFICATION_TYPE_FORM_ERROR:
                 return join(' ', $content);
-            case NOTIFICATION_TYPE_ERROR:
+            case PKPNotification::NOTIFICATION_TYPE_ERROR:
                 if (!is_array($content)) {
                     return $content;
                 }
@@ -236,11 +247,11 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         assert(isset($type));
 
         switch ($type) {
-            case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
+            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
                 return __('notification.type.roundStatusTitle', ['round' => $reviewRound->getRound()]);
-            case NOTIFICATION_TYPE_FORM_ERROR:
+            case PKPNotification::NOTIFICATION_TYPE_FORM_ERROR:
                 return __('form.errorsOccurred');
             default:
                 $delegateResult = $this->getByDelegate(
@@ -265,14 +276,14 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     {
         $styleClass = parent::getStyleClass($notification);
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_SUCCESS: return NOTIFICATION_STYLE_CLASS_SUCCESS;
-            case NOTIFICATION_TYPE_WARNING: return NOTIFICATION_STYLE_CLASS_WARNING;
-            case NOTIFICATION_TYPE_ERROR: return NOTIFICATION_STYLE_CLASS_ERROR;
-            case NOTIFICATION_TYPE_INFORMATION: return NOTIFICATION_STYLE_CLASS_INFORMATION;
-            case NOTIFICATION_TYPE_FORBIDDEN: return NOTIFICATION_STYLE_CLASS_FORBIDDEN;
-            case NOTIFICATION_TYPE_HELP: return NOTIFICATION_STYLE_CLASS_HELP;
-            case NOTIFICATION_TYPE_FORM_ERROR: return NOTIFICATION_STYLE_CLASS_FORM_ERROR;
-            case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:	return NOTIFICATION_STYLE_CLASS_INFORMATION;
+            case PKPNotification::NOTIFICATION_TYPE_SUCCESS: return NOTIFICATION_STYLE_CLASS_SUCCESS;
+            case PKPNotification::NOTIFICATION_TYPE_WARNING: return NOTIFICATION_STYLE_CLASS_WARNING;
+            case PKPNotification::NOTIFICATION_TYPE_ERROR: return NOTIFICATION_STYLE_CLASS_ERROR;
+            case PKPNotification::NOTIFICATION_TYPE_INFORMATION: return NOTIFICATION_STYLE_CLASS_INFORMATION;
+            case PKPNotification::NOTIFICATION_TYPE_FORBIDDEN: return NOTIFICATION_STYLE_CLASS_FORBIDDEN;
+            case PKPNotification::NOTIFICATION_TYPE_HELP: return NOTIFICATION_STYLE_CLASS_HELP;
+            case PKPNotification::NOTIFICATION_TYPE_FORM_ERROR: return NOTIFICATION_STYLE_CLASS_FORM_ERROR;
+            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:	return NOTIFICATION_STYLE_CLASS_INFORMATION;
             default:
                 $delegateResult = $this->getByDelegate(
                     $notification->getType(),
@@ -295,12 +306,12 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     {
         $iconClass = parent::getIconClass($notification);
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_SUCCESS: return 'notifyIconSuccess';
-            case NOTIFICATION_TYPE_WARNING: return 'notifyIconWarning';
-            case NOTIFICATION_TYPE_ERROR: return 'notifyIconError';
-            case NOTIFICATION_TYPE_INFORMATION: return 'notifyIconInfo';
-            case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyIconForbidden';
-            case NOTIFICATION_TYPE_HELP: return 'notifyIconHelp';
+            case PKPNotification::NOTIFICATION_TYPE_SUCCESS: return 'notifyIconSuccess';
+            case PKPNotification::NOTIFICATION_TYPE_WARNING: return 'notifyIconWarning';
+            case PKPNotification::NOTIFICATION_TYPE_ERROR: return 'notifyIconError';
+            case PKPNotification::NOTIFICATION_TYPE_INFORMATION: return 'notifyIconInfo';
+            case PKPNotification::NOTIFICATION_TYPE_FORBIDDEN: return 'notifyIconForbidden';
+            case PKPNotification::NOTIFICATION_TYPE_HELP: return 'notifyIconHelp';
             default:
                 $delegateResult = $this->getByDelegate(
                     $notification->getType(),
@@ -323,13 +334,13 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     {
         $isVisible = parent::isVisibleToAllUsers($notificationType, $assocType, $assocId);
         switch ($notificationType) {
-            case NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
-            case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
-            case NOTIFICATION_TYPE_VISIT_CATALOG:
-            case NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
+            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
+            case PKPNotification::NOTIFICATION_TYPE_APPROVE_SUBMISSION:
+            case PKPNotification::NOTIFICATION_TYPE_VISIT_CATALOG:
+            case PKPNotification::NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
                 $isVisible = true;
                 break;
-            case NOTIFICATION_TYPE_PAYMENT_REQUIRED:
+            case PKPNotification::NOTIFICATION_TYPE_PAYMENT_REQUIRED:
                 $isVisible = false;
                 break;
             default:
@@ -386,28 +397,28 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     public function getNotificationSettingsMap()
     {
         return [
-            NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => ['settingName' => 'notificationSubmissionSubmitted',
+            PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => ['settingName' => 'notificationSubmissionSubmitted',
                 'emailSettingName' => 'emailNotificationSubmissionSubmitted',
                 'settingKey' => 'notification.type.submissionSubmitted'],
-            NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => ['settingName' => 'notificationEditorAssignmentRequired',
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => ['settingName' => 'notificationEditorAssignmentRequired',
                 'emailSettingName' => 'emailNotificationEditorAssignmentRequired',
                 'settingKey' => 'notification.type.editorAssignmentTask'],
-            NOTIFICATION_TYPE_METADATA_MODIFIED => ['settingName' => 'notificationMetadataModified',
+            PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED => ['settingName' => 'notificationMetadataModified',
                 'emailSettingName' => 'emailNotificationMetadataModified',
                 'settingKey' => 'notification.type.metadataModified'],
-            NOTIFICATION_TYPE_REVIEWER_COMMENT => ['settingName' => 'notificationReviewerComment',
+            PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT => ['settingName' => 'notificationReviewerComment',
                 'emailSettingName' => 'emailNotificationReviewerComment',
                 'settingKey' => 'notification.type.reviewerComment'],
-            NOTIFICATION_TYPE_NEW_QUERY => ['settingName' => 'notificationNewQuery',
+            PKPNotification::NOTIFICATION_TYPE_NEW_QUERY => ['settingName' => 'notificationNewQuery',
                 'emailSettingName' => 'emailNotificationNewQuery',
                 'settingKey' => 'notification.type.queryAdded'],
-            NOTIFICATION_TYPE_QUERY_ACTIVITY => ['settingName' => 'notificationQueryActivity',
+            PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY => ['settingName' => 'notificationQueryActivity',
                 'emailSettingName' => 'emailNotificationQueryActivity',
                 'settingKey' => 'notification.type.queryActivity'],
-            NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => ['settingName' => 'notificationNewAnnouncement',
+            PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => ['settingName' => 'notificationNewAnnouncement',
                 'emailSettingName' => 'emailNotificationNewAnnouncement',
                 'settingKey' => 'notification.type.newAnnouncement'],
-            NOTIFICATION_TYPE_EDITORIAL_REPORT => ['settingName' => 'notificationEditorialReport',
+            PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT => ['settingName' => 'notificationEditorialReport',
                 'emailSettingName' => 'emailNotificationEditorialReport',
                 'settingKey' => 'notification.type.editorialReport']
         ];
@@ -428,49 +439,42 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     protected function getMgrDelegate($notificationType, $assocType, $assocId)
     {
         switch ($notificationType) {
-            case NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
-            case NOTIFICATION_TYPE_METADATA_MODIFIED:
-            case NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
+            case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
+            case PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED:
+            case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
                 assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-                import('lib.pkp.classes.notification.managerDelegate.SubmissionNotificationManager');
                 return new SubmissionNotificationManager($notificationType);
-            case NOTIFICATION_TYPE_NEW_QUERY:
-            case NOTIFICATION_TYPE_QUERY_ACTIVITY:
-                import('lib.pkp.classes.notification.managerDelegate.QueryNotificationManager');
+            case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:
+            case PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
                 return new QueryNotificationManager($notificationType);
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION:
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW:
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING:
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION:
                 assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-                import('lib.pkp.classes.notification.managerDelegate.EditorAssignmentNotificationManager');
                 return new EditorAssignmentNotificationManager($notificationType);
-            case NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT:
-            case NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW:
-            case NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
-            case NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
-            case NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND:
-            case NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
-            case NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
-            case NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
                 assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-                import('lib.pkp.classes.notification.managerDelegate.EditorDecisionNotificationManager');
                 return new EditorDecisionNotificationManager($notificationType);
-            case NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
-            case NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
+            case PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
+            case PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
                 assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-                import('lib.pkp.classes.notification.managerDelegate.PendingRevisionsNotificationManager');
                 return new PendingRevisionsNotificationManager($notificationType);
-            case NOTIFICATION_TYPE_ASSIGN_COPYEDITOR:
-            case NOTIFICATION_TYPE_AWAITING_COPYEDITS:
-            case NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
-            case NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
+            case PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR:
+            case PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS:
+            case PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
+            case PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
                 assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
-                import('lib.pkp.classes.notification.managerDelegate.PKPEditingProductionStatusNotificationManager');
                 return new PKPEditingProductionStatusNotificationManager($notificationType);
-            case NOTIFICATION_TYPE_EDITORIAL_REPORT:
-                import('lib.pkp.classes.notification.managerDelegate.EditorialReportNotificationManager');
+            case PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT:
                 return new EditorialReportNotificationManager($notificationType);
         }
         return null; // No delegate required, let calling context handle null.
@@ -527,4 +531,8 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         $params = $this->getNotificationSettings($notificationId);
         return __($key, $this->getParamsForCurrentLocale($params));
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\PKPNotificationManager', '\PKPNotificationManager');
 }

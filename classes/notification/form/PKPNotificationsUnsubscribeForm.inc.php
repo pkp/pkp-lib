@@ -16,9 +16,12 @@
  * @brief Form to unsubscribe from email notifications.
  */
 
+namespace PKP\notification\form;
 
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 
+use PKP\db\DAORegistry;
 use PKP\form\Form;
 
 class PKPNotificationsUnsubscribeForm extends Form
@@ -124,4 +127,8 @@ class PKPNotificationsUnsubscribeForm extends Form
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\form\PKPNotificationsUnsubscribeForm', '\PKPNotificationsUnsubscribeForm');
 }

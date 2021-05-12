@@ -14,9 +14,11 @@
  */
 
 use APP\handler\Handler;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\submission\SubmissionFile;
 
@@ -68,7 +70,7 @@ abstract class PKPManageFileApiHandler extends Handler
         $this->setupTemplate($request);
         $user = $request->getUser();
         if (!$request->getUserVar('suppressNotification')) {
-            NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedFile')]);
+            NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedFile')]);
         }
 
         return \PKP\db\DAO::getDataChangedEvent();
@@ -162,7 +164,7 @@ abstract class PKPManageFileApiHandler extends Handler
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                 $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
                 while ($assignment = $submitterAssignments->next()) {
-                    $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $assignment->getUserId(), NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
+                    $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $assignment->getUserId(), PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
                 }
             }
 
@@ -184,6 +186,6 @@ abstract class PKPManageFileApiHandler extends Handler
      */
     protected function getUpdateNotifications()
     {
-        return [NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS];
+        return [PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS];
     }
 }

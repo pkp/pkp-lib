@@ -17,25 +17,37 @@
 
 namespace PKP\log;
 
-// File upload/delete event types.
-define('SUBMISSION_LOG_FILE_UPLOAD', 0x50000001);
-define('SUBMISSION_LOG_FILE_DELETE', 0x50000002);
-define('SUBMISSION_LOG_FILE_REVISION_UPLOAD', 0x50000008);
-define('SUBMISSION_LOG_FILE_EDIT', 0x50000010);
-
-// Audit events
-define('SUBMISSION_LOG_FILE_AUDITOR_ASSIGN', 0x50000004);
-define('SUBMISSION_LOG_FILE_AUDITOR_CLEAR', 0x50000005);
-define('SUBMISSION_LOG_FILE_AUDIT_UPLOAD', 0x50000006);
-define('SUBMISSION_LOG_FILE_SIGNOFF_SIGNOFF', 0x50000007);
-
-// Deprecated events. Preserve for historical logs
-define('SUBMISSION_LOG_FILE_REVISION_DELETE', 0x50000009); // uses submission.event.revisionDeleted
-
 class SubmissionFileEventLogEntry extends EventLogEntry
 {
+    // File upload/delete event types.
+    public const SUBMISSION_LOG_FILE_UPLOAD = 0x50000001;
+    public const SUBMISSION_LOG_FILE_DELETE = 0x50000002;
+    public const SUBMISSION_LOG_FILE_REVISION_UPLOAD = 0x50000008;
+    public const SUBMISSION_LOG_FILE_EDIT = 0x50000010;
+
+    // Audit events
+    public const SUBMISSION_LOG_FILE_AUDITOR_ASSIGN = 0x50000004;
+    public const SUBMISSION_LOG_FILE_AUDITOR_CLEAR = 0x50000005;
+    public const SUBMISSION_LOG_FILE_AUDIT_UPLOAD = 0x50000006;
+    public const SUBMISSION_LOG_FILE_SIGNOFF_SIGNOFF = 0x50000007;
+
+    // Deprecated events. Preserve for historical logs
+    public const SUBMISSION_LOG_FILE_REVISION_DELETE = 0x50000009; // uses submission.event.revisionDeleted
 }
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\log\SubmissionFileEventLogEntry', '\SubmissionFileEventLogEntry');
+    foreach ([
+        'SUBMISSION_LOG_FILE_UPLOAD',
+        'SUBMISSION_LOG_FILE_DELETE',
+        'SUBMISSION_LOG_FILE_REVISION_UPLOAD',
+        'SUBMISSION_LOG_FILE_EDIT',
+        'SUBMISSION_LOG_FILE_AUDITOR_ASSIGN',
+        'SUBMISSION_LOG_FILE_AUDITOR_CLEAR',
+        'SUBMISSION_LOG_FILE_AUDIT_UPLOAD',
+        'SUBMISSION_LOG_FILE_SIGNOFF_SIGNOFF',
+        'SUBMISSION_LOG_FILE_REVISION_DELETE',
+    ] as $constantName) {
+        define($constantName, constant('\SubmissionFileEventLogEntry::' . $constantName));
+    }
 }

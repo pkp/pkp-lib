@@ -16,15 +16,14 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
-use NotificationManager;
+use APP\notification\NotificationManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\db\SchemaDAO;
-
 use PKP\linkAction\LinkAction;
 
-// FIXME: Add namespacing
 use PKP\linkAction\request\AjaxModal;
+use PKP\notification\PKPNotification;
 
 abstract class PKPPubIdPlugin extends LazyLoadPlugin
 {
@@ -97,7 +96,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
                 $form->readInputData();
                 if ($form->validate()) {
                     $form->execute();
-                    $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS);
+                    $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS);
                     return new JSONMessage(true);
                 }
                 return new JSONMessage(true, $form->fetch($request));

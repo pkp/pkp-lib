@@ -19,7 +19,9 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 // Other classes associated with this grid
 import('lib.pkp.controllers.grid.notifications.NotificationsGridCellProvider');
 
+use APP\notification\NotificationManager;
 use PKP\linkAction\LinkAction;
+
 use PKP\linkAction\request\NullAction;
 
 class NotificationsGridHandler extends GridHandler
@@ -263,6 +265,6 @@ class NotificationsGridHandler extends GridHandler
     public function getUnreadNotificationsCount($user)
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        return (int) $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK);
+        return (int) $notificationDao->getNotificationCount(false, $user->getId(), null, Notification::NOTIFICATION_LEVEL_TASK);
     }
 }

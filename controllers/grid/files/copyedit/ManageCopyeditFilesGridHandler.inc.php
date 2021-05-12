@@ -15,7 +15,10 @@
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
+use APP\notification\NotificationManager;
 use PKP\core\JSONMessage;
+use PKP\notification\PKPNotification;
+
 use PKP\submission\SubmissionFile;
 
 class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
@@ -82,8 +85,8 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
                 $notificationMgr->updateNotification(
                     $request,
                     [
-                        NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                        NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                        PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
                     ],
                     null,
                     ASSOC_TYPE_SUBMISSION,

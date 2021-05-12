@@ -13,10 +13,12 @@
  * @brief Form for sending an email to a user
  */
 
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 
 use PKP\mail\MailTemplate;
+use PKP\notification\PKPNotification;
 
 class UserEmailForm extends Form
 {
@@ -96,9 +98,8 @@ class UserEmailForm extends Form
         parent::execute(...$functionArgs);
 
         if (!$email->send()) {
-            import('classes.notification.NotificationManager');
             $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+            $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
         }
     }
 }

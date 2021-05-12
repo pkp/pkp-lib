@@ -13,10 +13,13 @@
  * @brief Editor actions.
  */
 
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\log\PKPSubmissionEventLogEntry;
-use PKP\log\SubmissionLog;
 
+use PKP\log\SubmissionLog;
+use PKP\notification\PKPNotification;
 use PKP\submission\PKPSubmission;
 
 class EditorAction
@@ -147,11 +150,11 @@ class EditorAction
             $notificationMgr->createNotification(
                 $request,
                 $reviewerId,
-                NOTIFICATION_TYPE_REVIEW_ASSIGNMENT,
+                PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT,
                 $submission->getContextId(),
                 ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId(),
-                NOTIFICATION_LEVEL_TASK,
+                Notification::NOTIFICATION_LEVEL_TASK,
                 null,
                 true
             );

@@ -17,14 +17,19 @@
  * Subclasses can implement specific information.
  */
 
+namespace PKP\notification;
+
 use APP\i18n\AppLocale;
-
-import('classes.notification.Notification');
-import('lib.pkp.classes.notification.INotificationInfoProvider');
-
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use Firebase\JWT\JWT;
+
+use PKP\config\Config;
+use PKP\core\Core;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
+
 use PKP\mail\MailTemplate;
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider
@@ -150,7 +155,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @return Notification object|null
      */
-    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null)
+    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null)
     {
         $blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
 
@@ -167,7 +172,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
             $notificationId = $notificationDao->insertObject($notification);
 
             // Send notification emails
-            if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL && !$suppressEmail) {
+            if ($notification->getLevel() != Notification::NOTIFICATION_LEVEL_TRIVIAL && !$suppressEmail) {
                 $notificationEmailSettings = $this->getUserBlockedEmailedNotifications($userId, $contextId);
 
                 if (!in_array($notificationType, $notificationEmailSettings)) {
@@ -196,14 +201,14 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @return Notification object
      */
-    public function createTrivialNotification($userId, $notificationType = NOTIFICATION_TYPE_SUCCESS, $params = null)
+    public function createTrivialNotification($userId, $notificationType = PKPNotification::NOTIFICATION_TYPE_SUCCESS, $params = null)
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notification = $notificationDao->newDataObject();
         $notification->setUserId($userId);
         $notification->setContextId(CONTEXT_ID_NONE);
         $notification->setType($notificationType);
-        $notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);
+        $notification->setLevel(Notification::NOTIFICATION_LEVEL_TRIVIAL);
 
         $notificationId = $notificationDao->insertObject($notification);
 
@@ -227,7 +232,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         foreach ($notifications as $notification) {
             // Delete only trivial notifications.
-            if ($notification->getLevel() == NOTIFICATION_LEVEL_TRIVIAL) {
+            if ($notification->getLevel() == Notification::NOTIFICATION_LEVEL_TRIVIAL) {
                 $notificationDao->deleteById($notification->getId(), $notification->getUserId());
             }
         }
@@ -387,7 +392,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
             'notificationDateRead' => $notification->getDateRead(),
         ]);
 
-        if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL) {
+        if ($notification->getLevel() != Notification::NOTIFICATION_LEVEL_TRIVIAL) {
             $templateMgr->assign('notificationUrl', $this->getNotificationUrl($request, $notification));
         }
 
@@ -454,9 +459,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
                 $mail = $mailConfigurator($mail);
             }
             if (!$mail->send() && $request->getUser()) {
-                import('classes.notification.NotificationManager');
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
             }
         }
     }
@@ -535,4 +539,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
         return $unsubscribeUrl;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\PKPNotificationOperationManager', '\PKPNotificationOperationManager');
 }

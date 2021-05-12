@@ -14,9 +14,11 @@
  */
 
 use APP\handler\Handler;
+use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
 
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\submission\SubmissionComment;
 
@@ -358,7 +360,7 @@ class PKPEditorDecisionHandler extends Handler
         // Notify the user.
         $notificationMgr = new NotificationManager();
         $user = $request->getUser();
-        $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('editor.review.reviewsAdded')]);
+        $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('editor.review.reviewsAdded')]);
 
         return new JSONMessage(true, empty($body) ? __('editor.review.noReviews') : $body);
     }
@@ -561,12 +563,15 @@ class PKPEditorDecisionHandler extends Handler
 
             // Update submission notifications
             $submissionNotificationsToUpdate = [
-                EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT => [NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,	NOTIFICATION_TYPE_AWAITING_COPYEDITS],
+                EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT => [
+                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                    PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS
+                ],
                 EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION => [
-                    NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                    NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                    NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                    NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                    PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                    PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                 ],
             ];
             $notificationMgr = new NotificationManager();

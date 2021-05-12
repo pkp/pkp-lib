@@ -19,11 +19,14 @@ import('lib.pkp.controllers.grid.languages.LanguageGridHandler');
 import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 
+use APP\notification\NotificationManager;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+
 use PKP\services\interfaces\EntityWriteInterface;
 
 class AdminLanguageGridHandler extends LanguageGridHandler
@@ -216,7 +219,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
             $user = $request->getUser();
             $notificationManager->createTrivialNotification(
                 $user->getId(),
-                NOTIFICATION_TYPE_SUCCESS,
+                PKPNotification::NOTIFICATION_TYPE_SUCCESS,
                 ['contents' => __('notification.localeInstalled')]
             );
         }
@@ -260,7 +263,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
                 $user = $request->getUser();
                 $notificationManager->createTrivialNotification(
                     $user->getId(),
-                    NOTIFICATION_TYPE_SUCCESS,
+                    PKPNotification::NOTIFICATION_TYPE_SUCCESS,
                     ['contents' => __('notification.localeUninstalled', ['locale' => $localeData['name']])]
                 );
             }
@@ -290,7 +293,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
             $user = $request->getUser();
             $notificationManager->createTrivialNotification(
                 $user->getId(),
-                NOTIFICATION_TYPE_SUCCESS,
+                PKPNotification::NOTIFICATION_TYPE_SUCCESS,
                 ['contents' => __('notification.localeEnabled')]
             );
         }
@@ -318,14 +321,14 @@ class AdminLanguageGridHandler extends LanguageGridHandler
             if ($gridData[$locale]['primary']) {
                 $notificationManager->createTrivialNotification(
                     $user->getId(),
-                    NOTIFICATION_TYPE_ERROR,
+                    PKPNotification::NOTIFICATION_TYPE_ERROR,
                     ['contents' => __('admin.languages.cantDisable')]
                 );
             } else {
                 $this->_updateLocaleSupportState($request, $locale, false);
                 $notificationManager->createTrivialNotification(
                     $user->getId(),
-                    NOTIFICATION_TYPE_SUCCESS,
+                    PKPNotification::NOTIFICATION_TYPE_SUCCESS,
                     ['contents' => __('notification.localeDisabled')]
                 );
             }
@@ -364,7 +367,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
 
                 $notificationManager->createTrivialNotification(
                     $user->getId(),
-                    NOTIFICATION_TYPE_SUCCESS,
+                    PKPNotification::NOTIFICATION_TYPE_SUCCESS,
                     ['contents' => __('notification.primaryLocaleDefined', ['locale' => $localeData['name']])]
                 );
             }

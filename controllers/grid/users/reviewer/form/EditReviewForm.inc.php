@@ -14,10 +14,13 @@
  * reviewer after the assignment has taken place.
  */
 
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 
+use PKP\notification\PKPNotification;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\SubmissionFile;
 
 class EditReviewForm extends Form
@@ -156,11 +159,11 @@ class EditReviewForm extends Form
             $notificationManager->createNotification(
                 $request,
                 $reviewAssignment->getReviewerId(),
-                NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
+                PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
                 $context->getId(),
                 ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId(),
-                NOTIFICATION_LEVEL_TASK
+                Notification::NOTIFICATION_LEVEL_TASK
             );
         }
 

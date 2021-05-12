@@ -16,9 +16,16 @@
  * @brief Form to edit notification settings.
  */
 
+namespace PKP\notification\form;
+
+use APP\core\Application;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 
 use PKP\form\Form;
+use PKP\notification\PKPNotification;
+use PKP\plugins\HookRegistry;
 
 class PKPNotificationSettingsForm extends Form
 {
@@ -73,26 +80,26 @@ class PKPNotificationSettingsForm extends Form
             // @see RegistrationForm::execute()
             ['categoryKey' => 'notification.type.public',
                 'settings' => [
-                    NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+                    PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
                 ]
             ],
             ['categoryKey' => 'notification.type.submissions',
                 'settings' => [
-                    NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
-                    NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
-                    NOTIFICATION_TYPE_METADATA_MODIFIED,
-                    NOTIFICATION_TYPE_NEW_QUERY,
-                    NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                    PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
+                    PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
+                    PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED,
+                    PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
+                    PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
                 ]
             ],
             ['categoryKey' => 'notification.type.reviewing',
                 'settings' => [
-                    NOTIFICATION_TYPE_REVIEWER_COMMENT,
+                    PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
                 ]
             ],
             ['categoryKey' => 'user.role.editors',
                 'settings' => [
-                    NOTIFICATION_TYPE_EDITORIAL_REPORT,
+                    PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
                 ]
             ],
         ];
@@ -156,4 +163,8 @@ class PKPNotificationSettingsForm extends Form
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\form\PKPNotificationSettingsForm', '\PKPNotificationSettingsForm');
 }

@@ -15,7 +15,11 @@
 
 import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 
+use APP\notification\Notification;
+
+use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
+use PKP\notification\PKPNotification;
 
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 {
@@ -155,11 +159,11 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
                 $notificationManager->createNotification(
                     $request,
                     $userId,
-                    NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
+                    PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
                     $this->submission->getContextId(),
                     ASSOC_TYPE_SUBMISSION,
                     $this->submission->getId(),
-                    NOTIFICATION_LEVEL_TASK
+                    Notification::NOTIFICATION_LEVEL_TASK
                 );
             }
         } else {
@@ -167,7 +171,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
                 $notificationManager->createNotification(
                     $request,
                     $userId,
-                    NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
+                    PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
                     $this->submission->getContextId(),
                     ASSOC_TYPE_SUBMISSION,
                     $this->submission->getId()
@@ -177,7 +181,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 
         $notificationManager->updateNotification(
             $request,
-            [NOTIFICATION_TYPE_APPROVE_SUBMISSION],
+            [PKPNotification::NOTIFICATION_TYPE_APPROVE_SUBMISSION],
             null,
             ASSOC_TYPE_SUBMISSION,
             $this->submission->getId()

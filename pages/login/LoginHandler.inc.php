@@ -14,9 +14,11 @@
  */
 
 use APP\handler\Handler;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\mail\MailTemplate;
 
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\validation\FormValidatorReCaptcha;
 
@@ -283,9 +285,8 @@ class LoginHandler extends Handler
             ]);
             $mail->addRecipient($user->getEmail(), $user->getFullName());
             if (!$mail->send()) {
-                import('classes.notification.NotificationManager');
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
             }
 
             $templateMgr->assign([

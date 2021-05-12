@@ -13,8 +13,11 @@
  * @brief Handle review form grid requests.
  */
 
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
+use PKP\file\TemporaryFileManager;
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
@@ -23,9 +26,9 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
  */
 define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 
-use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\notification\PKPNotification;
 use PKP\plugins\PluginHelper;
 use PKP\security\authorization\PolicySet;
 
@@ -295,13 +298,13 @@ class PluginGalleryGridHandler extends GridHandler
                 throw new Exception('Unable to save plugin to local file!');
             }
         } catch (Exception $e) {
-            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
+            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
             return $request->redirectUrlJson($redirectUrl);
         }
 
         // Verify the plugin checksum.
         if (md5_file($destPath) !== $plugin->getReleaseMD5()) {
-            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => 'Incorrect MD5 checksum!']);
+            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => 'Incorrect MD5 checksum!']);
             unlink($destPath);
             return $request->redirectUrlJson($redirectUrl);
         }
@@ -311,7 +314,7 @@ class PluginGalleryGridHandler extends GridHandler
         try {
             $pluginDir = $pluginHelper->extractPlugin($destPath, $plugin->getProduct() . '-' . $plugin->getVersion());
         } catch (Exception $e) {
-            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
+            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
             return $request->redirectUrlJson($redirectUrl);
         } finally {
             unlink($destPath);
@@ -326,9 +329,9 @@ class PluginGalleryGridHandler extends GridHandler
             }
 
             // Notify of success.
-            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.plugins.upgradeSuccessful', ['versionString' => $pluginVersion->getVersionString(false)])]);
+            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.plugins.upgradeSuccessful', ['versionString' => $pluginVersion->getVersionString(false)])]);
         } catch (Exception $e) {
-            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
+            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
             if (!$isUpgrade) {
                 $temporaryFileManager = new TemporaryFileManager();
                 $temporaryFileManager->rmtree($pluginDir);

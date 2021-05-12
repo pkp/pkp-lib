@@ -12,9 +12,17 @@
  * @brief Editorial report notification manager.
  */
 
-use PKP\mail\MailTemplate;
+namespace PKP\notification\managerDelegate;
 
-import('lib.pkp.classes.notification.NotificationManagerDelegate');
+use APP\core\Application;
+use APP\core\Services;
+use APP\i18n\AppLocale;
+use APP\notification\Notification;
+
+use PKP\core\PKPApplication;
+use PKP\mail\MailTemplate;
+use PKP\notification\NotificationManagerDelegate;
+use PKP\notification\PKPNotification;
 
 class EditorialReportNotificationManager extends NotificationManagerDelegate
 {
@@ -56,7 +64,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
         $dateStart = $dateStart;
         $dateEnd = $dateEnd;
 
-        \AppLocale::requireComponents([LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_USER], $locale);
+        AppLocale::requireComponents([LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_USER], $locale);
 
         $dispatcher = Application::get()->getDispatcher();
 
@@ -158,7 +166,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     public function _getLocalizedMonthName(\DateTimeInterface $date, ?string $locale = null): string
     {
         static $cache = [];
-        $locale ?? $locale = \AppLocale::getLocale();
+        $locale ?? $locale = AppLocale::getLocale();
         $formatter = $cache[$locale] ?? $cache[$locale] = \IntlDateFormatter::create($locale, null, null, null, null, 'MMMM');
         return $formatter->format($date);
     }
@@ -217,11 +225,11 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
         return parent::createNotification(
             $this->_request,
             $user->getId(),
-            NOTIFICATION_TYPE_EDITORIAL_REPORT,
+            PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
             $this->_context->getId(),
             null,
             null,
-            NOTIFICATION_LEVEL_TASK,
+            Notification::NOTIFICATION_LEVEL_TASK,
             ['contents' => __('notification.type.editorialReport.contents', [], $this->_context->getPrimaryLocale())],
             false,
             function ($mail) use ($user) {
@@ -278,4 +286,8 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     {
         return $this->_attachmentFilename;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\managerDelegate\EditorialReportNotificationManager', '\EditorialReportNotificationManager');
 }

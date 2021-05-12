@@ -16,9 +16,11 @@
 import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
 
 use APP\log\SubmissionEventLogEntry;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 
 use PKP\log\SubmissionLog;
+use PKP\notification\PKPNotification;
 use PKP\submission\SubmissionComment;
 
 class PKPReviewerReviewStep3Form extends ReviewerReviewForm
@@ -157,7 +159,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             $notificationMgr->createNotification(
                 Application::get()->getRequest(),
                 $userId,
-                NOTIFICATION_TYPE_REVIEWER_COMMENT,
+                PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
                 $submission->getContextId(),
                 ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId()
@@ -186,7 +188,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             ASSOC_TYPE_REVIEW_ASSIGNMENT,
             $reviewAssignment->getId(),
             $reviewAssignment->getReviewerId(),
-            NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
+            PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
         );
 
         // Add log

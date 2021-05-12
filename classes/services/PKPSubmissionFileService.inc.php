@@ -20,7 +20,10 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionFileEventLogEntry;
+use PKP\log\SubmissionFileLog;
 use PKP\mail\SubmissionMailTemplate;
+use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\services\interfaces\EntityPropertyInterface;
@@ -334,7 +337,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         \SubmissionFileLog::logEvent(
             $request,
             $submissionFile,
-            SUBMISSION_LOG_FILE_UPLOAD,
+            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
             'submission.event.fileUploaded',
             [
                 'fileStage' => $submissionFile->getData('fileStage'),
@@ -353,7 +356,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         \SubmissionLog::logEvent(
             $request,
             $submission,
-            SUBMISSION_LOG_FILE_REVISION_UPLOAD,
+            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
             'submission.event.fileRevised',
             [
                 'fileStage' => $submissionFile->getFileStage(),
@@ -387,7 +390,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
             $notificationMgr = new \NotificationManager();
             $notificationMgr->updateNotification(
                 $request,
-                [NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
+                [PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
                 $authorUserIds,
                 ASSOC_TYPE_SUBMISSION,
                 $submissionFile->getData('submissionId')
@@ -461,9 +464,8 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 
                 if ($mail->getRecipients()) {
                     if (!$mail->send($request)) {
-                        import('classes.notification.NotificationManager');
                         $notificationMgr = new \NotificationManager();
-                        $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                        $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
                     }
                 }
             }
@@ -487,12 +489,10 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 
         DAORegistry::getDAO('SubmissionFileDAO')->updateObject($submissionFile);
 
-        import('lib.pkp.classes.log.SubmissionFileLog');
-        import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
-        \SubmissionFileLog::logEvent(
+        SubmissionFileLog::logEvent(
             $request,
             $submissionFile,
-            $newFileUploaded ? SUBMISSION_LOG_FILE_REVISION_UPLOAD : SUBMISSION_LOG_FILE_EDIT,
+            $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
             $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
             [
                 'fileStage' => $submissionFile->getData('fileStage'),
@@ -512,7 +512,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         \SubmissionLog::logEvent(
             $request,
             $submission,
-            $newFileUploaded ? SUBMISSION_LOG_FILE_REVISION_UPLOAD : SUBMISSION_LOG_FILE_EDIT,
+            $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
             $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
             [
                 'fileStage' => $submissionFile->getFileStage(),
@@ -562,7 +562,6 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         $noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId());
 
         // Update tasks
-        import('classes.notification.NotificationManager');
         $notificationMgr = new \NotificationManager();
         switch ($submissionFile->getData('fileStage')) {
             case SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION:
@@ -574,7 +573,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 }
                 $notificationMgr->updateNotification(
                     Application::get()->getRequest(),
-                    [NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
+                    [PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
                     $authorUserIds,
                     ASSOC_TYPE_SUBMISSION,
                     $submissionFile->getData('submissionId')
@@ -584,7 +583,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
             case SubmissionFile::SUBMISSION_FILE_COPYEDIT:
                 $notificationMgr->updateNotification(
                     Application::get()->getRequest(),
-                    [NOTIFICATION_TYPE_ASSIGN_COPYEDITOR, NOTIFICATION_TYPE_AWAITING_COPYEDITS],
+                    [PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR, PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS],
                     null,
                     ASSOC_TYPE_SUBMISSION,
                     $submissionFile->getData('submissionId')
@@ -615,7 +614,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         \SubmissionFileLog::logEvent(
             Application::get()->getRequest(),
             $submissionFile,
-            SUBMISSION_LOG_FILE_DELETE,
+            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_DELETE,
             'submission.event.fileDeleted',
             [
                 'fileStage' => $submissionFile->getData('fileStage'),

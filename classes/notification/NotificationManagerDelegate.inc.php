@@ -16,7 +16,9 @@
  * extended by subclasses to update notification objects.
  */
 
-import('lib.pkp.classes.notification.PKPNotificationOperationManager');
+namespace PKP\notification;
+
+use APP\notification\Notification;
 
 abstract class NotificationManagerDelegate extends PKPNotificationOperationManager
 {
@@ -71,7 +73,7 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
      * @param null|mixed $assocId
      * @param null|mixed $params
      */
-    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null)
+    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null, $suppressEmail = false, callable $mailConfigurator = null)
     {
         assert($notificationType == $this->getNotificationType() || $this->multipleTypesUpdate());
         return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params, $suppressEmail, $mailConfigurator);
@@ -90,4 +92,8 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
     {
         return false;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\NotificationManagerDelegate', '\NotificationManagerDelegate');
 }

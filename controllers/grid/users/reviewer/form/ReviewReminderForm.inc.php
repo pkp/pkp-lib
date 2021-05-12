@@ -13,10 +13,12 @@
  * @brief Form for sending a review reminder to a reviewer
  */
 
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 
 use PKP\mail\SubmissionMailTemplate;
+use PKP\notification\PKPNotification;
 
 class ReviewReminderForm extends Form
 {
@@ -182,9 +184,8 @@ class ReviewReminderForm extends Form
             'editorialContactSignature' => $user->getContactSignature(),
         ]);
         if (!$email->send($request)) {
-            import('classes.notification.NotificationManager');
             $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+            $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
         }
 
         // update the ReviewAssignment with the reminded and modified dates

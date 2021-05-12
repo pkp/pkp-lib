@@ -13,13 +13,14 @@
  * @brief Handle requests for reviewer functions.
  */
 
-
 import('lib.pkp.classes.submission.reviewer.ReviewerAction');
 
 use APP\handler\Handler;
+use APP\notification\NotificationManager;
 
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+use PKP\notification\PKPNotification;
 
 class PKPReviewerHandler extends Handler
 {
@@ -138,7 +139,7 @@ class PKPReviewerHandler extends Handler
             $reviewerForm->saveForLater();
             $notificationMgr = new NotificationManager();
             $user = $request->getUser();
-            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('common.changesSaved')]);
+            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('common.changesSaved')]);
             return \PKP\db\DAO::getDataChangedEvent();
         }
         // Submit the form data and move forward

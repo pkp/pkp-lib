@@ -15,9 +15,16 @@
  * @brief Operations for retrieving and modifying Notification objects.
  */
 
-import('classes.notification.Notification');
+namespace PKP\notification;
 
+use APP\notification\Notification;
 use Illuminate\Support\Facades\DB;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
+
+use PKP\db\DAOResultFactory;
+
+use PKP\plugins\HookRegistry;
 
 class NotificationDAO extends \PKP\db\DAO
 {
@@ -59,7 +66,7 @@ class NotificationDAO extends \PKP\db\DAO
      *
      * @return object DAOResultFactory containing matching Notification objects
      */
-    public function getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null)
+    public function getByUserId($userId, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null)
     {
         $result = DB::table('notifications')
             ->where('user_id', '=', (int) $userId)
@@ -298,7 +305,7 @@ class NotificationDAO extends \PKP\db\DAO
      *
      * @return int
      */
-    public function getNotificationCount($read = true, $userId = null, $contextId = null, $level = NOTIFICATION_LEVEL_NORMAL)
+    public function getNotificationCount($read = true, $userId = null, $contextId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL)
     {
         $params = [(int) $userId, (int) $level];
         if ($contextId) {
@@ -353,4 +360,8 @@ class NotificationDAO extends \PKP\db\DAO
 
         return $notification;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\NotificationDAO', '\NotificationDAO');
 }

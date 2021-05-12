@@ -19,8 +19,9 @@ import('lib.pkp.pages.management.ManagementHandler');
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+
+use PKP\notification\PKPNotification;
 
 class PKPToolsHandler extends ManagementHandler
 {
@@ -150,7 +151,7 @@ class PKPToolsHandler extends ManagementHandler
         $submissionDao->resetPermissions($context->getId());
 
         $user = $request->getUser();
-        NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.setup.resetPermissions.success')]);
+        NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.setup.resetPermissions.success')]);
 
         // This is an ugly hack to force the PageHandler to return JSON, so this
         // method can communicate properly with the AjaxFormHandler. Returning a

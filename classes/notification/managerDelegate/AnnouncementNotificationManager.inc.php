@@ -12,9 +12,16 @@
  * @brief New announcement notification manager.
  */
 
-use PKP\mail\MailTemplate;
+namespace PKP\notification\managerDelegate;
 
-import('lib.pkp.classes.notification.NotificationManagerDelegate');
+use APP\core\Application;
+use APP\core\Services;
+use APP\notification\Notification;
+use PKP\core\PKPApplication;
+
+use PKP\mail\MailTemplate;
+use PKP\notification\NotificationManagerDelegate;
+use PKP\notification\PKPNotification;
 
 class AnnouncementNotificationManager extends NotificationManagerDelegate
 {
@@ -90,11 +97,11 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
         return parent::createNotification(
             Application::get()->getRequest(),
             $user->getId(),
-            NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+            PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
             $this->_announcement->getAssocId(),
             null,
             null,
-            NOTIFICATION_LEVEL_NORMAL,
+            Notification::NOTIFICATION_LEVEL_NORMAL,
             ['contents' => $this->_announcement->getLocalizedTitle()],
             false,
             function ($mail) use ($user) {
@@ -153,4 +160,8 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
             ),
         ];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\managerDelegate\AnnouncementNotificationManager', '\AnnouncementNotificationManager');
 }

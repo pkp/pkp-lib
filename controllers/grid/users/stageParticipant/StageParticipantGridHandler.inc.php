@@ -21,6 +21,7 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 
 use APP\log\SubmissionEventLogEntry;
+use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
@@ -29,6 +30,7 @@ use PKP\linkAction\request\RedirectAction;
 use PKP\log\SubmissionLog;
 
 use PKP\mail\SubmissionMailTemplate;
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 class StageParticipantGridHandler extends CategoryGridHandler
@@ -366,16 +368,16 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 // remove the 'editor required' task if we now have an editor assigned
                 if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $workingStageId)) {
                     $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-                    $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED);
+                    $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED);
                 }
             }
 
             // Create trivial notification.
             $user = $request->getUser();
             if ($stageAssignmentId != $assignmentId) { // New assignment added
-                $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedStageParticipant')]);
+                $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedStageParticipant')]);
             } else {
-                $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.editStageParticipant')]);
+                $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.editStageParticipant')]);
             }
 
 
@@ -431,10 +433,10 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $notificationMgr->updateNotification(
                 $request,
                 [
-                    NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                    NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                    NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                    NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                    PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                    PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                 ],
                 null,
                 ASSOC_TYPE_SUBMISSION,
@@ -535,10 +537,10 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 $notificationMgr->updateNotification(
                     $request,
                     [
-                        NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                        NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                        NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                        NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                        PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                        PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                     ],
                     null,
                     ASSOC_TYPE_SUBMISSION,

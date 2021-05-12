@@ -16,14 +16,16 @@
 // import grid base classes
 import('lib.pkp.classes.controllers.grid.GridHandler');
 
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\mail\SubmissionMailTemplate;
-use PKP\security\authorization\QueryAccessPolicy;
+use PKP\notification\PKPNotification;
 
+use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 
 class QueriesGridHandler extends GridHandler
@@ -380,10 +382,10 @@ class QueriesGridHandler extends GridHandler
             $notificationMgr->updateNotification(
                 $request,
                 [
-                    NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                    NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                    NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                    NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                    PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                    PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                 ],
                 null,
                 ASSOC_TYPE_SUBMISSION,
@@ -611,10 +613,10 @@ class QueriesGridHandler extends GridHandler
                 $notificationMgr->updateNotification(
                     $request,
                     [
-                        NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                        NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                        NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                        NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                        PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                        PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                     ],
                     null,
                     ASSOC_TYPE_SUBMISSION,

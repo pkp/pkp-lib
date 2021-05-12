@@ -15,8 +15,9 @@
  * @brief Operations for retrieving and modifying Notification metadata.
  */
 
+namespace PKP\notification;
 
-import('classes.notification.Notification');
+use APP\notification\Notification;
 
 class NotificationSettingsDAO extends \PKP\db\DAO
 {
@@ -107,4 +108,8 @@ class NotificationSettingsDAO extends \PKP\db\DAO
     {
         return $this->update('DELETE FROM notification_settings WHERE notification_id = ?', [(int) $notificationId]);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\NotificationSettingsDAO', '\NotificationSettingsDAO');
 }

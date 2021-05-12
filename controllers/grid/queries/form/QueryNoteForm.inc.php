@@ -13,9 +13,12 @@
  * @brief Form for adding/editing a new query note.
  */
 
-use APP\template\TemplateManager;
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 
+use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\notification\PKPNotification;
 
 class QueryNoteForm extends Form
 {
@@ -161,7 +164,7 @@ class QueryNoteForm extends Form
                 ASSOC_TYPE_QUERY,
                 $query->getId(),
                 $userId,
-                NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
                 $request->getContext()->getId()
             );
 
@@ -174,11 +177,11 @@ class QueryNoteForm extends Form
             $notificationManager->createNotification(
                 $request,
                 $userId,
-                NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
                 $request->getContext()->getId(),
                 ASSOC_TYPE_QUERY,
                 $query->getId(),
-                NOTIFICATION_LEVEL_TASK
+                Notification::NOTIFICATION_LEVEL_TASK
             );
         }
 

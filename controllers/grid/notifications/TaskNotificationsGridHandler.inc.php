@@ -16,6 +16,8 @@
 // Import UI base classes.
 import('lib.pkp.controllers.grid.notifications.NotificationsGridHandler');
 
+use APP\notification\Notification;
+
 class TaskNotificationsGridHandler extends NotificationsGridHandler
 {
     /**
@@ -42,7 +44,7 @@ class TaskNotificationsGridHandler extends NotificationsGridHandler
 
         // Get all level task notifications.
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notifications = $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TASK)->toArray();
+        $notifications = $notificationDao->getByUserId($user->getId(), Notification::NOTIFICATION_LEVEL_TASK)->toArray();
 
         // Checkbox selection requires the array keys match the notification id
         $notificationsForRow = [];

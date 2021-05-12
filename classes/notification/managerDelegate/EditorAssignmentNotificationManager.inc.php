@@ -13,33 +13,29 @@
  * @brief Editor assignment notification types manager delegate.
  */
 
-import('lib.pkp.classes.notification.NotificationManagerDelegate');
+namespace PKP\notification\managerDelegate;
+
+use APP\notification\Notification;
+use PKP\db\DAORegistry;
+use PKP\notification\NotificationManagerDelegate;
+
+use PKP\notification\PKPNotification;
 
 class EditorAssignmentNotificationManager extends NotificationManagerDelegate
 {
-    /**
-     * Constructor.
-     *
-     * @param $notificationType int NOTIFICATION_TYPE_...
-     */
-    public function __construct($notificationType)
-    {
-        parent::__construct($notificationType);
-    }
-
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage($notification)
      */
     public function getNotificationMessage($request, $notification)
     {
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION:
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW:
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW:
                 return __('notification.type.editorAssignment');
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING:
                 return __('notification.type.editorAssignmentEditing');
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION:
                 return __('notification.type.editorAssignmentProduction');
         }
     }
@@ -103,7 +99,7 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
                 $context->getId(),
                 ASSOC_TYPE_SUBMISSION,
                 $submissionId,
-                NOTIFICATION_LEVEL_TASK
+                Notification::NOTIFICATION_LEVEL_TASK
             );
         }
     }
@@ -120,18 +116,22 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
     public function _getStageIdByNotificationType()
     {
         switch ($this->getNotificationType()) {
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION:
                 return WORKFLOW_STAGE_ID_SUBMISSION;
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW:
                 return WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW:
                 return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING:
                 return WORKFLOW_STAGE_ID_EDITING;
-            case NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION:
+            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION:
                 return WORKFLOW_STAGE_ID_PRODUCTION;
             default:
                 return null;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\managerDelegate\EditorAssignmentNotificationManager', '\EditorAssignmentNotificationManager');
 }

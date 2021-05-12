@@ -17,10 +17,13 @@
 
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.notification.PKPNotificationManager');
 
+use APP\notification\Notification;
 use PKP\db\DAORegistry;
 use PKP\mail\MailTemplate;
+use PKP\notification\PKPNotification;
+
+use PKP\notification\PKPNotificationManager;
 
 define('NOTIFICATION_ID', 1);
 
@@ -34,7 +37,7 @@ class PKPNotificationManagerTest extends PKPTestCase
     public function testGetNotificationMessage()
     {
         $notification = $this->getTrivialNotification();
-        $notification->setType(NOTIFICATION_TYPE_REVIEW_ASSIGNMENT);
+        $notification->setType(PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT);
 
         $requestDummy = $this->getMockBuilder(PKPRequest::class)->getMock();
         $result = $this->notificationMgr->getNotificationMessage($requestDummy, $notification);
@@ -84,11 +87,11 @@ class PKPNotificationManagerTest extends PKPTestCase
         $nonTrivialNotification = $notification;
 
         // Make the notification non trivial.
-        $nonTrivialNotification->setLevel(NOTIFICATION_LEVEL_NORMAL);
+        $nonTrivialNotification->setLevel(Notification::NOTIFICATION_LEVEL_NORMAL);
 
         // Setup any assoc type and id that have content definition in notification manager,
         // so we can check it later when sending the email.
-        $nonTrivialNotification->setType(NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
+        $nonTrivialNotification->setType(PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
         $nonTrivialNotification->setAssocType(ASSOC_TYPE_ANNOUNCEMENT);
 
         $fixtureObjects = $this->getFixtureCreateNotificationSendEmail($nonTrivialNotification);
@@ -136,7 +139,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         // Adapt the notification to the expected result.
         $trivialNotification->unsetData('assocId');
         $trivialNotification->unsetData('assocType');
-        $trivialNotification->setType(NOTIFICATION_TYPE_SUCCESS);
+        $trivialNotification->setType(PKPNotification::NOTIFICATION_TYPE_SUCCESS);
 
         $this->injectNotificationDaoMock($trivialNotification);
         if (!empty($notificationParams)) {
@@ -453,7 +456,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         $notification->setContextId(CONTEXT_ID_NONE);
         $notification->setAssocType($anyTestInteger);
         $notification->setAssocId($anyTestInteger);
-        $notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);
+        $notification->setLevel(Notification::NOTIFICATION_LEVEL_TRIVIAL);
 
         return $notification;
     }

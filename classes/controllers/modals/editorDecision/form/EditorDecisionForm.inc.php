@@ -13,11 +13,13 @@
  * @brief Base class for the editor decision forms.
  */
 
-
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use APP\workflow\EditorDecisionActionsManager;
 
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\form\Form;
+use PKP\notification\PKPNotification;
 use PKP\submission\SubmissionFile;
 
 // Define review round and review stage id constants.
@@ -181,7 +183,7 @@ class EditorDecisionForm extends Form
             ASSOC_TYPE_REVIEW_ROUND,
             $reviewRound->getId(),
             null,
-            NOTIFICATION_TYPE_REVIEW_ROUND_STATUS,
+            PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS,
             $submission->getContextId()
         );
 
@@ -191,11 +193,11 @@ class EditorDecisionForm extends Form
             $notificationMgr->createNotification(
                 $request,
                 null,
-                NOTIFICATION_TYPE_REVIEW_ROUND_STATUS,
+                PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS,
                 $submission->getContextId(),
                 ASSOC_TYPE_REVIEW_ROUND,
                 $reviewRound->getId(),
-                NOTIFICATION_LEVEL_NORMAL
+                Notification::NOTIFICATION_LEVEL_NORMAL
             );
         }
 

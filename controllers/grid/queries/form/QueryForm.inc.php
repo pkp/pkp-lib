@@ -13,10 +13,13 @@
  * @brief Form for adding/editing a new query
  */
 
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use PKP\form\Form;
 
+use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
+use PKP\notification\PKPNotification;
 
 class QueryForm extends Form
 {
@@ -514,11 +517,11 @@ class QueryForm extends Form
             $notificationManager->createNotification(
                 $request,
                 $userId,
-                NOTIFICATION_TYPE_NEW_QUERY,
+                PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
                 $request->getContext()->getId(),
                 ASSOC_TYPE_QUERY,
                 $query->getId(),
-                NOTIFICATION_LEVEL_TASK
+                Notification::NOTIFICATION_LEVEL_TASK
             );
         }
 

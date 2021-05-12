@@ -18,6 +18,7 @@ use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -808,7 +809,7 @@ abstract class PKPWorkflowHandler extends Handler
 
         // check for more specific notifications on those stages that have them.
         if ($stageId == WORKFLOW_STAGE_ID_PRODUCTION) {
-            $submissionApprovalNotification = $notificationDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, NOTIFICATION_TYPE_APPROVE_SUBMISSION, $contextId);
+            $submissionApprovalNotification = $notificationDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, PKPNotification::NOTIFICATION_TYPE_APPROVE_SUBMISSION, $contextId);
             if ($submissionApprovalNotification->next()) {
                 return true;
             }

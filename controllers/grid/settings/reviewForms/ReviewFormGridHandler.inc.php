@@ -22,12 +22,13 @@ import('lib.pkp.controllers.grid.settings.reviewForms.form.ReviewFormElements');
 
 import('lib.pkp.controllers.grid.settings.reviewForms.form.PreviewReviewForm');
 
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use PKP\security\authorization\PolicySet;
 
+use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 
 class ReviewFormGridHandler extends GridHandler

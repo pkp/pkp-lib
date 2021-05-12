@@ -15,6 +15,9 @@
 
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
+use PKP\notification\managerDelegate\EditorialReportNotificationManager;
+use PKP\notification\PKPNotification;
+
 class StatisticsReport extends ScheduledTask
 {
     /** @var array List of roles that might be notified */
@@ -41,7 +44,6 @@ class StatisticsReport extends ScheduledTask
     public function executeActions(): bool
     {
         @set_time_limit(0);
-        import('lib.pkp.classes.notification.managerDelegate.EditorialReportNotificationManager');
 
         $contextDao = Application::get()->getContextDAO();
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
@@ -52,7 +54,7 @@ class StatisticsReport extends ScheduledTask
                 [LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_COMMON],
                 $context->getPrimaryLocale()
             );
-            $editorialReportNotificationManager = new EditorialReportNotificationManager(NOTIFICATION_TYPE_EDITORIAL_REPORT);
+            $editorialReportNotificationManager = new EditorialReportNotificationManager(PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT);
             $editorialReportNotificationManager->initialize(
                 $context,
                 new DateTimeImmutable('first day of previous month midnight'),

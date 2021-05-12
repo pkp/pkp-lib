@@ -16,10 +16,13 @@
  * @brief Form for user registration.
  */
 
+use APP\notification\form\NotificationSettingsForm;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
-use PKP\mail\MailTemplate;
 
+use PKP\mail\MailTemplate;
+use PKP\notification\PKPNotification;
 use PKP\user\InterestManager;
 
 class RegistrationForm extends Form
@@ -295,7 +298,6 @@ class RegistrationForm extends Form
         if ($request->getContext() && !$this->getData('emailConsent')) {
 
             // Get the public notification types
-            import('classes.notification.form.NotificationSettingsForm');
             $notificationSettingsForm = new NotificationSettingsForm();
             $notificationCategories = $notificationSettingsForm->getNotificationSettingCategories();
             foreach ($notificationCategories as $notificationCategory) {
@@ -336,9 +338,8 @@ class RegistrationForm extends Form
             ]);
             $mail->addRecipient($user->getEmail(), $user->getFullName());
             if (!$mail->send()) {
-                import('classes.notification.NotificationManager');
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
             }
             unset($mail);
         }

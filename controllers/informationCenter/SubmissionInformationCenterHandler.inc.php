@@ -17,8 +17,9 @@ import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
 
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-
 use PKP\log\EventLogEntry;
+
+use PKP\notification\PKPNotification;
 
 class SubmissionInformationCenterHandler extends InformationCenterHandler
 {
@@ -113,7 +114,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
             $this->_logEvent($request, $this->_submission, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, 'SubmissionLog');
 
             $user = $request->getUser();
-            NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);
+            NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);
 
             $jsonViewNotesResponse = $this->viewNotes($args, $request);
             $json = new JSONMessage(true);

@@ -13,34 +13,29 @@
  * @brief Query notification types manager delegate.
  */
 
-import('lib.pkp.classes.notification.NotificationManagerDelegate');
+namespace PKP\notification\managerDelegate;
 
+use APP\core\Application;
 use APP\core\Services;
-
+use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 use PKP\note\NoteDAO;
+
+use PKP\notification\NotificationManagerDelegate;
+use PKP\notification\PKPNotification;
 
 class QueryNotificationManager extends NotificationManagerDelegate
 {
-    /**
-     * Constructor.
-     *
-     * @param $notificationType int NOTIFICATION_TYPE_...
-     */
-    public function __construct($notificationType)
-    {
-        parent::__construct($notificationType);
-    }
-
     /**
      * @copydoc NotificationManagerDelegate::getNotifictionTitle()
      */
     public function getNotificationTitle($notification)
     {
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_NEW_QUERY:
+            case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:
                 assert(false);
                 break;
-            case NOTIFICATION_TYPE_QUERY_ACTIVITY:
+            case PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
                 assert(false);
                 break;
             default: assert(false);
@@ -60,14 +55,14 @@ class QueryNotificationManager extends NotificationManagerDelegate
         assert(isset($headNote));
 
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_NEW_QUERY:
+            case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:
                 $user = $headNote->getUser();
                 return __('submission.query.new', [
                     'creatorName' => $user->getFullName(),
                     'noteContents' => substr(PKPString::html2text($headNote->getContents()), 0, 200),
                     'noteTitle' => substr($headNote->getTitle(), 0, 200),
                 ]);
-            case NOTIFICATION_TYPE_QUERY_ACTIVITY:
+            case PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
                 $notes = $query->getReplies(null, NoteDAO::NOTE_ORDER_ID, SORT_DIRECTION_DESC);
                 $latestNote = $notes->next();
                 $user = $latestNote->getUser();
@@ -130,7 +125,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
         assert($submission instanceof \APP\submission\Submission);
 
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_NEW_QUERY:
+            case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:
                 return __(
                     'submission.query.new.contents',
                     [
@@ -138,7 +133,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                         'submissionTitle' => $submission->getLocalizedTitle(),
                     ]
                 );
-            case NOTIFICATION_TYPE_QUERY_ACTIVITY:
+            case PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
                 return __(
                     'submission.query.activity.contents',
                     [
@@ -157,4 +152,8 @@ class QueryNotificationManager extends NotificationManagerDelegate
     {
         return NOTIFICATION_STYLE_CLASS_WARNING;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\managerDelegate\QueryNotificationManager', '\QueryNotificationManager');
 }

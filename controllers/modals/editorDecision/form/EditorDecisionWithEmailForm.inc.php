@@ -14,11 +14,13 @@
  */
 
 use APP\file\LibraryFileManager;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\SubmissionMailTemplate;
+use PKP\notification\PKPNotification;
 
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 
@@ -343,9 +345,8 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
                 'editorialContactSignature' => $user->getContactSignature(),
             ]);
             if (!$email->send($request)) {
-                import('classes.notification.NotificationManager');
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
             }
         }
     }

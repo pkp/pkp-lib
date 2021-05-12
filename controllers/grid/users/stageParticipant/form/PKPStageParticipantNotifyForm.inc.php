@@ -14,10 +14,13 @@
  */
 
 use APP\core\Services;
-use APP\template\TemplateManager;
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 
+use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\log\EventLogEntry;
+use PKP\notification\PKPNotification;
 
 abstract class PKPStageParticipantNotifyForm extends Form
 {
@@ -189,9 +192,8 @@ abstract class PKPStageParticipantNotifyForm extends Form
             $suppressNotificationEmail = false;
 
             if (!$email->send($request)) {
-                import('classes.notification.NotificationManager');
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
             } else {
                 $suppressNotificationEmail = true;
             }
@@ -199,16 +201,16 @@ abstract class PKPStageParticipantNotifyForm extends Form
             // remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
             switch ($template) {
                 case 'EDITOR_ASSIGN':
-                    $this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId(), $suppressNotificationEmail);
+                    $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId(), $suppressNotificationEmail);
                     break;
                 case 'COPYEDIT_REQUEST':
-                    $this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
+                    $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
                     break;
                 case 'LAYOUT_REQUEST':
-                    $this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
+                    $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
                     break;
                 case 'INDEX_REQUEST':
-                    $this->_addAssignmentTaskNotification($request, NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
+                    $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId(), $suppressNotificationEmail);
                     break;
             }
 
@@ -245,10 +247,10 @@ abstract class PKPStageParticipantNotifyForm extends Form
                 $notificationMgr->updateNotification(
                     $request,
                     [
-                        NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                        NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                        NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                        NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                        PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                        PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                     ],
                     null,
                     ASSOC_TYPE_SUBMISSION,
@@ -326,7 +328,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
                 $context->getId(),
                 ASSOC_TYPE_SUBMISSION,
                 $submissionId,
-                NOTIFICATION_LEVEL_TASK,
+                Notification::NOTIFICATION_LEVEL_TASK,
                 null,
                 $suppressEmail
             );
@@ -347,7 +349,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
         // Create trivial notification.
         $currentUser = $request->getUser();
         $notificationMgr = new NotificationManager();
-        $notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('stageParticipants.history.messageSent')]);
+        $notificationMgr->createTrivialNotification($currentUser->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('stageParticipants.history.messageSent')]);
     }
 
     /**

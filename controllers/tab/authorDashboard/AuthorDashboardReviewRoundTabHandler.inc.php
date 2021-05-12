@@ -16,11 +16,13 @@
 // Import the base Handler.
 import('pages.authorDashboard.AuthorDashboardHandler');
 
+use APP\notification\Notification;
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
 
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
@@ -87,9 +89,9 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
             'reviewRoundId' => $reviewRound->getId(),
             'submission' => $submission,
             'reviewRoundNotificationRequestOptions' => [
-                NOTIFICATION_LEVEL_NORMAL => [
-                    NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
-                NOTIFICATION_LEVEL_TRIVIAL => []
+                Notification::NOTIFICATION_LEVEL_NORMAL => [
+                    PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
+                Notification::NOTIFICATION_LEVEL_TRIVIAL => []
             ],
         ]);
 

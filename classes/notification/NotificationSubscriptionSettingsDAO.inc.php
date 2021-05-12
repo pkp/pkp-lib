@@ -17,6 +17,8 @@
  *  delivered to them.
  */
 
+namespace PKP\notification;
+
 class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
 {
     /** @var string The setting which holds the notification status */
@@ -171,4 +173,8 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
 
         return $token;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\notification\NotificationSubscriptionSettingsDAO', '\NotificationSubscriptionSettingsDAO');
 }

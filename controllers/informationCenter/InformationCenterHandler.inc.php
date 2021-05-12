@@ -16,8 +16,9 @@
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-
 use PKP\log\EventLogEntry;
+
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\SubmissionAccessPolicy;
 
 abstract class InformationCenterHandler extends Handler
@@ -124,7 +125,7 @@ abstract class InformationCenterHandler extends Handler
         $noteDao->deleteById($noteId);
 
         $user = $request->getUser();
-        NotificationManager::createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedNote')]);
+        NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedNote')]);
 
         $json = new JSONMessage(true);
         $jsonViewNotesResponse = $this->viewNotes($args, $request);

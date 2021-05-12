@@ -15,14 +15,17 @@
  */
 
 use APP\core\Services;
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 use PKP\handler\APIHandler;
+use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
+
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
-
 use PKP\submission\PKPSubmission;
 
 class PKPSubmissionHandler extends APIHandler
@@ -689,11 +692,11 @@ class PKPSubmissionHandler extends APIHandler
             $notificationManager->createNotification(
                 $request,
                 $user->getId(),
-                NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
+                PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
                 $submission->getContextId(),
                 ASSOC_TYPE_SUBMISSION,
                 $submission->getId(),
-                NOTIFICATION_LEVEL_TASK
+                Notification::NOTIFICATION_LEVEL_TASK
             );
         }
 

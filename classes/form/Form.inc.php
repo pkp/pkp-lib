@@ -23,9 +23,11 @@
 namespace PKP\form;
 
 use APP\core\Application;
-
 use APP\i18n\AppLocale;
+
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 
 class Form
@@ -304,11 +306,10 @@ class Form
 
             if (!$this->isValid() && $user) {
                 // Create a form error notification.
-                import('classes.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification(
                     $user->getId(),
-                    NOTIFICATION_TYPE_FORM_ERROR,
+                    PKPNotification::NOTIFICATION_TYPE_FORM_ERROR,
                     ['contents' => $this->getErrorsArray()]
                 );
             }

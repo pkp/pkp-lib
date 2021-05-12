@@ -14,11 +14,13 @@
  * N.B. Requires a subclass to implement the "reviewerId" to be added.
  */
 
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\mail\SubmissionMailTemplate;
 
+use PKP\notification\PKPNotification;
 use PKP\submission\SubmissionFile;
 
 class ReviewerForm extends Form
@@ -445,9 +447,8 @@ class ReviewerForm extends Form
                 'submissionReviewUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs)
             ]);
             if (!$mail->send($request)) {
-                import('classes.notification.NotificationManager');
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
             }
         }
 
@@ -457,7 +458,7 @@ class ReviewerForm extends Form
         $msgKey = $this->getData('skipEmail') ? 'notification.addedReviewerNoEmail' : 'notification.addedReviewer';
         $notificationMgr->createTrivialNotification(
             $currentUser->getId(),
-            NOTIFICATION_TYPE_SUCCESS,
+            PKPNotification::NOTIFICATION_TYPE_SUCCESS,
             ['contents' => __($msgKey, ['reviewerName' => $reviewer->getFullName()])]
         );
 

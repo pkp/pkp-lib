@@ -13,6 +13,7 @@
  * @brief EventLog grid row definition
  */
 
+use PKP\log\SubmissionFileEventLogEntry;
 use PKP\submission\SubmissionFile;
 
 // Parent class
@@ -64,8 +65,8 @@ class EventLogGridRow extends GridRow
             $params = $logEntry->getParams();
 
             switch ($logEntry->getEventType()) {
-                case SUBMISSION_LOG_FILE_REVISION_UPLOAD:
-                case SUBMISSION_LOG_FILE_UPLOAD:
+                case SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD:
+                case SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD:
                     $submissionFileId = $params['submissionFileId'];
                     $fileId = $params['fileId'];
                     $submissionFile = Services::get('submissionFile')->get($submissionFileId);

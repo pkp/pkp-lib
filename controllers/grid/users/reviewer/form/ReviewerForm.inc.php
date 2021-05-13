@@ -16,12 +16,11 @@
 
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\mail\SubmissionMailTemplate;
-
 use PKP\notification\PKPNotification;
+
 use PKP\submission\action\EditorAction;
 use PKP\submission\SubmissionFile;
 

@@ -29,9 +29,6 @@ class AddRevisionLinkAction extends BaseAddFileLinkAction
      */
     public function __construct($request, $reviewRound, $uploaderRoles)
     {
-        // Bring in the submission file constants.
-        import('lib.pkp.classes.submission.SubmissionFile');
-
         // Create the action arguments array.
         $actionArgs = [
             'fileStage' => SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,

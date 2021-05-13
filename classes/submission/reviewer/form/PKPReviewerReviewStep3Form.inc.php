@@ -13,15 +13,22 @@
  * @brief Form for Step 3 of a review.
  */
 
-import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
+namespace PKP\submission\reviewer\form;
 
+use APP\core\Application;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\core\Core;
 
+use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
 use PKP\submission\SubmissionComment;
+
+// FIXME: Add namespacing
+import('lib.pkp.controllers.confirmationModal.linkAction.ViewReviewGuidelinesLinkAction');
+use ViewReviewGuidelinesLinkAction;
 
 class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 {
@@ -118,7 +125,6 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         //
         // Assign the link actions
         //
-        import('lib.pkp.controllers.confirmationModal.linkAction.ViewReviewGuidelinesLinkAction');
         $viewReviewGuidelinesAction = new ViewReviewGuidelinesLinkAction($request, $reviewAssignment->getStageId());
         if ($viewReviewGuidelinesAction->getGuidelines()) {
             $templateMgr->assign('viewGuidelinesAction', $viewReviewGuidelinesAction);
@@ -341,4 +347,8 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             unset($comment);
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\reviewer\form\PKPReviewerReviewStep3Form', '\PKPReviewerReviewStep3Form');
 }

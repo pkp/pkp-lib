@@ -12,7 +12,10 @@
  * @brief Base class for reviewer forms.
  */
 
+namespace PKP\submission\reviewer\form;
+
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 
 use PKP\form\Form;
 
@@ -125,4 +128,8 @@ class ReviewerReviewForm extends Form
         $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
         $reviewerSubmissionDao->updateReviewerSubmission($reviewerSubmission);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\reviewer\form\ReviewerReviewForm', '\ReviewerReviewForm');
 }

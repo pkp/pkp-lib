@@ -31,10 +31,10 @@ use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 use PKP\validation\ValidatorFactory;
 
-define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
-
 abstract class PKPSubmissionService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
+    public const STAGE_STATUS_SUBMISSION_UNASSIGNED = 1;
+
     /**
      * @copydoc \PKP\services\interfaces\EntityReadInterface::get()
      */
@@ -487,7 +487,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
                     $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                     $assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
                     if (!$assignedEditors) {
-                        $stage['statusId'] = STAGE_STATUS_SUBMISSION_UNASSIGNED;
+                        $stage['statusId'] = self::STAGE_STATUS_SUBMISSION_UNASSIGNED;
                         $stage['status'] = __('submissions.queuedUnassigned');
                     }
 
@@ -499,7 +499,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
                 case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
                 case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                    import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
                     $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                     $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
                     if ($reviewRound) {
@@ -540,7 +539,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
                 // Review rounds are handled separately in the review stage below.
                 case WORKFLOW_STAGE_ID_EDITING:
                 case WORKFLOW_STAGE_ID_PRODUCTION:
-                    import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
                     $stage['files'] = [
                         'count' => Services::get('submissionFile')->getCount([
                             'submissionIds' => [$submission->getId()],
@@ -727,7 +725,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
      */
     public function getReviewAssignments($submission)
     {
-        import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         return $reviewAssignmentDao->getBySubmissionId($submission->getId());
     }

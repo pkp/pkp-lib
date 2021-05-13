@@ -13,7 +13,7 @@
  * @brief Form for Step 2 of a review.
  */
 
-import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
+namespace PKP\submission\reviewer\form;
 
 use APP\template\TemplateManager;
 
@@ -64,4 +64,8 @@ class PKPReviewerReviewStep2Form extends ReviewerReviewForm
 
         parent::execute(...$functionParams);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\reviewer\form\PKPReviewerReviewStep2Form', '\PKPReviewerReviewStep2Form');
 }

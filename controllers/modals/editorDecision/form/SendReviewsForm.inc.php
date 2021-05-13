@@ -16,10 +16,12 @@
 
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
-
 use PKP\mail\SubmissionMailTemplate;
-use PKP\submission\action\EditorAction;
 
+use PKP\submission\action\EditorAction;
+use PKP\submission\reviewRound\ReviewRound;
+
+// FIXME: Add namespacing
 import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailForm');
 
 class SendReviewsForm extends EditorDecisionWithEmailForm
@@ -131,22 +133,22 @@ class SendReviewsForm extends EditorDecisionWithEmailForm
         switch ($decision) {
             case EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS:
                 $emailKey = 'EDITOR_DECISION_REVISIONS';
-                $status = REVIEW_ROUND_STATUS_REVISIONS_REQUESTED;
+                $status = ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED;
                 break;
 
             case EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_RESUBMIT:
                 $emailKey = 'EDITOR_DECISION_RESUBMIT';
-                $status = REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW;
+                $status = ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW;
                 break;
 
             case EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE:
                 $emailKey = 'EDITOR_DECISION_DECLINE';
-                $status = REVIEW_ROUND_STATUS_DECLINED;
+                $status = ReviewRound::REVIEW_ROUND_STATUS_DECLINED;
                 break;
 
             case EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE:
                 $emailKey = 'EDITOR_DECISION_INITIAL_DECLINE';
-                $status = REVIEW_ROUND_STATUS_DECLINED;
+                $status = ReviewRound::REVIEW_ROUND_STATUS_DECLINED;
                 break;
 
             default:

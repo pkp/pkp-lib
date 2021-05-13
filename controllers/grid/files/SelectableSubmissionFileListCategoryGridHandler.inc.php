@@ -25,7 +25,6 @@ import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridR
 import('lib.pkp.classes.controllers.grid.files.FilesGridCapabilities');
 
 // Import file constants.
-import('lib.pkp.classes.submission.SubmissionFile');
 
 class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandler
 {

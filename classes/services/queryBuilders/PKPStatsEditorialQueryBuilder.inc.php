@@ -194,8 +194,6 @@ abstract class PKPStatsEditorialQueryBuilder
      */
     public function countActiveByStages($stages)
     {
-        import('lib.pkp.classes.submission.PKPSubmission');
-
         return $this->_getObject()
             ->where('s.status', '=', PKPSubmission::STATUS_QUEUED)
             ->whereIn('s.stage_id', $stages)
@@ -294,8 +292,6 @@ abstract class PKPStatsEditorialQueryBuilder
      */
     public function getPublishedDates()
     {
-        import('lib.pkp.classes.submission.PKPSubmission');
-
         $q = $this->_getObject()
             ->where('s.status', '=', PKPSubmission::STATUS_PUBLISHED)
             // Only match against the publication date of a
@@ -324,7 +320,6 @@ abstract class PKPStatsEditorialQueryBuilder
      */
     public function getDecisionsDates($decisions)
     {
-        import('lib.pkp.classes.submission.PKPSubmission');
         $q = $this->_getObject();
         $q->leftJoin('edit_decisions as ed', 's.submission_id', '=', 'ed.submission_id')
             ->whereIn('ed.decision', $decisions);

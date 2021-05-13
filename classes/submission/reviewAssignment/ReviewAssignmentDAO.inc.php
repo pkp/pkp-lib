@@ -490,7 +490,6 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
      */
     public function updateReviewRoundStatus($reviewAssignment)
     {
-        import('lib.pkp.classes.submission.reviewRound/ReviewRoundDAO');
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRound = $reviewRoundDao->getReviewRound(
             $reviewAssignment->getSubmissionId(),
@@ -576,7 +575,6 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
 
         // Retrieve the review assignment before it's deleted, so it can be
         // be used to fire an update on the review round status.
-        import('lib.pkp.classes.submission.reviewRound/ReviewRoundDAO');
         $reviewAssignment = $this->getById($reviewId);
 
         $result = $this->update('DELETE FROM review_assignments WHERE review_id = ?', [(int) $reviewId]);

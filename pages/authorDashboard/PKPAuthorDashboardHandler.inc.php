@@ -238,7 +238,6 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
 
         // Import constants
-        import('classes.submission.Submission');
         import('classes.components.forms.publication.PublishForm');
 
         $templateMgr->setConstants([

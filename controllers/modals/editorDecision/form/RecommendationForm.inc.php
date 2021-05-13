@@ -18,14 +18,12 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\form\Form;
-
 use PKP\log\SubmissionEmailLogEntry;
+
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\submission\action\EditorAction;
-
-// Define review round and review stage id constants.
-import('lib.pkp.classes.submission.reviewRound.ReviewRound');
+use PKP\submission\reviewRound\ReviewRound;
 
 class RecommendationForm extends Form
 {

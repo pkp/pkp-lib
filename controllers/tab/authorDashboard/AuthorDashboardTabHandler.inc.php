@@ -78,9 +78,6 @@ class AuthorDashboardTabHandler extends Handler
         }
         $templateMgr->assign('canAccessCopyeditingStage', $canAccessCopyeditingStage);
 
-        // Import submission file to define file stages.
-        import('lib.pkp.classes.submission.SubmissionFile');
-
         // Workflow-stage specific "upload file" action.
         $currentStage = $submission->getStageId();
 

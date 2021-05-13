@@ -13,13 +13,18 @@
  * @brief ReviewerAction class.
  */
 
+namespace PKP\submission\reviewer;
+
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
-
 use PKP\mail\SubmissionMailTemplate;
+
 use PKP\notification\PKPNotification;
+use PKP\plugins\HookRegistry;
 
 class ReviewerAction
 {
@@ -144,4 +149,8 @@ class ReviewerAction
 
         return $email;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\reviewer\ReviewerAction', '\ReviewerAction');
 }

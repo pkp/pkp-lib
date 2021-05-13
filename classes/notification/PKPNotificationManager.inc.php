@@ -283,7 +283,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             case PKPNotification::NOTIFICATION_TYPE_FORBIDDEN: return NOTIFICATION_STYLE_CLASS_FORBIDDEN;
             case PKPNotification::NOTIFICATION_TYPE_HELP: return NOTIFICATION_STYLE_CLASS_HELP;
             case PKPNotification::NOTIFICATION_TYPE_FORM_ERROR: return NOTIFICATION_STYLE_CLASS_FORM_ERROR;
-            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:	return NOTIFICATION_STYLE_CLASS_INFORMATION;
+            case PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS: return NOTIFICATION_STYLE_CLASS_INFORMATION;
             default:
                 $delegateResult = $this->getByDelegate(
                     $notification->getType(),

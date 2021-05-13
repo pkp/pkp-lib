@@ -19,6 +19,7 @@ use APP\workflow\EditorDecisionActionsManager;
 use PKP\notification\PKPNotification;
 
 use PKP\submission\action\EditorAction;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\SubmissionFile;
 
 // FIXME: Add namespacing
@@ -107,7 +108,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
         switch ($decision) {
             case EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT:
                 $emailKey = 'EDITOR_DECISION_ACCEPT';
-                $status = REVIEW_ROUND_STATUS_ACCEPTED;
+                $status = ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED;
 
                 $this->_updateReviewRoundStatus($submission, $status, $reviewRound);
 
@@ -134,7 +135,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
 
             case EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_EXTERNAL_REVIEW:
                 $emailKey = 'EDITOR_DECISION_SEND_TO_EXTERNAL';
-                $status = REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL;
+                $status = ReviewRound::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL;
 
                 $this->_updateReviewRoundStatus($submission, $status, $reviewRound);
 
@@ -142,7 +143,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request);
 
                 // Create an initial external review round.
-                $this->_initiateReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
+                $this->_initiateReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request, ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
 
                 // Send email to the author.
                 $this->_sendReviewMailToAuthor($submission, $emailKey, $request);

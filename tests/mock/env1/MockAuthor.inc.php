@@ -12,7 +12,8 @@
  * @brief a mock author.
  */
 
-import('lib.pkp.classes.submission.PKPAuthor');
+use PKP\submission\PKPAuthor;
+
 class Author extends PKPAuthor
 {
 }

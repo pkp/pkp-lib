@@ -146,9 +146,7 @@ abstract class PKPSubmissionHandler extends Handler
         $this->setupTemplate($request);
 
         if ($step < $this->getStepCount()) {
-            $formClass = "SubmissionSubmitStep{$step}Form";
-            import("classes.submission.form.${formClass}");
-
+            $formClass = "\\APP\\submission\\form\\SubmissionSubmitStep{$step}Form";
             $submitForm = new $formClass($context, $submission);
             $submitForm->initData();
             return new JSONMessage(true, $submitForm->fetch($request));
@@ -190,9 +188,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         $this->setupTemplate($request);
 
-        $formClass = "SubmissionSubmitStep{$step}Form";
-        import("classes.submission.form.${formClass}");
-
+        $formClass = "\\APP\submission\\form\\SubmissionSubmitStep{$step}Form";
         $submitForm = new $formClass($context, $submission);
         $submitForm->readInputData();
 

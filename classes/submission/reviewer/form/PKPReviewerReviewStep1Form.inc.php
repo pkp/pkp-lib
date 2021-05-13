@@ -13,13 +13,19 @@
  * @brief Form for Step 1 of a review.
  */
 
-import('lib.pkp.classes.submission.reviewer.form.ReviewerReviewForm');
+namespace PKP\submission\reviewer\form;
 
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 
 use PKP\linkAction\request\ConfirmationModal;
+use PKP\submission\reviewer\ReviewerAction;
+
+// FIXME: Add namespacing
+use ReviewerViewMetadataLinkAction;
 
 class PKPReviewerReviewStep1Form extends ReviewerReviewForm
 {
@@ -158,4 +164,8 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
 
         parent::execute(...$functionParams);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\reviewer\form\PKPReviewerReviewStep1Form', '\PKPReviewerReviewStep1Form');
 }

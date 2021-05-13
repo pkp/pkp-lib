@@ -38,7 +38,6 @@ class SubmissionsMigration extends Migration
             $table->bigInteger('stage_id')->default(WORKFLOW_STAGE_ID_SUBMISSION);
             $table->string('locale', 14)->nullable();
 
-            import('lib.pkp.classes.submission.PKPSubmission'); // for constant
             $table->smallInteger('status')->default(PKPSubmission::STATUS_QUEUED);
 
             $table->smallInteger('submission_progress')->default(1);

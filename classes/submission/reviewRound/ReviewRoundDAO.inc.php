@@ -15,7 +15,9 @@
  * @brief Operations for retrieving and modifying ReviewRound objects.
  */
 
-import('lib.pkp.classes.submission.reviewRound.ReviewRound');
+namespace PKP\submission\reviewRound;
+
+use PKP\db\DAOResultFactory;
 
 class ReviewRoundDAO extends \PKP\db\DAO
 {
@@ -277,7 +279,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      */
     public function updateStatus($reviewRound, $status = null)
     {
-        assert(is_a($reviewRound, 'ReviewRound'));
+        assert($reviewRound instanceof ReviewRound);
         $currentStatus = $reviewRound->getStatus();
 
         if (is_null($status)) {
@@ -354,4 +356,8 @@ class ReviewRoundDAO extends \PKP\db\DAO
 
         return $reviewRound;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\submission\reviewRound\ReviewRoundDAO', '\ReviewRoundDAO');
 }

@@ -14,10 +14,11 @@
  */
 
 import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
-import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\submission\action\EditorAction;
+
+use PKP\submission\reviewRound\ReviewRound;
 
 class NewReviewRoundForm extends EditorDecisionForm
 {
@@ -62,14 +63,14 @@ class NewReviewRoundForm extends EditorDecisionForm
 
         // Update the review round status.
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao->updateStatus($reviewRound, REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
+        $reviewRoundDao->updateStatus($reviewRound, ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
 
         // Create a new review round.
         $newRound = $this->_initiateReviewRound(
             $submission,
             $submission->getStageId(),
             $request,
-            REVIEW_ROUND_STATUS_PENDING_REVIEWERS
+            ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS
         );
 
         parent::execute(...$functionArgs);

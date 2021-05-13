@@ -20,11 +20,8 @@ use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\form\Form;
 use PKP\notification\PKPNotification;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\SubmissionFile;
-
-// Define review round and review stage id constants.
-// FIXME: Add namespacing
-import('lib.pkp.classes.submission.reviewRound.ReviewRound');
 
 class EditorDecisionForm extends Form
 {

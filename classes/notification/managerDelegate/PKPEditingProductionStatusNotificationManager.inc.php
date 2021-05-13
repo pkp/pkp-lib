@@ -98,7 +98,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         $productionQuery = $productionQueries->next();
 
         // Get the copyedited files
-        import('lib.pkp.classes.submission.SubmissionFile');
         $countCopyeditedFiles = Services::get('submissionFile')->getCount([
             'submissionIds' => [$submissionId],
             'fileStages' => [SubmissionFile::SUBMISSION_FILE_COPYEDIT],

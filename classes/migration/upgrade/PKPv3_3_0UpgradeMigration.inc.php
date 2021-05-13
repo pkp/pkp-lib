@@ -597,7 +597,6 @@ class PKPv3_3_0UpgradeMigration extends Migration
      */
     private function _fileStageToPath($fileStage)
     {
-        import('lib.pkp.classes.submission.SubmissionFile');
         static $fileStagePathMap = [
             SubmissionFile::SUBMISSION_FILE_SUBMISSION => 'submission',
             SubmissionFile::SUBMISSION_FILE_NOTE => 'note',

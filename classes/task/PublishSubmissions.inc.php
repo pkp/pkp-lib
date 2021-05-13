@@ -32,8 +32,6 @@ class PublishSubmissions extends ScheduledTask
      */
     public function executeActions()
     {
-        import('classes.submission.Submission'); // import constants
-
         $contextIds = Services::get('context')->getIds([
             'isEnabled' => true,
         ]);

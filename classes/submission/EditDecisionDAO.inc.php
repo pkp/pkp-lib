@@ -16,9 +16,10 @@
 namespace PKP\submission;
 
 use APP\core\Services;
-
 use APP\workflow\EditorDecisionActionsManager;
+
 use PKP\db\DAORegistry;
+use PKP\submission\reviewRound\ReviewRound;
 
 class EditDecisionDAO extends \PKP\db\DAO
 {
@@ -42,9 +43,9 @@ class EditDecisionDAO extends \PKP\db\DAO
                 ),
                 [
                     (int) $submissionId,
-                    is_a($reviewRound, 'ReviewRound') ? (int) $reviewRound->getId() : 0,
-                    is_a($reviewRound, 'ReviewRound') ? $reviewRound->getStageId() : (int) $stageId,
-                    is_a($reviewRound, 'ReviewRound') ? (int) $reviewRound->getRound() : REVIEW_ROUND_NONE,
+                    $reviewRound instanceof ReviewRound ? (int) $reviewRound->getId() : 0,
+                    $reviewRound instanceof ReviewRound ? $reviewRound->getStageId() : (int) $stageId,
+                    $reviewRound instanceof ReviewRound ? (int) $reviewRound->getRound() : REVIEW_ROUND_NONE,
                     (int) $editorDecision['editorId'],
                     $editorDecision['decision']
                 ]
@@ -194,7 +195,6 @@ class EditDecisionDAO extends \PKP\db\DAO
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
 
-        import('lib.pkp.classes.submission.SubmissionFile'); // Bring the file constants.
         $submissionFilesIterator = Services::get('submissionFile')->getMany([
             'reviewRoundIds' => [$reviewRound->getId()],
             'fileStages' => [SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION],

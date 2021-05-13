@@ -13,7 +13,7 @@
  * @brief Form for Step 2 of author manuscript submission.
  */
 
-namespace APP\submissino\form;
+namespace APP\submission\form;
 
 use PKP\submission\form\PKPSubmissionSubmitStep2Form;
 

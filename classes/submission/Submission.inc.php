@@ -31,12 +31,12 @@ define('AUTHOR_TOC_SHOW', 2);
 // Preprint access constants -- see Publication::getData('accessStatus')
 define('PREPRINT_ACCESS_OPEN', 1);
 
-use \PKP\submission\PKPSubmission;
-use \PKP\plugins\HookRegistry;
+use PKP\submission\PKPSubmission;
+use PKP\plugins\HookRegistry;
 
-use \APP\core\Application;
-use \APP\core\Services;
-use \APP\i18n\AppLocale;
+use APP\core\Application;
+use APP\core\Services;
+use APP\i18n\AppLocale;
 
 class Submission extends PKPSubmission
 {

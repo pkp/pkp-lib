@@ -13,29 +13,19 @@
  * @brief Form for Step 4 of author submission.
  */
 
-import('lib.pkp.classes.submission.form.PKPSubmissionSubmitStep4Form');
+namespace APP\submission\form;
 
+use PKP\submission\form\PKPSubmissionSubmitStep4Form;
 use PKP\log\SubmissionLog;
 
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
+use APP\mail\PreprintMailTemplate;
+use APP\core\Application;
+use APP\core\Services;
 
 class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
 {
-    /**
-     * Constructor.
-     *
-     * @param $context Context
-     * @param $submission Submission
-     */
-    public function __construct($context, $submission)
-    {
-        parent::__construct(
-            $context,
-            $submission
-        );
-    }
-
     /**
      * Save changes to submission.
      *
@@ -49,8 +39,6 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
         $submission = $this->submission;
 
         // Send author notification email
-        import('classes.mail.PreprintMailTemplate');
-
         $mail = new PreprintMailTemplate($submission, 'SUBMISSION_ACK', null, null, false);
         $authorMail = new PreprintMailTemplate($submission, 'SUBMISSION_ACK_NOT_USER', null, null, false);
 
@@ -154,4 +142,8 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
 
         return $this->submissionId;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\submission\form\SubmissionSubmitStep4Form', '\SubmissionSubmitStep4Form');
 }

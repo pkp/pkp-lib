@@ -13,7 +13,14 @@
  * @brief Form for Step 1 of author submission.
  */
 
-use \APP\template\TemplateManager;
+namespace APP\submission\form;
+
+use PKP\submission\form\PKPSubmissionSubmitStep1Form;
+use PKP\db\DAORegistry;
+use PKP\core\PKPString;
+
+use APP\template\TemplateManager;
+use APP\core\Application;
 
 import('lib.pkp.classes.submission.form.PKPSubmissionSubmitStep1Form');
 
@@ -185,4 +192,8 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
         $publication->setData('sectionId', $this->getData('sectionId'));
         parent::setPublicationData($publication, $submission);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\submission\form\SubmissionSubmitStep1Form', '\SubmissionSubmitStep1Form');
 }

@@ -13,20 +13,14 @@
  * @brief Form for Step 2 of author manuscript submission.
  */
 
-use \APP\template\TemplateManager;
+namespace APP\submissino\form;
 
-import('lib.pkp.classes.submission.form.PKPSubmissionSubmitStep2Form');
+use PKP\submission\form\PKPSubmissionSubmitStep2Form;
+
+use APP\template\TemplateManager;
 
 class SubmissionSubmitStep2Form extends PKPSubmissionSubmitStep2Form
 {
-    /**
-     * Constructor.
-     */
-    public function __construct($context, $submission)
-    {
-        parent::__construct($context, $submission);
-    }
-
     /**
      * @copydoc SubmissionSubmitForm::fetch
      *
@@ -35,9 +29,14 @@ class SubmissionSubmitStep2Form extends PKPSubmissionSubmitStep2Form
     public function fetch($request, $template = null, $display = false)
     {
         $templateMgr = TemplateManager::getManager($request);
-        $requestArgs['submissionId'] = $this->submission->getId();
-        $requestArgs['publicationId'] = $this->submission->getCurrentPublication()->getId();
-        $templateMgr->assign('requestArgs', $requestArgs);
+        $templateMgr->assign('requestArgs', [
+            'submissionId' => $this->submission->getId(),
+            'publicationId' => $this->submission->getCurrentPublication()->getId(),
+        ]);
         return parent::fetch($request, $template, $display);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\submission\form\SubmissionSubmitStep2Form', '\SubmissionSubmitStep2Form');
 }

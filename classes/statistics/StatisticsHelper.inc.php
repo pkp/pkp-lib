@@ -14,7 +14,11 @@
 *
 */
 
-import('lib.pkp.classes.statistics.PKPStatisticsHelper');
+namespace APP\statistics;
+
+use PKP\statistics\PKPStatisticsHelper;
+
+use APP\i18n\AppLocale;
 
 class StatisticsHelper extends PKPStatisticsHelper
 {
@@ -24,11 +28,11 @@ class StatisticsHelper extends PKPStatisticsHelper
     protected function getAppColumnTitle($column)
     {
         switch ($column) {
-            case STATISTICS_DIMENSION_SUBMISSION_ID:
+            case self::STATISTICS_DIMENSION_SUBMISSION_ID:
                 return __('common.publication');
-            case STATISTICS_DIMENSION_PKP_SECTION_ID:
+            case self::STATISTICS_DIMENSION_PKP_SECTION_ID:
                 return __('section.section');
-            case STATISTICS_DIMENSION_CONTEXT_ID:
+            case self::STATISTICS_DIMENSION_CONTEXT_ID:
                 return __('context.context');
             default:
                 assert(false);
@@ -51,4 +55,8 @@ class StatisticsHelper extends PKPStatisticsHelper
 
         return $objectTypes;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\statistics\StatisticsHelper', '\StatisticsHelper');
 }

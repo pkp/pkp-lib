@@ -18,6 +18,7 @@
 
 use PKP\search\SubmissionSearch;
 use PKP\submission\PKPSubmission;
+use PKP\statistics\PKPStatisticsHelper;
 
 class PreprintSearch extends SubmissionSearch
 {
@@ -56,15 +57,15 @@ class PreprintSearch extends SubmissionSearch
                 $orderBy = 'score';
             } else {
                 // Retrieve a metrics report for all submissions.
-                $column = STATISTICS_DIMENSION_SUBMISSION_ID;
+                $column = PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID;
                 $filter = [
-                    STATISTICS_DIMENSION_ASSOC_TYPE => [ASSOC_TYPE_GALLEY, ASSOC_TYPE_SUBMISSION],
-                    STATISTICS_DIMENSION_SUBMISSION_ID => [array_keys($unorderedResults)]
+                    PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE => [ASSOC_TYPE_GALLEY, ASSOC_TYPE_SUBMISSION],
+                    PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID => [array_keys($unorderedResults)]
                 ];
                 if ($orderBy == 'popularityMonth') {
                     $oneMonthAgo = date('Ymd', strtotime('-1 month'));
                     $today = date('Ymd');
-                    $filter[STATISTICS_DIMENSION_DAY] = ['from' => $oneMonthAgo, 'to' => $today];
+                    $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_DAY] = ['from' => $oneMonthAgo, 'to' => $today];
                 }
                 $rawReport = $application->getMetrics($metricType, $column, $filter);
                 foreach ($rawReport as $row) {

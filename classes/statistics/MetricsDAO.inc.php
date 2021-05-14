@@ -13,8 +13,14 @@
  * @brief Operations for retrieving and adding statistics data.
  */
 
-import('lib.pkp.classes.statistics.PKPMetricsDAO');
+namespace APP\statistics;
+
+use PKP\statistics\PKPMetricsDAO;
 
 class MetricsDAO extends PKPMetricsDAO
 {
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\statistics\MetricsDAO', '\MetricsDAO');
 }

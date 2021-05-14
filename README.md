@@ -17,3 +17,6 @@ Before creating a new issue, please [search the existing ones](https://github.co
 * [Create a new OHS issue](https://github.com/pkp/pkp-lib/issues/new?title=[OHS])
 
 Bugs are scheduled against the milestones that a fix will be released in. For example, if a bug was found in OJS 2.4.5, then it will be scheduled against OJS 2.4.6, which is the first release that will include the fix.
+
+## Community Code of Conduct
+This repository is one of PKP's community spaces and all activities here are guided by [PKP's Code of Conduct](https://pkp.sfu.ca/code-of-conduct/). Please review the Code and help us create a welcoming environment for all participants.

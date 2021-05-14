@@ -13,12 +13,20 @@
  * @brief Class to perform automated reminders for reviewers.
  */
 
+namespace PKP\task;
+
+use APP\core\Application;
+use APP\i18n\AppLocale;
+use PKP\core\Core;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\mail\SubmissionMailTemplate;
+
 use PKP\scheduledTask\ScheduledTask;
 use PKP\submission\PKPSubmission;
 
-define('REVIEW_REMIND_AUTO', 'REVIEW_REMIND_AUTO');
-define('REVIEW_REQUEST_REMIND_AUTO', 'REVIEW_REQUEST_REMIND_AUTO');
+// FIXME: Add namespacing
+use Validation;
 
 class ReviewReminder extends ScheduledTask
 {
@@ -39,7 +47,7 @@ class ReviewReminder extends ScheduledTask
      * @param $reminderType string
      * 	REVIEW_REMIND_AUTO, REVIEW_REQUEST_REMIND_AUTO
      */
-    public function sendReminder($reviewAssignment, $submission, $context, $reminderType = REVIEW_REMIND_AUTO)
+    public function sendReminder($reviewAssignment, $submission, $context, $reminderType = 'REVIEW_REMIND_AUTO')
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
@@ -53,7 +61,7 @@ class ReviewReminder extends ScheduledTask
         $emailKey = $reminderType;
         $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
         switch (true) {
-            case $reviewerAccessKeysEnabled && ($reminderType == REVIEW_REMIND_AUTO):
+            case $reviewerAccessKeysEnabled && ($reminderType == 'REVIEW_REMIND_AUTO'):
                 $emailKey = 'REVIEW_REMIND_AUTO_ONECLICK';
                 break;
             case $reviewerAccessKeysEnabled && ($reminderType == REVIEW_REQUEST_REMIND_AUTO):
@@ -171,7 +179,7 @@ class ReviewReminder extends ScheduledTask
             if ($submitReminderDays >= 1 && $reviewAssignment->getDateDue() != null) {
                 $checkDate = strtotime($reviewAssignment->getDateDue());
                 if (time() - $checkDate > 60 * 60 * 24 * $submitReminderDays) {
-                    $reminderType = REVIEW_REMIND_AUTO;
+                    $reminderType = 'REVIEW_REMIND_AUTO';
                 }
             }
             if ($inviteReminderDays >= 1 && $reviewAssignment->getDateConfirmed() == null) {
@@ -188,4 +196,8 @@ class ReviewReminder extends ScheduledTask
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\task\ReviewReminder', '\ReviewReminder');
 }

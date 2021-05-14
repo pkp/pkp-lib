@@ -13,8 +13,16 @@
  * @brief Class responsible to send the monthly statistics report.
  */
 
+namespace PKP\task;
+
+use APP\core\Application;
+use APP\i18n\AppLocale;
+use DateTimeImmutable;
+use PKP\db\DAORegistry;
+
 use PKP\notification\managerDelegate\EditorialReportNotificationManager;
 use PKP\notification\PKPNotification;
+
 use PKP\scheduledTask\ScheduledTask;
 
 class StatisticsReport extends ScheduledTask
@@ -77,4 +85,8 @@ class StatisticsReport extends ScheduledTask
         }
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\task\StatisticsReport', '\StatisticsReport');
 }

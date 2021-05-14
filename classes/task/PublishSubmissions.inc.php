@@ -13,7 +13,12 @@
  * @brief Class to published submissions scheduled for publication.
  */
 
+namespace PKP\task;
+
+use APP\core\Services;
+use PKP\core\Core;
 use PKP\scheduledTask\ScheduledTask;
+
 use PKP\submission\PKPSubmission;
 
 class PublishSubmissions extends ScheduledTask
@@ -49,4 +54,8 @@ class PublishSubmissions extends ScheduledTask
 
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\task\PublishSubmissions', '\PublishSubmissions');
 }

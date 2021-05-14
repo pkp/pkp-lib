@@ -13,22 +13,28 @@
  * @brief Base scheduled task class to reliably handle files processing.
  */
 
-define('FILE_LOADER_RETURN_TO_STAGING', 0x01);
-define('FILE_LOADER_ERROR_MESSAGE_TYPE', 'common.error');
-define('FILE_LOADER_WARNING_MESSAGE_TYPE', 'common.warning');
+namespace PKP\task;
 
-define('FILE_LOADER_PATH_STAGING', 'stage');
-define('FILE_LOADER_PATH_PROCESSING', 'processing');
-define('FILE_LOADER_PATH_REJECT', 'reject');
-define('FILE_LOADER_PATH_ARCHIVE', 'archive');
-
+use APP\i18n\AppLocale;
+use PKP\config\Config;
+use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\mail\Mail;
 use PKP\scheduledTask\ScheduledTask;
+
 use PKP\scheduledTask\ScheduledTaskHelper;
 
 abstract class FileLoader extends ScheduledTask
 {
+    public const FILE_LOADER_RETURN_TO_STAGING = 0x01;
+    public const FILE_LOADER_ERROR_MESSAGE_TYPE = 'common.error';
+    public const FILE_LOADER_WARNING_MESSAGE_TYPE = 'common.warning';
+
+    public const FILE_LOADER_PATH_STAGING = 'stage';
+    public const FILE_LOADER_PATH_PROCESSING = 'processing';
+    public const FILE_LOADER_PATH_REJECT = 'reject';
+    public const FILE_LOADER_PATH_ARCHIVE = 'archive';
+
     /** @var string The current claimed filename that the script is working on. */
     private $_claimedFilename;
 
@@ -406,5 +412,20 @@ abstract class FileLoader extends ScheduledTask
         $mail->setBody($message);
 
         $mail->send();
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\task\FileLoader', '\FileLoader');
+    foreach ([
+        'FILE_LOADER_RETURN_TO_STAGING',
+        'FILE_LOADER_ERROR_MESSAGE_TYPE',
+        'FILE_LOADER_WARNING_MESSAGE_TYPE',
+        'FILE_LOADER_PATH_STAGING',
+        'FILE_LOADER_PATH_PROCESSING',
+        'FILE_LOADER_PATH_REJECT',
+        'FILE_LOADER_PATH_ARCHIVE',
+    ] as $constantName) {
+        define($constantName, constant('\FileLoader::' . $constantName));
     }
 }

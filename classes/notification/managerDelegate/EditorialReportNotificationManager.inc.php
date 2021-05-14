@@ -18,11 +18,18 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\i18n\AppLocale;
 use APP\notification\Notification;
-
+use DateTimeInterface;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
+use PKP\mail\EmailTemplate;
+
+use PKP\mail\Mail;
 use PKP\mail\MailTemplate;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
+
+use PKP\user\User;
+use SplFileObject;
 
 class EditorialReportNotificationManager extends NotificationManagerDelegate
 {

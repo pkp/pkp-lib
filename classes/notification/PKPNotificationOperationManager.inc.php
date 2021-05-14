@@ -19,12 +19,13 @@
 
 namespace PKP\notification;
 
+use APP\core\Application;
 use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use Firebase\JWT\JWT;
 
+use Firebase\JWT\JWT;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -534,7 +535,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      */
     public function getUnsubscribeNotificationUrl($request, $notification)
     {
-        $dispatcher = $request->getDispatcher();
+        $application = Application::get();
+        $dispatcher = $application->getDispatcher();
         $unsubscribeUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'notification', 'unsubscribe', null, ['validate' => $this->createUnsubscribeToken($notification), 'id' => $notification->getId()]);
 
         return $unsubscribeUrl;

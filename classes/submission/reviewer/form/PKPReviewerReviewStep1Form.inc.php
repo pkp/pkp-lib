@@ -27,6 +27,9 @@ use PKP\submission\reviewer\ReviewerAction;
 // FIXME: Add namespacing
 use ReviewerViewMetadataLinkAction;
 
+import('lib.pkp.controllers.confirmationModal.linkAction.ViewCompetingInterestGuidelinesLinkAction');
+use ViewCompetingInterestGuidelinesLinkAction;
+
 class PKPReviewerReviewStep1Form extends ReviewerReviewForm
 {
     /**
@@ -96,7 +99,6 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
 
         // include the confirmation modal for competing interests if the context has them.
         if ($context->getLocalizedData('competingInterests') != '') {
-            import('lib.pkp.controllers.confirmationModal.linkAction.ViewCompetingInterestGuidelinesLinkAction');
             $competingInterestsAction = new ViewCompetingInterestGuidelinesLinkAction($request);
             $templateMgr->assign('competingInterestsAction', $competingInterestsAction);
         }

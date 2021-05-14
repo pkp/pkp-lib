@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-14 10:58+0000\n"
+"PO-Revision-Date: 2021-05-14 09:45+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ka_GE/>\n"
@@ -119,7 +119,7 @@ msgid "admin.displayNewSystemConfig"
 msgstr "ახალი კონფიგურაციის ჩვენება"
 
 msgid "admin.expireSessions"
-msgstr "იწურება მომხმარებლის სესიები"
+msgstr "მომხმარებლის სესიების ამოწურვა"
 
 msgid "admin.languages.cantDisable"
 msgstr ""

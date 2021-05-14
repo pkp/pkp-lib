@@ -22,7 +22,6 @@ use APP\core\Application;
 use APP\core\Services;
 use Exception;
 use PKP\core\PKPApplication;
-use PKP\core\PKPApplication;
 
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;

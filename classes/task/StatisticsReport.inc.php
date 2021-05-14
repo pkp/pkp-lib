@@ -13,10 +13,9 @@
  * @brief Class responsible to send the monthly statistics report.
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
-
 use PKP\notification\managerDelegate\EditorialReportNotificationManager;
 use PKP\notification\PKPNotification;
+use PKP\scheduledTask\ScheduledTask;
 
 class StatisticsReport extends ScheduledTask
 {

@@ -13,8 +13,7 @@
  * @brief Class to published submissions scheduled for publication.
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
-
+use PKP\scheduledTask\ScheduledTask;
 use PKP\submission\PKPSubmission;
 
 class PublishSubmissions extends ScheduledTask

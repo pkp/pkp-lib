@@ -16,9 +16,10 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
 use PKP\mail\Mail;
+use PKP\scheduledTask\ScheduledTask;
+use PKP\scheduledTask\ScheduledTaskHelper;
 
 class ScheduledTaskHelperTest extends PKPTestCase
 {
@@ -35,7 +36,7 @@ class ScheduledTaskHelperTest extends PKPTestCase
     public function testNotifyExecutionResultError($taskId, $taskName, $message)
     {
         $taskResult = false;
-        $expectedSubject = __(SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
+        $expectedSubject = __(ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
         $this->_setReportErrorOnly('On');
         $expectedTestResult = null; // Will send email (it's null because we mocked Mail::send()).
 
@@ -64,7 +65,7 @@ class ScheduledTaskHelperTest extends PKPTestCase
     public function testNotifyExecutionResultSuccess($taskId, $taskName, $message)
     {
         $taskResult = true;
-        $expectedSubject = __(SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED);
+        $expectedSubject = __(ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED);
         $this->_setReportErrorOnly('On');
         $expectedTestResult = false; // Will NOT send email.
 

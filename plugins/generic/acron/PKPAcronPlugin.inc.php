@@ -20,10 +20,8 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\notification\PKPNotification;
 use PKP\plugins\GenericPlugin;
+use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\xml\XMLNode;
-
-// FIXME: Add namespacing
-import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 
 // TODO: Error handling. If a scheduled task encounters an error...?
 

@@ -16,9 +16,13 @@
  * All scheduled task classes must extend this class and implement execute().
  */
 
-use PKP\file\PrivateFileManager;
+namespace PKP\scheduledTask;
 
-import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+use APP\i18n\AppLocale;
+use PKP\config\Config;
+use PKP\core\Core;
+
+use PKP\file\PrivateFileManager;
 
 abstract class ScheduledTask
 {
@@ -51,7 +55,7 @@ abstract class ScheduledTask
         // Check the scheduled task execution log folder.
         $fileMgr = new PrivateFileManager();
 
-        $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR;
+        $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
         $this->_executionLogFile = $scheduledTaskFilesPath . DIRECTORY_SEPARATOR . str_replace(' ', '', $this->getName()) .
             '-' . $this->getProcessId() . '-' . date('Ymd') . '.log';
         if (!$fileMgr->fileExists($scheduledTaskFilesPath, 'dir')) {
@@ -160,15 +164,19 @@ abstract class ScheduledTask
     public function execute()
     {
         $this->addExecutionLogEntry(Config::getVar('general', 'base_url'));
-        $this->addExecutionLogEntry(__('admin.scheduledTask.startTime'), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
+        $this->addExecutionLogEntry(__('admin.scheduledTask.startTime'), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 
         $result = $this->executeActions();
 
-        $this->addExecutionLogEntry(__('admin.scheduledTask.stopTime'), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
+        $this->addExecutionLogEntry(__('admin.scheduledTask.stopTime'), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 
         $helper = $this->getHelper();
         $helper->notifyExecutionResult($this->_processId, $this->getName(), $result, $this->_executionLogFile);
 
         return $result;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\scheduledTask\ScheduledTask', '\ScheduledTask');
 }

@@ -21,8 +21,7 @@
  * @brief Operations for retrieving and modifying Scheduled Task data.
  */
 
-
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+namespace PKP\scheduledTask;
 
 class ScheduledTaskDAO extends \PKP\db\DAO
 {
@@ -71,4 +70,8 @@ class ScheduledTaskDAO extends \PKP\db\DAO
             return $this->update('INSERT INTO scheduled_tasks (class_name, last_run) VALUES (?, NOW())', [$className]);
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\scheduledTask\ScheduledTaskDAO', '\ScheduledTaskDAO');
 }

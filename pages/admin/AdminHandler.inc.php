@@ -14,11 +14,12 @@
  */
 
 use APP\core\Services;
-
 use APP\file\PublicFileManager;
+
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
+use PKP\scheduledTask\ScheduledTaskHelper;
 
 use PKP\security\authorization\PKPSiteAccessPolicy;
 
@@ -446,7 +447,6 @@ class AdminHandler extends Handler
         $request = Application::get()->getRequest();
 
         $file = basename($request->getUserVar('file'));
-        import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
         ScheduledTaskHelper::downloadExecutionLog($file);
     }
 
@@ -455,7 +455,6 @@ class AdminHandler extends Handler
      */
     public function clearScheduledTaskLogFiles()
     {
-        import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
         ScheduledTaskHelper::clearExecutionLogs();
 
         $request = Application::get()->getRequest();

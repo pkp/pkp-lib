@@ -14,9 +14,8 @@
  */
 
 use PKP\mail\SubmissionMailTemplate;
+use PKP\scheduledTask\ScheduledTask;
 use PKP\submission\PKPSubmission;
-
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
 define('REVIEW_REMIND_AUTO', 'REVIEW_REMIND_AUTO');
 define('REVIEW_REQUEST_REMIND_AUTO', 'REVIEW_REQUEST_REMIND_AUTO');

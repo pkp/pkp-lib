@@ -13,17 +13,23 @@
  * @brief Helper class for common scheduled tasks operations.
  */
 
-define('SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED', 'common.completed');
-define('SCHEDULED_TASK_MESSAGE_TYPE_ERROR', 'common.error');
-define('SCHEDULED_TASK_MESSAGE_TYPE_WARNING', 'common.warning');
-define('SCHEDULED_TASK_MESSAGE_TYPE_NOTICE', 'common.notice');
-define('SCHEDULED_TASK_EXECUTION_LOG_DIR', 'scheduledTaskLogs');
+namespace PKP\scheduledTask;
 
+use APP\core\Application;
+use PKP\config\Config;
+use PKP\db\DAORegistry;
 use PKP\file\PrivateFileManager;
+
 use PKP\mail\Mail;
 
 class ScheduledTaskHelper
 {
+    public const SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED = 'common.completed';
+    public const SCHEDULED_TASK_MESSAGE_TYPE_ERROR = 'common.error';
+    public const SCHEDULED_TASK_MESSAGE_TYPE_WARNING = 'common.warning';
+    public const SCHEDULED_TASK_MESSAGE_TYPE_NOTICE = 'common.notice';
+    public const SCHEDULED_TASK_EXECUTION_LOG_DIR = 'scheduledTaskLogs';
+
     /** @var string Contact email. */
     public $_contactEmail;
 
@@ -156,10 +162,10 @@ class ScheduledTaskHelper
 
             if ($result) {
                 // Success.
-                $type = SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED;
+                $type = self::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED;
             } else {
                 // Error.
-                $type = SCHEDULED_TASK_MESSAGE_TYPE_ERROR;
+                $type = self::SCHEDULED_TASK_MESSAGE_TYPE_ERROR;
             }
 
             $subject = $name . ' - ' . $id . ' - ' . __($type);
@@ -201,7 +207,7 @@ class ScheduledTaskHelper
     {
         $fileMgr = new PrivateFileManager();
 
-        $fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR);
+        $fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . self::SCHEDULED_TASK_EXECUTION_LOG_DIR);
     }
 
     /**
@@ -213,7 +219,7 @@ class ScheduledTaskHelper
     {
         $fileMgr = new PrivateFileManager();
 
-        $fileMgr->downloadByPath($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);
+        $fileMgr->downloadByPath($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . self::SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);
     }
 
 
@@ -309,5 +315,18 @@ class ScheduledTaskHelper
     private static function _isInNumericRange($value, $min, $max)
     {
         return ($value >= $min && $value <= $max);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\scheduledTask\ScheduledTaskHelper', '\ScheduledTaskHelper');
+    foreach ([
+        'SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED',
+        'SCHEDULED_TASK_MESSAGE_TYPE_ERROR',
+        'SCHEDULED_TASK_MESSAGE_TYPE_WARNING',
+        'SCHEDULED_TASK_MESSAGE_TYPE_NOTICE',
+        'SCHEDULED_TASK_EXECUTION_LOG_DIR',
+    ] as $constantName) {
+        define($constantName, constant('\ScheduledTaskHelper::' . $constantName));
     }
 }

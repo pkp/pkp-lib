@@ -15,7 +15,10 @@
  * This allows for preprint-specific functionality like logging, etc.
  */
 
-use \PKP\mail\SubmissionMailTemplate;
+namespace APP\mail;
+
+use PKP\mail\SubmissionMailTemplate;
+use PKP\db\DAORegistry;
 
 class PreprintMailTemplate extends SubmissionMailTemplate
 {
@@ -34,4 +37,8 @@ class PreprintMailTemplate extends SubmissionMailTemplate
         }
         parent::assignParams($paramArray);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\mail\PreprintMailTemplate', '\PreprintMailTemplate');
 }

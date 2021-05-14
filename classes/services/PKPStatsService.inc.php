@@ -16,6 +16,7 @@
 namespace PKP\services;
 
 use PKP\db\DBResultRange;
+use PKP\statistics\PKPStatisticsHelper;
 
 class PKPStatsService
 {
@@ -42,7 +43,7 @@ class PKPStatsService
         import('classes.statistics.StatisticsHelper');
 
         $defaultArgs = [
-            'dateStart' => STATISTICS_EARLIEST_DATE,
+            'dateStart' => PKPStatisticsHelper::STATISTICS_EARLIEST_DATE,
             'dateEnd' => date('Y-m-d', strtotime('yesterday')),
 
             // Require a context to be specified to prevent unwanted data leakage
@@ -97,7 +98,7 @@ class PKPStatsService
     public function getTimeline($timelineInterval, $args = [])
     {
         $defaultArgs = [
-            'dateStart' => STATISTICS_EARLIEST_DATE,
+            'dateStart' => PKPStatisticsHelper::STATISTICS_EARLIEST_DATE,
             'dateEnd' => date('Y-m-d', strtotime('yesterday')),
 
             // Require a context to be specified to prevent unwanted data leakage
@@ -122,7 +123,7 @@ class PKPStatsService
         foreach ($result as $row) {
             $row = (array) $row;
             $date = substr($row[$timelineInterval], 0, 4) . '-' . substr($row[$timelineInterval], 4, 2);
-            if ($timelineInterval === STATISTICS_DIMENSION_DAY) {
+            if ($timelineInterval === PKPStatisticsHelper::STATISTICS_DIMENSION_DAY) {
                 $date = substr($date, 0, 7) . '-' . substr($row[$timelineInterval], 6, 2);
             }
             $dateValues[$date] = (int) $row['metric'];
@@ -165,7 +166,7 @@ class PKPStatsService
     public function getOrderedObjects($groupBy, $orderDirection, $args = [])
     {
         $defaultArgs = [
-            'dateStart' => STATISTICS_EARLIEST_DATE,
+            'dateStart' => PKPStatisticsHelper::STATISTICS_EARLIEST_DATE,
             'dateEnd' => date('Y-m-d', strtotime('yesterday')),
 
             // Require a context to be specified to prevent unwanted data leakage
@@ -181,7 +182,7 @@ class PKPStatsService
 
         $orderedQO = $orderedQB
             ->getSum([$groupBy])
-            ->orderBy('metric', $orderDirection === STATISTICS_ORDER_ASC ? 'asc' : 'desc');
+            ->orderBy('metric', $orderDirection === PKPStatisticsHelper::STATISTICS_ORDER_ASC ? 'asc' : 'desc');
 
         $range = null;
         if (isset($args['count'])) {
@@ -240,7 +241,7 @@ class PKPStatsService
      */
     public function filterRecordPdf($record)
     {
-        return $record['fileType'] === STATISTICS_FILE_TYPE_PDF;
+        return $record['fileType'] === PKPStatisticsHelper::STATISTICS_FILE_TYPE_PDF;
     }
 
     /**
@@ -253,7 +254,7 @@ class PKPStatsService
      */
     public function filterRecordHtml($record)
     {
-        return $record['fileType'] === STATISTICS_FILE_TYPE_HTML;
+        return $record['fileType'] === PKPStatisticsHelper::STATISTICS_FILE_TYPE_HTML;
     }
 
     /**
@@ -266,7 +267,7 @@ class PKPStatsService
      */
     public function filterRecordOther($record)
     {
-        return $record['fileType'] === STATISTICS_FILE_TYPE_OTHER;
+        return $record['fileType'] === PKPStatisticsHelper::STATISTICS_FILE_TYPE_OTHER;
     }
 
     /**
@@ -281,11 +282,11 @@ class PKPStatsService
      */
     public function getEmptyTimelineIntervals($startDate, $endDate, $timelineInterval)
     {
-        if ($timelineInterval === STATISTICS_DIMENSION_MONTH) {
+        if ($timelineInterval === PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH) {
             $dateFormat = 'Y-m';
             $labelFormat = '%B %Y';
             $interval = 'P1M';
-        } elseif ($timelineInterval === STATISTICS_DIMENSION_DAY) {
+        } elseif ($timelineInterval === PKPStatisticsHelper::STATISTICS_DIMENSION_DAY) {
             $dateFormat = 'Y-m-d';
             $labelFormat = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
             $interval = 'P1D';

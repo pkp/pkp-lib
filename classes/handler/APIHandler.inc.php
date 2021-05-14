@@ -22,9 +22,10 @@ use PKP\config\Config;
 use PKP\core\APIResponse;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\internal\ApiAuthorizationMiddleware;
-
 use PKP\security\authorization\internal\ApiCsrfMiddleware;
+
 use PKP\security\authorization\internal\ApiTokenDecodingMiddleware;
+use PKP\statistics\PKPStatisticsHelper;
 use PKP\validation\ValidatorFactory;
 
 use Slim\App;
@@ -418,7 +419,7 @@ class APIHandler extends PKPHandler
             [
                 $dateStartParam => [
                     'date_format:Y-m-d',
-                    'after_or_equal:' . STATISTICS_EARLIEST_DATE,
+                    'after_or_equal:' . PKPStatisticsHelper::STATISTICS_EARLIEST_DATE,
                     'before_or_equal:' . $dateEndParam,
                 ],
                 $dateEndParam => [

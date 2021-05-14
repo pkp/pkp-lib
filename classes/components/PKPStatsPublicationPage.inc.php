@@ -15,7 +15,7 @@
 
 namespace PKP\components;
 
-import('classes.statistics.StatisticsHelper');
+use PKP\statistics\PKPStatisticsHelper;
 
 class PKPStatsPublicationPage extends PKPStatsComponent
 {
@@ -23,7 +23,7 @@ class PKPStatsPublicationPage extends PKPStatsComponent
     public $timeline = [];
 
     /** @var string Which time segment (eg - month) is displayed in the graph */
-    public $timelineInterval = STATISTICS_DIMENSION_MONTH;
+    public $timelineInterval = PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH;
 
     /** @var string Which views to show in the graph. Supports `abstract` or `galley`. */
     public $timelineType = '';

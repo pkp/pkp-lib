@@ -26,8 +26,9 @@ use PKP\plugins\HookRegistry;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
-
 use PKP\services\queryBuilders\PKPPublicationQueryBuilder;
+
+use PKP\statistics\PKPStatisticsHelper;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
 
@@ -285,7 +286,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         import('classes.statistics.StatisticsHelper');
         return $row ?
             [$row->min_date_published, $row->max_date_published] :
-            [STATISTICS_EARLIEST_DATE, date('Y-m-d', strtotime('yesterday'))];
+            [PKPStatisticsHelper::STATISTICS_EARLIEST_DATE, date('Y-m-d', strtotime('yesterday'))];
     }
 
     /**

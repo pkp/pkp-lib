@@ -15,7 +15,10 @@
  * @brief Base form class to generate custom statistics reports.
  */
 
+use APP\statistics\StatisticsHelper;
 use PKP\form\Form;
+
+use PKP\statistics\PKPStatisticsHelper;
 
 define('TIME_FILTER_OPTION_YESTERDAY', 0);
 define('TIME_FILTER_OPTION_CURRENT_MONTH', 1);
@@ -130,7 +133,7 @@ abstract class PKPReportGeneratorForm extends Form
                 if (isset($reportTemplate['filter']) && is_array($reportTemplate['filter'])) {
                     foreach ($reportTemplate['filter'] as $dimension => $filter) {
                         switch ($dimension) {
-                            case STATISTICS_DIMENSION_ASSOC_TYPE:
+                            case PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE:
                                 $this->setData('objectTypes', $filter);
                                 break;
                         }
@@ -171,7 +174,7 @@ abstract class PKPReportGeneratorForm extends Form
         $this->setData('dateStart', $startTime);
         $this->setData('dateEnd', $endTime);
 
-        if (isset($columns[STATISTICS_DIMENSION_COUNTRY])) {
+        if (isset($columns[PKPStatisticsHelper::STATISTICS_DIMENSION_COUNTRY])) {
             $geoLocationTool = $statsHelper->getGeoLocationTool();
             if ($geoLocationTool) {
                 $countryCodes = $geoLocationTool->getAllCountryCodes();
@@ -182,20 +185,20 @@ abstract class PKPReportGeneratorForm extends Form
                 $this->setData('countriesOptions', $countryCodes);
             }
 
-            $this->setData('showRegionInput', isset($columns[STATISTICS_DIMENSION_REGION]));
-            $this->setData('showCityInput', isset($columns[STATISTICS_DIMENSION_CITY]));
+            $this->setData('showRegionInput', isset($columns[PKPStatisticsHelper::STATISTICS_DIMENSION_REGION]));
+            $this->setData('showCityInput', isset($columns[PKPStatisticsHelper::STATISTICS_DIMENSION_CITY]));
         }
 
-        $this->setData('showMonthInputs', isset($columns[STATISTICS_DIMENSION_MONTH]));
-        $this->setData('showDayInputs', isset($columns[STATISTICS_DIMENSION_DAY]));
+        $this->setData('showMonthInputs', isset($columns[PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH]));
+        $this->setData('showDayInputs', isset($columns[PKPStatisticsHelper::STATISTICS_DIMENSION_DAY]));
 
         $orderColumns = $this->_columns;
-        $nonOrderableColumns = [STATISTICS_DIMENSION_ASSOC_TYPE,
-            STATISTICS_DIMENSION_SUBMISSION_ID,
-            STATISTICS_DIMENSION_CONTEXT_ID,
-            STATISTICS_DIMENSION_REGION,
-            STATISTICS_DIMENSION_FILE_TYPE,
-            STATISTICS_DIMENSION_METRIC_TYPE
+        $nonOrderableColumns = [PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_REGION,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_FILE_TYPE,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE
         ];
 
         foreach ($nonOrderableColumns as $column) {
@@ -210,12 +213,12 @@ abstract class PKPReportGeneratorForm extends Form
         $this->setData('fileAssocTypes', $this->getFileAssocTypes());
         $this->setData('orderColumnsOptions', $orderColumns);
         $this->setData('orderDirectionsOptions', [
-            STATISTICS_ORDER_ASC => __('manager.statistics.reports.orderDir.asc'),
-            STATISTICS_ORDER_DESC => __('manager.statistics.reports.orderDir.desc')]);
+            PKPStatisticsHelper::STATISTICS_ORDER_ASC => __('manager.statistics.reports.orderDir.asc'),
+            PKPStatisticsHelper::STATISTICS_ORDER_DESC => __('manager.statistics.reports.orderDir.desc')]);
 
         $columnsOptions = $this->_columns;
         // Reports will always include this column.
-        unset($columnsOptions[STATISTICS_METRIC]);
+        unset($columnsOptions[PKPStatisticsHelper::STATISTICS_METRIC]);
         $this->setData('columnsOptions', $columnsOptions);
         $this->setData('optionalColumns', $this->_optionalColumns);
 
@@ -247,26 +250,26 @@ abstract class PKPReportGeneratorForm extends Form
         $columns = $this->getData('columns');
         $filter = [];
         if ($this->getData('objectTypes')) {
-            $filter[STATISTICS_DIMENSION_ASSOC_TYPE] = $this->getData('objectTypes');
+            $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE] = $this->getData('objectTypes');
         }
 
-        if ($this->getData('objectIds') && count($filter[STATISTICS_DIMENSION_ASSOC_TYPE] == 1)) {
+        if ($this->getData('objectIds') && count($filter[PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE] == 1)) {
             $objectIds = explode(',', $this->getData('objectIds'));
-            $filter[STATISTICS_DIMENSION_ASSOC_ID] = $objectIds;
+            $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_ID] = $objectIds;
         }
 
         if ($this->getData('fileTypes')) {
-            $filter[STATISTICS_DIMENSION_FILE_TYPE] = $this->getData('fileTypes');
+            $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_FILE_TYPE] = $this->getData('fileTypes');
         }
 
-        $filter[STATISTICS_DIMENSION_CONTEXT_ID] = $context->getId();
+        $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID] = $context->getId();
 
         if ($this->getData('issues')) {
-            $filter[STATISTICS_DIMENSION_ISSUE_ID] = $this->getData('issues');
+            $filter[StatisticsHelper::STATISTICS_DIMENSION_ISSUE_ID] = $this->getData('issues');
         }
 
         if ($this->getData('articles')) {
-            $filter[STATISTICS_DIMENSION_SUBMISSION_ID] = $this->getData('articles');
+            $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID] = $this->getData('articles');
         }
 
         // Get the time filter data, if any.
@@ -284,14 +287,14 @@ abstract class PKPReportGeneratorForm extends Form
         $timeFilterOption = $this->getData('timeFilterOption');
         switch ($timeFilterOption) {
             case TIME_FILTER_OPTION_YESTERDAY:
-                $filter[STATISTICS_DIMENSION_DAY] = STATISTICS_YESTERDAY;
+                $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_DAY] = PKPStatisticsHelper::STATISTICS_YESTERDAY;
                 break;
             case TIME_FILTER_OPTION_CURRENT_MONTH:
-                $filter[STATISTICS_DIMENSION_MONTH] = STATISTICS_CURRENT_MONTH;
+                $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH] = PKPStatisticsHelper::STATISTICS_CURRENT_MONTH;
                 break;
             case TIME_FILTER_OPTION_RANGE_DAY:
             case TIME_FILTER_OPTION_RANGE_MONTH:
-                $dimension = STATISTICS_DIMENSION_MONTH;
+                $dimension = PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH;
                 $startDate = $startYear . $startMonth;
                 $endDate = $endYear . $endMonth;
 
@@ -299,7 +302,7 @@ abstract class PKPReportGeneratorForm extends Form
                     $startDate .= $startDay;
                     $endDate .= $endDay;
 
-                    $dimension = STATISTICS_DIMENSION_DAY;
+                    $dimension = PKPStatisticsHelper::STATISTICS_DIMENSION_DAY;
                 }
 
                 if ($startDate == $endDate) {
@@ -314,16 +317,16 @@ abstract class PKPReportGeneratorForm extends Form
         }
 
         if ($this->getData('countries')) {
-            $filter[STATISTICS_DIMENSION_COUNTRY] = $this->getData('countries');
+            $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_COUNTRY] = $this->getData('countries');
         }
 
         if ($this->getData('regions')) {
-            $filter[STATISTICS_DIMENSION_REGION] = $this->getData('regions');
+            $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_REGION] = $this->getData('regions');
         }
 
         if ($this->getData('cityNames')) {
             $cityNames = explode(',', $this->getData('cityNames'));
-            $filter[STATISTICS_DIMENSION_CITY] = $cityNames;
+            $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_CITY] = $cityNames;
         }
 
         $orderBy = [];
@@ -336,7 +339,7 @@ abstract class PKPReportGeneratorForm extends Form
             foreach ($orderByColumn as $column) {
                 if ($column != '0' && !isset($orderBy[$column])) {
                     $orderByDir = $orderByDirection[$columnIndex];
-                    if ($orderByDir == STATISTICS_ORDER_ASC || $orderByDir == STATISTICS_ORDER_DESC) {
+                    if ($orderByDir == PKPStatisticsHelper::STATISTICS_ORDER_ASC || $orderByDir == PKPStatisticsHelper::STATISTICS_ORDER_DESC) {
                         $orderBy[$column] = $orderByDir;
                     }
                 }

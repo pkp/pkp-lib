@@ -16,11 +16,16 @@
  * @brief Class with basic operations for retrieving and adding statistics data.
  */
 
-import('classes.statistics.StatisticsHelper'); //STATISTICS_DIMENSION_
+namespace PKP\statistics;
 
-// use Exception;
-
+use APP\core\Application;
+use APP\core\Services;
+use Exception;
 use PKP\core\PKPApplication;
+use PKP\core\PKPApplication;
+
+use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 
 use PKP\db\DBResultRange;
 
@@ -69,26 +74,26 @@ class PKPMetricsDAO extends \PKP\db\DAO
             }
         }
         $validColumns = [
-            STATISTICS_DIMENSION_CONTEXT_ID,
-            STATISTICS_DIMENSION_PKP_SECTION_ID,
-            STATISTICS_DIMENSION_ASSOC_OBJECT_ID,
-            STATISTICS_DIMENSION_ASSOC_OBJECT_TYPE,
-            STATISTICS_DIMENSION_SUBMISSION_ID,
-            STATISTICS_DIMENSION_REPRESENTATION_ID,
-            STATISTICS_DIMENSION_FILE_TYPE,
-            STATISTICS_DIMENSION_ASSOC_TYPE,
-            STATISTICS_DIMENSION_ASSOC_ID,
-            STATISTICS_DIMENSION_COUNTRY,
-            STATISTICS_DIMENSION_REGION,
-            STATISTICS_DIMENSION_CITY,
-            STATISTICS_DIMENSION_MONTH,
-            STATISTICS_DIMENSION_DAY,
-            STATISTICS_DIMENSION_METRIC_TYPE
+            PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_PKP_SECTION_ID,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_OBJECT_ID,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_OBJECT_TYPE,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_REPRESENTATION_ID,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_FILE_TYPE,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_ID,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_COUNTRY,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_REGION,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_CITY,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_DAY,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE
         ];
 
         // If the metric column was defined, remove it. We've already
         // add that below.
-        $metricKey = array_search(STATISTICS_METRIC, $columns);
+        $metricKey = array_search(PKPStatisticsHelper::STATISTICS_METRIC, $columns);
         if ($metricKey !== false) {
             unset($columns[$metricKey]);
         }
@@ -96,13 +101,13 @@ class PKPMetricsDAO extends \PKP\db\DAO
         if (count(array_diff($columns, $validColumns)) > 0) {
             return $nullVar;
         }
-        $validColumns[] = STATISTICS_METRIC;
+        $validColumns[] = PKPStatisticsHelper::STATISTICS_METRIC;
         foreach ($filters as $filterColumn => $value) {
             if (!in_array($filterColumn, $validColumns)) {
                 return $nullVar;
             }
         }
-        $validDirections = [STATISTICS_ORDER_ASC, STATISTICS_ORDER_DESC];
+        $validDirections = [PKPStatisticsHelper::STATISTICS_ORDER_ASC, PKPStatisticsHelper::STATISTICS_ORDER_DESC];
         foreach ($orderBy as $orderColumn => $direction) {
             if (!in_array($orderColumn, $validColumns)) {
                 return $nullVar;
@@ -119,13 +124,13 @@ class PKPMetricsDAO extends \PKP\db\DAO
             return $nullVar;
         }
         if (count($metricType) !== 1 && $nonAdditive) {
-            if (!in_array(STATISTICS_DIMENSION_METRIC_TYPE, $columns)) {
-                array_push($columns, STATISTICS_DIMENSION_METRIC_TYPE);
+            if (!in_array(PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE, $columns)) {
+                array_push($columns, PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE);
             }
         }
 
         // Add the metric type as filter.
-        $filters[STATISTICS_DIMENSION_METRIC_TYPE] = $metricType;
+        $filters[PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE] = $metricType;
 
         // Build the select and group by clauses.
         if (empty($columns)) {
@@ -145,7 +150,7 @@ class PKPMetricsDAO extends \PKP\db\DAO
         foreach ($filters as $column => $values) {
             // The filter array contains STATISTICS_* constants for the filtered
             // hierarchy aggregation level as keys.
-            if ($column === STATISTICS_METRIC) {
+            if ($column === PKPStatisticsHelper::STATISTICS_METRIC) {
                 $havingClause = 'HAVING ';
                 $currentClause = & $havingClause; // Reference required.
             } else {
@@ -198,8 +203,8 @@ class PKPMetricsDAO extends \PKP\db\DAO
         // Replace the current time constant by time values
         // inside the parameters array.
         $currentTime = [
-            STATISTICS_YESTERDAY => date('Ymd', strtotime('-1 day', time())),
-            STATISTICS_CURRENT_MONTH => date('Ym', time())];
+            PKPStatisticsHelper::STATISTICS_YESTERDAY => date('Ymd', strtotime('-1 day', time())),
+            PKPStatisticsHelper::STATISTICS_CURRENT_MONTH => date('Ym', time())];
         foreach ($currentTime as $constant => $time) {
             $currentTimeKeys = array_keys($params, $constant);
             foreach ($currentTimeKeys as $key) {
@@ -491,4 +496,8 @@ class PKPMetricsDAO extends \PKP\db\DAO
     {
         return [null, null];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\statistics\PKPMetricsDAO', '\PKPMetricsDAO');
 }

@@ -19,15 +19,14 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\core\Request;
 use APP\i18n\AppLocale;
+use APP\statistics\StatisticsHelper;
 
 use Exception;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
-
-// FIXME: Add namespacing
 use PKP\plugins\PluginRegistry;
 
-use StatisticsHelper;
+use PKP\statistics\PKPStatisticsHelper;
 
 interface iPKPApplicationInfoProvider
 {
@@ -639,7 +638,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getMetrics($metricType = null, $columns = [], $filter = [], $orderBy = [], $range = null)
     {
-        import('classes.statistics.StatisticsHelper');
         $statsHelper = new StatisticsHelper();
 
         // Check the parameter format.
@@ -673,8 +671,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         // 2) If we have multiple metrics then we have to force inclusion of
         // the metric type column to avoid aggregation over several metric types.
         if ($metricTypeCount > 1) {
-            if (!in_array(STATISTICS_DIMENSION_METRIC_TYPE, $columns)) {
-                array_push($columns, STATISTICS_DIMENSION_METRIC_TYPE);
+            if (!in_array(PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE, $columns)) {
+                array_push($columns, PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE);
             }
         }
 
@@ -731,20 +729,20 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public function getPrimaryMetricByAssoc($assocType, $assocId)
     {
         $filter = [
-            STATISTICS_DIMENSION_ASSOC_ID => $assocId,
-            STATISTICS_DIMENSION_ASSOC_TYPE => $assocType];
+            PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_ID => $assocId,
+            PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE => $assocType];
 
         $request = $this->getRequest();
         $router = $request->getRouter();
         $context = $router->getContext($request);
         if ($context) {
-            $filter[STATISTICS_DIMENSION_CONTEXT_ID] = $context->getId();
+            $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID] = $context->getId();
         }
 
         $metric = $this->getMetrics(null, [], $filter);
         if (is_array($metric)) {
-            if (!is_null($metric[0][STATISTICS_METRIC])) {
-                return $metric[0][STATISTICS_METRIC];
+            if (!is_null($metric[0][PKPStatisticsHelper::STATISTICS_METRIC])) {
+                return $metric[0][PKPStatisticsHelper::STATISTICS_METRIC];
             }
         }
 

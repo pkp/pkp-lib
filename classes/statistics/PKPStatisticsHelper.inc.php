@@ -14,52 +14,59 @@
 *
 */
 
-// Dimensions:
-// 1) publication object dimension:
-define('STATISTICS_DIMENSION_CONTEXT_ID', 'context_id');
-define('STATISTICS_DIMENSION_PKP_SECTION_ID', 'pkp_section_id'); // OJS section i.e. OMP series ID
-define('STATISTICS_DIMENSION_ASSOC_OBJECT_TYPE', 'assoc_object_type');
-define('STATISTICS_DIMENSION_ASSOC_OBJECT_ID', 'assoc_object_id');
-define('STATISTICS_DIMENSION_SUBMISSION_ID', 'submission_id');
-define('STATISTICS_DIMENSION_REPRESENTATION_ID', 'representation_id');
-define('STATISTICS_DIMENSION_ASSOC_TYPE', 'assoc_type');
-define('STATISTICS_DIMENSION_ASSOC_ID', 'assoc_id');
-define('STATISTICS_DIMENSION_FILE_TYPE', 'file_type');
-// 2) time dimension:
-define('STATISTICS_DIMENSION_MONTH', 'month');
-define('STATISTICS_DIMENSION_DAY', 'day');
-// 3) geography dimension:
-define('STATISTICS_DIMENSION_COUNTRY', 'country_id');
-define('STATISTICS_DIMENSION_REGION', 'region');
-define('STATISTICS_DIMENSION_CITY', 'city');
-// 4) metric type dimension (non-additive!):
-define('STATISTICS_DIMENSION_METRIC_TYPE', 'metric_type');
+namespace PKP\statistics;
 
-// Metrics:
-define('STATISTICS_METRIC', 'metric');
+use APP\core\Application;
+use PKP\core\PKPApplication;
 
-// Odering:
-define('STATISTICS_ORDER_ASC', 'ASC');
-define('STATISTICS_ORDER_DESC', 'DESC');
-
-// File type to be used in publication object dimension.
-define('STATISTICS_FILE_TYPE_HTML', 1);
-define('STATISTICS_FILE_TYPE_PDF', 2);
-define('STATISTICS_FILE_TYPE_OTHER', 3);
-define('STATISTICS_FILE_TYPE_DOC', 4);
-
-// Geography.
-define('STATISTICS_UNKNOWN_COUNTRY_ID', 'ZZ');
-
-// Constants used to filter time dimension to current time.
-define('STATISTICS_YESTERDAY', 'yesterday');
-define('STATISTICS_CURRENT_MONTH', 'currentMonth');
-
-// Set the earliest date used
-define('STATISTICS_EARLIEST_DATE', '20010101');
+use PKP\plugins\PluginRegistry;
 
 abstract class PKPStatisticsHelper
 {
+    // Dimensions:
+    // 1) publication object dimension:
+    public const STATISTICS_DIMENSION_CONTEXT_ID = 'context_id';
+    public const STATISTICS_DIMENSION_PKP_SECTION_ID = 'pkp_section_id';
+    public const STATISTICS_DIMENSION_ASSOC_OBJECT_TYPE = 'assoc_object_type';
+    public const STATISTICS_DIMENSION_ASSOC_OBJECT_ID = 'assoc_object_id';
+    public const STATISTICS_DIMENSION_SUBMISSION_ID = 'submission_id';
+    public const STATISTICS_DIMENSION_REPRESENTATION_ID = 'representation_id';
+    public const STATISTICS_DIMENSION_ASSOC_TYPE = 'assoc_type';
+    public const STATISTICS_DIMENSION_ASSOC_ID = 'assoc_id';
+    public const STATISTICS_DIMENSION_FILE_TYPE = 'file_type';
+    // 2) time dimension:
+    public const STATISTICS_DIMENSION_MONTH = 'month';
+    public const STATISTICS_DIMENSION_DAY = 'day';
+    // 3) geography dimension:
+    public const STATISTICS_DIMENSION_COUNTRY = 'country_id';
+    public const STATISTICS_DIMENSION_REGION = 'region';
+    public const STATISTICS_DIMENSION_CITY = 'city';
+    // 4) metric type dimension (non-additive!):
+    public const STATISTICS_DIMENSION_METRIC_TYPE = 'metric_type';
+
+    // Metrics:
+    public const STATISTICS_METRIC = 'metric';
+
+    // Ordering:
+    public const STATISTICS_ORDER_ASC = 'ASC';
+    public const STATISTICS_ORDER_DESC = 'DESC';
+
+    // File type to be used in publication object dimension.
+    public const STATISTICS_FILE_TYPE_HTML = 1;
+    public const STATISTICS_FILE_TYPE_PDF = 2;
+    public const STATISTICS_FILE_TYPE_OTHER = 3;
+    public const STATISTICS_FILE_TYPE_DOC = 4;
+
+    // Geography.
+    public const STATISTICS_UNKNOWN_COUNTRY_ID = 'ZZ';
+
+    // Constants used to filter time dimension to current time.
+    public const STATISTICS_YESTERDAY = 'yesterday';
+    public const STATISTICS_CURRENT_MONTH = 'currentMonth';
+
+    // Set the earliest date used
+    public const STATISTICS_EARLIEST_DATE = '20010101';
+
     public function __construct()
     {
     }
@@ -82,8 +89,8 @@ abstract class PKPStatisticsHelper
     {
         // Check whether the report is on context level.
         $context = null;
-        if (isset($filter[STATISTICS_DIMENSION_CONTEXT_ID])) {
-            $contextFilter = $filter[STATISTICS_DIMENSION_CONTEXT_ID];
+        if (isset($filter[self::STATISTICS_DIMENSION_CONTEXT_ID])) {
+            $contextFilter = $filter[self::STATISTICS_DIMENSION_CONTEXT_ID];
             if (is_scalar($contextFilter)) {
                 // Retrieve the context object.
                 $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
@@ -326,19 +333,19 @@ abstract class PKPStatisticsHelper
     protected function getReportColumnsArray()
     {
         return [
-            STATISTICS_DIMENSION_ASSOC_ID => __('common.id'),
-            STATISTICS_DIMENSION_ASSOC_TYPE => __('common.type'),
-            STATISTICS_DIMENSION_FILE_TYPE => __('common.fileType'),
-            STATISTICS_DIMENSION_SUBMISSION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_SUBMISSION_ID),
-            STATISTICS_DIMENSION_CONTEXT_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_CONTEXT_ID),
-            STATISTICS_DIMENSION_PKP_SECTION_ID => $this->getAppColumnTitle(STATISTICS_DIMENSION_PKP_SECTION_ID),
-            STATISTICS_DIMENSION_CITY => __('manager.statistics.city'),
-            STATISTICS_DIMENSION_REGION => __('manager.statistics.region'),
-            STATISTICS_DIMENSION_COUNTRY => __('common.country'),
-            STATISTICS_DIMENSION_DAY => __('common.day'),
-            STATISTICS_DIMENSION_MONTH => __('common.month'),
-            STATISTICS_DIMENSION_METRIC_TYPE => __('common.metric'),
-            STATISTICS_METRIC => __('common.count')
+            self::STATISTICS_DIMENSION_ASSOC_ID => __('common.id'),
+            self::STATISTICS_DIMENSION_ASSOC_TYPE => __('common.type'),
+            self::STATISTICS_DIMENSION_FILE_TYPE => __('common.fileType'),
+            self::STATISTICS_DIMENSION_SUBMISSION_ID => $this->getAppColumnTitle(self::STATISTICS_DIMENSION_SUBMISSION_ID),
+            self::STATISTICS_DIMENSION_CONTEXT_ID => $this->getAppColumnTitle(self::STATISTICS_DIMENSION_CONTEXT_ID),
+            self::STATISTICS_DIMENSION_PKP_SECTION_ID => $this->getAppColumnTitle(self::STATISTICS_DIMENSION_PKP_SECTION_ID),
+            self::STATISTICS_DIMENSION_CITY => __('manager.statistics.city'),
+            self::STATISTICS_DIMENSION_REGION => __('manager.statistics.region'),
+            self::STATISTICS_DIMENSION_COUNTRY => __('common.country'),
+            self::STATISTICS_DIMENSION_DAY => __('common.day'),
+            self::STATISTICS_DIMENSION_MONTH => __('common.month'),
+            self::STATISTICS_DIMENSION_METRIC_TYPE => __('common.metric'),
+            self::STATISTICS_METRIC => __('common.count')
         ];
     }
 
@@ -364,10 +371,10 @@ abstract class PKPStatisticsHelper
     public function getFileTypesArray()
     {
         return [
-            STATISTICS_FILE_TYPE_PDF => 'PDF',
-            STATISTICS_FILE_TYPE_HTML => 'HTML',
-            STATISTICS_FILE_TYPE_OTHER => __('common.other'),
-            STATISTICS_FILE_TYPE_DOC => 'DOC',
+            self::STATISTICS_FILE_TYPE_PDF => 'PDF',
+            self::STATISTICS_FILE_TYPE_HTML => 'HTML',
+            self::STATISTICS_FILE_TYPE_OTHER => __('common.other'),
+            self::STATISTICS_FILE_TYPE_DOC => 'DOC',
         ];
     }
 
@@ -379,4 +386,38 @@ abstract class PKPStatisticsHelper
      * @return string A localized text.
      */
     abstract protected function getAppColumnTitle($column);
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\statistics\PKPStatisticsHelper', '\PKPStatisticsHelper');
+    foreach ([
+        'STATISTICS_DIMENSION_CONTEXT_ID',
+        'STATISTICS_DIMENSION_PKP_SECTION_ID',
+        'STATISTICS_DIMENSION_ASSOC_OBJECT_TYPE',
+        'STATISTICS_DIMENSION_ASSOC_OBJECT_ID',
+        'STATISTICS_DIMENSION_SUBMISSION_ID',
+        'STATISTICS_DIMENSION_REPRESENTATION_ID',
+        'STATISTICS_DIMENSION_ASSOC_TYPE',
+        'STATISTICS_DIMENSION_ASSOC_ID',
+        'STATISTICS_DIMENSION_FILE_TYPE',
+        'STATISTICS_DIMENSION_MONTH',
+        'STATISTICS_DIMENSION_DAY',
+        'STATISTICS_DIMENSION_COUNTRY',
+        'STATISTICS_DIMENSION_REGION',
+        'STATISTICS_DIMENSION_CITY',
+        'STATISTICS_DIMENSION_METRIC_TYPE',
+        'STATISTICS_METRIC',
+        'STATISTICS_ORDER_ASC',
+        'STATISTICS_ORDER_DESC',
+        'STATISTICS_FILE_TYPE_HTML',
+        'STATISTICS_FILE_TYPE_PDF',
+        'STATISTICS_FILE_TYPE_OTHER',
+        'STATISTICS_FILE_TYPE_DOC',
+        'STATISTICS_UNKNOWN_COUNTRY_ID',
+        'STATISTICS_YESTERDAY',
+        'STATISTICS_CURRENT_MONTH',
+        'STATISTICS_EARLIEST_DATE',
+    ] as $constantName) {
+        define($constantName, constant('\PKPStatisticsHelper::' . $constantName));
+    }
 }

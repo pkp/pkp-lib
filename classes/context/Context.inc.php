@@ -17,7 +17,9 @@ namespace PKP\context;
 
 use APP\core\Application;
 use APP\i18n\AppLocale;
+
 use PKP\config\Config;
+use PKP\statistics\PKPStatisticsHelper;
 
 // Constant used to distinguish whether metadata is enabled and whether it
 // should be requested or required during submission
@@ -618,7 +620,7 @@ abstract class Context extends \PKP\core\DataObject
     public function getMetrics($metricType = null, $columns = [], $filter = [], $orderBy = [], $range = null)
     {
         // Add a context filter and run the report.
-        $filter[STATISTICS_DIMENSION_CONTEXT_ID] = $this->getId();
+        $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID] = $this->getId();
         $application = Application::get();
         return $application->getMetrics($metricType, $columns, $filter, $orderBy, $range);
     }

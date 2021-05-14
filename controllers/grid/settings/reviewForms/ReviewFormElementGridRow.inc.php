@@ -33,7 +33,7 @@ class ReviewFormElementGridRow extends GridRow
         // add grid row actions: edit, delete
 
         $element = parent::getData();
-        assert(is_a($element, 'ReviewFormElement'));
+        assert($element instanceof \PKP\reviewForm\ReviewFormElement);
         $rowId = $this->getId();
 
         $router = $request->getRouter();

@@ -34,7 +34,7 @@ class ReviewFormGridRow extends GridRow
 
         // Is this a new row or an existing row?
         $element = $this->getData();
-        assert(is_a($element, 'ReviewForm'));
+        assert($element instanceof \PKP\reviewForm\ReviewForm);
 
         $rowId = $this->getId();
 

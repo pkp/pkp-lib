@@ -16,7 +16,11 @@
  *
  */
 
-import('lib.pkp.classes.reviewForm.ReviewForm');
+namespace PKP\reviewForm;
+
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
+use PKP\plugins\HookRegistry;
 
 class ReviewFormDAO extends \PKP\db\DAO
 {
@@ -321,4 +325,8 @@ class ReviewFormDAO extends \PKP\db\DAO
     {
         return $this->_getInsertId('review_forms', 'review_form_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\reviewForm\ReviewFormDAO', '\ReviewFormDAO');
 }

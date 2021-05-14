@@ -16,7 +16,9 @@
  *
  */
 
-import('lib.pkp.classes.reviewForm.ReviewFormResponse');
+namespace PKP\reviewForm;
+
+use PKP\plugins\HookRegistry;
 
 class ReviewFormResponseDAO extends \PKP\db\DAO
 {
@@ -198,4 +200,8 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
         $row = $result->current();
         return $row && $row->row_count > 0;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\reviewForm\ReviewFormResponseDAO', '\ReviewFormResponseDAO');
 }

@@ -24,6 +24,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
+use PKP\reviewForm\ReviewFormElement;
 use PKP\submission\SubmissionComment;
 
 // FIXME: Add namespacing
@@ -261,18 +262,18 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                     $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
                     $elementType = $reviewFormElement->getElementType();
                     switch ($elementType) {
-                    case REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
-                    case REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
-                    case REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
                         $reviewFormResponse->setResponseType('string');
                         $reviewFormResponse->setValue($reviewFormResponseValue);
                         break;
-                    case REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
-                    case REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
                         $reviewFormResponse->setResponseType('int');
                         $reviewFormResponse->setValue($reviewFormResponseValue);
                         break;
-                    case REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
                         $reviewFormResponse->setResponseType('object');
                         $reviewFormResponse->setValue($reviewFormResponseValue);
                         break;

@@ -19,6 +19,7 @@
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
+use PKP\reviewForm\ReviewFormElement;
 
 class ReviewFormElementForm extends Form
 {
@@ -67,7 +68,6 @@ class ReviewFormElementForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $templateMgr = TemplateManager::getManager($request);
-        import('lib.pkp.classes.reviewForm.ReviewFormElement');
         $templateMgr->assign([
             'reviewFormId' => $this->reviewFormId,
             'reviewFormElementId' => $this->reviewFormElementId,

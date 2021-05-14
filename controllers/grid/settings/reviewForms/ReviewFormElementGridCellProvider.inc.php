@@ -28,7 +28,7 @@ class ReviewFormElementGridCellProvider extends GridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert(is_a($element, 'ReviewFormElement') && !empty($columnId));
+        assert($element instanceof \PKP\reviewForm\ReviewFormElement && !empty($columnId));
         switch ($columnId) {
             case 'question':
                 $label = $element->getLocalizedQuestion();

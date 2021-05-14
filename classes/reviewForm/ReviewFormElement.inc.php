@@ -16,15 +16,17 @@
  *
  */
 
-define('REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD', 0x000001);
-define('REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD', 0x000002);
-define('REVIEW_FORM_ELEMENT_TYPE_TEXTAREA', 0x000003);
-define('REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES', 0x000004);
-define('REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS', 0x000005);
-define('REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX', 0x000006);
+namespace PKP\reviewForm;
 
 class ReviewFormElement extends \PKP\core\DataObject
 {
+    public const REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD = 1;
+    public const REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD = 2;
+    public const REVIEW_FORM_ELEMENT_TYPE_TEXTAREA = 3;
+    public const REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES = 4;
+    public const REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS = 5;
+    public const REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX = 6;
+
     /**
      * Get localized question.
      *
@@ -235,12 +237,12 @@ class ReviewFormElement extends \PKP\core\DataObject
     {
         static $reviewFormElementTypeOptions = [
             '' => 'manager.reviewFormElements.chooseType',
-            REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD => 'manager.reviewFormElements.smalltextfield',
-            REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD => 'manager.reviewFormElements.textfield',
-            REVIEW_FORM_ELEMENT_TYPE_TEXTAREA => 'manager.reviewFormElements.textarea',
-            REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES => 'manager.reviewFormElements.checkboxes',
-            REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS => 'manager.reviewFormElements.radiobuttons',
-            REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX => 'manager.reviewFormElements.dropdownbox'
+            self::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD => 'manager.reviewFormElements.smalltextfield',
+            self::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD => 'manager.reviewFormElements.textfield',
+            self::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA => 'manager.reviewFormElements.textarea',
+            self::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES => 'manager.reviewFormElements.checkboxes',
+            self::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS => 'manager.reviewFormElements.radiobuttons',
+            self::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX => 'manager.reviewFormElements.dropdownbox'
         ];
         return $reviewFormElementTypeOptions;
     }
@@ -252,7 +254,21 @@ class ReviewFormElement extends \PKP\core\DataObject
      */
     public function &getMultipleResponsesElementTypes()
     {
-        static $multipleResponsesElementTypes = [REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES, REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS, REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX];
+        static $multipleResponsesElementTypes = [self::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES, self::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS, self::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX];
         return $multipleResponsesElementTypes;
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\reviewForm\ReviewFormElement', '\ReviewFormElement');
+    foreach ([
+        'REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD',
+        'REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD',
+        'REVIEW_FORM_ELEMENT_TYPE_TEXTAREA',
+        'REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES',
+        'REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS',
+        'REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX',
+    ] as $constantName) {
+        define($constantName, constant('\ReviewFormElement::' . $constantName));
     }
 }

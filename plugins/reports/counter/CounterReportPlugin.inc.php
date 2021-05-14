@@ -13,6 +13,9 @@
  * @brief Counter report plugin
  */
 
+use PKP\statistics\PKPStatisticsHelper;
+use PKP\plugins\ReportPlugin;
+
 use APP\template\TemplateManager;
 use APP\notification\NotificationManager;
 
@@ -20,7 +23,6 @@ define('OPS_METRIC_TYPE_LEGACY_COUNTER', 'ops::legacyCounterPlugin');
 
 define('COUNTER_CLASS_SUFFIX', '.inc.php');
 
-import('lib.pkp.classes.plugins.ReportPlugin');
 import('plugins.reports.counter.classes.CounterReport');
 
 class CounterReportPlugin extends ReportPlugin
@@ -188,7 +190,7 @@ class CounterReportPlugin extends ReportPlugin
                             $reporter = $this->getReporter($report, $release);
                             if ($reporter) {
                                 // default report parameters with a yearlong range
-                                $reportItems = $reporter->getReportItems([], [STATISTICS_DIMENSION_MONTH => ['from' => $year . '01', 'to' => $year . '12']]);
+                                $reportItems = $reporter->getReportItems([], [PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH => ['from' => $year . '01', 'to' => $year . '12']]);
                                 if ($reportItems) {
                                     $xmlResult = $reporter->createXML($reportItems);
                                     if ($xmlResult) {
@@ -262,10 +264,10 @@ class CounterReportPlugin extends ReportPlugin
             $filter = [];
         } else {
             $metricType = METRIC_TYPE_COUNTER;
-            $filter = [STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_SUBMISSION_FILE];
+            $filter = [PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_SUBMISSION_FILE];
         }
         $metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */
-        $results = $metricsDao->getMetrics($metricType, [STATISTICS_DIMENSION_MONTH], $filter);
+        $results = $metricsDao->getMetrics($metricType, [PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH], $filter);
         $years = [];
         foreach ($results as $record) {
             $year = substr($record['month'], 0, 4);

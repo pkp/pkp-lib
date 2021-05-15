@@ -19,6 +19,8 @@ import('controllers.grid.settings.sections.SectionGridRow');
 use PKP\linkAction\LinkAction;
 use PKP\core\JSONMessage;
 use PKP\linkAction\request\AjaxModal;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\feature\OrderGridItemsFeature;
 
 use APP\notification\NotificationManager;
 
@@ -132,7 +134,7 @@ class SectionGridHandler extends SetupGridHandler
                 null,
                 'controllers/grid/common/cell/selectStatusCell.tpl',
                 $sectionGridCellProvider,
-                ['alignment' => COLUMN_ALIGNMENT_CENTER,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_CENTER,
                     'width' => 20]
             )
         );
@@ -146,7 +148,6 @@ class SectionGridHandler extends SetupGridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
         return [new OrderGridItemsFeature()];
     }
 

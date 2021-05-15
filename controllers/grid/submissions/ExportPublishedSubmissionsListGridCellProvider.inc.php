@@ -13,10 +13,10 @@
  * @brief Class for a cell provider that can retrieve labels from submissions
  */
 
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-
+use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectAction;
+use PKP\controllers\grid\GridHandler;
 
 class ExportPublishedSubmissionsListGridCellProvider extends DataObjectGridCellProvider
 {
@@ -45,7 +45,7 @@ class ExportPublishedSubmissionsListGridCellProvider extends DataObjectGridCellP
      *
      * @copydoc GridCellProvider::getCellActions()
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         $submission = $row->getData();
         $columnId = $column->getId();

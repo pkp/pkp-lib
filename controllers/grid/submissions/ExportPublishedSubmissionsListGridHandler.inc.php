@@ -13,8 +13,8 @@
  * @brief Handle exportable published submissions list grid requests.
  */
 
-import('lib.pkp.classes.controllers.grid.GridHandler');
-
+use PKP\controllers\grid\GridHandler;
+use PKP\controllers\grid\GridColumn;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 
@@ -87,7 +87,7 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler
                 __('common.id'),
                 'controllers/grid/gridCell.tpl',
                 $cellProvider,
-                ['alignment' => COLUMN_ALIGNMENT_LEFT,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
                     'width' => 10]
             )
         );
@@ -99,7 +99,7 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler
                 null,
                 $cellProvider,
                 ['html' => true,
-                    'alignment' => COLUMN_ALIGNMENT_LEFT]
+                    'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT]
             )
         );
         if (method_exists($this, 'addAdditionalColumns')) {
@@ -112,7 +112,7 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler
                 null,
                 null,
                 $cellProvider,
-                ['alignment' => COLUMN_ALIGNMENT_LEFT,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
                     'width' => 10]
             )
         );

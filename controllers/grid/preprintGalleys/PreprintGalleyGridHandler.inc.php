@@ -13,9 +13,7 @@
  * @brief Handle preprint galley grid requests.
  */
 
-// import grid base classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
-
+use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\core\JSONMessage;
@@ -23,6 +21,7 @@ use PKP\submission\PKPSubmission;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\internal\RepresentationRequiredPolicy;
+use PKP\controllers\grid\GridColumn;
 
 use APP\template\TemplateManager;
 use APP\notification\NotificationManager;

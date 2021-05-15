@@ -13,8 +13,9 @@
  * @brief Base class for a cell provider that can retrieve labels for reviewer grid rows
  */
 
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-
+use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 
 class ReviewerGridCellProvider extends DataObjectGridCellProvider
 {
@@ -103,7 +104,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      *
      * @return array an array of LinkAction instances
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         $reviewAssignment = $row->getData();
 

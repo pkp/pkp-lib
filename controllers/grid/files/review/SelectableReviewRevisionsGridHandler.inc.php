@@ -16,6 +16,8 @@
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
+
 class SelectableReviewRevisionsGridHandler extends SelectableFileListGridHandler
 {
     /**
@@ -28,7 +30,7 @@ class SelectableReviewRevisionsGridHandler extends SelectableFileListGridHandler
         parent::__construct(
             new ReviewRevisionsGridDataProvider(),
             null,
-            FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
+            FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT
         );
 
         $this->addRoleAssignment(

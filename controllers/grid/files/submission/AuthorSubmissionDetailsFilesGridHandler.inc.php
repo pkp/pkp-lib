@@ -13,6 +13,7 @@
  * @brief Handle submission file grid requests on the author's submission details pages.
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\submission\SubmissionFile;
 
 // Import the grid layout.
@@ -27,7 +28,7 @@ class AuthorSubmissionDetailsFilesGridHandler extends FileListGridHandler
     {
         import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
         $dataProvider = new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_SUBMISSION);
-        parent::__construct($dataProvider, WORKFLOW_STAGE_ID_SUBMISSION, FILE_GRID_DOWNLOAD_ALL | FILE_GRID_EDIT);
+        parent::__construct($dataProvider, WORKFLOW_STAGE_ID_SUBMISSION, FilesGridCapabilities::FILE_GRID_DOWNLOAD_ALL | FilesGridCapabilities::FILE_GRID_EDIT);
 
         $this->addRoleAssignment(
             [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],

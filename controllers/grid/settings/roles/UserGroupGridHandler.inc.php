@@ -13,11 +13,10 @@
  * @brief Handle operations for user group management operations.
  */
 
-// Import the base GridHandler.
-import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\feature\PagingFeature;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -257,7 +256,6 @@ class UserGroupGridHandler extends GridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
         return [new PagingFeature()];
     }
 

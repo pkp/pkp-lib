@@ -13,26 +13,10 @@
  * @brief Class defining basic operations for handling Listbuilder UI elements
  */
 
-import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridRow');
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridColumn');
-import('lib.pkp.classes.controllers.listbuilder.MultilingualListbuilderGridColumn');
-
-/* Listbuilder source types: text-based, pulldown, ... */
-define('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
-define('LISTBUILDER_SOURCE_TYPE_SELECT', 1);
-
-/* Listbuilder save types */
-define('LISTBUILDER_SAVE_TYPE_EXTERNAL', 0); // Outside the listbuilder handler
-define('LISTBUILDER_SAVE_TYPE_INTERNAL', 1); // Using ListbuilderHandler::save
-
-/* String to identify optgroup in the returning options data. If you want to use
- * optgroup in listbuilder select, return the options data in a multidimensional array
- * array[columnIndex][optgroupId][selectItemId] and also with
- * array[columnIndex][LISTBUILDER_OPTGROUP_LABEL][optgroupId] */
-define('LISTBUILDER_OPTGROUP_LABEL', 'optGroupLabel');
+namespace PKP\controllers\listbuilder;
 
 use APP\template\TemplateManager;
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 
@@ -40,11 +24,25 @@ use PKP\linkAction\request\NullAction;
 
 class ListbuilderHandler extends GridHandler
 {
+    /* Listbuilder source types: text-based, pulldown, ... */
+    public const LISTBUILDER_SOURCE_TYPE_TEXT = 0;
+    public const LISTBUILDER_SOURCE_TYPE_SELECT = 1;
+
+    /* Listbuilder save types */
+    public const LISTBUILDER_SAVE_TYPE_EXTERNAL = 0;
+    public const LISTBUILDER_SAVE_TYPE_INTERNAL = 1;
+
+    /* String to identify optgroup in the returning options data. If you want to use
+     * optgroup in listbuilder select, return the options data in a multidimensional array
+     * array[columnIndex][optgroupId][selectItemId] and also with
+     * array[columnIndex][LISTBUILDER_OPTGROUP_LABEL][optgroupId] */
+    public const LISTBUILDER_OPTGROUP_LABEL = 'optGroupLabel';
+
     /** @var int Definition of the type of source LISTBUILDER_SOURCE_TYPE_... */
     public $_sourceType;
 
     /** @var int Constant indicating the save approach for the LB LISTBUILDER_SAVE_TYPE_... */
-    public $_saveType = LISTBUILDER_SAVE_TYPE_INTERNAL;
+    public $_saveType = self::LISTBUILDER_SAVE_TYPE_INTERNAL;
 
     /** @var string Field for LISTBUILDER_SAVE_TYPE_EXTERNAL naming the field used to send the saved contents of the LB */
     public $_saveFieldName = null;
@@ -251,7 +249,7 @@ class ListbuilderHandler extends GridHandler
             $firstColumnOptions = current($options);
             $optionsCount = count($firstColumnOptions);
             if (is_array(current($firstColumnOptions))) { // Options with opt group, count only the selectable options.
-                unset($firstColumnOptions[LISTBUILDER_OPTGROUP_LABEL]);
+                unset($firstColumnOptions[self::LISTBUILDER_OPTGROUP_LABEL]);
                 $optionsCount--;
                 $optionsCount = count($firstColumnOptions, COUNT_RECURSIVE) - $optionsCount;
             }
@@ -399,5 +397,18 @@ class ListbuilderHandler extends GridHandler
     {
         // Return a citation row
         return new ListbuilderGridRow();
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\listbuilder\ListbuilderHandler', '\ListbuilderHandler');
+    foreach ([
+        'LISTBUILDER_SOURCE_TYPE_TEXT',
+        'LISTBUILDER_SOURCE_TYPE_SELECT',
+        'LISTBUILDER_SAVE_TYPE_EXTERNAL',
+        'LISTBUILDER_SAVE_TYPE_INTERNAL',
+        'LISTBUILDER_OPTGROUP_LABEL',
+    ] as $constantName) {
+        define($constantName, constant('\ListbuilderHandler::' . $constantName));
     }
 }

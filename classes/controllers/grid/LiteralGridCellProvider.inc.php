@@ -13,7 +13,7 @@
  * @brief A cell provider that passes literal data through directly.
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+namespace PKP\controllers\grid;
 
 class LiteralGridCellProvider extends GridCellProvider
 {
@@ -41,4 +41,8 @@ class LiteralGridCellProvider extends GridCellProvider
                 return ['label' => $row->getData()];
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\LiteralGridCellProvider', '\LiteralGridCellProvider');
 }

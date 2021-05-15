@@ -14,8 +14,7 @@
  * provider object that already provides access to data that the grid needs.
  */
 
-// Import base class.
-import('lib.pkp.classes.controllers.grid.GridDataProvider');
+namespace PKP\controllers\grid;
 
 class CategoryGridDataProvider extends GridDataProvider
 {
@@ -90,4 +89,8 @@ class CategoryGridDataProvider extends GridDataProvider
     {
         assert(false);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\CategoryGridDataProvider', '\CategoryGridDataProvider');
 }

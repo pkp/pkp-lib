@@ -19,7 +19,7 @@
  * @see DataObjectGridCellProvider
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+namespace PKP\controllers\grid;
 
 class ColumnBasedGridCellProvider extends GridCellProvider
 {
@@ -34,4 +34,8 @@ class ColumnBasedGridCellProvider extends GridCellProvider
         // Delegate to the column to provide template variables.
         return $column->getTemplateVarsFromRow($row);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\ColumnBasedGridCellProvider', '\ColumnBasedGridCellProvider');
 }

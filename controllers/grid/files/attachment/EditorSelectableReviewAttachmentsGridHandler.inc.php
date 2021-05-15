@@ -12,6 +12,7 @@
  * @brief Selectable review attachment grid requests (editor's perspective).
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
@@ -29,7 +30,7 @@ class EditorSelectableReviewAttachmentsGridHandler extends SelectableFileListGri
             // This grid lists all review round files, but creates attachments
             new ReviewGridDataProvider(SubmissionFile::SUBMISSION_FILE_ATTACHMENT, false, true),
             null,
-            FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT
         );
 
         $this->addRoleAssignment(

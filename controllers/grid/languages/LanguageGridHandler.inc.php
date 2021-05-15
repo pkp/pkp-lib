@@ -13,12 +13,13 @@
  * @brief Handle language grid requests.
  */
 
-import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.LanguageGridCellProvider');
 
 use APP\core\Services;
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;

@@ -13,11 +13,11 @@
  * @brief base PKP class to handle query grid requests.
  */
 
-// import grid base classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
-
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\controllers\grid\feature\OrderGridItemsFeature;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -204,7 +204,7 @@ class QueriesGridHandler extends GridHandler
             null,
             null,
             $cellProvider,
-            ['width' => 10, 'alignment' => COLUMN_ALIGNMENT_CENTER]
+            ['width' => 10, 'alignment' => GridColumn::COLUMN_ALIGNMENT_CENTER]
         ));
 
         $this->addColumn(
@@ -214,7 +214,7 @@ class QueriesGridHandler extends GridHandler
                 null,
                 'controllers/grid/common/cell/selectStatusCell.tpl',
                 $cellProvider,
-                ['width' => 10, 'alignment' => COLUMN_ALIGNMENT_CENTER]
+                ['width' => 10, 'alignment' => GridColumn::COLUMN_ALIGNMENT_CENTER]
             )
         );
 
@@ -244,7 +244,6 @@ class QueriesGridHandler extends GridHandler
     {
         $features = parent::initFeatures($request, $args);
         if ($this->getAccessHelper()->getCanOrder($this->getStageId())) {
-            import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
             $features[] = new OrderGridItemsFeature();
         }
         return $features;

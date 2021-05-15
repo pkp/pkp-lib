@@ -13,10 +13,10 @@ gridId: {$grid->getId()|json_encode},
 fetchRowUrl: {url|json_encode op='fetchRow' params=$gridRequestArgs escape=false},
 fetchOptionsUrl: {url|json_encode op='fetchOptions' params=$gridRequestArgs escape=false},
 availableOptions: {$availableOptions|json_encode},
-{if $grid->getSaveType() == $smarty.const.LISTBUILDER_SAVE_TYPE_INTERNAL}
+{if $grid->getSaveType() == \PKP\controllers\listbuilder\ListbuilderHandler::LISTBUILDER_SAVE_TYPE_INTERNAL}
 	saveUrl: {url|json_encode op='save' params=$gridRequestArgs escape=false},
 	saveFieldName: null,
-{else}{* LISTBUILDER_SAVE_TYPE_EXTERNAL *}
+{else}{* \PKP\controllers\listbuilder\ListbuilderHandler::LISTBUILDER_SAVE_TYPE_EXTERNAL *}
 	saveUrl: null,
 	saveFieldName: {$grid->getSaveFieldName()|json_encode},
 {/if}

@@ -13,7 +13,7 @@
  * @brief Plugin category grid row definition.
  */
 
-import('lib.pkp.classes.controllers.grid.GridCategoryRow');
+use PKP\controllers\grid\GridCategoryRow;
 
 class PluginCategoryGridRow extends GridCategoryRow
 {

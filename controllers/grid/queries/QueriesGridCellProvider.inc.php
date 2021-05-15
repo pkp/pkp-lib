@@ -13,8 +13,9 @@
  * @brief Base class for a cell provider that can retrieve labels for queries.
  */
 
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-
+use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\note\NoteDAO;
@@ -95,7 +96,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
     /**
      * @copydoc GridCellProvider::getCellActions()
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         $element = $row->getData();
         $router = $request->getRouter();

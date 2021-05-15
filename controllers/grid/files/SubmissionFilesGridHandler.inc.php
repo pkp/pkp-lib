@@ -13,16 +13,13 @@
  * @brief Handle submission file grid requests.
  */
 
-// Import UI base classes.
-import('lib.pkp.classes.controllers.grid.GridHandler');
-
 // Import submission files grid specific classes.
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridRow');
 import('lib.pkp.controllers.grid.files.FileNameGridColumn');
 import('lib.pkp.controllers.grid.files.FileDateGridColumn');
 
-// Import the class that defines file grids capabilities.
-import('lib.pkp.classes.controllers.grid.files.FilesGridCapabilities');
+use PKP\controllers\grid\files\FilesGridCapabilities;
+use PKP\controllers\grid\GridHandler;
 
 class SubmissionFilesGridHandler extends GridHandler
 {
@@ -161,7 +158,7 @@ class SubmissionFilesGridHandler extends GridHandler
             ];
             $files = $this->getFilesToDownload($request);
 
-            $this->addAction($capabilities->getDownloadAllAction($request, $files, $linkParams), GRID_ACTION_POSITION_BELOW);
+            $this->addAction($capabilities->getDownloadAllAction($request, $files, $linkParams), GridHandler::GRID_ACTION_POSITION_BELOW);
         }
 
         // The file name column is common to all file grid types.

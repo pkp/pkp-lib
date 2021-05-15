@@ -15,6 +15,7 @@
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 
 class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
@@ -30,7 +31,7 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
         parent::__construct(
             new QueryNoteFilesCategoryGridDataProvider(),
             $stageId,
-            FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
+            FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT
         );
 
         $this->addRoleAssignment(

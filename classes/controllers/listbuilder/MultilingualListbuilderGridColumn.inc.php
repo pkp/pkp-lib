@@ -13,8 +13,9 @@
  * @brief Represents a multilingual text column within a listbuilder.
  */
 
+namespace PKP\controllers\listbuilder;
 
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridColumn');
+use APP\i18n\AppLocale;
 
 class MultilingualListbuilderGridColumn extends ListbuilderGridColumn
 {
@@ -39,7 +40,7 @@ class MultilingualListbuilderGridColumn extends ListbuilderGridColumn
     ) {
 
         // Make sure this is a text input
-        assert($listbuilder->getSourceType() == LISTBUILDER_SOURCE_TYPE_TEXT);
+        assert($listbuilder->getSourceType() == ListbuilderHandler::LISTBUILDER_SOURCE_TYPE_TEXT);
 
         // Provide a default set of available locales if not specified
         if (!$availableLocales) {
@@ -52,4 +53,8 @@ class MultilingualListbuilderGridColumn extends ListbuilderGridColumn
 
         parent::__construct($listbuilder, $id, $title, $titleTranslated, $template, $cellProvider, $flags);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\listbuilder\MultilingualListbuilderGridColumn', '\MultilingualListbuilderGridColumn');
 }

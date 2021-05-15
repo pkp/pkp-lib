@@ -13,13 +13,13 @@
  * @brief Handle operations for category management operations.
  */
 
-// Import the base GridHandler.
-import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-
 // Import user group grid specific classes
 import('lib.pkp.controllers.grid.settings.category.CategoryGridCategoryRow');
 
+use PKP\controllers\grid\CategoryGridHandler;
+use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\feature\OrderCategoryGridItemsFeature;
+use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
@@ -128,10 +128,9 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');
         return array_merge(
             parent::initFeatures($request, $args),
-            [new OrderCategoryGridItemsFeature(ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, true, $this)]
+            [new OrderCategoryGridItemsFeature(OrderCategoryGridItemsFeature::ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, true, $this)]
         );
     }
 

@@ -14,7 +14,7 @@
  * the template variables from the category row instance.
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+namespace PKP\controllers\grid;
 
 class GridCategoryRowCellProvider extends GridCellProvider
 {
@@ -38,7 +38,7 @@ class GridCategoryRowCellProvider extends GridCellProvider
     /**
      * @copydoc GridCellProvider::getCellActions()
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_ROW_CLICK)
+    public function getCellActions($request, $row, $column, $position = GridRow::GRID_ACTION_POSITION_ROW_CLICK)
     {
         return $row->getActions($position);
     }
@@ -68,4 +68,8 @@ class GridCategoryRowCellProvider extends GridCellProvider
             return '';
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\GridCategoryRowCellProvider', '\GridCategoryRowCellProvider');
 }

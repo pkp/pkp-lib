@@ -16,13 +16,12 @@
 use APP\file\LibraryFileManager;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use APP\workflow\EditorDecisionActionsManager;
+
+use PKP\controllers\modals\editorDecision\form\EditorDecisionForm;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
-
-import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
 
 class EditorDecisionWithEmailForm extends EditorDecisionForm
 {

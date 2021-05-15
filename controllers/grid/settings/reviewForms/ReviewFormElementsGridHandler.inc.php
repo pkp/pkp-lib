@@ -13,11 +13,13 @@
  * @brief Handle review form element grid requests.
  */
 
-import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.settings.reviewForms.ReviewFormElementGridRow');
 import('lib.pkp.controllers.grid.settings.reviewForms.form.ReviewFormElementForm');
 
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\feature\OrderGridItemsFeature;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -136,7 +138,6 @@ class ReviewFormElementsGridHandler extends GridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
         return [new OrderGridItemsFeature()];
     }
 

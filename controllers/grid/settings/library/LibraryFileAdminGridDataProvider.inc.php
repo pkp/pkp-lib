@@ -13,9 +13,8 @@
  * @brief The data provider for the admin library files grid.
  */
 
+use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\security\authorization\ContextAccessPolicy;
-
-import('lib.pkp.classes.controllers.grid.CategoryGridDataProvider');
 
 class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider
 {

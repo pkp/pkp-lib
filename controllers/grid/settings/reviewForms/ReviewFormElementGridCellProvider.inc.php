@@ -11,7 +11,9 @@
  *
  * @brief Subclass for review form element column's cell provider
  */
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+
+use PKP\controllers\grid\GridCellProvider;
+use PKP\controllers\grid\GridColumn;
 
 class ReviewFormElementGridCellProvider extends GridCellProvider
 {

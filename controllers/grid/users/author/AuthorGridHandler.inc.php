@@ -13,12 +13,13 @@
  * @brief base PKP class to handle author grid requests.
  */
 
-// import grid base classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.users.author.PKPAuthorGridCellProvider');
 import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\feature\OrderGridItemsFeature;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -157,7 +158,7 @@ class AuthorGridHandler extends GridHandler
                 null,
                 null,
                 $cellProvider,
-                ['width' => 40, 'alignment' => COLUMN_ALIGNMENT_LEFT]
+                ['width' => 40, 'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT]
             )
         );
         $this->addColumn(
@@ -209,7 +210,6 @@ class AuthorGridHandler extends GridHandler
     {
         $features = parent::initFeatures($request, $args);
         if ($this->canAdminister($request->getUser())) {
-            import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
             $features[] = new OrderGridItemsFeature();
         }
         return $features;

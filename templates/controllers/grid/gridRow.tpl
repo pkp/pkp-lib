@@ -24,7 +24,7 @@
 		{assign var="row_class" value=$row_class|cat:' default_category_style'}
 	{/if}
 {/if}
-{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
+{if $row->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_DEFAULT)}
 	{assign var="row_class" value=$row_class|cat:' has_extras'}
 {/if}
 
@@ -48,7 +48,7 @@
 
 		<td{if $col_class} class="{$col_class}"{/if}>
 			{if $row->hasActions() && $column->hasFlag('firstColumn')}
-				{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
+				{if $row->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_DEFAULT)}
 					<a href="#" class="show_extras">
 						<span class="pkp_screen_reader">{translate key="grid.settings"}</span>
 					</a>
@@ -58,8 +58,8 @@
 					<span class="category_items_number">({$grid->getCategoryItemsCount($categoryRow->getData(), $request)})</span>
 				{/if}
 				<div class="row_actions">
-					{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
-						{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
+					{if $row->getActions(\PKP\controllers\grid\GridRow::GRID_ACTION_POSITION_ROW_LEFT)}
+						{foreach from=$row->getActions(\PKP\controllers\grid\GridRow::GRID_ACTION_POSITION_ROW_LEFT) item=action}
 							{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId|replace:" ":"_"}
 						{/foreach}
 					{/if}
@@ -73,11 +73,11 @@
 		</td>
 	{/foreach}
 </tr>
-{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
+{if $row->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_DEFAULT)}
 	<tr id="{$rowId|escape|replace:" ":"_"}-control-row" class="row_controls{if is_a($row, 'GridCategoryRow')} category_controls{/if}">
 		<td colspan="{$grid->getColumnsCount('indent')}">
-			{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
-				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
+			{if $row->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_DEFAULT)}
+				{foreach from=$row->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_DEFAULT) item=action}
 					{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId|replace:" ":"_"}
 				{/foreach}
 			{/if}

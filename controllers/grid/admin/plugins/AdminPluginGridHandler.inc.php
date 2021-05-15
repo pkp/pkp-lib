@@ -13,8 +13,7 @@
  * @brief Handle site level plugins grid requests.
  */
 
-import('lib.pkp.classes.controllers.grid.plugins.PluginGridHandler');
-
+use PKP\controllers\grid\plugins\PluginGridHandler;
 use PKP\security\authorization\PluginAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;

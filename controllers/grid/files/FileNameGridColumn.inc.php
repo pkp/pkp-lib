@@ -13,7 +13,9 @@
  * @brief Implements a file name column.
  */
 
-import('lib.pkp.classes.controllers.grid.GridColumn');
+use PKP\controllers\grid\ColumnBasedGridCellProvider;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 
 class FileNameGridColumn extends GridColumn
 {
@@ -40,7 +42,6 @@ class FileNameGridColumn extends GridColumn
         $this->_stageId = $stageId;
         $this->_removeHistoryTab = $removeHistoryTab;
 
-        import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
         $cellProvider = new ColumnBasedGridCellProvider();
 
         parent::__construct(
@@ -49,7 +50,7 @@ class FileNameGridColumn extends GridColumn
             null,
             null,
             $cellProvider,
-            ['width' => 70, 'alignment' => COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true]
+            ['width' => 70, 'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true]
         );
     }
 
@@ -79,7 +80,7 @@ class FileNameGridColumn extends GridColumn
     /**
      * @copydoc GridColumn::getCellActions()
      */
-    public function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         $cellActions = parent::getCellActions($request, $row, $position);
 

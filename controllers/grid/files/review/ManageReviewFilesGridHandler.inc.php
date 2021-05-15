@@ -15,6 +15,7 @@
 // import grid base classes
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
 use PKP\submission\SubmissionFile;
@@ -37,7 +38,7 @@ class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryG
         parent::__construct(
             new ReviewCategoryGridDataProvider($fileStage),
             null,
-            FILE_GRID_ADD | FILE_GRID_VIEW_NOTES
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_VIEW_NOTES
         );
 
         $this->addRoleAssignment(

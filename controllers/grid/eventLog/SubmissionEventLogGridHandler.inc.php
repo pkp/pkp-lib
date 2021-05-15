@@ -13,15 +13,13 @@
  * @brief Grid handler presenting the submission event log grid.
  */
 
-// import grid base classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
-
-
 // Other classes used by this grid
 import('lib.pkp.controllers.grid.eventLog.EventLogGridRow');
-import('lib.pkp.classes.controllers.grid.DateGridCellProvider');
 import('lib.pkp.controllers.grid.eventLog.EventLogGridCellProvider');
 
+use PKP\controllers\grid\DateGridCellProvider;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;

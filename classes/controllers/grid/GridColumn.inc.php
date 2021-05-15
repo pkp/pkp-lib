@@ -18,14 +18,14 @@
  * For general information on grids, see GridHandler.
  */
 
-define('COLUMN_ALIGNMENT_LEFT', 'left');
-define('COLUMN_ALIGNMENT_CENTER', 'center');
-define('COLUMN_ALIGNMENT_RIGHT', 'right');
-
-import('lib.pkp.classes.controllers.grid.GridBodyElement');
+namespace PKP\controllers\grid;
 
 class GridColumn extends GridBodyElement
 {
+    public const COLUMN_ALIGNMENT_LEFT = 'left';
+    public const COLUMN_ALIGNMENT_CENTER = 'center';
+    public const COLUMN_ALIGNMENT_RIGHT = 'right';
+
     /** @var string the column title i18n key */
     public $_title;
 
@@ -137,7 +137,6 @@ class GridColumn extends GridBodyElement
     {
         if (is_null(parent::getCellProvider())) {
             // provide a sensible default cell provider
-            import('lib.pkp.classes.controllers.grid.ArrayGridCellProvider');
             $cellProvider = new ArrayGridCellProvider();
             $this->setCellProvider($cellProvider);
         }
@@ -157,9 +156,20 @@ class GridColumn extends GridBodyElement
      *
      * @return array An array of LinkActions for the cell.
      */
-    public function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         // The default implementation returns an empty array
         return [];
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\GridColumn', '\GridColumn');
+    foreach ([
+        'COLUMN_ALIGNMENT_LEFT',
+        'COLUMN_ALIGNMENT_CENTER',
+        'COLUMN_ALIGNMENT_RIGHT',
+    ] as $constantName) {
+        define($constantName, constant('\GridColumn::' . $constantName));
     }
 }

@@ -21,13 +21,13 @@
  * For general information on grids, see GridHandler.
  */
 
-define('GRID_ACTION_POSITION_ROW_CLICK', 'row-click');
-define('GRID_ACTION_POSITION_ROW_LEFT', 'row-left');
-
-import('lib.pkp.classes.controllers.grid.GridBodyElement');
+namespace PKP\controllers\grid;
 
 class GridRow extends GridBodyElement
 {
+    public const GRID_ACTION_POSITION_ROW_CLICK = 'row-click';
+    public const GRID_ACTION_POSITION_ROW_LEFT = 'row-left';
+
     /** @var array */
     public $_requestArgs;
 
@@ -45,7 +45,7 @@ class GridRow extends GridBodyElement
      *  the position of the action in the row template,
      *  the second key represents the action id.
      */
-    public $_actions = [GRID_ACTION_POSITION_DEFAULT => []];
+    public $_actions = [GridHandler::GRID_ACTION_POSITION_DEFAULT => []];
 
     /** @var string the row template */
     public $_template;
@@ -169,7 +169,7 @@ class GridRow extends GridBodyElement
      *
      * @return array the LinkActions for the given position
      */
-    public function getActions($position = GRID_ACTION_POSITION_DEFAULT)
+    public function getActions($position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         if (!isset($this->_actions[$position])) {
             return [];
@@ -183,7 +183,7 @@ class GridRow extends GridBodyElement
      * @param $action mixed a single action
      * @param $position string the position of the action
      */
-    public function addAction($action, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function addAction($action, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         if (!isset($this->_actions[$position])) {
             $this->_actions[$position] = [];
@@ -230,5 +230,15 @@ class GridRow extends GridBodyElement
         }
         // Set the template.
         $this->setTemplate($template);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\GridRow', '\GridRow');
+    foreach ([
+        'GRID_ACTION_POSITION_ROW_CLICK',
+        'GRID_ACTION_POSITION_ROW_LEFT',
+    ] as $constantName) {
+        define($constantName, constant('\GridRow::' . $constantName));
     }
 }

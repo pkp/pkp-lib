@@ -17,6 +17,7 @@
  *  addition to the file name.
  */
 
+
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridHandler');
 
 class FileListGridHandler extends SubmissionFilesGridHandler

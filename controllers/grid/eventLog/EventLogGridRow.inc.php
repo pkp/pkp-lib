@@ -13,11 +13,9 @@
  * @brief EventLog grid row definition
  */
 
+use PKP\controllers\grid\GridRow;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\submission\SubmissionFile;
-
-// Parent class
-import('lib.pkp.classes.controllers.grid.GridRow');
 
 // Other classes used
 import('lib.pkp.classes.log.SubmissionFileEventLogEntry');

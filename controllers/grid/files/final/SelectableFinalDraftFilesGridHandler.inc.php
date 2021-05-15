@@ -15,6 +15,8 @@
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
+
 class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler
 {
     /**
@@ -26,7 +28,7 @@ class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler
         parent::__construct(
             new FinalDraftFilesGridDataProvider(),
             WORKFLOW_STAGE_ID_EDITING,
-            FILE_GRID_VIEW_NOTES
+            FilesGridCapabilities::FILE_GRID_VIEW_NOTES
         );
 
         $this->addRoleAssignment(

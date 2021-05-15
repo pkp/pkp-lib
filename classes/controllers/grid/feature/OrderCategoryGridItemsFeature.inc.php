@@ -14,14 +14,14 @@
  *
  */
 
-import('lib.pkp.classes.controllers.grid.feature.OrderItemsFeature');
-
-define('ORDER_CATEGORY_GRID_CATEGORIES_ONLY', 0x01);
-define('ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY', 0x02);
-define('ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS', 0x03);
+namespace PKP\controllers\grid\feature;
 
 class OrderCategoryGridItemsFeature extends OrderItemsFeature
 {
+    public const ORDER_CATEGORY_GRID_CATEGORIES_ONLY = 1;
+    public const ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY = 2;
+    public const ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS = 3;
+
     /**
      * Constructor.
      *
@@ -33,14 +33,14 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
      * false and make sure to use a template file that adds row actions.
      * @param $grid GridHandler The grid this feature is to be part of
      */
-    public function __construct($typeOption = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true, $grid = null)
+    public function __construct($typeOption = self::ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true, $grid = null)
     {
         parent::__construct($overrideRowTemplate);
 
         if ($grid) {
-            $grid->_constants['ORDER_CATEGORY_GRID_CATEGORIES_ONLY'] = ORDER_CATEGORY_GRID_CATEGORIES_ONLY;
-            $grid->_constants['ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY'] = ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY;
-            $grid->_constants['ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS'] = ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS;
+            $grid->_constants['ORDER_CATEGORY_GRID_CATEGORIES_ONLY'] = self::ORDER_CATEGORY_GRID_CATEGORIES_ONLY;
+            $grid->_constants['ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY'] = self::ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY;
+            $grid->_constants['ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS'] = self::ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS;
         }
 
         $this->addOptions(['type' => $typeOption]);
@@ -82,7 +82,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
      */
     public function getInitializedRowInstance($args)
     {
-        if ($this->getType() != ORDER_CATEGORY_GRID_CATEGORIES_ONLY) {
+        if ($this->getType() != self::ORDER_CATEGORY_GRID_CATEGORIES_ONLY) {
             parent::getInitializedRowInstance($args);
         }
     }
@@ -92,7 +92,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
      */
     public function getInitializedCategoryRowInstance($args)
     {
-        if ($this->getType() != ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY) {
+        if ($this->getType() != self::ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY) {
             $row = & $args['row'];
             $this->addRowOrderAction($row);
         }
@@ -109,7 +109,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
         $data = json_decode($request->getUserVar('data'));
         $gridCategoryElements = $grid->getGridDataElements($request);
 
-        if ($this->getType() != ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY) {
+        if ($this->getType() != self::ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY) {
             $categoriesData = [];
             foreach ($data as $categoryData) {
                 $categoriesData[] = $categoryData->categoryId;
@@ -145,7 +145,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
      */
     public function _saveRowsInCategoriesSequence($request, &$grid, $gridCategoryElements, $data)
     {
-        if ($this->getType() != ORDER_CATEGORY_GRID_CATEGORIES_ONLY) {
+        if ($this->getType() != self::ORDER_CATEGORY_GRID_CATEGORIES_ONLY) {
             foreach ($gridCategoryElements as $categoryId => $element) {
                 $gridRowElements = $grid->getGridCategoryDataElements($request, $element);
                 if (!$gridRowElements) {
@@ -173,5 +173,16 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
                 }
             }
         }
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\feature\OrderCategoryGridItemsFeature', '\OrderCategoryGridItemsFeature');
+    foreach ([
+        'ORDER_CATEGORY_GRID_CATEGORIES_ONLY',
+        'ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY',
+        'ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS',
+    ] as $constantName) {
+        define($constantName, constant('\OrderCategoryGridItemsFeature::' . $constantName));
     }
 }

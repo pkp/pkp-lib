@@ -15,7 +15,7 @@
 <tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow">
 	{capture assign="listbuilderRowActions"}
 		<div class="row_actions">
-			{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
+			{foreach from=$row->getActions(\PKP\controllers\grid\GridRow::GRID_ACTION_POSITION_ROW_LEFT) item=action}
 				{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
 			{/foreach}
 		</div>
@@ -42,11 +42,11 @@
 			{if $column->hasFlag('alignment')}
 				{assign var=alignment value=$column->getFlag('alignment')}
 			{else}
-				{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
+				{assign var=alignment value=\PKP\controllers\grid\GridColumn::COLUMN_ALIGNMENT_CENTER}
 			{/if}
 			<td style="text-align: {$alignment}" class="gridCell">
 				{$cell}
-				{if $smarty.foreach.listbuilderCells.last && $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
+				{if $smarty.foreach.listbuilderCells.last && $row->getActions(\PKP\controllers\grid\GridRow::GRID_ACTION_POSITION_ROW_LEFT)}
 					{$listbuilderRowActions}
 				{/if}
 			</td>

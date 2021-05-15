@@ -17,7 +17,9 @@
  * @see ColumnBasedGridCellProvider
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+namespace PKP\controllers\grid;
+
+use APP\i18n\AppLocale;
 
 class DataObjectGridCellProvider extends GridCellProvider
 {
@@ -83,4 +85,8 @@ class DataObjectGridCellProvider extends GridCellProvider
 
         return ['label' => $data];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\DataObjectGridCellProvider', '\DataObjectGridCellProvider');
 }

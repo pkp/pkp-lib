@@ -13,10 +13,8 @@
  * @brief base PKP class to handle query grid requests.
  */
 
-// import grid base classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\note\NoteDAO;
 use PKP\security\authorization\QueryAccessPolicy;

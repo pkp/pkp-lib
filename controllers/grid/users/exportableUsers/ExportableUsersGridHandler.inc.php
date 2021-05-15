@@ -13,14 +13,16 @@
  * @brief Handle exportable user grid requests.
  */
 
+use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\feature\PagingFeature;
+use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\user\UserDAO;
-
-import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class ExportableUsersGridHandler extends GridHandler
 {
@@ -155,8 +157,6 @@ class ExportableUsersGridHandler extends GridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
-        import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
         return [new SelectableItemsFeature(), new PagingFeature()];
     }
 

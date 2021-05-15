@@ -13,7 +13,7 @@
  * @brief Reviewer grid row definition
  */
 
-import('lib.pkp.classes.controllers.grid.GridRow');
+use PKP\controllers\grid\GridRow;
 
 class AuthorReviewerGridRow extends GridRow
 {

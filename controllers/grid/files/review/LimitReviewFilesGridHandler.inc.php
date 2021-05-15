@@ -14,6 +14,7 @@
  *   to a particular reviewer.
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\ReviewStageAccessPolicy;
 use PKP\submission\SubmissionFile;
@@ -34,7 +35,7 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler
         parent::__construct(
             new ReviewGridDataProvider($fileStage),
             null,
-            FILE_GRID_VIEW_NOTES
+            FilesGridCapabilities::FILE_GRID_VIEW_NOTES
         );
 
         $this->addRoleAssignment(

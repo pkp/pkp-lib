@@ -15,11 +15,11 @@
 
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
-
-import('lib.pkp.classes.controllers.grid.GridHandler');
 
 /**
  * Global value for 'all' category string value
@@ -94,7 +94,7 @@ class PluginGalleryGridHandler extends GridHandler
                 null,
                 null,
                 $pluginGalleryGridCellProvider,
-                ['width' => 50, 'alignment' => COLUMN_ALIGNMENT_LEFT]
+                ['width' => 50, 'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT]
             )
         );
 

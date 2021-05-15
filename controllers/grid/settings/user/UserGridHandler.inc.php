@@ -13,14 +13,15 @@
  * @brief Handle user grid requests.
  */
 
-import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-
 import('lib.pkp.controllers.grid.settings.user.UserGridRow');
 import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 
 use APP\notification\NotificationManager;
 use APP\user\UserAction;
+use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\feature\PagingFeature;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
@@ -169,7 +170,6 @@ class UserGridHandler extends GridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
         return [new PagingFeature()];
     }
 

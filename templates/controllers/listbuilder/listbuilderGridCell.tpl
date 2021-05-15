@@ -14,7 +14,7 @@
 {/if}
 <span {if $cellId}id="{$cellId|escape}" {/if}class="pkp_linkActions gridCellContainer">
 	<div class="gridCellDisplay">
-		{if $column->getFlag('sourceType') === $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
+		{if $column->getFlag('sourceType') === \PKP\controllers\listbuilder\ListbuilderHandler::LISTBUILDER_SOURCE_TYPE_SELECT}
 			{**
 			 * Include a hidden element containing the current key.
 		 	 * Used e.g. to match the currently selected value.
@@ -27,7 +27,7 @@
 	</div>
 
 	<div class="gridCellEdit">
-		{if $column->getFlag('sourceType') === $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
+		{if $column->getFlag('sourceType') === \PKP\controllers\listbuilder\ListbuilderHandler::LISTBUILDER_SOURCE_TYPE_TEXT}
 			{if $column->hasFlag('multilingual')}{* Multilingual *}
 
 				{assign var="FBV_id" value="newRowId"}
@@ -38,7 +38,7 @@
 			{else}{* Not multilingual *}
 				<input type="text" name="newRowId[{$column->getId()|escape}]" class="textField" {if $column->getFlag('tabIndex')}tabindex="{$column->getFlag('tabIndex')}"{/if} value="{$label|escape}" />
 			{/if}
-		{elseif $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
+		{elseif $column->getFlag('sourceType') == \PKP\controllers\listbuilder\ListbuilderHandler::LISTBUILDER_SOURCE_TYPE_SELECT}
 			<select name="newRowId[{$column->getId()|escape}]" class="selectMenu">
 				{* Populated by JavaScript in ListbuilderHandler.js *}
 				<option value="{$labelKey|escape}">{translate key="common.loading"}</option>

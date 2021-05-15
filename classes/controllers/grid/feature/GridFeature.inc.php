@@ -17,6 +17,8 @@
  *
  */
 
+namespace PKP\controllers\grid\feature;
+
 class GridFeature
 {
     /** @var string */
@@ -289,4 +291,8 @@ class GridFeature
     {
         return null;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\feature\GridFeature', '\GridFeature');
 }

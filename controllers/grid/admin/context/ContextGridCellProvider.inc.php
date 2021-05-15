@@ -13,7 +13,8 @@
  * @brief Subclass for a context grid column's cell provider
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+use PKP\controllers\grid\GridCellProvider;
+use PKP\controllers\grid\GridColumn;
 
 class ContextGridCellProvider extends GridCellProvider
 {

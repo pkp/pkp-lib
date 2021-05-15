@@ -13,6 +13,7 @@
  * @brief Handle submission file grid requests in the editor's 'promote submission' modal.
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
@@ -29,7 +30,7 @@ class SelectableSubmissionDetailsFilesGridHandler extends SelectableFileListGrid
         parent::__construct(
             new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_SUBMISSION),
             null,
-            FILE_GRID_ADD | FILE_GRID_VIEW_NOTES
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_VIEW_NOTES
         );
 
         $this->addRoleAssignment(

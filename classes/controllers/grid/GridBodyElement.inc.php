@@ -13,6 +13,8 @@
  * @brief Base class for grid body elements.
  */
 
+namespace PKP\controllers\grid;
+
 class GridBodyElement
 {
     /**
@@ -131,4 +133,8 @@ class GridBodyElement
     {
         $this->_cellProvider = $cellProvider;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\GridBodyElement', '\GridBodyElement');
 }

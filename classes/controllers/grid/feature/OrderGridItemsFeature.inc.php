@@ -14,7 +14,7 @@
  *
  */
 
-import('lib.pkp.classes.controllers.grid.feature.OrderItemsFeature');
+namespace PKP\controllers\grid\feature;
 
 class OrderGridItemsFeature extends OrderItemsFeature
 {
@@ -72,4 +72,8 @@ class OrderGridItemsFeature extends OrderItemsFeature
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\feature\OrderGridItemsFeature', '\OrderGridItemsFeature');
 }

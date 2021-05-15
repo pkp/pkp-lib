@@ -15,7 +15,6 @@
 
 use PKP\submission\SubmissionFile;
 
-import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
 class AuthorOpenReviewAttachmentsGridHandler extends FileListGridHandler

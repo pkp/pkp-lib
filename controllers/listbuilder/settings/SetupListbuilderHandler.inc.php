@@ -13,8 +13,7 @@
  * @brief Base class for setup listbuilders
  */
 
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-
+use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 
 class SetupListbuilderHandler extends ListbuilderHandler

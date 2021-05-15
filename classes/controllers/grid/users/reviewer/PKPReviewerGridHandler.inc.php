@@ -13,23 +13,25 @@
  * @brief Handle reviewer grid requests.
  */
 
-// import grid base classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
+namespace PKP\controllers\grid\users\reviewer;
 
-// import reviewer grid specific classes
+// FIXME: Add namespacing
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
+use APP\core\Application;
+
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
-
-// Reviewer selection types
-define('REVIEWER_SELECT_ADVANCED_SEARCH', 0x00000001);
-define('REVIEWER_SELECT_CREATE', 0x00000002);
-define('REVIEWER_SELECT_ENROLL_EXISTING', 0x00000003);
-
 use APP\core\Services;
+
+use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
+use PKP\core\Core;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
@@ -39,9 +41,16 @@ use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
+use ReviewerGridCellProvider;
+use ReviewerGridRow;
 
 class PKPReviewerGridHandler extends GridHandler
 {
+    // Reviewer selection types
+    public const REVIEWER_SELECT_ADVANCED_SEARCH = 1;
+    public const REVIEWER_SELECT_CREATE = 2;
+    public const REVIEWER_SELECT_ENROLL_EXISTING = 3;
+
     /** @var Submission */
     public $_submission;
 
@@ -207,7 +216,7 @@ class PKPReviewerGridHandler extends GridHandler
         // Grid actions
         if (!$this->_isCurrentUserAssignedAuthor) {
             $router = $request->getRouter();
-            $actionArgs = array_merge($this->getRequestArgs(), ['selectionType' => REVIEWER_SELECT_ADVANCED_SEARCH]);
+            $actionArgs = array_merge($this->getRequestArgs(), ['selectionType' => self::REVIEWER_SELECT_ADVANCED_SEARCH]);
             $this->addAction(
                 new LinkAction(
                     'addReviewer',
@@ -1001,11 +1010,11 @@ class PKPReviewerGridHandler extends GridHandler
     public function _getReviewerFormClassName($selectionType)
     {
         switch ($selectionType) {
-            case REVIEWER_SELECT_ADVANCED_SEARCH:
+            case self::REVIEWER_SELECT_ADVANCED_SEARCH:
                 return 'AdvancedSearchReviewerForm';
-            case REVIEWER_SELECT_CREATE:
+            case self::REVIEWER_SELECT_CREATE:
                 return 'CreateReviewerForm';
-            case REVIEWER_SELECT_ENROLL_EXISTING:
+            case self::REVIEWER_SELECT_ENROLL_EXISTING:
                 return 'EnrollExistingReviewerForm';
         }
         assert(false);
@@ -1080,5 +1089,16 @@ class PKPReviewerGridHandler extends GridHandler
             'sendEmail',
             'gossip',
         ];
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler', '\PKPReviewerGridHandler');
+    foreach ([
+        'REVIEWER_SELECT_ADVANCED_SEARCH',
+        'REVIEWER_SELECT_CREATE',
+        'REVIEWER_SELECT_ENROLL_EXISTING',
+    ] as $constantName) {
+        define($constantName, constant('\PKPReviewerGridHandler::' . $constantName));
     }
 }

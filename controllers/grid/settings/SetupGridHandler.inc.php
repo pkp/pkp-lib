@@ -13,8 +13,7 @@
  * @brief Base class for setup grid handlers
  */
 
-import('lib.pkp.classes.controllers.grid.GridHandler');
-
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
 use PKP\security\authorization\ContextAccessPolicy;

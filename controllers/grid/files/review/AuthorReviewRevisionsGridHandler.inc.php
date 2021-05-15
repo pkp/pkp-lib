@@ -13,6 +13,7 @@
  * @brief Display to authors the file revisions that they have uploaded.
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
@@ -30,7 +31,7 @@ class AuthorReviewRevisionsGridHandler extends FileListGridHandler
         parent::__construct(
             new ReviewGridDataProvider($fileStage),
             null,
-            FILE_GRID_ADD | FILE_GRID_EDIT | FILE_GRID_DELETE
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_EDIT | FilesGridCapabilities::FILE_GRID_DELETE
         );
 
         $this->addRoleAssignment(

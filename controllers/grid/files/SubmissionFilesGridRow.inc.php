@@ -13,8 +13,7 @@
  * @brief Handle submission file grid row requests.
  */
 
-// Import grid base classes.
-import('lib.pkp.classes.controllers.grid.GridRow');
+use PKP\controllers\grid\GridRow;
 
 class SubmissionFilesGridRow extends GridRow
 {

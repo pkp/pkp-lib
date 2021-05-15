@@ -13,8 +13,10 @@
  * @brief Handle list builder row requests.
  */
 
-import('lib.pkp.classes.controllers.grid.GridRow');
+namespace PKP\controllers\listbuilder;
 
+use PKP\controllers\grid\GridRow;
+use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
 
@@ -75,8 +77,12 @@ class ListbuilderGridRow extends GridRow
     /**
      * @see GridRow::addAction()
      */
-    public function addAction($action, $position = GRID_ACTION_POSITION_ROW_LEFT)
+    public function addAction($action, $position = GridRow::GRID_ACTION_POSITION_ROW_LEFT)
     {
         return parent::addAction($action, $position);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\listbuilder\ListbuilderGridRow', '\ListbuilderGridRow');
 }

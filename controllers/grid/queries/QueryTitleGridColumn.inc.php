@@ -13,8 +13,9 @@
  * @brief Implements a query tile column.
  */
 
-import('lib.pkp.classes.controllers.grid.GridColumn');
-
+use PKP\controllers\grid\ColumnBasedGridCellProvider;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 
@@ -32,7 +33,6 @@ class QueryTitleGridColumn extends GridColumn
     {
         $this->_actionArgs = $actionArgs;
 
-        import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
         $cellProvider = new ColumnBasedGridCellProvider();
 
         parent::__construct(
@@ -41,7 +41,7 @@ class QueryTitleGridColumn extends GridColumn
             null,
             null,
             $cellProvider,
-            ['width' => 60, 'alignment' => COLUMN_ALIGNMENT_LEFT]
+            ['width' => 60, 'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT]
         );
     }
 
@@ -70,7 +70,7 @@ class QueryTitleGridColumn extends GridColumn
     /**
      * @copydoc GridColumn::getCellActions()
      */
-    public function getCellActions($request, $row, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         // Retrieve the submission file.
         $query = $row->getData();

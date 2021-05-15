@@ -14,6 +14,8 @@
  * among grid entries.
  */
 
+use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
+
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
 class SelectableFileListGridHandler extends FileListGridHandler
@@ -40,7 +42,6 @@ class SelectableFileListGridHandler extends FileListGridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
         return [new SelectableItemsFeature()];
     }
 

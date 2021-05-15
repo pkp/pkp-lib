@@ -13,6 +13,7 @@
  * @brief Handle the fair copy files grid (displays copyedited files ready to move to proofreading)
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
@@ -28,7 +29,7 @@ class ProductionReadyFilesGridHandler extends FileListGridHandler
         parent::__construct(
             new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY),
             WORKFLOW_STAGE_ID_PRODUCTION,
-            FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT | FILE_GRID_DOWNLOAD_ALL
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT | FilesGridCapabilities::FILE_GRID_DOWNLOAD_ALL
         );
 
         $this->addRoleAssignment(

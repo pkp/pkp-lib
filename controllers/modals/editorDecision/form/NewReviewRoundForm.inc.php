@@ -13,9 +13,8 @@
  * @brief Form for creating a new review round (after the first)
  */
 
-import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
-
 use APP\workflow\EditorDecisionActionsManager;
+use PKP\controllers\modals\editorDecision\form\EditorDecisionForm;
 use PKP\submission\action\EditorAction;
 
 use PKP\submission\reviewRound\ReviewRound;

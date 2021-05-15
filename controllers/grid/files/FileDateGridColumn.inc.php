@@ -14,7 +14,8 @@
  * @brief Implements a file name column.
  */
 
-import('lib.pkp.classes.controllers.grid.GridColumn');
+use PKP\controllers\grid\ColumnBasedGridCellProvider;
+use PKP\controllers\grid\GridColumn;
 
 class FileDateGridColumn extends GridColumn
 {
@@ -31,7 +32,6 @@ class FileDateGridColumn extends GridColumn
     {
         $this->_includeNotes = $includeNotes;
 
-        import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
         $cellProvider = new ColumnBasedGridCellProvider();
 
         parent::__construct(
@@ -40,7 +40,7 @@ class FileDateGridColumn extends GridColumn
             null,
             null,
             $cellProvider,
-            ['width' => 10, 'alignment' => COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true]
+            ['width' => 10, 'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'anyhtml' => true]
         );
     }
 

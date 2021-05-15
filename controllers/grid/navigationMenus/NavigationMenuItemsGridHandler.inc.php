@@ -13,11 +13,9 @@
  * @brief Handle NavigationMenuItems grid requests.
  */
 
-import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
-
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -25,6 +23,8 @@ use PKP\notification\PKPNotification;
 use PKP\security\authorization\PolicySet;
 
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+
+import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
 class NavigationMenuItemsGridHandler extends GridHandler
 {

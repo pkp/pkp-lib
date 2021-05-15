@@ -13,8 +13,7 @@
  * @brief Basic files grid data provider.
  */
 
-
-import('lib.pkp.classes.controllers.grid.GridDataProvider');
+use PKP\controllers\grid\GridDataProvider;
 
 class FilesGridDataProvider extends GridDataProvider
 {

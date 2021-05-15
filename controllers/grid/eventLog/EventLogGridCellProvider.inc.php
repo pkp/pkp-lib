@@ -13,10 +13,10 @@
  * @brief Cell provider for event log entries.
  */
 
+use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\GridColumn;
 use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\submission\SubmissionFile;
-
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class EventLogGridCellProvider extends DataObjectGridCellProvider
 {

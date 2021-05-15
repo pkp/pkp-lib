@@ -13,11 +13,12 @@
  * @brief Base class for handling library file grid requests.
  */
 
-import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
 import('lib.pkp.controllers.grid.files.LibraryFileGridRow');
 import('lib.pkp.controllers.grid.files.LibraryFileGridCategoryRow');
 
 use APP\file\LibraryFileManager;
+use PKP\controllers\grid\CategoryGridHandler;
+use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;

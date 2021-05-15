@@ -34,6 +34,7 @@ use Exception;
 use Less_Parser;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
+use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -341,11 +342,10 @@ class PKPTemplateManager extends Smarty
         // but these are the only constants from a controller that are
         // required on the frontend. We can remove them once the
         // ListBuilderHandler is no longer needed.
-        import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
         $this->setConstants([
-            'LISTBUILDER_SOURCE_TYPE_TEXT' => LISTBUILDER_SOURCE_TYPE_TEXT,
-            'LISTBUILDER_SOURCE_TYPE_SELECT' => LISTBUILDER_SOURCE_TYPE_SELECT,
-            'LISTBUILDER_OPTGROUP_LABEL' => LISTBUILDER_OPTGROUP_LABEL,
+            'LISTBUILDER_SOURCE_TYPE_TEXT' => ListbuilderHandler::LISTBUILDER_SOURCE_TYPE_TEXT,
+            'LISTBUILDER_SOURCE_TYPE_SELECT' => ListbuilderHandler::LISTBUILDER_SOURCE_TYPE_SELECT,
+            'LISTBUILDER_OPTGROUP_LABEL' => ListbuilderHandler::LISTBUILDER_OPTGROUP_LABEL,
         ]);
 
         /**

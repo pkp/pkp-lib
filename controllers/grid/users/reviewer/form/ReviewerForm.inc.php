@@ -16,6 +16,7 @@
 
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\mail\SubmissionMailTemplate;
@@ -485,7 +486,7 @@ class ReviewerForm extends Form
                 'submissionId' => $this->getSubmissionId(),
                 'stageId' => $reviewRound->getStageId(),
                 'reviewRoundId' => $reviewRound->getId(),
-                'selectionType' => REVIEWER_SELECT_ADVANCED_SEARCH,
+                'selectionType' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
             ])),
             __('editor.submission.backToSearch'),
             'return'

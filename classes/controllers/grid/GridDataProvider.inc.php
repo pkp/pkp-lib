@@ -16,6 +16,8 @@
  * For general information about grids, see GridHandler.
  */
 
+namespace PKP\controllers\grid;
+
 class GridDataProvider
 {
     /** @var array */
@@ -118,4 +120,8 @@ class GridDataProvider
     {
         throw new Exception('getRequestArgs called but not implemented!');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\GridDataProvider', '\GridDataProvider');
 }

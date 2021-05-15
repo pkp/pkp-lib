@@ -13,9 +13,9 @@
  * @brief Library file grid category row definition
  */
 
-import('lib.pkp.classes.controllers.grid.GridCategoryRow');
-
 use APP\file\LibraryFileManager;
+
+use PKP\controllers\grid\GridCategoryRow;
 
 class LibraryFileGridCategoryRow extends GridCategoryRow
 {

@@ -13,8 +13,8 @@
  * @brief Subclass for a language grid column's cell provider
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
-
+use PKP\controllers\grid\GridCellProvider;
+use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
@@ -64,7 +64,7 @@ class LanguageGridCellProvider extends GridCellProvider
     /**
      * @copydoc GridCellProvider::getCellActions()
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         $element = $row->getData();
         $router = $request->getRouter();

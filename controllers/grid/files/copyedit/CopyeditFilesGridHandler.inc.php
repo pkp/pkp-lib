@@ -15,6 +15,7 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 
 class CopyeditFilesGridHandler extends FileListGridHandler
@@ -71,7 +72,7 @@ class CopyeditFilesGridHandler extends FileListGridHandler
             [ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR]
             // Authors may also view this grid, and shouldn't be able to do anything (just view).
         ))) {
-            $this->setCapabilities(new FilesGridCapabilities(FILE_GRID_EDIT | FILE_GRID_MANAGE | FILE_GRID_VIEW_NOTES | FILE_GRID_DELETE));
+            $this->setCapabilities(new FilesGridCapabilities(FilesGridCapabilities::FILE_GRID_EDIT | FilesGridCapabilities::FILE_GRID_MANAGE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_DELETE));
         }
         parent::initialize($request, $args);
     }

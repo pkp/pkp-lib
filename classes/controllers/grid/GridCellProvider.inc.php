@@ -16,6 +16,9 @@
  * For general information about grids, see GridHandler.
  */
 
+namespace PKP\controllers\grid;
+
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 
 class GridCellProvider
@@ -101,8 +104,12 @@ class GridCellProvider
      *
      * @return array an array of LinkAction instances
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         return $column->getCellActions($request, $row, $position);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\GridCellProvider', '\GridCellProvider');
 }

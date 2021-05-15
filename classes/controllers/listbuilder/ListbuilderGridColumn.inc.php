@@ -13,8 +13,9 @@
  * @brief Represents a column within a listbuilder.
  */
 
+namespace PKP\controllers\listbuilder;
 
-import('lib.pkp.classes.controllers.grid.GridColumn');
+use PKP\controllers\grid\GridColumn;
 
 class ListbuilderGridColumn extends GridColumn
 {
@@ -49,4 +50,8 @@ class ListbuilderGridColumn extends GridColumn
         $flags['sourceType'] = $listbuilder->getSourceType();
         parent::__construct($id, $title, $titleTranslated, $template, $cellProvider, $flags);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\listbuilder\ListbuilderGridColumn', '\ListbuilderGridColumn');
 }

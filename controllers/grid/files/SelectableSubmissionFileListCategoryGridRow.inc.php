@@ -12,7 +12,8 @@
  * @brief Selectable submission file list category grid row definition.
  */
 
-import('lib.pkp.classes.controllers.grid.GridCategoryRow');
+use PKP\controllers\grid\GridCategoryRow;
+use PKP\workflow\WorkflowStageDAO;
 
 class SelectableSubmissionFileListCategoryGridRow extends GridCategoryRow
 {
@@ -25,7 +26,6 @@ class SelectableSubmissionFileListCategoryGridRow extends GridCategoryRow
     public function getCategoryLabel()
     {
         $stageId = $this->getData();
-        import('lib.pkp.classes.workflow.WorkflowStageDAO');
         $stageTranslationKey = WorkflowStageDAO::getTranslationKeyFromId($stageId);
 
         return __($stageTranslationKey);

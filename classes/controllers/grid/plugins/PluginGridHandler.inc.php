@@ -13,17 +13,34 @@
  * @brief Handle plugins grid requests.
  */
 
-import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
-import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
-import('lib.pkp.controllers.grid.plugins.PluginGalleryGridHandler');
+namespace PKP\controllers\grid\plugins;
 
+use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\CategoryGridHandler;
+use PKP\controllers\grid\GridColumn;
+use PKP\core\Core;
 use PKP\core\JSONMessage;
+use PKP\db\DAORegistry;
+use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-
 use PKP\notification\PKPNotification;
+
+use PKP\plugins\PluginRegistry;
+use PKP\site\VersionCheck;
+
+// FIXME: Add namespacing
+import('lib.pkp.controllers.grid.plugins.PluginGridCellProvider');
+use PluginCategoryGridRow;
+
+import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
+use PluginGridCellProvider;
+
+import('lib.pkp.controllers.grid.plugins.PluginGalleryGridHandler');
+import('lib.pkp.controllers.grid.plugins.PluginCategoryGridRow');
+use UploadPluginForm;
 
 abstract class PluginGridHandler extends CategoryGridHandler
 {
@@ -70,7 +87,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
         $this->setEmptyRowText('grid.noItems');
 
         // Columns
-        import('lib.pkp.controllers.grid.plugins.PluginGridCellProvider');
         $pluginCellProvider = new PluginGridCellProvider();
         $this->addColumn(
             new GridColumn(
@@ -171,7 +187,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
      */
     protected function getCategoryRowInstance()
     {
-        import('lib.pkp.controllers.grid.plugins.PluginCategoryGridRow');
         return new PluginCategoryGridRow();
     }
 
@@ -185,7 +200,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
         $plugins = PluginRegistry::loadCategory($categoryDataElement);
 
         $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-        import('lib.pkp.classes.site.VersionCheck');
         $fileManager = new FileManager();
 
         $notHiddenPlugins = [];
@@ -454,10 +468,13 @@ abstract class PluginGridHandler extends CategoryGridHandler
      */
     public function _showUploadPluginForm($function, $request)
     {
-        import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
         $uploadPluginForm = new UploadPluginForm($function);
         $uploadPluginForm->initData();
 
         return new JSONMessage(true, $uploadPluginForm->fetch($request));
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\plugins\PluginGridHandler', '\PluginGridHandler');
 }

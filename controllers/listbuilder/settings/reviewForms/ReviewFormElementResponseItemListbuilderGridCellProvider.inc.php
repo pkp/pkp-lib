@@ -12,7 +12,7 @@
  * @brief Review form element response item listbuilder grid handler.
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+use PKP\controllers\grid\GridCellProvider;
 
 class ReviewFormElementResponseItemListbuilderGridCellProvider extends GridCellProvider
 {

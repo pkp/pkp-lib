@@ -12,8 +12,9 @@
  * @brief Provide information about plugins to the plugin gallery grid handler
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
-
+use PKP\controllers\grid\GridCellProvider;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\plugins\GalleryPlugin;
@@ -76,7 +77,7 @@ class PluginGalleryGridCellProvider extends GridCellProvider
      *
      * @return array an array of LinkAction instances
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         $element = $row->getData();
         switch ($column->getId()) {

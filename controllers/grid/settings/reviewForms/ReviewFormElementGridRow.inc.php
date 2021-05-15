@@ -12,8 +12,8 @@
  *
  * @brief ReviewFormElements grid row definition
  */
-import('lib.pkp.classes.controllers.grid.GridRow');
 
+use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 

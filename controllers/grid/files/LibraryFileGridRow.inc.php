@@ -13,9 +13,7 @@
  * @brief Handle library file grid row requests.
  */
 
-import('lib.pkp.classes.controllers.grid.GridRow');
-
-// Link action & modal classes
+use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;

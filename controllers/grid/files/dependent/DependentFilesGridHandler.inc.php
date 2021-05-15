@@ -15,6 +15,7 @@
  * The submission author and all context/editor roles have access to this grid.
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
@@ -33,7 +34,7 @@ class DependentFilesGridHandler extends FileListGridHandler
         parent::__construct(
             new DependentFilesGridDataProvider($submissionFileId),
             $request->getUserVar('stageId'),
-            FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT
         );
 
         $this->addRoleAssignment(

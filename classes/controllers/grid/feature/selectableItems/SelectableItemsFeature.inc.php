@@ -14,7 +14,9 @@
  *
  */
 
-import('lib.pkp.classes.controllers.grid.feature.GridFeature');
+namespace PKP\controllers\grid\feature\selectableItems;
+
+use PKP\controllers\grid\feature\GridFeature;
 
 class SelectableItemsFeature extends GridFeature
 {
@@ -38,7 +40,6 @@ class SelectableItemsFeature extends GridFeature
         $grid = $args['grid'];
 
         // Add checkbox column to the grid.
-        import('lib.pkp.classes.controllers.grid.feature.selectableItems.ItemSelectionGridColumn');
         $grid->addColumn(new ItemSelectionGridColumn($grid->getSelectName()));
     }
 
@@ -57,4 +58,8 @@ class SelectableItemsFeature extends GridFeature
             $row->addFlag('selected', (bool) $grid->isDataElementSelected($row->getData()));
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature', '\SelectableItemsFeature');
 }

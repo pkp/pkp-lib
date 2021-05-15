@@ -13,14 +13,24 @@
  * @brief Handle requests for editors to make a decision
  */
 
+namespace PKP\controllers\modals\editorDecision;
+
 use APP\handler\Handler;
+use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
+use PKP\core\PKPString;
 
+use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\submission\SubmissionComment;
+
+// FIXME: Add namespacing
+import('lib.pkp.controllers.modals.editorDecision.form.RecommendationForm');
+use RecommendationForm;
 
 class PKPEditorDecisionHandler extends Handler
 {
@@ -383,7 +393,6 @@ class PKPEditorDecisionHandler extends Handler
         assert(is_a($reviewRound, 'ReviewRound'));
 
         // Form handling
-        import('lib.pkp.controllers.modals.editorDecision.form.RecommendationForm');
         $editorRecommendationForm = new RecommendationForm($submission, $stageId, $reviewRound);
         $editorRecommendationForm->initData();
         return new JSONMessage(true, $editorRecommendationForm->fetch($request));
@@ -407,7 +416,6 @@ class PKPEditorDecisionHandler extends Handler
         assert(is_a($reviewRound, 'ReviewRound'));
 
         // Form handling
-        import('lib.pkp.controllers.modals.editorDecision.form.RecommendationForm');
         $editorRecommendationForm = new RecommendationForm($submission, $stageId, $reviewRound);
         $editorRecommendationForm->readInputData();
         if ($editorRecommendationForm->validate()) {
@@ -623,4 +631,8 @@ class PKPEditorDecisionHandler extends Handler
     {
         assert(false); // Subclasses to override
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\modals\editorDecision\PKPEditorDecisionHandler', '\PKPEditorDecisionHandler');
 }

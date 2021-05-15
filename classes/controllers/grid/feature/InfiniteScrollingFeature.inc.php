@@ -15,7 +15,7 @@
  *
  */
 
-import('lib.pkp.classes.controllers.grid.feature.GeneralPagingFeature');
+namespace PKP\controllers\grid\feature;
 
 use APP\template\TemplateManager;
 use PKP\linkAction\LinkAction;
@@ -154,4 +154,8 @@ class InfiniteScrollingFeature extends GeneralPagingFeature
             )
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\feature\InfiniteScrollingFeature', '\InfiniteScrollingFeature');
 }

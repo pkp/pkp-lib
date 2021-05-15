@@ -15,6 +15,9 @@
 import('lib.pkp.controllers.listbuilder.settings.SetupListbuilderHandler');
 
 use APP\template\TemplateManager;
+use PKP\controllers\listbuilder\ListbuilderHandler;
+
+use PKP\controllers\listbuilder\MultilingualListbuilderGridColumn;
 
 class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHandler
 {
@@ -38,8 +41,8 @@ class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHa
 
         // Basic configuration
         $this->setTitle('grid.reviewFormElement.responseItems');
-        $this->setSourceType(LISTBUILDER_SOURCE_TYPE_TEXT);
-        $this->setSaveType(LISTBUILDER_SAVE_TYPE_EXTERNAL);
+        $this->setSourceType(ListbuilderHandler::LISTBUILDER_SOURCE_TYPE_TEXT);
+        $this->setSaveType(ListbuilderHandler::LISTBUILDER_SAVE_TYPE_EXTERNAL);
         $this->setSaveFieldName('possibleResponses');
 
         // Possible response column

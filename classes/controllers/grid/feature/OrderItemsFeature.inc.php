@@ -14,15 +14,13 @@
  *
  */
 
-import('lib.pkp.classes.controllers.grid.feature.GridFeature');
+namespace PKP\controllers\grid\feature;
 
 use APP\template\TemplateManager;
+use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 
 use PKP\linkAction\request\NullAction;
-
-// FIXME: Add namespacing
-//use \GridRow;
 
 class OrderItemsFeature extends GridFeature
 {
@@ -193,7 +191,7 @@ class OrderItemsFeature extends GridFeature
                 '',
                 'order_items'
             ),
-            GRID_ACTION_POSITION_ROW_LEFT
+            GridRow::GRID_ACTION_POSITION_ROW_LEFT
         );
     }
 
@@ -211,4 +209,8 @@ class OrderItemsFeature extends GridFeature
     {
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\feature\OrderItemsFeature', '\OrderItemsFeature');
 }

@@ -13,9 +13,8 @@
  * @brief Provide access to submission files data for category grids.
  */
 
+use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\submission\SubmissionFile;
-
-import('lib.pkp.classes.controllers.grid.CategoryGridDataProvider');
 
 class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
 {

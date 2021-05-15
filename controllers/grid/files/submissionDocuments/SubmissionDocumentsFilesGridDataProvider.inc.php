@@ -12,8 +12,7 @@
  * @brief The base data provider for the submission documents library files grid.
  */
 
-import('lib.pkp.classes.controllers.grid.CategoryGridDataProvider');
-
+use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\security\authorization\SubmissionAccessPolicy;
 
 class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider

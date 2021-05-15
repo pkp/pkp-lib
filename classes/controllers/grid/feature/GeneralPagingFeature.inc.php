@@ -15,7 +15,12 @@
  *
  */
 
-import('lib.pkp.classes.controllers.grid.feature.GridFeature');
+namespace PKP\controllers\grid\feature;
+
+use APP\core\Application;
+use PKP\controllers\grid\GridHandler;
+
+use PKP\handler\PKPHandler;
 
 class GeneralPagingFeature extends GridFeature
 {
@@ -182,4 +187,8 @@ class GeneralPagingFeature extends GridFeature
     {
         return $rangeName . 'ItemsPerPage';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\feature\GeneralPagingFeature', '\GeneralPagingFeature');
 }

@@ -13,8 +13,8 @@
  * @brief Class defining basic operations for handling the category row in a grid
  *
  */
-import('lib.pkp.classes.controllers.grid.GridRow');
-import('lib.pkp.classes.controllers.grid.GridCategoryRowCellProvider');
+
+namespace PKP\controllers\grid;
 
 class GridCategoryRow extends GridRow
 {
@@ -60,4 +60,8 @@ class GridCategoryRow extends GridRow
     {
         return '';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\GridCategoryRow', '\GridCategoryRow');
 }

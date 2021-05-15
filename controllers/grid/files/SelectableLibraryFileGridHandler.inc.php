@@ -13,6 +13,8 @@
  * @brief Handle selectable library file list category grid requests.
  */
 
+use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
+
 // Import library files grid specific classes.
 import('lib.pkp.controllers.grid.files.LibraryFileGridHandler');
 import('lib.pkp.controllers.grid.settings.library.LibraryFileAdminGridDataProvider');
@@ -32,7 +34,6 @@ class SelectableLibraryFileGridHandler extends LibraryFileGridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
         return [new SelectableItemsFeature()];
     }
 

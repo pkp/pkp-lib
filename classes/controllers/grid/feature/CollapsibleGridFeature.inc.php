@@ -14,7 +14,7 @@
  *
  */
 
-import('lib.pkp.classes.controllers.grid.feature.GridFeature');
+namespace PKP\controllers\grid\feature;
 
 use APP\template\TemplateManager;
 use PKP\linkAction\LinkAction;
@@ -58,4 +58,8 @@ class CollapsibleGridFeature extends GridFeature
 
         return ['collapsibleLink' => $markup];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\feature\CollapsibleGridFeature', '\CollapsibleGridFeature');
 }

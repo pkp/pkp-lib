@@ -13,11 +13,15 @@
  * @brief Base class for the editor decision forms.
  */
 
+namespace PKP\controllers\modals\editorDecision\form;
+
+use APP\core\Services;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use APP\workflow\EditorDecisionActionsManager;
+
+use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewRound\ReviewRound;
@@ -221,4 +225,8 @@ class EditorDecisionForm extends Form
 
         return $newRound;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\modals\editorDecision\form\EditorDecisionForm', '\EditorDecisionForm');
 }

@@ -13,9 +13,8 @@
  * @brief Form to revert declined submissions
  */
 
-import('lib.pkp.classes.controllers.modals.editorDecision.form.EditorDecisionForm');
-
 use APP\workflow\EditorDecisionActionsManager;
+use PKP\controllers\modals\editorDecision\form\EditorDecisionForm;
 use PKP\submission\action\EditorAction;
 
 use PKP\submission\PKPSubmission;

@@ -15,7 +15,7 @@
  * purposes using flags, for example).
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+namespace PKP\controllers\grid;
 
 class NullGridCellProvider extends GridCellProvider
 {
@@ -29,4 +29,8 @@ class NullGridCellProvider extends GridCellProvider
     {
         return null;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\NullGridCellProvider', '\NullGridCellProvider');
 }

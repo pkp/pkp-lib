@@ -13,18 +13,15 @@
  * @brief Handle selectable submission file list category grid requests.
  */
 
-// Import UI base classes.
-import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
+use PKP\controllers\grid\CategoryGridHandler;
+use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
+use PKP\controllers\grid\files\FilesGridCapabilities;
+use PKP\controllers\grid\GridHandler;
 
 // Import submission files grid specific classes.
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridRow');
 import('lib.pkp.controllers.grid.files.FileNameGridColumn');
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridRow');
-
-// Import the class that defines file grids capabilities.
-import('lib.pkp.classes.controllers.grid.files.FilesGridCapabilities');
-
-// Import file constants.
 
 class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandler
 {
@@ -213,7 +210,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
             ];
             $files = $this->getFilesToDownload($request);
 
-            $this->addAction($capabilities->getDownloadAllAction($request, $files, $linkParams), GRID_ACTION_POSITION_BELOW);
+            $this->addAction($capabilities->getDownloadAllAction($request, $files, $linkParams), GridHandler::GRID_ACTION_POSITION_BELOW);
         }
 
         // The file name column is common to all file grid types.
@@ -232,7 +229,6 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
         return [new SelectableItemsFeature()];
     }
 

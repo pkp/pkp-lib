@@ -13,11 +13,11 @@
  * @brief Class for a cell provider that can retrieve labels from notifications
  */
 
-
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
-
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\controllers\grid\GridCellProvider;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
@@ -32,7 +32,7 @@ class NotificationsGridCellProvider extends GridCellProvider
      *
      * @return array an array of LinkAction instances
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         assert($column->getId() == 'task');
 

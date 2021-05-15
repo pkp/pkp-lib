@@ -14,9 +14,11 @@
  */
 
 import('lib.pkp.controllers.grid.settings.SetupGridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('lib.pkp.controllers.grid.settings.genre.GenreGridRow');
 
+use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\feature\OrderGridItemsFeature;
+use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -132,7 +134,6 @@ class GenreGridHandler extends SetupGridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
         return [new OrderGridItemsFeature()];
     }
 

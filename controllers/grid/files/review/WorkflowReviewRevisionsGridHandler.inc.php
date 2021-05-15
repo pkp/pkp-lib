@@ -13,6 +13,7 @@
  * @brief Display in workflow pages the file revisions that authors have uploaded.
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
@@ -30,7 +31,7 @@ class WorkflowReviewRevisionsGridHandler extends FileListGridHandler
         parent::__construct(
             new ReviewGridDataProvider($fileStage),
             null,
-            FILE_GRID_ADD | FILE_GRID_EDIT | FILE_GRID_VIEW_NOTES | FILE_GRID_DELETE
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_EDIT | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_DELETE
         );
 
         $this->addRoleAssignment(

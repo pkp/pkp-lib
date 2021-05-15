@@ -13,7 +13,8 @@
  * @brief Cell provider to retrieve the user's name from the stage assignment
  */
 
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
+use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\GridColumn;
 
 class StageParticipantGridCellProvider extends DataObjectGridCellProvider
 {

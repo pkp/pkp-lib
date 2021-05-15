@@ -13,12 +13,15 @@
  * @brief Handle AJAX operations for review round tabs on review stages workflow pages.
  */
 
+namespace PKP\controllers\tab\workflow;
 
 use APP\handler\Handler;
+use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
 
 use PKP\core\JSONMessage;
+use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 
@@ -114,4 +117,8 @@ class PKPReviewRoundTabHandler extends Handler
 
         return $templateMgr->fetchJson('workflow/reviewRound.tpl');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\tab\workflow\PKPReviewRoundTabHandler', '\PKPReviewRoundTabHandler');
 }

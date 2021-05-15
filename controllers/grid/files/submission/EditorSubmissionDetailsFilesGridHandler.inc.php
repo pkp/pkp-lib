@@ -13,6 +13,7 @@
  * @brief Handle submission file grid requests on the editor's submission details pages.
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
@@ -29,7 +30,7 @@ class EditorSubmissionDetailsFilesGridHandler extends FileListGridHandler
         parent::__construct(
             $dataProvider,
             WORKFLOW_STAGE_ID_SUBMISSION,
-            FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_DOWNLOAD_ALL | FILE_GRID_EDIT
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_DOWNLOAD_ALL | FilesGridCapabilities::FILE_GRID_EDIT
         );
 
         $this->addRoleAssignment(

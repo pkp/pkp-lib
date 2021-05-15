@@ -12,8 +12,9 @@
  * @brief Subclass for review form column's cell provider
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
-
+use PKP\controllers\grid\GridCellProvider;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
 
 class ReviewFormGridCellProvider extends GridCellProvider
@@ -48,7 +49,7 @@ class ReviewFormGridCellProvider extends GridCellProvider
     /**
      * @see GridCellProvider::getCellActions()
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         switch ($column->getId()) {
             case 'active':

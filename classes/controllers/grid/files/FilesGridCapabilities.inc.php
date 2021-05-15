@@ -14,18 +14,24 @@
  * that handle submission files to store which capabilities the grid has.
  */
 
-use PKP\file\FileArchive;
+namespace PKP\controllers\grid\files;
 
-// Define the grid capabilities.
-define('FILE_GRID_ADD', 0x00000001);
-define('FILE_GRID_DOWNLOAD_ALL', 0x00000002);
-define('FILE_GRID_DELETE', 0x00000004);
-define('FILE_GRID_VIEW_NOTES', 0x00000008);
-define('FILE_GRID_MANAGE', 0x00000010);
-define('FILE_GRID_EDIT', 0x00000020);
+use DownloadAllLinkAction;
+
+// FIXME: Namespacing
+import('lib.pkp.controllers.grid.files.fileList.linkAction.DownloadAllLinkAction');
+use PKP\file\FileArchive;
 
 class FilesGridCapabilities
 {
+    // Define the grid capabilities.
+    public const FILE_GRID_ADD = 0x00000001;
+    public const FILE_GRID_DOWNLOAD_ALL = 0x00000002;
+    public const FILE_GRID_DELETE = 0x00000004;
+    public const FILE_GRID_VIEW_NOTES = 0x00000008;
+    public const FILE_GRID_MANAGE = 0x00000010;
+    public const FILE_GRID_EDIT = 0x00000020;
+
     /** @var boolean */
     public $_canAdd;
 
@@ -52,12 +58,12 @@ class FilesGridCapabilities
      */
     public function __construct($capabilities = 0)
     {
-        $this->setCanAdd($capabilities & FILE_GRID_ADD);
-        $this->setCanDownloadAll($capabilities & FILE_GRID_DOWNLOAD_ALL);
-        $this->setCanDelete($capabilities & FILE_GRID_DELETE);
-        $this->setCanViewNotes($capabilities & FILE_GRID_VIEW_NOTES);
-        $this->setCanManage($capabilities & FILE_GRID_MANAGE);
-        $this->setCanEdit($capabilities & FILE_GRID_EDIT);
+        $this->setCanAdd($capabilities & self::FILE_GRID_ADD);
+        $this->setCanDownloadAll($capabilities & self::FILE_GRID_DOWNLOAD_ALL);
+        $this->setCanDelete($capabilities & self::FILE_GRID_DELETE);
+        $this->setCanViewNotes($capabilities & self::FILE_GRID_VIEW_NOTES);
+        $this->setCanManage($capabilities & self::FILE_GRID_MANAGE);
+        $this->setCanEdit($capabilities & self::FILE_GRID_EDIT);
     }
 
 
@@ -197,10 +203,23 @@ class FilesGridCapabilities
     public function getDownloadAllAction($request, $files, $linkParams)
     {
         if (sizeof($files) > 0) {
-            import('lib.pkp.controllers.grid.files.fileList.linkAction.DownloadAllLinkAction');
             return new DownloadAllLinkAction($request, $linkParams, $files);
         } else {
             return null;
         }
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\files\FilesGridCapabilities', '\FilesGridCapabilities');
+    foreach ([
+        'FILE_GRID_ADD',
+        'FILE_GRID_DOWNLOAD_ALL',
+        'FILE_GRID_DELETE',
+        'FILE_GRID_VIEW_NOTES',
+        'FILE_GRID_MANAGE',
+        'FILE_GRID_EDIT',
+    ] as $constantName) {
+        define($constantName, constant('\FilesGridCapabilities::' . $constantName));
     }
 }

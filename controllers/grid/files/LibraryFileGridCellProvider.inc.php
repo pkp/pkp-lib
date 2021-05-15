@@ -13,7 +13,9 @@
  * @brief Subclass for a LibraryFile grid column's cell provider
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+use PKP\controllers\grid\GridCellProvider;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 
 class LibraryFileGridCellProvider extends GridCellProvider
 {
@@ -46,7 +48,7 @@ class LibraryFileGridCellProvider extends GridCellProvider
      *
      * @return array an array of LinkAction instances
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         switch ($column->getId()) {
             case 'files':

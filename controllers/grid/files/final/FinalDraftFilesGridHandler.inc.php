@@ -15,6 +15,7 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 
 class FinalDraftFilesGridHandler extends FileListGridHandler
@@ -29,7 +30,7 @@ class FinalDraftFilesGridHandler extends FileListGridHandler
         parent::__construct(
             new FinalDraftFilesGridDataProvider(),
             null,
-            FILE_GRID_DELETE | FILE_GRID_EDIT | FILE_GRID_MANAGE | FILE_GRID_VIEW_NOTES
+            FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_EDIT | FilesGridCapabilities::FILE_GRID_MANAGE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES
         );
         $this->addRoleAssignment(
             [

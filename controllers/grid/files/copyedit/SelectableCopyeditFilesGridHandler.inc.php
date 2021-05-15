@@ -13,6 +13,7 @@
  * @brief Handle copyedited files grid requests to promote to production stage.
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
@@ -29,7 +30,7 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler
         parent::__construct(
             new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_COPYEDIT),
             null,
-            FILE_GRID_VIEW_NOTES
+            FilesGridCapabilities::FILE_GRID_VIEW_NOTES
         );
 
         $this->addRoleAssignment(

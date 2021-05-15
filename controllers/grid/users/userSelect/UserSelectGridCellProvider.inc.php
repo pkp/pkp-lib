@@ -13,7 +13,8 @@
  * @brief Base class for a cell provider that retrieves data for selecting a user
  */
 
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
+use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\GridColumn;
 
 class UserSelectGridCellProvider extends DataObjectGridCellProvider
 {

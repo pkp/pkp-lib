@@ -12,7 +12,10 @@
  * @brief Implements a column with checkboxes to select grid items.
  */
 
-import('lib.pkp.classes.controllers.grid.GridColumn');
+namespace PKP\controllers\grid\feature\selectableItems;
+
+use PKP\controllers\grid\ColumnBasedGridCellProvider;
+use PKP\controllers\grid\GridColumn;
 
 class ItemSelectionGridColumn extends GridColumn
 {
@@ -31,7 +34,6 @@ class ItemSelectionGridColumn extends GridColumn
         assert(is_string($selectName) && !empty($selectName));
         $this->_selectName = $selectName;
 
-        import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
         $cellProvider = new ColumnBasedGridCellProvider();
         parent::__construct(
             'select',
@@ -75,4 +77,8 @@ class ItemSelectionGridColumn extends GridColumn
             'selectName' => $this->getSelectName(),
             'selected' => $row->getFlag('selected')];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\feature\selectableItems\ItemSelectionGridColumn', '\ItemSelectionGridColumn');
 }

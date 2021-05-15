@@ -16,6 +16,7 @@
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 use PKP\security\authorization\QueryAccessPolicy;
 
@@ -33,7 +34,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler
         parent::__construct(
             new QueryNoteFilesGridDataProvider($request->getUserVar('noteId')),
             $stageId,
-            FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_VIEW_NOTES | FILE_GRID_EDIT
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT
         );
 
         $this->addRoleAssignment(

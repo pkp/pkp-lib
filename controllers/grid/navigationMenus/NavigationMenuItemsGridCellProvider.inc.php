@@ -13,17 +13,19 @@
  * @brief Cell provider for title column of a NavigationMenuItems grid.
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
-
 use APP\core\Services;
 use APP\template\TemplateManager;
+use PKP\controllers\grid\GridCellProvider;
+
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 
 class NavigationMenuItemsGridCellProvider extends GridCellProvider
 {
     /**
      * @copydoc GridCellProvider::getCellActions()
      */
-    public function getCellActions($request, $row, $column, $position = GRID_ACTION_POSITION_DEFAULT)
+    public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
         return parent::getCellActions($request, $row, $column, $position);
     }

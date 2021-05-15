@@ -948,9 +948,3 @@ define('WORKFLOW_STAGE_ID_PRODUCTION', 5);
 
 /* TextArea insert tag variable types used to change their display when selected */
 define('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT', 'PLAIN_TEXT');
-
-// To expose LISTBUILDER_SOURCE_TYPE_... constants via JS
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-
-// To expose ORDER_CATEGORY_GRID_... constants via JS
-import('lib.pkp.classes.controllers.grid.feature.OrderCategoryGridItemsFeature');

@@ -12,7 +12,8 @@
  * @brief Implements a file name column.
  */
 
-import('lib.pkp.classes.controllers.grid.GridColumn');
+use PKP\controllers\grid\ColumnBasedGridCellProvider;
+use PKP\controllers\grid\GridColumn;
 
 class FileGenreGridColumn extends GridColumn
 {
@@ -21,7 +22,6 @@ class FileGenreGridColumn extends GridColumn
      */
     public function __construct()
     {
-        import('lib.pkp.classes.controllers.grid.ColumnBasedGridCellProvider');
         $cellProvider = new ColumnBasedGridCellProvider();
         parent::__construct('type', 'common.component', null, null, $cellProvider);
     }

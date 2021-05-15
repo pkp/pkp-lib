@@ -13,9 +13,6 @@
  * @brief Handle stageParticipant grid requests.
  */
 
-// import grid base classes
-import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
-
 // import stageParticipant grid specific classes
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow');
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
@@ -23,6 +20,8 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCate
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
+use PKP\controllers\grid\CategoryGridHandler;
+use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;

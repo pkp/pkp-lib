@@ -12,6 +12,7 @@
  * @brief Handle file grid requests.
  */
 
+use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
@@ -28,7 +29,7 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler
         parent::__construct(
             new ReviewerReviewAttachmentGridDataProvider(SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT),
             null,
-            FILE_GRID_ADD | FILE_GRID_DELETE | FILE_GRID_EDIT
+            FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_EDIT
         );
 
         $this->addRoleAssignment(

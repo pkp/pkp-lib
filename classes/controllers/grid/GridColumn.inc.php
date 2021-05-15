@@ -151,7 +151,7 @@ class GridColumn extends GridBodyElement
      * actually provide cell-specific actions. The default
      * implementation returns an empty array.
      *
-     * @param $row GridRow The row for which actions are
+     * @param $row \PKP\controllers\grid\GridRow The row for which actions are
      *  being requested.
      *
      * @return array An array of LinkActions for the cell.

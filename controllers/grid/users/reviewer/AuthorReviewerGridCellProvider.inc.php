@@ -25,7 +25,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
     /**
      * Gathers the state of a given cell given a $row/$column combination
      *
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      *
      * @return string
@@ -49,7 +49,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
      * Extracts variables for a given column from a data element
      * so that they may be assigned to template before rendering.
      *
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      *
      * @return array
@@ -80,7 +80,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
     /**
      * Get cell actions associated with this row/column combination
      *
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      *
      * @return array an array of LinkAction instances
@@ -121,7 +121,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
      * Provide meaningful locale keys for the various grid status states.
      *
      * @param string $state
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      *
      * @return string
      */

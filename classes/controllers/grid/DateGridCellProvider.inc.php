@@ -43,7 +43,7 @@ class DateGridCellProvider extends GridCellProvider
      * Fetch a value from the provided DataProvider (in constructor)
      * and format it as a date.
      *
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      *
      * @return array

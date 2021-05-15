@@ -568,7 +568,7 @@ class GridHandler extends PKPHandler
      * @param $request PKPRequest
      * @param $args array
      *
-     * @return GridRow the requested grid row, already
+     * @return \PKP\controllers\grid\GridRow the requested grid row, already
      *  configured with id and data or null if the row
      *  could not been found.
      */
@@ -609,7 +609,7 @@ class GridHandler extends PKPHandler
      * Render the passed row and return its markup.
      *
      * @param $request PKPRequest
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      *
      * @return string
      */
@@ -893,7 +893,7 @@ class GridHandler extends PKPHandler
      * overridden by subclasses if they want to
      * provide a custom row definition.
      *
-     * @return GridRow
+     * @return \PKP\controllers\grid\GridRow
      */
     protected function getRowInstance()
     {
@@ -1140,7 +1140,7 @@ class GridHandler extends PKPHandler
      * before you call this method.
      *
      * @param $request PKPRequest
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      *
      * @return string the row HTML
      */
@@ -1202,7 +1202,7 @@ class GridHandler extends PKPHandler
      * @param $element mixed
      * @param $isModified boolean optional
      *
-     * @return GridRow
+     * @return \PKP\controllers\grid\GridRow
      */
     private function _getInitializedRowInstance($request, $elementId, &$element, $isModified = false)
     {
@@ -1227,7 +1227,7 @@ class GridHandler extends PKPHandler
      * before you call this method.
      *
      * @param $request PKPRequest
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      *
      * @return string the cell HTML

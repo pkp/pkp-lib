@@ -53,7 +53,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
      * Extracts variables for a given column from a data element
      * so that they may be assigned to template before rendering.
      *
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      *
      * @return array
@@ -129,7 +129,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
     /**
      * Get request arguments.
      *
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      *
      * @return array
      */

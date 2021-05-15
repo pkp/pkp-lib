@@ -26,7 +26,7 @@ class LiteralGridCellProvider extends GridCellProvider
      *
      * @see GridCellProvider::getTemplateVarsFromRowColumn()
      *
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      *
      * @return array

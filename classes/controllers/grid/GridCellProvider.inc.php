@@ -38,7 +38,7 @@ class GridCellProvider
      * To be used by a GridRow to generate a rendered representation of
      * the element for the given column.
      *
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      *
      * @return string the rendered representation of the element for the given column
@@ -78,7 +78,7 @@ class GridCellProvider
      * for a given column from a data element so that they may be assigned
      * to template before rendering.
      *
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      *
      * @return array
@@ -98,7 +98,7 @@ class GridCellProvider
      * should be delegated to the row.
      *
      * @param $request Request
-     * @param $row GridRow
+     * @param $row \PKP\controllers\grid\GridRow
      * @param $column GridColumn
      * @param $position int GRID_ACTION_POSITION_...
      *

@@ -100,3 +100,8 @@ font_location = /usr/share/fonts/truetype/freefont/FreeSerif.ttf
 
 [debug]
 show_stacktrace = On
+
+[queues]
+
+default_queue = null
+run_jobs_at_shutdown = Off

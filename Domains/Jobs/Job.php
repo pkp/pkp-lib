@@ -107,8 +107,6 @@ class Job extends Model
 
     /**
      * Instantiate the Job model
-     *
-     *
      */
     public function __construct(array $attributes = [])
     {
@@ -118,18 +116,34 @@ class Job extends Model
         $this->setMaxAttempts(self::DEFAULT_MAX_ATTEMPTS);
     }
 
-    public function setDefaultQueue($value): self
+    /**
+     * Set the default queue
+     *
+     * @param string|mixed $value
+     *
+     */
+    public function setDefaultQueue(?string $value): self
     {
         $this->defaultQueue = $value;
 
         return $this;
     }
 
+    /**
+     * Get Queue name, in case of nullable value, will be the default one
+     *
+     *
+     */
     public function getQueue(?string $queue): string
     {
         return $queue ?: $this->defaultQueue;
     }
 
+    /**
+     * Set the Job's max attempts
+     *
+     *
+     */
     public function setMaxAttempts(int $maxAttempts): self
     {
         $this->maxAttempts = $maxAttempts;
@@ -137,16 +151,30 @@ class Job extends Model
         return $this;
     }
 
+    /**
+     * Get the Job's max attempts
+     *
+     */
     public function getMaxAttempts(): int
     {
         return $this->maxAttempts;
     }
 
+    /**
+     * Add a local scope for not excedeed attempts
+     *
+     *
+     */
     public function scopeNotExcedeedAttempts(Builder $query): Builder
     {
         return $query->where('attempts', '<', $this->getMaxAttempts());
     }
 
+    /**
+     * Add a local scope to handle jobs associated in a queue
+     *
+     *
+     */
     public function scopeQueuedAt(
         Builder $query,
         ?string $queue = null

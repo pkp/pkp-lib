@@ -25,7 +25,12 @@ use Illuminate\Support\Facades\Date;
  */
 trait Attributes
 {
-    public function getDisplayNameAttribute()
+    /**
+     * Return the job's display name value
+     *
+     * @return mixed
+     */
+    public function getDisplayNameAttribute(): ?string
     {
         if (!$this->payload['displayName']) {
             return null;
@@ -34,7 +39,12 @@ trait Attributes
         return $this->payload['displayName'];
     }
 
-    public function getMaxTriesAttribute()
+    /**
+     * Return the job's max tries value
+     *
+     * @return mixed
+     */
+    public function getMaxTriesAttribute(): ?string
     {
         if (!$this->payload['maxTries']) {
             return null;
@@ -43,7 +53,12 @@ trait Attributes
         return $this->payload['maxTries'];
     }
 
-    public function getDelayAttribute()
+    /**
+     * Return the job's delay value
+     *
+     * @return mixed
+     */
+    public function getDelayAttribute(): ?string
     {
         if (!$this->payload['delay']) {
             return null;
@@ -52,7 +67,12 @@ trait Attributes
         return $this->payload['delay'];
     }
 
-    public function getTimeoutAttribute()
+    /**
+     * Return the job's timeout value
+     *
+     * @return mixed
+     */
+    public function getTimeoutAttribute(): ?string
     {
         if (!$this->payload['timeout']) {
             return null;
@@ -61,7 +81,12 @@ trait Attributes
         return $this->payload['timeout'];
     }
 
-    public function getTimeoutAtAttribute()
+    /**
+     * Return the job's timeout at value
+     *
+     * @return mixed
+     */
+    public function getTimeoutAtAttribute(): ?string
     {
         if (!$this->payload['timeout_at']) {
             return null;
@@ -72,7 +97,12 @@ trait Attributes
         return Date::instance($obj);
     }
 
-    public function getCommandNameAttribute()
+    /**
+     * Return the job's command name value
+     *
+     * @return mixed
+     */
+    public function getCommandNameAttribute(): ?string
     {
         if (!$this->payload['data']['commandName']) {
             return null;
@@ -81,12 +111,16 @@ trait Attributes
         return $this->payload['data']['commandName'];
     }
 
-    public function getCommandAttribute()
+    /**
+     * Return the job's command value
+     *
+     */
+    public function getCommandAttribute(): array
     {
         if (!$this->payload['data']['command']) {
             return [];
         }
 
-        return unserialize($this->payload['data']['command']);
+        return (array) unserialize($this->payload['data']['command']);
     }
 }

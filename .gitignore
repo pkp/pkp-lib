@@ -4,3 +4,4 @@ lib/vendor
 lib/components
 .DS_Store
 .php_cs.cache
+tests/.phpunit.result.cache

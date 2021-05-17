@@ -38,7 +38,7 @@ class PKPQueueProvider
                 ->limit(1)
                 ->first();
 
-        if (!$job) {
+        if ($job === null) {
             return;
         }
 

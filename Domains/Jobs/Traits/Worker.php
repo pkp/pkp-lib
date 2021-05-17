@@ -61,6 +61,11 @@ trait Worker
      */
     protected $stopWhenEmptyFlag = true;
 
+    /**
+     * Set Job's delay value
+     *
+     *
+     */
     public function setDelay(int $value): self
     {
         $this->delay = $value;
@@ -68,11 +73,20 @@ trait Worker
         return $this;
     }
 
+    /**
+     * Get the Job's delay value
+     *
+     */
     public function getDelay(): int
     {
         return $this->delay;
     }
 
+    /**
+     * Set Job's allowed memory value
+     *
+     *
+     */
     public function setAllowedMemory(int $value): self
     {
         $this->allowedMemory = $value;
@@ -80,11 +94,20 @@ trait Worker
         return $this;
     }
 
+    /**
+     * Get Job's allowed memory value
+     *
+     */
     public function getAllowedMemory(): int
     {
         return $this->allowedMemory;
     }
 
+    /**
+     * Set Job's timeout value
+     *
+     *
+     */
     public function setTimeout(int $value): self
     {
         $this->timeout = $value;
@@ -92,11 +115,20 @@ trait Worker
         return $this;
     }
 
+    /**
+     * Get Job's timeout value
+     *
+     */
     public function getTimeout(): int
     {
         return $this->timeout;
     }
 
+    /**
+     * Set Job's sleep value
+     *
+     *
+     */
     public function setSleep(int $value): self
     {
         $this->sleep = $value;
@@ -104,11 +136,20 @@ trait Worker
         return $this;
     }
 
+    /**
+     * Get Job's sleep value
+     *
+     */
     public function getSleep(): int
     {
         return $this->sleep;
     }
 
+    /**
+     * Set Job's force flag value
+     *
+     *
+     */
     public function setForceFlag(bool $force = false): self
     {
         $this->forceFlag = $force;
@@ -116,11 +157,20 @@ trait Worker
         return $this;
     }
 
+    /**
+     * Get Job's force flag value
+     *
+     */
     public function getForceFlag(): bool
     {
         return $this->forceFlag;
     }
 
+    /**
+     * Set Job's stop when empty flag value
+     *
+     *
+     */
     public function setStopWhenEmptyFlag(bool $stopWhenEmptyFlag = false): self
     {
         $this->stopWhenEmptyFlag = $stopWhenEmptyFlag;
@@ -128,6 +178,10 @@ trait Worker
         return $this;
     }
 
+    /**
+     * Get Job's stop when empty flag value
+     *
+     */
     public function getStopWhenEmptyFlag(): bool
     {
         return $this->stopWhenEmptyFlag;

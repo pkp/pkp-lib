@@ -18,16 +18,23 @@ namespace PKP\core;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Facade;
-
 use PKP\config\Config;
+use Throwable;
 
 class PKPContainer extends Container
 {
+    /**
+     * @var string
+     * @brief the base path of the application, needed for base_path helper
+     */
+    protected $basePath;
+
     /**
      * @brief Create own container instance, initialize bindings
      */
     public function __construct()
     {
+        $this->basePath = BASE_SYS_DIR;
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
     }
@@ -41,8 +48,9 @@ class PKPContainer extends Container
         static::setInstance($this);
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
-        $this->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
-            return new class() implements Illuminate\Contracts\Debug\ExceptionHandler {
+        $this->instance('path', $this->basePath);
+        $this->singleton(\Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
+            return new class() implements \Illuminate\Contracts\Debug\ExceptionHandler {
                 public function shouldReport(Throwable $e)
                 {
                     return true;
@@ -83,7 +91,7 @@ class PKPContainer extends Container
     }
 
     /**
-     * @param Illuminate\Support\ServiceProvider $provider
+     * @param \Illuminate\Support\ServiceProvider $provider
      * @brief Simplified service registration
      */
     public function register($provider)
@@ -100,14 +108,14 @@ class PKPContainer extends Container
     public function registerCoreContainerAliases()
     {
         foreach ([
-            'app' => [self::class, Illuminate\Contracts\Container\Container::class, Psr\Container\ContainerInterface::class],
-            'config' => [Illuminate\Config\Repository::class, Illuminate\Contracts\Config\Repository::class],
-            'db' => [Illuminate\Database\DatabaseManager::class, Illuminate\Database\ConnectionResolverInterface::class],
-            'db.connection' => [Illuminate\Database\Connection::class, Illuminate\Database\ConnectionInterface::class],
-            'events' => [Illuminate\Events\Dispatcher::class, Illuminate\Contracts\Events\Dispatcher::class],
-            'queue' => [Illuminate\Queue\QueueManager::class, Illuminate\Contracts\Queue\Factory::class, Illuminate\Contracts\Queue\Monitor::class],
-            'queue.connection' => [Illuminate\Contracts\Queue\Queue::class],
-            'queue.failer' => [Illuminate\Queue\Failed\FailedJobProviderInterface::class],
+            'app' => [self::class, \Illuminate\Contracts\Container\Container::class, \Psr\Container\ContainerInterface::class],
+            'config' => [\Illuminate\Config\Repository::class, \Illuminate\Contracts\Config\Repository::class],
+            'db' => [\Illuminate\Database\DatabaseManager::class, \Illuminate\Database\ConnectionResolverInterface::class],
+            'db.connection' => [\Illuminate\Database\Connection::class, \Illuminate\Database\ConnectionInterface::class],
+            'events' => [\Illuminate\Events\Dispatcher::class, \Illuminate\Contracts\Events\Dispatcher::class],
+            'queue' => [\Illuminate\Queue\QueueManager::class, \Illuminate\Contracts\Queue\Factory::class, \Illuminate\Contracts\Queue\Monitor::class],
+            'queue.connection' => [\Illuminate\Contracts\Queue\Queue::class],
+            'queue.failer' => [\Illuminate\Queue\Failed\FailedJobProviderInterface::class],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);
@@ -155,6 +163,22 @@ class PKPContainer extends Container
         ];
 
         $this->instance('config', new Repository($items)); // create instance and bind to use globally
+    }
+
+    /**
+     * @param string $path appended to the base path
+     * @brief see Illuminate\Foundation\Application::basePath
+     */
+    public function basePath($path = '') {
+        return $this->basePath . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+    }
+
+    /**
+     * @param string $path appended to the path
+     * @brief alias of basePath(), Laravel app path differs from installation path
+     */
+    public function path($path = '') {
+        return $this->basePath($path);
     }
 }
 

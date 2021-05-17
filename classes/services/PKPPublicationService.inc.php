@@ -28,6 +28,7 @@ use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\queryBuilders\PKPPublicationQueryBuilder;
 
+use PKP\observers\events\PublishedEvent;
 use PKP\statistics\PKPStatisticsHelper;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
@@ -631,6 +632,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         SubmissionLog::logEvent(Application::get()->getRequest(), $submission, SubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH, $msg);
 
         HookRegistry::call('Publication::publish', [&$newPublication, $publication, $submission]);
+        event(new PublishedEvent($newPublication, $publication, $submission));
 
         // Update the search index.
         if ($newPublication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {

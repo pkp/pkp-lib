@@ -20,9 +20,10 @@ use APP\core\Services;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
-
 use PKP\core\JSONMessage;
+
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
 
 class LanguageGridHandler extends GridHandler
 {
@@ -33,7 +34,7 @@ class LanguageGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            ROLE_ID_MANAGER,
+            Role::ROLE_ID_MANAGER,
             ['saveLanguageSetting', 'setContextPrimaryLocale']
         );
     }

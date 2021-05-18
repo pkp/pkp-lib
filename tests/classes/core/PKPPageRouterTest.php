@@ -24,6 +24,8 @@ import('lib.pkp.tests.classes.core.PKPRouterTestCase');
 import('classes.security.Validation'); // This will import our mock validation class.
 import('classes.i18n.AppLocale'); // This will import our mock locale.
 
+use PKP\security\Validation;
+
 /**
  * @backupGlobals enabled
  */

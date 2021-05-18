@@ -14,10 +14,11 @@
  */
 
 use APP\template\TemplateManager;
+
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\ConfirmationModal;
-
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 class PKPSubmissionFilesUploadBaseForm extends Form
@@ -238,7 +239,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
             }
             if (
                 ($submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT || $submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_REVIEW_FILE) &&
-                $stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), ROLE_ID_AUTHOR, $this->getStageId(), $user->getId())
+                $stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), Role::ROLE_ID_AUTHOR, $this->getStageId(), $user->getId())
             ) {
                 // Authors are not permitted to revise reviewer documents.
                 continue;

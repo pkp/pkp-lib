@@ -18,6 +18,7 @@ use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\components\forms\FieldAutosuggestPreset;
 use PKP\components\forms\FieldSelectUsers;
+use PKP\security\Role;
 use PKP\services\PKPSubmissionService;
 use PKP\submission\PKPSubmission;
 
@@ -155,7 +156,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
                     'users',
                     null,
                     null,
-                    ['roleIds' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]]
+                    ['roleIds' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]]
                 ),
             ]);
             $config['filters'][] = [

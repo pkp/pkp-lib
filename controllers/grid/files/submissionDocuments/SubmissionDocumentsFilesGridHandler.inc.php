@@ -17,8 +17,9 @@ import('lib.pkp.controllers.grid.files.LibraryFileGridHandler');
 import('lib.pkp.controllers.grid.files.submissionDocuments.SubmissionDocumentsFilesGridDataProvider');
 
 use APP\template\TemplateManager;
-
 use PKP\linkAction\LinkAction;
+
+use PKP\security\Role;
 
 class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
 {
@@ -29,7 +30,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
     {
         parent::__construct(new SubmissionDocumentsFilesGridDataProvider());
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
             [
                 'addFile', 'uploadFile', 'saveFile', // Adding new library files
                 'editFile', 'updateFile', // Editing existing library files
@@ -134,7 +135,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('isModal', true);
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        $templateMgr->assign('canEdit', !empty(array_intersect([ROLE_ID_MANAGER], $userRoles)));
+        $templateMgr->assign('canEdit', !empty(array_intersect([Role::ROLE_ID_MANAGER], $userRoles)));
         return $templateMgr->fetchJson('controllers/modals/documentLibrary/publisherLibrary.tpl');
     }
 

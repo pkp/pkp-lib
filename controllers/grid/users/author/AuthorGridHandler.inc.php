@@ -17,6 +17,7 @@ import('lib.pkp.controllers.grid.users.author.PKPAuthorGridCellProvider');
 import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 
 use APP\notification\NotificationManager;
+
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -25,6 +26,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\PublicationAccessPolicy;
+use PKP\security\Role;
 
 use PKP\submission\PKPSubmission;
 
@@ -43,12 +45,12 @@ class AuthorGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
             ['fetchGrid', 'fetchRow', 'addAuthor', 'editAuthor',
                 'updateAuthor', 'deleteAuthor', 'saveSequence']
         );
-        $this->addRoleAssignment(ROLE_ID_REVIEWER, ['fetchGrid', 'fetchRow']);
-        $this->addRoleAssignment([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], ['addUser']);
+        $this->addRoleAssignment(Role::ROLE_ID_REVIEWER, ['fetchGrid', 'fetchRow']);
+        $this->addRoleAssignment([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], ['addUser']);
     }
 
 
@@ -280,7 +282,7 @@ class AuthorGridHandler extends GridHandler
             return false;
         }
 
-        if (in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+        if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return true;
         }
 

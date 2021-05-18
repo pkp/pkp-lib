@@ -14,8 +14,9 @@
  */
 
 use APP\template\TemplateManager;
-use PKP\form\Form;
 
+use PKP\form\Form;
+use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
 
 class PKPAuthorForm extends Form
@@ -144,7 +145,7 @@ class PKPAuthorForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $authorUserGroups = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_AUTHOR);
+        $authorUserGroups = $userGroupDao->getByRoleId($request->getContext()->getId(), Role::ROLE_ID_AUTHOR);
         $publication = $this->getPublication();
         $isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
         $countries = [];

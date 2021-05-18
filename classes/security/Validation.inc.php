@@ -13,6 +13,16 @@
  * @brief Class providing user validation/authentication operations.
  */
 
+namespace PKP\security;
+
+use APP\core\Application;
+use PKP\config\Config;
+use PKP\core\Core;
+use PKP\core\PKPString;
+use PKP\db\DAORegistry;
+
+use PKP\session\SessionManager;
+
 class Validation
 {
     /**
@@ -441,7 +451,7 @@ class Validation
      */
     public static function isSiteAdmin()
     {
-        return self::isAuthorized(ROLE_ID_SITE_ADMIN);
+        return self::isAuthorized(Role::ROLE_ID_SITE_ADMIN);
     }
 
     /**
@@ -462,12 +472,12 @@ class Validation
         }
 
         // You cannot adminster administrators
-        if ($roleDao->userHasRole(CONTEXT_SITE, $administeredUserId, ROLE_ID_SITE_ADMIN)) {
+        if ($roleDao->userHasRole(CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
             return false;
         }
 
         // Otherwise, administrators can administer everyone
-        if ($roleDao->userHasRole(CONTEXT_SITE, $administratorUserId, ROLE_ID_SITE_ADMIN)) {
+        if ($roleDao->userHasRole(CONTEXT_SITE, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
             return true;
         }
 
@@ -476,7 +486,7 @@ class Validation
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByUserId($administeredUserId);
         while ($userGroup = $userGroups->next()) {
-            if ($userGroup->getContextId() != CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, ROLE_ID_MANAGER)) {
+            if ($userGroup->getContextId() != CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
                 // Found an assignment: disqualified.
                 return false;
             }
@@ -486,7 +496,7 @@ class Validation
         $foundManagerRole = false;
         $roles = $roleDao->getByUserId($administratorUserId);
         foreach ($roles as $role) {
-            if ($role->getRoleId() == ROLE_ID_MANAGER) {
+            if ($role->getRoleId() == Role::ROLE_ID_MANAGER) {
                 $foundManagerRole = true;
             }
         }
@@ -497,4 +507,8 @@ class Validation
         // There were no conflicting roles. Permit administration.
         return true;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\Validation', '\Validation');
 }

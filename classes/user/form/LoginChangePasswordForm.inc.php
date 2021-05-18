@@ -13,9 +13,13 @@
  * @brief Form to change a user's password in order to login.
  */
 
-use APP\template\TemplateManager;
+namespace PKP\user\form;
 
+use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 use PKP\form\Form;
+
+use PKP\security\Validation;
 
 class LoginChangePasswordForm extends Form
 {
@@ -92,4 +96,8 @@ class LoginChangePasswordForm extends Form
             return false;
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\form\LoginChangePasswordForm', '\LoginChangePasswordForm');
 }

@@ -13,9 +13,11 @@
  */
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
+import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
 
 class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler
 {
@@ -24,7 +26,6 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler
      */
     public function __construct()
     {
-        import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
         // Pass in null stageId to be set in initialize from request var.
         parent::__construct(
             new ReviewerReviewAttachmentGridDataProvider(SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT),
@@ -33,7 +34,7 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler
         );
 
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_REVIEWER],
             [
                 'fetchGrid', 'fetchRow'
             ]

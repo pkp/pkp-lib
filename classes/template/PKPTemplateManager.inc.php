@@ -40,16 +40,15 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
-
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
+
 use PKP\linkAction\request\NullAction;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
+use PKP\security\Role;
+use PKP\security\Validation;
 use Smarty;
-
-// FIXME: add namespacing
-use Validation;
 
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . '/lib/pkp/lib/vendor/smarty/smarty/libs/');
@@ -794,14 +793,14 @@ class PKPTemplateManager extends Smarty
             'WORKFLOW_STAGE_ID_EDITING' => WORKFLOW_STAGE_ID_EDITING,
             'WORKFLOW_STAGE_ID_PRODUCTION' => WORKFLOW_STAGE_ID_PRODUCTION,
             'INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
-            'ROLE_ID_MANAGER' => ROLE_ID_MANAGER,
-            'ROLE_ID_SITE_ADMIN' => ROLE_ID_SITE_ADMIN,
-            'ROLE_ID_AUTHOR' => ROLE_ID_AUTHOR,
-            'ROLE_ID_REVIEWER' => ROLE_ID_REVIEWER,
-            'ROLE_ID_ASSISTANT' => ROLE_ID_ASSISTANT,
-            'ROLE_ID_READER' => ROLE_ID_READER,
-            'ROLE_ID_SUB_EDITOR' => ROLE_ID_SUB_EDITOR,
-            'ROLE_ID_SUBSCRIPTION_MANAGER' => ROLE_ID_SUBSCRIPTION_MANAGER,
+            'ROLE_ID_MANAGER' => Role::ROLE_ID_MANAGER,
+            'ROLE_ID_SITE_ADMIN' => Role::ROLE_ID_SITE_ADMIN,
+            'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR,
+            'ROLE_ID_REVIEWER' => Role::ROLE_ID_REVIEWER,
+            'ROLE_ID_ASSISTANT' => Role::ROLE_ID_ASSISTANT,
+            'ROLE_ID_READER' => Role::ROLE_ID_READER,
+            'ROLE_ID_SUB_EDITOR' => Role::ROLE_ID_SUB_EDITOR,
+            'ROLE_ID_SUBSCRIPTION_MANAGER' => Role::ROLE_ID_SUBSCRIPTION_MANAGER,
         ]);
 
         // Common locale keys available in the browser for every page
@@ -945,7 +944,7 @@ class PKPTemplateManager extends Smarty
                 $notificationsCount = count($notificationDao->getByUserId($request->getUser()->getId(), Notification::NOTIFICATION_LEVEL_TRIVIAL)->toArray());
 
                 // Load context switcher
-                $isAdmin = in_array(ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'));
+                $isAdmin = in_array(Role::ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'));
                 if ($isAdmin) {
                     $args = [];
                 } else {
@@ -981,13 +980,13 @@ class PKPTemplateManager extends Smarty
                 $menu = [];
 
                 if ($request->getContext()) {
-                    if (count(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR], $userRoles))) {
+                    if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
                         $menu['submissions'] = [
                             'name' => __('navigation.submissions'),
                             'url' => $router->url($request, null, 'submissions'),
                             'isCurrent' => $router->getRequestedPage($request) === 'submissions',
                         ];
-                    } elseif (count($userRoles) === 1 && in_array(ROLE_ID_READER, $userRoles)) {
+                    } elseif (count($userRoles) === 1 && in_array(Role::ROLE_ID_READER, $userRoles)) {
                         AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR);
                         $menu['submit'] = [
                             'name' => __('author.submit'),
@@ -996,7 +995,7 @@ class PKPTemplateManager extends Smarty
                         ];
                     }
 
-                    if (in_array(ROLE_ID_MANAGER, $userRoles)) {
+                    if (in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
                         if ($request->getContext()->getData('enableAnnouncements')) {
                             $menu['announcements'] = [
                                 'name' => __('announcement.announcements'),
@@ -1036,7 +1035,7 @@ class PKPTemplateManager extends Smarty
                         ];
                     }
 
-                    if (count(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $userRoles))) {
+                    if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {
                         $menu['statistics'] = [
                             'name' => __('navigation.tools.statistics'),
                             'submenu' => [
@@ -1057,7 +1056,7 @@ class PKPTemplateManager extends Smarty
                                 ]
                             ]
                         ];
-                        if (in_array(ROLE_ID_MANAGER, $userRoles)) {
+                        if (in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
                             $menu['statistics']['submenu'] += [
                                 'reports' => [
                                     'name' => __('manager.statistics.reports'),
@@ -1068,7 +1067,7 @@ class PKPTemplateManager extends Smarty
                         }
                     }
 
-                    if (in_array(ROLE_ID_MANAGER, $userRoles)) {
+                    if (in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
                         $menu['tools'] = [
                             'name' => __('navigation.tools'),
                             'url' => $router->url($request, null, 'management', 'tools'),
@@ -1076,7 +1075,7 @@ class PKPTemplateManager extends Smarty
                         ];
                     }
 
-                    if (in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+                    if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
                         $menu['admin'] = [
                             'name' => __('navigation.admin'),
                             'url' => $router->url($request, 'index', 'admin'),

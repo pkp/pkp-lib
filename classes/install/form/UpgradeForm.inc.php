@@ -13,12 +13,13 @@
  * @brief Form for system upgrades.
  */
 
-use APP\install\Upgrade;
+namespace PKP\install\form;
 
+use APP\core\Application;
+
+use APP\install\Upgrade;
 use APP\template\TemplateManager;
 use PKP\install\Installer;
-
-import('lib.pkp.classes.install.form.MaintenanceForm');
 
 class UpgradeForm extends MaintenanceForm
 {
@@ -68,4 +69,8 @@ class UpgradeForm extends MaintenanceForm
 
         $installer->destroy();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\install\form\UpgradeForm', '\UpgradeForm');
 }

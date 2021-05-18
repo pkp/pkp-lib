@@ -19,6 +19,7 @@ import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 use PKP\security\authorization\QueryAccessPolicy;
+use PKP\security\Role;
 
 class QueryNoteFilesGridHandler extends FileListGridHandler
 {
@@ -38,7 +39,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler
         );
 
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
             ['fetchGrid', 'fetchRow', 'selectFiles']
         );
 
@@ -61,7 +62,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler
 
         if (0 != count(array_intersect(
             $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT]
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]
         ))) {
             $this->getCapabilities()->setCanManage(true);
         }

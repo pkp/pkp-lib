@@ -14,9 +14,11 @@
  */
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
+import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
 class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler
 {
@@ -25,7 +27,6 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler
      */
     public function __construct()
     {
-        import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
         // Pass in null stageId to be set in initialize from request var.
         parent::__construct(
             new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_COPYEDIT),
@@ -34,7 +35,7 @@ class SelectableCopyeditFilesGridHandler extends SelectableFileListGridHandler
         );
 
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
             ['fetchGrid', 'fetchRow']
         );
 

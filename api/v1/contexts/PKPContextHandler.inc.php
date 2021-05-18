@@ -16,6 +16,7 @@ use APP\template\TemplateManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
 
 use PKP\services\PKPSchemaService;
@@ -31,7 +32,7 @@ class PKPContextHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = 'contexts';
-        $roles = [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER];
+        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER];
         $this->_endpoints = [
             'GET' => [
                 [
@@ -54,7 +55,7 @@ class PKPContextHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'add'],
-                    'roles' => [ROLE_ID_SITE_ADMIN],
+                    'roles' => [Role::ROLE_ID_SITE_ADMIN],
                 ],
             ],
             'PUT' => [
@@ -73,7 +74,7 @@ class PKPContextHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}',
                     'handler' => [$this, 'delete'],
-                    'roles' => [ROLE_ID_SITE_ADMIN],
+                    'roles' => [Role::ROLE_ID_SITE_ADMIN],
                 ],
             ],
         ];
@@ -144,7 +145,7 @@ class PKPContextHandler extends APIHandler
         // not enabled
         if (empty($allowedParams['isEnabled'])) {
             $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-            $canAccessDisabledContexts = !empty(array_intersect([ROLE_ID_SITE_ADMIN], $userRoles));
+            $canAccessDisabledContexts = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN], $userRoles));
             if (!$canAccessDisabledContexts) {
                 return $response->withStatus(403)->withJsonError('api.contexts.403.requestedDisabledContexts');
             }
@@ -198,9 +199,9 @@ class PKPContextHandler extends APIHandler
         // manager role in that journal
         if (!$context->getEnabled()) {
             $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-            if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+            if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
                 $roleDao = DaoRegistry::getDao('RoleDAO');
-                if (!$roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER)) {
+                if (!$roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)) {
                     return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowed');
                 }
             }
@@ -244,9 +245,9 @@ class PKPContextHandler extends APIHandler
         // manager role in that journal
         if (!$context->getEnabled()) {
             $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-            if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+            if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
                 $roleDao = DaoRegistry::getDao('RoleDAO');
-                if (!$roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER)) {
+                if (!$roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)) {
                     return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowed');
                 }
             }
@@ -362,7 +363,7 @@ class PKPContextHandler extends APIHandler
         }
 
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (!$requestContext && !in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+        if (!$requestContext && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
         }
 
@@ -423,7 +424,7 @@ class PKPContextHandler extends APIHandler
         }
 
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (!$requestContext && !in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+        if (!$requestContext && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
         }
 
@@ -506,7 +507,7 @@ class PKPContextHandler extends APIHandler
         }
 
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedDelete');
         }
 

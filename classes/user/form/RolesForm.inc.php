@@ -13,10 +13,13 @@
  * @brief Form to edit the roles area of the user profile.
  */
 
-import('lib.pkp.classes.user.form.BaseProfileForm');
+namespace PKP\user\form;
+
+use APP\core\Application;
+use APP\i18n\AppLocale;
 
 use APP\template\TemplateManager;
-
+use PKP\db\DAORegistry;
 use PKP\user\InterestManager;
 
 class RolesForm extends BaseProfileForm
@@ -51,7 +54,6 @@ class RolesForm extends BaseProfileForm
         }
         $templateMgr->assign('userGroupIds', $userGroupIds);
 
-        import('lib.pkp.classes.user.form.UserFormHelper');
         $userFormHelper = new UserFormHelper();
         $userFormHelper->assignRoleContent($templateMgr, $request);
 
@@ -98,7 +100,6 @@ class RolesForm extends BaseProfileForm
         $user = $request->getUser();
 
         // Save the roles
-        import('lib.pkp.classes.user.form.UserFormHelper');
         $userFormHelper = new UserFormHelper();
         $userFormHelper->saveRoleContent($this, $user);
 
@@ -108,4 +109,8 @@ class RolesForm extends BaseProfileForm
 
         parent::execute(...$functionArgs);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\form\RolesForm', '\RolesForm');
 }

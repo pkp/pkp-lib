@@ -15,14 +15,18 @@
  * @brief Form for system installation.
  */
 
+namespace PKP\install\form;
+
+use APP\core\Application;
 use APP\i18n\AppLocale;
 use APP\install\Install;
-
 use APP\template\TemplateManager;
+use PKP\core\Core;
+
+use PKP\core\PKPApplication;
+use PKP\core\PKPString;
 use PKP\install\Installer;
 use PKP\xslt\XSLTransformer;
-
-import('lib.pkp.classes.install.form.MaintenanceForm');
 
 class InstallForm extends MaintenanceForm
 {
@@ -247,4 +251,8 @@ class InstallForm extends MaintenanceForm
         }
         return $dbDrivers;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\install\form\InstallForm', '\InstallForm');
 }

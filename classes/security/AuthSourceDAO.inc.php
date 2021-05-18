@@ -15,8 +15,10 @@
  * @brief Operations for retrieving and modifying AuthSource objects.
  */
 
+namespace PKP\security;
 
-import('lib.pkp.classes.security.AuthSource');
+use PKP\db\DAOResultFactory;
+use PKP\plugins\PluginRegistry;
 
 class AuthSourceDAO extends \PKP\db\DAO
 {
@@ -28,7 +30,7 @@ class AuthSourceDAO extends \PKP\db\DAO
     public function __construct()
     {
         parent::__construct();
-        $this->plugins = PluginRegistry::loadCategory(AUTH_PLUGIN_CATEGORY);
+        $this->plugins = PluginRegistry::loadCategory('auth');
     }
 
     /**
@@ -125,6 +127,12 @@ class AuthSourceDAO extends \PKP\db\DAO
         $auth->setPlugin($row['plugin']);
         $auth->setPluginClass(@$this->plugins[$row['plugin']]);
         $auth->setDefault($row['auth_default']);
+
+        // pkp/pkp-lib#5091 Ensure that we can unserialize content with pre-FQCNs
+        if (!class_exists('\AuthSourceDAO')) {
+            class_alias('\PKP\security\AuthSourceDAO', '\AuthSourceDAO');
+        }
+
         $auth->setSettings(unserialize($row['settings']));
         return $auth;
     }
@@ -223,5 +231,11 @@ class AuthSourceDAO extends \PKP\db\DAO
         );
 
         return new DAOResultFactory($result, $this, '_fromRow');
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    if (!class_exists('\AuthSourceDAO')) {
+        class_alias('\PKP\security\AuthSourceDAO', '\AuthSourceDAO');
     }
 }

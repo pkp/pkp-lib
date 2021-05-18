@@ -14,9 +14,11 @@
  */
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
+import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
@@ -26,7 +28,6 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
      */
     public function __construct()
     {
-        import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
         parent::__construct(
             new SubmissionFilesCategoryGridDataProvider(SubmissionFile::SUBMISSION_FILE_FINAL),
             WORKFLOW_STAGE_ID_EDITING,
@@ -35,9 +36,9 @@ class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCateg
 
         $this->addRoleAssignment(
             [
-                ROLE_ID_SUB_EDITOR,
-                ROLE_ID_MANAGER,
-                ROLE_ID_ASSISTANT
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_ASSISTANT
             ],
             [
                 'fetchGrid', 'fetchCategory', 'fetchRow',

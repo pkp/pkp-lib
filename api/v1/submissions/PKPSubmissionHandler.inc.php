@@ -23,6 +23,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\Role;
 
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
@@ -64,9 +65,9 @@ class PKPSubmissionHandler extends APIHandler
 
     /** @var array Roles that can access a submission's production stage */
     public $productionStageAccessRoles = [
-        ROLE_ID_MANAGER,
-        ROLE_ID_SUB_EDITOR,
-        ROLE_ID_ASSISTANT
+        Role::ROLE_ID_MANAGER,
+        Role::ROLE_ID_SUB_EDITOR,
+        Role::ROLE_ID_ASSISTANT
     ];
 
     /**
@@ -80,83 +81,83 @@ class PKPSubmissionHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'getMany'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
                     'handler' => [$this, 'get'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/participants',
                     'handler' => [$this, 'getParticipants'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/participants/{stageId:\d+}',
                     'handler' => [$this, 'getParticipants'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications',
                     'handler' => [$this, 'getPublications'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
                     'handler' => [$this, 'getPublication'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
                 ],
             ],
             'POST' => [
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'add'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications',
                     'handler' => [$this, 'addPublication'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/version',
                     'handler' => [$this, 'versionPublication'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
                 ],
             ],
             'PUT' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
                     'handler' => [$this, 'edit'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
                     'handler' => [$this, 'editPublication'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/publish',
                     'handler' => [$this, 'publishPublication'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/unpublish',
                     'handler' => [$this, 'unpublishPublication'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
                 ],
             ],
             'DELETE' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
                     'handler' => [$this, 'delete'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
                     'handler' => [$this, 'deletePublication'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
                 ],
             ],
         ];
@@ -213,7 +214,7 @@ class PKPSubmissionHandler extends APIHandler
 
         // Only admins and managers may access submissions they are not assigned to
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        $canAccessUnassignedSubmission = !empty(array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $userRoles));
+        $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
         if (!$canAccessUnassignedSubmission) {
             $defaultParams['assignedTo'] = [$currentUser->getId()];
         }
@@ -277,7 +278,7 @@ class PKPSubmissionHandler extends APIHandler
         // Prevent users from viewing submissions they're not assigned to,
         // except for journal managers and admins.
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        $canAccessUnassignedSubmission = !empty(array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $userRoles));
+        $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
         if (!$canAccessUnassignedSubmission && !in_array($currentUser->getId(), $params['assignedTo'])) {
             return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
         }
@@ -734,7 +735,7 @@ class PKPSubmissionHandler extends APIHandler
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $currentUser->getId())) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $currentUser->getId())) {
             return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
         }
 

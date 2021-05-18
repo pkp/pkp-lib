@@ -16,6 +16,7 @@ use PKP\file\FileManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 
 class PKPUploadPublicFileHandler extends APIHandler
 {
@@ -25,7 +26,7 @@ class PKPUploadPublicFileHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = '_uploadPublicFile';
-        $roles = [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT, ROLE_ID_READER];
+        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_READER];
         $this->_endpoints = [
             'OPTIONS' => [
                 [

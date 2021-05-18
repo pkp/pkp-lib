@@ -14,9 +14,11 @@
  */
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
+import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
 class EditorSubmissionDetailsFilesGridHandler extends FileListGridHandler
 {
@@ -25,7 +27,6 @@ class EditorSubmissionDetailsFilesGridHandler extends FileListGridHandler
      */
     public function __construct()
     {
-        import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
         $dataProvider = new SubmissionFilesGridDataProvider(SubmissionFile::SUBMISSION_FILE_SUBMISSION);
         parent::__construct(
             $dataProvider,
@@ -34,7 +35,7 @@ class EditorSubmissionDetailsFilesGridHandler extends FileListGridHandler
         );
 
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
             ['fetchGrid', 'fetchRow']
         );
 

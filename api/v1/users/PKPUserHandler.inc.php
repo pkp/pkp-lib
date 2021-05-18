@@ -16,8 +16,9 @@
 
 use APP\core\Services;
 use PKP\handler\APIHandler;
-
 use PKP\security\authorization\ContextAccessPolicy;
+
+use PKP\security\Role;
 
 class PKPUserHandler extends APIHandler
 {
@@ -27,7 +28,7 @@ class PKPUserHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = 'users';
-        $roles = [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
         $this->_endpoints = [
             'GET' => [
                 [

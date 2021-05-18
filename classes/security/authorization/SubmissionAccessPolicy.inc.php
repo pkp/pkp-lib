@@ -20,6 +20,7 @@ use PKP\security\authorization\internal\ReviewAssignmentAccessPolicy;
 use PKP\security\authorization\internal\SubmissionAuthorPolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
+use PKP\security\Role;
 
 class SubmissionAccessPolicy extends ContextPolicy
 {
@@ -48,18 +49,18 @@ class SubmissionAccessPolicy extends ContextPolicy
         //
         // Managerial role
         //
-        if (isset($roleAssignments[ROLE_ID_MANAGER])) {
+        if (isset($roleAssignments[Role::ROLE_ID_MANAGER])) {
             // Managers have access to all submissions.
-            $submissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
+            $submissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_MANAGER, $roleAssignments[Role::ROLE_ID_MANAGER]));
         }
 
         //
         // Author role
         //
-        if (isset($roleAssignments[ROLE_ID_AUTHOR])) {
+        if (isset($roleAssignments[Role::ROLE_ID_AUTHOR])) {
             // 1) Author role user groups can access whitelisted operations ...
             $authorSubmissionAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $authorSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR], 'user.authorization.authorRoleMissing'));
+            $authorSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_AUTHOR, $roleAssignments[Role::ROLE_ID_AUTHOR], 'user.authorization.authorRoleMissing'));
 
             // 2) ... if they meet one of the following requirements:
             $authorSubmissionAccessOptionsPolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
@@ -78,10 +79,10 @@ class SubmissionAccessPolicy extends ContextPolicy
         //
         // Reviewer role
         //
-        if (isset($roleAssignments[ROLE_ID_REVIEWER])) {
+        if (isset($roleAssignments[Role::ROLE_ID_REVIEWER])) {
             // 1) Reviewers can access whitelisted operations ...
             $reviewerSubmissionAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $reviewerSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_REVIEWER, $roleAssignments[ROLE_ID_REVIEWER]));
+            $reviewerSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_REVIEWER, $roleAssignments[Role::ROLE_ID_REVIEWER]));
 
             // 2) ... but only if they have been assigned to the submission as reviewers.
             $reviewerSubmissionAccessPolicy->addPolicy(new ReviewAssignmentAccessPolicy($request, $permitDeclined));
@@ -91,10 +92,10 @@ class SubmissionAccessPolicy extends ContextPolicy
         //
         // Assistant role
         //
-        if (isset($roleAssignments[ROLE_ID_ASSISTANT])) {
+        if (isset($roleAssignments[Role::ROLE_ID_ASSISTANT])) {
             // 1) Assistants can access whitelisted operations ...
             $contextSubmissionAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $contextSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT]));
+            $contextSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_ASSISTANT, $roleAssignments[Role::ROLE_ID_ASSISTANT]));
 
             // 2) ... but only if they have been assigned to the submission workflow.
             $contextSubmissionAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
@@ -104,10 +105,10 @@ class SubmissionAccessPolicy extends ContextPolicy
         //
         // Sub editor role
         //
-        if (isset($roleAssignments[ROLE_ID_SUB_EDITOR])) {
+        if (isset($roleAssignments[Role::ROLE_ID_SUB_EDITOR])) {
             // 1) Sub editors can access all operations on submissions ...
             $subEditorSubmissionAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $subEditorSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
+            $subEditorSubmissionAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SUB_EDITOR, $roleAssignments[Role::ROLE_ID_SUB_EDITOR]));
 
             // 2b) ... but only if they have been assigned to the requested submission.
             $subEditorSubmissionAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));

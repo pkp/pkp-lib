@@ -17,6 +17,7 @@ use PKP\controllers\grid\plugins\PluginGridHandler;
 use PKP\security\authorization\PluginAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 
 class AdminPluginGridHandler extends PluginGridHandler
 {
@@ -25,7 +26,7 @@ class AdminPluginGridHandler extends PluginGridHandler
      */
     public function __construct()
     {
-        $roles = [ROLE_ID_SITE_ADMIN];
+        $roles = [Role::ROLE_ID_SITE_ADMIN];
 
         $this->addRoleAssignment($roles, ['plugin']);
 

@@ -18,8 +18,9 @@ use APP\core\Services;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
-
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+
+use PKP\security\Role;
 
 abstract class PKPStatsEditorialHandler extends APIHandler
 {
@@ -34,12 +35,12 @@ abstract class PKPStatsEditorialHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'get'],
-                    'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+                    'roles' => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/averages',
                     'handler' => [$this, 'getAverages'],
-                    'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+                    'roles' => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
             ],
         ];

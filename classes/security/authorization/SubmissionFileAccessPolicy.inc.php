@@ -27,6 +27,7 @@ use PKP\security\authorization\internal\SubmissionFileStageRequiredPolicy;
 use PKP\security\authorization\internal\SubmissionFileUploaderAccessPolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 class SubmissionFileAccessPolicy extends ContextPolicy
@@ -83,16 +84,16 @@ class SubmissionFileAccessPolicy extends ContextPolicy
         //
         // Managerial role
         //
-        if (isset($roleAssignments[ROLE_ID_MANAGER])) {
+        if (isset($roleAssignments[Role::ROLE_ID_MANAGER])) {
             // Managers can access all submission files as long as the manager has not
             // been assigned to a lesser role in the stage.
             $managerFileAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $managerFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
+            $managerFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_MANAGER, $roleAssignments[Role::ROLE_ID_MANAGER]));
 
             $stageId = $request->getUserVar('stageId'); // WORKFLOW_STAGE_ID_...
             $managerFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $submissionFileId, $stageId));
             $managerFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
-            $managerFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER], $stageId));
+            $managerFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, Role::ROLE_ID_MANAGER, $roleAssignments[Role::ROLE_ID_MANAGER], $stageId));
 
             $fileAccessPolicy->addPolicy($managerFileAccessPolicy);
         }
@@ -101,16 +102,16 @@ class SubmissionFileAccessPolicy extends ContextPolicy
         //
         // Author role
         //
-        if (isset($roleAssignments[ROLE_ID_AUTHOR])) {
+        if (isset($roleAssignments[Role::ROLE_ID_AUTHOR])) {
             // 1) Author role user groups can access whitelisted operations ...
             $authorFileAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $authorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR]));
+            $authorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_AUTHOR, $roleAssignments[Role::ROLE_ID_AUTHOR]));
 
             // 2) ...if they are assigned to the workflow stage as an author.  Note: This loads the application-specific policy class.
             $stageId = $request->getUserVar('stageId');
             $authorFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
             $authorFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $submissionFileId, $stageId));
-            $authorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_AUTHOR, $roleAssignments[ROLE_ID_AUTHOR], $stageId));
+            $authorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, Role::ROLE_ID_AUTHOR, $roleAssignments[Role::ROLE_ID_AUTHOR], $stageId));
 
             // 3) ...and if they meet one of the following requirements:
             $authorFileAccessOptionsPolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
@@ -156,10 +157,10 @@ class SubmissionFileAccessPolicy extends ContextPolicy
         //
         // Reviewer role
         //
-        if (isset($roleAssignments[ROLE_ID_REVIEWER])) {
+        if (isset($roleAssignments[Role::ROLE_ID_REVIEWER])) {
             // 1) Reviewers can access whitelisted operations ...
             $reviewerFileAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $reviewerFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_REVIEWER, $roleAssignments[ROLE_ID_REVIEWER]));
+            $reviewerFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_REVIEWER, $roleAssignments[Role::ROLE_ID_REVIEWER]));
 
             // 2) ...if they meet one of the following requirements:
             $reviewerFileAccessOptionsPolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
@@ -187,17 +188,17 @@ class SubmissionFileAccessPolicy extends ContextPolicy
         //
         // Assistant role.
         //
-        if (isset($roleAssignments[ROLE_ID_ASSISTANT])) {
+        if (isset($roleAssignments[Role::ROLE_ID_ASSISTANT])) {
             // 1) Assistants can access whitelisted operations...
             $contextAssistantFileAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $contextAssistantFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT]));
+            $contextAssistantFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_ASSISTANT, $roleAssignments[Role::ROLE_ID_ASSISTANT]));
 
             // 2) ... but only if they have been assigned to the submission workflow as an assistant.
             // Note: This loads the application-specific policy class
             $stageId = $request->getUserVar('stageId');
             $contextAssistantFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
             $contextAssistantFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $submissionFileId, $stageId));
-            $contextAssistantFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_ASSISTANT, $roleAssignments[ROLE_ID_ASSISTANT], $stageId));
+            $contextAssistantFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, Role::ROLE_ID_ASSISTANT, $roleAssignments[Role::ROLE_ID_ASSISTANT], $stageId));
 
             // 3) ...and if they meet one of the following requirements:
             $contextAssistantFileAccessOptionsPolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
@@ -217,16 +218,16 @@ class SubmissionFileAccessPolicy extends ContextPolicy
         //
         // Sub editor role
         //
-        if (isset($roleAssignments[ROLE_ID_SUB_EDITOR])) {
+        if (isset($roleAssignments[Role::ROLE_ID_SUB_EDITOR])) {
             // 1) Sub editors can access all operations on submissions ...
             $subEditorFileAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $subEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR]));
+            $subEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SUB_EDITOR, $roleAssignments[Role::ROLE_ID_SUB_EDITOR]));
 
             // 2) ... but only if they have been assigned as a subeditor to the requested submission ...
             $stageId = $request->getUserVar('stageId');
             $subEditorFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
             $subEditorFileAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
-            $subEditorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, ROLE_ID_SUB_EDITOR, $roleAssignments[ROLE_ID_SUB_EDITOR], $stageId));
+            $subEditorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, Role::ROLE_ID_SUB_EDITOR, $roleAssignments[Role::ROLE_ID_SUB_EDITOR], $stageId));
             $subEditorFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $submissionFileId, $stageId));
 
             // 3) ...and if they meet one of the following requirements:

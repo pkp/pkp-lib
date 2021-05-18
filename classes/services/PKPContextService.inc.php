@@ -29,8 +29,9 @@ use PKP\db\DBResultRange;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\HookRegistry;
-
 use PKP\plugins\PluginRegistry;
+
+use PKP\security\Role;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
@@ -407,7 +408,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $user = Application::get()->getRequest()->getUser();
             $validator->after(function ($validator) use ($user) {
                 $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-                if (!$roleDao->userHasRole(CONTEXT_ID_NONE, $user->getId(), ROLE_ID_SITE_ADMIN)) {
+                if (!$roleDao->userHasRole(CONTEXT_ID_NONE, $user->getId(), Role::ROLE_ID_SITE_ADMIN)) {
                     $validator->errors()->add('disableBulkEmailUserGroups', __('admin.settings.disableBulkEmailRoles.adminOnly'));
                 }
             });
@@ -502,7 +503,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
         $userGroupDao->installSettings($context->getId(), 'registry/userGroups.xml');
 
-        $managerUserGroup = $userGroupDao->getDefaultByRoleId($context->getId(), ROLE_ID_MANAGER);
+        $managerUserGroup = $userGroupDao->getDefaultByRoleId($context->getId(), Role::ROLE_ID_MANAGER);
         $userGroupDao->assignUserToGroup($currentUser->getId(), $managerUserGroup->getId());
 
         $fileManager = new FileManager();

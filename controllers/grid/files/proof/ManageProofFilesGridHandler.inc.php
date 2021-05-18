@@ -19,6 +19,7 @@ use PKP\core\JSONMessage;
 use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
@@ -35,7 +36,7 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
         );
 
         $this->addRoleAssignment(
-            [ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER],
+            [Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER],
             [
                 'fetchGrid', 'fetchCategory', 'fetchRow',
                 'addFile', 'downloadFile', 'deleteFile',

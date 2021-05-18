@@ -16,6 +16,7 @@ use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 
@@ -27,7 +28,7 @@ class PKPEmailTemplateHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = 'emailTemplates';
-        $roles = [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER];
+        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER];
         $this->_endpoints = [
             'GET' => [
                 [
@@ -247,7 +248,7 @@ class PKPEmailTemplateHandler extends APIHandler
         // Set the contextId if it has not been npassed or the user is not an admin
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         if (isset($params['contextId'])
-                && !in_array(ROLE_ID_SITE_ADMIN, $userRoles)
+                && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)
                 && $params['contextId'] !== $requestContext->getId()) {
             return $response->withStatus(403)->withJsonError('api.emailTemplates.403.notAllowedChangeContext');
         } elseif (!isset($params['contextId'])) {

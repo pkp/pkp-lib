@@ -20,6 +20,7 @@ use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
 
 class QueryForm extends Form
 {
@@ -243,7 +244,7 @@ class QueryForm extends Form
             $templateKeys = [];
             // Determine if the current user can use any custom templates defined.
             $user = $request->getUser();
-            if (Services::get('user')->userHasRole($user->getId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], $context->getId())) {
+            if (Services::get('user')->userHasRole($user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
                 $emailTemplates = Services::get('emailTemplate')->getMany([
                     'contextId' => $context->getId(),
                     'isCustom' => true,
@@ -290,8 +291,8 @@ class QueryForm extends Form
                 }
 
                 // if current user is editor, add all reviewers
-                if ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([ROLE_ID_MANAGER], $context->getId()) ||
-                        array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $assignedRoles)) {
+                if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) ||
+                        array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $assignedRoles)) {
                     foreach ($reviewAssignments as $reviewAssignment) {
                         $includeUsers[] = $reviewAssignment->getReviewerId();
                     }
@@ -301,7 +302,7 @@ class QueryForm extends Form
                 foreach ($reviewAssignments as $reviewAssignment) {
                     if ($reviewAssignment->getReviewerId() == $user->getId()) {
                         if ($reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {
-                            $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($query->getAssocId(), ROLE_ID_AUTHOR);
+                            $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($query->getAssocId(), Role::ROLE_ID_AUTHOR);
                             while ($assignment = $authorAssignments->next()) {
                                 $excludeUsers[] = $assignment->getUserId();
                             }
@@ -310,7 +311,7 @@ class QueryForm extends Form
                 }
 
                 // if current user is author, add open reviewers who have accepted the request
-                if (array_intersect([ROLE_ID_AUTHOR], $assignedRoles)) {
+                if (array_intersect([Role::ROLE_ID_AUTHOR], $assignedRoles)) {
                     foreach ($reviewAssignments as $reviewAssignment) {
                         if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed()) {
                             $includeUsers[] = $reviewAssignment->getReviewerId();
@@ -428,7 +429,7 @@ class QueryForm extends Form
                     // if participant has no role in this stage and is not a reviewer
                     if (empty($assignedRoles) && empty($reviewAssignments)) {
                         // if participant is current user and the user has admin or manager role, ignore participant
-                        if (($participantId == $user->getId()) && ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([ROLE_ID_MANAGER], $context->getId()))) {
+                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
                             continue;
                         } else {
                             $this->addError('users', __('editor.discussion.errorNotStageParticipant'));
@@ -446,7 +447,7 @@ class QueryForm extends Form
                         }
                     }
                     // if participant is not a blind reviewer and has a role different than editor or assistant
-                    if (!$blindReviewer && !array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], $assignedRoles)) {
+                    if (!$blindReviewer && !array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $assignedRoles)) {
                         $participantsToConsider++;
                     }
                     // if anonymity is impacted, display error
@@ -459,7 +460,7 @@ class QueryForm extends Form
                     // if participant has no role/assignment in the current stage
                     if (empty($assignedRoles)) {
                         // if participant is current user and the user has admin or manager role, ignore participant
-                        if (($participantId == $user->getId()) && ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([ROLE_ID_MANAGER], $context->getId()))) {
+                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
                             continue;
                         } else {
                             $this->addError('users', __('editor.discussion.errorNotStageParticipant'));

@@ -17,15 +17,16 @@
 namespace PKP\core;
 
 use APP\core\Application;
+
 use APP\core\Request;
 use APP\i18n\AppLocale;
 use APP\statistics\StatisticsHelper;
-
 use Exception;
 use PKP\config\Config;
+
 use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
-
+use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
 
 interface iPKPApplicationInfoProvider
@@ -815,14 +816,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public static function getRoleNames($contextOnly = false, $roleIds = null)
     {
-        $siteRoleNames = [ROLE_ID_SITE_ADMIN => 'user.role.siteAdmin'];
+        $siteRoleNames = [Role::ROLE_ID_SITE_ADMIN => 'user.role.siteAdmin'];
         $appRoleNames = [
-            ROLE_ID_MANAGER => 'user.role.manager',
-            ROLE_ID_SUB_EDITOR => 'user.role.subEditor',
-            ROLE_ID_ASSISTANT => 'user.role.assistant',
-            ROLE_ID_AUTHOR => 'user.role.author',
-            ROLE_ID_REVIEWER => 'user.role.reviewer',
-            ROLE_ID_READER => 'user.role.reader',
+            Role::ROLE_ID_MANAGER => 'user.role.manager',
+            Role::ROLE_ID_SUB_EDITOR => 'user.role.subEditor',
+            Role::ROLE_ID_ASSISTANT => 'user.role.assistant',
+            Role::ROLE_ID_AUTHOR => 'user.role.author',
+            Role::ROLE_ID_REVIEWER => 'user.role.reviewer',
+            Role::ROLE_ID_READER => 'user.role.reader',
         ];
         $roleNames = $contextOnly ? $appRoleNames : $siteRoleNames + $appRoleNames;
         if (!empty($roleIds)) {
@@ -840,8 +841,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public static function getWorkflowTypeRoles()
     {
         return [
-            self::WORKFLOW_TYPE_EDITORIAL => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
-            self::WORKFLOW_TYPE_AUTHOR => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR],
+            self::WORKFLOW_TYPE_EDITORIAL => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
+            self::WORKFLOW_TYPE_AUTHOR => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR],
         ];
     }
 

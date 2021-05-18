@@ -26,10 +26,11 @@ use PKP\notification\managerDelegate\EditorAssignmentNotificationManager;
 use PKP\notification\managerDelegate\EditorDecisionNotificationManager;
 use PKP\notification\managerDelegate\EditorialReportNotificationManager;
 use PKP\notification\managerDelegate\PendingRevisionsNotificationManager;
-
 use PKP\notification\managerDelegate\PKPEditingProductionStatusNotificationManager;
+
 use PKP\notification\managerDelegate\QueryNotificationManager;
 use PKP\notification\managerDelegate\SubmissionNotificationManager;
+use PKP\security\Role;
 
 class PKPNotificationManager extends PKPNotificationOperationManager
 {
@@ -167,7 +168,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
 
                 AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // load review round status keys.
                 $user = $request->getUser();
-                $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), ROLE_ID_AUTHOR, null, $user->getId());
+                $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), Role::ROLE_ID_AUTHOR, null, $user->getId());
                 $isAuthor = (bool) $stageAssignments->next();
                 return __($reviewRound->getStatusKey($isAuthor));
             case PKPNotification::NOTIFICATION_TYPE_PAYMENT_REQUIRED:

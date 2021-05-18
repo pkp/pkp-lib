@@ -16,13 +16,23 @@
  * @brief Form for user registration.
  */
 
+namespace PKP\user\form;
+
+use APP\core\Application;
+use APP\i18n\AppLocale;
 use APP\notification\form\NotificationSettingsForm;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\config\Config;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\form\Form;
-
 use PKP\mail\MailTemplate;
+
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
+use PKP\security\Validation;
+use PKP\session\SessionManager;
 use PKP\user\InterestManager;
 
 class RegistrationForm extends Form
@@ -284,7 +294,7 @@ class RegistrationForm extends Form
         // Save the selected roles or assign the Reader role if none selected
         if ($request->getContext() && !$this->getData('reviewerGroup')) {
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-            $defaultReaderGroup = $userGroupDao->getDefaultByRoleId($request->getContext()->getId(), ROLE_ID_READER);
+            $defaultReaderGroup = $userGroupDao->getDefaultByRoleId($request->getContext()->getId(), Role::ROLE_ID_READER);
             if ($defaultReaderGroup) {
                 $userGroupDao->assignUserToGroup($user->getId(), $defaultReaderGroup->getId(), $request->getContext()->getId());
             }
@@ -364,4 +374,8 @@ class RegistrationForm extends Form
             $mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\form\RegistrationForm', '\RegistrationForm');
 }

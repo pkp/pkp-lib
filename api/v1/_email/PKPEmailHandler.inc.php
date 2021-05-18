@@ -21,6 +21,7 @@ use PKP\handler\APIHandler;
 use PKP\mail\Mail;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -40,14 +41,14 @@ class PKPEmailHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'create'],
-                    'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER],
                 ],
             ],
             'PUT' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{queueId}',
                     'handler' => [$this, 'process'],
-                    'roles' => [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER],
                 ],
             ],
         ];

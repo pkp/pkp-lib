@@ -13,12 +13,14 @@
  * @brief Form to edit user's API key settings.
  */
 
+namespace PKP\user\form;
+
+use APP\core\Application;
 use APP\notification\NotificationManager;
 
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
-
-import('lib.pkp.classes.user.form.BaseProfileForm');
+use PKP\config\Config;
 
 use PKP\notification\PKPNotification;
 
@@ -112,4 +114,8 @@ class APIProfileForm extends BaseProfileForm
 
         parent::execute(...$functionArgs);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\form\APIProfileForm', '\APIProfileForm');
 }

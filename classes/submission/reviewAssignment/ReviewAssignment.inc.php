@@ -17,6 +17,8 @@
 
 namespace PKP\submission\reviewAssignment;
 
+use PKP\security\Role;
+
 class ReviewAssignment extends \PKP\core\DataObject
 {
     public const SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT = 1;
@@ -659,7 +661,7 @@ class ReviewAssignment extends \PKP\core\DataObject
         );
         while ($userGroup = $userGroups->next()) {
             $roleId = $userGroup->getRoleId();
-            if ($roleId != ROLE_ID_MANAGER && $roleId != ROLE_ID_SUB_EDITOR) {
+            if ($roleId != Role::ROLE_ID_MANAGER && $roleId != Role::ROLE_ID_SUB_EDITOR) {
                 continue;
             }
 

@@ -14,8 +14,10 @@
  */
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
+import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
+use PKP\security\Role;
 
 class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler
 {
@@ -24,7 +26,6 @@ class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler
      */
     public function __construct()
     {
-        import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
         parent::__construct(
             new FinalDraftFilesGridDataProvider(),
             WORKFLOW_STAGE_ID_EDITING,
@@ -32,7 +33,7 @@ class SelectableFinalDraftFilesGridHandler extends SelectableFileListGridHandler
         );
 
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
             ['fetchGrid', 'fetchRow']
         );
 

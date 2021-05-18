@@ -13,6 +13,13 @@
  * @brief Helper functions for shared user form concerns.
  */
 
+namespace PKP\user\form;
+
+use APP\core\Application;
+use PKP\db\DAORegistry;
+
+use PKP\security\Role;
+
 class UserFormHelper
 {
     /**
@@ -52,9 +59,9 @@ class UserFormHelper
             if ($context->getData('disableUserReg')) {
                 continue;
             }
-            $reviewerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_REVIEWER)->toArray();
-            $authorUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR)->toArray();
-            $readerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_READER)->toArray();
+            $reviewerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), Role::ROLE_ID_REVIEWER)->toArray();
+            $authorUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), Role::ROLE_ID_AUTHOR)->toArray();
+            $readerUserGroups[$context->getId()] = $userGroupDao->getByRoleId($context->getId(), Role::ROLE_ID_READER)->toArray();
         }
         $templateMgr->assign([
             'reviewerUserGroups' => $reviewerUserGroups,
@@ -81,15 +88,15 @@ class UserFormHelper
 
             foreach ([
                 [
-                    'roleId' => ROLE_ID_REVIEWER,
+                    'roleId' => Role::ROLE_ID_REVIEWER,
                     'formElement' => 'reviewerGroup'
                 ],
                 [
-                    'roleId' => ROLE_ID_AUTHOR,
+                    'roleId' => Role::ROLE_ID_AUTHOR,
                     'formElement' => 'authorGroup'
                 ],
                 [
-                    'roleId' => ROLE_ID_READER,
+                    'roleId' => Role::ROLE_ID_READER,
                     'formElement' => 'readerGroup'
                 ],
             ] as $groupData) {
@@ -111,4 +118,8 @@ class UserFormHelper
             }
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\form\UserFormHelper', '\UserFormHelper');
 }

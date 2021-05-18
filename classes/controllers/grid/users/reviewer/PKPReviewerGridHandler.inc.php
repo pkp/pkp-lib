@@ -15,17 +15,13 @@
 
 namespace PKP\controllers\grid\users\reviewer;
 
-// FIXME: Add namespacing
-import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
 use APP\core\Application;
-
-import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
 use APP\core\Services;
-
 use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\Core;
@@ -36,12 +32,18 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
 use PKP\mail\SubmissionMailTemplate;
-
 use PKP\notification\PKPNotification;
+
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
+use PKP\security\Role;
+
+// FIXME: Add namespacing
+import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
 use ReviewerGridCellProvider;
+
+import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
 use ReviewerGridRow;
 
 class PKPReviewerGridHandler extends GridHandler
@@ -71,7 +73,7 @@ class PKPReviewerGridHandler extends GridHandler
         $allOperations = array_merge($this->_getReviewAssignmentOps(), $this->_getReviewRoundOps());
 
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
             $allOperations
         );
 
@@ -83,7 +85,7 @@ class PKPReviewerGridHandler extends GridHandler
         $assistantOperations = array_flip($assistantOperations);
 
         $this->addRoleAssignment(
-            [ROLE_ID_ASSISTANT],
+            [Role::ROLE_ID_ASSISTANT],
             $assistantOperations
         );
 
@@ -118,7 +120,7 @@ class PKPReviewerGridHandler extends GridHandler
             $userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
             $this->_isCurrentUserAssignedAuthor = false;
             foreach ($userAssignedRoles as $stageId => $roles) {
-                if (in_array(ROLE_ID_AUTHOR, $roles)) {
+                if (in_array(Role::ROLE_ID_AUTHOR, $roles)) {
                     $this->_isCurrentUserAssignedAuthor = true;
                     break;
                 }
@@ -454,7 +456,7 @@ class PKPReviewerGridHandler extends GridHandler
         $term = $request->getUserVar('term');
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $users = $userGroupDao->getUsersNotInRole(ROLE_ID_REVIEWER, $context->getId(), $term);
+        $users = $userGroupDao->getUsersNotInRole(Role::ROLE_ID_REVIEWER, $context->getId(), $term);
 
         $userList = [];
         while ($user = $users->next()) {

@@ -13,13 +13,13 @@
  * @brief Operations for retrieving and modifying Role objects.
  */
 
+namespace PKP\security;
+
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
 use PKP\user\UserDAO;
-
-import('lib.pkp.classes.security.Role');
-import('lib.pkp.classes.security.UserGroupAssignment');
 
 class RoleDAO extends DAO
 {
@@ -217,15 +217,15 @@ class RoleDAO extends DAO
     public function getForbiddenStages($roleId = null)
     {
         $forbiddenStages = [
-            ROLE_ID_MANAGER => [
+            Role::ROLE_ID_MANAGER => [
                 // Journal managers should always have all stage selections locked by default.
                 WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION,
             ],
-            ROLE_ID_REVIEWER => [
+            Role::ROLE_ID_REVIEWER => [
                 // Reviewer user groups should only have review stage assignments.
                 WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION,
             ],
-            ROLE_ID_READER => [
+            Role::ROLE_ID_READER => [
                 // Reader user groups should have no stage assignments.
                 WORKFLOW_STAGE_ID_SUBMISSION, WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION,
             ],
@@ -249,7 +249,11 @@ class RoleDAO extends DAO
      */
     public function getAlwaysActiveStages()
     {
-        $alwaysActiveStages = [ROLE_ID_MANAGER];
+        $alwaysActiveStages = [Role::ROLE_ID_MANAGER];
         return $alwaysActiveStages;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\RoleDAO', '\RoleDAO');
 }

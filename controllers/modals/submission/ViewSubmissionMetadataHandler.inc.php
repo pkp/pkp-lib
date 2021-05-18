@@ -13,9 +13,10 @@
  */
 
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
+
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\Role;
 
 class ViewSubmissionMetadataHandler extends handler
 {
@@ -25,7 +26,7 @@ class ViewSubmissionMetadataHandler extends handler
     public function __construct()
     {
         parent::__construct();
-        $this->addRoleAssignment([ROLE_ID_REVIEWER], ['display']);
+        $this->addRoleAssignment([Role::ROLE_ID_REVIEWER], ['display']);
     }
 
     /**

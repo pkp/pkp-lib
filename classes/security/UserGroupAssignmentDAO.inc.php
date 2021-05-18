@@ -18,7 +18,9 @@
  * are ported over to them.
  */
 
-import('lib.pkp.classes.security.UserGroupAssignment');
+namespace PKP\security;
+
+use PKP\db\DAOResultFactory;
 
 class UserGroupAssignmentDAO extends \PKP\db\DAO
 {
@@ -165,4 +167,8 @@ class UserGroupAssignmentDAO extends \PKP\db\DAO
             [(int) $userGroupAssignment->getUserId(), (int) $userGroupAssignment->getUserGroupId()]
         );
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\UserGroupAssignmentDAO', '\UserGroupAssignmentDAO');
 }

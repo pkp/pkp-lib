@@ -20,6 +20,7 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCate
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
+
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
@@ -27,10 +28,10 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
 use PKP\log\SubmissionLog;
-
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
+use PKP\security\Role;
 
 class StageParticipantGridHandler extends CategoryGridHandler
 {
@@ -43,13 +44,13 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
         // Assistants get read-only access
         $this->addRoleAssignment(
-            [ROLE_ID_ASSISTANT],
+            [Role::ROLE_ID_ASSISTANT],
             $peOps = ['fetchGrid', 'fetchCategory', 'fetchRow', 'viewNotify', 'fetchTemplateBody', 'sendNotification']
         );
 
         // Managers and Editors additionally get administrative access
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
             array_merge($peOps, ['addParticipant', 'deleteParticipant', 'saveParticipant', 'fetchUserList'])
         );
         $this->setTitle('editor.submission.stageParticipants');
@@ -102,7 +103,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         // If the current role set includes Manager or Editor, grant.
         return (bool) array_intersect(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
             $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
         );
     }
@@ -284,7 +285,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $this->getStageId()
         );
         while ($userGroup = $userGroups->next()) {
-            if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) {
+            if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
             if (!in_array($userGroup->getId(), $userGroupIds)) {
@@ -352,7 +353,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
 
             $userGroup = $userGroupDao->getById($userGroupId);
-            if ($userGroup->getRoleId() == ROLE_ID_MANAGER) {
+            if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER) {
                 $notificationMgr->updateNotification(
                     $request,
                     (new EditorDecisionActionsManager())->getStageNotifications(),

@@ -16,10 +16,11 @@
 import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
 
 use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
 use PKP\log\EventLogEntry;
-
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
 
 class SubmissionInformationCenterHandler extends InformationCenterHandler
 {
@@ -39,14 +40,14 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
         $userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         if (!empty($userAssignedRoles)) {
             foreach ($userAssignedRoles as $stageId => $roles) {
-                if (array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $roles)) {
+                if (array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $roles)) {
                     $this->_isCurrentUserAssignedEditor = true;
                     break;
                 }
             }
         } else {
             $userGlobalRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-            if (array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $userGlobalRoles)) {
+            if (array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userGlobalRoles)) {
                 $this->_isCurrentUserAssignedEditor = true;
             }
         }
@@ -66,7 +67,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
         $templateMgr = TemplateManager::getManager($request);
         $user = $request->getUser();
         // Do not display the History tab if the user is not a manager or a sub-editor
-        $userHasRole = $user->hasRole([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $this->_submission->getContextId());
+        $userHasRole = $user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $this->_submission->getContextId());
         $templateMgr->assign('removeHistoryTab', !$userHasRole || !$this->_isCurrentUserAssignedEditor);
         return parent::viewInformationCenter($args, $request);
     }

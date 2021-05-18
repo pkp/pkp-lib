@@ -17,15 +17,16 @@ import('lib.pkp.controllers.grid.admin.context.ContextGridRow');
 
 use APP\core\Services;
 use APP\template\TemplateManager;
+
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 
 class ContextGridHandler extends GridHandler
 {
@@ -37,7 +38,7 @@ class ContextGridHandler extends GridHandler
         parent::__construct();
         $this->addRoleAssignment(
             [
-                ROLE_ID_SITE_ADMIN],
+                Role::ROLE_ID_SITE_ADMIN],
             ['fetchGrid', 'fetchRow', 'createContext', 'editContext', 'updateContext', 'users',
                 'deleteContext', 'saveSequence']
         );

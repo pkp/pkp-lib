@@ -17,15 +17,8 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
-
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
-
-/**
- * Global value for 'all' category string value
- */
-define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
-
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\notification\PKPNotification;
@@ -33,6 +26,12 @@ use PKP\plugins\PluginHelper;
 use PKP\security\authorization\PolicySet;
 
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
+
+/**
+ * Global value for 'all' category string value
+ */
+define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 
 class PluginGalleryGridHandler extends GridHandler
 {
@@ -43,11 +42,11 @@ class PluginGalleryGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
             ['fetchGrid', 'fetchRow', 'viewPlugin']
         );
         $this->addRoleAssignment(
-            [ROLE_ID_SITE_ADMIN],
+            [Role::ROLE_ID_SITE_ADMIN],
             ['installPlugin', 'upgradePlugin']
         );
     }

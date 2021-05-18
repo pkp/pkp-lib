@@ -20,6 +20,7 @@ import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 
 use APP\notification\NotificationManager;
+
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
@@ -27,7 +28,7 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-
+use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
 
 class AdminLanguageGridHandler extends LanguageGridHandler
@@ -39,7 +40,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_SITE_ADMIN],
+            [Role::ROLE_ID_SITE_ADMIN],
             [
                 'fetchGrid', 'fetchRow',
                 'installLocale', 'saveInstallLocale', 'uninstallLocale',
@@ -470,6 +471,6 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         $contexts = $contextDao->getAll();
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         [$firstContext, $secondContext] = [$contexts->next(), $contexts->next()];
-        return ($firstContext && !$secondContext && $request->getContext() && in_array(ROLE_ID_MANAGER, $userRoles));
+        return ($firstContext && !$secondContext && $request->getContext() && in_array(Role::ROLE_ID_MANAGER, $userRoles));
     }
 }

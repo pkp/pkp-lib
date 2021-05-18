@@ -15,8 +15,9 @@
  * @brief Describes an authentication source.
  */
 
+namespace PKP\security;
 
-import('lib.pkp.classes.plugins.AuthPlugin');
+use PKP\plugins\AuthPlugin;
 
 class AuthSource extends \PKP\core\DataObject
 {
@@ -144,4 +145,8 @@ class AuthSource extends \PKP\core\DataObject
     {
         $this->setData('authPlugin', $authPlugin);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\AuthSource', '\AuthSource');
 }

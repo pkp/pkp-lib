@@ -23,6 +23,8 @@
 
 namespace PKP\cliTool;
 
+use APP\core\Application;
+
 /** Initialization code */
 define('PWD', getcwd());
 chdir(dirname(INDEX_FILE_LOCATION)); /* Change to base directory */
@@ -32,13 +34,13 @@ if (!defined('STDIN')) {
 define('SESSION_DISABLE_INIT', 1);
 require('./lib/pkp/includes/bootstrap.inc.php');
 
-use APP\core\Application;
 use APP\core\PageRouter;
 use APP\i18n\AppLocale;
-
 use PKP\core\Registry;
+
 use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
+use PKP\security\Role;
 
 if (!isset($argc)) {
     // In PHP < 4.3.0 $argc/$argv are not automatically registered
@@ -127,7 +129,7 @@ class CommandLineTool
 
         if (!$this->user) {
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-            $adminGroups = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SITE_ADMIN);
+            $adminGroups = $userGroupDao->getUserGroupIdsByRoleId(Role::ROLE_ID_SITE_ADMIN);
 
             if (count($adminGroups)) {
                 $groupUsers = $userGroupDao->getUsersById($adminGroups[0])->toArray();

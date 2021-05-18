@@ -15,6 +15,9 @@
  * @brief Class defining operations for AccessKey management.
  */
 
+namespace PKP\db;
+
+use PKP\security\AccessKey;
 
 class AccessKeyManager
 {
@@ -95,4 +98,8 @@ class AccessKeyManager
             $accessKeyDao->deleteExpiredKeys();
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\AccessKeyManager', '\AccessKeyManager');
 }

@@ -18,9 +18,6 @@
 
 namespace PKP\plugins;
 
-define('AUTH_PLUGIN_CATEGORY', 'auth');
-import('lib.pkp.classes.plugins.Plugin');
-
 abstract class AuthPlugin extends Plugin
 {
     /** @var array $settings settings for this plugin instance */

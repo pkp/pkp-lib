@@ -19,16 +19,16 @@ use APP\core\Application;
 use APP\i18n\AppLocale;
 use DateTimeImmutable;
 use PKP\db\DAORegistry;
-
 use PKP\notification\managerDelegate\EditorialReportNotificationManager;
 use PKP\notification\PKPNotification;
 
 use PKP\scheduledTask\ScheduledTask;
+use PKP\security\Role;
 
 class StatisticsReport extends ScheduledTask
 {
     /** @var array List of roles that might be notified */
-    private $_roleIds = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+    private $_roleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
 
     /** @var int Quantity of emails to accept for each batch */
     private $_sleepEvery = 100;

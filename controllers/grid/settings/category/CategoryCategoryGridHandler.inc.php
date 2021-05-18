@@ -25,6 +25,7 @@ use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 
 class CategoryCategoryGridHandler extends CategoryGridHandler
 {
@@ -37,7 +38,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
             [
                 'fetchGrid',
                 'fetchCategory',

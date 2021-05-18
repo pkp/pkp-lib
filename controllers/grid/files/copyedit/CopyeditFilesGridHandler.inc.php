@@ -14,9 +14,11 @@
  */
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
+import('lib.pkp.controllers.grid.files.copyedit.CopyeditFilesGridDataProvider');
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
+use PKP\security\Role;
 
 class CopyeditFilesGridHandler extends FileListGridHandler
 {
@@ -26,17 +28,16 @@ class CopyeditFilesGridHandler extends FileListGridHandler
      */
     public function __construct()
     {
-        import('lib.pkp.controllers.grid.files.copyedit.CopyeditFilesGridDataProvider');
         parent::__construct(
             new CopyeditFilesGridDataProvider(),
             null
         );
         $this->addRoleAssignment(
             [
-                ROLE_ID_SUB_EDITOR,
-                ROLE_ID_MANAGER,
-                ROLE_ID_ASSISTANT,
-                ROLE_ID_AUTHOR,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_AUTHOR,
             ],
             [
                 'fetchGrid', 'fetchRow',
@@ -44,9 +45,9 @@ class CopyeditFilesGridHandler extends FileListGridHandler
         );
         $this->addRoleAssignment(
             [
-                ROLE_ID_SUB_EDITOR,
-                ROLE_ID_MANAGER,
-                ROLE_ID_ASSISTANT
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_ASSISTANT
             ],
             [
                 'selectFiles'
@@ -69,7 +70,7 @@ class CopyeditFilesGridHandler extends FileListGridHandler
     {
         if (0 != count(array_intersect(
             $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
-            [ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR]
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_SUB_EDITOR]
             // Authors may also view this grid, and shouldn't be able to do anything (just view).
         ))) {
             $this->setCapabilities(new FilesGridCapabilities(FilesGridCapabilities::FILE_GRID_EDIT | FilesGridCapabilities::FILE_GRID_MANAGE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_DELETE));

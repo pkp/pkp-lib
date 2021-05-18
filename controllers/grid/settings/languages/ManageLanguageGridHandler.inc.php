@@ -17,10 +17,11 @@ import('lib.pkp.controllers.grid.languages.LanguageGridHandler');
 
 use APP\core\Services;
 use APP\notification\NotificationManager;
-use PKP\core\JSONMessage;
 
+use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 
 class ManageLanguageGridHandler extends LanguageGridHandler
 {
@@ -31,7 +32,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER],
             ['saveLanguageSetting', 'setContextPrimaryLocale', 'reloadLocale', 'fetchGrid', 'fetchRow']
         );
     }

@@ -20,8 +20,9 @@ use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
-
 use PKP\security\authorization\ContextAccessPolicy;
+
+use PKP\security\Role;
 
 import('lib.pkp.controllers.grid.announcements.form.AnnouncementTypeForm');
 
@@ -34,7 +35,7 @@ class AnnouncementTypeGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            ROLE_ID_MANAGER,
+            Role::ROLE_ID_MANAGER,
             [
                 'fetchGrid', 'fetchRow',
                 'addAnnouncementType', 'editAnnouncementType',

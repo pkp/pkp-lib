@@ -17,6 +17,7 @@
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
+use PKP\security\Role;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
@@ -38,7 +39,7 @@ class DependentFilesGridHandler extends FileListGridHandler
         );
 
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
             ['fetchGrid', 'fetchRow']
         );
 

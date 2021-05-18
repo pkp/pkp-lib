@@ -17,6 +17,7 @@
 import('lib.pkp.controllers.grid.eventLog.SubmissionEventLogGridHandler');
 
 use PKP\security\authorization\SubmissionFileAccessPolicy;
+use PKP\security\Role;
 
 class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler
 {
@@ -125,7 +126,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler
         // If the user only has an author role, do not permit access
         // to earlier stages.
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], $userRoles)) {
+        if (array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles)) {
             return 'controllers/grid/eventLog/eventLogGridFilter.tpl';
         }
         return parent::getFilterForm();

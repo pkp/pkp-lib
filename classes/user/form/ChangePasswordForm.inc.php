@@ -13,9 +13,13 @@
  * @brief Form to change a user's password.
  */
 
-use APP\template\TemplateManager;
+namespace PKP\user\form;
 
+use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 use PKP\form\Form;
+
+use PKP\security\Validation;
 
 class ChangePasswordForm extends Form
 {
@@ -116,4 +120,8 @@ class ChangePasswordForm extends Form
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $userDao->updateObject($user);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\form\ChangePasswordForm', '\ChangePasswordForm');
 }

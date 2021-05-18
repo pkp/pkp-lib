@@ -14,11 +14,13 @@
  */
 
 import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridHandler');
+import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
 
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
 
 use PKP\submission\SubmissionFile;
 
@@ -29,7 +31,6 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
      */
     public function __construct()
     {
-        import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
         parent::__construct(
             new SubmissionFilesCategoryGridDataProvider(SubmissionFile::SUBMISSION_FILE_COPYEDIT),
             WORKFLOW_STAGE_ID_EDITING,
@@ -38,9 +39,9 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
 
         $this->addRoleAssignment(
             [
-                ROLE_ID_SUB_EDITOR,
-                ROLE_ID_MANAGER,
-                ROLE_ID_ASSISTANT
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_ASSISTANT
             ],
             [
                 'fetchGrid', 'fetchCategory', 'fetchRow',

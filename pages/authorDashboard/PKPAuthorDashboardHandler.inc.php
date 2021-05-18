@@ -18,6 +18,7 @@ use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
+use PKP\security\Role;
 
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
@@ -35,7 +36,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_AUTHOR],
             [
                 'submission',
                 'readSubmissionEmail',
@@ -153,7 +154,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         }
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $contextUserGroups = $userGroupDao->getByRoleId($submission->getData('contextId'), ROLE_ID_AUTHOR)->toArray();
+        $contextUserGroups = $userGroupDao->getByRoleId($submission->getData('contextId'), Role::ROLE_ID_AUTHOR)->toArray();
         $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
         $stageNotifications = [];
@@ -183,7 +184,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
                     if (in_array($lastDecision, $revisionDecisions)) {
                         $actionArgs['submissionId'] = $submission->getId();
                         $actionArgs['stageId'] = $submission->getData('stageId');
-                        $actionArgs['uploaderRoles'] = ROLE_ID_AUTHOR;
+                        $actionArgs['uploaderRoles'] = Role::ROLE_ID_AUTHOR;
                         $actionArgs['fileStage'] = $fileStage;
                         $actionArgs['reviewRoundId'] = $lastReviewRound->getId();
                         $uploadFileUrl = $request->getDispatcher()->url(
@@ -306,7 +307,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         // Check if current author can edit metadata
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         $canEditPublication = true;
-        if (!in_array(ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
             $canEditPublication = false;
         }
 

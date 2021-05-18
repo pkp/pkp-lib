@@ -20,8 +20,9 @@ namespace PKP\mail;
 use APP\core\Application;
 use PKP\core\Core;
 use PKP\core\PKPString;
-
 use PKP\db\DAORegistry;
+
+use PKP\security\Role;
 
 class SubmissionMailTemplate extends MailTemplate
 {
@@ -169,7 +170,7 @@ class SubmissionMailTemplate extends MailTemplate
      */
     public function toAssignedSubEditors($submissionId, $stageId)
     {
-        return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addRecipient');
+        return $this->_addUsers($submissionId, Role::ROLE_ID_SUB_EDITOR, $stageId, 'addRecipient');
     }
 
     /**
@@ -182,7 +183,7 @@ class SubmissionMailTemplate extends MailTemplate
      */
     public function ccAssignedSubEditors($submissionId, $stageId)
     {
-        return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addCc');
+        return $this->_addUsers($submissionId, Role::ROLE_ID_SUB_EDITOR, $stageId, 'addCc');
     }
 
     /**
@@ -193,7 +194,7 @@ class SubmissionMailTemplate extends MailTemplate
      */
     public function bccAssignedSubEditors($submissionId, $stageId)
     {
-        return $this->_addUsers($submissionId, ROLE_ID_SUB_EDITOR, $stageId, 'addBcc');
+        return $this->_addUsers($submissionId, Role::ROLE_ID_SUB_EDITOR, $stageId, 'addBcc');
     }
 
     /**

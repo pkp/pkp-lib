@@ -15,12 +15,16 @@
  * @brief Operations for retrieving and modifying User Groups and user group assignments
  */
 
+namespace PKP\security;
+
+use PKP\db\DAO;
+use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
+use PKP\plugins\HookRegistry;
 use PKP\user\UserDAO;
-
-import('lib.pkp.classes.security.UserGroup');
-import('lib.pkp.classes.workflow.WorkflowStageDAO');
+use PKP\workflow\WorkflowStageDAO;
+use PKP\xml\PKPXMLParser;
 
 class UserGroupDAO extends DAO
 {
@@ -817,7 +821,7 @@ class UserGroupDAO extends DAO
             $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
 
             // If has manager role then permitMetadataEdit can't be overriden
-            if (in_array($roleId, [ROLE_ID_MANAGER])) {
+            if (in_array($roleId, [Role::ROLE_ID_MANAGER])) {
                 $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
             }
 
@@ -1148,6 +1152,10 @@ class UserGroupDAO extends DAO
      */
     public static function getNotChangeMetadataEditPermissionRoles()
     {
-        return [ROLE_ID_MANAGER];
+        return [Role::ROLE_ID_MANAGER];
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\UserGroupDAO', '\UserGroupDAO');
 }

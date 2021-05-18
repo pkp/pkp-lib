@@ -14,8 +14,9 @@
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-
 use PKP\security\authorization\PKPSiteAccessPolicy;
+
+use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
@@ -36,7 +37,7 @@ class DashboardHandler extends Handler
         parent::__construct();
 
         $this->addRoleAssignment(
-            [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT],
+            [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT],
             ['index', 'tasks', 'myQueue', 'unassigned', 'active', 'archives']
         );
     }
@@ -73,9 +74,9 @@ class DashboardHandler extends Handler
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_submissions');
         $lists = [];
 
-        $includeIssuesFilter = array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], $userRoles);
-        $includeAssignedEditorsFilter = array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $userRoles);
-        $includeCategoriesFilter = array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], $userRoles);
+        $includeIssuesFilter = array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles);
+        $includeAssignedEditorsFilter = array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles);
+        $includeCategoriesFilter = array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles);
 
         // Get all available categories
         $categories = [];
@@ -110,7 +111,7 @@ class DashboardHandler extends Handler
         ]);
         $lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
 
-        if (!empty(array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $userRoles))) {
+        if (!empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles))) {
 
             // Unassigned
             $unassignedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
@@ -154,7 +155,7 @@ class DashboardHandler extends Handler
         $params = [
             'status' => [PKPSubmission::STATUS_DECLINED, PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED],
         ];
-        if (empty(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN], $userRoles))) {
+        if (empty(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
             $params['assignedTo'] = (int) $currentUser->getId();
         }
         $archivedListPanel = new \APP\components\listPanels\SubmissionsListPanel(

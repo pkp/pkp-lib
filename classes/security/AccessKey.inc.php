@@ -20,6 +20,8 @@
  * @brief AccessKey class.
  */
 
+namespace PKP\security;
+
 class AccessKey extends \PKP\core\DataObject
 {
     //
@@ -124,4 +126,8 @@ class AccessKey extends \PKP\core\DataObject
     {
         $this->setData('expiryDate', $expiryDate);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\AccessKey', '\AccessKey');
 }

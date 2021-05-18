@@ -16,11 +16,12 @@
 use APP\core\Services;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
-
 use APP\template\TemplateManager;
+
 use PKP\form\Form;
 use PKP\log\EventLogEntry;
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
 
 abstract class PKPStageParticipantNotifyForm extends Form
 {
@@ -82,7 +83,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
         // Determine if the current user can use any custom templates defined.
         $user = $request->getUser();
         $customTemplateKeys = [];
-        if (Services::get('user')->userHasRole($user->getId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT], $submission->getData('contextId'))) {
+        if (Services::get('user')->userHasRole($user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $submission->getData('contextId'))) {
             $emailTemplates = Services::get('emailTemplate')->getMany([
                 'contextId' => $submission->getData('contextId'),
                 'isCustom' => true,

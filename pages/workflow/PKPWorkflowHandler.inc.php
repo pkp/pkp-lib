@@ -22,6 +22,7 @@ use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
+use PKP\security\Role;
 
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
@@ -134,7 +135,7 @@ abstract class PKPWorkflowHandler extends Handler
         $authorUserGroups = [];
         $workflowUserGroups = [];
         while ($userGroup = $result->next()) {
-            if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
+            if ($userGroup->getRoleId() == Role::ROLE_ID_AUTHOR) {
                 $authorUserGroups[] = $userGroup;
             }
             if (in_array((int) $userGroup->getRoleId(), $editorialWorkflowRoles)) {
@@ -155,7 +156,7 @@ abstract class PKPWorkflowHandler extends Handler
         $canPublish = false; // Ability to publish, unpublish and create versions
         $canAccessEditorialHistory = false; // Access to activity log
         // unassigned managers
-        if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES), [ROLE_ID_MANAGER])) {
+        if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES), [Role::ROLE_ID_MANAGER])) {
             $canAccessProduction = true;
             $canPublish = true;
             $canAccessPublication = true;
@@ -175,7 +176,7 @@ abstract class PKPWorkflowHandler extends Handler
             // for the production workflow stage. An unassigned admin or manager may
             // have been granted access and should be allowed to publish.
             if (empty($result) && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
-                $canPublish = (bool) array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
+                $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
 
             // Otherwise, check stage assignments
             // "Recommend only" stage assignments can not publish
@@ -191,7 +192,7 @@ abstract class PKPWorkflowHandler extends Handler
                 }
             }
         }
-        if (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $accessibleWorkflowStages[$currentStageId])) {
+        if (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $accessibleWorkflowStages[$currentStageId])) {
             $canAccessEditorialHistory = true;
         }
 
@@ -548,7 +549,7 @@ abstract class PKPWorkflowHandler extends Handler
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
             $userGroups = $userGroupDao->getByUserId($user->getId(), $request->getContext()->getId());
             while ($userGroup = $userGroups->next()) {
-                if (in_array($userGroup->getRoleId(), [ROLE_ID_MANAGER])) {
+                if (in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER])) {
                     if (!$userGroup->getRecommendOnly()) {
                         $makeDecision = true;
                     } else {

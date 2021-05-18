@@ -17,12 +17,13 @@
  */
 
 use APP\handler\Handler;
+
 use PKP\core\JSONMessage;
 use PKP\file\FileArchive;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
-
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 class FileApiHandler extends Handler
@@ -34,7 +35,7 @@ class FileApiHandler extends Handler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
             ['downloadFile', 'downloadLibraryFile', 'downloadAllFiles', 'recordDownload', 'enableLinkAction']
         );
     }

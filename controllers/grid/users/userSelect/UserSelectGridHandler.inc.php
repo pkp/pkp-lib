@@ -18,6 +18,7 @@ use PKP\controllers\grid\feature\InfiniteScrollingFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
+use PKP\security\Role;
 
 import('lib.pkp.controllers.grid.users.userSelect.UserSelectGridCellProvider');
 
@@ -33,7 +34,7 @@ class UserSelectGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT],
+            [Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT],
             ['fetchGrid', 'fetchRows']
         );
     }
@@ -79,7 +80,7 @@ class UserSelectGridHandler extends GridHandler
         $this->_userGroupOptions = [];
         while ($userGroup = $userGroups->next()) {
             // Exclude reviewers.
-            if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) {
+            if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
             $this->_userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();

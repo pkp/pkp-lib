@@ -15,8 +15,10 @@
  * @brief Operations for retrieving and modifying AccessKey objects.
  */
 
+namespace PKP\security;
 
-import('lib.pkp.classes.security.AccessKey');
+use PKP\core\Core;
+use PKP\plugins\HookRegistry;
 
 class AccessKeyDAO extends \PKP\db\DAO
 {
@@ -232,4 +234,8 @@ class AccessKeyDAO extends \PKP\db\DAO
     {
         return $this->_getInsertId('access_keys', 'access_key_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\AccessKeyDAO', '\AccessKeyDAO');
 }

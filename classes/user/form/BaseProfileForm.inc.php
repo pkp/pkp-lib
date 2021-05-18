@@ -13,6 +13,11 @@
  * @brief Base form to edit an aspect of user profile.
  */
 
+namespace PKP\user\form;
+
+use APP\core\Application;
+use PKP\db\DAORegistry;
+
 use PKP\form\Form;
 
 abstract class BaseProfileForm extends Form
@@ -66,4 +71,8 @@ abstract class BaseProfileForm extends Form
             $auth->doSetUserInfo($user);
         }
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\form\BaseProfileForm', '\BaseProfileForm');
 }

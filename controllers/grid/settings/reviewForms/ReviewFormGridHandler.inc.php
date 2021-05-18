@@ -22,15 +22,16 @@ import('lib.pkp.controllers.grid.settings.reviewForms.form.PreviewReviewForm');
 
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 
 class ReviewFormGridHandler extends GridHandler
 {
@@ -41,7 +42,7 @@ class ReviewFormGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER],
             ['fetchGrid', 'fetchRow', 'createReviewForm', 'editReviewForm', 'updateReviewForm',
                 'reviewFormBasics', 'reviewFormElements', 'copyReviewForm',
                 'reviewFormPreview', 'activateReviewForm', 'deactivateReviewForm', 'deleteReviewForm',

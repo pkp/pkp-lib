@@ -22,9 +22,10 @@ use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\mail\SubmissionMailTemplate;
-
 use PKP\notification\PKPNotification;
+
 use PKP\plugins\HookRegistry;
+use PKP\security\Role;
 
 class ReviewerAction
 {
@@ -118,7 +119,7 @@ class ReviewerAction
         $context = $request->getContext();
         while ($stageAssignment = $stageAssignments->next()) {
             $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-            if (!in_array($userGroup->getRoleId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR])) {
+            if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
                 continue;
             }
 

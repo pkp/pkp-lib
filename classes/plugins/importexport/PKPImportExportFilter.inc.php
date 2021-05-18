@@ -13,9 +13,13 @@
  * @brief Base helper class for import/export filters
  */
 
-use PKP\filter\PersistableFilter;
+namespace PKP\classes\plugins\importexport;
 
-// use NativeExportFilter; // FIXME: Add namespacing
+use NativeExportFilter;
+use PKP\db\DAORegistry;
+
+// FIXME: Add namespacing
+use PKP\filter\PersistableFilter;
 
 class PKPImportExportFilter extends PersistableFilter
 {
@@ -80,4 +84,8 @@ class PKPImportExportFilter extends PersistableFilter
 
         return $currentFilter;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\classes\plugins\importexport\PKPImportExportFilter', '\PKPImportExportFilter');
 }

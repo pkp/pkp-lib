@@ -14,6 +14,7 @@
  * @brief Mock implementation of the Validation class for the PKPPageRouterTest
  */
 
+namespace PKP\security;
 
 class Validation
 {

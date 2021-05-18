@@ -18,6 +18,7 @@ import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 
 use APP\notification\NotificationManager;
 use APP\user\UserAction;
+
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\GridColumn;
@@ -27,8 +28,8 @@ use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
-
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 use PKP\user\UserDAO;
 
 class UserGridHandler extends GridHandler
@@ -44,7 +45,7 @@ class UserGridHandler extends GridHandler
         parent::__construct();
         $this->addRoleAssignment(
             [
-                ROLE_ID_MANAGER, ROLE_ID_SITE_ADMIN],
+                Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
             ['fetchGrid', 'fetchRow', 'editUser', 'updateUser', 'updateUserRoles',
                 'editDisableUser', 'disableUser', 'removeUser', 'addUser',
                 'editEmail', 'sendEmail', 'mergeUsers']
@@ -537,9 +538,9 @@ class UserGridHandler extends GridHandler
 
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         if (
-            !$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
+            !$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
                 $context &&
-                $roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER)
+                $roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)
             )
         ) {
             // We don't have administrative rights over this user.
@@ -572,9 +573,9 @@ class UserGridHandler extends GridHandler
 
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         if (
-            !$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), ROLE_ID_SITE_ADMIN) && !(
+            !$roleDao->userHasRole(CONTEXT_SITE, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
                 $context &&
-                $roleDao->userHasRole($context->getId(), $user->getId(), ROLE_ID_MANAGER)
+                $roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)
             )
         ) {
             // We don't have administrative rights over this user.

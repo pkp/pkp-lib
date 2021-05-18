@@ -20,8 +20,9 @@ define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-
 use PKP\notification\PKPNotification;
+
+use PKP\security\Role;
 
 class PKPToolsHandler extends ManagementHandler
 {
@@ -35,7 +36,7 @@ class PKPToolsHandler extends ManagementHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            ROLE_ID_MANAGER,
+            Role::ROLE_ID_MANAGER,
             ['tools', 'importexport', 'permissions']
         );
     }

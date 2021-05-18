@@ -17,6 +17,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 
 class SetupGridHandler extends GridHandler
 {
@@ -27,7 +28,7 @@ class SetupGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER],
             ['uploadImage']
         );
     }

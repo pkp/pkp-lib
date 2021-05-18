@@ -13,9 +13,11 @@
  * @brief Handle review attachment grid requests in open reviews (author's perspective)
  */
 
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
+import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
 
 class AuthorOpenReviewAttachmentsGridHandler extends FileListGridHandler
 {
@@ -24,7 +26,6 @@ class AuthorOpenReviewAttachmentsGridHandler extends FileListGridHandler
      */
     public function __construct()
     {
-        import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');
         // Pass in null stageId to be set in initialize from request var.
         // Show also files that are not viewable by default
         parent::__construct(
@@ -33,7 +34,7 @@ class AuthorOpenReviewAttachmentsGridHandler extends FileListGridHandler
         );
 
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
             ['fetchGrid', 'fetchRow']
         );
     }

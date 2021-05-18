@@ -15,10 +15,11 @@
 
 use APP\core\Request;
 use APP\handler\Handler;
-
 use APP\statistics\StatisticsHelper;
+
 use APP\template\TemplateManager;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
 
 class PKPStatsHandler extends Handler
@@ -33,7 +34,7 @@ class PKPStatsHandler extends Handler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+            [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
             ['editorial', 'publications', 'users', 'reports']
         );
     }

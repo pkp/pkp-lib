@@ -20,11 +20,12 @@ use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\Core;
-
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
+
 use PKP\notification\PKPNotification;
 use PKP\reviewForm\ReviewFormElement;
+use PKP\security\Role;
 use PKP\submission\SubmissionComment;
 
 // FIXME: Add namespacing
@@ -159,7 +160,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $submission->getContextId());
 
             // Never send reviewer comment notification to users other than mangers and editors.
-            if (!in_array($userGroup->getRoleId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]) || in_array($userId, $receivedList)) {
+            if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || in_array($userId, $receivedList)) {
                 continue;
             }
 
@@ -300,7 +301,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 }
 
                 $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
-                $comment->setRoleId(ROLE_ID_REVIEWER);
+                $comment->setRoleId(Role::ROLE_ID_REVIEWER);
                 $comment->setAssocId($reviewAssignment->getId());
                 $comment->setSubmissionId($reviewAssignment->getSubmissionId());
                 $comment->setAuthorId($reviewAssignment->getReviewerId());
@@ -329,7 +330,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 }
 
                 $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
-                $comment->setRoleId(ROLE_ID_REVIEWER);
+                $comment->setRoleId(Role::ROLE_ID_REVIEWER);
                 $comment->setAssocId($reviewAssignment->getId());
                 $comment->setSubmissionId($reviewAssignment->getSubmissionId());
                 $comment->setAuthorId($reviewAssignment->getReviewerId());

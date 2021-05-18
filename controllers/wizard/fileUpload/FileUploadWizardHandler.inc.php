@@ -25,8 +25,9 @@ use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\ReviewAssignmentFileWritePolicy;
 use PKP\security\authorization\ReviewStageAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
-
 use PKP\security\authorization\WorkflowStageAccessPolicy;
+
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 class FileUploadWizardHandler extends Handler
@@ -63,7 +64,7 @@ class FileUploadWizardHandler extends Handler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT],
             [
                 'startWizard', 'displayFileUploadForm',
                 'uploadFile',

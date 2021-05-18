@@ -22,10 +22,11 @@ use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
-
 use PKP\db\DAORegistry;
+
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
+use PKP\security\Role;
 use PKP\submission\SubmissionComment;
 
 // FIXME: Add namespacing
@@ -56,7 +57,7 @@ class PKPEditorDecisionHandler extends Handler
         if (in_array($operation, $reviewRoundOps)) {
             $userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
             foreach ($userAccessibleStages as $stageId => $roles) {
-                if (in_array(ROLE_ID_AUTHOR, $roles)) {
+                if (in_array(Role::ROLE_ID_AUTHOR, $roles)) {
                     return false;
                 }
             }
@@ -550,7 +551,7 @@ class PKPEditorDecisionHandler extends Handler
             // Get a list of author user IDs
             $authorUserIds = [];
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-            $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+            $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR);
             while ($assignment = $submitterAssignments->next()) {
                 $authorUserIds[] = $assignment->getUserId();
             }

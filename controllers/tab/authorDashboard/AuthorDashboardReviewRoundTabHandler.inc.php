@@ -19,11 +19,12 @@ import('pages.authorDashboard.AuthorDashboardHandler');
 use APP\notification\Notification;
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
-use PKP\core\JSONMessage;
 
+use PKP\core\JSONMessage;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
+use PKP\security\Role;
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
 {
@@ -36,7 +37,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
     public function __construct()
     {
         parent::__construct();
-        $this->addRoleAssignment([ROLE_ID_AUTHOR], ['fetchReviewRoundInfo']);
+        $this->addRoleAssignment([Role::ROLE_ID_AUTHOR], ['fetchReviewRoundInfo']);
     }
 
 

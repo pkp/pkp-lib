@@ -18,6 +18,7 @@ namespace PKP\security\authorization\internal;
 
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
@@ -44,7 +45,7 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
         // attached to an anonymous review
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         foreach ($userRoles as $stageRoles) {
-            if (in_array(ROLE_ID_AUTHOR, $stageRoles)) {
+            if (in_array(Role::ROLE_ID_AUTHOR, $stageRoles)) {
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
                 if ($reviewAssignment && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {

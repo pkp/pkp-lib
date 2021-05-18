@@ -15,9 +15,10 @@
 
 use APP\handler\Handler;
 use APP\statistics\StatisticsHelper;
-use PKP\core\JSONMessage;
 
+use PKP\core\JSONMessage;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
 
 class ReportGeneratorHandler extends Handler
@@ -29,7 +30,7 @@ class ReportGeneratorHandler extends Handler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            ROLE_ID_MANAGER,
+            Role::ROLE_ID_MANAGER,
             ['fetchReportGenerator', 'saveReportGenerator', 'fetchArticlesInfo', 'fetchRegions']
         );
     }

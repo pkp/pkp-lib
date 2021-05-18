@@ -18,6 +18,7 @@ use APP\core\Services;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 
 use PKP\services\interfaces\EntityWriteInterface;
 
@@ -35,8 +36,8 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
                     'pattern' => $rootPattern,
                     'handler' => [$this, 'edit'],
                     'roles' => [
-                        ROLE_ID_SITE_ADMIN,
-                        ROLE_ID_MANAGER,
+                        Role::ROLE_ID_SITE_ADMIN,
+                        Role::ROLE_ID_MANAGER,
                     ],
                 ],
             ],

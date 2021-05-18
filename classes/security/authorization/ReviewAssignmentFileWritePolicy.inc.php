@@ -17,6 +17,7 @@
 namespace PKP\security\authorization;
 
 use PKP\db\DAORegistry;
+use PKP\security\Role;
 
 class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
 {
@@ -74,7 +75,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
         }
 
         // Managers can write review attachments when they are not assigned to a submission
-        if (empty($stageAssignments) && in_array(ROLE_ID_MANAGER, $userRoles)) {
+        if (empty($stageAssignments) && in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
             $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
@@ -82,7 +83,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
         // Managers, editors and assistants can write review attachments when they are assigned
         // to the correct stage.
         if (!empty($assignedStages[$reviewRound->getStageId()])) {
-            $allowedRoles = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT];
+            $allowedRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
             if (!empty(array_intersect($allowedRoles, $assignedStages[$reviewRound->getStageId()]))) {
                 $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;

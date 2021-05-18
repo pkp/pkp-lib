@@ -20,8 +20,9 @@ use APP\core\Services;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
-
 use PKP\security\authorization\SubmissionFileAccessPolicy;
+
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
@@ -67,7 +68,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 
         // Managers can access file stages when not assigned or when assigned as a manager
         if (empty($stageAssignments)) {
-            if (in_array(ROLE_ID_MANAGER, $userRoles)) {
+            if (in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
             return AuthorizationPolicy::AUTHORIZATION_DENY;
@@ -81,7 +82,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
         if ($this->_fileStage === SubmissionFile::SUBMISSION_FILE_SUBMISSION && $this->_action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY) {
             if (!empty($stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION])
                     && count($stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION]) === 1
-                    && in_array(ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION])
+                    && in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_SUBMISSION])
                     && $submission->getData('submissionProgress') > 0) {
                 $assignedFileStages[] = SubmissionFile::SUBMISSION_FILE_SUBMISSION;
             }
@@ -94,7 +95,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                 ? WORKFLOW_STAGE_ID_INTERNAL_REVIEW
                 : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
 
-            if (count($stageAssignments[$reviewStage]) === 1 && in_array(ROLE_ID_AUTHOR, $stageAssignments[$reviewStage])) {
+            if (count($stageAssignments[$reviewStage]) === 1 && in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[$reviewStage])) {
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $reviewStage);
                 if ($reviewRound) {

@@ -17,6 +17,7 @@ use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
 
 use PKP\submission\action\EditorAction;
 use PKP\submission\reviewRound\ReviewRound;
@@ -189,7 +190,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 // Notify any authors that this needs payment.
                 $notificationMgr = new NotificationManager();
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null);
+                $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR, null);
                 $userIds = [];
                 while ($stageAssignment = $stageAssignments->next()) {
                     if (!in_array($stageAssignment->getUserId(), $userIds)) {

@@ -21,14 +21,15 @@ use APP\template\TemplateManager;
 use NavigationMenuItemHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-
 use PKP\navigationMenu\NavigationMenu;
 use PKP\navigationMenu\NavigationMenuItem;
+
 use PKP\navigationMenu\NavigationMenuItemAssignment;
+use PKP\plugins\HookRegistry;
+use PKP\security\Role;
 
 // FIXME: Add namespaces
-use PKP\plugins\HookRegistry;
-use Validation;
+use PKP\security\Validation;
 
 class PKPNavigationMenuService
 {
@@ -184,7 +185,7 @@ class PKPNavigationMenuService
                 $navigationMenuItem->setIsDisplayed($isUserLoggedIn);
                 break;
             case NavigationMenuItem::NMI_TYPE_ADMINISTRATION:
-                $navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE));
+                $navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE));
                 break;
             case NavigationMenuItem::NMI_TYPE_SEARCH:
                 $navigationMenuItem->setIsDisplayed($context);
@@ -205,7 +206,7 @@ class PKPNavigationMenuService
                     break;
                 case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
                     $templateMgr->assign('navigationMenuItem', $navigationMenuItem);
-                    if ($currentUser->hasRole([ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE)) {
+                    if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE)) {
                         $displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
                         $navigationMenuItem->setTitle($displayTitle, AppLocale::getLocale());
                     }
@@ -295,7 +296,7 @@ class PKPNavigationMenuService
                     ));
                     break;
                 case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
-                    if ($currentUser->hasRole([ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE)) {
+                    if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE)) {
                         $navigationMenuItem->setUrl($dispatcher->url(
                             $request,
                             PKPApplication::ROUTE_PAGE,

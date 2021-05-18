@@ -14,9 +14,11 @@
  */
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
+use PKP\security\Role;
 use PKP\submission\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
+import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 
 class AuthorReviewRevisionsGridHandler extends FileListGridHandler
 {
@@ -27,7 +29,6 @@ class AuthorReviewRevisionsGridHandler extends FileListGridHandler
     {
         $stageId = (int) Application::get()->getRequest()->getUserVar('stageId');
         $fileStage = $stageId === WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION : SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION;
-        import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
         parent::__construct(
             new ReviewGridDataProvider($fileStage),
             null,
@@ -35,7 +36,7 @@ class AuthorReviewRevisionsGridHandler extends FileListGridHandler
         );
 
         $this->addRoleAssignment(
-            [ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_AUTHOR],
             ['fetchGrid', 'fetchRow']
         );
 

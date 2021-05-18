@@ -17,6 +17,7 @@ import('lib.pkp.controllers.grid.files.SelectableSubmissionFileListCategoryGridH
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
+use PKP\security\Role;
 
 class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
 {
@@ -36,9 +37,9 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
 
         $this->addRoleAssignment(
             [
-                ROLE_ID_SUB_EDITOR,
-                ROLE_ID_MANAGER,
-                ROLE_ID_ASSISTANT
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_ASSISTANT
             ],
             [
                 'fetchGrid', 'fetchCategory', 'fetchRow',

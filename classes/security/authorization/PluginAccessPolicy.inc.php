@@ -16,6 +16,7 @@ namespace PKP\security\authorization;
 
 use PKP\security\authorization\internal\PluginLevelRequiredPolicy;
 use PKP\security\authorization\internal\PluginRequiredPolicy;
+use PKP\security\Role;
 
 class PluginAccessPolicy extends PolicySet
 {
@@ -45,11 +46,11 @@ class PluginAccessPolicy extends PolicySet
         //
         // Managerial role
         //
-        if (isset($roleAssignments[ROLE_ID_MANAGER])) {
+        if (isset($roleAssignments[Role::ROLE_ID_MANAGER])) {
             if ($accessMode & self::ACCESS_MODE_MANAGE) {
                 // Managers have edit settings access mode...
                 $managerPluginAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-                $managerPluginAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_MANAGER, $roleAssignments[ROLE_ID_MANAGER]));
+                $managerPluginAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_MANAGER, $roleAssignments[Role::ROLE_ID_MANAGER]));
 
                 // ...only to context-level plugins.
                 $managerPluginAccessPolicy->addPolicy(new PluginLevelRequiredPolicy($request, true));
@@ -61,10 +62,10 @@ class PluginAccessPolicy extends PolicySet
         //
         // Site administrator role
         //
-        if (isset($roleAssignments[ROLE_ID_SITE_ADMIN])) {
+        if (isset($roleAssignments[Role::ROLE_ID_SITE_ADMIN])) {
             // Site admin have access to all plugins...
             $siteAdminPluginAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
-            $siteAdminPluginAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SITE_ADMIN, $roleAssignments[ROLE_ID_SITE_ADMIN]));
+            $siteAdminPluginAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SITE_ADMIN, $roleAssignments[Role::ROLE_ID_SITE_ADMIN]));
 
             if ($accessMode & self::ACCESS_MODE_MANAGE) {
                 // ...of site level only.

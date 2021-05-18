@@ -27,8 +27,9 @@ use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
-
 use PKP\plugins\PluginRegistry;
+
+use PKP\security\Role;
 use PKP\site\VersionCheck;
 
 // FIXME: Add namespacing
@@ -57,7 +58,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
         );
 
         $this->addRoleAssignment(
-            ROLE_ID_SITE_ADMIN,
+            Role::ROLE_ID_SITE_ADMIN,
             ['uploadPlugin', 'upgradePlugin', 'deletePlugin', 'saveUploadPlugin', 'uploadPluginFile']
         );
 
@@ -126,7 +127,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
 
         // Grid level actions.
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+        if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
 
             // Install plugin.
             $this->addAction(

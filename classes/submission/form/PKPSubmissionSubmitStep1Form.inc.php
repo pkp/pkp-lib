@@ -19,11 +19,12 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\i18n\AppLocale;
 use APP\publication\Publication;
-
 use APP\template\TemplateManager;
+
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
@@ -125,11 +126,11 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
         $userGroupNames = [];
 
         // List existing user roles
-        $managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_MANAGER)->toArray();
-        $authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), ROLE_ID_AUTHOR)->toArray();
+        $managerUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), Role::ROLE_ID_MANAGER)->toArray();
+        $authorUserGroupAssignments = $userGroupAssignmentDao->getByUserId($user->getId(), $this->context->getId(), Role::ROLE_ID_AUTHOR)->toArray();
 
         // List available author roles
-        $availableAuthorUserGroups = $userGroupDao->getUserGroupsByStage($this->context->getId(), WORKFLOW_STAGE_ID_SUBMISSION, ROLE_ID_AUTHOR);
+        $availableAuthorUserGroups = $userGroupDao->getUserGroupsByStage($this->context->getId(), WORKFLOW_STAGE_ID_SUBMISSION, Role::ROLE_ID_AUTHOR);
         $availableUserGroupNames = [];
         while ($authorUserGroup = $availableAuthorUserGroups->next()) {
             if ($authorUserGroup->getPermitSelfRegistration()) {
@@ -138,7 +139,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
         }
 
         // Set default group to default author group
-        $defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_AUTHOR);
+        $defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), Role::ROLE_ID_AUTHOR);
         $noExistingRoles = false;
         $managerGroups = false;
 
@@ -152,7 +153,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
             $userGroupNames = array_replace($userGroupNames, $availableUserGroupNames);
 
             // Set default group to default manager group
-            $defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), ROLE_ID_MANAGER);
+            $defaultGroup = $userGroupDao->getDefaultByRoleId($this->context->getId(), Role::ROLE_ID_MANAGER);
 
         // else if the user only has existing author roles, add to selection
         } elseif (!empty($authorUserGroupAssignments)) {

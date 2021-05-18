@@ -23,6 +23,7 @@ use APP\workflow\EditorDecisionActionsManager;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
 use PKP\workflow\WorkflowStageDAO;
 
 class PendingRevisionsNotificationManager extends NotificationManagerDelegate
@@ -81,7 +82,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
         $uploadFileAction = new AddRevisionLinkAction(
             $request,
             $lastReviewRound,
-            [ROLE_ID_AUTHOR]
+            [Role::ROLE_ID_AUTHOR]
         );
 
         return $this->fetchLinkActionNotificationContent($uploadFileAction, $request);

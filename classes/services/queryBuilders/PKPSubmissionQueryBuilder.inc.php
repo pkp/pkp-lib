@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB as DB;
 use PKP\core\Core;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
+use PKP\security\Role;
 use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 use PKP\submission\PKPSubmissionDAO;
 
@@ -396,7 +397,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface
                 ->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
                 ->leftJoin('user_groups', 'stage_assignments.user_group_id', '=', 'user_groups.user_group_id')
                 ->where('stage_assignments.submission_id', '=', DB::raw('s.submission_id'))
-                ->whereIn('user_groups.role_id', [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]);
+                ->whereIn('user_groups.role_id', [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
 
             $q->whereNotNull('s.date_submitted')
                 ->mergeBindings($sub)

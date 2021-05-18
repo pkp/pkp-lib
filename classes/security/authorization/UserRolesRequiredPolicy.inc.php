@@ -16,8 +16,9 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
-
 use PKP\db\DAORegistry;
+
+use PKP\security\Role;
 
 class UserRolesRequiredPolicy extends AuthorizationPolicy
 {
@@ -90,15 +91,15 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
         // Check if user has site level or manager roles.
         if ($contextDepth > 0) {
             if (array_key_exists(CONTEXT_ID_NONE, $userRoles) &&
-            array_key_exists(ROLE_ID_SITE_ADMIN, $userRoles[CONTEXT_ID_NONE])) {
+            array_key_exists(Role::ROLE_ID_SITE_ADMIN, $userRoles[CONTEXT_ID_NONE])) {
                 // site level role
-                $contextRoles[] = ROLE_ID_SITE_ADMIN;
+                $contextRoles[] = Role::ROLE_ID_SITE_ADMIN;
             }
             if ($contextDepth == 2 &&
                 array_key_exists(CONTEXT_ID_NONE, $userRoles[$workingRoleContext[0]]) &&
-                array_key_exists(ROLE_ID_MANAGER, $userRoles[$workingRoleContext[0]][CONTEXT_ID_NONE])) {
+                array_key_exists(Role::ROLE_ID_MANAGER, $userRoles[$workingRoleContext[0]][CONTEXT_ID_NONE])) {
                 // This is a main context managerial role (i.e. conference-level).
-                $contextRoles[] = ROLE_ID_MANAGER;
+                $contextRoles[] = Role::ROLE_ID_MANAGER;
             }
         } else {
             // Application has no context.

@@ -23,6 +23,8 @@
  *  Delete Q   All       All	     If Blank	If Blank    If Blank
  */
 
+use PKP\security\Role;
+
 class QueriesAccessHelper
 {
     /** @var array */
@@ -63,12 +65,12 @@ class QueriesAccessHelper
     public function getCanOpenClose($query)
     {
         // Managers and sub editors are always allowed
-        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR])) {
+        if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
             return true;
         }
 
         // Assigned assistants are allowed
-        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_ASSISTANT]) && $this->isAssigned($this->_user->getId(), $query->getId())) {
+        if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT]) && $this->isAssigned($this->_user->getId(), $query->getId())) {
             return true;
         }
 
@@ -85,7 +87,7 @@ class QueriesAccessHelper
      */
     public function getCanOrder($stageId)
     {
-        return $this->hasStageRole($stageId, [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]);
+        return $this->hasStageRole($stageId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
     }
 
     /**
@@ -97,7 +99,7 @@ class QueriesAccessHelper
      */
     public function getCanCreate($stageId)
     {
-        return $this->hasStageRole($stageId, [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER]);
+        return $this->hasStageRole($stageId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER]);
     }
 
     /**
@@ -116,14 +118,14 @@ class QueriesAccessHelper
         }
 
         // Assistants, authors and reviewers are allowed, if they created the query
-        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER])) {
+        if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             if ($query->getHeadNote()->getUserId() == $this->_user->getId()) {
                 return true;
             }
         }
 
         // Managers are always allowed
-        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR])) {
+        if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
             return true;
         }
 
@@ -151,7 +153,7 @@ class QueriesAccessHelper
         }
 
         // Managers are always allowed
-        if ($this->hasStageRole($query->getStageId(), [ROLE_ID_MANAGER])) {
+        if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_MANAGER])) {
             return true;
         }
 
@@ -169,7 +171,7 @@ class QueriesAccessHelper
      */
     public function getCanListAll($stageId)
     {
-        return $this->hasStageRole($stageId, [ROLE_ID_MANAGER]);
+        return $this->hasStageRole($stageId, [Role::ROLE_ID_MANAGER]);
     }
 
     /**

@@ -16,6 +16,7 @@ use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 
 class PKPTemporaryFilesHandler extends APIHandler
 {
@@ -25,7 +26,7 @@ class PKPTemporaryFilesHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = 'temporaryFiles';
-        $roles = [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT];
+        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_ASSISTANT];
         $this->_endpoints = [
             'OPTIONS' => [
                 [

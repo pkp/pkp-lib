@@ -24,6 +24,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
+use PKP\security\Role;
 
 abstract class PKPWorkflowTabHandler extends Handler
 {
@@ -33,7 +34,7 @@ abstract class PKPWorkflowTabHandler extends Handler
     public function __construct()
     {
         parent::__construct();
-        $this->addRoleAssignment([ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_ASSISTANT], ['fetchTab']);
+        $this->addRoleAssignment([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT], ['fetchTab']);
     }
 
 

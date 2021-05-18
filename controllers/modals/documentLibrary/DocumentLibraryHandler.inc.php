@@ -14,9 +14,10 @@
  */
 
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
+
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\Role;
 
 class DocumentLibraryHandler extends Handler
 {
@@ -30,7 +31,7 @@ class DocumentLibraryHandler extends Handler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER, ROLE_ID_AUTHOR, ROLE_ID_ASSISTANT],
+            [Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_ASSISTANT],
             ['documentLibrary']
         );
     }

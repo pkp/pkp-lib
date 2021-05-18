@@ -17,9 +17,10 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
-
 use APP\i18n\AppLocale;
+
 use PKP\db\DAORegistry;
+use PKP\security\Role;
 
 class StageRolePolicy extends AuthorizationPolicy
 {
@@ -88,7 +89,7 @@ class StageRolePolicy extends AuthorizationPolicy
         }
 
         // A manager is granted access when they are not assigned in any other role
-        if (empty($userAccessibleStages) && in_array(ROLE_ID_MANAGER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES))) {
+        if (empty($userAccessibleStages) && in_array(Role::ROLE_ID_MANAGER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES))) {
             if ($this->_allowRecommendOnly) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
@@ -105,7 +106,7 @@ class StageRolePolicy extends AuthorizationPolicy
             while ($stageAssignment = $result->next()) {
                 $noResults = false;
                 $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
-                if ($userGroup->getRoleId() == ROLE_ID_MANAGER && !$stageAssignment->getRecommendOnly()) {
+                if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER && !$stageAssignment->getRecommendOnly()) {
                     return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }
             }

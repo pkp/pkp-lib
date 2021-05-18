@@ -14,9 +14,10 @@
  */
 
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
+
 use PKP\security\authorization\ContextRequiredPolicy;
+use PKP\security\Role;
 
 class AboutContextHandler extends Handler
 {
@@ -93,7 +94,7 @@ class AboutContextHandler extends Handler
         // Get sections for this context
         $canSubmitAll = false;
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if ($userRoles && !empty(array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $userRoles))) {
+        if ($userRoles && !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {
             $canSubmitAll = true;
         }
 

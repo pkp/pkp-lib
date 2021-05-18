@@ -15,18 +15,20 @@
  * @brief Describes generic PKP user roles within the system and the associated permissions.
  */
 
-/** ID codes and paths for all default roles */
-define('ROLE_ID_MANAGER', 0x00000010);
-define('ROLE_ID_SITE_ADMIN', 0x00000001);
-define('ROLE_ID_SUB_EDITOR', 0x00000011);
-define('ROLE_ID_AUTHOR', 0x00010000);
-define('ROLE_ID_REVIEWER', 0x00001000);
-define('ROLE_ID_ASSISTANT', 0x00001001);
-define('ROLE_ID_READER', 0x00100000);
-define('ROLE_ID_SUBSCRIPTION_MANAGER', 0x00200000);
+namespace PKP\security;
 
 class Role extends \PKP\core\DataObject
 {
+    /** ID codes and paths for all default roles */
+    public const ROLE_ID_MANAGER = 0x00000010;
+    public const ROLE_ID_SITE_ADMIN = 0x00000001;
+    public const ROLE_ID_SUB_EDITOR = 0x00000011;
+    public const ROLE_ID_AUTHOR = 0x00010000;
+    public const ROLE_ID_REVIEWER = 0x00001000;
+    public const ROLE_ID_ASSISTANT = 0x00001001;
+    public const ROLE_ID_READER = 0x00100000;
+    public const ROLE_ID_SUBSCRIPTION_MANAGER = 0x00200000;
+
     /**
      * Constructor.
      *
@@ -61,5 +63,21 @@ class Role extends \PKP\core\DataObject
     public function setRoleId($roleId)
     {
         return $this->setId($roleId);
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\Role', '\Role');
+    foreach ([
+        'ROLE_ID_MANAGER',
+        'ROLE_ID_SITE_ADMIN',
+        'ROLE_ID_SUB_EDITOR',
+        'ROLE_ID_AUTHOR',
+        'ROLE_ID_REVIEWER',
+        'ROLE_ID_ASSISTANT',
+        'ROLE_ID_READER',
+        'ROLE_ID_SUBSCRIPTION_MANAGER',
+    ] as $constantName) {
+        define($constantName, constant('\Role::' . $constantName));
     }
 }

@@ -15,6 +15,7 @@
 namespace PKP\components\listPanels;
 
 use PKP\components\forms\emailTemplate\PKPEmailTemplateForm;
+use PKP\security\Role;
 
 class PKPEmailTemplatesListPanel extends ListPanel
 {
@@ -63,14 +64,14 @@ class PKPEmailTemplatesListPanel extends ListPanel
         $config['itemsMax'] = $this->itemsMax;
         $config['lazyLoad'] = $this->lazyLoad;
         $config['roles'] = [
-            ROLE_ID_MANAGER => __('user.role.editor'),
-            ROLE_ID_SITE_ADMIN => __('user.role.siteAdmin'),
-            ROLE_ID_SUB_EDITOR => __('default.groups.name.sectionEditor'),
-            ROLE_ID_AUTHOR => __('user.role.author'),
-            ROLE_ID_REVIEWER => __('user.role.reviewer'),
-            ROLE_ID_ASSISTANT => __('user.role.assistant'),
-            ROLE_ID_READER => __('user.role.reader'),
-            ROLE_ID_SUBSCRIPTION_MANAGER => __('default.groups.name.subscriptionManager'),
+            Role::ROLE_ID_MANAGER => __('user.role.editor'),
+            Role::ROLE_ID_SITE_ADMIN => __('user.role.siteAdmin'),
+            Role::ROLE_ID_SUB_EDITOR => __('default.groups.name.sectionEditor'),
+            Role::ROLE_ID_AUTHOR => __('user.role.author'),
+            Role::ROLE_ID_REVIEWER => __('user.role.reviewer'),
+            Role::ROLE_ID_ASSISTANT => __('user.role.assistant'),
+            Role::ROLE_ID_READER => __('user.role.reader'),
+            Role::ROLE_ID_SUBSCRIPTION_MANAGER => __('default.groups.name.subscriptionManager'),
         ];
         $config['filters'] = [
             [
@@ -98,22 +99,22 @@ class PKPEmailTemplatesListPanel extends ListPanel
                     [
                         'param' => 'fromRoleIds',
                         'title' => __('user.role.editor'),
-                        'value' => ROLE_ID_MANAGER,
+                        'value' => Role::ROLE_ID_MANAGER,
                     ],
                     [
                         'param' => 'fromRoleIds',
                         'title' => __('user.role.reviewer'),
-                        'value' => ROLE_ID_REVIEWER,
+                        'value' => Role::ROLE_ID_REVIEWER,
                     ],
                     [
                         'param' => 'fromRoleIds',
                         'title' => __('user.role.assistant'),
-                        'value' => ROLE_ID_ASSISTANT,
+                        'value' => Role::ROLE_ID_ASSISTANT,
                     ],
                     [
                         'param' => 'fromRoleIds',
                         'title' => __('user.role.reader'),
-                        'value' => ROLE_ID_READER,
+                        'value' => Role::ROLE_ID_READER,
                     ],
                 ],
             ],
@@ -123,27 +124,27 @@ class PKPEmailTemplatesListPanel extends ListPanel
                     [
                         'param' => 'toRoleIds',
                         'title' => __('user.role.editor'),
-                        'value' => ROLE_ID_MANAGER,
+                        'value' => Role::ROLE_ID_MANAGER,
                     ],
                     [
                         'param' => 'toRoleIds',
                         'title' => __('user.role.reviewer'),
-                        'value' => ROLE_ID_REVIEWER,
+                        'value' => Role::ROLE_ID_REVIEWER,
                     ],
                     [
                         'param' => 'toRoleIds',
                         'title' => __('user.role.assistant'),
-                        'value' => ROLE_ID_ASSISTANT,
+                        'value' => Role::ROLE_ID_ASSISTANT,
                     ],
                     [
                         'param' => 'toRoleIds',
                         'title' => __('user.role.author'),
-                        'value' => ROLE_ID_AUTHOR,
+                        'value' => Role::ROLE_ID_AUTHOR,
                     ],
                     [
                         'param' => 'toRoleIds',
                         'title' => __('user.role.reader'),
-                        'value' => ROLE_ID_READER,
+                        'value' => Role::ROLE_ID_READER,
                     ],
                 ],
             ],

@@ -26,13 +26,12 @@ use PKP\core\Registry;
 use PKP\db\DBResultRange;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
-
 use PKP\security\authorization\HttpsPolicy;
 use PKP\security\authorization\RestrictedSiteAccessPolicy;
-use PKP\security\authorization\UserRolesRequiredPolicy;
 
-// FIXME: add namespaces
-use Validation;
+use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\Role;
+use PKP\security\Validation;
 
 class PKPHandler
 {
@@ -526,7 +525,7 @@ class PKPHandler
         );
 
         $userRoles = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (array_intersect([ROLE_ID_MANAGER], $userRoles)) {
+        if (array_intersect([Role::ROLE_ID_MANAGER], $userRoles)) {
             AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
         }
 

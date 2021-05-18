@@ -16,8 +16,9 @@
 
 use APP\core\Services;
 use PKP\handler\APIHandler;
-
 use PKP\security\authorization\ContextAccessPolicy;
+
+use PKP\security\Role;
 
 abstract class PKPBackendSubmissionsHandler extends APIHandler
 {
@@ -33,12 +34,12 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                     'pattern' => "{$rootPattern}",
                     'handler' => [$this, 'getMany'],
                     'roles' => [
-                        ROLE_ID_SITE_ADMIN,
-                        ROLE_ID_MANAGER,
-                        ROLE_ID_SUB_EDITOR,
-                        ROLE_ID_AUTHOR,
-                        ROLE_ID_REVIEWER,
-                        ROLE_ID_ASSISTANT,
+                        Role::ROLE_ID_SITE_ADMIN,
+                        Role::ROLE_ID_MANAGER,
+                        Role::ROLE_ID_SUB_EDITOR,
+                        Role::ROLE_ID_AUTHOR,
+                        Role::ROLE_ID_REVIEWER,
+                        Role::ROLE_ID_ASSISTANT,
                     ],
                 ],
             ],
@@ -47,9 +48,9 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                     'pattern' => "{$rootPattern}/{submissionId:\d+}",
                     'handler' => [$this, 'delete'],
                     'roles' => [
-                        ROLE_ID_SITE_ADMIN,
-                        ROLE_ID_MANAGER,
-                        ROLE_ID_AUTHOR,
+                        Role::ROLE_ID_SITE_ADMIN,
+                        Role::ROLE_ID_MANAGER,
+                        Role::ROLE_ID_AUTHOR,
                     ],
                 ],
             ],
@@ -89,7 +90,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         // Anyone not a manager or site admin can only access their assigned
         // submissions
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        $canAccessUnassignedSubmission = !empty(array_intersect([ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER], $userRoles));
+        $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
         if (!$canAccessUnassignedSubmission) {
             $defaultParams['assignedTo'] = [$currentUser->getId()];
         }

@@ -22,8 +22,9 @@ use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
-
 use PKP\linkAction\request\AjaxModal;
+
+use PKP\security\Role;
 
 class LibraryFileGridHandler extends CategoryGridHandler
 {
@@ -40,7 +41,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
     {
         parent::__construct($dataProvider);
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
             [
                 'fetchGrid', 'fetchCategory', 'fetchRow', // Parent grid-level actions
             ]

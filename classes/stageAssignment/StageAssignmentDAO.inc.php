@@ -20,6 +20,7 @@ namespace PKP\stageAssignment;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\security\Role;
 
 class StageAssignmentDAO extends \PKP\db\DAO
 {
@@ -108,8 +109,8 @@ class StageAssignmentDAO extends \PKP\db\DAO
      */
     public function getEditorsAssignedToStage($submissionId, $stageId)
     {
-        $managerAssignmentFactory = $this->getBySubmissionAndRoleId($submissionId, ROLE_ID_MANAGER, $stageId);
-        $subEditorAssignmentFactory = $this->getBySubmissionAndRoleId($submissionId, ROLE_ID_SUB_EDITOR, $stageId);
+        $managerAssignmentFactory = $this->getBySubmissionAndRoleId($submissionId, Role::ROLE_ID_MANAGER, $stageId);
+        $subEditorAssignmentFactory = $this->getBySubmissionAndRoleId($submissionId, Role::ROLE_ID_SUB_EDITOR, $stageId);
         return array_merge($managerAssignmentFactory->toArray(), $subEditorAssignmentFactory->toArray());
     }
 
@@ -125,7 +126,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
      */
     public function editorAssignedToStage($submissionId, $stageId = null)
     {
-        $params = [(int) $submissionId, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+        $params = [(int) $submissionId, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
         if ($stageId) {
             $params[] = (int) $stageId;
         }

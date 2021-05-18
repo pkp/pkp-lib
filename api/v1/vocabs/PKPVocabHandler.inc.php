@@ -16,6 +16,7 @@
 
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 
 class PKPVocabHandler extends APIHandler
 {
@@ -30,7 +31,7 @@ class PKPVocabHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'getMany'],
-                    'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
             ],
         ];

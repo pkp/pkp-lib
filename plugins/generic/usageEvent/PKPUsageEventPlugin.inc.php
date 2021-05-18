@@ -15,8 +15,9 @@
  */
 
 use APP\template\TemplateManager;
+use PKP\plugins\GenericPlugin;
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+use PKP\security\Role;
 
 // User classification types.
 define('USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT', 'bot');
@@ -329,7 +330,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         $classification = null;
         if (!empty($roles)) {
             // Access by editors, authors, etc.
-            $internalRoles = array_diff($roles, [ROLE_ID_READER]);
+            $internalRoles = array_diff($roles, [Role::ROLE_ID_READER]);
             if (!empty($internalRoles)) {
                 $classification = USAGE_EVENT_PLUGIN_CLASSIFICATION_ADMIN;
             }

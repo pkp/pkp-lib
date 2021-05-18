@@ -13,7 +13,9 @@
  */
 
 use APP\file\LibraryFileManager;
+
 use APP\handler\Handler;
+use PKP\security\Role;
 
 class LibraryFileHandler extends Handler
 {
@@ -80,7 +82,7 @@ class LibraryFileHandler extends Handler
                 // Managers are always allowed access.
                 if ($this->_callingHandler) {
                     $userRoles = $this->_callingHandler->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-                    if (array_intersect($userRoles, [ROLE_ID_MANAGER])) {
+                    if (array_intersect($userRoles, [Role::ROLE_ID_MANAGER])) {
                         $allowedAccess = true;
                     }
                 }

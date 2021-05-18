@@ -18,6 +18,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\note\NoteDAO;
 use PKP\security\authorization\QueryAccessPolicy;
+use PKP\security\Role;
 
 class QueryNotesGridHandler extends GridHandler
 {
@@ -31,7 +32,7 @@ class QueryNotesGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
             ['fetchGrid', 'fetchRow', 'addNote', 'insertNote', 'deleteNote']
         );
     }
@@ -218,7 +219,7 @@ class QueryNotesGridHandler extends GridHandler
     {
         $isAdmin = (0 != count(array_intersect(
             $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
-            [ROLE_ID_MANAGER, ROLE_ID_ASSISTANT, ROLE_ID_SUB_EDITOR]
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_SUB_EDITOR]
         )));
 
         if ($note === null) {

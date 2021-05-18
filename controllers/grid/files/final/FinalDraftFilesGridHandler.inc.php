@@ -14,9 +14,11 @@
  */
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
+import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
+use PKP\security\Role;
 
 class FinalDraftFilesGridHandler extends FileListGridHandler
 {
@@ -26,7 +28,6 @@ class FinalDraftFilesGridHandler extends FileListGridHandler
      */
     public function __construct()
     {
-        import('lib.pkp.controllers.grid.files.final.FinalDraftFilesGridDataProvider');
         parent::__construct(
             new FinalDraftFilesGridDataProvider(),
             null,
@@ -34,9 +35,9 @@ class FinalDraftFilesGridHandler extends FileListGridHandler
         );
         $this->addRoleAssignment(
             [
-                ROLE_ID_SUB_EDITOR,
-                ROLE_ID_MANAGER,
-                ROLE_ID_ASSISTANT
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_ASSISTANT
             ],
             [
                 'fetchGrid', 'fetchRow', 'selectFiles'

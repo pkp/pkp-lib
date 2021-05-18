@@ -19,11 +19,12 @@ use APP\handler\Handler;
 use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+
 use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
+use PKP\security\Role;
 
 class PKPReviewRoundTabHandler extends Handler
 {
@@ -109,7 +110,7 @@ class PKPReviewRoundTabHandler extends Handler
         // shouldn't see any editorial actions
         $userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         foreach ($userAccessibleStages as $accessibleStageId => $roles) {
-            if (in_array(ROLE_ID_AUTHOR, $roles)) {
+            if (in_array(Role::ROLE_ID_AUTHOR, $roles)) {
                 $templateMgr->assign('isAssignedAsAuthor', true);
                 break;
             }

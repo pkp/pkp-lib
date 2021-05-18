@@ -21,6 +21,7 @@ use PKP\core\JSONMessage;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
+use PKP\security\Role;
 
 class AuthorDashboardTabHandler extends Handler
 {
@@ -30,7 +31,7 @@ class AuthorDashboardTabHandler extends Handler
     public function __construct()
     {
         parent::__construct();
-        $this->addRoleAssignment([ROLE_ID_AUTHOR], ['fetchTab']);
+        $this->addRoleAssignment([Role::ROLE_ID_AUTHOR], ['fetchTab']);
     }
 
 

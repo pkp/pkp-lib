@@ -22,6 +22,7 @@ use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 use PKP\user\UserDAO;
 
 class ExportableUsersGridHandler extends GridHandler
@@ -36,7 +37,7 @@ class ExportableUsersGridHandler extends GridHandler
         parent::__construct();
         $this->addRoleAssignment(
             [
-                ROLE_ID_MANAGER],
+                Role::ROLE_ID_MANAGER],
             ['fetchGrid', 'fetchRow']
         );
     }

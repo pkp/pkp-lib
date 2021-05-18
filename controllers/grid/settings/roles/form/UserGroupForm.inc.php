@@ -14,12 +14,11 @@
  */
 
 use APP\template\TemplateManager;
+
 use PKP\core\JSONMessage;
-
 use PKP\form\Form;
-
-// FIXME: Use namespacing
-import('lib.pkp.classes.workflow.WorkflowStageDAO');
+use PKP\security\Role;
+use PKP\workflow\WorkflowStageDAO;
 
 class UserGroupForm extends Form
 {
@@ -162,7 +161,7 @@ class UserGroupForm extends Form
      */
     public function getPermitSelfRegistrationRoles()
     {
-        return [ROLE_ID_REVIEWER, ROLE_ID_AUTHOR, ROLE_ID_READER];
+        return [Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_READER];
     }
 
     /**
@@ -172,7 +171,7 @@ class UserGroupForm extends Form
      */
     public function getRecommendOnlyRoles()
     {
-        return [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+        return [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
     }
 
     /**

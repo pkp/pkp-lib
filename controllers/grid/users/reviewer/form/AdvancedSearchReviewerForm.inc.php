@@ -16,10 +16,11 @@
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
 use APP\template\TemplateManager;
+
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\linkAction\LinkAction;
-
 use PKP\linkAction\request\AjaxAction;
+use PKP\security\Role;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
 {
@@ -93,11 +94,11 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             $warnOnAssignment[] = $stageAssignment->getUserId();
         }
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        $managerUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $submissionContext->getId());
+        $managerUsersResults = $roleDao->getUsersByRoleId(Role::ROLE_ID_MANAGER, $submissionContext->getId());
         while ($manager = $managerUsersResults->next()) {
             $warnOnAssignment[] = $manager->getId();
         }
-        $adminUsersResults = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN, $submissionContext->getId());
+        $adminUsersResults = $roleDao->getUsersByRoleId(Role::ROLE_ID_SITE_ADMIN, $submissionContext->getId());
         while ($admin = $adminUsersResults->next()) {
             $warnOnAssignment[] = $admin->getId();
         }
@@ -136,7 +137,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         ]);
 
         // Only add actions to forms where user can operate.
-        if (array_intersect($this->getUserRoles(), [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR])) {
+        if (array_intersect($this->getUserRoles(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
             $actionArgs['selectionType'] = PKPReviewerGridHandler::REVIEWER_SELECT_CREATE;
             // but change the selectionType for each action
             $advancedSearchAction = new LinkAction(

@@ -13,9 +13,12 @@
  * @brief Form to edit user's identity information.
  */
 
-import('lib.pkp.classes.user.form.BaseProfileForm');
+namespace PKP\user\form;
+
+use APP\core\Application;
 
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 
 class IdentityForm extends BaseProfileForm
 {
@@ -105,4 +108,8 @@ class IdentityForm extends BaseProfileForm
 
         parent::execute(...$functionArgs);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\form\IdentityForm', '\IdentityForm');
 }

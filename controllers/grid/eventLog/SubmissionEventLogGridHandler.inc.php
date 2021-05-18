@@ -23,6 +23,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\Role;
 
 class SubmissionEventLogGridHandler extends GridHandler
 {
@@ -42,7 +43,7 @@ class SubmissionEventLogGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
             ['fetchGrid', 'fetchRow', 'viewEmail']
         );
     }
@@ -95,7 +96,7 @@ class SubmissionEventLogGridHandler extends GridHandler
         $userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $this->_isCurrentUserAssignedAuthor = false;
         foreach ($userAssignedRoles as $stageId => $roles) {
-            if (in_array(ROLE_ID_AUTHOR, $roles)) {
+            if (in_array(Role::ROLE_ID_AUTHOR, $roles)) {
                 $this->_isCurrentUserAssignedAuthor = true;
                 break;
             }

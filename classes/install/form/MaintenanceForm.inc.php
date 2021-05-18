@@ -13,6 +13,8 @@
  * @brief Base form for system maintenance (install/upgrade).
  */
 
+namespace PKP\install\form;
+
 use APP\template\TemplateManager;
 use PKP\form\Form;
 
@@ -71,4 +73,8 @@ class MaintenanceForm extends Form
         error_log($errorMsg);
         $this->display($this->_request);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\install\form\MaintenanceForm', '\MaintenanceForm');
 }

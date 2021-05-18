@@ -15,13 +15,14 @@
  * @brief Describes user roles within the system and the associated permissions.
  */
 
-import('lib.pkp.classes.security.UserGroup');
+namespace PKP\security;
+
+use PKP\db\DAORegistry;
 
 class UserGroupAssignment extends \PKP\core\DataObject
 {
     /** @var the UserGroup object associated with this assignment **/
     public $userGroup;
-
 
     //
     // Get/set methods
@@ -68,4 +69,8 @@ class UserGroupAssignment extends \PKP\core\DataObject
     {
         $this->setData('userId', $userId);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\UserGroupAssignment', '\UserGroupAssignment');
 }

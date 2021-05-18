@@ -23,6 +23,7 @@ use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\security\Role;
 
 class GenreGridHandler extends SetupGridHandler
 {
@@ -32,7 +33,7 @@ class GenreGridHandler extends SetupGridHandler
     public function __construct()
     {
         parent::__construct();
-        $this->addRoleAssignment([ROLE_ID_MANAGER], [
+        $this->addRoleAssignment([Role::ROLE_ID_MANAGER], [
             'fetchGrid', 'fetchRow',
             'addGenre', 'editGenre', 'updateGenre',
             'deleteGenre', 'restoreGenres', 'saveSequence'

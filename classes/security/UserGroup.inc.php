@@ -15,8 +15,7 @@
  * @brief Describes user groups
  */
 
-// Bring in role constants.
-import('lib.pkp.classes.security.Role');
+namespace PKP\security;
 
 class UserGroup extends \PKP\core\DataObject
 {
@@ -250,4 +249,8 @@ class UserGroup extends \PKP\core\DataObject
     {
         $this->setData('permitMetadataEdit', $permitMetadataEdit);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\security\UserGroup', '\UserGroup');
 }

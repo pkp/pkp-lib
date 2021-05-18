@@ -19,12 +19,12 @@ use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 
 import('lib.pkp.tests.classes.security.authorization.PolicyTestCase');
 
 define('ROLE_ID_TEST_2', 0x8888);
 define('ROLE_ID_NON_AUTHORIZED', 0x7777);
-define('ROLE_ID_OCS_MANAGERIAL_ROLE', 0x6666);
 
 class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase
 {
@@ -34,7 +34,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase
     public function testRoleAuthorization()
     {
         // Construct the user roles array.
-        $userRoles = [ROLE_ID_SITE_ADMIN, ROLE_ID_TEST];
+        $userRoles = [Role::ROLE_ID_SITE_ADMIN, ROLE_ID_TEST];
 
         // Test the user-group/role policy with a default
         // authorized request.
@@ -58,7 +58,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase
         $request = $this->getMockRequest('privateOperation');
         $rolePolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
         $rolePolicy->addPolicy($this->getAuthorizationContextManipulationPolicy());
-        $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SITE_ADMIN, 'permittedOperation'));
+        $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SITE_ADMIN, 'permittedOperation'));
         $decisionManager = new AuthorizationDecisionManager();
         $decisionManager->addPolicy($rolePolicy);
         self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $decisionManager->decide());
@@ -67,7 +67,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase
         $request = $this->getMockRequest('permittedOperation');
         $rolePolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
         $rolePolicy->addPolicy($this->getAuthorizationContextManipulationPolicy());
-        $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, [ROLE_ID_SITE_ADMIN, ROLE_ID_TEST], 'permittedOperation', 'some.message', true));
+        $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, [Role::ROLE_ID_SITE_ADMIN, ROLE_ID_TEST], 'permittedOperation', 'some.message', true));
         $decisionManager = new AuthorizationDecisionManager();
         $decisionManager->addPolicy($rolePolicy);
         self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $decisionManager->decide());
@@ -76,7 +76,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase
         // with one role not matching.
         $rolePolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
         $rolePolicy->addPolicy($this->getAuthorizationContextManipulationPolicy());
-        $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, [ROLE_ID_TEST, ROLE_ID_SITE_ADMIN, ROLE_ID_NON_AUTHORIZED], 'permittedOperation', 'some.message', true, false));
+        $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, [ROLE_ID_TEST, Role::ROLE_ID_SITE_ADMIN, ROLE_ID_NON_AUTHORIZED], 'permittedOperation', 'some.message', true, false));
         $decisionManager = new AuthorizationDecisionManager();
         $decisionManager->addPolicy($rolePolicy);
         self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $decisionManager->decide());

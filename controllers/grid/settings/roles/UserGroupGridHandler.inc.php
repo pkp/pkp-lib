@@ -14,6 +14,7 @@
  */
 
 use APP\notification\NotificationManager;
+
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -22,8 +23,10 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
-
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
+use PKP\security\Role;
+
+use PKP\workflow\WorkflowStageDAO;
 
 class UserGroupGridHandler extends GridHandler
 {
@@ -42,7 +45,7 @@ class UserGroupGridHandler extends GridHandler
         parent::__construct();
 
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER],
             [
                 'fetchGrid',
                 'fetchCategory',
@@ -212,8 +215,8 @@ class UserGroupGridHandler extends GridHandler
         $roleOptions = [0 => 'grid.user.allPermissionLevels'] + Application::getRoleNames(true);
 
         // Reader roles are not important for stage assignments.
-        if (array_key_exists(ROLE_ID_READER, $roleOptions)) {
-            unset($roleOptions[ROLE_ID_READER]);
+        if (array_key_exists(Role::ROLE_ID_READER, $roleOptions)) {
+            unset($roleOptions[Role::ROLE_ID_READER]);
         }
 
         $filterData = ['roleOptions' => $roleOptions];

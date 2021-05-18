@@ -18,6 +18,7 @@ use APP\core\Services;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
 
 use PKP\services\PKPSchemaService;
@@ -35,33 +36,33 @@ class PKPAnnouncementHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'getMany'],
-                    'roles' => [ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
                     'handler' => [$this, 'get'],
-                    'roles' => [ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER],
                 ],
             ],
             'POST' => [
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'add'],
-                    'roles' => [ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER],
                 ],
             ],
             'PUT' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
                     'handler' => [$this, 'edit'],
-                    'roles' => [ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER],
                 ],
             ],
             'DELETE' => [
                 [
                     'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
                     'handler' => [$this, 'delete'],
-                    'roles' => [ROLE_ID_MANAGER],
+                    'roles' => [Role::ROLE_ID_MANAGER],
                 ],
             ],
         ];

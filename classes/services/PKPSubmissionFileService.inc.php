@@ -26,6 +26,7 @@ use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
+use PKP\security\Role;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
@@ -379,7 +380,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
             // Update author notifications
             $authorUserIds = [];
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-            $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), ROLE_ID_AUTHOR);
+            $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), Role::ROLE_ID_AUTHOR);
             while ($assignment = $authorAssignments->next()) {
                 if ($assignment->getStageId() == $reviewRound->getStageId()) {
                     $authorUserIds[] = (int) $assignment->getUserId();
@@ -565,7 +566,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
             case SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION:
                 $authorUserIds = [];
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), ROLE_ID_AUTHOR);
+                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), Role::ROLE_ID_AUTHOR);
                 while ($assignment = $submitterAssignments->next()) {
                     $authorUserIds[] = $assignment->getUserId();
                 }
@@ -651,8 +652,8 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
      */
     public function getAssignedFileStages($stageAssignments, $action)
     {
-        $allowedRoles = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR];
-        $notAuthorRoles = array_diff($allowedRoles, [ROLE_ID_AUTHOR]);
+        $allowedRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR];
+        $notAuthorRoles = array_diff($allowedRoles, [Role::ROLE_ID_AUTHOR]);
 
         $allowedFileStages = [];
 

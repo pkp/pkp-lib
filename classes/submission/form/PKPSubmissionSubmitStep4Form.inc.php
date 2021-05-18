@@ -18,11 +18,12 @@ namespace PKP\submission\form;
 use APP\core\Application;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
-
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\Core;
+
 use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
 
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 {
@@ -71,7 +72,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         $submissionStageGroups = $userGroupDao->getUserGroupsByStage($this->submission->getContextId(), WORKFLOW_STAGE_ID_SUBMISSION);
         while ($userGroup = $submissionStageGroups->next()) {
             // Only handle manager and assistant roles
-            if (!in_array($userGroup->getRoleId(), [ROLE_ID_MANAGER, ROLE_ID_ASSISTANT])) {
+            if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT])) {
                 continue;
             }
 
@@ -89,7 +90,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         $submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($this->submission->getId(), null, null, $user->getId());
         while ($assignment = $submitterAssignments->next()) {
             $userGroup = $userGroupDao->getById($assignment->getUserGroupId());
-            if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
+            if ($userGroup->getRoleId() == Role::ROLE_ID_AUTHOR) {
                 $stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $assignment->getUserId());
                 // Only assign them once, since otherwise we'll one assignment for each previous stage.
                 // And as long as they are assigned once, they will get access to their submission.
@@ -105,7 +106,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         foreach ($subEditors as $subEditor) {
             $userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
             while ($userGroup = $userGroups->next()) {
-                if ($userGroup->getRoleId() != ROLE_ID_SUB_EDITOR) {
+                if ($userGroup->getRoleId() != Role::ROLE_ID_SUB_EDITOR) {
                     continue;
                 }
                 $stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId(), $userGroup->getRecommendOnly());
@@ -125,7 +126,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
             foreach ($subEditors as $subEditor) {
                 $userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
                 while ($userGroup = $userGroups->next()) {
-                    if ($userGroup->getRoleId() != ROLE_ID_SUB_EDITOR) {
+                    if ($userGroup->getRoleId() != Role::ROLE_ID_SUB_EDITOR) {
                         continue;
                     }
                     $stageAssignmentDao->build($this->submission->getId(), $userGroup->getId(), $subEditor->getId(), $userGroup->getRecommendOnly());
@@ -151,7 +152,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
 
             // Get the managers.
-            $managers = $roleDao->getUsersByRoleId(ROLE_ID_MANAGER, $this->submission->getContextId());
+            $managers = $roleDao->getUsersByRoleId(Role::ROLE_ID_MANAGER, $this->submission->getContextId());
 
             $managersArray = $managers->toAssociativeArray();
 

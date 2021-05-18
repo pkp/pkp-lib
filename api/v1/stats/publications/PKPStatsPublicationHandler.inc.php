@@ -20,6 +20,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
 
 use PKP\submission\PKPSubmission;
@@ -32,7 +33,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = 'stats/publications';
-        $roles = [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
         $this->_endpoints = [
             'GET' => [
                 [

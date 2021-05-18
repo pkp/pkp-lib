@@ -33,6 +33,7 @@ use PKP\filter\FilterHelper;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
+use PKP\security\Role;
 use PKP\site\Version;
 
 use PKP\site\VersionCheck;
@@ -1091,7 +1092,7 @@ class Installer
      */
     public function setStatsEmailSettings()
     {
-        $roleIds = [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR];
+        $roleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */

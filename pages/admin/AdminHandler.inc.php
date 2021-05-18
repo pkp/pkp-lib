@@ -15,13 +15,14 @@
 
 use APP\core\Services;
 use APP\file\PublicFileManager;
-
 use APP\handler\Handler;
+
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
 use PKP\scheduledTask\ScheduledTaskHelper;
-
 use PKP\security\authorization\PKPSiteAccessPolicy;
+
+use PKP\security\Role;
 
 class AdminHandler extends Handler
 {
@@ -36,7 +37,7 @@ class AdminHandler extends Handler
         parent::__construct();
 
         $this->addRoleAssignment(
-            [ROLE_ID_SITE_ADMIN],
+            [Role::ROLE_ID_SITE_ADMIN],
             [
                 'index',
                 'contexts',

@@ -13,16 +13,19 @@
  * @brief Form to edit user's public profile.
  */
 
+namespace PKP\user\form;
+
+use APP\core\Application;
+
 use APP\file\PublicFileManager;
 use APP\template\TemplateManager;
-
-import('lib.pkp.classes.user.form.BaseProfileForm');
-
-define('PROFILE_IMAGE_MAX_WIDTH', 150);
-define('PROFILE_IMAGE_MAX_HEIGHT', 150);
+use PKP\core\Core;
 
 class PublicProfileForm extends BaseProfileForm
 {
+    public const PROFILE_IMAGE_MAX_WIDTH = 150;
+    public const PROFILE_IMAGE_MAX_HEIGHT = 150;
+
     /**
      * Constructor.
      *
@@ -88,7 +91,7 @@ class PublicProfileForm extends BaseProfileForm
         $filePath = $publicFileManager->getSiteFilesPath();
         [$width, $height] = getimagesize($filePath . '/' . $uploadName);
 
-        if ($width > PROFILE_IMAGE_MAX_WIDTH || $height > PROFILE_IMAGE_MAX_HEIGHT || $width <= 0 || $height <= 0) {
+        if ($width > self::PROFILE_IMAGE_MAX_WIDTH || $height > self::PROFILE_IMAGE_MAX_HEIGHT || $width <= 0 || $height <= 0) {
             $userSetting = null;
             $user->updateSetting('profileImage', $userSetting);
             $publicFileManager->removeSiteFile($filePath);
@@ -138,8 +141,8 @@ class PublicProfileForm extends BaseProfileForm
         $publicFileManager = new PublicFileManager();
         $templateMgr->assign([
             'profileImage' => $request->getUser()->getSetting('profileImage'),
-            'profileImageMaxWidth' => PROFILE_IMAGE_MAX_WIDTH,
-            'profileImageMaxHeight' => PROFILE_IMAGE_MAX_HEIGHT,
+            'profileImageMaxWidth' => self::PROFILE_IMAGE_MAX_WIDTH,
+            'profileImageMaxHeight' => self::PROFILE_IMAGE_MAX_HEIGHT,
             'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),
         ]);
 
@@ -160,4 +163,8 @@ class PublicProfileForm extends BaseProfileForm
 
         parent::execute(...$functionArgs);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\user\form\PublicProfileForm', '\PublicProfileForm');
 }

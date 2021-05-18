@@ -15,6 +15,7 @@
 
 use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 
 class SetupListbuilderHandler extends ListbuilderHandler
 {
@@ -28,7 +29,7 @@ class SetupListbuilderHandler extends ListbuilderHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            ROLE_ID_MANAGER,
+            Role::ROLE_ID_MANAGER,
             ['fetch', 'fetchRow', 'save']
         );
     }

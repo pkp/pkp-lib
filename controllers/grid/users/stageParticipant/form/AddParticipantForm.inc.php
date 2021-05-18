@@ -17,6 +17,8 @@ import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm'
 
 use APP\template\TemplateManager;
 
+use PKP\security\Role;
+
 class AddParticipantForm extends StageParticipantNotifyForm
 {
     /** @var Submission The submission associated with the submission contributor being edited **/
@@ -79,8 +81,8 @@ class AddParticipantForm extends StageParticipantNotifyForm
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
 
         // assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
-        $this->_managerGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_MANAGER, $this->_contextId);
-        $subEditorGroupIds = $userGroupDao->getUserGroupIdsByRoleId(ROLE_ID_SUB_EDITOR, $this->_contextId);
+        $this->_managerGroupIds = $userGroupDao->getUserGroupIdsByRoleId(Role::ROLE_ID_MANAGER, $this->_contextId);
+        $subEditorGroupIds = $userGroupDao->getUserGroupIdsByRoleId(Role::ROLE_ID_SUB_EDITOR, $this->_contextId);
         $this->_possibleRecommendOnlyUserGroupIds = array_merge($this->_managerGroupIds, $subEditorGroupIds);
     }
 
@@ -124,7 +126,7 @@ class AddParticipantForm extends StageParticipantNotifyForm
         $userGroupOptions = [];
         while ($userGroup = $userGroups->next()) {
             // Exclude reviewers.
-            if ($userGroup->getRoleId() == ROLE_ID_REVIEWER) {
+            if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
             $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();

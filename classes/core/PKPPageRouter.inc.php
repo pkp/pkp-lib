@@ -23,8 +23,10 @@ use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
+use PKP\security\Role;
+
+use PKP\security\Validation;
 use PKP\session\SessionManager;
-use Validation;
 
 class PKPPageRouter extends PKPRouter
 {
@@ -497,7 +499,7 @@ class PKPPageRouter extends PKPRouter
             $firstUserGroup = $userGroups->next();
             $secondUserGroup = $userGroups->next();
             if (!$secondUserGroup) {
-                if (!$firstUserGroup || $firstUserGroup->getRoleId() == ROLE_ID_READER) {
+                if (!$firstUserGroup || $firstUserGroup->getRoleId() == Role::ROLE_ID_READER) {
                     return $request->url(null, 'index');
                 }
             }
@@ -515,7 +517,7 @@ class PKPPageRouter extends PKPRouter
                 if (!isset($context)) {
                     $request->redirect('index', 'index');
                 }
-                if ($firstUserGroup->getRoleId() == ROLE_ID_READER) {
+                if ($firstUserGroup->getRoleId() == Role::ROLE_ID_READER) {
                     $request->redirect(null, 'index');
                 }
             }

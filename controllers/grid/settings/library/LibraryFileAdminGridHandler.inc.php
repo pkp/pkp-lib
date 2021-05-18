@@ -16,6 +16,7 @@
 import('lib.pkp.controllers.grid.files.LibraryFileGridHandler');
 import('lib.pkp.controllers.grid.settings.library.LibraryFileAdminGridDataProvider');
 
+use PKP\security\Role;
 
 class LibraryFileAdminGridHandler extends LibraryFileGridHandler
 {
@@ -26,7 +27,7 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler
     {
         parent::__construct(new LibraryFileAdminGridDataProvider(true));
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER],
             [
                 'addFile', 'uploadFile', 'saveFile', // Adding new library files
                 'editFile', 'updateFile', // Editing existing library files

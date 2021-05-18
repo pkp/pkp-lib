@@ -37,13 +37,12 @@ use Illuminate\Events\EventServiceProvider;
 use PKP\config\Config;
 use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
-
 use PKP\file\FileManager;
+use PKP\security\Role;
+
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\site\Version;
-
-// FIXME: Add namespacing
-use Validation;
 
 class PKPInstall extends Installer
 {
@@ -251,7 +250,7 @@ class PKPInstall extends Installer
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
         $adminUserGroup = $userGroupDao->newDataObject();
-        $adminUserGroup->setRoleId(ROLE_ID_SITE_ADMIN);
+        $adminUserGroup->setRoleId(Role::ROLE_ID_SITE_ADMIN);
         $adminUserGroup->setContextId(CONTEXT_ID_NONE);
         $adminUserGroup->setDefault(true);
         foreach ($this->installedLocales as $locale) {

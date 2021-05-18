@@ -21,8 +21,9 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\PolicySet;
-
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+
+use PKP\security\Role;
 
 import('controllers.grid.navigationMenus.form.NavigationMenuItemsForm');
 
@@ -35,7 +36,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            ROLE_ID_MANAGER,
+            Role::ROLE_ID_MANAGER,
             $ops = [
                 'fetchGrid', 'fetchRow',
                 'addNavigationMenuItem', 'editNavigationMenuItem',
@@ -43,7 +44,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
                 'deleteNavigationMenuItem', 'saveSequence',
             ]
         );
-        $this->addRoleAssignment(ROLE_ID_SITE_ADMIN, $ops);
+        $this->addRoleAssignment(Role::ROLE_ID_SITE_ADMIN, $ops);
     }
 
     //

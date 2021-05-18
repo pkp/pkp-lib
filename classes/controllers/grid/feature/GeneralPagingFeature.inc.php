@@ -19,6 +19,7 @@ namespace PKP\controllers\grid\feature;
 
 use APP\core\Application;
 use PKP\controllers\grid\GridHandler;
+use PKP\core\ArrayItemIterator;
 
 use PKP\handler\PKPHandler;
 

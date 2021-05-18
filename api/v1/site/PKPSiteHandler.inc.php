@@ -16,6 +16,7 @@ use APP\template\TemplateManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
 
 use PKP\services\PKPSchemaService;
 
@@ -30,7 +31,7 @@ class PKPSiteHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = 'site';
-        $roles = [ROLE_ID_SITE_ADMIN];
+        $roles = [Role::ROLE_ID_SITE_ADMIN];
         $this->_endpoints = [
             'GET' => [
                 [

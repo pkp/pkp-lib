@@ -15,6 +15,8 @@
 namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
+
+use PKP\security\Role;
 use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 
 abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
@@ -158,7 +160,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
                 ->where(function ($q) {
                     $q->where('uug.user_id', '=', $this->userId)
                         ->where(function ($q) {
-                            $q->where('ug.role_id', '=', ROLE_ID_MANAGER)
+                            $q->where('ug.role_id', '=', Role::ROLE_ID_MANAGER)
                                 ->orWhere('c.enabled', '=', 1);
                         });
                 });

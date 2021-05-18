@@ -21,6 +21,7 @@ use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\security\Role;
 
 class SubmissionChecklistGridHandler extends SetupGridHandler
 {
@@ -31,7 +32,7 @@ class SubmissionChecklistGridHandler extends SetupGridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER],
             ['fetchGrid', 'fetchRow', 'addItem', 'editItem', 'updateItem', 'deleteItem', 'saveSequence']
         );
     }

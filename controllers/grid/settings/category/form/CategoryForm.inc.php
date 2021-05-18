@@ -16,8 +16,9 @@
 use APP\template\TemplateManager;
 use PKP\file\ContextFileManager;
 use PKP\file\TemporaryFileManager;
-
 use PKP\form\Form;
+
+use PKP\security\Role;
 
 class CategoryForm extends Form
 {
@@ -213,7 +214,7 @@ class CategoryForm extends Form
         // Sub Editors
         $usersIterator = Services::get('user')->getMany([
             'contextId' => $context->getId(),
-            'roleIds' => ROLE_ID_SUB_EDITOR,
+            'roleIds' => Role::ROLE_ID_SUB_EDITOR,
         ]);
         $availableSubeditors = [];
         foreach ($usersIterator as $user) {
@@ -223,7 +224,7 @@ class CategoryForm extends Form
         if ($this->getCategoryId()) {
             $assignedToCategory = Services::get('user')->getIds([
                 'contextId' => $context->getId(),
-                'roleIds' => ROLE_ID_SUB_EDITOR,
+                'roleIds' => Role::ROLE_ID_SUB_EDITOR,
                 'assignedToCategory' => (int) $this->getCategoryId(),
             ]);
         }
@@ -274,7 +275,7 @@ class CategoryForm extends Form
         if (!empty($subEditors)) {
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
             foreach ($subEditors as $subEditor) {
-                if ($roleDao->userHasRole($category->getContextId(), $subEditor, ROLE_ID_SUB_EDITOR)) {
+                if ($roleDao->userHasRole($category->getContextId(), $subEditor, Role::ROLE_ID_SUB_EDITOR)) {
                     $subEditorsDao->insertEditor($category->getContextId(), $category->getId(), $subEditor, ASSOC_TYPE_CATEGORY);
                 }
             }

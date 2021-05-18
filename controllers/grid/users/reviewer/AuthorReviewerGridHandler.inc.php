@@ -18,13 +18,14 @@ import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridCellProvider')
 import('lib.pkp.controllers.grid.users.reviewer.AuthorReviewerGridRow');
 
 use APP\template\TemplateManager;
+
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
-
+use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class AuthorReviewerGridHandler extends PKPReviewerGridHandler
@@ -37,7 +38,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
         parent::__construct();
 
         $this->addRoleAssignment(
-            [ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_AUTHOR],
             ['fetchGrid', 'fetchRow', 'readReview', 'reviewRead']
         );
     }

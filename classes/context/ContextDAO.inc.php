@@ -19,6 +19,7 @@ namespace PKP\context;
 
 use PKP\db\DAOResultFactory;
 use PKP\db\SchemaDAO;
+use PKP\security\Role;
 
 abstract class ContextDAO extends SchemaDAO
 {
@@ -121,7 +122,7 @@ abstract class ContextDAO extends SchemaDAO
         if ($userId) {
             $params = array_merge(
                 $params,
-                [(int) $userId, (int) $userId, (int) ROLE_ID_SITE_ADMIN]
+                [(int) $userId, (int) $userId, (int) Role::ROLE_ID_SITE_ADMIN]
             );
         }
 

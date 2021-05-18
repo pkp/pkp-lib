@@ -16,6 +16,7 @@
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
+use PKP\security\Role;
 
 class PKPSectionForm extends Form
 {
@@ -91,7 +92,7 @@ class PKPSectionForm extends Form
     {
         $params = [
             'contextId' => $request->getContext()->getId(),
-            'roleIds' => ROLE_ID_SUB_EDITOR,
+            'roleIds' => Role::ROLE_ID_SUB_EDITOR,
         ];
 
         $usersIterator = Services::get('user')->getMany($params);
@@ -121,7 +122,7 @@ class PKPSectionForm extends Form
         if (!empty($subEditors)) {
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
             foreach ($subEditors as $subEditor) {
-                if ($roleDao->userHasRole($contextId, $subEditor, ROLE_ID_SUB_EDITOR)) {
+                if ($roleDao->userHasRole($contextId, $subEditor, Role::ROLE_ID_SUB_EDITOR)) {
                     $subEditorsDao->insertEditor($contextId, $this->getSectionId(), $subEditor, ASSOC_TYPE_SECTION);
                 }
             }

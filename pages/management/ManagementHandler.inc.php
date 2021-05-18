@@ -14,10 +14,11 @@
  */
 
 use APP\file\PublicFileManager;
-
 use APP\handler\Handler;
+
 use APP\template\TemplateManager;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
 
 class ManagementHandler extends Handler
 {
@@ -138,7 +139,7 @@ class ManagementHandler extends Handler
 
             // Get contact information for site administrator
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-            $siteAdmins = $roleDao->getUsersByRoleId(ROLE_ID_SITE_ADMIN);
+            $siteAdmins = $roleDao->getUsersByRoleId(Role::ROLE_ID_SITE_ADMIN);
             $templateMgr->assign('siteAdmin', $siteAdmins->next());
         }
 

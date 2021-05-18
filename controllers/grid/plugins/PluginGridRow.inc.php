@@ -16,6 +16,7 @@
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\security\Role;
 
 class PluginGridRow extends GridRow
 {
@@ -68,7 +69,7 @@ class PluginGridRow extends GridRow
             }
 
             // Administrative functions.
-            if (in_array(ROLE_ID_SITE_ADMIN, $this->_userRoles)) {
+            if (in_array(Role::ROLE_ID_SITE_ADMIN, $this->_userRoles)) {
                 $this->addAction(new LinkAction(
                     'delete',
                     new RemoteActionConfirmationModal(
@@ -110,11 +111,11 @@ class PluginGridRow extends GridRow
     protected function _canEdit($plugin)
     {
         if ($plugin->isSitePlugin()) {
-            if (in_array(ROLE_ID_SITE_ADMIN, $this->_userRoles)) {
+            if (in_array(Role::ROLE_ID_SITE_ADMIN, $this->_userRoles)) {
                 return true;
             }
         } else {
-            if (in_array(ROLE_ID_MANAGER, $this->_userRoles)) {
+            if (in_array(Role::ROLE_ID_MANAGER, $this->_userRoles)) {
                 return true;
             }
         }

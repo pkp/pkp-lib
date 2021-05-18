@@ -17,6 +17,7 @@ use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\security\Role;
 
 class StageParticipantGridRow extends GridRow
 {
@@ -109,7 +110,7 @@ class StageParticipantGridRow extends GridRow
                 $userGroupDAO = DAORegistry::getDAO('UserGroupDAO');
                 $userGroup = $userGroupDAO->getById($userGroupId, $context->getId());
 
-                if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
+                if ($userGroup->getRoleId() == Role::ROLE_ID_AUTHOR) {
                     $handler = 'authorDashboard';
                     $op = 'submission';
                 } else {

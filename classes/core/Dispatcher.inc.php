@@ -221,10 +221,11 @@ class Dispatcher
             ];
 
             // Instantiate the router
-            $router = & instantiate($routerName, '\PKP\core\PKPRouter', $allowedRouterPackages);
-            if (!is_object($router)) {
-                fatalError('Cannot instantiate requested router. Routers must belong to the core package and be of type "PKPRouter".');
-            }
+            $router = new $routerName();
+            /*& instantiate($routerName, '\PKP\core\PKPRouter', $allowedRouterPackages);
+                        if (!is_object($router)) {
+                            fatalError('Cannot instantiate requested router. Routers must belong to the core package and be of type "PKPRouter".');
+                        }*/
             $router->setApplication($this->_application);
             $router->setDispatcher($this);
 

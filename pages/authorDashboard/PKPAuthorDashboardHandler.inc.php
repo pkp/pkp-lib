@@ -16,13 +16,14 @@
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
+
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
-
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
+use PKP\workflow\WorkflowStageDAO;
 
 abstract class PKPAuthorDashboardHandler extends Handler
 {

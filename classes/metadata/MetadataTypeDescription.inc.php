@@ -22,10 +22,10 @@ namespace PKP\metadata;
 
 use PKP\filter\ClassTypeDescription;
 
-define('ASSOC_TYPE_ANY', -1);
-
 class MetadataTypeDescription extends ClassTypeDescription
 {
+    public const ASSOC_TYPE_ANY = -1;
+
     /** @var string the expected meta-data schema package */
     public $_metadataSchemaPackageName;
 
@@ -103,7 +103,7 @@ class MetadataTypeDescription extends ClassTypeDescription
         // Identify the assoc type.
         $assocTypeString = trim($typeNameParts[1], ')');
         if ($assocTypeString == '*') {
-            $this->_assocType = ASSOC_TYPE_ANY;
+            $this->_assocType = self::ASSOC_TYPE_ANY;
         } else {
             // Make sure that the given assoc type exists.
             $assocTypeString = 'ASSOC_TYPE_' . $assocTypeString;
@@ -134,7 +134,7 @@ class MetadataTypeDescription extends ClassTypeDescription
         }
 
         // Check the assoc type
-        if ($this->_assocType != ASSOC_TYPE_ANY) {
+        if ($this->_assocType != self::ASSOC_TYPE_ANY) {
             if ($object->getAssocType() != $this->_assocType) {
                 return false;
             }
@@ -146,4 +146,5 @@ class MetadataTypeDescription extends ClassTypeDescription
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\metadata\MetadataTypeDescription', '\MetadataTypeDescription');
+    define('ASSOC_TYPE_ANY', \MetadataTypeDescription::ASSOC_TYPE_ANY);
 }

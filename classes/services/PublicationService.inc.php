@@ -21,6 +21,7 @@ use PKP\services\PKPPublicationService;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
 use PKP\services\interfaces\EntityWriteInterface;
+use PKP\security\Role;
 
 use APP\core\Services;
 use APP\i18n\AppLocale;
@@ -373,7 +374,7 @@ class PublicationService extends PKPPublicationService
         $isAuthor = false;
         $currentUser = Application::get()->getRequest()->getUser();
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-        $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submissionId, ROLE_ID_AUTHOR);
+        $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submissionId, Role::ROLE_ID_AUTHOR);
         while ($assignment = $submitterAssignments->next()) {
             if ($currentUser->getId() == $assignment->getUserId()) {
                 $isAuthor = true;

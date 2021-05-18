@@ -17,7 +17,7 @@
 
 namespace APP\user;
 
-use \PKP\user\PKPUserAction;
+use PKP\user\PKPUserAction;
 
 class UserAction extends PKPUserAction
 {

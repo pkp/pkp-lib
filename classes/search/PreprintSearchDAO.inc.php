@@ -16,9 +16,9 @@
  */
 
 use PKP\submission\PKPSubmission;
+use PKP\search\SubmissionSearchDAO;
 
 import('classes.search.PreprintSearch');
-import('lib.pkp.classes.search.SubmissionSearchDAO');
 
 class PreprintSearchDAO extends SubmissionSearchDAO
 {

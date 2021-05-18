@@ -17,10 +17,10 @@
 
 import('classes.preprint.PreprintGalley');
 
-use \PKP\services\PKPSchemaService;
-use \PKP\identity\Identity;
-use \PKP\db\SchemaDAO;
-use \PKP\plugins\PKPPubIdPluginDAO;
+use PKP\services\PKPSchemaService;
+use PKP\identity\Identity;
+use PKP\db\SchemaDAO;
+use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\submission\PKPSubmission;
 
 class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO

@@ -14,10 +14,10 @@
  */
 
 use PKP\security\authorization\EditorDecisionAccessPolicy;
+use PKP\controllers\modals\editorDecision\PKPEditorDecisionHandler;
+use PKP\security\Role;
 
 use APP\workflow\EditorDecisionActionsHandler;
-
-import('lib.pkp.classes.controllers.modals.editorDecision.PKPEditorDecisionHandler');
 
 class EditorDecisionHandler extends PKPEditorDecisionHandler
 {
@@ -29,7 +29,7 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler
         parent::__construct();
 
         $this->addRoleAssignment(
-            [ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER],
+            [Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER],
             array_merge([
                 'sendReviews', 'saveSendReviews',
                 'revertDecline', 'saveRevertDecline',

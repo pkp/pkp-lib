@@ -17,11 +17,12 @@ namespace APP\services;
 
 use APP\core\Services;
 use APP\services\queryBuilders\GalleyQueryBuilder;
+
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
-
+use PKP\validation\ValidatorFactory;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 
@@ -208,8 +209,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
     {
         $schemaService = Services::get('schema');
 
-        import('lib.pkp.classes.validation.ValidatorFactory');
-        $validator = \ValidatorFactory::make(
+        $validator = ValidatorFactory::make(
             $props,
             $schemaService->getValidationRules(PKPSchemaService::SCHEMA_GALLEY, $allowedLocales),
             [
@@ -219,7 +219,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
         );
 
         // Check required fields
-        \ValidatorFactory::required(
+        ValidatorFactory::required(
             $validator,
             $action,
             $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_GALLEY),
@@ -229,7 +229,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
         );
 
         // Check for input from disallowed locales
-        \ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_GALLEY), $allowedLocales);
+        ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_GALLEY), $allowedLocales);
 
         // The publicationId must match an existing publication that is not yet published
         $validator->after(function ($validator) use ($props) {

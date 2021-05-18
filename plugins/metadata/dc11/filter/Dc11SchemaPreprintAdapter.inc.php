@@ -18,8 +18,7 @@
  *  a Submission object.
  */
 
-
-import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
+use PKP\metadata\MetadataDataObjectAdapter;
 
 class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 {

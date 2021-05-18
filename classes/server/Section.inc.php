@@ -15,7 +15,7 @@
  * @brief Describes basic section properties.
  */
 
-import('lib.pkp.classes.context.PKPSection');
+use PKP\context\PKPSection;
 
 class Section extends PKPSection
 {

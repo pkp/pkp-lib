@@ -15,8 +15,11 @@
  */
 
 import('lib.pkp.api.v1.submissions.PKPSubmissionHandler');
-import('lib.pkp.classes.handler.APIHandler');
-import('classes.core.Services');
+
+use PKP\handler\APIHandler;
+use PKP\security\Role;
+
+use APP\core\Services;
 
 class SubmissionHandler extends PKPSubmissionHandler
 {
@@ -27,7 +30,7 @@ class SubmissionHandler extends PKPSubmissionHandler
     {
         $this->requiresSubmissionAccess[] = 'relatePublication';
         $this->requiresProductionStageAccess[] = 'relatePublication';
-        $this->productionStageAccessRoles[] = ROLE_ID_AUTHOR;
+        $this->productionStageAccessRoles[] = Role::ROLE_ID_AUTHOR;
         parent::__construct();
     }
 
@@ -41,19 +44,19 @@ class SubmissionHandler extends PKPSubmissionHandler
         $this->_endpoints['PUT'][] = [
             'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/relate',
             'handler' => [$this, 'relatePublication'],
-            'roles' => [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
         ];
 
         // Allow authors to create and publish versions
         $this->_endpoints['POST'] = array_map(function ($endpoint) {
             if (in_array($endpoint['handler'][1], ['addPublication', 'versionPublication'])) {
-                $endpoint['roles'][] = ROLE_ID_AUTHOR;
+                $endpoint['roles'][] = Role::ROLE_ID_AUTHOR;
             }
             return $endpoint;
         }, $this->_endpoints['POST']);
         $this->_endpoints['PUT'] = array_map(function ($endpoint) {
             if (in_array($endpoint['handler'][1], ['publishPublication', 'unpublishPublication'])) {
-                $endpoint['roles'][] = ROLE_ID_AUTHOR;
+                $endpoint['roles'][] = Role::ROLE_ID_AUTHOR;
             }
             return $endpoint;
         }, $this->_endpoints['PUT']);

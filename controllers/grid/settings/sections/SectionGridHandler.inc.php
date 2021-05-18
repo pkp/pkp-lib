@@ -21,6 +21,7 @@ use PKP\core\JSONMessage;
 use PKP\linkAction\request\AjaxModal;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
+use PKP\security\Role;
 
 use APP\notification\NotificationManager;
 
@@ -33,7 +34,7 @@ class SectionGridHandler extends SetupGridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER],
             ['fetchGrid', 'fetchRow', 'addSection', 'editSection', 'updateSection', 'deleteSection', 'saveSequence', 'deactivateSection','activateSection']
         );
     }

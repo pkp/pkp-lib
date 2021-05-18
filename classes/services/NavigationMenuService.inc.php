@@ -17,13 +17,11 @@ namespace APP\services;
 
 use PKP\plugins\HookRegistry;
 use PKP\core\PKPApplication;
+use PKP\security\Validation;
 
 use APP\template\TemplateManager;
 use APP\i18n\AppLocale;
 use APP\core\Application;
-
-// FIXME: Use namespacing
-use \Validation;
 
 class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
 {

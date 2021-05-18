@@ -17,9 +17,9 @@
 
 namespace APP\publication;
 
-use \PKP\publication\PKPPublicationDAO;
+use PKP\publication\PKPPublicationDAO;
 
-use \APP\core\Services;
+use APP\core\Services;
 
 class PublicationDAO extends PKPPublicationDAO
 {

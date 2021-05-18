@@ -22,6 +22,8 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 use PKP\controllers\grid\GridColumn;
+use PKP\security\Role;
+use PKP\controllers\grid\feature\OrderGridItemsFeature;
 
 use APP\template\TemplateManager;
 use APP\notification\NotificationManager;
@@ -38,7 +40,7 @@ class PreprintGalleyGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
             ['fetchGrid', 'fetchRow', 'addGalley', 'editGalley', 'editGalleyTab', 'updateGalley', 'deleteGalley', 'identifiers', 'updateIdentifiers', 'clearPubId', 'saveSequence']
         );
     }
@@ -161,7 +163,6 @@ class PreprintGalleyGridHandler extends GridHandler
     public function initFeatures($request, $args)
     {
         if ($this->canEdit()) {
-            import('lib.pkp.classes.controllers.grid.feature.OrderGridItemsFeature');
             return [new OrderGridItemsFeature()];
         }
 
@@ -489,7 +490,7 @@ class PreprintGalleyGridHandler extends GridHandler
             return false;
         }
 
-        if (in_array(ROLE_ID_SITE_ADMIN, $userRoles)) {
+        if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return true;
         }
 

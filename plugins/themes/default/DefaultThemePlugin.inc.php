@@ -13,7 +13,7 @@
  * @brief Default theme
  */
 
-import('lib.pkp.classes.plugins.ThemePlugin');
+use PKP\plugins\ThemePlugin;
 
 class DefaultThemePlugin extends ThemePlugin
 {

@@ -15,8 +15,10 @@
  * @brief Operations for retrieving and modifying Section objects.
  */
 
+use PKP\context\PKPSectionDAO;
+use PKP\db\DAOResultFactory;
+
 import('classes.server.Section');
-import('lib.pkp.classes.context.PKPSectionDAO');
 
 class SectionDAO extends PKPSectionDAO
 {

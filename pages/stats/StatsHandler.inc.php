@@ -13,7 +13,7 @@
  * @brief Handle requests for statistics pages.
  */
 
-use \APP\template\TemplateManager;
+use APP\template\TemplateManager;
 
 import('lib.pkp.pages.stats.PKPStatsHandler');
 

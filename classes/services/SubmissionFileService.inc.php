@@ -15,12 +15,13 @@
 
 namespace APP\services;
 
-use \PKP\db\DAORegistry;
-use \PKP\plugins\HookRegistry;
-use \PKP\submission\SubmissionFile;
-use \PKP\search\SubmissionSearch;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
+use PKP\submission\SubmissionFile;
+use PKP\search\SubmissionSearch;
+use PKP\security\Role;
 
-use \APP\core\Application;
+use APP\core\Application;
 
 class SubmissionFileService extends \PKP\services\PKPSubmissionFileService
 {
@@ -53,7 +54,6 @@ class SubmissionFileService extends \PKP\services\PKPSubmissionFileService
                 $galley->_data['submissionFileId'] = null; // Work around pkp/pkp-lib#5740
                 $galleyDao->updateObject($galley);
             }
-            import('lib.pkp.classes.search.SubmissionSearch');
             $preprintSearchIndex = Application::getSubmissionSearchIndex();
             $preprintSearchIndex->deleteTextIndex($submissionFile->getData('submissionId'), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile->getId());
         }
@@ -72,7 +72,7 @@ class SubmissionFileService extends \PKP\services\PKPSubmissionFileService
         $stageAssignments = $args[1];
 
         if (array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $stageAssignments)
-                && in_array(ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION])) {
+                && in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION])) {
             $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_PROOF;
         }
     }

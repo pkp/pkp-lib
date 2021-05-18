@@ -16,7 +16,9 @@
 // Import the base Handler.
 import('lib.pkp.controllers.tab.workflow.PKPWorkflowTabHandler');
 
-use \APP\template\TemplateManager;
+use PKP\security\Role;
+
+use APP\template\TemplateManager;
 
 class WorkflowTabHandler extends PKPWorkflowTabHandler
 {
@@ -35,7 +37,7 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
                 $context = $request->getContext();
 
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR);
+                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR);
 
                 while ($assignment = $submitterAssignments->next()) {
                     \HookRegistry::call('Publication::testAuthorValidatePublish', [&$errors, $assignment->getUserId(), $context->getId(), $submission->getId()]);

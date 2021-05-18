@@ -16,6 +16,8 @@
 // Import the base Handler.
 import('lib.pkp.controllers.modals.publish.PublishHandler');
 
+use PKP\security\Role;
+
 class OPSPublishHandler extends PublishHandler
 {
     /**
@@ -24,7 +26,7 @@ class OPSPublishHandler extends PublishHandler
     public function __construct()
     {
         $this->addRoleAssignment(
-            [ROLE_ID_AUTHOR],
+            [Role::ROLE_ID_AUTHOR],
             ['publish']
         );
         parent::__construct();

@@ -15,7 +15,7 @@
 
 import('lib.pkp.controllers.tab.pubIds.form.PKPPublicIdentifiersForm');
 
-use \APP\template\TemplateManager;
+use APP\template\TemplateManager;
 
 class PublicIdentifiersForm extends PKPPublicIdentifiersForm
 {

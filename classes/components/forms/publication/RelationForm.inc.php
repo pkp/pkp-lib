@@ -14,11 +14,11 @@
 
 namespace APP\components\forms\publication;
 
-use \PKP\components\forms\FieldOptions;
-use \PKP\components\forms\FieldText;
-use \PKP\components\forms\FormComponent;
+use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FieldText;
+use PKP\components\forms\FormComponent;
 
-use \APP\publication\Publication;
+use APP\publication\Publication;
 
 define('FORM_ID_RELATION', 'relation');
 

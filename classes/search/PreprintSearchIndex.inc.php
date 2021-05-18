@@ -13,14 +13,14 @@
  * @brief Class to maintain the preprint search index.
  */
 
-use \PKP\search\SubmissionSearch;
-use \PKP\submission\SubmissionFile;
-use \PKP\search\SearchFileParser;
-use \PKP\search\SubmissionSearchIndex;
-use \PKP\plugins\HookRegistry;
-use \PKP\db\DAORegistry;
+use PKP\search\SubmissionSearch;
+use PKP\submission\SubmissionFile;
+use PKP\search\SearchFileParser;
+use PKP\search\SubmissionSearchIndex;
+use PKP\plugins\HookRegistry;
+use PKP\db\DAORegistry;
 
-use \APP\i18n\AppLocale;
+use APP\i18n\AppLocale;
 
 class PreprintSearchIndex extends SubmissionSearchIndex
 {
@@ -149,7 +149,6 @@ class PreprintSearchIndex extends SubmissionSearchIndex
         // If no search plug-in is activated then fall back to the
         // default database search implementation.
         if ($hookResult === false || is_null($hookResult)) {
-            import('lib.pkp.classes.submission.SubmissionFile'); // Constants
             $submissionFilesIterator = Services::get('submissionFile')->getMany([
                 'submissionIds' => [$preprint->getId()],
                 'fileStages' => [SubmissionFile::SUBMISSION_FILE_PROOF],

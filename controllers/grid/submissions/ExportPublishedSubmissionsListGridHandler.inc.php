@@ -17,6 +17,9 @@ use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\Role;
+use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
+use PKP\controllers\grid\feature\PagingFeature;
 
 class ExportPublishedSubmissionsListGridHandler extends GridHandler
 {
@@ -30,7 +33,7 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler
     {
         parent::__construct();
         $this->addRoleAssignment(
-            [ROLE_ID_MANAGER],
+            [Role::ROLE_ID_MANAGER],
             ['fetchGrid', 'fetchRow']
         );
     }
@@ -127,8 +130,6 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler
      */
     public function initFeatures($request, $args)
     {
-        import('lib.pkp.classes.controllers.grid.feature.selectableItems.SelectableItemsFeature');
-        import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
         return [new SelectableItemsFeature(), new PagingFeature()];
     }
 

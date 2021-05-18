@@ -84,7 +84,7 @@ class EmailReviewerForm extends Form
      *
      * @param $submission Submission
      */
-    public function execute($submission)
+    public function execute($submission, ...$functionArgs)
     {
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $toUser = $userDao->getById($this->_reviewAssignment->getReviewerId());
@@ -102,5 +102,7 @@ class EmailReviewerForm extends Form
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
         }
+
+        parent::execute($submission, ...$functionArgs);
     }
 }

@@ -20,6 +20,7 @@ use APP\template\TemplateManager;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxAction;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\security\AccessKeyManager;

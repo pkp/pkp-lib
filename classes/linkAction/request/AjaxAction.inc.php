@@ -14,12 +14,11 @@
 
 namespace PKP\linkAction\request;
 
-define('AJAX_REQUEST_TYPE_GET', 'get');
-define('AJAX_REQUEST_TYPE_POST', 'post');
-
-
 class AjaxAction extends LinkActionRequest
 {
+    public const AJAX_REQUEST_TYPE_GET = 'get';
+    public const AJAX_REQUEST_TYPE_POST = 'post';
+
     /** @var string */
     public $_remoteAction;
 
@@ -33,7 +32,7 @@ class AjaxAction extends LinkActionRequest
      * @param $remoteAction string The target URL.
      * @param $requestType string One of the AJAX_REQUEST_TYPE_* constants.
      */
-    public function __construct($remoteAction, $requestType = AJAX_REQUEST_TYPE_POST)
+    public function __construct($remoteAction, $requestType = self::AJAX_REQUEST_TYPE_POST)
     {
         parent::__construct();
         $this->_remoteAction = $remoteAction;
@@ -90,4 +89,10 @@ class AjaxAction extends LinkActionRequest
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\linkAction\request\AjaxAction', '\AjaxAction');
+    foreach ([
+        'AJAX_REQUEST_TYPE_GET',
+        'AJAX_REQUEST_TYPE_POST',
+    ] as $constantName) {
+        define($constantName, constant('\AjaxAction::' . $constantName));
+    }
 }

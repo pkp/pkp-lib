@@ -16,11 +16,12 @@
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
-
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
+use PKP\user\form\LoginChangePasswordForm;
 use PKP\validation\FormValidatorReCaptcha;
 
 class LoginHandler extends Handler
@@ -315,7 +316,6 @@ class LoginHandler extends Handler
             'pageTitle' => __('user.changePassword'),
         ]);
 
-        import('lib.pkp.classes.user.form.LoginChangePasswordForm');
         $passwordForm = new LoginChangePasswordForm($request->getSite());
         $passwordForm->initData();
         if (isset($args[0])) {
@@ -331,8 +331,6 @@ class LoginHandler extends Handler
     {
         $this->_isBackendPage = true;
         $this->setupTemplate($request);
-
-        import('lib.pkp.classes.user.form.LoginChangePasswordForm');
 
         $passwordForm = new LoginChangePasswordForm($request->getSite());
         $passwordForm->readInputData();

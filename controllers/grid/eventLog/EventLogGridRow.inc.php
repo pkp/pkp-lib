@@ -18,7 +18,6 @@ use PKP\log\SubmissionFileEventLogEntry;
 use PKP\submission\SubmissionFile;
 
 // Other classes used
-import('lib.pkp.classes.log.SubmissionFileEventLogEntry');
 import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
 import('lib.pkp.controllers.grid.eventLog.linkAction.EmailLinkAction');
 

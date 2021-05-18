@@ -15,9 +15,8 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-import('lib.pkp.classes.cliTool.CliTool');
 
-class installEmailTemplates extends \PKP\cliTool\CommandLineTool
+class installEmailTemplates extends CommandLineTool
 {
     /** @var string The email key of the email template to install. */
     public $_emailKey;

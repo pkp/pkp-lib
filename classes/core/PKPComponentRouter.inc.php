@@ -61,14 +61,12 @@ define('COMPONENT_ROUTER_PARTS_MAXDEPTH', 9);
 define('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-import('lib.pkp.classes.core.PKPRouter');
-import('classes.core.Request');
+use APP\core\Request;
 
 use APP\i18n\AppLocale;
 use Exception;
 
 use PKP\config\Config;
-
 use PKP\plugins\HookRegistry;
 
 class PKPComponentRouter extends PKPRouter

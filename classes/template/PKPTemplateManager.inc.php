@@ -718,9 +718,6 @@ class PKPTemplateManager extends Smarty
         // Instantiate the namespace
         $output = '$.pkp = $.pkp || {};';
 
-        // Load data intended for general use by the app
-        import('lib.pkp.classes.security.Role');
-
         $app_data = [
             'currentLocale' => AppLocale::getLocale(),
             'primaryLocale' => AppLocale::getPrimaryLocale(),

@@ -655,7 +655,6 @@ abstract class PKPWorkflowHandler extends Handler
             }
         }
 
-        import('lib.pkp.classes.workflow.WorkflowStageDAO');
         $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
         $hasSubmissionPassedThisStage = $submission->getStageId() > $stageId;
         $lastDecision = null;

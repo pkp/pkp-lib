@@ -23,13 +23,14 @@ use APP\i18n\AppLocale;
 use APP\notification\form\NotificationSettingsForm;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\mail\MailTemplate;
-
 use PKP\notification\PKPNotification;
+use PKP\security\AccessKeyManager;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
@@ -121,7 +122,6 @@ class RegistrationForm extends Form
         asort($countries);
         $templateMgr->assign('countries', $countries);
 
-        import('lib.pkp.classes.user.form.UserFormHelper');
         $userFormHelper = new UserFormHelper();
         $userFormHelper->assignRoleContent($templateMgr, $request);
 
@@ -299,7 +299,6 @@ class RegistrationForm extends Form
                 $userGroupDao->assignUserToGroup($user->getId(), $defaultReaderGroup->getId(), $request->getContext()->getId());
             }
         } else {
-            import('lib.pkp.classes.user.form.UserFormHelper');
             $userFormHelper = new UserFormHelper();
             $userFormHelper->saveRoleContent($this, $user);
         }
@@ -332,7 +331,6 @@ class RegistrationForm extends Form
 
         if ($requireValidation) {
             // Create an access key
-            import('lib.pkp.classes.security.AccessKeyManager');
             $accessKeyManager = new AccessKeyManager();
             $accessKey = $accessKeyManager->createKey('RegisterContext', $user->getId(), null, Config::getVar('email', 'validation_timeout'));
 

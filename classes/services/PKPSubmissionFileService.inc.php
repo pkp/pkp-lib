@@ -349,10 +349,8 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
             ]
         );
 
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
         $user = $request->getUser();
-        \SubmissionLog::logEvent(
+        SubmissionLog::logEvent(
             $request,
             $submission,
             SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
@@ -412,7 +410,6 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 }
 
                 // Fetch the latest notification email timestamp
-                import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
                 $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
                 $submissionEmails = $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
                 $lastNotification = null;
@@ -504,11 +501,9 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
             ]
         );
 
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
         $user = $request->getUser();
         $submission = Services::get('submission')->get($submissionFile->getData('submissionId'));
-        \SubmissionLog::logEvent(
+        SubmissionLog::logEvent(
             $request,
             $submission,
             $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
@@ -608,9 +603,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         }
 
         // Log the deletion
-        import('lib.pkp.classes.log.SubmissionFileLog');
-        import('lib.pkp.classes.log.SubmissionFileEventLogEntry'); // constants
-        \SubmissionFileLog::logEvent(
+        SubmissionFileLog::logEvent(
             Application::get()->getRequest(),
             $submissionFile,
             SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_DELETE,

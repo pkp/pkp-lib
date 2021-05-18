@@ -15,10 +15,11 @@
 
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
+
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use PKP\site\VersionCheck;
 
 class ManagementHandler extends Handler
 {
@@ -125,7 +126,6 @@ class ManagementHandler extends Handler
         ]);
 
         // Interact with the beacon (if enabled) and determine if a new version exists
-        import('lib.pkp.classes.site.VersionCheck');
         $latestVersion = VersionCheck::checkIfNewVersionExists();
 
         // Display a warning message if there is a new version of OJS available

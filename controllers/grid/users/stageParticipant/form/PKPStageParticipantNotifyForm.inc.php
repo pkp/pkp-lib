@@ -20,6 +20,7 @@ use APP\template\TemplateManager;
 
 use PKP\form\Form;
 use PKP\log\EventLogEntry;
+use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
 
@@ -344,7 +345,6 @@ abstract class PKPStageParticipantNotifyForm extends Form
      */
     public function _logEventAndCreateNotification($request, $submission)
     {
-        import('lib.pkp.classes.log.SubmissionLog');
         SubmissionLog::logEvent($request, $submission, EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT, 'informationCenter.history.messageSent');
 
         // Create trivial notification.

@@ -22,11 +22,6 @@
 
 namespace PKP\db;
 
-import('lib.pkp.classes.db.DAOResultFactory');
-
-define('SORT_DIRECTION_ASC', 0x00001);
-define('SORT_DIRECTION_DESC', 0x00002);
-
 use Illuminate\Support\Facades\DB;
 
 use PKP\cache\CacheManager;
@@ -35,6 +30,9 @@ use PKP\plugins\HookRegistry;
 
 class DAO
 {
+    public const SORT_DIRECTION_ASC = 1;
+    public const SORT_DIRECTION_DESC = 2;
+
     /**
      * Constructor.
      * Initialize the database connection.
@@ -587,9 +585,9 @@ class DAO
     public function getDirectionMapping($direction)
     {
         switch ($direction) {
-            case SORT_DIRECTION_ASC:
+            case self::SORT_DIRECTION_ASC:
                 return 'ASC';
-            case SORT_DIRECTION_DESC:
+            case self::SORT_DIRECTION_DESC:
                 return 'DESC';
             default:
                 return 'ASC';
@@ -673,4 +671,6 @@ class DAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\db\DAO', '\DAO');
+    define('SORT_DIRECTION_ASC', \DAO::SORT_DIRECTION_ASC);
+    define('SORT_DIRECTION_DESC', \DAO::SORT_DIRECTION_DESC);
 }

@@ -17,16 +17,15 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\i18n\AppLocale;
+
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\mail\SubmissionMailTemplate;
-
 use PKP\scheduledTask\ScheduledTask;
+use PKP\security\AccessKeyManager;
+use PKP\security\Validation;
 use PKP\submission\PKPSubmission;
-
-// FIXME: Add namespacing
-use Validation;
 
 class ReviewReminder extends ScheduledTask
 {
@@ -78,7 +77,6 @@ class ReviewReminder extends ScheduledTask
 
         $reviewUrlArgs = ['submissionId' => $reviewAssignment->getSubmissionId()];
         if ($reviewerAccessKeysEnabled) {
-            import('lib.pkp.classes.security.AccessKeyManager');
             $accessKeyManager = new AccessKeyManager();
 
             // Key lifetime is the typical review period plus four weeks

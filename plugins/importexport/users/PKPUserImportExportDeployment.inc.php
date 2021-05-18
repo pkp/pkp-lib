@@ -14,7 +14,7 @@
  * application's specifics.
  */
 
-import('lib.pkp.classes.plugins.importexport.PKPImportExportDeployment');
+use PKP\plugins\importexport\PKPImportExportDeployment;
 
 class PKPUserImportExportDeployment extends PKPImportExportDeployment
 {

@@ -96,7 +96,6 @@ class UserForm extends Form
     public function execute(...$functionArgs)
     {
         if (isset($this->userId)) {
-            import('lib.pkp.classes.security.UserGroupAssignmentDAO');
             $userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /** @var UserGroupAssignmentDAO $userGroupAssignmentDao */
             $userGroupAssignmentDao->deleteAssignmentsByContextId(Application::get()->getRequest()->getContext()->getId(), $this->userId);
             if ($this->getData('userGroupIds')) {

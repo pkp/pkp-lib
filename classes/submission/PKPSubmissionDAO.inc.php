@@ -305,7 +305,7 @@ abstract class PKPSubmissionDAO extends SchemaDAO
      */
     public function getDefaultSortOption()
     {
-        return $this->getSortOption(self::ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_DESC);
+        return $this->getSortOption(self::ORDERBY_DATE_PUBLISHED, self::SORT_DIRECTION_DESC);
     }
 
     /**
@@ -316,10 +316,10 @@ abstract class PKPSubmissionDAO extends SchemaDAO
     public function getSortSelectOptions()
     {
         return [
-            $this->getSortOption(self::ORDERBY_TITLE, SORT_DIRECTION_ASC) => __('catalog.sortBy.titleAsc'),
-            $this->getSortOption(self::ORDERBY_TITLE, SORT_DIRECTION_DESC) => __('catalog.sortBy.titleDesc'),
-            $this->getSortOption(self::ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_ASC) => __('catalog.sortBy.datePublishedAsc'),
-            $this->getSortOption(self::ORDERBY_DATE_PUBLISHED, SORT_DIRECTION_DESC) => __('catalog.sortBy.datePublishedDesc'),
+            $this->getSortOption(self::ORDERBY_TITLE, self::SORT_DIRECTION_ASC) => __('catalog.sortBy.titleAsc'),
+            $this->getSortOption(self::ORDERBY_TITLE, self::SORT_DIRECTION_DESC) => __('catalog.sortBy.titleDesc'),
+            $this->getSortOption(self::ORDERBY_DATE_PUBLISHED, self::SORT_DIRECTION_ASC) => __('catalog.sortBy.datePublishedAsc'),
+            $this->getSortOption(self::ORDERBY_DATE_PUBLISHED, self::SORT_DIRECTION_DESC) => __('catalog.sortBy.datePublishedDesc'),
         ];
     }
 

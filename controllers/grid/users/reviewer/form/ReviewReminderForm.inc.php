@@ -15,10 +15,11 @@
 
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use PKP\form\Form;
 
+use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
+use PKP\security\AccessKeyManager;
 
 class ReviewReminderForm extends Form
 {
@@ -167,7 +168,6 @@ class ReviewReminderForm extends Form
 
         $reviewUrlArgs = ['submissionId' => $reviewAssignment->getSubmissionId()];
         if ($context->getData('reviewerAccessKeysEnabled')) {
-            import('lib.pkp.classes.security.AccessKeyManager');
             $accessKeyManager = new AccessKeyManager();
             $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
             $accessKey = $accessKeyManager->createKey($context->getId(), $reviewerId, $reviewAssignment->getId(), $expiryDays);

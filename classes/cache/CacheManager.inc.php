@@ -87,24 +87,21 @@ class CacheManager
     {
         switch ($this->getCacheImplementation($type)) {
             case 'xcache':
-                import('lib.pkp.classes.cache.XCacheCache');
-                $cache = new XCacheCache(
+                $cache = new \PKP\cache\XCacheCache(
                     $context,
                     $cacheId,
                     $fallback
                 );
                 break;
             case 'apc':
-                import('lib.pkp.classes.cache.APCCache');
-                $cache = new APCCache(
+                $cache = new \PKP\cache\APCCache(
                     $context,
                     $cacheId,
                     $fallback
                 );
                 break;
             case 'memcache':
-                import('lib.pkp.classes.cache.MemcacheCache');
-                $cache = new MemcacheCache(
+                $cache = new \PKP\cache\MemcacheCache(
                     $context,
                     $cacheId,
                     $fallback,
@@ -117,8 +114,7 @@ class CacheManager
                 $cache = $this->getFileCache($context, $cacheId, $fallback);
                 break;
             case 'none':
-                import('lib.pkp.classes.cache.GenericCache');
-                $cache = new GenericCache(
+                $cache = new \PKP\cache\GenericCache(
                     $context,
                     $cacheId,
                     $fallback

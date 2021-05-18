@@ -23,6 +23,7 @@ use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\notification\PKPNotification;
+use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 use PKP\security\Role;
 
@@ -55,7 +56,6 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         $this->addPolicy(new WorkflowStageRequiredPolicy($stageId));
 
         // We need a review round id in request.
-        import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
         $this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
 
         return parent::authorize($request, $args, $roleAssignments);

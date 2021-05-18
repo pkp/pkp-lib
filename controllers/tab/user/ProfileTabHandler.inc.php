@@ -19,10 +19,16 @@
 
 use APP\handler\Handler;
 use APP\notification\form\NotificationSettingsForm;
-
 use APP\notification\NotificationManager;
+
 use PKP\core\JSONMessage;
 use PKP\security\authorization\UserRequiredPolicy;
+use PKP\user\form\APIProfileForm;
+use PKP\user\form\ChangePasswordForm;
+use PKP\user\form\ContactForm;
+use PKP\user\form\IdentityForm;
+use PKP\user\form\PublicProfileForm;
+use PKP\user\form\RolesForm;
 
 class ProfileTabHandler extends Handler
 {
@@ -51,7 +57,6 @@ class ProfileTabHandler extends Handler
     public function identity($args, $request)
     {
         $this->setupTemplate($request);
-        import('lib.pkp.classes.user.form.IdentityForm');
         $identityForm = new IdentityForm($request->getUser());
         $identityForm->initData();
         return new JSONMessage(true, $identityForm->fetch($request));
@@ -69,7 +74,6 @@ class ProfileTabHandler extends Handler
     {
         $this->setupTemplate($request);
 
-        import('lib.pkp.classes.user.form.IdentityForm');
         $identityForm = new IdentityForm($request->getUser());
         $identityForm->readInputData();
         if ($identityForm->validate()) {
@@ -92,7 +96,6 @@ class ProfileTabHandler extends Handler
     public function contact($args, $request)
     {
         $this->setupTemplate($request);
-        import('lib.pkp.classes.user.form.ContactForm');
         $contactForm = new ContactForm($request->getUser());
         $contactForm->initData();
         return new JSONMessage(true, $contactForm->fetch($request));
@@ -110,7 +113,6 @@ class ProfileTabHandler extends Handler
     {
         $this->setupTemplate($request);
 
-        import('lib.pkp.classes.user.form.ContactForm');
         $contactForm = new ContactForm($request->getUser());
         $contactForm->readInputData();
         if ($contactForm->validate()) {
@@ -133,7 +135,6 @@ class ProfileTabHandler extends Handler
     public function roles($args, $request)
     {
         $this->setupTemplate($request);
-        import('lib.pkp.classes.user.form.RolesForm');
         $rolesForm = new RolesForm($request->getUser());
         $rolesForm->initData();
         return new JSONMessage(true, $rolesForm->fetch($request));
@@ -151,7 +152,6 @@ class ProfileTabHandler extends Handler
     {
         $this->setupTemplate($request);
 
-        import('lib.pkp.classes.user.form.RolesForm');
         $rolesForm = new RolesForm($request->getUser());
         $rolesForm->readInputData();
         if ($rolesForm->validate()) {
@@ -174,7 +174,6 @@ class ProfileTabHandler extends Handler
     public function publicProfile($args, $request)
     {
         $this->setupTemplate($request);
-        import('lib.pkp.classes.user.form.PublicProfileForm');
         $publicProfileForm = new PublicProfileForm($request->getUser());
         $publicProfileForm->initData();
         return new JSONMessage(true, $publicProfileForm->fetch($request));
@@ -190,7 +189,6 @@ class ProfileTabHandler extends Handler
      */
     public function uploadProfileImage($args, $request)
     {
-        import('lib.pkp.classes.user.form.PublicProfileForm');
         $publicProfileForm = new PublicProfileForm($request->getUser());
         $result = $publicProfileForm->uploadProfileImage();
         if ($result) {
@@ -208,7 +206,6 @@ class ProfileTabHandler extends Handler
      */
     public function deleteProfileImage($args, $request)
     {
-        import('lib.pkp.classes.user.form.PublicProfileForm');
         $publicProfileForm = new PublicProfileForm($request->getUser());
         $publicProfileForm->deleteProfileImage();
         $request->redirectUrl($request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'user', 'profile', null, ['uniq' => uniqid()], 'publicProfile'));
@@ -226,7 +223,6 @@ class ProfileTabHandler extends Handler
     {
         $this->setupTemplate($request);
 
-        import('lib.pkp.classes.user.form.PublicProfileForm');
         $publicProfileForm = new PublicProfileForm($request->getUser());
         $publicProfileForm->readInputData();
         if ($publicProfileForm->validate()) {
@@ -249,7 +245,6 @@ class ProfileTabHandler extends Handler
     public function apiProfile($args, $request)
     {
         $this->setupTemplate($request);
-        import('lib.pkp.classes.user.form.APIProfileForm');
         $apiProfileForm = new APIProfileForm($request->getUser());
         $apiProfileForm->initData();
         return new JSONMessage(true, $apiProfileForm->fetch($request));
@@ -267,7 +262,6 @@ class ProfileTabHandler extends Handler
     {
         $this->setupTemplate($request);
 
-        import('lib.pkp.classes.user.form.APIProfileForm');
         $apiProfileForm = new APIProfileForm($request->getUser());
         $apiProfileForm->readInputData();
         if ($apiProfileForm->validate()) {
@@ -290,7 +284,6 @@ class ProfileTabHandler extends Handler
     public function changePassword($args, $request)
     {
         $this->setupTemplate($request);
-        import('lib.pkp.classes.user.form.ChangePasswordForm');
         $passwordForm = new ChangePasswordForm($request->getUser(), $request->getSite());
         $passwordForm->initData();
         return new JSONMessage(true, $passwordForm->fetch($request));
@@ -307,7 +300,6 @@ class ProfileTabHandler extends Handler
     public function savePassword($args, $request)
     {
         $this->setupTemplate($request);
-        import('lib.pkp.classes.user.form.ChangePasswordForm');
         $passwordForm = new ChangePasswordForm($request->getUser(), $request->getSite());
         $passwordForm->readInputData();
 

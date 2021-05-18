@@ -20,6 +20,7 @@ use APP\template\TemplateManager;
 
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
+use PKP\user\InterestManager;
 
 class CreateReviewerForm extends ReviewerForm
 {
@@ -133,7 +134,6 @@ class CreateReviewerForm extends ReviewerForm
         $this->setData('reviewerId', $reviewerId);
 
         // Insert the user interests
-        import('lib.pkp.classes.user.InterestManager');
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $this->getData('interests'));
 

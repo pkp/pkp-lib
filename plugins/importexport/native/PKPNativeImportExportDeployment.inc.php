@@ -14,9 +14,8 @@
  * application's specifics.
  */
 
+use PKP\plugins\importexport\PKPImportExportDeployment;
 use PKP\submission\SubmissionFile;
-
-import('lib.pkp.classes.plugins.importexport.PKPImportExportDeployment');
 
 class PKPNativeImportExportDeployment extends PKPImportExportDeployment
 {

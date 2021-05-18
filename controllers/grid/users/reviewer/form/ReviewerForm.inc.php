@@ -22,6 +22,7 @@ use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
+use PKP\security\AccessKeyManager;
 use PKP\security\Role;
 use PKP\submission\action\EditorAction;
 use PKP\submission\SubmissionFile;
@@ -433,7 +434,6 @@ class ReviewerForm extends Form
             // Set the additional arguments for the one click url
             $reviewUrlArgs = ['submissionId' => $this->getSubmissionId()];
             if ($context->getData('reviewerAccessKeysEnabled')) {
-                import('lib.pkp.classes.security.AccessKeyManager');
                 $accessKeyManager = new AccessKeyManager();
                 $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
                 $accessKey = $accessKeyManager->createKey($context->getId(), $reviewerId, $reviewAssignment->getId(), $expiryDays);

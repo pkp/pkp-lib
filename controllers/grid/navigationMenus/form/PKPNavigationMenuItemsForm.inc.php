@@ -224,7 +224,6 @@ class PKPNavigationMenuItemsForm extends Form
      */
     public function validate($callHooks = true)
     {
-        import('lib.pkp.classes.navigationMenu.NavigationMenuItem');
         if ($this->getData('menuItemType') && $this->getData('menuItemType') != '') {
             if ($this->getData('menuItemType') == NavigationMenuItem::NMI_TYPE_CUSTOM) {
                 if (!preg_match('/^[a-zA-Z0-9\/._-]+$/', $this->getData('path'))) {

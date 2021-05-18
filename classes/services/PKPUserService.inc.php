@@ -20,6 +20,7 @@ use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
 use PKP\security\Role;
+use PKP\security\UserGroupDAO;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 
@@ -386,7 +387,6 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
                 case 'groups':
                     $values[$prop] = null;
                     if ($context) {
-                        import('lib.pkp.classes.security.UserGroupDAO');
                         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
                         $userGroups = $userGroupDao->getByUserId($user->getId(), $context->getId());
                         $values[$prop] = [];

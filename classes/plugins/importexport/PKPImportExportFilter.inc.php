@@ -13,7 +13,7 @@
  * @brief Base helper class for import/export filters
  */
 
-namespace PKP\classes\plugins\importexport;
+namespace PKP\plugins\importexport;
 
 use NativeExportFilter;
 use PKP\db\DAORegistry;
@@ -87,5 +87,5 @@ class PKPImportExportFilter extends PersistableFilter
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\classes\plugins\importexport\PKPImportExportFilter', '\PKPImportExportFilter');
+    class_alias('\PKP\plugins\importexport\PKPImportExportFilter', '\PKPImportExportFilter');
 }

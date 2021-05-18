@@ -18,6 +18,9 @@ import('pages.user.UserHandler');
 
 use APP\template\TemplateManager;
 
+use PKP\security\AccessKeyManager;
+use PKP\user\form\RegistrationForm;
+
 class RegistrationHandler extends UserHandler
 {
     /**
@@ -54,7 +57,6 @@ class RegistrationHandler extends UserHandler
         $this->validate(null, $request);
         $this->setupTemplate($request);
 
-        import('lib.pkp.classes.user.form.RegistrationForm');
         $regForm = new RegistrationForm($request->getSite());
 
         // Initial GET request to register page
@@ -140,7 +142,6 @@ class RegistrationHandler extends UserHandler
         }
 
         // Checks user and token
-        import('lib.pkp.classes.security.AccessKeyManager');
         $accessKeyManager = new AccessKeyManager();
         $accessKeyHash = AccessKeyManager::generateKeyHash($accessKeyCode);
         $accessKey = $accessKeyManager->validateKey(

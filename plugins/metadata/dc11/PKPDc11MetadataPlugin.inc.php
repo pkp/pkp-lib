@@ -16,8 +16,7 @@
  * @brief Abstract base class for Dublin Core version 1.1 metadata plugins
  */
 
-
-import('lib.pkp.classes.plugins.MetadataPlugin');
+use PKP\plugins\MetadataPlugin;
 
 class PKPDc11MetadataPlugin extends MetadataPlugin
 {

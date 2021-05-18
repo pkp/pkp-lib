@@ -21,9 +21,6 @@ use APP\core\Services;
 use APP\i18n\AppLocale;
 use PKP\security\authorization\AuthorizationPolicy;
 
-// FIXME: Add namespacing
-import('lib.pkp.classes.workflow.WorkflowStageDAO');
-
 class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
 {
     /** @var PKPRequest */

@@ -13,7 +13,7 @@
  * @brief Base class that converts a Native XML document to a DataObject
  */
 
-import('lib.pkp.classes.plugins.importexport.PKPImportExportFilter');
+use PKP\plugins\importexport\PKPImportExportFilter;
 
 class NativeImportFilter extends PKPImportExportFilter
 {

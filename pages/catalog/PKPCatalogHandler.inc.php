@@ -61,7 +61,7 @@ class PKPCatalogHandler extends Handler
         }
 
         $this->setupTemplate($request);
-        $orderOption = $category->getSortOption() ? $category->getSortOption() : ORDERBY_DATE_PUBLISHED . '-' . SORT_DIRECTION_DESC;
+        $orderOption = $category->getSortOption() ? $category->getSortOption() : ORDERBY_DATE_PUBLISHED . '-' . \PKP\db\DAO::SORT_DIRECTION_DESC;
         [$orderBy, $orderDir] = explode('-', $orderOption);
 
         $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
@@ -72,7 +72,7 @@ class PKPCatalogHandler extends Handler
             'categoryIds' => $category->getId(),
             'orderByFeatured' => true,
             'orderBy' => $orderBy,
-            'orderDirection' => $orderDir == SORT_DIRECTION_ASC ? 'ASC' : 'DESC',
+            'orderDirection' => $orderDir == \PKP\db\DAO::SORT_DIRECTION_ASC ? 'ASC' : 'DESC',
             'count' => $count,
             'offset' => $offset,
             'status' => PKPSubmission::STATUS_PUBLISHED,

@@ -66,7 +66,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
 
         $headNote = $element->getHeadNote();
         $user = $headNote ? $headNote->getUser() : null;
-        $notes = $element->getReplies(null, NoteDAO::NOTE_ORDER_ID, SORT_DIRECTION_DESC);
+        $notes = $element->getReplies(null, NoteDAO::NOTE_ORDER_ID, \PKP\db\DAO::SORT_DIRECTION_DESC);
         $context = \Application::get()->getRequest()->getContext();
         $datetimeFormatShort = $context->getLocalizedDateTimeFormatShort();
 

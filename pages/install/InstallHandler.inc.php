@@ -13,11 +13,11 @@
  * @brief Handle installation requests.
  */
 
-import('lib.pkp.classes.install.form.InstallForm');
-import('lib.pkp.classes.install.form.UpgradeForm');
-
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+
+use PKP\install\form\InstallForm;
+use PKP\install\form\UpgradeForm;
 
 class InstallHandler extends Handler
 {

@@ -345,7 +345,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
         }
 
         if (!empty($this->stageIds)) {
-            if (in_array(EMAIL_TEMPLATE_STAGE_DEFAULT, $this->stageIds)) {
+            if (in_array(\PKP\services\PKPEmailTemplateService::EMAIL_TEMPLATE_STAGE_DEFAULT, $this->stageIds)) {
                 $q->whereNull('etd.stage_id')
                     ->orWhereIn('etd.stage_id', $this->stageIds);
             } else {

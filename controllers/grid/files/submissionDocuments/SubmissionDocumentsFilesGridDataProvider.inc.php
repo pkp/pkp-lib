@@ -60,7 +60,6 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider
 
         // Retrieve all library files for the given submission document category.
         $submission = $this->getSubmission();
-        import('lib.pkp.classes.context.LibraryFile');
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
         $libraryFiles = $libraryFileDao->getBySubmissionId($submission->getId(), $fileType);
 

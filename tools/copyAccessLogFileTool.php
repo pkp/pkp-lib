@@ -16,8 +16,7 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-// Bring in the file loader folder constants.
-import('lib.pkp.classes.task.FileLoader');
+use PKP\task\FileLoader;
 
 class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
 {
@@ -60,8 +59,8 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
         }
 
         // Get a list of files currently inside the usage stats dir.
-        $fileLoaderDirs = [FILE_LOADER_PATH_STAGING, FILE_LOADER_PATH_PROCESSING,
-            FILE_LOADER_PATH_ARCHIVE, FILE_LOADER_PATH_REJECT];
+        $fileLoaderDirs = [FileLoader::FILE_LOADER_PATH_STAGING, FileLoader::FILE_LOADER_PATH_PROCESSING,
+            FileLoader::FILE_LOADER_PATH_ARCHIVE, FileLoader::FILE_LOADER_PATH_REJECT];
 
         $usageStatsFiles = [];
         foreach ($fileLoaderDirs as $dir) {
@@ -204,7 +203,7 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
         // Filter only entries that contains context paths.
         $egrepPath = $this->_egrepPath;
         $destinationPath = $usageStatsDir . DIRECTORY_SEPARATOR .
-        FILE_LOADER_PATH_STAGING . DIRECTORY_SEPARATOR .
+        FileLoader::FILE_LOADER_PATH_STAGING . DIRECTORY_SEPARATOR .
         pathinfo($tmpFilePath, PATHINFO_BASENAME);
         // Each context path is already escaped, see the constructor.
         $output = null;

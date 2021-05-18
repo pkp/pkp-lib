@@ -160,11 +160,10 @@ class PKPEmailTemplatesListPanel extends ListPanel
             ];
         }
 
-        import('lib.pkp.classes.services.PKPEmailTemplateService'); // load const
         $stageFilters[] = [
             'param' => 'stageIds',
             'title' => __('common.other'),
-            'value' => EMAIL_TEMPLATE_STAGE_DEFAULT
+            'value' => \PKP\services\PKPEmailTemplateService::EMAIL_TEMPLATE_STAGE_DEFAULT
         ];
 
         $config['filters'][] = [

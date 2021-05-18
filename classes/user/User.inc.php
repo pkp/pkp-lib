@@ -472,7 +472,6 @@ class User extends Identity
     public function getRoles($contextId, $noCache = false)
     {
         if ($noCache || empty($this->_roles[$contextId])) {
-            import('lib.pkp.classes.security.RoleDAO');
             $userRolesDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $userRolesDao */
             $this->setRoles($userRolesDao->getByUserId($this->getId(), $contextId), $contextId);
         }

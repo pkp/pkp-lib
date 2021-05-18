@@ -19,6 +19,7 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\services\queryBuilders\SubmissionQueryBuilder;
 use APP\submission\Submission;
+
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -27,9 +28,11 @@ use PKP\security\Role;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 use PKP\validation\ValidatorFactory;
+use PKP\workflow\WorkflowStageDAO;
 
 abstract class PKPSubmissionService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -437,7 +440,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
         $stages = [];
         foreach ($stageIds as $stageId) {
-            import('lib.pkp.classes.workflow.WorkflowStageDAO');
             $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
             $stage = [
                 'id' => (int) $stageId,
@@ -483,7 +485,6 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
             switch ($stageId) {
 
                 case WORKFLOW_STAGE_ID_SUBMISSION:
-                    import('lib.pkp.classes.stageAssignment.StageAssignmentDAO');
                     $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                     $assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
                     if (!$assignedEditors) {

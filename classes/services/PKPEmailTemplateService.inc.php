@@ -26,10 +26,10 @@ use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\queryBuilders\PKPEmailTemplateQueryBuilder;
 use PKP\validation\ValidatorFactory;
 
-define('EMAIL_TEMPLATE_STAGE_DEFAULT', 0);
-
 class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
+    public const EMAIL_TEMPLATE_STAGE_DEFAULT = 0;
+
     /**
      * Do not use. An email template should be retrieved by its key.
      *
@@ -363,4 +363,8 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
         HookRegistry::call('EmailTemplate::restoreDefaults', [&$deletedKeys, $contextId]);
         return $deletedKeys;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    define('EMAIL_TEMPLATE_STAGE_DEFAULT', constant('\PKP\services\PKPEmailTemplateService::EMAIL_TEMPLATE_STAGE_DEFAULT'));
 }

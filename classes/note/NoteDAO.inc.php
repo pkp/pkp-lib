@@ -83,7 +83,7 @@ class NoteDAO extends \PKP\db\DAO
      *
      * @return object DAOResultFactory containing matching Note objects
      */
-    public function getByAssoc($assocType, $assocId, $userId = null, $orderBy = self::NOTE_ORDER_DATE_CREATED, $sortDirection = SORT_DIRECTION_DESC, $isAdmin = false)
+    public function getByAssoc($assocType, $assocId, $userId = null, $orderBy = self::NOTE_ORDER_DATE_CREATED, $sortDirection = self::SORT_DIRECTION_DESC, $isAdmin = false)
     {
         $params = [(int) $assocId, (int) $assocType];
         if ($userId) {
@@ -100,10 +100,10 @@ class NoteDAO extends \PKP\db\DAO
                 $orderSanitized = 'date_created';
         }
         switch ($sortDirection) {
-            case SORT_DIRECTION_ASC:
+            case self::SORT_DIRECTION_ASC:
                 $directionSanitized = 'ASC';
                 break;
-            case SORT_DIRECTION_DESC:
+            case self::SORT_DIRECTION_DESC:
             default:
                 $directionSanitized = 'DESC';
         }

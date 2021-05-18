@@ -129,7 +129,7 @@ class Query extends \PKP\core\DataObject
      */
     public function getHeadNote()
     {
-        $notes = $this->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, SORT_DIRECTION_ASC, true);
+        $notes = $this->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC, true);
         return $notes->next();
     }
 
@@ -143,7 +143,7 @@ class Query extends \PKP\core\DataObject
      *
      * @return DAOResultFactory
      */
-    public function getReplies($userId = null, $sortBy = NoteDAO::NOTE_ORDER_ID, $sortOrder = SORT_DIRECTION_ASC, $isAdmin = false)
+    public function getReplies($userId = null, $sortBy = NoteDAO::NOTE_ORDER_ID, $sortOrder = \PKP\db\DAO::SORT_DIRECTION_ASC, $isAdmin = false)
     {
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
         return $noteDao->getByAssoc(ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder, $isAdmin);

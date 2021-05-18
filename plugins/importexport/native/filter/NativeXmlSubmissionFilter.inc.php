@@ -17,6 +17,8 @@ import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
 use APP\submission\Submission;
 
+use PKP\workflow\WorkflowStageDAO;
+
 class NativeXmlSubmissionFilter extends NativeImportFilter
 {
     /**
@@ -87,7 +89,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         $submission->setData('status', $node->getAttribute('status'));
         $submission->setData('submissionProgress', 0);
 
-        import('lib.pkp.classes.workflow.WorkflowStageDAO');
         $submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
         $submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));
 

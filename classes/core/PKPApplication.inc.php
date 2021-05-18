@@ -201,10 +201,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
         Registry::set('application', $this);
 
-        import('lib.pkp.classes.security.RoleDAO');
-        import('lib.pkp.classes.security.Validation');
-        import('lib.pkp.classes.statistics.PKPStatisticsHelper');
-
         PKPString::init();
 
         $microTime = Core::microtime();

@@ -13,14 +13,14 @@
  * @brief Native XML import/export plugin
  */
 
-import('lib.pkp.classes.plugins.ImportExportPlugin');
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIDeployment');
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIToolKit');
 
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-
 use PKP\file\TemporaryFileManager;
+
+use PKP\plugins\ImportExportPlugin;
 
 abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
 {

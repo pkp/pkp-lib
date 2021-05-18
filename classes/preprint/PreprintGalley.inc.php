@@ -15,7 +15,13 @@
  * @brief A galley is a final presentation version of the full-text of an preprint.
  */
 
+namespace APP\preprint;
+
 use PKP\submission\Representation;
+
+use APP\core\Application;
+use APP\core\Services;
+use APP\i18n\AppLocale;
 
 class PreprintGalley extends Representation
 {
@@ -198,4 +204,8 @@ class PreprintGalley extends Representation
     {
         return $this->getLabel();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\preprint\PreprintGalley', '\PreprintGalley');
 }

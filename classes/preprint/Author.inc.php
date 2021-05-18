@@ -15,8 +15,14 @@
  * @brief Preprint author metadata class.
  */
 
+namespace APP\preprint;
+
 use PKP\submission\PKPAuthor;
 
 class Author extends PKPAuthor
 {
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\preprint\Author', '\Author');
 }

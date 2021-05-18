@@ -15,6 +15,8 @@
  * @brief Describes basic section properties.
  */
 
+namespace APP\server;
+
 use PKP\context\PKPSection;
 
 class Section extends PKPSection
@@ -301,4 +303,8 @@ class Section extends PKPSection
     {
         $this->setData('isInactive', $isInactive);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\server\Section', '\Section');
 }

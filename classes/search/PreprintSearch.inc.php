@@ -16,9 +16,17 @@
  *
  */
 
+namespace APP\search;
+
 use PKP\search\SubmissionSearch;
 use PKP\submission\PKPSubmission;
 use PKP\statistics\PKPStatisticsHelper;
+use PKP\plugins\HookRegistry;
+use PKP\db\DAORegistry;
+
+use APP\core\Application;
+use APP\core\Services;
+use APP\i18n\AppLocale;
 
 class PreprintSearch extends SubmissionSearch
 {
@@ -390,4 +398,8 @@ class PreprintSearch extends SubmissionSearch
     {
         return DAORegistry::getDAO('PreprintSearchDAO');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\search\PreprintSearch', '\PreprintSearch');
 }

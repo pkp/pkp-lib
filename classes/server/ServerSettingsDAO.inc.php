@@ -13,6 +13,8 @@
  * @brief Operations for retrieving and modifying server settings.
  */
 
+namespace APP\server;
+
 use PKP\db\SettingsDAO;
 
 class ServerSettingsDAO extends SettingsDAO
@@ -42,4 +44,8 @@ class ServerSettingsDAO extends SettingsDAO
     {
         return 'serverSettings';
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\server\ServerSettingsDAO', '\ServerSettingsDAO');
 }

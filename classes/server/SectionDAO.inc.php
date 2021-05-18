@@ -15,10 +15,15 @@
  * @brief Operations for retrieving and modifying Section objects.
  */
 
-use PKP\context\PKPSectionDAO;
-use PKP\db\DAOResultFactory;
+namespace APP\server;
 
-import('classes.server.Section');
+use PKP\context\PKPSectionDAO;
+use PKP\plugins\HookRegistry;
+use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
+use PKP\cache\CacheManager;
+
+use APP\server\Section;
 
 class SectionDAO extends PKPSectionDAO
 {
@@ -505,4 +510,8 @@ class SectionDAO extends PKPSectionDAO
     {
         return $this->_getInsertId('sections', 'section_id');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\server\SectionDAO', '\SectionDAO');
 }

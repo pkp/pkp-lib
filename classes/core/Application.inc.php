@@ -105,16 +105,16 @@ class Application extends PKPApplication
     public function getDAOMap()
     {
         return array_merge(parent::getDAOMap(), [
-            'SubmissionDAO' => 'classes.submission.SubmissionDAO',
-            'PreprintGalleyDAO' => 'classes.preprint.PreprintGalleyDAO',
-            'PreprintSearchDAO' => 'classes.search.PreprintSearchDAO',
-            'AuthorDAO' => 'classes.preprint.AuthorDAO',
-            'ServerDAO' => 'classes.server.ServerDAO',
-            'ServerSettingsDAO' => 'classes.server.ServerSettingsDAO',
-            'MetricsDAO' => 'classes.statistics.MetricsDAO',
-            'OAIDAO' => 'classes.oai.ops.OAIDAO',
-            'PublishedSubmissionDAO' => 'classes.preprint.PublishedSubmissionDAO',
-            'SectionDAO' => 'classes.server.SectionDAO',
+            'SubmissionDAO' => 'APP\submission\SubmissionDAO',
+            'PreprintGalleyDAO' => 'APP\preprint\PreprintGalleyDAO',
+            'PreprintSearchDAO' => 'APP\search\PreprintSearchDAO',
+            'AuthorDAO' => 'APP\preprint\AuthorDAO',
+            'ServerDAO' => 'APP\server\ServerDAO',
+            'ServerSettingsDAO' => 'APP\server\ServerSettingsDAO',
+            'MetricsDAO' => 'APP\statistics\MetricsDAO',
+            'OAIDAO' => 'APP\oai\ops\OAIDAO',
+            'PublishedSubmissionDAO' => 'APP\preprint\PublishedSubmissionDAO',
+            'SectionDAO' => 'APP\server\SectionDAO',
         ]);
     }
 
@@ -180,8 +180,7 @@ class Application extends PKPApplication
      */
     public static function getSubmissionSearchIndex()
     {
-        import('classes.search.PreprintSearchIndex');
-        return new \PreprintSearchIndex();
+        return new \APP\search\PreprintSearchIndex();
     }
 
     /**

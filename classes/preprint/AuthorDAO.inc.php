@@ -15,14 +15,18 @@
  * @brief Operations for retrieving and modifying Author objects.
  */
 
+namespace APP\preprint;
+
 use PKP\identity\Identity;
 use PKP\submission\PKPAuthorDAO;
 use PKP\submission\PKPSubmission;
+use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 
-// FIXME: add namespacing
-import('classes.preprint.Author');
-
+use APP\preprint\Author;
 use APP\submission\Submission;
+use APP\core\AppLocale;
+use APP\core\Application;
 
 class AuthorDAO extends PKPAuthorDAO
 {
@@ -150,4 +154,8 @@ class AuthorDAO extends PKPAuthorDAO
     {
         return new Author();
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\preprint\AuthorDAO', '\AuthorDAO');
 }

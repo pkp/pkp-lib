@@ -13,13 +13,17 @@
  * @brief Class to maintain the preprint search index.
  */
 
+namespace APP\search;
+
 use PKP\search\SubmissionSearch;
 use PKP\submission\SubmissionFile;
 use PKP\search\SearchFileParser;
 use PKP\search\SubmissionSearchIndex;
 use PKP\plugins\HookRegistry;
 use PKP\db\DAORegistry;
+use PKP\config\Config;
 
+use APP\core\Services;
 use APP\i18n\AppLocale;
 
 class PreprintSearchIndex extends SubmissionSearchIndex
@@ -368,4 +372,8 @@ class PreprintSearchIndex extends SubmissionSearchIndex
         }
         return $flattenedArray;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\search\PreprintSearchIndex', '\PreprintSearchIndex');
 }

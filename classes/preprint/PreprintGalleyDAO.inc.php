@@ -15,13 +15,16 @@
  * @brief Operations for retrieving and modifying PreprintGalley objects.
  */
 
-import('classes.preprint.PreprintGalley');
+namespace APP\preprint;
 
 use PKP\services\PKPSchemaService;
 use PKP\identity\Identity;
 use PKP\db\SchemaDAO;
 use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\submission\PKPSubmission;
+use PKP\db\DAOResultFactory;
+
+use APP\preprint\PreprintGalley;
 
 class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO
 {
@@ -361,4 +364,8 @@ class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO
 
         return new DAOResultFactory($result, $this, '_fromRow');
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\preprint\PreprintGalleyDAO', '\PreprintGalleyDAO');
 }

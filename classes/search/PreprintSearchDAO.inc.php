@@ -15,10 +15,12 @@
  * @brief DAO class for preprint search index.
  */
 
+namespace APP\search;
+
 use PKP\submission\PKPSubmission;
 use PKP\search\SubmissionSearchDAO;
 
-import('classes.search.PreprintSearch');
+use APP\search\PreprintSearch;
 
 class PreprintSearchDAO extends SubmissionSearchDAO
 {
@@ -109,4 +111,8 @@ class PreprintSearchDAO extends SubmissionSearchDAO
         }
         return $returner;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\search\PreprintSearchDAO', '\PreprintSearchDAO');
 }

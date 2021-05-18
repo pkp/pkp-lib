@@ -27,6 +27,6 @@ class Dc11Schema extends PKPDc11Schema
     public function __construct()
     {
         // Configure the DC schema.
-        parent::__construct([ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_ANY]);
+        parent::__construct([ASSOC_TYPE_SUBMISSION, MetadataTypeDescription::ASSOC_TYPE_ANY]);
     }
 }

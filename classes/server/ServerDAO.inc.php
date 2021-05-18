@@ -18,6 +18,7 @@
 namespace APP\server;
 
 use PKP\context\ContextDAO;
+use PKP\metadata\MetadataTypeDescription;
 
 define('SERVER_FIELD_TITLE', 1);
 define('SERVER_FIELD_SEQUENCE', 2);
@@ -107,7 +108,7 @@ class ServerDAO extends ContextDAO
         $serverId,
         $pubIdType,
         $pubId,
-        $assocType = ASSOC_TYPE_ANY,
+        $assocType = MetadataTypeDescription::ASSOC_TYPE_ANY,
         $assocId = 0,
         $forSameType = false
     ) {

@@ -16,12 +16,14 @@ namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
+
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionFileLog;
+use PKP\log\SubmissionLog;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
@@ -31,7 +33,6 @@ use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\queryBuilders\PKPSubmissionFileQueryBuilder;
-
 use PKP\submission\SubmissionFile;
 use PKP\validation\ValidatorFactory;
 

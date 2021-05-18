@@ -13,8 +13,8 @@
  * @brief Category grid category row definition
  */
 
-use PKP\controller\grid\GridRow;
 use PKP\controllers\grid\GridCategoryRow;
+use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;

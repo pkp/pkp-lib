@@ -39,7 +39,7 @@ class PrimitiveTypeDescription extends TypeDescription
      */
     public function getNamespace()
     {
-        return TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE;
+        return \PKP\filter\TypeDescriptionFactory::TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE;
     }
 
 

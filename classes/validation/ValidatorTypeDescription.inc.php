@@ -47,7 +47,7 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
      */
     public function getNamespace()
     {
-        return TYPE_DESCRIPTION_NAMESPACE_VALIDATOR;
+        return \PKP\filter\TypeDescriptionFactory::TYPE_DESCRIPTION_NAMESPACE_VALIDATOR;
     }
 
 

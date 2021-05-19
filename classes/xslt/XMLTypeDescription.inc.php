@@ -51,7 +51,7 @@ class XMLTypeDescription extends TypeDescription
      */
     public function getNamespace()
     {
-        return TYPE_DESCRIPTION_NAMESPACE_XML;
+        return \PKP\filter\TypeDescriptionFactory::TYPE_DESCRIPTION_NAMESPACE_XML;
     }
 
     /**

@@ -18,15 +18,15 @@ namespace PKP\filter;
 
 use PKP\core\Registry;
 
-// Currently supported type descriptor namespaces
-define('TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE', 'primitive');
-define('TYPE_DESCRIPTION_NAMESPACE_CLASS', 'class');
-define('TYPE_DESCRIPTION_NAMESPACE_METADATA', 'metadata');
-define('TYPE_DESCRIPTION_NAMESPACE_XML', 'xml');
-define('TYPE_DESCRIPTION_NAMESPACE_VALIDATOR', 'validator');
-
 class TypeDescriptionFactory
 {
+    // Currently supported type descriptor namespaces
+    public const TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE = 'primitive';
+    public const TYPE_DESCRIPTION_NAMESPACE_CLASS = 'class';
+    public const TYPE_DESCRIPTION_NAMESPACE_METADATA = 'metadata';
+    public const TYPE_DESCRIPTION_NAMESPACE_XML = 'xml';
+    public const TYPE_DESCRIPTION_NAMESPACE_VALIDATOR = 'validator';
+
     /**
      * Constructor
      *
@@ -121,11 +121,11 @@ class TypeDescriptionFactory
     public function _namespaceMap($namespace)
     {
         static $namespaceMap = [
-            TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => 'lib.pkp.classes.filter.PrimitiveTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_CLASS => 'lib.pkp.classes.filter.ClassTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_METADATA => 'lib.pkp.classes.metadata.MetadataTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_XML => 'lib.pkp.classes.xslt.XMLTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.pkp.classes.validation.ValidatorTypeDescription'
+            self::TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => 'lib.pkp.classes.filter.PrimitiveTypeDescription',
+            self::TYPE_DESCRIPTION_NAMESPACE_CLASS => 'lib.pkp.classes.filter.ClassTypeDescription',
+            self::TYPE_DESCRIPTION_NAMESPACE_METADATA => 'lib.pkp.classes.metadata.MetadataTypeDescription',
+            self::TYPE_DESCRIPTION_NAMESPACE_XML => 'lib.pkp.classes.xslt.XMLTypeDescription',
+            self::TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.pkp.classes.validation.ValidatorTypeDescription'
         ];
         if (!isset($namespaceMap[$namespace])) {
             return null;
@@ -136,4 +136,13 @@ class TypeDescriptionFactory
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\filter\TypeDescriptionFactory', '\TypeDescriptionFactory');
+    foreach ([
+        'TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE',
+        'TYPE_DESCRIPTION_NAMESPACE_CLASS',
+        'TYPE_DESCRIPTION_NAMESPACE_METADATA',
+        'TYPE_DESCRIPTION_NAMESPACE_XML',
+        'TYPE_DESCRIPTION_NAMESPACE_VALIDATOR',
+    ] as $constantName) {
+        define($constantName, constant('\TypeDescriptorFactory::' . $constantName));
+    }
 }

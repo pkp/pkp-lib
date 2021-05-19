@@ -54,7 +54,7 @@ class MetadataTypeDescription extends ClassTypeDescription
      */
     public function getNamespace()
     {
-        return TYPE_DESCRIPTION_NAMESPACE_METADATA;
+        return \PKP\filter\TypeDescriptionFactory::TYPE_DESCRIPTION_NAMESPACE_METADATA;
     }
 
     /**

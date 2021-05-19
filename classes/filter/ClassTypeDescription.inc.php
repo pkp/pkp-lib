@@ -42,7 +42,7 @@ class ClassTypeDescription extends TypeDescription
      */
     public function getNamespace()
     {
-        return TYPE_DESCRIPTION_NAMESPACE_CLASS;
+        return \PKP\filter\TypeDescriptionFactory::TYPE_DESCRIPTION_NAMESPACE_CLASS;
     }
 
 

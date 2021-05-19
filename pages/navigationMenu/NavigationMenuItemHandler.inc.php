@@ -50,7 +50,7 @@ class NavigationMenuItemHandler extends Handler
 
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
         $context = $request->getContext();
-        $contextId = CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }
@@ -103,7 +103,7 @@ class NavigationMenuItemHandler extends Handler
 
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
         $context = $request->getContext();
-        $contextId = CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }

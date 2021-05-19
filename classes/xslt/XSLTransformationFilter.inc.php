@@ -82,7 +82,7 @@ class XSLTransformationFilter extends PersistableFilter
         // Determine the xsl type
         if (is_string($xsl)) {
             $this->setData('xslType', XSLTransformer::XSL_TRANSFORMER_DOCTYPE_STRING);
-        } elseif (is_a($xsl, 'DOMDocument')) {
+        } elseif ($xsl instanceof \DOMDocument) {
             $this->setData('xslType', XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM);
         } else {
             assert(false);
@@ -152,7 +152,7 @@ class XSLTransformationFilter extends PersistableFilter
         // Determine the input type
         if (is_string($xml)) {
             $xmlType = XSLTransformer::XSL_TRANSFORMER_DOCTYPE_STRING;
-        } elseif (is_a($xml, 'DOMDocument')) {
+        } elseif ($xml instanceof \DOMDocument) {
             $xmlType = XSLTransformer::XSL_TRANSFORMER_DOCTYPE_DOM;
         } else {
             assert(false);

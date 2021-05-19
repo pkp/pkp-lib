@@ -15,6 +15,8 @@
 namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
+
+use PKP\plugins\HookRegistry;
 use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 
 class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
@@ -180,7 +182,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface
         $q->orderBy('a.seq', 'ASC');
 
         // Add app-specific query statements
-        \HookRegistry::call('Author::getMany::queryObject', [&$q, $this]);
+        HookRegistry::call('Author::getMany::queryObject', [&$q, $this]);
 
         $q->select($this->columns);
 

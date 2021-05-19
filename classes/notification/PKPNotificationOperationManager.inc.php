@@ -207,7 +207,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notification = $notificationDao->newDataObject();
         $notification->setUserId($userId);
-        $notification->setContextId(CONTEXT_ID_NONE);
+        $notification->setContextId(\PKP\core\PKPApplication::CONTEXT_ID_NONE);
         $notification->setType($notificationType);
         $notification->setLevel(Notification::NOTIFICATION_LEVEL_TRIVIAL);
 

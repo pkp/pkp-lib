@@ -275,7 +275,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
             $record->status = OAI::OAIRECORD_STATUS_DELETED;
         } else {
             $record->status = OAI::OAIRECORD_STATUS_ALIVE;
-            $record = $this->setOAIData($record, $row, is_a($record, 'OAIRecord'));
+            $record = $this->setOAIData($record, $row, $record instanceof \PKP\oai\OAIRecord);
         }
 
         return $record;

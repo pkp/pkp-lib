@@ -122,7 +122,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     public function getQueryBuilder($args = [])
     {
         $defaultArgs = [
-            'contextId' => CONTEXT_ID_NONE,
+            'contextId' => \PKP\core\PKPApplication::CONTEXT_ID_NONE,
             'orderBy' => 'id',
             'orderDirection' => 'DESC',
             'roleIds' => null,
@@ -236,7 +236,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     public function getReviewersQueryBuilder($args = [])
     {
         $args = array_merge([
-            'contextId' => CONTEXT_ID_NONE,
+            'contextId' => \PKP\core\PKPApplication::CONTEXT_ID_NONE,
             'reviewStage' => null,
             'reviewsCompleted' => null,
             'reviewsActive' => null,
@@ -516,7 +516,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         $currentUser = $request->getUser();
 
         // Logged out users can never view gossip fields

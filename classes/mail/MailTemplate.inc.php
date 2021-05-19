@@ -81,7 +81,7 @@ class MailTemplate extends Mail
         $this->addressFieldsEnabled = true;
 
         if (isset($this->emailKey)) {
-            $emailTemplate = Services::get('emailTemplate')->getByKey($context ? $context->getId() : CONTEXT_SITE, $this->emailKey);
+            $emailTemplate = Services::get('emailTemplate')->getByKey($context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_SITE, $this->emailKey);
         }
 
         $userSig = '';

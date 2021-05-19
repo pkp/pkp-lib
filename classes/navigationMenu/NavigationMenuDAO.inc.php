@@ -249,7 +249,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
         $xmlParser = new PKPXMLParser();
         $tree = $xmlParser->parse($filename);
 
-        if ($contextId == CONTEXT_ID_NONE) {
+        if ($contextId == \PKP\core\PKPApplication::CONTEXT_ID_NONE) {
             $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
             $site = $siteDao->getSite();
         }
@@ -259,7 +259,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
         foreach ($tree->getChildren() as $navigationMenuNode) {
             $site = $navigationMenuNode->getAttribute('site');
-            if ($contextId == CONTEXT_ID_NONE && !$site) {
+            if ($contextId == \PKP\core\PKPApplication::CONTEXT_ID_NONE && !$site) {
                 continue;
             }
 

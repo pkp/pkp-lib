@@ -45,7 +45,7 @@ class CategoryGridDataProvider extends GridDataProvider
      */
     public function setDataProvider($dataProvider)
     {
-        if (is_a($dataProvider, 'CategoryGridDataProvider')) {
+        if ($dataProvider instanceof self) {
             assert(false);
             $dataProvider = null;
         }

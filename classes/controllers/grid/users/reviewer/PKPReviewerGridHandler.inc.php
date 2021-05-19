@@ -179,7 +179,7 @@ class PKPReviewerGridHandler extends GridHandler
     public function getReviewRound()
     {
         $reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
-        if (is_a($reviewRound, 'ReviewRound')) {
+        if ($reviewRound instanceof \PKP\submission\reviewRound\ReviewRound) {
             return $reviewRound;
         } else {
             $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);

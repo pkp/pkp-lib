@@ -35,7 +35,7 @@ class ContextGridRow extends GridRow
 
         // Is this a new row or an existing row?
         $element = $this->getData();
-        assert(is_a($element, 'Context'));
+        assert($element instanceof \PKP\context\Context);
 
         $rowId = $this->getId();
 

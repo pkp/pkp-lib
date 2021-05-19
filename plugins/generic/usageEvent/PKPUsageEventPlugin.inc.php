@@ -14,9 +14,11 @@
  * other statistics plugins.
  */
 
+use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\plugins\GenericPlugin;
 
+use PKP\plugins\HookRegistry;
 use PKP\security\Role;
 
 // User classification types.
@@ -124,7 +126,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
      */
     public function getUniqueSiteId()
     {
-        return $this->getSetting(CONTEXT_SITE, 'uniqueSiteId');
+        return $this->getSetting(\PKP\core\PKPApplication::CONTEXT_SITE, 'uniqueSiteId');
     }
 
 
@@ -317,7 +319,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         if ($user) {
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var PKPRoleDAO $roleDao */
             $rolesByContext = $roleDao->getByUserIdGroupedByContext($user->getId());
-            foreach ([CONTEXT_SITE, $context->getId()] as $workingContext) {
+            foreach ([\PKP\core\PKPApplication::CONTEXT_SITE, $context->getId()] as $workingContext) {
                 if (isset($rolesByContext[$workingContext])) {
                     foreach ($rolesByContext[$workingContext] as $roleId => $role) {
                         $roles[] = $roleId;

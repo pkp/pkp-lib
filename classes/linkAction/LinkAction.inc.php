@@ -54,7 +54,7 @@ class LinkAction
     public function __construct($id, $actionRequest, $title = null, $image = null, $toolTip = null)
     {
         $this->_id = $id;
-        assert(is_a($actionRequest, 'LinkActionRequest'));
+        assert($actionRequest instanceof \PKP\linkAction\request\LinkActionRequest);
         $this->_actionRequest = $actionRequest;
         $this->_title = $title;
         $this->_image = $image;

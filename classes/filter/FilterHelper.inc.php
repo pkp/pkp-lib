@@ -135,7 +135,7 @@ class FilterHelper
 
         // Configure (and optionally install) the filter.
         $installedFilter = $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, $isTemplate, 0, $subFilters, $persist);
-        assert(is_a($installedFilter, 'PersistableFilter'));
+        assert($installedFilter instanceof \PKP\filter\PersistableFilter);
 
         return $installedFilter;
     }
@@ -161,7 +161,7 @@ class FilterHelper
         }
 
         // Compare sub-filters.
-        if (is_a($filterA, 'CompositeFilter')) {
+        if ($filterA instanceof \PKP\filter\CompositeFilter) {
             // Compare sub-filters of composite filters.
             foreach ($filterBSubfilters as $filterBSubfilter) { /** @var PersistableFilter $filterBSubfilter */
                 $seq = $filterBSubfilter->getSequence();
@@ -179,7 +179,7 @@ class FilterHelper
                 }
 
                 // Extract sub-filter sub-filters.
-                if (is_a($filterBSubfilter, 'CompositeFilter')) {
+                if ($filterBSubfilter instanceof \PKP\filter\CompositeFilter) {
                     $filterBSubfilterSubfilters = & $filterBSubfilter->getFilters();
                 } else {
                     $filterBSubfilterSubfilters = [];
@@ -209,13 +209,13 @@ class FilterHelper
     {
         // Retrieve the setting name.
         $nameNode = & $settingNode->getChildByName('name');
-        assert(is_a($nameNode, 'XMLNode'));
+        assert($nameNode instanceof \PKP\xml\XMLNode);
         $name = $nameNode->getValue();
 
         // Retrieve the setting value.
         $type = $settingNode->getAttribute('type');
         $valueNode = & $settingNode->getChildByName('value');
-        assert(is_a($valueNode, 'XMLNode'));
+        assert($valueNode instanceof \PKP\xml\XMLNode);
         switch ($type) {
             case 'string':
                 $value = (string)$valueNode->getValue();
@@ -266,7 +266,7 @@ class FilterHelper
             $key = $elementNode->getAttribute('key');
 
             $subArrayNode = $elementNode->getChildByName('array');
-            if (is_a($subArrayNode, 'XMLNode')) {
+            if ($subArrayNode instanceof \PKP\xml\XMLNode) {
                 // Recurse into sub-array.
                 $value = $this->readArraySetting($subArrayNode);
             } else {

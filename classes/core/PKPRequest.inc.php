@@ -629,7 +629,7 @@ class PKPRequest
     {
         // special treatment for APIRouter. APIHandler gets to fetch parameter first
         $router = $this->getRouter();
-        if (is_a($router, 'APIRouter') && (!is_null($handler = $router->getHandler()))) {
+        if ($router instanceof \PKP\core\APIRouter && (!is_null($handler = $router->getHandler()))) {
             $handler = $router->getHandler();
             $value = $handler->getParameter($key);
             if (!is_null($value)) {

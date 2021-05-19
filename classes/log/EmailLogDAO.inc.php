@@ -255,7 +255,7 @@ class EmailLogDAO extends \PKP\db\DAO
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         foreach ($matches[0] as $emailAddress) {
             $user = $userDao->getUserByEmail($emailAddress);
-            if (is_a($user, 'User')) {
+            if ($user instanceof \PKP\user\User) {
                 // We use replace here to avoid inserting duplicated entries
                 // in table (sometimes the recipients can have the same email twice).
                 $this->replace(

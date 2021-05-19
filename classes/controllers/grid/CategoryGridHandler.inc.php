@@ -205,9 +205,9 @@ class CategoryGridHandler extends GridHandler
         // iterators cannot be re-used, see #6498.
         if (is_array($data)) {
             $this->_categoryData[$categoryElementId] = $data;
-        } elseif (is_a($data, 'DAOResultFactory')) {
+        } elseif ($data instanceof \PKP\db\DAOResultFactory) {
             $this->_categoryData[$categoryElementId] = $data->toAssociativeArray();
-        } elseif (is_a($data, 'ItemIterator')) {
+        } elseif ($data instanceof \PKP\core\ItemIterator) {
             $this->_categoryData[$categoryElementId] = $data->toArray();
         } else {
             assert(false);
@@ -453,7 +453,7 @@ class CategoryGridHandler extends GridHandler
     {
         $gridData = [];
         $dataProvider = $this->getDataProvider();
-        if (is_a($dataProvider, 'CategoryGridDataProvider')) {
+        if ($dataProvider instanceof \PKP\controllers\grid\CategoryGridDataProvider) {
             // Populate the grid with data from the
             // data provider.
             $gridData = $dataProvider->loadCategoryData($request, $categoryDataElement, $filter);

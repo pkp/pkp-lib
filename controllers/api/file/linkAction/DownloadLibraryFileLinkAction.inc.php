@@ -65,7 +65,7 @@ class DownloadLibraryFileLinkAction extends LinkAction
      */
     public function getActionArgs(&$libraryFile)
     {
-        assert(is_a($libraryFile, 'LibraryFile'));
+        assert($libraryFile instanceof \PKP\context\LibraryFile);
 
         // Create the action arguments array.
         $args = ['libraryFileId' => $libraryFile->getId()];

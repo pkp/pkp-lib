@@ -279,7 +279,7 @@ class MetadataDescription extends \PKP\core\DataObject
         if (is_null($property)) {
             return false;
         }
-        assert(is_a($property, 'MetadataProperty'));
+        assert($property instanceof \PKP\metadata\MetadataProperty);
 
         // Check that the property is allowed for the described resource
         if (!in_array($this->_assocType, $property->getAssocTypes())) {
@@ -382,7 +382,7 @@ class MetadataDescription extends \PKP\core\DataObject
     {
         // Check the property
         $property = & $this->getProperty($propertyName);
-        assert(isset($property) && is_a($property, 'MetadataProperty'));
+        assert(isset($property) && $property instanceof \PKP\metadata\MetadataProperty);
 
         // Handle translation
         $translated = $property->getTranslated();
@@ -618,7 +618,7 @@ class MetadataDescription extends \PKP\core\DataObject
     public function isTranslatedProperty($propertyName)
     {
         $property = $this->getProperty($propertyName);
-        assert(is_a($property, 'MetadataProperty'));
+        assert($property instanceof \PKP\metadata\MetadataProperty);
         return $property->getTranslated();
     }
 

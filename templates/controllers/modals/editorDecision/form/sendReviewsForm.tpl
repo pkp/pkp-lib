@@ -92,7 +92,7 @@
 	{** Some decisions can be made before review is initiated (i.e. no attachments). **}
 	{if $reviewRoundId}
 		<div id="attachments" style="margin-top: 30px;">
-			{capture assign=reviewAttachmentsGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.attachment.EditorSelectableReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+			{capture assign=reviewAttachmentsGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.attachment.EditorSelectableReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 			{load_url_in_div id="reviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
 		</div>
 	{/if}

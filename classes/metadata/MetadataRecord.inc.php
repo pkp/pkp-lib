@@ -39,7 +39,7 @@ class MetadataRecord
      */
     public function addDescription($metadataDescription, $replace = true)
     {
-        assert(is_a($metadataDescription, 'MetadataDescription'));
+        assert($metadataDescription instanceof \PKP\metadata\MetadataDescription);
 
         // Check that the description complies with the meta-data schema
         $descriptionMetadataSchema = $metadataDescription->getMetadataSchema();

@@ -226,7 +226,7 @@ class FormComponent
     {
         $index = count($list);
         foreach ($list as $key => $val) {
-            if ((is_a($val, 'PKP\components\forms\Field') && $id === $val->name) || (!is_a($val, 'PKP\components\forms\Field') && $id === $val['id'])) {
+            if (($val instanceof \PKP\components\forms\Field && $id === $val->name) || (!$val instanceof \PKP\components\forms\Field && $id === $val['id'])) {
                 $index = $key;
                 break;
             }

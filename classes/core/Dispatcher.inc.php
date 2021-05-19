@@ -274,7 +274,7 @@ class Dispatcher
      */
     public function _cacheContent($contents)
     {
-        assert(is_a($this->_router, 'PKPRouter'));
+        assert($this->_router instanceof \PKP\core\PKPRouter);
         if ($contents == '') {
             return $contents;
         } // Do not cache empties

@@ -24,6 +24,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
+use PKP\plugins\HookRegistry;
 use PKP\security\Role;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
@@ -146,7 +147,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
     public function getQueryBuilder($args = [])
     {
         $defaultArgs = [
-            'contextId' => CONTEXT_ID_NONE,
+            'contextId' => \PKP\core\PKPApplication::CONTEXT_ID_NONE,
             'orderBy' => 'dateSubmitted',
             'orderDirection' => 'DESC',
             'assignedTo' => [],
@@ -181,7 +182,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
             $submissionListQB->offsetBy($args['count']);
         }
 
-        \HookRegistry::call('Submission::getMany::queryBuilder', [&$submissionListQB, $args]);
+        HookRegistry::call('Submission::getMany::queryBuilder', [&$submissionListQB, $args]);
 
         return $submissionListQB;
     }
@@ -278,7 +279,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
         $values = Services::get('schema')->addMissingMultilingualValues(PKPSchemaService::SCHEMA_SUBMISSION, $values, $request->getContext()->getSupportedSubmissionLocales());
 
-        \HookRegistry::call('Submission::getProperties::values', [&$values, $submission, $props, $args]);
+        HookRegistry::call('Submission::getProperties::values', [&$values, $submission, $props, $args]);
 
         ksort($values);
 
@@ -327,7 +328,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
             'statusLabel','submissionProgress','urlAuthorWorkflow','urlEditorialWorkflow','urlWorkflow','urlPublished',
         ];
 
-        \HookRegistry::call('Submission::getBackendListProperties::properties', [&$props, $submission, $args]);
+        HookRegistry::call('Submission::getBackendListProperties::properties', [&$props, $submission, $args]);
 
         return $this->getProperties($submission, $props, $args);
     }
@@ -436,7 +437,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
         $currentUser = \Application::get()->getRequest()->getUser();
         $context = \Application::get()->getRequest()->getContext();
-        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
 
         $stages = [];
         foreach ($stageIds as $stageId) {
@@ -610,7 +611,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
         if ($submission->getSubmissionProgress() > 0 &&
             ($authorDashboard ||
                 $user->hasRole([Role::ROLE_ID_MANAGER], $submissionContext->getId()) ||
-                $user->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE))) {
+                $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE))) {
             return $dispatcher->url(
                 $request,
                 \PKPApplication::ROUTE_PAGE,
@@ -688,7 +689,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
         // Only allow admins and journal managers to delete submissions, except
         // for authors who can delete their own incomplete submissions
-        if ($currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE)) {
+        if ($currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)) {
             $canDelete = true;
         } else {
             if ($submission->getSubmissionProgress() != 0) {
@@ -769,7 +770,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
             $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_SUBMISSION), $allowedLocales);
         }
 
-        \HookRegistry::call('Submission::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
+        HookRegistry::call('Submission::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
@@ -788,7 +789,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
         $submissionId = $submissionDao->insertObject($submission);
         $submission = $this->get($submissionId);
 
-        \HookRegistry::call('Submission::add', [&$submission, $request]);
+        HookRegistry::call('Submission::add', [&$submission, $request]);
 
         return $submission;
     }
@@ -805,7 +806,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
         $submission->stampLastActivity();
         $submission->stampModified();
 
-        \HookRegistry::call('Submission::edit', [&$newSubmission, $submission, $params, $request]);
+        HookRegistry::call('Submission::edit', [&$newSubmission, $submission, $params, $request]);
 
         $submissionDao->updateObject($newSubmission);
         $newSubmission = $this->get($newSubmission->getId());
@@ -818,12 +819,12 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
      */
     public function delete($submission)
     {
-        \HookRegistry::call('Submission::delete::before', [&$submission]);
+        HookRegistry::call('Submission::delete::before', [&$submission]);
 
         $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $submissionDao->deleteObject($submission);
 
-        \HookRegistry::call('Submission::delete', [&$submission]);
+        HookRegistry::call('Submission::delete', [&$submission]);
     }
 
     /**
@@ -924,7 +925,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
             }
         }
 
-        \HookRegistry::call('Submission::updateStatus', [&$status, $submission]);
+        HookRegistry::call('Submission::updateStatus', [&$status, $submission]);
 
         $updateParams = [];
         if ($status !== $newStatus) {

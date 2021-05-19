@@ -14,6 +14,8 @@
  */
 
 use PKP\controllers\grid\GridRow;
+use PKP\log\EmailLogEntry;
+use PKP\log\EventLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\submission\SubmissionFile;
 
@@ -56,9 +58,9 @@ class EventLogGridRow extends GridRow
         parent::initialize($request, $template);
 
         $logEntry = $this->getData(); // a Category object
-        assert($logEntry != null && (is_a($logEntry, 'EventLogEntry') || is_a($logEntry, 'EmailLogEntry')));
+        assert($logEntry != null && ($logEntry instanceof EventLogEntry || $logEntry instanceof EmailLogEntry));
 
-        if (is_a($logEntry, 'EventLogEntry')) {
+        if ($logEntry instanceof EventLogEntry) {
             $params = $logEntry->getParams();
 
             switch ($logEntry->getEventType()) {
@@ -92,7 +94,7 @@ class EventLogGridRow extends GridRow
                     }
                     break;
             }
-        } elseif (is_a($logEntry, 'EmailLogEntry')) {
+        } elseif ($logEntry instanceof EmailLogEntry) {
             $this->addAction(
                 new EmailLinkAction(
                     $request,

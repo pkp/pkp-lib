@@ -111,7 +111,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
             return false;
         } // Did not exist
 
-        assert(is_a($tombstone, 'DataObjectTombstone'));
+        assert($tombstone instanceof \APP\tombstone\DataObjectTombstone);
 
         if ($this->update(
             'DELETE FROM data_object_tombstones WHERE tombstone_id = ?',

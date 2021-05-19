@@ -53,7 +53,7 @@ class LibraryFileGridCellProvider extends GridCellProvider
         switch ($column->getId()) {
             case 'files':
                 $element = $row->getData();
-                assert(is_a($element, 'LibraryFile'));
+                assert($element instanceof \PKP\context\LibraryFile);
                 // Create the cell action to download a file.
                 import('lib.pkp.controllers.api.file.linkAction.DownloadLibraryFileLinkAction');
                 return [new DownloadLibraryFileLinkAction($request, $element)];

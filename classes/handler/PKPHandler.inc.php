@@ -184,7 +184,7 @@ class PKPHandler
      */
     public function &getAuthorizedContextObject($assocType)
     {
-        assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
+        assert($this->_authorizationDecisionManager instanceof \PKP\security\authorization\AuthorizationDecisionManager);
         return $this->_authorizationDecisionManager->getAuthorizedContextObject($assocType);
     }
 
@@ -200,7 +200,7 @@ class PKPHandler
      */
     public function &getAuthorizedContext()
     {
-        assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
+        assert($this->_authorizationDecisionManager instanceof \PKP\security\authorization\AuthorizationDecisionManager);
         return $this->_authorizationDecisionManager->getAuthorizedContext();
     }
 
@@ -212,7 +212,7 @@ class PKPHandler
      */
     public function getLastAuthorizationMessage()
     {
-        if (!is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager')) {
+        if (!$this->_authorizationDecisionManager instanceof \PKP\security\authorization\AuthorizationDecisionManager) {
             return '';
         }
         $authorizationMessages = $this->_authorizationDecisionManager->getAuthorizationMessages();
@@ -328,16 +328,16 @@ class PKPHandler
         if (!defined('SESSION_DISABLE_INIT')) {
             // Add user roles in authorized context.
             $user = $request->getUser();
-            if (is_a($user, 'User') || is_a($request->getRouter(), 'APIRouter')) {
+            if ($user instanceof \PKP\user\User || $request->getRouter() instanceof \PKP\core\APIRouter) {
                 $this->addPolicy(new UserRolesRequiredPolicy($request), true);
             }
         }
 
         // Make sure that we have a valid decision manager instance.
-        assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
+        assert($this->_authorizationDecisionManager instanceof \PKP\security\authorization\AuthorizationDecisionManager);
 
         $router = $request->getRouter();
-        if (is_a($router, 'PKPPageRouter')) {
+        if ($router instanceof \PKP\core\PKPPageRouter) {
             // We have to apply a blacklist approach for page
             // controllers to maintain backwards compatibility:
             // Requests are implicitly authorized if no policy
@@ -419,7 +419,7 @@ class PKPHandler
         // page (page routing) or component name
         // (component routing) by default.
         $router = $request->getRouter();
-        if (is_a($router, 'PKPComponentRouter')) {
+        if ($router instanceof \PKP\core\PKPComponentRouter) {
             $componentId = $router->getRequestedComponent($request);
             // Create a somewhat compressed but still globally unique
             // and human readable component id.
@@ -427,10 +427,10 @@ class PKPHandler
             // becomes "grid-citation-citationgrid"
             $componentId = str_replace('.', '-', PKPString::strtolower(PKPString::substr($componentId, 0, -7)));
             $this->setId($componentId);
-        } elseif (is_a($router, 'APIRouter')) {
+        } elseif ($router instanceof \PKP\core\APIRouter) {
             $this->setId($router->getEntity());
         } else {
-            assert(is_a($router, 'PKPPageRouter'));
+            assert($router instanceof \PKP\core\PKPPageRouter);
             $this->setId($router->getRequestedPage($request));
         }
     }
@@ -516,7 +516,7 @@ class PKPHandler
                 trigger_error('Deprecated call without request object.');
             }
         }
-        assert(is_a($request, 'PKPRequest'));
+        assert($request instanceof \PKP\core\PKPRequest);
 
         AppLocale::requireComponents(
             LOCALE_COMPONENT_PKP_COMMON,
@@ -673,7 +673,7 @@ class PKPHandler
                 $request->getDispatcher()->handle404();
             }
         }
-        if (is_a($context, 'Context')) {
+        if ($context instanceof \PKP\context\Context) {
             return $context;
         }
         return null;

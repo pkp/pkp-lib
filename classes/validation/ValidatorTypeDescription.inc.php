@@ -107,7 +107,7 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
         assert(class_exists($this->_validatorClassName));
         $validatorConstructorCode = 'return new ' . $this->_validatorClassName . '(' . $this->_validatorArgs . ');';
         $validator = eval($validatorConstructorCode);
-        assert(is_a($validator, 'Validator'));
+        assert($validator instanceof \PKP\validation\Validator);
 
         // Validate the object
         if (!$validator->isValid($object)) {

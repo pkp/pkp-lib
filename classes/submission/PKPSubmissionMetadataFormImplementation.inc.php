@@ -35,7 +35,7 @@ class PKPSubmissionMetadataFormImplementation
      */
     public function __construct($parentForm = null)
     {
-        assert(is_a($parentForm, 'Form'));
+        assert($parentForm instanceof \PKP\form\Form);
         $this->_parentForm = $parentForm;
     }
 

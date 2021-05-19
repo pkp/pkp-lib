@@ -117,7 +117,7 @@ abstract class PKPStatisticsHelper
         // Metric type is null: Return the default metric for
         // the filtered context.
         if (is_null($metricType)) {
-            if (is_a($context, 'Context')) {
+            if ($context instanceof \PKP\context\Context) {
                 $metricType = $context->getDefaultMetricType();
             } else {
                 $metricType = $defaultSiteMetricType;
@@ -131,7 +131,7 @@ abstract class PKPStatisticsHelper
                 $metricType = [$metricType];
             } elseif ($metricType === '*') {
                 // Metric type is '*': Select all available metrics.
-                if (is_a($context, 'Context')) {
+                if ($context instanceof \PKP\context\Context) {
                     $metricType = $context->getMetricTypes();
                 } else {
                     $metricType = $siteMetricTypes;
@@ -164,7 +164,7 @@ abstract class PKPStatisticsHelper
         $returner = null;
 
         // Retrieve site-level report plugins.
-        $reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
+        $reportPlugins = PluginRegistry::loadCategory('reports', true, \PKP\core\PKPApplication::CONTEXT_SITE);
         if (empty($reportPlugins) || empty($metricType)) {
             return $returner;
         }
@@ -196,7 +196,7 @@ abstract class PKPStatisticsHelper
     public function getAllMetricTypeStrings()
     {
         $allMetricTypes = [];
-        $reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
+        $reportPlugins = PluginRegistry::loadCategory('reports', true, \PKP\core\PKPApplication::CONTEXT_SITE);
         if (!empty($reportPlugins)) {
             foreach ($reportPlugins as $reportPlugin) {
                 /** @var ReportPlugin $reportPlugin */
@@ -314,7 +314,7 @@ abstract class PKPStatisticsHelper
     {
         $geoLocationTool = null;
         $plugin = PluginRegistry::getPlugin('generic', 'usagestatsplugin'); /** @var UsageStatsPlugin $plugin */
-        if (is_a($plugin, 'UsageStatsPlugin')) {
+        if ($plugin) {
             $geoLocationTool = $plugin->getGeoLocationTool();
         }
         return $geoLocationTool;

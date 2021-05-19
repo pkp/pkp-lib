@@ -133,13 +133,13 @@ class PKPTemplateManager extends Smarty
      */
     public function initialize($request)
     {
-        assert(is_a($request, 'PKPRequest'));
+        assert($request instanceof \PKP\core\PKPRequest);
         $this->_request = $request;
 
         $locale = AppLocale::getLocale();
         $application = Application::get();
         $router = $request->getRouter();
-        assert(is_a($router, 'PKPRouter'));
+        assert($router instanceof \PKP\core\PKPRouter);
 
         AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_COMMON);
         $currentContext = $request->getContext();
@@ -206,7 +206,7 @@ class PKPTemplateManager extends Smarty
             $this->assign(['activeTheme' => $activeTheme]);
         }
 
-        if (is_a($router, 'PKPPageRouter')) {
+        if ($router instanceof \PKP\core\PKPPageRouter) {
             $this->assign([
                 'requestedPage' => $router->getRequestedPage($request),
                 'requestedOp' => $router->getRequestedOp($request),
@@ -281,15 +281,15 @@ class PKPTemplateManager extends Smarty
             $nmService = Services::get('navigationMenu');
 
             if (Config::getVar('general', 'installed')) {
-                \HookRegistry::register('LoadHandler', [$nmService, '_callbackHandleCustomNavigationMenuItems']);
+                HookRegistry::register('LoadHandler', [$nmService, '_callbackHandleCustomNavigationMenuItems']);
             }
         }
 
         // Register custom functions
-        $this->registerPlugin('modifier', 'translate', 'AppLocale::translate');
-        $this->registerPlugin('modifier', 'strip_unsafe_html', 'PKPString::stripUnsafeHtml');
-        $this->registerPlugin('modifier', 'String_substr', 'PKPString::substr');
-        $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', 'PKPString::dateformatPHP2JQueryDatepicker');
+        $this->registerPlugin('modifier', 'translate', '\APP\i18n\AppLocale::translate');
+        $this->registerPlugin('modifier', 'strip_unsafe_html', '\PKP\core\PKPString::stripUnsafeHtml');
+        $this->registerPlugin('modifier', 'String_substr', '\PKP\core\PKPString::substr');
+        $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', '\PKP\core\PKPString::dateformatPHP2JQueryDatepicker');
         $this->registerPlugin('modifier', 'to_array', [$this, 'smartyToArray']);
         $this->registerPlugin('modifier', 'compare', [$this, 'smartyCompare']);
         $this->registerPlugin('modifier', 'concat', [$this, 'smartyConcat']);
@@ -475,7 +475,7 @@ class PKPTemplateManager extends Smarty
     {
         $cacheDirectory = CacheManager::getFileCachePath();
         $context = $this->_request->getContext();
-        $contextId = is_a($context, 'Context') ? $context->getId() : 0;
+        $contextId = $context instanceof \PKP\context\Context ? $context->getId() : 0;
         return $cacheDirectory . DIRECTORY_SEPARATOR . $contextId . '-' . $name . '.css';
     }
 
@@ -1159,7 +1159,7 @@ class PKPTemplateManager extends Smarty
     {
         if (Config::getVar('general', 'installed')) {
             $context = $this->_request->getContext();
-            if (is_a($context, 'Context')) {
+            if ($context instanceof \PKP\core\Context) {
                 $resourceName .= $context->getData('themePluginPath');
             }
         }
@@ -1312,7 +1312,7 @@ class PKPTemplateManager extends Smarty
                 trigger_error('Deprecated call without request object.');
             }
         }
-        assert(is_a($request, 'PKPRequest'));
+        assert($request instanceof \PKP\core\PKPRequest);
 
         $instance = & Registry::get('templateManager', true, null); // Reference required
 
@@ -1681,7 +1681,7 @@ class PKPTemplateManager extends Smarty
 
         // Set the default router
         if (is_null($router)) {
-            if (is_a($this->_request->getRouter(), 'PKPComponentRouter')) {
+            if ($this->_request->getRouter() instanceof \PKP\core\PKPComponentRouter) {
                 $router = PKPApplication::ROUTE_COMPONENT;
             } else {
                 $router = PKPApplication::ROUTE_PAGE;
@@ -1802,7 +1802,7 @@ class PKPTemplateManager extends Smarty
 
         $router = $this->_request->getRouter();
         $requestedArgs = null;
-        if (is_a($router, 'PageRouter')) {
+        if ($router instanceof \PKP\core\PageRouter) {
             $requestedArgs = $router->getRequestedArgs($this->_request);
         }
 
@@ -2164,7 +2164,7 @@ class PKPTemplateManager extends Smarty
         $areaName = $params['name'];
         $declaredMenuTemplatePath = $params['path'] ?? null;
         $currentContext = $this->_request->getContext();
-        $contextId = CONTEXT_ID_NONE;
+        $contextId = Application::CONTEXT_ID_NONE;
         if ($currentContext) {
             $contextId = $currentContext->getId();
         }

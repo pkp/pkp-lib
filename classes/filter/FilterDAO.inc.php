@@ -76,7 +76,7 @@ class FilterDAO extends \PKP\db\DAO
         // Retrieve the filter group from the database.
         $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /** @var FilterGroupDAO $filterGroupDao */
         $filterGroup = $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
-        if (!is_a($filterGroup, 'FilterGroup')) {
+        if (!$filterGroup instanceof \PKP\filter\FilterGroup) {
             return false;
         }
 
@@ -91,7 +91,7 @@ class FilterDAO extends \PKP\db\DAO
 
         // Add sub-filters (if any).
         if (!empty($subFilters)) {
-            assert(is_a($filter, 'CompositeFilter'));
+            assert($filter instanceof \PKP\filter\CompositeFilter);
             assert(is_array($subFilters));
             foreach ($subFilters as $subFilter) {
                 $filter->addFilter($subFilter);
@@ -123,7 +123,7 @@ class FilterDAO extends \PKP\db\DAO
      *
      * @return integer the new filter id
      */
-    public function insertObject($filter, $contextId = CONTEXT_ID_NONE)
+    public function insertObject($filter, $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE)
     {
         $filterGroup = $filter->getFilterGroup();
         assert($filterGroup->getSymbolic() != FILTER_GROUP_TEMPORARY_ONLY);
@@ -199,7 +199,7 @@ class FilterDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory
      */
-    public function getObjectsByClass($className, $contextId = CONTEXT_ID_NONE, $getTemplates = false, $allowSubfilters = false)
+    public function getObjectsByClass($className, $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE, $getTemplates = false, $allowSubfilters = false)
     {
         $result = $this->retrieve(
             'SELECT	* FROM filters
@@ -227,7 +227,7 @@ class FilterDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory
      */
-    public function getObjectsByGroupAndClass($groupSymbolic, $className, $contextId = CONTEXT_ID_NONE, $getTemplates = false, $allowSubfilters = false)
+    public function getObjectsByGroupAndClass($groupSymbolic, $className, $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE, $getTemplates = false, $allowSubfilters = false)
     {
         $result = $this->retrieve(
             'SELECT f.* FROM filters f' .
@@ -325,7 +325,7 @@ class FilterDAO extends \PKP\db\DAO
      *
      * @return array filter instances (transformations) in the given group
      */
-    public function getObjectsByGroup($groupSymbolic, $contextId = CONTEXT_ID_NONE, $getTemplates = false, $checkRuntimeEnvironment = true)
+    public function getObjectsByGroup($groupSymbolic, $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE, $getTemplates = false, $checkRuntimeEnvironment = true)
     {
         // 1) Get all available transformations in the group.
         $result = $this->retrieve(
@@ -388,7 +388,7 @@ class FilterDAO extends \PKP\db\DAO
         );
 
         // Do we update a composite filter?
-        if (is_a($filter, 'CompositeFilter')) {
+        if ($filter instanceof \PKP\filter\CompositeFilter) {
             // Delete all sub-filters
             $this->_deleteSubFiltersByParentFilterId($filter->getId());
 
@@ -505,7 +505,7 @@ class FilterDAO extends \PKP\db\DAO
         // Instantiate the filter group.
         $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /** @var FilterGroupDAO $filterGroupDao */
         $filterGroup = $filterGroupDao->getObjectById($filterGroupId);
-        assert(is_a($filterGroup, 'FilterGroup'));
+        assert($filterGroup instanceof \PKP\filter\FilterGroup);
 
         // Instantiate the filter
         $filter = instantiate($filterClassName, 'PersistableFilter', null, 'execute', $filterGroup); /** @var PersistableFilter $filter */
@@ -568,7 +568,7 @@ class FilterDAO extends \PKP\db\DAO
      */
     public function _populateSubFilters($parentFilter)
     {
-        if (!is_a($parentFilter, 'CompositeFilter')) {
+        if (!$parentFilter instanceof \PKP\filter\CompositeFilter) {
             // Nothing to do. Only composite filters
             // can have sub-filters.
             return;
@@ -598,7 +598,7 @@ class FilterDAO extends \PKP\db\DAO
      */
     public function _insertSubFilters($parentFilter)
     {
-        if (!is_a($parentFilter, 'CompositeFilter')) {
+        if (!$parentFilter instanceof \PKP\filter\CompositeFilter) {
             // Nothing to do. Only composite filters
             // can have sub-filters.
             return;

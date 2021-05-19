@@ -59,7 +59,7 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider
     {
         $announcementType = $row->getData();
         $columnId = $column->getId();
-        assert(is_a($announcementType, 'AnnouncementType') && !empty($columnId));
+        assert($announcementType instanceof \PKP\announcement\AnnouncementType && !empty($columnId));
 
         switch ($columnId) {
             case 'title':

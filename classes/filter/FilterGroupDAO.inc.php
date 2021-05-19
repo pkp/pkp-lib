@@ -161,7 +161,7 @@ class FilterGroupDAO extends \PKP\db\DAO
     {
         $filterGroupId = (int)$filterGroupId;
         $filterGroup = $this->getObjectById($filterGroupId);
-        if (!is_a($filterGroup, 'FilterGroup')) {
+        if (!$filterGroup instanceof \PKP\filter\FilterGroup) {
             return false;
         }
         return $this->deleteObject($filterGroup);
@@ -177,7 +177,7 @@ class FilterGroupDAO extends \PKP\db\DAO
     public function deleteObjectBySymbolic($filterGroupSymbolic)
     {
         $filterGroup = $this->getObjectBySymbolic($filterGroupSymbolic);
-        if (!is_a($filterGroup, 'FilterGroup')) {
+        if (!$filterGroup instanceof \PKP\filter\FilterGroup) {
             return false;
         }
         return $this->deleteObject($filterGroup);

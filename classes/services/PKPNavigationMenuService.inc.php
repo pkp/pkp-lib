@@ -18,17 +18,16 @@ namespace PKP\services;
 use APP\core\Application;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
+
 use NavigationMenuItemHandler;
+
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\navigationMenu\NavigationMenu;
 use PKP\navigationMenu\NavigationMenuItem;
-
 use PKP\navigationMenu\NavigationMenuItemAssignment;
 use PKP\plugins\HookRegistry;
 use PKP\security\Role;
-
-// FIXME: Add namespaces
 use PKP\security\Validation;
 
 class PKPNavigationMenuService
@@ -155,7 +154,7 @@ class PKPNavigationMenuService
         $context = $request->getContext();
         $currentUser = $request->getUser();
 
-        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
 
         // Transform an item title if the title includes a {$variable}
         $this->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
@@ -185,7 +184,7 @@ class PKPNavigationMenuService
                 $navigationMenuItem->setIsDisplayed($isUserLoggedIn);
                 break;
             case NavigationMenuItem::NMI_TYPE_ADMINISTRATION:
-                $navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE));
+                $navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE));
                 break;
             case NavigationMenuItem::NMI_TYPE_SEARCH:
                 $navigationMenuItem->setIsDisplayed($context);
@@ -206,7 +205,7 @@ class PKPNavigationMenuService
                     break;
                 case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
                     $templateMgr->assign('navigationMenuItem', $navigationMenuItem);
-                    if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE)) {
+                    if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)) {
                         $displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
                         $navigationMenuItem->setTitle($displayTitle, AppLocale::getLocale());
                     }
@@ -296,7 +295,7 @@ class PKPNavigationMenuService
                     ));
                     break;
                 case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
-                    if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE)) {
+                    if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)) {
                         $navigationMenuItem->setUrl($dispatcher->url(
                             $request,
                             PKPApplication::ROUTE_PAGE,
@@ -507,7 +506,7 @@ class PKPNavigationMenuService
         // should call transformNavMenuItemTitle because some
         // request don't have all template variables in place
         if ($class == 'NavigationMenuItem') {
-            $templateMgr = TemplateManager::getManager(\Application::get()->getRequest());
+            $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
             $this->transformNavMenuItemTitle($templateMgr, $obj);
         }
 
@@ -666,7 +665,7 @@ class PKPNavigationMenuService
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         $customNMI = $navigationMenuItemDao->getByPath($contextId, $path);
 
         // Check if a custom NMI with the requested path existes

@@ -42,15 +42,15 @@
 				{/if}
 				{if $componentAvailability['languages']}
 				<tab id="languages" label="{translate key="common.languages"}">
-					{capture assign=languagesUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
+					{capture assign=languagesUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.admin.languages.AdminLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="languageGridContainer" url=$languagesUrl}
 				</tab>
 				{/if}
 				{if $componentAvailability['navigationMenus']}
 				<tab id="nav" label="{translate key="manager.navigationMenus"}">
-					{capture assign=navigationMenusGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenusGridHandler" op="fetchGrid" escape=false}{/capture}
+					{capture assign=navigationMenusGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenusGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="navigationMenuGridContainer" url=$navigationMenusGridUrl}
-					{capture assign=navigationMenuItemsGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="fetchGrid" escape=false}{/capture}
+					{capture assign=navigationMenuItemsGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenuItemsGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="navigationMenuItemsGridContainer" url=$navigationMenuItemsGridUrl}
 				</tab>
 				{/if}
@@ -91,7 +91,7 @@
 		{/if}
 		{if $componentAvailability['sitePlugins']}
 		<tab id="plugins" label="{translate key="common.plugins"}">
-			{capture assign=pluginGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.admin.plugins.AdminPluginGridHandler" op="fetchGrid" escape=false}{/capture}
+			{capture assign=pluginGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.admin.plugins.AdminPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}
 		</tab>
 		{/if}

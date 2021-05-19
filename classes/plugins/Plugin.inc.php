@@ -372,7 +372,7 @@ abstract class Plugin
         $plugin = basename($pluginPath);
         $category = basename(dirname($pluginPath));
 
-        $contextId = CONTEXT_SITE;
+        $contextId = \PKP\core\PKPApplication::CONTEXT_SITE;
         if (Config::getVar('general', 'installed')) {
             $context = Application::get()->getRequest()->getContext();
             if ($context instanceof \PKP\context\Context) {
@@ -580,7 +580,7 @@ abstract class Plugin
      */
     public function getLocaleFilename($locale)
     {
-        $masterLocale = MASTER_LOCALE;
+        $masterLocale = \PKP\i18n\PKPLocale::MASTER_LOCALE;
         $baseLocaleFilename = $this->getPluginPath() . "/locale/${locale}/locale.po";
         $baseMasterLocaleFilename = $this->getPluginPath() . "/locale/${masterLocale}/locale.po";
         $libPkpFilename = "lib/pkp/${baseLocaleFilename}";

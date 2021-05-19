@@ -368,7 +368,7 @@ class MetadataProperty
                             // has already been persisted in the database.
                             switch (true) {
                                 // Test for MetadataDescription format
-                                case is_a($value, 'MetadataDescription'):
+                                case $value instanceof \PKP\metadata\MetadataDescription:
                                     $assocType = $value->getAssocType();
                                     break;
 

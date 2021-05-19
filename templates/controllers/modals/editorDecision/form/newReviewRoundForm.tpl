@@ -25,7 +25,7 @@
 	<input type="hidden" name="decision" value="{\APP\workflow\EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND}" />
 
 	<!-- Revision files grid (Displays only revisions at first, and hides all other files which can then be displayed with filter button -->
-	{capture assign=newRoundRevisionsUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.review.SelectableReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+	{capture assign=newRoundRevisionsUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.SelectableReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 	{load_url_in_div id="newRoundRevisionsGrid" url=$newRoundRevisionsUrl}
 
 	{fbvFormButtons submitText="editor.submission.createNewRound"}

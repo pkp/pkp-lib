@@ -86,7 +86,7 @@ class NavigationMenuForm extends Form
         }
 
         $context = $request->getContext();
-        $contextId = CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }

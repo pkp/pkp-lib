@@ -48,7 +48,7 @@ class PKPStatsService
 
             // Require a context to be specified to prevent unwanted data leakage
             // if someone forgets to specify the context.
-            'contextIds' => [CONTEXT_ID_NONE],
+            'contextIds' => [\PKP\core\PKPApplication::CONTEXT_ID_NONE],
         ];
 
         $args = array_merge($defaultArgs, $args);
@@ -104,7 +104,7 @@ class PKPStatsService
             // Require a context to be specified to prevent unwanted data leakage
             // if someone forgets to specify the context. If you really want to
             // get data across all contexts, pass an empty `contextId` arg.
-            'contextIds' => [CONTEXT_ID_NONE],
+            'contextIds' => [\PKP\core\PKPApplication::CONTEXT_ID_NONE],
         ];
 
         $args = array_merge($defaultArgs, $args);
@@ -172,7 +172,7 @@ class PKPStatsService
             // Require a context to be specified to prevent unwanted data leakage
             // if someone forgets to specify the context. If you really want to
             // get data across all contexts, pass an empty `contextId` arg.
-            'contextIds' => [CONTEXT_ID_NONE],
+            'contextIds' => [\PKP\core\PKPApplication::CONTEXT_ID_NONE],
         ];
 
         $args = array_merge($defaultArgs, $args);

@@ -98,7 +98,7 @@ class PKPRouter
      */
     public function &getApplication()
     {
-        assert(is_a($this->_application, 'PKPApplication'));
+        assert($this->_application instanceof \PKP\core\PKPApplication);
         return $this->_application;
     }
 
@@ -124,7 +124,7 @@ class PKPRouter
      */
     public function &getDispatcher()
     {
-        assert(is_a($this->_dispatcher, 'Dispatcher'));
+        assert($this->_dispatcher instanceof \PKP\core\Dispatcher);
         return $this->_dispatcher;
     }
 
@@ -481,7 +481,7 @@ class PKPRouter
         // Return the result of the operation to the client.
         if (is_string($result)) {
             echo $result;
-        } elseif (is_a($result, 'JSONMessage')) {
+        } elseif ($result instanceof \PKP\core\JSONMessage) {
             header('Content-Type: application/json');
             echo $result->getString();
         }

@@ -33,7 +33,7 @@
 			</li>
 		{/if}
 		<li class="edit_profile">
-			<a href="{url router=PKPApplication::ROUTE_PAGE page="user" op="profile"}">
+			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}">
 				{translate key="user.editMyProfile"}
 			</a>
 		</li>

@@ -473,7 +473,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
         // Retrieve option values if they haven't been loaded yet
         if (is_null($this->_optionValues)) {
             $context = Application::get()->getRequest()->getContext();
-            $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+            $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
             $this->_optionValues = $this->getOptionValues($contextId);
         }
 

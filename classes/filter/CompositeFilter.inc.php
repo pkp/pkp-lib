@@ -53,7 +53,7 @@ class CompositeFilter extends PersistableFilter
      */
     public function addFilter(&$filter)
     {
-        assert(is_a($filter, 'Filter'));
+        assert($filter instanceof \PKP\filter\Filter);
 
         // Identify an appropriate sequence number.
         $seq = $filter->getSequence();

@@ -60,7 +60,7 @@ class UserApiHandler extends PKPHandler
 
         // Retrieve the user from the session.
         $user = $request->getUser();
-        assert(is_a($user, 'User'));
+        assert($user instanceof \PKP\user\User);
 
         // Validate the setting.
         // FIXME: We don't have to retrieve the setting type (which is always bool

@@ -15,8 +15,9 @@
  */
 
 use APP\handler\Handler;
-
 use APP\template\TemplateManager;
+
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 
 class PageHandler extends Handler

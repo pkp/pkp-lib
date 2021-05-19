@@ -79,7 +79,6 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\core\RuntimeEnvironment;
 
-
 use PKP\plugins\HookRegistry;
 
 class Filter extends \PKP\core\DataObject
@@ -188,11 +187,11 @@ class Filter extends \PKP\core\DataObject
         $typeDescriptionFactory = TypeDescriptionFactory::getInstance();
 
         // Instantiate the type descriptions if we got string input.
-        if (!is_a($inputType, 'TypeDescription')) {
+        if (!$inputType instanceof TypeDescription) {
             assert(is_string($inputType));
             $inputType = $typeDescriptionFactory->instantiateTypeDescription($inputType);
         }
-        if (!is_a($outputType, 'TypeDescription')) {
+        if (!$outputType instanceof TypeDescription) {
             assert(is_string($outputType));
             $outputType = $typeDescriptionFactory->instantiateTypeDescription($outputType);
         }

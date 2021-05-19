@@ -16,7 +16,7 @@
 	</h1>
 
 	<div class="app__contentPanel">
-			{capture assign=reportGeneratorUrl}{url router=PKPApplication::ROUTE_COMPONENT component="statistics.ReportGeneratorHandler" op="fetchReportGenerator" escape=false}{/capture}
+			{capture assign=reportGeneratorUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="statistics.ReportGeneratorHandler" op="fetchReportGenerator" escape=false}{/capture}
 			{load_url_in_div id="reportGeneratorContainer" url="$reportGeneratorUrl"}
 	</div>
 {/block}

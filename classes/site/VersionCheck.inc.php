@@ -43,7 +43,7 @@ class VersionCheck
 
         if ($includeId) {
             $pluginSettingsDao = & DAORegistry::getDAO('PluginSettingsDAO');
-            $uniqueSiteId = $pluginSettingsDao->getSetting(CONTEXT_SITE, 'UsageEventPlugin', 'uniqueSiteId');
+            $uniqueSiteId = $pluginSettingsDao->getSetting(\PKP\core\PKPApplication::CONTEXT_SITE, 'UsageEventPlugin', 'uniqueSiteId');
         } else {
             $uniqueSiteId = null;
         }

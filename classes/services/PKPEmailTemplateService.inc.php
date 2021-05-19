@@ -125,7 +125,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
         $context = Application::get()->getRequest()->getContext();
 
         $defaultArgs = [
-            'contextId' => $context ? $context->getId() : CONTEXT_SITE,
+            'contextId' => $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_SITE,
             'isEnabled' => null,
             'isCustom' => null,
             'fromRoleIds' => null,
@@ -285,7 +285,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
             $contextId = $emailTemplate->getData('contextId');
         } else {
             $context = $request->getContext();
-            $contextId = $context ? $context->getId() : CONTEXT_SITE;
+            $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_SITE;
         }
 
         $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /** @var EmailTemplateDAO $emailTemplateDao */
@@ -322,7 +322,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
             $contextId = $newEmailTemplate->getData('contextId');
         } else {
             $context = $request->getContext();
-            $contextId = $context ? $context->getId() : CONTEXT_SITE;
+            $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_SITE;
         }
 
         $newEmailTemplate = $this->getByKey($contextId, $newEmailTemplate->getData('key'));

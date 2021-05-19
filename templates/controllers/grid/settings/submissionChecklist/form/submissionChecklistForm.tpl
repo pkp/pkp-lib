@@ -15,7 +15,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="editSubmissionChecklistForm" method="post" action="{url router=PKPApplication::ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="updateItem"}">
+<form class="pkp_form" id="editSubmissionChecklistForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.submissionChecklist.SubmissionChecklistGridHandler" op="updateItem"}">
 {csrf}
 
 {include file="controllers/notification/inPlaceNotification.tpl" notificationId="submissionChecklistFormNotification"}

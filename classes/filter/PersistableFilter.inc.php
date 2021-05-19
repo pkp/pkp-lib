@@ -68,7 +68,7 @@ class PersistableFilter extends Filter
     public function __construct($filterGroup)
     {
         // Check and set the filter group.
-        assert(is_a($filterGroup, 'FilterGroup'));
+        assert($filterGroup instanceof \PKP\filter\FilterGroup);
         $this->_filterGroup = $filterGroup;
 
         // Initialize the filter.
@@ -149,7 +149,7 @@ class PersistableFilter extends Filter
      */
     public function addSetting($setting)
     {
-        assert(is_a($setting, 'FilterSetting'));
+        assert($setting instanceof \PKP\filter\FilterSetting);
         $settingName = $setting->getName();
 
         // Check that the setting name does not

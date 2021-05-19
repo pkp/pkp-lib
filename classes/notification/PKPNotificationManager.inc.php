@@ -380,7 +380,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         $returner = false;
         foreach ($notificationTypes as $type) {
             $managerDelegate = $this->getMgrDelegate($type, $assocType, $assocId);
-            if (!is_null($managerDelegate) && is_a($managerDelegate, 'NotificationManagerDelegate')) {
+            if (!is_null($managerDelegate) && $managerDelegate instanceof PKP\notification\NotificationManagerDelegate) {
                 $returner = $managerDelegate->updateNotification($request, $userIds, $assocType, $assocId);
             } else {
                 assert(false);
@@ -490,7 +490,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     protected function getByDelegate($notificationType, $assocType, $assocId, $operationName, $parameters)
     {
         $delegate = $this->getMgrDelegate($notificationType, $assocType, $assocId);
-        if (is_a($delegate, 'NotificationManagerDelegate')) {
+        if ($delegate instanceof \PKP\notification\NotificationManagerDelegate) {
             return call_user_func_array([$delegate, $operationName], $parameters);
         } else {
             return null;

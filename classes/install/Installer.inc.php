@@ -761,13 +761,13 @@ class Installer
 
         // Are there any filter groups to be installed?
         $filterGroupsNode = $tree->getChildByName('filterGroups');
-        if (is_a($filterGroupsNode, 'XMLNode')) {
+        if ($filterGroupsNode instanceof \PKP\xml\XMLNode) {
             $filterHelper->installFilterGroups($filterGroupsNode);
         }
 
         // Are there any filters to be installed?
         $filtersNode = $tree->getChildByName('filters');
-        if (is_a($filtersNode, 'XMLNode')) {
+        if ($filtersNode instanceof \PKP\xml\XMLNode) {
             foreach ($filtersNode->getChildren() as $filterNode) { /** @var XMLNode $filterNode */
                 $filterHelper->configureFilter($filterNode);
             }
@@ -884,7 +884,7 @@ class Installer
             $navigationMenuDao->installSettings($context->getId(), 'registry/navigationMenus.xml');
         }
 
-        $navigationMenuDao->installSettings(CONTEXT_ID_NONE, 'registry/navigationMenus.xml');
+        $navigationMenuDao->installSettings(\PKP\core\PKPApplication::CONTEXT_ID_NONE, 'registry/navigationMenus.xml');
 
         return true;
     }

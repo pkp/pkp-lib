@@ -129,7 +129,7 @@ class EditorDecisionForm extends Form
         $submission = $this->getSubmission();
 
         $reviewRound = $this->getReviewRound();
-        if (is_a($reviewRound, 'ReviewRound')) {
+        if ($reviewRound instanceof \PKP\submission\reviewRound\ReviewRound) {
             $this->setData('reviewRoundId', $reviewRound->getId());
         }
 

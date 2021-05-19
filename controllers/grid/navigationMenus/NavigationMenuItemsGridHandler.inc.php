@@ -56,7 +56,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
@@ -132,7 +132,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
     {
         $context = $request->getContext();
 
-        $contextId = CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }
@@ -167,7 +167,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
         $navigationMenuId = (int)$request->getUserVar('navigationMenuId');
         $navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
         $context = $request->getContext();
-        $contextId = CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }
@@ -213,7 +213,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
         $navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
         $navigationMenuIdParent = (int) $request->getUserVar('navigationMenuIdParent');
         $context = $request->getContext();
-        $contextId = CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }
@@ -237,7 +237,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
         $navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
         $navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
         $context = $request->getContext();
-        $contextId = CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }
@@ -263,7 +263,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
         $navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
 
         $context = $request->getContext();
-        $contextId = CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }

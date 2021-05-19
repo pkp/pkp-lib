@@ -33,7 +33,7 @@ class UserSettingsDAO extends \PKP\db\DAO
      *
      * @see UserSettingsDAO::getByAssoc
      */
-    public function getSetting($userId, $name, $contextId = CONTEXT_SITE)
+    public function getSetting($userId, $name, $contextId = \PKP\core\PKPApplication::CONTEXT_SITE)
     {
         $result = $this->retrieve(
             'SELECT	setting_value,
@@ -65,7 +65,7 @@ class UserSettingsDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory matching Users
      */
-    public function getUsersBySetting($name, $value, $type = null, $contextId = CONTEXT_SITE)
+    public function getUsersBySetting($name, $value, $type = null, $contextId = \PKP\core\PKPApplication::CONTEXT_SITE)
     {
         $value = $this->convertToDB($value, $type);
         $result = $this->retrieve(
@@ -92,7 +92,7 @@ class UserSettingsDAO extends \PKP\db\DAO
      *
      * @return array
      */
-    public function getSettingsByContextId($userId, $contextId = CONTEXT_SITE)
+    public function getSettingsByContextId($userId, $contextId = \PKP\core\PKPApplication::CONTEXT_SITE)
     {
         $result = $this->retrieve(
             'SELECT	setting_name,
@@ -122,7 +122,7 @@ class UserSettingsDAO extends \PKP\db\DAO
      * @param $type string data type of the setting. If omitted, type will be guessed
      * @param $contextId int
      */
-    public function updateSetting($userId, $name, $value, $type = null, $contextId = CONTEXT_SITE)
+    public function updateSetting($userId, $name, $value, $type = null, $contextId = \PKP\core\PKPApplication::CONTEXT_SITE)
     {
         $result = $this->retrieve(
             'SELECT	COUNT(*) AS row_count
@@ -179,7 +179,7 @@ class UserSettingsDAO extends \PKP\db\DAO
      * @param $name string
      * @param $contextId int
      */
-    public function deleteSetting($userId, $name, $contextId = CONTEXT_SITE)
+    public function deleteSetting($userId, $name, $contextId = \PKP\core\PKPApplication::CONTEXT_SITE)
     {
         $this->update(
             'DELETE FROM user_settings WHERE user_id = ? AND setting_name = ? AND assoc_type = ? AND assoc_id = ?',

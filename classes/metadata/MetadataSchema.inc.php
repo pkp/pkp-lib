@@ -199,7 +199,7 @@ class MetadataSchema
     public function getNamespacedPropertyId($propertyName)
     {
         $property = & $this->getProperty($propertyName);
-        assert(is_a($property, 'MetadataProperty'));
+        assert($property instanceof \PKP\metadata\MetadataProperty);
         return $this->getNamespace() . ucfirst($property->getId());
     }
 

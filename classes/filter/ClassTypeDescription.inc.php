@@ -78,7 +78,7 @@ class ClassTypeDescription extends TypeDescription
         }
 
         // Check the object's class
-        if (!is_a($object, $this->_className)) {
+        if (!$object instanceof $this->_className) {
             return false;
         }
 

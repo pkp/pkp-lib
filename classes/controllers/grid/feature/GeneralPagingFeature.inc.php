@@ -131,7 +131,7 @@ class GeneralPagingFeature extends GridFeature
             $itemIterator = new ArrayItemIterator($data, $rangeInfo->getPage(), $rangeInfo->getCount());
             $this->_itemIterator = $itemIterator;
             $data = $itemIterator->toArray();
-        } elseif (is_a($data, 'ItemIterator')) {
+        } elseif ($data instanceof \PKP\core\ItemIterator) {
             $this->_itemIterator = $data;
         }
     }

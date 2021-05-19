@@ -31,7 +31,7 @@ class ContextGridCellProvider extends GridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert(is_a($element, 'Context') && !empty($columnId));
+        assert($element instanceof \PKP\context\Context && !empty($columnId));
         switch ($columnId) {
             case 'name':
                 $label = $element->getLocalizedName() != '' ? $element->getLocalizedName() : __('common.untitled');

@@ -44,7 +44,7 @@ class FileLinkAction extends LinkAction
      */
     public function getActionArgs($submissionFile, $stageId = null)
     {
-        assert(is_a($submissionFile, 'SubmissionFile'));
+        assert($submissionFile instanceof \PKP\submission\SubmissionFile);
 
         // Create the action arguments array.
         $args = [

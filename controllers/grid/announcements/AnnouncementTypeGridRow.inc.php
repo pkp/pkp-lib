@@ -33,7 +33,7 @@ class AnnouncementTypeGridRow extends GridRow
 
         // Is this a new row or an existing row?
         $element = $this->getData();
-        assert(is_a($element, 'AnnouncementType'));
+        assert($element instanceof \PKP\announcement\AnnouncementType);
 
         $rowId = $this->getId();
 

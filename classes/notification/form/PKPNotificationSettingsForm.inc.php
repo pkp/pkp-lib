@@ -118,7 +118,7 @@ class PKPNotificationSettingsForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         $userId = $request->getUser()->getId();
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $templateMgr = TemplateManager::getManager($request);
@@ -142,7 +142,7 @@ class PKPNotificationSettingsForm extends Form
         $user = $request->getUser();
         $userId = $user->getId();
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
 
         $blockedNotifications = [];
         $emailSettings = [];

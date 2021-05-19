@@ -337,7 +337,7 @@ class GridHandler extends PKPHandler
      */
     public function addColumn($column)
     {
-        assert(is_a($column, 'GridColumn'));
+        assert($column instanceof \PKP\controllers\grid\GridColumn);
         $this->_columns[$column->getId()] = $column;
     }
 
@@ -392,9 +392,9 @@ class GridHandler extends PKPHandler
 
         if (is_iterable($data)) {
             $this->_data = $data;
-        } elseif (is_a($data, 'DAOResultFactory')) {
+        } elseif ($data instanceof \PKP\db\DAOResultFactory) {
             $this->_data = $data->toAssociativeArray();
-        } elseif (is_a($data, 'ItemIterator')) {
+        } elseif ($data instanceof \PKP\core\ItemIterator) {
             $this->_data = $data->toArray();
         } else {
             assert(false);
@@ -647,7 +647,7 @@ class GridHandler extends PKPHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $dataProvider = $this->getDataProvider();
-        $hasDataProvider = is_a($dataProvider, 'GridDataProvider');
+        $hasDataProvider = $dataProvider instanceof \PKP\controllers\grid\GridDataProvider;
         if ($hasDataProvider) {
             $this->addPolicy($dataProvider->getAuthorizationPolicy($request, $args, $roleAssignments));
         }
@@ -951,7 +951,7 @@ class GridHandler extends PKPHandler
     {
         $gridData = null;
         $dataProvider = $this->getDataProvider();
-        if (is_a($dataProvider, 'GridDataProvider')) {
+        if ($dataProvider instanceof \PKP\controllers\grid\GridDataProvider) {
             // Populate the grid with data from the
             // data provider.
             $gridData = $dataProvider->loadData($filter);
@@ -1151,7 +1151,7 @@ class GridHandler extends PKPHandler
         $renderedCells = [];
         $columns = $this->getColumns();
         foreach ($columns as $column) {
-            assert(is_a($column, 'GridColumn'));
+            assert($column instanceof \PKP\controllers\grid\GridColumn);
             $renderedCells[] = $this->_renderCellInternally($request, $row, $column);
         }
 
@@ -1245,7 +1245,7 @@ class GridHandler extends PKPHandler
         // Otherwise, get the cell content.
         // If row defines a cell provider, use it.
         $cellProvider = $row->getCellProvider();
-        if (!is_a($cellProvider, 'GridCellProvider')) {
+        if (!$cellProvider instanceof \PKP\controllers\grid\GridCellProvider) {
             // Remove reference to the row variable.
             unset($cellProvider);
             // Get cell provider from column.
@@ -1329,7 +1329,7 @@ class GridHandler extends PKPHandler
     {
         assert(is_array($features));
         foreach ($features as &$feature) {
-            assert(is_a($feature, 'GridFeature'));
+            assert($feature instanceof \PKP\controllers\grid\feature\GridFeature);
             $this->_features[$feature->getId()] = $feature;
         }
     }

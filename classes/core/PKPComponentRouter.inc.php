@@ -320,7 +320,7 @@ class PKPComponentRouter extends PKPRouter
         //
         // We only support component/op retrieval from the request
         // if this request is a component request.
-        $currentRequestIsAComponentRequest = is_a($request->getRouter(), 'PKPComponentRouter');
+        $currentRequestIsAComponentRequest = $request->getRouter() instanceof self;
         if ($currentRequestIsAComponentRequest) {
             if (empty($component)) {
                 $component = $this->getRequestedComponent($request);

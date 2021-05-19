@@ -51,7 +51,7 @@ class SelectableItemsFeature extends GridFeature
         $grid = $args['grid'];
         $row = $args['row'];
 
-        if (is_a($grid, 'CategoryGridHandler')) {
+        if ($grid instanceof \PKP\controllers\grid\CategoryGridHandler) {
             $categoryId = $grid->getCurrentCategoryId();
             $row->addFlag('selected', (bool) $grid->isDataElementInCategorySelected($categoryId, $row->getData()));
         } else {

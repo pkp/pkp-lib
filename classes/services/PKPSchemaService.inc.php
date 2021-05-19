@@ -15,6 +15,8 @@
 
 namespace PKP\services;
 
+use PKP\plugins\HookRegistry;
+
 class PKPSchemaService
 {
     public const SCHEMA_ANNOUNCEMENT = 'announcement';
@@ -76,7 +78,7 @@ class PKPSchemaService
             $schema = $this->merge($schema, $appSchema);
         }
 
-        \HookRegistry::call('Schema::get::' . $schemaName, [&$schema]);
+        HookRegistry::call('Schema::get::' . $schemaName, [&$schema]);
 
         $this->_schemas[$schemaName] = $schema;
 

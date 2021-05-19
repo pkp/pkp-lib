@@ -27,7 +27,7 @@
 	{include file="submission/submissionMetadataFormTitleFields.tpl"}
 
 	<!--  Contributors -->
-	{capture assign=authorGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.users.author.AuthorGridHandler" op="fetchGrid" submissionId=$submissionId publicationId=$publicationId escape=false}{/capture}
+	{capture assign=authorGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.author.AuthorGridHandler" op="fetchGrid" submissionId=$submissionId publicationId=$publicationId escape=false}{/capture}
 	{load_url_in_div id="authorsGridContainer" url=$authorGridUrl}
 
 	{$additionalContributorsFields}

@@ -91,7 +91,7 @@ class FormBuilderVocabulary
     public function setForm($form)
     {
         if ($form) {
-            assert(is_a($form, 'Form'));
+            assert($form instanceof \PKP\form\Form);
         }
         $this->_form = $form;
     }

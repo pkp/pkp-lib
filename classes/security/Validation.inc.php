@@ -472,12 +472,12 @@ class Validation
         }
 
         // You cannot adminster administrators
-        if ($roleDao->userHasRole(CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
+        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
             return false;
         }
 
         // Otherwise, administrators can administer everyone
-        if ($roleDao->userHasRole(CONTEXT_SITE, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
+        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
             return true;
         }
 
@@ -486,7 +486,7 @@ class Validation
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByUserId($administeredUserId);
         while ($userGroup = $userGroups->next()) {
-            if ($userGroup->getContextId() != CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
+            if ($userGroup->getContextId() != \PKP\core\PKPApplication::CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
                 // Found an assignment: disqualified.
                 return false;
             }

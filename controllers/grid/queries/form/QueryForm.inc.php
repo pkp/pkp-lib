@@ -291,7 +291,7 @@ class QueryForm extends Form
                 }
 
                 // if current user is editor, add all reviewers
-                if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) ||
+                if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) ||
                         array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $assignedRoles)) {
                     foreach ($reviewAssignments as $reviewAssignment) {
                         $includeUsers[] = $reviewAssignment->getReviewerId();
@@ -429,7 +429,7 @@ class QueryForm extends Form
                     // if participant has no role in this stage and is not a reviewer
                     if (empty($assignedRoles) && empty($reviewAssignments)) {
                         // if participant is current user and the user has admin or manager role, ignore participant
-                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
+                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
                             continue;
                         } else {
                             $this->addError('users', __('editor.discussion.errorNotStageParticipant'));
@@ -460,7 +460,7 @@ class QueryForm extends Form
                     // if participant has no role/assignment in the current stage
                     if (empty($assignedRoles)) {
                         // if participant is current user and the user has admin or manager role, ignore participant
-                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
+                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
                             continue;
                         } else {
                             $this->addError('users', __('editor.discussion.errorNotStageParticipant'));

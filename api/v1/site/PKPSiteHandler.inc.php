@@ -124,7 +124,7 @@ class PKPSiteHandler extends APIHandler
         }
 
         $data = array_merge(
-            $activeTheme->getOptionValues(CONTEXT_ID_NONE),
+            $activeTheme->getOptionValues(\PKP\core\PKPApplication::CONTEXT_ID_NONE),
             ['themePluginPath' => $theme->getDirName()]
         );
 
@@ -211,7 +211,7 @@ class PKPSiteHandler extends APIHandler
             $selectedTheme->init();
         }
 
-        $errors = $selectedTheme->validateOptions($params, $themePluginPath, CONTEXT_ID_NONE, $request);
+        $errors = $selectedTheme->validateOptions($params, $themePluginPath, \PKP\core\PKPApplication::CONTEXT_ID_NONE, $request);
         if (!empty($errors)) {
             return $response->withJson($errors, 400);
         }
@@ -222,7 +222,7 @@ class PKPSiteHandler extends APIHandler
             if (!array_key_exists($optionName, $params)) {
                 continue;
             }
-            $selectedTheme->saveOption($optionName, $params[$optionName], CONTEXT_ID_NONE);
+            $selectedTheme->saveOption($optionName, $params[$optionName], \PKP\core\PKPApplication::CONTEXT_ID_NONE);
         }
 
         // Clear the template cache so that new settings can take effect
@@ -231,7 +231,7 @@ class PKPSiteHandler extends APIHandler
         $templateMgr->clearCssCache();
 
         $data = array_merge(
-            $selectedTheme->getOptionValues(CONTEXT_ID_NONE),
+            $selectedTheme->getOptionValues(\PKP\core\PKPApplication::CONTEXT_ID_NONE),
             ['themePluginPath' => $themePluginPath]
         );
 

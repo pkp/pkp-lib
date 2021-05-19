@@ -435,7 +435,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
         $allowedTypes = $this->getPubObjectTypes();
         $pubObjectType = null;
         foreach ($allowedTypes as $type => $fqcn) {
-            if (is_a($pubObject, $fqcn)) {
+            if ($pubObject instanceof $fqcn) {
                 $pubObjectType = $type;
                 break;
             }

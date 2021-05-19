@@ -128,7 +128,7 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
      */
     public function setMenuItem($obj)
     {
-        $this->navigationMenuItem = is_a($obj, 'NavigationMenuItem') ? $obj : null;
+        $this->navigationMenuItem = $obj instanceof \PKP\navigationMenu\NavigationMenuItem ? $obj : null;
     }
 
     /**

@@ -15,6 +15,7 @@
 
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
+use PKP\log\EventLogEntry;
 use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\submission\SubmissionFile;
 
@@ -54,11 +55,11 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
         switch ($columnId) {
             case 'date':
-                return ['label' => is_a($element, 'EventLogEntry') ? $element->getDateLogged() : $element->getDateSent()];
+                return ['label' => $element instanceof EventLogEntry ? $element->getDateLogged() : $element->getDateSent()];
             case 'event':
-                return ['label' => is_a($element, 'EventLogEntry') ? $element->getTranslatedMessage(null, $this->_isCurrentUserAssignedAuthor) : $element->getPrefixedSubject()];
+                return ['label' => $element instanceof EventLogEntry ? $element->getTranslatedMessage(null, $this->_isCurrentUserAssignedAuthor) : $element->getPrefixedSubject()];
             case 'user':
-                if (is_a($element, 'EventLogEntry')) {
+                if ($element instanceof EventLogEntry) {
                     $userName = $element->getUserFullName();
 
                     // Anonymize reviewer details where necessary

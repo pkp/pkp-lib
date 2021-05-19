@@ -68,7 +68,7 @@ class FileNameGridColumn extends GridColumn
     {
         $submissionFileData = $row->getData();
         $submissionFile = $submissionFileData['submissionFile'];
-        assert(is_a($submissionFile, 'SubmissionFile'));
+        assert($submissionFile instanceof \PKP\submission\SubmissionFile);
         $fileExtension = pathinfo($submissionFile->getData('path'), PATHINFO_EXTENSION);
         return ['label' => '<span class="file_extension ' . $fileExtension . '">' . $submissionFile->getId() . '</span>'];
     }

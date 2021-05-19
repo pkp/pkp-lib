@@ -71,7 +71,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
         $inputType = & $this->getInputType();
         $outputType = & $this->getOutputType();
         if (is_null($mode)) {
-            if (is_a($inputType, 'MetadataTypeDescription')) {
+            if ($inputType instanceof \PKP\metadata\MetadataTypeDescription) {
                 $mode = self::METADATA_DOA_INJECTION_MODE;
             } else {
                 $mode = self::METADATA_DOA_EXTRACTION_MODE;
@@ -82,13 +82,13 @@ class MetadataDataObjectAdapter extends PersistableFilter
         if ($mode == self::METADATA_DOA_INJECTION_MODE) {
             // We are in meta-data injection mode (or both input and output are meta-data descriptions).
             $metadataTypeDescription = & $inputType; /** @var MetadataTypeDescription $metadataTypeDescription */
-            assert(is_a($outputType, 'ClassTypeDescription'));
+            assert($outputType instanceof \PKP\filter\ClassTypeDescription);
             $dataObjectTypeDescription = & $outputType; /** @var ClassTypeDescription $dataObjectTypeDescription */
         } else {
             // We are in meta-data extraction mode.
-            assert(is_a($outputType, 'MetadataTypeDescription'));
+            assert($outputType instanceof \PKP\metadata\MetadataTypeDescription);
             $metadataTypeDescription = & $outputType;
-            assert(is_a($inputType, 'ClassTypeDescription'));
+            assert($inputType instanceof \PKP\filter\ClassTypeDescription);
             $dataObjectTypeDescription = & $inputType;
         }
 

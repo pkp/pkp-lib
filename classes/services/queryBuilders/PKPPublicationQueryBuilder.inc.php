@@ -15,6 +15,8 @@
 namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
+
+use PKP\plugins\HookRegistry;
 use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 
 class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
@@ -140,7 +142,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface
         }
 
         // Add app-specific query statements
-        \HookRegistry::call('Publication::getMany::queryObject', [&$q, $this]);
+        HookRegistry::call('Publication::getMany::queryObject', [&$q, $this]);
 
         $q->select($this->columns);
 

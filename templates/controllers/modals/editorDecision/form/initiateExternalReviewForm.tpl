@@ -23,7 +23,7 @@
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 
 	<!-- Available submission files -->
-	{capture assign=filesForReviewUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.files.submission.SelectableSubmissionDetailsFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
+	{capture assign=filesForReviewUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.submission.SelectableSubmissionDetailsFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
 	{load_url_in_div id="filesForReviewGrid" url=$filesForReviewUrl}
 	{fbvFormButtons submitText="editor.submission.decision.sendExternalReview"}
 </form>

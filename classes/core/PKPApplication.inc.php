@@ -406,7 +406,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             if ($mainContext) {
                 $mainContextId = $mainContext->getId();
             } else {
-                $mainContextId = CONTEXT_SITE;
+                $mainContextId = self::CONTEXT_SITE;
             }
         }
         if (!isset($this->enabledProducts[$mainContextId])) {
@@ -560,7 +560,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public function getMetricTypes($withDisplayNames = false)
     {
         // Retrieve site-level report plugins.
-        $reportPlugins = PluginRegistry::loadCategory('reports', true, CONTEXT_SITE);
+        $reportPlugins = PluginRegistry::loadCategory('reports', true, self::CONTEXT_SITE);
         if (empty($reportPlugins)) {
             return [];
         }
@@ -594,7 +594,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     {
         $request = $this->getRequest();
         $site = $request->getSite();
-        if (!is_a($site, 'Site')) {
+        if (!$site instanceof \PKP\site\Site) {
             return null;
         }
         $defaultMetricType = $site->getData('defaultMetricType');
@@ -674,10 +674,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
 
         // Retrieve report plugins.
-        if (is_a($context, 'Context')) {
+        if ($context instanceof \PKP\context\Context) {
             $contextId = $context->getId();
         } else {
-            $contextId = CONTEXT_SITE;
+            $contextId = self::CONTEXT_SITE;
         }
         $reportPlugins = PluginRegistry::loadCategory('reports', true, $contextId);
         if (empty($reportPlugins)) {

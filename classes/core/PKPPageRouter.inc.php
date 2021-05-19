@@ -229,7 +229,7 @@ class PKPPageRouter extends PKPRouter
         if (!defined('SESSION_DISABLE_INIT')) {
             $user = $request->getUser();
             $currentContext = $request->getContext();
-            if ($currentContext && !$currentContext->getEnabled() && !is_a($user, 'User')) {
+            if ($currentContext && !$currentContext->getEnabled() && !$user instanceof \PKP\user\User) {
                 if ($page != 'login') {
                     $request->redirect(null, 'login');
                 }
@@ -352,7 +352,7 @@ class PKPPageRouter extends PKPRouter
         //
 
         // Are we in a page request?
-        $currentRequestIsAPageRequest = is_a($request->getRouter(), 'PKPPageRouter');
+        $currentRequestIsAPageRequest = $request->getRouter() instanceof \PKP\core\PKPPageRouter;
 
         // Determine the operation
         if ($op) {
@@ -507,7 +507,7 @@ class PKPPageRouter extends PKPRouter
         } else {
             // The user is at the site context, check to see if they are
             // only registered in one place w/ one role
-            $userGroups = $userGroupDao->getByUserId($userId, CONTEXT_ID_NONE);
+            $userGroups = $userGroupDao->getByUserId($userId, \PKP\core\PKPApplication::CONTEXT_ID_NONE);
             $firstUserGroup = $userGroups->next();
             $secondUserGroup = $userGroups->next();
 
@@ -542,7 +542,7 @@ class PKPPageRouter extends PKPRouter
     private function _getRequestedUrlParts($callback, &$request)
     {
         $url = null;
-        assert(is_a($request->getRouter(), 'PKPPageRouter'));
+        assert($request->getRouter() instanceof \PKP\core\PKPPageRouter);
         $isPathInfoEnabled = $request->isPathInfoEnabled();
 
         if ($isPathInfoEnabled) {

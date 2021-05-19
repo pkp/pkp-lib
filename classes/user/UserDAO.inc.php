@@ -409,7 +409,7 @@ class UserDAO extends \PKP\db\DAO
             // assoc_type and assoc_id must be included for upsert, or PostgreSQL's ON CONFLICT will not work:
             // "there is no unique or exclusion constraint matching the ON CONFLICT specification"
             // However, no localized context-specific data is currently used, so we can rely on the pkey.
-            'assoc_type' => CONTEXT_SITE,
+            'assoc_type' => \PKP\core\PKPApplication::CONTEXT_SITE,
             'assoc_id' => 0,
         ]);
     }

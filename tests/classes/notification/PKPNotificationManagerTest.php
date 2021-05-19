@@ -453,7 +453,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         $anyTestInteger = 1;
         $notification->setUserId($anyTestInteger);
         $notification->setType($anyTestInteger);
-        $notification->setContextId(CONTEXT_ID_NONE);
+        $notification->setContextId(\PKP\core\PKPApplication::CONTEXT_ID_NONE);
         $notification->setAssocType($anyTestInteger);
         $notification->setAssocId($anyTestInteger);
         $notification->setLevel(Notification::NOTIFICATION_LEVEL_TRIVIAL);

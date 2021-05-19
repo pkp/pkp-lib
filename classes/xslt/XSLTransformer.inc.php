@@ -17,10 +17,9 @@ namespace PKP\xslt;
 
 use DOMDocument;
 
-use FileManager;
 use PKP\config\Config;
+use PKP\file\FileManager;
 
-// FIXME: Add namespacing
 use XSLTProcessor;
 
 // The default character encoding
@@ -297,7 +296,7 @@ class XSLTransformer
         // Prepare the XML DOM
         if ($xmlType == self::XSL_TRANSFORMER_DOCTYPE_DOM) {
             // We already have a DOM document, no need to create one
-            assert(is_a($xml, 'DOMDocument'));
+            assert($xml instanceof DOMDocument);
             $xmlDOM = $xml;
         } else {
             // Instantiate and configure the XML DOM document
@@ -330,7 +329,7 @@ class XSLTransformer
         // Prepare the XSL DOM
         if ($xslType == self::XSL_TRANSFORMER_DOCTYPE_DOM) {
             // We already have a DOM document, no need to create one
-            assert(is_a($xsl, 'DOMDocument'));
+            assert($xsl instanceof DOMDocument);
             $xslDOM = $xsl;
         } else {
             // Instantiate the XSL DOM document

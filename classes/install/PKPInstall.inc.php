@@ -251,7 +251,7 @@ class PKPInstall extends Installer
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
         $adminUserGroup = $userGroupDao->newDataObject();
         $adminUserGroup->setRoleId(Role::ROLE_ID_SITE_ADMIN);
-        $adminUserGroup->setContextId(CONTEXT_ID_NONE);
+        $adminUserGroup->setContextId(\PKP\core\PKPApplication::CONTEXT_ID_NONE);
         $adminUserGroup->setDefault(true);
         foreach ($this->installedLocales as $locale) {
             $name = __('default.groups.name.siteAdmin', [], $locale);

@@ -20,9 +20,6 @@ namespace APP\server;
 use PKP\context\ContextDAO;
 use PKP\metadata\MetadataTypeDescription;
 
-define('SERVER_FIELD_TITLE', 1);
-define('SERVER_FIELD_SEQUENCE', 2);
-
 class ServerDAO extends ContextDAO
 {
     /** @copydoc SchemaDAO::$schemaName */

@@ -84,7 +84,7 @@ class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
         // Conditionally hide some items
         switch ($menuItemType) {
             case self::NMI_TYPE_ARCHIVES:
-                $navigationMenuItem->setIsDisplayed($context && $context->getData('publishingMode') != PUBLISHING_MODE_NONE);
+                $navigationMenuItem->setIsDisplayed($context && $context->getData('publishingMode') != \APP\server\Server::PUBLISHING_MODE_NONE);
                 break;
         }
 

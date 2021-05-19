@@ -136,7 +136,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 
         // Identifier: URL
         $request = Application::get()->getRequest();
-        $includeUrls = $server->getSetting('publishingMode') != PUBLISHING_MODE_NONE;
+        $includeUrls = $server->getSetting('publishingMode') != \APP\server\Server::PUBLISHING_MODE_NONE;
         $dc11Description->addStatement('dc:identifier', $request->url($server->getPath(), 'preprint', 'view', [$submission->getBestId()]));
 
         // Get galleys and supp files.

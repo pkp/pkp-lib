@@ -56,7 +56,7 @@ class OpsServerMustPublishPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
-        if ($this->_context->getData('publishingMode') == PUBLISHING_MODE_NONE) {
+        if ($this->_context->getData('publishingMode') == \APP\server\Server::PUBLISHING_MODE_NONE) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

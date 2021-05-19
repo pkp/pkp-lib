@@ -44,8 +44,8 @@ class AccessForm extends FormComponent
             'label' => __('manager.distribution.publishingMode'),
             'type' => 'radio',
             'options' => [
-                ['value' => PUBLISHING_MODE_OPEN, 'label' => __('manager.distribution.publishingMode.openAccess')],
-                ['value' => PUBLISHING_MODE_NONE, 'label' => __('manager.distribution.publishingMode.none')],
+                ['value' => \APP\server\Server::PUBLISHING_MODE_OPEN, 'label' => __('manager.distribution.publishingMode.openAccess')],
+                ['value' => \APP\server\Server::PUBLISHING_MODE_NONE, 'label' => __('manager.distribution.publishingMode.none')],
             ],
             'value' => $context->getData('publishingMode'),
         ]))

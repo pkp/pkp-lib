@@ -30,11 +30,11 @@ use PKP\statistics\PKPStatisticsHelper;
 
 use APP\i18n\AppLocale;
 
-define('PUBLISHING_MODE_OPEN', 0);
-define('PUBLISHING_MODE_NONE', 2);
-
 class Server extends Context
 {
+    public const PUBLISHING_MODE_OPEN = 0;
+    public const PUBLISHING_MODE_NONE = 2;
+
     /**
      * Get "localized" server page title (if applicable).
      *

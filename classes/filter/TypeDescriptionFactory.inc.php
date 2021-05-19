@@ -143,6 +143,6 @@ if (!PKP_STRICT_MODE) {
         'TYPE_DESCRIPTION_NAMESPACE_XML',
         'TYPE_DESCRIPTION_NAMESPACE_VALIDATOR',
     ] as $constantName) {
-        define($constantName, constant('\TypeDescriptorFactory::' . $constantName));
+        define($constantName, constant('\TypeDescriptionFactory::' . $constantName));
     }
 }

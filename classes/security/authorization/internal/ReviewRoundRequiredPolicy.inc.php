@@ -17,9 +17,7 @@ namespace PKP\security\authorization\internal;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
-
-// FIXME: Add namespacing
-use ReviewRound;
+use PKP\submission\reviewRound\ReviewRound;
 
 class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy
 {

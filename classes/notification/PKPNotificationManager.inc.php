@@ -380,7 +380,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         $returner = false;
         foreach ($notificationTypes as $type) {
             $managerDelegate = $this->getMgrDelegate($type, $assocType, $assocId);
-            if (!is_null($managerDelegate) && $managerDelegate instanceof PKP\notification\NotificationManagerDelegate) {
+            if (!is_null($managerDelegate) && $managerDelegate instanceof \PKP\notification\NotificationManagerDelegate) {
                 $returner = $managerDelegate->updateNotification($request, $userIds, $assocType, $assocId);
             } else {
                 assert(false);

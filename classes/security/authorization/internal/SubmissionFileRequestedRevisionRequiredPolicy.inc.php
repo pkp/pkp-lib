@@ -17,13 +17,10 @@
 namespace PKP\security\authorization\internal;
 
 use APP\workflow\EditorDecisionActionsManager;
+
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
-
 use PKP\submission\SubmissionFile;
-
-// FIXME: Add namespacing
-use ReviewRound;
 
 class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAccessPolicy
 {

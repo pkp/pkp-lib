@@ -22,10 +22,8 @@ namespace PKP\log;
 
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\security\Validation;
 use PKP\session\SessionManager;
-
-// FIXME: Add namespacing
-use Validation;
 
 class SubmissionLog
 {

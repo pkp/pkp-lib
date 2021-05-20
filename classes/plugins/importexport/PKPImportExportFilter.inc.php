@@ -15,10 +15,10 @@
 
 namespace PKP\plugins\importexport;
 
-use NativeExportFilter;
-use PKP\db\DAORegistry;
-
 // FIXME: Add namespacing
+use NativeExportFilter;
+
+use PKP\db\DAORegistry;
 use PKP\filter\PersistableFilter;
 
 class PKPImportExportFilter extends PersistableFilter

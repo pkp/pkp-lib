@@ -141,7 +141,7 @@ class NotificationsGridCellProvider extends GridCellProvider
             case ASSOC_TYPE_REVIEW_ROUND:
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
-                assert($reviewRound instanceof \ReviewRound); // FIXME: Add namespacing
+                assert($reviewRound instanceof \PKP\submission\reviewRound\ReviewRound);
                 $submissionId = $reviewRound->getSubmissionId();
                 break;
             case ASSOC_TYPE_QUERY:

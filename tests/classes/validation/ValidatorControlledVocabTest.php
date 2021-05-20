@@ -17,10 +17,8 @@
 
 import('lib.pkp.tests.PKPTestCase');
 
+use PKP\controlledVocab\ControlledVocab;
 use PKP\validation\ValidatorControlledVocab;
-
-// FIXME: add namespacing
-import('lib.pkp.classes.controlledVocab.ControlledVocab');
 
 class ValidatorControlledVocabTest extends PKPTestCase
 {

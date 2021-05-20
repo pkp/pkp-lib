@@ -22,9 +22,6 @@ use PKP\plugins\PKPPubIdPluginHelper;
 use PKP\submission\Representation;
 use PKP\submission\SubmissionFile;
 
-// FIXME: Add namespacing; remove OMP-specific code from pkp-lib
-//use Chapter;
-
 class PKPPublicIdentifiersForm extends Form
 {
     /** @var int The context id */
@@ -86,7 +83,7 @@ class PKPPublicIdentifiersForm extends Form
             'stageId' => $this->getStageId(),
             'formParams' => $this->getFormParams(),
         ]);
-        if ($this->getPubObject() instanceof Representation || $this->getPubObject() instanceof Chapter) {
+        if ($this->getPubObject() instanceof Representation || $this->getPubObject() instanceof \APP\monograph\Chapter) {
             $publicationId = $this->getPubObject()->getData('publicationId');
             $publication = Services::get('publication')->get($publicationId);
             $templateMgr->assign([

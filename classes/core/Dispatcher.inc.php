@@ -215,7 +215,7 @@ class Dispatcher
         if (!isset($this->_routerInstances[$shortcut])) {
             // Instantiate the router
             $router = new $routerName();
-            if (!$router instanceof PKPRouter) {
+            if (!$router instanceof \PKP\core\PKPRouter) {
                 throw new \Exception('Cannot instantiate requested router. Routers must belong to the core package and be of type "PKPRouter".');
             }
             $router->setApplication($this->_application);

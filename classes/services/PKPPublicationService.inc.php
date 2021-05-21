@@ -652,18 +652,11 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 
         // Log an event when publication is published. Adjust the message depending
         // on whether this is the first publication or a subsequent version
-        $availableMessages = [
-            0 => [
-                0 => 'publication.event.published',
-                1 => 'publication.event.scheduled',
-            ],
-            1 => [
-                0 => 'publication.event.versionPublished',
-                1 => 'publication.event.versionScheduled',
-            ],
-        ];
-
-        $msg = $availableMessages[(int) (count($submission->getData('publications')) > 1)][(int) ($newPublication->getData('status') === PKPSubmission::STATUS_SCHEDULED)];
+        if (count($submission->getData('publications')) > 1) {
+            $msg = $newPublication->getData('status') === PKPSubmission::STATUS_SCHEDULED ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
+        } else {
+            $msg = $newPublication->getData('status') === PKPSubmission::STATUS_SCHEDULED ? 'publication.event.scheduled' : 'publication.event.published';
+        }
 
         SubmissionLog::logEvent(
             Application::get()->getRequest(),
@@ -683,7 +676,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         event(new PublishedEvent($newPublication, $publication, $submission));
 
         // Update the search index.
-        if (itsPublished) {
+        if ($itsPublished) {
             dispatch(new UpdateSubmissionSearchJob($submission->getId()));
         }
 

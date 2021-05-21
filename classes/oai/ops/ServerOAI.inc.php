@@ -19,9 +19,9 @@
 
 use PKP\oai\OAI;
 use PKP\oai\OAIRepository;
+use PKP\oai\OAIResumptionToken;
 
-// FIXME: Add namespacing
-import('classes.oai.ops.OAIDAO');
+use APP\oai\ops\OAIDAO;
 
 class ServerOAI extends OAI
 {

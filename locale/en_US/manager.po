@@ -860,7 +860,7 @@ msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Review Reminder"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "Send an email reminder if a reviewer has not submitted a recommendation within this many after the review's due date."
+msgstr "Send an email reminder if a reviewer has not submitted a recommendation within this many days after the review's due date."
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Default Review Mode"

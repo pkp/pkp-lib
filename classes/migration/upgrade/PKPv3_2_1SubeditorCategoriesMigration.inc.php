@@ -26,7 +26,7 @@ class PKPv3_2_1SubeditorCategoriesMigration extends Migration {
 		Capsule::schema()->rename('section_editors', 'subeditor_submission_group');
 		Capsule::schema()->table('subeditor_submission_group', function (Blueprint $table) {
 			// Change section_id to assoc_type/assoc_id
-			$table->bigInteger('assoc_type');
+			$table->bigInteger('assoc_type')->nullable(); // nullable see pkp/pkp-lib#7071
 			$table->renameColumn('section_id', 'assoc_id');
 
 			// Drop indexes

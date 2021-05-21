@@ -29,7 +29,7 @@ class PKPv3_2_1SubeditorCategoriesMigration extends Migration
         Schema::rename('section_editors', 'subeditor_submission_group');
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
             // Change section_id to assoc_type/assoc_id
-            $table->bigInteger('assoc_type');
+            $table->bigInteger('assoc_type')->nullable();
             $table->renameColumn('section_id', 'assoc_id');
 
             // Drop indexes

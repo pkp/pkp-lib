@@ -57,7 +57,6 @@ class UpdateSubmissionSearchJob extends BaseJob
      */
     public function handle(): void
     {
-        // error_log('JOB ' . var_export($this->job, true));
         $submission = Services::get('submission')->get($this->submissionId);
 
         if (!$submission) {

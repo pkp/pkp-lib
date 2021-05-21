@@ -25,6 +25,7 @@ use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Log\LogServiceProvider;
+use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\PKPLocale;
@@ -96,6 +97,17 @@ class PKPContainer extends Container
             return new IsoCodesFactory(null, $driver);
         });
 
+        $this->singleton(
+            'queue.failer',
+            function ($app) {
+                return new DatabaseFailedJobProvider(
+                    $app['db'],
+                    config('queue.failed.database'),
+                    config('queue.failed.table')
+                );
+            }
+        );
+
         Facade::setFacadeApplication($this);
     }
 
@@ -161,11 +173,10 @@ class PKPContainer extends Container
         $items = [];
 
         // Database connection
-        $driver = strtolower(Config::getVar('database', 'driver'));
-        if (substr($driver, 0, 8) === 'postgres') {
+        $driver = 'mysql';
+
+        if (substr(strtolower(Config::getVar('database', 'driver')), 0, 8) === 'postgres') {
             $driver = 'pgsql';
-        } else {
-            $driver = 'mysql';
         }
 
         $items['database']['default'] = $driver;
@@ -180,10 +191,6 @@ class PKPContainer extends Container
             'charset' => Config::getVar('i18n', 'connection_charset', 'utf8'),
             'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
         ];
-        $items['database']['failed'] = [
-            'database' => $driver,
-            'table' => 'failed_jobs',
-        ];
 
         // Queue connection
         $items['queue']['default'] = 'database';
@@ -194,6 +201,11 @@ class PKPContainer extends Container
             'queue' => 'default',
             'retry_after' => 90,
             'after_commit' => true,
+        ];
+        $items['queue']['failed'] = [
+            'driver' => 'database',
+            'database' => $driver,
+            'table' => 'failed_jobs',
         ];
 
         // Logging

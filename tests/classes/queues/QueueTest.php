@@ -15,7 +15,7 @@
  */
 import('lib.pkp.tests.PKPTestCase');
 
-use Illuminate\Support\Facades\Queue as Queue;
+use Illuminate\Support\Facades\Queue;
 
 use PKP\config\Config;
 
@@ -61,12 +61,16 @@ class QueueTest extends PKPTestCase
     /**
      * @covers Queue Worker
      */
-    public function testRunJobsAtShutdown()
+    public function testPuttingJobsAtQueue()
     {
-        Queue::push(function () {
-            error_log('Testing Run Jobs At Shutdown');
-        }, [], $this->configData['queues']['default_queue']);
+        Queue::fake();
 
-        $this->expectOutputString('');
+        $queue = $this->configData['queues']['default_queue'] ?? 'php-unit';
+
+        $jobContent = 'exampleContent';
+
+        Queue::push($jobContent, [], $queue);
+
+        Queue::assertPushedOn($queue, $jobContent);
     }
 }

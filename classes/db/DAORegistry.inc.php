@@ -17,6 +17,8 @@
 
 namespace PKP\db;
 
+use APP\core\Application;
+
 use PKP\core\Registry;
 
 class DAORegistry
@@ -67,7 +69,7 @@ class DAORegistry
         $daos = & DAORegistry::getDAOs();
         if (!isset($daos[$name])) {
             // Import the required DAO class.
-            $application = \APP\core\Application::get();
+            $application = Application::get();
             $className = $application->getQualifiedDAOName($name);
             if (!$className) {
                 throw new \Exception('Unrecognized DAO ' . $name . '!');

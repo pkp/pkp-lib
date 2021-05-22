@@ -1042,11 +1042,6 @@ msgstr ""
 "პლაგინი უკვე არსებობს, მაგრამ უფრო ახალია, ვიდრე დაინსტალირებული ვერსია.  "
 "ამის ნაცვლად, განაახლეთ"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr ""
-"Tar ბრძანება მიუწვდომელია. გთხოვთ, სწორად დააკონფიგურიროთ ის თქვენს \""
-"config.inc.php\"-ში."
-
 msgid "manager.plugins.upgrade"
 msgstr "პლაგინის განახლება"
 

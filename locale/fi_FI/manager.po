@@ -926,9 +926,6 @@ msgstr "Lisäosa on jo olemassa, mutta se on uudempi kuin asennettu versio. Päi
 msgid "manager.plugins.settings"
 msgstr "Asetukset"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Tar-komento ei ole käytettävissä. Määritä se oikein \"config.inc.php\"-tiedostossasi."
-
 msgid "manager.plugins.upgrade"
 msgstr "Päivitä lisäosa"
 

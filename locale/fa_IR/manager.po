@@ -1014,9 +1014,6 @@ msgstr "نسخه جدیدتر افزونه نصب شده موجود است. لط
 msgid "manager.plugins.settings"
 msgstr "تنظیمات"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "دستور tar در دسترس نیست. لطفاً به نحو صحیحی آن را در فایل   \"config.inc.php\"  تنظیم کنید."
-
 msgid "manager.plugins.upgrade"
 msgstr "ارتقاء افزونه"
 

@@ -1433,11 +1433,6 @@ msgstr ""
 msgid "manager.plugins.upgrade"
 msgstr "Nâng cấp Plugin"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr ""
-"Lệnh tar không khả dụng. Vui lòng cấu hình chính xác nó trong \"config.inc."
-"php\" của bạn."
-
 msgid "manager.plugins.settings"
 msgstr "Cài đặt"
 

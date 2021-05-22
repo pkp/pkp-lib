@@ -1165,11 +1165,6 @@ msgstr ""
 msgid "manager.plugins.upgrade"
 msgstr "Ажурирај плагин"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr ""
-"Командата за тар не е достапна. Ве молиме, правилно конфигурирајте го во \""
-"config.inc.php\"."
-
 msgid "manager.plugins.settings"
 msgstr "Подесувања"
 

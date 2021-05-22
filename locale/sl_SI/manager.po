@@ -970,9 +970,6 @@ msgstr ""
 msgid "manager.plugins.settings"
 msgstr "Nastavitve"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Ukaz tar ni na voljo. Prosimo, da ga pravilno nastavite v datoteki \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "Nadgradi vtičnik"
 

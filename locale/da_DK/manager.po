@@ -1323,9 +1323,6 @@ msgstr ""
 msgid "manager.plugins.settings"
 msgstr "Indstillinger"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Tar-kommandoen er ikke tilgængelig. Konfigurer \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "Opgradér plugin"
 

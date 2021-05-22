@@ -832,9 +832,6 @@ msgstr "该表格允许您升级插件。 请确保将插件压缩为.tar.gz文�
 msgid "manager.plugins.upgrade"
 msgstr "升级插件"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "tar命令不可用。 请在 \"config.inc.php\" 中正确配置它。"
-
 msgid "manager.plugins.settings"
 msgstr "设置"
 

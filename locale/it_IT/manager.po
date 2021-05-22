@@ -1149,9 +1149,6 @@ msgstr "Il plugin esiste già ma la versione che hai provato a installare è pi�
 msgid "manager.plugins.settings"
 msgstr "Configurazioni"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Il comando 'tar' non è disponibile. Per favore configuralo nel tuo \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "Aggiorna plugin"
 

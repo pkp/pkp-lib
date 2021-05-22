@@ -1033,9 +1033,6 @@ msgstr ""
 msgid "manager.plugins.settings"
 msgstr "Налаштування"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Команда tar не доступна. Будь ласка, правильно налаштуйте її в \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "Оновити плагін"
 

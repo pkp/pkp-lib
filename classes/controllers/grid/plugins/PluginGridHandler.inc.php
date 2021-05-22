@@ -27,6 +27,7 @@ use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
+use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
 
 use PKP\security\Role;
@@ -345,7 +346,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
      */
     public function uploadPlugin($args, $request)
     {
-        return $this->_showUploadPluginForm(PLUGIN_ACTION_UPLOAD, $request);
+        return $this->_showUploadPluginForm(PluginHelper::PLUGIN_ACTION_UPLOAD, $request);
     }
 
     /**
@@ -358,7 +359,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
      */
     public function upgradePlugin($args, $request)
     {
-        return $this->_showUploadPluginForm(PLUGIN_ACTION_UPGRADE, $request);
+        return $this->_showUploadPluginForm(PluginHelper::PLUGIN_ACTION_UPGRADE, $request);
     }
 
     /**

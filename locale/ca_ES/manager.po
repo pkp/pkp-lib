@@ -801,9 +801,6 @@ msgstr "El mòdul ja existeix, però aquesta versió és més nova que la que te
 msgid "manager.plugins.settings"
 msgstr "Configuració"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "L'ordre tar no està disponible. Configureu-la correctament al fitxer «config.inc.php»."
-
 msgid "manager.plugins.upgrade"
 msgstr "Actualitza"
 

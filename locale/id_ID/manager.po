@@ -1165,11 +1165,6 @@ msgstr ""
 msgid "manager.plugins.upgrade"
 msgstr "Ugrade Plugin"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr ""
-"Perintah tar tidak tersedia. Perbaiki pengaturan dalam file \"config.inc."
-"php\"."
-
 msgid "manager.plugins.settings"
 msgstr "Pengaturan"
 

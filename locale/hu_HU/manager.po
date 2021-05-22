@@ -1135,9 +1135,6 @@ msgstr ""
 msgid "manager.plugins.settings"
 msgstr "Beállítások"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "A tar parancs nem található. Kérjük, megfelelően konfigurálja a \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "Bővítmény frissítése"
 

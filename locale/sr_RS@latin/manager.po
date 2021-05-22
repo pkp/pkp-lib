@@ -867,9 +867,6 @@ msgstr "Dodatak već postoji ali je noviji od instalirane verzije. Nadogradite g
 msgid "manager.plugins.settings"
 msgstr "Podešavanja"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Tar komanda nije dostupna. Podesite je ispravno u vašem \"config.inc.php\" fajlu."
-
 msgid "manager.plugins.upgrade"
 msgstr "Nadogradi dodatak"
 

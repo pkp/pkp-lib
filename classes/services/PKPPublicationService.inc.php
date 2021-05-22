@@ -21,9 +21,9 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
-use PKP\Jobs\Submissions\UpdateSubmissionSearchJob;
 use PKP\log\SubmissionLog;
 use PKP\observers\events\PublishedEvent;
+use PKP\observers\events\UnpublishedEvent;
 use PKP\plugins\HookRegistry;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
@@ -675,11 +675,6 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
         );
         event(new PublishedEvent($newPublication, $publication, $submission));
 
-        // Update the search index.
-        if ($itsPublished) {
-            dispatch(new UpdateSubmissionSearchJob($submission->getId()));
-        }
-
         return $newPublication;
     }
 
@@ -739,7 +734,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
             ]
         );
 
-        dispatch(new UpdateSubmissionSearchJob($submission->getId()));
+        event(new UnpublishedEvent($newPublication, $publication, $submission));
 
         return $newPublication;
     }

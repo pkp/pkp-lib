@@ -17,7 +17,7 @@ namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-use PKP\Jobs\Metadata\DeletedSubmissionSearchJob;
+use PKP\Jobs\Submissions\DeletedSubmissionSearchJob;
 use PKP\submission\PKPSubmission;
 
 class DeletedSubmission

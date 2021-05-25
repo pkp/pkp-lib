@@ -1097,9 +1097,6 @@ msgstr ""
 msgid "manager.plugins.settings"
 msgstr "Configurações"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "O comando tar não está disponível. Por favor, configure-o correctamente em \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "Plugin de actualização"
 

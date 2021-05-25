@@ -1918,11 +1918,6 @@ msgstr ""
 msgid "manager.plugins.upgrade"
 msgstr "Actualizar complemento"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr ""
-"O comando tar non está dispoñible. Configúrao correctamente no \"config.inc."
-"php\"."
-
 msgid "manager.plugins.settings"
 msgstr "Axustes"
 

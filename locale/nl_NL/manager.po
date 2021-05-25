@@ -969,9 +969,6 @@ msgstr "Plugin bestaat al, maar is recenter dan de geïnstalleerde versie. Werk 
 msgid "manager.plugins.settings"
 msgstr "Instellingen"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Het tar commando is niet beschikbaar. Stel het juiste pad in, in het \"config.inc.php\" bestand."
-
 msgid "manager.plugins.upgrade"
 msgstr "Werk plugin bij"
 

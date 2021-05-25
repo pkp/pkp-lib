@@ -1235,11 +1235,6 @@ msgstr ""
 msgid "manager.plugins.upgrade"
 msgstr "Αναβάθμιση πρόσθετου"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr ""
-"Η εντολή tar δεν είναι διαθέσιμη. Παρακαλούμε να το ρυθμίσετε σωστά στο \""
-"config.inc.php\"."
-
 msgid "manager.plugins.settings"
 msgstr "Ρυθμίσεις"
 

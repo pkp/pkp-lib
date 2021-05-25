@@ -995,9 +995,6 @@ msgstr "Wtyczka istnieje, ale jest nowsza od aktualnie zainstalowanej. Zaktualiz
 msgid "manager.plugins.settings"
 msgstr "Ustawienia"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Komenda tar nie jest dostępna. Skonfiguruj narzędzie w pliku \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "Zaktualizuj wtyczkę"
 

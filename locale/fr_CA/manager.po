@@ -1033,9 +1033,6 @@ msgstr "Le plugiciel existe déjà mais il est plus récent que la version insta
 msgid "manager.plugins.settings"
 msgstr "Paramètres"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "La commande tar n'est pas disponible. Veuillez la configurer correctement dans votre fichier « config.inc.php »."
-
 msgid "manager.plugins.upgrade"
 msgstr "Mettre le plugiciel à jour"
 

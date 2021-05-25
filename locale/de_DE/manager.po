@@ -958,9 +958,6 @@ msgstr "Das Plugin existiert bereits, ist aber neuer als die installierte Versio
 msgid "manager.plugins.settings"
 msgstr "Einstellungen"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Der tar-Befehl ist nicht verfügbar. Bitte konfigurieren Sie ihn in Ihrer \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "Upgrade Plugin"
 

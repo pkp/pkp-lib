@@ -1175,11 +1175,6 @@ msgstr ""
 msgid "manager.plugins.upgrade"
 msgstr "Upgrade Plugin"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr ""
-"Comanda tar nu este disponibilă. Vă rugăm să o configurați corect în dvs. \""
-"config.inc.php\"."
-
 msgid "manager.plugins.settings"
 msgstr "Setări"
 

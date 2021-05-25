@@ -907,9 +907,6 @@ msgstr "Eklenti zaten var, ancak yüklü sürümünden daha yeni. Lütfen bunun 
 msgid "manager.plugins.settings"
 msgstr "Ayarlar"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "tar komutu mevcut değil. Lütfen \"config.inc.php\" adresinde doğru şekilde yapılandırın."
-
 msgid "manager.plugins.upgrade"
 msgstr "Eklenti Güncelle"
 

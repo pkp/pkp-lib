@@ -18,12 +18,14 @@
 namespace PKP\site;
 
 use APP\core\Application;
+
 use Exception;
+
 use PKP\config\Config;
-
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-
 use PKP\db\XMLDAO;
+use PKP\file\FileManager;
 
 class VersionCheck
 {

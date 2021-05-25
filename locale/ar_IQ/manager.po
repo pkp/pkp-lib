@@ -1020,9 +1020,6 @@ msgstr "الإضافة منصبة سابقاً، لكنها متاحة بنسخ�
 msgid "manager.plugins.settings"
 msgstr "الإعدادات"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "إن أمر فك الضغط غير متاح. لطفاً، عرفه بالشكل الصحيح ضمن ملف التهيئة \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "ترقية الإضافة"
 

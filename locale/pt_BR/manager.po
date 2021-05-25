@@ -817,9 +817,6 @@ msgstr "Status"
 msgid "manager.plugins.settings"
 msgstr "Configurações"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "O comando tar não está disponível. Por favor, configure-o corretamente em seu \"config.inc.php\"."
-
 msgid "manager.plugins.upload"
 msgstr "Enviar novo plugin"
 

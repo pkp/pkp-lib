@@ -1242,9 +1242,6 @@ msgstr "Plugin již existuje, ale je novější než nainstalovaná verze. Aktua
 msgid "manager.plugins.settings"
 msgstr "Nastavení"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Příkaz tar není dostupný. Zkonfigurujte, prosím, správně váš konfigurační soubor \"config.inc.php\"."
-
 msgid "manager.plugins.upgrade"
 msgstr "Upgrade pluginu"
 

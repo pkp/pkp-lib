@@ -99,7 +99,7 @@ class UploadPluginForm extends Form
         // Install or upgrade the extracted plugin.
         try {
             switch ($this->_function) {
-                case PLUGIN_ACTION_UPLOAD:
+                case PluginHelper::PLUGIN_ACTION_UPLOAD:
                     $pluginVersion = $pluginHelper->installPlugin($pluginDir);
                     $notificationMgr->createTrivialNotification(
                         $user->getId(),
@@ -108,7 +108,7 @@ class UploadPluginForm extends Form
                             __('manager.plugins.installSuccessful', ['versionNumber' => $pluginVersion->getVersionString(false)])]
                     );
                     break;
-                case PLUGIN_ACTION_UPGRADE:
+                case PluginHelper::PLUGIN_ACTION_UPGRADE:
                     $plugin = PluginRegistry::getPlugin($request->getUserVar('category'), $request->getUserVar('plugin'));
                     $pluginVersion = $pluginHelper->upgradePlugin(
                         $request->getUserVar('category'),

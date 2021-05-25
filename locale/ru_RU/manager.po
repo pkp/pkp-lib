@@ -1085,9 +1085,6 @@ msgstr "Модуль уже существует, но его версия — �
 msgid "manager.plugins.settings"
 msgstr "Настройки"
 
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "Команда «tar» не доступна. Пожалуйста, правильно настройте ее в вашем «config.inc.php»."
-
 msgid "manager.plugins.upgrade"
 msgstr "Обновить модуль"
 

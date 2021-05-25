@@ -28,15 +28,15 @@ use PKP\file\FileManager;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
 
-define('PLUGIN_ACTION_UPLOAD', 'upload');
-define('PLUGIN_ACTION_UPGRADE', 'upgrade');
-
-define('PLUGIN_VERSION_FILE', 'version.xml');
-define('PLUGIN_INSTALL_FILE', 'install.xml');
-define('PLUGIN_UPGRADE_FILE', 'upgrade.xml');
-
 class PluginHelper
 {
+    public const PLUGIN_ACTION_UPLOAD = 'upload';
+    public const PLUGIN_ACTION_UPGRADE = 'upgrade';
+
+    public const PLUGIN_VERSION_FILE = 'version.xml';
+    public const PLUGIN_INSTALL_FILE = 'install.xml';
+    public const PLUGIN_UPGRADE_FILE = 'upgrade.xml';
+
     /**
      * Extract and validate a plugin (prior to installation)
      *
@@ -64,23 +64,8 @@ class PluginHelper
             throw new Exception('Could not create directory ' . $pluginExtractDir);
         }
 
-        // Test whether the tar binary is available for the export to work
-        $tarBinary = Config::getVar('cli', 'tar');
-        if (empty($tarBinary) || !file_exists($tarBinary)) {
-            rmdir($pluginExtractDir);
-            throw new Exception(__('manager.plugins.tarCommandNotFound'));
-        }
-
-        $output = '';
-        $returnCode = 0;
-        if (in_array('exec', explode(',', ini_get('disable_functions')))) {
-            throw new Exception('The "exec" PHP function has been disabled on your server. Contact your system adminstrator to enable it.');
-        }
-        exec($tarBinary . ' -xzf ' . escapeshellarg($filePath) . ' -C ' . escapeshellarg($pluginExtractDir), $output, $returnCode);
-        if ($returnCode) {
-            $fileManager->rmtree($pluginExtractDir);
-            throw new Exception(__('form.dropzone.dictInvalidFileType'));
-        }
+        $tarball = new \PharData($filePath);
+        $tarball->extractTo($pluginExtractDir, null, true);
 
         // Look for a directory named after the plug-in's short
         // (alphanumeric) name within the extracted archive.
@@ -114,7 +99,7 @@ class PluginHelper
      */
     public function installPlugin($path)
     {
-        $versionFile = $path . '/' . PLUGIN_VERSION_FILE;
+        $versionFile = $path . '/' . self::PLUGIN_VERSION_FILE;
 
         $pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
 
@@ -140,7 +125,7 @@ class PluginHelper
         }
 
         // Upgrade the database with the new plug-in.
-        $installFile = $pluginDest . '/' . PLUGIN_INSTALL_FILE;
+        $installFile = $pluginDest . '/' . self::PLUGIN_INSTALL_FILE;
         if (!is_file($installFile)) {
             $installFile = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml';
         }
@@ -214,7 +199,7 @@ class PluginHelper
     {
         $fileManager = new FileManager();
 
-        $versionFile = $path . '/' . PLUGIN_VERSION_FILE;
+        $versionFile = $path . '/' . self::PLUGIN_VERSION_FILE;
         $pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
 
         // Check whether the uploaded plug-in fits the original plug-in.
@@ -256,7 +241,7 @@ class PluginHelper
             throw new Exception('Could not remove temporary plugin path!');
         }
 
-        $upgradeFile = $pluginDest . '/' . PLUGIN_UPGRADE_FILE;
+        $upgradeFile = $pluginDest . '/' . self::PLUGIN_UPGRADE_FILE;
         if ($fileManager->fileExists($upgradeFile)) {
             $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
             $site = $siteDao->getSite();
@@ -279,4 +264,13 @@ class PluginHelper
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\plugins\PluginHelper', '\PluginHelper');
+    foreach ([
+        'PLUGIN_ACTION_UPLOAD',
+        'PLUGIN_ACTION_UPGRADE',
+        'PLUGIN_VERSION_FILE',
+        'PLUGIN_INSTALL_FILE',
+        'PLUGIN_UPGRADE_FILE',
+    ] as $constantName) {
+        define($constantName, constant('\PluginHelper::' . $constantName));
+    }
 }

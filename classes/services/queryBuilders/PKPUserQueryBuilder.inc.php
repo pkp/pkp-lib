@@ -569,6 +569,10 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})
 							->orWhere(function($q) use ($word) {
+								$q->where('us.setting_name', 'preferredPublicName');
+								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
+							})
+							->orWhere(function($q) use ($word) {
 								$q->where('us.setting_name', 'affiliation');
 								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
 							})

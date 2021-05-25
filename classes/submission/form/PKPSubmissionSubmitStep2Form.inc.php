@@ -101,6 +101,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm {
 					'items' => $submissionFiles,
 					'options' => [
 						'maxFilesize' => Application::getIntMaxFileMBs(),
+						'timeout' => ini_get('max_execution_time') ? ini_get('max_execution_time') * 1000 : 0,
 						'dropzoneDictDefaultMessage' => __('form.dropzone.dictDefaultMessage'),
 						'dropzoneDictFallbackMessage' => __('form.dropzone.dictFallbackMessage'),
 						'dropzoneDictFallbackText' => __('form.dropzone.dictFallbackText'),

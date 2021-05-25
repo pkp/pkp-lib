@@ -31,6 +31,9 @@ class FieldUpload extends Field {
 		parent::__construct($name, $args);
 
 		$this->options['maxFilesize'] = \Application::getIntMaxFileMBs();
+		$this->options['timeout'] = ini_get('max_execution_time')
+			? ini_get('max_execution_time') * 1000
+			: 0;
 
 		$this->options = array_merge(
 			[

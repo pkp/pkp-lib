@@ -13,11 +13,11 @@
  * @brief CLI tool for installing a plugin version descriptor.
  */
 
-define('RUNNING_UPGRADE', 1);
-
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
 import('lib.pkp.classes.plugins.PluginGalleryDAO');
+
+define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 
 class PluginGalleryTool extends CommandLineTool {
 	/**
@@ -43,6 +43,14 @@ class PluginGalleryTool extends CommandLineTool {
 					return false;
 				}
 				return true;
+			case 'info':
+				if (count($this->argv) != 2) {
+					return false;
+				}
+				if (count(explode('/', $this->argv[1])) != 3) {
+					return false;
+				}
+				return true;
 			default:
 				return false;
 		}
@@ -55,7 +63,8 @@ class PluginGalleryTool extends CommandLineTool {
 		echo "Plugin Gallery tool\n"
 			. "Usage: {$this->scriptName} action [arguments]\n"
 			. "  Actions:\n"
-			. "\tlist [search]: show latest compatible plugin(s), by search optional criteria\n";
+			. "\tlist [search]: show latest compatible plugin(s), by optional criteria \"search\"\n"
+			. "\tinfo path: show detail for plugin identified by \"path\"\n";
 	}
 
 	/**
@@ -64,15 +73,34 @@ class PluginGalleryTool extends CommandLineTool {
 	function execute() {
 		$result = false;
 		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
-		$plugins = $pluginGalleryDao->getNewestCompatible(
-			method_exists('Application', 'get') ? Application::get() : Application::getApplication(),
-			null,
-			count($this->argv) > 1 ? $this->argv[1] : null
-		);
 		switch ($this->argv[0]) {
 			case 'list':
-				$this->printPlugins($plugins);
+				$plugins = $pluginGalleryDao->getNewestCompatible(
+					method_exists('Application', 'get') ? Application::get() : Application::getApplication(),
+					null,
+					count($this->argv) > 1 ? $this->argv[1] : null
+				);
+				$this->listPlugins($plugins);
 				$result = true;
+				break;
+			case 'info':
+				$opts = explode('/', $this->argv[1]);
+				$plugin = $this->selectPlugin($opts[1], $opts[2]);
+				if ($plugin) {
+					$localeFields = $pluginGalleryDao->getLocaleFieldNames();
+					foreach ($plugin->getAllData() as $key => $data) {
+						if (is_array($data)) {
+							print $key.': '.str_replace("\n", '\n', $plugin->getLocalizedData($key))."\n";
+						} else {
+							print $key.': '.str_replace("\n", '\n', $data)."\n";
+						}
+					}
+					$result = true;
+				}
+				if (!$result) {
+					error_log('"'.$opts[2].'" not found in "'.$opts[1].'"');
+					$result = true;
+				}
 				break;
 		}
 		if (!$result) {
@@ -83,10 +111,31 @@ class PluginGalleryTool extends CommandLineTool {
 	}
 
 	/**
-	 * Print the plugins
+	 * Select a specific plugin
+	 * @param $category string a plugin category
+	 * @param $name string a plugin name
+	 * @return GalleryPlugin|null
+	 */
+	function selectPlugin($category, $name) {
+		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
+		$plugins = $pluginGalleryDao->getNewestCompatible(
+			method_exists('Application', 'get') ? Application::get() : Application::getApplication(),
+			$category,
+			$name
+		);
+		foreach ($plugins as $plugin) {
+			if ($plugin->getData('product') === $name) {
+				return $plugin;
+			}
+		}
+		return;
+	}
+
+	/**
+	 * Print the plugins as a list
 	 * @param $plugins GalleryPlugin[] array of plugins
 	 */
-	function printPlugins($plugins) {
+	function listPlugins($plugins) {
 		foreach ($plugins as $key => $plugin) {
 			$statusKey = '';
 			switch ($plugin->getCurrentStatus()) {

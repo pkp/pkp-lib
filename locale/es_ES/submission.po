@@ -2081,3 +2081,9 @@ msgstr ""
 "ha sido notificado y tomará las acciones oportunas para que se completen las "
 "revisiones. No necesita hacer nada más en este momento. Será notificado "
 "cuando se tome una decisión."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Esta es una vista previa y no se ha publicado. <a href=\"{$url}\">Ver "
+"envío</a>"

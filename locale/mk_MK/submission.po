@@ -2141,3 +2141,8 @@ msgstr ""
 
 msgid "submission.query.leaveQuery"
 msgstr "Напуштете ја дискусијата"
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Ова е преглед кој не е објавен. <a href=\"{$url}\">Види го поднесокот</a>"

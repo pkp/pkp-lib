@@ -2003,3 +2003,8 @@ msgstr "Afvist indsendelse genaktiveret."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Omgør afvisning"
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Dette er en forhåndsvisning, der endnu ikke blevet offentliggjort. <a href=\""
+"{$url}\">Se indsendelse</a>"

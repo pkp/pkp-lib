@@ -2006,3 +2006,9 @@ msgid "submission.upload.instructions"
 msgstr ""
 "Laden Sie hier alle Dateien hoch, die die Redaktion zur Bewertung Ihrer "
 "Einreichung benötigt."
+
+#, fuzzy
+msgid "submission.viewingPreview"
+msgstr ""
+"Diese Vorschau wurde noch nicht veröffentlicht. <a href=\"{$url}\">Beitrag "
+"anzeigen</a>"

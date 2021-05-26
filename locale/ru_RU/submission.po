@@ -1916,3 +1916,5 @@ msgstr "Отклонение материала было отменено."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Отменить отклонение материала"
+
+msgid "submission.viewingPreview"msgstr "Это предварительный просмотр, материал пока не опубликован. <a href=\"{$url}\">Просмотреть материал</a>"

@@ -1978,3 +1978,8 @@ msgstr ""
 "Utgivar-ID kan användas i samband med externa databaser. Poster som "
 "exporteras till exempelvis PubMed kan innehålla utgivar-ID. Detta ska inte "
 "användas för DOI:er."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Detta är en förhandsvisning och har därmed inte blivit publicerad än. <a "
+"href=\"{$url}\">Visa bidrag</a>"

@@ -249,6 +249,8 @@ class PKPUserHandler extends APIHandler {
 			}
 		}
 
+		$returnParams['contextId'] = $context->getId();
+
 		\HookRegistry::call('API::users::params', array(&$returnParams, $slimRequest));
 
 		return $returnParams;
@@ -263,6 +265,7 @@ class PKPUserHandler extends APIHandler {
 	private function _buildReviewerListRequestParams($slimRequest) {
 
 		$returnParams = $this->_buildListRequestParams($slimRequest);
+		$contextId = $returnParams['contextId'];
 		$requestParams = $slimRequest->getQueryParams();
 
 		foreach ($requestParams as $param => $val) {

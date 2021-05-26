@@ -68,12 +68,13 @@ class ReviewFormElementForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $templateMgr = TemplateManager::getManager($request);
+        $reviewFormElement = new ReviewFormElement();
         $templateMgr->assign([
             'reviewFormId' => $this->reviewFormId,
             'reviewFormElementId' => $this->reviewFormElementId,
-            'multipleResponsesElementTypes' => ReviewFormElement::getMultipleResponsesElementTypes(),
-            'multipleResponsesElementTypesString' => ';' . implode(';', ReviewFormElement::getMultipleResponsesElementTypes()) . ';',
-            'reviewFormElementTypeOptions' => ReviewFormElement::getReviewFormElementTypeOptions(),
+            'multipleResponsesElementTypes' => $reviewFormElement->getMultipleResponsesElementTypes(),
+            'multipleResponsesElementTypesString' => ';' . implode(';', $reviewFormElement->getMultipleResponsesElementTypes()) . ';',
+            'reviewFormElementTypeOptions' => $reviewFormElement->getReviewFormElementTypeOptions(),
         ]);
         return parent::fetch($request, $template, $display);
     }
@@ -142,7 +143,7 @@ class ReviewFormElementForm extends Form
         $reviewFormElement->setIncluded($this->getData('included') ? 1 : 0);
         $reviewFormElement->setElementType($this->getData('elementType'));
 
-        if (in_array($this->getData('elementType'), ReviewFormElement::getMultipleResponsesElementTypes())) {
+        if (in_array($this->getData('elementType'), $reviewFormElement->getMultipleResponsesElementTypes())) {
             $this->setData('possibleResponsesProcessed', $reviewFormElement->getPossibleResponses(null));
             ListbuilderHandler::unpack($request, $this->getData('possibleResponses'), [$this, 'deleteEntry'], [$this, 'insertEntry'], [$this, 'updateEntry']);
             $reviewFormElement->setPossibleResponses($this->getData('possibleResponsesProcessed'), null);

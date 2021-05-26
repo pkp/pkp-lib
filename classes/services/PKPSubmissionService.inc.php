@@ -107,6 +107,9 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			'offset' => 0,
 			'isIncomplete' => false,
 			'isOverdue' => false,
+			'needsAction' => false,
+			'revisionsRequested' => false,
+			'revisionsSubmitted' => false,
 			'daysInactive' => null,
 			'returnObject' => SUBMISSION_RETURN_SUBMISSION,
 		);
@@ -121,6 +124,9 @@ abstract class PKPSubmissionService extends PKPBaseEntityPropertyService {
 			->filterByStageIds($args['stageIds'])
 			->filterByIncomplete($args['isIncomplete'])
 			->filterByOverdue($args['isOverdue'])
+			->filterByNeedsAction($args['needsAction'])
+			->filterByRevisionsRequested($args['revisionsRequested'])
+			->filterByRevisionsSubmitted($args['revisionsSubmitted'])
 			->filterByDaysInactive($args['daysInactive'])
 			->filterByCategories(isset($args['categoryIds'])?$args['categoryIds']:null)
 			->searchPhrase($args['searchPhrase'])

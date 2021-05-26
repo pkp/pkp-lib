@@ -95,11 +95,6 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 			'attention' => array(
 				'filters' => array(
 					array(
-						'param' => 'isOverdue',
-						'val' => true,
-						'title' => __('common.overdue'),
-					),
-					array(
 						'param' => 'isIncomplete',
 						'val' => true,
 						'title' => __('submissions.incomplete'),
@@ -109,7 +104,7 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 						'val' => 30,
 						'title' => __('submissions.inactive',array('days' => '30')),
 					),
-				),
+				)
 			),
 			'stageIds' => array(
 				'heading' => __('settings.roles.stages'),
@@ -254,4 +249,38 @@ abstract class PKPSubmissionsListHandler extends ListHandler {
 	 * @return array
 	 */
 	abstract function getWorkflowStages();
+
+	/**
+	 * Get an array of subfilters by workflow stages
+	 * @param stageId
+	 * @return array
+	 */
+	function getSubfilters($stageId) {
+		switch ($stageId) {
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+				return array(
+					array(
+						'param' => 'isOverdue',
+						'val' => true,
+						'title' => __('common.overdue'),
+					),
+					array(
+						'param' => 'needsAction',
+						'val' => true,
+						'title' => __('submission.list.needsAction'),
+					),
+					array(
+						'param' => 'revisionsRequested',
+						'val' => true,
+						'title' => __('submission.list.revisionsRequested'),
+					),
+					array(
+						'param' => 'revisionsSubmitted',
+						'val' => true,
+						'title' => __('submission.list.revisionsSubmitted'),
+					));
+			default :
+				return [];
+		}
+	}
 }

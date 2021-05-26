@@ -37,6 +37,8 @@
 		var pageUrl, stage, pattern, i, tabAnchors, matches;
 		this.parent($tabs, options);
 
+		this.bind('dataChanged', this.dataChangedHandler_);
+
 		pageUrl = document.location.toString();
 		matches = pageUrl.match('workflow/([^/]+)/');
 		if (matches) {
@@ -54,5 +56,10 @@
 			$.pkp.controllers.tab.workflow.WorkflowTabHandler,
 			$.pkp.controllers.TabHandler);
 
-/** @param {jQuery} $ jQuery closure. */
+	$.pkp.controllers.tab.workflow.WorkflowTabHandler.prototype.dataChangedHandler_ =
+		function (callingElement, event) {
+			$('#productionReadyFilesGridDiv').find('.pkp_controllers_grid').trigger('dataChanged');
+		}
+
+	/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

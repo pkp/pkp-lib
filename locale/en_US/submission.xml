@@ -440,6 +440,13 @@
 	<message key="submission.upload.productionReady">Upload a Production Ready File</message>
 	<message key="submission.upload.proof">Upload a File Ready for Publication</message>
 	<message key="submission.upload.noAvailableReviewFiles">There are no files for you to revise at this time.</message>
+	<message key="submission.upload.productionReadyXML.notification">Create or update a production XML galley for production and distribution.</message>
+	<message key="submission.upload.productionReadyXML">Upload XML File</message>
+	<message key="submission.upload.productionReadyXML.description">Upload a production XML File</message>
+
+	<!-- File creations -->
+	<message key="submission.create.productionReadyXML">Create XML File</message>
+	<message key="submission.create.productionReadyXML.description">Create a Production Ready XML File</message>
 
 	<!-- Review Round Status Keys -->
 	<message key="editor.submission.roundStatus.revisionsRequested">Revisions have been requested.</message>

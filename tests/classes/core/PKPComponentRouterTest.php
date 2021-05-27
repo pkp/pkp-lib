@@ -262,7 +262,9 @@ class PKPComponentRouterTest extends PKPRouterTestCase
 
         // Route the request. This should call NotificationsGridHandler::fetchGrid()
         // with a reference to the request object as the first argument.
-        $this->router->route($this->request);
+        $result = $this->router->route($this->request);
+
+        dd($result);
 
         self::assertNotNull($serviceEndpoint = & $this->router->getRpcServiceEndpoint($this->request));
         self::assertInstanceOf('NotificationsGridHandler', $handler = & $serviceEndpoint[0]);

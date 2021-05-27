@@ -48,6 +48,8 @@ class DAORegistry
     public static function registerDAO($name, $dao)
     {
         $daos = & DAORegistry::getDAOs();
+        // error_log('current daos');
+        // error_log(var_export($daos, true));
         if (isset($daos[$name])) {
             $returner = $daos[$name];
         } else {

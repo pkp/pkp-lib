@@ -414,11 +414,13 @@ class PKPRouterTestCase extends PKPTestCase
                 ->with($firstContextPath)
                 ->will($this->returnValue($firstContextInstance));
         }
+
         DAORegistry::registerDAO('FirstContextDAO', $mockFirstContextDao);
 
         $mockSecondContextDao = $this->getMockBuilder($contextClassName)
             ->setMethods(['getByPath'])
             ->getMock();
+
         if (!$secondContextIsNull) {
             $secondContextInstance = $this->getMockBuilder($contextClassName)
                 ->setMethods(['getPath'])
@@ -431,6 +433,7 @@ class PKPRouterTestCase extends PKPTestCase
                 ->with($secondContextPath)
                 ->will($this->returnValue($secondContextInstance));
         }
+
         DAORegistry::registerDAO('SecondContextDAO', $mockSecondContextDao);
     }
 }

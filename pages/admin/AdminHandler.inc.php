@@ -333,7 +333,7 @@ class AdminHandler extends Handler {
 		if ($request->getUserVar('versionCheck')) {
 			$latestVersionInfo = VersionCheck::getLatestVersion();
 			$latestVersionInfo['patch'] = VersionCheck::getPatch($latestVersionInfo);
-		}
+		} else $latestVersionInfo = null;
 
 		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
 		$versionHistory = $versionDao->getVersionHistory();

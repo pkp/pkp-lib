@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2021-05-26 09:08+0000\n"
+"PO-Revision-Date: 2021-05-28 15:59+0000\n"
 "Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de_DE/>\n"
@@ -2006,3 +2006,52 @@ msgstr "{$name} bearbeiten"
 
 msgid "common.inactive"
 msgstr "Inaktiv"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML konnte nicht importiert werden"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Sie versuchen, eine Transformation auszuführen, die in Ihrer "
+"Installationsumgebung nicht unterstützt wird."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filter ({$displayName}) unterstützt Eingabe {$inputTypeName} - {$typeofInput}"
+
+msgid "validator.country"
+msgstr "Dies ist kein gültiges Land."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Abbestellen"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Es ist ein unerwarteter Fehler aufgetreten und wir konnten die "
+"Benachrichtigungen an die E-Mail-Adresse {$email} nicht abbestellen. Sie "
+"können alle E-Mail-Benachrichtigungen in Ihrem <a href=\""
+"{$profileNotificationUrl}\">Benutzerprofil</a> abbestellen oder uns direkt "
+"um Hilfe bitten."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Abbestellung erfolgreich. Sie erhalten keine Benachrichtigungen mehr an die "
+"E-Mail Adresse {$email}. Sie können E-Mail-Benachrichtigungen jederzeit über "
+"Ihr <a href=\"{$profileNotificationUrl}\">Benutzerprofil</a> erneut "
+"aktivieren."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Sie können E-Mail-Benachrichtigungen jederzeit über Ihr <a href=\""
+"{$profileNotificationUrl}\">Benutzerprofil</a> wieder aktivieren."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Wählen Sie die E-Mails aus, die Sie nicht mehr an {$email} von {$contextName}"
+" erhalten möchten."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Wir konnten die Benachrichtigungen nicht abbestellen"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Benachrichtigungen wurden abbestellt"

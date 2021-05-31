@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-01-21 15:55+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"PO-Revision-Date: 2021-05-31 19:23+0000\n"
+"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -2178,8 +2178,73 @@ msgstr "Die Standard-E-Mail-Vorlagen wurden wiederhergestellt."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Mitteilung löschen"
+
 msgid "plugins.importexport.common.cliError"
 msgstr "FEHLER:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Der angegebene Zeitschriftenpfad, \"{$contextPath}\", existiert nicht."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Prozess konnte Publikationen nicht parsen"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Prozess konnte Autoren nicht parsen"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Falsche Filterkonfiguration [{$filterName}]: {$filterCount} Vorkommen. "
+"Sollte nur eins sein."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Allgemeine Elemente"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Laden Sie die exportierte Datei über die Schaltfläche unten herunter."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Der Export wurde erfolgreich abgeschlossen."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Exportierte Datei herunterladen"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Einreichungsergebnisse exportieren"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Der Prozess ist fehlgeschlagen. Prüfen Sie die Fehler/Warnungen unten."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Nutzergruppe fehlt für Autorenname {$param}"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Die Spracheinstellung konnte nicht gespeichert werden. Für jede Option muss "
+"mindestens eine Sprache aktiviert sein"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Eine oder mehrere dieser E-Mail-Adressen sind nicht gültig."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Eine Kopie der Einreichungsbestätigungs-E-Mail wird an jede der hier "
+"eingegebenen E-Mail-Adressen gesendet. Trennen Sie mehrere E-Mail-Adressen "
+"mit einem Komma. Beispiel: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Alle benachrichtigen"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nein"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ja, senden Sie eine Kopie an {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Hauptkontakt benachrichtigen"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Benachrichtigungen"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Andere Templates"

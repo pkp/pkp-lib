@@ -14,6 +14,8 @@
 
 define('PKP_TEST_ENTIRE_DB', 1);
 
+use PKP\db\DAO;
+
 abstract class PKPTestHelper
 {
     //

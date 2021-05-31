@@ -171,7 +171,3 @@ ini_set('error_reporting', E_ALL);
 // Show errors in the UI
 ini_set('display_errors', true);
 ini_set('display_startup_errors', '1');
-ini_set(
-    'error_log',
-    '/var/log/php_errors.log'
-);

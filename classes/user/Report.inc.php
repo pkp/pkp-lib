@@ -54,7 +54,7 @@ class Report {
 	 * @return string[]
 	 */
 	private function _getHeadings() : array {
-		return [
+		return array_merge([
 			__('common.id'),
 			__('user.givenName'),
 			__('user.familyName'),
@@ -64,10 +64,10 @@ class Report {
 			__('common.mailingAddress'),
 			__('user.dateRegistered'),
 			__('common.updated'),
-			...array_map(function($userGroup) {
+			], array_map(function($userGroup) {
 				return $userGroup->getLocalizedName();
 			}, $this->_getUserGroups())
-		];
+		);
 	}
 
 	/**
@@ -82,7 +82,7 @@ class Report {
 			$groups[$id] = 0;
 		}
 
-		return [
+		return array_merge([
 			$user->getId(),
 			$user->getLocalizedGivenName(),
 			$user->getFamilyName(\AppLocale::getLocale()),
@@ -92,10 +92,11 @@ class Report {
 			$user->getMailingAddress(),
 			$user->getDateRegistered(),
 			$user->getLocalizedData('dateProfileUpdated'),
-			...array_map(function($userGroup) use ($groups) {
+			],
+                        array_map(function($userGroup) use ($groups) {
 				return __(isset($groups[$userGroup->getId()]) ? 'common.yes' : 'common.no');
 			}, $this->_getUserGroups())
-		];
+		);
 	}
 
 	/**

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-05-31 19:23+0000\n"
+"PO-Revision-Date: 2021-06-03 12:35+0000\n"
 "Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de_DE/>\n"
@@ -709,15 +709,17 @@ msgstr "Nie erinnern"
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Die Standards können für jedes Gutachten im Rahmen des redaktionellen Prozesses angepasst werden."
 
+#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
 "Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht "
-"innerhalb der genannten Zeit geantwortet hat."
+"innerhalb der genannten Zeit geantwortet hat (in Tagen)."
 
+#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der "
-"genannten Zeit eine Empfehlung eingereicht hat."
+"genannten Zeit eine Empfehlung eingereicht hat (in Tagen)."
 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Standard-Fristen für Begutachtung"

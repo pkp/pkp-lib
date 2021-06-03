@@ -13,6 +13,7 @@
  * @brief Base class for all management page handlers.
  */
 
+use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
@@ -342,19 +343,14 @@ class ManagementHandler extends Handler
 
         $announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());
 
-        $getParams = [
-            'contextIds' => $request->getContext()->getId(),
-            'count' => 30,
-        ];
-        $announcementsIterator = Services::get('announcement')->getMany($getParams);
-        $itemsMax = Services::get('announcement')->getMax($getParams);
-        $items = [];
-        foreach ($announcementsIterator as $announcement) {
-            $items[] = Services::get('announcement')->getSummaryProperties($announcement, [
-                'request' => $request,
-                'announcementContext' => $request->getContext(),
-            ]);
-        }
+        $collector = Repo::announcement()
+            ->getCollector()
+            ->filterByContextIds([$request->getContext()->getId()]);
+
+        $itemsMax = Repo::announcement()->getCount($collector);
+        $items = Repo::announcement()->getSchemaMap()->summarizeMany(
+            Repo::announcement()->getMany($collector->limit(30))
+        );
 
         $announcementsListPanel = new \PKP\components\listPanels\PKPAnnouncementsListPanel(
             'announcements',
@@ -362,7 +358,10 @@ class ManagementHandler extends Handler
             [
                 'apiUrl' => $apiUrl,
                 'form' => $announcementForm,
-                'getParams' => $getParams,
+                'getParams' => [
+                    'contextIds' => [$request->getContext()->getId()],
+                    'count' => 30,
+                ],
                 'items' => $items,
                 'itemsMax' => $itemsMax,
             ]

@@ -17,8 +17,8 @@
 
 namespace PKP\submission;
 
+use APP\facades\Repo;
 use APP\submission\Author;
-use PKP\db\DAORegistry;
 use PKP\db\SchemaDAO;
 
 use PKP\services\PKPSchemaService;
@@ -165,8 +165,7 @@ abstract class PKPAuthorDAO extends SchemaDAO
      */
     public function deleteBySubmissionId($submissionId)
     {
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO');
-        $submission = $submissionDao->getById($submissionId);
+        $submission = Repo::submission()->get($submissionId);
         if ($submission) {
             foreach ($submission->getData('publications') as $publication) {
                 $authors = $this->getByPublicationId($publication->getId());

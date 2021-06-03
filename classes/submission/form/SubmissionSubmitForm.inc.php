@@ -18,6 +18,7 @@
 
 namespace PKP\submission\form;
 
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 
 use PKP\form\Form;

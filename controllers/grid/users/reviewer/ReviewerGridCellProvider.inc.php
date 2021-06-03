@@ -13,9 +13,12 @@
  * @brief Base class for a cell provider that can retrieve labels for reviewer grid rows
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
-use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+
+import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
+
 
 class ReviewerGridCellProvider extends DataObjectGridCellProvider
 {
@@ -121,8 +124,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
 
         $router = $request->getRouter();
         $action = false;
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
         // Only attach actions to the actions column. The actions and status
         // columns share state values.

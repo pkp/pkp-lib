@@ -24,6 +24,9 @@ if (!function_exists('import')) {
     function import($class)
     {
         $filePath = str_replace('.', '/', $class) . '.inc.php';
+        if ($filePath === 'lib/pkp/classes/webservice/WebService.inc.php') {
+            throw new Exception();
+        }
         require_once(BASE_SYS_DIR . '/' . $filePath);
     }
 }

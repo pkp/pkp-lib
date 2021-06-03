@@ -15,13 +15,19 @@
 
 namespace PKP\submission\action;
 
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use APP\workflow\EditorDecisionActionsManager;
+
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\log\PKPSubmissionEventLogEntry;
+
+// Access decision actions constants.
+import('classes.workflow.EditorDecisionActionsManager');
 
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
@@ -91,13 +97,12 @@ class EditorAction
             $editDecisionDao->updateEditorDecision($submission->getId(), $editorDecision, $stageId, $reviewRound);
 
             // Set a new submission status if necessary
-            $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
             if ($decision == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE || $decision == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE) {
-                $submission->setStatus(PKPSubmission::STATUS_DECLINED);
-                $submissionDao->updateObject($submission);
+                Repo::submission()->edit($submission, ['status' => Submission::STATUS_DECLINED]);
+                $submission = Repo::submission()->get($submission->getId());
             } elseif ($submission->getStatus() == PKPSubmission::STATUS_DECLINED) {
-                $submission->setStatus(PKPSubmission::STATUS_QUEUED);
-                $submissionDao->updateObject($submission);
+                Repo::submission()->edit($submission, ['status' => Submission::STATUS_QUEUED]);
+                $submission = Repo::submission()->get($submission->getId());
             }
 
             // Add log entry
@@ -234,14 +239,10 @@ class EditorAction
      *
      * @param $submission Submission
      * @param $newStage integer One of the WORKFLOW_STAGE_* constants.
-     * @param $request Request
      */
-    public function incrementWorkflowStage($submission, $newStage, $request)
+    public function incrementWorkflowStage($submission, $newStage)
     {
-        // Change the submission's workflow stage.
-        $submission->setStageId($newStage);
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submissionDao->updateObject($submission);
+        Repo::submission()->edit($submission, ['stageId' => $newStage]);
     }
 }
 

@@ -18,6 +18,7 @@
 namespace PKP\notification;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
@@ -70,8 +71,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', $reviewAssignment->getSubmissionId());
             case PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_ANNOUNCEMENT);
-                $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
-                $announcement = $announcementDao->getById($notification->getAssocId()); /** @var Announcement $announcement */
+                $announcement = Repo::announcement()->get($notification->getAssocId());
                 $context = $contextDao->getById($announcement->getAssocId());
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'announcement', 'view', [$notification->getAssocId()]);
             case PKPNotification::NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
@@ -112,7 +112,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         $message = parent::getNotificationMessage($request, $notification);
         $type = $notification->getType();
         assert(isset($type));
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
 
         switch ($type) {
             case PKPNotification::NOTIFICATION_TYPE_SUCCESS:
@@ -138,23 +137,23 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 assert($notification->getAssocType() == ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
-                $submission = $submissionDao->getById($reviewAssignment->getSubmissionId()); /** @var Submission $submission */
+                $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
                 return __('notification.type.reviewerComment', ['title' => $submission->getLocalizedTitle()]);
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
-                $submission = $submissionDao->getById($notification->getAssocId());
+                $submission = Repo::submission()->get($notification->getAssocId());
                 return __('notification.type.editorAssign', ['title' => $submission->getLocalizedTitle()]);
             case PKPNotification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
-                $submission = $submissionDao->getById($notification->getAssocId());
+                $submission = Repo::submission()->get($notification->getAssocId());
                 return __('notification.type.copyeditorRequest', ['title' => $submission->getLocalizedTitle()]);
             case PKPNotification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
-                $submission = $submissionDao->getById($notification->getAssocId());
+                $submission = Repo::submission()->get($notification->getAssocId());
                 return __('notification.type.layouteditorRequest', ['title' => $submission->getLocalizedTitle()]);
             case PKPNotification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
-                $submission = $submissionDao->getById($notification->getAssocId());
+                $submission = Repo::submission()->get($notification->getAssocId());
                 return __('notification.type.indexRequest', ['title' => $submission->getLocalizedTitle()]);
             case PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
                 return __('notification.type.reviewAssignment');

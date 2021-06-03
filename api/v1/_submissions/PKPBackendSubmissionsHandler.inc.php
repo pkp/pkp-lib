@@ -14,14 +14,22 @@
  *
  */
 
-use APP\core\Services;
+use APP\core\Application;
+use APP\facades\Repo;
+use APP\submission\Collector;
+use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
+
 use PKP\security\authorization\ContextAccessPolicy;
 
 use PKP\security\Role;
 
 abstract class PKPBackendSubmissionsHandler extends APIHandler
 {
+    /** @var int Max items that can be requested */
+    public const MAX_COUNT = 100;
+
     /**
      * Constructor
      */
@@ -68,109 +76,124 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
     }
 
     /**
-     * Get a list of submissions according to passed query parameters
+     * Get a collection of submissions
      *
      * @param $slimRequest Request Slim request object
      * @param $response Response object
+     * @param array $args arguments
      *
      * @return Response
      */
     public function getMany($slimRequest, $response, $args)
     {
-        $request = $this->getRequest();
+        $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
         $context = $request->getContext();
 
-        // Merge query params over default params
-        $defaultParams = [
-            'count' => 20,
-            'offset' => 0,
-        ];
+        if (!$context) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
 
         // Anyone not a manager or site admin can only access their assigned
         // submissions
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
+        HookRegistry::call('API::submissions::params', [$collector, $slimRequest]);
         if (!$canAccessUnassignedSubmission) {
-            $defaultParams['assignedTo'] = [$currentUser->getId()];
+            if (!is_array($collector->assignedTo)) {
+                $collector->assignedTo([$currentUser->getId()]);
+            } elseif ($collector->assignedTo != [$currentUser->getId()]) {
+                return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
+            }
         }
 
-        $params = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $submissions = Repo::submission()->getMany($collector);
 
-        // Process query params to format incoming data as needed
-        foreach ($params as $param => $val) {
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
+
+        return $response->withJson([
+            'itemsMax' => Repo::submission()->getCount($collector),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups),
+        ], 200);
+    }
+
+    /**
+     * Configure a submission Collector based on the query params
+     */
+    protected function getSubmissionCollector(array $queryParams): Collector
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+
+        $collector = Repo::submission()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->limit(30)
+            ->offset(0);
+
+        foreach ($queryParams as $param => $val) {
             switch ($param) {
+                case 'orderBy':
+                    if (in_array($val, [
+                        $collector::ORDERBY_DATE_PUBLISHED,
+                        $collector::ORDERBY_DATE_SUBMITTED,
+                        $collector::ORDERBY_LAST_ACTIVITY,
+                        $collector::ORDERBY_LAST_MODIFIED,
+                        $collector::ORDERBY_SEQUENCE,
+                        $collector::ORDERBY_TITLE,
+                    ])) {
+                        $direction = isset($queryParams['orderDirection']) && $queryParams['orderDirection'] === $collector::ORDER_DIR_ASC
+                            ? $collector::ORDER_DIR_ASC
+                            : $collector::ORDER_DIR_DESC;
+                        $collector->orderBy($val, $direction);
+                    }
+                    break;
 
-                // Always convert status and stageIds to array
                 case 'status':
+                    $collector->filterByStatus(array_map('intval', $this->paramToArray($val)));
+                    break;
+
                 case 'stageIds':
+                    $collector->filterByStageIds(array_map('intval', $this->paramToArray($val)));
+                    break;
+
                 case 'assignedTo':
-                    if (is_string($val)) {
-                        $val = explode(',', $val);
-                    } elseif (!is_array($val)) {
-                        $val = [$val];
+                    $val = array_map('intval', $this->paramToArray($val));
+                    if ($val == [-1]) {
+                        $val = array_shift($val);
                     }
-                    $params[$param] = array_map('intval', $val);
-                    // Special case: assignedTo can be -1 for unassigned
-                    if ($param == 'assignedTo' && $val == [-1]) {
-                        $params[$param] = -1;
-                    }
+                    $collector->assignedTo($val);
                     break;
 
                 case 'daysInactive':
+                    $collector->filterByDaysInactive((int) $val);
+                    break;
+
                 case 'offset':
-                    $params[$param] = (int) $val;
+                    $collector->offset((int) $val);
                     break;
 
-                // Enforce a maximum count to prevent the API from crippling the
-                // server
+                case 'searchPhrase':
+                    $collector->searchPhrase($val);
+                    break;
+
                 case 'count':
-                    $params[$param] = min(100, (int) $val);
-                    break;
-
-                case 'orderBy':
-                    if (!in_array($val, ['dateSubmitted', 'dateLastActivity', 'lastModified', 'title'])) {
-                        unset($params[$param]);
-                    }
-                    break;
-
-                case 'orderDirection':
-                    $params[$param] = $val === 'ASC' ? $val : 'DESC';
+                    $collector->limit(min(self::MAX_COUNT, (int) $val));
                     break;
 
                 case 'isIncomplete':
+                    $collector->filterByIncomplete(true);
+                    break;
+
                 case 'isOverdue':
-                    $params[$param] = true;
+                    $collector->filterByOverdue(true);
+                    break;
             }
         }
 
-        $params['contextId'] = $context->getId();
-
-        \HookRegistry::call('API::_submissions::params', [&$params, $slimRequest, $response]);
-
-        // Prevent users from viewing submissions they're not assigned to,
-        // except for journal managers and admins.
-        if (!$canAccessUnassignedSubmission && !in_array($currentUser->getId(), $params['assignedTo'])) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
-        }
-
-        $submissionsIterator = Services::get('submission')->getMany($params);
-        $items = [];
-        if (count($submissionsIterator)) {
-            $propertyArgs = [
-                'request' => $request,
-                'slimRequest' => $slimRequest,
-            ];
-            foreach ($submissionsIterator as $submission) {
-                $items[] = Services::get('submission')->getBackendListProperties($submission, $propertyArgs);
-            }
-        }
-        $data = [
-            'items' => $items,
-            'itemsMax' => Services::get('submission')->getMax($params),
-        ];
-
-        return $response->withJson($data);
+        return $collector;
     }
 
     /**
@@ -187,8 +210,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         $request = $this->getRequest();
         $context = $request->getContext();
         $submissionId = (int) $args['submissionId'];
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($submissionId);
+        $submission = Repo::submission()->get($submissionId);
 
         if (!$submission) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -199,11 +221,11 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         }
 
         import('classes.core.Services');
-        if (!Services::get('submission')->canCurrentUserDelete($submission)) {
+        if (!Repo::submission()->canCurrentUserDelete($submission)) {
             return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
         }
 
-        Services::get('submission')->delete($submission);
+        Repo::submission()->delete($submission);
 
         return $response->withJson(true);
     }

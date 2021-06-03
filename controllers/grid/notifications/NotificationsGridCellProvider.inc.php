@@ -13,10 +13,12 @@
  * @brief Class for a cell provider that can retrieve labels from notifications
  */
 
+
+
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\GridCellProvider;
-use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 
 use PKP\linkAction\LinkAction;
@@ -112,16 +114,14 @@ class NotificationsGridCellProvider extends GridCellProvider
                 if ($queuedPayment) {
                     switch ($queuedPayment->getType()) {
                     case \PKP\payment\PaymentManager::PAYMENT_TYPE_PUBLICATION: // FIXME: This is OJS-only; move out of pkp-lib
-                        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-                        return $submissionDao->getById($queuedPayment->getAssocId())->getLocalizedTitle();
+                        return Repo::submission()->get($queuedPayment->getAssocId())->getLocalizedTitle();
                 }
                 }
                 assert(false);
                 return '—';
             case ASSOC_TYPE_ANNOUNCEMENT:
                 $announcementId = $notification->getAssocId();
-                $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
-                $announcement = $announcementDao->getById($announcementId);
+                $announcement = Repo::announcement()->get($announcementId);
                 if ($announcement) {
                     return $announcement->getLocalizedTitle();
                 }
@@ -155,7 +155,7 @@ class NotificationsGridCellProvider extends GridCellProvider
                     case ASSOC_TYPE_REPRESENTATION:
                         $representationDao = Application::getRepresentationDAO();
                         $representation = $representationDao->getById($query->getAssocId());
-                        $publication = Services::get('publication')->get($representation->getData('publicationId'));
+                        $publication = Repo::publication()->get($representation->getData('publicationId'));
                         $submissionId = $publication->getData('submissionId');
                         break;
                     default: assert(false);
@@ -172,7 +172,7 @@ class NotificationsGridCellProvider extends GridCellProvider
             $submissionId = $submissionFile->getData('submissionId');
         }
         assert(is_numeric($submissionId));
-        $submission = Services::get('submission')->get($submissionId);
+        $submission = Repo::submission()->get($submissionId);
         assert($submission instanceof \APP\submission\Submission);
 
         return $submission->getLocalizedTitle();

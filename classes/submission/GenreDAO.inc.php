@@ -17,7 +17,7 @@
 
 namespace PKP\submission;
 
-use App\i18n\AppLocale;
+use APP\i18n\AppLocale;
 use PKP\db\DAO;
 use PKP\db\DAOResultFactory;
 use PKP\db\XMLDAO;

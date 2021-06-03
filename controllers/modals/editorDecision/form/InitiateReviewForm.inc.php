@@ -62,7 +62,7 @@ class InitiateReviewForm extends EditorDecisionForm
         $editorAction->recordDecision($request, $submission, $this->_decision, $actionLabels);
 
         // Move to the internal review stage.
-        $editorAction->incrementWorkflowStage($submission, $this->_getStageId(), $request);
+        $editorAction->incrementWorkflowStage($submission, $this->_getStageId());
 
         // Create an initial internal review round.
         $this->_initiateReviewRound($submission, $this->_getStageId(), $request, ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS);

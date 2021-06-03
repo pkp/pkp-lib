@@ -371,11 +371,11 @@ abstract class PKPSubmissionFileDAO extends SchemaDAO implements PKPPubIdPluginD
     {
         $settingName = 'pub-id::' . $pubIdType;
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submissions = $submissionDao->getByContextId($contextId);
-        while ($submission = $submissions->next()) {
+        $collector = Repo::submission()->getCollector()->filterByContextIds([$context->getId()]);
+        $submissionIds = Repo::submission()->getIds($collector);
+        foreach ($submissionIds as $submissionId) {
             $submissionFileIds = Services::get('submissionFile')->getIds([
-                'submissionIds' => [$submission->getId()],
+                'submissionIds' => [$submissionId],
             ]);
             foreach ($submissionFileIds as $submissionFileId) {
                 $this->update(

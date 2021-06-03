@@ -13,6 +13,7 @@
  * @brief Handle site index requests.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 
 class PKPIndexHandler extends Handler
@@ -30,8 +31,13 @@ class PKPIndexHandler extends Handler
         $enableAnnouncements = $context->getData('enableAnnouncements');
         $numAnnouncementsHomepage = $context->getData('numAnnouncementsHomepage');
         if ($enableAnnouncements && $numAnnouncementsHomepage) {
-            $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
-            $announcements = $announcementDao->getNumAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $numAnnouncementsHomepage);
+            $announcements = Repo::announcement()->getMany(
+                Repo::announcement()
+                    ->getCollector()
+                    ->filterByContextIds([$context->getId()])
+                    ->filterByActive()
+                    ->limit((int) $numAnnouncementsHomepage)
+            );
             $templateMgr->assign([
                 'announcements' => $announcements->toArray(),
                 'numAnnouncementsHomepage' => $numAnnouncementsHomepage,

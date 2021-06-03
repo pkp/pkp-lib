@@ -17,8 +17,7 @@ namespace PKP\submission;
 
 use APP\core\Application;
 
-use APP\core\Services;
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 
 class Representation extends \PKP\core\DataObject
 {
@@ -164,9 +163,8 @@ class Representation extends \PKP\core\DataObject
      */
     public function getContextId()
     {
-        $publication = Services::get('publication')->get($this->getData('publicationId'));
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($publication->getData('submissionId'));
+        $publication = Repo::publication()->get($this->getData('publicationId'));
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
         return $submission->getContextId();
     }
 

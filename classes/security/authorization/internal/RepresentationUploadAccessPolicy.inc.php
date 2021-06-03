@@ -19,10 +19,10 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
-use PKP\security\authorization\AuthorizationPolicy;
 
+use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
@@ -78,7 +78,7 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $publication = Services::get('publication')->get($representation->getData('publicationId'));
+        $publication = Repo::publication()->get($representation->getData('publicationId'));
         if (!$publication) {
             $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'galley.publicationNotFound');
             return AuthorizationPolicy::AUTHORIZATION_DENY;

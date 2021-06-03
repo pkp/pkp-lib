@@ -16,6 +16,7 @@
 import('lib.pkp.controllers.grid.users.author.PKPAuthorGridCellProvider');
 import('lib.pkp.controllers.grid.users.author.AuthorGridRow');
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
@@ -292,7 +293,7 @@ class AuthorGridHandler extends GridHandler
         }
 
         // The user may not be allowed to edit the metadata
-        if (Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
+        if (Repo::submission()->canEditPublication($submission->getId(), $user->getId())) {
             return true;
         }
 

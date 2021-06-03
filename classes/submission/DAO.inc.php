@@ -1,0 +1,286 @@
+<?php
+/**
+ * @file classes/submission/DAO.inc.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class submission
+ *
+ * @brief Read and write submissions to the database.
+ */
+
+namespace PKP\submission;
+
+use APP\core\Application;
+use APP\core\Services;
+use APP\facades\Repo;
+use APP\submission\Collector;
+use APP\submission\Submission;
+
+use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
+use Illuminate\Support\Facades\App;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
+use PKP\core\EntityDAO;
+use PKP\db\DAORegistry;
+use PKP\services\PKPSchemaService;
+use stdClass;
+
+class DAO extends EntityDAO
+{
+    /** @copydoc EntityDAO::$schema */
+    public $schema = PKPSchemaService::SCHEMA_SUBMISSION;
+
+    /** @copydoc EntityDAO::$table */
+    public $table = 'submissions';
+
+    /** @copydoc EntityDAO::$settingsTable */
+    public $settingsTable = 'submission_settings';
+
+    /** @copydoc EntityDAO::$primarykeyColumn */
+    public $primaryKeyColumn = 'submission_id';
+
+    /** @copydoc SchemaDAO::$primaryTableColumns */
+    public $primaryTableColumns = [
+        'id' => 'submission_id',
+        'contextId' => 'context_id',
+        'currentPublicationId' => 'current_publication_id',
+        'dateLastActivity' => 'date_last_activity',
+        'dateSubmitted' => 'date_submitted',
+        'lastModified' => 'last_modified',
+        'locale' => 'locale',
+        'stageId' => 'stage_id',
+        'status' => 'status',
+        'submissionProgress' => 'submission_progress',
+    ];
+
+    /**
+     * Instantiate a new DataObject
+     */
+    public function newDataObject(): Submission
+    {
+        return App::make(Submission::class);
+    }
+
+    /**
+     * Check if a submission exists
+     */
+    public function exists(int $id): bool
+    {
+        return DB::table($this->table)
+            ->where($this->settingsTable, '=', $id)
+            ->exists();
+    }
+
+    /**
+     * @copydoc EntityDAO::get()
+     */
+    public function get(int $id): ?Submission
+    {
+        return parent::get($id);
+    }
+
+    /**
+     * Get the total count of submisssions matching the configured query
+     */
+    public function getCount(Collector $query): int
+    {
+        return $query
+            ->getQueryBuilder()
+            ->select('s.' . $this->primaryKeyColumn)
+            ->get()
+            ->count();
+    }
+
+    /**
+     * Get a list of ids matching the configured query
+     */
+    public function getIds(Collector $query): Collection
+    {
+        return $query
+            ->getQueryBuilder()
+            ->select('s.' . $this->primaryKeyColumn)
+            ->pluck('s.' . $this->primaryKeyColumn);
+    }
+
+    /**
+     * Get a collection of announcements matching the configured query
+     */
+    public function getMany(Collector $query): LazyCollection
+    {
+        $rows = $query
+            ->getQueryBuilder()
+            ->get();
+
+        return LazyCollection::make(function () use ($rows) {
+            foreach ($rows as $row) {
+                yield $this->fromRow($row);
+            }
+        });
+    }
+
+    /**
+     * Get the submission id by its url path
+     */
+    public function getIdByUrlPath(string $urlPath, int $contextId): ?int
+    {
+        $publication = DB::table('publications as p')
+            ->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')
+            ->where('s.context_id', '=', $contextId)
+            ->where('p.url_path', '=', $urlPath)
+            ->first();
+
+        return $publication
+            ? $publication->submission_id
+            : null;
+    }
+
+    /**
+     * Get submission ids that have a matching setting
+     */
+    public function getIdsBySetting(string $settingName, $settingValue, int $contextId): Enumerable
+    {
+        return DB::table($this->table . ' as s')
+            ->join($this->settingsTable . ' as ss', 's.submission_id', '=', 'ss.submission_id')
+            ->where('ss.setting_name', '=', $settingName)
+            ->where('ss.setting_value', '=', $settingValue)
+            ->where('s.context_id', '=', (int) $contextId)
+            ->select('s.submission_id')
+            ->pluck('s.submission_id');
+    }
+
+    /**
+     * Retrieve a submission by public id
+     *
+     * @param string $pubIdType One of the NLM pub-id-type values or
+     * 'other::something' if not part of the official NLM list
+     * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+     * @param null|mixed $contextId
+     */
+    public function getByPubId(string $pubIdType, string $pubId, $contextId = null): ?Submission
+    {
+        $qb = DB::table('publication_settings ps')
+            ->join('publications p', 'p.publication_id', '=', 'ps.publication_id')
+            ->join('submissions s', 'p.publication_id', '=', 's.current_publication_id')
+            ->where('ps.setting_name', '=', 'pub-id::' . $pubIdType)
+            ->where('ps.setting_value', '=', $pubId);
+
+        if ($contextId) {
+            $qb->where('s.context_id', '=', (int) $contextId);
+        }
+
+        $row = $qb->get(['s.submission_id']);
+
+        return $row
+            ? $this->get($row->submission_id)
+            : null;
+    }
+
+    /**
+     * @copydoc EntityDAO::fromRow()
+     */
+    public function fromRow(stdClass $row): Submission
+    {
+        $submission = parent::fromRow($row);
+
+        $submissionCollector = Repo::publication()
+            ->getCollector()
+            ->filterBySubmissionIds([$submission->getId()]);
+
+        $submission->setData(
+            'publications',
+            Repo::publication()->getMany($submissionCollector)
+        );
+
+        return $submission;
+    }
+
+    /**
+     * @copydoc EntityDAO::_insert()
+     */
+    public function insert(Submission $submission): int
+    {
+        return parent::_insert($submission);
+    }
+
+    /**
+     * @copydoc EntityDAO::_update()
+     */
+    public function update(Submission $submission)
+    {
+        parent::_update($submission);
+    }
+
+    /**
+     * @copydoc EntityDAO::_delete()
+     */
+    public function delete(Submission $submission)
+    {
+        parent::_delete($submission);
+    }
+
+    /**
+     * @copydoc \PKP\core\EntityDAO::deleteById()
+     */
+    public function deleteById(int $id)
+    {
+        $submission = Repo::submission()->get($id);
+
+        // Delete publications
+        $publicationCollector = Repo::publication()->getCollector()->filterBySubmissionIds([$id]);
+        $publications = Repo::publication()->getMany($publicationCollector);
+        foreach ($publications as $publication) {
+            Repo::publication()->delete($publication);
+        }
+
+        // Delete submission files.
+        $submissionFilesIterator = Services::get('submissionFile')->getMany([
+            'submissionIds' => [$submission->getId()],
+        ]);
+        foreach ($submissionFilesIterator as $submissionFile) {
+            Services::get('submissionFile')->delete($submissionFile);
+        }
+
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao->deleteBySubmissionId($id);
+
+        $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
+        $editDecisionDao->deleteDecisionsBySubmissionId($id);
+
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignmentDao->deleteBySubmissionId($id);
+
+        // Delete the queries associated with a submission
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $queryDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+
+        // Delete the stage assignments.
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($id);
+        while ($stageAssignment = $stageAssignments->next()) {
+            $stageAssignmentDao->deleteObject($stageAssignment);
+        }
+
+        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
+        $noteDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+
+        $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
+        $submissionCommentDao->deleteBySubmissionId($id);
+
+        // Delete any outstanding notifications for this submission
+        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+        $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+
+        $submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /** @var SubmissionEventLogDAO $submissionEventLogDao */
+        $submissionEventLogDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+
+        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+        $submissionEmailLogDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+
+        parent::deleteById($id);
+    }
+}

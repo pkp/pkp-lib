@@ -13,10 +13,10 @@
  * @brief Handle requests for public announcement functions.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 
 use APP\template\TemplateManager;
-use PKP\db\DBResultRange;
 use PKP\security\authorization\ContextRequiredPolicy;
 
 class AnnouncementHandler extends Handler
@@ -60,11 +60,13 @@ class AnnouncementHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('announcementsIntroduction', $announcementsIntro);
 
-
-        $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
         // TODO the announcements list should support pagination
-        $rangeInfo = new DBResultRange(50, -1);
-        $announcements = $announcementDao->getAnnouncementsNotExpiredByAssocId($context->getAssocType(), $context->getId(), $rangeInfo);
+        $announcements = Repo::announcement()->getMany(
+            Repo::announcement()
+                ->getCollector()
+                ->filterByContextIds($context->getId())
+                ->filterByActive()
+        );
         $templateMgr->assign('announcements', $announcements->toArray());
 
         $templateMgr->display('frontend/pages/announcements.tpl');
@@ -86,8 +88,7 @@ class AnnouncementHandler extends Handler
 
         $context = $request->getContext();
         $announcementId = (int) array_shift($args);
-        $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
-        $announcement = $announcementDao->getById($announcementId);
+        $announcement = Repo::announcement()->get($announcementId);
         if ($announcement && $announcement->getAssocType() == Application::getContextAssocType() && $announcement->getAssocId() == $context->getId() && ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time())) {
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('announcement', $announcement);

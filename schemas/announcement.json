@@ -79,6 +79,13 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"url": {
+			"type": "string",
+			"format": "uri",
+			"readOnly": true,
+			"apiSummary": true,
+			"description": "The URL to the published announcement."
 		}
 	}
 }

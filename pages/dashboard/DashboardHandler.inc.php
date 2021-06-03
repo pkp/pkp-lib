@@ -12,6 +12,7 @@
  * @brief Handle requests for user's dashboard.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\security\authorization\PKPSiteAccessPolicy;
@@ -90,6 +91,19 @@ class DashboardHandler extends Handler
         }
 
         // My Queue
+        $collector = Repo::submission()->getCollector()
+            ->filterByContextIds([(int) $request->getContext()->getId()])
+            ->filterByStatus([PKPSubmission::STATUS_QUEUED])
+            ->assignedTo([(int) $request->getUser()->getId()]);
+
+        $itemsMax = Repo::submission()->getCount($collector);
+        $items = Repo::submission()->getMany($collector->limit(30));
+
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
+
+        $items = Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($items, $userGroups);
+
         $myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
             SUBMISSIONS_LIST_MY_QUEUE,
             __('common.queue.long.myAssigned'),
@@ -102,13 +116,11 @@ class DashboardHandler extends Handler
                 'includeIssuesFilter' => $includeIssuesFilter,
                 'includeCategoriesFilter' => $includeCategoriesFilter,
                 'includeActiveSectionFiltersOnly' => true,
+                'items' => $items,
+                'itemsMax' => $itemsMax,
                 'categories' => $categories,
             ]
         );
-        $myQueueListPanel->set([
-            'items' => $myQueueListPanel->getItems($request),
-            'itemsMax' => $myQueueListPanel->getItemsMax()
-        ]);
         $lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
 
         if (!empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles))) {

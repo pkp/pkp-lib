@@ -16,6 +16,7 @@
 namespace PKP\submission\reviewer\form;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -147,8 +148,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $this->saveReviewForm($reviewAssignment);
 
         // Send notification
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());

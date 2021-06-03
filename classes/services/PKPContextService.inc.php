@@ -17,6 +17,7 @@ namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\i18n\AppLocale;
 use APP\services\queryBuilders\ContextQueryBuilder;
@@ -576,8 +577,11 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genreDao->deleteByContextId($context->getId());
 
-        $announcementDao = DAORegistry::getDAO('AnnouncementDAO');
-        $announcementDao->deleteByAssoc($context->getAssocType(), $context->getId());
+        Repo::announcement()->deleteMany(
+            Repo::announcement()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+        );
 
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
         $announcementTypeDao->deleteByAssoc($context->getAssocType(), $context->getId());

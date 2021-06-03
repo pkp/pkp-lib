@@ -13,6 +13,8 @@
  * @brief CLI tool to set a version number for each publication.
  */
 
+use APP\facades\Repo;
+
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
 class SetVersionTool extends \PKP\cliTool\CommandLineTool
@@ -25,11 +27,15 @@ class SetVersionTool extends \PKP\cliTool\CommandLineTool
         $request = Application::get()->getRequest();
         $contextIds = Services::get('context')->getIds();
         foreach ($contextIds as $contextId) {
-            $submissions = Services::get('submission')->getMany(['contextId' => $contextId]);
+            $submissions = Repo::submission()->getIds(
+                Repo::submission()
+                    ->getCollector()
+                    ->filterByContextIds([$contextId])
+            );
             foreach ($submissions as $submission) {
                 $version = 1;
                 foreach ((array) $submission->getData('publications') as $publication) {
-                    Services::get('publication')->edit($publication, ['version' => $version], $request);
+                    Repo::publication()->edit($publication, ['version' => $version]);
                     $version++;
                 }
             }

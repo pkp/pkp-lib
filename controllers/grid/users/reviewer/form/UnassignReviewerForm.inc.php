@@ -12,6 +12,8 @@
  * @brief Allow the editor to remove a review assignment
  */
 
+use APP\facades\Repo;
+
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerNotifyActionForm');
 
 use APP\log\SubmissionEventLogEntry;
@@ -58,7 +60,6 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
         $reviewAssignment = $this->getReviewAssignment();
 
         // Delete or cancel the review assignment.
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 
@@ -78,7 +79,7 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
 
             // Stamp the modification date
             $submission->stampModified();
-            $submissionDao->updateObject($submission);
+            Repo::submission()->dao->updateObject($submission);
 
             $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
             $notificationDao->deleteByAssoc(

@@ -13,13 +13,14 @@
  * @brief Handle requests for the public-facing catalog.
  */
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\handler\Handler;
+use APP\submission\Collector;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 
 use PKP\file\ContextFileManager;
 use PKP\security\authorization\ContextRequiredPolicy;
-use PKP\submission\PKPSubmission;
 
 class PKPCatalogHandler extends Handler
 {
@@ -61,36 +62,38 @@ class PKPCatalogHandler extends Handler
         }
 
         $this->setupTemplate($request);
-        $orderOption = $category->getSortOption() ? $category->getSortOption() : ORDERBY_DATE_PUBLISHED . '-' . \PKP\db\DAO::SORT_DIRECTION_DESC;
+        $orderOption = $category->getSortOption() ? $category->getSortOption() : Collector::ORDERBY_DATE_PUBLISHED . '-' . SORT_DIRECTION_DESC;
         [$orderBy, $orderDir] = explode('-', $orderOption);
 
         $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
         $offset = $page > 1 ? ($page - 1) * $count : 0;
 
-        $params = [
-            'contextId' => $context->getId(),
-            'categoryIds' => $category->getId(),
-            'orderByFeatured' => true,
-            'orderBy' => $orderBy,
-            'orderDirection' => $orderDir == \PKP\db\DAO::SORT_DIRECTION_ASC ? 'ASC' : 'DESC',
-            'count' => $count,
-            'offset' => $offset,
-            'status' => PKPSubmission::STATUS_PUBLISHED,
-        ];
-        $submissionsIterator = Services::get('submission')->getMany($params);
-        $total = Services::get('submission')->getMax($params);
+        $collector = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByCategoryIds([$category->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->orderBy($orderBy, $orderDir === SORT_DIRECTION_ASC ? Collector::ORDER_DIR_ASC : Collector::ORDER_DIR_DESC);
+
+        // Featured items are only in OMP at this time
+        if (method_exists($collector, 'orderByFeatured')) {
+            $collector->orderByFeatured(true);
+        }
+
+        $total = Repo::submission()->getCount($collector);
+        $submissions = Repo::submission()->getMany($collector->limit($count)->offset($offset));
 
         // Provide the parent category and a list of subcategories
         $parentCategory = $categoryDao->getById($category->getParentId());
         $subcategories = $categoryDao->getByParentId($category->getId());
 
-        $this->_setupPaginationTemplate($request, count($submissionsIterator), $page, $count, $offset, $total);
+        $this->_setupPaginationTemplate($request, count($submissions), $page, $count, $offset, $total);
 
         $templateMgr->assign([
             'category' => $category,
             'parentCategory' => $parentCategory,
             'subcategories' => $subcategories->toArray(),
-            'publishedSubmissions' => iterator_to_array($submissionsIterator),
+            'publishedSubmissions' => $submissions->toArray(),
         ]);
 
         return $templateMgr->display('frontend/pages/catalogCategory.tpl');

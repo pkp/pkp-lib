@@ -55,6 +55,8 @@ class DAO
      * @param $sql string the SQL statement
      * @param $params array parameters for the SQL statement
      *
+     * @deprecated 3.4
+     *
      * @return Generator
      */
     public function retrieve($sql, $params = [], $callHooks = true)
@@ -80,6 +82,8 @@ class DAO
      * @param $sql string the SQL statement
      * @param $params array parameters for the SQL statement
      * @param $dbResultRange DBResultRange object describing the desired range
+     *
+     * @deprecated 3.4
      *
      * @return Generator
      */
@@ -112,6 +116,8 @@ class DAO
      * @param $sql string SQL query to be counted
      * @param $params array Optional SQL query bind parameters
      *
+     * @deprecated 3.4
+     *
      * @return int
      */
     public function countRecords($sql, $params = [])
@@ -124,6 +130,8 @@ class DAO
      * Concatenate SQL expressions into a single string.
      *
      * @param ...$args SQL expressions (e.g. column names) to concatenate.
+     *
+     * @deprecated 3.4
      *
      * @return string
      */
@@ -139,6 +147,8 @@ class DAO
      * @param $params array an array of parameters for the SQL statement
      * @param $callHooks boolean Whether or not to call hooks
      * @param $dieOnError boolean Whether or not to die if an error occurs
+     *
+     * @deprecated 3.4
      *
      * @return int Affected row count
      */
@@ -166,6 +176,8 @@ class DAO
      * @param $arrFields array Associative array of colName => value
      * @param $keyCols array Array of column names that are keys
      *
+     * @deprecated 3.4
+     *
      * @return int @see ADODB::Replace
      */
     public function replace($table, $arrFields, $keyCols)
@@ -176,6 +188,8 @@ class DAO
 
     /**
      * Return the last ID inserted in an autonumbered field.
+     *
+     * @deprecated 3.4
      *
      * @return int
      */
@@ -188,8 +202,10 @@ class DAO
      * Configure the caching directory for database results
      * NOTE: This is implemented as a GLOBAL setting and cannot
      * be set on a per-connection basis.
+     *
+     * @deprecated 3.4
      */
-    public function setCacheDir()
+    protected function setCacheDir()
     {
         static $cacheDir;
         if (!isset($cacheDir)) {
@@ -203,6 +219,8 @@ class DAO
 
     /**
      * Flush the system cache.
+     *
+     * @deprecated 3.4
      */
     public function flushCache()
     {
@@ -213,6 +231,8 @@ class DAO
      * Return datetime formatted for DB insertion.
      *
      * @param $dt int/string *nix timestamp or ISO datetime string
+     *
+     * @deprecated 3.4
      *
      * @return string
      */
@@ -232,6 +252,8 @@ class DAO
      *
      * @param $d int/string *nix timestamp or ISO date string
      *
+     * @deprecated 3.4
+     *
      * @return string
      */
     public function dateToDB($d)
@@ -250,6 +272,8 @@ class DAO
      *
      * @param $dt string datetime from DB
      *
+     * @deprecated 3.4
+     *
      * @return string
      */
     public function datetimeFromDB($dt)
@@ -264,6 +288,8 @@ class DAO
      *
      * @param $d string date from DB
      *
+     * @deprecated 3.4
+     *
      * @return string
      */
     public function dateFromDB($d)
@@ -275,39 +301,36 @@ class DAO
     }
 
     /**
-     * Convert a stored type from the database
+     * Convert a value from the database to a specific type
      *
-     * @param $value string Value from DB
-     * @param $type string Type from DB
+     * @param mixed $value Value from the database
+     * @param string $type Type from the database, eg `string`
      */
     public function convertFromDB($value, $type)
     {
         switch ($type) {
             case 'bool':
             case 'boolean':
-                $value = (bool) $value;
-                break;
+                return (bool) $value;
             case 'int':
             case 'integer':
-                $value = (int) $value;
-                break;
+                return (int) $value;
             case 'float':
             case 'number':
-                $value = (float) $value;
-                break;
+                return (float) $value;
             case 'object':
             case 'array':
                 $decodedValue = json_decode($value, true);
                 // FIXME: pkp/pkp-lib#6250 Remove after 3.3.x upgrade code is removed (see also pkp/pkp-lib#5772)
                 if (!is_null($decodedValue)) {
-                    $value = $decodedValue;
+                    return $decodedValue;
                 } else {
-                    $value = unserialize($value);
+                    return unserialize($value);
                 }
-                break;
+                // no break
             case 'date':
                 if ($value !== null) {
-                    $value = strtotime($value);
+                    return strtotime($value);
                 }
                 break;
             case 'string':
@@ -322,6 +345,8 @@ class DAO
      * Get the type of a value to be stored in the database
      *
      * @param $value string
+     *
+     * @deprecated 3.4
      *
      * @return string
      */
@@ -400,6 +425,8 @@ class DAO
      *
      * @param $value mixed
      *
+     * @deprecated 3.4
+     *
      * @return string|null
      */
     public function nullOrInt($value)
@@ -411,6 +438,8 @@ class DAO
      * Get a list of additional field names to store in this DAO.
      * This can be used to extend the table with virtual "columns",
      * typically using the ..._settings table.
+     *
+     * @deprecated 3.4
      *
      * @return array List of strings representing field names.
      */
@@ -432,6 +461,7 @@ class DAO
      * localized (multilingual) fields.
      *
      * @see getAdditionalFieldNames
+     * @deprecated 3.4
      *
      * @return array Array of string field names.
      */
@@ -454,6 +484,8 @@ class DAO
      * @param $tableName string
      * @param $dataObject DataObject
      * @param $idArray array
+     *
+     * @deprecated 3.4
      */
     public function updateDataObjectSettings($tableName, $dataObject, $idArray)
     {
@@ -552,6 +584,8 @@ class DAO
      * @param $tableName string Settings table name
      * @param $idFieldName string Name of ID column
      * @param $dataObject \PKP\core\DataObject Object in which to store retrieved values
+     *
+     * @deprecated 3.4
      */
     public function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject)
     {
@@ -580,6 +614,8 @@ class DAO
      *
      * @param $direction int
      *
+     * @deprecated 3.4
+     *
      * @return string
      */
     public function getDirectionMapping($direction)
@@ -607,6 +643,8 @@ class DAO
      *  element ID here.
      * @param $content mixed (Optional) Additional content to pass back
      *  to the handler of the JSON message.
+     *
+     * @deprecated 3.4
      *
      * @return JSONMessage
      */
@@ -639,9 +677,11 @@ class DAO
      * returning today if false and the passed date
      * is in the past.
      *
+     * @deprecated 3.4
+     *
      * @return string or null
      */
-    public function formatDateToDB($date, $defaultNumWeeks = null, $acceptPastDate = true)
+    protected function formatDateToDB($date, $defaultNumWeeks = null, $acceptPastDate = true)
     {
         $today = getDate();
         $todayTimestamp = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']);

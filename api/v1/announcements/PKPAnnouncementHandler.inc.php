@@ -14,17 +14,24 @@
  *
  */
 
-use APP\core\Services;
+use APP\core\Application;
+use APP\facades\Repo;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
-use PKP\services\interfaces\EntityWriteInterface;
 
 use PKP\services\PKPSchemaService;
 
 class PKPAnnouncementHandler extends APIHandler
 {
+    /** @var int The default number of announcements to return in one request */
+    public const DEFAULT_COUNT = 30;
+
+    /** @var int The maxium number of announcements to return in one request */
+    public const MAX_COUNT = 100;
+
     /**
      * Constructor
      */
@@ -95,7 +102,7 @@ class PKPAnnouncementHandler extends APIHandler
      */
     public function get($slimRequest, $response, $args)
     {
-        $announcement = Services::get('announcement')->get((int) $args['announcementId']);
+        $announcement = Repo::announcement()->get((int) $args['announcementId']);
 
         if (!$announcement) {
             return $response->withStatus(404)->withJsonError('api.announcements.404.announcementNotFound');
@@ -106,15 +113,7 @@ class PKPAnnouncementHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.announcements.400.contextsNotMatched');
         }
 
-        $props = Services::get('announcement')->getFullProperties(
-            $announcement,
-            [
-                'request' => $this->getRequest(),
-                'announcementContext' => $this->getRequest()->getContext(),
-            ]
-        );
-
-        return $response->withJson($props, 200);
+        return $response->withJson(Repo::announcement()->getSchemaMap()->map($announcement), 200);
     }
 
     /**
@@ -128,56 +127,38 @@ class PKPAnnouncementHandler extends APIHandler
      */
     public function getMany($slimRequest, $response, $args)
     {
-        $request = Application::get()->getRequest();
+        $collector = Repo::announcement()->getCollector()
+            ->limit(self::DEFAULT_COUNT)
+            ->offset(0);
 
-        $params = [
-            'count' => 30,
-            'offset' => 0,
-        ];
-
-        $requestParams = $slimRequest->getQueryParams();
-
-        // Process query params to format incoming data as needed
-        foreach ($requestParams as $param => $val) {
+        foreach ($slimRequest->getQueryParams() as $param => $val) {
             switch ($param) {
-                case 'contextIds':
                 case 'typeIds':
-                    if (is_string($val)) {
-                        $val = explode(',', $val);
-                    } elseif (!is_array($val)) {
-                        $val = [$val];
-                    }
-                    $params[$param] = array_map('intval', $val);
+                    $collector->filterByTypeIds(
+                        array_map('intval', $this->paramToArray($val))
+                    );
                     break;
                 case 'count':
+                    $collector->limit(min((int) $val, self::MAX_COUNT));
+                    break;
                 case 'offset':
-                    $params[$param] = (int) $val;
+                    $collector->offset((int) $val);
                     break;
                 case 'searchPhrase':
-                    $params[$param] = $val;
+                    $collector->searchPhrase($val);
+                    break;
             }
         }
 
-        if ($this->getRequest()->getContext()) {
-            $params['contextIds'] = [$this->getRequest()->getContext()->getId()];
-        }
+        $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
 
-        \HookRegistry::call('API::submissions::params', [&$params, $slimRequest]);
+        HookRegistry::call('API::submissions::params', [$collector, $slimRequest]);
 
-        $result = Services::get('announcement')->getMany($params);
-        $items = [];
-        if ($result->valid()) {
-            foreach ($result as $announcement) {
-                $items[] = Services::get('announcement')->getSummaryProperties($announcement, [
-                    'request' => $this->getRequest(),
-                    'announcementContext' => $this->getRequest()->getContext(),
-                ]);
-            }
-        }
+        $announcements = Repo::announcement()->getMany($collector);
 
         return $response->withJson([
-            'itemsMax' => Services::get('announcement')->getMax($params),
-            'items' => $items,
+            'itemsMax' => $announcements->count(),
+            'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements),
         ], 200);
     }
 
@@ -204,21 +185,17 @@ class PKPAnnouncementHandler extends APIHandler
 
         $primaryLocale = $request->getContext()->getPrimaryLocale();
         $allowedLocales = $request->getContext()->getSupportedFormLocales();
-        $errors = Services::get('announcement')->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::announcement()->validate(null, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $announcement = DAORegistry::getDao('AnnouncementDAO')->newDataObject();
-        $announcement->setAllData($params);
-        $announcement = Services::get('announcement')->add($announcement, $request);
-        $announcementProps = Services::get('announcement')->getFullProperties($announcement, [
-            'request' => $request,
-            'announcementContext' => $request->getContext(),
-        ]);
+        $announcement = Repo::announcement()->newDataObject($params);
+        $id = Repo::announcement()->add($announcement);
+        $announcement = Repo::announcement()->get($id);
 
-        return $response->withJson($announcementProps, 200);
+        return $response->withJson(Repo::announcement()->getSchemaMap()->map($announcement), 200);
     }
 
     /**
@@ -234,7 +211,7 @@ class PKPAnnouncementHandler extends APIHandler
     {
         $request = $this->getRequest();
 
-        $announcement = Services::get('announcement')->get((int) $args['announcementId']);
+        $announcement = Repo::announcement()->get((int) $args['announcementId']);
 
         if (!$announcement) {
             return $response->withStatus(404)->withJsonError('api.announcements.404.announcementNotFound');
@@ -256,19 +233,16 @@ class PKPAnnouncementHandler extends APIHandler
         $primaryLocale = $context->getPrimaryLocale();
         $allowedLocales = $context->getSupportedFormLocales();
 
-        $errors = Services::get('announcement')->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::announcement()->validate($announcement, $params, $allowedLocales, $primaryLocale);
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $announcement = Services::get('announcement')->edit($announcement, $params, $request);
+        Repo::announcement()->edit($announcement, $params);
 
-        $announcementProps = Services::get('announcement')->getFullProperties($announcement, [
-            'request' => $request,
-            'announcementContext' => $context,
-        ]);
+        $announcement = Repo::announcement()->get($announcement->getId());
 
-        return $response->withJson($announcementProps, 200);
+        return $response->withJson(Repo::announcement()->getSchemaMap()->map($announcement), 200);
     }
 
     /**
@@ -284,7 +258,7 @@ class PKPAnnouncementHandler extends APIHandler
     {
         $request = $this->getRequest();
 
-        $announcement = Services::get('announcement')->get((int) $args['announcementId']);
+        $announcement = Repo::announcement()->get((int) $args['announcementId']);
 
         if (!$announcement) {
             return $response->withStatus(404)->withJsonError('api.announcements.404.announcementNotFound');
@@ -299,12 +273,9 @@ class PKPAnnouncementHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.announcements.400.contextsNotMatched');
         }
 
-        $announcementProps = Services::get('announcement')->getSummaryProperties($announcement, [
-            'request' => $request,
-            'announcementContext' => $request->getContext(),
-        ]);
+        $announcementProps = Repo::announcement()->getSchemaMap()->map($announcement);
 
-        Services::get('announcement')->delete($announcement);
+        Repo::announcement()->delete($announcement);
 
         return $response->withJson($announcementProps, 200);
     }

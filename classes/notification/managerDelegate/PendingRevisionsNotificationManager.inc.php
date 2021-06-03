@@ -15,11 +15,11 @@
 
 namespace PKP\notification\managerDelegate;
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\Notification;
-use APP\workflow\EditorDecisionActionsManager;
 
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
@@ -41,13 +41,12 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
      */
     public function getNotificationUrl($request, $notification)
     {
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($notification->getAssocId());
+        $submission = Repo::submission()->get($notification->getAssocId());
 
         $stageData = $this->_getStageDataByType();
         $operation = $stageData['path'];
 
-        return Services::get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId(), $stageData['path']);
+        return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId(), $stageData['path']);
     }
 
     /**
@@ -71,8 +70,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
         $stageId = $stageData['id'];
         $submissionId = $notification->getAssocId();
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($submissionId);
+        $submission = Repo::submission()->get($submissionId);
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 

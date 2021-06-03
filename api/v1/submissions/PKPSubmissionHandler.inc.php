@@ -14,23 +14,36 @@
  *
  */
 
+use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
+use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\submission\Collector;
+use PKP\db\DAORegistry;
+
 use PKP\handler\APIHandler;
 use PKP\notification\PKPNotification;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
-
-use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 
+use PKP\submission\reviewAssignment\ReviewAssignment;
+
 class PKPSubmissionHandler extends APIHandler
 {
+    /** @var int The default number of items to return in one request */
+    public const DEFAULT_COUNT = 30;
+
+    /** @var int Max items that can be requested */
+    public const MAX_COUNT = 100;
+
     /** @var array Handlers that must be authorized to access a submission */
     public $requiresSubmissionAccess = [
         'get',
@@ -50,7 +63,6 @@ class PKPSubmissionHandler extends APIHandler
 
     /** @var array Handlers that must be authorized to write to a publication */
     public $requiresPublicationWriteAccess = [
-        'addPublication',
         'editPublication',
     ];
 
@@ -207,102 +219,111 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $defaultParams = [
-            'count' => 20,
-            'offset' => 0,
-        ];
+        $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
 
-        // Only admins and managers may access submissions they are not assigned to
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
-        if (!$canAccessUnassignedSubmission) {
-            $defaultParams['assignedTo'] = [$currentUser->getId()];
-        }
-
-        $params = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-        foreach ($params as $param => $val) {
-            switch ($param) {
-                case 'orderBy':
-                    if (in_array($val, ['dateSubmitted', 'dateLastActivity', 'lastModified', 'title'])) {
-                        $params[$param] = $val;
-                    }
-                    break;
-
-                case 'orderDirection':
-                    $params[$param] = $val === 'ASC' ? $val : 'DESC';
-                    break;
-
-                // Always convert status and stageIds to array
-                case 'status':
-                case 'stageIds':
-                case 'assignedTo':
-                    if (is_string($val)) {
-                        $val = explode(',', $val);
-                    } elseif (!is_array($val)) {
-                        $val = [$val];
-                    }
-                    $params[$param] = array_map('intval', $val);
-                    // Special case: assignedTo can be -1 for unassigned
-                    if ($param == 'assignedTo' && $val == [-1]) {
-                        $params[$param] = -1;
-                    }
-                    break;
-
-                case 'daysInactive':
-                case 'offset':
-                    $params[$param] = (int) $val;
-                    break;
-
-                case 'searchPhrase':
-                    $params[$param] = $val;
-                    break;
-
-                // Enforce a maximum count to prevent the API from crippling the
-                // server
-                case 'count':
-                    $params[$param] = min(100, (int) $val);
-                    break;
-
-                case 'isIncomplete':
-                case 'isOverdue':
-                    $params[$param] = true;
-                    break;
-            }
-        }
-
-        $params['contextId'] = $request->getContext()->getId();
-
-        \HookRegistry::call('API::submissions::params', [&$params, $slimRequest]);
+        HookRegistry::call('API::submissions::params', [$collector, $slimRequest]);
 
         // Prevent users from viewing submissions they're not assigned to,
         // except for journal managers and admins.
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
-        if (!$canAccessUnassignedSubmission && !in_array($currentUser->getId(), $params['assignedTo'])) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
-        }
-
-        $items = [];
-        $submissionsIterator = Services::get('submission')->getMany($params);
-        if (count($submissionsIterator)) {
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-            $propertyArgs = [
-                'request' => $request,
-                'slimRequest' => $slimRequest,
-                'userGroups' => $userGroupDao->getByContextId($context->getId())->toArray()
-            ];
-            foreach ($submissionsIterator as $submission) {
-                $items[] = Services::get('submission')->getSummaryProperties($submission, $propertyArgs);
+        if (!$canAccessUnassignedSubmission) {
+            if (!is_array($collector->assignedTo)) {
+                $collector->assignedTo([$currentUser->getId()]);
+            } elseif ($collector->assignedTo != [$currentUser->getId()]) {
+                return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
             }
         }
 
-        $data = [
-            'itemsMax' => Services::get('submission')->getMax($params),
-            'items' => $items,
-        ];
+        $submissions = Repo::submission()->getMany($collector);
 
-        return $response->withJson($data, 200);
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
+
+        return $response->withJson([
+            'itemsMax' => Repo::submission()->getCount($collector),
+            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups),
+        ], 200);
+    }
+
+    /**
+     * Configure a submission Collector based on the query params
+     */
+    protected function getSubmissionCollector(array $queryParams): Collector
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+
+        $collector = Repo::submission()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->limit(self::DEFAULT_COUNT)
+            ->offset(0);
+
+        foreach ($queryParams as $param => $val) {
+            switch ($param) {
+                case 'orderBy':
+                    if (in_array($val, [
+                        $collector::ORDERBY_DATE_PUBLISHED,
+                        $collector::ORDERBY_DATE_SUBMITTED,
+                        $collector::ORDERBY_LAST_ACTIVITY,
+                        $collector::ORDERBY_LAST_MODIFIED,
+                        $collector::ORDERBY_SEQUENCE,
+                        $collector::ORDERBY_TITLE,
+                    ])) {
+                        $direction = isset($queryParams['orderDirection']) && $queryParams['orderDirection'] === $collector::ORDER_DIR_ASC
+                            ? $collector::ORDER_DIR_ASC
+                            : $collector::ORDER_DIR_DESC;
+                        $collector->orderBy($val, $direction);
+                    }
+                    break;
+
+                case 'categoryIds':
+                    $collector->filterByCategoryIds(array_map('intval', $this->paramToArray($val)));
+                    break;
+
+                case 'status':
+                    $collector->filterByStatus(array_map('intval', $this->paramToArray($val)));
+                    break;
+
+                case 'stageIds':
+                    $collector->filterByStageIds(array_map('intval', $this->paramToArray($val)));
+                    break;
+
+                case 'assignedTo':
+                    $val = array_map('intval', $this->paramToArray($val));
+                    if ($val == [-1]) {
+                        $val = array_shift($val);
+                    }
+                    $collector->assignedTo($val);
+                    break;
+
+                case 'daysInactive':
+                    $collector->filterByDaysInactive((int) $val);
+                    break;
+
+                case 'offset':
+                    $collector->offset((int) $val);
+                    break;
+
+                case 'searchPhrase':
+                    $collector->searchPhrase($val);
+                    break;
+
+                case 'count':
+                    $collector->limit(min(self::MAX_COUNT, (int) $val));
+                    break;
+
+                case 'isIncomplete':
+                    $collector->filterByIncomplete(true);
+                    break;
+
+                case 'isOverdue':
+                    $collector->filterByOverdue(true);
+                    break;
+            }
+        }
+
+        return $collector;
     }
 
     /**
@@ -316,19 +337,17 @@ class PKPSubmissionHandler extends APIHandler
      */
     public function get($slimRequest, $response, $args)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_READER, LOCALE_COMPONENT_PKP_SUBMISSION);
+        AppLocale::requireComponents(
+            LOCALE_COMPONENT_PKP_READER,
+            LOCALE_COMPONENT_PKP_SUBMISSION
+        );
 
-        $request = Application::get()->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        $data = Services::get('submission')->getFullProperties($submission, [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-            'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-        ]);
-
-        return $response->withJson($data, 200);
+        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups), 200);
     }
 
     /**
@@ -361,25 +380,25 @@ class PKPSubmissionHandler extends APIHandler
         $primaryLocale = $request->getContext()->getPrimaryLocale();
         $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
-        $errors = Services::get('submission')->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::submission()->validate(null, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->newDataObject();
-        $submission->setAllData($params);
-        $submission = Services::get('submission')->add($submission, $request);
+        $sectionId = $params['sectionId'];
+        unset($params['sectionId']);
+
+        $submission = Repo::submission()->newDataObject($params);
+        $publication = Repo::publication()->newDataObject(['sectionId' => $sectionId]);
+        $submissionId = Repo::submission()->add($submission, $publication);
+
+        $submission = Repo::submission()->get($submissionId);
+
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        $data = Services::get('submission')->getFullProperties($submission, [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-            'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-        ]);
-
-        return $response->withJson($data, 200);
+        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups), 200);
     }
 
     /**
@@ -394,7 +413,7 @@ class PKPSubmissionHandler extends APIHandler
     public function edit($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         if (!$submission) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -417,22 +436,20 @@ class PKPSubmissionHandler extends APIHandler
         $primaryLocale = $request->getContext()->getPrimaryLocale();
         $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
-        $errors = Services::get('submission')->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::submission()->validate($submission, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $submission = Services::get('submission')->edit($submission, $params, $request);
+        Repo::submission()->edit($submission, $params, $request);
+
+        $submission = Repo::submission()->get($submission->getId());
+
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        $data = Services::get('submission')->getFullProperties($submission, [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-            'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-        ]);
-
-        return $response->withJson($data, 200);
+        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups), 200);
     }
 
     /**
@@ -446,21 +463,18 @@ class PKPSubmissionHandler extends APIHandler
      */
     public function delete($slimRequest, $response, $args)
     {
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         if (!$submission) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $submissionProps = Services::get('submission')->getFullProperties($submission, [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-            'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-        ]);
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        Services::get('submission')->delete($submission);
+        $submissionProps = Repo::submission()->getSchemaMap()->map($submission, $userGroups);
+
+        Repo::submission()->delete($submission);
 
         return $response->withJson($submissionProps, 200);
     }
@@ -480,7 +494,7 @@ class PKPSubmissionHandler extends APIHandler
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $stageId = $args['stageId'] ?? null;
 
         if (!$submission) {
@@ -523,38 +537,30 @@ class PKPSubmissionHandler extends APIHandler
     {
         $request = $this->getRequest();
 
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         if (!$submission) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $args = [
-            'submissionIds' => $submission->getId()
-        ];
+        $collector = Repo::publication()->getCollector();
+        $collector->filterBySubmissionIds([$submission->getId()]);
+        $publications = Repo::publication()->getMany($collector);
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        $items = [];
-        $publicationsIterator = Services::get('publication')->getMany($args);
-        foreach ($publicationsIterator as $publication) {
-            $items[] = Services::get('publication')->getSummaryProperties(
-                $publication,
-                [
-                    'request' => $request,
-                    'submission' => $submission,
-                    'userGroups' => $userGroups,
-                ]
-            );
-        }
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $currentUserReviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer(
+            $submission->getId(),
+            $request->getUser()->getId()
+        );
+        $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
 
-        $data = [
-            'itemsMax' => Services::get('publication')->getMax($args),
-            'items' => $items,
-        ];
-
-        return $response->withJson($data, 200);
+        return $response->withJson([
+            'itemsMax' => Repo::publication()->getCount($collector),
+            'items' => Repo::publication()->getSchemaMap($submission, $userGroups)->summarizeMany($publications, $anonymize),
+        ], 200);
     }
 
     /**
@@ -568,10 +574,9 @@ class PKPSubmissionHandler extends APIHandler
      */
     public function getPublication($slimRequest, $response, $args)
     {
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $publication = Services::get('publication')->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $args['publicationId']);
 
         if (!$publication) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -582,15 +587,12 @@ class PKPSubmissionHandler extends APIHandler
         }
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $data = Services::get('publication')->getFullProperties(
-            $publication,
-            [
-                'request' => $request,
-                'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-            ]
-        );
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson($data, 200);
+        return $response->withJson(
+            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            200
+        );
     }
 
     /**
@@ -608,7 +610,7 @@ class PKPSubmissionHandler extends APIHandler
     public function addPublication($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $slimRequest->getParsedBody());
         $params['submissionId'] = $submission->getId();
@@ -625,26 +627,23 @@ class PKPSubmissionHandler extends APIHandler
             $primaryLocale = $params['locale'];
         }
 
-        $errors = Services::get('publication')->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::publication()->validate(null, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $publicationDao = DAORegistry::getDAO('PublicationDAO'); /** @var PublicationDAO $publicationDao */
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $publication = $publicationDao->newDataObject();
-        $publication->setAllData($params);
-        $publication = Services::get('publication')->add($publication, $request);
-        $publicationProps = Services::get('publication')->getFullProperties(
-            $publication,
-            [
-                'request' => $request,
-                'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-            ]
-        );
+        $publication = Repo::publication()->newDataObject($params);
+        $newId = Repo::publication()->add($publication);
+        $publication = Repo::publication()->get($newId);
 
-        return $response->withJson($publicationProps, 200);
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        return $response->withJson(
+            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            200
+        );
     }
 
     /**
@@ -660,8 +659,8 @@ class PKPSubmissionHandler extends APIHandler
     {
         $request = $this->getRequest();
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION); // notification.type.submissionNewVersion
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $publication = Services::get('publication')->get((int) $args['publicationId']);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $publication = Repo::publication()->get((int) $args['publicationId']);
 
         if (!$publication) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -671,16 +670,8 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
         }
 
-        $publication = Services::get('publication')->version($publication, $request);
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-
-        $publicationProps = Services::get('publication')->getFullProperties(
-            $publication,
-            [
-                'request' => $request,
-                'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-            ]
-        );
+        $newId = Repo::publication()->version($publication, $request);
+        $publication = Repo::publication()->get($newId);
 
         $notificationManager = new NotificationManager();
         $userService = Services::get('user');
@@ -695,13 +686,19 @@ class PKPSubmissionHandler extends APIHandler
                 $user->getId(),
                 PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
                 $submission->getContextId(),
-                ASSOC_TYPE_SUBMISSION,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $submission->getId(),
                 Notification::NOTIFICATION_LEVEL_TASK
             );
         }
 
-        return $response->withJson($publicationProps, 200);
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        return $response->withJson(
+            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            200
+        );
     }
 
     /**
@@ -716,9 +713,9 @@ class PKPSubmissionHandler extends APIHandler
     public function editPublication($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
-        $publication = Services::get('publication')->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $args['publicationId']);
 
         if (!$publication) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -734,8 +731,8 @@ class PKPSubmissionHandler extends APIHandler
         }
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $currentUser->getId())) {
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
             return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
         }
 
@@ -755,24 +752,23 @@ class PKPSubmissionHandler extends APIHandler
         $primaryLocale = $publication->getData('locale');
         $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
-        $errors = Services::get('publication')->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::publication()->validate($publication, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $publication = Services::get('publication')->edit($publication, $params, $request);
+        Repo::publication()->edit($publication, $params);
+
+        $publication = Repo::publication()->get($publication->getId());
+
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        $publicationProps = Services::get('publication')->getFullProperties(
-            $publication,
-            [
-                'request' => $request,
-                'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-            ]
+        return $response->withJson(
+            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            200
         );
-
-        return $response->withJson($publicationProps, 200);
     }
 
     /**
@@ -791,8 +787,8 @@ class PKPSubmissionHandler extends APIHandler
     public function publishPublication($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $publication = Services::get('publication')->get((int) $args['publicationId']);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $publication = Repo::publication()->get((int) $args['publicationId']);
 
         if (!$publication) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -815,24 +811,23 @@ class PKPSubmissionHandler extends APIHandler
         $primaryLocale = $submission->getData('locale');
         $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
 
-        $errors = Services::get('publication')->validatePublish($publication, $submission, $allowedLocales, $primaryLocale);
+        $errors = Repo::publication()->validatePublish($publication, $submission, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $publication = Services::get('publication')->publish($publication);
+        Repo::publication()->publish($publication);
+
+        $publication = Repo::publication()->get($publication->getId());
+
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        $publicationProps = Services::get('publication')->getFullProperties(
-            $publication,
-            [
-                'request' => $request,
-                'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-            ]
+        return $response->withJson(
+            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            200
         );
-
-        return $response->withJson($publicationProps, 200);
     }
 
     /**
@@ -846,9 +841,8 @@ class PKPSubmissionHandler extends APIHandler
      */
     public function unpublishPublication($slimRequest, $response, $args)
     {
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $publication = Services::get('publication')->get((int) $args['publicationId']);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $publication = Repo::publication()->get((int) $args['publicationId']);
 
         if (!$publication) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -862,18 +856,17 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.publication.403.alreadyUnpublished');
         }
 
-        $publication = Services::get('publication')->unpublish($publication);
+        Repo::publication()->unpublish($publication);
+
+        $publication = Repo::publication()->get($publication->getId());
+
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        $publicationProps = Services::get('publication')->getFullProperties(
-            $publication,
-            [
-                'request' => $request,
-                'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-            ]
+        return $response->withJson(
+            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            200
         );
-
-        return $response->withJson($publicationProps, 200);
     }
 
     /**
@@ -891,8 +884,8 @@ class PKPSubmissionHandler extends APIHandler
     public function deletePublication($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $publication = Services::get('publication')->get((int) $args['publicationId']);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $publication = Repo::publication()->get((int) $args['publicationId']);
 
         if (!$publication) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -907,16 +900,12 @@ class PKPSubmissionHandler extends APIHandler
         }
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $publicationProps = Services::get('publication')->getFullProperties(
-            $publication,
-            [
-                'request' => $request,
-                'userGroups' => $userGroupDao->getByContextId($submission->getData('contextId'))->toArray(),
-            ]
-        );
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        Services::get('publication')->delete($publication);
+        $output = Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication);
 
-        return $response->withJson($publicationProps, 200);
+        Repo::publication()->delete($publication);
+
+        return $response->withJson($output, 200);
     }
 }

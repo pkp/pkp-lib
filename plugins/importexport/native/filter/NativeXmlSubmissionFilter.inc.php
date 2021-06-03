@@ -15,6 +15,7 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
+use APP\facades\Repo;
 use APP\submission\Submission;
 
 use PKP\workflow\WorkflowStageDAO;
@@ -81,8 +82,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         $context = $deployment->getContext();
 
         // Create and insert the submission (ID needed for other entities)
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->newDataObject();
+        $submission = Repo::submission()->newDataObject();
 
         $submission->setData('contextId', $context->getId());
         $submission->stampLastActivity();
@@ -95,7 +95,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         // Handle any additional attributes etc.
         $submission = $this->populateObject($submission, $node);
 
-        $submission = Services::get('submission')->add($submission, Application::get()->getRequest());
+        $submissionId = Repo::submission()->dao->insert($submission);
+        $submission = Repo::submission()->get($submissionId);
         $deployment->setSubmission($submission);
         $deployment->addProcessedObjectId(ASSOC_TYPE_SUBMISSION, $submission->getId());
 
@@ -105,7 +106,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
             }
         }
 
-        $submission = Services::get('submission')->get($submission->getId());
+        $submission = Repo::submission()->get($submission->getId());
 
         $deployment->addImportedRootEntity(ASSOC_TYPE_SUBMISSION, $submission);
 
@@ -122,7 +123,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
      */
     public function populateObject($submission, $node)
     {
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         if ($dateSubmitted = $node->getAttribute('date_submitted')) {
             $submission->setData('dateSubmitted', Core::getCurrentDate(strtotime($dateSubmitted)));
         } else {

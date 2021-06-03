@@ -16,8 +16,8 @@
 namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;
 
 use PKP\notification\PKPNotification;
@@ -30,8 +30,7 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
     public function getNotificationMessage($request, $notification)
     {
         assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($notification->getAssocId()); /** @var Submission $submission */
+        $submission = Repo::submission()->get($notification->getAssocId()); /** @var Submission $submission */
 
         switch ($notification->getType()) {
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:

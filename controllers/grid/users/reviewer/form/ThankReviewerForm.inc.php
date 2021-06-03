@@ -13,6 +13,7 @@
  * @brief Form for sending a thank you to a reviewer
  */
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
@@ -67,8 +68,7 @@ class ThankReviewerForm extends Form
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = $userDao->getById($reviewerId);
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
         $email = new SubmissionMailTemplate($submission, 'REVIEW_ACK');
 
@@ -105,12 +105,11 @@ class ThankReviewerForm extends Form
     public function execute(...$functionArgs)
     {
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
 
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = $userDao->getById($reviewerId);
-        $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
         $email = new SubmissionMailTemplate($submission, 'REVIEW_ACK', null, null, null, false);
 

@@ -18,6 +18,7 @@ import('lib.pkp.pages.management.ManagementHandler');
 
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
@@ -148,8 +149,7 @@ class PKPToolsHandler extends ManagementHandler
             return;
         }
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submissionDao->resetPermissions($context->getId());
+        Repo::submission()->resetPermissions($context->getId());
 
         $user = $request->getUser();
         NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.setup.resetPermissions.success')]);

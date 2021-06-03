@@ -112,12 +112,14 @@ class ReportGeneratorHandler extends Handler
         if (!$issueId) {
             return new JSONMessage(false);
         } else {
-            $submissionsIterator = Services::get('submission')->getMany([
-                'contextId' => $request->getContext()->getId(),
-                'issueIds' => $issueId,
-            ]);
+            $submissions = Repo::submission()->getMany(
+                Repo::submission()
+                    ->getCollector()
+                    ->filterByContextIds([$request->getContext()->getId()])
+                    ->filterByIssueIds([$issueId])
+            );
             $articlesInfo = [];
-            foreach ($submissionsIterator as $submission) {
+            foreach ($submissions as $submission) {
                 $articlesInfo[] = ['id' => $submission->getId(), 'title' => $submission->getLocalizedTitle()];
             }
 

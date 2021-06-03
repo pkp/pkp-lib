@@ -13,6 +13,7 @@
  * @brief Handle requests for the submssion workflow.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
@@ -24,7 +25,6 @@ use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolic
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 
-use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -151,7 +151,7 @@ abstract class PKPWorkflowHandler extends Handler
         $currentStageId = $submission->getStageId();
         $accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $canAccessPublication = false; // View title, metadata, etc.
-        $canEditPublication = Services::get('submission')->canEditPublication($submission->getId(), $request->getUser()->getId());
+        $canEditPublication = Repo::submission()->canEditPublication($submission->getId(), $request->getUser()->getId());
         $canAccessProduction = false; // Access to galleys and issue entry
         $canPublish = false; // Ability to publish, unpublish and create versions
         $canAccessEditorialHistory = false; // Access to activity log
@@ -274,56 +274,25 @@ abstract class PKPWorkflowHandler extends Handler
         // Get the submission props without the full publication details. We'll
         // retrieve just the publication information that we need separately to
         // reduce the amount of data passed to the browser
-        $propNames = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_SUBMISSION);
-        $propNames = array_filter($propNames, function ($propName) {
-            return $propName !== 'publications';
+        $submissionProps = Repo::submission()->getSchemaMap()->summarizeWithoutPublication($submission);
+
+        // Get an array of publications
+        $publications = $submission->getData('publications'); /** @var Enumerable $publications */
+        $publicationList = $publications->map(function ($publication) {
+            return [
+                'id' => $publication->getId(),
+                'datePublished' => $publication->getData('datePublished'),
+                'status' => $publication->getData('status'),
+                'version' => $publication->getData('version')
+            ];
         });
-        $submissionProps = Services::get('submission')->getProperties(
-            $submission,
-            $propNames,
-            [
-                'request' => $request,
-                'userGroups' => $authorUserGroups,
-            ]
-        );
 
-        // Get an array of publication identifiers
-        $publicationList = [];
-        foreach ($submission->getData('publications') as $publication) {
-            $publicationList[] = Services::get('publication')->getProperties(
-                $publication,
-                ['id', 'datePublished', 'status', 'version'],
-                [
-                    'context' => $submissionContext,
-                    'submission' => $submission,
-                    'request' => $request,
-                ]
-            );
-        }
-
-        // Get full details of the working publication and the currently published publication
-        $workingPublicationProps = Services::get('publication')->getFullProperties(
-            $submission->getLatestPublication(),
-            [
-                'context' => $submissionContext,
-                'submission' => $submission,
-                'request' => $request,
-                'userGroups' => $authorUserGroups,
-            ]
-        );
-        if ($submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()) {
-            $currentPublicationProps = $workingPublicationProps;
-        } else {
-            $currentPublicationProps = Services::get('publication')->getFullProperties(
-                $submission->getCurrentPublication(),
-                [
-                    'context' => $submissionContext,
-                    'submission' => $submission,
-                    'request' => $request,
-                    'userGroups' => $authorUserGroups,
-                ]
-            );
-        }
+        // Get full details of the working publication and the current publication
+        $mapper = Repo::publication()->getSchemaMap($submission, $authorUserGroups);
+        $workingPublicationProps = $mapper->map($submission->getLatestPublication());
+        $currentPublicationProps = $submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()
+            ? $workingPublicationProps
+            : $mapper->map($submission->getCurrentPublication());
 
         $state = [
             'activityLogLabel' => __('submission.list.infoCenter'),

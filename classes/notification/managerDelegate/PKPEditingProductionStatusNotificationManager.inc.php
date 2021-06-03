@@ -17,6 +17,7 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\core\PKPApplication;
@@ -86,8 +87,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 
         assert($assocType == ASSOC_TYPE_SUBMISSION);
         $submissionId = $assocId;
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($submissionId);
+        $submission = Repo::submission()->get($submissionId);
 
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $editorStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $submission->getStageId());

@@ -16,7 +16,7 @@
 namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
-use APP\core\Services;
+use APP\facades\Repo;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\note\NoteDAO;
@@ -84,15 +84,14 @@ class QueryNotificationManager extends NotificationManagerDelegate
      */
     protected function getQuerySubmission($query)
     {
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         switch ($query->getAssocType()) {
             case ASSOC_TYPE_SUBMISSION:
-                return $submissionDao->getById($query->getAssocId());
+                return Repo::submission()->get($query->getAssocId());
             case ASSOC_TYPE_REPRESENTATION:
                 $representationDao = Application::getRepresentationDAO();
                 $representation = $representationDao->getById($query->getAssocId());
-                $publication = Services::get('publication')->get($representation->getData('publicationId'));
-                return Services::get('submission')->get($publication->getData('submissionId'));
+                $publication = Repo::publication()->get($representation->getData('publicationId'));
+                return Repo::submission()->get($publication->getData('submissionId'));
         }
         assert(false);
     }
@@ -108,7 +107,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
         assert($query instanceof \PKP\query\Query);
         $submission = $this->getQuerySubmission($query);
 
-        return Services::get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
+        return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
     }
 
     /**

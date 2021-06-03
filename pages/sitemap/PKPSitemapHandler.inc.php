@@ -13,6 +13,7 @@
  * @brief Produce a sitemap in XML format for submitting to search engines.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 
 use DOMDocument;
@@ -102,9 +103,13 @@ class PKPSitemapHandler extends Handler
         // Announcements
         if ($context->getData('enableAnnouncements') == 1) {
             $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'announcement')));
-            $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
-            foreach ($announcementDao->getByAssocId($context->getAssocType(), $context->getId()) as $announcement) {
-                $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'announcement', 'view', $announcement->getId())));
+            $announcementIds = Repo::announcement()->getIds(
+                Repo::announcement()
+                    ->getCollector()
+                    ->filterByContextIds([$context->getId()])
+            );
+            foreach ($announcementIds as $announcementId) {
+                $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'announcement', 'view', $announcementId)));
             }
         }
         // About: context

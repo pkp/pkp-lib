@@ -114,7 +114,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 $this->_updateReviewRoundStatus($submission, $status, $reviewRound);
 
                 // Move to the editing stage.
-                $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EDITING, $request);
+                $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EDITING);
 
 
                 $selectedFiles = $this->getData('selectedFiles');
@@ -141,7 +141,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 $this->_updateReviewRoundStatus($submission, $status, $reviewRound);
 
                 // Move to the external review stage.
-                $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request);
+                $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW);
 
                 // Create an initial external review round.
                 $this->_initiateReviewRound($submission, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, $request, ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS);
@@ -154,7 +154,7 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 // FIXME: this is copy-pasted from above, save the FILE_GALLEY.
 
                 // Move to the editing stage.
-                $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_PRODUCTION, $request);
+                $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_PRODUCTION);
 
                 $selectedFiles = $this->getData('selectedFiles');
                 if (is_array($selectedFiles)) {

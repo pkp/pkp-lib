@@ -16,6 +16,7 @@
 namespace PKP\submission\form;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
@@ -24,6 +25,8 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
+
+import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 {
@@ -45,7 +48,6 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
      */
     public function execute(...$functionArgs)
     {
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $request = Application::get()->getRequest();
 
         // Set other submission data.
@@ -59,7 +61,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         parent::execute(...$functionArgs);
 
         // Save the submission.
-        $submissionDao->updateObject($this->submission);
+        Repo::submission()->dao->update($this->submission);
 
         // Assign the default stage participants.
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */

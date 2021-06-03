@@ -17,7 +17,7 @@
  * @class PKPSubmission
  * @ingroup submission
  *
- * @see PKPSubmissionDAO
+ * @see DAO
  *
  * @brief The Submission class implements the abstract data model of a
  * scholarly submission.
@@ -26,8 +26,9 @@
 namespace PKP\submission;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
-
+use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\mail\Mail;
@@ -105,11 +106,12 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function getLatestPublication()
     {
-        $publications = $this->getData('publications');
+        $publications = $this->getData('publications'); /** @var \Illuminate\Support\Enumerable $publications */
         if (empty($publications)) {
             return null;
         }
-        return array_reduce($publications, function ($a, $b) {
+
+        return $publications->reduce(function ($a, $b) {
             return $a && $a->getId() > $b->getId() ? $a : $b;
         });
     }
@@ -123,13 +125,14 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function getPublishedPublications()
     {
-        $publications = $this->getData('publications');
-        if (empty($publications)) {
+        $publications = $this->getData('publications'); /** @var LazyCollection $publications */
+        if ($publications->isEmpty()) {
             return [];
         }
-        return array_filter($publications, function ($publication) {
+
+        return $publications->filter(function ($publication) {
             return $publication->getData('status') === self::STATUS_PUBLISHED;
-        });
+        })->toArray();
     }
 
     /**
@@ -191,9 +194,9 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * @copydoc \PKP\core\DataObject::getDAO()
      */
-    public function getDAO()
+    public function getDAO(): \APP\submission\DAO
     {
-        return DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
+        return Repo::submission()->dao;
     }
 
     //

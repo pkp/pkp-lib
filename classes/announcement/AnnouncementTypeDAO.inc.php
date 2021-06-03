@@ -17,7 +17,7 @@
 
 namespace PKP\announcement;
 
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 
 class AnnouncementTypeDAO extends \PKP\db\DAO
 {
@@ -171,8 +171,8 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
         $this->update('DELETE FROM announcement_type_settings WHERE type_id = ?', [(int) $typeId]);
         $this->update('DELETE FROM announcement_types WHERE type_id = ?', [(int) $typeId]);
 
-        $announcementDao = DAORegistry::getDAO('AnnouncementDAO'); /** @var AnnouncementDAO $announcementDao */
-        $announcementDao->deleteByTypeId($typeId);
+        $collector = Repo::announcement()->getCollector()->filterByTypeIds([(int) $typeId]);
+        Repo::announcement()->deleteMany($collector);
     }
 
     /**

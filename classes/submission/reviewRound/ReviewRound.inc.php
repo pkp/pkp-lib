@@ -157,7 +157,7 @@ class ReviewRound extends \PKP\core\DataObject
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
             // get editor decisions
             $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS);
+            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), EditorDecisionActionsManager::SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS);
 
             if ($pendingRevisionDecision) {
                 if ($editDecisionDao->responseExists($pendingRevisionDecision, $this->getSubmissionId())) {
@@ -172,7 +172,7 @@ class ReviewRound extends \PKP\core\DataObject
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
             // get editor decisions
             $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_RESUBMIT);
+            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), EditorDecisionActionsManager::SUBMISSION_EDITOR_RECOMMEND_RESUBMIT);
 
             if ($pendingRevisionDecision) {
                 if ($editDecisionDao->responseExists($pendingRevisionDecision, $this->getSubmissionId())) {

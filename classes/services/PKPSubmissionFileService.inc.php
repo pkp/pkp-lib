@@ -16,7 +16,8 @@ namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
-
+use APP\facades\Repo;
+use APP\notification\NotificationManager;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -332,7 +333,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         $id = DAORegistry::getDAO('SubmissionFileDAO')->insertObject($submissionFile);
         $submissionFile = $this->get($id);
 
-        $submission = Services::get('submission')->get($submissionFile->getData('submissionId'));
+        $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
 
         SubmissionFileLog::logEvent(
             $request,
@@ -503,7 +504,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         );
 
         $user = $request->getUser();
-        $submission = Services::get('submission')->get($submissionFile->getData('submissionId'));
+        $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
         SubmissionLog::logEvent(
             $request,
             $submission,
@@ -557,7 +558,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
         $noteDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId());
 
         // Update tasks
-        $notificationMgr = new \NotificationManager();
+        $notificationMgr = new NotificationManager();
         switch ($submissionFile->getData('fileStage')) {
             case SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION:
                 $authorUserIds = [];

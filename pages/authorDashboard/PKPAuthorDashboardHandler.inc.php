@@ -13,14 +13,17 @@
  * @brief Handle requests for the author dashboard.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
 
+use Illuminate\Support\Enumerable;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
+
 use PKP\security\Role;
-use PKP\services\PKPSchemaService;
+
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionFile;
 use PKP\workflow\WorkflowStageDAO;
@@ -254,61 +257,30 @@ abstract class PKPAuthorDashboardHandler extends Handler
         // Get the submission props without the full publication details. We'll
         // retrieve just the publication information that we need separately to
         // reduce the amount of data passed to the browser
-        $propNames = Services::get('schema')->getSummaryProps(PKPSchemaService::SCHEMA_SUBMISSION);
-        $propNames = array_filter($propNames, function ($propName) {
-            return $propName !== 'publications';
+        $submissionProps = Repo::submission()->getSchemaMap()->summarizeWithoutPublication($submission);
+
+        // Get an array of publications
+        $publications = $submission->getData('publications'); /** @var Enumerable $publications */
+        $publicationList = $publications->map(function ($publication) {
+            return [
+                'id' => $publication->getId(),
+                'datePublished' => $publication->getData('datePublished'),
+                'status' => $publication->getData('status'),
+                'version' => $publication->getData('version')
+            ];
         });
-        $submissionProps = Services::get('submission')->getProperties(
-            $submission,
-            $propNames,
-            [
-                'request' => $request,
-                'userGroups' => $contextUserGroups,
-            ]
-        );
 
-        // Get an array of publication identifiers
-        $publicationList = [];
-        foreach ($submission->getData('publications') as $publication) {
-            $publicationList[] = Services::get('publication')->getProperties(
-                $publication,
-                ['id', 'datePublished', 'status', 'version'],
-                [
-                    'context' => $submissionContext,
-                    'submission' => $submission,
-                    'request' => $request,
-                ]
-            );
-        }
-
-        // Get full details of the working publication and the currently published publication
-        $workingPublicationProps = Services::get('publication')->getFullProperties(
-            $submission->getLatestPublication(),
-            [
-                'context' => $submissionContext,
-                'submission' => $submission,
-                'request' => $request,
-                'userGroups' => $contextUserGroups,
-            ]
-        );
-        if ($submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()) {
-            $currentPublicationProps = $workingPublicationProps;
-        } else {
-            $currentPublicationProps = Services::get('publication')->getFullProperties(
-                $submission->getCurrentPublication(),
-                [
-                    'context' => $submissionContext,
-                    'submission' => $submission,
-                    'request' => $request,
-                    'userGroups' => $contextUserGroups,
-                ]
-            );
-        }
+        // Get full details of the working publication and the current publication
+        $mapper = Repo::publication()->getSchemaMap($submission, $contextUserGroups);
+        $workingPublicationProps = $mapper->map($submission->getLatestPublication());
+        $currentPublicationProps = $submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()
+            ? $workingPublicationProps
+            : $mapper->map($submission->getCurrentPublication());
 
         // Check if current author can edit metadata
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         $canEditPublication = true;
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $user->getId())) {
             $canEditPublication = false;
         }
 

@@ -13,11 +13,13 @@
  * @brief Form for adding/editing a author
  */
 
+use APP\facades\Repo;
+
+use APP\publication\Publication;
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
 use PKP\security\Role;
-use PKP\services\interfaces\EntityWriteInterface;
 
 class PKPAuthorForm extends Form
 {
@@ -196,7 +198,7 @@ class PKPAuthorForm extends Form
     public function execute(...$functionParams)
     {
         $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
-        $publication = $this->getPublication();
+        $publication = $this->getPublication(); /** @var Publication $publication */
 
         $author = $this->getAuthor();
         if (!$author) {
@@ -236,11 +238,11 @@ class PKPAuthorForm extends Form
         }
 
         if ($this->getData('primaryContact')) {
-            $submission = Services::get('submission')->get($publication->getData('submissionId'));
+            $submission = Repo::submission()->get($publication->getData('submissionId'));
             $context = Services::get('context')->get($submission->getData('contextId'));
             $params = ['primaryContactId' => $authorId];
-            $errors = Services::get('publication')->validate(
-                EntityWriteInterface::VALIDATE_ACTION_EDIT,
+            $errors = Repo::publication()->validate(
+                $publication,
                 $params,
                 $context->getData('supportedLocales'),
                 $publication->getData('locale')
@@ -248,7 +250,7 @@ class PKPAuthorForm extends Form
             if (!empty($errors)) {
                 throw new Exception('Invalid primary contact ID. This author can not be a primary contact.');
             }
-            $publication = Services::get('publication')->edit($publication, $params, Application::get()->getRequest());
+            Repo::publication()->edit($publication, $params);
         }
 
         return $authorId;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @file classes/observers/events/DeleteSubmissionFile.inc.php
  *
@@ -17,7 +19,6 @@ namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-use PKP\Jobs\Submissions\DeleteSubmissionFileJob;
 use PKP\submission\SubmissionFile;
 
 class DeleteSubmissionFile
@@ -30,7 +31,5 @@ class DeleteSubmissionFile
     public function __construct(SubmissionFile $submissionFile)
     {
         $this->submissionFile = $submissionFile;
-
-        dispatch(new DeleteSubmissionFileJob($this->submissionFile->getId()));
     }
 }

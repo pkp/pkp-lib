@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @file classes/observers/events/MetadataChanged.inc.php
  *
@@ -17,7 +19,6 @@ namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-use PKP\Jobs\Metadata\MetadataChangedJob;
 use PKP\submission\PKPSubmission;
 
 class MetadataChanged
@@ -30,7 +31,5 @@ class MetadataChanged
     public function __construct(PKPSubmission $submission)
     {
         $this->submission = $submission;
-
-        dispatch(new MetadataChangedJob($submission->getId()));
     }
 }

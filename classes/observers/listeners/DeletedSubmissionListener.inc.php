@@ -15,21 +15,20 @@ declare(strict_types=1);
  * @brief Event fired when submission's deleted
  */
 
-namespace PKP\observers\events;
+namespace PKP\observers\listeners;
 
-use Illuminate\Foundation\Events\Dispatchable;
+use PKP\Jobs\Submissions\DeletedSubmissionSearchJob;
+use PKP\observers\events\DeletedSubmission;
 
-use PKP\submission\PKPSubmission;
-
-class DeletedSubmission
+class DeletedSubmissionListener
 {
-    use Dispatchable;
-
-    /** @var PKPSubmission $submission Submission associated */
-    public $submission;
-
-    public function __construct(PKPSubmission $submission)
+    /**
+     * Handle the listener call
+     *
+     *
+     */
+    public function handle(DeletedSubmission $event)
     {
-        $this->submission = $submission;
+        dispatch(new DeletedSubmissionSearchJob($event->submission->getId()));
     }
 }

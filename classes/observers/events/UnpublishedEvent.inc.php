@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @file classes/observers/events/UnpublishedEvent.inc.php
  *
@@ -17,7 +19,6 @@ namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-use PKP\Jobs\Submissions\UpdateSubmissionSearchJob;
 use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 
@@ -39,7 +40,5 @@ class UnpublishedEvent
         $this->newPublication = $newPublication;
         $this->publication = $publication;
         $this->submission = $submission;
-
-        dispatch(new UpdateSubmissionSearchJob($submission->getId()));
     }
 }

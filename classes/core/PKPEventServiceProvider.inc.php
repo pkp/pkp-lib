@@ -31,7 +31,23 @@ class PKPEventServiceProvider extends EventServiceProvider
      * @var array $listen $event => $listeners[]
      * @brief Registering events & listeners, see Illuminate\Events\EventServiceProvider
      */
-    protected $listen = [];
+    protected $listen = [
+        DeletedSubmission::class => [
+            DeletedSubmissionListener::class,
+        ],
+        DeleteSubmissionFile::class => [
+            DeleteSubmissionFileListener::class,
+        ],
+        MetadataChanged::class => [
+            MetadataChangedListener::class
+        ],
+        PublishedEvent::class => [
+            UpdateSubmissionSearchListener::class,
+        ],
+        UnpublishedEvent::class => [
+            UpdateSubmissionSearchListener::class,
+        ]
+    ];
 
     /**
      * @var array

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DeletedSubmission
+ * @class MetadataChangedListener
  * @ingroup core
  *
  * @brief Listener fired when submission metadata's changed

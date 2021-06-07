@@ -15,14 +15,15 @@
 
 namespace APP\services;
 
-use PKP\file\TemporaryFileManager;
+use APP\core\Application;
+use APP\core\Services;
+use APP\facades\Repo;
+use APP\file\PublicFileManager;
+
 use PKP\config\Config;
 use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileManager;
 use PKP\plugins\HookRegistry;
-
-use APP\file\PublicFileManager;
-use APP\core\Services;
-use APP\core\Application;
 
 class ContextService extends \PKP\services\PKPContextService
 {
@@ -128,8 +129,7 @@ class ContextService extends \PKP\services\PKPContextService
         $sectionDao = DAORegistry::getDAO('SectionDAO');
         $sectionDao->deleteByServerId($context->getId());
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO');
-        $submissionDao->deleteByContextId($context->getId());
+        Repo::submission()->deleteByContextId($context->getId());
 
         $publicFileManager = new PublicFileManager();
         $publicFileManager->rmtree($publicFileManager->getContextFilesPath($context->getId()));

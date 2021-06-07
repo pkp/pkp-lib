@@ -10,16 +10,16 @@
  * @class Publication
  * @ingroup publication
  *
- * @see PublicationDAO
+ * @see DAO
  *
  * @brief Class for Publication.
  */
 
 namespace APP\publication;
 
-use PKP\publication\PKPPublication;
-
 use APP\file\PublicFileManager;
+
+use PKP\publication\PKPPublication;
 
 class Publication extends PKPPublication
 {

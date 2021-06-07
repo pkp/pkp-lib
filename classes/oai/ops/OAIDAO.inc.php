@@ -17,13 +17,13 @@
 
 namespace APP\oai\ops;
 
-use PKP\submission\PKPSubmission;
-use PKP\oai\PKPOAIDAO;
-use PKP\oai\OAISet;
+use APP\facades\Repo;
 use PKP\db\DAORegistry;
+use PKP\oai\OAISet;
+use PKP\oai\PKPOAIDAO;
 use PKP\plugins\HookRegistry;
 
-use APP\core\Services;
+use PKP\submission\PKPSubmission;
 
 class OAIDAO extends PKPOAIDAO
 {
@@ -187,7 +187,7 @@ class OAIDAO extends PKPOAIDAO
         $record->sets = [urlencode($server->getPath()) . ':' . urlencode($section->getLocalizedAbbrev())];
 
         if ($isRecord) {
-            $submission = Services::get('submission')->get($preprintId);
+            $submission = Repo::submission()->get($preprintId);
             $galleys = $this->preprintGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId())->toArray();
 
             $record->setData('preprint', $submission);

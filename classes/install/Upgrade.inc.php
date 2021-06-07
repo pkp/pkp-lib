@@ -15,13 +15,11 @@
 
 namespace APP\install;
 
-use PKP\install\Installer;
-use PKP\db\DAORegistry;
-use PKP\core\PKPString;
-
 use APP\core\Application;
-use APP\i18n\AppLocale;
+
+use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\install\Installer;
 
 class Upgrade extends Installer
 {
@@ -82,8 +80,7 @@ class Upgrade extends Installer
      */
     public function changeSubmissionStageToProduction()
     {
-        $submissioDao = DAORegistry::getDAO('SubmissionDAO');
-        $submissioDao->update('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', [WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION]);
+        Repo::submission()->dao->update('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', [WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION]);
 
         return true;
     }

@@ -13,10 +13,10 @@
  * @brief Handle requests for the submission wizard.
  */
 
-use PKP\security\Role;
-
+use APP\facades\Repo;
 use APP\template\TemplateManager;
-use APP\handler\Handler;
+
+use PKP\security\Role;
 
 import('lib.pkp.pages.submission.PKPSubmissionHandler');
 
@@ -52,10 +52,10 @@ class SubmissionHandler extends PKPSubmissionHandler
             // OPS: Check if author can publish
             // OPS: Author can publish, see if other criteria exists and create an array of errors
             import('classes.core.Services');
-            if (Services::get('publication')->canAuthorPublish($submission->getId())) {
+            if (Repo::publication()->canCurrentUserPublish($submission->getId())) {
                 $primaryLocale = $context->getPrimaryLocale();
                 $allowedLocales = $context->getSupportedLocales();
-                $errors = Services::get('publication')->validatePublish($submission->getLatestPublication(), $submission, $allowedLocales, $primaryLocale);
+                $errors = Repo::publication()->validatePublish($submission->getLatestPublication(), $submission, $allowedLocales, $primaryLocale);
 
                 if (!empty($errors)) {
                     $msg .= '<ul class="plain">';

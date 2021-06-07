@@ -13,7 +13,8 @@
  * @brief Produce a sitemap in XML format for submitting to search engines.
  */
 
-use PKP\submission\PKPSubmission;
+use APP\facades\Repo;
+use APP\submission\Submission;
 
 import('lib.pkp.pages.sitemap.PKPSitemapHandler');
 
@@ -28,17 +29,17 @@ class SitemapHandler extends PKPSitemapHandler
         $root = $doc->documentElement;
 
         $server = $request->getServer();
-        $serverId = $server->getId();
 
         // Search
         $root->appendChild($this->_createUrlTree($doc, $request->url($server->getPath(), 'search')));
 
         // Preprints
-        import('classes.submission.Submission'); // Import status constants
-        $submissionIds = Services::get('submission')->getIds([
-            'status' => PKPSubmission::STATUS_PUBLISHED,
-            'contextId' => $server->getId(),
-        ]);
+        $submissionIds = Repo::submission()->getIds(
+            Repo::submission()
+                ->getCollector()
+                ->filterByContextIds([$server->getId()])
+                ->filterByStatus([Submission::STATUS_PUBLISHED])
+        );
         foreach ($submissionIds as $submissionId) {
             $root->appendChild($this->_createUrlTree($doc, $request->url($server->getPath(), 'preprint', 'view', [$submissionId])));
         }

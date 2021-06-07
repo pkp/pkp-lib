@@ -16,6 +16,7 @@
 // Import base class
 import('lib.pkp.pages.authorDashboard.PKPAuthorDashboardHandler');
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 
 class AuthorDashboardHandler extends PKPAuthorDashboardHandler
@@ -86,7 +87,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
         ]);
 
         // If authors can publish show publish buttons
-        $canPublish = Services::get('publication')->canAuthorPublish($submission->getId()) ? true : false;
+        $canPublish = Repo::publication()->canCurrentUserPublish($submission->getId()) ? true : false;
         $templateMgr->assign('canPublish', $canPublish);
     }
 

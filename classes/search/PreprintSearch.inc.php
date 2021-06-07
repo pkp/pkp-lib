@@ -18,15 +18,15 @@
 
 namespace APP\search;
 
-use PKP\search\SubmissionSearch;
-use PKP\submission\PKPSubmission;
-use PKP\statistics\PKPStatisticsHelper;
-use PKP\plugins\HookRegistry;
-use PKP\db\DAORegistry;
-
 use APP\core\Application;
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
+
+use PKP\search\SubmissionSearch;
+use PKP\statistics\PKPStatisticsHelper;
+use PKP\submission\PKPSubmission;
 
 class PreprintSearch extends SubmissionSearch
 {
@@ -54,7 +54,6 @@ class PreprintSearch extends SubmissionSearch
         // may have to retrieve some objects again when formatting results.
         $orderedResults = [];
         $authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
         $contextDao = Application::getContextDAO();
         $contextTitles = [];
         if ($orderBy == 'popularityAll' || $orderBy == 'popularityMonth') {
@@ -91,12 +90,12 @@ class PreprintSearch extends SubmissionSearch
 
             switch ($orderBy) {
                 case 'authors':
-                    $submission = $submissionDao->getById($submissionId);
+                    $submission = Repo::submission()->get($submissionId);
                     $orderKey = $submission->getAuthorString();
                     break;
 
                 case 'title':
-                    $submission = $submissionDao->getById($submissionId);
+                    $submission = Repo::submission()->get($submissionId);
                     $orderKey = '';
                     if (!empty($submission->getCurrentPublication())) {
                         $orderKey = $submission->getCurrentPublication()->getLocalizedData('title');
@@ -266,7 +265,7 @@ class PreprintSearch extends SubmissionSearch
         foreach ($results as $preprintId) {
             // Get the preprint, storing in cache if necessary.
             if (!isset($preprintCache[$preprintId])) {
-                $submission = Services::get('submission')->get($preprintId);
+                $submission = Repo::submission()->get($preprintId);
                 $publishedSubmissionCache[$preprintId] = $submission;
                 $preprintCache[$preprintId] = $submission;
             }
@@ -315,7 +314,7 @@ class PreprintSearch extends SubmissionSearch
         // of the submission for a similarity search.
         if ($result === false) {
             // Retrieve the preprint.
-            $preprint = Services::get('submission')->get($submissionId);
+            $preprint = Repo::submission()->get($submissionId);
             if ($preprint->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
                 // Retrieve keywords (if any).
                 $submissionSubjectDao = DAORegistry::getDAO('SubmissionKeywordDAO');

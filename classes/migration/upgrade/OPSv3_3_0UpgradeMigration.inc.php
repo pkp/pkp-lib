@@ -13,15 +13,15 @@
 
 namespace PKP\migration\upgrade;
 
+use APP\core\Services;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 
-use PKP\services\PKPSchemaService;
+use Illuminate\Support\Facades\Schema;
 use PKP\db\DAORegistry;
 
-use APP\core\Services;
+use PKP\services\PKPSchemaService;
 
 class OPSv3_3_0UpgradeMigration extends Migration
 {
@@ -67,7 +67,16 @@ class OPSv3_3_0UpgradeMigration extends Migration
     {
 
         // Convert settings where type can be retrieved from schema.json
-        $schemaDAOs = ['SiteDAO', 'AnnouncementDAO', 'AuthorDAO', 'ArticleGalleyDAO', 'JournalDAO', 'EmailTemplateDAO', 'PublicationDAO', 'SubmissionDAO'];
+        $schemaDAOs = [
+            'SiteDAO',
+            \PKP\announcement\DAO::class,
+            'AuthorDAO',
+            'ArticleGalleyDAO',
+            'JournalDAO',
+            'EmailTemplateDAO',
+            \APP\publication\DAO::class,
+            \APP\submission\DAO::class
+        ];
         $processedTables = [];
         foreach ($schemaDAOs as $daoName) {
             $dao = DAORegistry::getDAO($daoName);

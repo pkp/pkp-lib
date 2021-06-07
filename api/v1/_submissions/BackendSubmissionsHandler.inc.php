@@ -13,44 +13,29 @@
  * @brief Handle API requests for backend operations.
  *
  */
+use APP\submission\Collector;
 
 import('lib.pkp.api.v1._submissions.PKPBackendSubmissionsHandler');
 
 class BackendSubmissionsHandler extends PKPBackendSubmissionsHandler
 {
-    /**
-     * Constructor
-     */
-    public function __construct()
+    /** @copydoc PKPSubmissionHandler::getSubmissionCollector() */
+    protected function getSubmissionCollector(array $queryParams): Collector
     {
-        \HookRegistry::register('API::_submissions::params', [$this, 'addAppSubmissionsParams']);
-        parent::__construct();
-    }
+        $collector = parent::getSubmissionCollector($queryParams);
 
-    /**
-     * Add ops-specific parameters to the getMany request
-     *
-     * @param $hookName string
-     * @param $args array [
-     * 		@option $params array
-     * 		@option $slimRequest Request Slim request object
-     * 		@option $response Response object
-     * ]
-     */
-    public function addAppSubmissionsParams($hookName, $args)
-    {
-        $params = & $args[0];
-        $slimRequest = $args[1];
-        $response = $args[2];
-
-        $originalParams = $slimRequest->getQueryParams();
-
-        if (!empty($originalParams['sectionIds'])) {
-            if (is_array($originalParams['sectionIds'])) {
-                $params['sectionIds'] = array_map('intval', $originalParams['sectionIds']);
-            } else {
-                $params['sectionIds'] = [(int) $originalParams['sectionIds']];
-            }
+        if (isset($queryParams['issueIds'])) {
+            $collector->filterByIssueIds(
+                array_map('intval', $this->paramToArray($queryParams['issueIds']))
+            );
         }
+
+        if (isset($queryParams['sectionIds'])) {
+            $collector->filterBySectionIds(
+                array_map('intval', $this->paramToArray($queryParams['sectionIds']))
+            );
+        }
+
+        return $collector;
     }
 }

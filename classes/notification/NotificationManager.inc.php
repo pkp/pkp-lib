@@ -17,12 +17,12 @@
 
 namespace APP\notification;
 
-use PKP\notification\PKPNotificationManager;
-use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
-
 use APP\core\Application;
+use APP\facades\Repo;
+
 use APP\notification\managerDelegate\ApproveSubmissionNotificationManager;
+use PKP\core\PKPApplication;
+use PKP\notification\PKPNotificationManager;
 
 class NotificationManager extends PKPNotificationManager
 {
@@ -59,8 +59,7 @@ class NotificationManager extends PKPNotificationManager
     {
         assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION);
         assert(is_numeric($notification->getAssocId()));
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-        $preprint = $submissionDao->getById($notification->getAssocId());
+        $preprint = Repo::submission()->get($notification->getAssocId());
         if (!$preprint) {
             return null;
         }

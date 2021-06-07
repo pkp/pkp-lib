@@ -35,6 +35,13 @@ class UpdateSubmissionSearchJob extends BaseJob
     public $connection;
 
     /**
+     * The queue's name where the job will be consumed
+     *
+     * @var string
+     */
+    public $queue;
+
+    /**
      * @var int The submission ID
      */
     protected $submissionId;

@@ -273,12 +273,10 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      * @param $set string
      * @param $submissionId int optional
      * @param $orderBy string UNFILTERED
-     * @param $offset int? Query offset
-     * @param $limit int? Query limit
      *
      * @return \Illuminate\Database\Query\Builder
      */
-    abstract public function _getRecordsRecordSetQuery($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id', $offset = null, $limit = null);
+    abstract public function _getRecordsRecordSetQuery($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id');
 }
 
 if (!PKP_STRICT_MODE) {

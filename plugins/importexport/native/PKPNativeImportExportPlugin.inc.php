@@ -21,6 +21,7 @@ use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
 
 use PKP\plugins\ImportExportPlugin;
+use PKP\plugins\PluginRegistry;
 
 abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
 {
@@ -288,6 +289,8 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
             $this->usage($scriptName);
             return true;
         }
+
+        PluginRegistry::loadCategory('pubIds', true, $context->getId());
 
         $xmlFile = $cliDeployment->xmlFile;
         if ($xmlFile && $this->isRelativePath($xmlFile)) {

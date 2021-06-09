@@ -21,6 +21,7 @@ use PKP\file\FileManager;
 use PKP\plugins\ImportExportPlugin;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
+use PKP\plugins\PluginRegistry;
 use PKP\linkAction\request\NullAction;
 use PKP\linkAction\LinkAction;
 
@@ -593,6 +594,8 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             $this->usage($scriptName);
             return;
         }
+
+        PluginRegistry::loadCategory('pubIds', true, $context->getId());
 
         if ($outputFile) {
             if ($this->isRelativePath($outputFile)) {

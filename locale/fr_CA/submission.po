@@ -80,10 +80,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Métadonnées additionnelles"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Courriel d'inscription CrossRef"
+msgstr "Courriel d'inscription Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Veuillez saisir un courriel d'inscription CrossRef valide. Vous pouvez inscrire votre courriel gratuitement sur le site Web de CrossRef."
+msgstr "Veuillez saisir un courriel d'inscription Crossref valide. Vous pouvez inscrire votre courriel gratuitement sur le site Web de Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Clé API ISBNdb"

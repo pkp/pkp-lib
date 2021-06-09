@@ -183,6 +183,16 @@ class DAO extends EntityDAO
     {
         $publication = parent::fromRow($row);
 
+        // TODO: #doi
+        //  NULL values in integer columns coerced into 0.
+        //  This causes a fatal SQL error if used with a foreign key constraint
+        //  see: https://github.com/pkp/pkp-lib/pull/7350#discussion_r719312826
+        if ($publication->getData('doiId') == 0) {
+            $publication->unsetData('doiId');
+        }
+
+        $this->setDoiObject($publication);
+
         // Set the primary locale from the submission
         $locale = DB::table('submissions as s')
             ->where('s.submission_id', '=', $publication->getData('submissionId'))
@@ -537,5 +547,16 @@ class DAO extends EntityDAO
     protected function deleteCitations(int $publicationId)
     {
         $this->citationDao->deleteByPublicationId($publicationId);
+    }
+
+    /**
+     * Set the DOI object
+     *
+     */
+    protected function setDoiObject(Publication $publication)
+    {
+        if (!empty($publication->getData('doiId'))) {
+            $publication->setData('doiObject', Repo::doi()->get($publication->getData('doiId')));
+        }
     }
 }

@@ -47,7 +47,7 @@
  *
  *  2) Normalize
  *  * lookup: compare the data of a given entity (e.g. a bibliographic
- *    reference) with data from other sources (e.g. CrossRef) and use this
+ *    reference) with data from other sources (e.g. Crossref) and use this
  *    to normalize data or improve data quality.
  *  * harvest: cleanse and normalize incoming meta-data
  *

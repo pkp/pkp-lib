@@ -70,6 +70,9 @@ class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Removing orphaned category/publication associations for missing publication ID ${publicationId}");
                 DB::table('publication_categories')->where('publication_id', '=', $publicationId)->delete();
             }
+
+            // pkp/pkp-lib#7014 Bring DOIs into the core application and refactor to support deposit status
+            $this->_doiPreflightCheck();
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
@@ -100,5 +103,14 @@ class PreflightCheckMigration extends \PKP\migration\Migration
             return $fallbackVersion;
         }
         return null;
+    }
+
+    /**
+     * Preflight check for changes made in pkp/pkp-lib#7014 Bring DOIs into the core application and refactor to support deposit status
+     */
+    private function _doiPreflightCheck()
+    {
+        // TODO: #doi Check if registered DOI matches pub-id::doi stored
+        // TODO: #doi Check if more than one registered DOI/ status with different registration agencies
     }
 }

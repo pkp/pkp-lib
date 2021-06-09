@@ -398,6 +398,8 @@ abstract class Repository
      * This method performs all actions needed when publishing an item, such
      * as setting metadata, logging events, updating the search index, etc.
      *
+     * @throws \Exception
+     *
      * @see self::setStatusOnPublish()
      */
     public function publish(Publication $publication)
@@ -428,6 +430,9 @@ abstract class Repository
         $newPublication = Repo::publication()->get($newPublication->getId());
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
+        // Create DOIs
+        Repo::submission()->createDois($submission);
+
         // Update a submission's status based on the status of its publications
         if ($newPublication->getData('status') !== $publication->getData('status')) {
             Repo::submission()->updateStatus($submission);
@@ -447,8 +452,10 @@ abstract class Repository
 
         HookRegistry::call('Publication::publish', [&$newPublication, $publication, $submission]);
 
-        // Update the search index.
+        // Update the search index and mark DOIs stale (if applicable).
         if ($newPublication->getData('status') === Submission::STATUS_PUBLISHED) {
+            Repo::doi()->publicationUpdated($newPublication);
+
             Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
             Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);
             Application::getSubmissionSearchDAO()->flushCache();
@@ -503,8 +510,10 @@ abstract class Repository
 
         HookRegistry::call('Publication::unpublish', [&$newPublication, $publication, $submission]);
 
-        // Update the metadata in the search index.
+        // Update the metadata in the search index and mark DOIs stable (if applicable).
         if ($submission->getData('status') !== Submission::STATUS_PUBLISHED) {
+            Repo::doi()->publicationUpdated($newPublication);
+
             Application::getSubmissionSearchIndex()->deleteTextIndex($submission->getId());
             Application::getSubmissionSearchIndex()->clearSubmissionFiles($submission);
         } else {
@@ -632,5 +641,10 @@ abstract class Repository
             'datePublished.date_format' => __('publication.datePublished.errorFormat'),
             'urlPath.regex' => __('validator.alpha_dash_period'),
         ];
+    }
+
+    protected function createDois(Publication $newPublication)
+    {
+        // TODO: Moved publication DOI to APP level pending OJS/OMP integration
     }
 }

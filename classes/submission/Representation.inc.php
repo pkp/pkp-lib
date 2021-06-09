@@ -106,7 +106,25 @@ class Representation extends \PKP\core\DataObject
     }
 
     /**
+     * Returns current DOI
+     *
+     */
+    public function getDoi(): ?string
+    {
+        $doiObject = $this->getData('doiObject');
+
+        if (empty($doiObject)) {
+            return null;
+        } else {
+            return $doiObject->getData('doi');
+        }
+    }
+
+    /**
      * Get stored public ID of the submission.
+     *
+     * This helper function is required by PKPPubIdPlugins.
+     * NB: To maintain backwards compatability, getDoi() is called from here
      *
      * @param $pubIdType string One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
@@ -116,7 +134,11 @@ class Representation extends \PKP\core\DataObject
      */
     public function getStoredPubId($pubIdType)
     {
-        return $this->getData('pub-id::' . $pubIdType);
+        if ($pubIdType == 'doi') {
+            return $this->getDoi();
+        } else {
+            return $this->getData('pub-id::' . $pubIdType);
+        }
     }
 
     /**

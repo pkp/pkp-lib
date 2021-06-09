@@ -77,7 +77,7 @@ class TemporaryFileManager extends PrivateFileManager
      *
      * @return boolean
      */
-    public function downloadById($fileId, $userId, $inline = false)
+    public function downloadById(int $fileId, int $userId, bool $inline = false)
     {
         $temporaryFile = $this->getFile($fileId, $userId);
         if (isset($temporaryFile)) {
@@ -129,6 +129,26 @@ class TemporaryFileManager extends PrivateFileManager
         } else {
             return false;
         }
+    }
+
+    /**
+     * Creates a TemporaryFile entry in DB based on an existing file in the system temp directory
+     *
+     *
+     * @throws \Exception
+     */
+    public function createTempFileFromExisting(string $fileName, int $userId): int
+    {
+        $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
+        $temporaryFile = $temporaryFileDao->newDataObject();
+
+        $temporaryFile->setUserId($userId);
+        $temporaryFile->setServerFileName(pathinfo($fileName, PATHINFO_BASENAME));
+        $fileSize = filesize($fileName);
+        $temporaryFile->setFileSize($fileSize);
+        $temporaryFile->setDateUploaded(Core::getCurrentDate());
+
+        return $temporaryFileDao->insertObject($temporaryFile);
     }
 
     /**

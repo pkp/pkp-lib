@@ -573,10 +573,10 @@ msgid "submission.fileDetails"
 msgstr "Detalhes do Ficheiro"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "E-mail de Registo CrossRef"
+msgstr "E-mail de Registo Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Insira um e-mail de registo CrossRef válido. Pode registar gratuitamente o seu e-mail num site CrossRef."
+msgstr "Insira um e-mail de registo Crossref válido. Pode registar gratuitamente o seu e-mail num site Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Chave API ISBNdb"

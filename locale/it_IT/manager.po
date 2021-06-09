@@ -1769,7 +1769,7 @@ msgid "manager.setup.metadata.citations.description"
 msgstr ""
 "Inserire le referenze in un campo separato. Questo potrebbe essere "
 "necessario per conformarsi ai servizi di indicizzazione delle citazioni, "
-"come ad esempio CrossRef."
+"come ad esempio Crossref."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""

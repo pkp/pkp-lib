@@ -319,7 +319,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
         if (!$publication) {
             return '';
         }
-        return $publication->getData('pub-id::' . $pubIdType);
+        return $publication->getStoredPubId($pubIdType);
     }
 
     /**
@@ -336,7 +336,11 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     {
         $publication = $this->getCurrentPublication();
         if ($publication) {
-            $this->setData('pub-id::' . $pubIdType, $pubId);
+            if ($pubIdType == 'doi') {
+                $publication->setStoredPubId($pubIdType, $pubId);
+            } else {
+                $this->setData('pub-id::' . $pubIdType, $pubId);
+            }
         }
     }
 

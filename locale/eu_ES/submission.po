@@ -570,10 +570,10 @@ msgid "author.submit.submissionCitations"
 msgstr "Eman aurkezpenean aipatutako lanen erreferentzien formatudun zerrenda."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef-en erregistratzeko helbide elektronikoa"
+msgstr "Crossref-en erregistratzeko helbide elektronikoa"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Mesedez, sartu CrossRef-en erregistratzeko baliozko helbide elektronikoa. Zure helbide elektronikoa doan erregistra dezakezu CrossRef-en web orrian."
+msgstr "Mesedez, sartu Crossref-en erregistratzeko baliozko helbide elektronikoa. Zure helbide elektronikoa doan erregistra dezakezu Crossref-en web orrian."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API gakoa"

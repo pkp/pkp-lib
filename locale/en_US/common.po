@@ -1787,6 +1787,12 @@ msgstr "Show more details about {$name}"
 msgid "list.viewLess"
 msgstr "Hide expanded details about {$name}"
 
+msgid "list.expandAll"
+msgstr "Expand all"
+
+msgid "list.collapseAll"
+msgstr "Collapse all"
+
 msgid "validation.invalidOption"
 msgstr "This is not a valid option."
 

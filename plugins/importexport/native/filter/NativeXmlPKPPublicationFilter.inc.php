@@ -225,8 +225,23 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
                 break;
             default:
                 if ($advice == 'update') {
-                    $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-                    $publication->setData('pub-id::' . $element->getAttribute('type'), $element->textContent);
+                    if ($element->getAttribute('type') == 'doi') {
+                        if ($doiObject = $publication->getData('doiObject')) {
+                            Repo::doi()->edit($doiObject, ['doi' => $element->textContent]);
+                        } else {
+                            $newDoiObject = Repo::doi()->newDataObject(
+                                [
+                                    'doi' => $element->textContent,
+                                    'contextId' => $submission->getData('contextId')
+                                ]
+                            );
+                            $doiId = Repo::doi()->add($newDoiObject);
+                            $publication->setData('doiId', $doiId);
+                        }
+                    } else {
+                        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
+                        $publication->setData('pub-id::' . $element->getAttribute('type'), $element->textContent);
+                    }
                 }
         }
     }

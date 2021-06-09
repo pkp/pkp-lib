@@ -67,6 +67,12 @@
 				"nullable"
 			]
 		},
+		"automaticDoiDeposit": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
 		"citations": {
 			"type": "string",
 			"description": "Enable citations metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
@@ -260,6 +266,38 @@
 		},
 		"enableAnnouncements": {
 			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"enableDois": {
+			"type": "boolean",
+			"default": false,
+			"validation": [
+				"nullable"
+			]
+		},
+		"doiPrefix": {
+			"type": "string",
+			"validation": [
+				"regex:/^10\\.[0-9]{4,7}$/"
+			]
+		},
+		"customDoiSuffixType": {
+			"type": "string"
+		},
+		"registrationAgency": {
+			"type": "string",
+			"default": "none"
+		},
+		"doiPublicationSuffixPattern": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"doiRepresentationSuffixPattern": {
+			"type": "string",
 			"validation": [
 				"nullable"
 			]

@@ -441,7 +441,7 @@ msgid "submission.views"
 msgstr "查看"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef 注册电子邮件"
+msgstr "Crossref 注册电子邮件"
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
 msgstr "PubMed 注册电邮"
@@ -534,7 +534,7 @@ msgid "author.submit.submissionCitations"
 msgstr "给文章提供一个格式化好的参考文献列表。请用一个空行分开个别引用"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "请输入一个有效的CrossRef注册电子邮件。你可以注册你的网站上为CrossRef免费电子邮件。"
+msgstr "请输入一个有效的Crossref注册电子邮件。你可以注册你的网站上为Crossref免费电子邮件。"
 
 msgid "metadata.property.displayName.article-title"
 msgstr "文章标题"

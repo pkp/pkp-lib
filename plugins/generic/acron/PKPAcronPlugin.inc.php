@@ -24,6 +24,7 @@ use PKP\plugins\GenericPlugin;
 use PKP\plugins\HookRegistry;
 
 use PKP\scheduledTask\ScheduledTaskHelper;
+use PKP\xml\PKPXMLParser;
 use PKP\xml\XMLNode;
 
 // TODO: Error handling. If a scheduled task encounters an error...?

@@ -67,10 +67,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "فراداده‌های تکمیلی"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "ایمیل ثبت‌نام CrossRef"
+msgstr "ایمیل ثبت‌نام Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "لطفاً ایمیل ثبت‌نام   CrossRef   معتبری را وارد کنید. می تونید با ایمیل خود به رایگان در وب‌سایت  CrossRef  ثبت‌نام کنید."
+msgstr "لطفاً ایمیل ثبت‌نام   Crossref   معتبری را وارد کنید. می تونید با ایمیل خود به رایگان در وب‌سایت  Crossref  ثبت‌نام کنید."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "کلید ISBNdb API"

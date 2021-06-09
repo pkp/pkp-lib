@@ -360,6 +360,8 @@ class PKPSubmissionHandler extends APIHandler
                 case 'isOverdue':
                     $collector->filterByOverdue(true);
                     break;
+                case 'doiStatus':
+                    $collector->filterByDoiStatuses(array_map('intval', $this->paramToArray($val)));
             }
         }
 

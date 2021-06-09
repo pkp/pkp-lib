@@ -15,6 +15,7 @@
 
 namespace PKP\submissionFile;
 
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use PKP\core\PKPApplication;
 
@@ -116,7 +117,11 @@ class SubmissionFile extends \PKP\core\DataObject
      */
     public function getStoredPubId($pubIdType)
     {
-        return $this->getData('pub-id::' . $pubIdType);
+        if ($pubIdType === 'doi') {
+            return $this->getDoi();
+        } else {
+            return $this->getData('pub-id::' . $pubIdType);
+        }
     }
 
     /**
@@ -129,7 +134,22 @@ class SubmissionFile extends \PKP\core\DataObject
      */
     public function setStoredPubId($pubIdType, $pubId)
     {
-        $this->setData('pub-id::' . $pubIdType, $pubId);
+        if ($pubIdType == 'doi') {
+            if ($doiObject = $this->getData('doiObject')) {
+                Repo::doi()->edit($doiObject, ['doi' => $pubId]);
+            } else {
+                $newDoiObject = Repo::doi()->newDataObject(
+                    [
+                        'doi' => $pubId,
+                        'contextId' => $this->getContextId()
+                    ]
+                );
+                $doiId = Repo::doi()->add($newDoiObject);
+                $this->setData('doiId', $doiId);
+            }
+        } else {
+            $this->setData('pub-id::' . $pubIdType, $pubId);
+        }
     }
 
     /**
@@ -360,6 +380,21 @@ class SubmissionFile extends \PKP\core\DataObject
     public function setChapterId($chapterId)
     {
         $this->setData('chapterId', $chapterId);
+    }
+
+    /**
+     * Helper method to fetch current DOI
+     *
+     */
+    public function getDoi(): ?string
+    {
+        $doiObject = $this->getData('doiObject');
+
+        if (empty($doiObject)) {
+            return null;
+        } else {
+            return $doiObject->getData('doi');
+        }
     }
 }
 

@@ -212,8 +212,10 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         // Add pub IDs by plugin
         $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
         foreach ($pubIdPlugins as $pubIdPlugin) {
-            $this->addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdPlugin);
+            $this->addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdPlugin->getPubIdType());
         }
+        // Also add DOI
+        $this->addPubIdentifier($doc, $revisionNode, $submissionFile, 'doi');
     }
 
     /**
@@ -226,13 +228,13 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
      *
      * @return DOMElement|null
      */
-    public function addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdPlugin)
+    public function addPubIdentifier($doc, $revisionNode, $submissionFile, $pubIdType)
     {
-        $pubId = $submissionFile->getStoredPubId($pubIdPlugin->getPubIdType());
+        $pubId = $submissionFile->getStoredPubId($pubIdType);
         if ($pubId) {
             $deployment = $this->getDeployment();
             $revisionNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-            $node->setAttribute('type', $pubIdPlugin->getPubIdType());
+            $node->setAttribute('type', $pubIdType);
             $node->setAttribute('advice', 'update');
             return $node;
         }

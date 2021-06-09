@@ -124,15 +124,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->table('submissions', function (Blueprint $table) {
 			$table->string('locale', 14)->nullable();
 		});
-		$currentPublicationIds = Capsule::table('submissions')->pluck('current_publication_id');
-		$submissionLocales = Capsule::table('publications')
-			->whereIn('publication_id', $currentPublicationIds)
-			->pluck('locale', 'submission_id');
-		foreach ($submissionLocales as $submissionId => $locale) {
-			Capsule::table('submissions as s')
-				->where('s.submission_id', '=', $submissionId)
-				->update(['locale' => $locale]);
-		}
+		Capsule::connection()->unprepared('UPDATE submissions s SET locale=(SELECT locale FROM publications WHERE publication_id = s.current_publication_id)');
 		Capsule::schema()->table('publications', function (Blueprint $table) {
 			$table->dropColumn('locale');
 		});
@@ -332,100 +324,64 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		// Create entry in files and revisions tables for every submission_file
 		import('lib.pkp.classes.file.FileManager');
 		$fileManager = new FileManager();
-		$rows = Capsule::table('submission_files')
+		$fileService = Services::get('file');
+		$submissionFileService = Services::get('submissionFile');
+		Capsule::table('submission_files')
 			->join('submissions', 'submission_files.submission_id', '=', 'submissions.submission_id')
 			->orderBy('file_id')
 			->orderBy('revision')
-			->get([
-				'context_id',
-				'file_id',
-				'revision',
-				'submission_files.submission_id',
-				'genre_id',
-				'file_type',
-				'file_stage',
-				'date_uploaded',
-				'original_file_name'
-			]);
-		$fileService = Services::get('file');
-		$submissionFileService = Services::get('submissionFile');
-		foreach ($rows as $row) {
-			// Reproduces the removed method SubmissionFile::_generateFileName()
-			// genre is %s because it can be blank with review attachments
-			$filename = sprintf(
-				'%d-%s-%d-%d-%d-%s.%s',
-				$row->submission_id,
-				$row->genre_id,
-				$row->file_id,
-				$row->revision,
-				$row->file_stage,
-				date('Ymd', strtotime($row->date_uploaded)),
-				strtolower_codesafe($fileManager->parseFileExtension($row->original_file_name))
-			);
-			$path = sprintf(
-				'%s/%s/%s',
-				$submissionFileService->getSubmissionDir($row->context_id, $row->submission_id),
-				$this->_fileStageToPath($row->file_stage),
-				$filename
-			);
-			if (!$fileService->fs->has($path)) {
-				error_log("A submission file was expected but not found at $path.");
-			}
-			$newFileId = Capsule::table('files')->insertGetId([
-				'path' => $path,
-				'mimetype' => $row->file_type,
-			], 'file_id');
-			Capsule::table('submission_files')
-				->where('file_id', $row->file_id)
-				->where('revision', $row->revision)
-				->update(['new_file_id' => $newFileId]);
-			Capsule::table('submission_file_revisions')->insert([
-				'submission_file_id' => $row->file_id,
-				'file_id' => $newFileId,
-			]);
-
-			// Update revision data in event logs
-			$eventLogIds = Capsule::table('event_log_settings')
-				->where('setting_name', '=', 'fileId')
-				->where('setting_value', '=', $row->file_id)
-				->pluck('log_id');
-			Capsule::table('event_log_settings')
-				->whereIn('log_id', $eventLogIds)
-				->where('setting_name', 'fileRevision')
-				->where('setting_value', '=', $row->revision)
-				->update(['setting_value' => $newFileId]);
-		}
-
-		// Collect rows that will be deleted because they are old revisions
-		// They are identified by the new_file_id column, which is the only unique
-		// column on the table at this point.
-		$newFileIdsToDelete = [];
-
-		// Get all the unique file_ids. For each one, determine the latest revision
-		// in order to keep it in the table. The others will be flagged for removal
-		$revisionRowFileIds = Capsule::table('submission_files')
-			->groupBy('file_id')
-			->pluck('file_id');
-		foreach ($revisionRowFileIds as $revisionRowFileId) {
-			$submissionFileRows = Capsule::table('submission_files')
-				->where('file_id', '=', $revisionRowFileId)
-				->orderBy('revision', 'desc')
-				->get([
-					'file_id',
-					'new_file_id',
-				]);
-			$latestFileId = $submissionFileRows[0]->new_file_id;
-			foreach ($submissionFileRows as $submissionFileRow) {
-				if ($submissionFileRow->new_file_id !== $latestFileId) {
-					$newFileIdsToDelete[] = $submissionFileRow->new_file_id;
+			->chunk(100, function($rows) use ($fileManager, $fileService, $submissionFileService) {
+			foreach ($rows as $row) {
+				// Reproduces the removed method SubmissionFile::_generateFileName()
+				// genre is %s because it can be blank with review attachments
+				$filename = sprintf(
+					'%d-%s-%d-%d-%d-%s.%s',
+					$row->submission_id,
+					$row->genre_id,
+					$row->file_id,
+					$row->revision,
+					$row->file_stage,
+					date('Ymd', strtotime($row->date_uploaded)),
+					strtolower_codesafe($fileManager->parseFileExtension($row->original_file_name))
+				);
+				$path = sprintf(
+					'%s/%s/%s',
+					$submissionFileService->getSubmissionDir($row->context_id, $row->submission_id),
+					$this->_fileStageToPath($row->file_stage),
+					$filename
+				);
+				if (!$fileService->fs->has($path)) {
+					error_log("A submission file was expected but not found at $path.");
 				}
+				$newFileId = Capsule::table('files')->insertGetId([
+					'path' => $path,
+					'mimetype' => $row->file_type,
+				], 'file_id');
+				Capsule::table('submission_files')
+					->where('file_id', $row->file_id)
+					->where('revision', $row->revision)
+					->update(['new_file_id' => $newFileId]);
+				Capsule::table('submission_file_revisions')->insert([
+					'submission_file_id' => $row->file_id,
+					'file_id' => $newFileId,
+				]);
 			}
+		});
+		// Set submission event log file IDs to the new IDs where necessary.
+		switch (Capsule::connection()->getDriverName()) {
+			case 'mysql':
+				Capsule::connection()->unprepared("UPDATE event_log_settings elsr JOIN event_log_settings elsf ON (elsr.log_id = elsf.log_id AND elsf.setting_name='fileId') JOIN submission_files sf ON (sf.revision = elsr.setting_value AND sf.file_id = elsf.setting_value) SET elsr.setting_value = sf.new_file_id WHERE elsr.setting_name='fileRevision'");
+				break;
+			case 'pgsql':
+				Capsule::connection()->unprepared("UPDATE event_log_settings elsr SET setting_value = sf.new_file_id FROM event_log_settings elsf, submission_files sf WHERE elsr.log_id = elsf.log_id AND elsf.setting_name='fileId' AND sf.revision = elsr.setting_value::INTEGER AND sf.file_id = elsf.setting_value::INTEGER AND elsr.setting_name='fileRevision'");
+				break;
+			default: throw new Exception('Unknown database type!');
 		}
 
-		// Delete the rows for old revisions
-		Capsule::table('submission_files')
-			->whereIn('new_file_id', $newFileIdsToDelete)
-			->delete();
+		// Delete rows that represent old revisions. They are identified by the
+		// new_file_id column, which is the only unique column on the table at this
+		// point.
+		Capsule::connection()->unprepared('DELETE FROM submission_files WHERE new_file_id IN (SELECT sf.new_file_id FROM submission_files sf JOIN submission_files newer ON sf.file_id = newer.file_id AND newer.revision > sf.revision)');
 
 		// Remove all review round files that point to file ids
 		// that don't exist, so that the foreign key can be set
@@ -438,33 +394,34 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			->delete();
 
 		// Update review round files
-		$rows = Capsule::table('review_round_files')->get();
-		foreach ($rows as $row) {
-			// Delete this row if another revision exists for this
-			// submission file. This ensures that when the revision
-			// column is dropped the submission_file_id column will
-			// be unique.
-			$count = Capsule::table('review_round_files')
-				->where('file_id', '=', $row->file_id)
-				->count();
-			if ($count > 1) {
-				Capsule::table('review_round_files')
+		Capsule::table('review_round_files')->orderBy('review_round_id')->chunk(100, function($rows) {
+			foreach ($rows as $row) {
+				// Delete this row if another revision exists for this
+				// submission file. This ensures that when the revision
+				// column is dropped the submission_file_id column will
+				// be unique.
+				$count = Capsule::table('review_round_files')
 					->where('file_id', '=', $row->file_id)
-					->where('revision', '=', $row->revision)
-					->delete();
-				continue;
-			}
+					->count();
+				if ($count > 1) {
+					Capsule::table('review_round_files')
+						->where('file_id', '=', $row->file_id)
+						->where('revision', '=', $row->revision)
+						->delete();
+					continue;
+				}
 
-			// Set assoc_type and assoc_id for all review round files
-			// Run this before migration to internal review file stages
-			Capsule::table('submission_files')
-				->where('file_id', '=', $row->file_id)
-				->whereIn('file_stage', [SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_REVISION])
-				->update([
-					'assoc_type' => ASSOC_TYPE_REVIEW_ROUND,
-					'assoc_id' => $row->review_round_id,
-				]);
-		}
+				// Set assoc_type and assoc_id for all review round files
+				// Run this before migration to internal review file stages
+				Capsule::table('submission_files')
+					->where('file_id', '=', $row->file_id)
+					->whereIn('file_stage', [SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_REVIEW_REVISION])
+					->update([
+						'assoc_type' => ASSOC_TYPE_REVIEW_ROUND,
+						'assoc_id' => $row->review_round_id,
+					]);
+			}
+		});
 
 		// Update name of event log params to reflect new file structure
 		Capsule::table('event_log_settings')

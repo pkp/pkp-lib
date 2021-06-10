@@ -19,7 +19,6 @@ namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
 use PKP\Jobs\Submissions\RemoveSubmissionFromSearchIndexJob;
-
 use PKP\observers\events\SubmissionDeleted;
 
 class SubmissionDeletedListener

@@ -32,20 +32,20 @@ class PKPEventServiceProvider extends EventServiceProvider
      * @brief Registering events & listeners, see Illuminate\Events\EventServiceProvider
      */
     protected $listen = [
-        DeletedSubmission::class => [
-            DeletedSubmissionListener::class,
+        SubmissionDeleted::class => [
+            SubmissionDeletedListener::class,
         ],
-        DeleteSubmissionFile::class => [
-            DeleteSubmissionFileListener::class,
+        SubmissionFileDeleted::class => [
+            SubmissionFileDeletedListener::class,
         ],
         MetadataChanged::class => [
             MetadataChangedListener::class
         ],
         PublishedEvent::class => [
-            UpdateSubmissionSearchListener::class,
+            SubmissionUpdatedListener::class,
         ],
         UnpublishedEvent::class => [
-            UpdateSubmissionSearchListener::class,
+            SubmissionUpdatedListener::class,
         ]
     ];
 

@@ -16,14 +16,15 @@
 import('lib.pkp.controllers.grid.settings.SetupGridHandler');
 import('controllers.grid.settings.sections.SectionGridRow');
 
-use PKP\linkAction\LinkAction;
-use PKP\core\JSONMessage;
-use PKP\linkAction\request\AjaxModal;
-use PKP\controllers\grid\GridColumn;
-use PKP\controllers\grid\feature\OrderGridItemsFeature;
-use PKP\security\Role;
-
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\feature\OrderGridItemsFeature;
+use PKP\controllers\grid\GridColumn;
+use PKP\core\JSONMessage;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+
+use PKP\security\Role;
 
 class SectionGridHandler extends SetupGridHandler
 {
@@ -270,8 +271,7 @@ class SectionGridHandler extends SetupGridHandler
         }
 
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-        $checkSubmissions = $submissionDao->retrieve('SELECT p.publication_id FROM publications p JOIN submissions s ON (s.submission_id = p.submission_id) WHERE p.section_id = ? AND s.context_id = ?', [(int) $request->getUserVar('sectionId'), (int) $server->getId()]);
+        $checkSubmissions = Repo::submission()->dao->deprecatedDao->retrieve('SELECT p.publication_id FROM publications p JOIN submissions s ON (s.submission_id = p.submission_id) WHERE p.section_id = ? AND s.context_id = ?', [(int) $request->getUserVar('sectionId'), (int) $server->getId()]);
 
         if ($checkSubmissions->numRows() > 0) {
             return new JSONMessage(false, __('manager.sections.alertDelete'));

@@ -41,7 +41,7 @@ class PreprintSearchTest extends PKPTestCase
     {
         $mockedDaos = parent::getMockedDAOs();
         $mockedDaos += [
-            'PreprintSearchDAO', 'SubmissionDAO',
+            'PreprintSearchDAO',
             'ServerDAO', 'SectionDAO'
         ];
         return $mockedDaos;
@@ -57,7 +57,6 @@ class PreprintSearchTest extends PKPTestCase
 
         // Prepare the mock environment for this test.
         $this->registerMockPreprintSearchDAO();
-        $this->registerMockSubmissionDAO();
         $this->registerMockServerDAO();
         $this->registerMockSectionDAO();
 
@@ -205,22 +204,6 @@ class PreprintSearchTest extends PKPTestCase
         return $results;
     }
 
-    /**
-     * Callback dealing with SubmissionDAO::getPreprint()
-     * calls via our mock SubmissionDAO.
-     *
-     * @see SubmissionDAO::getPreprint()
-     *
-     * @param null|mixed $serverId
-     */
-    public function callbackGetPreprint($preprintId, $serverId = null, $useCache = false)
-    {
-        // Create an preprint instance with the correct id.
-        $preprint = new Submission();
-        $preprint->setId($preprintId);
-        return $preprint;
-    }
-
 
     //
     // Private helper methods
@@ -252,29 +235,6 @@ class PreprintSearchTest extends PKPTestCase
 
         // Register the mock DAO.
         DAORegistry::registerDAO('PreprintSearchDAO', $preprintSearchDAO);
-    }
-
-    /**
-     * Mock and register an SubmissionDAO as a test
-     * back end for the PreprintSearch class.
-     */
-    private function registerMockSubmissionDAO()
-    {
-        // Mock an SubmissionDAO.
-        $submissionDao = $this->getMockBuilder(SubmissionDAO::class)
-            ->setMethods(['getPreprint'])
-            ->getMock();
-
-        // Mock an preprint.
-        $preprint = new Submission();
-
-        // Mock the getPreprint() method.
-        $submissionDao->expects($this->any())
-            ->method('getPreprint')
-            ->will($this->returnCallback([$this, 'callbackGetPreprint']));
-
-        // Register the mock DAO.
-        DAORegistry::registerDAO('SubmissionDAO', $submissionDao);
     }
 
     /**

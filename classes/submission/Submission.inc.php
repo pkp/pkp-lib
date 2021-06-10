@@ -16,7 +16,7 @@
  * @class Submission
  * @ingroup submission
  *
- * @see SubmissionDAO
+ * @see DAO
  *
  * @brief Preprint class.
  */
@@ -31,12 +31,12 @@ define('AUTHOR_TOC_SHOW', 2);
 // Preprint access constants -- see Publication::getData('accessStatus')
 define('PREPRINT_ACCESS_OPEN', 1);
 
-use PKP\submission\PKPSubmission;
-use PKP\plugins\HookRegistry;
-
 use APP\core\Application;
 use APP\core\Services;
+
 use APP\i18n\AppLocale;
+use PKP\plugins\HookRegistry;
+use PKP\submission\PKPSubmission;
 
 class Submission extends PKPSubmission
 {
@@ -335,4 +335,3 @@ class Submission extends PKPSubmission
 if (!PKP_STRICT_MODE) {
     class_alias('\APP\submission\Submission', '\Submission');
 }
-

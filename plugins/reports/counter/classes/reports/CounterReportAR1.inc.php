@@ -12,6 +12,7 @@
  * @brief Preprint Report 1
  */
 
+use APP\facades\Repo;
 use PKP\statistics\PKPStatisticsHelper;
 
 import('plugins.reports.counter.classes.CounterReport');
@@ -133,8 +134,7 @@ class CounterReportAR1 extends CounterReport
      */
     private function _createReportItem($submissionId, $metrics)
     {
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO');
-        $preprint = $submissionDao->getById($submissionId);
+        $preprint = Repo::submission()->get($submissionId);
         if (!$preprint) {
             return false;
         }

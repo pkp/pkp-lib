@@ -13,6 +13,8 @@
  * @brief CLI tool to delete submissions
  */
 
+use APP\facades\Repo;
+
 require(dirname(__FILE__) . '/bootstrap.inc.php');
 
 class SubmissionDeletionTool extends CommandLineTool
@@ -50,14 +52,13 @@ class SubmissionDeletionTool extends CommandLineTool
      */
     public function execute()
     {
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO');
         foreach ($this->parameters as $preprintId) {
-            $preprint = $submissionDao->getById($preprintId);
-            if (!isset($preprint)) {
+            $preprint = Repo::submission()->get($preprintId);
+            if (!$preprint) {
                 printf("Error: Skipping ${preprintId}. Unknown submission.\n");
                 continue;
             }
-            $submissionDao->deleteById($preprintId);
+            Repo::submission()->delete($preprint);
         }
     }
 }

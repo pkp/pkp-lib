@@ -12,7 +12,10 @@
  * @brief Deposit DOIs during the publish action
  */
 
+use APP\core\Application;
+use APP\facades\Repo;
 use PKP\file\FileManager;
+use PKP\plugins\PluginRegistry;
 
 class CrossrefDepositPlugin extends GenericPlugin
 {
@@ -61,7 +64,7 @@ class CrossrefDepositPlugin extends GenericPlugin
         $crossrefExportPlugin = PluginRegistry::getPlugin('importexport', 'CrossRefExportPlugin');
 
         $newPublication = $args[0];
-        $objects[] = Services::get('submission')->get($newPublication->getData('submissionId'));
+        $objects[] = Repo::submission()->get($newPublication->getData('submissionId'));
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $filter = $crossrefExportPlugin->getSubmissionFilter();

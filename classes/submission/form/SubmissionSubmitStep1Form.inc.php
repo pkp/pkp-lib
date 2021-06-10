@@ -15,13 +15,14 @@
 
 namespace APP\submission\form;
 
-use PKP\submission\form\PKPSubmissionSubmitStep1Form;
-use PKP\db\DAORegistry;
-use PKP\core\PKPString;
-use PKP\security\Role;
-
-use APP\template\TemplateManager;
 use APP\core\Application;
+use APP\facades\Repo;
+use APP\template\TemplateManager;
+use PKP\core\PKPString;
+
+use PKP\db\DAORegistry;
+use PKP\security\Role;
+use PKP\submission\form\PKPSubmissionSubmitStep1Form;
 
 class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
 {
@@ -165,9 +166,8 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
         $this->submissionId = $this->submission->getId();
 
         // OPS: Move the submission to production stage
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
         $submission->setStageId(WORKFLOW_STAGE_ID_PRODUCTION);
-        $submissionDao->updateObject($submission);
+        Repo::submission()->dao->update($submission);
 
         // OPS: Move comments for moderators discussion to production stage
         $query = $this->getCommentsToEditor($this->submissionId);

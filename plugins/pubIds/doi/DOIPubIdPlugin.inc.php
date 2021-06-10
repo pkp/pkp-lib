@@ -13,11 +13,12 @@
  * @brief DOI plugin class
  */
 
+use APP\facades\Repo;
+use APP\plugins\PubIdPlugin;
 use PKP\linkAction\LinkAction;
-use PKP\services\interfaces\EntityWriteInterface;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 
-use APP\plugins\PubIdPlugin;
+use PKP\services\interfaces\EntityWriteInterface;
 
 class DOIPubIdPlugin extends PubIdPlugin
 {
@@ -300,10 +301,10 @@ class DOIPubIdPlugin extends PubIdPlugin
         }
 
         if ($action === EntityWriteInterface::VALIDATE_ACTION_ADD) {
-            $submission = Services::get('submission')->get($props['submissionId']);
+            $submission = Repo::submission()->get($props['submissionId']);
         } else {
-            $publication = Services::get('publication')->get($props['id']);
-            $submission = Services::get('submission')->get($publication->getData('submissionId'));
+            $publication = Repo::publication()->get($props['id']);
+            $submission = Repo::submission()->get($publication->getData('submissionId'));
         }
 
         $contextId = $submission->getData('contextId');
@@ -437,7 +438,7 @@ class DOIPubIdPlugin extends PubIdPlugin
             return;
         }
 
-        $submission = Services::get('submission')->get($form->publication->getData('submissionId'));
+        $submission = Repo::submission()->get($form->publication->getData('submissionId'));
         $publicationDoiEnabled = $this->getSetting($submission->getData('contextId'), 'enablePublicationDoi');
         $galleyDoiEnabled = $this->getSetting($submission->getData('contextId'), 'enableRepresentationDoi');
         $warningIconHtml = '<span class="fa fa-exclamation-triangle pkpIcon--inline"></span>';

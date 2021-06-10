@@ -13,12 +13,13 @@
  * @brief Handle requests for preprints archive functions.
  */
 
-use PKP\submission\PKPSubmission;
-use PKP\security\authorization\ContextRequiredPolicy;
+use APP\facades\Repo;
+use APP\handler\Handler;
 
 use APP\security\authorization\OpsServerMustPublishPolicy;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
-use APP\handler\Handler;
+use PKP\security\authorization\ContextRequiredPolicy;
 
 class PreprintsHandler extends Handler
 {
@@ -56,20 +57,16 @@ class PreprintsHandler extends Handler
         $categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
         $categories = $categoryDao->getByContextId($context->getId());
 
-        $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
+        $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : (int) Config::getVar('interface', 'items_per_page');
         $offset = $page > 1 ? ($page - 1) * $count : 0;
 
-        import('classes.submission.Submission');
-        $submissionService = Services::get('submission');
-        $params = [
-            'contextId' => $context->getId(),
-            'count' => $count,
-            'offset' => $offset,
-            'orderBy' => 'datePublished',
-            'status' => PKPSubmission::STATUS_PUBLISHED,
-        ];
-        $publishedSubmissions = $submissionService->getMany($params);
-        $total = $submissionService->getMax($params);
+        $collector = Repo::submission()->getCollector();
+        $collector
+            ->filterByContextIds([$context->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->orderBy($collector::ORDERBY_DATE_PUBLISHED);
+        $total = Repo::submission()->getCount($collector);
+        $publishedSubmissions = Repo::submission()->getMany($collector->limit($count));
 
         $showingStart = $offset + 1;
         $showingEnd = min($offset + $count, $offset + count($publishedSubmissions));

@@ -13,8 +13,9 @@
  * @brief Handle site index requests.
  */
 
-use APP\template\TemplateManager;
+use APP\facades\Repo;
 use APP\security\authorization\OpsServerMustPublishPolicy;
+use APP\template\TemplateManager;
 
 import('classes.search.PreprintSearch');
 import('classes.handler.Handler');
@@ -105,7 +106,7 @@ class SearchHandler extends Handler
         }
 
         // Assign the year range.
-        $yearRange = Services::get('publication')->getDateBoundaries(['contextIds' => $serverId]);
+        $yearRange = Repo::publication()->getDateBoundaries(['contextIds' => $serverId]);
         $yearStart = substr($yearRange[0], 0, 4);
         $yearEnd = substr($yearRange[1], 0, 4);
         $templateMgr->assign([
@@ -237,10 +238,10 @@ class SearchHandler extends Handler
                 return $author->getData('publicationId');
             }, $authorRecords);
             $submissionIds = array_map(function ($publicationId) {
-                return Services::get('publication')->get($publicationId)->getData('submissionId');
+                return Repo::publication()->get($publicationId)->getData('submissionId');
             }, array_unique($publicationIds));
             $submissions = array_map(function ($submissionId) {
-                return Services::get('submission')->get($submissionId);
+                return Repo::submission()->get($submissionId);
             }, array_unique($submissionIds));
 
             // Load information associated with each preprint.

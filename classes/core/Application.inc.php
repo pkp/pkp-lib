@@ -105,7 +105,6 @@ class Application extends PKPApplication
     public function getDAOMap()
     {
         return array_merge(parent::getDAOMap(), [
-            'SubmissionDAO' => 'APP\submission\SubmissionDAO',
             'PreprintGalleyDAO' => 'APP\preprint\PreprintGalleyDAO',
             'PreprintSearchDAO' => 'APP\search\PreprintSearchDAO',
             'AuthorDAO' => 'APP\preprint\AuthorDAO',
@@ -113,7 +112,6 @@ class Application extends PKPApplication
             'ServerSettingsDAO' => 'APP\server\ServerSettingsDAO',
             'MetricsDAO' => 'APP\statistics\MetricsDAO',
             'OAIDAO' => 'APP\oai\ops\OAIDAO',
-            'PublishedSubmissionDAO' => 'APP\preprint\PublishedSubmissionDAO',
             'SectionDAO' => 'APP\server\SectionDAO',
         ]);
     }

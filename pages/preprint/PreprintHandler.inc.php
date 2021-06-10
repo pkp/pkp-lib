@@ -14,15 +14,16 @@
  *
  */
 
-use PKP\submission\SubmissionFile;
-use PKP\submission\PKPSubmission;
-use PKP\security\authorization\ContextRequiredPolicy;
-
+use APP\facades\Repo;
+use APP\handler\Handler;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\template\TemplateManager;
-use APP\handler\Handler;
 
 use Firebase\JWT\JWT;
+use PKP\security\authorization\ContextRequiredPolicy;
+use PKP\submission\PKPSubmission;
+
+use PKP\submission\SubmissionFile;
 
 class PreprintHandler extends Handler
 {
@@ -77,10 +78,10 @@ class PreprintHandler extends Handler
         $urlPath = empty($args) ? 0 : array_shift($args);
 
         // Get the submission that matches the requested urlPath
-        $submission = Services::get('submission')->getByUrlPath($urlPath, $request->getContext()->getId());
+        $submission = Repo::submission()->getByUrlPath($urlPath, $request->getContext()->getId());
 
         if (!$submission && ctype_digit((string) $urlPath)) {
-            $submission = Services::get('submission')->get($urlPath);
+            $submission = Repo::submission()->get($urlPath);
             if ($submission && $request->getContext()->getId() != $submission->getContextId()) {
                 $submission = null;
             }
@@ -166,11 +167,16 @@ class PreprintHandler extends Handler
         $preprint = $this->preprint;
         $publication = $this->publication;
 
+        // Get the earliest published publication
+        $firstPublication = $preprint->getData('publications')->reduce(function ($a, $b) {
+            return empty($a) || strtotime((string) $b->getData('datePublished')) < strtotime((string) $a->getData('datePublished')) ? $b : $a;
+        }, 0);
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'preprint' => $preprint,
             'publication' => $publication,
-            'firstPublication' => reset($preprint->getData('publications')),
+            'firstPublication' => $firstPublication,
             'currentPublication' => $preprint->getCurrentPublication(),
             'galley' => $this->galley,
             'fileId' => $this->fileId,

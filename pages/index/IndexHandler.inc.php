@@ -13,7 +13,8 @@
  * @brief Handle site index requests.
  */
 
-use PKP\submission\PKPSubmission;
+use APP\facades\Repo;
+use APP\submission\Submission;
 
 use APP\template\TemplateManager;
 
@@ -62,15 +63,14 @@ class IndexHandler extends PKPIndexHandler
             $categories = $categoryDao->getByContextId($server->getId());
 
             // Latest preprints
-            import('classes.submission.Submission');
-            $submissionService = Services::get('submission');
-            $params = [
-                'contextId' => $server->getId(),
-                'count' => '10',
-                'orderBy' => 'datePublished',
-                'status' => PKPSubmission::STATUS_PUBLISHED,
-            ];
-            $publishedSubmissions = $submissionService->getMany($params);
+            $collector = Repo::submission()->getCollector();
+            $publishedSubmissions = Repo::submission()->getMany(
+                $collector
+                    ->filterByContextIds([$server->getId()])
+                    ->filterByStatus([Submission::STATUS_PUBLISHED])
+                    ->orderBy($collector::ORDERBY_DATE_PUBLISHED)
+                    ->limit(10)
+            );
 
             // Assign header and content for home page
             $templateMgr->assign([
@@ -81,7 +81,7 @@ class IndexHandler extends PKPIndexHandler
                 'sections' => $sections,
                 'categories' => $categories,
                 'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
-                'publishedSubmissions' => $publishedSubmissions,
+                'publishedSubmissions' => $publishedSubmissions->toArray(),
             ]);
 
             $this->_setupAnnouncements($server, $templateMgr);

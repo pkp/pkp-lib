@@ -14,11 +14,11 @@
 
 namespace APP\components\forms\publication;
 
+use APP\publication\Publication;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldText;
-use PKP\components\forms\FormComponent;
 
-use APP\publication\Publication;
+use PKP\components\forms\FormComponent;
 
 define('FORM_ID_RELATION', 'relation');
 
@@ -43,12 +43,24 @@ class RelationForm extends FormComponent
         $this->locales = $locales;
 
         // Relation options
-        $relationOptions = \Services::get('publication')->getRelationOptions();
         $this->addField(new FieldOptions('relationStatus', [
             'label' => __('publication.relation.label'),
             'type' => 'radio',
             'value' => (int) $publication->getData('relationStatus'),
-            'options' => $relationOptions,
+            'options' => [
+                [
+                    'value' => Publication::PUBLICATION_RELATION_NONE,
+                    'label' => __('publication.relation.none')
+                ],
+                [
+                    'value' => Publication::PUBLICATION_RELATION_SUBMITTED,
+                    'label' => __('publication.relation.submitted')
+                ],
+                [
+                    'value' => Publication::PUBLICATION_RELATION_PUBLISHED,
+                    'label' => __('publication.relation.published')
+                ]
+            ],
         ]))
             ->addField(new FieldText('vorDoi', [
                 'label' => __('publication.relation.vorDoi'),

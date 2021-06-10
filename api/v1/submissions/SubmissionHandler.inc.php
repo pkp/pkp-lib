@@ -16,10 +16,11 @@
 
 import('lib.pkp.api.v1.submissions.PKPSubmissionHandler');
 
-use PKP\handler\APIHandler;
-use PKP\security\Role;
+use APP\facades\Repo;
 
-use APP\core\Services;
+use APP\publication\Publication;
+use PKP\db\DAORegistry;
+use PKP\security\Role;
 
 class SubmissionHandler extends PKPSubmissionHandler
 {
@@ -77,7 +78,7 @@ class SubmissionHandler extends PKPSubmissionHandler
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $publication = Services::get('publication')->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $args['publicationId']);
 
         if (!$publication) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
@@ -87,16 +88,34 @@ class SubmissionHandler extends PKPSubmissionHandler
             return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
         }
 
-        $publication = Services::get('publication')->relate($publication, $slimRequest->getParams());
+        $relationStatus = (int) $slimRequest->getParam('relationStatus');
+        $vorDoi = trim((string) $slimRequest->getParam('vorDoi'));
 
-        $publicationProps = Services::get('publication')->getFullProperties(
-            $publication,
-            [
-                'request' => $request,
-                'userGroups' => DAORegistry::getDAO('UserGroupDAO')->getByContextId($submission->getData('contextId'))->toArray(),
-            ]
+        if (empty($relationStatus)) {
+            return $response->withJson([
+                'relationStatus' => [__('api.publications.400.noRelations')],
+            ], 400);
+        }
+
+
+        $validRelations = [
+            Publication::PUBLICATION_RELATION_NONE,
+            Publication::PUBLICATION_RELATION_SUBMITTED,
+            Publication::PUBLICATION_RELATION_PUBLISHED,
+        ];
+        if (!in_array($relationStatus, $validRelations)) {
+            return $response->withStatus(403)->withJsonError('api.publications.400.invalidRelation');
+        }
+        Repo::publication()->relate($publication, $relationStatus, $vorDoi);
+
+        $publication = Repo::publication()->get($publication->getId());
+
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        return $response->withJson(
+            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            200
         );
-
-        return $response->withJson($publicationProps, 200);
     }
 }

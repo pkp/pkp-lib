@@ -13,10 +13,11 @@
  * @brief Class for a cell provider that can retrieve labels from representations with pub ids
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectAction;
-use PKP\controllers\grid\GridHandler;
 
 class PubIdExportRepresentationsListGridCellProvider extends DataObjectGridCellProvider
 {
@@ -51,8 +52,8 @@ class PubIdExportRepresentationsListGridCellProvider extends DataObjectGridCellP
         $columnId = $column->getId();
         assert(is_a($galley, 'PreprintGalley') && !empty($columnId));
 
-        $publication = Services::get('publication')->get($galley->getData('publicationId'));
-        $submission = Services::get('submission')->get($publication->getData('submissionId'));
+        $publication = Repo::publication()->get($galley->getData('publicationId'));
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
         switch ($columnId) {
             case 'title':
                 $this->_titleColumn = $column;
@@ -67,7 +68,7 @@ class PubIdExportRepresentationsListGridCellProvider extends DataObjectGridCellP
                     new LinkAction(
                         'itemWorkflow',
                         new RedirectAction(
-                            Services::get('submission')->getWorkflowUrlByUserRoles($submission)
+                            Repo::submission()->getWorkflowUrlByUserRoles($submission)
                         ),
                         htmlspecialchars($title)
                     )

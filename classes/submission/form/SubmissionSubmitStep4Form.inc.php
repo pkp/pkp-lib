@@ -15,14 +15,14 @@
 
 namespace APP\submission\form;
 
-use PKP\submission\form\PKPSubmissionSubmitStep4Form;
-use PKP\log\SubmissionLog;
+use APP\core\Application;
+use APP\facades\Repo;
 
 use APP\log\SubmissionEventLogEntry;
-use APP\notification\NotificationManager;
 use APP\mail\PreprintMailTemplate;
-use APP\core\Application;
-use APP\core\Services;
+use APP\notification\NotificationManager;
+use PKP\log\SubmissionLog;
+use PKP\submission\form\PKPSubmissionSubmitStep4Form;
 
 class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
 {
@@ -91,10 +91,10 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
             // OPS: Check if author can publish and let her know in the email
             $canAuthorPublish = '';
             import('classes.core.Services');
-            if (Services::get('publication')->canAuthorPublish($submission->getId())) {
+            if (Repo::publication()->canCurrentUserPublish($submission->getId())) {
                 $primaryLocale = $context->getPrimaryLocale();
                 $allowedLocales = $context->getSupportedLocales();
-                $errors = Services::get('publication')->validatePublish($submission->getLatestPublication(), $submission, $allowedLocales, $primaryLocale);
+                $errors = Repo::publication()->validatePublish($submission->getLatestPublication(), $submission, $allowedLocales, $primaryLocale);
                 if (!empty($errors)) {
                     $listErrors .= '<ul class="plain">';
                     foreach ($errors as $error) {

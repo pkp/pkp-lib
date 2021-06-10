@@ -17,13 +17,14 @@
 
 namespace APP\server;
 
+use APP\facades\Repo;
+use Exception;
+use PKP\cache\CacheManager;
 use PKP\context\PKPSectionDAO;
-use PKP\plugins\HookRegistry;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
-use PKP\cache\CacheManager;
 
-use APP\server\Section;
+use PKP\plugins\HookRegistry;
 
 class SectionDAO extends PKPSectionDAO
 {
@@ -332,12 +333,15 @@ class SectionDAO extends PKPSectionDAO
      */
     public function deleteById($sectionId, $contextId = null)
     {
+        // No preprints should exist in this section
+        $collector = Repo::submission()->getCollector()->filterBySectionIds([(int) $sectionId]);
+        $count = Repo::submission()->getCount($collector);
+        if ($count) {
+            throw new Exception('Tried to delete a section that has one or more submissions assigned to it.');
+        }
+
         $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
         $subEditorsDao->deleteBySubmissionGroupId($sectionId, ASSOC_TYPE_SECTION, $contextId);
-
-        // Remove preprints from this section
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-        $submissionDao->removeSubmissionsFromSection($sectionId);
 
         if (isset($contextId) && !$this->sectionExists($sectionId, $contextId)) {
             return false;

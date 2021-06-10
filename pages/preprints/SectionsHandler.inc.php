@@ -14,12 +14,14 @@
  *
  */
 
-use PKP\submission\PKPSubmission;
-use PKP\security\authorization\ContextRequiredPolicy;
+use APP\core\Application;
+use APP\facades\Repo;
+use APP\handler\Handler;
 
 use APP\security\authorization\OpsServerMustPublishPolicy;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
-use APP\handler\Handler;
+use PKP\security\authorization\ContextRequiredPolicy;
 
 class SectionsHandler extends Handler
 {
@@ -53,7 +55,7 @@ class SectionsHandler extends Handler
         $sectionPath = $args[0] ?? null;
         $page = isset($args[1]) && ctype_digit((string) $args[1]) ? (int) $args[1] : 1;
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : Application::CONTEXT_ID_NONE;
 
         // The page $arg can only contain an integer that's not 1. The first page
         // URL does not include page $arg
@@ -83,32 +85,31 @@ class SectionsHandler extends Handler
             exit;
         }
 
-        import('classes.submission.Submission'); // Import status constants
+        $collector = Repo::submission()->getCollector();
+        $collector
+            ->filterByContextIds([$contextId])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->filterBySectionIds([(int) $section->getId()])
+            ->orderBy($collector::ORDERBY_DATE_PUBLISHED);
+        $total = Repo::submission()->getCount($collector);
+        $submissions = Repo::submission()->getMany(
+            $collector
+                ->limit($context->getData('itemsPerPage'))
+                ->offset($page ? ($page - 1) * $context->getData('itemsPerPage') : 0)
+        );
 
-        $params = [
-            'contextId' => $contextId,
-            'count' => $context->getData('itemsPerPage'),
-            'offset' => $page ? ($page - 1) * $context->getData('itemsPerPage') : 0,
-            'orderBy' => 'datePublished',
-            'sectionIds' => [(int) $section->getId()],
-            'status' => PKPSubmission::STATUS_PUBLISHED,
-        ];
-
-        $result = Services::get('submission')->getMany($params);
-        $total = Services::get('submission')->getMax($params);
-
-        if ($page > 1 && !$result->valid()) {
+        if ($page > 1 && !$submissions->count()) {
             $request->getDispatcher()->handle404();
             exit;
         }
 
         $submissions = [];
-        foreach ($result as $submission) {
+        foreach ($submissions as $submission) {
             $submissions[] = $submission;
         }
 
-        $showingStart = $params['offset'] + 1;
-        $showingEnd = min($params['offset'] + $params['count'], $params['offset'] + count($submissions));
+        $showingStart = $collector->offset + 1;
+        $showingEnd = min($collector->offset + $collector->count, $collector->offset + count($submissions));
         $nextPage = $total > $showingEnd ? $page + 1 : null;
         $prevPage = $showingStart > 1 ? $page - 1 : null;
 

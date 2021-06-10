@@ -34,7 +34,7 @@ class PKPQueueProvider
 
         $job = PKPJobModel
             ::isavailable()
-                ->notexcedeedattempts()
+                ->notexceededattempts()
                 ->limit(1)
                 ->first();
 

@@ -161,11 +161,11 @@ class Job extends Model
     }
 
     /**
-     * Add a local scope for not excedeed attempts
+     * Add a local scope for not exceeded attempts
      *
      *
      */
-    public function scopeNotExcedeedAttempts(Builder $query): Builder
+    public function scopeNotExceededAttempts(Builder $query): Builder
     {
         return $query->where('attempts', '<', $this->getMaxAttempts());
     }

@@ -19,6 +19,7 @@ use APP\template\TemplateManager;
 
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
+use PKP\observers\events\MetadataChanged;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\SubmissionFile;
@@ -170,9 +171,7 @@ abstract class PKPManageFileApiHandler extends Handler
             }
 
             // Inform SearchIndex of changes
-            $articleSearchIndex = Application::getSubmissionSearchIndex();
-            $articleSearchIndex->submissionFilesChanged($submission);
-            $articleSearchIndex->submissionChangesFinished();
+            event(new MetadataChanged($submission));
 
             return \PKP\db\DAO::getDataChangedEvent();
         } else {

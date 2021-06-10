@@ -17,8 +17,15 @@ namespace PKP\core;
 
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
+use Illuminate\Contracts\Console\Kernel as KernelContract;
+use Illuminate\Contracts\Container\Container as ContainerContract;
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Foundation\Console\Kernel;
+use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
+
 use PKP\config\Config;
+
 use Throwable;
 
 class PKPContainer extends Container
@@ -47,10 +54,11 @@ class PKPContainer extends Container
     {
         static::setInstance($this);
         $this->instance('app', $this);
-        $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
-        $this->singleton(\Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
-            return new class() implements \Illuminate\Contracts\Debug\ExceptionHandler {
+        $this->instance(Container::class, $this);
+        $this->instance(ContainerContract::class, $this);
+        $this->singleton(ExceptionHandler::class, function () {
+            return new class() implements ExceptionHandler {
                 public function shouldReport(Throwable $e)
                 {
                     return true;
@@ -63,6 +71,7 @@ class PKPContainer extends Container
 
                 public function render($request, Throwable $e)
                 {
+                    error_log((string) $e);
                     return null;
                 }
 
@@ -71,6 +80,25 @@ class PKPContainer extends Container
                     echo (string) $e;
                 }
             };
+        });
+        $this->singleton(
+            KernelContract::class,
+            Kernel::class
+        );
+
+        $this->singleton(
+            'queue.failer',
+            function ($app) {
+                return new DatabaseFailedJobProvider(
+                    $app['db'],
+                    config('queue.failed.database'),
+                    config('queue.failed.table')
+                );
+            }
+        );
+
+        $this->singleton('pkpQueue', function ($app) {
+            return new PKPQueueProvider();
         });
 
         Facade::setFacadeApplication($this);
@@ -88,6 +116,7 @@ class PKPContainer extends Container
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new \Illuminate\Queue\QueueServiceProvider($this));
+        $this->register(new PKPQueueProvider());
     }
 
     /**
@@ -132,11 +161,10 @@ class PKPContainer extends Container
         $items = [];
 
         // Database connection
-        $driver = strtolower(Config::getVar('database', 'driver'));
-        if (substr($driver, 0, 8) === 'postgres') {
+        $driver = 'mysql';
+
+        if (substr(strtolower(Config::getVar('database', 'driver')), 0, 8) === 'postgres') {
             $driver = 'pgsql';
-        } else {
-            $driver = 'mysql';
         }
 
         $items['database']['default'] = $driver;
@@ -160,6 +188,12 @@ class PKPContainer extends Container
             'table' => 'jobs',
             'queue' => 'default',
             'retry_after' => 90,
+            'after_commit' => true,
+        ];
+        $items['queue']['failed'] = [
+            'driver' => 'database',
+            'database' => $driver,
+            'table' => 'failed_jobs',
         ];
 
         $this->instance('config', new Repository($items)); // create instance and bind to use globally
@@ -169,7 +203,8 @@ class PKPContainer extends Container
      * @param string $path appended to the base path
      * @brief see Illuminate\Foundation\Application::basePath
      */
-    public function basePath($path = '') {
+    public function basePath($path = '')
+    {
         return $this->basePath . ($path ? DIRECTORY_SEPARATOR . $path : $path);
     }
 
@@ -177,7 +212,8 @@ class PKPContainer extends Container
      * @param string $path appended to the path
      * @brief alias of basePath(), Laravel app path differs from installation path
      */
-    public function path($path = '') {
+    public function path($path = '')
+    {
         return $this->basePath($path);
     }
 }

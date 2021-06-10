@@ -17,6 +17,7 @@ use APP\core\Services;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Queue;
 
+use PKP\core\PKPContainer;
 use PKP\handler\APIHandler;
 use PKP\mail\Mail;
 use PKP\security\authorization\PolicySet;

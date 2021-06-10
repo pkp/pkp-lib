@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-04 11:53+0000\n"
+"PO-Revision-Date: 2021-06-10 11:43+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/gl_ES/>\n"
@@ -136,3 +136,9 @@ msgstr "Administradores/as do sitio"
 
 msgid "default.groups.name.siteAdmin"
 msgstr "Administrador/a do sitio"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
+">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
+"mailto: {$contactEmail}\">{$contactEmail}</a></p>"

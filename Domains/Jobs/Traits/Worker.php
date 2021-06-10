@@ -62,7 +62,7 @@ trait Worker
     protected $stopWhenEmptyFlag = true;
 
     /**
-     * Set Job's delay value
+     * The number of seconds before a released job will be available.
      *
      *
      */
@@ -83,7 +83,7 @@ trait Worker
     }
 
     /**
-     * Set Job's allowed memory value
+     * The maximum amount of RAM the worker may consume.
      *
      *
      */
@@ -104,7 +104,7 @@ trait Worker
     }
 
     /**
-     * Set Job's timeout value
+     * The maximum number of seconds a child worker may run.
      *
      *
      */
@@ -125,7 +125,7 @@ trait Worker
     }
 
     /**
-     * Set Job's sleep value
+     * The number of seconds to wait in between polling the queue.
      *
      *
      */
@@ -146,13 +146,13 @@ trait Worker
     }
 
     /**
-     * Set Job's force flag value
+     * Indicates if the worker should run in maintenance mode.
      *
      *
      */
-    public function setForceFlag(bool $force = false): self
+    public function setForceFlag(bool $value = false): self
     {
-        $this->forceFlag = $force;
+        $this->forceFlag = $value;
 
         return $this;
     }
@@ -167,13 +167,13 @@ trait Worker
     }
 
     /**
-     * Set Job's stop when empty flag value
+     * Indicates if the worker should stop when queue is empty.
      *
      *
      */
-    public function setStopWhenEmptyFlag(bool $stopWhenEmptyFlag = false): self
+    public function setStopWhenEmptyFlag(bool $value = false): self
     {
-        $this->stopWhenEmptyFlag = $stopWhenEmptyFlag;
+        $this->stopWhenEmptyFlag = $value;
 
         return $this;
     }

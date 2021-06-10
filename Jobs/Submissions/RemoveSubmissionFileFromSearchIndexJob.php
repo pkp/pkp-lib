@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/Submissions/DeleteSubmissionFileJob.php
+ * @file Jobs/Submissions/RemoveSubmissionFileFromSearchIndexJob.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DeleteSubmissionFileJob
+ * @class RemoveSubmissionFileFromSearchIndexJob
  * @ingroup jobs
  *
- * @brief Classe to handle the Submission File deletion as a Job
+ * @brief Class to handle the Submission File deletion as a Job
  */
 
 namespace PKP\Jobs\Submissions;
@@ -25,7 +25,7 @@ use PKP\Domains\Jobs\Exceptions\JobException;
 use PKP\search\SubmissionSearch;
 use PKP\Support\Jobs\BaseJob;
 
-class DeleteSubmissionFileJob extends BaseJob
+class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
 {
     /**
      * The name of the connection the job should be sent to.
@@ -52,7 +52,7 @@ class DeleteSubmissionFileJob extends BaseJob
      */
     public function __construct(int $submissionFileId)
     {
-        $this->connection = Config::getVar('queues', 'default_connection', 'sync');
+        $this->connection = Config::getVar('queues', 'default_connection', 'database');
         $this->queue = Config::getVar('queues', 'default_queue', null);
 
         $this->submissionFileId = $submissionFileId;

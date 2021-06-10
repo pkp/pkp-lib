@@ -19,19 +19,18 @@ use Illuminate\Events\EventServiceProvider;
 
 use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Str;
 
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
-use PKP\observers\events\DeletedSubmission;
-use PKP\observers\events\DeleteSubmissionFile;
 use PKP\observers\events\MetadataChanged;
 use PKP\observers\events\PublishedEvent;
+use PKP\observers\events\SubmissionDeleted;
+use PKP\observers\events\SubmissionFileDeleted;
 use PKP\observers\events\UnpublishedEvent;
-use PKP\observers\listeners\DeletedSubmissionListener;
-use PKP\observers\listeners\DeleteSubmissionFileListener;
 use PKP\observers\listeners\MetadataChangedListener;
-use PKP\observers\listeners\UpdateSubmissionSearchListener;
+use PKP\observers\listeners\SubmissionDeletedListener;
+use PKP\observers\listeners\SubmissionFileDeletedListener;
+use PKP\observers\listeners\SubmissionUpdatedListener;
 use SplFileInfo;
 
 class PKPEventServiceProvider extends EventServiceProvider
@@ -41,20 +40,20 @@ class PKPEventServiceProvider extends EventServiceProvider
      * @brief Registering events & listeners, see Illuminate\Events\EventServiceProvider
      */
     protected $listen = [
-        DeletedSubmission::class => [
-            DeletedSubmissionListener::class,
+        SubmissionDeleted::class => [
+            SubmissionDeletedListener::class,
         ],
-        DeleteSubmissionFile::class => [
-            DeleteSubmissionFileListener::class,
+        SubmissionFileDeleted::class => [
+            SubmissionFileDeletedListener::class,
         ],
         MetadataChanged::class => [
             MetadataChangedListener::class
         ],
         PublishedEvent::class => [
-            UpdateSubmissionSearchListener::class,
+            SubmissionUpdatedListener::class,
         ],
         UnpublishedEvent::class => [
-            UpdateSubmissionSearchListener::class,
+            SubmissionUpdatedListener::class,
         ]
     ];
 

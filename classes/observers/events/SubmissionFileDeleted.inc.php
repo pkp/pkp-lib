@@ -3,13 +3,13 @@
 declare(strict_types=1);
 
 /**
- * @file classes/observers/events/DeleteSubmissionFile.inc.php
+ * @file classes/observers/events/SubmissionFileDeleted.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DeleteSubmissionFile
+ * @class SubmissionFileDeleted
  * @ingroup core
  *
  * @brief Event fired when submission's deleted
@@ -21,7 +21,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 
 use PKP\submission\SubmissionFile;
 
-class DeleteSubmissionFile
+class SubmissionFileDeleted
 {
     use Dispatchable;
 

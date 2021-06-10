@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @class MetadataChangedJob
  * @ingroup jobs
  *
- * @brief Classe to handle the Metadata Changed job
+ * @brief Class to handle the Metadata Changed job
  */
 
 namespace PKP\Jobs\Metadata;
@@ -44,7 +44,7 @@ class MetadataChangedJob extends BaseJob
      */
     public function __construct(int $submissionId)
     {
-        $this->connection = Config::getVar('queues', 'default_connection', 'sync');
+        $this->connection = Config::getVar('queues', 'default_connection', 'database');
         $this->queue = Config::getVar('queues', 'default_queue', null);
 
         $this->submissionId = $submissionId;

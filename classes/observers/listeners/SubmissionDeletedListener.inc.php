@@ -3,13 +3,13 @@
 declare(strict_types=1);
 
 /**
- * @file classes/observers/listeners/DeletedSubmissionListener.inc.php
+ * @file classes/observers/listeners/SubmissionDeletedListener.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DeletedSubmissionListener
+ * @class SubmissionDeletedListener
  * @ingroup core
  *
  * @brief Listener fired when submission's deleted
@@ -17,18 +17,18 @@ declare(strict_types=1);
 
 namespace PKP\observers\listeners;
 
-use PKP\Jobs\Submissions\DeletedSubmissionSearchJob;
-use PKP\observers\events\DeletedSubmission;
+use PKP\Jobs\Submissions\RemoveSubmissionFromSearchIndexJob;
+use PKP\observers\events\SubmissionDeleted;
 
-class DeletedSubmissionListener
+class SubmissionDeletedListener
 {
     /**
      * Handle the listener call
      *
      *
      */
-    public function handle(DeletedSubmission $event)
+    public function handle(SubmissionDeleted $event)
     {
-        dispatch(new DeletedSubmissionSearchJob($event->submission->getId()));
+        dispatch(new RemoveSubmissionFromSearchIndexJob($event->submission->getId()));
     }
 }

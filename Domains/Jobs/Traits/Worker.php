@@ -63,8 +63,6 @@ trait Worker
 
     /**
      * The number of seconds before a released job will be available.
-     *
-     *
      */
     public function setDelay(int $value): self
     {
@@ -75,7 +73,6 @@ trait Worker
 
     /**
      * Get the Job's delay value
-     *
      */
     public function getDelay(): int
     {
@@ -84,8 +81,6 @@ trait Worker
 
     /**
      * The maximum amount of RAM the worker may consume.
-     *
-     *
      */
     public function setAllowedMemory(int $value): self
     {
@@ -96,7 +91,6 @@ trait Worker
 
     /**
      * Get Job's allowed memory value
-     *
      */
     public function getAllowedMemory(): int
     {
@@ -105,8 +99,6 @@ trait Worker
 
     /**
      * The maximum number of seconds a child worker may run.
-     *
-     *
      */
     public function setTimeout(int $value): self
     {
@@ -117,7 +109,6 @@ trait Worker
 
     /**
      * Get Job's timeout value
-     *
      */
     public function getTimeout(): int
     {
@@ -126,8 +117,6 @@ trait Worker
 
     /**
      * The number of seconds to wait in between polling the queue.
-     *
-     *
      */
     public function setSleep(int $value): self
     {
@@ -138,7 +127,6 @@ trait Worker
 
     /**
      * Get Job's sleep value
-     *
      */
     public function getSleep(): int
     {
@@ -147,8 +135,6 @@ trait Worker
 
     /**
      * Indicates if the worker should run in maintenance mode.
-     *
-     *
      */
     public function setForceFlag(bool $value = false): self
     {
@@ -159,7 +145,6 @@ trait Worker
 
     /**
      * Get Job's force flag value
-     *
      */
     public function getForceFlag(): bool
     {
@@ -168,8 +153,6 @@ trait Worker
 
     /**
      * Indicates if the worker should stop when queue is empty.
-     *
-     *
      */
     public function setStopWhenEmptyFlag(bool $value = false): self
     {
@@ -180,7 +163,6 @@ trait Worker
 
     /**
      * Get Job's stop when empty flag value
-     *
      */
     public function getStopWhenEmptyFlag(): bool
     {

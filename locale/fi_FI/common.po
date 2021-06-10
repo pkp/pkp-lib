@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2021-04-07 23:27+0000\n"
+"PO-Revision-Date: 2021-06-11 14:09+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fi_FI/>\n"
@@ -2013,3 +2013,17 @@ msgstr "Tilaustasi ei voitu peruuttaa"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Tilauksesi on peruutettu"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML-solmua ei voitu tuoda"
+
+msgid "filter.error.missingRequirements"
+msgstr "Yrität suorittaa muunnosta, jota asennusympäristösi ei tue."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Suodatin ({$displayName}) tukee syötettä {$inputTypeName} - {$typeofInput} "
+"annettu"
+
+msgid "validator.country"
+msgstr "Tämä ei ole kelvollinen maan nimi."

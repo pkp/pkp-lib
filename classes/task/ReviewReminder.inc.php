@@ -16,6 +16,7 @@
 namespace PKP\task;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 
 use PKP\core\Core;
@@ -139,7 +140,6 @@ class ReviewReminder extends ScheduledTask
         $context = null;
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $contextDao = Application::getContextDAO();
 
         $incompleteAssignments = $reviewAssignmentDao->getIncompleteReviewAssignments();
@@ -153,7 +153,7 @@ class ReviewReminder extends ScheduledTask
             // Fetch the submission
             if ($submission == null || $submission->getId() != $reviewAssignment->getSubmissionId()) {
                 unset($submission);
-                $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+                $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
                 // Avoid review assignments without submission in database.
                 if (!$submission) {
                     continue;

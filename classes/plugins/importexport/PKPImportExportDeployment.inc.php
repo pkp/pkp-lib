@@ -19,11 +19,10 @@
 
 namespace PKP\plugins\importexport;
 
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
-
-use PKP\db\DAORegistry;
 
 class PKPImportExportDeployment
 {
@@ -303,12 +302,11 @@ class PKPImportExportDeployment
     {
         switch ($assocType) {
             case ASSOC_TYPE_SUBMISSION:
-                $processedSubmisssionsIds = $this->getProcessedObjectsIds(ASSOC_TYPE_SUBMISSION);
-                if (!empty($processedSubmisssionsIds)) {
-                    $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-                    foreach ($processedSubmisssionsIds as $submissionId) {
+                $processedSubmissionsIds = $this->getProcessedObjectsIds(ASSOC_TYPE_SUBMISSION);
+                if (!empty($processedSubmissionsIds)) {
+                    foreach ($processedSubmissionsIds as $submissionId) {
                         if ($submissionId) {
-                            $submissionDao->deleteById($submissionId);
+                            Repo::submission()->dao->deleteById($submissionId);
                         }
                     }
                 }

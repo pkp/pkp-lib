@@ -1,4 +1,4 @@
-{\PKP\core\**
+{**
  * lib/pkp/templates/controllers/grid/settings/category/form/categoryForm.tpl
  *
  * Copyright (c) 2014-2021 Simon Fraser University

@@ -16,16 +16,17 @@
 namespace PKP\submission\form;
 
 use APP\core\Application;
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\publication\Publication;
+use APP\submission\Submission;
+
 use APP\template\TemplateManager;
 
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
-use PKP\submission\PKPSubmission;
 
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 {
@@ -273,7 +274,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
      */
     public function setPublicationData($publication, $submission)
     {
-        $publication->setData('submissionId', $submission->getId());
+        // Nothing shared between all applications
     }
 
     /**
@@ -360,7 +361,6 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
     {
         parent::execute(...$functionArgs);
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $request = Application::get()->getRequest();
         $user = $request->getUser();
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
@@ -384,11 +384,14 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
             $query = $this->getCommentsToEditor($this->submissionId);
             $this->setCommentsToEditor($this->submissionId, $this->getData('commentsToEditor'), $user->getId(), $query);
 
-            $submissionDao->updateObject($this->submission);
+            // TODO
+            // Instead of calling the DAO directly, this should use \APP\submission\Repo::edit()
+            Repo::submission()->dao->update($this->submission);
 
             $publication = $this->submission->getCurrentPublication();
             $this->setPublicationData($publication, $this->submission);
-            $publication = Services::get('publication')->edit($publication, $publication->_data, $request);
+            Repo::publication()->edit($publication, $publication->_data);
+            $publication = Repo::publication()->get($publication->getId());
 
             // Update author name data when submission locale is changed
             if ($oldLocale !== $this->submission->getData('locale')) {
@@ -397,26 +400,18 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
             }
         } else {
             // Create new submission
-            $this->submission = $submissionDao->newDataObject();
+            $this->submission = Repo::submission()->newDataObject();
             $this->submission->setContextId($this->context->getId());
-
             $this->setSubmissionData($this->submission);
-
-            $this->submission->stampLastActivity();
-            $this->submission->stampModified();
             $this->submission->setSubmissionProgress($this->step + 1);
             $this->submission->setStageId(WORKFLOW_STAGE_ID_SUBMISSION);
-            // Insert the submission
-            $this->submission = Services::get('submission')->add($this->submission, $request);
-            $this->submissionId = $this->submission->getId();
 
-            // Create a publication
             $publication = new Publication();
             $this->setPublicationData($publication, $this->submission);
-            $publication->setData('status', PKPSubmission::STATUS_QUEUED);
-            $publication->setData('version', 1);
-            $publication = Services::get('publication')->add($publication, $request);
-            $this->submission = Services::get('submission')->edit($this->submission, ['currentPublicationId' => $publication->getId()], $request);
+
+            // Insert the submission
+            $this->submissionId = Repo::submission()->add($this->submission, $publication);
+            $this->submission = Repo::submission()->get($this->submissionId);
 
             // Set user to initial author
             $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
@@ -449,7 +444,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
             $author->setUserGroupId($userGroupId);
 
             $authorId = $authorDao->insertObject($author);
-            $publication = Services::get('publication')->edit($publication, ['primaryContactId' => $authorId], $request);
+            Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
+            $publication = Repo::publication()->get($publication->getId());
 
             // Assign the user author to the stage
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */

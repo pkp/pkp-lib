@@ -15,7 +15,7 @@
  * @class Announcement
  * @ingroup announcement
  *
- * @see AnnouncementDAO
+ * @see DAO
  *
  * @brief Basic class describing a announcement.
  */

@@ -20,11 +20,11 @@ namespace PKP\statistics;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
 use Exception;
 use PKP\core\PKPApplication;
 
 use PKP\core\PKPString;
-use PKP\db\DAORegistry;
 
 use PKP\db\DBResultRange;
 
@@ -435,7 +435,7 @@ class PKPMetricsDAO extends \PKP\db\DAO
                     }
 
                     $contextId = $representation->getContextId();
-                    $publication = Services::get('publication')->get($representation->getData('publicationId'));
+                    $publication = Repo::publication()->get($representation->getData('publicationId'));
                     $submissionId = $publication->getData('submissionId');
                 } else {
                     throw new Exception('Cannot load record: invalid representation id.');
@@ -446,8 +446,7 @@ class PKPMetricsDAO extends \PKP\db\DAO
                 if (!$isFile && !$isRepresentation) {
                     $submissionId = $assocId;
                 }
-                $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-                $submission = $submissionDao->getById($submissionId);
+                $submission = Repo::submission()->get($submissionId);
                 if ($submission) {
                     $contextId = $submission->getContextId();
                     $submissionId = $submission->getId();

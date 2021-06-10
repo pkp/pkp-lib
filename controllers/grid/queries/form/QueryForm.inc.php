@@ -13,6 +13,7 @@
  * @brief Form for adding/editing a new query
  */
 
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -237,8 +238,7 @@ class QueryForm extends Form
 
         // Queryies only support ASSOC_TYPE_SUBMISSION so far
         if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
-            /** @var Submission */
-            $submission = Services::get('submission')->get($query->getAssocId());
+            $submission = Repo::submission()->get($query->getAssocId());
 
             // All stages can select the default template
             $templateKeys = [];
@@ -279,7 +279,7 @@ class QueryForm extends Form
             if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
 
                 // Get all review assignments for current submission
-                $reviewAssignments = Services::get('submission')->getReviewAssignments($submission);
+                $reviewAssignments = Repo::submission()->getReviewAssignments($submission);
 
                 // Get current users roles
                 $assignedRoles = [];
@@ -528,10 +528,9 @@ class QueryForm extends Form
 
         // Stamp the submission status modification date.
         if ($query->getAssocType() == ASSOC_TYPE_SUBMISSION) {
-            $submission = Services::get('submission')->get($query->getAssocId());
+            $submission = Repo::submission()->get($query->getAssocId());
             $submission->stampLastActivity();
-            $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-            $submissionDao->updateObject($submission);
+            Repo::submission()->dao->update($submission);
         }
 
         parent::execute(...$functionArgs);

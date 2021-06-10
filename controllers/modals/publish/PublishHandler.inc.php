@@ -13,6 +13,9 @@
  * @brief A handler to load final publishing confirmation checks
  */
 
+// Import the base Handler.
+
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 
@@ -88,7 +91,7 @@ class PublishHandler extends Handler
         }
         $primaryLocale = $submissionContext->getPrimaryLocale();
         $allowedLocales = $submissionContext->getSupportedSubmissionLocales();
-        $errors = Services::get('publication')->validatePublish($this->publication, $this->submission, $allowedLocales, $primaryLocale);
+        $errors = Repo::publication()->validatePublish($this->publication, $this->submission, $allowedLocales, $primaryLocale);
 
         $publicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $this->submission->getId() . '/publications/' . $this->publication->getId() . '/publish');
 

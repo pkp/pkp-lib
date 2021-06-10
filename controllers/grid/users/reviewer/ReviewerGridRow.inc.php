@@ -14,6 +14,7 @@
  */
 
 use APP\core\Services;
+use APP\facades\Repo;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 
@@ -76,8 +77,7 @@ class ReviewerGridRow extends GridRow
             ];
 
             // read or upload a review
-            $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-            $submission = $submissionDao->getById($submissionId);
+            $submission = Repo::submission()->get($submissionId);
             if (!$reviewAssignment->getCancelled()) {
                 $this->addAction(
                     new LinkAction(

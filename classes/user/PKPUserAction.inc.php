@@ -17,7 +17,9 @@
 
 namespace PKP\user;
 
+use APP\core\Services;
 use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
 
 class PKPUserAction
 {

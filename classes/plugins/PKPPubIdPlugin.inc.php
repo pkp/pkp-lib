@@ -16,14 +16,16 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
+use APP\facades\Repo;
+use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use PKP\core\EntityDAO;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\db\SchemaDAO;
 use PKP\linkAction\LinkAction;
 
 use PKP\linkAction\request\AjaxModal;
-use PKP\notification\PKPNotification;
 
 abstract class PKPPubIdPlugin extends LazyLoadPlugin
 {
@@ -47,6 +49,9 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
                 if ($dao instanceof SchemaDAO) {
                     // Schema-backed DAOs need the schema extended.
                     HookRegistry::register('Schema::get::' . $dao->schemaName, [$this, 'addToSchema']);
+                } elseif ($dao instanceof EntityDAO) {
+                    // Schema-backed DAOs need the schema extended.
+                    HookRegistry::register('Schema::get::' . $dao->schema, [$this, 'addToSchema']);
                 } else {
                     // For non-schema-backed DAOs, DAOName::getAdditionalFieldNames can be used.
                     $classNameParts = explode('\\', get_class($dao)); // Separate namespace info from class name
@@ -96,7 +101,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
                 $form->readInputData();
                 if ($form->validate()) {
                     $form->execute();
-                    $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS);
+                    $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS);
                     return new JSONMessage(true);
                 }
                 return new JSONMessage(true, $form->fetch($request));
@@ -345,8 +350,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     public function getDAOs()
     {
         return  [
-            DAORegistry::getDAO('PublicationDAO'),
-            DAORegistry::getDAO('SubmissionDAO'),
+            Repo::publication()->dao,
+            Repo::submission()->dao,
             Application::getRepresentationDAO(),
             DAORegistry::getDAO('SubmissionFileDAO'),
         ];
@@ -482,7 +487,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     {
         foreach ($this->getPubObjectTypes() as $type => $fqcn) {
             if ($type === 'Publication') {
-                $typeDao = DAORegistry::getDAO('PublicationDAO'); /** @var PublicationDAO $typeDao */
+                $typeDao = Repo::publication()->dao;
             } elseif ($type === 'Representation') {
                 $typeDao = Application::getRepresentationDAO();
             } elseif ($type === 'SubmissionFile') {

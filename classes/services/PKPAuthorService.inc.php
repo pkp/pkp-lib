@@ -16,6 +16,7 @@
 namespace PKP\services;
 
 use APP\core\Services;
+use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\HookRegistry;
@@ -204,7 +205,7 @@ class PKPAuthorService implements EntityReadInterface, EntityWriteInterface, Ent
         // The publicationId must match an existing publication that is not yet published
         $validator->after(function ($validator) use ($props) {
             if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
-                $publication = Services::get('publication')->get($props['publicationId']);
+                $publication = Repo::publication()->get($props['publicationId']);
                 if (!$publication) {
                     $validator->errors()->add('publicationId', __('author.publicationNotFound'));
                 } elseif ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {

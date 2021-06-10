@@ -350,7 +350,7 @@ class PKPEmailTemplateService implements EntityPropertyInterface, EntityReadInte
     public function restoreDefaults($contextId)
     {
         $emailTemplateQB = new PKPEmailTemplateQueryBuilder();
-        $emailTemplateQB->filterByContext($contextId);
+        $emailTemplateQB->filterByContextIds([$contextId]);
         $emailTemplateQO = $emailTemplateQB->getModified();
         $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /** @var EmailTemplateDAO $emailTemplateDao */
         $result = $emailTemplateDao->retrieve($emailTemplateQO->toSql(), $emailTemplateQO->getBindings());

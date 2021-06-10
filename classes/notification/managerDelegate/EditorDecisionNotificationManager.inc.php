@@ -15,12 +15,14 @@
 
 namespace PKP\notification\managerDelegate;
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\notification\Notification;
 use PKP\db\DAORegistry;
 
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
+
+import('lib.pkp.classes.notification.NotificationManagerDelegate');
 
 class EditorDecisionNotificationManager extends NotificationManagerDelegate
 {
@@ -133,9 +135,8 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND:
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
-                $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-                $submission = $submissionDao->getById($notification->getAssocId());
-                return Services::get('submission')->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
+                $submission = Repo::submission()->get($notification->getAssocId());
+                return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
             default:
                 return '';
         }

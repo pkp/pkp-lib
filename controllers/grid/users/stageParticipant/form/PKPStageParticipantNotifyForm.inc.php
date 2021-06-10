@@ -14,6 +14,7 @@
  */
 
 use APP\core\Services;
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -75,8 +76,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        /** @var Submission $submissionDao */
-        $submission = Services::get('submission')->get($this->_submissionId);
+        $submission = Repo::submission()->get($this->_submissionId);
 
         // All stages can choose the default template
         $templateKeys = ['NOTIFICATION_CENTER_DEFAULT'];
@@ -144,8 +144,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
      */
     public function execute(...$functionParams)
     {
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($this->_submissionId);
+        $submission = Repo::submission()->get($this->_submissionId);
         if ($this->getData('message')) {
             $request = Application::get()->getRequest();
             $this->sendMessage((int) $this->getData('userId'), $submission, $request);
@@ -175,7 +174,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
             $email->addRecipient($user->getEmail(), $user->getFullName());
             $email->setBody($this->getData('message'));
 
-            $submissionUrl = Services::get('submission')->getWorkflowUrlByUserRoles($submission, $user->getId());
+            $submissionUrl = Repo::submission()->getWorkflowUrlByUserRoles($submission, $user->getId());
 
             // Parameters for various emails
             $email->assignParams([

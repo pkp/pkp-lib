@@ -22,7 +22,6 @@ use Illuminate\Translation\Translator;
 
 use Illuminate\Validation\Factory;
 use PKP\file\TemporaryFileManager;
-use PKP\services\interfaces\EntityWriteInterface;
 
 use Sokil\IsoCodes\IsoCodesFactory;
 
@@ -270,15 +269,15 @@ class ValidatorFactory
      * primary locale.
      *
      * @param $validator Illuminate\Validation\Validator
-     * @param $action string One of VALIDATE_ACTION_* constants
+     * @param $object DataObject The object being validated or null if adding an object
      * @param $requiredProps array List of prop names
      * @param $multilingualProps array List of prop names
      * @param $allowedLocales array List of locale codes
      * @param $primaryLocale string Primary locale code
      */
-    public static function required($validator, $action, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale)
+    public static function required($validator, $object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale)
     {
-        $validator->after(function ($validator) use ($action, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale) {
+        $validator->after(function ($validator) use ($object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale) {
             $allLocales = AppLocale::getAllLocales();
             $primaryLocaleName = $primaryLocale;
             foreach ($allLocales as $locale => $name) {
@@ -294,7 +293,7 @@ class ValidatorFactory
                 // Required multilingual props should only be
                 // required in the primary locale
                 if (in_array($requiredProp, $multilingualProps)) {
-                    if ($action === EntityWriteInterface::VALIDATE_ACTION_ADD) {
+                    if (is_null($object)) {
                         if (self::isEmpty($props[$requiredProp]) || self::isEmpty($props[$requiredProp][$primaryLocale])) {
                             $validator->errors()->add($requiredProp . '.' . $primaryLocale, __('validator.required'));
                         }
@@ -308,8 +307,8 @@ class ValidatorFactory
                         }
                     }
                 } else {
-                    if (($action === EntityWriteInterface::VALIDATE_ACTION_ADD && self::isEmpty($props[$requiredProp])) ||
-                            ($action === EntityWriteInterface::VALIDATE_ACTION_EDIT && array_key_exists($requiredProp, $props) && self::isEmpty($props[$requiredProp]))) {
+                    if (is_null($object) && self::isEmpty($props[$requiredProp]) ||
+                            ($object && array_key_exists($requiredProp, $props) && self::isEmpty($props[$requiredProp]))) {
                         $validator->errors()->add($requiredProp, __('validator.required'));
                     }
                 }

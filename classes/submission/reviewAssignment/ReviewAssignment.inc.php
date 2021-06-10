@@ -17,6 +17,7 @@
 
 namespace PKP\submission\reviewAssignment;
 
+use APP\facades\Repo;
 use PKP\security\Role;
 
 class ReviewAssignment extends \PKP\core\DataObject
@@ -647,12 +648,11 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function isRead()
     {
-        $submissionDao = \DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $userGroupDao = \DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userStageAssignmentDao = \DAORegistry::getDAO('UserStageAssignmentDAO'); /** @var UserStageAssignmentDAO $userStageAssignmentDao */
         $viewsDao = \DAORegistry::getDAO('ViewsDAO'); /** @var ViewsDAO $viewsDao */
 
-        $submission = $submissionDao->getById($this->getSubmissionId());
+        $submission = Repo::submission()->get($this->getSubmissionId());
 
         // Get the user groups for this stage
         $userGroups = $userGroupDao->getUserGroupsByStage(

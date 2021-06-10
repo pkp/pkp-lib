@@ -13,6 +13,7 @@
  * @brief Form for sending a review reminder to a reviewer
  */
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 
@@ -71,8 +72,7 @@ class ReviewReminderForm extends Form
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = $userDao->getById($reviewerId);
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
         $context = $request->getContext();
         $templateKey = $this->_getMailTemplateKey($context);
@@ -151,13 +151,12 @@ class ReviewReminderForm extends Form
     public function execute(...$functionArgs)
     {
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $request = Application::get()->getRequest();
 
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = $userDao->getById($reviewerId);
-        $submission = $submissionDao->getById($reviewAssignment->getSubmissionId());
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $reviewDueDate = $this->getData('reviewDueDate');
         $dispatcher = $request->getDispatcher();
         $user = $request->getUser();

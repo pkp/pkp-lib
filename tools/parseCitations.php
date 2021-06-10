@@ -13,6 +13,8 @@
  * @brief CLI tool to parse existing citations
  */
 
+use APP\facades\Repo;
+
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
 class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
@@ -51,7 +53,6 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
      */
     public function execute()
     {
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $citationDao = DAORegistry::getDAO('CitationDAO');
         $contextDao = Application::getContextDAO();
 
@@ -59,8 +60,9 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
             case 'all':
                 $contexts = $contextDao->getAll();
                 while ($context = $contexts->next()) {
-                    $submissions = $submissionDao->getByContextId($context->getId());
-                    while ($submission = $submissions->next()) {
+                    $collector = Repo::submission()->getCollector()->filterByContextIds([$context->getId()]);
+                    $submissions = Repo::submission()->getMany($collector);
+                    foreach ($submissions as $submission) {
                         $this->_parseSubmission($submission);
                     }
                 }
@@ -72,15 +74,16 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
                         printf("Error: Skipping ${contextId}. Unknown context.\n");
                         continue;
                     }
-                    $submissions = $submissionDao->getByContextId($contextId);
-                    while ($submission = $submissions->next()) {
+                    $collector = Repo::submission()->getCollector()->filterByContextIds([$context->getId()]);
+                    $submissions = Repo::submission()->getMany($collector);
+                    foreach ($submissions as $submission) {
                         $this->_parseSubmission($submission);
                     }
                 }
                 break;
             case 'submission':
                 foreach ($this->parameters as $submissionId) {
-                    $submission = $submissionDao->getById($submissionId);
+                    $submission = Repo::submission()->get($submissionId);
                     if (!isset($submission)) {
                         printf("Error: Skipping ${submissionId}. Unknown submission.\n");
                         continue;

@@ -14,12 +14,13 @@
 
 namespace PKP\components\listPanels;
 
-use APP\core\Services;
+use APP\core\Application;
+use APP\facades\Repo;
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\components\forms\FieldAutosuggestPreset;
 use PKP\components\forms\FieldSelectUsers;
 use PKP\security\Role;
-use PKP\services\PKPSubmissionService;
 use PKP\submission\PKPSubmission;
 
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -56,8 +57,8 @@ abstract class PKPSubmissionsListPanel extends ListPanel
      */
     public function getConfig()
     {
-        \AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);
-        $request = \Application::get()->getRequest();
+        AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);
+        $request = Application::get()->getRequest();
         $context = $request->getContext();
 
         $config = parent::getConfig();
@@ -75,7 +76,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
 
         $config['addUrl'] = $request->getDispatcher()->url(
             $request,
-            \PKPApplication::ROUTE_PAGE,
+            Application::ROUTE_PAGE,
             null,
             'submission',
             'wizard'
@@ -84,7 +85,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
         // URL to view info center for a submission
         $config['infoUrl'] = $request->getDispatcher()->url(
             $request,
-            \PKPApplication::ROUTE_COMPONENT,
+            Application::ROUTE_COMPONENT,
             null,
             'informationCenter.SubmissionInformationCenterHandler',
             'viewInformationCenter',
@@ -95,7 +96,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
         // URL to assign a participant
         $config['assignParticipantUrl'] = $request->getDispatcher()->url(
             $request,
-            \PKPApplication::ROUTE_COMPONENT,
+            Application::ROUTE_COMPONENT,
             null,
             'grid.users.stageParticipant.StageParticipantGridHandler',
             'addParticipant',
@@ -151,7 +152,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
                 'value' => [],
                 'apiUrl' => $request->getDispatcher()->url(
                     $request,
-                    \PKPApplication::ROUTE_API,
+                    Application::ROUTE_API,
                     $context->getPath(),
                     'users',
                     null,
@@ -185,7 +186,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
             'WORKFLOW_STAGE_ID_EXTERNAL_REVIEW' => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
             'WORKFLOW_STAGE_ID_EDITING' => WORKFLOW_STAGE_ID_EDITING,
             'WORKFLOW_STAGE_ID_PRODUCTION' => WORKFLOW_STAGE_ID_PRODUCTION,
-            'STAGE_STATUS_SUBMISSION_UNASSIGNED' => PKPSubmissionService::STAGE_STATUS_SUBMISSION_UNASSIGNED,
+            'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
             'REVIEW_ROUND_STATUS_PENDING_REVIEWERS' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
             'REVIEW_ROUND_STATUS_REVIEWS_READY' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_READY,
             'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
@@ -235,55 +236,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel
     }
 
     /**
-     * Helper method to get the items property according to the self::$getParams
-     *
-     * @param Request $request
-     *
-     * @return array
-     */
-    public function getItems($request)
-    {
-        $submissionsIterator = Services::get('submission')->getMany($this->_getItemsParams());
-        $items = [];
-        foreach ($submissionsIterator as $submission) {
-            $items[] = Services::get('submission')->getBackendListProperties($submission, ['request' => $request]);
-        }
-
-        return $items;
-    }
-
-    /**
-     * Helper method to get the itemsMax property according to self::$getParams
-     *
-     * @return int
-     */
-    public function getItemsMax()
-    {
-        return \Services::get('submission')->getMax($this->_getItemsParams());
-    }
-
-    /**
-     * Helper method to compile initial params to get items
-     *
-     * @return array
-     */
-    protected function _getItemsParams()
-    {
-        $request = \Application::get()->getRequest();
-        $context = $request->getContext();
-        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
-
-        return array_merge(
-            [
-                'contextId' => $contextId,
-                'count' => $this->count,
-                'offset' => 0,
-            ],
-            $this->getParams
-        );
-    }
-
-    /**
      * Compile the categories for passing as filters
      *
      * @param $categories array
@@ -292,8 +244,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
      */
     public function getCategoryFilters($categories = [])
     {
-        $request = \Application::get()->getRequest();
-        $context = $request->getContext();
+        $request = Application::get()->getRequest();
 
         if ($categories) {
             // Use an autosuggest field if the list of categories is too long

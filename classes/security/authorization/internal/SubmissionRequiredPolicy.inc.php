@@ -14,8 +14,9 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
+use APP\facades\Repo;
 use APP\submission\Submission;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 
 use PKP\security\authorization\DataObjectRequiredPolicy;
@@ -57,8 +58,7 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         // Validate the submission id.
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($submissionId);
+        $submission = Repo::submission()->get((int) $submissionId);
         if (!$submission instanceof Submission) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
@@ -70,7 +70,7 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         // Save the submission to the authorization context.
-        $this->addAuthorizedContextObject(ASSOC_TYPE_SUBMISSION, $submission);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION, $submission);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

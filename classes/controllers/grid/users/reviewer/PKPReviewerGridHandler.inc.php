@@ -17,6 +17,8 @@ namespace PKP\controllers\grid\users\reviewer;
 
 use APP\core\Application;
 use APP\core\Services;
+
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
@@ -650,8 +652,7 @@ class PKPReviewerGridHandler extends GridHandler
         //if the review was read by an editor, log event
         if ($reviewAssignment->isRead()) {
             $submissionId = $reviewAssignment->getSubmissionId();
-            $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-            $submission = $submissionDao->getById($submissionId);
+            $submission = Repo::submission()->get($submissionId);
 
             SubmissionLog::logEvent(
                 $request,

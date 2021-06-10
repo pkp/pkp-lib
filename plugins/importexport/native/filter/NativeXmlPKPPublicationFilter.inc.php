@@ -13,6 +13,9 @@
  * @brief Base class that converts a Native XML document to a set of publications
  */
 
+use APP\facades\Repo;
+use APP\publication\Publication;
+
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
 class NativeXmlPKPPublicationFilter extends NativeImportFilter
@@ -76,9 +79,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
         $submission = $deployment->getSubmission();
 
-        /** @var PublicationDAO $publicationDao */
-        $publicationDao = DAORegistry::getDAO('PublicationDAO');
-        $publication = $publicationDao->newDataObject(); /** @var PKPPublication $publication */
+        $publication = Repo::publication()->newDataObject();
 
         $publication->setData('submissionId', $submission->getId());
 
@@ -98,7 +99,8 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         $publication->setData('primaryContactId', $node->getAttribute('primary_contact_id'));
         $publication->setData('urlPath', $node->getAttribute('url_path'));
 
-        $publication = Services::get('publication')->add($publication, Application::get()->getRequest());
+        $publicationId = Repo::publication()->dao->insert($publication);
+        $publication = Repo::publication()->get($publicationId);
         $deployment->setPublication($publication);
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
@@ -107,9 +109,9 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             }
         }
 
-        $publication = Services::get('publication')->edit($publication, [], Application::get()->getRequest());
+        Repo::publication()->dao->update($publication);
 
-        return $publication;
+        return Repo::publication()->get($publication->getId());
     }
 
     /**
@@ -118,7 +120,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      * @param $publication PKPPublication
      * @param $node DOMElement
      *
-     * @return PKPPublication
+     * @return Publication
      */
     public function populateObject($publication, $node)
     {
@@ -163,7 +165,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
             $controlledVocabulariesDao->$insertFunction($controlledVocabulariesValues, $publication->getId(), false);
 
-            $publicationNew = Services::get('publication')->get($publication->getId());
+            $publicationNew = Repo::publication()->get($publication->getId());
             $publication->setData($n->tagName, $publicationNew->getData($n->tagName));
         } else {
             switch ($n->tagName) {
@@ -212,6 +214,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
                 if ($element->textContent == $submission->getData('currentPublicationId')) {
                     $submission->setData('currentPublicationId', $publication->getId());
+                    Repo::submission()->dao->update($submission);
                 }
 
                 break;

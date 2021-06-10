@@ -15,7 +15,7 @@
 
 namespace PKP\plugins;
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use Exception;
@@ -261,9 +261,7 @@ abstract class ImportExportPlugin extends Plugin
 
         $submissions = [];
         foreach ($submissionIds as $submissionId) {
-            /** @var APP\services\SubmissionService $submissionService */
-            $submissionService = Services::get('submission');
-            $submission = $submissionService->get($submissionId);
+            $submission = Repo::submission()->get($submissionId);
 
             if ($submission && $submission->getData('contextId') == $deployment->getContext()->getId()) {
                 $submissions[] = $submission;

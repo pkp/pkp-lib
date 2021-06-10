@@ -13,6 +13,7 @@
  * @brief Displays a pub ids form.
  */
 
+use APP\facades\Repo;
 use APP\submission\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -85,7 +86,7 @@ class PKPPublicIdentifiersForm extends Form
         ]);
         if ($this->getPubObject() instanceof Representation || $this->getPubObject() instanceof \APP\monograph\Chapter) {
             $publicationId = $this->getPubObject()->getData('publicationId');
-            $publication = Services::get('publication')->get($publicationId);
+            $publication = Repo::publication()->get($publicationId);
             $templateMgr->assign([
                 'submissionId' => $publication->getData('submissionId'),
             ]);

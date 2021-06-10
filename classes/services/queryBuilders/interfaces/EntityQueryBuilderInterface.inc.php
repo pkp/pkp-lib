@@ -59,12 +59,12 @@ interface EntityQueryBuilderInterface
      * $qo = $qb
      *   ->filterByContextIds(1)
      *   ->getQuery();
-     * $result = DAORegistry::getDAO('PublicationDAO')->retrieveRange(
+     * $result = DAORegistry::getDAO('AuthorDAO')->retrieveRange(
      *   $qo->toSql(),
      *   $qo->getBindings(),
      *   new DBResultRange(20, null, 0);
      * );
-     * $queryResults = new DAOResultFactory($result, $publicationDao, '_fromRow');
+     * $queryResults = new DAOResultFactory($result, $authorDao, '_fromRow');
      * $iteratorOfObjects = $queryResults->toIterator();
      * ```
      *

@@ -20,6 +20,7 @@
 
 namespace PKP\log;
 
+use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\security\Validation;
@@ -73,10 +74,9 @@ class SubmissionLog
         // Insert the resulting object
         $submissionEventLogDao->insertObject($entry);
 
-        // Stamp the submission status modification date.
+        // Stamp the submission status modification date without triggering edit event
         $submission->stampLastActivity();
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submissionDao->updateObject($submission);
+        Repo::submission()->dao->update($submission);
 
         return $entry;
     }

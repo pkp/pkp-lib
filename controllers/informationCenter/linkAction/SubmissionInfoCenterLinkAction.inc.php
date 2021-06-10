@@ -13,6 +13,7 @@
  * @brief An action to open up the information center for a submission.
  */
 
+use APP\facades\Repo;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 
@@ -30,8 +31,7 @@ class SubmissionInfoCenterLinkAction extends LinkAction
     {
         // Instantiate the information center modal.
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($submissionId);
+        $submission = Repo::submission()->get($submissionId);
 
         $primaryAuthor = $submission->getPrimaryAuthor();
         if (!isset($primaryAuthor)) {

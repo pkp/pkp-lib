@@ -14,7 +14,8 @@
 
 namespace PKP\security\authorization\internal;
 
-use APP\core\Services;
+use APP\core\Application;
+use APP\facades\Repo;
 use APP\publication\Publication;
 
 use PKP\security\authorization\AuthorizationPolicy;
@@ -56,13 +57,13 @@ class PublicationRequiredPolicy extends DataObjectRequiredPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $publication = Services::get('publication')->get($publicationId);
+        $publication = Repo::publication()->get((int) $publicationId);
         if (!$publication instanceof Publication) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the publication to the authorization context.
-        $this->addAuthorizedContextObject(ASSOC_TYPE_PUBLICATION, $publication);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION, $publication);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

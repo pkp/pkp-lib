@@ -15,7 +15,8 @@
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
-use PKP\submission\PKPSubmission;
+use APP\facades\Repo;
+use APP\submission\Submission;
 
 class generateTestMetrics extends \PKP\cliTool\CommandLineTool
 {
@@ -91,13 +92,12 @@ class generateTestMetrics extends \PKP\cliTool\CommandLineTool
      */
     public function getPublishedSubmissionIds()
     {
-        import('classes.submission.Submission');
-        $submissionsIterator = Services::get('submission')->getMany(['contextId' => $this->contextId, 'status' => PKPSubmission::STATUS_PUBLISHED]);
-        $submissionIds = [];
-        foreach ($submissionsIterator as $submission) {
-            $submissionIds[] = $submission->getId();
-        }
-        return $submissionIds;
+        return Repo::submission()->getIds(
+            Repo::submission()
+                ->getCollector()
+                ->filterByContextIds([$this->contextId])
+                ->filterByStatus([Submission::STATUS_PUBLISHED])
+        );
     }
 }
 

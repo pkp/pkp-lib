@@ -16,10 +16,11 @@
 namespace PKP\task;
 
 use APP\core\Services;
+use APP\facades\Repo;
+
+use APP\submission\Submission;
 use PKP\core\Core;
 use PKP\scheduledTask\ScheduledTask;
-
-use PKP\submission\PKPSubmission;
 
 class PublishSubmissions extends ScheduledTask
 {
@@ -40,14 +41,16 @@ class PublishSubmissions extends ScheduledTask
             'isEnabled' => true,
         ]);
         foreach ($contextIds as $contextId) {
-            $submissionsIterator = Services::get('submission')->getMany([
-                'contextId' => $contextId,
-                'status' => PKPSubmission::STATUS_SCHEDULED,
-            ]);
-            foreach ($submissionsIterator as $submission) {
+            $submissions = Repo::submission()->getMany(
+                Repo::submission()
+                    ->getCollector()
+                    ->filterByContextIds([$contextId])
+                    ->filterByStatus([Submission::STATUS_SCHEDULED])
+            );
+            foreach ($submissions as $submission) {
                 $datePublished = $submission->getCurrentPublication()->getData('datePublished');
                 if ($datePublished && strtotime($datePublished) <= strtotime(Core::getCurrentDate())) {
-                    Services::get('publication')->publish($submission->getCurrentPublication());
+                    Repo::publication()->publish($submission->getCurrentPublication());
                 }
             }
         }

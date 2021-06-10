@@ -14,6 +14,8 @@
  */
 
 use APP\core\Request;
+use APP\facades\Repo;
+
 use APP\handler\Handler;
 use APP\statistics\StatisticsHelper;
 
@@ -702,8 +704,7 @@ class PKPStatsHandler extends Handler
                 }
                 return $context->getLocalizedName();
             case ASSOC_TYPE_SUBMISSION:
-                $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-                $submission = $submissionDao->getById($assocId, null, true);
+                $submission = Repo::submission()->get($assocId, null, true);
                 if (!$submission) {
                     break;
                 }

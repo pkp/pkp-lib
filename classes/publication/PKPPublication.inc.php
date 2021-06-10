@@ -10,7 +10,7 @@
  * @class PKPPublication
  * @ingroup publication
  *
- * @see PublicationDAO
+ * @see DAO
  *
  * @brief Base class for Publication.
  */

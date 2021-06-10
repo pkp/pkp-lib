@@ -17,6 +17,7 @@ namespace PKP\submission\form;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
 
@@ -176,14 +177,13 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
         parent::execute(...$functionArgs);
 
         // Update submission
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $submission = $this->submission;
 
         if ($submission->getSubmissionProgress() <= $this->step) {
             $submission->stampLastActivity();
             $submission->stampModified();
             $submission->setSubmissionProgress($this->step + 1);
-            $submissionDao->updateObject($submission);
+            Repo::submission()->dao->update($submission);
         }
 
         return $this->submissionId;

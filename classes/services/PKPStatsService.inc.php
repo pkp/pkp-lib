@@ -15,7 +15,8 @@
 
 namespace PKP\services;
 
-use PKP\db\DBResultRange;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
 use PKP\statistics\PKPStatisticsHelper;
 
 class PKPStatsService
@@ -110,13 +111,13 @@ class PKPStatsService
         $args = array_merge($defaultArgs, $args);
         $timelineQB = $this->getQueryBuilder($args);
 
-        \HookRegistry::call('Stats::getTimeline::queryBuilder', [&$timelineQB, $args]);
+        HookRegistry::call('Stats::getTimeline::queryBuilder', [&$timelineQB, $args]);
 
         $timelineQO = $timelineQB
             ->getSum([$timelineInterval])
             ->orderBy($timelineInterval);
 
-        $result = \DAORegistry::getDAO('MetricsDAO')
+        $result = DAORegistry::getDAO('MetricsDAO')
             ->retrieve($timelineQO->toSql(), $timelineQO->getBindings());
 
         $dateValues = [];
@@ -178,7 +179,7 @@ class PKPStatsService
         $args = array_merge($defaultArgs, $args);
         $orderedQB = $this->getQueryBuilder($args);
 
-        \HookRegistry::call('Stats::getOrderedObjects::queryBuilder', [&$orderedQB, $args]);
+        HookRegistry::call('Stats::getOrderedObjects::queryBuilder', [&$orderedQB, $args]);
 
         $orderedQO = $orderedQB
             ->getSum([$groupBy])
@@ -186,11 +187,16 @@ class PKPStatsService
 
         $range = null;
         if (isset($args['count'])) {
-            $range = new DBResultRange($args['count'], null, $args['offset'] ?? 0);
+            // $range = new DBResultRange($args['count'], null, $args['offset'] ?? 0);
+            $orderedQO->limit($args['count']);
+            if (isset($args['offset'])) {
+                $orderedQO->offset($args['offset']);
+            }
         }
 
-        $result = \DAORegistry::getDAO('MetricsDAO')
-            ->retrieveRange($orderedQO->toSql(), $orderedQO->getBindings(), $range);
+        $result = $orderedQO->get();
+        // $result = DAORegistry::getDAO('MetricsDAO')
+        //     ->retrieveRange($orderedQO->toSql(), $orderedQO->getBindings(), $range);
 
         $objects = [];
         foreach ($result as $row) {

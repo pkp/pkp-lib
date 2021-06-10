@@ -16,11 +16,12 @@
 
 namespace PKP\db;
 
+use APP\submission\DAO;
 use Illuminate\Support\Enumerable;
-
 use PKP\core\ItemIterator;
+use ReflectionClass;
 
-class DAOResultFactory extends \PKP\core\ItemIterator
+class DAOResultFactory extends ItemIterator
 {
     /** @var DAO The DAO used to create objects */
     public $dao;
@@ -53,6 +54,11 @@ class DAOResultFactory extends \PKP\core\ItemIterator
     public $rangeInfo;
 
     /**
+     * @var bool Does $functionName expect each record to be converted to an array
+     */
+    public $expectsArray = true;
+
+    /**
      * Constructor.
      * Initialize the DAOResultFactory
      *
@@ -74,6 +80,17 @@ class DAOResultFactory extends \PKP\core\ItemIterator
         $this->sql = $sql;
         $this->params = $params;
         $this->rangeInfo = $rangeInfo;
+
+        // Determine if the fromRow method expects to receive
+        // an array or a stdClass. EntityDAOs expect stdClass.
+        // DAOs that extend PKP\db\DAO expect an array.
+        $reflector = new ReflectionClass(get_class($this->dao));
+        if (method_exists($this->dao, $this->functionName)) {
+            $params = $reflector->getMethod($this->functionName)->getParameters();
+            if (!empty($params) && $params[0]->hasType() && $params[0]->getType()->getName() === 'stdClass') {
+                $this->expectsArray = false;
+            }
+        }
     }
 
     /**
@@ -92,15 +109,18 @@ class DAOResultFactory extends \PKP\core\ItemIterator
         $dao = $this->dao;
 
         if ($this->records instanceof \Generator) {
-            $row = (array) $this->records->current();
+            $row = $this->records->current();
             $this->records->next();
         } elseif ($this->records instanceof Enumerable) {
-            $row = (array) $this->records->shift();
+            $row = $this->records->shift();
         } else {
             throw new \Exception('Unsupported record set type (' . join(', ', class_implements($this->records)) . ')');
         }
         if (!$row) {
             return null;
+        }
+        if ($this->expectsArray) {
+            $row = (array) $row;
         }
         return $dao->$functionName($row);
     }
@@ -112,6 +132,11 @@ class DAOResultFactory extends \PKP\core\ItemIterator
     {
         if ($this->sql === null) {
             throw new \Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . get_class($this->dao) . ')!');
+        }
+        // EntityDAOs do not support the countRecords method, but it can
+        // be accessed through an instance of PKP\db\DAO attached to them
+        if (property_exists($this->dao, 'deprecatedDao')) {
+            return $this->dao->deprecatedDao->countRecords($this->sql, $this->params);
         }
         return $this->dao->countRecords($this->sql, $this->params);
     }

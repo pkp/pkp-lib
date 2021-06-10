@@ -280,6 +280,22 @@ class APIHandler extends PKPHandler
     }
 
     /**
+     * Convert a query parameter to an array
+     *
+     * This method will convert a query parameter to an array, and
+     * supports a comma-separated list of values
+     */
+    protected function paramToArray($value): array
+    {
+        if (is_array($value)) {
+            return $value;
+        } elseif (is_string($value)) {
+            return explode(',', $value);
+        }
+        return [$value];
+    }
+
+    /**
      * Convert string values in boolean, integer and number parameters to their
      * appropriate type when the string is in a recognizable format.
      *

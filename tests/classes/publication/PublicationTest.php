@@ -13,6 +13,17 @@
  *
  * @brief Test class for the Publication class
  */
+
+use APP\publication\DAO;
+use PKP\citation\CitationDAO;
+use PKP\context\CategoryDAO;
+use PKP\services\PKPSchemaService;
+use PKP\submission\SubmissionAgencyDAO;
+use PKP\submission\SubmissionDisciplineDAO;
+use PKP\submission\SubmissionKeywordDAO;
+use PKP\submission\SubmissionLanguageDAO;
+use PKP\submission\SubmissionSubjectDAO;
+
 import('lib.pkp.tests.PKPTestCase');
 class PublicationTest extends PKPTestCase
 {
@@ -21,7 +32,16 @@ class PublicationTest extends PKPTestCase
      */
     protected function setUp(): void
     {
-        $this->publication = DAORegistry::getDAO('PublicationDAO')->newDataObject();
+        $this->publication = (new DAO(
+            new SubmissionKeywordDAO(),
+            new SubmissionSubjectDAO(),
+            new SubmissionDisciplineDAO(),
+            new SubmissionLanguageDAO(),
+            new SubmissionAgencyDAO(),
+            new CategoryDAO(),
+            new CitationDAO(),
+            new PKPSchemaService()
+        ))->newDataObject();
     }
     /**
      * @see PKPTestCase::tearDown()

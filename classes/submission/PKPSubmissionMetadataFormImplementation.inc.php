@@ -17,8 +17,8 @@
 namespace PKP\submission;
 
 use APP\core\Application;
-use APP\core\Services;
 
+use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
@@ -216,7 +216,8 @@ class PKPSubmissionMetadataFormImplementation
         }
 
         // Save the publication
-        $publication = Services::get('publication')->edit($publication, $params, $request);
+        Repo::publication()->edit($publication, $params);
+        $publication = Repo::publication()->get($publication->getId());
 
         // get the supported locale keys
         $locales = array_keys($this->_parentForm->supportedLocales);

@@ -16,6 +16,7 @@
 namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\notification\Notification;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -57,8 +58,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     public function updateNotification($request, $userIds, $assocType, $assocId)
     {
         $submissionId = $assocId;
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
-        $submission = $submissionDao->getById($submissionId);
+        $submission = Repo::submission()->get($submissionId);
 
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
 

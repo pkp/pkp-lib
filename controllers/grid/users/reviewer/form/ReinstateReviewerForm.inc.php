@@ -12,10 +12,13 @@
  * @brief Allow the editor to reinstate a cancelled review assignment
  */
 
+use APP\facades\Repo;
+use APP\log\SubmissionEventLogEntry;
+
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerNotifyActionForm');
 
-use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
@@ -54,11 +57,10 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
         }
 
         $request = Application::get()->getRequest();
-        $submission = $this->getSubmission();
+        $submission = $this->getSubmission(); /** @var Submission $submission */
         $reviewAssignment = $this->getReviewAssignment();
 
         // Reinstate the review assignment.
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 
@@ -73,7 +75,7 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
 
             // Stamp the modification date
             $submission->stampModified();
-            $submissionDao->updateObject($submission);
+            Repo::submission()->dao->update($submission);
 
             // Insert a trivial notification to indicate the reviewer was reinstated successfully.
             $currentUser = $request->getUser();

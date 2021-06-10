@@ -14,16 +14,18 @@
  *
  */
 
+use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
-
-use PKP\submission\PKPSubmission;
 
 abstract class PKPStatsPublicationHandler extends APIHandler
 {
@@ -138,7 +140,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
 
         $allowedParams['contextIds'] = $request->getContext()->getId();
 
-        \HookRegistry::call('API::stats::publications::params', [&$allowedParams, $slimRequest]);
+        HookRegistry::call('API::stats::publications::params', [&$allowedParams, $slimRequest]);
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
@@ -163,7 +165,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         }
 
         // Get a list of top publications by total abstract and file views
-        $statsService = \Services::get('stats');
+        $statsService = Services::get('stats');
         $totals = $statsService->getOrderedObjects(PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, $allowedParams['orderDirection'], array_merge($allowedParams, [
             'assocTypes' => [ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_SUBMISSION_FILE]
         ]));
@@ -193,36 +195,12 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             ]));
             $abstractViews = array_reduce($abstractRecords, [$statsService, 'sumMetric'], 0);
 
-            // Get the publication
-            $submission = \Services::get('submission')->get($total['id']);
-            $getPropertiesArgs = [
-                'request' => $request,
-                'slimRequest' => $slimRequest,
-            ];
-            // Stats may still exist for deleted publications
+            // Get basic submission details for display
+            // Stats may exist for deleted submissions
             $submissionProps = ['id' => $total['id']];
+            $submission = Repo::submission()->get($total['id']);
             if ($submission) {
-                $submissionProps = \Services::get('submission')->getProperties(
-                    $submission,
-                    [
-                        '_href',
-                        'id',
-                        'urlWorkflow',
-                        'urlPublished',
-                    ],
-                    $getPropertiesArgs
-                );
-                $submissionProps = array_merge(
-                    $submissionProps,
-                    \Services::get('publication')->getProperties(
-                        $submission->getCurrentPublication(),
-                        [
-                            'authorsStringShort',
-                            'fullTitle',
-                        ],
-                        $getPropertiesArgs
-                    )
-                );
+                $submissionProps = Repo::submission()->getSchemaMap()->mapToStats($submission);
             }
 
             $items[] = [
@@ -289,7 +267,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'submissionIds',
         ]);
 
-        \HookRegistry::call('API::stats::publications::abstract::params', [&$allowedParams, $slimRequest]);
+        HookRegistry::call('API::stats::publications::abstract::params', [&$allowedParams, $slimRequest]);
 
         if (!in_array($allowedParams['timelineInterval'], [PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH])) {
             return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
@@ -316,7 +294,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             }
         }
 
-        $data = \Services::get('stats')->getTimeline($allowedParams['timelineInterval'], $allowedParams);
+        $data = Services::get('stats')->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
         return $response->withJson($data, 200);
     }
@@ -436,33 +414,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         $htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
         $otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
 
-        $submissionProps = Services::get('submission')->getProperties(
-            $submission,
-            [
-                '_href',
-                'id',
-                'urlWorkflow',
-                'urlPublished',
-            ],
-            [
-                'request' => $request,
-                'slimRequest' => $slimRequest,
-            ]
-        );
-        $submissionProps = array_merge(
-            $submissionProps,
-            Services::get('publication')->getProperties(
-                $submission->getCurrentPublication(),
-                [
-                    'authorsStringShort',
-                    'fullTitle',
-                ],
-                [
-                    'request' => $request,
-                    'slimRequest' => $slimRequest,
-                ]
-            )
-        );
+        $submission = Repo::submission()->get($total['id']);
 
         return $response->withJson([
             'abstractViews' => $abstractViews,
@@ -470,7 +422,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'pdfViews' => $pdfViews,
             'htmlViews' => $htmlViews,
             'otherViews' => $otherViews,
-            'publication' => $submissionProps,
+            'publication' => Repo::submission()->getSchemaMap()->mapToStats($submission),
         ], 200);
     }
 
@@ -633,8 +585,12 @@ abstract class PKPStatsPublicationHandler extends APIHandler
 
         // Get the earliest date of publication if no start date set
         if (in_array('dateStart', $allowedParams) && !isset($returnParams['dateStart'])) {
-            $dateRange = Services::get('publication')->getDateBoundaries(['contextIds' => $this->getRequest()->getContext()->getId()]);
-            $returnParams['dateStart'] = $dateRange[0];
+            $dateRange = Repo::publication()->getDateBoundaries(
+                Repo::publication()
+                    ->getCollector()
+                    ->filterByContextIds([$this->getRequest()->getContext()->getId()])
+            );
+            $returnParams['dateStart'] = $dateRange->min_date_published;
         }
 
         return $returnParams;
@@ -654,16 +610,18 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      */
     protected function _processSearchPhrase($searchPhrase, $submissionIds = [])
     {
-        $searchPhraseSubmissionIds = \Services::get('submission')->getIds([
-            'contextId' => \Application::get()->getRequest()->getContext()->getId(),
-            'searchPhrase' => $searchPhrase,
-            'status' => PKPSubmission::STATUS_PUBLISHED,
-        ]);
+        $searchPhraseSubmissionIds = Repo::submission()->getIds(
+            Repo::submission()
+                ->getCollector()
+                ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                ->filterByStatus([Submission::STATUS_PUBLISHED])
+                ->searchPhrase($searchPhrase)
+        );
 
         if (!empty($submissionIds)) {
-            $submissionIds = array_intersect($submissionIds, $searchPhraseSubmissionIds);
+            $submissionIds = array_intersect($submissionIds, $searchPhraseSubmissionIds->toArray());
         } else {
-            $submissionIds = $searchPhraseSubmissionIds;
+            $submissionIds = $searchPhraseSubmissionIds->toArray();
         }
 
         return $submissionIds;

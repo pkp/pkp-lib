@@ -15,6 +15,7 @@
 
 namespace PKP\services;
 
+use Exception;
 use PKP\plugins\HookRegistry;
 
 class PKPSchemaService
@@ -61,7 +62,7 @@ class PKPSchemaService
         if (file_exists($schemaFile)) {
             $schema = json_decode(file_get_contents($schemaFile));
             if (!$schema) {
-                fatalError('Schema failed to decode. This usually means it is invalid JSON. Requested: ' . $schemaFile . '. Last JSON error: ' . json_last_error());
+                throw new Exception('Schema failed to decode. This usually means it is invalid JSON. Requested: ' . $schemaFile . '. Last JSON error: ' . json_last_error());
             }
         } else {
             // allow plugins to create a custom schema and load it via hook
@@ -73,7 +74,7 @@ class PKPSchemaService
         if (file_exists($appSchemaFile)) {
             $appSchema = json_decode(file_get_contents($appSchemaFile));
             if (!$appSchema) {
-                fatalError('Schema failed to decode. This usually means it is invalid JSON. Requested: ' . $appSchemaFile . '. Last JSON error: ' . json_last_error());
+                throw new Exception('Schema failed to decode. This usually means it is invalid JSON. Requested: ' . $appSchemaFile . '. Last JSON error: ' . json_last_error());
             }
             $schema = $this->merge($schema, $appSchema);
         }
@@ -108,6 +109,12 @@ class PKPSchemaService
         }
         if (!empty($additionalSchema->description)) {
             $newSchema->description = $additionalSchema->description;
+        }
+        if (!empty($additionalSchema->required)) {
+            $required = property_exists($baseSchema, 'required')
+                ? $baseSchema->required
+                : [];
+            $newSchema->required = array_merge($required, $additionalSchema->required);
         }
         if (!empty($additionalSchema->properties)) {
             if (empty($newSchema->properties)) {

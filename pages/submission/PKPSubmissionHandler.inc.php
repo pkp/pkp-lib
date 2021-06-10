@@ -13,7 +13,7 @@
  * @brief Base handler for submission requests.
  */
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\submission\Submission;
 
@@ -155,7 +155,7 @@ abstract class PKPSubmissionHandler extends Handler
             $templateMgr->assign('context', $context);
 
             // Retrieve the correct url for author review his submission.
-            $reviewSubmissionUrl = Services::get('submission')->getWorkflowUrlByUserRoles($submission);
+            $reviewSubmissionUrl = Repo::submission()->getWorkflowUrlByUserRoles($submission);
             $router = $request->getRouter();
             $dispatcher = $router->getDispatcher();
 

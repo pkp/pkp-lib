@@ -13,10 +13,12 @@
  * @brief Form to revert declined submissions
  */
 
+use APP\facades\Repo;
+use APP\submission\Submission;
+
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\controllers\modals\editorDecision\form\EditorDecisionForm;
 use PKP\submission\action\EditorAction;
-
 use PKP\submission\PKPSubmission;
 
 class RevertDeclineForm extends EditorDecisionForm
@@ -63,14 +65,13 @@ class RevertDeclineForm extends EditorDecisionForm
         $request = Application::get()->getRequest();
 
         // Retrieve the submission.
-        $submission = $this->getSubmission();
+        $submission = $this->getSubmission(); /** @var Submission $submission */
 
         // Record the decision.
         $actionLabels = (new EditorDecisionActionsManager())->getActionLabels($request->getContext(), $submission, $this->getStageId(), [$this->getDecision()]);
         $editorAction = new EditorAction();
         $editorAction->recordDecision($request, $submission, $this->getDecision(), $actionLabels);
 
-        $submissionDao = DAORegistry::getDAO('SubmissionDAO'); /** @var SubmissionDAO $submissionDao */
         $submission->setStatus(PKPSubmission::STATUS_QUEUED); // Always return submission to STATUS_QUEUED
 
         // If we are on a review round, return the round status
@@ -83,7 +84,7 @@ class RevertDeclineForm extends EditorDecisionForm
             $reviewRoundDao->updateStatus($reviewRound);
         }
 
-        $submissionDao->updateObject($submission);
+        Repo::submission()->dao->update($submission);
     }
 
     //

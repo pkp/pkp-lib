@@ -10,13 +10,9 @@ Issues (bugs) for any of the PKP applications should be created here. If you're 
 
 Before creating a new issue, please [search the existing ones](https://github.com/pkp/pkp-lib/issues) to make sure you're not creating a duplicate.
 
-* [Create a new OMP issue](https://github.com/pkp/pkp-lib/issues/new?title=[OMP])
-* [Create a new OJS issue](https://github.com/pkp/pkp-lib/issues/new?title=[OJS])
-* [Create a new OPS issue](https://github.com/pkp/pkp-lib/issues/new?title=[OPS])
-* [Create a new OCS issue](https://github.com/pkp/pkp-lib/issues/new?title=[OCS])
-* [Create a new OHS issue](https://github.com/pkp/pkp-lib/issues/new?title=[OHS])
+If you confirm that you have found a new bug, or if you have identified a new feature request, [Create a new issue](https://github.com/pkp/pkp-lib/issues/new/choose) using one of the available templates.
 
-Bugs are scheduled against the milestones that a fix will be released in. For example, if a bug was found in OJS 2.4.5, then it will be scheduled against OJS 2.4.6, which is the first release that will include the fix.
+Bugs are scheduled against the milestones that a fix will be released in. For example, if a bug was found in OJS 3.3.0, then it will be scheduled against a subsequent release like OJS 3.3.1 or OJS 3.4, which is the first release that will include the fix.
 
 ## Community Code of Conduct
 This repository is one of PKP's community spaces and all activities here are guided by [PKP's Code of Conduct](https://pkp.sfu.ca/code-of-conduct/). Please review the Code and help us create a welcoming environment for all participants.

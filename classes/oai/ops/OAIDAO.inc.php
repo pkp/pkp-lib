@@ -22,8 +22,8 @@ use PKP\db\DAORegistry;
 use PKP\oai\OAISet;
 use PKP\oai\PKPOAIDAO;
 use PKP\plugins\HookRegistry;
-
 use PKP\submission\PKPSubmission;
+use Illuminate\Support\Facades\DB;
 
 class OAIDAO extends PKPOAIDAO
 {
@@ -49,13 +49,6 @@ class OAIDAO extends PKPOAIDAO
 
         $this->serverCache = [];
         $this->sectionCache = [];
-    }
-
-    /**
-     * @copydoc PKPOAIDAO::getEarliestDatestampQuery()
-     */
-    public function getEarliestDatestampQuery()
-    {
     }
 
     /**
@@ -200,86 +193,92 @@ class OAIDAO extends PKPOAIDAO
     }
 
     /**
-     * Get a OAI records record set.
-     *
-     * @param $setIds array Objects ids that specify an OAI set,
-     * in hierarchical order.
-     * @param $from int/string *nix timestamp or ISO datetime string
-     * @param $until int/string *nix timestamp or ISO datetime string
-     * @param $set string
-     * @param $submissionId int optional
-     * @param $orderBy string UNFILTERED
-     *
-     * @return Iterable
+     * @copydoc PKPOAIDAO::_getRecordsRecordSetQuery
      */
-    public function _getRecordsRecordSet($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'server_id, submission_id')
+    public function _getRecordsRecordSetQuery($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'server_id, submission_id')
     {
         $serverId = array_shift($setIds);
         $sectionId = array_shift($setIds);
 
-        $params = ['enableOai', (int) PKPSubmission::STATUS_PUBLISHED];
-        if (isset($serverId)) {
-            $params[] = (int) $serverId;
-        }
-        if (isset($sectionId)) {
-            $params[] = (int) $sectionId;
-        }
-        if ($submissionId) {
-            $params[] = (int) $submissionId;
-        }
-        if (isset($serverId)) {
-            $params[] = (int) $serverId;
-        }
-        if (isset($sectionId)) {
-            $params[] = (int) $sectionId;
-        }
-        if (isset($set)) {
-            $params[] = $set;
-            $params[] = $set . ':%';
-        }
-        if ($submissionId) {
-            $params[] = (int) $submissionId;
-        }
-        $result = $this->retrieve(
-            'SELECT	a.last_modified AS last_modified,
-				a.submission_id AS submission_id,
-				j.server_id AS server_id,
-				s.section_id AS section_id,
-				NULL AS tombstone_id,
-				NULL AS set_spec,
-				NULL AS oai_identifier
-			FROM
-				submissions a
-				JOIN publications p ON (a.current_publication_id = p.publication_id)
-				JOIN sections s ON (s.section_id = p.section_id)
-				JOIN servers j ON (j.server_id = a.context_id)
-				JOIN server_settings jsoai ON (jsoai.server_id = j.server_id AND jsoai.setting_name=? AND jsoai.setting_value=\'1\')
-			WHERE	p.date_published IS NOT NULL AND j.enabled = 1 AND a.status = ?
-				' . (isset($serverId) ? ' AND j.server_id = ?' : '') . '
-				' . (isset($sectionId) ? ' AND p.section_id = ?' : '') . '
-				' . ($from ? ' AND a.last_modified >= ' . $this->datetimeToDB($from) : '') . '
-				' . ($until ? ' AND a.last_modified <= ' . $this->datetimeToDB($until) : '') . '
-				' . ($submissionId ? ' AND a.submission_id = ?' : '') . '
-			UNION
-			SELECT	dot.date_deleted AS last_modified,
-				dot.data_object_id AS submission_id,
-				' . (isset($serverId) ? 'tsoj.assoc_id' : 'NULL') . ' AS assoc_id,' . '
-				' . (isset($sectionId) ? 'tsos.assoc_id' : 'NULL') . ' AS section_id,
-				dot.tombstone_id,
-				dot.set_spec,
-				dot.oai_identifier
-			FROM	data_object_tombstones dot' . '
-				' . (isset($serverId) ? 'JOIN data_object_tombstone_oai_set_objects tsoj ON (tsoj.tombstone_id = dot.tombstone_id AND tsoj.assoc_type = ' . ASSOC_TYPE_SERVER . ' AND tsoj.assoc_id = ?)' : '') . '
-				' . (isset($sectionId) ? 'JOIN data_object_tombstone_oai_set_objects tsos ON (tsos.tombstone_id = dot.tombstone_id AND tsos.assoc_type = ' . ASSOC_TYPE_SECTION . ' AND tsos.assoc_id = ?)' : '') . '
-			WHERE	1=1
-				' . (isset($set) ? ' AND (dot.set_spec = ? OR dot.set_spec LIKE ?)' : '') . '
-				' . ($from ? ' AND dot.date_deleted >= ' . $this->datetimeToDB($from) : '') . '
-				' . ($until ? ' AND dot.date_deleted <= ' . $this->datetimeToDB($until) : '') . '
-				' . ($submissionId ? ' AND dot.data_object_id = ?' : '') . '
-			ORDER BY ' . $orderBy,
-            $params
-        );
-        return $result;
+        return DB::table('submissions AS a')
+            ->select([
+                'a.last_modified AS last_modified',
+                'a.submission_id AS submission_id',
+                'j.server_id AS server_id',
+                's.section_id AS section_id',
+                DB::raw('NULL AS tombstone_id'),
+                DB::raw('NULL AS set_spec'),
+                DB::raw('NULL AS oai_identifier'),
+            ])
+            ->join('publications AS p', 'a.current_publication_id', '=', 'p.publication_id')
+            ->join('sections AS s', 's.section_id', '=', 'p.section_id')
+            ->join('servers AS j', 'j.server_id', '=', 'a.context_id')
+            ->join('server_settings AS jsoai', function($join) {
+                return $join->on('jsoai.server_id', '=', 'j.server_id')
+                    ->where('jsoai.setting_name', '=', 'enableOAI')
+                    ->where('jsoai.setting_value', '=', 1);
+            })
+            ->whereNotNull('p.date_published')
+            ->where('j.enabled', '=', 1)
+            ->where('a.status', '=', PKPSubmission::STATUS_PUBLISHED)
+            ->when(isset($serverId), function($query) use ($serverId) {
+                return $query->where('j.server_id', '=', $serverId);
+            })
+            ->when(isset($sectionId), function($query) use ($sectionId) {
+                return $query->where('p.section_id', '=', $sectionId);
+            })
+            ->when($from, function($query, $from) {
+                return $query->where('a.last_modified', '>=', $this->datetimeToDB($from));
+            })
+            ->when($until, function($query, $until) {
+                return $query->where('a.last-modified', '<=', $this->datetimeToDB($until));
+            })
+            ->when($submissionId, function($query, $submissionId) {
+                return $query->where('a.submission_id' ,'=', $submissionId);
+            })
+            ->union(DB::table('data_object_tombstones AS dot')
+                ->select([
+                    'dot.date_deleted AS last_modified',
+                    'dot.data_object_id AS submission_id',
+                    'dot.tombstone_id',
+                    'dot.set_spec',
+                    'dot.oai_identifier',
+                ])
+                ->when(isset($serverId), function($query) use ($serverId) {
+                    return $query->join('data_object_tombstone_oai_set_objects AS tsoj', function($join) use ($serverId) {
+                            return $join->on('tsoj.tombstone_id', '=', 'dot.tombstone_id')
+                                ->where('tsoj.assoc_type', '=', ASSOC_TYPE_SERVER)
+                                ->where('tsoj.assoc_id', '=', $serverId);
+                        })
+                        ->addSelect(['tsoj.assoc_id']);
+                }, function($query) {
+                    return $query->addSelect([DB::raw('NULL AS server_id')]);
+                })
+                ->when(isset($sectionId), function($query) use ($sectionId) {
+                    return $query->join('data_object_tombstone_oai_set_objects AS tsos', function($join) use ($sectionId) {
+                            $join->on('tsos.tombstone_id', '=', 'dot.tombstone_id')
+                                ->where('tsos.assoc_type', '=', ASSOC_TYPE_SECTION)
+                                ->where('tsos.assoc_id', '=', $sectionId);
+                        })
+                        ->addSelect(['tsos.assoc_id']);
+                }, function($query) {
+                    return $query->addSelect([DB::raw('NULL AS section_id')]);
+                })
+                ->when(isset($set), function($query) use ($set) {
+                    return $query->where('dot.set_spec', '=', $set)
+                        ->orWhere('dot.set_spec', 'like', $set . ':%');
+                })
+                ->when($from, function($query, $from) {
+                    return $query->where('dot.date_deleted', '>=', $from);
+                })
+                ->when($until, function($query, $until) {
+                    return $query->where('dot.date_deleted', '<=', $until);
+                })
+                ->when($submissionId, function($query, $submissionId) {
+                    return $query->where('dot.data_object_id', '=', (int) $submissionId);
+                })
+            )
+        ->orderBy(DB::raw($orderBy));
     }
 }
 

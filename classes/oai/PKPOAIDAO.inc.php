@@ -121,8 +121,8 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      */
     public function getRecord($dataObjectId, $setIds = [])
     {
-        $result = $this->_getRecordsRecordSet($setIds, null, null, null, $dataObjectId);
-        $row = $result->current();
+        $result = $this->_getRecordsRecordSetQuery($setIds, null, null, null, $dataObjectId);
+        $row = $result->first();
         return $row ? $this->_returnRecordFromRow((array) $row) : null;
     }
 
@@ -143,22 +143,13 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      */
     public function getRecords($setIds, $from, $until, $set, $offset, $limit, &$total)
     {
-        $result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
+        $query = $this->_getRecordsRecordSetQuery($setIds, $from, $until, $set);
+        $total = $query->count();
+        $results = $query->offset($offset)->limit($limit)->get();
 
-        for ($i = 0; $i < $offset; $i++) {
-            if ($result->next()) {
-                $total++;
-            } // FIXME inefficient
-        }
         $records = [];
-        for ($count = 0; ($row = $result->current()) && $count < $limit; $count++) {
+        foreach ($results as $row) {
             $records[] = $this->_returnRecordFromRow((array) $row);
-            $total++;
-            $result->next();
-        }
-        while ($result->current()) {
-            $total++;
-            $result->next();
         }
         return $records;
     }
@@ -180,22 +171,13 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      */
     public function getIdentifiers($setIds, $from, $until, $set, $offset, $limit, &$total)
     {
-        $result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
+        $query = $this->_getRecordsRecordSetQuery($setIds, $from, $until, $set);
+        $total = $query->count();
+        $results = $query->offset($offset)->limit($limit)->get();
 
-        for ($i = 0; $i < $offset; $i++) {
-            if ($result->next()) {
-                $total++;
-            } // FIXME inefficient
-        }
         $records = [];
-        for ($count = 0; ($row = $result->current()) && $count < $limit; $count++) {
+        foreach ($results as $row) {
             $records[] = $this->_returnIdentifierFromRow((array) $row);
-            $total++;
-            $result->next();
-        }
-        while ($result->current()) {
-            $total++;
-            $result->next();
         }
         return $records;
     }
@@ -211,8 +193,8 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      */
     public function getEarliestDatestamp($setIds = [])
     {
-        $result = $this->_getRecordsRecordSet($setIds, null, null, null, null, 'last_modified ASC');
-        if ($row = $result->current()) {
+        $query = $this->_getRecordsRecordSetQuery($setIds, null, null, null, null, 'last_modified');
+        if ($row = $query->first()) {
             $record = $this->_returnRecordFromRow((array) $row);
             return OAIUtils::UTCtoTimestamp($record->datestamp);
         }
@@ -292,9 +274,9 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      * @param $submissionId int optional
      * @param $orderBy string UNFILTERED
      *
-     * @return Iterable
+     * @return \Illuminate\Database\Query\Builder
      */
-    abstract public function _getRecordsRecordSet($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id');
+    abstract public function _getRecordsRecordSetQuery($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id');
 }
 
 if (!PKP_STRICT_MODE) {

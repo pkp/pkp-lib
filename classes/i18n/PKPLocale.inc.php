@@ -586,7 +586,6 @@ class PKPLocale {
 	 * @param $locale string
 	 */
 	static function reloadLocale($locale) {
-		AppLocale::uninstallLocale($locale);
 		AppLocale::installLocale($locale);
 	}
 

@@ -204,11 +204,11 @@ class OAIDAO extends PKPOAIDAO
             ->select([
                 'a.last_modified AS last_modified',
                 'a.submission_id AS submission_id',
-                'j.server_id AS server_id',
-                's.section_id AS section_id',
                 DB::raw('NULL AS tombstone_id'),
                 DB::raw('NULL AS set_spec'),
                 DB::raw('NULL AS oai_identifier'),
+                'j.server_id AS server_id',
+                's.section_id AS section_id',
             ])
             ->join('publications AS p', 'a.current_publication_id', '=', 'p.publication_id')
             ->join('sections AS s', 's.section_id', '=', 'p.section_id')
@@ -250,7 +250,7 @@ class OAIDAO extends PKPOAIDAO
                                 ->where('tsoj.assoc_type', '=', ASSOC_TYPE_SERVER)
                                 ->where('tsoj.assoc_id', '=', $serverId);
                         })
-                        ->addSelect(['tsoj.assoc_id']);
+                        ->addSelect(['tsoj.assoc_id AS server_id']);
                 }, function($query) {
                     return $query->addSelect([DB::raw('NULL AS server_id')]);
                 })
@@ -260,7 +260,7 @@ class OAIDAO extends PKPOAIDAO
                                 ->where('tsos.assoc_type', '=', ASSOC_TYPE_SECTION)
                                 ->where('tsos.assoc_id', '=', $sectionId);
                         })
-                        ->addSelect(['tsos.assoc_id']);
+                        ->addSelect(['tsos.assoc_id AS section_id']);
                 }, function($query) {
                     return $query->addSelect([DB::raw('NULL AS section_id')]);
                 })

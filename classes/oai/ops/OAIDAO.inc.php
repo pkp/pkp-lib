@@ -215,7 +215,7 @@ class OAIDAO extends PKPOAIDAO
             ->join('servers AS j', 'j.server_id', '=', 'a.context_id')
             ->join('server_settings AS jsoai', function($join) {
                 return $join->on('jsoai.server_id', '=', 'j.server_id')
-                    ->where('jsoai.setting_name', '=', 'enableOAI')
+                    ->where('jsoai.setting_name', '=', 'enableOai')
                     ->where('jsoai.setting_value', '=', 1);
             })
             ->whereNotNull('p.date_published')

@@ -85,7 +85,7 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get the total count of submisssions matching the configured query
+     * Get the total count of submissions matching the configured query
      */
     public function getCount(Collector $query): int
     {

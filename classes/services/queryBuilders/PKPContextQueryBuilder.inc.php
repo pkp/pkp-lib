@@ -134,7 +134,6 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
                 'c.' . $this->dbIdColumn,
                 'cst.setting_value',
             ])
-            ->orderBy('c.seq')
             ->get()
             ->toArray();
     }

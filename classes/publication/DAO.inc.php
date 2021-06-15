@@ -113,8 +113,6 @@ class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select('p.' . $this->primaryKeyColumn)
-            ->get()
             ->count();
     }
 

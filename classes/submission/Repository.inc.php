@@ -502,7 +502,7 @@ abstract class Repository
      * Get an array of sort options used in forms when configuring
      * how published submissions are displayed
      */
-    public function getSortSelectOptions() : array
+    public function getSortSelectOptions(): array
     {
         return [
             $this->getSortOption(Collector::ORDERBY_TITLE, Collector::ORDER_DIR_ASC) => __('catalog.sortBy.titleAsc'),
@@ -518,7 +518,7 @@ abstract class Repository
      *
      * @see self::getSortSelectOptions()
      */
-    public function getDefaultSortOption() : string
+    public function getDefaultSortOption(): string
     {
         return $this->getSortOption(Collector::ORDERBY_DATE_PUBLISHED, Collector::ORDER_DIR_DESC);
     }
@@ -527,7 +527,7 @@ abstract class Repository
      * Compile the sort orderBy and orderDirection into an option
      * used in forms
      */
-    protected function getSortOption(string $sortBy, string $sortDir) : string
+    protected function getSortOption(string $sortBy, string $sortDir): string
     {
         return $sortBy . '-' . $sortDir;
     }

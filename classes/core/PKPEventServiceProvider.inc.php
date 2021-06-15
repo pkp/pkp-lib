@@ -116,11 +116,10 @@ class PKPEventServiceProvider extends EventServiceProvider
     {
 
         // Adapt classes naming convention
-        $discoverEvents = new class extends DiscoverEvents
-        {
+        $discoverEvents = new class() extends DiscoverEvents {
             /**
-             * @param SplFileInfo $file
              * @param string $basePath base path of the application
+             *
              * @return string listener's full class name
              */
             protected static function classFromFile(SplFileInfo $file, $basePath): string
@@ -130,8 +129,12 @@ class PKPEventServiceProvider extends EventServiceProvider
                 $namespace = Str::startsWith($pathFromBase, $libPath) ? 'PKP\\' : 'APP\\';
 
                 $path = $pathFromBase;
-                if ($namespace === 'PKP\\') $path = Str::replaceFirst($libPath, '', $path);
-                if (Str::startsWith($path, 'classes'))  $path = Str::replaceFirst('classes' . DIRECTORY_SEPARATOR, '', $path);
+                if ($namespace === 'PKP\\') {
+                    $path = Str::replaceFirst($libPath, '', $path);
+                }
+                if (Str::startsWith($path, 'classes')) {
+                    $path = Str::replaceFirst('classes' . DIRECTORY_SEPARATOR, '', $path);
+                }
                 return $namespace . str_replace('/', '\\', Str::replaceLast('.inc.php', '', $path));
             }
         };

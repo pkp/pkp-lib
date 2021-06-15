@@ -20,7 +20,6 @@ use PKP\file\TemporaryFileManager;
 use PKP\form\Form;
 
 use PKP\security\Role;
-use PKP\submission\Collector;
 
 class CategoryForm extends Form
 {

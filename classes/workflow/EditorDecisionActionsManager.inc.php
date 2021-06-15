@@ -15,8 +15,8 @@
 
 namespace APP\workflow;
 
-use PKP\workflow\PKPEditorDecisionActionsManager;
 use PKP\submission\PKPSubmission;
+use PKP\workflow\PKPEditorDecisionActionsManager;
 
 class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager
 {

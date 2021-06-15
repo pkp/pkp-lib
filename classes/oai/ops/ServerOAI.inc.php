@@ -17,11 +17,11 @@
  * (based on where the request is directed).
  */
 
+use APP\oai\ops\OAIDAO;
 use PKP\oai\OAI;
 use PKP\oai\OAIRepository;
-use PKP\oai\OAIResumptionToken;
 
-use APP\oai\ops\OAIDAO;
+use PKP\oai\OAIResumptionToken;
 
 class ServerOAI extends OAI
 {

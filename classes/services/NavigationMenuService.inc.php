@@ -15,17 +15,17 @@
 
 namespace APP\services;
 
-use PKP\plugins\HookRegistry;
-use PKP\core\PKPApplication;
-use PKP\security\Validation;
-
-use APP\template\TemplateManager;
-use APP\i18n\AppLocale;
 use APP\core\Application;
+use APP\i18n\AppLocale;
+use APP\template\TemplateManager;
+
+use PKP\core\PKPApplication;
+use PKP\plugins\HookRegistry;
+use PKP\security\Validation;
 
 class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
 {
-/** types for all ops default navigationMenuItems */
+    /** types for all ops default navigationMenuItems */
     public const NMI_TYPE_ARCHIVES = 'NMI_TYPE_ARCHIVES';
 
     /**

@@ -16,9 +16,9 @@
 
 namespace APP\statistics;
 
-use PKP\statistics\PKPStatisticsHelper;
-
 use APP\i18n\AppLocale;
+
+use PKP\statistics\PKPStatisticsHelper;
 
 class StatisticsHelper extends PKPStatisticsHelper
 {

@@ -23,7 +23,6 @@ require_mock_env('env2');
 
 import('lib.pkp.tests.PKPTestCase');
 
-use PKP\oai\OAIUtils;
 use PKP\oai\OAIRecord;
 
 import('plugins.oaiMetadataFormats.dc.OAIMetadataFormat_DC');

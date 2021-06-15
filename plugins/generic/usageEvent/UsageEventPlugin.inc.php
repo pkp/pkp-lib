@@ -13,7 +13,6 @@
  * @brief Implement application specifics for generating usage events.
  */
 
-use APP\template\TemplateManager;
 use APP\submission\Submission;
 
 import('lib.pkp.plugins.generic.usageEvent.PKPUsageEventPlugin');

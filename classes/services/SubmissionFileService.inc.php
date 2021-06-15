@@ -15,13 +15,13 @@
 
 namespace APP\services;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
-use PKP\submission\SubmissionFile;
 use PKP\search\SubmissionSearch;
 use PKP\security\Role;
 
-use APP\core\Application;
+use PKP\submission\SubmissionFile;
 
 class SubmissionFileService extends \PKP\services\PKPSubmissionFileService
 {

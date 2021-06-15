@@ -12,64 +12,65 @@
  *
  * @brief Native XML import/export plugin
  */
-use Colors\Color;
 
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportPlugin');
 
-class NativeImportExportPlugin extends PKPNativeImportExportPlugin {
+class NativeImportExportPlugin extends PKPNativeImportExportPlugin
+{
+    /**
+     * @see ImportExportPlugin::display()
+     */
+    public function display($args, $request)
+    {
+        parent::display($args, $request);
 
-	/**
-	 * @see ImportExportPlugin::display()
-	 */
-	function display($args, $request) {
-		parent::display($args, $request);
+        if ($this->isResultManaged) {
+            if ($this->result) {
+                return $this->result;
+            }
 
-		if ($this->isResultManaged) {
-			if ($this->result) {
-				return $this->result;
-			}
+            return false;
+        }
 
-			return false;
-		}
+        $templateMgr = TemplateManager::getManager($request);
 
-		$templateMgr = TemplateManager::getManager($request);
+        switch ($this->opType) {
+            default:
+                $dispatcher = $request->getDispatcher();
+                $dispatcher->handle404();
+        }
+    }
 
-		switch ($this->opType) {
-			default:
-				$dispatcher = $request->getDispatcher();
-				$dispatcher->handle404();
-		}
-	}
+    /**
+     * @see PKPNativeImportExportPlugin::getImportFilter
+     */
+    public function getImportFilter($xmlFile)
+    {
+        $filter = 'native-xml=>preprint';
 
-	/**
-	 * @see PKPNativeImportExportPlugin::getImportFilter
-	 */
-	function getImportFilter($xmlFile) {
-		$filter = 'native-xml=>preprint';
+        $xmlString = file_get_contents($xmlFile);
 
-		$xmlString = file_get_contents($xmlFile);
+        return [$filter, $xmlString];
+    }
 
-		return array($filter, $xmlString);
-	}
+    /**
+     * @see PKPNativeImportExportPlugin::getExportFilter
+     */
+    public function getExportFilter($exportType)
+    {
+        $filter = false;
+        if ($exportType == 'exportSubmissions') {
+            $filter = 'preprint=>native-xml';
+        }
 
-	/**
-	 * @see PKPNativeImportExportPlugin::getExportFilter
-	 */
-	function getExportFilter($exportType) {
-		$filter = false;
-		if ($exportType == 'exportSubmissions') {
-			$filter = 'preprint=>native-xml';
-		}
+        return $filter;
+    }
 
-		return $filter;
-	}
-
-	/**
-	 * @see PKPNativeImportExportPlugin::getAppSpecificDeployment
-	 */
-	function getAppSpecificDeployment($journal, $user) {
-		return new NativeImportExportDeployment($journal, $user);
-	}
+    /**
+     * @see PKPNativeImportExportPlugin::getAppSpecificDeployment
+     */
+    public function getAppSpecificDeployment($journal, $user)
+    {
+        return new NativeImportExportDeployment($journal, $user);
+    }
 }
-
-

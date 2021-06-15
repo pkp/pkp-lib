@@ -17,14 +17,12 @@
 
 namespace APP\preprint;
 
-use PKP\services\PKPSchemaService;
-use PKP\identity\Identity;
-use PKP\db\SchemaDAO;
-use PKP\plugins\PKPPubIdPluginDAO;
-use PKP\submission\PKPSubmission;
 use PKP\db\DAOResultFactory;
-
-use APP\preprint\PreprintGalley;
+use PKP\db\SchemaDAO;
+use PKP\identity\Identity;
+use PKP\plugins\PKPPubIdPluginDAO;
+use PKP\services\PKPSchemaService;
+use PKP\submission\PKPSubmission;
 
 class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO
 {

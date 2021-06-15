@@ -14,8 +14,8 @@
  */
 
 use PKP\form\Form;
-use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 class DOISettingsForm extends Form
 {

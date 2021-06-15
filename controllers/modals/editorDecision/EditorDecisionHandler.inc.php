@@ -13,11 +13,11 @@
  * @brief Handle requests for editors to make a decision
  */
 
-use PKP\security\authorization\EditorDecisionAccessPolicy;
-use PKP\controllers\modals\editorDecision\PKPEditorDecisionHandler;
-use PKP\security\Role;
-
 use APP\workflow\EditorDecisionActionsHandler;
+use PKP\controllers\modals\editorDecision\PKPEditorDecisionHandler;
+use PKP\security\authorization\EditorDecisionAccessPolicy;
+
+use PKP\security\Role;
 
 class EditorDecisionHandler extends PKPEditorDecisionHandler
 {

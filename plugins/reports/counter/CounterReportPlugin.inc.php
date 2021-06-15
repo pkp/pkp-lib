@@ -13,11 +13,11 @@
  * @brief Counter report plugin
  */
 
-use PKP\statistics\PKPStatisticsHelper;
-use PKP\plugins\ReportPlugin;
-
-use APP\template\TemplateManager;
 use APP\notification\NotificationManager;
+use APP\template\TemplateManager;
+
+use PKP\plugins\ReportPlugin;
+use PKP\statistics\PKPStatisticsHelper;
 
 define('OPS_METRIC_TYPE_LEGACY_COUNTER', 'ops::legacyCounterPlugin');
 

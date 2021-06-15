@@ -15,13 +15,13 @@
 
 import('controllers.grid.pubIds.PubIdExportRepresentationsListGridCellProvider');
 
+use PKP\controllers\grid\feature\PagingFeature;
+use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
+use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-use PKP\controllers\grid\GridHandler;
-use PKP\controllers\grid\GridColumn;
 use PKP\security\Role;
-use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
-use PKP\controllers\grid\feature\PagingFeature;
 
 class PubIdExportRepresentationsListGridHandler extends GridHandler
 {

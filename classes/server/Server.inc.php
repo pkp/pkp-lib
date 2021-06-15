@@ -23,12 +23,12 @@
 
 namespace APP\server;
 
+use APP\i18n\AppLocale;
 use PKP\context\Context;
 use PKP\core\DAORegistry;
 use PKP\plugins\PluginRegistry;
-use PKP\statistics\PKPStatisticsHelper;
 
-use APP\i18n\AppLocale;
+use PKP\statistics\PKPStatisticsHelper;
 
 class Server extends Context
 {

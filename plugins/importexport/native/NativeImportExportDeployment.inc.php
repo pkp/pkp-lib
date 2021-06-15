@@ -16,56 +16,62 @@
 
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportDeployment');
 
-class NativeImportExportDeployment extends PKPNativeImportExportDeployment {
+class NativeImportExportDeployment extends PKPNativeImportExportDeployment
+{
+    //
+    // Deployment items for subclasses to override
+    //
+    /**
+     * Get the submission node name
+     *
+     * @return string
+     */
+    public function getSubmissionNodeName()
+    {
+        return 'preprint';
+    }
 
-	//
-	// Deployment items for subclasses to override
-	//
-	/**
-	 * Get the submission node name
-	 * @return string
-	 */
-	function getSubmissionNodeName() {
-		return 'preprint';
-	}
+    /**
+     * Get the submissions node name
+     *
+     * @return string
+     */
+    public function getSubmissionsNodeName()
+    {
+        return 'preprints';
+    }
 
-	/**
-	 * Get the submissions node name
-	 * @return string
-	 */
-	function getSubmissionsNodeName() {
-		return 'preprints';
-	}
+    /**
+     * Get the representation node name
+     */
+    public function getRepresentationNodeName()
+    {
+        return 'preprint_galley';
+    }
 
-	/**
-	 * Get the representation node name
-	 */
-	function getRepresentationNodeName() {
-		return 'preprint_galley';
-	}
+    /**
+     * Get the schema filename.
+     *
+     * @return string
+     */
+    public function getSchemaFilename()
+    {
+        return 'native.xsd';
+    }
 
-	/**
-	 * Get the schema filename.
-	 * @return string
-	 */
-	function getSchemaFilename() {
-		return 'native.xsd';
-	}
+    /**
+     * @see PKPNativeImportExportDeployment::getObjectTypes()
+     */
+    protected function getObjectTypes()
+    {
+        $objectTypes = parent::getObjectTypes();
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
+        $objectTypes = $objectTypes + [
+            ASSOC_TYPE_SERVER => __('context.context'),
+            ASSOC_TYPE_SECTION => __('section.section'),
+            ASSOC_TYPE_PUBLICATION => __('common.publication'),
+        ];
 
-	/**
-	 * @see PKPNativeImportExportDeployment::getObjectTypes()
-	 */
-	protected function getObjectTypes() {
-		$objectTypes = parent::getObjectTypes();
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
-		$objectTypes = $objectTypes + array(
-				ASSOC_TYPE_SERVER => __('context.context'),
-				ASSOC_TYPE_SECTION => __('section.section'),
-				ASSOC_TYPE_PUBLICATION => __('common.publication'),
-		);
-
-		return $objectTypes;
-	}
+        return $objectTypes;
+    }
 }
-
-

@@ -16,9 +16,9 @@
 // Import the base Handler.
 import('lib.pkp.controllers.tab.workflow.PKPWorkflowTabHandler');
 
-use PKP\security\Role;
-
 use APP\template\TemplateManager;
+
+use PKP\security\Role;
 
 class WorkflowTabHandler extends PKPWorkflowTabHandler
 {

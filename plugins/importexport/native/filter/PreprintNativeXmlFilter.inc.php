@@ -15,31 +15,35 @@
 
 import('lib.pkp.plugins.importexport.native.filter.SubmissionNativeXmlFilter');
 
-class PreprintNativeXmlFilter extends SubmissionNativeXmlFilter {
-	//
-	// Implement template methods from PersistableFilter
-	//
-	/**
-	 * @copydoc PersistableFilter::getClassName()
-	 */
-	function getClassName() {
-		return 'plugins.importexport.native.filter.PreprintNativeXmlFilter';
-	}
+class PreprintNativeXmlFilter extends SubmissionNativeXmlFilter
+{
+    //
+    // Implement template methods from PersistableFilter
+    //
+    /**
+     * @copydoc PersistableFilter::getClassName()
+     */
+    public function getClassName()
+    {
+        return 'plugins.importexport.native.filter.PreprintNativeXmlFilter';
+    }
 
-	//
-	// Submission conversion functions
-	//
-	/**
-	 * Create and return a submission node.
-	 * @param $doc DOMDocument
-	 * @param $submission Submission
-	 * @return DOMElement
-	 */
-	function createSubmissionNode($doc, $submission) {
-		$deployment = $this->getDeployment();
-		$submissionNode = parent::createSubmissionNode($doc, $submission);
+    //
+    // Submission conversion functions
+    //
+    /**
+     * Create and return a submission node.
+     *
+     * @param $doc DOMDocument
+     * @param $submission Submission
+     *
+     * @return DOMElement
+     */
+    public function createSubmissionNode($doc, $submission)
+    {
+        $deployment = $this->getDeployment();
+        $submissionNode = parent::createSubmissionNode($doc, $submission);
 
-		return $submissionNode;
-	}
-
+        return $submissionNode;
+    }
 }

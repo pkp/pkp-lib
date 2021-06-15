@@ -13,8 +13,8 @@
  */
 
 use PKP\controllers\grid\GridCellProvider;
-use PKP\linkAction\LinkAction;
 use PKP\controllers\grid\GridHandler;
+use PKP\linkAction\LinkAction;
 
 class SectionGridCellProvider extends GridCellProvider
 {

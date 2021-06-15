@@ -18,12 +18,12 @@
 namespace APP\oai\ops;
 
 use APP\facades\Repo;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
 use PKP\oai\OAISet;
 use PKP\oai\PKPOAIDAO;
 use PKP\plugins\HookRegistry;
 use PKP\submission\PKPSubmission;
-use Illuminate\Support\Facades\DB;
 
 class OAIDAO extends PKPOAIDAO
 {
@@ -194,6 +194,8 @@ class OAIDAO extends PKPOAIDAO
 
     /**
      * @copydoc PKPOAIDAO::_getRecordsRecordSetQuery
+     *
+     * @param null|mixed $submissionId
      */
     public function _getRecordsRecordSetQuery($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'server_id, submission_id')
     {
@@ -213,7 +215,7 @@ class OAIDAO extends PKPOAIDAO
             ->join('publications AS p', 'a.current_publication_id', '=', 'p.publication_id')
             ->join('sections AS s', 's.section_id', '=', 'p.section_id')
             ->join('servers AS j', 'j.server_id', '=', 'a.context_id')
-            ->join('server_settings AS jsoai', function($join) {
+            ->join('server_settings AS jsoai', function ($join) {
                 return $join->on('jsoai.server_id', '=', 'j.server_id')
                     ->where('jsoai.setting_name', '=', 'enableOai')
                     ->where('jsoai.setting_value', '=', 1);
@@ -221,64 +223,65 @@ class OAIDAO extends PKPOAIDAO
             ->whereNotNull('p.date_published')
             ->where('j.enabled', '=', 1)
             ->where('a.status', '=', PKPSubmission::STATUS_PUBLISHED)
-            ->when(isset($serverId), function($query) use ($serverId) {
+            ->when(isset($serverId), function ($query) use ($serverId) {
                 return $query->where('j.server_id', '=', $serverId);
             })
-            ->when(isset($sectionId), function($query) use ($sectionId) {
+            ->when(isset($sectionId), function ($query) use ($sectionId) {
                 return $query->where('p.section_id', '=', $sectionId);
             })
-            ->when($from, function($query, $from) {
+            ->when($from, function ($query, $from) {
                 return $query->where('a.last_modified', '>=', $this->datetimeToDB($from));
             })
-            ->when($until, function($query, $until) {
+            ->when($until, function ($query, $until) {
                 return $query->where('a.last-modified', '<=', $this->datetimeToDB($until));
             })
-            ->when($submissionId, function($query, $submissionId) {
-                return $query->where('a.submission_id' ,'=', $submissionId);
+            ->when($submissionId, function ($query, $submissionId) {
+                return $query->where('a.submission_id', '=', $submissionId);
             })
-            ->union(DB::table('data_object_tombstones AS dot')
-                ->select([
-                    'dot.date_deleted AS last_modified',
-                    'dot.data_object_id AS submission_id',
-                    'dot.tombstone_id',
-                    'dot.set_spec',
-                    'dot.oai_identifier',
-                ])
-                ->when(isset($serverId), function($query) use ($serverId) {
-                    return $query->join('data_object_tombstone_oai_set_objects AS tsoj', function($join) use ($serverId) {
-                            return $join->on('tsoj.tombstone_id', '=', 'dot.tombstone_id')
-                                ->where('tsoj.assoc_type', '=', ASSOC_TYPE_SERVER)
-                                ->where('tsoj.assoc_id', '=', $serverId);
-                        })
+            ->union(
+                DB::table('data_object_tombstones AS dot')
+            ->select([
+                'dot.date_deleted AS last_modified',
+                'dot.data_object_id AS submission_id',
+                'dot.tombstone_id',
+                'dot.set_spec',
+                'dot.oai_identifier',
+            ])
+            ->when(isset($serverId), function ($query) use ($serverId) {
+                    return $query->join('data_object_tombstone_oai_set_objects AS tsoj', function ($join) use ($serverId) {
+                        return $join->on('tsoj.tombstone_id', '=', 'dot.tombstone_id')
+                            ->where('tsoj.assoc_type', '=', ASSOC_TYPE_SERVER)
+                            ->where('tsoj.assoc_id', '=', $serverId);
+                    })
                         ->addSelect(['tsoj.assoc_id AS server_id']);
-                }, function($query) {
+                }, function ($query) {
                     return $query->addSelect([DB::raw('NULL AS server_id')]);
                 })
-                ->when(isset($sectionId), function($query) use ($sectionId) {
-                    return $query->join('data_object_tombstone_oai_set_objects AS tsos', function($join) use ($sectionId) {
-                            $join->on('tsos.tombstone_id', '=', 'dot.tombstone_id')
-                                ->where('tsos.assoc_type', '=', ASSOC_TYPE_SECTION)
-                                ->where('tsos.assoc_id', '=', $sectionId);
-                        })
+            ->when(isset($sectionId), function ($query) use ($sectionId) {
+                    return $query->join('data_object_tombstone_oai_set_objects AS tsos', function ($join) use ($sectionId) {
+                        $join->on('tsos.tombstone_id', '=', 'dot.tombstone_id')
+                            ->where('tsos.assoc_type', '=', ASSOC_TYPE_SECTION)
+                            ->where('tsos.assoc_id', '=', $sectionId);
+                    })
                         ->addSelect(['tsos.assoc_id AS section_id']);
-                }, function($query) {
+                }, function ($query) {
                     return $query->addSelect([DB::raw('NULL AS section_id')]);
                 })
-                ->when(isset($set), function($query) use ($set) {
+            ->when(isset($set), function ($query) use ($set) {
                     return $query->where('dot.set_spec', '=', $set)
                         ->orWhere('dot.set_spec', 'like', $set . ':%');
                 })
-                ->when($from, function($query, $from) {
+            ->when($from, function ($query, $from) {
                     return $query->where('dot.date_deleted', '>=', $from);
                 })
-                ->when($until, function($query, $until) {
+            ->when($until, function ($query, $until) {
                     return $query->where('dot.date_deleted', '<=', $until);
                 })
-                ->when($submissionId, function($query, $submissionId) {
+            ->when($submissionId, function ($query, $submissionId) {
                     return $query->where('dot.data_object_id', '=', (int) $submissionId);
                 })
             )
-        ->orderBy(DB::raw($orderBy));
+            ->orderBy(DB::raw($orderBy));
     }
 }
 

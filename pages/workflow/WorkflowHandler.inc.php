@@ -13,10 +13,10 @@
  * @brief Handle requests for the submssion workflow.
  */
 
-use PKP\security\Role;
+use APP\file\PublicFileManager;
 
 use APP\template\TemplateManager;
-use APP\file\PublicFileManager;
+use PKP\security\Role;
 
 import('lib.pkp.pages.workflow.PKPWorkflowHandler');
 

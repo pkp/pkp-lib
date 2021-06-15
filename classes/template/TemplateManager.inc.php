@@ -17,14 +17,12 @@
 
 namespace APP\template;
 
-use PKP\template\PKPTemplateManager;
-use PKP\db\DAORegistry;
+use APP\core\Application;
+use APP\file\PublicFileManager;
 use PKP\core\PKPApplication;
 
-use APP\core\Application;
-use APP\i18n\AppLocale;
-use APP\template\TemplateManager;
-use APP\file\PublicFileManager;
+use PKP\db\DAORegistry;
+use PKP\template\PKPTemplateManager;
 
 // FIXME: Add namespacing
 import('classes.search.PreprintSearch');

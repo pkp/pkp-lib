@@ -17,16 +17,14 @@
 
 namespace APP\preprint;
 
-use PKP\identity\Identity;
-use PKP\submission\PKPAuthorDAO;
-use PKP\submission\PKPSubmission;
+use APP\core\Application;
+use APP\core\AppLocale;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\identity\Identity;
 
-use APP\preprint\Author;
-use APP\submission\Submission;
-use APP\core\AppLocale;
-use APP\core\Application;
+use PKP\submission\PKPAuthorDAO;
+use PKP\submission\PKPSubmission;
 
 class AuthorDAO extends PKPAuthorDAO
 {

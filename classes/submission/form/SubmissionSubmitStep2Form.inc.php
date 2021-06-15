@@ -15,9 +15,9 @@
 
 namespace APP\submission\form;
 
-use PKP\submission\form\PKPSubmissionSubmitStep2Form;
-
 use APP\template\TemplateManager;
+
+use PKP\submission\form\PKPSubmissionSubmitStep2Form;
 
 class SubmissionSubmitStep2Form extends PKPSubmissionSubmitStep2Form
 {

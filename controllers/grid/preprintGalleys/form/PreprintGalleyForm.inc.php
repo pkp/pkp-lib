@@ -15,9 +15,9 @@
  * @brief Preprint galley editing form.
  */
 
-use PKP\form\Form;
-
 use APP\template\TemplateManager;
+
+use PKP\form\Form;
 
 class PreprintGalleyForm extends Form
 {

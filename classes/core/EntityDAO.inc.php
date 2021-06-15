@@ -275,6 +275,24 @@ abstract class EntityDAO
     }
 
     /**
+     * Soft delete an object from the database
+     */
+    protected function _softDelete(DataObject $object): void
+    {
+        $this->softDeleteById($object->getId());
+    }
+
+    /**
+     * Soft delete an object from the database by its id
+     */
+    public function softDeleteById(int $id): void
+    {
+        DB::table($this->table)
+            ->where($this->primaryKeyColumn, '=', $id)
+            ->update(['deleted_at' => Core::getCurrentDate()]);
+    }
+
+    /**
      * Prepare data to be inserted into the primary table
      *
      * Compiles the properties of a DataObject into a key/value

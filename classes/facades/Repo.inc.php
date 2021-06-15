@@ -30,6 +30,7 @@ use PKP\category\Repository as CategoryRepository;
 use PKP\Domains\Jobs\Interfaces\JobRepositoryInterface;
 use PKP\decision\Repository as DecisionRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
+use PKP\institution\Repository as InstitutionRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 
 class Repo
@@ -67,5 +68,10 @@ class Repo
     public static function job(): JobRepositoryInterface
     {
         return app(JobRepositoryInterface::class);
+    }
+
+    public static function institution(): InstitutionRepository
+    {
+        return app()->make(InstitutionRepository::class);
     }
 }

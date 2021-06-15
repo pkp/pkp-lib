@@ -19,7 +19,6 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
-use PKP\facades\Locale;
 use APP\services\queryBuilders\ContextQueryBuilder;
 use PKP\config\Config;
 use PKP\context\ContextDAO;
@@ -28,6 +27,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
+use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\HookRegistry;
@@ -577,6 +577,12 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         Repo::announcement()->deleteMany(
             Repo::announcement()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+        );
+
+        Repo::institution()->deleteMany(
+            Repo::institution()
                 ->getCollector()
                 ->filterByContextIds([$context->getId()])
         );

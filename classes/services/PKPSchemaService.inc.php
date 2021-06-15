@@ -30,6 +30,7 @@ class PKPSchemaService
     public const SCHEMA_DECISION = 'decision';
     public const SCHEMA_EMAIL_TEMPLATE = 'emailTemplate';
     public const SCHEMA_GALLEY = 'galley';
+    public const SCHEMA_INSTITUTION = 'institution';
     public const SCHEMA_ISSUE = 'issue';
     public const SCHEMA_PUBLICATION = 'publication';
     public const SCHEMA_REVIEW_ASSIGNMENT = 'reviewAssignment';

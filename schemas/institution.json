@@ -1,0 +1,56 @@
+{
+	"title": "Institution",
+	"description": "An institution, such as a university, that may be used to track usage statistics, handle subscriptions, and more.",
+	"required": [
+		"contextId",
+		"name"
+	],
+	"properties": {
+		"_href": {
+			"type": "string",
+			"description": "The URL to this institution in the REST API.",
+			"format": "uri",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"contextId": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"id": {
+			"type": "integer",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"name": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"ror": {
+			"type": "string",
+			"description": "The ROR of this institution. See: https://ror.org/",
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"regex:/^0[^ILOU]{6}\\d{2}$/"
+			]
+		},
+		"deletedAt": {
+			"type": "string",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"ipRanges": {
+			"type": "array",
+			"description": "A list of IP ranges belonging to this institution.",
+			"apiSummary": true,
+			"items": {
+				"type": "string"
+			}
+		}
+	}
+}

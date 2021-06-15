@@ -251,6 +251,30 @@ msgstr "Items successfully submitted for deposit"
 msgid "manager.genres.alertDelete"
 msgstr "Before this component can be deleted, you must associate all related submission files with a different component."
 
+msgid "manager.institutions.edit"
+msgstr "Edit Institution"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Research Organization Registry ID for this institution."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP ranges"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr "Valid values include an IP address (e.g. 142.58.103.1), IP range (e.g. 142.58.103.1 - 142.58.103.4), IP range with wildcard '*' (e.g. 142.58.*.*), and an IP range with CIDR (e.g. 142.58.100.0/24)."
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Delete Institution"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Are you sure you want to continue and delete this institution?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Invalid IP range"
+
 msgid "manager.publication.submissionStage"
 msgstr "Submission"
 
@@ -1096,6 +1120,9 @@ msgstr "A contact person who can assist editors, authors and reviewers with any 
 
 msgid "manager.setup.theme"
 msgstr "Theme"
+
+msgid "manager.setup.institutions"
+msgstr "Institutions"
 
 msgid "manager.setup.theme.description"
 msgstr "New themes may be installed from the Plugins tab at the top of this page."

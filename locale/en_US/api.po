@@ -47,6 +47,9 @@ msgstr "The API token can not be used to access this site because the site admin
 msgid "api.announcements.404.announcementNotFound"
 msgstr "The announcement you requested was not found."
 
+msgid "api.institutions.404.institutionNotFound"
+msgstr "The institution you requested was not found."
+
 msgid "api.contexts.400.localesNotSupported"
 msgstr "The following locales are not supported: {$locales}."
 

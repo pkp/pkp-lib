@@ -17,7 +17,8 @@
  */
 
 use APP\handler\Handler;
-
+use Illuminate\Support\Facades\App;
+use PKP\core\FileService;
 use PKP\core\JSONMessage;
 use PKP\file\FileArchive;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -28,6 +29,8 @@ use PKP\submission\SubmissionFile;
 
 class FileApiHandler extends Handler
 {
+    protected FileService $fileService;
+
     /**
      * Constructor.
      */
@@ -38,6 +41,7 @@ class FileApiHandler extends Handler
             [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
             ['downloadFile', 'downloadLibraryFile', 'downloadAllFiles', 'recordDownload', 'enableLinkAction']
         );
+        $this->fileService = App::make(FileService::class);
     }
 
     //
@@ -93,7 +97,7 @@ class FileApiHandler extends Handler
         if (!$file) {
             throw new Exception('File ' . $fileId . ' is not a revision of submission file ' . $submissionFile->getId());
         }
-        if (!Services::get('file')->fs->has($file->path)) {
+        if (!$this->fileService->fs->has($file->path)) {
             $request->getDispatcher()->handle404();
         }
 
@@ -117,8 +121,8 @@ class FileApiHandler extends Handler
             );
         }
 
-        $filename = Services::get('file')->formatFilename($file->path, $filename);
-        Services::get('file')->download((int) $fileId, $filename);
+        $filename = $this->fileService->formatFilename($file->path, $filename);
+        $this->fileService->download((int) $fileId, $filename);
     }
 
     /**
@@ -148,7 +152,7 @@ class FileApiHandler extends Handler
         $files = [];
         foreach ($submissionFiles as $submissionFile) {
             $path = $submissionFile->getData('path');
-            $files[$path] = Services::get('file')->formatFilename($path, $submissionFile->getLocalizedData('name'));
+            $files[$path] = $this->fileService->formatFilename($path, $submissionFile->getLocalizedData('name'));
         }
 
         AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);

@@ -1,69 +1,62 @@
 <?php
 /**
- * @file classes/services/PKPFileService.php
+ * @file classes/core/FileService.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPFileService
- * @ingroup services
+ * @class FileService
+ * @ingroup core
  *
- * @brief Helper class that encapsulates business logic for publications
+ * @brief Provides methods to read and write to file storage. Uses Flysystem
+ * to support storage adaptors for local and remote file systems.
+ *
+ * @see AppServiceProvider::register
+ * @see https://flysystem.thephpleague.com
  */
 
-namespace PKP\services;
+namespace PKP\core;
 
 use APP\core\Application;
 use Exception;
 use Illuminate\Support\Facades\DB;
-
 use League\Flysystem\Adapter\Local;
-
 use League\Flysystem\Filesystem;
 use PKP\config\Config;
 use PKP\file\FileManager;
 use PKP\plugins\HookRegistry;
+use stdClass;
 
-class PKPFileService
+class FileService
 {
-    /** @var Filesystem */
-    public $fs;
+    public FileSystem $fs;
 
-    /**
-     * Initialize and configure flysystem
-     */
     public function __construct()
     {
-        $adapter = new Local(
-            Config::getVar('files', 'files_dir'),
-            LOCK_EX,
-            Local::DISALLOW_LINKS,
-            [
-                'file' => [
-                    'public' => FileManager::FILE_MODE_MASK,
-                    'private' => FileManager::FILE_MODE_MASK,
-                ],
-                'dir' => [
-                    'public' => DIRECTORY_MODE_MASK,
-                    'private' => DIRECTORY_MODE_MASK,
+        $this->fs = new FileSystem(
+            new Local(
+                Config::getVar('files', 'files_dir'),
+                LOCK_EX,
+                Local::DISALLOW_LINKS,
+                [
+                    'file' => [
+                        'public' => FileManager::FILE_MODE_MASK,
+                        'private' => FileManager::FILE_MODE_MASK,
+                    ],
+                    'dir' => [
+                        'public' => FileManager::DIRECTORY_MODE_MASK,
+                        'private' => FileManager::DIRECTORY_MODE_MASK,
+                    ]
                 ]
-            ]
+            )
         );
-
-        HookRegistry::call('File::adapter', [&$adapter, $this]);
-
-        $this->fs = new Filesystem($adapter);
     }
 
     /**
      * Get a file by its id
-     *
-     * @param int $id
-     *
-     * @return stdObject
      */
-    public function get($id)
+    public function get(int $id): stdClass
     {
         $file = DB::table('files')
             ->where('file_id', '=', $id)
@@ -78,9 +71,9 @@ class PKPFileService
      * @param string $from absolute path to file
      * @param string $to relative path in file dir
      *
-     * @return int file id
+     * @return int The new file id
      */
-    public function add($from, $to)
+    public function add(string $from, string $to): int
     {
         $stream = fopen($from, 'r+');
         if (!$stream) {
@@ -110,12 +103,8 @@ class PKPFileService
 
     /**
      * Delete an uploaded file
-     *
-     * @param int $id
-     *
-     * @return File
      */
-    public function delete($id)
+    public function delete(int $id)
     {
         $file = $this->get($id);
         if (!$file) {
@@ -140,7 +129,7 @@ class PKPFileService
      * @param string $filename Filename to give to the downloaded file
      * @param boolean $inline Whether to stream the file to the browser
      */
-    public function download($fileId, $filename, $inline = false)
+    public function download(int $fileId, string $filename, $inline = false)
     {
         $file = $this->get($fileId);
         $dispatcher = Application::get()->getRequest()->getDispatcher();
@@ -177,10 +166,8 @@ class PKPFileService
      *
      * @param string $path Path to the file
      * @param string $filename Source filename to sanitize
-     *
-     * @return string
      */
-    public function formatFilename($path, $filename)
+    public function formatFilename(string $path, string $filename): string
     {
         $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
         $newFilename = $filename;
@@ -196,11 +183,9 @@ class PKPFileService
     /**
      * Get document type based on the mimetype
      *
-     * @param string $mimetype
-     *
      * @return string One of the FileManager::DOCUMENT_TYPE_ constants
      */
-    public function getDocumentType($mimetype)
+    public function getDocumentType(string $mimetype): string
     {
         switch ($mimetype) {
             case 'application/pdf':
@@ -260,13 +245,11 @@ class PKPFileService
     /**
      * Get a pretty file size string
      *
-     * Examples: 82B, 12KB, 2MB, 2GB
-     *
      * @param integer $size File size in bytes
      *
-     * @return string
+     * @return string Examples: 82B, 12KB, 2MB, 2GB
      */
-    public function getNiceFileSize($size)
+    public function getNiceFileSize(int $size): string
     {
         $niceFileSizeUnits = ['B', 'KB', 'MB', 'GB'];
         for ($i = 0; $i < 4 && $size > 1024; $i++) {

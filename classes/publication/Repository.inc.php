@@ -574,7 +574,7 @@ abstract class Repository
             if ($fileName) {
                 // File may be in use by other publications
                 $fileInUse = false;
-                foreach ((array) $submission->getData('publications') as $iPublication) {
+                foreach ($submission->getData('publications') as $iPublication) {
                     if ($publication->getId() === $iPublication->getId()) {
                         continue;
                     }

@@ -34,7 +34,7 @@ class SetVersionTool extends \PKP\cliTool\CommandLineTool
             );
             foreach ($submissions as $submission) {
                 $version = 1;
-                foreach ((array) $submission->getData('publications') as $publication) {
+                foreach ($submission->getData('publications') as $publication) {
                     Repo::publication()->edit($publication, ['version' => $version]);
                     $version++;
                 }

@@ -104,7 +104,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
      */
     private function _parseSubmission($submission)
     {
-        foreach ((array) $submission->getData('publications') as $publication) {
+        foreach ($submission->getData('publications') as $publication) {
             if (!empty($publication->getData('citationsRaw'))) {
                 DAORegistry::getDAO('CitationDAO')->importCitations($publication->getId(), $publication->getData('citationsRaw'));
             }

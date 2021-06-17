@@ -403,12 +403,9 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 
 		// Get all the unique file_ids. For each one, determine the latest revision
 		// in order to keep it in the table. The others will be flagged for removal
-		$revisionRowFileIds = Capsule::table('submission_files')
-			->groupBy('file_id')
-			->pluck('file_id');
-		foreach ($revisionRowFileIds as $revisionRowFileId) {
+		foreach (Capsule::table('submission_files')->select('file_id')->distinct()->get() as $row) {
 			$submissionFileRows = Capsule::table('submission_files')
-				->where('file_id', '=', $revisionRowFileId)
+				->where('file_id', '=', $row->file_id)
 				->orderBy('revision', 'desc')
 				->get([
 					'file_id',

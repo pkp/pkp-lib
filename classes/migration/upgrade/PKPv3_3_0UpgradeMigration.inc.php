@@ -413,12 +413,9 @@ class PKPv3_3_0UpgradeMigration extends Migration
 
         // Get all the unique file_ids. For each one, determine the latest revision
         // in order to keep it in the table. The others will be flagged for removal
-        $revisionRowFileIds = DB::table('submission_files')
-            ->groupBy('file_id')
-            ->pluck('file_id');
-        foreach ($revisionRowFileIds as $revisionRowFileId) {
+        foreach (Capsule::table('submission_files')->select('file_id')->distinct()->get() as $row) {
             $submissionFileRows = DB::table('submission_files')
-                ->where('file_id', '=', $revisionRowFileId)
+                ->where('file_id', '=', $row->file_id)
                 ->orderBy('revision', 'desc')
                 ->get([
                     'file_id',
@@ -432,10 +429,12 @@ class PKPv3_3_0UpgradeMigration extends Migration
             }
         }
 
-        // Delete the rows for old revisions
-        DB::table('submission_files')
-            ->whereIn('new_file_id', $newFileIdsToDelete)
-            ->delete();
+        // Delete the rows for old revisions (chunked for performance)
+        foreach (array_chunk($newFileIdsToDelete, 100) as $chunkFileIds) {
+            Capsule::table('submission_files')
+                ->whereIn('new_file_id', $chunkFileIds)
+                ->delete();
+        }
 
         // Remove all review round files that point to file ids
         // that don't exist, so that the foreign key can be set

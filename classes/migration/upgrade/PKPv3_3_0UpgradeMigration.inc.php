@@ -419,10 +419,12 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			}
 		}
 
-		// Delete the rows for old revisions
-		Capsule::table('submission_files')
-			->whereIn('new_file_id', $newFileIdsToDelete)
-			->delete();
+		// Delete the rows for old revisions (chunked for performance)
+		foreach (array_chunk($newFileIdsToDelete, 100) as $chunkFileIds) {
+			Capsule::table('submission_files')
+				->whereIn('new_file_id', $chunkFileIds)
+				->delete();
+		}
 
 		// Remove all review round files that point to file ids
 		// that don't exist, so that the foreign key can be set

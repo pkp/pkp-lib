@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-06-10 11:43+0000\n"
+"PO-Revision-Date: 2021-06-19 08:03+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "gl_ES/>\n"
@@ -901,7 +901,6 @@ msgstr "Texto alternativo"
 msgid "common.alreadyAssigned"
 msgstr "Asignado"
 
-#, fuzzy
 msgid "common.titleSmallWords"
 msgstr ""
 "de un unha uns unhas o a os as e o ni pero es si despois ademáis cando en "

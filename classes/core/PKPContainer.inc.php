@@ -76,7 +76,6 @@ class PKPContainer extends Container
 
                 public function render($request, Throwable $e)
                 {
-                    error_log((string) $e);
                     return null;
                 }
 

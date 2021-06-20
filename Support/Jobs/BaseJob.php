@@ -23,6 +23,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use PKP\config\Config;
+
 use Throwable;
 
 abstract class BaseJob implements ShouldQueue
@@ -31,6 +33,26 @@ abstract class BaseJob implements ShouldQueue
     use InteractsWithQueue;
     use Queueable;
     use SerializesModels;
+
+    /**
+     * The name of the connection the job should be sent to.
+     *
+     * @var string|null
+     */
+    public $connection;
+
+    /**
+     * The queue's name where the job will be consumed
+     *
+     * @var string
+     */
+    public $queue;
+
+    public function __construct()
+    {
+        $this->connection = Config::getVar('queues', 'default_connection', 'database');
+        $this->queue = Config::getVar('queues', 'default_queue', null);
+    }
 
     abstract public function handle();
 

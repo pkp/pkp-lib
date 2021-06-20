@@ -19,20 +19,12 @@ namespace PKP\Jobs\Metadata;
 
 use APP\core\Application;
 use APP\core\Services;
-use PKP\config\Config;
 use PKP\Domains\Jobs\Exceptions\JobException;
 
 use PKP\Support\Jobs\BaseJob;
 
 class MetadataChangedJob extends BaseJob
 {
-    /**
-     * The name of the connection the job should be sent to.
-     *
-     * @var string|null
-     */
-    public $connection;
-
     /**
      * @var int The submission ID
      */
@@ -44,8 +36,7 @@ class MetadataChangedJob extends BaseJob
      */
     public function __construct(int $submissionId)
     {
-        $this->connection = Config::getVar('queues', 'default_connection', 'database');
-        $this->queue = Config::getVar('queues', 'default_queue', null);
+        parent::__construct();
 
         $this->submissionId = $submissionId;
     }

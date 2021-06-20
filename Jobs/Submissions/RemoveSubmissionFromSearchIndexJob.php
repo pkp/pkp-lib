@@ -19,27 +19,12 @@ namespace PKP\Jobs\Submissions;
 
 use APP\core\Application;
 use APP\core\Services;
-use PKP\config\Config;
 use PKP\Domains\Jobs\Exceptions\JobException;
 
 use PKP\Support\Jobs\BaseJob;
 
 class RemoveSubmissionFromSearchIndexJob extends BaseJob
 {
-    /**
-     * The name of the connection the job should be sent to.
-     *
-     * @var string|null
-     */
-    public $connection;
-
-    /**
-     * The queue's name where the job will be consumed
-     *
-     * @var string
-     */
-    public $queue;
-
     /**
      * @var int The submission ID
      */
@@ -51,8 +36,7 @@ class RemoveSubmissionFromSearchIndexJob extends BaseJob
      */
     public function __construct(int $submissionId)
     {
-        $this->connection = Config::getVar('queues', 'default_connection', 'database');
-        $this->queue = Config::getVar('queues', 'default_queue', null);
+        parent::__construct();
 
         $this->submissionId = $submissionId;
     }

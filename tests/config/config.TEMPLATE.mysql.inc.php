@@ -104,4 +104,4 @@ show_stacktrace = On
 [queues]
 
 default_queue = "test_default_queue"
-run_jobs_at_shutdown = Off
+disable_jobs_run_at_shutdown = Off

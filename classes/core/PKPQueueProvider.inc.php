@@ -26,9 +26,9 @@ class PKPQueueProvider
 {
     public function runJobsAtShutdown(): void
     {
-        $shouldRun = Config::getVar('queues', 'run_jobs_at_shutdown', false);
+        $disableRun = Config::getVar('queues', 'disable_jobs_run_at_shutdown', false);
 
-        if (!$shouldRun) {
+        if ($disableRun) {
             return;
         }
 

@@ -3,13 +3,13 @@
 declare(strict_types=1);
 
 /**
- * @file Jobs/Submissions/UpdateSubmissionOnSearchIndexJob.php
+ * @file Jobs/Submissions/UpdateSubmissionSearchJob.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class UpdateSubmissionOnSearchIndexJob
+ * @class UpdateSubmissionSearchJob
  * @ingroup jobs
  *
  * @brief Class to handle the Submission Search data update as a Job
@@ -24,7 +24,7 @@ use PKP\Domains\Jobs\Exceptions\JobException;
 use PKP\submission\PKPSubmission;
 use PKP\Support\Jobs\BaseJob;
 
-class UpdateSubmissionOnSearchIndexJob extends BaseJob
+class UpdateSubmissionSearchJob extends BaseJob
 {
     /**
      * @var int The submission ID

@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 namespace PKP\observers\listeners;
 
-use PKP\Jobs\Submissions\UpdateSubmissionOnSearchIndexJob;
+use PKP\Jobs\Submissions\UpdateSubmissionSearchJob;
 use PKP\observers\events\PublishedEvent;
 
 class SubmissionUpdatedListener
@@ -29,6 +29,6 @@ class SubmissionUpdatedListener
      */
     public function handle(PublishedEvent $event)
     {
-        dispatch(new UpdateSubmissionOnSearchIndexJob($event->submission->getId()));
+        dispatch(new UpdateSubmissionSearchJob($event->submission->getId()));
     }
 }

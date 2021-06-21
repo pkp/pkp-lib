@@ -13,11 +13,8 @@
  */
 
 use APP\facades\Repo;
-use APP\notification\NotificationManager;
 use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
-
-use PKP\notification\PKPNotification;
 
 abstract class ReviewerNotifyActionForm extends Form
 {
@@ -57,7 +54,6 @@ abstract class ReviewerNotifyActionForm extends Form
     public function initData()
     {
         $request = Application::get()->getRequest();
-        $context = $request->getContext();
         $submission = $this->getSubmission();
         $reviewAssignment = $this->getReviewAssignment();
         $reviewRound = $this->getReviewRound();
@@ -85,35 +81,6 @@ abstract class ReviewerNotifyActionForm extends Form
 
             $this->setData('personalMessage', $template->getBody());
         }
-    }
-
-    /**
-     * @copydoc Form::execute()
-     *
-     * @return bool whether or not the review assignment was modified successfully
-     */
-    public function execute(...$functionArgs)
-    {
-        $request = Application::get()->getRequest();
-        $submission = $this->getSubmission();
-        $reviewAssignment = $this->getReviewAssignment();
-
-        // Notify the reviewer via email.
-        $mail = new SubmissionMailTemplate($submission, $this->getEmailKey(), null, null, false);
-
-        if ($mail->isEnabled() && !$this->getData('skipEmail')) {
-            $reviewerId = (int) $this->getData('reviewerId');
-            $reviewer = Repo::user()->get($reviewerId);
-            $mail->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
-            $mail->setBody($this->getData('personalMessage'));
-            $mail->assignParams();
-            if (!$mail->send($request)) {
-                $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
-            }
-        }
-        parent::execute(...$functionArgs);
-        return true;
     }
 
     /**

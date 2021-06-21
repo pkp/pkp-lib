@@ -198,9 +198,11 @@ class PKPPublication extends \PKP\core\DataObject
      *
      * Eg - Barnes, et al.
      *
+     * @param string|null $defaultLocale
+     *
      * @return string
      */
-    public function getShortAuthorString()
+    public function getShortAuthorString($defaultLocale = null)
     {
         $authors = $this->getData('authors');
 
@@ -208,14 +210,14 @@ class PKPPublication extends \PKP\core\DataObject
             return '';
         }
 
-        $str = $authors[0]->getLocalizedFamilyName();
+        $str = $authors[0]->getLocalizedFamilyName($defaultLocale);
         if (!$str) {
-            $str = $authors[0]->getLocalizedGivenName();
+            $str = $authors[0]->getLocalizedGivenName($defaultLocale);
         }
 
         if (count($authors) > 1) {
             AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-            return __('submission.shortAuthor', ['author' => $str]);
+            return __('submission.shortAuthor', ['author' => $str], $defaultLocale);
         }
 
         return $str;

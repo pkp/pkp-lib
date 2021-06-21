@@ -52,9 +52,7 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
      */
     public function execute(...$functionArgs)
     {
-        if (!parent::execute(...$functionArgs)) {
-            return false;
-        }
+        parent::execute(...$functionArgs);
 
         $request = Application::get()->getRequest();
         $submission = $this->getSubmission(); /** @var Submission $submission */

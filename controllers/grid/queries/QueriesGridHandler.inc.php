@@ -20,11 +20,14 @@ use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\i18n\PKPLocale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\mail\mailables\FormEmailData;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
+use PKP\observers\events\DiscussionMessageSent;
 use PKP\security\authorization\QueryAccessPolicy;
 
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
@@ -594,6 +597,8 @@ class QueriesGridHandler extends GridHandler
         if (!$this->getAccessHelper()->getCanEdit($query->getId())) {
             return new JSONMessage(false);
         }
+        $queryDao = DAORegistry::getDAO('QueryDAO');
+        $oldParticipantIds = $queryDao->getParticipantIds($query->getId());
 
         import('lib.pkp.controllers.grid.queries.form.QueryForm');
         $queryForm = new QueryForm(
@@ -607,12 +612,12 @@ class QueriesGridHandler extends GridHandler
 
         if ($queryForm->validate()) {
             $queryForm->execute();
+            $notificationMgr = new NotificationManager();
 
             if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
                 $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
 
                 // Update submission notifications
-                $notificationMgr = new NotificationManager();
                 $notificationMgr->updateNotification(
                     $request,
                     [
@@ -625,6 +630,59 @@ class QueriesGridHandler extends GridHandler
                     ASSOC_TYPE_SUBMISSION,
                     $this->getAssocId()
                 );
+            }
+
+            // Send notifications
+            PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
+            $currentUser = $request->getUser();
+            $newParticipantIds = $queryForm->getData('users');
+            $added = array_diff($newParticipantIds, $oldParticipantIds);
+            // Don't notify the current user
+            if ($key = array_search($currentUser->getId(), $added)) {
+                unset($added[$key]);
+            }
+
+            $formData = new FormEmailData();
+            foreach ($added as $userId) {
+                $notification = $notificationMgr->createNotification(
+                    $request,
+                    $userId,
+                    PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
+                    $request->getContext()->getId(),
+                    ASSOC_TYPE_QUERY,
+                    $query->getId(),
+                    Notification::NOTIFICATION_LEVEL_TASK,
+                    null,
+                    true
+                );
+                $formData->addVariables([$userId => [
+                    'notificationContents' => $notificationMgr->getNotificationContents($request, $notification),
+                    'url' => $notificationMgr->getNotificationUrl($request, $notification),
+                    'unsubscribeLink' =>
+                        '<br /><a href=\'' .
+                        $notificationMgr->getUnsubscribeNotificationUrl($request, $notification) .
+                        '\'>' .
+                        __('notification.unsubscribeNotifications') .
+                        '</a>'
+                ]]);
+            }
+
+            $assocSubmission = Repo::submission()->get($query->getAssocId());
+
+            try {
+                event(new DiscussionMessageSent(
+                    $query,
+                    $request->getContext(),
+                    $assocSubmission,
+                    $formData->setRecipientIds($added)->setSenderId($request->getUser()->getId())
+                ));
+            } catch (Swift_TransportException $e) {
+                $notificationMgr->createTrivialNotification(
+                    $currentUser->getId(),
+                    PKPNotification::NOTIFICATION_TYPE_ERROR,
+                    ['contents' => __('email.compose.error')]
+                );
+                trigger_error($e->getMessage(), E_USER_WARNING);
             }
             return \PKP\db\DAO::getDataChangedEvent($query->getId());
         }

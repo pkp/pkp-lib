@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2021-04-19 12:40+0000\n"
+"PO-Revision-Date: 2021-06-22 20:34+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "api/fr_CA/>\n"
@@ -177,3 +177,50 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "Le jeton API n'a pas pu être validé. Cela peut indiquer une erreur dans le "
 "jeton API, ou bien qu'il n'est plus valide."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+"Vous n'avez pas l'autorisation d'accéder à ces fichiers dans ce cycle "
+"d'évaluation."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Vous n'avez pas l'autorisation d'ajouter ou modifier ces fichiers."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Vous n'avez pas l'autorisation d'accéder à ces fichiers."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Le cycle d'évaluation spécifié ne fait pas partie de cette soumission."
+
+#, fuzzy
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"Aucun changement n'a été trouvé dans la requête d'édition de ce fichier."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Vous devez spécifier un cycle d'évaluation lorsque vous demander des "
+"fichiers dans une étape d'évaluation."
+
+#, fuzzy
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Vous ne pouvez pas associer un fichier de cette étape  avec un cycle "
+"d'évaluation."
+
+#, fuzzy
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Vous ne pouvez pas associer un fichier de cette étape avec une assignation "
+"d'évaluation."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Vous ne pouvez pas associer un fichier à cette étape avec un autre fichier "
+"de soumission."
+
+#, fuzzy
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Vous ne pouvez pas associer un fichier de cette étape avec une note de "
+"discussion."

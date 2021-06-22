@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2021-03-31 13:17+0000\n"
+"PO-Revision-Date: 2021-06-22 20:34+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/fr_CA/>\n"
@@ -2018,7 +2018,6 @@ msgstr ""
 "Vous pouvez vous réabonner aux notifications par courriel en tout temps en "
 "allant dans votre <a href=\"{$profileNotificationUrl}\">profil</a>."
 
-#, fuzzy
 msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
 "Veuillez choisir les courriels que vous ne désirez plus recevoir à {$email} "
@@ -2029,3 +2028,20 @@ msgstr "Nous n'avons pas pu vous désabonner"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Vous avez été désabonné.e"
+
+#, fuzzy
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Le filtre ({$displayName}) supporte l'intrant de type {$inputTypeName} - "
+"{$typeofInput} fourni"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Cette transformation n'est pas supportée dans l'environnement de votre "
+"installation."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Le noeud XML n'a pu être importé"
+
+msgid "validator.country"
+msgstr "Ce n'est pas un pays valide."

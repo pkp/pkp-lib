@@ -488,7 +488,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
-        $unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $unassignReviewerForm = new \UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
         $unassignReviewerForm->initData();
 
         return new JSONMessage(true, $unassignReviewerForm->fetch($request));
@@ -555,7 +555,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
-        $unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $unassignReviewerForm = new \UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
         $unassignReviewerForm->readInputData();
 
         // Unassign the reviewer and return status message

@@ -79,7 +79,7 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
 
             // Stamp the modification date
             $submission->stampModified();
-            Repo::submission()->dao->updateObject($submission);
+            Repo::submission()->dao->update($submission);
 
             $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
             $notificationDao->deleteByAssoc(

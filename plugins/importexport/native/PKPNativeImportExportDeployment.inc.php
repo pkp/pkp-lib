@@ -19,17 +19,6 @@ use PKP\submission\SubmissionFile;
 
 class PKPNativeImportExportDeployment extends PKPImportExportDeployment
 {
-    /**
-     * Constructor
-     *
-     * @param $context Context
-     * @param $user User
-     */
-    public function __construct($context, $user)
-    {
-        parent::__construct($context, $user);
-    }
-
     //
     // Deployment items for subclasses to override
     //

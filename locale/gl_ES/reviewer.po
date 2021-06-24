@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-10 21:53+0000\n"
+"PO-Revision-Date: 2021-06-19 08:03+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/gl_ES/>\n"
@@ -126,3 +126,11 @@ msgstr "2. Pautas"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Solicitude"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Enviar aos revisores"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Envía unha copia deste correo electrónico de notificación en CCO aos "
+"seguintes revisores."

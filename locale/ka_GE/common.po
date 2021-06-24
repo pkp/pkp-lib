@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-30 07:17+0000\n"
+"PO-Revision-Date: 2021-05-14 09:45+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ka_GE/>\n"
@@ -704,7 +704,7 @@ msgid "help.upALevel"
 msgstr "დონის ამაღლება"
 
 msgid "form.multilingualProgress"
-msgstr "{$count}/{$total} ენები დასრულებულია"
+msgstr "{$count}/{$total} ენა დასრულებულია"
 
 msgid "form.multilingualLabel"
 msgstr "{$label} — {$localeName}"
@@ -821,7 +821,7 @@ msgid "form.disallowedLocales"
 msgstr "დასაშვებია მხოლოდ შემდეგი ენები: {$languages}."
 
 msgid "form.dataHasChanged"
-msgstr "ამ ფორმის მონაცემები შეიცვალა. გსურთ გააგრძელოთ დაზოგვის გარეშე?"
+msgstr "ამ ფორმის მონაცემები შეიცვალა. გსურთ გააგრძელოთ შენახვის გარეშე?"
 
 msgid "form.emailRequired"
 msgstr "აუცილებელია ელფოსტის სწორი მისამართი."
@@ -1397,7 +1397,7 @@ msgid "notification.type.editorialReport"
 msgstr "სტატისტიკის ანგარიშის შეჯამება."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "რაუნდის {$ round} სტატუსი"
+msgstr "{$round} რაუნდის სტატუსი"
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "ლიტერატურული რედაქტირების მოლოდინში."
@@ -2048,7 +2048,7 @@ msgstr "დანიშვნის პრივილეგიები"
 msgid "stageParticipants.notify.warning"
 msgstr ""
 "გთხოვთ, დარწმუნდეთ, რომ შეავსეთ შეტყობინებების ველი და დისკუსიაში შეიყვანეთ "
-"სხვისი გარდა."
+"თქვენს გარდა სხვებიც."
 
 msgid "stageParticipants.notify.chooseMessage"
 msgstr ""

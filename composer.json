@@ -62,5 +62,12 @@
 				"./tools/pre-commit.sh"
 			]
 		}
-	}
+    },
+    "autoload": {
+        "psr-4": {
+            "PKP\\Support\\": "Support/",
+            "PKP\\Domains\\": "Domains/",
+            "PKP\\Jobs\\": "Jobs/"
+        }
+    }
 }

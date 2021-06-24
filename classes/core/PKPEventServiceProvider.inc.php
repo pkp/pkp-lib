@@ -16,9 +16,20 @@
 namespace PKP\core;
 
 use Illuminate\Events\EventServiceProvider;
+
 use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
+use PKP\observers\events\MetadataChanged;
+
+use PKP\observers\events\PublishedEvent;
+use PKP\observers\events\SubmissionDeleted;
+use PKP\observers\events\SubmissionFileDeleted;
+use PKP\observers\events\UnpublishedEvent;
+use PKP\observers\listeners\MetadataChangedListener;
+use PKP\observers\listeners\SubmissionDeletedListener;
+use PKP\observers\listeners\SubmissionFileDeletedListener;
+use PKP\observers\listeners\SubmissionUpdatedListener;
 use SplFileInfo;
 
 class PKPEventServiceProvider extends EventServiceProvider
@@ -27,7 +38,23 @@ class PKPEventServiceProvider extends EventServiceProvider
      * @var array $listen $event => $listeners[]
      * @brief Registering events & listeners, see Illuminate\Events\EventServiceProvider
      */
-    protected $listen = [];
+    protected $listen = [
+        SubmissionDeleted::class => [
+            SubmissionDeletedListener::class,
+        ],
+        SubmissionFileDeleted::class => [
+            SubmissionFileDeletedListener::class,
+        ],
+        MetadataChanged::class => [
+            MetadataChangedListener::class
+        ],
+        PublishedEvent::class => [
+            SubmissionUpdatedListener::class,
+        ],
+        UnpublishedEvent::class => [
+            SubmissionUpdatedListener::class,
+        ]
+    ];
 
     /**
      * @var array

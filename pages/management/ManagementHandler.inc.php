@@ -27,7 +27,6 @@ class ManagementHandler extends Handler
     /** @copydoc PKPHandler::_isBackendPage */
     public $_isBackendPage = true;
 
-
     //
     // Overridden methods from Handler
     //

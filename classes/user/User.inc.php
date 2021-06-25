@@ -42,7 +42,7 @@ class User extends Identity
      */
     public function getUsername()
     {
-        return $this->getData('username');
+        return $this->getData('userName');
     }
 
     /**
@@ -52,7 +52,7 @@ class User extends Identity
      */
     public function setUsername($username)
     {
-        $this->setData('username', $username);
+        $this->setData('userName', $username);
     }
 
     /**

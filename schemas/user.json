@@ -8,6 +8,7 @@
 			"readOnly": true
 		},
 		"affiliation": {
+			"type": "string",
 			"$ref": "#/definitions/LocaleObject"
 		},
 		"authId": {
@@ -20,6 +21,7 @@
 			"type": "string"
 		},
 		"biography": {
+			"type": "string",
 			"$ref": "#/definitions/LocaleObject"
 		},
 		"country": {
@@ -43,6 +45,21 @@
 				"date:Y-m-d H:i:s"
 			]
 		},
+		"dateLastEmail": {
+			"type": "string",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"dateLastLogin": {
+			"type": "string",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			]
+		},
+		"inlineHelp": {
+			"type": "boolean"
+		},
 		"disabled": {
 			"type": "boolean",
 			"apiSummary": true
@@ -58,7 +75,8 @@
 			]
 		},
 		"familyName": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true
 		},
 		"fullName": {
 			"type": "string",
@@ -66,10 +84,12 @@
 			"readOnly": true
 		},
 		"givenName": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true
 		},
 		"gossip": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true
 		},
 		"groups": {
 			"type": "array",
@@ -91,6 +111,9 @@
 				"$ref": "#/definitions/UserInterest"
 			}
 		},
+		"locales": {
+			"type": "array"
+		},
 		"mailingAddress": {
 			"type": "string"
 		},
@@ -104,11 +127,16 @@
 				"orcid"
 			]
 		},
+		"password": {
+			"type": "string",
+			"writeOnly": true
+		},
 		"phone": {
 			"type": "string"
 		},
 		"signature": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true
 		},
 		"url": {
 			"type": "string",

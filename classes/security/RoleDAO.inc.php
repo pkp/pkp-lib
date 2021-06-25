@@ -23,16 +23,12 @@ use PKP\user\UserDAO;
 
 class RoleDAO extends DAO
 {
-    /** @var The User DAO to return User objects when necessary **/
-    public $userDao;
-
     /**
      * Constructor.
      */
     public function __construct()
     {
         parent::__construct();
-        $this->userDao = DAORegistry::getDAO('UserDAO');
     }
 
     /**

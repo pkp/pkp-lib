@@ -16,6 +16,7 @@
 namespace PKP\security;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
@@ -38,8 +39,7 @@ class Validation
     public static function login($username, $password, &$reason, $remember = false)
     {
         $reason = null;
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getByUsername($username, true);
+        $user = Repo::user()->getByUsername($username, true);
         if (!isset($user)) {
             // User does not exist
             return false;
@@ -154,8 +154,7 @@ class Validation
         }
 
         $user->setDateLastLogin(Core::getCurrentDate());
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $userDao->updateObject($user);
+        Repo::user()->update($user);
 
         return $user;
     }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/user/UserDAO.inc.php
+ * @file classes/user/DAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -19,15 +19,52 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\i18n\AppLocale;
+use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
-
 use PKP\plugins\HookRegistry;
 use PKP\security\Role;
 
-class UserDAO extends \PKP\db\DAO
+class DAO extends \PKP\core\EntityDAO
 {
+    /** @copydoc EntityDAO::$schema */
+    public $schema = \PKP\services\PKPSchemaService::SCHEMA_USER;
+
+    /** @copydoc EntityDAO::$table */
+    public $table = 'users';
+
+    /** @copydoc EntityDAO::$settingsTable */
+    public $settingsTable = 'user_settings';
+
+    /** @copydoc EntityDAO::$primarykeyColumn */
+    public $primaryKeyColumn = 'user_id';
+
+    /** @copydoc EntityDAO::$primaryTableColumns */
+    public $primaryTableColumns = [
+        'id' => 'user_id',
+        'userName' => 'username',
+        'password' => 'password',
+        'email' => 'email',
+        'url' => 'url',
+        'phone' => 'phone',
+        'mailingAddress' => 'mailing_address',
+        'billingAddress' => 'billing_address',
+        'country' => 'country',
+        'locales' => 'locales',
+        'gossip' => 'gossip',
+        'dateLastEmail' => 'date_last_email',
+        'dateRegistered' => 'date_registered',
+        'dateValidated' => 'date_validated',
+        'dateLastLogin' => 'date_last_login',
+        'mustChangePassword' => 'must_change_password',
+        'authId' => 'auth_id',
+        'authString' => 'auth_str',
+        'disabled' => 'disabled',
+        'disabledReason' => 'disabled_reason',
+        'inlineHelp' => 'inline_help',
+    ];
+
     /* These constants are used user-selectable search fields. */
     public const USER_FIELD_USERID = 'user_id';
     public const USER_FIELD_USERNAME = 'username';
@@ -48,22 +85,17 @@ class UserDAO extends \PKP\db\DAO
     }
 
     /**
-     * Retrieve a user by ID.
+     * @copydoc EntityDAO::get()
      *
-     * @param $userId int
-     * @param $allowDisabled boolean
-     *
-     * @return User?
+     * @param $allowDisabled boolean If true, allow fetching a disabled user.
      */
-    public function getById($userId, $allowDisabled = true)
+    public function get($id, $allowDisabled = true): ?User
     {
-        $result = $this->retrieve(
-            'SELECT * FROM users WHERE user_id = ?' . ($allowDisabled ? '' : ' AND disabled = 0'),
-            [(int) $userId]
-        );
-
-        $row = (array) $result->current();
-        return $row ? $this->_returnUserFromRowWithData($row) : null;
+        $user = parent::get($id);
+        if (!$allowDisabled && $user->getDisabled()) {
+            return null;
+        }
+        return $user;
     }
 
     /**
@@ -74,15 +106,16 @@ class UserDAO extends \PKP\db\DAO
      *
      * @return User?
      */
-    public function getByUsername($username, $allowDisabled = true)
+    public function getByUsername(string $username, bool $allowDisabled = true): ?User
     {
-        $result = $this->retrieve(
-            'SELECT * FROM users WHERE username = ?' . ($allowDisabled ? '' : ' AND disabled = 0'),
-            [$username]
-        );
-
-        $row = (array) $result->current();
-        return $row ? $this->_returnUserFromRowWithData($row) : null;
+        $row = DB::table('users')
+            ->where('username', '=', $username)
+            ->when(!$allowDisabled, function ($query) {
+                return $query->where('disabled', '=', false);
+            })
+            ->get('user_id')
+            ->first();
+        return $this->get($row->user_id);
     }
 
     /**
@@ -725,20 +758,5 @@ class UserDAO extends \PKP\db\DAO
     public function getOrderBy()
     {
         return 'ORDER BY user_family, user_given';
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\UserDAO', '\UserDAO');
-    foreach ([
-        'USER_FIELD_USERID',
-        'USER_FIELD_USERNAME',
-        'USER_FIELD_EMAIL',
-        'USER_FIELD_URL',
-        'USER_FIELD_INTERESTS',
-        'USER_FIELD_AFFILIATION',
-        'USER_FIELD_NONE',
-    ] as $constantName) {
-        define($constantName, constant('\UserDAO::' . $constantName));
     }
 }

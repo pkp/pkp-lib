@@ -28,9 +28,6 @@ use PKP\xml\PKPXMLParser;
 
 class UserGroupDAO extends DAO
 {
-    /** @var a shortcut to get the UserDAO **/
-    public $userDao;
-
     /** @var a shortcut to get the UserGroupAssignmentDAO **/
     public $userGroupAssignmentDao;
 
@@ -40,7 +37,6 @@ class UserGroupDAO extends DAO
     public function __construct()
     {
         parent::__construct();
-        $this->userDao = DAORegistry::getDAO('UserDAO');
         $this->userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
     }
 

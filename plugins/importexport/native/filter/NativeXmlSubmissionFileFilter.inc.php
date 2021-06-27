@@ -95,17 +95,15 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
                 $genres = $genreDao->getByContextId($context->getId());
                 while ($genre = $genres->next()) {
-                    foreach ($genre->getName(null) as $locale => $name) {
-                        $genresByContextId[$context->getId()][$name] = $genre;
+                    if ($genre->getData('key') == $genreName) {
+                        $genreId = $genre->getId();
+                        break;
                     }
                 }
             }
-            if (!isset($genresByContextId[$context->getId()][$genreName])) {
+            if (!isset($genreId)) {
                 $deployment->addError(ASSOC_TYPE_SUBMISSION_FILE, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', ['param' => $genreName]));
                 $errorOccured = true;
-            } else {
-                $genre = $genresByContextId[$context->getId()][$genreName];
-                $genreId = $genre->getId();
             }
         }
 

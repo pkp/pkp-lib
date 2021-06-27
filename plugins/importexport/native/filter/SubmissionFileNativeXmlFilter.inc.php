@@ -94,11 +94,14 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		if ($credit = $submissionFile->getData('credit')) {
 			$submissionFileNode->setAttribute('credit', $credit);
 		}
-		if ($directSalesPrice = $submissionFile->getData('directSalesPrice')) {
+
+		$directSalesPrice = $submissionFile->getData('directSalesPrice');
+		if (isset($directSalesPrice)) {
 			$submissionFileNode->setAttribute('direct_sales_price', $directSalesPrice);
 		}
+
 		if ($genre) {
-			$submissionFileNode->setAttribute('genre', $genre->getName($context->getPrimaryLocale()));
+			$submissionFileNode->setAttribute('genre', $genre->getData('key'));
 		}
 		if ($language = $submissionFile->getData('language')) {
 			$submissionFileNode->setAttribute('language', $language);

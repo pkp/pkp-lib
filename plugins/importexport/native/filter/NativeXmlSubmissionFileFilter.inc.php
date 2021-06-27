@@ -78,20 +78,19 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		// Build a cached list of genres by context ID by name
 		if ($genreName) {
 			if (!isset($genresByContextId[$context->getId()])) {
-				$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
+				$genreDao = DAORegistry::getDAO('GenreDAO'); /** @var $genreDao GenreDAO */
 				$genres = $genreDao->getByContextId($context->getId());
 				while ($genre = $genres->next()) {
-					foreach ($genre->getName(null) as $locale => $name) {
-						$genresByContextId[$context->getId()][$name] = $genre;
+					if ($genre->getData('key') == $genreName) {
+						$genreId = $genre->getId();
+						break;
 					}
 				}
 			}
-			if (!isset($genresByContextId[$context->getId()][$genreName])) {
+
+			if (!isset($genreId)) {
 				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', array('param' => $genreName)));
 				$errorOccured = true;
-			} else {
-				$genre = $genresByContextId[$context->getId()][$genreName];
-				$genreId = $genre->getId();
 			}
 		}
 
@@ -127,7 +126,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		if ($credit = $node->getAttribute('credit')) {
 			$submissionFile->setData('credit', $credit);
 		}
-		if ($directSalesPrice = $node->getAttribute('direct_sales_price')) {
+
+		$directSalesPrice = $node->getAttribute('direct_sales_price');
+		if (isset($directSalesPrice)) {
 			$submissionFile->setData('directSalesPrice', $directSalesPrice);
 		}
 		if ($genreId) {
@@ -137,7 +138,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$submissionFile->setData('salesType', $salesType);
 		}
 		if ($sourceSubmissionFileId = $node->getAttribute('source_submission_file_id')) {
-			$submissionFile->setData('sourceSubmissionFileId', $sourceSubmissionFileId);
+			$submissionFile->setData('sourceSubmissionFileId', $deployment->getSubmissionFileDBId($sourceSubmissionFileId));
 		}
 		if ($terms = $node->getAttribute('terms')) {
 			$submissionFile->setData('terms', $terms);
@@ -147,6 +148,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		}
 		if ($node->getAttribute('viewable') == 'true') {
 			$submissionFile->setViewable(true);
+		} else {
+			$submissionFile->setViewable(false);
 		}
 
 		// Handle metadata in subelements

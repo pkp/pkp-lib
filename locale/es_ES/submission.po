@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2021-06-24 22:03+0000\n"
+"PO-Revision-Date: 2021-06-29 04:03+0000\n"
 "Last-Translator: Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>"
 "\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -2086,3 +2086,9 @@ msgstr ""
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Revertir el rechazo"
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Envío reactivado."
+
+msgid "notification.type.revertDecline"
+msgstr "La decisión de declinar este envío fue revertida."

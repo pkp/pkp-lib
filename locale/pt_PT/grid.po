@@ -1,10 +1,11 @@
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2020-02-04 23:10+0000\n"
-"Last-Translator: Carla Marques <carla.marques@sdum.uminho.pt>\n"
+"PO-Revision-Date: 2021-06-29 04:03+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/grid/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -48,7 +49,7 @@ msgid "grid.action.restoreDefaults"
 msgstr "Restaurar Padrão"
 
 msgid "grid.columns.actions"
-msgstr "Acções"
+msgstr "Ações"
 
 msgid "grid.columns.institution"
 msgstr "Instituição"
@@ -60,7 +61,7 @@ msgid "grid.sponsor.title"
 msgstr "Patrocinadores"
 
 msgid "grid.contributor.title"
-msgstr "Colaborador"
+msgstr "Fontes de financiamento"
 
 msgid "grid.action.addAuthor"
 msgstr "Adicionar Autor"
@@ -75,7 +76,7 @@ msgid "grid.artworkFile.credit"
 msgstr "Crédito"
 
 msgid "grid.artworkFile.copyrightOwner"
-msgstr "Proprietário do Copyright"
+msgstr "Proprietário do Direito de Autor"
 
 msgid "grid.artworkFile.copyrightContact"
 msgstr "Contacto (se não for autor/editor)"
@@ -90,19 +91,19 @@ msgid "grid.libraryFiles.column.files"
 msgstr "Ficheiros"
 
 msgid "grid.libraryFiles.submission.title"
-msgstr "Livraria Submissão"
+msgstr "Biblioteca Submissão"
 
 msgid "grid.libraryFiles.editorial.title"
-msgstr "Livraria Editorial"
+msgstr "Biblioteca Editorial"
 
 msgid "grid.libraryFiles.review.title"
-msgstr "Livraria Revisão"
+msgstr "Biblioteca de Revisão"
 
 msgid "grid.libraryFiles.production.title"
-msgstr "Livraria Produção"
+msgstr "Biblioteca de Produção"
 
 msgid "grid.libraryFiles.productionTemplate.title"
-msgstr "Template da Livraria de Produção"
+msgstr "Biblioteca de Template de Produção"
 
 msgid "grid.submissionChecklist.title"
 msgstr "Checklist da Submissão"
@@ -123,7 +124,7 @@ msgid "author.users.contributor.principalContact"
 msgstr "Contacto Principal"
 
 msgid "grid.userGroup.assignStage"
-msgstr "Etapa Designação"
+msgstr "Designar Etapa"
 
 msgid "grid.action.addContributor"
 msgstr "Adicionar Colaborador"
@@ -156,7 +157,7 @@ msgid "grid.action.deleteQuery"
 msgstr "Eliminar discussão"
 
 msgid "grid.action.updateQuery"
-msgstr "Actualizar discussão"
+msgstr "Atualizar discussão"
 
 msgid "grid.action.addUser"
 msgstr "Adicionar Utilizador"
@@ -210,7 +211,7 @@ msgid "grid.action.addAuditor"
 msgstr "Adicionar um Auditor"
 
 msgid "grid.action.upgrade"
-msgstr "Actualizar"
+msgstr "Atualizar"
 
 msgid "grid.action.order"
 msgstr "Ordenar"
@@ -252,7 +253,7 @@ msgid "grid.action.editFile"
 msgstr "Editar um ficheiro"
 
 msgid "grid.action.selectFiles"
-msgstr "Seleccionar ficheiros para gerir"
+msgstr "Selecionar ficheiros para gerir"
 
 msgid "grid.action.requestRevisions"
 msgstr "Solicitar revisões para esta submissão"
@@ -276,7 +277,7 @@ msgid "grid.action.importexport"
 msgstr "Importar ou exportar conteúdo ou dados do site"
 
 msgid "grid.action.orderItems"
-msgstr "Activar modo de pedido"
+msgstr "Ativar modo de pedido"
 
 msgid "grid.action.editSubmissionChecklist"
 msgstr "Editar este item da lista de verificação"
@@ -294,7 +295,7 @@ msgid "grid.action.editPreparedEmail"
 msgstr "Editar este modelo de e-mail"
 
 msgid "grid.action.disableEmail"
-msgstr "Desactivar este modelo de e-mail"
+msgstr "Desativar este modelo de e-mail"
 
 msgid "grid.action.resetEmail"
 msgstr "Restabelecer este modelo de e-mail para o padrão"
@@ -318,7 +319,7 @@ msgid "grid.action.editUserGroup"
 msgstr "Editar este grupo de utilizadores"
 
 msgid "grid.action.disable"
-msgstr "Desactivar"
+msgstr "Desativar"
 
 msgid "grid.action.details"
 msgstr "Ver este item"
@@ -348,10 +349,10 @@ msgid "grid.action.newRound"
 msgstr "Criar uma nova ronda"
 
 msgid "grid.action.viewReviewGuidelines"
-msgstr "Ver as diretrizes de revisão"
+msgstr "Ver as instruções de revisão"
 
 msgid "grid.action.viewCompetingInterestGuidelines"
-msgstr "Ver a política de directrizes de interesses concorrentes"
+msgstr "Ver a política de instruções para conflito de interesses"
 
 msgid "grid.action.thankReviewer"
 msgstr "Enviar uma mensagem de agradecimento a este revisor"
@@ -378,7 +379,7 @@ msgid "grid.action.unconsiderReview"
 msgstr "Esta revisão está concluída, mas pode desconsiderá-la"
 
 msgid "grid.action.enable"
-msgstr "Activar"
+msgstr "Ativar"
 
 msgid "grid.action.bookInfo"
 msgstr "Informação sobre Submissão"
@@ -393,10 +394,10 @@ msgid "grid.users.confirmExportAllUsers"
 msgstr "Tem certeza de que deseja exportar todos os utilizadores?"
 
 msgid "grid.action.activate"
-msgstr "Activar"
+msgstr "Ativar"
 
 msgid "grid.action.deactivate"
-msgstr "Desactivar"
+msgstr "Desativar"
 
 msgid "grid.action.copy"
 msgstr "Copiar"
@@ -441,13 +442,13 @@ msgid "grid.action.editSponsor"
 msgstr "Editar Patrocinador"
 
 msgid "grid.action.addSeries"
-msgstr "Adicionar Séries"
+msgstr "Adicionar Série"
 
 msgid "grid.action.editSeries"
-msgstr "Editar Séries"
+msgstr "Editar Série"
 
 msgid "grid.action.deleteSeries"
-msgstr "Eliminar Séries"
+msgstr "Eliminar Série"
 
 msgid "grid.action.addCategory"
 msgstr "Adicionar Categoria"
@@ -468,7 +469,7 @@ msgid "author.users.contributor.includeInBrowse"
 msgstr "Nas Listas de Navegação"
 
 msgid "grid.roles.currentRoles"
-msgstr "Papéis Actuais"
+msgstr "Papéis Atuais"
 
 msgid "grid.roles.add"
 msgstr "Criar um Novo Papel"
@@ -477,10 +478,10 @@ msgid "grid.roles.stageAssignment"
 msgstr "Atribuição da Etapa"
 
 msgid "grid.user.currentUsers"
-msgstr "Utilizadores Actuais"
+msgstr "Utilizadores Atuais"
 
 msgid "grid.user.currentEnrollment"
-msgstr "Inscrição Actual"
+msgstr "Inscrição Atual"
 
 msgid "grid.user.allRoles"
 msgstr "Todos os Papéis"
@@ -501,16 +502,16 @@ msgid "grid.user.email"
 msgstr "E-mail"
 
 msgid "grid.user.enable"
-msgstr "Activar"
+msgstr "Ativar"
 
 msgid "grid.user.disable"
-msgstr "Desactivar"
+msgstr "Desativar"
 
 msgid "grid.user.disableReason"
-msgstr "Razão para desactivar utilizador"
+msgstr "Razão para desativar utilizador"
 
 msgid "grid.user.enableReason"
-msgstr "Razão para activar utilizador"
+msgstr "Razão para ativar utilizador"
 
 msgid "grid.user.error"
 msgstr "Ocorreu um erro ao administrar este utilizador. Por favor, tente novamente."
@@ -576,10 +577,10 @@ msgid "grid.user.addRole"
 msgstr "Adicionar Papel"
 
 msgid "grid.user.selectUser"
-msgstr "Seleccionar Papel"
+msgstr "Selecionar Papel"
 
 msgid "grid.user.pleaseSelectUser"
-msgstr "Seleccionar um utilizador"
+msgstr "Selecionar um utilizador"
 
 msgid "grid.user.confirmLogInAs"
 msgstr "Entrar com a conta do utilizador? Todas as ações que executar serão atribuídas a esse utilizador."
@@ -603,13 +604,13 @@ msgid "grid.preparedEmails.title"
 msgstr "Modelos de E-mail"
 
 msgid "grid.preparedEmails.currentList"
-msgstr "Lista Actual"
+msgstr "Lista Atual"
 
 msgid "grid.plugin.allCategories"
 msgstr "Todas as Categorias"
 
 msgid "grid.plugin.disable"
-msgstr "Tem certeza que pretende desactivar este plugin?"
+msgstr "Tem certeza que pretende desativar este plugin?"
 
 msgid "grid.action.fileUnconsider"
 msgstr "Correções de provas feitas. Pode ignorar esta tarefa"
@@ -630,7 +631,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "O papel {$userGroupName} é padrão e não pode ser removido."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Não é possível remover o papel {$userGroupName}. Actualmente, {$usersCount} utilizador(s) é/são atribuídos a este."
+msgstr ""
+"Não é possível remover o papel {$userGroupName}. Atualmente, {$usersCount} "
+"utilizador(s) é/são atribuídos a este."
 
 msgid "grid.userGroup.removed"
 msgstr "{$userGroupName} papel removido."

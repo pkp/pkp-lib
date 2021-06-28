@@ -17,13 +17,14 @@ use APP\core\Application;
 use APP\core\Services;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\config\Config;
+use PKP\core\FileService;
 use PKP\db\DAORegistry;
-use PKP\db\XMLDAO;
 
+use PKP\db\XMLDAO;
 use PKP\file\FileManager;
 use PKP\submission\SubmissionFile;
 
@@ -357,7 +358,6 @@ class PKPv3_3_0UpgradeMigration extends Migration
                 'date_uploaded',
                 'original_file_name'
             ]);
-        $fileService = Services::get('file');
         $submissionFileService = Services::get('submissionFile');
         foreach ($rows as $row) {
             // Reproduces the removed method SubmissionFile::_generateFileName()
@@ -378,6 +378,7 @@ class PKPv3_3_0UpgradeMigration extends Migration
                 $this->_fileStageToPath($row->file_stage),
                 $filename
             );
+            $fileService = App::make(FileService::class);
             if (!$fileService->fs->has($path)) {
                 error_log("A submission file was expected but not found at ${path}.");
             }

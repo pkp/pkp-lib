@@ -14,6 +14,8 @@
  *
  */
 
+use Illuminate\Support\Facades\App;
+use PKP\core\FileService;
 use PKP\file\FileManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -27,6 +29,8 @@ use PKP\submission\SubmissionFile;
 
 class PKPSubmissionFileHandler extends APIHandler
 {
+    protected FileService $fileService;
+
     /**
      * Constructor
      */
@@ -69,6 +73,8 @@ class PKPSubmissionFileHandler extends APIHandler
             ],
         ];
         parent::__construct();
+
+        $this->fileService = App::make(FileService::class);
     }
 
     //
@@ -267,7 +273,7 @@ class PKPSubmissionFileHandler extends APIHandler
         $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
 
         $submissionDir = Services::get('submissionFile')->getSubmissionDir($request->getContext()->getId(), $submission->getId());
-        $fileId = Services::get('file')->add(
+        $fileId = $this->fileService->add(
             $_FILES['file']['tmp_name'],
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
@@ -389,7 +395,7 @@ class PKPSubmissionFileHandler extends APIHandler
             $fileManager = new FileManager();
             $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
             $submissionDir = Services::get('submissionFile')->getSubmissionDir($request->getContext()->getId(), $submission->getId());
-            $fileId = Services::get('file')->add(
+            $fileId = $this->fileService->add(
                 $_FILES['file']['tmp_name'],
                 $submissionDir . '/' . uniqid() . '.' . $extension
             );

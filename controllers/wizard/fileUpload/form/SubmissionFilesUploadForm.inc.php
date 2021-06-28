@@ -13,6 +13,9 @@
  * @brief Form for adding/editing a submission file
  */
 
+use Illuminate\Support\Facades\App;
+use PKP\core\FileService;
+use PKP\facades\File;
 use PKP\file\FileManager;
 use PKP\form\validation\FormValidator;
 use PKP\submission\SubmissionFile;
@@ -24,6 +27,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
     /** @var array */
     public $_uploaderRoles;
 
+    protected FileService $fileService;
 
     /**
      * Constructor.
@@ -58,6 +62,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         // Initialize class.
         assert(is_null($uploaderRoles) || (is_array($uploaderRoles) && count($uploaderRoles) >= 1));
         $this->_uploaderRoles = $uploaderRoles;
+        $this->fileService = App::make(FileService::class);
 
         AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
@@ -178,7 +183,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         $extension = $fileManager->parseFileExtension($_FILES['uploadedFile']['name']);
 
         $submissionDir = Services::get('submissionFile')->getSubmissionDir($request->getContext()->getId(), $this->getData('submissionId'));
-        $fileId = Services::get('file')->add(
+        $fileId = $this->fileService->add(
             $_FILES['uploadedFile']['tmp_name'],
             $submissionDir . '/' . uniqid() . '.' . $extension
         );

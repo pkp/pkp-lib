@@ -20,11 +20,13 @@ use APP\file\LibraryFileManager;
 use APP\i18n\AppLocale;
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\core\Core;
+use PKP\core\FileService;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\DBDataXMLParser;
@@ -100,6 +102,8 @@ class Installer
     /** @var array List of migrations executed already */
     public $migrations = [];
 
+    protected FileService $fileService;
+
     /**
      * Constructor.
      *
@@ -167,6 +171,8 @@ class Installer
         if (!isset($this->dataXMLParser)) {
             $this->dataXMLParser = new DBDataXMLParser();
         }
+
+        $this->fileService = App::make(FileService::class);
 
         $result = true;
         HookRegistry::call('Installer::preInstall', [$this, &$result]);

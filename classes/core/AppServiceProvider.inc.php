@@ -36,9 +36,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('maps', function ($app) {
-            return new MapContainer();
-        });
+        $this->app->singleton(FileService::class, FileService::class);
+        $this->app->singleton('maps', MapContainer::class);
         $this->app->singleton(PKPSchemaService::class, function ($app) {
             return Services::get('schema');
         });

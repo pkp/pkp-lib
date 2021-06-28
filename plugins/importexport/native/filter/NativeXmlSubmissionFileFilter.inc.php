@@ -13,6 +13,8 @@
  * @brief Base class that converts a Native XML document to a submission file
  */
 
+use Illuminate\Support\Facades\App;
+use PKP\core\FileService;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\submission\SubmissionFile;
@@ -21,6 +23,8 @@ import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
 class NativeXmlSubmissionFileFilter extends NativeImportFilter
 {
+    protected FileService $fileService;
+
     /**
      * Constructor
      *
@@ -30,6 +34,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     {
         $this->setDisplayName('Native XML submission file import');
         parent::__construct($filterGroup);
+        $this->fileService = App::make(FileService::class);
     }
 
     //
@@ -329,7 +334,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 clearstatcache(true, $temporaryFilename);
                 $fileManager = new FileManager();
                 $submissionDir = Services::get('submissionFile')->getSubmissionDir($submission->getData('contextId'), $submission->getId());
-                $newFileId = Services::get('file')->add(
+                $newFileId = $this->fileService->add(
                     $temporaryFilename,
                     $submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')
                 );

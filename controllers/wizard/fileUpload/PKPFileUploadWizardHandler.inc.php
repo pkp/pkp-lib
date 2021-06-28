@@ -101,6 +101,11 @@ class PKPFileUploadWizardHandler extends Handler {
 			import('lib.pkp.classes.security.authorization.SubmissionFileAccessPolicy');
 			$this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SUBMISSION_FILE_ACCESS_MODIFY, $fileIdToValidate));
 
+			if (in_array($fileStage, [SUBMISSION_FILE_REVIEW_REVISION, SUBMISSION_FILE_REVIEW_FILE, SUBMISSION_FILE_ATTACHMENT])) {
+				import('lib.pkp.classes.security.authorization.internal.ReviewRoundRequiredPolicy');
+				$this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
+			}
+
 		// Allow uploading to review attachments
 		} elseif ($fileStage === SUBMISSION_FILE_REVIEW_ATTACHMENT) {
 			$assocType = (int) $request->getUserVar('assocType');

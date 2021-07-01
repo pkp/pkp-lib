@@ -13,7 +13,7 @@
  * @brief Submission file class.
  */
 
-namespace PKP\submission;
+namespace PKP\submissionFile;
 
 use APP\i18n\AppLocale;
 

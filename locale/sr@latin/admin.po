@@ -1,11 +1,11 @@
-# Biljana Cubrovic <biljana.cubrovic@gmail.com>, 2021.
+# Biljana Cubrovic <biljana.cubrovic@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
 "PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Biljana Cubrovic <biljana.cubrovic@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/sr_Latn/>\n"
 "Language: sr@latin\n"

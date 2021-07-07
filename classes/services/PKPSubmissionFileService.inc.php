@@ -808,7 +808,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 }
 
                 // The note should be associated with a query. If not, fail.
-                if ($query->getAssocType() != ASSOC_TYPE_QUERY) {
+                if ($note->getAssocType() != ASSOC_TYPE_QUERY) {
                     return null;
                 }
 

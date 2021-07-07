@@ -1,11 +1,11 @@
-# Biljana Cubrovic <biljana.cubrovic@gmail.com>, 2021.
+# Biljana Cubrovic <biljana.cubrovic@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
 "PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Biljana Cubrovic <biljana.cubrovic@gmail.com>\n"
 "Language-Team: Serbian (cyrillic) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/sr_Cyrl/>\n"
 "Language: sr@cyrillic\n"
@@ -52,9 +52,8 @@ msgstr "Датум инсталације"
 msgid "admin.displayConfigFileInstructions"
 msgstr ""
 "Систем не може аутоматски обавити преписивање преко конфигурационог фајла. "
-"Како бисте применили конфигурационе измене морате отворити фајл "
-"<tt>config.inc.php</tt> у прикладном уређивачу текста и замeнити садржај у "
-"пољу испод."
+"Како бисте применили конфигурационе измене морате отворити фајл <tt>config."
+"inc.php</tt> у прикладном уређивачу текста и замeнити садржај у пољу испод."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Прикажи нову конфигурацију"
@@ -137,7 +136,6 @@ msgstr "Језик сајта"
 msgid "admin.settings.siteStyleSheetInvalid"
 msgstr "Неисправан формат упутства. Систем прихвата само .css формат."
 
-#, fuzzy
 msgid "admin.settings.siteStyleSheet"
 msgstr "Страница стила (CSS) сајта"
 
@@ -206,7 +204,6 @@ msgstr "Подешавања"
 msgid "admin.settings.siteTheme"
 msgstr "Шаблон сајта"
 
-#, fuzzy
 msgid "admin.siteSetup"
 msgstr "Подешавање сајта"
 

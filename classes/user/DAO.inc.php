@@ -167,6 +167,26 @@ class DAO extends \PKP\core\EntityDAO
     }
 
     /**
+     * Retrieve a user by email address.
+     *
+     * @param $username string
+     * @param $allowDisabled boolean
+     *
+     * @return User?
+     */
+    public function getByEmail(string $username, bool $allowDisabled = true): ?User
+    {
+        $row = DB::table('users')
+            ->where('email', '=', $username)
+            ->when(!$allowDisabled, function ($query) {
+                return $query->where('disabled', '=', false);
+            })
+            ->get('user_id')
+            ->first();
+        return $this->get($row->user_id);
+    }
+
+    /**
      * Retrieve a user by setting.
      *
      * @param $settingName string
@@ -302,6 +322,14 @@ class DAO extends \PKP\core\EntityDAO
         HookRegistry::call('UserDAO::_returnUserFromRowWithReviewerStats', [&$user, &$row]);
 
         return $user;
+    }
+
+    /**
+     * @copydoc EntityDAO::update()
+     */
+    public function update(User $user)
+    {
+        parent::_update($user);
     }
 
     /**

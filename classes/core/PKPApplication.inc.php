@@ -903,10 +903,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $scale = strtolower(substr(UPLOAD_MAX_FILESIZE, -1));
         switch ($scale) {
             case 'g':
-                $num = $num / 1024;
-                // no break
-            case 'k':
                 $num = $num * 1024;
+                break;
+            case 'k':
+                $num = $num / 1024;
+                break;
         }
         return floor($num);
     }

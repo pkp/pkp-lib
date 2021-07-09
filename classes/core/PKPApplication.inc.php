@@ -908,6 +908,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             case 'k':
                 $num = $num / 1024;
                 break;
+            default:
+                // No suffix or nothing matched, so this is "b" (Byte)
+                $num = $num / 1024 / 1024
+                break;
         }
         return floor($num);
     }

@@ -19,11 +19,11 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\form\NotificationSettingsForm;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -59,7 +59,7 @@ class RegistrationForm extends Form
 
         // Validation checks for this form
         $form = $this;
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user()->dao, 'getByUsername'], [], true));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));

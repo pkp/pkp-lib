@@ -16,9 +16,10 @@
 import('lib.pkp.controllers.grid.settings.user.UserGridRow');
 import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
-use APP\user\UserAction;
 
+use APP\user\UserAction;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\GridColumn;
@@ -30,7 +31,7 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
-use PKP\user\UserDAO;
+use PKP\user\Collector;
 
 class UserGridHandler extends GridHandler
 {
@@ -132,7 +133,7 @@ class UserGridHandler extends GridHandler
         // User name.
         $this->addColumn(
             new GridColumn(
-                'username',
+                'userName',
                 'user.username',
                 null,
                 null,
@@ -169,10 +170,10 @@ class UserGridHandler extends GridHandler
     /**
      * @copydoc GridHandler::initFeatures()
      */
-    public function initFeatures($request, $args)
-    {
-        return [new PagingFeature()];
-    }
+    /*    public function initFeatures($request, $args)
+        {
+            return [new PagingFeature()];
+        }*/
 
     /**
      * @copydoc GridHandler::loadData()
@@ -183,21 +184,34 @@ class UserGridHandler extends GridHandler
      */
     protected function loadData($request, $filter)
     {
-        // Get the context.
         $context = $request->getContext();
 
-        // Get all users for this context that match search criteria.
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+        $userDao = Repo::user()->dao;
+        $collector = new Collector($userDao);
+        if ($filter['userGroup'] ?? false) {
+            $collector->filterByUserGroupIds((array) $filter['userGroup']);
+        }
+        if (!($filter['includeNoRole'] ?? false)) {
+            $collector->filterByContextIds([$context->getId()]);
+        }
+        if (strlen($filter['search'] ?? '')) {
+            $collector->searchPhrase($filter['search']);
+        }
+        return $userDao->getMany($collector);
 
-        return $userGroupDao->getUsersById(
-            $filter['userGroup'],
-            $filter['includeNoRole'] ? null : $context->getId(),
-            $filter['searchField'],
-            $filter['search'] ? $filter['search'] : null,
-            $filter['searchMatch'],
-            $rangeInfo
-        );
+        /*        // Get the context.
+
+                // Get all users for this context that match search criteria.
+                $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+
+                return Repo::user()->dao->getByUserGroup(
+                    $filter['userGroup'],
+                    $filter['includeNoRole'] ? null : $context->getId(),
+                    $filter['searchField'],
+                    $filter['search'] ? $filter['search'] : null,
+                    $filter['searchMatch'],
+                    $rangeInfo
+                );*/
     }
 
     /**
@@ -213,12 +227,12 @@ class UserGridHandler extends GridHandler
             $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
         }
 
-        // Import UserDAO to define the UserDAO::USER_FIELD_* constants.
+        $userDao = Repo::user()->dao;
         $fieldOptions = [
             Identity::IDENTITY_SETTING_GIVENNAME => 'user.givenName',
             Identity::IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
-            UserDAO::USER_FIELD_USERNAME => 'user.username',
-            UserDAO::USER_FIELD_EMAIL => 'user.email'
+            $userDao::USER_FIELD_USERNAME => 'user.username',
+            $userDao::USER_FIELD_EMAIL => 'user.email'
         ];
 
         $matchOptions = [

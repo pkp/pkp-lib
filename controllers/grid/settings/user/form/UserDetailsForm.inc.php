@@ -16,8 +16,8 @@
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
 use APP\core\Services;
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
-
 use APP\template\TemplateManager;
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
@@ -57,7 +57,7 @@ class UserDetailsForm extends UserForm
         $form = $this;
         if ($userId == null) {
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
-            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [$this->userId, true], true));
+            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user()->dao, 'getByUsername'], [$this->userId, true], true));
             $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));

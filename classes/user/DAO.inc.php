@@ -20,6 +20,7 @@ namespace PKP\user;
 use APP\core\Application;
 use APP\i18n\AppLocale;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
@@ -85,6 +86,37 @@ class DAO extends \PKP\core\EntityDAO
     }
 
     /**
+     * @copydoc EntityDAO::_getFetchQuery()
+     */
+    /*    protected function _getFetchQuery(): \Illuminate\Database\Query\Builder {
+            $locale = AppLocale::getLocale();
+            $site = Application::get()->getRequest()->getSite();
+            $primaryLocale = $site->getPrimaryLocale();
+            return parent::_getFetchQuery()
+                ->leftJoin($this->settingsTable . ' AS ugl', function($join) use ($locale) {
+                    $join->on('ugl.user_id', '=', $this->tableName . '.user_id')
+                        ->where('ugl.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
+                        ->where('ugl.locale', '=', $locale);
+                })
+                ->leftJoin($this->settingsTable . ' AS ugpl', function($join) use ($primaryLocale) {
+                    $join->on('ugpl.user_id', '=', $this->tableName . '.user_id')
+                        ->where('ugpl.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
+                        ->where('ugpl.locale', '=', $primaryLocale);
+                })
+                ->leftJoin($this->settingsTable . ' AS ufl', function($join) use ($locale) {
+                    $join->on('ufl.user_id', '=', $this->tableName . '.user_id')
+                        ->where('ufl.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
+                        ->where('ufl.locale', '=', $locale);
+                })
+                ->leftJoin($this->settingsTable . ' AS ufpl', function($join) use ($primaryLocale) {
+                    $join->on('ufpl.user_id', '=', $this->tableName . '.user_id')
+                        ->where('ufpl.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
+                        ->where('ufpl.locale', '=', $primaryLocale);
+                })
+                ->addSelect(
+        }*/
+
+    /**
      * @copydoc EntityDAO::get()
      *
      * @param $allowDisabled boolean If true, allow fetching a disabled user.
@@ -96,6 +128,22 @@ class DAO extends \PKP\core\EntityDAO
             return null;
         }
         return $user;
+    }
+
+    /**
+     * Get a collection of announcements matching the configured query
+     */
+    public function getMany(Collector $query): LazyCollection
+    {
+        $rows = $query
+            ->getQueryBuilder()
+            ->get();
+
+        return LazyCollection::make(function () use ($rows) {
+            foreach ($rows as $row) {
+                yield $this->fromRow($row);
+            }
+        });
     }
 
     /**
@@ -134,7 +182,7 @@ class DAO extends \PKP\core\EntityDAO
             [$settingName, $settingValue]
         );
         $row = $result->current();
-        return $row ? $this->_returnUserFromRowWithData((array) $row) : null;
+        return $row ? $this->fromRow($row) : null;
     }
 
     /**
@@ -152,7 +200,7 @@ class DAO extends \PKP\core\EntityDAO
             [$authstr]
         );
         $row = $result->current();
-        return $row ? $this->_returnUserFromRowWithData((array) $row) : null;
+        return $row ? $this->fromRow($row) : null;
     }
 
     /**
@@ -170,7 +218,7 @@ class DAO extends \PKP\core\EntityDAO
             [$email]
         );
         $row = $result->current();
-        return $row ? $this->_returnUserFromRowWithData((array) $row) : null;
+        return $row ? $this->fromRow($row) : null;
     }
 
     /**
@@ -189,46 +237,7 @@ class DAO extends \PKP\core\EntityDAO
             [$username, $password]
         );
         $row = $result->current();
-        return $row ? $this->_returnUserFromRowWithData((array) $row) : null;
-    }
-
-    /**
-     * Retrieve a list of all reviewers assigned to a submission.
-     *
-     * @param $contextId int
-     * @param $submissionId int
-     * @param $round int
-     *
-     * @return DAOResultFactory containing matching Users
-     */
-    public function getReviewersForSubmission($contextId, $submissionId, $round)
-    {
-        return new DAOResultFactory(
-            $result,
-            $this->retrieve(
-                'SELECT	u.* ,
-				' . $this->getFetchColumns() . '
-				FROM	users u
-				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
-				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-				LEFT JOIN review_assignments r ON (r.reviewer_id = u.user_id)
-				' . $this->getFetchJoins() . '
-				WHERE	ug.context_id = ? AND
-				ug.role_id = ? AND
-				r.submission_id = ? AND
-				r.round = ?
-				' . $this->getOrderBy(),
-                array_merge($this->getFetchParameters(), [
-                    (int) $contextId,
-                    Role::ROLE_ID_REVIEWER,
-                    (int) $submissionId,
-                    (int) $round
-                ]),
-                $params
-            ),
-            $this,
-            '_returnUserFromRowWithData'
-        );
+        return $row ? $this->fromRow($row) : null;
     }
 
     /**
@@ -243,11 +252,7 @@ class DAO extends \PKP\core\EntityDAO
      */
     public function getReviewersNotAssignedToSubmission($contextId, $submissionId, &$reviewRound, $name = '')
     {
-        $params = array_merge(
-            [(int) $contextId, Role::ROLE_ID_REVIEWER, (int) $reviewRound->getStageId()],
-            $this->getFetchParameters(),
-            [(int) $submissionId, (int) $reviewRound->getId()]
-        );
+        $params = [(int) $contextId, Role::ROLE_ID_REVIEWER, (int) $reviewRound->getStageId(), (int) $submissionId, (int) $reviewRound->getId()];
         if (!empty($name)) {
             $nameSearchJoins = 'LEFT JOIN user_settings usgs ON (u.user_id = usgs.user_id AND usgs.setting_name = \'' . Identity::IDENTITY_SETTING_GIVENNAME . '\')
 				LEFT JOIN user_settings usfs ON (u.user_id = usfs.user_id AND usfs.setting_name = \'' . Identity::IDENTITY_SETTING_FAMILYNAME . '\')';
@@ -255,14 +260,12 @@ class DAO extends \PKP\core\EntityDAO
         }
 
         $result = $this->retrieve(
-            'SELECT	DISTINCT u.*,
-			' . $this->getFetchColumns() . '
+            'SELECT	DISTINCT u.*
 			FROM	users u
 			JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 			JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id AND ug.context_id = ? AND ug.role_id = ?)
 			JOIN user_group_stage ugs ON (ugs.user_group_id = ug.user_group_id AND ugs.stage_id = ?)' .
             (!empty($name) ? $nameSearchJoins : '') . '
-			' . $this->getFetchJoins() . '
 			WHERE 0=(SELECT COUNT(r.reviewer_id)
 				FROM review_assignments r
 				WHERE r.submission_id = ? AND r.reviewer_id = u.user_id AND r.review_round_id = ?)' .
@@ -270,7 +273,7 @@ class DAO extends \PKP\core\EntityDAO
 			' . $this->getOrderBy(),
             $params
         );
-        return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
+        return new DAOResultFactory($result, $this, 'fromRow');
     }
 
     /**
@@ -283,7 +286,7 @@ class DAO extends \PKP\core\EntityDAO
      */
     public function _returnUserFromRowWithReviewerStats($row)
     {
-        $user = $this->_returnUserFromRowWithData($row, false);
+        $user = $this->fromRow($row);
         $user->setData('lastAssigned', $row['last_assigned']);
         $user->setData('incompleteCount', (int) $row['incomplete_count']);
         $user->setData('completeCount', (int) $row['complete_count']);
@@ -297,67 +300,6 @@ class DAO extends \PKP\core\EntityDAO
         }
 
         HookRegistry::call('UserDAO::_returnUserFromRowWithReviewerStats', [&$user, &$row]);
-
-        return $user;
-    }
-
-    /**
-     * Create and return a complete User object from a given row.
-     *
-     * @param $row array
-     * @param $callHook boolean
-     *
-     * @return User
-     */
-    public function _returnUserFromRowWithData($row, $callHook = true)
-    {
-        $user = $this->_returnUserFromRow($row, false);
-        $this->getDataObjectSettings('user_settings', 'user_id', $row['user_id'], $user);
-
-        if (isset($row['review_id'])) {
-            $user->review_id = $row['review_id'];
-        }
-        HookRegistry::call('UserDAO::_returnUserFromRowWithData', [&$user, &$row]);
-
-        return $user;
-    }
-
-    /**
-     * Internal function to return a User object from a row.
-     *
-     * @param $row array
-     * @param $callHook boolean
-     *
-     * @return User
-     */
-    public function _returnUserFromRow($row, $callHook = true)
-    {
-        $user = $this->newDataObject();
-        $user->setId($row['user_id']);
-        $user->setUsername($row['username']);
-        $user->setPassword($row['password']);
-        $user->setEmail($row['email']);
-        $user->setUrl($row['url']);
-        $user->setPhone($row['phone']);
-        $user->setMailingAddress($row['mailing_address']);
-        $user->setBillingAddress($row['billing_address']);
-        $user->setCountry($row['country']);
-        $user->setLocales(isset($row['locales']) && !empty($row['locales']) ? explode(':', $row['locales']) : []);
-        $user->setDateLastEmail($this->datetimeFromDB($row['date_last_email']));
-        $user->setDateRegistered($this->datetimeFromDB($row['date_registered']));
-        $user->setDateValidated($this->datetimeFromDB($row['date_validated']));
-        $user->setDateLastLogin($this->datetimeFromDB($row['date_last_login']));
-        $user->setMustChangePassword($row['must_change_password']);
-        $user->setDisabled($row['disabled']);
-        $user->setDisabledReason($row['disabled_reason']);
-        $user->setAuthId($row['auth_id']);
-        $user->setAuthStr($row['auth_str']);
-        $user->setInlineHelp($row['inline_help']);
-        $user->setGossip($row['gossip']);
-
-        if ($callHook) {
-            HookRegistry::call('UserDAO::_returnUserFromRow', [&$user, &$row]);
-        }
 
         return $user;
     }
@@ -572,36 +514,16 @@ class DAO extends \PKP\core\EntityDAO
      */
     public function getUsersWithNoRole($allowDisabled = true, $dbResultRange = null)
     {
-        $sql = 'SELECT u.*,
-			' . $this->getFetchColumns() . '
-			FROM users u
-			' . $this->getFetchJoins() . '
-			LEFT JOIN roles r ON u.user_id=r.user_id
-			WHERE r.role_id IS NULL';
-
-        $orderSql = $this->getOrderBy(); // FIXME Add "sort field" parameter?
-        $params = $this->getFetchParameters();
-        $result = $this->retrieveRange($sql . ($allowDisabled ? '' : ' AND u.disabled = 0') . $orderSql, $params, $dbResultRange);
-
-        return new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
-    }
-
-    /**
-     * Check if a user exists with the specified user ID.
-     *
-     * @param $userId int
-     * @param $allowDisabled boolean
-     *
-     * @return boolean
-     */
-    public function userExistsById($userId, $allowDisabled = true)
-    {
-        $result = $this->retrieve(
-            'SELECT COUNT(*) AS row_count FROM users WHERE user_id = ?' . ($allowDisabled ? '' : ' AND disabled = 0'),
-            [(int) $userId]
+        return new DAOResultFactory(
+            $this->retrieveRange(
+                'SELECT u.* FROM users u LEFT JOIN roles r ON u.user_id=r.user_id WHERE r.role_id IS NULL' .
+                ($allowDisabled ? '' : ' AND u.disabled = 0') . $this->getOrderBy(),
+                [],
+                $dbResultRange
+            ),
+            $this,
+            'fromRow'
         );
-        $row = $result->current();
-        return $row && $row->row_count;
     }
 
     /**
@@ -704,50 +626,6 @@ class DAO extends \PKP\core\EntityDAO
     public function getInsertId()
     {
         return $this->_getInsertId('users', 'user_id');
-    }
-
-    /**
-     * Return a list of extra parameters to bind to the user fetch queries.
-     *
-     * @return array
-     */
-    public function getFetchParameters()
-    {
-        $locale = AppLocale::getLocale();
-        // the users register for the site, thus
-        // the site primary locale should be the default locale
-        $site = Application::get()->getRequest()->getSite();
-        $primaryLocale = $site->getPrimaryLocale();
-        return [
-            Identity::IDENTITY_SETTING_GIVENNAME, $locale,
-            Identity::IDENTITY_SETTING_GIVENNAME, $primaryLocale,
-            Identity::IDENTITY_SETTING_FAMILYNAME, $locale,
-            Identity::IDENTITY_SETTING_FAMILYNAME, $primaryLocale,
-        ];
-    }
-
-    /**
-     * Return a SQL snippet of extra columns to fetch during user fetch queries.
-     *
-     * @return string
-     */
-    public function getFetchColumns()
-    {
-        return 'COALESCE(ugl.setting_value, ugpl.setting_value) AS user_given,
-			CASE WHEN ugl.setting_value <> \'\' THEN ufl.setting_value ELSE ufpl.setting_value END AS user_family';
-    }
-
-    /**
-     * Return a SQL snippet of extra joins to include during user fetch queries.
-     *
-     * @return string
-     */
-    public function getFetchJoins()
-    {
-        return 'LEFT JOIN user_settings ugl ON (u.user_id = ugl.user_id AND ugl.setting_name = ? AND ugl.locale = ?)
-			LEFT JOIN user_settings ugpl ON (u.user_id = ugpl.user_id AND ugpl.setting_name = ? AND ugpl.locale = ?)
-			LEFT JOIN user_settings ufl ON (u.user_id = ufl.user_id AND ufl.setting_name = ? AND ufl.locale = ?)
-			LEFT JOIN user_settings ufpl ON (u.user_id = ufpl.user_id AND ufpl.setting_name = ? AND ufpl.locale = ?)';
     }
 
     /**

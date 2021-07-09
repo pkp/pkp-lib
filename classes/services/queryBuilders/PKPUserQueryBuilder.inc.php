@@ -15,8 +15,10 @@
 
 namespace PKP\services\queryBuilders;
 
-use Illuminate\Support\Facades\DB;
+use APP\core\Application;
 
+use APP\i18n\AppLocale;
+use Illuminate\Support\Facades\DB;
 use PKP\identity\Identity;
 use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
 
@@ -470,10 +472,10 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
      */
     public function getQuery()
     {
-        $locale = \AppLocale::getLocale();
+        $locale = AppLocale::getLocale();
         // the users register for the site, thus
         // the site primary locale should be the default locale
-        $site = \Application::get()->getRequest()->getSite();
+        $site = Application::get()->getRequest()->getSite();
         $primaryLocale = $site->getPrimaryLocale();
 
         $this->columns = ['u.*'];

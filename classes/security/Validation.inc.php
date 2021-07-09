@@ -410,8 +410,8 @@ class Validation
         }
 
         $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy\Stringy::create($name)->toAscii()->toLowerCase());
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
+        $userDao = Repo::user()->dao;
+        for ($i = ''; $userDao->getByUsername($suggestion . $i); $i++);
         return $suggestion . $i;
     }
 

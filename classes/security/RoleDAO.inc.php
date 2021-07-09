@@ -24,14 +24,6 @@ use PKP\user\UserDAO;
 class RoleDAO extends DAO
 {
     /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Create new data object
      *
      * @return Role
@@ -56,7 +48,6 @@ class RoleDAO extends DAO
     public function getUsersByRoleId($roleId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null)
     {
         $paramArray = [ASSOC_TYPE_USER, 'interest', Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME];
-        $paramArray = array_merge($paramArray, $this->userDao->getFetchParameters());
         if (isset($roleId)) {
             $paramArray[] = (int) $roleId;
         }
@@ -108,7 +99,6 @@ class RoleDAO extends DAO
 
         $result = $this->retrieveRange(
             'SELECT DISTINCT u.*,
-			' . $this->userDao->getFetchColumns() . '
 			FROM users AS u
 			LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
@@ -117,13 +107,12 @@ class RoleDAO extends DAO
 			LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
 			LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 			LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id)
-			' . $this->userDao->getFetchJoins() . '
 			WHERE 1=1' . (isset($roleId) ? ' AND ug.role_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
             $paramArray,
             $dbResultRange
         );
 
-        return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
+        return new DAOResultFactory($result, $this->userDao, 'fromRow');
     }
 
     /**

@@ -903,10 +903,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $scale = strtolower(substr(UPLOAD_MAX_FILESIZE, -1));
         switch ($scale) {
             case 'g':
-                $num = $num / 1024;
-                // no break
-            case 'k':
                 $num = $num * 1024;
+                break;
+            case 'k':
+                $num = $num / 1024;
+                break;
+            case 'm':
+                break; // Is set as MB already, do nothing.
+            default:
+                // No suffix, so this is "b" (Byte)
+                // Reset $num to the limit without cut the last digit
+                $num = UPLOAD_MAX_FILESIZE / 1024 / 1024;
+                break;
         }
         return floor($num);
     }

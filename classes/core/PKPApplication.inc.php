@@ -908,8 +908,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             case 'k':
                 $num = $num / 1024;
                 break;
+            case 'm':
+                break; // Is set as MB already, do nothing.
             default:
-                // No suffix or nothing matched, so this is "b" (Byte)
+                // No suffix, so this is "b" (Byte)
                 // Reset $num to the limit without cut the last digit
                 $num = UPLOAD_MAX_FILESIZE / 1024 / 1024;
                 break;

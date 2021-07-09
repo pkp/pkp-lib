@@ -13,6 +13,7 @@
  * @brief Base class for author grid row definition
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -95,10 +96,10 @@ class AuthorGridRow extends GridRow
                 );
 
                 $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+                $userDao = Repo::user()->dao;
                 $author = $authorDao->getById($rowId);
 
-                if ($author && !$userDao->userExistsByEmail($author->getEmail())) {
+                if ($author && !$userDao->getByEmail($author->getEmail())) {
                     $this->addAction(
                         new LinkAction(
                             'addUser',

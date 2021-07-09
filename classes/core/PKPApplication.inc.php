@@ -910,7 +910,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 break;
             default:
                 // No suffix or nothing matched, so this is "b" (Byte)
-                $num = $num / 1024 / 1024
+                // Reset $num to the limit without cut the last digit
+                $num = UPLOAD_MAX_FILESIZE / 1024 / 1024;
                 break;
         }
         return floor($num);

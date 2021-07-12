@@ -15,8 +15,11 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
+use APP\core\Application;
 use APP\facades\Repo;
-use PKP\submission\SubmissionFile;
+use PKP\config\Config;
+use PKP\core\PKPApplication;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileNativeXmlFilter extends NativeExportFilter
 {
@@ -147,7 +150,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         }
 
         // Create the revision nodes
-        $revisions = DAORegistry::getDAO('SubmissionFileDAO')->getRevisions($submissionFile->getId());
+        $revisions = Repo::submissionFiles()->dao->getRevisions(($submissionFile->getId()));
         foreach ($revisions as $revision) {
             $localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $revision->path;
             $revisionNode = $doc->createElementNS($deployment->getNamespace(), 'file');

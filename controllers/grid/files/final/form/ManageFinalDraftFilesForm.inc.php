@@ -13,7 +13,7 @@
  * @brief Form to add files to the final draft files grid
  */
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 

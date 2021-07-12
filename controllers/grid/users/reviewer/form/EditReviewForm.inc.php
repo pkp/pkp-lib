@@ -21,7 +21,7 @@ use PKP\form\Form;
 
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class EditReviewForm extends Form
 {

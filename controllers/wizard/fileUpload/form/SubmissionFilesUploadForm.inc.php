@@ -13,9 +13,10 @@
  * @brief Form for adding/editing a submission file
  */
 
+use APP\facades\Repo;
 use PKP\file\FileManager;
 use PKP\form\validation\FormValidator;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.wizard.fileUpload.form.PKPSubmissionFilesUploadBaseForm');
 
@@ -197,7 +198,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                 $request
             );
         } else {
-            $submissionFile = DAORegistry::getDao('SubmissionFileDAO')->newDataObject();
+            $submissionFile = Repo::submissionFiles()->dao->newDataObject();
             $submissionFile->setData('fileId', $fileId);
             $submissionFile->setData('fileStage', $this->getData('fileStage'));
             $submissionFile->setData('name', $_FILES['uploadedFile']['name'], $request->getContext()->getPrimaryLocale());

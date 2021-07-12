@@ -17,7 +17,7 @@ namespace PKP\services\queryBuilders;
 use Illuminate\Support\Facades\DB;
 
 use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface
 {

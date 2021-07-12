@@ -25,7 +25,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPEditingProductionStatusNotificationManager extends NotificationManagerDelegate
 {

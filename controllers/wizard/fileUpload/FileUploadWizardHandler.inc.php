@@ -28,7 +28,7 @@ use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class FileUploadWizardHandler extends Handler
 {

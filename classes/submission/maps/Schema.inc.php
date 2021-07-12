@@ -28,7 +28,7 @@ use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\services\PKPSchemaService;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class Schema extends \PKP\core\maps\Schema
 {

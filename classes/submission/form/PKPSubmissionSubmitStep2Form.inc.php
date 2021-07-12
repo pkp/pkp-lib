@@ -23,7 +23,7 @@ use PKP\core\PKPApplication;
 
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
 {

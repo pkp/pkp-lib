@@ -15,7 +15,7 @@
 
 namespace PKP\controllers\modals\editorDecision\form;
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -25,7 +25,7 @@ use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class EditorDecisionForm extends Form
 {
@@ -203,7 +203,6 @@ class EditorDecisionForm extends Form
         }
 
         // Add the selected files to the new round.
-        $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
         $fileStage = $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW
             ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE
             : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
@@ -212,13 +211,25 @@ class EditorDecisionForm extends Form
             $selectedFiles = $this->getData($userVar);
             if (is_array($selectedFiles)) {
                 foreach ($selectedFiles as $fileId) {
-                    $newSubmissionFile = Services::get('submissionFile')->get($fileId);
-                    $newSubmissionFile->setData('fileStage', $fileStage);
-                    $newSubmissionFile->setData('sourceSubmissionFileId', $fileId);
-                    $newSubmissionFile->setData('assocType', null);
-                    $newSubmissionFile->setData('assocId', null);
-                    $newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, $request);
-                    $submissionFileDao->assignRevisionToReviewRound($newSubmissionFile->getId(), $reviewRound);
+                    $oldSubmissionFile = Repo::submissionFiles()
+                        ->get($fileId);
+                    $oldSubmissionFile->setData('fileStage', $fileStage);
+                    $oldSubmissionFile->setData('sourceSubmissionFileId', $fileId);
+                    $oldSubmissionFile->setData('assocType', null);
+                    $oldSubmissionFile->setData('assocId', null);
+
+                    $submissionFileId = Repo::submissionFiles()
+                        ->add($oldSubmissionFile);
+
+                    $submissionFile = Repo::submissionFiles()
+                        ->get($submissionFileId);
+
+                    Repo::submissionFiles()
+                        ->dao
+                        ->assignRevisionToReviewRound(
+                            $submissionFile->getId(),
+                            $reviewRound
+                        );
                 }
             }
         }

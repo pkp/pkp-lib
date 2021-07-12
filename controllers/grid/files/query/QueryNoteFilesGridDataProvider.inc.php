@@ -16,7 +16,7 @@
 use Exception;
 
 use PKP\security\authorization\QueryAccessPolicy;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 

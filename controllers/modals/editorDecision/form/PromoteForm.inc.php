@@ -21,7 +21,7 @@ use PKP\security\Role;
 
 use PKP\submission\action\EditorAction;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 // FIXME: Add namespacing
 import('lib.pkp.controllers.modals.editorDecision.form.EditorDecisionWithEmailForm');

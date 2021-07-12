@@ -14,7 +14,7 @@
  */
 
 use PKP\form\Form;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class ManageSubmissionFilesForm extends Form
 {

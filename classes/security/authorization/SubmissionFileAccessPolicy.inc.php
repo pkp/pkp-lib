@@ -28,7 +28,7 @@ use PKP\security\authorization\internal\SubmissionFileUploaderAccessPolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileAccessPolicy extends ContextPolicy
 {
@@ -256,6 +256,6 @@ class SubmissionFileAccessPolicy extends ContextPolicy
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\security\authorization\SubmissionFileAccessPolicy', '\SubmissionFileAccessPolicy');
-    define('SUBMISSION_FILE_ACCESS_READ', \SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ);
-    define('SUBMISSION_FILE_ACCESS_MODIFY', \SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY);
+    define('SUBMISSION_FILE_ACCESS_READ', SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ);
+    define('SUBMISSION_FILE_ACCESS_MODIFY', SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY);
 }

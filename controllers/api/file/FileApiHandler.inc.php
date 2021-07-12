@@ -16,6 +16,7 @@
  * @brief Class defining an AJAX API for supplying file information.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 
 use PKP\core\JSONMessage;
@@ -24,7 +25,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class FileApiHandler extends Handler
 {
@@ -83,7 +84,9 @@ class FileApiHandler extends Handler
     {
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
         $fileId = $request->getUserVar('fileId') ?? $submissionFile->getData('fileId');
-        $revisions = DAORegistry::getDAO('SubmissionFileDAO')->getRevisions($submissionFile->getId());
+        $revisions = Repo::submissionFiles()
+            ->dao
+            ->getRevisions($submissionFile->getId());
         $file = null;
         foreach ($revisions as $revision) {
             if ($revision->fileId == $fileId) {

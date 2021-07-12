@@ -21,7 +21,6 @@ use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\core\EntityDAO;
 use PKP\core\JSONMessage;
-use PKP\db\DAORegistry;
 use PKP\db\SchemaDAO;
 use PKP\linkAction\LinkAction;
 
@@ -353,7 +352,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
             Repo::publication()->dao,
             Repo::submission()->dao,
             Application::getRepresentationDAO(),
-            DAORegistry::getDAO('SubmissionFileDAO'),
+            Repo::submissionFiles()->dao,
         ];
     }
 
@@ -491,7 +490,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
             } elseif ($type === 'Representation') {
                 $typeDao = Application::getRepresentationDAO();
             } elseif ($type === 'SubmissionFile') {
-                $typeDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $typeDao */
+                $typeDao = Repo::submissionFiles()->dao;
             }
             $excludeTypeId = $type === $pubObjectType ? $excludeId : null;
             if (isset($typeDao) && $typeDao->pubIdExists($this->getPubIdType(), $pubId, $excludeTypeId, $contextId)) {

@@ -23,7 +23,7 @@ use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 {

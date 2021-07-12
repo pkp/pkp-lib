@@ -17,7 +17,7 @@ use PKP\controllers\grid\GridRow;
 use PKP\log\EmailLogEntry;
 use PKP\log\EventLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 // Other classes used
 import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');

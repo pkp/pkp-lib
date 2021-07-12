@@ -17,7 +17,7 @@ use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\log\EventLogEntry;
 use PKP\log\PKPSubmissionEventLogEntry;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class EventLogGridCellProvider extends DataObjectGridCellProvider
 {

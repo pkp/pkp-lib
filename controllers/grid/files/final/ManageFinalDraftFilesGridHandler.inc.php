@@ -19,7 +19,7 @@ import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider')
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class ManageFinalDraftFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
 {

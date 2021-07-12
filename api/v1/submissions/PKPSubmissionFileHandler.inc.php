@@ -14,6 +14,7 @@
  *
  */
 
+use APP\facades\Repo;
 use PKP\file\FileManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -23,7 +24,7 @@ use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPSubmissionFileHandler extends APIHandler
 {
@@ -333,16 +334,18 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        $submissionFile = DAORegistry::getDao('SubmissionFileDAO')->newDataObject();
-        $submissionFile->setAllData($params);
+        $submissionFileObj = Repo::submissionFiles()
+            ->newDataObject($params);
 
-        $submissionFile = Services::get('submissionFile')->add($submissionFile, $request);
+        $submissionFileId = Repo::submissionFiles()
+            ->add($submissionFileObj);
 
-        $data = Services::get('submissionFile')->getFullProperties($submissionFile, [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-            'submission' => $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION),
-        ]);
+        $submissionFile = Repo::submissionFiles()
+            ->get($submissionFileId);
+
+        $data = Repo::submissionFiles()
+            ->getSchemaMap()
+            ->map($submissionFile);
 
         return $response->withJson($data, 200);
     }

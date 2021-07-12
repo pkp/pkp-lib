@@ -18,7 +18,7 @@ namespace PKP\security\authorization\internal;
 
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAccessPolicy
 {

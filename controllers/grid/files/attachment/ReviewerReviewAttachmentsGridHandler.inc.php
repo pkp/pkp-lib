@@ -14,7 +14,7 @@
 
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 import('lib.pkp.controllers.grid.files.attachment.ReviewerReviewAttachmentGridDataProvider');

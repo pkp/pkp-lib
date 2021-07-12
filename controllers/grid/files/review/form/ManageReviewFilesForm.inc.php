@@ -15,7 +15,9 @@
 
 import('lib.pkp.controllers.grid.files.form.ManageSubmissionFilesForm');
 
-use PKP\submission\SubmissionFile;
+use APP\facades\Repo;
+use PKP\db\DAORegistry;
+use PKP\submissionFile\SubmissionFile;
 
 class ManageReviewFilesForm extends ManageSubmissionFilesForm
 {
@@ -109,8 +111,13 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm
     protected function importFile($submissionFile, $fileStage)
     {
         $newSubmissionFile = parent::importFile($submissionFile, $fileStage);
-        $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
-        $submissionFileDao->assignRevisionToReviewRound($newSubmissionFile->getId(), $this->getReviewRound());
+
+        Repo::submissionFiles()
+            ->dao
+            ->assignRevisionToReviewRound(
+                $newSubmissionFile->getId(),
+                $this->getReviewRound()
+            );
 
         return $newSubmissionFile;
     }

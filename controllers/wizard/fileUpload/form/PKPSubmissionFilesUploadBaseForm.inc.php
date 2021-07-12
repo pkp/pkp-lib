@@ -19,7 +19,7 @@ use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\ConfirmationModal;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPSubmissionFilesUploadBaseForm extends Form
 {
@@ -166,7 +166,6 @@ class PKPSubmissionFilesUploadBaseForm extends Form
     public function getSubmissionFiles()
     {
         if (is_null($this->_submissionFiles)) {
-            $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
             if ($this->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $this->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
                 // If we have a review stage id then we also expect a review round.
                 if (!$this->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_QUERY && !is_a($this->getReviewRound(), 'ReviewRound')) {

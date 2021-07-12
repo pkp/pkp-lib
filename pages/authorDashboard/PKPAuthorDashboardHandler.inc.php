@@ -25,7 +25,7 @@ use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
 
 use PKP\submission\PKPSubmission;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 use PKP\workflow\WorkflowStageDAO;
 
 abstract class PKPAuthorDashboardHandler extends Handler

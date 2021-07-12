@@ -13,15 +13,18 @@
  * @brief Displays a pub ids form.
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
-use APP\submission\Publication;
+use APP\i18n\AppLocale;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 
 use PKP\plugins\PKPPubIdPluginHelper;
+use PKP\plugins\PluginRegistry;
 use PKP\submission\Representation;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPPublicIdentifiersForm extends Form
 {
@@ -218,9 +221,15 @@ class PKPPublicIdentifiersForm extends Form
         if ($pubObject instanceof Representation) {
             $representationDao = Application::getRepresentationDAO();
             $representationDao->updateObject($pubObject);
-        } elseif ($pubObject instanceof SubmissionFile) {
-            $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
-            $submissionFileDao->updateObject($pubObject);
+
+            return;
+        }
+
+        if ($pubObject instanceof SubmissionFile) {
+            Repo::submissionFiles()->dao
+                ->update($pubObject);
+
+            return;
         }
     }
 
@@ -244,16 +253,22 @@ class PKPPublicIdentifiersForm extends Form
      */
     public function getAssocType($pubObject)
     {
-        $assocType = null;
         if ($pubObject instanceof Submission) {
-            $assocType = ASSOC_TYPE_SUBMISSION;
-        } elseif ($pubObject instanceof Publication) {
-            $assocType = ASSOC_TYPE_PUBLICATION;
-        } elseif ($pubObject instanceof Representation) {
-            $assocType = ASSOC_TYPE_REPRESENTATION;
-        } elseif ($pubObject instanceof SubmissionFile) {
-            $assocType = ASSOC_TYPE_SUBMISSION_FILE;
+            return ASSOC_TYPE_SUBMISSION;
         }
-        return $assocType;
+
+        if ($pubObject instanceof Publication) {
+            return ASSOC_TYPE_PUBLICATION;
+        }
+
+        if ($pubObject instanceof Representation) {
+            return ASSOC_TYPE_REPRESENTATION;
+        }
+
+        if ($pubObject instanceof SubmissionFile) {
+            return ASSOC_TYPE_SUBMISSION_FILE;
+        }
+
+        return null;
     }
 }

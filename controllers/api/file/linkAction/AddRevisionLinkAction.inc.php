@@ -13,7 +13,7 @@
  * @brief An action to upload a revision of file currently under review.
  */
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.api.file.linkAction.BaseAddFileLinkAction');
 

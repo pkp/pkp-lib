@@ -21,7 +21,7 @@ use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 abstract class PKPManageFileApiHandler extends Handler
 {

@@ -26,7 +26,7 @@ use PKP\notification\PKPNotification;
 use PKP\security\AccessKeyManager;
 use PKP\security\Role;
 use PKP\submission\action\EditorAction;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class ReviewerForm extends Form
 {

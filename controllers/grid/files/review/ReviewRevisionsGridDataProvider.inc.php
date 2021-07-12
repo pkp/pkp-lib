@@ -13,7 +13,7 @@
  *  review round) for grids.
  */
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
 

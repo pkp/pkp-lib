@@ -25,7 +25,7 @@ use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
 
 use PKP\file\FileManager;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPv3_3_0UpgradeMigration extends Migration
 {

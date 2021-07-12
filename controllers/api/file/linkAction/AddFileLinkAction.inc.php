@@ -13,7 +13,7 @@
  * @brief An action to add a submission file.
  */
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.api.file.linkAction.BaseAddFileLinkAction');
 

@@ -13,7 +13,7 @@
  * @brief Provide access to dependent file data for grids.
  */
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 

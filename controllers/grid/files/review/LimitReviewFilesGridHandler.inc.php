@@ -18,7 +18,7 @@ use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\ReviewStageAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.fileList.SelectableFileListGridHandler');
 

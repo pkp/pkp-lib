@@ -12,7 +12,7 @@
  * @brief Provide access to query file data for category grids.
  */
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesCategoryGridDataProvider');
 

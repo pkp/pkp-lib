@@ -14,7 +14,7 @@
  */
 
 use PKP\controllers\grid\CategoryGridDataProvider;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
 {

@@ -15,7 +15,7 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionNativeXmlFilter extends NativeExportFilter
 {

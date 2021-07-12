@@ -19,7 +19,7 @@ use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
 {

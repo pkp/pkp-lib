@@ -20,7 +20,7 @@ use APP\workflow\EditorDecisionActionsManager;
 
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAccessPolicy
 {

@@ -16,7 +16,7 @@
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class QueryNotesGridCellProvider extends DataObjectGridCellProvider
 {

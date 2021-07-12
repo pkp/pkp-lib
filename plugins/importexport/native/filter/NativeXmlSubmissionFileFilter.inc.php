@@ -13,9 +13,15 @@
  * @brief Base class that converts a Native XML document to a submission file
  */
 
+use APP\core\Application;
+use APP\core\Services;
+use APP\facades\Repo;
+use PKP\core\Core;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
@@ -101,7 +107,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 }
             }
             if (!isset($genresByContextId[$context->getId()][$genreName])) {
-                $deployment->addError(ASSOC_TYPE_SUBMISSION_FILE, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', ['param' => $genreName]));
+                $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', ['param' => $genreName]));
                 $errorOccured = true;
             } else {
                 $genre = $genresByContextId[$context->getId()][$genreName];
@@ -122,8 +128,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             ? (int) $user->getId()
             : Application::get()->getRequest()->getUser()->getId();
 
-        $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
-        $submissionFile = $submissionFileDao->newDataObject();
+        $submissionFile = Repo::submissionFiles()->dao->newDataObject();
         $submissionFile->setData('submissionId', $submission->getId());
         $submissionFile->setData('locale', $submission->getLocale());
         $submissionFile->setData('fileStage', $stageId);
@@ -135,32 +140,41 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         if ($caption = $node->getAttribute('caption')) {
             $submissionFile->setData('caption', $caption);
         }
+
         if ($copyrightOwner = $node->getAttribute('copyright_owner')) {
             $submissionFile->setData('copyrightOwner', $copyrightOwner);
         }
+
         if ($credit = $node->getAttribute('credit')) {
             $submissionFile->setData('credit', $credit);
         }
+
         if ($directSalesPrice = $node->getAttribute('direct_sales_price')) {
             $submissionFile->setData('directSalesPrice', $directSalesPrice);
         }
+
         if ($genreId) {
             $submissionFile->setData('genreId', $genreId);
         }
+
         if ($salesType = $node->getAttribute('sales_type')) {
             $submissionFile->setData('salesType', $salesType);
         }
+
         if ($sourceSubmissionFileId = $node->getAttribute('source_submission_file_id')) {
             $submissionFile->setData('sourceSubmissionFileId', $sourceSubmissionFileId);
         }
+
         if ($terms = $node->getAttribute('terms')) {
             $submissionFile->setData('terms', $terms);
         }
+
         if ($uploaderUserId) {
             $submissionFile->setData('uploaderUserId', $uploaderUserId);
         }
+
         if ($node->getAttribute('viewable') == 'true') {
-            $submissionFile->setViewable(true);
+            $submissionFile->setData('viewable', true);
         }
 
         // Handle metadata in subelements
@@ -186,7 +200,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                             $oldAssocId = $childNode->getAttribute('id');
                             $newAssocId = $deployment->getSubmissionFileDBId($oldAssocId);
                             if ($newAssocId) {
-                                $submissionFile->setData('assocType', ASSOC_TYPE_SUBMISSION_FILE);
+                                $submissionFile->setData('assocType', PKPApplication::ASSOC_TYPE_SUBMISSION_FILE);
                                 $submissionFile->setData('assocId', $newAssocId);
                             }
                         }
@@ -209,7 +223,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
 
                         break;
                     default:
-                        $deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $node->tagName]));
+                        $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $node->tagName]));
                 }
             }
         }
@@ -288,7 +302,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                             $errorFlag = true;
                         }
                         if ($errorFlag) {
-                            $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', ['dest' => $temporaryFilename, 'source' => $filesrc]));
+                            $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', ['dest' => $temporaryFilename, 'source' => $filesrc]));
                             $fileManager = new FileManager();
                             $fileManager->deleteByPath($temporaryFilename);
                             $temporaryFilename = '';
@@ -298,15 +312,15 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                         $temporaryFileManager = new TemporaryFileManager();
                         $temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'embed');
                         if (($e = $childNode->getAttribute('encoding')) != 'base64') {
-                            $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownEncoding', ['param' => $e]));
+                            $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownEncoding', ['param' => $e]));
                         } else {
                             $content = base64_decode($childNode->textContent, true);
                             $errorFlag = false;
                             if (!$content) {
-                                $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.encodingError', ['param' => $e]));
+                                $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.encodingError', ['param' => $e]));
                                 $errorFlag = true;
                             } elseif (!file_put_contents($temporaryFilename, $content)) {
-                                $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', ['dest' => $temporaryFilename, 'source' => 'embed']));
+                                $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.temporaryFileFailed', ['dest' => $temporaryFilename, 'source' => 'embed']));
                                 $errorFlag = true;
                             }
                             if ($errorFlag) {

@@ -17,8 +17,6 @@ namespace PKP\submissionFile;
 
 use APP\i18n\AppLocale;
 
-use PKP\db\DAORegistry;
-
 // Define the file stage identifiers.
 
 class SubmissionFile extends \PKP\core\DataObject
@@ -37,14 +35,6 @@ class SubmissionFile extends \PKP\core\DataObject
     public const SUBMISSION_FILE_QUERY = 18;
     public const SUBMISSION_FILE_INTERNAL_REVIEW_FILE = 19;
     public const SUBMISSION_FILE_INTERNAL_REVIEW_REVISION = 20;
-
-    /**
-     * @copydoc \PKP\core\DataObject::getDAO()
-     */
-    public function getDAO()
-    {
-        return DAORegistry::getDAO('SubmissionFileDAO');
-    }
 
     /**
      * Get a piece of data for this object, localized to the current
@@ -83,10 +73,6 @@ class SubmissionFile extends \PKP\core\DataObject
         $data = null;
         return $data;
     }
-
-    //
-    // Getters and Setters
-    //
 
     /**
      * Get the locale of the submission.

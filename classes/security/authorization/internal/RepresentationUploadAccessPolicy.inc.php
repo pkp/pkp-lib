@@ -25,7 +25,7 @@ use APP\i18n\AppLocale;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
 use PKP\submission\PKPSubmission;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
 {

@@ -21,7 +21,7 @@ use APP\core\Services;
 use APP\i18n\AppLocale;
 
 use PKP\db\DAORegistry;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class EventLogEntry extends \PKP\core\DataObject
 {

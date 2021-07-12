@@ -13,12 +13,14 @@
  * @brief Base class for the editor decision forms.
  */
 
+use APP\facades\Repo;
 use APP\file\LibraryFileManager;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
-
+use PKP\config\Config;
 use PKP\controllers\modals\editorDecision\form\EditorDecisionForm;
+use PKP\core\PKPString;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
@@ -276,13 +278,12 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
             $reviewIndexes[-1] = $lastIndex + 1;
 
             // Attach the selected reviewer attachments to the email.
-            $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
             $selectedAttachments = $this->getData('selectedAttachments');
             if (is_array($selectedAttachments)) {
                 foreach ($selectedAttachments as $submissionFileId) {
 
                     // Retrieve the submission file.
-                    $submissionFile = Services::get('submissionFile')->get($submissionFileId);
+                    $submissionFile = Repo::submissionFiles()->get($submissionFileId);
                     assert(is_a($submissionFile, 'SubmissionFile'));
 
                     // Check the association information.
@@ -309,8 +310,12 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
 
                     // Update submission file to set viewable as true, so author
                     // can view the file on their submission summary page.
-                    $submissionFile->setViewable(true);
-                    $submissionFileDao->updateObject($submissionFile);
+                    Repo::submissionFiles()->edit(
+                        $submissionFile,
+                        [
+                            'viewable' => true
+                        ]
+                    );
                 }
             }
         }

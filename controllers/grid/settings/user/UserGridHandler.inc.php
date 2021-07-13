@@ -170,10 +170,10 @@ class UserGridHandler extends GridHandler
     /**
      * @copydoc GridHandler::initFeatures()
      */
-    /*    public function initFeatures($request, $args)
-        {
-            return [new PagingFeature()];
-        }*/
+    public function initFeatures($request, $args)
+    {
+        return [new PagingFeature()];
+    }
 
     /**
      * @copydoc GridHandler::loadData()
@@ -197,21 +197,14 @@ class UserGridHandler extends GridHandler
         if (strlen($filter['search'] ?? '')) {
             $collector->searchPhrase($filter['search']);
         }
-        return $userDao->getMany($collector);
 
-        /*        // Get the context.
-
-                // Get all users for this context that match search criteria.
-                $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-
-                return Repo::user()->dao->getByUserGroup(
-                    $filter['userGroup'],
-                    $filter['includeNoRole'] ? null : $context->getId(),
-                    $filter['searchField'],
-                    $filter['search'] ? $filter['search'] : null,
-                    $filter['searchMatch'],
-                    $rangeInfo
-                );*/
+        // Handle grid paging (deprecated style)
+        $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+        $totalCount = $userDao->getCount($collector);
+        $collector->limit($rangeInfo->getCount());
+        $collector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
+        $iterator = $userDao->getMany($collector);
+        return new \PKP\core\VirtualArrayIterator(iterator_to_array($iterator), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**

@@ -147,6 +147,16 @@ class DAO extends \PKP\core\EntityDAO
     }
 
     /**
+     * Get the total count of users matching the configured query
+     */
+    public function getCount(Collector $query): int
+    {
+        return $query
+            ->getQueryBuilder()
+            ->count();
+    }
+
+    /**
      * Retrieve a user by username.
      *
      * @param $username string

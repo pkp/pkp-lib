@@ -18,7 +18,6 @@ namespace PKP\user\form;
 use APP\core\Application;
 
 use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
 
 class IdentityForm extends BaseProfileForm
 {
@@ -60,7 +59,6 @@ class IdentityForm extends BaseProfileForm
         $templateMgr = TemplateManager::getManager($request);
 
         $user = $this->getUser();
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $templateMgr->assign([
             'username' => $user->getUsername(),
         ]);

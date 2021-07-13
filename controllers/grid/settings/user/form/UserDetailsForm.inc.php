@@ -128,7 +128,7 @@ class UserDetailsForm extends UserForm
                 'country' => $user->getCountry(),
                 'biography' => $user->getBiography(null), // Localized
                 'interests' => $interestManager->getInterestsForUser($user),
-                'userLocales' => $user->getLocales(),
+                'locales' => $user->getLocales(),
             ];
             $userService = Services::get('user');
             $data['canCurrentUserGossip'] = $userService->canCurrentUserGossip($user->getId());
@@ -231,7 +231,7 @@ class UserDetailsForm extends UserForm
             'biography',
             'gossip',
             'interests',
-            'userLocales',
+            'locales',
             'generatePassword',
             'sendNotify',
             'mustChangePassword'
@@ -240,8 +240,8 @@ class UserDetailsForm extends UserForm
             $this->readUserVars(['username']);
         }
 
-        if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
-            $this->setData('userLocales', []);
+        if ($this->getData('locales') == null || !is_array($this->getData('locales'))) {
+            $this->setData('locales', []);
         }
     }
 
@@ -292,7 +292,7 @@ class UserDetailsForm extends UserForm
         $availableLocales = $site->getSupportedLocales();
 
         $locales = [];
-        foreach ($this->getData('userLocales') as $locale) {
+        foreach ($this->getData('locales') as $locale) {
             if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
                 array_push($locales, $locale);
             }

@@ -141,7 +141,7 @@ class RegistrationForm extends Form
     public function initData()
     {
         $this->_data = [
-            'userLocales' => [],
+            'locales' => [],
             'userGroupIds' => [],
         ];
     }

@@ -202,7 +202,6 @@ class Collector implements CollectorInterface
         HookRegistry::call('User::Collector::getQueryBuilder', [&$q, $this]);
 
         $q->select($this->columns);
-        error_log($q->toSql());
         return $q;
     }
 }

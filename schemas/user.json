@@ -9,7 +9,7 @@
 		},
 		"affiliation": {
 			"type": "string",
-			"$ref": "#/definitions/LocaleObject"
+			"multilingual": true
 		},
 		"authId": {
 			"type": "integer"
@@ -22,7 +22,7 @@
 		},
 		"biography": {
 			"type": "string",
-			"$ref": "#/definitions/LocaleObject"
+			"multilingual": true
 		},
 		"country": {
 			"type": "string"
@@ -112,7 +112,13 @@
 			}
 		},
 		"locales": {
-			"type": "array"
+			"type": "array",
+			"items": {
+				"type": "string",
+				"validation": [
+					"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+				]
+			}
 		},
 		"mailingAddress": {
 			"type": "string"

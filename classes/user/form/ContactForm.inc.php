@@ -17,9 +17,9 @@ namespace PKP\user\form;
 
 use APP\core\Application;
 
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
 
 class ContactForm extends BaseProfileForm
 {
@@ -35,7 +35,10 @@ class ContactForm extends BaseProfileForm
         // Validation checks for this form
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'], [$user->getId(), true], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email, $userId) {
+            $user = Repo::user()->dao->getByEmail($email);
+            return !$user || $user->getId() != $userId;
+        }, [$user->getId()], true));
     }
 
     /**
@@ -75,7 +78,7 @@ class ContactForm extends BaseProfileForm
             'signature' => $user->getSignature(null), // Localized
             'mailingAddress' => $user->getMailingAddress(),
             'affiliation' => $user->getAffiliation(null), // Localized
-            'userLocales' => $user->getLocales(),
+            'locales' => $user->getLocales(),
         ];
     }
 
@@ -87,11 +90,11 @@ class ContactForm extends BaseProfileForm
         parent::readInputData();
 
         $this->readUserVars([
-            'country', 'email', 'signature', 'phone', 'mailingAddress', 'affiliation', 'userLocales',
+            'country', 'email', 'signature', 'phone', 'mailingAddress', 'affiliation', 'locales',
         ]);
 
-        if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
-            $this->setData('userLocales', []);
+        if ($this->getData('locales') == null || !is_array($this->getData('locales'))) {
+            $this->setData('locales', []);
         }
     }
 
@@ -113,7 +116,7 @@ class ContactForm extends BaseProfileForm
         $site = $request->getSite();
         $availableLocales = $site->getSupportedLocales();
         $locales = [];
-        foreach ($this->getData('userLocales') as $locale) {
+        foreach ($this->getData('locales') as $locale) {
             if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
                 array_push($locales, $locale);
             }

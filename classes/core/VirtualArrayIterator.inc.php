@@ -41,7 +41,7 @@ class VirtualArrayIterator extends ItemIterator
      * @param $page int the current page number
      * @param $itemsPerPage int Number of items to display per page
      */
-    public function __construct(&$theArray, $totalItems, $page = -1, $itemsPerPage = -1)
+    public function __construct($theArray, $totalItems, $page = -1, $itemsPerPage = -1)
     {
         parent::__construct();
         if ($page >= 1 && $itemsPerPage >= 1) {
@@ -50,7 +50,7 @@ class VirtualArrayIterator extends ItemIterator
             $this->page = 1;
             $this->itemsPerPage = max(count($this->theArray), 1);
         }
-        $this->theArray = & $theArray;
+        $this->theArray = $theArray;
         $this->count = $totalItems;
         $this->itemsPerPage = $itemsPerPage;
         $this->wasEmpty = count($this->theArray) == 0;

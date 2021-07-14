@@ -15,13 +15,22 @@ namespace PKP\submissionFile;
 
 use APP\core\Application;
 use APP\core\Request;
+use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
+use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionFileEventLogEntry;
+use PKP\log\SubmissionFileLog;
+use PKP\log\SubmissionLog;
+use PKP\mail\SubmissionMailTemplate;
+use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\search\SubmissionSearch;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
@@ -173,7 +182,162 @@ class Repository
     public function add(SubmissionFile $submissionFile): int
     {
         $id = $this->dao->insert($submissionFile);
+
+        $submissionFile = $this->get($id);
+
         HookRegistry::call('SubmissionFile::add', [$submissionFile]);
+
+        $user = $this->request->getUser();
+        SubmissionFileLog::logEvent(
+            $this->request,
+            $submissionFile,
+            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
+            'submission.event.fileUploaded',
+            [
+                'fileStage' => $submissionFile->getData('fileStage'),
+                'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
+                'submissionFileId' => $submissionFile->getId(),
+                'fileId' => $submissionFile->getData('fileId'),
+                'submissionId' => $submissionFile->getData('submissionId'),
+                'originalFileName' => $submissionFile->getLocalizedData('name'),
+                'username' => $this->request->getUser()->getUsername(),
+            ]
+        );
+
+        $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
+
+        SubmissionLog::logEvent(
+            $this->request,
+            $submission,
+            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
+            'submission.event.fileRevised',
+            [
+                'fileStage' => $submissionFile->getData('fileStage'),
+                'submissionFileId' => $submissionFile->getId(),
+                'fileId' => $submissionFile->getData('fileId'),
+                'submissionId' => $submissionFile->getData('submissionId'),
+                'username' => $user->getUsername(),
+                'name' => $submissionFile->getLocalizedData('name'),
+            ]
+        );
+
+        // Update status and notifications when revisions have been uploaded
+        if ($submissionFile->itsOnReviewRevisionStage() ||
+        $submissionFile->itsOnInternalReviewRevisionStage()) {
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+            $reviewRound = $reviewRoundDao->getById($submissionFile->getData('assocId'));
+            if (!$reviewRound) {
+                throw new Exception('Submission file added to review round that does not exist.');
+            }
+
+            $reviewRoundDao->updateStatus($reviewRound);
+
+            // Update author notifications
+            $authorUserIds = [];
+            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+            $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), Role::ROLE_ID_AUTHOR);
+            while ($assignment = $authorAssignments->next()) {
+                if ($assignment->getStageId() == $reviewRound->getStageId()) {
+                    $authorUserIds[] = (int) $assignment->getUserId();
+                }
+            }
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->updateNotification(
+                $this->request,
+                [PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
+                $authorUserIds,
+                PKPApplication::ASSOC_TYPE_SUBMISSION,
+                $submissionFile->getData('submissionId')
+            );
+
+            // Notify editors if the file is uploaded by an author
+            if (in_array($submissionFile->getData('uploaderUserId'), $authorUserIds)) {
+                if (!$submission) {
+                    throw new Exception('Submission file added to submission that does not exist.');
+                }
+
+                $context = $this->request->getContext();
+                if ($context->getId() != $submission->getData('contextId')) {
+                    $context = Services::get('context')->get($submission->getData('contextId'));
+                }
+
+                $uploader = $this->request->getUser();
+                if ($uploader->getId() != $submissionFile->getData('uploaderUserId')) {
+                    $uploader = Services::get('user')->get($submissionFile->getData('uploaderUserId'));
+                }
+
+                // Fetch the latest notification email timestamp
+                $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+                $submissionEmails = $submissionEmailLogDao->getByEventType(
+                    $submission->getId(),
+                    SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION
+                );
+                $lastNotification = null;
+                $sentDates = [];
+                if ($submissionEmails) {
+                    while ($email = $submissionEmails->next()) {
+                        if ($email->getDateSent()) {
+                            $sentDates[] = $email->getDateSent();
+                        }
+                    }
+                    if (!empty($sentDates)) {
+                        $lastNotification = max(array_map('strtotime', $sentDates));
+                    }
+                }
+
+                $mail = new SubmissionMailTemplate($submission, 'REVISED_VERSION_NOTIFY');
+                $mail->setEventType(
+                    SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION
+                );
+                $mail->setReplyTo(
+                    $context->getData('contactEmail'),
+                    $context->getData('contactName')
+                );
+                // Get editors assigned to the submission, consider also the recommendOnly editors
+                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+                $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage(
+                    $submission->getId(),
+                    $reviewRound->getStageId()
+                );
+                foreach ($editorsStageAssignments as $editorsStageAssignment) {
+                    $editor = $userDao->getById($editorsStageAssignment->getUserId());
+                    // IF no prior notification exists
+                    // OR if editor has logged in after the last revision upload
+                    // OR the last upload and notification was sent more than a day ago,
+                    // THEN send a new notification
+                    if (is_null($lastNotification) || strtotime($editor->getDateLastLogin()) > $lastNotification || strtotime('-1 day') > $lastNotification) {
+                        $mail->addRecipient($editor->getEmail(), $editor->getFullName());
+                    }
+                }
+                // Get uploader name
+                $mail->assignParams([
+                    'authorName' => $uploader->getFullName(),
+                    'editorialContactSignature' => $context->getData('contactName'),
+                    'submissionUrl' => $this->request->getDispatcher()->url(
+                        $this->request,
+                        PKPApplication::ROUTE_PAGE,
+                        null,
+                        'workflow',
+                        'index',
+                        [
+                            $submission->getId(),
+                            $reviewRound->getStageId(),
+                        ]
+                    ),
+                ]);
+
+                if ($mail->getRecipients()) {
+                    if (!$mail->send($this->request)) {
+                        $notificationMgr = new NotificationManager();
+                        $notificationMgr->createTrivialNotification(
+                            $this->request->getUser()->getId(),
+                            PKPNotification::NOTIFICATION_TYPE_ERROR,
+                            ['contents' => __('email.compose.error')]
+                        );
+                    }
+                }
+            }
+        }
 
         return $id;
     }
@@ -196,6 +360,43 @@ class Repository
         );
 
         $this->dao->update($newSubmissionFile);
+
+        $newFileUploaded = !empty($params['fileId']) && $params['fileId'] !== $submissionFile->getData('fileId');
+
+        $user = $this->request->getUser();
+        SubmissionFileLog::logEvent(
+            $this->request,
+            $submissionFile,
+            $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
+            $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
+            [
+                'fileStage' => $submissionFile->getData('fileStage'),
+                'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
+                'submissionFileId' => $submissionFile->getId(),
+                'fileId' => $submissionFile->getData('fileId'),
+                'submissionId' => $submissionFile->getData('submissionId'),
+                'originalFileName' => $submissionFile->getLocalizedData('name'),
+                'username' => $user->getUsername(),
+            ]
+        );
+
+        $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
+        SubmissionLog::logEvent(
+            $this->request,
+            $submission,
+            $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
+            $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
+            [
+                'fileStage' => $submissionFile->getData('fileStage'),
+                'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
+                'submissionFileId' => $submissionFile->getId(),
+                'fileId' => $submissionFile->getData('fileId'),
+                'submissionId' => $submissionFile->getData('submissionId'),
+                'username' => $user->getUsername(),
+                'originalFileName' => $submissionFile->getLocalizedData('name'),
+                'name' => $submissionFile->getLocalizedData('name'),
+            ]
+        );
     }
 
     /** @copydoc DAO::delete() */

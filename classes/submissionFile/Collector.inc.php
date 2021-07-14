@@ -35,8 +35,8 @@ class Collector implements CollectorInterface
     /** @var array get submission files for one or more review assignments */
     protected $reviewIds = [];
 
-    /** @var array|null get submission files for one or more submissions */
-    protected $submissionIds = null;
+    /** @var array get submission files for one or more submissions */
+    protected $submissionIds = [];
 
     /** @var array get submission files matching one or more files */
     protected $fileIds = [];
@@ -151,7 +151,7 @@ class Collector implements CollectorInterface
     /**
      * Whether or not to include dependent files in the results
      */
-    public function includeDependentFiles(bool $includeDependentFiles): self
+    public function filterByIncludeDependentFiles(bool $includeDependentFiles): self
     {
         $this->includeDependentFiles = $includeDependentFiles;
 
@@ -186,42 +186,42 @@ class Collector implements CollectorInterface
     {
         $qb = DB::table($this->dao->table . ' as sf');
 
-        if (!empty($this->submissionIds)) {
+        if ($this->submissionIds !== []) {
             $qb->whereIn('sf.submission_id', $this->submissionIds);
         }
 
-        if (!empty($this->fileStages)) {
+        if ($this->fileStages !== []) {
             $qb->whereIn('sf.file_stage', $this->fileStages);
         }
 
-        if (!empty($this->genreIds)) {
+        if ($this->genreIds !== []) {
             $qb->whereIn('sf.genre_id', $this->genreIds);
         }
 
-        if (!empty($this->fileIds)) {
+        if ($this->fileIds !== []) {
             $qb->leftJoin('submission_file_revisions as sfr', 'sfr.submission_file_id', '=', 'sf.submission_file_id')
                 ->whereIn('sfr.file_id', $this->fileIds);
         }
 
-        if (!empty($this->reviewRoundIds)) {
+        if ($this->reviewRoundIds !== []) {
             $qb->join('review_round_files as rr', 'rr.submission_file_id', '=', 'sf.submission_file_id')
                 ->whereIn('rr.review_round_id', $this->reviewRoundIds);
         }
 
-        if (!empty($this->reviewIds)) {
+        if ($this->reviewIds !== []) {
             $qb->join('review_files as rf', 'rf.submission_file_id', '=', 'sf.submission_file_id')
                 ->whereIn('rf.review_id', $this->reviewIds);
         }
 
-        if (!empty($this->assocTypes)) {
+        if ($this->assocTypes !== []) {
             $qb->whereIn('sf.assoc_type', $this->assocTypes);
 
-            if (!empty($this->assocIds)) {
+            if ($this->assocIds !== []) {
                 $qb->whereIn('sf.assoc_id', $this->assocIds);
             }
         }
 
-        if (!empty($this->uploaderUserIds)) {
+        if ($this->uploaderUserIds !== []) {
             $qb->whereIn('sf.uploader_user_id', $this->uploaderUserIds);
         }
 
@@ -232,15 +232,15 @@ class Collector implements CollectorInterface
         $qb->orderBy('sf.created_at', 'desc');
         $qb->groupBy('sf.submission_id');
 
-        if (!empty($this->count)) {
+        if ($this->count > 0) {
             $qb->limit($this->count);
         }
 
-        if (!empty($this->offset)) {
-            $qb->offset($this->count);
+        if ($this->offset > 0) {
+            $qb->offset($this->offset);
         }
 
-        HookRegistry::call('SubmissionFile::Collector', [&$qb, $this]);
+        HookRegistry::call('SubmissionFile::Collector::getQueryBuilder', [&$qb, $this]);
 
         return $qb;
     }

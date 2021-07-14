@@ -116,7 +116,9 @@ abstract class DAO extends EntityDAO implements PKPPubIdPluginDAO
     {
         $rows = $query
             ->getQueryBuilder()
-            ->select(['a.*'])
+            ->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
+            ->join('files as f', 'f.file_id', '=', 'sf.file_id')
+            ->select(['sf.*', 'f.*', 's.locale as locale'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {
@@ -462,8 +464,4 @@ abstract class DAO extends EntityDAO implements PKPPubIdPluginDAO
 
         return null;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\PKPSubmissionFileDAO', '\PKPSubmissionFileDAO');
 }

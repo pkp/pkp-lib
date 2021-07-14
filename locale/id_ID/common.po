@@ -1,12 +1,13 @@
+# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2021-01-14 11:00+0000\n"
+"PO-Revision-Date: 2021-07-14 11:03+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/id/>\n"
+"common/id_ID/>\n"
 "Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2077,3 +2078,50 @@ msgstr "Sunting {$name}"
 
 msgid "common.inactive"
 msgstr "Tidak Aktif"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Tidak dapat mengimpor Node XML"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Mencoba menjalankan transformasi yang tidak didukung dalam lingkungan "
+"instalasi Anda."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Saring ({$displayName}) supports input {$inputTypeName} - {$typeofInput} "
+"yang diberikan"
+
+msgid "validator.country"
+msgstr "Negara ini tidak valid."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Berhenti berlangganan"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Terjadi galat dan kami tidak bisa memproses berhenti berlangganan untuk "
+"alamat email {$email}. Kamu bisa berhenti menerima semua email notifikasi "
+"pada menu <a href=\"{$profileNotificationUrl}\">profil pengguna</a> atau "
+"hubungi kami langsung untuk dibantu."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Alamat email {$email} telah berhasil berhenti berlangganan. Kami tidak akan "
+"mengirimi Anda lagi email tersebut. Silakan berlangganan ulang melalui menu <"
+"a href=\"{$profileNotificationUrl}\">profil pengguna</a> kapan saja."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Kamu bisa melanggan ulang ke notifikasi email kapan saja melalui menu  <a "
+"href=\"{$profileNotificationUrl}\">profil pengguna</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Pilih email yang tidak ingin Anda terima pada {$email} dari {$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Kami tidak bisa menghentikan langganan Anda"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Kamu telah berhenti berlangganan"

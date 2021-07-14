@@ -213,7 +213,7 @@ class Validation
      */
     public static function checkCredentials($username, $password)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $userDao = Repo::user()->dao;
         $user = $userDao->getByUsername($username, false);
 
         $valid = false;
@@ -343,8 +343,8 @@ class Validation
      */
     public static function generatePasswordResetHash($userId, $expiry = null)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        if (($user = $userDao->getById($userId)) == null) {
+        $userDao = Repo::user()->dao;
+        if (($user = $userDao->get($userId)) == null) {
             // No such user
             return false;
         }

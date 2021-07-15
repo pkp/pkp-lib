@@ -252,7 +252,9 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
      */
     protected function getMailTemplate($emailKey = null): MailTemplate
     {
-        return new MailTemplate('STATISTICS_REPORT_NOTIFICATION', $this->_context->getPrimaryLocale(), $this->_context, false);
+        $mail = new MailTemplate('STATISTICS_REPORT_NOTIFICATION', $this->_context->getPrimaryLocale(), $this->_context, false);
+        $mail->setFrom($this->_context->getData('contactEmail'), $this->_context->getData('contactName'));
+        return $mail;
     }
 
     /**

@@ -18,6 +18,7 @@
 namespace PKP\mail;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;

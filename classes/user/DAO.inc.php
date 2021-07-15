@@ -17,6 +17,7 @@
 
 namespace PKP\user;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\identity\Identity;
@@ -179,7 +180,7 @@ class DAO extends \PKP\core\EntityDAO
             })
             ->get('user_id')
             ->first();
-        return $this->get($row->user_id);
+        return $row ? $this->get($row->user_id) : null;
     }
 
     /**

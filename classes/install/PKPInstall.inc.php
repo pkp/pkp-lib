@@ -245,7 +245,6 @@ class PKPInstall extends Installer
         $user->setFamilyName($user->getUsername(), $siteLocale);
         $user->setEmail($this->getParam('adminEmail'));
         $user->setDateRegistered(Core::getCurrentDate());
-        $user->setDateLastLogin(Core::getCurrentDate());
         $user->setInlineHelp(1);
         $userDao->insert($user);
 

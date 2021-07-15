@@ -83,7 +83,7 @@ class CommonMigration extends Migration
             $table->datetime('date_last_email')->nullable();
             $table->datetime('date_registered');
             $table->datetime('date_validated')->nullable();
-            $table->datetime('date_last_login');
+            $table->datetime('date_last_login')->nullable();
             $table->smallInteger('must_change_password')->nullable();
             $table->bigInteger('auth_id')->nullable();
             $table->string('auth_str', 255)->nullable();

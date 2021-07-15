@@ -15,8 +15,8 @@
 
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
-
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;

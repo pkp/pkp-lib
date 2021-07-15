@@ -14,6 +14,7 @@
 namespace PKP\user;
 
 use APP\i18n\AppLocale;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use PKP\plugins\HookRegistry;
 use PKP\validation\ValidatorFactory;
@@ -51,6 +52,12 @@ class Repository
     public function getByUsername(string $username, bool $allowDisabled = true): ?User
     {
         return $this->dao->getByUsername($username, $allowDisabled);
+    }
+
+    /** @copydoc DAO::get() */
+    public function getByEmail(string $email, bool $allowDisabled = true): ?User
+    {
+        return $this->dao->getByEmail($email, $allowDisabled);
     }
 
     /** @copydoc DAO::getCollector() */

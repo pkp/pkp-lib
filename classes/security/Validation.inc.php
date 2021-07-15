@@ -409,7 +409,7 @@ class Validation
             $name = $initial . $familyName;
         }
 
-        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy\Stringy::create($name)->toAscii()->toLowerCase());
+        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', \Stringy\Stringy::create($name)->toAscii()->toLowerCase());
         $userDao = Repo::user()->dao;
         for ($i = ''; $userDao->getByUsername($suggestion . $i); $i++);
         return $suggestion . $i;

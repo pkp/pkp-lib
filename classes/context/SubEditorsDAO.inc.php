@@ -80,8 +80,7 @@ class SubEditorsDAO extends \PKP\db\DAO
 			FROM	subeditor_submission_group e
 				JOIN users u ON (e.user_id = u.user_id)
 			WHERE	e.context_id = ? AND
-				e.assoc_id = ? AND e.assoc_type = ?
-			' . $userDao->getOrderBy(),
+				e.assoc_id = ? AND e.assoc_type = ?',
             [(int) $contextId, (int) $assocId, (int) $assocType]
         );
 

@@ -16,6 +16,7 @@ namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
@@ -34,8 +35,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface
      */
     public function get($userId)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        return $userDao->getById($userId);
+        return Repo::user()->get($userId);
     }
 
     /**

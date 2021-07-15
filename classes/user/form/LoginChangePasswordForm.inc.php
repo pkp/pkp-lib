@@ -15,7 +15,7 @@
 
 namespace PKP\user\form;
 
-use APP\facade\Repo;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;

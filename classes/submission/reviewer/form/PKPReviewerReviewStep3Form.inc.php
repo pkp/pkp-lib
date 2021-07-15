@@ -200,8 +200,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         );
 
         // Add log
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         $request = Application::get()->getRequest();
         SubmissionLog::logEvent(
             $request,

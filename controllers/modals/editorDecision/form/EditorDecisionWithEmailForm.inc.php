@@ -13,11 +13,11 @@
  * @brief Base class for the editor decision forms.
  */
 
+use APP\facades\Repo;
 use APP\file\LibraryFileManager;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
-
 use PKP\controllers\modals\editorDecision\form\EditorDecisionForm;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\SubmissionMailTemplate;
@@ -259,9 +259,8 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
                 }
             }
 
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
             foreach (array_intersect($reviewers, (array) $this->getData('bccReviewers')) as $reviewerId) {
-                $user = $userDao->getById($reviewerId);
+                $user = Repo::user()->get($reviewerId);
                 if ($user && !$user->getDisabled()) {
                     $email->addBcc($user->getEmail(), $user->getFullName());
                 }

@@ -74,7 +74,7 @@ class RegistrationForm extends Form
 
         // Email checks
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'], [], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [Repo::user()->dao, 'getByEmail'], [], true));
 
         $this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
         if ($this->captchaEnabled) {
@@ -233,7 +233,7 @@ class RegistrationForm extends Form
     public function execute(...$functionArgs)
     {
         $requireValidation = Config::getVar('email', 'require_validation');
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $userDao = Repo::user()->dao;
 
         // New user
         $this->user = $user = $userDao->newDataObject();
@@ -280,7 +280,7 @@ class RegistrationForm extends Form
 
         parent::execute(...$functionArgs);
 
-        $userDao->insertObject($user);
+        $userDao->insert($user);
         $userId = $user->getId();
         if (!$userId) {
             return false;

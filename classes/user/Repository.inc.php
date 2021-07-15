@@ -14,6 +14,7 @@
 namespace PKP\user;
 
 use APP\i18n\AppLocale;
+use Illuminate\Support\Facades\App;
 use PKP\plugins\HookRegistry;
 use PKP\validation\ValidatorFactory;
 
@@ -50,6 +51,18 @@ class Repository
     public function getByUsername(string $username, bool $allowDisabled = true): ?User
     {
         return $this->dao->getByUsername($username, $allowDisabled);
+    }
+
+    /** @copydoc DAO::getCollector() */
+    public function getCollector(): Collector
+    {
+        return App::make(Collector::class);
+    }
+
+    /** @copydoc DAO::getIds() */
+    public function getIds(Collector $query): Collection
+    {
+        return $this->dao->getIds($query);
     }
 
     /**
@@ -117,5 +130,15 @@ class Repository
         HookRegistry::call('User::edit', [$newUser, $user, $params]);
 
         $this->dao->update($newUser);
+    }
+
+    /** @copydoc DAO::delete */
+    public function delete(User $user)
+    {
+        HookRegistry::call('User::delete::before', [&$user]);
+
+        $this->dao->delete($user);
+
+        HookRegistry::call('User::delete', [&$user]);
     }
 }

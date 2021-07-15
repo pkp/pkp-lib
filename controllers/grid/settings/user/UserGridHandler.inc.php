@@ -31,7 +31,6 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
-use PKP\user\Collector;
 
 class UserGridHandler extends GridHandler
 {
@@ -187,7 +186,7 @@ class UserGridHandler extends GridHandler
         $context = $request->getContext();
 
         $userDao = Repo::user()->dao;
-        $collector = new Collector($userDao);
+        $collector = Repo::user()->getCollector();
         if ($filter['userGroup'] ?? false) {
             $collector->filterByUserGroupIds((array) $filter['userGroup']);
         }

@@ -17,9 +17,6 @@ namespace PKP\security;
 
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
-use PKP\db\DAOResultFactory;
-use PKP\identity\Identity;
-use PKP\user\UserDAO;
 
 class RoleDAO extends DAO
 {
@@ -31,88 +28,6 @@ class RoleDAO extends DAO
     public function newDataObject()
     {
         return new Role();
-    }
-
-    /**
-     * Retrieve a list of users in a specified role.
-     *
-     * @param $roleId int optional (can leave as null to get all users in context)
-     * @param $contextId int optional, include users only in this context
-     * @param $searchType int optional, which field to search
-     * @param $search string optional, string to match
-     * @param $searchMatch string optional, type of match ('is' vs. 'contains' vs. 'startsWith')
-     * @param $dbResultRange object DBRangeInfo object describing range of results to return
-     *
-     * @return array matching Users
-     */
-    public function getUsersByRoleId($roleId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null)
-    {
-        $paramArray = [ASSOC_TYPE_USER, 'interest', Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME];
-        if (isset($roleId)) {
-            $paramArray[] = (int) $roleId;
-        }
-        if (isset($contextId)) {
-            $paramArray[] = (int) $contextId;
-        }
-        // For security / resource usage reasons, a role or context ID
-        // must be specified. Don't allow calls supplying neither.
-        if ($contextId === null && $roleId === null) {
-            return null;
-        }
-
-        $searchSql = '';
-
-        $searchTypeMap = [
-            Identity::IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
-            Identity::IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
-            UserDAO::USER_FIELD_USERNAME => 'u.username',
-            UserDAO::USER_FIELD_EMAIL => 'u.email',
-            UserDAO::USER_FIELD_INTERESTS => 'cves.setting_value'
-        ];
-
-        if (!empty($search) && isset($searchTypeMap[$searchType])) {
-            $fieldName = $searchTypeMap[$searchType];
-            switch ($searchMatch) {
-                case 'is':
-                    $searchSql = "AND LOWER(${fieldName}) = LOWER(?)";
-                    $paramArray[] = $search;
-                    break;
-                case 'contains':
-                    $searchSql = "AND LOWER(${fieldName}) LIKE LOWER(?)";
-                    $paramArray[] = '%' . $search . '%';
-                    break;
-                case 'startsWith':
-                    $searchSql = "AND LOWER(${fieldName}) LIKE LOWER(?)";
-                    $paramArray[] = $search . '%';
-                    break;
-            }
-        } elseif (!empty($search)) {
-            switch ($searchType) {
-            case UserDAO::USER_FIELD_USERID:
-                $searchSql = 'AND u.user_id=?';
-                $paramArray[] = $search;
-                break;
-        }
-        }
-
-        $searchSql .= ' ' . $this->userDao->getOrderBy(); // FIXME Add "sort field" parameter?
-
-        $result = $this->retrieveRange(
-            'SELECT DISTINCT u.*,
-			FROM users AS u
-			LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
-			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-			LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
-			LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
-			LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
-			LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
-			LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id)
-			WHERE 1=1' . (isset($roleId) ? ' AND ug.role_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
-            $paramArray,
-            $dbResultRange
-        );
-
-        return new DAOResultFactory($result, $this->userDao, 'fromRow');
     }
 
     /**

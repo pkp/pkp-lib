@@ -13,10 +13,10 @@
  * @brief Handle login/logout requests.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -203,7 +203,7 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
 
         $email = $request->getUserVar('email');
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $userDao = Repo::user()->dao;
         $user = $userDao->getUserByEmail($email);
 
         if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {

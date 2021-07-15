@@ -168,8 +168,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
         $email = $this->_getMailTemplate($submission, $template, false);
         $email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
 
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getById($userId);
+        $user = Repo::user()->get($userId);
         if (isset($user)) {
             $email->addRecipient($user->getEmail(), $user->getFullName());
             $email->setBody($this->getData('message'));

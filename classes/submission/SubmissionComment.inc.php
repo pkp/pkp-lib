@@ -17,7 +17,7 @@
 
 namespace PKP\submission;
 
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 
 class SubmissionComment extends \PKP\core\DataObject
 {
@@ -138,8 +138,8 @@ class SubmissionComment extends \PKP\core\DataObject
         $authorFullName = & $this->getData('authorFullName');
 
         if (!isset($authorFullName)) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $authorFullName = $userDao->getUserFullName($this->getAuthorId(), true);
+            $user = Repo::user()->get($this->getAuthorId());
+            $authorFullName = $user->getLocalizedFullName();
         }
 
         return $authorFullName ? $authorFullName : '';
@@ -156,8 +156,8 @@ class SubmissionComment extends \PKP\core\DataObject
         $authorEmail = & $this->getData('authorEmail');
 
         if (!isset($authorEmail)) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $authorEmail = $userDao->getUserEmail($this->getAuthorId(), true);
+            $user = Repo::user()->get($this->getAuthorId());
+            return $user->getEmail();
         }
 
         return $authorEmail ? $authorEmail : '';

@@ -15,8 +15,8 @@
 
 import('controllers.grid.users.stageParticipant.form.StageParticipantNotifyForm');
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
-
 use PKP\security\Role;
 
 class AddParticipantForm extends StageParticipantNotifyForm
@@ -153,9 +153,7 @@ class AddParticipantForm extends StageParticipantNotifyForm
             /** @var StageAssignment $stageAssignment */
             $stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
 
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            /** @var User $currentUser */
-            $currentUser = $userDao->getById($stageAssignment->getUserId());
+            $currentUser = Repo::user()->get($stageAssignment->getUserId());
 
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
             /** @var UserGroup $userGroup */

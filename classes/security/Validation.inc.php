@@ -154,7 +154,7 @@ class Validation
         }
 
         $user->setDateLastLogin(Core::getCurrentDate());
-        Repo::user()->update($user);
+        Repo::user()->dao->update($user);
 
         return $user;
     }

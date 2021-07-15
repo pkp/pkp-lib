@@ -13,9 +13,9 @@
  * @brief Handle requests for viewing notifications.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\Notification;
-
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
@@ -122,9 +122,8 @@ class NotificationHandler extends Handler
         $contextId = $notification->getContextId();
 
         $contextDao = Application::getContextDAO();
-        $userDao = DAORegistry::getDAO('UserDAO');
 
-        $user = $userDao->getById($userId);
+        $user = Repo::user()->get($userId);
         $context = $contextDao->getById($contextId);
 
         $templateMgr->assign([

@@ -93,16 +93,17 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         while ($stageAssignment = $stageAssignmentResults->next()) {
             $warnOnAssignment[] = $stageAssignment->getUserId();
         }
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        $managerUsersResults = $roleDao->getUsersByRoleId(Role::ROLE_ID_MANAGER, $submissionContext->getId());
-        while ($manager = $managerUsersResults->next()) {
-            $warnOnAssignment[] = $manager->getId();
-        }
-        $adminUsersResults = $roleDao->getUsersByRoleId(Role::ROLE_ID_SITE_ADMIN, $submissionContext->getId());
-        while ($admin = $adminUsersResults->next()) {
-            $warnOnAssignment[] = $admin->getId();
-        }
-        $warnOnAssignment = array_map('intval', array_values(array_unique($warnOnAssignment)));
+
+        // Get a list of users in the managerial and admin user groups
+        // Managers are assigned only to contexts; site admins are assigned only to site.
+        // Therefore filtering by both context IDs and role IDs will not cause problems.
+        $collector = Repo::user()->getCollector()
+            ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
+            ->filterByContextIds([$submissionContext->getId(), PKPApplication::CONTEXT_SITE]);
+        $userDao = Repo::user()->dao;
+        $warnOnAssignment = array_merge($warnOnAssignment, Repo::user()->getIds($collector)->toArray());
+
+        $warnOnAssignment = array_unique(array_map('intval', $warnOnAssignment));
 
         // Get reviewers list
         $selectReviewerListPanel = new \PKP\components\listPanels\PKPSelectReviewerListPanel(

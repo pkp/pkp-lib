@@ -13,6 +13,7 @@
  * @brief Base class that converts a User XML document to a set of users
  */
 
+use APP\facades\Repo;
 use PKP\mail\MailTemplate;
 use PKP\user\InterestManager;
 
@@ -88,7 +89,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
         $site = $deployment->getSite();
 
         // Create the data object
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $userDao = Repo::user()->dao;
         $user = $userDao->newDataObject();
 
         // Password encryption
@@ -181,7 +182,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
         $password = $this->importUserPasswordValidation($user, $encryption);
 
         $userByUsername = $userDao->getByUsername($user->getUsername(), true);
-        $userByEmail = $userDao->getUserByEmail($user->getEmail(), true);
+        $userByEmail = $userDao->getByEmail($user->getEmail(), true);
         // username and email are both required and unique, so either
         // both exist for one and the same user, or both do not exist
         if ($userByUsername && $userByEmail && $userByUsername->getId() == $userByEmail->getId()) {
@@ -240,7 +241,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
                     }
                 }
             }
-            $userId = $userDao->insertObject($user);
+            $userId = $userDao->insert($user);
 
             // Insert reviewing interests, now that there is a userId.
             $interestNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'review_interests');

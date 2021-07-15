@@ -15,6 +15,7 @@
 
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 
 class UserRoleForm extends UserForm
@@ -61,7 +62,6 @@ class UserRoleForm extends UserForm
         parent::execute(...$functionParams);
 
         // Role management handled by parent form, just return user.
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        return $userDao->getById($this->userId);
+        return Repo::user()->get($this->userId);
     }
 }

@@ -9,9 +9,6 @@
  *
  * @class UserStageAssignmentDAO
  * @ingroup user
- *
- * @see User, StageAssignment, and UserDAO
- *
  * @brief Operations for users as related to their stage assignments
  */
 

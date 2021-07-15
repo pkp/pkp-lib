@@ -461,10 +461,9 @@ class AuthorGridHandler extends GridHandler
         $authorId = (int) $request->getUserVar('authorId');
 
         $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $author = $authorDao->getById($authorId);
 
-        if ($author !== null && $userDao->userExistsByEmail($author->getEmail())) {
+        if ($author !== null && Repo::user()->getByEmail($author->getEmail())) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
         } else {

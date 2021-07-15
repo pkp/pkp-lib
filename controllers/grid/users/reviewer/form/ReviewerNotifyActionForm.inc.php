@@ -12,6 +12,7 @@
  * @brief Perform an action on a review including a reviewer notification email.
  */
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
@@ -73,8 +74,7 @@ abstract class ReviewerNotifyActionForm extends Form
 
         $template = new SubmissionMailTemplate($submission, $this->getEmailKey());
         if ($template) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $reviewer = $userDao->getById($reviewerId);
+            $reviewer = Repo::user()->get($reviewerId);
             $user = $request->getUser();
 
             $template->assignParams([
@@ -102,9 +102,8 @@ abstract class ReviewerNotifyActionForm extends Form
         $mail = new SubmissionMailTemplate($submission, $this->getEmailKey(), null, null, false);
 
         if ($mail->isEnabled() && !$this->getData('skipEmail')) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
             $reviewerId = (int) $this->getData('reviewerId');
-            $reviewer = $userDao->getById($reviewerId);
+            $reviewer = Repo::user()->get($reviewerId);
             $mail->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
             $mail->setBody($this->getData('personalMessage'));
             $mail->assignParams();

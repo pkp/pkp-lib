@@ -13,6 +13,7 @@
  * @brief Form for sending an email to a user
  */
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
@@ -66,8 +67,7 @@ class EmailReviewerForm extends Form
      */
     public function fetch($request, $template = null, $display = false, $requestArgs = [])
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getById($this->_reviewAssignment->getReviewerId());
+        $user = Repo::user()->get($this->_reviewAssignment->getReviewerId());
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
@@ -86,8 +86,7 @@ class EmailReviewerForm extends Form
      */
     public function execute($submission, ...$functionArgs)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $toUser = $userDao->getById($this->_reviewAssignment->getReviewerId());
+        $toUser = Repo::user()->get($this->_reviewAssignment->getReviewerId());
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 

@@ -18,9 +18,9 @@
 
 namespace PKP\notification\form;
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 
@@ -91,9 +91,7 @@ class PKPNotificationsUnsubscribeForm extends Form
 
         $emailSettings = $this->getNotificationSettingsMap();
 
-        $userDao = DAORegistry::getDAO('UserDAO');
-
-        $user = $userDao->getById($userId);
+        $user = Repo::user()->get($userId);
         $context = $request->getContext();
 
         $templateMgr = TemplateManager::getManager($request);

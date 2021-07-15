@@ -30,6 +30,9 @@ class Collector implements CollectorInterface
     public $userGroupIds = null;
 
     /** @var array|null */
+    public $roleIds = null;
+
+    /** @var array|null */
     public $contextIds = null;
 
     /** @var ?string */
@@ -63,6 +66,16 @@ class Collector implements CollectorInterface
         $this->userGroupIds = $userGroupIds;
         return $this;
     }
+
+    /**
+     * Limit results to users enrolled in these roles
+     */
+    public function filterByRoleIds(array $roleIds): self
+    {
+        $this->roleIds = $roleIds;
+        return $this;
+    }
+
 
     /**
      * Limit results to users with user groups in these context IDs
@@ -136,47 +149,49 @@ class Collector implements CollectorInterface
     {
         $this->columns[] = 'u.*';
         $q = DB::table('users AS u')
-            ->when($this->userGroupIds, function ($query, $userGroupIds) {
-                return $query->join('user_user_groups AS uug', function ($join) use ($userGroupIds) {
-                    return $join->on('uug.user_id', '=', 'u.user_id')
-                        ->whereIn('uug.user_group_id', $userGroupIds);
+            ->when($this->userGroupIds !== null || $this->roleIds !== null || $this->contextIds !== null, function ($query) {
+                return $query->whereIn('u.user_id', function ($query) {
+                    return $query->select('uug.user_id')
+                        ->from('user_user_groups AS uug')
+                        ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+                        ->when($this->userGroupIds !== null, function ($query) {
+                            return $query->whereIn('uug.user_group_id', $this->userGroupIds);
+                        })
+                        ->when($this->roleIds !== null, function ($query) {
+                            return $query->whereIn('ug.role_id', $this->roleIds);
+                        })
+                        ->when($this->contextIds !== null, function ($query) {
+                            return $query->whereIn('ug.context_id', $this->contextIds);
+                        });
                 });
             })
-            ->when($this->contextIds, function ($query, $contextIds) {
-                return $query->whereIn('u.user_id', function ($query) use ($contextIds) {
-                    return $query->select('uugc.user_id')
-                        ->from('user_user_groups AS uugc')
-                        ->join('user_groups AS ugc', 'ugc.user_group_id', '=', 'uugc.user_group_id')
-                        ->whereIn('ugc.context_id', $contextIds);
-                });
-            })
-            ->when($this->excludeSubmissionStage, function ($query, $excludeSubmissionStage) {
+            ->when($this->excludeSubmissionStage !== null, function ($query) {
                 $query->join('user_user_groups AS uug_exclude', 'u.user_id', '=', 'uug_exclude.user_id')
-                    ->join('user_group_stage AS ugs_exclude', function ($join) use ($excludeSubmissionStage) {
+                    ->join('user_group_stage AS ugs_exclude', function ($join) {
                         return $join->on('uug_exclude.user_group_id', '=', 'ugs_exclude.user_group_id')
-                            ->where('ugs_exclude.stage_id', '=', $excludeSubmissionStage['stage_id']);
+                            ->where('ugs_exclude.stage_id', '=', $this->excludeSubmissionStage['stage_id']);
                     })
-                    ->leftJoin('stage_assignments AS sa_exclude', function ($join) use ($excludeSubmissionStage) {
+                    ->leftJoin('stage_assignments AS sa_exclude', function ($join) {
                         return $join->on('sa_exclude.user_id', '=', 'uug_exclude.user_id')
                             ->on('sa_exclude.user_group_id', '=', 'uug_exclude.user_group_id')
-                            ->where('sa_exclude.submission_id', '=', $excludeSubmissionStage['submission_id']);
+                            ->where('sa_exclude.submission_id', '=', $this->excludeSubmissionStage['submission_id']);
                     })
-                    ->where('uug_exclude', '=', $excludeSubmissionStage['user_group_id'])
+                    ->where('uug_exclude', '=', $this->excludeSubmissionStage['user_group_id'])
                     ->whereNull('sa_exclude.user_group_id');
             })
-            ->when($this->submissionAssignment, function ($query, $submissionAssignment) {
-                return $query->whereIn('u.user_id', function ($query) use ($submissionAssignment) {
+            ->when($this->submissionAssignment !== null, function ($query) {
+                return $query->whereIn('u.user_id', function ($query) {
                     return $query->select('sa.user_id')
                         ->from('stage_assignments AS sa')
                         ->join('user_group_stage AS ugs', 'sa.user_group_id', '=', 'ugs.user_group_id')
-                        ->when($submissionAssignment['submission_id'] ?? null, function ($query, $submissionId) {
-                            return $query->where('sa.submission_id', '=', $submissionId);
+                        ->when(isset($this->submissionAssignment['submission_id']), function ($query) {
+                            return $query->where('sa.submission_id', '=', $this->submissionAssignment['submission_id']);
                         })
-                        ->when($submissionAssignment['stage_id'] ?? null, function ($query, $stageId) {
-                            return $query->where('ugs.stage_id', '=', $stageId);
+                        ->when(isset($this->submissionAssignment['stage_id']), function ($query) {
+                            return $query->where('ugs.stage_id', '=', $this->submissionAssignment['stage_id']);
                         })
-                        ->when($submissionAssignment['user_group_id'] ?? null, function ($query, $userGroupId) {
-                            return $query->where('sa.user_group_id', '=', $userGroupId);
+                        ->when(isset($this->submissionAssignment['user_group_id']), function ($query) {
+                            return $query->where('sa.user_group_id', '=', $this->submissionAssignment['user_group_id']);
                         });
                 });
             })

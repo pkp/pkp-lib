@@ -668,14 +668,14 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface
             // days since last review assignment
             if (!empty($this->daysSinceLastAssignment)) {
                 $daysSinceMin = is_array($this->daysSinceLastAssignment) ? $this->daysSinceLastAssignment[0] : $this->daysSinceLastAssignment;
-                $userDao = \DAORegistry::getDAO('UserDAO');
-                $dbTimeMin = $userDao->dateTimeToDB(time() - ((int) $daysSinceMin * 86400));
+                $dao = new \PKP\db\DAO();
+                $dbTimeMin = $dao->dateTimeToDB(time() - ((int) $daysSinceMin * 86400));
                 $q->havingRaw('MAX(ra.date_assigned) <= ' . $dbTimeMin);
                 if (is_array($this->daysSinceLastAssignment) && !empty($this->daysSinceLastAssignment[1])) {
                     $daysSinceMax = $this->daysSinceLastAssignment[1];
                     // Subtract an extra day so that our outer bound rounds "up". This accounts
                     // for the UI rounding "down" in the string "X days ago".
-                    $dbTimeMax = $userDao->dateTimeToDB(time() - ((int) $daysSinceMax * 86400) - 84600);
+                    $dbTimeMax = $dao->dateTimeToDB(time() - ((int) $daysSinceMax * 86400) - 84600);
                     $q->havingRaw('MAX(ra.date_assigned) >= ' . $dbTimeMax);
                 }
             }

@@ -15,6 +15,8 @@
 
 namespace PKP\context;
 
+use APP\facades\Repo;
+
 class SubEditorsDAO extends \PKP\db\DAO
 {
     /**

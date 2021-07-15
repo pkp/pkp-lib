@@ -129,9 +129,7 @@ class EditorAction
     public function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null)
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-
-        $reviewer = $userDao->getById($reviewerId);
+        $reviewer = Repo::user()->get($reviewerId);
 
         // Check to see if the requested reviewer is not already
         // assigned to review this submission.
@@ -187,10 +185,9 @@ class EditorAction
      */
     public function setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate, $logEntry = false)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $context = $request->getContext();
 
-        $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) {
             return false;
         }

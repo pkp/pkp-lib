@@ -961,8 +961,6 @@ class UserGroupDAO extends DAO
             }
         }
 
-        $searchSql .= Repo::user()->dao->getOrderBy(); // FIXME Add "sort field" parameter?
-
         return $searchSql;
     }
 

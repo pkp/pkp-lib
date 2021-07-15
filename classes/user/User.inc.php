@@ -14,8 +14,6 @@
  * @class User
  * @ingroup user
  *
- * @see UserDAO
- *
  * @brief Basic class describing users existing in the system.
  */
 

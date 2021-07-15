@@ -19,7 +19,6 @@ namespace PKP\submission\reviewAssignment;
 
 use APP\facades\Repo;
 use PKP\security\Role;
-use PKP\user\Collector;
 
 class ReviewAssignment extends \PKP\core\DataObject
 {
@@ -668,7 +667,7 @@ class ReviewAssignment extends \PKP\core\DataObject
 
             // Get the users assigned to this stage and user group
             $userDao = Repo::user()->dao;
-            $collector = new Collector($userDao);
+            $collector = Repo::user()->getCollector();
             $collector->filterSubmissionAssignment($this->getSubmissionId(), $this->getStageId(), $userGroup->getId());
             $stageUsers = $userDao->getMany($collector);
 

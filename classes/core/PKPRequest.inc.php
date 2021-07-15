@@ -15,6 +15,7 @@
 
 namespace PKP\core;
 
+use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
@@ -604,8 +605,7 @@ class PKPRequest
         $router = $this->getRouter();
         if (!is_null($handler = $router->getHandler()) && !is_null($token = $handler->getApiToken())) {
             if ($user === null) {
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-                $user = $userDao->getBySetting('apiKey', $token);
+                $user = Repo::user()->getByApiKey($token);
             }
             if (is_null($user) || !$user->getData('apiKeyEnabled')) {
                 $user = null;

@@ -230,6 +230,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate {
 	{
 		import('lib.pkp.classes.mail.MailTemplate');
 		$mail = new MailTemplate('STATISTICS_REPORT_NOTIFICATION', $this->_context->getPrimaryLocale(), $this->_context, false);
+		$mail->setFrom($this->_context->getData('contactEmail'), $this->_context->getData('contactName'));
 		return $mail;
 	}
 

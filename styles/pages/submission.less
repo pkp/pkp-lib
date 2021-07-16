@@ -13,4 +13,25 @@
 	#submission-files-container {
 		margin-bottom: 1rem;
 	}
+
+	.pkp_categories_filter {
+
+		.categories_list {
+			height: 250px;
+			overflow: hidden;
+			overflow-y: scroll;
+			border: @bg-border;
+			padding: 5px 10px;
+			display: flex;
+
+			.assigned_categories,
+			.unassigned_categories {
+				flex: 1;
+			}
+
+			.assigned_categories li label {
+				font-weight: @bold;
+			}
+		}
+	}
 }

@@ -7,20 +7,25 @@
  *
  * Include categories for submissions.
  *}
+
 {if count($categories)}
-	{if $readOnly}
-		{fbvFormSection title="grid.category.categories" list=true}
+    {if $readOnly}
+        {fbvFormSection title="grid.category.categories" list=true}
 			{foreach from=$categories item="category" key="id"}
 				{if in_array($id, $assignedCategories)}
 					<li>{$category->getLocalizedTitle()|escape}</li>
 				{/if}
 			{/foreach}
-		{/fbvFormSection}
-	{else}
-		{fbvFormSection list=true title="grid.category.categories"}
-			{foreach from=$categories item="category" key="id"}
-				{fbvElement type="checkbox" id="categories[]" value=$id checked=in_array($id, $assignedCategories) label=$category translate=false}
-			{/foreach}
-		{/fbvFormSection}
-	{/if}
+        {/fbvFormSection}
+    {else}
+        {fbvFormSection list=true title="grid.category.categories"}
+        {if count($categories) > 10}
+            {include file="submission/form/categoriesFilter.tpl"}
+        {else}
+            {foreach from=$categories item="category" key="id"}
+                {fbvElement type="checkbox" id="categories[]" value=$id checked=in_array($id, $assignedCategories) label=$category translate=false}
+            {/foreach}
+        {/if}
+        {/fbvFormSection}
+    {/if}
 {/if}

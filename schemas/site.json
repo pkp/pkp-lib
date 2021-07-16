@@ -37,6 +37,29 @@
 				"type": "integer"
 			}
 		},
+		"compressStatsLogs": {
+			"type": "boolean",
+			"description": "Whether or not to compress usage statistics log files after they have been processed and archived.",
+			"default": false
+		},
+		"enableGeoUsageStats": {
+			"type": "string",
+			"description": "Whether to track usage statistics by location, and whether to track at the country, region or city level.",
+			"default": "disabled",
+			"validation": [
+				"in:disabled,country,country+region,country+region+city"
+			]
+		},
+		"enableInstitutionUsageStats": {
+			"type": "boolean",
+			"description": "Whether to track usage statistics by institutions. Requires institutional IP ranges to be configured.",
+			"default": false
+		},
+		"keepDailyUsageStats": {
+			"type": "boolean",
+			"description": "Whether to retain daily usage stats or consolidate monthly stats. Daily stats can quickly result in millions of database rows for large installs with lots of submissions.",
+			"default": false
+		},
 		"installedLocales": {
 			"type": "array",
 			"items": {

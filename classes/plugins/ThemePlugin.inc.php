@@ -19,14 +19,19 @@ define('LESS_FILENAME_SUFFIX', '.less');
 define('THEME_OPTION_PREFIX', 'themeOption_');
 
 use APP\core\Application;
-
+use APP\core\Services;
+use APP\facades\Repo;
+use APP\statistics\StatisticsHelper;
 use APP\template\TemplateManager;
 use Exception;
+use PKP\cache\CacheManager;
+use PKP\cache\FileCache;
+use PKP\config\Config;
 use PKP\context\Context;
-use PKP\session\SessionManager;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\session\SessionManager;
 
 abstract class ThemePlugin extends LazyLoadPlugin
 {
@@ -834,7 +839,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     public function _getBaseUrl($path = '')
     {
         $request = Application::get()->getRequest();
-        $path = empty($path) ? '' : "/$path";
+        $path = empty($path) ? '' : "/${path}";
         return "{$request->getBaseUrl()}/{$this->getPluginPath()}$path";
     }
 
@@ -847,7 +852,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function _getBaseDir($path = '')
     {
-        $path = empty($path) ? '' : "/$path";
+        $path = empty($path) ? '' : "/${path}";
         return Core::getBaseDir() . "/{$this->getPluginPath()}$path";
     }
 
@@ -876,6 +881,156 @@ abstract class ThemePlugin extends LazyLoadPlugin
             $b * $b * .068
         );
         return $contrast < $limit;
+    }
+
+    /**
+     * Add usage statistics graph to submission view page
+     */
+    public function displayUsageStatsGraph(int $submissionId): void
+    {
+        $this->addUsageStatsJavascriptData($this->getAllDownloadsStats($submissionId), $submissionId);
+        $this->loadChartJavascript();
+    }
+
+    /**
+     * Add submission's monthly statistics data to the script data output for graph display
+     */
+    protected function addUsageStatsJavascriptData(array $statsByMonth, int $submissionId): void
+    {
+        // Initialize the name space
+        $script_data = 'var pkpUsageStats = pkpUsageStats || {};';
+        $script_data .= 'pkpUsageStats.data = pkpUsageStats.data || {};';
+        $script_data .= 'pkpUsageStats.data.Submission = pkpUsageStats.data.Submission || {};';
+        $namespace = 'Submission[' . $submissionId . ']';
+        $script_data .= 'pkpUsageStats.data.' . $namespace . ' = ' . json_encode($statsByMonth) . ';';
+
+        $request = Application::get()->getRequest();
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->addJavaScript(
+            'pkpUsageStatsData',
+            $script_data,
+            [
+                'inline' => true,
+                'contexts' => $this->getSubmissionViewContext(),
+            ]
+        );
+    }
+
+    /**
+     * Load JavaScript assets for usage statistics display and pass data to the scripts
+     */
+    protected function loadChartJavascript(): void
+    {
+        $request = Application::get()->getRequest();
+        $templateMgr = TemplateManager::getManager($request);
+
+        // Register Chart.js on the frontend article view
+        $min = Config::getVar('general', 'enable_minified') ? '.min' : '';
+        $templateMgr->addJavaScript(
+            'chartJS',
+            $request->getBaseUrl() . '/lib/pkp/js/lib/Chart' . $min . '.js',
+            [
+                'contexts' => $this->getSubmissionViewContext(),
+            ]
+        );
+
+        // Add locale and configuration data
+        $chartType = $this->getOption('displayStats');
+        $script_data = 'var pkpUsageStats = pkpUsageStats || {};';
+        $script_data .= 'pkpUsageStats.locale = pkpUsageStats.locale || {};';
+        $script_data .= 'pkpUsageStats.locale.months = ' . json_encode(explode(' ', __('plugins.themes.default.displayStats.monthInitials'))) . ';';
+        $script_data .= 'pkpUsageStats.config = pkpUsageStats.config || {};';
+        $script_data .= 'pkpUsageStats.config.chartType = ' . json_encode($chartType) . ';';
+
+        $templateMgr->addJavaScript(
+            'pkpUsageStatsConfig',
+            $script_data,
+            [
+                'inline' => true,
+                'contexts' => $this->getSubmissionViewContext(),
+            ]
+        );
+
+        // Register the JS which initializes the chart
+        $templateMgr->addJavaScript(
+            'usageStatsFrontend',
+            $request->getBaseUrl() . '/lib/pkp/js/usage-stats-chart.js',
+            [
+                'contexts' => $this->getSubmissionViewContext(),
+            ]
+        );
+    }
+
+    /**
+     * Retrieve download metrics for the given submission
+     */
+    protected function getAllDownloadsStats(int $submissionId): array
+    {
+        $cache = CacheManager::getManager()->getCache('downloadStats', $submissionId, [$this, 'downloadStatsCacheMiss']);
+        if (time() - $cache->getCacheTime() > 60 * 60 * 24) {
+            // Cache is older than one day, erase it.
+            $cache->flush();
+        }
+        $statsByMonth = [];
+        $totalDownloads = 0;
+        $data = $cache->get($submissionId);
+        foreach ($data as $monthlyDownloadStats) {
+            [$year, $month] = explode('-', $monthlyDownloadStats['date']);
+            $month = ltrim($month, '0');
+            $statsByMonth[$year][$month] = $monthlyDownloadStats['value'];
+            $totalDownloads += $monthlyDownloadStats['value'];
+        }
+        return [
+            'data' => $statsByMonth,
+            'label' => __('common.allDownloads'),
+            'color' => $this->getUsageStatsDisplayColor(REALLY_BIG_NUMBER),
+            'total' => $totalDownloads
+        ];
+    }
+
+    /**
+     * Callback to fill cache with submission's download usage statistics data.
+     */
+    public function downloadStatsCacheMiss(FileCache $cache, int $submissionId): array
+    {
+        $request = Application::get()->getRequest();
+        $submission = Repo::submission()->get($submissionId);
+        $originalPublication = $submission->getOriginalPublication();
+        $earliestDatePublished = $originalPublication->getData('datePublished');
+        $params = [
+            'contextIds' => [$request->getContext()->getId()],
+            'submissionIds' => [$submissionId],
+            'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION_FILE],
+            'timelineInterval' => StatisticsHelper::STATISTICS_DIMENSION_MONTH,
+            'dateStart' => $earliestDatePublished
+        ];
+        $statsService = Services::get('publicationStats');
+        $data = $statsService->getTimeline($params['timelineInterval'], $params);
+        $cache->setEntireCache([$submissionId => $data]);
+        return $data;
+    }
+
+    /**
+     * Return a color RGB code to be used in the usage statistics diplay graph.
+     */
+    protected function getUsageStatsDisplayColor(int $num): string
+    {
+        $hash = md5('color' . $num * 2);
+        return hexdec(substr($hash, 0, 2)) . ',' . hexdec(substr($hash, 2, 2)) . ',' . hexdec(substr($hash, 4, 2));
+    }
+
+    /**
+     * Get the context for inclusion of usage stats display related JavaScripts in the submission view page
+     */
+    protected function getSubmissionViewContext(): string
+    {
+        if (Application::get()->getName() == 'ojs2') {
+            return 'frontend-article-view';
+        } elseif (Application::get()->getName() == 'omp') {
+            return 'frontend-catalog-book';
+        } elseif (Application::get()->getName() == 'ops') {
+            return 'frontend-preprint-view';
+        }
     }
 }
 

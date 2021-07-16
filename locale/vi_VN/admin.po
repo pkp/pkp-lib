@@ -201,6 +201,12 @@ msgstr "Trình điều khiển cơ sở dữ liệu"
 msgid "admin.server.apacheVersion"
 msgstr "Phiên bản Apache"
 
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Tệp {$file} không thể mở và đã bị từ chối."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tác vụ trình tải tệp thống kê sử dụng"
+
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Nhắc nhở hết hạn thuê bao"
 

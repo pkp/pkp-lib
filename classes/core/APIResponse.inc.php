@@ -18,6 +18,34 @@ use Slim\Http\Response;
 
 class APIResponse extends Response
 {
+    public const RESPONSE_CSV = 'text/csv';
+
+    /**
+     * CSV Response
+     *
+     * @param integer $maxRows The total amount of rows, that is provided within the onw X-Total-Count header field
+     */
+    public function withCSV(array $rows, array $columns, ?int $maxRows): self
+    {
+        $fp = fopen('php://output', 'wt');
+        //Add BOM (byte order mark) to fix UTF-8 in Excel
+        fprintf($fp, chr(0xEF) . chr(0xBB) . chr(0xBF));
+        fputcsv($fp, ['']);
+        fputcsv($fp, $columns);
+        foreach ($rows as $row) {
+            fputcsv($fp, $row);
+        }
+        $csvData = stream_get_contents($fp);
+        fclose($fp);
+        $this->getBody()->rewind();
+        $this->getBody()->write($csvData);
+        $this->withStatus(200);
+        if (isset($maxRows)) {
+            $this->withHeader('X-Total-Count', $maxRows);
+        }
+        return $this->withHeader('Content-Type', self::RESPONSE_CSV);
+    }
+
     /**
      * Response with an error message
      *

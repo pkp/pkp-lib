@@ -148,6 +148,12 @@ msgstr "Rappel d'évaluation"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Rappel d'expiration d'abonnement"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tâche de versement du fichier de statistiques d'utilisation"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Le fichier {$file} n'a pas pu être ouvert et a été rejeté."
+
 msgid "admin.server.apacheVersion"
 msgstr "Version Apache"
 

@@ -543,6 +543,14 @@ class PKPRequest
     }
 
     /**
+     * Check if the HTTP_DNT (Do Not Track) is set
+     */
+    public function getDoNotTrack(): bool
+    {
+        return (array_key_exists('HTTP_DNT', $_SERVER) && ((int) $_SERVER['HTTP_DNT'] === 1));
+    }
+
+    /**
      * Return true if PATH_INFO is enabled.
      */
     public function isPathInfoEnabled()
@@ -637,7 +645,7 @@ class PKPRequest
      */
     public function &getUserVars()
     {
-        $this->_requestVars ??= array_map(fn($s) => is_string($s) ? trim($s) : $s, array_merge($_GET, $_POST));
+        $this->_requestVars ??= array_map(fn ($s) => is_string($s) ? trim($s) : $s, array_merge($_GET, $_POST));
         return $this->_requestVars;
     }
 

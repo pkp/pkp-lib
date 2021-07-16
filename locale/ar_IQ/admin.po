@@ -145,6 +145,12 @@ msgstr "تذكير التحكيم"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "تذكير انتهاء صلاحية الاشتراك"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "مهمة تحميل ملف إحصائيات الاستعمال"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "تعذر فتح الملف {$file} ولذا تم رفضه."
+
 msgid "admin.server.apacheVersion"
 msgstr "رقم نسخة Apache"
 

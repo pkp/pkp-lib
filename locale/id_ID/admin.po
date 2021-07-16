@@ -295,6 +295,12 @@ msgstr ""
 msgid "admin.settings"
 msgstr "Pengaturan"
 
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "File {$file} tidak bisa dibuka sehingga ditolak."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Beban loader file statistik pemakaian"
+
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Pengingat masa habis berlangganan"
 

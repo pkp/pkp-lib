@@ -140,6 +140,12 @@ msgstr "Lembrete de avaliador"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Lembrete de expiração de assinatura"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tarefa do carregador de arquivo de estatísticas de uso"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "O arquivo {$file} não pôde ser aberto e foi rejeitado."
+
 msgid "admin.server.apacheVersion"
 msgstr "Versão do Apache"
 

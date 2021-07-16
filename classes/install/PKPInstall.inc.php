@@ -130,6 +130,7 @@ class PKPInstall extends Installer
         } else {
             // Create required subdirectories
             $dirsToCreate = $this->getCreateDirectories();
+            $dirsToCreate[] = 'usageStats';
             $fileManager = new FileManager();
             foreach ($dirsToCreate as $dirName) {
                 $dirToCreate = $this->getParam('filesDir') . '/' . $dirName;

@@ -13,13 +13,15 @@
  * @brief Handle requests for statistics pages.
  */
 
+use APP\core\Application;
 use APP\core\Request;
+use APP\core\Services;
 use APP\facades\Repo;
 
 use APP\handler\Handler;
-use APP\statistics\StatisticsHelper;
 
 use APP\template\TemplateManager;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
@@ -240,9 +242,9 @@ class PKPStatsHandler extends Handler
         $dateEnd = date('Y-m-d', strtotime('yesterday'));
         $count = 30;
 
-        $timeline = Services::get('stats')->getTimeline(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, [
-            'assocTypes' => ASSOC_TYPE_SUBMISSION,
-            'contextIds' => $context->getId(),
+        $timeline = Services::get('publicationStats')->getTimeline(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, [
+            'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION],
+            'contextIds' => [$context->getId()],
             'count' => $count,
             'dateStart' => $dateStart,
             'dateEnd' => $dateEnd,
@@ -253,7 +255,7 @@ class PKPStatsHandler extends Handler
             [
                 'timeline' => $timeline,
                 'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_DAY,
-                'timelineType' => 'abstract',
+                'timelineType' => 'timeline',
                 'tableColumns' => [
                     [
                         'name' => 'title',
@@ -283,6 +285,11 @@ class PKPStatsHandler extends Handler
                         'name' => 'other',
                         'label' => __('common.other'),
                         'value' => 'otherViews',
+                    ],
+                    [
+                        'name' => 'suppFileViews',
+                        'label' => __('stats.suppFileViews'),
+                        'value' => 'suppFileViews',
                     ],
                     [
                         'name' => 'total',

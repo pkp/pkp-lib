@@ -163,6 +163,12 @@ msgstr "Recordatori de revisió"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Recordatori de caducitat de la subscripció"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tasca de càrrega d'arxius d'estadístiques d'ús"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "L'arxiu {$file} no s'ha pogut obrir i s'ha rebutjat."
+
 msgid "admin.server.apacheVersion"
 msgstr "Versió d’Apache"
 

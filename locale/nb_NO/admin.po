@@ -325,6 +325,12 @@ msgstr ""
 "<br>Velg ett av de konfigurerte målene som standard.\n"
 "\t"
 
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Filen {$file} kunne ikke åpnes, og ble avvist."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Bruksstatistikk  over fillaster-oppgave"
+
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Påminnelse om at abonnementet løper ut"
 

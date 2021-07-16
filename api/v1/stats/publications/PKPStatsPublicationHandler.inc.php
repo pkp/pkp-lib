@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/stats/PKPStatsHandler.inc.php
+ * @file api/v1/stats/publications/PKPStatsPublicationHandler.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -10,14 +10,16 @@
  * @class PKPStatsPublicationHandler
  * @ingroup api_v1_stats
  *
- * @brief Handle API requests for publication statistics.
+ * @brief Handle API requests for submission statistics.
  *
  */
 
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
+use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -25,7 +27,8 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
-use PKP\statistics\PKPStatisticsHelper;
+use Slim\Http\Request as SlimHttpRequest;
+use Sokil\IsoCodes\IsoCodesFactory;
 
 abstract class PKPStatsPublicationHandler extends APIHandler
 {
@@ -44,13 +47,8 @@ abstract class PKPStatsPublicationHandler extends APIHandler
                     'roles' => $roles
                 ],
                 [
-                    'pattern' => $this->getEndpointPattern() . '/abstract',
-                    'handler' => [$this, 'getManyAbstract'],
-                    'roles' => $roles
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/galley',
-                    'handler' => [$this, 'getManyGalley'],
+                    'pattern' => $this->getEndpointPattern() . '/timeline',
+                    'handler' => [$this, 'getManyTimeline'],
                     'roles' => $roles
                 ],
                 [
@@ -59,13 +57,28 @@ abstract class PKPStatsPublicationHandler extends APIHandler
                     'roles' => $roles
                 ],
                 [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/abstract',
-                    'handler' => [$this, 'getAbstract'],
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/timeline',
+                    'handler' => [$this, 'getTimeline'],
                     'roles' => $roles
                 ],
                 [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/galley',
-                    'handler' => [$this, 'getGalley'],
+                    'pattern' => $this->getEndpointPattern() . '/files',
+                    'handler' => [$this, 'getManyFiles'],
+                    'roles' => $roles
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/countries',
+                    'handler' => [$this, 'getManyCountries'],
+                    'roles' => $roles
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/regions',
+                    'handler' => [$this, 'getManyRegions'],
+                    'roles' => $roles
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/cities',
+                    'handler' => [$this, 'getManyCities'],
                     'roles' => $roles
                 ],
             ],
@@ -73,9 +86,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         parent::__construct();
     }
 
-    //
-    // Implement methods from PKPHandler
-    //
+    /**
+     * @copydoc PKPHandler::authorize()
+     */
     public function authorize($request, &$args, $roleAssignments)
     {
         $routeName = null;
@@ -104,30 +117,17 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      *
      * Returns total views by abstract, all galleys, pdf galleys,
      * html galleys, and other galleys.
-     *
-     * @param Request $slimRequest Slim request object
-     * @param object $response Response
-     * @param array $args
-     *
-     * @return object Response
      */
-    public function getMany($slimRequest, $response, $args)
+    public function getMany(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
-        $request = $this->getRequest();
-
-        if (!$request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
 
         $defaultParams = [
             'count' => 30,
             'offset' => 0,
-            'orderDirection' => PKPStatisticsHelper::STATISTICS_ORDER_DESC,
+            'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
         ];
-
-        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-        $allowedParams = $this->_processAllowedParams($requestParams, [
+        $initAllowedParams = [
             'dateStart',
             'dateEnd',
             'count',
@@ -136,321 +136,158 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'searchPhrase',
             $this->sectionIdsQueryParam,
             'submissionIds',
-        ]);
-
-        $allowedParams['contextIds'] = $request->getContext()->getId();
+        ];
+        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
         HookRegistry::call('API::stats::publications::params', [&$allowedParams, $slimRequest]);
 
-        $result = $this->_validateStatDates($allowedParams);
-        if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
-        }
-
-        if (!in_array($allowedParams['orderDirection'], [PKPStatisticsHelper::STATISTICS_ORDER_ASC, PKPStatisticsHelper::STATISTICS_ORDER_DESC])) {
-            return $response->withStatus(400)->withJsonError('api.stats.400.invalidOrderDirection');
-        }
-
-        // Identify submissions which should be included in the results when a searchPhrase is passed
-        if (!empty($allowedParams['searchPhrase'])) {
-            $allowedSubmissionIds = empty($allowedParams['submissionIds']) ? [] : $allowedParams['submissionIds'];
-            $allowedParams['submissionIds'] = $this->_processSearchPhrase($allowedParams['searchPhrase'], $allowedSubmissionIds);
-
-            if (empty($allowedParams['submissionIds'])) {
+        // Check/validate, filter and sanitize the request params
+        try {
+            $allowedParams = $this->validateParams($allowedParams);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 200) {
+                if ($responseCSV) {
+                    $csvColumnNames = $this->_getSubmissionReportColumnNames();
+                    return $response->withCSV([], $csvColumnNames, 0);
+                }
                 return $response->withJson([
                     'items' => [],
                     'itemsMax' => 0,
                 ], 200);
             }
+            return $response->withStatus($e->getCode())->withJsonError($e->getMessage());
         }
 
-        // Get a list of top publications by total abstract and file views
-        $statsService = Services::get('stats');
-        $totals = $statsService->getOrderedObjects(PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, $allowedParams['orderDirection'], array_merge($allowedParams, [
-            'assocTypes' => [ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_SUBMISSION_FILE]
-        ]));
+        $statsService = Services::get('publicationStats');
+        // Get a list of top submissions by total views
+        $totalMetrics = $statsService->getTotals($allowedParams);
 
-        // Get the stats for each publication
+        // Get the stats for each submission
         $items = [];
-        foreach ($totals as $total) {
-            if (empty($total['id'])) {
-                continue;
+        foreach ($totalMetrics as $totalMetric) {
+            $submissionId = $totalMetric->submission_id;
+
+            // get abstract, pdf, html and other views for the submission
+            $dateStart = array_key_exists('dateStart', $allowedParams) ? $allowedParams['dateStart'] : null;
+            $dateEnd = array_key_exists('dateEnd', $allowedParams) ? $allowedParams['dateEnd'] : null;
+            $metricsByType = $statsService->getTotalsByType($submissionId, $this->getRequest()->getContext()->getId(), $dateStart, $dateEnd);
+
+            if ($responseCSV) {
+                $items[] = $this->getItemForCSV($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other'], $metricsByType['suppFileViews']);
+            } else {
+                $items[] = $this->getItemForJSON($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other'], $metricsByType['suppFileViews']);
             }
-
-            $galleyRecords = $statsService->getRecords(array_merge($allowedParams, [
-                'assocTypes' => ASSOC_TYPE_SUBMISSION_FILE,
-                'submissionIds' => [$total['id']],
-            ]));
-
-            // Get the galley totals for each file type (pdf, html, other)
-            $galleyViews = array_reduce($galleyRecords, [$statsService, 'sumMetric'], 0);
-            $pdfViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordPdf']), [$statsService, 'sumMetric'], 0);
-            $htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
-            $otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
-
-            // Get the abstract records
-            $abstractRecords = $statsService->getRecords(array_merge($allowedParams, [
-                'assocTypes' => ASSOC_TYPE_SUBMISSION,
-                'submissionIds' => [$total['id']],
-            ]));
-            $abstractViews = array_reduce($abstractRecords, [$statsService, 'sumMetric'], 0);
-
-            // Get basic submission details for display
-            // Stats may exist for deleted submissions
-            $submissionProps = ['id' => $total['id']];
-            $submission = Repo::submission()->get($total['id']);
-            if ($submission) {
-                $submissionProps = Repo::submission()->getSchemaMap()->mapToStats($submission);
-            }
-
-            $items[] = [
-                'abstractViews' => $abstractViews,
-                'galleyViews' => $galleyViews,
-                'pdfViews' => $pdfViews,
-                'htmlViews' => $htmlViews,
-                'otherViews' => $otherViews,
-                'publication' => $submissionProps,
-            ];
         }
 
-        // Get a count of all submission ids that have stats matching this request
-        $statsQB = new \PKP\services\queryBuilders\PKPStatsQueryBuilder();
-        $statsQB
-            ->filterByContexts(\Application::get()->getRequest()->getContext()->getId())
-            ->before($allowedParams['dateEnd'] ?? PKPStatisticsHelper::STATISTICS_YESTERDAY)
-            ->after($allowedParams['dateStart'] ?? PKPStatisticsHelper::STATISTICS_EARLIEST_DATE);
-        if (isset($allowedParams[$this->sectionIdsQueryParam])) {
-            $statsQB->filterBySections($allowedParams[$this->sectionIdsQueryParam]);
+        // Get the total count of submissions
+        $itemsMax = $statsService->getCount($allowedParams);
+        if ($responseCSV) {
+            $csvColumnNames = $this->_getSubmissionReportColumnNames();
+            return $response->withCSV($items, $csvColumnNames, $itemsMax);
         }
-        if (isset($allowedParams['submissionIds'])) {
-            $statsQB->filterBySubmissions($allowedParams['submissionIds']);
-        }
-        $statsQO = $statsQB->getSubmissionIds();
-
-        $metricsDao = \DAORegistry::getDAO('MetricsDAO'); /** @var MetricsDAO */
         return $response->withJson([
             'items' => $items,
-            'itemsMax' => $metricsDao->countRecords($statsQO->toSql(), $statsQO->getBindings()),
+            'itemsMax' => $itemsMax,
         ], 200);
     }
 
     /**
-     * Get the total abstract views for a set of publications
-     * in a timeline broken down month or day
-     *
-     * @param Request $slimRequest Slim request object
-     * @param object $response Response
-     * @param array $args
-     *
-     * @return object Response
+     * Get the total abstract or files views for a set of submissions
+     * in a timeline broken down by month or day
      */
-    public function getManyAbstract($slimRequest, $response, $args)
+    public function getManyTimeline(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
-        $request = $this->getRequest();
-
-        if (!$request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
         $defaultParams = [
-            'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH,
+            'timelineInterval' => StatisticsHelper::STATISTICS_DIMENSION_MONTH,
         ];
-
-        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-        $allowedParams = $this->_processAllowedParams($requestParams, [
+        $initAllowedParams = [
             'dateStart',
             'dateEnd',
             'timelineInterval',
             'searchPhrase',
             $this->sectionIdsQueryParam,
             'submissionIds',
-        ]);
-
-        HookRegistry::call('API::stats::publications::abstract::params', [&$allowedParams, $slimRequest]);
-
-        if (!in_array($allowedParams['timelineInterval'], [PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH])) {
-            return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
-        }
-
-        $result = $this->_validateStatDates($allowedParams);
-        if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
-        }
-
-        $allowedParams['contextIds'] = $request->getContext()->getId();
-        $allowedParams['assocTypes'] = ASSOC_TYPE_SUBMISSION;
-
-        // Identify submissions which should be included in the results when a searchPhrase is passed
-        if (!empty($allowedParams['searchPhrase'])) {
-            $allowedSubmissionIds = empty($allowedParams['submissionIds']) ? [] : $allowedParams['submissionIds'];
-            $allowedParams['submissionIds'] = $this->_processSearchPhrase($allowedParams['searchPhrase'], $allowedSubmissionIds);
-
-            if (empty($allowedParams['submissionIds'])) {
-                $dateStart = empty($allowedParams['dateStart']) ? PKPStatisticsHelper::STATISTICS_EARLIEST_DATE : $allowedParams['dateStart'];
-                $dateEnd = empty($allowedParams['dateEnd']) ? date('Ymd', strtotime('yesterday')) : $allowedParams['dateEnd'];
-                $emptyTimeline = \Services::get('stats')->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
-                return $response->withJson($emptyTimeline, 200);
-            }
-        }
-
-        $data = Services::get('stats')->getTimeline($allowedParams['timelineInterval'], $allowedParams);
-
-        return $response->withJson($data, 200);
-    }
-
-    /**
-     * Get the total galley views for a set of publications
-     * in a timeline broken down month or day
-     *
-     * @param Request $slimRequest Slim request object
-     * @param object $response Response
-     * @param array $args
-     *
-     * @return object Response
-     */
-    public function getManyGalley($slimRequest, $response, $args)
-    {
-        $request = $this->getRequest();
-
-        if (!$request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
-        $defaultParams = [
-            'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH,
+            'type'
         ];
-
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
 
-        $allowedParams = $this->_processAllowedParams($requestParams, [
-            'dateStart',
-            'dateEnd',
-            'timelineInterval',
-            'searchPhrase',
-            $this->sectionIdsQueryParam,
-            'submissionIds',
-        ]);
+        HookRegistry::call('API::stats::publications::timeline::params', [&$allowedParams, $slimRequest]);
 
-        \HookRegistry::call('API::stats::publications::galley::params', [&$allowedParams, $slimRequest]);
-
-        if (!in_array($allowedParams['timelineInterval'], [PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH])) {
-            return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
-        }
-
-        $result = $this->_validateStatDates($allowedParams);
-        if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
-        }
-
-        $allowedParams['contextIds'] = $request->getContext()->getId();
-        $allowedParams['assocTypes'] = ASSOC_TYPE_SUBMISSION_FILE;
-
-        // Identify submissions which should be included in the results when a searchPhrase is passed
-        if (!empty($allowedParams['searchPhrase'])) {
-            $allowedSubmissionIds = empty($allowedParams['submissionIds']) ? [] : $allowedParams['submissionIds'];
-            $allowedParams['submissionIds'] = $this->_processSearchPhrase($allowedParams['searchPhrase'], $allowedSubmissionIds);
-
-            if (empty($allowedParams['submissionIds'])) {
-                $dateStart = empty($allowedParams['dateStart']) ? PKPStatisticsHelper::STATISTICS_EARLIEST_DATE : $allowedParams['dateStart'];
+        $statsService = Services::get('publicationStats');
+        // Check/validate, filter and sanitize the request params
+        try {
+            $allowedParams = $this->validateParams($allowedParams);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 200) {
+                $dateStart = empty($allowedParams['dateStart']) ? StatisticsHelper::STATISTICS_EARLIEST_DATE : $allowedParams['dateStart'];
                 $dateEnd = empty($allowedParams['dateEnd']) ? date('Ymd', strtotime('yesterday')) : $allowedParams['dateEnd'];
-                $emptyTimeline = \Services::get('stats')->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
+                $emptyTimeline = $statsService->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
                 return $response->withJson($emptyTimeline, 200);
             }
+            return $response->withStatus($e->getCode())->withJsonError($e->getMessage());
         }
 
-        $data = \Services::get('stats')->getTimeline($allowedParams['timelineInterval'], $allowedParams);
-
+        $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION];
+        if (array_key_exists('type', $allowedParams) && $allowedParams['type'] == 'files') {
+            $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER];
+        };
+        $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
         return $response->withJson($data, 200);
     }
 
     /**
-     * Get a single publication's usage statistics
-     *
-     * @param object $slimRequest Request Slim request
-     * @param object $response Response
-     * @param array $args
-     *
-     * @return object Response
+     * Get a single submission's usage statistics
      */
-    public function get($slimRequest, $response, $args)
+    public function get(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
         $request = $this->getRequest();
 
-        if (!$request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $allowedParams = $this->_processAllowedParams($slimRequest->getQueryParams(), [
             'dateStart',
             'dateEnd',
         ]);
 
-        \HookRegistry::call('API::stats::publication::params', [&$allowedParams, $slimRequest]);
+        HookRegistry::call('API::stats::publication::params', [&$allowedParams, $slimRequest]);
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
             return $response->withStatus(400)->withJsonError($result);
         }
 
-        $allowedParams['submissionIds'] = [$submission->getId()];
-        $allowedParams['contextIds'] = $request->getContext()->getId();
+        $statsService = Services::get('publicationStats');
+        // get abstract, pdf, html and other views for the submission
+        $dateStart = array_key_exists('dateStart', $allowedParams) ? $allowedParams['dateStart'] : null;
+        $dateEnd = array_key_exists('dateEnd', $allowedParams) ? $allowedParams['dateEnd'] : null;
+        $metricsByType = $statsService->getTotalsByType($submission->getId(), $request->getContext()->getId(), $dateStart, $dateEnd);
 
-        $statsService = Services::get('stats');
-
-        $abstractRecords = $statsService->getRecords(array_merge($allowedParams, [
-            'assocTypes' => [ASSOC_TYPE_SUBMISSION],
-        ]));
-        $abstractViews = array_reduce($abstractRecords, [$statsService, 'sumMetric'], 0);
-
-        // Get the galley totals for each file type (pdf, html, other)
-        $galleyRecords = $statsService->getRecords(array_merge($allowedParams, [
-            'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
-        ]));
-        $galleyViews = array_reduce($galleyRecords, [$statsService, 'sumMetric'], 0);
-        $pdfViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordPdf']), [$statsService, 'sumMetric'], 0);
-        $htmlViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordHtml']), [$statsService, 'sumMetric'], 0);
-        $otherViews = array_reduce(array_filter($galleyRecords, [$statsService, 'filterRecordOther']), [$statsService, 'sumMetric'], 0);
-
-        $submission = Repo::submission()->get($total['id']);
-
+        $galleyViews = $metricsByType['pdf'] + $$metricsByType['html'] + $metricsByType['other'];
         return $response->withJson([
-            'abstractViews' => $abstractViews,
+            'abstractViews' => $metricsByType['abstract'],
             'galleyViews' => $galleyViews,
-            'pdfViews' => $pdfViews,
-            'htmlViews' => $htmlViews,
-            'otherViews' => $otherViews,
+            'pdfViews' => $metricsByType['pdf'],
+            'htmlViews' => $metricsByType['html'],
+            'otherViews' => $metricsByType['other'],
+            'suppFileViews' => $metricsByType['suppFileViews'],
             'publication' => Repo::submission()->getSchemaMap()->mapToStats($submission),
         ], 200);
     }
 
     /**
-     * Get the total abstract views for a set of publications broken down by
+     * Get the total abstract of files views for a submission broken down by
      * month or day
-     *
-     * @param Request $slimRequest Slim request object
-     * @param object $response Response
-     * @param array $args
-     *
-     * @return object Response
      */
-    public function getAbstract($slimRequest, $response, $args)
+    public function getTimeline(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
         $request = $this->getRequest();
 
-        if (!$request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        if (!$submission) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $defaultParams = [
-            'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH,
+            'timelineInterval' => StatisticsHelper::STATISTICS_DIMENSION_MONTH,
         ];
 
         $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
@@ -461,75 +298,389 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             'timelineInterval',
         ]);
 
-        $allowedParams['contextIds'] = $request->getContext()->getId();
-        $allowedParams['submissionIds'] = $submission->getId();
-        $allowedParams['assocTypes'] = ASSOC_TYPE_SUBMISSION;
-        $allowedParams['assocIds'] = $submission->getId();
+        HookRegistry::call('API::stats::publication::timeline::params', [&$allowedParams, $slimRequest]);
 
-        \HookRegistry::call('API::stats::publication::abstract::params', [&$allowedParams, $slimRequest]);
+        $allowedParams['contextIds'] = [$request->getContext()->getId()];
+        $allowedParams['submissionIds'] = [$submission->getId()];
+        $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION];
+        if (array_key_exists('type', $allowedParams) && $allowedParams['type'] == 'files') {
+            $allowedParams['assocTypes'] = [Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER];
+        };
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
             return $response->withStatus(400)->withJsonError($result);
         }
 
-        $statsService = \Services::get('stats');
+        if (!in_array($allowedParams['timelineInterval'], [StatisticsHelper::STATISTICS_DIMENSION_DAY, StatisticsHelper::STATISTICS_DIMENSION_MONTH])) {
+            return $response->withStatus(400)->withJsonError('api.stats.400.invalidTimelineInterval');
+        }
+
+        $statsService = Services::get('publicationStats');
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
         return $response->withJson($data, 200);
     }
 
     /**
-     * Get the total galley views for a publication broken down by
-     * month or day
-     *
-     * @param Request $slimRequest Slim request object
-     * @param object $response Response
-     * @param array $args
-     *
-     * @return object Response
+     * Get total usage stats for a set of submission files.
      */
-    public function getGalley($slimRequest, $response, $args)
+    public function getManyFiles(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    {
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+
+        $defaultParams = [
+            'count' => 30,
+            'offset' => 0,
+            'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
+        ];
+        $initAllowedParams = [
+            'dateStart',
+            'dateEnd',
+            'count',
+            'offset',
+            'orderDirection',
+            'searchPhrase',
+            $this->sectionIdsQueryParam,
+            'submissionIds',
+        ];
+        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
+
+        HookRegistry::call('API::stats::publications::files::params', [&$allowedParams, $slimRequest]);
+
+        // Check/validate, filter and sanitize the request params
+        try {
+            $allowedParams = $this->validateParams($allowedParams);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 200) {
+                if ($responseCSV) {
+                    $csvColumnNames = $this->_getFileReportColumnNames();
+                    return $response->withCSV([], $csvColumnNames, 0);
+                }
+                return $response->withJson([
+                    'items' => [],
+                    'itemsMax' => 0,
+                ], 200);
+            }
+            return $response->withStatus($e->getCode())->withJsonError($e->getMessage());
+        }
+
+        $statsService = Services::get('publicationStats');
+        $filesMetrics = $statsService->getFilesTotals($allowedParams);
+
+        $items = $submissionTitles = [];
+        foreach ($filesMetrics as $fileMetric) {
+            $submissionId = $fileMetric->submission_id;
+            $submissionFileId = $fileMetric->submission_file_id;
+            $downloads = $fileMetric->metric;
+
+            if (!isset($submissionTitles[$submissionId])) {
+                $submission = Repo::submission()->get($submissionId);
+                $submissionTitles[$submissionId] = $submission->getCurrentPublication()->getLocalizedTitle();
+            }
+
+            if ($responseCSV) {
+                $items[] = $this->getFilesCSVItem($submissionFileId, $downloads, $submissionId, $submissionTitles[$submissionId]);
+            } else {
+                $items[] = $this->getFilesJSONItem($submissionFileId, $downloads, $submissionId, $submissionTitles[$submissionId]);
+            }
+        }
+
+        // Get the total count of submissions files
+        $itemsMax = $statsService->getFilesCount($allowedParams);
+        if ($responseCSV) {
+            $csvColumnNames = $this->_getFileReportColumnNames();
+            return $response->withCSV($items, $csvColumnNames, $itemsMax);
+        }
+        return $response->withJson([
+            'items' => $items,
+            'itemsMax' => $itemsMax,
+        ], 200);
+    }
+
+    /**
+     * Get usage stats for a set of countries
+     *
+     * Returns total count of views, downloads, unique views and unique downloads in a country
+     */
+    public function getManyCountries(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    {
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+
+        $defaultParams = [
+            'count' => 30,
+            'offset' => 0,
+            'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
+        ];
+        $initAllowedParams = [
+            'dateStart',
+            'dateEnd',
+            'count',
+            'offset',
+            'orderDirection',
+            'searchPhrase',
+            $this->sectionIdsQueryParam,
+            'submissionIds',
+        ];
+        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
+
+        HookRegistry::call('API::stats::publications::countries::params', [&$allowedParams, $slimRequest]);
+
+        // Check/validate, filter and sanitize the request params
+        try {
+            $allowedParams = $this->validateParams($allowedParams);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 200) {
+                if ($responseCSV) {
+                    $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_COUNTRY);
+                    return $response->withCSV([], $csvColumnNames, 0);
+                }
+                return $response->withJson([
+                    'items' => [],
+                    'itemsMax' => 0,
+                ], 200);
+            }
+            return $response->withStatus($e->getCode())->withJsonError($e->getMessage());
+        }
+
+        $statsService = Services::get('geoStats');
+        // Get a list of top countries by total views
+        $totals = $statsService->getTotals($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_COUNTRY);
+
+        // Get the stats for each country
+        $items = [];
+        $isoCodes = app(IsoCodesFactory::class);
+        foreach ($totals as $total) {
+            $country = !empty($total->country) ? $isoCodes->getCountries()->getByAlpha2($total->country) : null;
+            $countryName = $country ? $country->getLocalName() : $total->country;
+
+            $metric = $total->metric;
+            $metric_unique = $total->metric_unique;
+            if ($responseCSV) {
+                $items[] = $this->getGeoCSVItem($metric, $metric_unique, $countryName);
+            } else {
+                $items[] = $this->getGeoJSONItem($metric, $metric_unique, $countryName);
+            }
+        }
+
+        // Get the total count of countries
+        $itemsMax = $statsService->getCount($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_COUNTRY);
+        if ($responseCSV) {
+            $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_COUNTRY);
+            return $response->withCSV($items, $csvColumnNames, $itemsMax);
+        }
+        return $response->withJson([
+            'items' => $items,
+            'itemsMax' => $itemsMax,
+        ], 200);
+    }
+
+    /**
+     * Get usage stats for set of regions
+     *
+     * Returns total count of views, downloads, unique views and unique downloads in a region
+     */
+    public function getManyRegions(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    {
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+
+        $defaultParams = [
+            'count' => 30,
+            'offset' => 0,
+            'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
+        ];
+        $initAllowedParams = [
+            'dateStart',
+            'dateEnd',
+            'count',
+            'offset',
+            'orderDirection',
+            'searchPhrase',
+            $this->sectionIdsQueryParam,
+            'submissionIds',
+        ];
+        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
+
+        HookRegistry::call('API::stats::publications::regions::params', [&$allowedParams, $slimRequest]);
+
+        // Check/validate, filter and sanitize the request params
+        try {
+            $allowedParams = $this->validateParams($allowedParams);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 200) {
+                if ($responseCSV) {
+                    $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_REGION);
+                    return $response->withCSV([], $csvColumnNames, 0);
+                }
+                return $response->withJson([
+                    'items' => [],
+                    'itemsMax' => 0,
+                ], 200);
+            }
+            return $response->withStatus($e->getCode())->withJsonError($e->getMessage());
+        }
+
+        $statsService = Services::get('geoStats');
+        // Get a list of top regions by total views
+        $totals = $statsService->getTotals($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_REGION);
+
+        // Get the stats for each region
+        $items = [];
+        $isoCodes = app(IsoCodesFactory::class);
+        foreach ($totals as $total) {
+            $country = !empty($total->country) ? $isoCodes->getCountries()->getByAlpha2($total->country) : null;
+            $countryName = $country ? $country->getLocalName() : __('stats.unknown');
+            $regionName = !empty($total->region) ? $total->region : __('stats.unknown');
+            if (!empty($total->country) && !empty($total->region)) {
+                $regionCode = $total->country . '-' . $total->region;
+                $region = $isoCodes->getSubdivisions()->getByCode($regionCode);
+                $regionName = $region ? $region->getLocalName() : $regionCode;
+            }
+
+            $metric = $total->metric;
+            $metric_unique = $total->metric_unique;
+            if ($responseCSV) {
+                $items[] = $this->getGeoCSVItem($metric, $metric_unique, $countryName, $regionName);
+            } else {
+                $items[] = $this->getGeoJSONItem($metric, $metric_unique, $countryName, $regionName);
+            }
+        }
+
+        // Get the total count of regions
+        $itemsMax = $statsService->getCount($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_REGION);
+        if ($responseCSV) {
+            $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_REGION);
+            return $response->withCSV($items, $csvColumnNames, $itemsMax);
+        }
+        return $response->withJson([
+            'items' => $items,
+            'itemsMax' => $itemsMax,
+        ], 200);
+    }
+
+    /**
+     * Get usage stats for set of cities
+     *
+     * Returns total count of views, downloads, unique views and unique downloads in a city
+     */
+    public function getManyCities(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    {
+        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+
+        $defaultParams = [
+            'count' => 30,
+            'offset' => 0,
+            'orderDirection' => StatisticsHelper::STATISTICS_ORDER_DESC,
+        ];
+        $initAllowedParams = [
+            'dateStart',
+            'dateEnd',
+            'count',
+            'offset',
+            'orderDirection',
+            'searchPhrase',
+            $this->sectionIdsQueryParam,
+            'submissionIds',
+        ];
+        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $allowedParams = $this->_processAllowedParams($requestParams, $initAllowedParams);
+
+        HookRegistry::call('API::stats::publications::cities::params', [&$allowedParams, $slimRequest]);
+
+        // Check/validate, filter and sanitize the request params
+        try {
+            $allowedParams = $this->validateParams($allowedParams);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 200) {
+                if ($responseCSV) {
+                    $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_CITY);
+                    return $response->withCSV([], $csvColumnNames, 0);
+                }
+                return $response->withJson([
+                    'items' => [],
+                    'itemsMax' => 0,
+                ], 200);
+            }
+            return $response->withStatus($e->getCode())->withJsonError($e->getMessage());
+        }
+
+        $statsService = Services::get('geoStats');
+        // Get a list of top cities by total views
+        $totals = $statsService->getTotals($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_CITY);
+
+        // Get the stats for each city
+        $items = [];
+        $isoCodes = app(IsoCodesFactory::class);
+        foreach ($totals as $total) {
+            $country = !empty($total->country) ? $isoCodes->getCountries()->getByAlpha2($total->country) : null;
+            $countryName = $country ? $country->getLocalName() : __('stats.unknown');
+            $regionName = !empty($total->region) ? $total->region : __('stats.unknown');
+            if (!empty($total->country) && !empty($total->region)) {
+                $regionCode = $total->country . '-' . $total->region;
+                $region = $isoCodes->getSubdivisions()->getByCode($regionCode);
+                $regionName = $region ? $region->getLocalName() : $regionCode;
+            }
+            $cityName = !empty($total->city) ? $total->city : __('stats.unknown');
+
+            $metric = $total->metric;
+            $metric_unique = $total->metric_unique;
+            if ($responseCSV) {
+                $items[] = $this->getGeoCSVItem($metric, $metric_unique, $countryName, $regionName, $cityName);
+            } else {
+                $items[] = $this->getGeoJSONItem($metric, $metric_unique, $countryName, $regionName, $cityName);
+            }
+        }
+
+        // Get the total count of cities
+        $itemsMax = $statsService->getCount($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_CITY);
+        if ($responseCSV) {
+            $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_CITY);
+            return $response->withCSV($items, $csvColumnNames, $itemsMax);
+        }
+        return $response->withJson([
+            'items' => $items,
+            'itemsMax' => $itemsMax,
+        ], 200);
+    }
+
+    /**
+     * Validate, filter, sanitize the params
+     *
+     * @throws Exception
+     */
+    protected function validateParams(array $allowedParams): array
     {
         $request = $this->getRequest();
 
-
-        if (!$request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        if (!$submission) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
-        $defaultParams = [
-            'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH,
-        ];
-
-        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
-
-        $allowedParams = $this->_processAllowedParams($requestParams, [
-            'dateStart',
-            'dateEnd',
-            'timelineInterval',
-        ]);
-
-        $allowedParams['contextIds'] = $request->getContext()->getId();
-        $allowedParams['submissionIds'] = $submission->getId();
-        $allowedParams['assocTypes'] = ASSOC_TYPE_SUBMISSION_FILE;
-
-        \HookRegistry::call('API::stats::publication::galley::params', [&$allowedParams, $slimRequest]);
+        $allowedParams['contextIds'] = [$request->getContext()->getId()];
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
+            throw new Exception($result, 400);
         }
 
-        $statsService = \Services::get('stats');
-        $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
+        if (array_key_exists('orderDirection', $allowedParams) && !in_array($allowedParams['orderDirection'], [StatisticsHelper::STATISTICS_ORDER_ASC, StatisticsHelper::STATISTICS_ORDER_DESC])) {
+            throw new Exception('api.stats.400.invalidOrderDirection', 400);
+        }
 
-        return $response->withJson($data, 200);
+        if (array_key_exists('timelineInterval', $allowedParams) && !$this->isValidTimelineInterval($allowedParams['timelineInterval'])) {
+            return new Exception('api.stats.400.invalidTimelineInterval', 400);
+        }
+
+        // Identify submissions which should be included in the results when a searchPhrase is passed
+        if (!empty($allowedParams['searchPhrase'])) {
+            $allowedSubmissionIds = empty($allowedParams['submissionIds']) ? [] : $allowedParams['submissionIds'];
+            $allowedParams['submissionIds'] = $this->_processSearchPhrase($allowedParams['searchPhrase'], $allowedSubmissionIds);
+
+            if (empty($allowedParams['submissionIds'])) {
+                throw new Exception('', 200);
+            }
+            unset($allowedParams['searchPhrase']);
+        }
+        return $allowedParams;
     }
 
     /**
@@ -537,13 +688,8 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      *
      * Only allows the specified params through and enforces variable
      * type where needed.
-     *
-     * @param array $requestParams
-     * @param array $allowedParams
-     *
-     * @return array
      */
-    protected function _processAllowedParams($requestParams, $allowedParams)
+    protected function _processAllowedParams(array $requestParams, array $allowedParams): array
     {
         $returnParams = [];
         foreach ($requestParams as $requestParam => $value) {
@@ -555,6 +701,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
                 case 'dateEnd':
                 case 'timelineInterval':
                 case 'searchPhrase':
+                case 'type':
                     $returnParams[$requestParam] = $value;
                     break;
 
@@ -571,6 +718,13 @@ abstract class PKPStatsPublicationHandler extends APIHandler
                     break;
 
                 case $this->sectionIdsQueryParam:
+                    if (is_string($value) && str_contains($value, ',')) {
+                        $value = explode(',', $value);
+                    } elseif (!is_array($value)) {
+                        $value = [$value];
+                    }
+                    $returnParams['pkpSectionIds'] = array_map('intval', $value);
+                    break;
                 case 'submissionIds':
                     if (is_string($value) && str_contains($value, ',')) {
                         $value = explode(',', $value);
@@ -579,11 +733,10 @@ abstract class PKPStatsPublicationHandler extends APIHandler
                     }
                     $returnParams[$requestParam] = array_map('intval', $value);
                     break;
-
             }
         }
-
-        // Get the earliest date of publication if no start date set
+        /*
+        // Get the context's earliest date of publication if no start date is set
         if (in_array('dateStart', $allowedParams) && !isset($returnParams['dateStart'])) {
             $dateRange = Repo::publication()->getDateBoundaries(
                 Repo::publication()
@@ -592,7 +745,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
             );
             $returnParams['dateStart'] = $dateRange->min_date_published;
         }
-
+        */
         return $returnParams;
     }
 
@@ -601,14 +754,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      * param is also passed.
      *
      * If the searchPhrase and submissionIds params were both passed in the
-     * request, then we only return ids that match both conditions.
-     *
-     * @param string $searchPhrase
-     * @param array $submissionIds List of allowed submission Ids
-     *
-     * @return array submission ids
+     * request, then we only return IDs that match both conditions.
      */
-    protected function _processSearchPhrase($searchPhrase, $submissionIds = [])
+    protected function _processSearchPhrase(string $searchPhrase, array $submissionIds = []): array
     {
         $searchPhraseSubmissionIds = Repo::submission()->getIds(
             Repo::submission()
@@ -625,5 +773,196 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         }
 
         return $submissionIds;
+    }
+
+    /**
+     * Get column names for the submission CSV report
+     */
+    protected function _getSubmissionReportColumnNames(): array
+    {
+        return [
+            __('common.id'),
+            __('common.title'),
+            __('stats.total'),
+            __('submission.abstractViews'),
+            __('stats.fileViews'),
+            __('stats.pdf'),
+            __('stats.html'),
+            __('common.other'),
+            __('stats.suppFileViews')
+        ];
+    }
+
+    /**
+     * Get column names for the file CSV report
+     */
+    protected function _getFileReportColumnNames(): array
+    {
+        return [
+            __('common.id'),
+            __('common.title'),
+            __('stats.fileViews'),
+            __('common.publication') . ' ' . __('common.id'),
+            __('submission.title'),
+        ];
+    }
+
+    /**
+     * Get column names for the country, region and city CSV report
+     */
+    protected function _getGeoReportColumnNames(string $scale, bool $withPublication = false): array
+    {
+        $publicationColumns = [];
+        if ($withPublication) {
+            $publicationColumns = [
+                __('common.id'),
+                __('common.title')
+            ];
+        }
+        $scaleColumns = [];
+        if ($scale == StatisticsHelper::STATISTICS_DIMENSION_CITY) {
+            $scaleColumns = [
+                __('stats.city'),
+                __('stats.region')
+            ];
+        } elseif ($scale == StatisticsHelper::STATISTICS_DIMENSION_REGION) {
+            $scaleColumns = [__('stats.region')];
+        } elseif ($scale == StatisticsHelper::STATISTICS_DIMENSION_COUNTRY) {
+            $scaleColumns = [__('common.country'),];
+        }
+        return array_merge(
+            $publicationColumns,
+            $scaleColumns,
+            [__('stats.total'), __('stats.unique')]
+        );
+    }
+
+    /**
+     * Get the CSV row with submission metrics
+     */
+    protected function getItemForCSV(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $suppFileViews): array
+    {
+        $galleyViews = $pdfViews + $htmlViews + $otherViews;
+        $totalViews = $abstractViews + $galleyViews;
+
+        // Get submission title for display
+        $submission = Repo::submission()->get($submissionId);
+        $submissionTitle = $submission->getCurrentPublication()->getLocalizedTitle();
+
+        return [
+            $submissionId,
+            $submissionTitle,
+            $totalViews,
+            $abstractViews,
+            $galleyViews,
+            $pdfViews,
+            $htmlViews,
+            $otherViews,
+            $suppFileViews
+        ];
+    }
+
+    /**
+     * Get the JSON data with submission metrics
+     */
+    protected function getItemForJSON(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $suppFileViews): array
+    {
+        $galleyViews = $pdfViews + $htmlViews + $otherViews;
+
+        // Get basic submission details for display
+        $submission = Repo::submission()->get($submissionId);
+        $submissionProps = Repo::submission()->getSchemaMap()->mapToStats($submission);
+
+        return [
+            'abstractViews' => $abstractViews,
+            'galleyViews' => $galleyViews,
+            'pdfViews' => $pdfViews,
+            'htmlViews' => $htmlViews,
+            'otherViews' => $otherViews,
+            'suppFileViews' => $suppFileViews,
+            'publication' => $submissionProps,
+        ];
+    }
+
+    /**
+     * Get CSV row with file metrics
+     */
+    protected function getFilesCSVItem(int $submissionFileId, int $downloads, int $submissionId, string $submissionTitle): array
+    {
+        // Get submission file title for display
+        $submissionFile = Repo::submissionFile()->get($submissionFileId);
+        $title = $submissionFile->getLocalizedData('name');
+        return [
+            $submissionFileId,
+            $title,
+            $downloads,
+            $submissionId,
+            $submissionTitle
+        ];
+    }
+
+    /**
+     * Get JSON data with file metrics
+     */
+    protected function getFilesJSONItem(int $submissionFileId, int $downloads, int $submissionId, string $submissionTitle): array
+    {
+        // Get submission file title for display
+        $submissionFile = Repo::submissionFile()->get($submissionFileId);
+        $title = $submissionFile->getLocalizedData('name');
+        return [
+            'submissionFileId' => $submissionFileId,
+            'fileName' => $title,
+            'downloads' => $downloads,
+            'submissionId' => $submissionId,
+            'submissionTitle' => $submissionTitle
+        ];
+    }
+
+    /**
+     * Get CSV row with geographical (country, region, and/or city) metrics
+     */
+    protected function getGeoCSVItem(int $metric, int $metric_unique, string $country, ?string $region = null, ?string $city = null): array
+    {
+        $item = [];
+        if (isset($city)) {
+            $item[] = $city;
+        }
+        if (isset($region)) {
+            $item[] = $region;
+        }
+        return array_merge($item, [$country, $metric, $metric_unique]);
+    }
+
+    /**
+     * Get JSON data with geographical (country, region, and/or city) metrics
+     */
+    protected function getGeoJSONItem(int $metric, int $metric_unique, string $country, ?string $region = null, ?string $city = null): array
+    {
+        $item = [];
+        if (isset($city)) {
+            $item['city'] = $city;
+        }
+        if (isset($region)) {
+            $item['region'] = $region;
+        }
+        return array_merge(
+            $item,
+            [
+                'country' => $country,
+                'total' => $metric,
+                'unique' => $metric_unique
+            ]
+        );
+    }
+
+    /**
+     * Check if the timeline interval is valid
+     */
+    protected function isValidTimelineInterval(string $interval): bool
+    {
+        return in_array($interval, [
+            StatisticsHelper::STATISTICS_DIMENSION_DAY,
+            StatisticsHelper::STATISTICS_DIMENSION_MONTH
+        ]);
     }
 }

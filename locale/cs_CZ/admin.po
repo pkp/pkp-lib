@@ -234,6 +234,12 @@ msgstr "Připomenutí recenze"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Připomenutí vypršení předplatného"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Úloha nahrání souboru statistik využití"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Soubor {$file} nelze načíst a byl odmítnut."
+
 msgid "admin.settings"
 msgstr "Nastavení"
 

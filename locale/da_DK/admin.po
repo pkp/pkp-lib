@@ -263,6 +263,12 @@ msgstr "Påmindelse om bedømmelse"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Påmindelse om abonnementsophør"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Brugerstatistik over fil-loader-opgave"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Filen {$file} kunne ikke åbnes og blev afvist."
+
 msgid "admin.systemInfo.settingName"
 msgstr "Navn på indstilling"
 

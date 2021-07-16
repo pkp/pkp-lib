@@ -37,6 +37,32 @@
 				"type": "integer"
 			}
 		},
+		"archivedUsageStatsLogFiles": {
+			"type": "integer",
+			"description": "Defines what to do with the successfully processed and archived usage event log files. `0` will leave the files as they are. `1` will compress the files with gzip.",
+			"default": 0,
+			"validation": [
+				"in:0,1"
+			]
+		},
+		"enableGeoUsageStats": {
+			"type": "integer",
+			"description": "Enable Geo usage stats. `0` means that the Geo usage stats are disabled. `1` will enable the usage stats containing country information. `2` will enable, where possible, the usage stats containing country and region. `3` will enable, where possible, the usage stats containing country, region and city.",
+			"default": 0,
+			"validation": [
+				"in:0,1,2,3"
+			]
+		},
+		"enableInstitutionUsageStats": {
+			"type": "boolean",
+			"description": "Enable institution usage stats.",
+			"default": false
+		},
+		"usageStatsKeepDaily": {
+			"type": "boolean",
+			"description": "Additionally to summarizing the COUNTER and Geo usage stats monthly, keep the daily records in the database.",
+			"default": false
+		},
 		"installedLocales": {
 			"type": "array",
 			"items": {

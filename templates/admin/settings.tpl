@@ -62,6 +62,14 @@
 					/>
 				</tab>
 				{/if}
+				{if $componentAvailability['statistics']}
+				<tab id="statistics" label="{translate key="manager.setup.statistics"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_SITE_STATISTICS}"
+						@set="set"
+					/>
+				</tab>
+				{/if}
 				{call_hook name="Template::Settings::admin::setup"}
 			</tabs>
 		</tab>

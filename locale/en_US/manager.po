@@ -656,6 +656,57 @@ msgstr "Use the form below to set the maximum values for the terms you wish to s
 msgid "manager.roles"
 msgstr "Roles"
 
+msgid "manager.setup.statistics"
+msgstr "Statistics"
+
+msgid "manager.settings.statistics.archivedUsageStatsLogFiles"
+msgstr "Archives"
+
+msgid "manager.settings.statistics.archivedUsageStatsLogFiles.description"
+msgstr "Choose what to do with the archived log files. To compress the archived log files you will have to configure the gzip setting inside config.inc.php."
+
+msgid "manager.settings.statistics.archivedUsageStatsLogFiles.default"
+msgstr "Leave the archived log files as they are"
+
+msgid "manager.settings.statistics.archivedUsageStatsLogFiles.compress"
+msgstr "Compress archives"
+
+msgid "manager.settings.statistics.keepDaily"
+msgstr "Daily metrics"
+
+msgid "manager.settings.statistics.keepDaily.description"
+msgstr "The COUNTER and Geo usage statistics are summarized per month. After that the daily records are deleted. Select this option if you would like to keep the daily records in the database. Be aware that this will significantly increase your database."
+
+msgid "manager.settings.statistics.keepDaily.option"
+msgstr "Keep the daily metrics in the database"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Geo usage statistics"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr "Choose what usage statistics geographical data you would like to collect. This will influence the possible statistics reports you can retrieve, and will also have an impact on the database size."
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Do not collect any Geo data"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Country"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Country and region"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Country, region and city"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Institution usage statistics"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr "Select this option if you would like to manage institutions and collect their usage statistics. This will influence the possible statistics reports you can retrieve, and will also have an impact on the database size."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Enable institution management and usage statistics"
+
 msgid "manager.statistics"
 msgstr "Stats &amp; Reports"
 

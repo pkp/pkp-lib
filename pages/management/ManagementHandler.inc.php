@@ -294,10 +294,14 @@ class ManagementHandler extends Handler
         $doiSetupSettingsForm = new DoiSetupSettingsForm($apiUrl, $locales, $context);
         $doiRegistrationSettingsForm = new \PKP\components\forms\context\PKPDoiRegistrationSettingsForm($apiUrl, $locales, $context);
         $searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
-
         $paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
+
+        $site = $request->getSite();
+        $contextStatisticsForm = new \PKP\components\forms\context\PKPContextStatisticsForm($apiUrl, $locales, $site, $context);
+        $displayStatisticsTab = ($site->getData('enableGeoUsageStats') && $site->getData('enableGeoUsageStats') !== 'disabled') || $site->getData('enableInstitutionUsageStats');
         $templateMgr->setConstants([
             'FORM_PAYMENT_SETTINGS' => FORM_PAYMENT_SETTINGS,
+            'FORM_CONTEXT_STATISTICS' => FORM_CONTEXT_STATISTICS,
         ]);
 
         $templateMgr->setState([
@@ -307,9 +311,19 @@ class ManagementHandler extends Handler
                 \PKP\components\forms\context\PKPDoiRegistrationSettingsForm::FORM_DOI_REGISTRATION_SETTINGS => $doiRegistrationSettingsForm->getConfig(),
                 FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
                 FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
+                FORM_CONTEXT_STATISTICS => $contextStatisticsForm->getConfig(),
+            ],
+            // Add an institutions link to be added/removed when statistics form is submitted
+            'institutionsNavLink' => [
+                'name' => __('institution.institutions'),
+                'url' => $router->url($request, null, 'management', 'settings', 'institutions'),
+                'isCurrent' => false,
             ],
         ]);
-        $templateMgr->assign('pageTitle', __('manager.distribution.title'));
+        $templateMgr->assign([
+            'pageTitle' => __('manager.distribution.title'),
+            'displayStatisticsTab' => $displayStatisticsTab,
+        ]);
     }
 
     /**

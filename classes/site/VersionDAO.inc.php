@@ -18,7 +18,7 @@
 namespace PKP\site;
 
 use APP\core\Application;
-
+use Illuminate\Support\Facades\DB;
 use PKP\plugins\HookRegistry;
 
 class VersionDAO extends \PKP\db\DAO
@@ -195,7 +195,7 @@ class VersionDAO extends \PKP\db\DAO
             LEFT JOIN plugin_settings ps
                 ON LOWER(v.product_class_name) = ps.plugin_name
                 AND ps.setting_name = 'enabled'
-                $contextWhereClause
+                ${contextWhereClause}
             WHERE v.current = 1 AND (ps.setting_value = '1' OR v.lazy_load <> 1)",
             array_values($context),
             false
@@ -220,6 +220,28 @@ class VersionDAO extends \PKP\db\DAO
             'UPDATE versions SET current = 0 WHERE current = 1 AND product_type = ? AND product = ?',
             [$productType, $product]
         );
+    }
+
+    /**
+     * Get installation date of the given verion or the first version used after that
+     *
+     * @param int $version Version number, without '.' as separator, i.e. in the form major*1000+minor*100+revision*10+build
+     */
+    public function getInstallationDate(int $version): string
+    {
+        $product = Application::get()->getName();
+        $dateInstalledArray = DB::select(
+            "SELECT date_installed
+                FROM versions
+                WHERE major*1000+minor*100+revision*10+build IN
+                    (SELECT MIN(major*1000+minor*100+revision*10+build)
+                    FROM versions vt
+                    WHERE vt.product_type = 'core' AND vt.product = ? AND vt.major*1000+vt.minor*100+vt.revision*10+vt.build >= ?)
+                AND product_type = 'core' AND product = ?
+        ",
+            [$product, $version, $product]
+        );
+        return current($dateInstalledArray)->date_installed;
     }
 }
 

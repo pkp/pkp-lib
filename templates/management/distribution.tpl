@@ -58,6 +58,15 @@
 				@set="set"
 			/>
 		</tab>
+		{if $displayStatisticsTab}
+		<tab id="statistics" label="{translate key="manager.setup.statistics"}">
+			{help file="settings/distribution-settings" section="statistics" class="pkp_help_tab"}
+			<pkp-form
+				v-bind="components.{$smarty.const.FORM_CONTEXT_STATISTICS}"
+				@set="set"
+			/>
+		</tab>
+		{/if}
 		{call_hook name="Template::Settings::distribution"}
 	</tabs>
 {/block}

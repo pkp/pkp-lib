@@ -176,6 +176,66 @@ msgstr "Subscription expiry reminder"
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Remove unvalidated expired users"
 
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Update DB-IP city lite database"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr "Renaming the DB-IP city lite database file {$sourceFilename} to {$targetFilename} failed."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Usage statistics file loader task"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr "The directory {$directory} is not empty. This could indicate a previously failed process, or a concurrently running process. This file will be automatically reprocessed."
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "The file {$file} could not be opened and was rejected."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr "The file {$file} is in old log file format that cannot be processed and will thus be moved back to the stage directory."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr "Skipped log file {$file} because statistics from that month have already been calculated. To recalculate statistics for a previous month, you must restore all of that month's log files and use the CLI tool to reprocess statistics."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr "The line {$lineNumber} in the log file {$file} is in the wrong format and will thus be skipped."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr "Invalid log entry at line {$lineNumber} in the log file {$file}: {$error}."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Time is not a valid date."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "Context ID is not an integer."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "Submission ID is not an integer."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "Representation ID is not an integer."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Assoc type is not supported."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "File type is not supported."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Country is not a two alphabetic characters string."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "Region is not up to three alphanumeric characters long string."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "Institution IDs is not an array."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr "Error occured when processing the log file {$file} at the line {$lineNumber}: {$msg}"
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr "The background job that will process the log file {$file} and store the statistics data has been dispatched."
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache version"
 
@@ -530,3 +590,9 @@ msgstr "Created At"
 
 msgid "admin.jobs.createdAt"
 msgstr "Created at {$createdAt}"
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr "Job that loads the usage stats data from the file {$file} failed, and the file could not be moved from {$archivedFilePath} to {$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr "Job that loads the usage stats data from the file {$file} failed. The file has been moved to the stage directory."

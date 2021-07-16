@@ -138,6 +138,12 @@ msgstr "Granskningspåminnelse"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Påminnelse om att prenumeration går ut"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Filladdningsuppgift för användningsstatistik"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Det gick inte att öppna filen {$file} och den var därför avvisad."
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache-version"
 

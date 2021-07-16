@@ -154,6 +154,12 @@ msgstr "Recordatorio de revisión"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Recordatorio de caducidad de subscripción"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tarea de carga de archivo de estadísticas de uso"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "El archivo {$file} no pudo abrirse y fue rechazado."
+
 msgid "admin.server.apacheVersion"
 msgstr "Versión Apache"
 

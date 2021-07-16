@@ -164,6 +164,9 @@ msgstr "Your request was not valid. The timelineInterval must be `day` or `month
 msgid "api.stats.400.invalidOrderDirection"
 msgstr "Your request was not valid. The orderDirection must be `desc` or `asc`."
 
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr "Your request was not valid. The timelineInterval must be `day` or `month`."
+
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr "You can not modify the file association without passing an assocType and assocId."
 

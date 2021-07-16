@@ -141,6 +141,12 @@ msgstr "Нагадування рецензенту"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Нагадування про закінчення терміну дії підписки"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Завдання завантажувача файлів статистики використання"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Не вдалося відкрити файл {$file} і він був відхилений."
+
 msgid "admin.server.apacheVersion"
 msgstr "Версія Apache"
 

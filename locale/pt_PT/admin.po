@@ -234,6 +234,12 @@ msgstr "Lembrete Revisão"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Lembrete expiração da assinatura"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tarefa do carregador de ficheiro de Estatísticas de Uso"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "O ficheiro {$file} não pode ser aberto e foi rejeitado."
+
 msgid "admin.settings"
 msgstr "Configurações"
 

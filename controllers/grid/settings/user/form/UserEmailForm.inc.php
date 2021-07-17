@@ -13,10 +13,10 @@
  * @brief Form for sending an email to a user
  */
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
-
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
 
@@ -62,8 +62,7 @@ class UserEmailForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getById($this->userId);
+        $user = Repo::user()->get($this->userId);
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
@@ -82,8 +81,7 @@ class UserEmailForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $toUser = $userDao->getById($this->userId);
+        $toUser = Repo::user()->get($this->userId);
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 

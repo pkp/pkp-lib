@@ -13,6 +13,7 @@
  * @brief base PKP class to handle query grid requests.
  */
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
@@ -525,13 +526,12 @@ class QueriesGridHandler extends GridHandler
     {
         $query = $this->getQuery();
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $context = $request->getContext();
         $user = $request->getUser();
 
         $participants = [];
         foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
-            $participants[] = $userDao->getById($userId);
+            $participants[] = Repo::user()->get($userId);
         }
 
         $templateMgr = TemplateManager::getManager($request);

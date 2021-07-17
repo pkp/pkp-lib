@@ -23,7 +23,7 @@
 namespace PKP\session;
 
 use PKP\config\Config;
-use PKP\db\DAORegistry;
+use PKP\facades\Repo;
 
 class Session extends \PKP\core\DataObject
 {
@@ -90,8 +90,7 @@ class Session extends \PKP\core\DataObject
             $this->user = null;
             $userId = null;
         } elseif ($userId != $this->getData('userId')) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $this->user = $userDao->getById($userId);
+            $this->user = Repo::user()->get($userId);
             if (!isset($this->user)) {
                 $userId = null;
             }

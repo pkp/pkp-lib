@@ -64,13 +64,12 @@ class ReviewReminderForm extends Form
     public function initData()
     {
         $request = Application::get()->getRequest();
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $user = $request->getUser();
         $context = $request->getContext();
 
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
-        $reviewer = $userDao->getById($reviewerId);
+        $reviewer = Repo::user()->get($reviewerId);
 
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
@@ -150,12 +149,11 @@ class ReviewReminderForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $request = Application::get()->getRequest();
 
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
-        $reviewer = $userDao->getById($reviewerId);
+        $reviewer = Repo::user()->get($reviewerId);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $reviewDueDate = $this->getData('reviewDueDate');
         $dispatcher = $request->getDispatcher();

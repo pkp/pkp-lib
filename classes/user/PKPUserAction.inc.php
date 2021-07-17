@@ -18,6 +18,7 @@
 namespace PKP\user;
 
 use APP\core\Services;
+use APP\facade\Repo;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 
@@ -116,8 +117,7 @@ class PKPUserAction
             }
         }
 
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $userDao->deleteUserById($oldUserId);
+        Repo::user()->delete(Repo::user()->get($oldUserId));
 
         return true;
     }

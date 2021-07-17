@@ -15,6 +15,7 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
+use APP\facades\Repo;
 use PKP\submission\SubmissionFile;
 
 class SubmissionFileNativeXmlFilter extends NativeExportFilter
@@ -85,8 +86,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $stageToName = array_flip($deployment->getStageNameStageIdMapping());
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genre = $genreDao->getById($submissionFile->getData('genreId'));
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $uploaderUser = $userDao->getById($submissionFile->getData('uploaderUserId'));
+        $uploaderUser = Repo::user()->get($submissionFile->getData('uploaderUserId'));
 
         // Create the submission_file node and set metadata
         $submissionFileNode = $doc->createElementNS($deployment->getNamespace(), $this->getSubmissionFileElementName());

@@ -15,7 +15,7 @@
 
 namespace PKP\context;
 
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 
 class SubEditorsDAO extends \PKP\db\DAO
 {
@@ -74,27 +74,19 @@ class SubEditorsDAO extends \PKP\db\DAO
      */
     public function getBySubmissionGroupId($assocId, $assocType, $contextId)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $params = array_merge(
-            $userDao->getFetchParameters(),
-            [(int) $contextId, (int) $assocId, (int) $assocType]
-        );
+        $userDao = Repo::user()->dao;
         $result = $this->retrieve(
-            'SELECT	u.user_id,
-			' . $userDao->getFetchColumns() . '
+            'SELECT	u.*
 			FROM	subeditor_submission_group e
 				JOIN users u ON (e.user_id = u.user_id)
-				' . $userDao->getFetchJoins() . '
 			WHERE	e.context_id = ? AND
-				e.assoc_id = ? AND e.assoc_type = ?
-			' . $userDao->getOrderBy(),
-            $params
+				e.assoc_id = ? AND e.assoc_type = ?',
+            [(int) $contextId, (int) $assocId, (int) $assocType]
         );
 
         $users = [];
         foreach ($result as $row) {
-            $user = $userDao->getById($row->user_id);
-            $users[$user->getId()] = $user;
+            $users[$row->user_id] = $userDao->fromRow($row);
         }
         return $users;
     }

@@ -18,6 +18,7 @@
 namespace PKP\mail;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
@@ -216,11 +217,14 @@ class SubmissionMailTemplate extends MailTemplate
 
         $returner = [];
         // Cycle through all the userGroups for this role
+        $userDao = Repo::user()->dao;
         while ($userGroup = $userGroups->next()) {
             $userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /** @var UserStageAssignmentDAO $userStageAssignmentDao */
             // FIXME: #6692# Should this be getting users just for a specific user group?
-            $users = $userStageAssignmentDao->getUsersBySubmissionAndStageId($submissionId, $stageId, $userGroup->getId());
-            while ($user = $users->next()) {
+            $collector = Repo::user()->getCollector();
+            $collector->filterSubmissionAssignment($submissionId, $stageId, $userGroup->getId());
+            $users = $userDao->getMany($collector);
+            foreach ($users as $user) {
                 $this->$method($user->getEmail(), $user->getFullName());
                 $returner[] = $user;
             }

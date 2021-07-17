@@ -16,6 +16,7 @@
 namespace PKP\security;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
@@ -38,8 +39,7 @@ class Validation
     public static function login($username, $password, &$reason, $remember = false)
     {
         $reason = null;
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getByUsername($username, true);
+        $user = Repo::user()->getByUsername($username, true);
         if (!isset($user)) {
             // User does not exist
             return false;
@@ -154,8 +154,7 @@ class Validation
         }
 
         $user->setDateLastLogin(Core::getCurrentDate());
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $userDao->updateObject($user);
+        Repo::user()->dao->update($user);
 
         return $user;
     }
@@ -214,7 +213,7 @@ class Validation
      */
     public static function checkCredentials($username, $password)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
+        $userDao = Repo::user()->dao;
         $user = $userDao->getByUsername($username, false);
 
         $valid = false;
@@ -344,8 +343,8 @@ class Validation
      */
     public static function generatePasswordResetHash($userId, $expiry = null)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        if (($user = $userDao->getById($userId)) == null) {
+        $userDao = Repo::user()->dao;
+        if (($user = $userDao->get($userId)) == null) {
             // No such user
             return false;
         }
@@ -410,9 +409,9 @@ class Validation
             $name = $initial . $familyName;
         }
 
-        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy\Stringy::create($name)->toAscii()->toLowerCase());
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
+        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', \Stringy\Stringy::create($name)->toAscii()->toLowerCase());
+        $userDao = Repo::user()->dao;
+        for ($i = ''; $userDao->getByUsername($suggestion . $i); $i++);
         return $suggestion . $i;
     }
 

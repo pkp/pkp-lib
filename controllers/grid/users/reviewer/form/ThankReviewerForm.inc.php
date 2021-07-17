@@ -60,13 +60,12 @@ class ThankReviewerForm extends Form
     public function initData()
     {
         $request = Application::get()->getRequest();
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $user = $request->getUser();
         $context = $request->getContext();
 
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
-        $reviewer = $userDao->getById($reviewerId);
+        $reviewer = Repo::user()->get($reviewerId);
 
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
@@ -104,11 +103,9 @@ class ThankReviewerForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
-        $reviewer = $userDao->getById($reviewerId);
+        $reviewer = Repo::user()->get($reviewerId);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
 
         $email = new SubmissionMailTemplate($submission, 'REVIEW_ACK', null, null, null, false);

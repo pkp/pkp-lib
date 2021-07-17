@@ -13,6 +13,7 @@
  * @brief Handle exportable user grid requests.
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
@@ -23,7 +24,6 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
-use PKP\user\UserDAO;
 
 class ExportableUsersGridHandler extends GridHandler
 {
@@ -218,12 +218,12 @@ class ExportableUsersGridHandler extends GridHandler
         while ($userGroup = $userGroups->next()) {
             $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
         }
-
+        $userDao = Repo::user()->dao;
         $fieldOptions = [
             Identity::IDENTITY_SETTING_GIVENNAME => 'user.givenName',
             Identity::IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
-            UserDAO::USER_FIELD_USERNAME => 'user.username',
-            UserDAO::USER_FIELD_EMAIL => 'user.email'
+            $userDao::USER_FIELD_USERNAME => 'user.username',
+            $userDao::USER_FIELD_EMAIL => 'user.email'
         ];
 
         $matchOptions = [

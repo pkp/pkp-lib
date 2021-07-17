@@ -70,7 +70,7 @@ class DAORegistry
             $application = \APP\core\Application::get();
             $className = $application->getQualifiedDAOName($name);
             if (!$className) {
-                fatalError('Unrecognized DAO ' . $name . '!');
+                throw new \Exception('Unrecognized DAO ' . $name . '!');
             }
 
             // Only instantiate each class of DAO a single time

@@ -391,7 +391,7 @@ Cypress.Commands.add('createUser', user => {
 		cy.get('form[id=userRoleForm]').contains(role).click();
 	});
 	cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
-	cy.get('span[id$="-username"]:contains("' + Cypress.$.escapeSelector(user.username) + '")');
+	cy.get('span[id$="-userName"]:contains("' + Cypress.$.escapeSelector(user.username) + '")');
 });
 
 Cypress.Commands.add('flushNotifications', function() {

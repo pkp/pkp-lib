@@ -15,6 +15,7 @@ namespace PKP\migration\upgrade;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
 use Illuminate\Database\Schema\Blueprint;
 
 use Illuminate\Support\Facades\DB;
@@ -357,7 +358,6 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 'original_file_name'
             ]);
         $fileService = Services::get('file');
-        $submissionFileService = Services::get('submissionFile');
         foreach ($rows as $row) {
             // Reproduces the removed method SubmissionFile::_generateFileName()
             // genre is %s because it can be blank with review attachments
@@ -373,7 +373,10 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             );
             $path = sprintf(
                 '%s/%s/%s',
-                $submissionFileService->getSubmissionDir($row->context_id, $row->submission_id),
+                Repo::submissionFiles()->getSubmissionDir(
+                    $row->context_id,
+                    $row->submission_id
+                ),
                 $this->_fileStageToPath($row->file_stage),
                 $filename
             );

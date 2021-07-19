@@ -22,7 +22,6 @@ use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
-use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\SubmissionFile;
 
@@ -132,51 +131,52 @@ class PKPSubmissionFileHandler extends APIHandler
 
         $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
         $stageAssignments = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
 
-        $allowedFileStages = [];
+        // @see PKP\submissionFile\Repository::getAssignedFileStages() for excluded file stages
+        $allowedFileStages = [
+            SubmissionFile::SUBMISSION_FILE_SUBMISSION,
+            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+            SubmissionFile::SUBMISSION_FILE_FINAL,
+            SubmissionFile::SUBMISSION_FILE_COPYEDIT,
+            SubmissionFile::SUBMISSION_FILE_PROOF,
+            SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
+            SubmissionFile::SUBMISSION_FILE_ATTACHMENT,
+            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+        ];
 
         // Managers can access files for submissions they are not assigned to
-        if (empty($stageAssignments)) {
-            if (!in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
-                return $response->withStatus(403)->withJsonError('api.403.unauthorized');
-            }
-            // @see PKPSubmissionFileService::getAssignedFileStages() for excluded file stages
-            $allowedFileStages = [
-                SubmissionFile::SUBMISSION_FILE_SUBMISSION,
-                SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
-                SubmissionFile::SUBMISSION_FILE_FINAL,
-                SubmissionFile::SUBMISSION_FILE_COPYEDIT,
-                SubmissionFile::SUBMISSION_FILE_PROOF,
-                SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
-                SubmissionFile::SUBMISSION_FILE_ATTACHMENT,
-                SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
-                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
-                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
-            ];
+        if (!$stageAssignments && !in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
+            return $response->withStatus(403)->withJsonError('api.403.unauthorized');
+        }
 
         // Set the allowed file stages based on stage assignment
-        // @see PKPSubmissionFileService::getAssignedFileStages() for excluded file stages
-        } else {
-            $allowedFileStages = Services::get('submissionFile')->getAssignedFileStages($stageAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ);
+        // @see PKP\submissionFile\Repository::getAssignedFileStages() for excluded file stages
+        if ($stageAssignments) {
+            $allowedFileStages = Repo::submissionFiles()
+                ->getAssignedFileStages(
+                    $stageAssignments,
+                    SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ
+                );
         }
 
         if (empty($params['fileStages'])) {
             $params['fileStages'] = $allowedFileStages;
-        } else {
-            foreach ($params['fileStages'] as $fileStage) {
-                if (!in_array($fileStage, $allowedFileStages)) {
-                    return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageId');
-                }
+        }
+
+        foreach ($params['fileStages'] as $fileStage) {
+            if (!in_array($fileStage, $allowedFileStages)) {
+                return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageId');
             }
         }
 
+        // Get the valid review round ids for allowed file stage ids
+        $allowedReviewRoundIds = [];
         // Check if requested reviewRounds are valid
         if (!empty($params['reviewRoundIds'])) {
-
-            // Get the valid review round ids for allowed file stage ids
-            $allowedReviewRoundIds = [];
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-            $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
             if (!empty(array_intersect([SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION], $params['fileStages']))) {
                 $result = $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW);
                 while ($reviewRound = $result->next()) {
@@ -197,23 +197,25 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        \HookRegistry::call('API::submissions::files::params', [&$params, $slimRequest]);
-
-        $params['submissionIds'] = [$this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION)->getId()];
-
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds(
+                [$submission->getId()]
+            )
+            ->filterByReviewRoundIds($allowedReviewRoundIds)
+            ->filterByFileStages($allowedFileStages);
         $items = [];
-        $filesIterator = Services::get('submissionFile')->getMany($params);
-        $propertyArgs = [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-            'submission' => $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION),
-        ];
+        // How use the params with the new repository pattern?
+        $filesIterator = Repo::submissionFiles()->getMany($collector);
         foreach ($filesIterator as $file) {
-            $items[] = Services::get('submissionFile')->getSummaryProperties($file, $propertyArgs);
+            // Which is the replacement for this?
+            $items[] = Repo::submissionFiles()
+                ->getSchemaMap()
+                ->map($file);
         }
 
         $data = [
-            'itemsMax' => Services::get('submissionFile')->getCount($params),
+            'itemsMax' => Repo::submissionFiles()->getCount($collector),
             'items' => $items,
         ];
 
@@ -233,11 +235,9 @@ class PKPSubmissionFileHandler extends APIHandler
     {
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 
-        $data = Services::get('submissionFile')->getFullProperties($submissionFile, [
-            'request' => $this->getRequest(),
-            'slimRequest' => $slimRequest,
-            'submission' => $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION),
-        ]);
+        $data = Repo::submissionFiles()
+            ->getSchemaMap()
+            ->map($submissionFile);
 
         return $response->withJson($data, 200);
     }
@@ -267,7 +267,11 @@ class PKPSubmissionFileHandler extends APIHandler
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
 
-        $submissionDir = Services::get('submissionFile')->getSubmissionDir($request->getContext()->getId(), $submission->getId());
+        $submissionDir = Repo::submissionFiles()
+            ->getSubmissionDir(
+                $request->getContext()->getId(),
+                $submission->getId()
+            );
         $fileId = Services::get('file')->add(
             $_FILES['file']['tmp_name'],
             $submissionDir . '/' . uniqid() . '.' . $extension
@@ -295,7 +299,13 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        $errors = Services::get('submissionFile')->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::submissionFiles()
+            ->validate(
+                new SubmissionFile(),
+                $params,
+                $allowedLocales,
+                $primaryLocale
+            );
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -365,6 +375,8 @@ class PKPSubmissionFileHandler extends APIHandler
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 
+        $submissionFileId = $submissionFile->getId();
+
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
 
         // Don't allow these properties to be modified
@@ -377,7 +389,13 @@ class PKPSubmissionFileHandler extends APIHandler
         $primaryLocale = $request->getContext()->getPrimaryLocale();
         $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
-        $errors = Services::get('submissionFile')->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::submissionFiles()
+            ->validate(
+                $submissionFile,
+                $params,
+                $allowedLocales,
+                $primaryLocale
+            );
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
@@ -391,7 +409,11 @@ class PKPSubmissionFileHandler extends APIHandler
 
             $fileManager = new FileManager();
             $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
-            $submissionDir = Services::get('submissionFile')->getSubmissionDir($request->getContext()->getId(), $submission->getId());
+            $submissionDir = Repo::submissionFiles()
+                ->getSubmissionDir(
+                    $request->getContext()->getId(),
+                    $submission->getId()
+                );
             $fileId = Services::get('file')->add(
                 $_FILES['file']['tmp_name'],
                 $submissionDir . '/' . uniqid() . '.' . $extension
@@ -404,13 +426,18 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        $submissionFile = Services::get('submissionFile')->edit($submissionFile, $params, $request);
+        Repo::submissionFiles()
+            ->edit(
+                $submissionFile,
+                $params
+            );
 
-        $data = Services::get('submissionFile')->getFullProperties($submissionFile, [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-            'submission' => $submission,
-        ]);
+        $submissionFile = Repo::submissionFiles()
+            ->get($submissionFileId);
+
+        $data = Repo::submissionFiles()
+            ->getSchemaMap()
+            ->map($submissionFile);
 
         return $response->withJson($data, 200);
     }
@@ -426,17 +453,13 @@ class PKPSubmissionFileHandler extends APIHandler
      */
     public function delete($slimRequest, $response, $args)
     {
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 
-        $data = Services::get('submissionFile')->getFullProperties($submissionFile, [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-            'submission' => $submission,
-        ]);
+        $data = Repo::submissionFiles()
+            ->getSchemaMap()
+            ->map($submissionFile);
 
-        Services::get('submissionFile')->delete($submissionFile);
+        Repo::submissionFiles()->delete($submissionFile);
 
         return $response->withJson($data, 200);
     }

@@ -13,6 +13,7 @@
  * @brief Class defining an AJAX API for file manipulation.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -66,12 +67,18 @@ abstract class PKPManageFileApiHandler extends Handler
             return new JSONMessage(false);
         }
 
-        Services::get('submissionFile')->delete($this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE));
+        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        Repo::submissionFiles()->delete($submissionFile);
 
         $this->setupTemplate($request);
         $user = $request->getUser();
         if (!$request->getUserVar('suppressNotification')) {
-            NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedFile')]);
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification(
+                $user->getId(),
+                PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+                ['contents' => __('notification.removedFile')]
+            );
         }
 
         return \PKP\db\DAO::getDataChangedEvent();

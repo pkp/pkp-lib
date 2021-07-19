@@ -15,11 +15,12 @@
 
 namespace PKP\submission;
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\workflow\EditorDecisionActionsManager;
 
 use PKP\db\DAORegistry;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submissionFile\SubmissionFile;
 
 class EditDecisionDAO extends \PKP\db\DAO
 {
@@ -195,10 +196,12 @@ class EditDecisionDAO extends \PKP\db\DAO
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
 
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'reviewRoundIds' => [$reviewRound->getId()],
-            'fileStages' => [SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION],
-        ]);
+        $submissionFileCollector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION]);
+
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($submissionFileCollector);
 
         foreach ($submissionFilesIterator as $submissionFile) {
             if ($submissionFile->getData('updatedAt') > $decision['dateDecided']) {

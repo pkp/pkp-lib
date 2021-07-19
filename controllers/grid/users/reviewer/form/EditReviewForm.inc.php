@@ -14,6 +14,7 @@
  * reviewer after the assignment has taken place.
  */
 
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -133,11 +134,13 @@ class EditReviewForm extends Form
         $reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /** @var ReviewFilesDAO $reviewFilesDao */
         $reviewFilesDao->revokeByReviewId($this->_reviewAssignment->getId());
 
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'submissionIds' => [$this->_reviewAssignment->getSubmissionId()],
-            'reviewRoundIds' => [$this->_reviewRound->getId()],
-            'fileStages' => [$this->_reviewRound->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE],
-        ]);
+        $fileStages = [$this->_reviewRound->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE];
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds([$this->_reviewAssignment->getSubmissionId()])
+            ->filterByReviewRoundIds([$this->_reviewRound->getId()])
+            ->filterByFileStages($fileStages);
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         $selectedFiles = array_map(function ($id) {
             return (int) $id;
         }, (array) $this->getData('selectedFiles'));

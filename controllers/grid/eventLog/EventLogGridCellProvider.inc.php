@@ -13,6 +13,7 @@
  * @brief Cell provider for event log entries.
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\log\EventLogEntry;
@@ -86,7 +87,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                         // Maybe anonymize files submitted by reviewers
                         if (isset($params['fileStage']) && $params['fileStage'] === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
                             assert(isset($params['fileId']) && isset($params['submissionId']));
-                            $submissionFile = Services::get('submissionFile')->get($params['id']);
+                            $submissionFile = Repo::submissionFiles()->get($params['id']);
                             if ($submissionFile && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                                 $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
                                 if (!$reviewAssignment || in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {

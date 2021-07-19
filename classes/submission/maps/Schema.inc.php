@@ -15,7 +15,6 @@ namespace PKP\submission\maps;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\submission\Submission;
@@ -425,13 +424,14 @@ class Schema extends \PKP\core\maps\Schema
                         $stage['statusId'] = $reviewRound->determineStatus();
                         $stage['status'] = __($reviewRound->getStatusKey());
 
+                        $collector = Repo::submissionFiles()
+                            ->getCollector()
+                            ->filterBySubmissionIds([$submission->getId()])
+                            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
+                            ->filterByReviewRoundIds([$reviewRound->getId()]);
                         // Revision files in this round.
                         $stage['files'] = [
-                            'count' => Services::get('submissionFile')->getCount([
-                                'submissionIds' => [$submission->getId()],
-                                'fileStages' => [SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION],
-                                'reviewRounds' => [$reviewRound->getId()],
-                            ]),
+                            'count' => Repo::submissionFiles()->getCount($collector),
                         ];
 
                         // See if the  curent user can only recommend:
@@ -460,11 +460,15 @@ class Schema extends \PKP\core\maps\Schema
                 case WORKFLOW_STAGE_ID_EDITING:
                 case WORKFLOW_STAGE_ID_PRODUCTION:
                     import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
+
+                    $fileStages = [WORKFLOW_STAGE_ID_EDITING ? SubmissionFile::SUBMISSION_FILE_COPYEDIT : SubmissionFile::SUBMISSION_FILE_PROOF];
+                    $collector = Repo::submissionFiles()
+                        ->getCollector()
+                        ->filterBySubmissionIds([$submission->getId()])
+                        ->filterByFileStages($fileStages);
+                    // Revision files in this round.
                     $stage['files'] = [
-                        'count' => Services::get('submissionFile')->getCount([
-                            'submissionIds' => [$submission->getId()],
-                            'fileStages' => [WORKFLOW_STAGE_ID_EDITING ? SubmissionFile::SUBMISSION_FILE_COPYEDIT : SubmissionFile::SUBMISSION_FILE_PROOF],
-                        ]),
+                        'count' => Repo::submissionFiles()->getCount($collector),
                     ];
                     break;
             }

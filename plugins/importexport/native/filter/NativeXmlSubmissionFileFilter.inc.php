@@ -234,22 +234,37 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         // Add and edit the submission file revisions one-by-one so that a useful activity
         // log is built and past revisions can be accessed
         if (count($allRevisionIds) < 2) {
-            $submissionFile = Services::get('submissionFile')->add($submissionFile, $request);
+            $id = Repo::submissionFiles()->add($submissionFile);
+
+            $submissionFile = Repo::submissionFiles()->get($id);
         } else {
+            $id = $submissionFile->getId();
+
             $currentFileId = $submissionFile->getData('fileId');
             $allRevisionIds = array_filter($allRevisionIds, function ($fileId) use ($currentFileId) {
                 return $fileId !== $currentFileId;
             });
             $allRevisionIds = array_values($allRevisionIds);
+
+            $id = $submissionFile->getId();
+
             foreach ($allRevisionIds as $i => $fileId) {
                 if ($i === 0) {
                     $submissionFile->setData('fileId', $fileId);
-                    $submissionFile = Services::get('submissionFile')->add($submissionFile, $request);
+                    $id = Repo::submissionFiles()->add($submissionFile);
+
+                    $submissionFile = Repo::submissionFiles()->get($id);
                 } else {
-                    $submissionFile = Services::get('submissionFile')->edit($submissionFile, ['fileId' => $fileId], $request);
+                    Repo::submissionFiles()->edit($submissionFile, ['fileId' => $fileId]);
                 }
             }
-            $submissionFile = Services::get('submissionFile')->edit($submissionFile, ['fileId' => $currentFileId], $request);
+
+            Repo::submissionFiles()->edit(
+                $submissionFile,
+                ['fileId' => $currentFileId]
+            );
+
+            $submissionFile = Repo::submissionFiles()->get($id);
         }
 
         $deployment->setSubmissionFileDBId($submissionFileId, $submissionFile->getId());
@@ -341,7 +356,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             } else {
                 clearstatcache(true, $temporaryFilename);
                 $fileManager = new FileManager();
-                $submissionDir = Services::get('submissionFile')->getSubmissionDir($submission->getData('contextId'), $submission->getId());
+                $submissionDir = Repo::submissionFiles()->getSubmissionDir($submission->getData('contextId'), $submission->getId());
                 $newFileId = Services::get('file')->add(
                     $temporaryFilename,
                     $submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')

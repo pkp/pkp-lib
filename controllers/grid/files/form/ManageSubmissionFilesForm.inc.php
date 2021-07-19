@@ -13,6 +13,7 @@
  * @brief Form for add or removing files from a review
  */
 
+use APP\facades\Repo;
 use PKP\form\Form;
 use PKP\submissionFile\SubmissionFile;
 
@@ -80,11 +81,11 @@ class ManageSubmissionFilesForm extends Form
      */
     public function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs)
     {
-        $request = Application::get()->getRequest();
         $selectedFiles = (array)$this->getData('selectedFiles');
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'submissionIds' => [$this->getSubmissionId()],
-        ]);
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds([$this->getSubmissionId()]);
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
 
         foreach ($submissionFilesIterator as $submissionFile) {
             // Get the viewable flag value.
@@ -97,11 +98,11 @@ class ManageSubmissionFilesForm extends Form
             if ($this->fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) {
                 // ...update the "viewable" flag accordingly.
                 if ($isViewable != $submissionFile->getData('viewable')) {
-                    $submissionFile = Services::get('submissionFile')->edit(
-                        $submissionFile,
-                        ['viewable' => $isViewable],
-                        $request
-                    );
+                    $submissionFile = Repo::submissionFiles()
+                        ->edit(
+                            $submissionFile,
+                            ['viewable' => $isViewable]
+                        );
                 }
             } elseif ($isViewable) {
                 // Import a file from a different workflow area
@@ -145,7 +146,8 @@ class ManageSubmissionFilesForm extends Form
         $newSubmissionFile = clone $submissionFile;
         $newSubmissionFile->setData('fileStage', $fileStage);
         $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
-        $newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
-        return $newSubmissionFile;
+        $newSubmissionFileId = Repo::submissionFiles()->add($newSubmissionFile);
+
+        return Repo::submissionFiles()->get($newSubmissionFileId);
     }
 }

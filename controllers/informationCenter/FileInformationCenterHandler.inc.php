@@ -67,7 +67,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
         parent::initialize($request);
 
         $this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-        $this->submissionFile = Services::get('submissionFile')->get($request->getUserVar('submissionFileId'));
+        $this->submissionFile = Repo::submissionFiles()->get($request->getUserVar('submissionFileId'));
 
         // Ensure data integrity.
         if (!$this->_submission || !$this->submissionFile || $this->_submission->getId() != $this->submissionFile->getData('submissionId')) {

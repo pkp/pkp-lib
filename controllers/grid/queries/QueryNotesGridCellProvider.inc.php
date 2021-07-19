@@ -13,6 +13,7 @@
  * @brief Base class for a cell provider that can retrieve query note info.
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -69,12 +70,14 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
     {
         switch ($column->getId()) {
             case 'contents':
-                $submissionFiles = Services::get('submissionFile')->getMany([
-                    'assocTypes' => [ASSOC_TYPE_NOTE],
-                    'assocIds' => [$row->getData()->getId()],
-                    'submissionIds' => [$this->_submission->getId()],
-                    'fileStages' => [SubmissionFile::SUBMISSION_FILE_QUERY],
-                ]);
+                $collector = Repo::submissionFiles()
+                    ->getCollector()
+                    ->filterByAssoc(
+                        [ASSOC_TYPE_NOTE],
+                        [$row->getData()->getId()]
+                    )->filterBySubmissionIds([$this->_submission->getId()])
+                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_QUERY]);
+                $submissionFiles = Repo::submissionFiles()->getMany($collector);
 
                 import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
                 $actions = [];

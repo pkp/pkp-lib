@@ -14,9 +14,9 @@
 
 namespace PKP\security\authorization\internal;
 
-use APP\core\Services;
-
+use APP\facades\Repo;
 use PKP\security\authorization\AuthorizationPolicy;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileMatchesWorkflowStageIdPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -48,11 +48,11 @@ class SubmissionFileMatchesWorkflowStageIdPolicy extends SubmissionFileBaseAcces
         // Get the submission file
         $request = $this->getRequest();
         $submissionFile = $this->getSubmissionFile($request);
-        if (!$submissionFile instanceof \PKP\submission\SubmissionFile) {
+        if (!$submissionFile instanceof SubmissionFile) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $workflowStageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
+        $workflowStageId = Repo::submissionFiles()->getWorkflowStageId($submissionFile);
 
         // Check if the submission file belongs to the specified workflow stage.
         if ($workflowStageId != $this->_stageId) {

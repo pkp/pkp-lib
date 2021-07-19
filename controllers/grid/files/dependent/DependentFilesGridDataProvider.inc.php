@@ -13,6 +13,7 @@
  * @brief Provide access to dependent file data for grids.
  */
 
+use APP\facades\Repo;
 use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
@@ -45,13 +46,15 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider
     {
         // Retrieve all dependent files for the given file stage and original submission file id (i.e. the main galley/production file)
         $submission = $this->getSubmission();
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
-            'assocIds' => [$this->getAssocId()],
-            'submissionIds' => [$submission->getId()],
-            'fileStages' => [$this->getFileStage()],
-            'includeDependentFiles' => true,
-        ]);
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterByAssoc(
+                [ASSOC_TYPE_SUBMISSION_FILE],
+                [$this->getAssocId()]
+            )->filterBySubmissionIds([$submission->getId()])
+            ->filterByFileStages([$this->getFileStage()])
+            ->filterByIncludeDependentFiles(true);
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
     }
 

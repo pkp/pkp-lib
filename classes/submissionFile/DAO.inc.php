@@ -18,7 +18,6 @@
 namespace PKP\submissionFile;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 
 use Exception;
@@ -256,9 +255,9 @@ abstract class DAO extends EntityDAO implements PKPPubIdPluginDAO
             return null;
         }
 
-        $submissionFile = Services::get('submissionFile')->get($submissionFileId);
+        $submissionFile = $this->get($submissionFileId);
 
-        if ($submissionFile->getData('fileStage') !== SubmissionFile::SUBMISSION_FILE_PROOF) {
+        if (!$submissionFile->itsOnFileProofStage()) {
             return $submissionFile;
         }
 

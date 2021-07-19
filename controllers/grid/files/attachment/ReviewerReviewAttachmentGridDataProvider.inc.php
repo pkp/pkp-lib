@@ -12,6 +12,7 @@
  * @brief Provide the reviewers access to their own review attachments data for grids.
  */
 
+use APP\facades\Repo;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\ReviewStageAccessPolicy;
 use PKP\submissionFile\SubmissionFile;
@@ -84,11 +85,13 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
      */
     public function loadData($filter = [])
     {
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'submissionIds' => [$this->getSubmission()->getId()],
-            'assocTypes' => [ASSOC_TYPE_REVIEW_ASSIGNMENT],
-            'assocIds' => [$this->_getReviewId()]
-        ]);
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterByAssoc(
+                [ASSOC_TYPE_REVIEW_ASSIGNMENT],
+                [$this->_getReviewId()]
+            )->filterBySubmissionIds([$this->getSubmission()->getId()]);
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), false, $filter);
     }
 

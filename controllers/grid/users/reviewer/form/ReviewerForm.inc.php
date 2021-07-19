@@ -402,12 +402,14 @@ class ReviewerForm extends Form
 
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
+        $fileStages = [$stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE];
         // Grant access for this review to all selected files.
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'submissionIds' => [$submission->getId()],
-            'reviewRoundIds' => [$currentReviewRound->getId()],
-            'fileStages' => [$stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE],
-        ]);
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->filterByReviewRoundIds([$currentReviewRound->getId()])
+            ->filterByFileStages($fileStages);
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         $selectedFiles = array_map(function ($id) {
             return (int) $id;
         }, (array) $this->getData('selectedFiles'));

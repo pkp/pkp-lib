@@ -16,7 +16,6 @@
 namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
@@ -98,10 +97,12 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         $productionQuery = $productionQueries->next();
 
         // Get the copyedited files
-        $countCopyeditedFiles = Services::get('submissionFile')->getCount([
-            'submissionIds' => [$submissionId],
-            'fileStages' => [SubmissionFile::SUBMISSION_FILE_COPYEDIT],
-        ]);
+        $submissionFileCollector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
+        $countCopyeditedFiles = Repo::submissionFiles()
+            ->getCount($submissionFileCollector);
 
         // Get representations
         if ($latestPublication = $submission->getLatestPublication()) {

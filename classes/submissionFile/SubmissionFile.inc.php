@@ -16,6 +16,7 @@
 namespace PKP\submissionFile;
 
 use APP\i18n\AppLocale;
+use PKP\core\PKPApplication;
 
 // Define the file stage identifiers.
 
@@ -380,6 +381,16 @@ class SubmissionFile extends \PKP\core\DataObject
     public function itsOnInternalReviewRevisionStage(): bool
     {
         return $this->getData('fileStage') === self::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION;
+    }
+
+    public function itsOnFileProofStage(): bool
+    {
+        return $this->getData('fileStage') === self::SUBMISSION_FILE_PROOF;
+    }
+
+    public function itsAssocTypeRepresentation(): bool
+    {
+        return $this->getData('assocType') === PKPApplication::ASSOC_TYPE_REPRESENTATION;
     }
 }
 

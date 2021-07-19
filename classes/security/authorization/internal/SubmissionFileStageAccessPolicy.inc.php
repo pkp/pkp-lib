@@ -16,7 +16,7 @@
 
 namespace PKP\security\authorization\internal;
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -75,7 +75,11 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
         }
 
         // Determine the allowed file stages
-        $assignedFileStages = Services::get('submissionFile')->getAssignedFileStages($stageAssignments, $this->_action);
+        $assignedFileStages = Repo::submissionFiles()
+            ->getAssignedFileStages(
+                $stageAssignments,
+                $this->_action
+            );
 
         // Authors may write to the submission files stage if the submission
         // is not yet complete

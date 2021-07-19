@@ -14,6 +14,7 @@
  *  operations of the file upload wizard.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
@@ -84,7 +85,7 @@ class FileUploadWizardHandler extends Handler
         // we don't need to validate in another places.
         $fileStage = (int) $request->getUserVar('fileStage');
         if ($fileStage) {
-            $fileStages = Services::get('submissionFile')->getFileStages();
+            $fileStages = Repo::submissionFiles()->getFileStages();
             if (!in_array($fileStage, $fileStages)) {
                 return false;
             }

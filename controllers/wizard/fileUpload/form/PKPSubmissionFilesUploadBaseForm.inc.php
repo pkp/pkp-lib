@@ -13,6 +13,7 @@
  * @brief Form for adding/editing a submission file
  */
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
@@ -193,25 +194,32 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     $this->_submissionFiles = [];
                 } elseif ($reviewRound) {
                     // Retrieve the submission files for the given review round.
-                    $submissionFilesIterator = Services::get('submissionFile')->getMany([
-                        'reviewRoundIds' => [(int) $reviewRound->getId()],
-                        'submissionIds' => [(int) $this->getData('submissionId')],
-                    ]);
+                    $collector = Repo::submissionFiles()
+                        ->getCollector()
+                        ->filterByReviewRoundIds([(int) $reviewRound->getId()])
+                        ->filterBySubmissionIds([(int) $this->getData('submissionId')]);
+                    $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
                     $this->_submissionFiles = iterator_to_array($submissionFilesIterator);
                 } else {
                     // No review round, e.g. for dependent or query files
                     $this->_submissionFiles = [];
                 }
             } else {
-                $params = [
-                    'fileStages' => [(int) $this->getData('fileStage')],
-                    'submissionIds' => [(int) $this->getData('submissionId')],
-                ];
+                $collector = Repo::submissionFiles()
+                    ->getCollector()
+                    ->filterByFileStages([(int) $this->getData('fileStage')])
+                    ->filterBySubmissionIds([(int) $this->getData('submissionId')]);
                 if ($this->getAssocType() && $this->getAssocType() != ASSOC_TYPE_SUBMISSION) {
-                    $params['assocTypes'] = [$this->getAssocType()];
-                    $params['assocIds'] = [$this->getAssocId()];
+                    $collector = $collector->filterByAssoc(
+                        [$this->getAssocType()],
+                        [$this->getAssocId()]
+                    );
                 }
-                $this->_submissionFiles = iterator_to_array(Services::get('submissionFile')->getMany($params));
+
+
+                $this->_submissionFiles = iterator_to_array(
+                    Repo::submissionFiles()->getMany($collector)
+                );
             }
         }
 

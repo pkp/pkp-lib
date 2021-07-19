@@ -14,6 +14,7 @@
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
+use APP\facades\Repo;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 
 class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
@@ -72,14 +73,16 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
     public function loadData($filter = [])
     {
         // Get all review files assigned to this submission.
-        $params = [
-            'submissionId' => [$this->getSubmission()->getId()],
-            'reviewRoundIds' => [$this->getReviewRound()->getId()],
-        ];
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds([$this->getSubmission()->getId()])
+            ->filterByReviewRoundIds([$this->getReviewRound()->getId()]);
+
         if (!$this->_showAll) {
-            $params['fileStages'] = [(int) $this->getFileStage()];
+            $collector = $collector->filterByFileStages([(int) $this->getFileStage()]);
         }
-        $submissionFilesIterator = Services::get('submissionFile')->getMany($params);
+
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
     }
 

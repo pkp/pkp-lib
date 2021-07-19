@@ -13,6 +13,7 @@
  * @brief Form for promoting a submission (to external review or editing)
  */
 
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
@@ -120,13 +121,16 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 $selectedFiles = $this->getData('selectedFiles');
                 if (is_array($selectedFiles)) {
                     foreach ($selectedFiles as $submissionFileId) {
-                        $submissionFile = Services::get('submissionFile')->get($submissionFileId);
+                        $submissionFile = Repo::submissionFiles()->get($submissionFileId);
                         $newSubmissionFile = clone $submissionFile;
                         $newSubmissionFile->setData('fileStage', SubmissionFile::SUBMISSION_FILE_FINAL);
                         $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
                         $newSubmissionFile->setData('assocType', null);
                         $newSubmissionFile->setData('assocId', null);
-                        $newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
+
+                        $id = Repo::submissionFiles()->add($newSubmissionFile);
+
+                        $newSubmissionFile = Repo::submissionFiles()->get($id);
                     }
                 }
 
@@ -159,13 +163,15 @@ class PromoteForm extends EditorDecisionWithEmailForm
                 $selectedFiles = $this->getData('selectedFiles');
                 if (is_array($selectedFiles)) {
                     foreach ($selectedFiles as $submissionFileId) {
-                        $submissionFile = Services::get('submissionFile')->get($submissionFileId);
+                        $submissionFile = Repo::submissionFiles()->get($submissionFileId);
                         $newSubmissionFile = clone $submissionFile;
                         $newSubmissionFile->setData('fileStage', SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY);
                         $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
                         $newSubmissionFile->setData('assocType', null);
                         $newSubmissionFile->setData('assocId', null);
-                        $newSubmissionFile = Services::get('submissionFile')->add($newSubmissionFile, Application::get()->getRequest());
+                        $id = Repo::submissionFiles()->add($newSubmissionFile);
+
+                        $newSubmissionFile = Repo::submissionFiles()->get($id);
                     }
                 }
                 // Send email to the author.

@@ -13,6 +13,7 @@
  *  review round) for grids.
  */
 
+use APP\facades\Repo;
 use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.review.ReviewGridDataProvider');
@@ -40,11 +41,13 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider
     {
         // Grab the files that are new (incoming) revisions
         // of those currently assigned to the review round.
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'submissionIds' => [$this->getSubmission()->getId()],
-            'fileStages' => [$this->getFileStage()],
-            'reviewRoundIds' => [$this->getReviewRound()->getId()],
-        ]);
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds([$this->getSubmission()->getId()])
+            ->filterByReviewRoundIds([$this->getReviewRound()->getId()])
+            ->filterByFileStages([(int) $this->getFileStage()]);
+
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), false, $filter);
     }
 

@@ -13,6 +13,7 @@
  * @brief Provide access to query files management.
  */
 
+use APP\facades\Repo;
 use Exception;
 
 use PKP\security\authorization\QueryAccessPolicy;
@@ -78,12 +79,14 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
             throw new Exception('Invalid note ID specified!');
         }
 
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'assocTypes' => [ASSOC_TYPE_NOTE],
-            'assocIds' => [$this->_noteId],
-            'submissionIds' => [$submission->getId()],
-            'fileStages' => [(int) $this->getFileStage()],
-        ]);
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterByAssoc(
+                [ASSOC_TYPE_NOTE],
+                [$this->_noteId]
+            )->filterBySubmissionIds([$submission->getId()])
+            ->filterByFileStages([(int) $this->getFileStage()]);
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
 
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
     }

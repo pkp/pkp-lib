@@ -13,6 +13,7 @@
  * @brief Provide access to submission files data for category grids.
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\submissionFile\SubmissionFile;
 
@@ -109,11 +110,12 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
             }
             if ($reviewRound) {
-                $submissionFilesIterator = Services::get('submissionFile')->getMany([
-                    'submissionIds' => [$submission->getId()],
-                    'reviewRoundIds' => [$reviewRound->getId()],
-                    'fileStages' => [$fileStage],
-                ]);
+                $collector = Repo::submissionFiles()
+                    ->getCollector()
+                    ->filterBySubmissionIds([$submission->getId()])
+                    ->filterByReviewRoundIds([$reviewRound->getId()])
+                    ->filterByFileStages([$fileStage]);
+                $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
                 $stageSubmissionFiles = iterator_to_array($submissionFilesIterator);
             } else {
                 $stageSubmissionFiles = [];
@@ -121,9 +123,10 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
         } else {
             // Filter the passed workflow stage files.
             if (!$this->_submissionFiles) {
-                $submissionFilesIterator = Services::get('submissionFile')->getMany([
-                    'submissionIds' => [$submission->getId()],
-                ]);
+                $collector = Repo::submissionFiles()
+                    ->getCollector()
+                    ->filterBySubmissionIds([$submission->getId()]);
+                $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
                 $this->_submissionFiles = iterator_to_array($submissionFilesIterator);
             }
             $submissionFiles = $this->_submissionFiles;

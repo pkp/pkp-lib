@@ -16,7 +16,6 @@
 namespace PKP\submission\form;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
@@ -65,15 +64,17 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
             );
             $submissionFileForm = new \PKP\components\forms\submission\PKPSubmissionFileForm($fileUploadApiUrl, $genres);
 
-            $submissionFilesIterator = Services::get('submissionFile')->getMany([
-                'fileStages' => [SubmissionFile::SUBMISSION_FILE_SUBMISSION],
-                'submissionIds' => [$this->submission->getId()],
-            ]);
+            $submissionFilesCollector = Repo::submissionFiles()
+                ->getCollector()
+                ->filterBySubmissionIds([$this->submission->getId()])
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION]);
+
+            $submissionFilesIterator = Repo::submissionFiles()
+                ->getMany($submissionFilesCollector);
             foreach ($submissionFilesIterator as $submissionFile) {
-                $submissionFiles[] = Services::get('submissionFile')->getSummaryProperties($submissionFile, [
-                    'request' => $request,
-                    'submission' => $this->submission,
-                ]);
+                $submissionFiles[] = Repo::submissionFiles()
+                    ->getSchemaMap()
+                    ->map($submissionFile);
             }
         }
 
@@ -151,12 +152,13 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
      */
     public function validate($callHooks = true)
     {
-
         // Validate that all upload files have been assigned a genreId
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'fileStages' => [SubmissionFile::SUBMISSION_FILE_SUBMISSION],
-            'submissionIds' => [$this->submission->getId()],
-        ]);
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
+            ->filterBySubmissionIds([$this->submission->getId()]);
+        $submissionFilesIterator = Repo::submissionFiles()
+            ->getMany($collector);
         foreach ($submissionFilesIterator as $submissionFile) {
             if (!$submissionFile->getData('genreId')) {
                 $this->addError('files', __('submission.submit.genre.error'));

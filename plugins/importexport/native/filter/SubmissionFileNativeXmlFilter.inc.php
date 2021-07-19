@@ -161,7 +161,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
             if (array_key_exists('no-embed', $this->opts)) {
                 $hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
                 if (array_key_exists('use-file-urls', $this->opts)) {
-                    $stageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
+                    $stageId = Repo::submissionFiles()->getWorkflowStageId($submissionFile);
                     $dispatcher = Application::get()->getDispatcher();
                     $request = Application::get()->getRequest();
                     $params = [

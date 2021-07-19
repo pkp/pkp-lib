@@ -13,9 +13,11 @@
  * @brief Form for editing a submission file's metadata
  */
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFilesMetadataForm extends Form
 {
@@ -153,7 +155,7 @@ class SubmissionFilesMetadataForm extends Form
             'submissionFile' => $this->getSubmissionFile(),
             'stageId' => $this->getStageId(),
             'reviewRoundId' => $reviewRound ? $reviewRound->getId() : null,
-            'supportsDependentFiles' => Services::get('submissionFile')->supportsDependentFiles($this->getSubmissionFile()),
+            'supportsDependentFiles' => Repo::submissionFiles()->supportsDependentFiles($this->getSubmissionFile()),
             'genre' => $genre,
         ]);
         return parent::fetch($request, $template, $display);
@@ -188,7 +190,10 @@ class SubmissionFilesMetadataForm extends Form
             'dateCreated' => $this->getData('dateCreated'),
         ]);
 
-        $this->_submissionFile = Services::get('submissionFile')->edit($this->getSubmissionFile(), $props, Application::get()->getRequest());
+        Repo::submissionFiles()->edit($this->getSubmissionFile(), $props);
+        $this->_submissionFile = Repo::submissionFiles()->get(
+            $this->getSubmissionFile->getId()
+        );
 
         parent::execute(...$functionParams);
     }

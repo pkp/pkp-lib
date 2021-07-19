@@ -56,11 +56,12 @@ class FileApiHandler extends Handler
         } elseif (is_numeric($libraryFileId)) {
             $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         } elseif (!empty($fileStage) && empty($submissionFileId)) {
-            $submissionFileIds = Services::get('submissionFile')->getIds([
-                'submissionIds' => [$submissionId],
-                'fileStages' => [$fileStage],
-                'includeDependentFiles' => $fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT,
-            ]);
+            $collector = Repo::submissionFiles()
+                ->getCollector()
+                ->filterBySubmissionIds([$submissionId])
+                ->filterByFileStages([$fileStage])
+                ->filterByIncludeDependentFiles($fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT);
+            $submissionFileIds = Repo::submissionFiles()->getIds($collector);
             $allFilesAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             foreach ($submissionFileIds as $submissionFileId) {
                 $allFilesAccessPolicy->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ, $submissionFileId));

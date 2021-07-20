@@ -441,6 +441,9 @@ msgstr "Initiate"
 msgid "common.inProgress"
 msgstr "In progress"
 
+msgid "common.insert"
+msgstr "Insert"
+
 msgid "common.itemsPerPage"
 msgstr "Items per page"
 

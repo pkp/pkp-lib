@@ -14,6 +14,8 @@
 
 namespace PKP\components\forms;
 
+use APP\core\Application;
+
 class FieldRichTextarea extends Field
 {
     /** @copydoc Field::$component */
@@ -64,6 +66,7 @@ class FieldRichTextarea extends Field
         if (!empty($this->preparedContent)) {
             $config['preparedContent'] = $this->preparedContent;
         }
+        $config['insertPreparedContentLabel'] = __('common.insert');
         $config['renderPreparedContent'] = $this->renderPreparedContent;
         if (!empty($this->size)) {
             $config['size'] = $this->size;
@@ -76,6 +79,9 @@ class FieldRichTextarea extends Field
             $config['wordLimit'] = $this->wordLimit;
             $config['wordCountLabel'] = __('publication.wordCount');
         }
+
+        // Load TinyMCE skin
+        $config['skinUrl'] = Application::get()->getRequest()->getBaseUrl() . '/lib/ui-library/public/styles/tinymce';
 
         return $config;
     }

@@ -459,7 +459,7 @@ class Schema extends \PKP\core\maps\Schema
                 // Review rounds are handled separately in the review stage below.
                 case WORKFLOW_STAGE_ID_EDITING:
                 case WORKFLOW_STAGE_ID_PRODUCTION:
-                    import('lib.pkp.classes.submission.SubmissionFile'); // Import constants
+                    import('lib.pkp.classes.submissionFile.SubmissionFile'); // Import constants
 
                     $fileStages = [WORKFLOW_STAGE_ID_EDITING ? SubmissionFile::SUBMISSION_FILE_COPYEDIT : SubmissionFile::SUBMISSION_FILE_PROOF];
                     $collector = Repo::submissionFiles()

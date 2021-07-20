@@ -35,6 +35,9 @@ class Collector implements CollectorInterface
     /** @var array|null */
     public $contextIds = null;
 
+    /** @var boolean|null */
+    public $disabled = null;
+
     /** @var ?string */
     public $searchPhrase = null;
 
@@ -111,6 +114,17 @@ class Collector implements CollectorInterface
             'stage_id' => $stageId,
             'user_group_id' => $userGroupId,
         ];
+        return $this;
+    }
+
+    /**
+     * Filter by disabled/enabled status.
+     *
+     * @param $disabled boolean true iff only disabled users should be returned; false iff only enabled users should be returned.
+     */
+    public function filterByDisabled(bool $disabled = true): self
+    {
+        $this->disabled = $disabled;
         return $this;
     }
 
@@ -195,14 +209,25 @@ class Collector implements CollectorInterface
                         });
                 });
             })
+            ->when($this->disabled !== null, function ($query) {
+                $query->where('u.disabled', '=', $this->disabled);
+            })
             ->when($this->searchPhrase !== null, function ($query) {
-                // FIXME: Work better with multiword phrases !!!
-                return $query->whereIn('u.user_id', function ($query) {
-                    return $query->select('us.user_id')
-                        ->from('user_settings AS us')
-                        ->where('us.setting_value', 'LIKE', '%' . addcslashes(PKPString::strtolower($this->searchPhrase), '%_') . '%')
-                        ->whereIn(DB::raw('LOWER(us.setting_name)'), [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME]);
-                });
+                $words = explode(' ', $this->searchPhrase);
+                foreach ($words as $word) {
+                    $query->whereIn('u.user_id', function ($query) use ($word) {
+                        $likePattern = '%' . addcslashes(PKPString::strtolower($word), '%_') . '%';
+                        return $query->select('u.user_id')
+                            ->from('users AS u')
+                            ->join('user_settings AS us', function ($join) {
+                                $join->on('u.user_id', '=', 'us.user_id')
+                                    ->whereIn('us.setting_name', [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME]);
+                            })
+                            ->where(DB::raw('LOWER(us.setting_value)'), 'LIKE', $likePattern)
+                            ->orWhere(DB::raw('LOWER(email)'), 'LIKE', $likePattern)
+                            ->orWhere(DB::raw('LOWER(username)'), 'LIKE', $likePattern);
+                    });
+                }
             });
 
         // Limit and offset results for pagination

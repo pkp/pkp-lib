@@ -14,11 +14,11 @@
 
 namespace PKP\components\forms\context;
 
+use APP\facades\Repo;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
-use Services;
 
 define('FORM_NOTIFY_USERS', 'notifyUsers');
 
@@ -53,11 +53,13 @@ class PKPNotifyUsersForm extends FormComponent
                 'value' => $userGroup->getId(),
                 'label' => $userGroup->getLocalizedData('name'),
             ];
-            $this->userGroupCounts[$userGroup->getId()] = Services::get('user')->getCount([
-                'contextId' => $userGroup->getData('contextId'),
-                'userGroupIds' => [$userGroup->getId()],
-                'status' => 'active',
-            ]);
+            $dao = Repo::user()->dao;
+            $this->userGroupCounts[$userGroup->getId()] = $dao->getCount(
+                Repo::user()->getCollector()
+                    ->filterByContextIds([$userGroup->getData('contextId')])
+                    ->filterByUserGroupIds([$userGroup->getId()])
+                    ->filterByDisabled(false)
+            );
         }
 
         $currentUser = \Application::get()->getRequest()->getUser();

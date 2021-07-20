@@ -1,9 +1,10 @@
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-04-30 07:17+0000\n"
+"PO-Revision-Date: 2021-07-21 11:04+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "cs_CZ/>\n"
@@ -71,7 +72,7 @@ msgid "editor.submission.fileList.includeAllStages"
 msgstr "Ukázat soubory ze všech přístupných etap workflow."
 
 msgid "editor.submission.review.currentFiles"
-msgstr "Současné soubory k recenzi pro {$round}. kolo."
+msgstr "Současné soubory k recenzi pro {$round}. kolo"
 
 msgid "editor.submission.backToSearch"
 msgstr "Zpět na vyhledávání"

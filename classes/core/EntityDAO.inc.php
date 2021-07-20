@@ -14,6 +14,7 @@
 namespace PKP\core;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use PKP\db\DAO;
 use PKP\services\PKPSchemaService;
 use stdClass;

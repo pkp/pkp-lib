@@ -44,6 +44,9 @@ class Collector implements CollectorInterface
     /** @var boolean */
     public $includeReviewerData = false;
 
+    /** @var array|null */
+    public $assignedSectionIds = null;
+
     /** @var ?string */
     public $searchPhrase = null;
 
@@ -67,7 +70,7 @@ class Collector implements CollectorInterface
     /**
      * Limit results to users in these user groups
      */
-    public function filterByUserGroupIds(array $userGroupIds): self
+    public function filterByUserGroupIds(?array $userGroupIds): self
     {
         $this->userGroupIds = $userGroupIds;
         return $this;
@@ -76,7 +79,7 @@ class Collector implements CollectorInterface
     /**
      * Limit results to users enrolled in these roles
      */
-    public function filterByRoleIds(array $roleIds): self
+    public function filterByRoleIds(?array $roleIds): self
     {
         $this->roleIds = $roleIds;
         return $this;
@@ -85,7 +88,7 @@ class Collector implements CollectorInterface
     /**
      * Limit results to users enrolled in these roles
      */
-    public function filterByWorkflowStageIds(array $workflowStageIds): self
+    public function filterByWorkflowStageIds(?array $workflowStageIds): self
     {
         $this->workflowStageIds = $workflowStageIds;
         return $this;
@@ -95,15 +98,15 @@ class Collector implements CollectorInterface
     /**
      * Limit results to users with user groups in these context IDs
      */
-    public function filterByContextIds(array $contextIds): self
+    public function filterByContextIds(?array $contextIds): self
     {
         $this->contextIds = $contextIds;
         return $this;
     }
 
-    public function includeReviewerData(): self
+    public function includeReviewerData(bool $includeReviewerData = true): self
     {
-        $this->includeReviewerData = true;
+        $this->includeReviewerData = $includeReviewerData;
         return $this;
     }
 
@@ -138,18 +141,27 @@ class Collector implements CollectorInterface
     /**
      * Filter by disabled/enabled status.
      *
-     * @param $disabled boolean true iff only disabled users should be returned; false iff only enabled users should be returned.
+     * @param $disabled boolean true iff only disabled users should be returned; false iff only enabled users should be returned; null if both can be included.
      */
-    public function filterByDisabled(bool $disabled = true): self
+    public function filterByDisabled(?bool $disabled = true): self
     {
         $this->disabled = $disabled;
         return $this;
     }
 
     /**
+     * Filter by assigned subeditor section IDs
+     */
+    public function filterByAssignedSectionIds(?array $sectionIds): self
+    {
+        $this->assignedSectionIds = $sectionIds;
+        return $this;
+    }
+
+    /**
      * Limit results to users matching this search query
      */
-    public function searchPhrase(string $phrase): self
+    public function searchPhrase(?string $phrase): self
     {
         $this->searchPhrase = $phrase;
         return $this;
@@ -158,7 +170,7 @@ class Collector implements CollectorInterface
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(int $count): self
+    public function limit(?int $count): self
     {
         $this->count = $count;
         return $this;
@@ -168,7 +180,7 @@ class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(int $offset): self
+    public function offset(?int $offset): self
     {
         $this->offset = $offset;
         return $this;
@@ -233,6 +245,14 @@ class Collector implements CollectorInterface
             })
             ->when($this->disabled !== null, function ($query) {
                 $query->where('u.disabled', '=', $this->disabled);
+            })
+            ->when($this->assignedSectionIds !== null, function ($query) {
+                $query->whereIn('u.user_id', function ($query) {
+                    return $query->select('user_id')
+                        ->from('subeditor_submission_group')
+                        ->where('assoc_type', '=', ASSOC_TYPE_SECTION)
+                        ->whereIn('assoc_id', $this->assignedSectionIds);
+                });
             })
             ->when($this->searchPhrase !== null, function ($query) {
                 $words = explode(' ', $this->searchPhrase);

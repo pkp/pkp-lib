@@ -15,6 +15,7 @@
  */
 
 use APP\core\Services;
+use APP\facades\Repo;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 
@@ -179,17 +180,24 @@ class PKPUserHandler extends APIHandler
             'status',
         ]);
 
-        $params['contextId'] = $context->getId();
-
         \HookRegistry::call('API::users::reviewers::params', [&$params, $slimRequest]);
 
         $items = [];
-        $usersIterator = Services::get('user')->getReviewers($params);
+        $usersCollection = Repo::user()->getMany(
+            Repo::user()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->includeReviewerData()
+                ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
+                ->filterByWorkflowStageIds([$params['reviewStage']])
+                ->searchPhrase($params['searchPhrase'] ?? null)
+                ->limit($params['count'] ?? null)
+                ->offset($params['offset'] ?? null)
+        );
         $propertyArgs = [
             'request' => $request,
             'slimRequest' => $slimRequest,
         ];
-        foreach ($usersIterator as $user) {
+        foreach ($usersCollection as $user) {
             $items[] = Services::get('user')->getReviewerSummaryProperties($user, $propertyArgs);
         }
 

@@ -417,7 +417,7 @@ class PKPReviewerGridHandler extends GridHandler
     {
         import('lib.pkp.controllers.grid.users.reviewer.form.EditReviewForm');
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $editReviewForm = new EditReviewForm($reviewAssignment);
+        $editReviewForm = new \EditReviewForm($reviewAssignment);
         $editReviewForm->initData();
         return new JSONMessage(true, $editReviewForm->fetch($request));
     }
@@ -434,7 +434,7 @@ class PKPReviewerGridHandler extends GridHandler
     {
         import('lib.pkp.controllers.grid.users.reviewer.form.EditReviewForm');
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $editReviewForm = new EditReviewForm($reviewAssignment);
+        $editReviewForm = new \EditReviewForm($reviewAssignment);
         $editReviewForm->readInputData();
         if ($editReviewForm->validate()) {
             $editReviewForm->execute();
@@ -509,7 +509,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
-        $reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $reinstateReviewerForm = new \ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
         $reinstateReviewerForm->initData();
 
         return new JSONMessage(true, $reinstateReviewerForm->fetch($request));
@@ -529,7 +529,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
-        $reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $reinstateReviewerForm = new \ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
         $reinstateReviewerForm->readInputData();
 
         // Reinstate the reviewer and return status message
@@ -693,7 +693,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Initialize form.
         import('lib.pkp.controllers.grid.users.reviewer.form.ThankReviewerForm');
-        $thankReviewerForm = new ThankReviewerForm($reviewAssignment);
+        $thankReviewerForm = new \ThankReviewerForm($reviewAssignment);
         $thankReviewerForm->initData();
 
         // Render form.
@@ -773,7 +773,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Form handling
         import('lib.pkp.controllers.grid.users.reviewer.form.ThankReviewerForm');
-        $thankReviewerForm = new ThankReviewerForm($reviewAssignment);
+        $thankReviewerForm = new \ThankReviewerForm($reviewAssignment);
         $thankReviewerForm->readInputData();
         if ($thankReviewerForm->validate()) {
             $thankReviewerForm->execute();
@@ -805,7 +805,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Initialize form.
         import('lib.pkp.controllers.grid.users.reviewer.form.ReviewReminderForm');
-        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
+        $reviewReminderForm = new \ReviewReminderForm($reviewAssignment);
         $reviewReminderForm->initData();
 
         // Render form.
@@ -826,7 +826,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Form handling
         import('lib.pkp.controllers.grid.users.reviewer.form.ReviewReminderForm');
-        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
+        $reviewReminderForm = new \ReviewReminderForm($reviewAssignment);
         $reviewReminderForm->readInputData();
         if ($reviewReminderForm->validate()) {
             $reviewReminderForm->execute();
@@ -855,7 +855,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Form handling.
         import('lib.pkp.controllers.grid.users.reviewer.form.EmailReviewerForm');
-        $emailReviewerForm = new EmailReviewerForm($reviewAssignment);
+        $emailReviewerForm = new \EmailReviewerForm($reviewAssignment);
         if (!$request->isPost()) {
             $emailReviewerForm->initData();
             return new JSONMessage(
@@ -924,7 +924,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         $requestArgs = array_merge($this->getRequestArgs(), ['reviewAssignmentId' => $reviewAssignment->getId()]);
         import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerGossipForm');
-        $reviewerGossipForm = new ReviewerGossipForm($user, $requestArgs);
+        $reviewerGossipForm = new \ReviewerGossipForm($user, $requestArgs);
 
         // View form
         if (!$request->isPost()) {

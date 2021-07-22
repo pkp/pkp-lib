@@ -14,9 +14,9 @@
  * N.B. Requires a subclass to implement the "reviewerId" to be added.
  */
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
@@ -520,7 +520,7 @@ class ReviewerForm extends Form
 
         // Ensure that they are a reviewer
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        return $roleDao->userHasRole($contextId->getId(), $reviewerId, \PKP\security\Role::ROLE_ID_REVIEWER);
+        return $roleDao->userHasRole($context->getId(), $reviewerId, \PKP\security\Role::ROLE_ID_REVIEWER);
     }
 
     /**

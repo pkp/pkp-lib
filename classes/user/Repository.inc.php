@@ -16,6 +16,7 @@ namespace PKP\user;
 use APP\i18n\AppLocale;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\LazyCollection;
 use PKP\plugins\HookRegistry;
 use PKP\validation\ValidatorFactory;
 
@@ -46,6 +47,12 @@ class Repository
     public function get(int $id): ?User
     {
         return $this->dao->get($id);
+    }
+
+    /** @copydoc DAO::getMany() */
+    public function getMany(Collector $query): LazyCollection
+    {
+        return $this->dao->getMany($query);
     }
 
     /** @copydoc DAO::get() */

@@ -33,10 +33,16 @@ class Collector implements CollectorInterface
     public $roleIds = null;
 
     /** @var array|null */
+    public $workflowStageIds = null;
+
+    /** @var array|null */
     public $contextIds = null;
 
     /** @var boolean|null */
     public $disabled = null;
+
+    /** @var boolean */
+    public $includeReviewerData = false;
 
     /** @var ?string */
     public $searchPhrase = null;
@@ -52,9 +58,6 @@ class Collector implements CollectorInterface
 
     /** @var int|null */
     public $offset = null;
-
-    /** @var array list of columns to select with query */
-    protected $columns = [];
 
     public function __construct(DAO $dao)
     {
@@ -79,6 +82,15 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    /**
+     * Limit results to users enrolled in these roles
+     */
+    public function filterByWorkflowStageIds(array $workflowStageIds): self
+    {
+        $this->workflowStageIds = $workflowStageIds;
+        return $this;
+    }
+
 
     /**
      * Limit results to users with user groups in these context IDs
@@ -86,6 +98,12 @@ class Collector implements CollectorInterface
     public function filterByContextIds(array $contextIds): self
     {
         $this->contextIds = $contextIds;
+        return $this;
+    }
+
+    public function includeReviewerData(): self
+    {
+        $this->includeReviewerData = true;
         return $this;
     }
 
@@ -161,15 +179,19 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $this->columns[] = 'u.*';
         $q = DB::table('users AS u')
-            ->when($this->userGroupIds !== null || $this->roleIds !== null || $this->contextIds !== null, function ($query) {
+            ->select('u.*')
+            ->when($this->userGroupIds !== null || $this->roleIds !== null || $this->contextIds !== null || $this->workflowStageIds !== null, function ($query) {
                 return $query->whereIn('u.user_id', function ($query) {
                     return $query->select('uug.user_id')
                         ->from('user_user_groups AS uug')
                         ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
                         ->when($this->userGroupIds !== null, function ($query) {
                             return $query->whereIn('uug.user_group_id', $this->userGroupIds);
+                        })
+                        ->when($this->workflowStageIds !== null, function ($query) {
+                            $query->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
+                                ->whereIn('ugs.stage_id', $this->workflowStageIds);
                         })
                         ->when($this->roleIds !== null, function ($query) {
                             return $query->whereIn('ug.role_id', $this->roleIds);
@@ -228,6 +250,36 @@ class Collector implements CollectorInterface
                             ->orWhere(DB::raw('LOWER(username)'), 'LIKE', $likePattern);
                     });
                 }
+            })
+            ->when($this->includeReviewerData, function ($query) {
+                // Latest assigned review
+                $query->leftJoin('review_assignments AS ra_latest', 'u.user_id', '=', 'ra_latest.reviewer_id')
+                    ->leftJoin('review_assignments AS ra_latest_nonexistent', function ($join) {
+                        $join->on('u.user_id', '=', 'ra_latest_nonexistent.reviewer_id')
+                            ->on('ra_latest.review_id', '<', 'ra_latest_nonexistent.review_id');
+                    })
+                    ->whereNull('ra_latest_nonexistent.review_id')
+                    ->addSelect('ra_latest.date_assigned AS last_assigned');
+
+                // Review counts
+                $query->addSelect([
+                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count'),
+                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count'),
+                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.declined = 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as declined_count'),
+                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.cancelled = 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as cancelled_count'),
+                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.cancelled = 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as cancelled_count'),
+                ]);
+
+                switch (\Config::getVar('database', 'driver')) {
+                    case 'mysql':
+                    case 'mysqli':
+                        $dateDiffClause = 'DATEDIFF(ra.date_completed, ra.date_notified)';
+                        break;
+                    default: // PostgreSQL
+                        $dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';
+                }
+                $query->addSelect(DB::raw('(SELECT AVG(' . $dateDiffClause . ') FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.date_completed IS NOT NULL) as average_time'));
+                $query->addSelect(DB::raw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) as reviewer_rating'));
             });
 
         // Limit and offset results for pagination
@@ -241,7 +293,6 @@ class Collector implements CollectorInterface
         // Add app-specific query statements
         HookRegistry::call('User::Collector::getQueryBuilder', [&$q, $this]);
 
-        $q->select($this->columns);
         return $q;
     }
 }

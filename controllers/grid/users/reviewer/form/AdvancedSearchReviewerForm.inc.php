@@ -102,8 +102,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             ->filterByContextIds([$submissionContext->getId(), PKPApplication::CONTEXT_SITE]);
         $userDao = Repo::user()->dao;
         $warnOnAssignment = array_merge($warnOnAssignment, Repo::user()->getIds($collector)->toArray());
-
-        $warnOnAssignment = array_unique(array_map('intval', $warnOnAssignment));
+        $warnOnAssignment = array_values(array_unique(array_map('intval', $warnOnAssignment)));
 
         // Get reviewers list
         $selectReviewerListPanel = new \PKP\components\listPanels\PKPSelectReviewerListPanel(

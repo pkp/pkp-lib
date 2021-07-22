@@ -14,6 +14,8 @@
 
 namespace PKP\components\listPanels;
 
+use APP\facades\Repo;
+
 class PKPSelectReviewerListPanel extends ListPanel
 {
     /** @var string URL to the API endpoint where items can be retrieved */
@@ -146,13 +148,18 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItems($request)
     {
-        $userService = \Services::get('user');
-        $reviewers = $userService->getReviewers($this->_getItemsParams());
+        $args = $this->_getItemsParams();
+        $reviewers = Repo::user()->getMany(
+            Repo::user()->getCollector()
+                ->filterByContextIds([$args['contextId']])
+                ->filterByWorkflowStageIds([$args['reviewStage']])
+                ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
+                ->includeReviewerData()
+        );
         $items = [];
-        if (!empty($reviewers)) {
-            foreach ($reviewers as $reviewer) {
-                $items[] = $userService->getReviewerSummaryProperties($reviewer, ['request' => $request]);
-            }
+        $userService = \Services::get('user');
+        foreach ($reviewers as $reviewer) {
+            $items[] = $userService->getReviewerSummaryProperties($reviewer, ['request' => $request]);
         }
 
         return $items;

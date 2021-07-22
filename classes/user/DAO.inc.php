@@ -20,8 +20,8 @@ namespace PKP\user;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
+use PKP\core\DataObject;
 use PKP\identity\Identity;
-use PKP\plugins\HookRegistry;
 
 class DAO extends \PKP\core\EntityDAO
 {
@@ -104,9 +104,9 @@ class DAO extends \PKP\core\EntityDAO
             ->getQueryBuilder()
             ->get();
 
-        return LazyCollection::make(function () use ($rows) {
+        return LazyCollection::make(function () use ($rows, $query) {
             foreach ($rows as $row) {
-                yield $this->fromRow($row);
+                yield $this->fromRow($row, $query->includeReviewerData);
             }
         });
     }
@@ -246,30 +246,26 @@ class DAO extends \PKP\core\EntityDAO
     }
 
     /**
-
-     * Return a user object from a DB row, including dependent data and reviewer stats.
+     * @copydoc EntityDAO::fromRow
      *
-     * @param $row array
-     *
-     * @return User
+     * @param $includeReviewerData boolean
      */
-    public function _returnUserFromRowWithReviewerStats($row)
+    public function fromRow(\stdClass $row, bool $includeReviewerData = false): DataObject
     {
-        $user = $this->fromRow($row);
-        $user->setData('lastAssigned', $row['last_assigned']);
-        $user->setData('incompleteCount', (int) $row['incomplete_count']);
-        $user->setData('completeCount', (int) $row['complete_count']);
-        $user->setData('declinedCount', (int) $row['declined_count']);
-        $user->setData('cancelledCount', (int) $row['cancelled_count']);
-        $user->setData('averageTime', (int) $row['average_time']);
+        $user = parent::fromRow($row);
+        if ($includeReviewerData) {
+            $user->setData('lastAssigned', $row->last_assigned);
+            $user->setData('incompleteCount', (int) $row->incomplete_count);
+            $user->setData('completeCount', (int) $row->complete_count);
+            $user->setData('declinedCount', (int) $row->declined_count);
+            $user->setData('cancelledCount', (int) $row->cancelled_count);
+            $user->setData('averageTime', (int) $row->average_time);
 
-        // 0 values should return null. They represent a reviewer with no ratings
-        if ($row['reviewer_rating']) {
-            $user->setData('reviewerRating', max(1, round($row['reviewer_rating'])));
+            // 0 values should return null. They represent a reviewer with no ratings
+            if ($reviewerRating = $row->reviewer_rating) {
+                $user->setData('reviewerRating', max(1, round($reviewerRating)));
+            }
         }
-
-        HookRegistry::call('UserDAO::_returnUserFromRowWithReviewerStats', [&$user, &$row]);
-
         return $user;
     }
 

@@ -49,7 +49,7 @@ abstract class Collector implements CollectorInterface
     public $contextIds = null;
 
     /** @var int */
-    public $count = 30;
+    public ?int $count;
 
     /** @var int */
     public $daysInactive;
@@ -61,7 +61,7 @@ abstract class Collector implements CollectorInterface
     public $isOverdue = false;
 
     /** @var int */
-    public $offset = 0;
+    public ?int $offset;
 
     /** @var string */
     public $orderBy = self::ORDERBY_DATE_SUBMITTED;
@@ -191,6 +191,16 @@ abstract class Collector implements CollectorInterface
     public function offset(int $offset): AppCollector
     {
         $this->offset = $offset;
+        return $this;
+    }
+
+    /**
+     * Remove any limit and offset restrictions
+     */
+    public function unlimited(): AppCollector
+    {
+        $this->count = null;
+        $this->offset = null;
         return $this;
     }
 
@@ -394,10 +404,10 @@ abstract class Collector implements CollectorInterface
         }
 
         // Limit and offset results for pagination
-        if (!is_null($this->count)) {
+        if (isset($this->count)) {
             $q->limit($this->count);
         }
-        if (!is_null($this->offset)) {
+        if (isset($this->offset)) {
             $q->offset($this->offset);
         }
 

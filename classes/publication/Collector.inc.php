@@ -30,10 +30,10 @@ class Collector implements CollectorInterface
     public $submissionIds = null;
 
     /** @var int */
-    public $count = 0;
+    public ?int $count;
 
     /** @var int */
-    public $offset = 0;
+    public ?int $offset;
 
     public function __construct(DAO $dao)
     {
@@ -78,6 +78,16 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Remove any limit and offset restrictions
+     */
+    public function unlimited(): self
+    {
+        $this->count = null;
+        $this->offset = null;
+        return $this;
+    }
+
+    /**
      * @copydoc CollectorInterface::getQueryBuilder()
      */
     public function getQueryBuilder(): Builder
@@ -94,10 +104,10 @@ class Collector implements CollectorInterface
             $qb->whereIn('p.submission_id', $this->submissionIds);
         }
 
-        if (!empty($this->count)) {
+        if (isset($this->count)) {
             $qb->limit($this->count);
         }
-        if (!empty($this->offset)) {
+        if (isset($this->offset)) {
             $qb->offset($this->offset);
         }
 

@@ -241,7 +241,7 @@ class PKPSubmissionHandler extends APIHandler
         $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
 
         return $response->withJson([
-            'itemsMax' => Repo::submission()->getCount($collector),
+            'itemsMax' => Repo::submission()->getCount($collector->unlimited()),
             'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups),
         ], 200);
     }
@@ -558,7 +558,7 @@ class PKPSubmissionHandler extends APIHandler
         $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
 
         return $response->withJson([
-            'itemsMax' => Repo::publication()->getCount($collector),
+            'itemsMax' => Repo::publication()->getCount($collector->unlimited()),
             'items' => Repo::publication()->getSchemaMap($submission, $userGroups)->summarizeMany($publications, $anonymize),
         ], 200);
     }

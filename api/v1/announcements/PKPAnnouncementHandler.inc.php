@@ -157,7 +157,7 @@ class PKPAnnouncementHandler extends APIHandler
         $announcements = Repo::announcement()->getMany($collector);
 
         return $response->withJson([
-            'itemsMax' => $announcements->count(),
+            'itemsMax' => Repo::announcement()->getCount($collector->unlimited()),
             'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements),
         ], 200);
     }

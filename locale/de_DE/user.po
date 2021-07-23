@@ -1,9 +1,10 @@
+# Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-06-08 06:11+0000\n"
+"PO-Revision-Date: 2021-07-24 11:48+0000\n"
 "Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "de_DE/>\n"
@@ -405,7 +406,7 @@ msgid "user.title"
 msgstr "Titel"
 
 msgid "user.url"
-msgstr "URL"
+msgstr "URL der Homepage"
 
 msgid "user.userHome"
 msgstr "Persönliche Startseite"

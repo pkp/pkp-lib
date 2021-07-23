@@ -30,7 +30,8 @@
 		"phpunit/phpunit": "~9",
 		"psy/psysh": "@stable",
 		"friendsofphp/php-cs-fixer": "^2.18",
-		"brainmaestro/composer-git-hooks": "^2.8"
+		"brainmaestro/composer-git-hooks": "^2.8",
+		"mockery/mockery": "^1.4"
 	},
 	"config": {
 		"component-dir": "lib/components",

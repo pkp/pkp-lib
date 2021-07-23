@@ -15,7 +15,8 @@
 
 namespace PKP\file;
 
-use APP\core\Services;
+use Illuminate\Support\Facades\App;
+use PKP\core\FileService;
 
 class PKPFile extends \PKP\core\DataObject
 {
@@ -124,10 +125,12 @@ class PKPFile extends \PKP\core\DataObject
      * Return pretty file size string (in B, KB, MB, or GB units).
      *
      * @return string
+     *
+     * @deprecated 3.4
      */
     public function getNiceFileSize()
     {
-        return Services::get('file')->getNiceFileSize($this->getFileSize());
+        return App::make(FileService::class)->getNiceFileSize($this->getFileSize());
     }
 
 

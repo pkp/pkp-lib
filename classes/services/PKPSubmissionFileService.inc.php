@@ -19,6 +19,7 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\core\Core;
+use PKP\core\FileService;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\log\SubmissionEmailLogEntry;
@@ -39,6 +40,13 @@ use PKP\validation\ValidatorFactory;
 
 class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
+    protected FileService $fileService;
+
+    public function __construct(FileService $fileService)
+    {
+        $this->fileService = $fileService;
+    }
+
     /**
      * @copydoc \PKP\services\interfaces\EntityReadInterface::get()
      */
@@ -168,7 +176,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                     $values[$prop] = $dependentFiles;
                     break;
                 case 'documentType':
-                    $values[$prop] = Services::get('file')->getDocumentType($submissionFile->getData('mimetype'));
+                    $values[$prop] = $this->fileService->getDocumentType($submissionFile->getData('mimetype'));
                     break;
                 case 'revisions':
                     $files = [];
@@ -178,7 +186,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                             continue;
                         }
                         $files[] = [
-                            'documentType' => Services::get('file')->getDocumentType($revision->mimetype),
+                            'documentType' => $this->fileService->getDocumentType($revision->mimetype),
                             'fileId' => $revision->fileId,
                             'mimetype' => $revision->mimetype,
                             'path' => $revision->path,
@@ -600,7 +608,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 'includeDependentFiles' => true,
             ]);
             if (!$countFileShares) {
-                Services::get('file')->delete($revision->fileId);
+                $this->fileService->delete($revision->fileId);
             }
         }
 

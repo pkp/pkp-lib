@@ -22,6 +22,7 @@ use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 
 use PKP\session\SessionManager;
+use Stringy\Stringy;
 
 class Validation
 {
@@ -410,7 +411,7 @@ class Validation
             $name = $initial . $familyName;
         }
 
-        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy\Stringy::create($name)->toAscii()->toLowerCase());
+        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy::create($name)->toAscii()->toLowerCase());
         $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
         return $suggestion . $i;

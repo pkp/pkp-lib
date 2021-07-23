@@ -224,7 +224,7 @@ class Collector implements CollectorInterface
                             ->on('sa_exclude.user_group_id', '=', 'uug_exclude.user_group_id')
                             ->where('sa_exclude.submission_id', '=', $this->excludeSubmissionStage['submission_id']);
                     })
-                    ->where('uug_exclude', '=', $this->excludeSubmissionStage['user_group_id'])
+                    ->where('uug_exclude.user_group_id', '=', $this->excludeSubmissionStage['user_group_id'])
                     ->whereNull('sa_exclude.user_group_id');
             })
             ->when($this->submissionAssignment !== null, function ($query) {

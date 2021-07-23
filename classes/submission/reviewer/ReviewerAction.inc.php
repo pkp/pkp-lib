@@ -15,6 +15,7 @@
 
 namespace PKP\submission\reviewer;
 
+use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use PKP\core\Core;

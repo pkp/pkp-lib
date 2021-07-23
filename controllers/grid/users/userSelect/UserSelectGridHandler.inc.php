@@ -145,7 +145,7 @@ class UserSelectGridHandler extends GridHandler
                 ->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount())
         );
         $totalCount = $users->count($collector->limit(null)->offset(null));
-        return new \PKP\core\VirtualArrayIterator(iterator_to_array($users), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
+        return new \PKP\core\VirtualArrayIterator(iterator_to_array($users, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**

@@ -106,7 +106,7 @@ class DAO extends \PKP\core\EntityDAO
 
         return LazyCollection::make(function () use ($rows, $query) {
             foreach ($rows as $row) {
-                yield $this->fromRow($row, $query->includeReviewerData);
+                yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
             }
         });
     }

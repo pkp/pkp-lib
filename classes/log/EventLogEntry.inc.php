@@ -266,7 +266,7 @@ class EventLogEntry extends \PKP\core\DataObject
     {
         $userFullName = & $this->getData('userFullName');
         if (!isset($userFullName)) {
-            $userFullName = Repo::user()->get($this->getUserId())->getLocalizedFullName();
+            $userFullName = Repo::user()->get($this->getUserId())->getFullName();
         }
 
         return ($userFullName ? $userFullName : '');

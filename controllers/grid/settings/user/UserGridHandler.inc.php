@@ -203,7 +203,7 @@ class UserGridHandler extends GridHandler
         $collector->limit($rangeInfo->getCount());
         $collector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
         $iterator = $userDao->getMany($collector);
-        return new \PKP\core\VirtualArrayIterator(iterator_to_array($iterator), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
+        return new \PKP\core\VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**

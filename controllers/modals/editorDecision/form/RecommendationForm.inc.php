@@ -105,7 +105,7 @@ class RecommendationForm extends Form
         $i = 0;
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
             if (!$editorsStageAssignment->getRecommendOnly()) {
-                $editorFullName = Repo::user()->get($editorsStageAssignment->getUserId())->getLocalizedFullName();
+                $editorFullName = Repo::user()->get($editorsStageAssignment->getUserId())->getFullName();
                 $editorsStr .= ($i == 0) ? $editorFullName : ', ' . $editorFullName;
                 $i++;
             }

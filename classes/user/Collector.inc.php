@@ -128,7 +128,7 @@ class Collector implements CollectorInterface
      * Retrieve StageAssignments by submission and stage IDs.
      * (Replaces UserStageAssignmentDAO::getUsersBySubmissionAndStageId)
      */
-    public function filterSubmissionAssignment(int $submissionId, ?int $stageId, ?int $userGroupId): self
+    public function filterSubmissionAssignment(int $submissionId, ?int $stageId = null, ?int $userGroupId = null): self
     {
         $this->submissionAssignment = [
             'submission_id' => $submissionId,

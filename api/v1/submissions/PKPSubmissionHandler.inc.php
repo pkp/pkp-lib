@@ -675,10 +675,11 @@ class PKPSubmissionHandler extends APIHandler
 
         $notificationManager = new NotificationManager();
         $userService = Services::get('user');
-        $usersIterator = $userService->getMany([
-            'contextId' => $submission->getContextId(),
-            'assignedToSubmission' => $submission->getId(),
-        ]);
+        $usersIterator = Repo::user()->getMany(
+            Repo::user()->getCollector()
+                ->filterByContextIds([$submission->getContextId()])
+                ->filterSubmissionAssignment($submission->getId())
+        );
 
         foreach ($usersIterator as $user) {
             $notificationManager->createNotification(

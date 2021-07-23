@@ -17,10 +17,10 @@
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow');
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 
+use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
-
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;

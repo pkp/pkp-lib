@@ -139,7 +139,7 @@ class SubmissionComment extends \PKP\core\DataObject
 
         if (!isset($authorFullName)) {
             $user = Repo::user()->get($this->getAuthorId());
-            $authorFullName = $user->getLocalizedFullName();
+            $authorFullName = $user->getFullName();
         }
 
         return $authorFullName ? $authorFullName : '';

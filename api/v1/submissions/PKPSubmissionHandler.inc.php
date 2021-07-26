@@ -503,21 +503,17 @@ class PKPSubmissionHandler extends APIHandler
 
         $data = [];
 
-        $userService = Services::get('user');
-
-        $usersIterator = $userService->getMany([
-            'contextId' => $context->getId(),
-            'assignedToSubmission' => $submission->getId(),
-            'assignedToSubmissionStage' => $stageId,
-        ]);
-        if (count($usersIterator)) {
-            $args = [
-                'request' => $request,
-                'slimRequest' => $slimRequest,
-            ];
-            foreach ($usersIterator as $user) {
-                $data[] = $userService->getSummaryProperties($user, $args);
-            }
+        $usersIterator = Repo::user()->getMany(
+            Repo::user()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->filterSubmissionAssignment($submission->getId(), $stageId)
+        );
+        $args = [
+            'request' => $request,
+            'slimRequest' => $slimRequest,
+        ];
+        foreach ($usersIterator as $user) {
+            $data[] = Services::get('user')->getSummaryProperties($user, $args);
         }
 
         return $response->withJson($data, 200);
@@ -674,7 +670,6 @@ class PKPSubmissionHandler extends APIHandler
         $publication = Repo::publication()->get($newId);
 
         $notificationManager = new NotificationManager();
-        $userService = Services::get('user');
         $usersIterator = Repo::user()->getMany(
             Repo::user()->getCollector()
                 ->filterByContextIds([$submission->getContextId()])

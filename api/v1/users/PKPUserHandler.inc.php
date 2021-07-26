@@ -103,17 +103,31 @@ class PKPUserHandler extends APIHandler
         \HookRegistry::call('API::users::params', [&$params, $slimRequest]);
 
         $items = [];
-        $usersItereator = Services::get('user')->getMany($params);
+        // FIXME: pkp/pkp-lib#7127 orderBy and orderDirection
+        $collector = Repo::user()->getCollector()
+            ->filterSubmissionAssignment($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
+            ->filterByAssignedSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
+            ->filterByAssignedCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
+            ->filterByRoleIds($params['roleIds'] ?? null)
+            ->searchPhrase($params['searchPhrase'] ?? null)
+            ->limit($params['count'] ?? null)
+            ->offset($params['offset'] ?? null);
+        switch ($params['status'] ?? null) {
+            case 'active': $collector->filterByDisabled(false); break;
+            case 'disabled': $collector->filterByDisabled(true); break;
+        }
+        $usersIterator = Repo::user()->getMany($collector);
+
         $propertyArgs = [
             'request' => $request,
             'slimRequest' => $slimRequest,
         ];
-        foreach ($usersItereator as $user) {
+        foreach ($usersIterator as $user) {
             $items[] = Services::get('user')->getSummaryProperties($user, $propertyArgs);
         }
 
         return $response->withJson([
-            'itemsMax' => Services::get('user')->getMax($params),
+            'itemsMax' => Repo::user()->dao->getCount($collector->limit(null)),
             'items' => $items,
         ], 200);
     }
@@ -132,7 +146,7 @@ class PKPUserHandler extends APIHandler
         $request = $this->getRequest();
 
         if (!empty($args['userId'])) {
-            $user = Services::get('user')->get((int) $args['userId']);
+            $user = Repo::user()->get($args['userId']);
         }
 
         if (!$user) {
@@ -182,27 +196,26 @@ class PKPUserHandler extends APIHandler
 
         \HookRegistry::call('API::users::reviewers::params', [&$params, $slimRequest]);
 
-        $items = [];
-        $usersCollection = Repo::user()->getMany(
-            Repo::user()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->includeReviewerData()
-                ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
-                ->filterByWorkflowStageIds([$params['reviewStage']])
-                ->searchPhrase($params['searchPhrase'] ?? null)
-                ->limit($params['count'] ?? null)
-                ->offset($params['offset'] ?? null)
-        );
+        $collector = Repo::user()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->includeReviewerData()
+            ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
+            ->filterByWorkflowStageIds([$params['reviewStage']])
+            ->searchPhrase($params['searchPhrase'] ?? null)
+            ->limit($params['count'] ?? null)
+            ->offset($params['offset'] ?? null);
+        $usersCollection = Repo::user()->getMany($collector);
         $propertyArgs = [
             'request' => $request,
             'slimRequest' => $slimRequest,
         ];
+        $items = [];
         foreach ($usersCollection as $user) {
             $items[] = Services::get('user')->getReviewerSummaryProperties($user, $propertyArgs);
         }
 
         return $response->withJson([
-            'itemsMax' => Services::get('user')->getReviewersMax($params),
+            'itemsMax' => Repo::user()->dao->getCount($collector->limit(null)),
             'items' => $items,
         ], 200);
     }

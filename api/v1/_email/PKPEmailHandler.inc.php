@@ -13,10 +13,10 @@
  * @brief Handle API requests for announcement operations.
  *
  */
-use APP\core\Services;
+
+use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Queue;
-
 use PKP\handler\APIHandler;
 use PKP\mail\Mail;
 use PKP\security\authorization\PolicySet;
@@ -137,11 +137,13 @@ class PKPEmailHandler extends APIHandler
             }
         }
 
-        // Only permit emails to be sent to active users in this context
-        $params['status'] = 'active';
-        $params['contextId'] = $contextId;
 
-        $userIds = Services::get('user')->getIds($params);
+        $userIds = iterator_to_array(Repo::user()->getIds(
+            Repo::user()->getCollector()
+                ->filterByContextIds([$contextId])
+                ->filterByDisabled(false) // Only permit emails to be sent to active users in this context
+                ->filterByUserGroupIds(['userGroupIds'])
+        ));
         $subject = $params['subject'];
         $body = $params['body'];
         $fromEmail = $context->getData('contactEmail');
@@ -158,10 +160,11 @@ class PKPEmailHandler extends APIHandler
         $batches = array_chunk($userIds, self::EMAILS_PER_JOB);
         foreach ($batches as $userIds) {
             Queue::push(function () use ($userIds, $contextId, $subject, $body, $fromEmail, $fromName) {
-                $users = Services::get('user')->getMany([
-                    'contextId' => $contextId,
-                    'userIds' => $userIds,
-                ]);
+                $users = Repo::user()->getMany(
+                    Repo::user()->getCollector()
+                        ->filterByContextIds([$contextId])
+                        ->filterByUserIds($userIds)
+                );
                 foreach ($users as $user) {
                     $mail = new Mail();
                     $mail->setFrom($fromEmail, $fromName);

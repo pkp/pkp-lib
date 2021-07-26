@@ -33,6 +33,9 @@ class Collector implements CollectorInterface
     public $roleIds = null;
 
     /** @var array|null */
+    public $userIds = null;
+
+    /** @var array|null */
     public $workflowStageIds = null;
 
     /** @var array|null */
@@ -46,6 +49,12 @@ class Collector implements CollectorInterface
 
     /** @var array|null */
     public $assignedSectionIds = null;
+
+    /** @var array|null */
+    public $assignedCategoryIds = null;
+
+    /** @var array|null */
+    public $settings = null;
 
     /** @var ?string */
     public $searchPhrase = null;
@@ -73,6 +82,12 @@ class Collector implements CollectorInterface
     public function filterByUserGroupIds(?array $userGroupIds): self
     {
         $this->userGroupIds = $userGroupIds;
+        return $this;
+    }
+
+    public function filterByUserIds(?array $userIds): self
+    {
+        $this->userIds = $userIds;
         return $this;
     }
 
@@ -128,13 +143,21 @@ class Collector implements CollectorInterface
      * Retrieve StageAssignments by submission and stage IDs.
      * (Replaces UserStageAssignmentDAO::getUsersBySubmissionAndStageId)
      */
-    public function filterSubmissionAssignment(int $submissionId, ?int $stageId = null, ?int $userGroupId = null): self
+    public function filterSubmissionAssignment(?int $submissionId, ?int $stageId = null, ?int $userGroupId = null): self
     {
-        $this->submissionAssignment = [
-            'submission_id' => $submissionId,
-            'stage_id' => $stageId,
-            'user_group_id' => $userGroupId,
-        ];
+        if ($submissionId === null) {
+            // Clear the condition.
+            $this->submissionAssignment = null;
+            if ($stageId !== null || $userGroupId !== null) {
+                throw new \InvalidArgumentException('If a stage or user group ID is specified, a submission ID must be specified as well.');
+            }
+        } else {
+            $this->submissionAssignment = [
+                'submission_id' => $submissionId,
+                'stage_id' => $stageId,
+                'user_group_id' => $userGroupId,
+            ];
+        }
         return $this;
     }
 
@@ -155,6 +178,21 @@ class Collector implements CollectorInterface
     public function filterByAssignedSectionIds(?array $sectionIds): self
     {
         $this->assignedSectionIds = $sectionIds;
+        return $this;
+    }
+
+    /**
+     * Filter by assigned subeditor section IDs
+     */
+    public function filterByAssignedCategoryIds(?array $categoryIds): self
+    {
+        $this->assignedCategoryIds = $categoryIds;
+        return $this;
+    }
+
+    public function filterBySettings(?array $settings): self
+    {
+        $this->settings = $settings;
         return $this;
     }
 
@@ -213,6 +251,19 @@ class Collector implements CollectorInterface
                         });
                 });
             })
+            ->when($this->userIds !== null, function ($query) {
+                $query->whereIn('u.user_id', $this->userIds);
+            })
+            ->when($this->settings !== null, function ($query) {
+                foreach ($this->settings as $settingName => $value) {
+                    $query->whereIn('u.user_id', function ($query) {
+                        return $query->select('user_id')
+                            ->from('user_settings')
+                            ->where('setting_name', '=', $settingName)
+                            ->where('setting_value', '=', $value);
+                    });
+                }
+            })
             ->when($this->excludeSubmissionStage !== null, function ($query) {
                 $query->join('user_user_groups AS uug_exclude', 'u.user_id', '=', 'uug_exclude.user_id')
                     ->join('user_group_stage AS ugs_exclude', function ($join) {
@@ -252,6 +303,14 @@ class Collector implements CollectorInterface
                         ->from('subeditor_submission_group')
                         ->where('assoc_type', '=', ASSOC_TYPE_SECTION)
                         ->whereIn('assoc_id', $this->assignedSectionIds);
+                });
+            })
+            ->when($this->assignedCategoryIds !== null, function ($query) {
+                $query->whereIn('u.user_id', function ($query) {
+                    return $query->select('user_id')
+                        ->from('subeditor_submission_group')
+                        ->where('assoc_type', '=', ASSOC_TYPE_CATEGORY)
+                        ->whereIn('assoc_id', $this->assignedCategoryIds);
                 });
             })
             ->when($this->searchPhrase !== null, function ($query) {

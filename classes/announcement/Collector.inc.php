@@ -21,25 +21,12 @@ use PKP\plugins\HookRegistry;
 
 class Collector implements CollectorInterface
 {
-    /** @var DAO */
-    public $dao;
-
-    /** @var array|null */
-    public $contextIds = null;
-
-    /** @var bool */
-    public $isActive;
-
-    /** @var string */
-    public $searchPhrase = '';
-
-    /** @var array|null */
-    public $typeIds = null;
-
-    /** @var int */
+    public DAO $dao;
+    public ?array $contextIds;
+    public string $isActive;
+    public string $searchPhrase = '';
+    public ?array $typeIds;
     public ?int $count;
-
-    /** @var int */
     public ?int $offset;
 
     public function __construct(DAO $dao)
@@ -50,7 +37,7 @@ class Collector implements CollectorInterface
     /**
      * Filter announcements by one or more contexts
      */
-    public function filterByContextIds(array $contextIds): self
+    public function filterByContextIds(?array $contextIds): self
     {
         $this->contextIds = $contextIds;
         return $this;
@@ -91,7 +78,7 @@ class Collector implements CollectorInterface
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(int $count): self
+    public function limit(?int $count): self
     {
         $this->count = $count;
         return $this;
@@ -101,19 +88,9 @@ class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(int $offset): self
+    public function offset(?int $offset): self
     {
         $this->offset = $offset;
-        return $this;
-    }
-
-    /**
-     * Remove any limit and offset restrictions
-     */
-    public function unlimited(): self
-    {
-        $this->count = null;
-        $this->offset = null;
         return $this;
     }
 
@@ -124,15 +101,15 @@ class Collector implements CollectorInterface
     {
         $qb = DB::table($this->dao->table . ' as a');
 
-        if (is_array($this->contextIds)) {
+        if (isset($this->contextIds)) {
             $qb->whereIn('a.assoc_id', $this->contextIds);
         }
 
-        if (is_array($this->typeIds)) {
+        if (isset($this->typeIds)) {
             $qb->whereIn('a.type_id', $this->typeIds);
         }
 
-        if (!empty($this->isActive)) {
+        if (isset($this->isActive)) {
             $qb->where('date_expire', '<=', $this->isActive)
                 ->orWhereNull('date_expire');
         }

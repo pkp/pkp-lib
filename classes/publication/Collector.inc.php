@@ -20,19 +20,10 @@ use PKP\plugins\HookRegistry;
 
 class Collector implements CollectorInterface
 {
-    /** @var DAO */
-    public $dao;
-
-    /** @var array|null */
-    public $contextIds = null;
-
-    /** @var array|null */
-    public $submissionIds = null;
-
-    /** @var int */
+    public DAO $dao;
+    public ?array $contextIds;
+    public ?array $submissionIds;
     public ?int $count;
-
-    /** @var int */
     public ?int $offset;
 
     public function __construct(DAO $dao)
@@ -43,7 +34,7 @@ class Collector implements CollectorInterface
     /**
      * Filter by contexts
      */
-    public function filterByContextIds(array $contextIds): self
+    public function filterByContextIds(?array $contextIds): self
     {
         $this->contextIds = $contextIds;
         return $this;
@@ -52,7 +43,7 @@ class Collector implements CollectorInterface
     /**
      * Filter by submissions
      */
-    public function filterBySubmissionIds(array $submissionIds): self
+    public function filterBySubmissionIds(?array $submissionIds): self
     {
         $this->submissionIds = $submissionIds;
         return $this;
@@ -61,7 +52,7 @@ class Collector implements CollectorInterface
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(int $count): self
+    public function limit(?int $count): self
     {
         $this->count = $count;
         return $this;
@@ -71,19 +62,9 @@ class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(int $offset): self
+    public function offset(?int $offset): self
     {
         $this->offset = $offset;
-        return $this;
-    }
-
-    /**
-     * Remove any limit and offset restrictions
-     */
-    public function unlimited(): self
-    {
-        $this->count = null;
-        $this->offset = null;
         return $this;
     }
 
@@ -92,15 +73,14 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $this->columns = ['*'];
         $qb = DB::table('publications as p');
 
-        if (is_array($this->contextIds)) {
+        if (isset($this->contextIds)) {
             $qb->leftJoin('submissions as s', 'p.submission_id', '=', 's.submission_id');
             $qb->whereIn('s.context_id', $this->contextIds);
         }
 
-        if (is_array($this->submissionIds)) {
+        if (isset($this->submissionIds)) {
             $qb->whereIn('p.submission_id', $this->submissionIds);
         }
 
@@ -116,7 +96,7 @@ class Collector implements CollectorInterface
         // Add app-specific query statements
         HookRegistry::call('Publication::Collector', [&$qb, $this]);
 
-        $qb->select($this->columns);
+        $qb->select(['p.*']);
 
         return $qb;
     }

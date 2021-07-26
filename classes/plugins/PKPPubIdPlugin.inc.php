@@ -273,7 +273,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
         return [
             'Publication' => '\APP\publication\Publication',
             'Representation' => '\PKP\submission\Representation',
-            'SubmissionFile' => '\PKP\submission\SubmissionFile',
+            'SubmissionFile' => '\PKP\submissionFile\SubmissionFile',
         ];
     }
 

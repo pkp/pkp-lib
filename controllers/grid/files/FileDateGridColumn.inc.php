@@ -58,7 +58,7 @@ class FileDateGridColumn extends GridColumn
     {
         $submissionFileData = $row->getData();
         $submissionFile = $submissionFileData['submissionFile'];
-        assert($submissionFile instanceof \PKP\submission\SubmissionFile);
+        assert($submissionFile instanceof \PKP\submissionFile\SubmissionFile);
         $mtimestamp = strtotime($submissionFile->getData('updatedAt'));
         $dateFormatLong = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
         $date = strftime($dateFormatLong, $mtimestamp);

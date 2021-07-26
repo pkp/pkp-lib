@@ -395,7 +395,7 @@ class SubmissionFile extends \PKP\core\DataObject
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\SubmissionFile', '\SubmissionFile');
+    class_alias('\PKP\submissionFile\SubmissionFile', '\SubmissionFile');
     foreach ([
         'SUBMISSION_FILE_SUBMISSION',
         'SUBMISSION_FILE_NOTE',

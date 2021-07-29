@@ -16,7 +16,6 @@
 namespace PKP\controllers\grid\users\reviewer;
 
 use APP\core\Application;
-use APP\core\Services;
 
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
@@ -917,7 +916,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Check that the current user is specifically allowed to access gossip for
         // this user
-        $canCurrentUserGossip = Services::get('user')->canCurrentUserGossip($user->getId());
+        $canCurrentUserGossip = Repo::user()->canCurrentUserGossip($user->getId());
         if (!$canCurrentUserGossip) {
             return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
         }

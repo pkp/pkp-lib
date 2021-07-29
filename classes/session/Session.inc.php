@@ -22,8 +22,8 @@
 
 namespace PKP\session;
 
+use APP\facades\Repo;
 use PKP\config\Config;
-use PKP\facades\Repo;
 
 class Session extends \PKP\core\DataObject
 {

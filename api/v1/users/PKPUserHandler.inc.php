@@ -14,11 +14,10 @@
  *
  */
 
-use APP\core\Services;
 use APP\facades\Repo;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
-
 use PKP\security\Role;
 
 class PKPUserHandler extends APIHandler
@@ -100,7 +99,7 @@ class PKPUserHandler extends APIHandler
 
         $params['contextId'] = $context->getId();
 
-        \HookRegistry::call('API::users::params', [&$params, $slimRequest]);
+        HookRegistry::call('API::users::params', [&$params, $slimRequest]);
 
         $items = [];
         // FIXME: pkp/pkp-lib#7127 orderBy and orderDirection
@@ -122,12 +121,13 @@ class PKPUserHandler extends APIHandler
             'request' => $request,
             'slimRequest' => $slimRequest,
         ];
+        $map = Repo::user()->getSchemaMap();
         foreach ($usersIterator as $user) {
-            $items[] = Services::get('user')->getSummaryProperties($user, $propertyArgs);
+            $items[] = $map->summarize($user);
         }
 
         return $response->withJson([
-            'itemsMax' => Repo::user()->dao->getCount($collector->limit(null)),
+            'itemsMax' => Repo::user()->dao->getCount($collector->limit(null)->offset(null)),
             'items' => $items,
         ], 200);
     }
@@ -153,10 +153,7 @@ class PKPUserHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $data = Services::get('user')->getFullProperties($user, [
-            'request' => $request,
-            'slimRequest' => $slimRequest
-        ]);
+        $data = Repo::user()->getSchemaMap()->map($user, $slimRequest);
 
         return $response->withJson($data, 200);
     }
@@ -194,7 +191,7 @@ class PKPUserHandler extends APIHandler
             'status',
         ]);
 
-        \HookRegistry::call('API::users::reviewers::params', [&$params, $slimRequest]);
+        HookRegistry::call('API::users::reviewers::params', [&$params, $slimRequest]);
 
         $collector = Repo::user()->getCollector()
             ->filterByContextIds([$context->getId()])
@@ -205,17 +202,14 @@ class PKPUserHandler extends APIHandler
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null);
         $usersCollection = Repo::user()->getMany($collector);
-        $propertyArgs = [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-        ];
         $items = [];
+        $map = Repo::user()->getSchemaMap();
         foreach ($usersCollection as $user) {
-            $items[] = Services::get('user')->getReviewerSummaryProperties($user, $propertyArgs);
+            $items[] = $map->summarizeReviewer($user, $slimRequest);
         }
 
         return $response->withJson([
-            'itemsMax' => Repo::user()->dao->getCount($collector->limit(null)),
+            'itemsMax' => Repo::user()->dao->getCount($collector->limit(null)->offset(null)),
             'items' => $items,
         ], 200);
     }
@@ -349,11 +343,11 @@ class PKPUserHandler extends APIHandler
             }
         }
 
-        \HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
+        HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
 
         $this->getApp()->getContainer()->get('settings')->replace(['outputBuffering' => false]);
 
-        $report = \Services::get('user')->getReport($params);
+        $report = Repo::user()->getReport($params);
         header('content-type: text/comma-separated-values');
         header('content-disposition: attachment; filename="user-report-' . date('Y-m-d') . '.csv"');
         $report->serialize(fopen('php://output', 'w+'));

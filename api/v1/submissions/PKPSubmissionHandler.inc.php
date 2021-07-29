@@ -512,8 +512,9 @@ class PKPSubmissionHandler extends APIHandler
             'request' => $request,
             'slimRequest' => $slimRequest,
         ];
+        $map = Repo::user()->getSchemaMap();
         foreach ($usersIterator as $user) {
-            $data[] = Services::get('user')->getSummaryProperties($user, $args);
+            $data[] = $map->summarizeReviewer($user);
         }
 
         return $response->withJson($data, 200);

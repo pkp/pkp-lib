@@ -374,7 +374,7 @@ class PKPStatsHandler extends Handler
                     $item['name'] = __($item['name']);
                     return $item;
                 },
-                Services::get('user')->getRolesOverview(['contextId' => $context->getId()])
+                Repo::user()->getRolesOverview(['contextId' => $context->getId()])
             ),
         ]);
         $templateMgr->display('stats/users.tpl');

@@ -157,9 +157,9 @@ class PKPSelectReviewerListPanel extends ListPanel
                 ->includeReviewerData()
         );
         $items = [];
-        $userService = \Services::get('user');
+        $map = Repo::user()->getSchemaMap();
         foreach ($reviewers as $reviewer) {
-            $items[] = $userService->getReviewerSummaryProperties($reviewer, ['request' => $request]);
+            $items[] = $map->summarizeReviewer($reviewer);
         }
 
         return $items;
@@ -172,7 +172,13 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItemsMax()
     {
-        return \Services::get('user')->getReviewersMax($this->_getItemsParams());
+        $args = $this->_getItemsParams();
+        return Repo::user()->dao->getCount(
+            Repo::user()->getCollector()
+                ->filterByContextIds([$args['contextId']])
+                ->filterByWorkflowStageIds([$args['reviewStage']])
+                ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
+        );
     }
 
     /**

@@ -19,7 +19,7 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\core\Services;
-use APP\facade\Repo;
+use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 

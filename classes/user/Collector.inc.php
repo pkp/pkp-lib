@@ -36,10 +36,19 @@ class Collector implements CollectorInterface
     public $userIds = null;
 
     /** @var array|null */
+    public $excludeUserIds = null;
+
+    /** @var array|null */
     public $workflowStageIds = null;
 
     /** @var array|null */
     public $contextIds = null;
+
+    /** @var string|null */
+    public $registeredBefore = null;
+
+    /** @var string|null */
+    public $registeredAfter = null;
 
     /** @var boolean|null */
     public $disabled = null;
@@ -91,6 +100,12 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    public function excludeUserIds(?array $excludeUserIds): self
+    {
+        $this->excludeUserIds = $excludeUserIds;
+        return $this;
+    }
+
     /**
      * Limit results to users enrolled in these roles
      */
@@ -116,6 +131,24 @@ class Collector implements CollectorInterface
     public function filterByContextIds(?array $contextIds): self
     {
         $this->contextIds = $contextIds;
+        return $this;
+    }
+
+    /**
+     * Limit results to users registered before a specified date.
+     */
+    public function filterRegisteredBefore(?string $registeredBefore): self
+    {
+        $this->registeredBefore = $registeredBefore;
+        return $this;
+    }
+
+    /**
+     * Limit results to users registered after a specified date.
+     */
+    public function filterRegisteredAfter(?string $registeredAfter): self
+    {
+        $this->registeredAfter = $registeredAfter;
         return $this;
     }
 
@@ -251,8 +284,20 @@ class Collector implements CollectorInterface
                         });
                 });
             })
+            ->when($this->registeredBefore !== null, function ($query) {
+                // Include useres who registered up to the end of the day
+                $dateTime = new \DateTime($this->registeredBefore);
+                $dateTime->add(new \DateInterval('P1D'));
+                $query->where('u.date_registered', '<', $dateTime->format('Y-m-d'));
+            })
+            ->when($this->registeredAfter !== null, function ($query) {
+                $query->where('u.date_registered', '>=', $this->registeredAfter);
+            })
             ->when($this->userIds !== null, function ($query) {
                 $query->whereIn('u.user_id', $this->userIds);
+            })
+            ->when($this->excludeUserIds !== null, function ($query) {
+                $query->whereNotIn('u.user_id', $this->excludeUserIds);
             })
             ->when($this->settings !== null, function ($query) {
                 foreach ($this->settings as $settingName => $value) {

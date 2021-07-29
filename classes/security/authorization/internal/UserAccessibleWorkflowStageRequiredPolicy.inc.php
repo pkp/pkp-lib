@@ -16,8 +16,7 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use PKP\security\authorization\AuthorizationPolicy;
 
@@ -65,9 +64,8 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
 
         $accessibleWorkflowStages = [];
         $workflowStages = Application::get()->getApplicationStages();
-        $userService = Services::get('user');
         foreach ($workflowStages as $stageId) {
-            $accessibleStageRoles = $userService->getAccessibleStageRoles($userId, $contextId, $submission, $stageId);
+            $accessibleStageRoles = Repo::user()->getAccessibleStageRoles($userId, $contextId, $submission, $stageId);
             if (!empty($accessibleStageRoles)) {
                 $accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
             }

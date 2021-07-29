@@ -408,7 +408,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 
                 $uploader = $request->getUser();
                 if ($uploader->getId() != $submissionFile->getData('uploaderUserId')) {
-                    $uploader = Services::get('user')->get($submissionFile->getData('uploaderUserId'));
+                    $uploader = Repo::user()->get($submissionFile->getData('uploaderUserId'));
                 }
 
                 // Fetch the latest notification email timestamp

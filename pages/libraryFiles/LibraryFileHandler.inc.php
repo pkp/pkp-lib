@@ -15,7 +15,7 @@
 use APP\file\LibraryFileManager;
 
 use APP\handler\Handler;
-use APP\facade\Repo;
+use APP\facades\Repo;
 use PKP\user\Collector;
 use PKP\security\Role;
 

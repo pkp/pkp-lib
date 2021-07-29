@@ -9,7 +9,8 @@
 		},
 		"affiliation": {
 			"type": "string",
-			"multilingual": true
+			"multilingual": true,
+                        "apiSummary": true
 		},
 		"authId": {
 			"type": "integer"
@@ -22,7 +23,8 @@
 		},
 		"biography": {
 			"type": "string",
-			"multilingual": true
+			"multilingual": true,
+                        "apiSummary": true
 		},
 		"country": {
 			"type": "string"
@@ -89,7 +91,8 @@
 		},
 		"gossip": {
 			"type": "string",
-			"multilingual": true
+			"multilingual": true,
+                        "apiSummary": true
 		},
 		"groups": {
 			"type": "array",
@@ -107,6 +110,7 @@
 		"interests": {
 			"type": "array",
 			"readOnly": true,
+                        "apiSummary": true,
 			"items": {
 				"$ref": "#/definitions/UserInterest"
 			}

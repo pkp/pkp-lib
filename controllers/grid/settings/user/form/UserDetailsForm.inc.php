@@ -15,7 +15,6 @@
 
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -136,8 +135,7 @@ class UserDetailsForm extends UserForm
                 'interests' => $interestManager->getInterestsForUser($user),
                 'locales' => $user->getLocales(),
             ];
-            $userService = Services::get('user');
-            $data['canCurrentUserGossip'] = $userService->canCurrentUserGossip($user->getId());
+            $data['canCurrentUserGossip'] = Repo::user()->canCurrentUserGossip($user->getId());
             if ($data['canCurrentUserGossip']) {
                 $data['gossip'] = $user->getGossip();
             }
@@ -288,8 +286,7 @@ class UserDetailsForm extends UserForm
         $this->user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
         $this->user->setAuthId((int) $this->getData('authId'));
         // Users can never view/edit their own gossip fields
-        $userService = Services::get('user');
-        if ($userService->canCurrentUserGossip($this->user->getId())) {
+        if (Repo::user()->canCurrentUserGossip($this->user->getId())) {
             $this->user->setGossip($this->getData('gossip'));
         }
 

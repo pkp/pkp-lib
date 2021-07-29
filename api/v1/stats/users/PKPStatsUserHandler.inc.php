@@ -14,12 +14,12 @@
  *
  */
 
-use APP\core\Services;
+use APP\facades\Repo;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-
 use PKP\security\Role;
 
 class PKPStatsUserHandler extends APIHandler
@@ -97,7 +97,7 @@ class PKPStatsUserHandler extends APIHandler
 
         $params = array_merge($defaultParams, $params);
 
-        \HookRegistry::call('API::stats::users::params', [&$params, $slimRequest]);
+        HookRegistry::call('API::stats::users::params', [&$params, $slimRequest]);
 
         $params['contextId'] = [$request->getContext()->getId()];
 
@@ -111,7 +111,7 @@ class PKPStatsUserHandler extends APIHandler
                 $item['name'] = __($item['name']);
                 return $item;
             },
-            Services::get('user')->getRolesOverview($params)
+            Repo::user()->getRolesOverview($params)
         ));
     }
 }

@@ -120,7 +120,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
         ]);
 
         if ($request->getUserVar('userId')) {
-            $user = Services::get('user')->get($request->getUserVar('userId'));
+            $user = Repo::user()->get($request->getUserVar('userId'));
             if ($user) {
                 $templateMgr->assign([
                     'userId' => $user->getId(),

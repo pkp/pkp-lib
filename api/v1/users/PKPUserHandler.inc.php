@@ -199,6 +199,11 @@ class PKPUserHandler extends APIHandler
             ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
             ->filterByWorkflowStageIds([$params['reviewStage']])
             ->searchPhrase($params['searchPhrase'] ?? null)
+            ->filterByReviewerRating($params['reviewerRating'] ?? null)
+            ->filterByReviewsCompleted(isset($params['reviewsCompleted']) ? $params['reviewsCompleted'][0] : null)
+            ->filterByReviewsActive($params['reviewsActive'] ?? null)
+            ->filterByDaysSinceLastAssignment($params['daysSinceLastAssignment'] ?? null)
+            ->filterByAverageCompletion(isset($params['averageCompletion']) ? $params['averageCompletion'][0] : null)
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null);
         $usersCollection = Repo::user()->getMany($collector);

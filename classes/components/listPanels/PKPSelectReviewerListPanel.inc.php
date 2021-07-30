@@ -148,14 +148,7 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItems($request)
     {
-        $args = $this->_getItemsParams();
-        $reviewers = Repo::user()->getMany(
-            Repo::user()->getCollector()
-                ->filterByContextIds([$args['contextId']])
-                ->filterByWorkflowStageIds([$args['reviewStage']])
-                ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
-                ->includeReviewerData()
-        );
+        $reviewers = Repo::user()->getMany($this->_getCollector());
         $items = [];
         $map = Repo::user()->getSchemaMap();
         foreach ($reviewers as $reviewer) {
@@ -172,13 +165,8 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItemsMax()
     {
-        $args = $this->_getItemsParams();
-        return Repo::user()->dao->getCount(
-            Repo::user()->getCollector()
-                ->filterByContextIds([$args['contextId']])
-                ->filterByWorkflowStageIds([$args['reviewStage']])
-                ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
-        );
+        $collector = $this->_getCollector();
+        return Repo::user()->dao->getCount($collector->offset(null)->limit(null));
     }
 
     /**
@@ -186,14 +174,15 @@ class PKPSelectReviewerListPanel extends ListPanel
      *
      * @return array
      */
-    protected function _getItemsParams()
+    protected function _getCollector()
     {
-        return array_merge(
-            [
-                'offset' => 0,
-                'count' => $this->count,
-            ],
-            $this->getParams
-        );
+        $params = $this->getParams;
+        return Repo::user()->getCollector()
+            ->filterByContextIds([$params['contextId']])
+            ->filterByWorkflowStageIds([$params['reviewStage']])
+            ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
+            ->includeReviewerData()
+            ->offset(null)
+            ->limit($this->count);
     }
 }

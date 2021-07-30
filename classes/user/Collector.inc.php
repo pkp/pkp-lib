@@ -75,6 +75,21 @@ class Collector implements CollectorInterface
     public $submissionAssignment = null;
 
     /** @var int|null */
+    public $reviewerRating;
+
+    /** @var int|null */
+    public $reviewsCompleted = null;
+
+    /** @var int|array|null */
+    public $daysSinceLastAssignment = null;
+
+    /** @var int|null */
+    public $averageCompletion = null;
+
+    /** @var int|null */
+    public $reviewsActive = null;
+
+    /** @var int|null */
     public $count = null;
 
     /** @var int|null */
@@ -100,6 +115,65 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    /**
+     * Limit results to those who have a minimum reviewer rating
+     */
+    public function filterByReviewerRating(?int $reviewerRating): self
+    {
+        $this->includeReviewerData(true);
+        $this->reviewerRating = $reviewerRating;
+        return $this;
+    }
+
+    /**
+     * Limit results to those who have completed at least this many reviews
+     */
+    public function filterByReviewsCompleted(?int $reviewsCompleted)
+    {
+        $this->includeReviewerData(true);
+        $this->reviewsCompleted = $reviewsCompleted;
+        return $this;
+    }
+
+    /**
+     * Limit results to those who's last review assignment was at least this many
+     * days ago.
+     *
+     * @param $daysSinceLastAssignment int|array(min,max)|null
+     */
+    public function filterByDaysSinceLastAssignment($daysSinceLastAssignment): self
+    {
+        $this->includeReviewerData(true);
+        $this->daysSinceLastAssignment = $daysSinceLastAssignment;
+        return $this;
+    }
+
+    /**
+     * Limit results to those who complete a review on average less than this many
+     * days after their assignment.
+     */
+    public function filterByAverageCompletion(?int $averageCompletion): self
+    {
+        $this->includeReviewerData(true);
+        $this->averageCompletion = $averageCompletion;
+        return $this;
+    }
+
+    /**
+     * Limit results to those who have at least this many active review assignments
+     *
+     * @param null|mixed $reviewsActive
+     */
+    public function filterByReviewsActive($reviewsActive = null): self
+    {
+        $this->includeReviewerData(true);
+        $this->reviewsActive = $reviewsActive;
+        return $this;
+    }
+
+    /**
+     * Exclude results with the specified user IDs.
+     */
     public function excludeUserIds(?array $excludeUserIds): self
     {
         $this->excludeUserIds = $excludeUserIds;
@@ -383,17 +457,39 @@ class Collector implements CollectorInterface
                             ->on('ra_latest.review_id', '<', 'ra_latest_nonexistent.review_id');
                     })
                     ->whereNull('ra_latest_nonexistent.review_id')
-                    ->addSelect('ra_latest.date_assigned AS last_assigned');
+                    ->addSelect('ra_latest.date_assigned AS last_assigned')
+                    ->when($this->daysSinceLastAssignment !== null, function ($query) {
+                        $daysSinceMin = (int) (is_array($this->daysSinceLastAssignment) ? $this->daysSinceLastAssignment[0] : $this->daysSinceLastAssignment);
+                        $dateTime = new \DateTime();
+                        $dateTime->sub(new \DateInterval('P' . $daysSinceMin . 'D'));
+                        $query->where('ra_latest.date_assigned', '>', $dateTime->format('Y-m-d'));
+                        if (is_array($this->daysSinceLastAssignment) && !empty($this->daysSinceLastAssignment[1])) {
+                            $daysSinceMax = (int) $this->daysSinceLastAssignment[1] + 1; // Add one to include upper bound
+                            $dateTime = new \DateTime();
+                            $dateTime->add(new \DateInterval('P' . $daysSinceMax . 'D'));
+                            $query->where('ra_latest.date_assigned', '<', $dateTime->format('Y-m-d'));
+                        }
+                    });
 
-                // Review counts
-                $query->addSelect([
-                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count'),
-                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count'),
-                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.declined = 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as declined_count'),
-                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.cancelled = 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as cancelled_count'),
-                    DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.cancelled = 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as cancelled_count'),
-                ]);
+                // Incomplete count
+                $query->addSelect(DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count'))
+                    ->when($this->reviewsActive !== null, function ($query) {
+                        $query->whereBetween(DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)'), $this->reviewsActive);
+                    });
 
+                // Complete count
+                $query->addSelect(DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count'))
+                    ->when($this->reviewsCompleted !== null, function ($query) {
+                        $query->where(DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)'), '>=', $this->reviewsCompleted);
+                    });
+
+                // Declined count
+                $query->addSelect(DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.declined = 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as declined_count'));
+
+                // Cancelled count
+                $query->addSelect(DB::raw('(SELECT COALESCE(SUM(CASE WHEN ra.cancelled = 1 THEN 1 ELSE 0 END), 0) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as cancelled_count'));
+
+                // Average time to complete
                 switch (\Config::getVar('database', 'driver')) {
                     case 'mysql':
                     case 'mysqli':
@@ -402,8 +498,16 @@ class Collector implements CollectorInterface
                     default: // PostgreSQL
                         $dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';
                 }
-                $query->addSelect(DB::raw('(SELECT AVG(' . $dateDiffClause . ') FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.date_completed IS NOT NULL) as average_time'));
-                $query->addSelect(DB::raw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) as reviewer_rating'));
+                $query->addSelect(DB::raw('(SELECT AVG(' . $dateDiffClause . ') FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.date_completed IS NOT NULL) as average_time'))
+                    ->when($this->averageCompletion !== null, function ($query) use ($dateDiffClause) {
+                        $query->where(DB::raw('(SELECT AVG(' . $dateDiffClause . ') FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.date_completed IS NOT NULL)'), '<=', $this->averageCompletion);
+                    });
+
+                // Average quality
+                $query->addSelect(DB::raw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) as reviewer_rating'))
+                    ->when($this->reviewerRating !== null, function ($query) {
+                        $query->where(DB::raw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL)'), '>=', $this->reviewerRating);
+                    });
             });
 
         // Limit and offset results for pagination

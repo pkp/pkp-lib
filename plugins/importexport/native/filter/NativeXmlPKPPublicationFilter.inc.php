@@ -62,7 +62,6 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 	 */
 	function handleElement($node) {
 		$deployment = $this->getDeployment();
-		$context = $deployment->getContext();
 
 		$submission = $deployment->getSubmission();
 
@@ -75,12 +74,6 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 		$publication->stampModified();
 		$publication = $this->populateObject($publication, $node);
 
-		$publicationLocale = $node->getAttribute('locale');
-		if (empty($publicationLocale)) {
-			$publicationLocale = $context->getPrimaryLocale();
-		}
-
-		$publication->setData('locale', $publicationLocale);
 		$publication->setData('version', $node->getAttribute('version'));
 		$publication->setData('seq', $node->getAttribute('seq'));
 		$publication->setData('accessStatus', $node->getAttribute('access_status'));

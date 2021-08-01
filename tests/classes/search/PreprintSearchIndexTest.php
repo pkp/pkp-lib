@@ -72,7 +72,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         HookRegistry::register('PreprintSearchIndex::submissionFileChanged', [$this, 'callbackUpdateFileIndex']);
 
         // Simulate updating an preprint file via hook.
-        import('lib.pkp.classes.submission.SubmissionFile');
+        import('lib.pkp.classes.submissionFile.SubmissionFile');
         $submissionFile = new SubmissionFile();
         $submissionFile->setId(2);
         $preprintSearchIndex = Application::getSubmissionSearchIndex();

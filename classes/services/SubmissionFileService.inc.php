@@ -21,7 +21,7 @@ use PKP\plugins\HookRegistry;
 use PKP\search\SubmissionSearch;
 use PKP\security\Role;
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileService extends \PKP\services\PKPSubmissionFileService
 {

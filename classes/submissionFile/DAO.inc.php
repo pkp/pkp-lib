@@ -419,7 +419,7 @@ abstract class DAO extends EntityDAO implements PKPPubIdPluginDAO
     protected function insertReviewRound(SubmissionFile $submissionFile): void
     {
         if (
-            in_array(
+            !in_array(
                 $submissionFile->getData('assocType'),
                 [
                     Application::ASSOC_TYPE_REVIEW_ROUND,

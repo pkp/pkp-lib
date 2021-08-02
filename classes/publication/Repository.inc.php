@@ -186,12 +186,15 @@ class Repository extends \PKP\publication\Repository
                 // posted ack emails should be from the contact.
                 $mail->setFrom($context->getData('contactEmail'), $context->getData('contactName'));
 
-                $user = $this->request->getUser();
-                $mail->addRecipient($user->getEmail(), $user->getFullName());
+                // Send to all authors
+                $assignedAuthors = $submission->getAuthors();
+                foreach ($assignedAuthors as $author) {
+                    $mail->addRecipient($author->getEmail(), $author->getFullName());
+                }
 
+                // Use primary author details in email
                 $mail->assignParams([
-                    'authorName' => $user->getFullName(),
-                    'authorUsername' => $user->getUsername(),
+                    'authorName' => $submission->getPrimaryAuthor()->getFullName(),
                     'editorialContactSignature' => $context->getData('contactName'),
                     'publicationUrl' => $dispatcher->url($this->request, Application::ROUTE_PAGE, $context->getData('urlPath'), 'preprint', 'view', $submission->getBestId(), null, null, true),
                 ]);

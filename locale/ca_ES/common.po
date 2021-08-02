@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2021-03-05 18:44+0000\n"
+"PO-Revision-Date: 2021-08-04 09:04+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ca_ES/>\n"
@@ -2112,7 +2113,7 @@ msgstr ""
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
-"Podeu donar-vos de baixa de les notificacions per correu electrònic en "
+"Podeu tornar-vos a subscriure a les notificacions per correu electrònic en "
 "qualsevol moment des del vostre <a href=\"{$profileNotificationUrl}\">perfil "
 "d'usuari/ària</a>."
 
@@ -2125,4 +2126,23 @@ msgid "notification.unsubscribeNotifications.error"
 msgstr "No podem donar-vos de baixa"
 
 msgid "notification.unsubscribeNotifications.success"
-msgstr "Heu estat donat de baixa"
+msgstr "Se us ha donat de baixa"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "No s'ha pogut importar el node XML"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"S'està intentant executar una transformació que no es compatible amb el "
+"vostre entorn d'instal·lació."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtrar ({$displayName}) compatibilitat d'entrada {$inputTypeName} - "
+"{$typeofInput} determinada"
+
+msgid "validator.country"
+msgstr "Aquest país no és vàlid."
+
+msgid "common.insert"
+msgstr "Inserir"

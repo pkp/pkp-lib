@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2021-03-04 13:41+0000\n"
+"PO-Revision-Date: 2021-08-04 09:04+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es_ES/>\n"
@@ -2008,3 +2009,56 @@ msgstr "Editar {$name}"
 
 msgid "common.inactive"
 msgstr "Inactivo"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "No se ha podido importar el nodo XML"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Se está intentando ejecutar una transformación que no es compatible con su "
+"entorno de instalación."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtrar ({$displayName}) compatibilidad de entrada {$inputTypeName} - "
+"{$typeofInput} determinada"
+
+msgid "validator.country"
+msgstr "Este país no es válido."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Dar de baja"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Se ha producido un error inesperado y no podemos dar de baja la dirección de "
+"correo electrónico {$email}. Puede cancelar todas las notificaciones por "
+"correo electrónico desde su <a href=\"{$profileNotificationUrl}\">perfil de "
+"usuario/a</a> o contactarnos directamente si necesita ayuda."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Se ha dado de baja correctamente la dirección de correo electrónico {$email}"
+". No le volveremos a enviar estos correos. Puede volver a suscribirse a las "
+"notificaciones por correo electrónico en cualquier momento desde su <a href="
+"\"{$profileNotificationUrl}\">perfil de usuario/a</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Puede suscribirse de nuevo a las notificaciones por correo electrónico en "
+"cualquier momento desde su <a href=\"{$profileNotificationUrl}\">perfil de "
+"usuario/a</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Seleccione los correos electrónicos de {$contextName} que ya no quiere "
+"recibir más en {$email}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "No podemos darle de baja"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Se os ha dado de baja"
+
+msgid "common.insert"
+msgstr "Insertar"

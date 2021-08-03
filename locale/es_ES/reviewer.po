@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-06-18 17:39+0000\n"
+"PO-Revision-Date: 2021-08-04 09:04+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/es_ES/>\n"
@@ -109,3 +110,10 @@ msgstr "El usuario/a actual no está asignado como revisor/a para el documento s
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Guardar para más tarde"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Enviar a los revisores/as"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Enviar una copia de esta notificación por CCO a los siguientes revisores/as."

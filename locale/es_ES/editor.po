@@ -1,12 +1,12 @@
 # Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2021-06-24 22:03+0000\n"
-"Last-Translator: Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>"
-"\n"
+"PO-Revision-Date: 2021-08-04 09:04+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "es_ES/>\n"
 "Language: es_ES\n"
@@ -474,3 +474,11 @@ msgstr "Registro de actividad"
 
 msgid "editor.submission.revertDeclineDescription"
 msgstr "¿Está seguro de querer revertir la decisión de rechazar este envío?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Uno de los participantes seleccionados no está asignado a esta fase."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"No se puede crear una discusión con los participantes seleccionados porque "
+"esto afectaría al anonimato del proceso de revisión."

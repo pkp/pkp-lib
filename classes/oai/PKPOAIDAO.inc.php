@@ -124,7 +124,8 @@ abstract class PKPOAIDAO extends DAO {
 		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
 
 		for ($i=0; $i<$offset; $i++) {
-			if ($result->next()) $total++; // FIXME inefficient
+			$result->next();
+			if ($result->current()) $total++; // FIXME inefficient
 		}
 		$records = [];
 		for ($count = 0; ($row = $result->current()) && $count < $limit; $count++) {
@@ -156,7 +157,8 @@ abstract class PKPOAIDAO extends DAO {
 		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
 
 		for ($i=0; $i<$offset; $i++) {
-			if ($result->next()) $total++; // FIXME inefficient
+			$result->next();
+			if ($result->current()) $total++; // FIXME inefficient
 		}
 		$records = [];
 		for ($count = 0; ($row = $result->current()) && $count < $limit; $count++) {

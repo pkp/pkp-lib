@@ -39,6 +39,15 @@ class EditLibraryFileForm extends LibraryFileForm {
 	}
 
 	/**
+	 * Assign form data to user-submitted data.
+	 * @see Form::readInputData()
+	 */
+	function readInputData() {
+		$this->readUserVars(array('temporaryFileId'));
+		return parent::readInputData();
+	}
+
+	/**
 	 * Initialize form data from current settings.
 	 */
 	function initData() {
@@ -46,6 +55,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 			'libraryFileName' => $this->libraryFile->getName(null), // Localized
 			'libraryFile' => $this->libraryFile, // For read-only info
 			'publicAccess' => $this->libraryFile->getPublicAccess() ? true : false,
+			'temporaryFileId' => null,
 		);
 	}
 
@@ -53,6 +63,26 @@ class EditLibraryFileForm extends LibraryFileForm {
 	 * @copydoc Form::execute()
 	 */
 	function execute(...$functionArgs) {
+		$userId = Application::get()->getRequest()->getUser()->getId();
+
+		// Fetch the temporary file storing the uploaded library file
+		$temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
+		$temporaryFile = $temporaryFileDao->getTemporaryFile(
+			$this->getData('temporaryFileId'),
+			$userId
+		);
+		if ($temporaryFile) {
+			$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+			$libraryFileManager = new LibraryFileManager($this->contextId);
+
+			// Convert the temporary file to a library file and store
+			$this->libraryFile = $libraryFileManager->replaceFromTemporaryFile($temporaryFile, $this->getData('fileType'), $this->libraryFile);
+			// Clean up the temporary file
+			import('lib.pkp.classes.file.TemporaryFileManager');
+			$temporaryFileManager = new TemporaryFileManager();
+			$temporaryFileManager->deleteById($this->getData('temporaryFileId'), $userId);
+		}
+
 		$this->libraryFile->setName($this->getData('libraryFileName'), null); // Localized
 		$this->libraryFile->setType($this->getData('fileType'));
 		$this->libraryFile->setPublicAccess($this->getData('publicAccess'));

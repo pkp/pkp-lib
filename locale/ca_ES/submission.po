@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-03-04 17:09+0000\n"
+"PO-Revision-Date: 2021-08-07 02:45+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ca_ES/>\n"
@@ -72,10 +73,10 @@ msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
 msgstr "Introduïu una clau API de WorldCat vàlida si en teniu una."
 
 msgid "metadata.filters.paracite.settings.citationModule.displayName"
-msgstr "Mòdul de citació"
+msgstr "Mòdul de referències"
 
 msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
-msgstr "Seleccioneu un dels mòduls de citació següents."
+msgstr "Seleccioneu un dels mòduls de referències següents."
 
 msgid "metadata.filters.settings.isOptional.displayName"
 msgstr "No l'utilitzeu per defecte (encara està disponible per a l'editor/a)"
@@ -336,7 +337,7 @@ msgid "metadata.property.validationMessage.name-type"
 msgstr "Comproveu que heu introduït un tipus de nom vàlid. Els valors admesos són «personal», «corporatiu» i «conferència»."
 
 msgid "common.queue.long.submissionsUnassigned"
-msgstr "Trameses desassignades"
+msgstr "Trameses sense assignar"
 
 msgid "common.queue.long.myAssigned"
 msgstr "Les meves trameses assignades"
@@ -432,7 +433,7 @@ msgid "submission.copyedited"
 msgstr "Original corregit"
 
 msgid "submission.copyediting"
-msgstr "Correcció"
+msgstr "Edició"
 
 msgid "submission.coverage"
 msgstr "Informació de la cobertura"
@@ -465,7 +466,7 @@ msgid "submission.editMetadata"
 msgstr "Edita les metadades"
 
 msgid "submission.editorial"
-msgstr "Editorial"
+msgstr "Edició"
 
 msgid "submission.email.backToEmailLog"
 msgstr "Torna al registre del correu electrònic"
@@ -993,13 +994,13 @@ msgid "workflow.review.externalReview"
 msgstr "Revisió externa"
 
 msgid "submission.status.editorial"
-msgstr "Enviada a la cua per a la correcció"
+msgstr "En fase de correcció"
 
 msgid "submission.status.production"
-msgstr "Enviada a la cua per a la correcció de proves"
+msgstr "En fase de correcció de proves"
 
 msgid "submission.status.review"
-msgstr "En revisió"
+msgstr "En fase de revisió"
 
 msgid "submission.status.submission"
 msgstr "En espera de la decisió de l'editor/a"
@@ -1163,7 +1164,7 @@ msgid "editor.submission.decision.decline"
 msgstr "Rebutja la tramesa"
 
 msgid "editor.submission.decision.sendToProduction"
-msgstr "Envia a producció"
+msgstr "Enviar a producció"
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Envia a revisió interna"
@@ -1196,7 +1197,7 @@ msgid "submission.submit.currentFile"
 msgstr "Fitxer actual"
 
 msgid "submission.finalDraft"
-msgstr "Fitxers d'esborranys finals"
+msgstr "Esborranys finals"
 
 msgid "editor.submission.addAuditorError"
 msgstr "S'ha produït un error quan s'intentava assignar l'auditor/a. Torneu-ho a intentar."

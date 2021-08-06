@@ -1,12 +1,12 @@
 # Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2021-06-29 04:03+0000\n"
-"Last-Translator: Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>"
-"\n"
+"PO-Revision-Date: 2021-08-07 02:45+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es_ES/>\n"
 "Language: es_ES\n"
@@ -68,10 +68,10 @@ msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
 msgstr "Por favor, introduce una clave API de WorldCat válida si dispone de una."
 
 msgid "metadata.filters.paracite.settings.citationModule.displayName"
-msgstr "Módulo de Citas"
+msgstr "Módulo de referencias"
 
 msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
-msgstr "Por favor, selecciona uno de los módulos de citas que se muestran."
+msgstr "Seleccione uno de los módulos de referencias siguientes."
 
 msgid "metadata.filters.settings.isOptional.displayName"
 msgstr "No usar por defecto (todavía estarán disponibles para el editor)"
@@ -374,7 +374,7 @@ msgid "submission.changeComments"
 msgstr "Cambiar a"
 
 msgid "submission.citations"
-msgstr "Citas"
+msgstr "Referencias"
 
 msgid "submission.comments.addComment"
 msgstr "Añadir comentario"
@@ -419,10 +419,10 @@ msgid "submission.contributors"
 msgstr "Autoría y colaboradores/as"
 
 msgid "submission.copyedited"
-msgstr "Corregido"
+msgstr "Original corregido"
 
 msgid "submission.copyediting"
-msgstr "Corrección de originales"
+msgstr "Edición"
 
 msgid "submission.coverage"
 msgstr "Información de cobertura"
@@ -443,7 +443,7 @@ msgid "submission.editMetadata"
 msgstr "Editar metadatos"
 
 msgid "submission.editorial"
-msgstr "Editorial"
+msgstr "Edición"
 
 msgid "submission.email.backToEmailLog"
 msgstr "Volver al registro de correo electrónico"
@@ -953,7 +953,7 @@ msgid "workflow.review.internalReview"
 msgstr "Revisión interna"
 
 msgid "submission.status.editorial"
-msgstr "En corrección de originales"
+msgstr "En corrección"
 
 msgid "submission.status.production"
 msgstr "En corrección de pruebas"
@@ -1219,7 +1219,7 @@ msgid "notification.type.editorDecisionDecline"
 msgstr "Envío rechazado."
 
 msgid "notification.uploadedResponse"
-msgstr "Respuesta subida."
+msgstr "Se ha cargado la respuesta."
 
 msgid "notification.type.editorAssignment"
 msgstr "Debe asignarse a un editor/a para que pueda comenzar la revisión. Añada a un editor/a utilizando el enlace Participantes que figura arriba."
@@ -2088,7 +2088,7 @@ msgid "editor.submission.decision.revertDecline"
 msgstr "Revertir el rechazo"
 
 msgid "notification.type.editorDecisionRevertDecline"
-msgstr "Envío reactivado."
+msgstr "Se ha reactivado el envío rechazado."
 
 msgid "notification.type.revertDecline"
-msgstr "La decisión de declinar este envío fue revertida."
+msgstr "Se ha revertido la decisión de rechazar este envío."

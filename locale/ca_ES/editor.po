@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2021-03-25 08:29+0000\n"
+"PO-Revision-Date: 2021-08-07 02:45+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ca_ES/>\n"
@@ -45,7 +46,7 @@ msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "Heu de seleccionar un usuari a qui assignar-lo."
 
 msgid "editor.submission.uploadSelectFiles"
-msgstr "Carrega/Selecciona fitxers"
+msgstr "Carregar/Seleccionar arxius"
 
 msgid "editor.submission.revisions"
 msgstr "Revisions"
@@ -193,10 +194,10 @@ msgid "editor.review.readConfirmation"
 msgstr "Un cop us hagueu llegit aquesta revisió, premeu «Confirma» per indicar que aquesta revisió pot continuar."
 
 msgid "editor.submission.selectCopyedingFiles"
-msgstr "Fitxers de correcció"
+msgstr "Arxius de correcció"
 
 msgid "editor.submission.selectReviewer"
-msgstr "Selecciona un revisor/a"
+msgstr "Seleccioneu un revisor/a"
 
 msgid "editor.submission.taskDueDate"
 msgstr "Data de venciment de la tasca"

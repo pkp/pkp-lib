@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2021-08-04 09:04+0000\n"
+"PO-Revision-Date: 2021-08-07 02:45+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "es_ES/>\n"
@@ -41,7 +41,7 @@ msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "Debe seleccionar un usuario/a al que asignar."
 
 msgid "editor.submission.uploadSelectFiles"
-msgstr "Subir/Seleccionar archivos"
+msgstr "Cargar/Seleccionar archivos"
 
 msgid "editor.submission.revisions"
 msgstr "Revisiones"
@@ -162,10 +162,10 @@ msgid "editor.review.readConfirmation"
 msgstr "Una vez que esta revisión haya sido leída, pulsa \"Confirmar\" para indicar que el proceso de revisión puede ser continuado."
 
 msgid "editor.submission.selectCopyedingFiles"
-msgstr "Archivos de corrección de estilo"
+msgstr "Archivos de corrección"
 
 msgid "editor.submission.selectReviewer"
-msgstr "Seleccionar revisor/a"
+msgstr "Seleccione un revisor/a"
 
 msgid "editor.submission.taskDueDate"
 msgstr "Fecha de vencimiento de la tarea"
@@ -228,7 +228,7 @@ msgid "editor.submissionLibrary"
 msgstr "Biblioteca de envío"
 
 msgid "editor.submission.selectFiles"
-msgstr "Selecciona archivos"
+msgstr "Seleccionar archivos"
 
 msgid "editor.submission.findAndSelectReviewer"
 msgstr "Encontrar un revisor/a"
@@ -473,7 +473,7 @@ msgid "editor.activityLog"
 msgstr "Registro de actividad"
 
 msgid "editor.submission.revertDeclineDescription"
-msgstr "¿Está seguro de querer revertir la decisión de rechazar este envío?"
+msgstr "¿Seguro que quiere revertir la decisión de rechazar este envío?"
 
 msgid "editor.discussion.errorNotStageParticipant"
 msgstr "Uno de los participantes seleccionados no está asignado a esta fase."

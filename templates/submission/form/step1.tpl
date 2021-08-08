@@ -26,6 +26,7 @@
 		{else}
 			{include file="submission/form/section.tpl"}
 		{/if}
+		{include file="submission/form/license.tpl"}
 	{/capture}
 
 	{include file="core:submission/form/step1.tpl"}

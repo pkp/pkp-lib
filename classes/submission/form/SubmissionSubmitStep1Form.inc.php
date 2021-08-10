@@ -77,6 +77,14 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
 
         $templateMgr->assign('sectionPolicies', $sectionPolicies);
 
+        // Get license options for this context
+        $licenseOptions = \Application::getCCLicenseOptions();
+        $licenseUrlOptions = ['' => ''];
+        foreach ($licenseOptions as $url => $label) {
+            $licenseUrlOptions[$url] = __($label);
+        }
+        $templateMgr->assign('licenseUrlOptions', $licenseUrlOptions);
+
         return parent::fetch($request, $template, $display);
     }
 
@@ -97,6 +105,7 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
         if (isset($this->submission)) {
             parent::initData([
                 'sectionId' => $this->submission->getCurrentPublication()->getData('sectionId'),
+                'licenseUrl' => $this->submission->getCurrentPublication()->getData('licenseUrl'),
             ]);
         } else {
             parent::initData();
@@ -109,7 +118,7 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
     public function readInputData()
     {
         $this->readUserVars([
-            'sectionId',
+            'sectionId', 'licenseUrl'
         ]);
         parent::readInputData();
     }
@@ -189,6 +198,7 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
     public function setPublicationData($publication, $submission)
     {
         $publication->setData('sectionId', $this->getData('sectionId'));
+        $publication->setData('licenseUrl', $this->getData('licenseUrl'));
         parent::setPublicationData($publication, $submission);
     }
 }

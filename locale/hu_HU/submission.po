@@ -1,12 +1,13 @@
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-28 11:36+0000\n"
-"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"PO-Revision-Date: 2021-08-11 15:04+0000\n"
+"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/hu/>\n"
+"submission/hu_HU/>\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2137,7 +2138,7 @@ msgstr "A szerző cikke nem található."
 
 msgid "author.editPublishedDisabled"
 msgstr ""
-"A cikk szerzőit nem lehet szerkeszteni, mert az már publikálásra került."
+"A cikk szerzőit nem lehet szerkeszteni, mert a cikk már publikálásra került."
 
 msgid "submission.publisherId.description"
 msgstr ""
@@ -2190,3 +2191,36 @@ msgstr "Új verzió lett létrehozva."
 
 msgid "submission.publisherId.enable"
 msgstr "Engedélyezés a(z) {$objects} számára"
+
+msgid "submission.submit.genre.error"
+msgstr "Kérjük, minden feltöltésnél válassza ki a fájl típusát."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"A fájl feltöltőjének adatai a fájl létrehozásakor kerülnek elmentésre, és "
+"nem módosíthatóak."
+
+msgid "submission.downloads"
+msgstr "Letöltések"
+
+msgid "submission.additionalFiles"
+msgstr "További fájlok"
+
+msgid "submission.representationOfTitle"
+msgstr "{$title} ennek a {$representation}"
+
+msgid "submission.submit.removeConfirm"
+msgstr "Biztos, hogy eltávolítja ezt a fájlt?"
+
+msgid "submission.submit.genre.description"
+msgstr "Válassza ki azt, ami legjobban leírja ezt a fájlt."
+
+msgid "submission.submit.genre.label"
+msgstr "Milyen típusú fájl ez?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Egy vagy több bíráló elmulasztotta a határidőt. A szerkesztőséget "
+"értesítettük, és intézkedni fog a bírálatok befejezése érdekében. Önnek "
+"jelenleg nem kell semmilyen intézkedést tennie. Értesítjük, ha döntés "
+"született."

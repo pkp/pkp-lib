@@ -59,39 +59,19 @@ class FormValidatorReCaptcha extends FormValidator {
 		$form =& $this->getForm();
 
 		// Request response from recaptcha api
-		$requestOptions = array(
-			'http' => array(
-				'header' => "Content-Type: application/x-www-form-urlencoded;\r\n",
-				'method' => 'POST',
-				'content' => http_build_query(array(
-					'secret' => $privateKey,
-					'response' => $form->getData(RECAPTCHA_RESPONSE_FIELD),
-					'remoteip' => $this->_userIp,
-				)),
-			),
+		$httpClient = Application::get()->getHttpClient();
+		$response = $httpClient->request(
+			'POST',
+			RECAPTCHA_HOST . RECAPTCHA_PATH,
+			[
+				'multipart' => [
+					['name' => 'secret', 'contents' => $privateKey],
+					['name' => 'response', 'contents' => $form->getData(RECAPTCHA_RESPONSE_FIELD)],
+					['name' => 'remoteip', 'contents' => $this->_userIp]
+				]
+			]
 		);
-
-		$proxySettings = array(
-			'host' => Config::getVar('proxy', 'http_host'),
-			'port' => Config::getVar('proxy', 'http_port'),
-			'user' => Config::getVar('proxy', 'proxy_username'),
-			'pass' => Config::getVar('proxy', 'proxy_password'),
-		);
-		if (!empty($proxySettings['host'])) {
-			$requestOptions['http']['proxy'] = $proxySettings['host'] . ((!empty($proxySettings['port'])) ? ':'.$proxySettings['port'] : '');
-			$requestOptions['http']['request_fulluri'] = true;
-			if (!empty($proxySettings['user'])) {
-				$requestOptions['http']['header'] .= 'Proxy-Authorization: Basic ' . base64_encode($proxySettings['user'].':'.$proxySettings['pass']);
-			}
-		}
-
-		$requestContext = stream_context_create($requestOptions);
-		$response = file_get_contents(RECAPTCHA_HOST . RECAPTCHA_PATH, false, $requestContext);
-		if ($response === false) {
-			return false;
-		}
-
-		$response = json_decode($response, true);
+		$response = json_decode($response->getBody(), true);
 
 		// Unrecognizable response from Google server
 		if (isset($response['success']) && $response['success'] === true) {

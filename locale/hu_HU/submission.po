@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2021-08-11 15:04+0000\n"
+"PO-Revision-Date: 2021-08-13 15:04+0000\n"
 "Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hu_HU/>\n"
@@ -1752,10 +1752,10 @@ msgid "submission.list.confirmDelete"
 msgstr "Beküldés törlése?"
 
 msgid "submission.list.reviewDue"
-msgstr "Szakmai lektorálás határideje"
+msgstr "Szakmai lektorálás határideje: {$date}"
 
 msgid "submission.list.responseDue"
-msgstr "Válasz határidő"
+msgstr "Válasz határidő: {$date}"
 
 msgid "submission.list.itemsOfTotal"
 msgstr "{$count} ennyi {$total} benyújtásból"
@@ -2224,3 +2224,40 @@ msgstr ""
 "értesítettük, és intézkedni fog a bírálatok befejezése érdekében. Önnek "
 "jelenleg nem kell semmilyen intézkedést tennie. Értesítjük, ha döntés "
 "született."
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Eltelt napok az utolsó aktivitás óta"
+
+msgid "submission.list.activity"
+msgstr "Aktivitás"
+
+msgid "notification.type.revertDecline"
+msgstr "Ennek a kéziratnak az elutasításáról szóló határozatot visszavonták."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "A kézirat egy új változata lett létrehozva"
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Visszautasított kézirat újra aktiválva."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Egy új lektorálási forduló lett kezdeményezve."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"Ennek a fájlnak a metaadata \"{$originalFileName}\" szerkesztve lett általa "
+"{$username}."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Visszautasítás visszaállítása"
+
+msgid "editor.submission.decision.newRound"
+msgstr "Új lektorálási kör"
+
+msgid "submission.upload.percentComplete"
+msgstr "Feltöltés állapota {$percent}%"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Töltsön fel minden olyan fájlt, amelyre a szerkesztőségnek szüksége lesz a "
+"kézirat értékeléséhez."

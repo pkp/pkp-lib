@@ -100,15 +100,29 @@ class PKPUserHandler extends APIHandler
         $params['contextId'] = $context->getId();
 
         HookRegistry::call('API::users::params', [&$params, $slimRequest]);
+        $collector = Repo::user()->getCollector();
 
-        $items = [];
-        // FIXME: pkp/pkp-lib#7127 orderBy and orderDirection
-        $collector = Repo::user()->getCollector()
-            ->filterSubmissionAssignment($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
+        // Convert from $params array to what the Collector expects
+        $orderBy = null;
+        switch ($params['orderBy'] ?? 'id') {
+            case 'id': $orderBy = $collector::ORDERBY_ID; break;
+            case 'givenName': $orderBy = $collector::ORDERBY_GIVENNAME; break;
+            case 'familyName': $orderBy = $collector::ORDERBY_FAMILYNAME; break;
+            default: throw new Exception('Unknown orderBy specified');
+        }
+        $orderDirection = null;
+        switch ($params['orderDirection'] ?? 'ASC') {
+            case 'ASC': $orderDirection = $collector::ORDER_DIR_ASC; break;
+            case 'DESC': $orderDirection = $collector::ORDER_DIR_DESC; break;
+            default: throw new Exception('Unknown orderDirection specified');
+        }
+
+        $collector->filterSubmissionAssignment($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
             ->filterByAssignedSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
             ->filterByAssignedCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
             ->filterByRoleIds($params['roleIds'] ?? null)
             ->searchPhrase($params['searchPhrase'] ?? null)
+            ->orderBy($orderBy, $orderDirection)
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null);
         switch ($params['status'] ?? null) {
@@ -122,6 +136,7 @@ class PKPUserHandler extends APIHandler
             'slimRequest' => $slimRequest,
         ];
         $map = Repo::user()->getSchemaMap();
+        $items = [];
         foreach ($usersIterator as $user) {
             $items[] = $map->summarize($user);
         }

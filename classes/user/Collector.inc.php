@@ -13,18 +13,29 @@
 
 namespace PKP\user;
 
+use APP\i18n\AppLocale;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
-
 use PKP\core\interfaces\CollectorInterface;
 use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
 
 class Collector implements CollectorInterface
 {
+    public const ORDERBY_ID = 1;
+    public const ORDERBY_GIVENNAME = 2;
+    public const ORDERBY_FAMILYNAME = 3;
+
+    public const ORDER_DIR_ASC = 'ASC';
+    public const ORDER_DIR_DESC = 'DESC';
+
     /** @var DAO */
     public $dao;
+
+    public int $orderBy = self::ORDERBY_ID;
+    public string $orderDirection = 'ASC';
 
     /** @var array|null */
     public $userGroupIds = null;
@@ -313,6 +324,19 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Order the results
+     *
+     * @param int $sorter One of the self::ORDERBY_ constants
+     * @param string $direction One of the self::ORDER_DIR_ constants
+     */
+    public function orderBy(int $sorter, string $direction = self::ORDER_DIR_DESC): Collector
+    {
+        $this->orderBy = $sorter;
+        $this->orderDirection = $direction;
+        return $this;
+    }
+
+    /**
      * Limit the number of objects retrieved
      */
     public function limit(?int $count): self
@@ -516,6 +540,45 @@ class Collector implements CollectorInterface
         }
         if (!is_null($this->offset)) {
             $q->offset($this->offset);
+        }
+
+        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+        $site = $siteDao->getSite();
+        $siteLocale = $site->getPrimaryLocale();
+        $locale = AppLocale::getLocale();
+        switch ($this->orderBy) {
+            case self::ORDERBY_ID:
+                $q->orderBy('u.user_id', $this->orderDirection);
+                break;
+            case self::ORDERBY_GIVENNAME:
+                $q->leftJoin('user_settings AS usgpl', function ($join) use ($siteLocale) {
+                    return $join->on('usgpl.user_id', '=', 'u.user_id')
+                        ->where('usgpl.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
+                        ->where('usgpl.locale', '=', $siteLocale);
+                });
+                $q->leftJoin('user_settings AS usgl', function ($join) use ($locale) {
+                    return $join->on('usgl.user_id', '=', 'u.user_id')
+                        ->where('usgl.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
+                        ->where('usgl.locale', '=', $locale);
+                });
+                $q->addSelect([DB::raw('COALESCE(usgl.setting_value, usgpl.setting_value) AS given_name')])
+                    ->orderBy('given_name', $this->orderDirection);
+                break;
+            case self::ORDERBY_FAMILYNAME:
+                $q->leftJoin('user_settings AS usfpl', function ($join) use ($siteLocale) {
+                    return $join->on('usfpl.user_id', '=', 'u.user_id')
+                        ->where('usfpl.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
+                        ->where('usfpl.locale', '=', $siteLocale);
+                });
+                $q->leftJoin('user_settings AS usfl', function ($join) use ($locale) {
+                    return $join->on('usfl.user_id', '=', 'u.user_id')
+                        ->where('usfl.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
+                        ->where('usfl.locale', '=', $locale);
+                });
+                $q->addSelect([DB::raw('COALESCE(usfl.setting_value, usfpl.setting_value) AS family_name')])
+                    ->orderBy('family_name', $this->orderDirection);
+                break;
+            default: throw new Exception('Invalid order by!');
         }
 
         // Add app-specific query statements

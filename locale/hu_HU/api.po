@@ -1,12 +1,13 @@
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-28 11:36+0000\n"
-"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"PO-Revision-Date: 2021-08-13 15:04+0000\n"
+"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"hu/>\n"
+"hu_HU/>\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -148,3 +149,22 @@ msgstr "A cikk, amit meg szeretne jeleníteni, már megjelentetett."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "A kért e-mail sablon nem található."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Meg kell jelölnie azokat a szerepköröket, akik kapnak ebből az e-maiből."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Meg kell adnia az e-mail tárgyát."
+
+msgid "api.emails.400.missingBody"
+msgstr "Meg kell adnia egy elküldendő e-mailt."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "A következő nyelvek nem támogatottak: {$locales}."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "A kért bejelentés nem található."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Nem lehetséges a létrehozás időpontját megváltoztatni."

@@ -504,7 +504,6 @@ abstract class PKPWorkflowHandler extends Handler
     public function editorDecisionActions($args, $request)
     {
         $this->setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
         $reviewRoundId = (int) $request->getUserVar('reviewRoundId');
 
         // Prepare the action arguments.
@@ -730,17 +729,6 @@ abstract class PKPWorkflowHandler extends Handler
         ]);
 
         return $templateMgr->fetchJson('workflow/submissionProgressBar.tpl');
-    }
-
-    /**
-     * Setup variables for the template
-     *
-     * @param Request $request
-     */
-    public function setupTemplate($request)
-    {
-        parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_EDITOR);
     }
 
     /**

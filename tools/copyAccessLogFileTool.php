@@ -38,9 +38,6 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
     public function __construct($argv = [])
     {
         parent::__construct($argv);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
-
         if (count($this->argv) < 1 || count($this->argv) > 2) {
             $this->usage();
             exit(1);

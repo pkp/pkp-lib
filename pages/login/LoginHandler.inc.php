@@ -452,13 +452,4 @@ class LoginHandler extends Handler
             $request->redirect(null, 'user');
         }
     }
-
-    /**
-     * Configure the template for display.
-     */
-    public function setupTemplate($request)
-    {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER);
-        parent::setupTemplate($request);
-    }
 }

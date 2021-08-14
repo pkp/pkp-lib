@@ -56,10 +56,6 @@ class StatisticsReport extends ScheduledTask
 
         $sentMessages = 0;
         for ($contexts = $contextDao->getAll(true); $context = $contexts->next();) {
-            AppLocale::requireComponents(
-                [LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_COMMON],
-                $context->getPrimaryLocale()
-            );
             $editorialReportNotificationManager = new EditorialReportNotificationManager(PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT);
             $editorialReportNotificationManager->initialize(
                 $context,

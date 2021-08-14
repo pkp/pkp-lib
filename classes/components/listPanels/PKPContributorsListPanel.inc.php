@@ -32,9 +32,6 @@ class PKPContributorsListPanel extends ListPanel
      */
     public function getConfig()
     {
-        Locale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        Locale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-
         $config = parent::getConfig();
 
         // Remove some props not used in this list panel

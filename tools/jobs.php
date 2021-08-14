@@ -18,7 +18,6 @@ declare(strict_types=1);
 namespace PKP\tools;
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use PKP\cliTool\CommandLineTool;
@@ -99,8 +98,6 @@ class commandJobs extends CommandLineTool
     public function __construct($argv = [])
     {
         parent::__construct($argv);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
 
         array_shift($argv);
 

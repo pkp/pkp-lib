@@ -154,15 +154,6 @@ class PKPCatalogHandler extends Handler
     }
 
     /**
-     * Set up the basic template.
-     */
-    public function setupTemplate($request)
-    {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
-        parent::setupTemplate($request);
-    }
-
-    /**
      * Assign the pagination template variables
      *
      * @param PKPRequest $request

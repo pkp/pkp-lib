@@ -141,8 +141,6 @@ class PKPTemplateManager extends Smarty
         $application = Application::get();
         $router = $request->getRouter();
         assert($router instanceof \PKP\core\PKPRouter);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_COMMON);
         $currentContext = $request->getContext();
 
         $this->assign([
@@ -974,7 +972,6 @@ class PKPTemplateManager extends Smarty
                             'isCurrent' => $router->getRequestedPage($request) === 'submissions',
                         ];
                     } elseif (count($userRoles) === 1 && in_array(Role::ROLE_ID_READER, $userRoles)) {
-                        AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR);
                         $menu['submit'] = [
                             'name' => __('author.submit'),
                             'url' => $router->url($request, null, 'submission', 'wizard'),
@@ -1078,11 +1075,6 @@ class PKPTemplateManager extends Smarty
                             'isCurrent' => $router->getRequestedPage($request) === 'admin',
                         ];
                     }
-                }
-
-                // Load the manager.people.signedInAs locale key
-                if (Validation::isLoggedInAs()) {
-                    AppLocale::requireComponents([LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER]);
                 }
 
                 $this->setState([

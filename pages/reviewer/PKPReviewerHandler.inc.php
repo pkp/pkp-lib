@@ -210,23 +210,6 @@ class PKPReviewerHandler extends Handler
     }
 
     /**
-     * Setup common template variables.
-     */
-    public function setupTemplate($request)
-    {
-        parent::setupTemplate($request);
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_APP_COMMON,
-            LOCALE_COMPONENT_PKP_GRID,
-            LOCALE_COMPONENT_PKP_REVIEWER,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_PKP_USER
-        );
-    }
-
-    /**
      * Get a review form for the current step.
      *
      * @param int $step current step

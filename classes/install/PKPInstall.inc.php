@@ -226,7 +226,6 @@ class PKPInstall extends Installer
         Repo::user()->add($user);
 
         // Create an admin user group
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
         $adminUserGroup = $userGroupDao->newDataObject();
         $adminUserGroup->setRoleId(Role::ROLE_ID_SITE_ADMIN);
@@ -253,10 +252,6 @@ class PKPInstall extends Installer
         $site->setSupportedLocales($this->installedLocales);
         $siteDao->insertSite($site);
 
-        // Install email template list and data for each locale
-        foreach ($this->installedLocales as $locale) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
-        }
         Repo::emailTemplate()->dao->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $this->installedLocales);
 
         // Install default site settings

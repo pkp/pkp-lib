@@ -46,15 +46,6 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
         }
     }
 
-    /**
-     * @see Form::validate()
-     */
-    public function validate($callHooks = true)
-    {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER); // for user.profile.form.privacyConsentRequired
-
-        return parent::validate($callHooks);
-    }
 
     //
     // Implement protected template methods from Form

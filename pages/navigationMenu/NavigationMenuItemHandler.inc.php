@@ -47,8 +47,6 @@ class NavigationMenuItemHandler extends Handler
     public function preview($args, $request)
     {
         $path = array_shift($args);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
         $context = $request->getContext();
         $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
@@ -100,8 +98,6 @@ class NavigationMenuItemHandler extends Handler
     public function view($args, $request)
     {
         $path = array_shift($args);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
         $context = $request->getContext();
         $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {

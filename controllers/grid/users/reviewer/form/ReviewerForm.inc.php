@@ -239,7 +239,6 @@ class ReviewerForm extends Form
         if ($template) {
             $user = $request->getUser();
             $dispatcher = $request->getDispatcher();
-            AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER); // reviewer.step1.requestBoilerplate
             $template->assignParams([
                 'journalUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
                 'signature' => $user->getContactSignature(),

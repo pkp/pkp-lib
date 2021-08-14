@@ -174,14 +174,6 @@ class QueriesGridHandler extends GridHandler
             default: assert(false);
         }
 
-        // Load pkp-lib translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_SUBMISSION
-        );
-
         // Columns
         import('lib.pkp.controllers.grid.queries.QueryTitleGridColumn');
         $cellProvider = $this->getCellProvider();
@@ -633,7 +625,6 @@ class QueriesGridHandler extends GridHandler
             }
 
             // Send notifications
-            Locale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
             $currentUser = $request->getUser();
             $newParticipantIds = $queryForm->getData('users');
             $added = array_diff($newParticipantIds, $oldParticipantIds);

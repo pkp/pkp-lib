@@ -102,11 +102,6 @@ class Repository
             $this->schemaService->getValidationRules(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $allowedLocales)
         );
 
-        Locale::requireComponents(
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
-        );
-
         // Check required fields
         ValidatorFactory::required(
             $validator,

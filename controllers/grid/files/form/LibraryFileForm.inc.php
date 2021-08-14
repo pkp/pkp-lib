@@ -61,8 +61,6 @@ class LibraryFileForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-
         // load the file types for the selector on the form.
         $templateMgr = TemplateManager::getManager($request);
         $fileTypeKeys = $this->libraryFileManager->getTypeTitleKeyMap();

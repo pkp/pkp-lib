@@ -81,8 +81,6 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
         $context = $request->getContext();
         $this->_contextId = $context->getId();
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION);
-
         // Set the grid title.
         $this->setTitle('grid.category.categories');
 

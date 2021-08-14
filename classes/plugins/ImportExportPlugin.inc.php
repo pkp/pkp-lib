@@ -205,7 +205,6 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function displayXMLValidationErrors($errors, $xml)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER);
         if (defined('SESSION_DISABLE_INIT')) {
             echo __('plugins.importexport.common.validationErrors') . "\n";
             foreach ($errors as $error) {
@@ -367,8 +366,6 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function getImportedFilePath($temporaryFileId, $user)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-
         $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
 
         $temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());

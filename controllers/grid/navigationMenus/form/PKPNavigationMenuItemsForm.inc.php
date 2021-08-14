@@ -71,8 +71,6 @@ class PKPNavigationMenuItemsForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('navigationMenuItemId', $this->navigationMenuItemId);
 

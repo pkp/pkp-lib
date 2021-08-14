@@ -670,9 +670,6 @@ class GridHandler extends PKPHandler
     {
         parent::initialize($request);
 
-        // Load grid-specific translations
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APP_COMMON);
-
         if ($this->getFilterForm() && $this->isFilterFormCollapsible()) {
             $this->addAction(
                 new LinkAction(

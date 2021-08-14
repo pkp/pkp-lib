@@ -735,9 +735,6 @@ class Installer
     public function installEmailTemplate($installer, $attr)
     {
         $locales = explode(',', $attr['locales']);
-        foreach ($locales as $locale) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
-        }
         // FIXME pkp/pkp-lib#6284 Remove after drop of support for upgrades from 3.2.0
         if (!Schema::hasColumn('email_templates_default', 'stage_id')) {
             Schema::table('email_templates_default', function (Blueprint $table) {

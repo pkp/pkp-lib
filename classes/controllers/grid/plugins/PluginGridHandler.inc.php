@@ -78,9 +78,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
     {
         parent::initialize($request, $args);
 
-        // Load language components
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_MANAGER);
-
         // Basic grid configuration
         $this->setTitle('common.plugins');
 

@@ -210,15 +210,4 @@ class DashboardHandler extends Handler
 
         return $templateMgr->fetchJson('dashboard/tasks.tpl');
     }
-
-    /**
-     * Setup common template variables.
-     *
-     * @param PKPRequest $request
-     */
-    public function setupTemplate($request = null)
-    {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_SUBMISSION);
-        parent::setupTemplate($request);
-    }
 }

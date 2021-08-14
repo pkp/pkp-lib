@@ -128,7 +128,6 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
      */
     public function fetch($request, $template = null, $display = false)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
         $templateMgr = TemplateManager::getManager($request);
 
         // On the review stage, determine if any reviews are available for import

@@ -416,8 +416,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         $userId = $notification->getUserId();
         $user = Repo::user()->get($userId, true);
         if ($user && !$user->getDisabled()) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
-
             $context = $request->getContext();
             if ($contextId && (!$context || $context->getId() != $contextId)) {
                 $contextDao = Application::getContextDAO();

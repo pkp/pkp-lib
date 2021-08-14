@@ -54,8 +54,6 @@ class RolesForm extends BaseProfileForm
         $userFormHelper = new UserFormHelper();
         $userFormHelper->assignRoleContent($templateMgr, $request);
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
-
         return parent::fetch($request, $template, $display);
     }
 

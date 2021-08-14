@@ -63,8 +63,6 @@ class PKPPublicIdentifiersForm extends Form
         $context = $request->getContext();
         $this->_contextId = $context->getId();
 
-        Locale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
-
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
 

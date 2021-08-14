@@ -48,9 +48,6 @@ abstract class ScheduledTask
         $this->_args = $args;
         $this->_processId = uniqid();
 
-        // Ensure common locale keys are available
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APP_ADMIN, LOCALE_COMPONENT_PKP_COMMON);
-
         // Check the scheduled task execution log folder.
         $fileMgr = new PrivateFileManager();
 

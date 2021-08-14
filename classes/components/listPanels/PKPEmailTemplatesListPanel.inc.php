@@ -54,10 +54,6 @@ class PKPEmailTemplatesListPanel extends ListPanel
      */
     public function getConfig()
     {
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        \AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-        \AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT);
-
         $config = parent::getConfig();
 
         $config['apiUrl'] = $this->apiUrl;

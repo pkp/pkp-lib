@@ -43,7 +43,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
         }
 
         $this->command = $this->argv[0];
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
     }
 
     /**

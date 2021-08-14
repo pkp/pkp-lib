@@ -233,9 +233,6 @@ class PKPStatsHandler extends Handler
             $dispatcher->handle404();
         }
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
-
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
 
@@ -381,17 +378,6 @@ class PKPStatsHandler extends Handler
     }
 
     /**
-     * Set up the basic template for reports.
-     *
-     * @param PKPRequest $request
-     */
-    public function setupTemplate($request)
-    {
-        parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_SUBMISSION);
-    }
-
-    /**
      * Route to other Reports operations
      *
      * @param array $args
@@ -476,9 +462,6 @@ class PKPStatsHandler extends Handler
     public function reportGenerator($args, $request)
     {
         $this->setupTemplate($request);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR);
-
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'breadcrumbs' => [
@@ -507,7 +490,6 @@ class PKPStatsHandler extends Handler
     public function generateReport($args, $request)
     {
         $this->setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
         $router = $request->getRouter();
         $context = $router->getContext($request);

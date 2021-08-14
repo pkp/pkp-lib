@@ -251,12 +251,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_APP_ADMIN,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
-        );
         $schemaService = Services::get('schema');
 
         $validator = ValidatorFactory::make(
@@ -623,7 +617,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     public function restoreLocaleDefaults($context, $request, $locale)
     {
         Locale::installLocale($locale);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT, LOCALE_COMPONENT_APP_DEFAULT, $locale);
 
         // Specify values needed to render default locale strings
         $localeParams = [

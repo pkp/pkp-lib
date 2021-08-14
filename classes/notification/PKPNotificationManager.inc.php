@@ -163,8 +163,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-
-                AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // load review round status keys.
                 $user = $request->getUser();
                 $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($reviewRound->getSubmissionId(), Role::ROLE_ID_AUTHOR, null, $user->getId());
                 $isAuthor = (bool) $stageAssignments->next();

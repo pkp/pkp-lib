@@ -841,7 +841,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
         foreach ($licenseKeyMap as $pattern => $key) {
             if (preg_match($pattern, $ccLicenseURL)) {
-                Locale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, $locale);
                 return __($key, [], $locale);
             }
         }
@@ -897,7 +896,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public static function getWorkflowStageName($stageId)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_SUBMISSION: return 'submission.submission';
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return 'workflow.review.internalReview';
@@ -917,7 +915,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public static function getWorkflowStageColor($stageId)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_SUBMISSION: return '#d00a0a';
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return '#e05c14';

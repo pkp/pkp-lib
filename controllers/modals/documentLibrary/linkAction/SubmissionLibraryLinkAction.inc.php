@@ -28,7 +28,6 @@ class SubmissionLibraryLinkAction extends LinkAction
     public function __construct($request, $submissionId)
     {
         $dispatcher = $request->getDispatcher();
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
         parent::__construct(
             'editorialHistory',
             new AjaxModal(

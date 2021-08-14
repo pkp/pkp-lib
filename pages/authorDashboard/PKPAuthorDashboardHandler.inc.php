@@ -139,15 +139,6 @@ abstract class PKPAuthorDashboardHandler extends Handler
     public function setupTemplate($request)
     {
         parent::setupTemplate($request);
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_EDITOR,
-            LOCALE_COMPONENT_PKP_GRID
-        );
 
         $templateMgr = TemplateManager::getManager($request);
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);

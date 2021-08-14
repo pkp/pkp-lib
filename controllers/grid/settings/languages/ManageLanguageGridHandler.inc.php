@@ -86,8 +86,6 @@ class ManageLanguageGridHandler extends LanguageGridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-
         $this->addNameColumn();
         $this->addPrimaryColumn('contextPrimary');
         $this->addManagementColumns();

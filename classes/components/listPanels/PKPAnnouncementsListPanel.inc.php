@@ -36,34 +36,24 @@ class PKPAnnouncementsListPanel extends ListPanel
      */
     public function getConfig()
     {
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        \AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
         $request = \Application::get()->getRequest();
-
-        $config = parent::getConfig();
-
-        $config = array_merge(
-            $config,
-            [
-                'addAnnouncementLabel' => __('grid.action.addAnnouncement'),
-                'apiUrl' => $this->apiUrl,
-                'confirmDeleteMessage' => __('manager.announcements.confirmDelete'),
-                'count' => $this->count,
-                'deleteAnnouncementLabel' => __('manager.announcements.deleteAnnouncement'),
-                'editAnnouncementLabel' => __('manager.announcements.edit'),
-                'form' => $this->form->getConfig(),
-                'itemsMax' => $this->itemsMax,
-                'urlBase' => $request->getDispatcher()->url(
-                    $request,
-                    \PKPApplication::ROUTE_PAGE,
-                    $request->getContext()->getPath(),
-                    'announcement',
-                    'view',
-                    '__id__'
-                )
-            ]
-        );
-
-        return $config;
+        return parent::getConfig() + [
+            'addAnnouncementLabel' => __('grid.action.addAnnouncement'),
+            'apiUrl' => $this->apiUrl,
+            'confirmDeleteMessage' => __('manager.announcements.confirmDelete'),
+            'count' => $this->count,
+            'deleteAnnouncementLabel' => __('manager.announcements.deleteAnnouncement'),
+            'editAnnouncementLabel' => __('manager.announcements.edit'),
+            'form' => $this->form->getConfig(),
+            'itemsMax' => $this->itemsMax,
+            'urlBase' => $request->getDispatcher()->url(
+                $request,
+                \PKPApplication::ROUTE_PAGE,
+                $request->getContext()->getPath(),
+                'announcement',
+                'view',
+                '__id__'
+            )
+        ];
     }
 }

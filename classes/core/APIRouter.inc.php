@@ -108,7 +108,6 @@ class APIRouter extends PKPRouter
         $sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
 
         if (!file_exists($sourceFile)) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
             http_response_code('404');
             header('Content-Type: application/json');
             echo json_encode([
@@ -160,7 +159,6 @@ class APIRouter extends PKPRouter
         $authorizationMessage,
         array $messageParams = []
     ) {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
         http_response_code('403');
         header('Content-Type: application/json');
         echo json_encode([

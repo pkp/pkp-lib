@@ -52,12 +52,6 @@ class LanguageGridHandler extends GridHandler
     {
         parent::initialize($request, $args);
 
-        // Load user-related translations.
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_MANAGER
-        );
-
         // Basic grid configuration.
         $this->setTitle('common.languages');
     }

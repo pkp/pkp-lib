@@ -262,20 +262,10 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
     }
 
     /**
-     * Load necessary locales for CLI
-     */
-    public function loadCLILocales()
-    {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION);
-    }
-
-    /**
      * @see PKPImportExportPlugin::executeCLI()
      */
     public function executeCLI($scriptName, &$args)
     {
-        $this->loadCLILocales();
-
         $cliDeployment = new PKPNativeImportExportCLIDeployment($scriptName, $args);
         $this->cliDeployment = $cliDeployment;
 

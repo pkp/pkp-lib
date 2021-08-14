@@ -97,13 +97,6 @@ class QueryNotesGridHandler extends GridHandler
         parent::initialize($request, $args);
         $this->setTitle('submission.query.messages');
 
-        // Load pkp-lib translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_EDITOR
-        );
-
         import('lib.pkp.controllers.grid.queries.QueryNotesGridCellProvider');
         $cellProvider = new QueryNotesGridCellProvider($this->getSubmission());
 

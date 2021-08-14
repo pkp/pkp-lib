@@ -52,8 +52,6 @@ class PromoteForm extends EditorDecisionWithEmailForm
             'controllers/modals/editorDecision/form/promoteForm.tpl',
             $reviewRound
         );
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
     }
 
 

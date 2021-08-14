@@ -225,7 +225,6 @@ class PKPPublication extends \PKP\core\DataObject
         }
 
         if ($authors->count() > 1) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
             return __('submission.shortAuthor', ['author' => $str], $defaultLocale);
         }
 

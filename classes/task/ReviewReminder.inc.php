@@ -106,9 +106,6 @@ class ReviewReminder extends ScheduledTask
         } else {
             $responseDueDate = strftime($dateFormatShort, $responseDueDate);
         }
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
         $paramArray = [
             'recipientName' => $reviewer->getFullName(),
             'recipientUsername' => $reviewer->getUsername(),

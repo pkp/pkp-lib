@@ -22,15 +22,6 @@ use PKP\i18n\LocaleConversion;
 class HelpHandler extends Handler
 {
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
-    }
-
-    /**
      * Display help.
      *
      * @param array $args

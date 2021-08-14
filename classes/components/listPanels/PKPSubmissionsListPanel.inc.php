@@ -56,7 +56,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel
      */
     public function getConfig()
     {
-        AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 

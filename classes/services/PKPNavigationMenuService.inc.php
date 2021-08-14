@@ -39,7 +39,6 @@ class PKPNavigationMenuService
      */
     public function getMenuItemTypes()
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
         $types = [
             NavigationMenuItem::NMI_TYPE_CUSTOM => [
                 'title' => __('manager.navigationMenus.customPage'),
@@ -600,7 +599,6 @@ class PKPNavigationMenuService
     public function setNMITitleLocalized($nmi)
     {
         if ($nmi) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
             if ($localisedTitle = $nmi->getLocalizedTitle()) {
                 $nmi->setTitle($localizedTitle, Locale::getLocale());
             } elseif ($nmi->getTitleLocaleKey() === '{$loggedInUsername}') {
@@ -622,14 +620,6 @@ class PKPNavigationMenuService
             $supportedFormLocales = Locale::getSupportedFormLocales();
 
             foreach ($supportedFormLocales as $supportedFormLocale => $supportedFormLocaleValue) {
-                AppLocale::requireComponents(
-                    LOCALE_COMPONENT_PKP_COMMON,
-                    LOCALE_COMPONENT_PKP_MANAGER,
-                    LOCALE_COMPONENT_APP_COMMON,
-                    LOCALE_COMPONENT_PKP_USER,
-                    $supportedFormLocale
-                );
-
                 if ($localisedTitle = $nmi->getTitle($supportedFormLocale)) {
                     $nmi->setTitle($localisedTitle, $supportedFormLocale);
                 } else {

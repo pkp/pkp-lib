@@ -212,17 +212,6 @@ class PKPReviewerGridHandler extends GridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-
-        // Load submission-specific translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_PKP_REVIEWER,
-            LOCALE_COMPONENT_APP_EDITOR
-        );
-
         $this->setTitle('user.role.reviewers');
 
         // Grid actions

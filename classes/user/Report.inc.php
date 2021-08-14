@@ -33,7 +33,6 @@ class Report
      */
     public function __construct(iterable $dataSource)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_COMMON);
         $this->_dataSource = $dataSource;
     }
 

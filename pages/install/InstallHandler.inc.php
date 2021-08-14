@@ -146,15 +146,4 @@ class InstallHandler extends Handler
             $installForm->display($request);
         }
     }
-
-    /**
-     * Set up the installer template.
-     *
-     * @param PKPRequest $request
-     */
-    public function setupTemplate($request)
-    {
-        parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
-    }
 }

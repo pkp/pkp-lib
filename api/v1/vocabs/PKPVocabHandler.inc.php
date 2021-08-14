@@ -15,7 +15,6 @@
  */
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use PKP\core\APIResponse;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;

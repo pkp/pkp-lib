@@ -73,10 +73,6 @@ abstract class FileLoader extends ScheduledTask
     {
         parent::__construct($args);
 
-        // Set an initial process id and load translations (required
-        // for email notifications).
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
-
         // Canonicalize the base path.
         $basePath = rtrim($args[0], '/');
         $basePathFolder = basename($basePath);

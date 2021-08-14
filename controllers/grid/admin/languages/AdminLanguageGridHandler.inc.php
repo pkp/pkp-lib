@@ -78,13 +78,6 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     {
         parent::initialize($request, $args);
 
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER,
-            LOCALE_COMPONENT_APP_ADMIN
-        );
-
         // Grid actions.
         $router = $request->getRouter();
 

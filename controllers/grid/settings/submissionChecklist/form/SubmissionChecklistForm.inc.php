@@ -83,7 +83,6 @@ class SubmissionChecklistForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
         return parent::fetch($request, $template, $display);
     }
 

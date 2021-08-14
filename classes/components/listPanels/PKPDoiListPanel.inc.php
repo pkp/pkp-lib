@@ -16,7 +16,6 @@
 namespace PKP\components\listPanels;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\doi\Doi;
 use PKP\plugins\HookRegistry;
@@ -61,14 +60,6 @@ abstract class PKPDoiListPanel extends ListPanel
      */
     public function getConfig()
     {
-        AppLocale::requireComponents(
-            [
-                LOCALE_COMPONENT_PKP_SUBMISSION,
-                LOCALE_COMPONENT_PKP_MANAGER,
-                LOCALE_COMPONENT_APP_MANAGER
-            ]
-        );
-
         $config = parent::getConfig();
         $config['apiUrl'] = $this->apiUrl;
         $config['doiApiUrl'] = $this->doiApiUrl;

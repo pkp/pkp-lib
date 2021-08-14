@@ -19,7 +19,6 @@ import('lib.pkp.pages.management.ManagementHandler');
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
@@ -42,16 +41,6 @@ class PKPToolsHandler extends ManagementHandler
             Role::ROLE_ID_MANAGER,
             ['tools', 'importexport', 'permissions']
         );
-    }
-
-
-    //
-    // Public handler methods.
-    //
-    public function setupTemplate($request)
-    {
-        parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_SUBMISSION);
     }
 
     /**

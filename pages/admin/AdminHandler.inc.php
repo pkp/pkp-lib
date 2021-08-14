@@ -84,14 +84,6 @@ class AdminHandler extends Handler
      */
     public function initialize($request)
     {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_APP_MANAGER,
-            LOCALE_COMPONENT_APP_ADMIN,
-            LOCALE_COMPONENT_APP_COMMON,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_MANAGER
-        );
         $templateMgr = TemplateManager::getManager($request);
 
         $templateMgr->assign([

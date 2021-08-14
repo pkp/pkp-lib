@@ -126,16 +126,6 @@ class SubmissionFilesGridHandler extends GridHandler
     {
         parent::initialize($request, $args);
 
-        // Load translations.
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_APP_EDITOR,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_PKP_COMMON,
-            LOCALE_COMPONENT_APP_COMMON
-        );
-
         // Add grid actions
         $capabilities = $this->getCapabilities();
         $dataProvider = $this->getDataProvider();

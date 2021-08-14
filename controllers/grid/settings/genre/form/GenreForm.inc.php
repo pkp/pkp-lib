@@ -118,8 +118,6 @@ class GenreForm extends Form
             GENRE_CATEGORY_ARTWORK => __('submission.art'),
             GENRE_CATEGORY_SUPPLEMENTARY => __('submission.supplementary'),
         ]);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
         return parent::fetch($request, $template, $display);
     }
 

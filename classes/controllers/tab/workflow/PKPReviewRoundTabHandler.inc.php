@@ -60,7 +60,6 @@ class PKPReviewRoundTabHandler extends Handler
      */
     public function setupTemplate($request)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
         parent::setupTemplate($request);
     }
 

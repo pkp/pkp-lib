@@ -54,7 +54,6 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     public function getNotificationMessage($request, $notification)
     {
         $stageData = $this->_getStageDataByType();
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION); // For stage constants
         $stageKey = $stageData['translationKey'];
 
         return __('notification.type.pendingRevisions', ['stage' => __($stageKey)]);
@@ -74,8 +73,6 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
         $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
 
         import('lib.pkp.controllers.api.file.linkAction.AddRevisionLinkAction');
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR); // editor.review.uploadRevision
-
         $uploadFileAction = new AddRevisionLinkAction(
             $request,
             $lastReviewRound,

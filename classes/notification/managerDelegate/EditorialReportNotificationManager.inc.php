@@ -72,8 +72,6 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
         $dateStart = $dateStart;
         $dateEnd = $dateEnd;
 
-        AppLocale::requireComponents([LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_PKP_USER], $locale);
-
         $dispatcher = Application::get()->getDispatcher();
 
         $this->_editorialTrends = Services::get('editorialStats')->getOverview([

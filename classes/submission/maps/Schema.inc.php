@@ -39,15 +39,6 @@ class Schema extends \PKP\core\maps\Schema
     /** @var array The user groups for this context. */
     public array $userGroups;
 
-    public function __construct(Request $request, Context $context, PKPSchemaService $schemaService)
-    {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_SUBMISSION
-        );
-        parent::__construct($request, $context, $schemaService);
-    }
-
     /**
      * Get extra property names used in the submissions list
      */

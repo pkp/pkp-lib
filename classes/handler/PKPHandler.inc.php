@@ -521,17 +521,7 @@ class PKPHandler
         }
         assert($request instanceof \PKP\core\PKPRequest);
 
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_COMMON,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_APP_COMMON
-        );
-
         $userRoles = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (array_intersect([Role::ROLE_ID_MANAGER], $userRoles)) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        }
-
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('userRoles', $userRoles);
 

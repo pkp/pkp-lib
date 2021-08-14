@@ -107,7 +107,6 @@ class FileApiHandler extends Handler
         if ($reviewAssignment
                 && $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
                 && $reviewAssignment->getReviewerId() == $request->getUser()->getId()) {
-            AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION]);
             $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
             $genre = $genreDao->getById($submissionFile->getData('genreId'));
             $filename = sprintf(
@@ -154,7 +153,6 @@ class FileApiHandler extends Handler
             $files[$path] = Services::get('file')->formatFilename($path, $submissionFile->getLocalizedData('name'));
         }
 
-        AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_PKP_EDITOR, LOCALE_COMPONENT_APP_EDITOR]);
         $filename = !empty($args['nameLocaleKey'])
             ? __($args['nameLocaleKey'])
             : __('submission.files');

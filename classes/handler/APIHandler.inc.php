@@ -29,8 +29,6 @@ use PKP\validation\ValidatorFactory;
 
 use Slim\App;
 
-AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
-
 class APIHandler extends PKPHandler
 {
     protected $_app;

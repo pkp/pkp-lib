@@ -628,7 +628,6 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
      */
     public function getReviewMethodsTranslationKeys()
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
         return [
             ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS => 'editor.submissionReview.doubleAnonymous',
             ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS => 'editor.submissionReview.anonymous',

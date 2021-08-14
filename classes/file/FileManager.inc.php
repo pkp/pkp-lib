@@ -724,7 +724,6 @@ class FileManager
      */
     private function _executeGzip($filePath, $decompress = false)
     {
-        Locale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
         $gzipPath = Config::getVar('cli', 'gzip');
         if (!is_executable($gzipPath)) {
             throw new Exception(__('admin.error.executingUtil', ['utilPath' => $gzipPath, 'utilVar' => 'gzip']));

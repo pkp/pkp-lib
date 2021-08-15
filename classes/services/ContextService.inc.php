@@ -19,6 +19,7 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
+use APP\preprint\PreprintTombstoneManager;
 
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -90,6 +91,7 @@ class ContextService extends \PKP\services\PKPContextService
     public function afterEditContext($hookName, $args)
     {
         $newContext = $args[0];
+        $currentContext = $args[1];
         $params = $args[2];
         $request = $args[3];
 
@@ -111,6 +113,39 @@ class ContextService extends \PKP\services\PKPContextService
                 $newContext->setData('serverThumbnail', $localeValue, $localeKey);
             }
         }
+
+        // If the context is enabled or disabled, create or delete
+        // tombstones for all published submissions
+        if ($newContext->getData('enabled') !== $currentContext->getData('enabled')) {
+            $preprintTombstoneManager = new PreprintTombstoneManager();
+            if ($newContext->getData('enabled')) {
+                $preprintTombstoneManager->deleteTombstonesByContextId($newContext->getId());
+            } else {
+                $preprintTombstoneManager->insertTombstonesByContext($newContext);
+            }
+        }
+    }
+
+    /**
+     * Perform actions before a context has been deleted
+     *
+     * This should only be used in cases where you need the context to still exist
+     * in the database to complete the actions. Otherwise, use
+     * ContextService::afterDeleteContext().
+     *
+     * @param $hookName string
+     * @param $args array [
+     *      @option Context The new context
+     *      @option Request
+     * ]
+     */
+    public function beforeDeleteContext($hookName, $args)
+    {
+        $context = $args[0];
+
+        // Create tombstones for all published submissions
+        $preprintTombstoneManager = new PreprintTombstoneManager();
+        $preprintTombstoneManager->insertTombstonesByContext($context);
     }
 
     /**

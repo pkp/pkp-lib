@@ -422,11 +422,12 @@ class PKPFileUploadWizardHandler extends Handler {
 			case SUBMISSION_FILE_REVIEW_ATTACHMENT:
 			case SUBMISSION_FILE_REVIEW_REVISION:
 				// Add the uploaded review file to the review round.
-				$reviewRound = $this->getReviewRound();
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-				$submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
+                if ($reviewRound = $this->getReviewRound()) {
+                    $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+                    $submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
+                }
 
-				if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION) {
+				if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION & $reviewRound) {
 					// Get a list of author user IDs
 					$authorUserIds = array();
 					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */

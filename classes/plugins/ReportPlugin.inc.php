@@ -160,8 +160,8 @@ abstract class ReportPlugin extends Plugin
                         $request,
                         PKPApplication::ROUTE_PAGE,
                         null,
-                        'management',
-                        'tools',
+                        'stats',
+                        'reports',
                         'report',
                         ['pluginName' => $this->getName()]
                     )),

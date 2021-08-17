@@ -354,12 +354,6 @@ class PKPNotificationManagerTest extends PKPTestCase
             ->will($this->returnValue($mailTemplateMock));
 
         // Register a UserDao stub to return the test user.
-        /*        $userDaoStub = $this->getMockBuilder(\PKP\user\DAO::class)
-                    ->setMethods(['getById'])
-                    ->getMock();
-                $userDaoStub->expects($this->any())
-                    ->method('getById')
-                    ->will($this->returnValue($testUser));*/
         App::instance(\PKP\user\DAO::class, \Mockery::mock(\PKP\user\DAO::class, function ($mock) use ($testUser) {
             $mock->shouldReceive('get')->with($testUser->getId())->andReturn($testUser);
         }));

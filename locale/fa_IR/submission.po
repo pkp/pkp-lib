@@ -1,10 +1,11 @@
+# Rahman Ramsi <rahmanramsi19@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2020-09-25 17:49+0000\n"
-"Last-Translator: Hamid Sadeghieh <sadeghieh@gmail.com>\n"
+"PO-Revision-Date: 2021-08-19 04:05+0000\n"
+"Last-Translator: Rahman Ramsi <rahmanramsi19@gmail.com>\n"
 "Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fa_IR/>\n"
 "Language: fa_IR\n"
@@ -1857,3 +1858,30 @@ msgstr "مقاله منتشرشده‌ای برای این نویسنده پید
 
 msgid "author.editPublishedDisabled"
 msgstr "این مقاله منتشر شده است و ویرایش نویسندگان این مقاله مقدور نیست."
+
+msgid "submission.downloads"
+msgstr "دانلود"
+
+msgid "notification.type.submissionNewVersion"
+msgstr "نسخه جدیدی از ارسال ایجاد شد"
+
+msgid "submission.list.empty"
+msgstr "هیچ مقاله ارسالی یافت نشد."
+
+msgid "submission.list.assignEditor"
+msgstr "به ویراستار ارجاع بده"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "عنوان (الف-ی)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "عنوان (ی-الف)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "تاریخ نشر (از قدیمی به نو)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "تاریخ نشر (از نو به قدیمی)"
+
+msgid "category.coverImage"
+msgstr "تصویر کاور"

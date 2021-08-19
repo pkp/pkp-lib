@@ -131,10 +131,6 @@ class PKPUserHandler extends APIHandler
         }
         $users = Repo::user()->getMany($collector);
 
-        $propertyArgs = [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-        ];
         $map = Repo::user()->getSchemaMap();
         $items = [];
         foreach ($users as $user) {

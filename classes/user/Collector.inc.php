@@ -323,6 +323,8 @@ class Collector implements CollectorInterface
     {
         $q = DB::table('users AS u')
             ->select('u.*')
+
+            // Handle any role assignment related constraints
             ->when($this->userGroupIds !== null || $this->roleIds !== null || $this->contextIds !== null || $this->workflowStageIds !== null, function ($query) {
                 return $query->whereIn('u.user_id', function ($query) {
                     return $query->select('uug.user_id')
@@ -343,21 +345,26 @@ class Collector implements CollectorInterface
                         });
                 });
             })
+
             ->when($this->registeredBefore !== null, function ($query) {
                 // Include useres who registered up to the end of the day
                 $dateTime = new \DateTime($this->registeredBefore);
                 $dateTime->add(new \DateInterval('P1D'));
                 $query->where('u.date_registered', '<', $dateTime->format('Y-m-d'));
             })
+
             ->when($this->registeredAfter !== null, function ($query) {
                 $query->where('u.date_registered', '>=', $this->registeredAfter);
             })
+
             ->when($this->userIds !== null, function ($query) {
                 $query->whereIn('u.user_id', $this->userIds);
             })
+
             ->when($this->excludeUserIds !== null, function ($query) {
                 $query->whereNotIn('u.user_id', $this->excludeUserIds);
             })
+
             ->when($this->settings !== null, function ($query) {
                 foreach ($this->settings as $settingName => $value) {
                     $query->whereIn('u.user_id', function ($query) {
@@ -368,7 +375,9 @@ class Collector implements CollectorInterface
                     });
                 }
             })
+
             ->when($this->excludeSubmissionStage !== null, function ($query) {
+                // Left join on a match for the excluded submission stage list, then assert that it's null
                 $query->join('user_user_groups AS uug_exclude', 'u.user_id', '=', 'uug_exclude.user_id')
                     ->join('user_group_stage AS ugs_exclude', function ($join) {
                         return $join->on('uug_exclude.user_group_id', '=', 'ugs_exclude.user_group_id')
@@ -382,6 +391,8 @@ class Collector implements CollectorInterface
                     ->where('uug_exclude.user_group_id', '=', $this->excludeSubmissionStage['user_group_id'])
                     ->whereNull('sa_exclude.user_group_id');
             })
+
+            // Handle conditions related to submission assignments (submission, stage, user group)
             ->when($this->submissionAssignment !== null, function ($query) {
                 return $query->whereIn('u.user_id', function ($query) {
                     return $query->select('sa.user_id')
@@ -398,6 +409,8 @@ class Collector implements CollectorInterface
                         });
                 });
             })
+
+            // User enabled/disabled state
             ->when($this->status !== self::STATUS_ALL, function ($query) {
                 switch ($this->status) {
                     case self::STATUS_ACTIVE: $query->where('u.disabled', '=', 0); break;
@@ -405,6 +418,7 @@ class Collector implements CollectorInterface
                     default: throw new \InvalidArgumentException('Invalid status!');
                 }
             })
+
             ->when($this->assignedSectionIds !== null, function ($query) {
                 $query->whereIn('u.user_id', function ($query) {
                     return $query->select('user_id')
@@ -413,6 +427,7 @@ class Collector implements CollectorInterface
                         ->whereIn('assoc_id', $this->assignedSectionIds);
                 });
             })
+
             ->when($this->assignedCategoryIds !== null, function ($query) {
                 $query->whereIn('u.user_id', function ($query) {
                     return $query->select('user_id')
@@ -421,6 +436,7 @@ class Collector implements CollectorInterface
                         ->whereIn('assoc_id', $this->assignedCategoryIds);
                 });
             })
+
             ->when($this->searchPhrase !== null, function ($query) {
                 $words = explode(' ', $this->searchPhrase);
                 foreach ($words as $word) {
@@ -438,6 +454,8 @@ class Collector implements CollectorInterface
                     });
                 }
             })
+
+            // When reviewer data is desired, fetch statistics and handle review related constraints.
             ->when($this->includeReviewerData, function ($query) {
                 // Latest assigned review
                 $query->leftJoin('review_assignments AS ra_latest', 'u.user_id', '=', 'ra_latest.reviewer_id')

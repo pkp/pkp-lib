@@ -445,7 +445,7 @@ class Collector implements CollectorInterface
                 switch ($this->disabled) {
                     case self::STATUS_ACTIVE: $query->where('u.disabled', '=', 0); break;
                     case self::STATUS_DISABLED: $query->where('u.disabled', '=', 1); break;
-                    default: throw new Exception('Invalid status!');
+                    default: throw new \InvalidArgumentException('Invalid status!');
                 }
             })
             ->when($this->assignedSectionIds !== null, function ($query) {
@@ -586,7 +586,7 @@ class Collector implements CollectorInterface
                 $q->addSelect([DB::raw('COALESCE(usfl.setting_value, usfpl.setting_value) AS family_name')])
                     ->orderBy('family_name', $this->orderDirection);
                 break;
-            default: throw new Exception('Invalid order by!');
+            default: throw new \InvalidArgumentException('Invalid order by!');
         }
 
         // Add app-specific query statements

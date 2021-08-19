@@ -155,13 +155,14 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * Retrieve a user by API key.
      *
-     * @param $allowDisabled boolean
-     *
      * @return User?
      */
-    public function getByApiKey(string $apiKey, bool $allowDisabled = true): ?User
+    public function getByApiKey(string $apiKey): ?User
     {
-        return $this->getBySetting('apiKey', $apiKey, $allowDisabled);
+        return $this->getMany(
+            $this->getCollector()
+                ->filterBySettings(['apiKey' => $apiKey])
+        )->first();
     }
 
     /**
@@ -179,29 +180,6 @@ class DAO extends \PKP\core\EntityDAO
                 return $query->where('disabled', '=', false);
             })
             ->get('user_id')
-            ->first();
-        return $row ? $this->get($row->user_id) : null;
-    }
-
-    /**
-     * Retrieve a user by setting.
-     *
-     * @param $settingName string
-     * @param $settingValue string
-     * @param $allowDisabled boolean
-     *
-     * @return User?
-     */
-    public function getBySetting($settingName, $settingValue, $allowDisabled = true): ?User
-    {
-        $row = DB::table('users AS u')
-            ->join('user_settings AS us', 'u.user_id', '=', 'us.user_id')
-            ->where('us.setting_name', '=', $settingName)
-            ->where('us.setting_value', '=', $settingValue)
-            ->when(!$allowDisabled, function ($query) {
-                return $query->where('u.disabled', '=', false);
-            })
-            ->get('u.user_id AS user_id')
             ->first();
         return $row ? $this->get($row->user_id) : null;
     }

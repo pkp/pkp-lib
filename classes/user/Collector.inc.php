@@ -40,75 +40,32 @@ class Collector implements CollectorInterface
 
     public int $orderBy = self::ORDERBY_ID;
     public string $orderDirection = 'ASC';
-
-    /** @var array|null */
-    public $userGroupIds = null;
-
-    /** @var array|null */
-    public $roleIds = null;
-
-    /** @var array|null */
-    public $userIds = null;
-
-    /** @var array|null */
-    public $excludeUserIds = null;
-
-    /** @var array|null */
-    public $workflowStageIds = null;
-
-    /** @var array|null */
-    public $contextIds = null;
-
-    /** @var string|null */
-    public $registeredBefore = null;
-
-    /** @var string|null */
-    public $registeredAfter = null;
-
-    /** @var string|null STATUS_... */
-    public $status = self::STATUS_ACTIVE;
-
-    /** @var boolean */
-    public $includeReviewerData = false;
-
-    /** @var array|null */
-    public $assignedSectionIds = null;
-
-    /** @var array|null */
-    public $assignedCategoryIds = null;
-
-    /** @var array|null */
-    public $settings = null;
-
-    /** @var ?string */
-    public $searchPhrase = null;
-
-    /** @var array|null */
-    public $excludeSubmissionStage = null;
-
-    /** @var array|null */
-    public $submissionAssignment = null;
-
-    /** @var int|null */
-    public $reviewerRating;
-
-    /** @var int|null */
-    public $reviewsCompleted = null;
+    public ?array $userGroupIds = null;
+    public ?array $roleIds = null;
+    public ?array $userIds = null;
+    public ?array $excludeUserIds = null;
+    public ?array $workflowStageIds = null;
+    public ?array $contextIds = null;
+    public ?string $registeredBefore = null;
+    public ?string $registeredAfter = null;
+    public ?string $status = self::STATUS_ACTIVE;
+    public bool $includeReviewerData = false;
+    public ?array $assignedSectionIds = null;
+    public ?array $assignedCategoryIds = null;
+    public ?array $settings = null;
+    public ?string $searchPhrase = null;
+    public ?array $excludeSubmissionStage = null;
+    public ?array $submissionAssignment = null;
+    public ?int $reviewerRating;
+    public ?int $reviewsCompleted = null;
 
     /** @var int|array|null */
     public $daysSinceLastAssignment = null;
 
-    /** @var int|null */
-    public $averageCompletion = null;
-
-    /** @var int|null */
-    public $reviewsActive = null;
-
-    /** @var int|null */
-    public $count = null;
-
-    /** @var int|null */
-    public $offset = null;
+    public ?int $averageCompletion = null;
+    public ?int $reviewsActive = null;
+    public ?int $count = null;
+    public ?int $offset = null;
 
     public function __construct(DAO $dao)
     {

@@ -85,19 +85,11 @@ abstract class EntityDAO
     }
 
     /**
-     * Get a query builder responsible for fetching entities.
-     */
-    protected function _getFetchQuery(): \Illuminate\Database\Query\Builder
-    {
-        return DB::table($this->table);
-    }
-
-    /**
      * Get an object by its ID
      */
     public function get(int $id): ?DataObject
     {
-        $row = $this->_getFetchQuery()
+        $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
             ->first();
         return $row ? $this->fromRow($row) : null;

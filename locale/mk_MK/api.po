@@ -1,7 +1,8 @@
+# Teodora Fildishevska <t.fildishevska@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-21 10:30+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2021-06-30 09:03+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/api/"
 "mk_MK/>\n"
 "Language: mk_MK\n"
@@ -57,3 +58,9 @@ msgstr "Огласот што го побаравте не е дел од ово
 
 msgid "api.emails.403.disabled"
 msgstr "Можноста за имејл нотификација не е овозможена на овој сервер."
+
+msgid "api.publications.400.invalidRelation"
+msgstr "Статусот кој го испративте не е валиден."
+
+msgid "api.publications.400.noRelations"
+msgstr "Мора да наведете дали овој поднесок е поврзан со публикација."

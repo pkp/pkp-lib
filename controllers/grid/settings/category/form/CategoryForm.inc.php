@@ -222,12 +222,12 @@ class CategoryForm extends Form
         }
         $assignedToCategory = [];
         if ($this->getCategoryId()) {
-            $assignedToCategory = iterator_to_array(Repo::user()->getIds(
+            $assignedToCategory = Repo::user()->getIds(
                 Repo::user()->getCollector()
                     ->filterByContextIds([$context->getId()])
                     ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
                     ->filterByAssignedCategoryIds([$this->getCategoryId()])
-            ));
+            )->toArray();
         }
         $templateMgr->assign([
             'availableSubeditors' => $availableSubeditors,

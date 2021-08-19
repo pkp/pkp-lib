@@ -24,9 +24,9 @@ use PKP\plugins\HookRegistry;
 
 class Collector implements CollectorInterface
 {
-    public const ORDERBY_ID = 1;
-    public const ORDERBY_GIVENNAME = 2;
-    public const ORDERBY_FAMILYNAME = 3;
+    public const ORDERBY_ID = 'id';
+    public const ORDERBY_GIVENNAME = 'givenName';
+    public const ORDERBY_FAMILYNAME = 'famlyName';
 
     public const ORDER_DIR_ASC = 'ASC';
     public const ORDER_DIR_DESC = 'DESC';

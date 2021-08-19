@@ -119,7 +119,7 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
         if (substr($specifier, 0, 3) == 'id=') {
             $userId = substr($specifier, 3);
             if (!ctype_digit($userId)) {
-                break;
+                return null;
             }
             return Repo::user()->get((int) $userId);
         }

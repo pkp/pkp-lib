@@ -508,10 +508,6 @@ class PKPSubmissionHandler extends APIHandler
                 ->filterByContextIds([$context->getId()])
                 ->filterSubmissionAssignment($submission->getId(), $stageId)
         );
-        $args = [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-        ];
         $map = Repo::user()->getSchemaMap();
         foreach ($usersIterator as $user) {
             $data[] = $map->summarizeReviewer($user);

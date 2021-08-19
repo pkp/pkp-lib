@@ -96,7 +96,7 @@ class DAO extends \PKP\core\EntityDAO
     }
 
     /**
-     * Get a collection of announcements matching the configured query
+     * Get a collection of users matching the configured query
      */
     public function getMany(Collector $query): LazyCollection
     {

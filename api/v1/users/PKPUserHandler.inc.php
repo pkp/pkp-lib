@@ -129,7 +129,7 @@ class PKPUserHandler extends APIHandler
             case 'active': $collector->filterByStatus($collector::STATUS_ACTIVE); break;
             case 'disabled': $collector->filterByStatus($collector::STATUS_DISABLED); break;
         }
-        $usersIterator = Repo::user()->getMany($collector);
+        $users = Repo::user()->getMany($collector);
 
         $propertyArgs = [
             'request' => $request,
@@ -137,7 +137,7 @@ class PKPUserHandler extends APIHandler
         ];
         $map = Repo::user()->getSchemaMap();
         $items = [];
-        foreach ($usersIterator as $user) {
+        foreach ($users as $user) {
             $items[] = $map->summarize($user);
         }
 

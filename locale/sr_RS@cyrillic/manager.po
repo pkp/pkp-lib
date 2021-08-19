@@ -1,15 +1,20 @@
+# Biljana Cubrovic <biljana.cubrovic@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:03+00:00\n"
+"PO-Revision-Date: 2021-07-08 21:03+0000\n"
+"Last-Translator: Biljana Cubrovic <biljana.cubrovic@gmail.com>\n"
+"Language-Team: Serbian (cyrillic) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/manager/sr_Cyrl/>\n"
+"Language: sr_RS@cyrillic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:03+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:03+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "manager.announcements"
 msgstr "Обавештења"
@@ -51,7 +56,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Молимо одаберите месец и/или дан додатно уз годину истека обавештења."
 
 msgid "manager.announcements.form.description"
-msgstr "Опис"
+msgstr "Обавештење"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Цео текст обавештења."
@@ -96,7 +101,9 @@ msgid "manager.announcementTypes"
 msgstr "Типови обавештења"
 
 msgid "manager.announcementTypes.confirmDelete"
-msgstr "Упозорење! Сва обавештења овога типа ће бити обрисана. Да ли сте сигурни да желите наставити и обрисати овај тип обавештење?"
+msgstr ""
+"Упозорење! Сва обавештења овога типа ће бити обрисана. Да ли сте сигурни да "
+"желите да наставите и обришете овај тип обавештења?"
 
 msgid "manager.announcementTypes.create"
 msgstr "Направи тип обавештења"
@@ -120,7 +127,7 @@ msgid "manager.announcementTypes.form.typeName"
 msgstr "Назив"
 
 msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr "Назив типа обавештења је обавезно."
+msgstr "Назив типа обавештења је обавезaн."
 
 msgid "manager.announcementTypes.noneCreated"
 msgstr "Нема креираних типова обавештења."
@@ -135,7 +142,7 @@ msgid "manager.emails.confirmReset"
 msgstr "Да ли сте сигурни да желите вратити почетни шаблон имејла на његове стандардне вредности?"
 
 msgid "manager.emails.createEmail"
-msgstr "Направи имејл"
+msgstr "Креирај имејл"
 
 msgid "manager.emails.disable"
 msgstr "Онемогући"
@@ -1229,3 +1236,12 @@ msgstr "Дефинишите један или више id објекта и о�
 
 msgid "about.editorialPOLICY"
 msgstr "about.editorialPOLICY"
+
+msgid "manager.emails.addEmail"
+msgstr "Додај шаблон"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Упутства за рецензенте"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Обриши обавештење"

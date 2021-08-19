@@ -1,9 +1,10 @@
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2021-03-26 20:55+0000\n"
+"PO-Revision-Date: 2021-06-27 05:03+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru_RU/>\n"
@@ -2074,3 +2075,67 @@ msgstr "ОШИБКА:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Указанный путь журнала «{$contextPath}» не существует."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Произошла ошибка при разборе публикаций"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Произошла ошибка при разборе авторов"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "«{$submissionId}» — «{$submissionTitle}»"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Неправильная конфигурация фильтра [{$filterName}]: {$filterCount} "
+"экземпляров. Должен быть только один."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Общие элементы"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Скачайте экспортированный файл по кнопке ниже."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Экспорт завершён успешно."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Скачать экспортированный файл"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Результаты экспорта отправленных материалов"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr ""
+"Процесс завершился с ошибкой. Сообщения об ошибках/предупреждениях приведены "
+"ниже."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Не указана пользовательская группа для автора с именем «{$param}»"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Один или несколько из этих адресов почты не являются корректными."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Копия письма-подтверждения отправки материала будет отправлена на любой из "
+"адресов почты, введённых в это поле. Разделяйте разные адреса почты "
+"запятыми. Например: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Уведомить любого"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Нет"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Да, отправить копию на {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Уведомить основное контактное лицо"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Уведомления"

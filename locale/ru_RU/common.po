@@ -1,9 +1,10 @@
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2021-03-12 18:08+0000\n"
+"PO-Revision-Date: 2021-06-27 05:03+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ru_RU/>\n"
@@ -2009,3 +2010,19 @@ msgstr "Мы не можем отписать Вас от рассылки"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Вы успешно отписались от рассылки"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Не могу импортировать XML-узел"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Попытка запуска трансформации, которая не поддерживается в среде вашей "
+"инсталляции."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Фильтр ({$displayName}) поддерживает ввод заданных {$inputTypeName} — "
+"{$typeofInput}"
+
+msgid "validator.country"
+msgstr "Такой страны нет."

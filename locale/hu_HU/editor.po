@@ -1,12 +1,13 @@
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-24 16:54+0000\n"
-"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"PO-Revision-Date: 2021-08-10 07:05+0000\n"
+"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"editor/hu/>\n"
+"editor/hu_HU/>\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -89,13 +90,11 @@ msgstr "Szerzői emailt ne küldjön"
 msgid "editor.submissionReview.open"
 msgstr "Nyitott"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Vak"
+msgstr "Anonim bíráló/Nyilvános szerző"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Kettős-vak"
+msgstr "Anonim bíráló/Anonim szerző"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Lektorálandó fájlok"
@@ -490,3 +489,15 @@ msgstr "Döntés rögzítve"
 
 msgid "editor.activityLog"
 msgstr "Tevékenység log"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Biztos, hogy vissza akarja vonni a kézirat elutasításáról szóló határozatot?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "A kiválasztott résztvevő nincs hozzárendelve ehhez a szakaszhoz."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Megbeszélés nem indítható a kiválasztott résztvevővel, mivel az hatással "
+"lenne a bírálati folyamat anonimitására."

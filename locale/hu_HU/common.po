@@ -1,12 +1,13 @@
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-02-28 11:36+0000\n"
-"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"PO-Revision-Date: 2021-08-13 15:04+0000\n"
+"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/hu/>\n"
+"common/hu_HU/>\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1066,7 +1067,7 @@ msgid "locale.supported"
 msgstr "Támogatott nyelvek"
 
 msgid "navigation.access"
-msgstr "Felhasználók &amp; Szerepkörök"
+msgstr "Felhasználók és Szerepkörök"
 
 msgid "navigation.about"
 msgstr "Információk"
@@ -1410,9 +1411,8 @@ msgstr "A fájl letöltése"
 msgid "context.path"
 msgstr "Útvonal"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
-msgstr "Vak szakmai lektorálás biztosítása"
+msgstr "Hogyan biztosítható az összes fájl anonimizálása"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Az aktuális szakmai lektorálás irányelveinek elolvasása"
@@ -1550,7 +1550,7 @@ msgid "stageParticipants.recommendOnly"
 msgstr "Ez a résztvevő csak ajánlhat egy szerkesztői döntést, de ehhez még egy arra jogosult szerkesztő is kell, aki rögzíti azt."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Küldjön értesítő e-mailt minden regisztrált felhasználónak"
+msgstr "Küldjön e-mailt erről minden regisztrált felhasználónak."
 
 msgid "notification.addedNavigationMenu"
 msgstr "Navigációs menü sikeresen hozzáadva"
@@ -1982,3 +1982,118 @@ msgstr "Nem helyesen formázott."
 
 msgid "validator.present"
 msgstr "A {$attribute} mező szükséges."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Nem sikerült XML csomópontot importálni"
+
+msgid "validator.country"
+msgstr "Ez nem egy érvényes ország."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Leiratkozás"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Váratlan hiba történt és így nem tudjuk leiratkoztatni ezt az e-mail címet "
+"{$email}. Leiratkozhat az összes e-mailes értesítésről a <a href=\""
+"{$profileNotificationUrl}\">felhasználói profiljában</a> vagy forduljon "
+"hozzánk segítségért közvetlenül."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Ezzel az e-mal címmel {$email} sikeresen leiratkozott. Többé nem küldünk "
+"önnek azokból az e-mailekből. Bármikor újra feliratkozhat az e-mailes "
+"értesítésekre a <a href=\"{$profileNotificationUrl}\">felhasználói "
+"profiljából</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Bármikor újra feliratkozhat az e-mailes értesítésekre a <a href=\""
+"{$profileNotificationUrl}\">felhasználói profiljánál</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Válassza ki azokat az e-maileket itt {$email}, amelyeket nem akar kapni "
+"innen {$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Nem tudtuk leiratkoztatni"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Ön le lett iratkoztatva"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Adatvédelmi beállítások"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Nincs hozzáférése ehhez a bírálói hozzárendeléshez."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Nincs hozzáférése ehhez a vitaüzenethez."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Érvénytelen megbeszélés."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Érvénytelen bírálói kör."
+
+msgid "user.email"
+msgstr "E-mail cím"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Hogyan biztosítható az összes fájl anonimizálása"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Megtalálva {$count} elem."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Egy elem találva."
+
+msgid "navigation.skip.description"
+msgstr "Ugrás a tartalom linkjeihez"
+
+msgid "navigation.backTo"
+msgstr "⟵ Vissza ide {$page}"
+
+msgid "form.saved"
+msgstr "Elmentve"
+
+msgid "common.viewWithName"
+msgstr "Megtekintés {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Nem létező felhasználó]"
+
+msgid "common.addFile"
+msgstr "Fájl hozzáadása"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Kiválasztás {$name}"
+
+msgid "common.moreThanOnly"
+msgstr "Több, mint"
+
+msgid "common.lessThanOnly"
+msgstr "Kisebb, mint"
+
+msgid "common.insert"
+msgstr "Beszúrás"
+
+msgid "common.editItem"
+msgstr "Szerkesztés {$name}"
+
+msgid "common.inactive"
+msgstr "Inaktív"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Megpróbált olyan átalakítást futtatni, amely nem támogatott a telepítési "
+"környezetben."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"A szűrő ({$displayName}) támogatja e bevitelt {$inputTypeName} - "
+"{$typeofInput} megadva"

@@ -90,7 +90,7 @@ class LoginChangePasswordForm extends Form
             }
 
             $user->setMustChangePassword(0);
-            Repo::user()->dao->update($user);
+            Repo::user()->edit($user);
             return true;
         } else {
             return false;

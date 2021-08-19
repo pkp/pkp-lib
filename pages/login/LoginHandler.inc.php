@@ -203,8 +203,7 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
 
         $email = $request->getUserVar('email');
-        $userDao = Repo::user()->dao;
-        $user = $userDao->getUserByEmail($email);
+        $user = Repo::user()->getUserByEmail($email);
 
         if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
             $templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
@@ -273,7 +272,7 @@ class LoginHandler extends Handler
             }
 
             $user->setMustChangePassword(1);
-            Repo::user()->dao->update($user);
+            Repo::user()->edit($user);
 
             // Send email with new password
             $site = $request->getSite();

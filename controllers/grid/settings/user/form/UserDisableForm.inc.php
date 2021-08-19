@@ -95,7 +95,7 @@ class UserDisableForm extends Form
         if ($user) {
             $user->setDisabled($this->_enable ? false : true);
             $user->setDisabledReason($this->getData('disableReason'));
-            Repo::user()->dao->update($user);
+            Repo::user()->edit($user);
         }
         parent::execute(...$functionArgs);
         return $user;

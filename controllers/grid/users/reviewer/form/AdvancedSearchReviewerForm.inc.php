@@ -100,7 +100,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $collector = Repo::user()->getCollector()
             ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
             ->filterByContextIds([$submissionContext->getId(), PKPApplication::CONTEXT_SITE]);
-        $userDao = Repo::user()->dao;
         $warnOnAssignment = array_merge($warnOnAssignment, Repo::user()->getIds($collector)->toArray());
         $warnOnAssignment = array_values(array_unique(array_map('intval', $warnOnAssignment)));
 

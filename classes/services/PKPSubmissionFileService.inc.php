@@ -431,10 +431,9 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 $mail->setEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
                 $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
                 // Get editors assigned to the submission, consider also the recommendOnly editors
-                $userDao = Repo::user()->dao;
                 $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $reviewRound->getStageId());
                 foreach ($editorsStageAssignments as $editorsStageAssignment) {
-                    $editor = $userDao->get($editorsStageAssignment->getUserId());
+                    $editor = Repo::user()->get($editorsStageAssignment->getUserId());
                     // IF no prior notification exists
                     // OR if editor has logged in after the last revision upload
                     // OR the last upload and notification was sent more than a day ago,

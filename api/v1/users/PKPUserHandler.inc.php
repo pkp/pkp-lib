@@ -138,7 +138,7 @@ class PKPUserHandler extends APIHandler
         }
 
         return $response->withJson([
-            'itemsMax' => Repo::user()->dao->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
             'items' => $items,
         ], 200);
     }
@@ -225,7 +225,7 @@ class PKPUserHandler extends APIHandler
         }
 
         return $response->withJson([
-            'itemsMax' => Repo::user()->dao->getCount($collector->limit(null)->offset(null)),
+            'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
             'items' => $items,
         ], 200);
     }

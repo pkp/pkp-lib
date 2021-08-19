@@ -468,10 +468,9 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
         $userGroupId = (int) $request->getUserVar('userGroupId');
 
-        $userDao = Repo::user()->dao;
         $collector = Repo::user()->getCollector();
         $collector->filterExcludeSubmissionStage($submission->getId(), $stageId, $userGroupId);
-        $users = $userDao->getMany($collector);
+        $users = Repo::user()->getMany($collector);
 
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroup = $userGroupDao->getById($userGroupId);

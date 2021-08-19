@@ -60,7 +60,7 @@ class Validation
                 $auth->doGetUserInfo($user);
                 if ($user->getEmail() != $oldEmail) {
                     // FIXME requires email addresses to be unique; if changed email already exists, ignore
-                    if ($userDao->userExistsByEmail($user->getEmail())) {
+                    if (Repo::user()->getByEmail($user->getEmail())) {
                         $user->setEmail($oldEmail);
                     }
                 }
@@ -154,7 +154,7 @@ class Validation
         }
 
         $user->setDateLastLogin(Core::getCurrentDate());
-        Repo::user()->dao->update($user);
+        Repo::user()->edit($user);
 
         return $user;
     }
@@ -213,8 +213,7 @@ class Validation
      */
     public static function checkCredentials($username, $password)
     {
-        $userDao = Repo::user()->dao;
-        $user = $userDao->getByUsername($username, false);
+        $user = Repo::user()->getByUsername($username, false);
 
         $valid = false;
         if (isset($user)) {
@@ -235,7 +234,7 @@ class Validation
                     $user->setPassword($rehash);
 
                     // save new password hash to database
-                    $userDao->updateObject($user);
+                    Repo::user()->edit($user);
                 }
             }
         }
@@ -343,8 +342,7 @@ class Validation
      */
     public static function generatePasswordResetHash($userId, $expiry = null)
     {
-        $userDao = Repo::user()->dao;
-        if (($user = $userDao->get($userId)) == null) {
+        if (($user = Repo::user()->get($userId)) == null) {
             // No such user
             return false;
         }
@@ -410,8 +408,7 @@ class Validation
         }
 
         $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', \Stringy\Stringy::create($name)->toAscii()->toLowerCase());
-        $userDao = Repo::user()->dao;
-        for ($i = ''; $userDao->getByUsername($suggestion . $i); $i++);
+        for ($i = ''; Repo::user()->getByUsername($suggestion . $i); $i++);
         return $suggestion . $i;
     }
 

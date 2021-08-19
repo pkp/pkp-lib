@@ -89,8 +89,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
         $site = $deployment->getSite();
 
         // Create the data object
-        $userDao = Repo::user()->dao;
-        $user = $userDao->newDataObject();
+        $user = Repo::user()->newDataObject();
 
         // Password encryption
         $encryption = null;
@@ -181,8 +180,8 @@ class UserXmlPKPUserFilter extends NativeImportFilter
         // Password Import Validation
         $password = $this->importUserPasswordValidation($user, $encryption);
 
-        $userByUsername = $userDao->getByUsername($user->getUsername(), true);
-        $userByEmail = $userDao->getByEmail($user->getEmail(), true);
+        $userByUsername = Repo::user()->getByUsername($user->getUsername(), true);
+        $userByEmail = Repo::user()->getByEmail($user->getEmail(), true);
         // username and email are both required and unique, so either
         // both exist for one and the same user, or both do not exist
         if ($userByUsername && $userByEmail && $userByUsername->getId() == $userByEmail->getId()) {
@@ -241,7 +240,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
                     }
                 }
             }
-            $userId = $userDao->insert($user);
+            $userId = Repo::user()->add($user);
 
             // Insert reviewing interests, now that there is a userId.
             $interestNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'review_interests');

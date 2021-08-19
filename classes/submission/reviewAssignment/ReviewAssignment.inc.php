@@ -666,10 +666,9 @@ class ReviewAssignment extends \PKP\core\DataObject
             }
 
             // Get the users assigned to this stage and user group
-            $userDao = Repo::user()->dao;
             $collector = Repo::user()->getCollector();
             $collector->filterSubmissionAssignment($this->getSubmissionId(), $this->getStageId(), $userGroup->getId());
-            $stageUsers = $userDao->getMany($collector);
+            $stageUsers = Repo::user()->getMany($collector);
 
             // Check if any of these users have viewed it
             foreach ($stageUsers as $user) {

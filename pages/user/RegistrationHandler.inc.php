@@ -135,8 +135,7 @@ class RegistrationHandler extends UserHandler
         $username = array_shift($args);
         $accessKeyCode = array_shift($args);
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
-        $userDao = Repo::user()->dao;
-        $user = $userDao->getByUsername($username);
+        $user = Repo::user()->getByUsername($username);
         if (!$user) {
             $request->redirect(null, 'login');
         }
@@ -155,7 +154,7 @@ class RegistrationHandler extends UserHandler
             $user->setDisabled(false);
             $user->setDisabledReason('');
             $user->setDateValidated(Core::getCurrentDate());
-            $userDao->update($user);
+            Repo::user()->edit($user);
 
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('message', 'user.login.activated');

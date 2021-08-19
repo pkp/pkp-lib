@@ -237,8 +237,7 @@ class PKPInstall extends Installer
         $siteLocale = $this->getParam('locale');
 
         // Add initial site administrator user
-        $userDao = Repo::user()->dao;
-        $user = $userDao->newDataObject();
+        $user = Repo::user()->newDataObject();
         $user->setUsername($this->getParam('adminUsername'));
         $user->setPassword(Validation::encryptCredentials($this->getParam('adminUsername'), $this->getParam('adminPassword'), $this->getParam('encryption')));
         $user->setGivenName($user->getUsername(), $siteLocale);
@@ -246,7 +245,7 @@ class PKPInstall extends Installer
         $user->setEmail($this->getParam('adminEmail'));
         $user->setDateRegistered(Core::getCurrentDate());
         $user->setInlineHelp(1);
-        $userDao->insert($user);
+        Repo::user()->add($user);
 
         // Create an admin user group
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);

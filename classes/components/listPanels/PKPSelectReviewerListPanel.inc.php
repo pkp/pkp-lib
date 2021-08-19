@@ -166,7 +166,7 @@ class PKPSelectReviewerListPanel extends ListPanel
     public function getItemsMax()
     {
         $collector = $this->_getCollector();
-        return Repo::user()->dao->getCount($collector->offset(null)->limit(null));
+        return Repo::user()->getCount($collector->offset(null)->limit(null));
     }
 
     /**

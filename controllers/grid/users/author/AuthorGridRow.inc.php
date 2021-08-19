@@ -96,10 +96,9 @@ class AuthorGridRow extends GridRow
                 );
 
                 $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
-                $userDao = Repo::user()->dao;
                 $author = $authorDao->getById($rowId);
 
-                if ($author && !$userDao->getByEmail($author->getEmail())) {
+                if ($author && !Repo::user()->getByEmail($author->getEmail())) {
                     $this->addAction(
                         new LinkAction(
                             'addUser',

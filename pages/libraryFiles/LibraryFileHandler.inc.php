@@ -90,11 +90,11 @@ class LibraryFileHandler extends Handler
                 }
 
                 // Check for specific assignments.
+                $assignedUsers = Repo::user()->getMany(
+                    Repo::user()->getCollector()
+                    ->filterSubmissionAssignment($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION)
+                );
                 $user = $request->getUser();
-                $userDao = Repo::user()->dao;
-                $collector = Repo::user()->getCollector();
-                $collector->filterSubmissionAssignment($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
-                $assignedUsers = $userDao->getMany($collector);
                 foreach ($assignedUsers as $assignedUser) {
                     if ($assignedUser->getId() == $user->getId()) {
                         $allowedAccess = true;

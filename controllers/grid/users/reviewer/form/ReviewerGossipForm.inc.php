@@ -73,7 +73,7 @@ class ReviewerGossipForm extends Form
     public function execute(...$functionArgs)
     {
         $this->_user->setGossip($this->getData('gossip'));
-        Repo::user()->dao->update($this->_user);
+        Repo::user()->edit($this->_user);
         parent::execute(...$functionArgs);
     }
 }

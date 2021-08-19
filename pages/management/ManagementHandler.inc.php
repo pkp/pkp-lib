@@ -145,7 +145,7 @@ class ManagementHandler extends Handler
 
             $collector = Repo::user()->getCollector();
             $collector->filterByUserGroupIds([$adminUserGroup->getId()]);
-            $siteAdmin = Repo::user()->dao->getMany($collector)->first();
+            $siteAdmin = Repo::user()->getMany($collector)->first();
             $templateMgr->assign('siteAdmin', $siteAdmins->next());
         }
 

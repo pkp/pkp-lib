@@ -51,6 +51,12 @@ class Repository
         return $this->dao->get($id);
     }
 
+    /** @copydoc DAO::getCount() */
+    public function getCount(Collector $query): int
+    {
+        return $this->dao->getCount($query);
+    }
+
     /** @copydoc DAO::getMany() */
     public function getMany(Collector $query): LazyCollection
     {
@@ -99,7 +105,7 @@ class Repository
     }
 
     /** @copydoc DAO::update() */
-    public function edit(User $user, array $params)
+    public function edit(User $user, array $params = [])
     {
         $newUser = clone $user;
         $newUser->setAllData(array_merge($newUser->_data, $params));

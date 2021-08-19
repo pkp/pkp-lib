@@ -53,8 +53,7 @@ class PKPNotifyUsersForm extends FormComponent
                 'value' => $userGroup->getId(),
                 'label' => $userGroup->getLocalizedData('name'),
             ];
-            $dao = Repo::user()->dao;
-            $this->userGroupCounts[$userGroup->getId()] = $dao->getCount(
+            $this->userGroupCounts[$userGroup->getId()] = Repo::user()->getCount(
                 Repo::user()->getCollector()
                     ->filterByContextIds([$userGroup->getData('contextId')])
                     ->filterByUserGroupIds([$userGroup->getId()])

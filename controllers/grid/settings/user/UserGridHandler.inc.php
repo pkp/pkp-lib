@@ -185,7 +185,6 @@ class UserGridHandler extends GridHandler
     {
         $context = $request->getContext();
 
-        $userDao = Repo::user()->dao;
         $collector = Repo::user()->getCollector();
         $collector->filterByStatus($collector::STATUS_ALL);
         if ($filter['userGroup'] ?? false) {
@@ -200,10 +199,10 @@ class UserGridHandler extends GridHandler
 
         // Handle grid paging (deprecated style)
         $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-        $totalCount = $userDao->getCount($collector);
+        $totalCount = Repo::user()->getCount($collector);
         $collector->limit($rangeInfo->getCount());
         $collector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
-        $iterator = $userDao->getMany($collector);
+        $iterator = Repo::user()->getMany($collector);
         return new \PKP\core\VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 

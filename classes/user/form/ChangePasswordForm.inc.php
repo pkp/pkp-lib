@@ -118,7 +118,7 @@ class ChangePasswordForm extends Form
 
         parent::execute(...$functionArgs);
 
-        Repo::user()->dao->update($user);
+        Repo::user()->edit($user);
     }
 }
 

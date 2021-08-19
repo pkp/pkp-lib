@@ -93,7 +93,7 @@ class PKPSectionForm extends Form
         $collector = Repo::user()->getCollector()
             ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
             ->filterByContextIds([$request->getContext()->getId()]);
-        $usersIterator = Repo::user()->dao->getMany($collector);
+        $usersIterator = Repo::user()->getMany($collector);
         $subeditors = [];
         foreach ($usersIterator as $user) {
             $subeditors[(int) $user->getId()] = $user->getFullName();

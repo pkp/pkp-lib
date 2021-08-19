@@ -442,7 +442,7 @@ class Collector implements CollectorInterface
                 });
             })
             ->when($this->status !== self::STATUS_ALL, function ($query) {
-                switch ($this->disabled) {
+                switch ($this->status) {
                     case self::STATUS_ACTIVE: $query->where('u.disabled', '=', 0); break;
                     case self::STATUS_DISABLED: $query->where('u.disabled', '=', 1); break;
                     default: throw new \InvalidArgumentException('Invalid status!');

@@ -264,10 +264,9 @@ class UserDetailsForm extends UserForm
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $userDao = Repo::user()->dao;
 
         if (!isset($this->user)) {
-            $this->user = $userDao->newDataObject();
+            $this->user = Repo::user()->newDataObject();
             $this->user->setInlineHelp(1); // default new users to having inline help visible
         }
 
@@ -323,7 +322,7 @@ class UserDetailsForm extends UserForm
                 $auth->doSetUserInfo($this->user);
             }
 
-            $userDao->update($this->user);
+            Repo::user()->edit($this->user);
         } else {
             $this->user->setUsername($this->getData('username'));
             if ($this->getData('generatePassword')) {
@@ -345,7 +344,7 @@ class UserDetailsForm extends UserForm
             }
 
             $this->user->setDateRegistered(Core::getCurrentDate());
-            $userDao->insert($this->user);
+            Repo::user()->add($this->user);
             $userId = $this->user->getId();
 
             if ($sendNotify) {

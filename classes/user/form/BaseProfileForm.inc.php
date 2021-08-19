@@ -60,7 +60,7 @@ abstract class BaseProfileForm extends Form
 
         $request = Application::get()->getRequest();
         $user = $request->getUser();
-        Repo::user()->dao->update($user);
+        Repo::user()->edit($user);
 
         if ($user->getAuthId()) {
             $authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */

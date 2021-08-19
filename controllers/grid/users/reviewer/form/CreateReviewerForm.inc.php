@@ -51,7 +51,7 @@ class CreateReviewerForm extends ReviewerForm
             }
             return true;
         }));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user()->dao, 'getByUsername'], [], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user(), 'getByUsername'], [], true));
         $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email) {
@@ -102,8 +102,7 @@ class CreateReviewerForm extends ReviewerForm
      */
     public function execute(...$functionArgs)
     {
-        $userDao = Repo::user()->dao;
-        $user = $userDao->newDataObject();
+        $user = Repo::user()->newDataObject();
 
         $user->setGivenName($this->getData('givenName'), null);
         $user->setFamilyName($this->getData('familyName'), null);
@@ -130,7 +129,7 @@ class CreateReviewerForm extends ReviewerForm
         $user->setMustChangePassword(true); // Emailed P/W not safe
 
         $user->setDateRegistered(Core::getCurrentDate());
-        $reviewerId = $userDao->insert($user);
+        $reviewerId = Repo::user()->add($user);
 
         // Set the reviewerId in the Form for the parent class to use
         $this->setData('reviewerId', $reviewerId);

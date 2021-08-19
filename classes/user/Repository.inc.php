@@ -251,17 +251,9 @@ class Repository
         return $report;
     }
 
-    public function getRolesOverview($args = [])
+    public function getRolesOverview(Collector $collector)
     {
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
-        $collector = $this->getCollector()
-            ->filterByContextIds(isset($args['contextId']) ? [$args['contextId']] : null)
-            ->filterRegisteredBefore($args['registeredBefore'] ?? null)
-            ->filterRegisteredAfter($args['registeredAfter'] ?? null);
-        switch ($args['status'] ?? null) {
-            case 'active': $collector->filterByStatus($collector::STATUS_ACTIVE); break;
-            case 'disabled': $collector->filterByStatus($collector::STATUS_DISABLED); break;
-        }
         $result = [
             [
                 'id' => 'total',
@@ -271,11 +263,6 @@ class Repository
         ];
 
         $roleNames = Application::get()->getRoleNames();
-
-        // Don't include the admin user if we are limiting the overview to one context
-        if (!empty($args['contextId'])) {
-            unset($roleNames[Role::ROLE_ID_SITE_ADMIN]);
-        }
 
         foreach ($roleNames as $roleId => $roleName) {
             $result[] = [

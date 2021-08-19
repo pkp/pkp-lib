@@ -21,7 +21,6 @@ use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
 use PKP\user\User;
-use Psr\Http\Message\RequestInterface as SlimRequest;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -41,9 +40,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes all properties in the user schema.
      */
-    public function map(User $item, ?SlimRequest $slimRequest = null): array
+    public function map(User $item): array
     {
-        return $this->mapByProperties($this->getProps(), $item, $slimRequest);
+        return $this->mapByProperties($this->getProps(), $item);
     }
 
     /**
@@ -51,9 +50,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the user schema.
      */
-    public function summarize(User $item, ?SlimRequest $slimRequest = null): array
+    public function summarize(User $item): array
     {
-        return $this->mapByProperties($this->getSummaryProps(), $item, $slimRequest);
+        return $this->mapByProperties($this->getSummaryProps(), $item);
     }
 
     /**
@@ -61,9 +60,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the user schema.
      */
-    public function summarizeReviewer(User $item, ?SlimRequest $slimRequest = null): array
+    public function summarizeReviewer(User $item): array
     {
-        return $this->mapByProperties(array_merge($this->getSummaryProps(), ['reviewsActive', 'reviewsCompleted', 'reviewsDeclined', 'reviewsCancelled', 'averageReviewCompletionDays', 'dateLastReviewAssignment', 'reviewerRating']), $item, $slimRequest);
+        return $this->mapByProperties(array_merge($this->getSummaryProps(), ['reviewsActive', 'reviewsCompleted', 'reviewsDeclined', 'reviewsCancelled', 'averageReviewCompletionDays', 'dateLastReviewAssignment', 'reviewerRating']), $item);
     }
 
     /**
@@ -95,7 +94,7 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Map schema properties of a user to an assoc array
      */
-    protected function mapByProperties(array $props, User $user, ?SlimRequest $slimRequest = null): array
+    protected function mapByProperties(array $props, User $user): array
     {
         $output = [];
 
@@ -152,18 +151,10 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = (bool) $user->getMustChangePassword();
                     break;
                 case '_href':
-                    $output[$prop] = null;
-                    if ($slimRequest) {
-                        $route = $slimRequest->getAttribute('route');
-                        $arguments = $route->getArguments();
-                        $dispatcher = $this->request->getDispatcher();
-                        $output[$prop] = $dispatcher->url(
-                            $this->request,
-                            \PKPApplication::ROUTE_API,
-                            $arguments['contextPath'],
-                            'users/' . $user->getId()
-                        );
-                    }
+                    $output[$prop] = $this->getApiUrl(
+                        'users/' . $user->getId(),
+                        $this->context->getData('urlPath')
+                    );
                     break;
                 case 'groups':
                     $output[$prop] = null;

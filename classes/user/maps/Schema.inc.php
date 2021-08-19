@@ -104,9 +104,6 @@ class Schema extends \PKP\core\maps\Schema
                 case 'id':
                     $output[$prop] = (int) $user->getId();
                     break;
-                case 'userName':
-                    $output[$prop] = $user->getUserName();
-                    break;
                 case 'fullName':
                     $output[$prop] = $user->getFullName();
                     break;
@@ -116,41 +113,11 @@ class Schema extends \PKP\core\maps\Schema
                 case 'familyName':
                     $output[$prop] = $user->getFamilyName(null);
                     break;
-                case 'affiliation':
-                    $output[$prop] = $user->getAffiliation(null);
-                    break;
-                case 'country':
-                    $output[$prop] = $user->getCountry();
-                    break;
-                case 'url':
-                    $output[$prop] = $user->getUrl();
-                    break;
-                case 'email':
-                    $output[$prop] = $user->getEmail();
-                    break;
                 case 'orcid':
                     $output[$prop] = $user->getOrcid();
                     break;
-                case 'biography':
-                    $output[$prop] = $user->getBiography(null);
-                    break;
-                case 'signature':
-                    $output[$prop] = $user->getSignature(null);
-                    break;
-                case 'authId':
-                    $output[$prop] = $user->getAuthId();
-                    break;
                 case 'authString':
                     $output[$prop] = $user->getAuthStr();
-                    break;
-                case 'phone':
-                    $output[$prop] = $user->getPhone();
-                    break;
-                case 'mailingAddress':
-                    $output[$prop] = $user->getMailingAddress();
-                    break;
-                case 'billingAddress':
-                    $output[$prop] = $user->getBillingAddress();
                     break;
                 case 'gossip':
                     if (Repo::user()->canCurrentUserGossip($user->getId())) {
@@ -175,23 +142,11 @@ class Schema extends \PKP\core\maps\Schema
                 case 'dateLastReviewAssignment':
                     $output[$prop] = $user->getData('lastAssigned');
                     break;
-                case 'reviewerRating':
-                    $output[$prop] = $user->getData('reviewerRating');
-                    break;
                 case 'disabled':
                     $output[$prop] = (bool) $user->getDisabled();
                     break;
                 case 'disabledReason':
                     $output[$prop] = $user->getDisabledReason();
-                    break;
-                case 'dateRegistered':
-                    $output[$prop] = $user->getDateRegistered();
-                    break;
-                case 'dateValidated':
-                    $output[$prop] = $user->getDateValidated();
-                    break;
-                case 'dateLastLogin':
-                    $output[$prop] = $user->getDateLastLogin();
                     break;
                 case 'mustChangePassword':
                     $output[$prop] = (bool) $user->getMustChangePassword();
@@ -247,6 +202,9 @@ class Schema extends \PKP\core\maps\Schema
                             }
                         }
                     }
+                    break;
+                default:
+                    $output[$prop] = $user->getData($prop);
                     break;
             }
 

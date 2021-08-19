@@ -192,7 +192,7 @@ class DAO extends \PKP\core\EntityDAO
      *
      * @return User?
      */
-    public function getBySetting($settingName, $settingValue, $allowDisabled = true)
+    public function getBySetting($settingName, $settingValue, $allowDisabled = true): ?User
     {
         $row = DB::table('users AS u')
             ->join('user_settings AS us', 'u.user_id', '=', 'us.user_id')
@@ -214,7 +214,7 @@ class DAO extends \PKP\core\EntityDAO
      *
      * @return User?
      */
-    public function getUserByAuthStr($authstr, $allowDisabled = true)
+    public function getUserByAuthStr($authstr, $allowDisabled = true): ?User
     {
         $row = DB::select(
             'SELECT u.user_id FROM users WHERE auth_str = ?' . ($allowDisabled ? '' : ' AND disabled = 0'),
@@ -232,7 +232,7 @@ class DAO extends \PKP\core\EntityDAO
      *
      * @return User?
      */
-    public function getUserByCredentials($username, $password, $allowDisabled = true)
+    public function getUserByCredentials($username, $password, $allowDisabled = true): ?User
     {
         $row = DB::table('users')
             ->where('username', '=', $username)

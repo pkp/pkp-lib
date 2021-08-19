@@ -565,7 +565,7 @@ class Collector implements CollectorInterface
         }
 
         // Add app-specific query statements
-        HookRegistry::call('User::Collector::getQueryBuilder', [&$q, $this]);
+        HookRegistry::call('User::Collector', [$q, $this]);
 
         return $q;
     }

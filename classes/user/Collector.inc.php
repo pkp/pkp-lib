@@ -254,7 +254,7 @@ class Collector implements CollectorInterface
     /**
      * Filter by assigned subeditor section IDs
      */
-    public function filterByAssignedSectionIds(?array $sectionIds): self
+    public function assignedToSectionIds(?array $sectionIds): self
     {
         $this->assignedSectionIds = $sectionIds;
         return $this;
@@ -263,7 +263,7 @@ class Collector implements CollectorInterface
     /**
      * Filter by assigned subeditor section IDs
      */
-    public function filterByAssignedCategoryIds(?array $categoryIds): self
+    public function assignedToCategoryIds(?array $categoryIds): self
     {
         $this->assignedCategoryIds = $categoryIds;
         return $this;

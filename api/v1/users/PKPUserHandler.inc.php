@@ -118,8 +118,8 @@ class PKPUserHandler extends APIHandler
         }
 
         $collector->filterSubmissionAssignment($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
-            ->filterByAssignedSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
-            ->filterByAssignedCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
+            ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
+            ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
             ->filterByRoleIds($params['roleIds'] ?? null)
             ->searchPhrase($params['searchPhrase'] ?? null)
             ->orderBy($orderBy, $orderDirection)

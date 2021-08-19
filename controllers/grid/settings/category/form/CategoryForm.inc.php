@@ -226,7 +226,7 @@ class CategoryForm extends Form
                 Repo::user()->getCollector()
                     ->filterByContextIds([$context->getId()])
                     ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
-                    ->filterByAssignedCategoryIds([$this->getCategoryId()])
+                    ->assignedToCategoryIds([$this->getCategoryId()])
             )->toArray();
         }
         $templateMgr->assign([

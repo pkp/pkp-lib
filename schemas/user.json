@@ -10,7 +10,7 @@
 		"affiliation": {
 			"type": "string",
 			"multilingual": true,
-                        "apiSummary": true
+			"apiSummary": true
 		},
 		"authId": {
 			"type": "integer"
@@ -24,7 +24,7 @@
 		"biography": {
 			"type": "string",
 			"multilingual": true,
-                        "apiSummary": true
+			"apiSummary": true
 		},
 		"country": {
 			"type": "string"
@@ -92,7 +92,7 @@
 		"gossip": {
 			"type": "string",
 			"multilingual": true,
-                        "apiSummary": true
+			"apiSummary": true
 		},
 		"groups": {
 			"type": "array",
@@ -110,7 +110,7 @@
 		"interests": {
 			"type": "array",
 			"readOnly": true,
-                        "apiSummary": true,
+			"apiSummary": true,
 			"items": {
 				"$ref": "#/definitions/UserInterest"
 			}

@@ -141,7 +141,6 @@ class PKPEmailHandler extends APIHandler
         $userIds = iterator_to_array(Repo::user()->getIds(
             Repo::user()->getCollector()
                 ->filterByContextIds([$contextId])
-                ->filterByDisabled(false) // Only permit emails to be sent to active users in this context
                 ->filterByUserGroupIds(['userGroupIds'])
         ));
         $subject = $params['subject'];

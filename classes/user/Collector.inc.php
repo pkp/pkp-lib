@@ -31,6 +31,10 @@ class Collector implements CollectorInterface
     public const ORDER_DIR_ASC = 'ASC';
     public const ORDER_DIR_DESC = 'DESC';
 
+    public const STATUS_ACTIVE = 'active';
+    public const STATUS_DISABLED = 'disabled';
+    public const STATUS_ALL = null;
+
     /** @var DAO */
     public $dao;
 
@@ -61,8 +65,8 @@ class Collector implements CollectorInterface
     /** @var string|null */
     public $registeredAfter = null;
 
-    /** @var boolean|null */
-    public $disabled = null;
+    /** @var string|null STATUS_... */
+    public $status = self::STATUS_ACTIVE;
 
     /** @var boolean */
     public $includeReviewerData = false;
@@ -280,13 +284,13 @@ class Collector implements CollectorInterface
     }
 
     /**
-     * Filter by disabled/enabled status.
+     * Filter by active / disabled status.
      *
-     * @param $disabled boolean true iff only disabled users should be returned; false iff only enabled users should be returned; null if both can be included.
+     * @param $status STATUS_ACTIVE, STATUS_DISABLED, or STATUS_ALL.
      */
-    public function filterByDisabled(?bool $disabled = true): self
+    public function filterByStatus(?string $status): self
     {
-        $this->disabled = $disabled;
+        $this->status = $status;
         return $this;
     }
 
@@ -437,8 +441,12 @@ class Collector implements CollectorInterface
                         });
                 });
             })
-            ->when($this->disabled !== null, function ($query) {
-                $query->where('u.disabled', '=', $this->disabled);
+            ->when($this->status !== self::STATUS_ALL, function ($query) {
+                switch ($this->disabled) {
+                    case self::STATUS_ACTIVE: $query->where('u.disabled', '=', 0); break;
+                    case self::STATUS_DISABLED: $query->where('u.disabled', '=', 1); break;
+                    default: throw new Exception('Invalid status!');
+                }
             })
             ->when($this->assignedSectionIds !== null, function ($query) {
                 $query->whereIn('u.user_id', function ($query) {

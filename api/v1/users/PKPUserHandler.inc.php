@@ -126,8 +126,8 @@ class PKPUserHandler extends APIHandler
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null);
         switch ($params['status'] ?? null) {
-            case 'active': $collector->filterByDisabled(false); break;
-            case 'disabled': $collector->filterByDisabled(true); break;
+            case 'active': $collector->filterByStatus($collector::STATUS_ACTIVE); break;
+            case 'disabled': $collector->filterByStatus($collector::STATUS_DISABLED); break;
         }
         $usersIterator = Repo::user()->getMany($collector);
 

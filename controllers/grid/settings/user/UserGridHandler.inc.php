@@ -187,6 +187,7 @@ class UserGridHandler extends GridHandler
 
         $userDao = Repo::user()->dao;
         $collector = Repo::user()->getCollector();
+        $collector->filterByStatus($collector::STATUS_ALL);
         if ($filter['userGroup'] ?? false) {
             $collector->filterByUserGroupIds((array) $filter['userGroup']);
         }

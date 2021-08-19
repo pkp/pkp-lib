@@ -283,8 +283,8 @@ class Repository
     {
         $dataSource = $this->getMany(
             $this->getCollector()
-            ->filterByUserGroupids($args['userGroupIds'] ?? null)
-            ->filterByContextIds($args['contextId'] ?? [])
+                ->filterByUserGroupids($args['userGroupIds'] ?? null)
+                ->filterByContextIds($args['contextId'] ?? [])
         );
         $report = new Report($dataSource);
 
@@ -299,12 +299,11 @@ class Repository
         $collector = $this->getCollector()
             ->filterByContextIds(isset($args['contextId']) ? [$args['contextId']] : null)
             ->filterRegisteredBefore($args['registeredBefore'] ?? null)
-            ->filterRegisteredAfter($args['registeredAfter'] ?? null)
-            ->filterByDisabled(
-                isset($args['status']) ? (
-                    $args['status'] === 'disabled'
-                ) : null
-            );
+            ->filterRegisteredAfter($args['registeredAfter'] ?? null);
+        switch ($args['status'] ?? null) {
+            case 'active': $collector->filterByStatus($collector::STATUS_ACTIVE); break;
+            case 'disabled': $collector->filterByStatus($collector::STATUS_DISABLED); break;
+        }
         $result = [
             [
                 'id' => 'total',

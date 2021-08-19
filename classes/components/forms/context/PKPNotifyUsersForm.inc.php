@@ -58,7 +58,6 @@ class PKPNotifyUsersForm extends FormComponent
                 Repo::user()->getCollector()
                     ->filterByContextIds([$userGroup->getData('contextId')])
                     ->filterByUserGroupIds([$userGroup->getId()])
-                    ->filterByDisabled(false)
             );
         }
 

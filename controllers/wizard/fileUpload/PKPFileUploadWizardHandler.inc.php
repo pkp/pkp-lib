@@ -71,7 +71,7 @@ class PKPFileUploadWizardHandler extends Handler {
 		// we don't need to validate in another places.
 		$fileStage = (int) $request->getUserVar('fileStage');
 		if ($fileStage) {
-			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); 
 			$fileStages = $submissionFileDao->getAllFileStages();
 			if (!in_array($fileStage, $fileStages)) {
 				return false;
@@ -429,7 +429,7 @@ class PKPFileUploadWizardHandler extends Handler {
                     $submissionFileDao->assignRevisionToReviewRound($submissionFile->getFileId(), $submissionFile->getRevision(), $reviewRound);
                 }
 
-				if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION & !is_null($reviewRound)) {
+				if ($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_REVISION && !is_null($reviewRound)) {
 					// Get a list of author user IDs
 					$authorUserIds = array();
 					$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */

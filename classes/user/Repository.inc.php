@@ -21,7 +21,6 @@ use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\security\Role;
-use PKP\validation\ValidatorFactory;
 
 class Repository
 {
@@ -88,53 +87,6 @@ class Repository
     public function getIds(Collector $query): Collection
     {
         return $this->dao->getIds($query);
-    }
-
-    /**
-     * Validate properties for an announcement
-     *
-     * Perform validation checks on data used to add or edit an announcement.
-     *
-     * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported locales
-     * @param string $primaryLocale The context's primary locale
-     *
-     * @return array A key/value array with validation errors. Empty if no errors
-     */
-    public function validate(?User $object, array $props, array $allowedLocales, string $primaryLocale): array
-    {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
-        );
-
-        $validator = ValidatorFactory::make(
-            $props,
-            $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales)
-        );
-
-        // Check required fields if we're adding a context
-        ValidatorFactory::required(
-            $validator,
-            $object,
-            $this->schemaService->getRequiredProps($this->dao->schema),
-            $this->schemaService->getMultilingualProps($this->dao->schema),
-            $allowedLocales,
-            $primaryLocale
-        );
-
-        // Check for input from disallowed locales
-        ValidatorFactory::allowedLocales($validator, $this->schemaService->getMultilingualProps($this->dao->schema), $allowedLocales);
-
-        $errors = [];
-
-        if ($validator->fails()) {
-            $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get($this->dao->schema), $allowedLocales);
-        }
-
-        HookRegistry::call('User::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
-
-        return $errors;
     }
 
     /** @copydoc DAO::insert() */

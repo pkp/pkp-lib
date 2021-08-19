@@ -430,7 +430,7 @@ class Collector implements CollectorInterface
                             ->from('users AS u')
                             ->join('user_settings AS us', function ($join) {
                                 $join->on('u.user_id', '=', 'us.user_id')
-                                    ->whereIn('us.setting_name', [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME]);
+                                    ->whereIn('us.setting_name', [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName', 'affiliation', 'biography', 'orcid']);
                             })
                             ->where(DB::raw('LOWER(us.setting_value)'), 'LIKE', $likePattern)
                             ->orWhere(DB::raw('LOWER(email)'), 'LIKE', $likePattern)

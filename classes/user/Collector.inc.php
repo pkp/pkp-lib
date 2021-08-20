@@ -38,7 +38,7 @@ class Collector implements CollectorInterface
     /** @var DAO */
     public $dao;
 
-    public int $orderBy = self::ORDERBY_ID;
+    public string $orderBy = self::ORDERBY_ID;
     public string $orderDirection = 'ASC';
     public ?array $userGroupIds = null;
     public ?array $roleIds = null;

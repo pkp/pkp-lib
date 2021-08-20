@@ -56,7 +56,7 @@ class Collector implements CollectorInterface
     public ?string $searchPhrase = null;
     public ?array $excludeSubmissionStage = null;
     public ?array $submissionAssignment = null;
-    public ?int $reviewerRating;
+    public ?int $reviewerRating = null;
     public ?int $reviewsCompleted = null;
 
     /** @var int|array|null */

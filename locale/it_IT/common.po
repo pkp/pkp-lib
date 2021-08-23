@@ -1,10 +1,11 @@
+# Alfredo Cosco <alfredo.cosco@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2021-03-11 10:55+0000\n"
-"Last-Translator: Piero Grandesso <piero.grandesso2@unibo.it>\n"
+"PO-Revision-Date: 2021-08-23 21:01+0000\n"
+"Last-Translator: Alfredo Cosco <alfredo.cosco@gmail.com>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "it_IT/>\n"
 "Language: it_IT\n"
@@ -1943,3 +1944,18 @@ msgstr ""
 "Fornire una descrizione per l'immagine per gli utenti di un browser solo "
 "testo o con dispositivi assistive. Ad esempio: \"Il nostro editor alla "
 "conferenza PKP.\""
+
+msgid "common.moreThanOnly"
+msgstr "Più di"
+
+msgid "common.lessThanOnly"
+msgstr "Meno di"
+
+msgid "common.insert"
+msgstr "Inserisci"
+
+msgid "common.editItem"
+msgstr "Modifica {$name}"
+
+msgid "common.inactive"
+msgstr "Non attivo"

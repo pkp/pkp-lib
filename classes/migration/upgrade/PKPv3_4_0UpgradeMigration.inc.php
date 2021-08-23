@@ -62,6 +62,9 @@ class PKPv3_4_0UpgradeMigration extends Migration
             // No reviewer can be assigned twice on the same review round.
             $table->unique(['review_round_id', 'reviewer_id'], 'review_assignment_reviewer_round_unique');
         });
+
+        // pkp/pkp-lib#6685: Drop old tombstones table in OJS and OPS
+        Schema::dropIfExists('submission_tombstones');
     }
 
     /**

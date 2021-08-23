@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2021-08-23 10:49+0000\n"
+"PO-Revision-Date: 2021-08-23 21:01+0000\n"
 "Last-Translator: Alfredo Cosco <alfredo.cosco@gmail.com>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "it_IT/>\n"
@@ -2132,3 +2132,19 @@ msgstr "Altri modelli"
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Cancella avviso"
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadati del file"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Sono file supplementari, come set di dati e materiali di ricerca, e verranno "
+"visualizzati separatamente dai file di pubblicazione principali."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Questi file sono dipendenze, come le immagini visualizzate da un file HTML, "
+"e non verranno visualizzati con il contenuto pubblicato."
+
+msgid "manager.setup.genres.label"
+msgstr "Tipo di file"

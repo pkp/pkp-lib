@@ -24,28 +24,28 @@ class Collector implements CollectorInterface
     public $dao;
 
     /** @var array get submission files for one or more file stages */
-    protected $fileStages = [];
+    protected $fileStages = null;
 
     /** @var array get submission files for one or more genres */
-    protected $genreIds = [];
+    protected $genreIds = null;
 
     /** @var array get submission files for one or more review rounds */
-    protected $reviewRoundIds = [];
+    protected $reviewRoundIds = null;
 
     /** @var array get submission files for one or more review assignments */
-    protected $reviewIds = [];
+    protected $reviewIds = null;
 
     /** @var array get submission files for one or more submissions */
-    protected $submissionIds = [];
+    protected $submissionIds = null;
 
     /** @var array get submission files matching one or more files */
-    protected $fileIds = [];
+    protected $fileIds = null;
 
     /** @var array get submission files matching one or more ASSOC_TYPE */
-    protected $assocTypes = [];
+    protected $assocTypes = null;
 
     /** @var array get submission files matching an ASSOC_ID with one of the assocTypes */
-    protected $assocIds = [];
+    protected $assocIds = null;
 
     /** @var boolean include submission files in the SUBMISSION_FILE_DEPENDENT stage */
     protected $includeDependentFiles = false;
@@ -64,7 +64,7 @@ class Collector implements CollectorInterface
     /**
      * Set fileStages filter
      */
-    public function filterByFileStages(array $fileStages): self
+    public function filterByFileStages(?array $fileStages): self
     {
         $this->fileStages = $fileStages;
 
@@ -74,7 +74,7 @@ class Collector implements CollectorInterface
     /**
      * Set genreIds filter
      */
-    public function filterByGenreIds(array $genreIds): self
+    public function filterByGenreIds(?array $genreIds): self
     {
         $this->genreIds = $genreIds;
 
@@ -84,7 +84,7 @@ class Collector implements CollectorInterface
     /**
      * Set review rounds filter
      */
-    public function filterByReviewRoundIds(array $reviewRoundIds): self
+    public function filterByReviewRoundIds(?array $reviewRoundIds): self
     {
         $this->reviewRoundIds = $reviewRoundIds;
 
@@ -94,7 +94,7 @@ class Collector implements CollectorInterface
     /**
      * Set review assignments filter
      */
-    public function filterByReviewIds(array $reviewIds): self
+    public function filterByReviewIds(?array $reviewIds): self
     {
         $this->reviewIds = $reviewIds;
 
@@ -104,7 +104,7 @@ class Collector implements CollectorInterface
     /**
      * Set submissionIds filter
      */
-    public function filterBySubmissionIds(array $submissionIds): self
+    public function filterBySubmissionIds(?array $submissionIds): self
     {
         $this->submissionIds = $submissionIds;
 
@@ -114,7 +114,7 @@ class Collector implements CollectorInterface
     /**
      * Set fileIds filter
      */
-    public function filterByFileIds(array $fileIds): self
+    public function filterByFileIds(?array $fileIds): self
     {
         $this->fileIds = $fileIds;
 
@@ -124,10 +124,10 @@ class Collector implements CollectorInterface
     /**
      * Set assocType and assocId filters
      *
-     * @param array $assocTypes One or more of the ASSOC_TYPE_ constants
-     * @param array $assocIds Match with ids for these assoc types
+     * @param null|array $assocTypes One or more of the ASSOC_TYPE_ constants
+     * @param null|array $assocIds Match with ids for these assoc types
      */
-    public function filterByAssoc(array $assocTypes, array $assocIds = []): self
+    public function filterByAssoc(?array $assocTypes, ?array $assocIds = []): self
     {
         $this->assocTypes = $assocTypes;
 
@@ -141,7 +141,7 @@ class Collector implements CollectorInterface
     /**
      * Set uploaderUserIds filter
      */
-    public function filterByUploaderUserIds(array $uploaderUserIds): self
+    public function filterByUploaderUserIds(?array $uploaderUserIds): self
     {
         $this->uploaderUserIds = $uploaderUserIds;
 
@@ -184,44 +184,48 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $qb = DB::table($this->dao->table . ' as sf');
+        $qb = DB::table($this->dao->table . ' as sf')
+            ->select('u.*');
 
-        if ($this->submissionIds !== []) {
+        if ($this->submissionIds !== null) {
             $qb->whereIn('sf.submission_id', $this->submissionIds);
         }
 
-        if ($this->fileStages !== []) {
+        if ($this->fileStages !== null) {
             $qb->whereIn('sf.file_stage', $this->fileStages);
         }
 
-        if ($this->genreIds !== []) {
+        if ($this->genreIds !== null) {
             $qb->whereIn('sf.genre_id', $this->genreIds);
         }
 
-        if ($this->fileIds !== []) {
-            $qb->leftJoin('submission_file_revisions as sfr', 'sfr.submission_file_id', '=', 'sf.submission_file_id')
+        if ($this->fileIds !== null) {
+            $qb->join('submission_file_revisions as sfr', 'sfr.submission_file_id', '=', 'sf.submission_file_id')
                 ->whereIn('sfr.file_id', $this->fileIds);
         }
 
-        if ($this->reviewRoundIds !== []) {
-            $qb->join('review_round_files as rr', 'rr.submission_file_id', '=', 'sf.submission_file_id')
-                ->whereIn('rr.review_round_id', $this->reviewRoundIds);
+        if ($this->reviewRoundIds !== null) {
+            $qb->whereIn('sf.submission_file_id', function ($query) {
+                return $query->select('submission_file_id')
+                    ->from('review_round_files')
+                    ->whereIn('review_round_id', $this->reviewRoundIds);
+            });
         }
 
-        if ($this->reviewIds !== []) {
+        if ($this->reviewIds !== null) {
             $qb->join('review_files as rf', 'rf.submission_file_id', '=', 'sf.submission_file_id')
                 ->whereIn('rf.review_id', $this->reviewIds);
         }
 
-        if ($this->assocTypes !== []) {
+        if ($this->assocTypes !== null) {
             $qb->whereIn('sf.assoc_type', $this->assocTypes);
 
-            if ($this->assocIds !== []) {
+            if ($this->assocIds !== null) {
                 $qb->whereIn('sf.assoc_id', $this->assocIds);
             }
         }
 
-        if ($this->uploaderUserIds !== []) {
+        if ($this->uploaderUserIds !== null) {
             $qb->whereIn('sf.uploader_user_id', $this->uploaderUserIds);
         }
 

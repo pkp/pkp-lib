@@ -50,6 +50,6 @@ class Repo
 
     public static function submissionFiles(): \PKP\submissionFile\Repository
     {
-        return App::make(\PKP\submissionFile\Repository::class);
+        return app()->make(\PKP\submissionFile\Repository::class);
     }
 }

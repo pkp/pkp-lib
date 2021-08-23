@@ -234,26 +234,24 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         // Add and edit the submission file revisions one-by-one so that a useful activity
         // log is built and past revisions can be accessed
         if (count($allRevisionIds) < 2) {
-            $id = Repo::submissionFiles()->add($submissionFile);
+            $submissionFileId = Repo::submissionFiles()->add($submissionFile);
 
-            $submissionFile = Repo::submissionFiles()->get($id);
+            $submissionFile = Repo::submissionFiles()->get($submissionFileId);
         } else {
-            $id = $submissionFile->getId();
-
             $currentFileId = $submissionFile->getData('fileId');
             $allRevisionIds = array_filter($allRevisionIds, function ($fileId) use ($currentFileId) {
                 return $fileId !== $currentFileId;
             });
             $allRevisionIds = array_values($allRevisionIds);
 
-            $id = $submissionFile->getId();
+            $submissionFileId = $submissionFile->getId();
 
             foreach ($allRevisionIds as $i => $fileId) {
                 if ($i === 0) {
                     $submissionFile->setData('fileId', $fileId);
                     $id = Repo::submissionFiles()->add($submissionFile);
 
-                    $submissionFile = Repo::submissionFiles()->get($id);
+                    $submissionFile = Repo::submissionFiles()->get($submissionFileId);
                 } else {
                     Repo::submissionFiles()->edit($submissionFile, ['fileId' => $fileId]);
                 }
@@ -264,7 +262,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 ['fileId' => $currentFileId]
             );
 
-            $submissionFile = Repo::submissionFiles()->get($id);
+            $submissionFile = Repo::submissionFiles()->get($submissionFileId);
         }
 
         $deployment->setSubmissionFileDBId($submissionFileId, $submissionFile->getId());

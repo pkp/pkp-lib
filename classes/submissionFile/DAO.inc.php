@@ -363,18 +363,17 @@ abstract class DAO extends EntityDAO implements PKPPubIdPluginDAO
     public function changePubId($pubObjectId, $pubIdType, $pubId)
     {
         DB::table($this->settingsTable)
-            ->where([
-                'submission_file_id' => (int) $pubObjectId,
-                'setting_name' => 'pub-id::' . (string) $pubIdType,
-                'setting_value' => (string) $pubId
-            ])
-            ->update([
-                'submission_file_id' => (int) $pubObjectId,
-                'locale' => '',
-                'setting_name' => 'pub-id::' . $pubIdType,
-                'setting_type' => 'string',
-                'setting_value' => (string) $pubId
-            ]);
+            ->updateOrInsert(
+                [
+                    'submission_file_id' => (int) $pubObjectId,
+                    'setting_name' => 'pub-id::' . (string) $pubIdType,
+                    'setting_value' => (string) $pubId
+                ],
+                [
+                    'setting_type' => 'string',
+                    'locale' => '',
+                ]
+            );
     }
 
     /**

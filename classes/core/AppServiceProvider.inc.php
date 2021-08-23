@@ -51,8 +51,8 @@ class AppServiceProvider extends ServiceProvider
             return Application::get()->getRequest()->getContext();
         });
         $this->app->bind(
-            SubmissionFileRepository::class,
-            SubmissionFileDAO::class
+            SubmissionFileDAO::class,
+            SubmissionFileRepository::class
         );
     }
 }

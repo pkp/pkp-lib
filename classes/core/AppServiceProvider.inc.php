@@ -21,8 +21,6 @@ use APP\core\Services;
 use Illuminate\Support\ServiceProvider;
 use PKP\context\Context;
 use PKP\services\PKPSchemaService;
-use PKP\submissionFile\DAO as SubmissionFileDAO;
-use PKP\submissionFile\Repository as SubmissionFileRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -50,9 +48,5 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(Context::class, function ($app) {
             return Application::get()->getRequest()->getContext();
         });
-        $this->app->bind(
-            SubmissionFileDAO::class,
-            SubmissionFileRepository::class
-        );
     }
 }

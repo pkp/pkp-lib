@@ -53,11 +53,11 @@ class Repository
     /** @var PKPSchemaService $schemaService */
     protected $schemaService;
 
-    public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
+    public function __construct(Request $request)
     {
-        $this->dao = $dao;
+        $this->schemaService = new PKPSchemaService();
+        $this->dao = new DAO($this->schemaService);
         $this->request = $request;
-        $this->schemaService = $schemaService;
 
         HookRegistry::register('SubmissionFile::delete::before', [$this, 'deleteSubmissionFile']);
     }

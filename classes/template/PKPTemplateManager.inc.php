@@ -1030,6 +1030,18 @@ class PKPTemplateManager extends Smarty
                             ];
                         }
 
+                        $enableInstitutionUsageStats = $request->getSite()->getData('enableInstitutionUsageStats');
+                        // consider context setting only if the site setting is enabled and context setting disabled (= 0)
+                        if ($enableInstitutionUsageStats && ($request->getContext()->getData('enableInstitutionUsageStats') !== null) && !$request->getContext()->getData('enableInstitutionUsageStats')) {
+                            $enableInstitutionUsageStats = $request->getContext()->getData('enableInstitutionUsageStats');
+                        }
+                        if ($enableInstitutionUsageStats) {
+                            $menu['institutions'] = [
+                                'name' => __('institution.institutions'),
+                                'url' => $router->url($request, null, 'management', 'settings', 'institutions'),
+                                'isCurrent' => $request->getRequestedPage() === 'management' && in_array('institutions', (array) $request->getRequestedArgs()),
+                            ];
+                        }
                         $menu['settings'] = [
                             'name' => __('navigation.settings'),
                             'submenu' => [

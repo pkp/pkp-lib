@@ -301,6 +301,7 @@ class ManagementHandler extends Handler
 
         $templateMgr->setConstants([
             'FORM_PAYMENT_SETTINGS' => FORM_PAYMENT_SETTINGS,
+            'FORM_CONTEXT_STATISTICS' => FORM_CONTEXT_STATISTICS,
         ]);
 
         $templateMgr->setState([
@@ -311,6 +312,12 @@ class ManagementHandler extends Handler
                 FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
                 FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
                 FORM_CONTEXT_STATISTICS => $contextStatisticsForm->getConfig(),
+            ],
+            // Add an institutions link to be added/removed when statistics form is submitted
+            'institutionsNavLink' => [
+                'name' => __('institution.institutions'),
+                'url' => $router->url($request, null, 'management', 'settings', 'institutions'),
+                'isCurrent' => false,
             ],
         ]);
         $templateMgr->assign('pageTitle', __('manager.distribution.title'));

@@ -17,7 +17,6 @@ use APP\i18n\AppLocale;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
@@ -441,16 +440,16 @@ class Collector implements CollectorInterface
                 $words = explode(' ', $this->searchPhrase);
                 foreach ($words as $word) {
                     $query->whereIn('u.user_id', function ($query) use ($word) {
-                        $likePattern = '%' . addcslashes(PKPString::strtolower($word), '%_') . '%';
+                        $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
                         return $query->select('u.user_id')
                             ->from('users AS u')
                             ->join('user_settings AS us', function ($join) {
                                 $join->on('u.user_id', '=', 'us.user_id')
                                     ->whereIn('us.setting_name', [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName', 'affiliation', 'biography', 'orcid']);
                             })
-                            ->where(DB::raw('LOWER(us.setting_value)'), 'LIKE', $likePattern)
-                            ->orWhere(DB::raw('LOWER(email)'), 'LIKE', $likePattern)
-                            ->orWhere(DB::raw('LOWER(username)'), 'LIKE', $likePattern);
+                            ->where(DB::raw('LOWER(us.setting_value)'), 'LIKE', $likePattern)->addBinding($word)
+                            ->orWhere(DB::raw('LOWER(email)'), 'LIKE', $likePattern)->addBinding($word)
+                            ->orWhere(DB::raw('LOWER(username)'), 'LIKE', $likePattern)->addBinding($word);
                     });
                 }
             })

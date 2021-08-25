@@ -548,6 +548,9 @@ class QueriesGridHandler extends GridHandler {
 			}
 			return DAO::getDataChangedEvent($query->getId());
 		}
+		// If this was new (placeholder) query that didn't validate, remember whether or not
+		// we need to delete it on cancellation.
+		if ($request->getUserVar('wasNew')) $queryForm->setIsNew(true);
 		return new JSONMessage(
 			true,
 			$queryForm->fetch(

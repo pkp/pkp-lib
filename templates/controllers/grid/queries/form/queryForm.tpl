@@ -24,7 +24,7 @@
 		{rdelim});
 	</script>
 
-	<form class="pkp_form" id="queryForm" method="post" action="{url op="updateQuery" queryId=$queryId params=$actionArgs}">
+	<form class="pkp_form" id="queryForm" method="post" action="{url op="updateQuery" queryId=$queryId params=$actionArgs wasNew=$isNew}">
 		{csrf}
 
 		{include file="controllers/notification/inPlaceNotification.tpl" notificationId="queryFormNotification"}

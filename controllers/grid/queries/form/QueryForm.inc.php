@@ -102,6 +102,16 @@ class QueryForm extends Form
     // Getters and Setters
     //
     /**
+     * Set the flag indiciating whether the query is new (i.e. creates a placeholder that needs deleting on cancel)
+     *
+     * @param $isNew boolean
+     */
+    public function setIsNew(bool $isNew)
+    {
+        $this->_isNew = $isNew;
+    }
+
+    /**
      * Get the query
      *
      * @return Query

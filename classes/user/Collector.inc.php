@@ -286,10 +286,10 @@ class Collector implements CollectorInterface
     /**
      * Order the results
      *
-     * @param int $sorter One of the self::ORDERBY_ constants
+     * @param string $sorter One of the self::ORDERBY_ constants
      * @param string $direction One of the self::ORDER_DIR_ constants
      */
-    public function orderBy(int $sorter, string $direction = self::ORDER_DIR_DESC): Collector
+    public function orderBy(string $sorter, string $direction = self::ORDER_DIR_DESC): Collector
     {
         $this->orderBy = $sorter;
         $this->orderDirection = $direction;

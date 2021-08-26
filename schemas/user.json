@@ -10,24 +10,42 @@
 		"affiliation": {
 			"type": "string",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"authId": {
-			"type": "integer"
+			"type": "integer",
+			"validation": [
+				"nullable"
+			]
 		},
 		"authString": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"billingAddress": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"biography": {
 			"type": "string",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"country": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"dateRegistered": {
 			"type": "string",
@@ -38,36 +56,39 @@
 		"dateValidated": {
 			"type": "string",
 			"validation": [
-				"date:Y-m-d H:i:s"
-			]
-		},
-		"dateLastRegistered": {
-			"type": "string",
-			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			]
 		},
 		"dateLastEmail": {
 			"type": "string",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			]
 		},
 		"dateLastLogin": {
 			"type": "string",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			]
 		},
 		"inlineHelp": {
-			"type": "boolean"
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
 		},
 		"disabled": {
 			"type": "boolean",
 			"apiSummary": true
 		},
 		"disabledReason": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"email": {
 			"type": "string",
@@ -78,7 +99,10 @@
 		},
 		"familyName": {
 			"type": "string",
-			"multilingual": true
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"fullName": {
 			"type": "string",
@@ -92,7 +116,10 @@
 		"gossip": {
 			"type": "string",
 			"multilingual": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"groups": {
 			"type": "array",
@@ -125,7 +152,10 @@
 			}
 		},
 		"mailingAddress": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"mustChangePassword": {
 			"type": "boolean"
@@ -134,7 +164,8 @@
 			"type": "string",
 			"apiSummary": true,
 			"validation": [
-				"orcid"
+				"orcid",
+				"nullable"
 			]
 		},
 		"password": {
@@ -142,16 +173,23 @@
 			"writeOnly": true
 		},
 		"phone": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"signature": {
 			"type": "string",
-			"multilingual": true
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"url": {
 			"type": "string",
 			"validation": [
-				"url"
+				"url",
+				"nullable"
 			]
 		},
 		"userName": {

@@ -390,8 +390,15 @@ Cypress.Commands.add('createUser', user => {
 	user.roles.forEach(role => {
 		cy.get('form[id=userRoleForm]').contains(role).click();
 	});
+	cy.server();
+	cy.route({
+		method: "POST",
+		url: /update-user-roles$/
+	}).as('finishUserCreation');
 	cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
-        cy.waitJQuery();
+	cy.wait('@finishUserCreation').then((interception) => {
+		assert.isTrue(interception.response.body.status);
+	});
 });
 
 Cypress.Commands.add('flushNotifications', function() {

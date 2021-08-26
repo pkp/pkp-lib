@@ -325,7 +325,7 @@ class QueryForm extends Form
                     ->filterByContextIds([$context->getId()])
                     ->limit(100)
                     ->offset(0)
-                    ->filterSubmissionAssignment($query->getAssocId(), $query->getStageId())
+                    ->assignedTo($query->getAssocId(), $query->getStageId())
                     ->filterByUserIds($includeUsers)
                     ->filterExcludeUserIds($excludeUsers)
             );

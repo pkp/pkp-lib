@@ -117,7 +117,7 @@ class PKPUserHandler extends APIHandler
             default: throw new Exception('Unknown orderDirection specified');
         }
 
-        $collector->filterSubmissionAssignment($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
+        $collector->assignedTo($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
             ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
             ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
             ->filterByRoleIds($params['roleIds'] ?? null)

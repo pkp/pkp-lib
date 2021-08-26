@@ -506,7 +506,7 @@ class PKPSubmissionHandler extends APIHandler
         $usersIterator = Repo::user()->getMany(
             Repo::user()->getCollector()
                 ->filterByContextIds([$context->getId()])
-                ->filterSubmissionAssignment($submission->getId(), $stageId)
+                ->assignedTo($submission->getId(), $stageId)
         );
         $map = Repo::user()->getSchemaMap();
         foreach ($usersIterator as $user) {
@@ -670,7 +670,7 @@ class PKPSubmissionHandler extends APIHandler
         $usersIterator = Repo::user()->getMany(
             Repo::user()->getCollector()
                 ->filterByContextIds([$submission->getContextId()])
-                ->filterSubmissionAssignment($submission->getId())
+                ->assignedTo($submission->getId())
         );
 
         foreach ($usersIterator as $user) {

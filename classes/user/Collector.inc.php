@@ -54,7 +54,7 @@ class Collector implements CollectorInterface
     public ?array $settings = null;
     public ?string $searchPhrase = null;
     public ?array $excludeSubmissionStage = null;
-    public ?array $submissionAssignment = null;
+    public ?array $assignedTo = null;
     public ?int $reviewerRating = null;
     public ?int $reviewsCompleted = null;
 
@@ -221,19 +221,19 @@ class Collector implements CollectorInterface
      * Retrieve StageAssignments by submission and stage IDs.
      * (Replaces UserStageAssignmentDAO::getUsersBySubmissionAndStageId)
      */
-    public function filterSubmissionAssignment(?int $submissionId, ?int $stageId = null, ?int $userGroupId = null): self
+    public function assignedTo(?int $submissionId = null, ?int $stageId = null, ?int $userGroupId = null): self
     {
         if ($submissionId === null) {
             // Clear the condition.
-            $this->submissionAssignment = null;
+            $this->assignedTo = null;
             if ($stageId !== null || $userGroupId !== null) {
                 throw new \InvalidArgumentException('If a stage or user group ID is specified, a submission ID must be specified as well.');
             }
         } else {
-            $this->submissionAssignment = [
-                'submission_id' => $submissionId,
-                'stage_id' => $stageId,
-                'user_group_id' => $userGroupId,
+            $this->assignedTo = [
+                'submissionId' => $submissionId,
+                'stageId' => $stageId,
+                'userGroupId' => $userGroupId,
             ];
         }
         return $this;
@@ -392,19 +392,19 @@ class Collector implements CollectorInterface
             })
 
             // Handle conditions related to submission assignments (submission, stage, user group)
-            ->when($this->submissionAssignment !== null, function ($query) {
+            ->when($this->assignedTo !== null, function ($query) {
                 return $query->whereIn('u.user_id', function ($query) {
                     return $query->select('sa.user_id')
                         ->from('stage_assignments AS sa')
                         ->join('user_group_stage AS ugs', 'sa.user_group_id', '=', 'ugs.user_group_id')
-                        ->when(isset($this->submissionAssignment['submission_id']), function ($query) {
-                            return $query->where('sa.submission_id', '=', $this->submissionAssignment['submission_id']);
+                        ->when(isset($this->assignedTo['submissionId']), function ($query) {
+                            return $query->where('sa.submission_id', '=', $this->assignedTo['submissionId']);
                         })
-                        ->when(isset($this->submissionAssignment['stage_id']), function ($query) {
-                            return $query->where('ugs.stage_id', '=', $this->submissionAssignment['stage_id']);
+                        ->when(isset($this->assignedTo['stageId']), function ($query) {
+                            return $query->where('ugs.stage_id', '=', $this->assignedTo['stageId']);
                         })
-                        ->when(isset($this->submissionAssignment['user_group_id']), function ($query) {
-                            return $query->where('sa.user_group_id', '=', $this->submissionAssignment['user_group_id']);
+                        ->when(isset($this->assignedTo['userGroupId']), function ($query) {
+                            return $query->where('sa.user_group_id', '=', $this->assignedTo['userGroupId']);
                         });
                 });
             })

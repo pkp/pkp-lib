@@ -15,6 +15,7 @@
  */
 
 use APP\facades\Repo;
+use APP\i18n\AppLocale;
 use PKP\handler\APIHandler;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -122,7 +123,7 @@ class PKPUserHandler extends APIHandler
             ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
             ->filterByRoleIds($params['roleIds'] ?? null)
             ->searchPhrase($params['searchPhrase'] ?? null)
-            ->orderBy($orderBy, $orderDirection)
+            ->orderBy($orderBy, $orderDirection, [AppLocale::getLocale(), $request->getSite()->getPrimaryLocale()])
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null);
         switch ($params['status'] ?? null) {

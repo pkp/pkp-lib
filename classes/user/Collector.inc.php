@@ -13,7 +13,6 @@
 
 namespace PKP\user;
 
-use APP\i18n\AppLocale;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\interfaces\CollectorInterface;
@@ -39,6 +38,7 @@ class Collector implements CollectorInterface
 
     public string $orderBy = self::ORDERBY_ID;
     public string $orderDirection = 'ASC';
+    public ?array $orderLocales = null;
     public ?array $userGroupIds = null;
     public ?array $roleIds = null;
     public ?array $userIds = null;
@@ -288,11 +288,13 @@ class Collector implements CollectorInterface
      *
      * @param string $sorter One of the self::ORDERBY_ constants
      * @param string $direction One of the self::ORDER_DIR_ constants
+     * @param ?array locales Optional list of locale precedences when ordering by localized columns
      */
-    public function orderBy(string $sorter, string $direction = self::ORDER_DIR_DESC): Collector
+    public function orderBy(string $sorter, string $direction = self::ORDER_DIR_DESC, ?array $locales = null): Collector
     {
         $this->orderBy = $sorter;
         $this->orderDirection = $direction;
+        $this->orderLocales = $locales;
         return $this;
     }
 
@@ -524,40 +526,47 @@ class Collector implements CollectorInterface
             $q->offset($this->offset);
         }
 
-        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-        $site = $siteDao->getSite();
-        $siteLocale = $site->getPrimaryLocale();
-        $locale = AppLocale::getLocale();
+        $orderLocales = $this->orderLocales;
+        if (in_array($this->orderBy, [self::ORDERBY_GIVENNAME, self::ORDERBY_FAMILYNAME])) {
+            if (empty($orderLocales)) {
+                // No order by locales were specified but one was needed; get a default.
+                $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+                $site = $siteDao->getSite();
+                $orderLocales = [$site->getPrimaryLocale];
+            } else {
+                // We'll use the keys for table aliases below, so make sure they're clean
+                $orderLocales = array_values($orderLocales);
+            }
+        }
+
         switch ($this->orderBy) {
             case self::ORDERBY_ID:
                 $q->orderBy('u.user_id', $this->orderDirection);
                 break;
             case self::ORDERBY_GIVENNAME:
-                $q->leftJoin('user_settings AS usgpl', function ($join) use ($siteLocale) {
-                    return $join->on('usgpl.user_id', '=', 'u.user_id')
-                        ->where('usgpl.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
-                        ->where('usgpl.locale', '=', $siteLocale);
-                });
-                $q->leftJoin('user_settings AS usgl', function ($join) use ($locale) {
-                    return $join->on('usgl.user_id', '=', 'u.user_id')
-                        ->where('usgl.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
-                        ->where('usgl.locale', '=', $locale);
-                });
-                $q->addSelect([DB::raw('COALESCE(usgl.setting_value, usgpl.setting_value) AS given_name')])
+                $aliases = [];
+                foreach ($orderLocales as $key => $locale) {
+                    $alias = $aliases[] = "usg{$key}";
+                    $q->leftJoin("user_settings AS ${alias}", function ($join) use ($alias, $locale) {
+                        return $join->on("${alias}.user_id", '=', 'u.user_id')
+                            ->where("${alias}.setting_name", '=', Identity::IDENTITY_SETTING_GIVENNAME)
+                            ->where("${alias}.locale", '=', $locale);
+                    });
+                }
+                $q->addSelect([DB::raw('COALESCE(' . implode('.setting_value, ', $aliases) . '.setting_value) AS given_name')])
                     ->orderBy('given_name', $this->orderDirection);
                 break;
             case self::ORDERBY_FAMILYNAME:
-                $q->leftJoin('user_settings AS usfpl', function ($join) use ($siteLocale) {
-                    return $join->on('usfpl.user_id', '=', 'u.user_id')
-                        ->where('usfpl.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
-                        ->where('usfpl.locale', '=', $siteLocale);
-                });
-                $q->leftJoin('user_settings AS usfl', function ($join) use ($locale) {
-                    return $join->on('usfl.user_id', '=', 'u.user_id')
-                        ->where('usfl.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
-                        ->where('usfl.locale', '=', $locale);
-                });
-                $q->addSelect([DB::raw('COALESCE(usfl.setting_value, usfpl.setting_value) AS family_name')])
+                $aliases = [];
+                foreach ($orderLocales as $key => $locale) {
+                    $alias = $aliases[] = "usf{$key}";
+                    $q->leftJoin("user_settings AS ${alias}", function ($join) use ($alias, $locale) {
+                        return $join->on("${alias}.user_id", '=', 'u.user_id')
+                            ->where("${alias}.setting_name", '=', Identity::IDENTITY_SETTING_FAMILYNAME)
+                            ->where("${alias}.locale", '=', $locale);
+                    });
+                }
+                $q->addSelect([DB::raw('COALESCE(' . implode('.setting_value, ', $aliases) . '.setting_value) AS family_name')])
                     ->orderBy('family_name', $this->orderDirection);
                 break;
             default: throw new \InvalidArgumentException('Invalid order by!');

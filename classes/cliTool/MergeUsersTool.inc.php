@@ -121,9 +121,9 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
             if (!ctype_digit($userId)) {
                 return null;
             }
-            return Repo::user()->get((int) $userId);
+            return Repo::user()->get((int) $userId, true);
         }
-        return Repo::user()->getByUsername($specifier);
+        return Repo::user()->getByUsername($specifier, true);
     }
 }
 

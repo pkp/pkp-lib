@@ -116,7 +116,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             $user = $deployment->getUser();
         } else {
             // Determine the user based on the username
-            $user = Repo::user()->getByUsername($uploaderUsername);
+            $user = Repo::user()->getByUsername($uploaderUsername, true);
         }
         $uploaderUserId = $user
             ? (int) $user->getId()

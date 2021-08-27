@@ -135,7 +135,7 @@ class EmailLogEntry extends \PKP\core\DataObject
         $senderFullName = & $this->getData('senderFullName');
 
         if (!isset($senderFullName)) {
-            $senderFullName = Repo::user()->get($this->getSenderId())->getFullName();
+            $senderFullName = Repo::user()->get($this->getSenderId(), true)->getFullName();
         }
 
         return ($senderFullName ? $senderFullName : '');
@@ -151,7 +151,7 @@ class EmailLogEntry extends \PKP\core\DataObject
         $senderEmail = & $this->getData('senderEmail');
 
         if (!isset($senderEmail)) {
-            $senderEmail = Repo::user()->get($this->getSenderId())->getEmail();
+            $senderEmail = Repo::user()->get($this->getSenderId(), true)->getEmail();
         }
 
         return ($senderEmail ? $senderEmail : '');

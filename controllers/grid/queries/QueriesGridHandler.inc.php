@@ -531,7 +531,10 @@ class QueriesGridHandler extends GridHandler
 
         $participants = [];
         foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
-            $participants[] = Repo::user()->get($userId);
+            $user = Repo::user()->get($userId);
+            if ($user) {
+                $participants[] = $user;
+            }
         }
 
         $templateMgr = TemplateManager::getManager($request);

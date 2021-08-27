@@ -225,7 +225,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
             if (is_a($id, 'User')) {
                 $users[] = $id;
             } else {
-                $user = Repo::user()->get($id);
+                $user = Repo::user()->get($id, true);
                 if ($user) {
                     $users[] = $user;
                 }

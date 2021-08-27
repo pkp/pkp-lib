@@ -118,7 +118,7 @@ class PKPUserAction
             }
         }
 
-        Repo::user()->delete(Repo::user()->get($oldUserId));
+        Repo::user()->delete(Repo::user()->get($oldUserId, true));
 
         return true;
     }

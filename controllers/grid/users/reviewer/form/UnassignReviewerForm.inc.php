@@ -63,7 +63,7 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
 
         if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::clearReview', [&$submission, $reviewAssignment])) {
-            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
             if (!isset($reviewer)) {
                 return false;
             }

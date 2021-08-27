@@ -912,7 +912,7 @@ class PKPReviewerGridHandler extends GridHandler
     public function gossip($args, $request)
     {
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $user = Repo::user()->get($reviewAssignment->getReviewerId());
+        $user = Repo::user()->get($reviewAssignment->getReviewerId(), true);
 
         // Check that the current user is specifically allowed to access gossip for
         // this user

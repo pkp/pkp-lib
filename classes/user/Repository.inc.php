@@ -46,9 +46,9 @@ class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id): ?User
+    public function get(int $id, $allowDisabled = false): ?User
     {
-        return $this->dao->get($id);
+        return $this->dao->get($id, $allowDisabled);
     }
 
     /** @copydoc DAO::getCount() */
@@ -64,13 +64,13 @@ class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function getByUsername(string $username, bool $allowDisabled = true): ?User
+    public function getByUsername(string $username, bool $allowDisabled = false): ?User
     {
         return $this->dao->getByUsername($username, $allowDisabled);
     }
 
     /** @copydoc DAO::get() */
-    public function getByEmail(string $email, bool $allowDisabled = true): ?User
+    public function getByEmail(string $email, bool $allowDisabled = false): ?User
     {
         return $this->dao->getByEmail($email, $allowDisabled);
     }

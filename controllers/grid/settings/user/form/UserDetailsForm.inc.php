@@ -58,7 +58,7 @@ class UserDetailsForm extends UserForm
         if ($userId == null) {
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', function ($username, $userId) {
-                $user = Repo::user()->getByUsername($username);
+                $user = Repo::user()->getByUsername($username, true);
                 return !$user || $user->getId() == $userId;
             }, [$this->userId]));
             $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
@@ -71,7 +71,7 @@ class UserDetailsForm extends UserForm
                 return $password == $form->getData('password2');
             }));
         } else {
-            $this->user = Repo::user()->get($userId);
+            $this->user = Repo::user()->get($userId, true);
 
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
                 return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
@@ -93,7 +93,7 @@ class UserDetailsForm extends UserForm
         $this->addCheck(new \PKP\form\validation\FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email, $currentUserId) {
-            $user = Repo::user()->getByEmail($email);
+            $user = Repo::user()->getByEmail($email, true);
             return !$user || $user->getId() == $currentUserId;
         }, [$this->userId]));
         $this->addCheck(new \PKP\form\validation\FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));

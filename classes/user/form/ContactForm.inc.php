@@ -36,7 +36,7 @@ class ContactForm extends BaseProfileForm
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email, $userId) {
-            $user = Repo::user()->getByEmail($email);
+            $user = Repo::user()->getByEmail($email, true);
             return !$user || $user->getId() != $userId;
         }, [$user->getId()], true));
     }

@@ -501,7 +501,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     public function _fromRow($row)
     {
         $reviewAssignment = $this->newDataObject();
-        $user = Repo::user()->get($row['reviewer_id']);
+        $user = Repo::user()->get($row['reviewer_id'], true);
 
         $reviewAssignment->setId((int) $row['review_id']);
         $reviewAssignment->setSubmissionId((int) $row['submission_id']);

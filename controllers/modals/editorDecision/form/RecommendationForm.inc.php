@@ -105,7 +105,7 @@ class RecommendationForm extends Form
         $i = 0;
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
             if (!$editorsStageAssignment->getRecommendOnly()) {
-                $editorFullName = Repo::user()->get($editorsStageAssignment->getUserId())->getFullName();
+                $editorFullName = Repo::user()->get($editorsStageAssignment->getUserId(), true)->getFullName();
                 $editorsStr .= ($i == 0) ? $editorFullName : ', ' . $editorFullName;
                 $i++;
             }
@@ -203,6 +203,9 @@ class RecommendationForm extends Form
             foreach ($editorsStageAssignments as $editorsStageAssignment) {
                 if (!$editorsStageAssignment->getRecommendOnly()) {
                     $editor = Repo::user()->get($editorsStageAssignment->getUserId());
+                    if (!$editor) {
+                        continue;
+                    } // Disabled user
                     $editorFullName = $editor->getFullName();
                     $email->addRecipient($editor->getEmail(), $editorFullName);
                 }

@@ -138,7 +138,7 @@ class SubmissionComment extends \PKP\core\DataObject
         $authorFullName = & $this->getData('authorFullName');
 
         if (!isset($authorFullName)) {
-            $user = Repo::user()->get($this->getAuthorId());
+            $user = Repo::user()->get($this->getAuthorId(), true);
             $authorFullName = $user->getFullName();
         }
 
@@ -156,7 +156,7 @@ class SubmissionComment extends \PKP\core\DataObject
         $authorEmail = & $this->getData('authorEmail');
 
         if (!isset($authorEmail)) {
-            $user = Repo::user()->get($this->getAuthorId());
+            $user = Repo::user()->get($this->getAuthorId(), true);
             return $user->getEmail();
         }
 

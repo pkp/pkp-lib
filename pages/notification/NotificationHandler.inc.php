@@ -123,7 +123,7 @@ class NotificationHandler extends Handler
 
         $contextDao = Application::getContextDAO();
 
-        $user = Repo::user()->get($userId);
+        $user = Repo::user()->get($userId, true);
         $context = $contextDao->getById($contextId);
 
         $templateMgr->assign([

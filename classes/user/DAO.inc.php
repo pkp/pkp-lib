@@ -86,7 +86,7 @@ class DAO extends \PKP\core\EntityDAO
      *
      * @param $allowDisabled boolean If true, allow fetching a disabled user.
      */
-    public function get($id, $allowDisabled = true): ?User
+    public function get($id, $allowDisabled = false): ?User
     {
         $user = parent::get($id);
         if (!$allowDisabled && $user->getDisabled()) {
@@ -140,7 +140,7 @@ class DAO extends \PKP\core\EntityDAO
      *
      * @return User?
      */
-    public function getByUsername(string $username, bool $allowDisabled = true): ?User
+    public function getByUsername(string $username, bool $allowDisabled = false): ?User
     {
         $row = DB::table('users')
             ->where('username', '=', $username)
@@ -172,7 +172,7 @@ class DAO extends \PKP\core\EntityDAO
      *
      * @return User?
      */
-    public function getByEmail(string $email, bool $allowDisabled = true): ?User
+    public function getByEmail(string $email, bool $allowDisabled = false): ?User
     {
         $row = DB::table('users')
             ->where('email', '=', $email)

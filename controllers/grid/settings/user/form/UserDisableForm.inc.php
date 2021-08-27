@@ -45,7 +45,7 @@ class UserDisableForm extends Form
     public function initData()
     {
         if ($this->_userId) {
-            $user = Repo::user()->get($this->_userId);
+            $user = Repo::user()->get($this->_userId, true);
 
             if ($user) {
                 $this->_data = [
@@ -90,7 +90,7 @@ class UserDisableForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $user = Repo::user()->get($this->_userId);
+        $user = Repo::user()->get($this->_userId, true);
 
         if ($user) {
             $user->setDisabled($this->_enable ? false : true);

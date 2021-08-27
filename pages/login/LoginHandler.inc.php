@@ -368,7 +368,7 @@ class LoginHandler extends Handler
                 return $templateMgr->display('frontend/pages/error.tpl');
             }
 
-            $newUser = Repo::user()->get($userId);
+            $newUser = Repo::user()->get($userId, true);
 
             if (isset($newUser) && $session->getUserId() != $newUser->getId()) {
                 $session->setSessionVar('signedInAs', $session->getUserId());
@@ -397,7 +397,7 @@ class LoginHandler extends Handler
         if (isset($signedInAs) && !empty($signedInAs)) {
             $signedInAs = (int)$signedInAs;
 
-            $oldUser = Repo::user()->get($signedInAs);
+            $oldUser = Repo::user()->get($signedInAs, true);
 
             $session->unsetSessionVar('signedInAs');
 

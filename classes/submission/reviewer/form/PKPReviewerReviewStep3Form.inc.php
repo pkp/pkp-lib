@@ -200,7 +200,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         );
 
         // Add log
-        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
         $request = Application::get()->getRequest();
         SubmissionLog::logEvent(
             $request,

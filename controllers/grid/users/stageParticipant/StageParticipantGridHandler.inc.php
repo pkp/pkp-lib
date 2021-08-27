@@ -382,7 +382,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
 
             // Log addition.
-            $assignedUser = Repo::user()->get($userId);
+            $assignedUser = Repo::user()->get($userId, true);
             SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_ADD_PARTICIPANT, 'submission.event.participantAdded', ['name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()]);
 
             return \PKP\db\DAO::getDataChangedEvent($userGroupId);
@@ -444,7 +444,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         }
 
         // Log removal.
-        $assignedUser = Repo::user()->get($stageAssignment->getUserId());
+        $assignedUser = Repo::user()->get($stageAssignment->getUserId(), true);
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
         SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_REMOVE_PARTICIPANT, 'submission.event.participantRemoved', ['name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()]);

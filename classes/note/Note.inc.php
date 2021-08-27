@@ -47,7 +47,7 @@ class Note extends \PKP\core\DataObject
      */
     public function getUser()
     {
-        return Repo::user()->get($this->getUserId());
+        return Repo::user()->get($this->getUserId(), true);
     }
 
     /**

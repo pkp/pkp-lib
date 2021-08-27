@@ -86,7 +86,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $stageToName = array_flip($deployment->getStageNameStageIdMapping());
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genre = $genreDao->getById($submissionFile->getData('genreId'));
-        $uploaderUser = Repo::user()->get($submissionFile->getData('uploaderUserId'));
+        $uploaderUser = Repo::user()->get($submissionFile->getData('uploaderUserId'), true);
 
         // Create the submission_file node and set metadata
         $submissionFileNode = $doc->createElementNS($deployment->getNamespace(), $this->getSubmissionFileElementName());

@@ -121,7 +121,7 @@ class CommandLineTool
         }
 
         if ($this->username) {
-            $user = Repo::user()->getByUsername($this->username);
+            $user = Repo::user()->getByUsername($this->username, true);
 
             $this->setUser($user);
         }

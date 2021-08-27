@@ -411,7 +411,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     protected function sendNotificationEmail($request, $notification, ?int $contextId, callable $mailConfigurator = null)
     {
         $userId = $notification->getUserId();
-        $user = Repo::user()->get($userId);
+        $user = Repo::user()->get($userId, true);
         if ($user && !$user->getDisabled()) {
             AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 

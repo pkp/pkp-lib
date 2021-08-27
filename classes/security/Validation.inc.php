@@ -60,7 +60,7 @@ class Validation
                 $auth->doGetUserInfo($user);
                 if ($user->getEmail() != $oldEmail) {
                     // FIXME requires email addresses to be unique; if changed email already exists, ignore
-                    if (Repo::user()->getByEmail($user->getEmail())) {
+                    if (Repo::user()->getByEmail($user->getEmail(), true)) {
                         $user->setEmail($oldEmail);
                     }
                 }
@@ -408,7 +408,7 @@ class Validation
         }
 
         $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', \Stringy\Stringy::create($name)->toAscii()->toLowerCase());
-        for ($i = ''; Repo::user()->getByUsername($suggestion . $i); $i++);
+        for ($i = ''; Repo::user()->getByUsername($suggestion . $i, true); $i++);
         return $suggestion . $i;
     }
 

@@ -71,7 +71,7 @@ class UserGridRow extends GridRow
                 $actionArgs['newUserId'] = $rowId;
 
                 // Verify that the old user exists
-                $oldUser = Repo::user()->get((int) $this->getOldUserId());
+                $oldUser = Repo::user()->get((int) $this->getOldUserId(), true);
 
                 // Don't merge a user in itself
                 if ($oldUser && $actionArgs['oldUserId'] != $actionArgs['newUserId']) {

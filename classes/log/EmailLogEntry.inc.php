@@ -17,7 +17,7 @@
 
 namespace PKP\log;
 
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 
 class EmailLogEntry extends \PKP\core\DataObject
 {
@@ -135,8 +135,7 @@ class EmailLogEntry extends \PKP\core\DataObject
         $senderFullName = & $this->getData('senderFullName');
 
         if (!isset($senderFullName)) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $senderFullName = $userDao->getUserFullName($this->getSenderId(), true);
+            $senderFullName = Repo::user()->get($this->getSenderId())->getFullName();
         }
 
         return ($senderFullName ? $senderFullName : '');
@@ -152,8 +151,7 @@ class EmailLogEntry extends \PKP\core\DataObject
         $senderEmail = & $this->getData('senderEmail');
 
         if (!isset($senderEmail)) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $senderEmail = $userDao->getUserEmail($this->getSenderId(), true);
+            $senderEmail = Repo::user()->get($this->getSenderId())->getEmail();
         }
 
         return ($senderEmail ? $senderEmail : '');

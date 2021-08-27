@@ -15,6 +15,8 @@
 use APP\file\LibraryFileManager;
 
 use APP\handler\Handler;
+use APP\facades\Repo;
+use PKP\user\Collector;
 use PKP\security\Role;
 
 class LibraryFileHandler extends Handler
@@ -88,10 +90,12 @@ class LibraryFileHandler extends Handler
                 }
 
                 // Check for specific assignments.
+                $assignedUsers = Repo::user()->getMany(
+                    Repo::user()->getCollector()
+                    ->assignedTo($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION)
+                );
                 $user = $request->getUser();
-                $userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /** @var UserStageAssignmentDAO $userStageAssignmentDao */
-                $assignedUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
-                while ($assignedUser = $assignedUsers->next()) {
+                foreach ($assignedUsers as $assignedUser) {
                     if ($assignedUser->getId() == $user->getId()) {
                         $allowedAccess = true;
                         break;

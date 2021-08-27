@@ -16,8 +16,8 @@
 
 import('pages.user.UserHandler');
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
-
 use PKP\security\AccessKeyManager;
 use PKP\user\form\RegistrationForm;
 
@@ -135,8 +135,7 @@ class RegistrationHandler extends UserHandler
         $username = array_shift($args);
         $accessKeyCode = array_shift($args);
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getByUsername($username);
+        $user = Repo::user()->getByUsername($username);
         if (!$user) {
             $request->redirect(null, 'login');
         }
@@ -155,7 +154,7 @@ class RegistrationHandler extends UserHandler
             $user->setDisabled(false);
             $user->setDisabledReason('');
             $user->setDateValidated(Core::getCurrentDate());
-            $userDao->updateObject($user);
+            Repo::user()->edit($user);
 
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('message', 'user.login.activated');

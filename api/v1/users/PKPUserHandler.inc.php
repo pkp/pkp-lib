@@ -14,10 +14,11 @@
  *
  */
 
-use APP\core\Services;
+use APP\facades\Repo;
+use APP\i18n\AppLocale;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
-
 use PKP\security\Role;
 
 class PKPUserHandler extends APIHandler
@@ -99,20 +100,46 @@ class PKPUserHandler extends APIHandler
 
         $params['contextId'] = $context->getId();
 
-        \HookRegistry::call('API::users::params', [&$params, $slimRequest]);
+        HookRegistry::call('API::users::params', [&$params, $slimRequest]);
+        $collector = Repo::user()->getCollector();
 
+        // Convert from $params array to what the Collector expects
+        $orderBy = null;
+        switch ($params['orderBy'] ?? 'id') {
+            case 'id': $orderBy = $collector::ORDERBY_ID; break;
+            case 'givenName': $orderBy = $collector::ORDERBY_GIVENNAME; break;
+            case 'familyName': $orderBy = $collector::ORDERBY_FAMILYNAME; break;
+            default: throw new Exception('Unknown orderBy specified');
+        }
+        $orderDirection = null;
+        switch ($params['orderDirection'] ?? 'ASC') {
+            case 'ASC': $orderDirection = $collector::ORDER_DIR_ASC; break;
+            case 'DESC': $orderDirection = $collector::ORDER_DIR_DESC; break;
+            default: throw new Exception('Unknown orderDirection specified');
+        }
+
+        $collector->assignedTo($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
+            ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
+            ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
+            ->filterByRoleIds($params['roleIds'] ?? null)
+            ->searchPhrase($params['searchPhrase'] ?? null)
+            ->orderBy($orderBy, $orderDirection, [AppLocale::getLocale(), $request->getSite()->getPrimaryLocale()])
+            ->limit($params['count'] ?? null)
+            ->offset($params['offset'] ?? null);
+        switch ($params['status'] ?? null) {
+            case 'active': $collector->filterByStatus($collector::STATUS_ACTIVE); break;
+            case 'disabled': $collector->filterByStatus($collector::STATUS_DISABLED); break;
+        }
+        $users = Repo::user()->getMany($collector);
+
+        $map = Repo::user()->getSchemaMap();
         $items = [];
-        $usersItereator = Services::get('user')->getMany($params);
-        $propertyArgs = [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-        ];
-        foreach ($usersItereator as $user) {
-            $items[] = Services::get('user')->getSummaryProperties($user, $propertyArgs);
+        foreach ($users as $user) {
+            $items[] = $map->summarize($user);
         }
 
         return $response->withJson([
-            'itemsMax' => Services::get('user')->getMax($params),
+            'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
             'items' => $items,
         ], 200);
     }
@@ -131,17 +158,14 @@ class PKPUserHandler extends APIHandler
         $request = $this->getRequest();
 
         if (!empty($args['userId'])) {
-            $user = Services::get('user')->get((int) $args['userId']);
+            $user = Repo::user()->get($args['userId']);
         }
 
         if (!$user) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $data = Services::get('user')->getFullProperties($user, [
-            'request' => $request,
-            'slimRequest' => $slimRequest
-        ]);
+        $data = Repo::user()->getSchemaMap()->map($user, $slimRequest);
 
         return $response->withJson($data, 200);
     }
@@ -179,22 +203,30 @@ class PKPUserHandler extends APIHandler
             'status',
         ]);
 
-        $params['contextId'] = $context->getId();
+        HookRegistry::call('API::users::reviewers::params', [&$params, $slimRequest]);
 
-        \HookRegistry::call('API::users::reviewers::params', [&$params, $slimRequest]);
-
+        $collector = Repo::user()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->includeReviewerData()
+            ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
+            ->filterByWorkflowStageIds([$params['reviewStage']])
+            ->searchPhrase($params['searchPhrase'] ?? null)
+            ->filterByReviewerRating($params['reviewerRating'] ?? null)
+            ->filterByReviewsCompleted(isset($params['reviewsCompleted']) ? $params['reviewsCompleted'][0] : null)
+            ->filterByReviewsActive($params['reviewsActive'] ?? null)
+            ->filterByDaysSinceLastAssignment($params['daysSinceLastAssignment'] ?? null)
+            ->filterByAverageCompletion(isset($params['averageCompletion']) ? $params['averageCompletion'][0] : null)
+            ->limit($params['count'] ?? null)
+            ->offset($params['offset'] ?? null);
+        $usersCollection = Repo::user()->getMany($collector);
         $items = [];
-        $usersIterator = Services::get('user')->getReviewers($params);
-        $propertyArgs = [
-            'request' => $request,
-            'slimRequest' => $slimRequest,
-        ];
-        foreach ($usersIterator as $user) {
-            $items[] = Services::get('user')->getReviewerSummaryProperties($user, $propertyArgs);
+        $map = Repo::user()->getSchemaMap();
+        foreach ($usersCollection as $user) {
+            $items[] = $map->summarizeReviewer($user, $slimRequest);
         }
 
         return $response->withJson([
-            'itemsMax' => Services::get('user')->getReviewersMax($params),
+            'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
             'items' => $items,
         ], 200);
     }
@@ -328,11 +360,11 @@ class PKPUserHandler extends APIHandler
             }
         }
 
-        \HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
+        HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
 
         $this->getApp()->getContainer()->get('settings')->replace(['outputBuffering' => false]);
 
-        $report = \Services::get('user')->getReport($params);
+        $report = Repo::user()->getReport($params);
         header('content-type: text/comma-separated-values');
         header('content-disposition: attachment; filename="user-report-' . date('Y-m-d') . '.csv"');
         $report->serialize(fopen('php://output', 'w+'));

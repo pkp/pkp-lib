@@ -13,13 +13,13 @@
  * @brief Editor recommendation form.
  */
 
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\form\Form;
 use PKP\log\SubmissionEmailLogEntry;
-
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\submission\action\EditorAction;
@@ -100,13 +100,12 @@ class RecommendationForm extends Form
 
         // Get the decision making editors, the e-mail about the recommendation will be send to
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
         $editorsStr = '';
         $i = 0;
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
             if (!$editorsStageAssignment->getRecommendOnly()) {
-                $editorFullName = $userDao->getUserFullName($editorsStageAssignment->getUserId());
+                $editorFullName = Repo::user()->get($editorsStageAssignment->getUserId())->getFullName();
                 $editorsStr .= ($i == 0) ? $editorFullName : ', ' . $editorFullName;
                 $i++;
             }
@@ -200,11 +199,10 @@ class RecommendationForm extends Form
             $email->setBody($this->getData('personalMessage'));
 
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
             $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
             foreach ($editorsStageAssignments as $editorsStageAssignment) {
                 if (!$editorsStageAssignment->getRecommendOnly()) {
-                    $editor = $userDao->getById($editorsStageAssignment->getUserId());
+                    $editor = Repo::user()->get($editorsStageAssignment->getUserId());
                     $editorFullName = $editor->getFullName();
                     $email->addRecipient($editor->getEmail(), $editorFullName);
                 }
@@ -241,7 +239,6 @@ class RecommendationForm extends Form
 
                 // Add the decision making editors as discussion participants
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
                 $discussionParticipantsIds = [];
                 $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
                 foreach ($editorsStageAssignments as $editorsStageAssignment) {

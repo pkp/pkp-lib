@@ -408,7 +408,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 
                 $uploader = $request->getUser();
                 if ($uploader->getId() != $submissionFile->getData('uploaderUserId')) {
-                    $uploader = Services::get('user')->get($submissionFile->getData('uploaderUserId'));
+                    $uploader = Repo::user()->get($submissionFile->getData('uploaderUserId'));
                 }
 
                 // Fetch the latest notification email timestamp
@@ -431,10 +431,9 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 $mail->setEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
                 $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
                 // Get editors assigned to the submission, consider also the recommendOnly editors
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
                 $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $reviewRound->getStageId());
                 foreach ($editorsStageAssignments as $editorsStageAssignment) {
-                    $editor = $userDao->getById($editorsStageAssignment->getUserId());
+                    $editor = Repo::user()->get($editorsStageAssignment->getUserId());
                     // IF no prior notification exists
                     // OR if editor has logged in after the last revision upload
                     // OR the last upload and notification was sent more than a day ago,

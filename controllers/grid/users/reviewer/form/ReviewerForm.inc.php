@@ -14,9 +14,9 @@
  * N.B. Requires a subclass to implement the "reviewerId" to be added.
  */
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
@@ -172,8 +172,7 @@ class ReviewerForm extends Form
         // The reviewer id has been set
         if (!empty($reviewerId)) {
             if ($this->_isValidReviewer($context, $submission, $reviewRound, $reviewerId)) {
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-                $reviewer = $userDao->getById($reviewerId);
+                $reviewer = Repo::user()->get($reviewerId);
                 $this->setData('userNameString', sprintf('%s (%s)', $reviewer->getFullname(), $reviewer->getUsername()));
             }
         }
@@ -423,8 +422,7 @@ class ReviewerForm extends Form
         // Notify the reviewer via email.
         $templateKey = $this->getData('template');
         $mail = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $reviewer = $userDao->getById($reviewerId);
+        $reviewer = Repo::user()->get($reviewerId);
 
         if ($mail->isEnabled() && !$this->getData('skipEmail')) {
             $user = $request->getUser();
@@ -511,14 +509,18 @@ class ReviewerForm extends Form
      */
     public function _isValidReviewer($context, $submission, $reviewRound, $reviewerId)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $reviewerFactory = $userDao->getReviewersNotAssignedToSubmission($context->getId(), $submission->getId(), $reviewRound);
-        $reviewersArray = $reviewerFactory->toAssociativeArray();
-        if (array_key_exists($reviewerId, $reviewersArray)) {
-            return true;
-        } else {
-            return false;
+        // Ensure the user isn't already assigned to the current submission
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
+        foreach ($reviewAssignments as $reviewAssignment) {
+            if ($reviewerId == $reviewAssignment->getReviewerId()) {
+                return false;
+            }
         }
+
+        // Ensure that they are a reviewer
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+        return $roleDao->userHasRole($context->getId(), $reviewerId, \PKP\security\Role::ROLE_ID_REVIEWER);
     }
 
     /**

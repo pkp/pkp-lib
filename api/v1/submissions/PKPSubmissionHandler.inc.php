@@ -503,21 +503,14 @@ class PKPSubmissionHandler extends APIHandler
 
         $data = [];
 
-        $userService = Services::get('user');
-
-        $usersIterator = $userService->getMany([
-            'contextId' => $context->getId(),
-            'assignedToSubmission' => $submission->getId(),
-            'assignedToSubmissionStage' => $stageId,
-        ]);
-        if (count($usersIterator)) {
-            $args = [
-                'request' => $request,
-                'slimRequest' => $slimRequest,
-            ];
-            foreach ($usersIterator as $user) {
-                $data[] = $userService->getSummaryProperties($user, $args);
-            }
+        $usersIterator = Repo::user()->getMany(
+            Repo::user()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->assignedTo($submission->getId(), $stageId)
+        );
+        $map = Repo::user()->getSchemaMap();
+        foreach ($usersIterator as $user) {
+            $data[] = $map->summarizeReviewer($user);
         }
 
         return $response->withJson($data, 200);
@@ -674,11 +667,11 @@ class PKPSubmissionHandler extends APIHandler
         $publication = Repo::publication()->get($newId);
 
         $notificationManager = new NotificationManager();
-        $userService = Services::get('user');
-        $usersIterator = $userService->getMany([
-            'contextId' => $submission->getContextId(),
-            'assignedToSubmission' => $submission->getId(),
-        ]);
+        $usersIterator = Repo::user()->getMany(
+            Repo::user()->getCollector()
+                ->filterByContextIds([$submission->getContextId()])
+                ->assignedTo($submission->getId())
+        );
 
         foreach ($usersIterator as $user) {
             $notificationManager->createNotification(

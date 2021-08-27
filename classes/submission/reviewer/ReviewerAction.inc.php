@@ -15,6 +15,7 @@
 
 namespace PKP\submission\reviewer;
 
+use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use PKP\core\Core;
@@ -51,9 +52,7 @@ class ReviewerAction
     public function confirmReview($request, $reviewAssignment, $submission, $decline, $emailText = null)
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-
-        $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) {
             return true;
         }
@@ -106,13 +105,11 @@ class ReviewerAction
         $email = new SubmissionMailTemplate($submission, $decline ? 'REVIEW_DECLINE' : 'REVIEW_CONFIRM');
 
         // Get reviewer
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
 
         // Get editorial contact name
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $reviewAssignment->getStageId());
         $recipient = null;
         $context = $request->getContext();
@@ -122,7 +119,7 @@ class ReviewerAction
                 continue;
             }
 
-            $recipient = $userDao->getById($stageAssignment->getUserId());
+            $recipient = Repo::user()->get($stageAssignment->getUserId());
             $email->addRecipient($recipient->getEmail(), $recipient->getFullName());
         }
         if (!$recipient) {

@@ -435,10 +435,6 @@ class AdminHandler extends Handler
         $cacheManager = CacheManager::getManager();
         $cacheManager->flush();
 
-        // Clear ADODB's cache
-        $userDao = DAORegistry::getDAO('UserDAO'); // As good as any
-        $userDao->flushCache();
-
         $request->redirect(null, 'admin');
     }
 

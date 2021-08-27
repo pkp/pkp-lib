@@ -254,7 +254,7 @@ class QueryForm extends Form
             $templateKeys = [];
             // Determine if the current user can use any custom templates defined.
             $user = $request->getUser();
-            if (Services::get('user')->userHasRole($user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
+            if (Repo::user()->userHasRole($user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
                 $emailTemplates = Services::get('emailTemplate')->getMany([
                     'contextId' => $context->getId(),
                     'isCustom' => true,
@@ -330,19 +330,15 @@ class QueryForm extends Form
                 }
             }
 
-            // Get list of participants to include in query
-            $params = [
-                'contextId' => $context->getId(),
-                'count' => 100, // high upper value
-                'offset' => 0,
-                'assignedToSubmission' => $query->getAssocId(),
-                'assignedToSubmissionStage' => $query->getStageId(),
-                'includeUsers' => $includeUsers,
-                'excludeUsers' => $excludeUsers,
-            ];
-
-            $userService = Services::get('user');
-            $usersIterator = $userService->getMany($params);
+            $usersIterator = Repo::user()->getMany(
+                Repo::user()->getCollector()
+                    ->filterByContextIds([$context->getId()])
+                    ->limit(100)
+                    ->offset(0)
+                    ->assignedTo($query->getAssocId(), $query->getStageId())
+                    ->filterByUserIds($includeUsers)
+                    ->filterExcludeUserIds($excludeUsers)
+            );
 
             $allParticipants = [];
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */

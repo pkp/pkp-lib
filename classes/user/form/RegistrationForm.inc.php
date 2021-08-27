@@ -19,11 +19,11 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\form\NotificationSettingsForm;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -59,7 +59,7 @@ class RegistrationForm extends Form
 
         // Validation checks for this form
         $form = $this;
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user(), 'getByUsername'], [], true));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
@@ -74,7 +74,7 @@ class RegistrationForm extends Form
 
         // Email checks
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'], [], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [Repo::user(), 'getByEmail'], [], true));
 
         $this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
         if ($this->captchaEnabled) {
@@ -141,7 +141,7 @@ class RegistrationForm extends Form
     public function initData()
     {
         $this->_data = [
-            'userLocales' => [],
+            'locales' => [],
             'userGroupIds' => [],
         ];
     }
@@ -233,10 +233,9 @@ class RegistrationForm extends Form
     public function execute(...$functionArgs)
     {
         $requireValidation = Config::getVar('email', 'require_validation');
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 
         // New user
-        $this->user = $user = $userDao->newDataObject();
+        $this->user = $user = Repo::user()->newDataObject();
 
         $user->setUsername($this->getData('username'));
 
@@ -280,7 +279,7 @@ class RegistrationForm extends Form
 
         parent::execute(...$functionArgs);
 
-        $userDao->insertObject($user);
+        Repo::user()->add($user);
         $userId = $user->getId();
         if (!$userId) {
             return false;

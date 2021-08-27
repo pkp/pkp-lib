@@ -13,8 +13,8 @@
  * @brief Form for viewing and editing gossip about a reviewer
  */
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
-
 use PKP\form\Form;
 
 class ReviewerGossipForm extends Form
@@ -73,8 +73,7 @@ class ReviewerGossipForm extends Form
     public function execute(...$functionArgs)
     {
         $this->_user->setGossip($this->getData('gossip'));
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $userDao->updateObject($this->_user);
+        Repo::user()->edit($this->_user);
         parent::execute(...$functionArgs);
     }
 }

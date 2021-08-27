@@ -17,7 +17,7 @@
 
 namespace PKP\log;
 
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\HookRegistry;
 
@@ -252,9 +252,8 @@ class EmailLogDAO extends \PKP\db\DAO
             return;
         }
 
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         foreach ($matches[0] as $emailAddress) {
-            $user = $userDao->getUserByEmail($emailAddress);
+            $user = Repo::user()->getByEmail($emailAddress);
             if ($user instanceof \PKP\user\User) {
                 // We use replace here to avoid inserting duplicated entries
                 // in table (sometimes the recipients can have the same email twice).

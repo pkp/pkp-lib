@@ -15,10 +15,8 @@
 
 import('lib.pkp.controllers.informationCenter.InformationCenterHandler');
 
-// use Exception;
-
+use APP\facades\Repo;
 use APP\template\TemplateManager;
-
 use PKP\core\ArrayItemIterator;
 use PKP\core\JSONMessage;
 use PKP\log\EventLogEntry;
@@ -73,7 +71,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
 
         // Ensure data integrity.
         if (!$this->_submission || !$this->submissionFile || $this->_submission->getId() != $this->submissionFile->getData('submissionId')) {
-            throw new Exception('Unknown or invalid submission or submission file!');
+            throw new \Exception('Unknown or invalid submission or submission file!');
         };
     }
 
@@ -256,8 +254,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
             $templateMgr->assign('lastEvent', $lastEvent);
 
             // Get the user who created the last event.
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $user = $userDao->getById($lastEvent->getUserId());
+            $user = Repo::user()->get($lastEvent->getUserId());
             $templateMgr->assign('lastEventUser', $user);
         }
 

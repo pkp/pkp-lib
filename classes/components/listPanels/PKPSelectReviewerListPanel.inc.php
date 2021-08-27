@@ -14,6 +14,8 @@
 
 namespace PKP\components\listPanels;
 
+use APP\facades\Repo;
+
 class PKPSelectReviewerListPanel extends ListPanel
 {
     /** @var string URL to the API endpoint where items can be retrieved */
@@ -146,13 +148,11 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItems($request)
     {
-        $userService = \Services::get('user');
-        $reviewers = $userService->getReviewers($this->_getItemsParams());
+        $reviewers = Repo::user()->getMany($this->_getCollector());
         $items = [];
-        if (!empty($reviewers)) {
-            foreach ($reviewers as $reviewer) {
-                $items[] = $userService->getReviewerSummaryProperties($reviewer, ['request' => $request]);
-            }
+        $map = Repo::user()->getSchemaMap();
+        foreach ($reviewers as $reviewer) {
+            $items[] = $map->summarizeReviewer($reviewer);
         }
 
         return $items;
@@ -165,7 +165,8 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItemsMax()
     {
-        return \Services::get('user')->getReviewersMax($this->_getItemsParams());
+        $collector = $this->_getCollector();
+        return Repo::user()->getCount($collector->offset(null)->limit(null));
     }
 
     /**
@@ -173,14 +174,15 @@ class PKPSelectReviewerListPanel extends ListPanel
      *
      * @return array
      */
-    protected function _getItemsParams()
+    protected function _getCollector()
     {
-        return array_merge(
-            [
-                'offset' => 0,
-                'count' => $this->count,
-            ],
-            $this->getParams
-        );
+        $params = $this->getParams;
+        return Repo::user()->getCollector()
+            ->filterByContextIds([$params['contextId']])
+            ->filterByWorkflowStageIds([$params['reviewStage']])
+            ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
+            ->includeReviewerData()
+            ->offset(null)
+            ->limit($this->count);
     }
 }

@@ -15,6 +15,7 @@
 
 namespace PKP\user\form;
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
@@ -73,8 +74,7 @@ class LoginChangePasswordForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getByUsername($this->getData('username'), false);
+        $user = Repo::user()->getByUsername($this->getData('username'), false);
         parent::execute(...$functionArgs);
         if ($user != null) {
             if ($user->getAuthId()) {
@@ -90,7 +90,7 @@ class LoginChangePasswordForm extends Form
             }
 
             $user->setMustChangePassword(0);
-            $userDao->updateObject($user);
+            Repo::user()->edit($user);
             return true;
         } else {
             return false;

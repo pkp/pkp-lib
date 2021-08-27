@@ -13,7 +13,6 @@
  * @brief Reviewer grid row definition
  */
 
-use APP\core\Services;
 use APP\facades\Repo;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
@@ -180,7 +179,7 @@ class ReviewerGridRow extends GridRow
             }
 
             // Add gossip action when appropriate
-            $canCurrentUserGossip = Services::get('user')->canCurrentUserGossip($reviewAssignment->getReviewerId());
+            $canCurrentUserGossip = Repo::user()->canCurrentUserGossip($reviewAssignment->getReviewerId());
             if ($canCurrentUserGossip) {
                 $this->addAction(
                     new LinkAction(

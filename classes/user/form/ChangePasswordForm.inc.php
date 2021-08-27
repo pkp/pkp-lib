@@ -15,6 +15,7 @@
 
 namespace PKP\user\form;
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
@@ -117,8 +118,7 @@ class ChangePasswordForm extends Form
 
         parent::execute(...$functionArgs);
 
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $userDao->updateObject($user);
+        Repo::user()->edit($user);
     }
 }
 

@@ -13,6 +13,7 @@
  * @brief Base class that converts a Native XML document to a submission file
  */
 
+use APP\facades\Repo;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\submission\SubmissionFile;
@@ -115,8 +116,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             $user = $deployment->getUser();
         } else {
             // Determine the user based on the username
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $user = $userDao->getByUsername($uploaderUsername);
+            $user = Repo::user()->getByUsername($uploaderUsername);
         }
         $uploaderUserId = $user
             ? (int) $user->getId()

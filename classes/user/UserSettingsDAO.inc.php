@@ -18,9 +18,6 @@
 namespace PKP\user;
 
 use APP\core\Application;
-use PKP\db\DAORegistry;
-
-use PKP\db\DAOResultFactory;
 
 class UserSettingsDAO extends \PKP\db\DAO
 {
@@ -53,35 +50,6 @@ class UserSettingsDAO extends \PKP\db\DAO
 
         $row = (array) $result->current();
         return $row ? $this->convertFromDB($row['setting_value'], $row['setting_type']) : null;
-    }
-
-    /**
-     * Retrieve all users by setting name and value.
-     *
-     * @param $name string
-     * @param $value mixed
-     * @param $type string
-     * @param $contextId int
-     *
-     * @return DAOResultFactory matching Users
-     */
-    public function getUsersBySetting($name, $value, $type = null, $contextId = \PKP\core\PKPApplication::CONTEXT_SITE)
-    {
-        $value = $this->convertToDB($value, $type);
-        $result = $this->retrieve(
-            'SELECT	u.*
-			FROM	users u,
-				user_settings s
-			WHERE	u.user_id = s.user_id AND
-				s.setting_name = ? AND
-				s.setting_value = ? AND
-				s.assoc_type = ? AND
-				s.assoc_id = ?',
-            [$name, $value, Application::getContextAssocType(), (int) $contextId]
-        );
-
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        return new DAOResultFactory($result, $userDao, '_returnUserFromRow');
     }
 
     /**

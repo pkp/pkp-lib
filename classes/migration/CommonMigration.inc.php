@@ -83,7 +83,7 @@ class CommonMigration extends Migration
             $table->datetime('date_last_email')->nullable();
             $table->datetime('date_registered');
             $table->datetime('date_validated')->nullable();
-            $table->datetime('date_last_login');
+            $table->datetime('date_last_login')->nullable();
             $table->smallInteger('must_change_password')->nullable();
             $table->bigInteger('auth_id')->nullable();
             $table->string('auth_str', 255)->nullable();
@@ -102,7 +102,6 @@ class CommonMigration extends Migration
             $table->bigInteger('assoc_type')->default(0);
             $table->bigInteger('assoc_id')->default(0);
             $table->text('setting_value')->nullable();
-            $table->string('setting_type', 6);
             $table->index(['user_id'], 'user_settings_user_id');
             $table->unique(['user_id', 'locale', 'setting_name', 'assoc_type', 'assoc_id'], 'user_settings_pkey');
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');

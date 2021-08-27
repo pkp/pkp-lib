@@ -13,8 +13,8 @@
  * @brief Form for enabling/disabling a user
  */
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
-
 use PKP\form\Form;
 
 class UserDisableForm extends Form
@@ -45,8 +45,7 @@ class UserDisableForm extends Form
     public function initData()
     {
         if ($this->_userId) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $user = $userDao->getById($this->_userId);
+            $user = Repo::user()->get($this->_userId);
 
             if ($user) {
                 $this->_data = [
@@ -91,13 +90,12 @@ class UserDisableForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getById($this->_userId);
+        $user = Repo::user()->get($this->_userId);
 
         if ($user) {
             $user->setDisabled($this->_enable ? false : true);
             $user->setDisabledReason($this->getData('disableReason'));
-            $userDao->updateObject($user);
+            Repo::user()->edit($user);
         }
         parent::execute(...$functionArgs);
         return $user;

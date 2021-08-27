@@ -29,12 +29,13 @@ namespace PKP\install;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
-
 use Illuminate\Config\Repository;
 use Illuminate\Database\DatabaseServiceProvider;
 use Illuminate\Events\EventServiceProvider;
 use PKP\config\Config;
+use PKP\core\Core;
 use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
@@ -236,15 +237,15 @@ class PKPInstall extends Installer
         $siteLocale = $this->getParam('locale');
 
         // Add initial site administrator user
-        $userDao = DAORegistry::getDAO('UserDAO');
-        $user = $userDao->newDataObject();
+        $user = Repo::user()->newDataObject();
         $user->setUsername($this->getParam('adminUsername'));
         $user->setPassword(Validation::encryptCredentials($this->getParam('adminUsername'), $this->getParam('adminPassword'), $this->getParam('encryption')));
         $user->setGivenName($user->getUsername(), $siteLocale);
         $user->setFamilyName($user->getUsername(), $siteLocale);
         $user->setEmail($this->getParam('adminEmail'));
+        $user->setDateRegistered(Core::getCurrentDate());
         $user->setInlineHelp(1);
-        $userDao->insertObject($user);
+        Repo::user()->add($user);
 
         // Create an admin user group
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);

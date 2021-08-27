@@ -8,22 +8,44 @@
 			"readOnly": true
 		},
 		"affiliation": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"authId": {
-			"type": "integer"
+			"type": "integer",
+			"validation": [
+				"nullable"
+			]
 		},
 		"authString": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"billingAddress": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"biography": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"country": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"dateRegistered": {
 			"type": "string",
@@ -34,13 +56,28 @@
 		"dateValidated": {
 			"type": "string",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			]
 		},
-		"dateLastRegistered": {
+		"dateLastEmail": {
 			"type": "string",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
+			]
+		},
+		"dateLastLogin": {
+			"type": "string",
+			"validation": [
+				"date:Y-m-d H:i:s",
+				"nullable"
+			]
+		},
+		"inlineHelp": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
 			]
 		},
 		"disabled": {
@@ -48,7 +85,10 @@
 			"apiSummary": true
 		},
 		"disabledReason": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"email": {
 			"type": "string",
@@ -58,7 +98,11 @@
 			]
 		},
 		"familyName": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"fullName": {
 			"type": "string",
@@ -66,10 +110,16 @@
 			"readOnly": true
 		},
 		"givenName": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true
 		},
 		"gossip": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"groups": {
 			"type": "array",
@@ -87,12 +137,25 @@
 		"interests": {
 			"type": "array",
 			"readOnly": true,
+			"apiSummary": true,
 			"items": {
 				"$ref": "#/definitions/UserInterest"
 			}
 		},
+		"locales": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"validation": [
+					"regex:/^[a-z]{2}_[A-Z]{2}(@[a-z]{0,})?$/"
+				]
+			}
+		},
 		"mailingAddress": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"mustChangePassword": {
 			"type": "boolean"
@@ -101,19 +164,32 @@
 			"type": "string",
 			"apiSummary": true,
 			"validation": [
-				"orcid"
+				"orcid",
+				"nullable"
 			]
 		},
+		"password": {
+			"type": "string",
+			"writeOnly": true
+		},
 		"phone": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		},
 		"signature": {
-			"$ref": "#/definitions/LocaleObject"
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"url": {
 			"type": "string",
 			"validation": [
-				"url"
+				"url",
+				"nullable"
 			]
 		},
 		"userName": {

@@ -18,8 +18,8 @@
 namespace PKP\log;
 
 use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
-
 use PKP\db\DAORegistry;
 use PKP\submission\SubmissionFile;
 
@@ -266,8 +266,7 @@ class EventLogEntry extends \PKP\core\DataObject
     {
         $userFullName = & $this->getData('userFullName');
         if (!isset($userFullName)) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $userFullName = $userDao->getUserFullName($this->getUserId(), true);
+            $userFullName = Repo::user()->get($this->getUserId())->getFullName();
         }
 
         return ($userFullName ? $userFullName : '');
@@ -280,11 +279,10 @@ class EventLogEntry extends \PKP\core\DataObject
      */
     public function getUserEmail()
     {
-        $userEmail = & $this->getData('userEmail');
+        $userEmail = $this->getData('userEmail');
 
         if (!isset($userEmail)) {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $userEmail = $userDao->getUserEmail($this->getUserId(), true);
+            $userEmail = Repo::user()->get($this->getUserId())->getEmail();
         }
 
         return ($userEmail ? $userEmail : '');

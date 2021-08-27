@@ -355,7 +355,7 @@ class PKPNotificationManagerTest extends PKPTestCase
 
         // Register a UserDao stub to return the test user.
         App::instance(\PKP\user\DAO::class, \Mockery::mock(\PKP\user\DAO::class, function ($mock) use ($testUser) {
-            $mock->shouldReceive('get')->with($testUser->getId())->andReturn($testUser);
+            $mock->shouldReceive('get')->with($testUser->getId(), true)->andReturn($testUser);
         }));
 
         return [$notificationMgrStub, $requestStub];

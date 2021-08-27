@@ -218,7 +218,7 @@ class Collector implements CollectorInterface
     }
 
     /**
-     * Retrieve StageAssignments by submission and stage IDs.
+     * Retrieve assigned users by submission and stage IDs.
      * (Replaces UserStageAssignmentDAO::getUsersBySubmissionAndStageId)
      */
     public function assignedTo(?int $submissionId = null, ?int $stageId = null, ?int $userGroupId = null): self

@@ -21,7 +21,6 @@ use PKP\services\PKPEmailTemplateService;
 use PKP\services\PKPFileService;
 use PKP\services\PKPSchemaService;
 use PKP\services\PKPSiteService;
-use PKP\services\PKPUserService;
 
 class OPSServiceProvider implements \Pimple\ServiceProviderInterface
 {
@@ -56,11 +55,6 @@ class OPSServiceProvider implements \Pimple\ServiceProviderInterface
         // Galley service
         $pimple['galley'] = function () {
             return new GalleyService();
-        };
-
-        // User service
-        $pimple['user'] = function () {
-            return new PKPUserService();
         };
 
         // Context service

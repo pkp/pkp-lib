@@ -19,7 +19,6 @@ import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 
-use APP\user\UserAction;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\GridColumn;
@@ -619,8 +618,7 @@ class UserGridHandler extends GridHandler
             if (!$request->checkCSRF()) {
                 return new JSONMessage(false);
             }
-            $userAction = new UserAction();
-            $userAction->mergeUsers($oldUserId, $newUserId);
+            Repo::user()->mergeUsers($oldUserId, $newUserId);
             $json = new JSONMessage(true);
             $json->setGlobalEvent('userMerged', [
                 'oldUserId' => $oldUserId,

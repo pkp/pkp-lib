@@ -16,7 +16,6 @@
 namespace PKP\cliTool;
 
 use APP\facades\Repo;
-use PKP\user\UserAction;
 
 class MergeUsersTool extends \PKP\cliTool\CommandLineTool
 {
@@ -95,9 +94,8 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
         }
 
         // Merge the accounts.
-        $userAction = new UserAction();
         foreach ($mergeArray as $userId => $username) {
-            $userAction->mergeUsers($userId, $targetUser->getId());
+            Repo::user()->mergeUsers($userId, $targetUser->getId());
         }
 
         if (count($mergeArray) == 1) {

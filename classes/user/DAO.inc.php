@@ -56,7 +56,7 @@ class DAO extends \PKP\core\EntityDAO
         'dateLastLogin' => 'date_last_login',
         'mustChangePassword' => 'must_change_password',
         'authId' => 'auth_id',
-        'authString' => 'auth_str',
+        'authStr' => 'auth_str',
         'disabled' => 'disabled',
         'disabledReason' => 'disabled_reason',
         'inlineHelp' => 'inline_help',

@@ -106,18 +106,6 @@ class Schema extends \PKP\core\maps\Schema
                 case 'fullName':
                     $output[$prop] = $user->getFullName();
                     break;
-                case 'givenName':
-                    $output[$prop] = $user->getGivenName(null);
-                    break;
-                case 'familyName':
-                    $output[$prop] = $user->getFamilyName(null);
-                    break;
-                case 'orcid':
-                    $output[$prop] = $user->getOrcid();
-                    break;
-                case 'authString':
-                    $output[$prop] = $user->getAuthStr();
-                    break;
                 case 'gossip':
                     if (Repo::user()->canCurrentUserGossip($user->getId())) {
                         $output[$prop] = $user->getGossip();
@@ -141,14 +129,8 @@ class Schema extends \PKP\core\maps\Schema
                 case 'dateLastReviewAssignment':
                     $output[$prop] = $user->getData('lastAssigned');
                     break;
-                case 'disabled':
-                    $output[$prop] = (bool) $user->getDisabled();
-                    break;
                 case 'disabledReason':
                     $output[$prop] = $user->getDisabledReason();
-                    break;
-                case 'mustChangePassword':
-                    $output[$prop] = (bool) $user->getMustChangePassword();
                     break;
                 case '_href':
                     $output[$prop] = $this->getApiUrl(

@@ -187,7 +187,7 @@ class Repository extends \PKP\publication\Repository
                 $mail->setFrom($context->getData('contactEmail'), $context->getData('contactName'));
 
                 // Send to all authors
-                $assignedAuthors = $submission->getAuthors();
+                $assignedAuthors = Repo::author()->getSubmissionAuthors($submission);
                 foreach ($assignedAuthors as $author) {
                     $mail->addRecipient($author->getEmail(), $author->getFullName());
                 }

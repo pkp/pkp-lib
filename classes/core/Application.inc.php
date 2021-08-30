@@ -107,7 +107,6 @@ class Application extends PKPApplication
         return array_merge(parent::getDAOMap(), [
             'PreprintGalleyDAO' => 'APP\preprint\PreprintGalleyDAO',
             'PreprintSearchDAO' => 'APP\search\PreprintSearchDAO',
-            'AuthorDAO' => 'APP\preprint\AuthorDAO',
             'ServerDAO' => 'APP\server\ServerDAO',
             'ServerSettingsDAO' => 'APP\server\ServerSettingsDAO',
             'MetricsDAO' => 'APP\statistics\MetricsDAO',

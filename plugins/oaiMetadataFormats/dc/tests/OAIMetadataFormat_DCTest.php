@@ -35,7 +35,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
      */
     protected function getMockedDAOs()
     {
-        return ['AuthorDAO', 'OAIDAO', 'PreprintGalleyDAO'];
+        return ['OAIDAO', 'PreprintGalleyDAO'];
     }
 
     /**
@@ -67,7 +67,6 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enableRepresentationyDoi', 1);
 
         // Author
-        import('classes.preprint.Author');
         $author = new Author();
         $author->setGivenName('author-firstname', 'en_US');
         $author->setFamilyName('author-lastname', 'en_US');
@@ -164,7 +163,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         // Create mock DAOs
         //
 
-        // Create a mocked AuthorDAO that returns our test author.
+        // FIXME getBySubmissionId should use the publication id now.
         import('classes.preprint.AuthorDAO');
         $authorDao = $this->getMockBuilder(AuthorDAO::class)
             ->setMethods(['getBySubmissionId'])

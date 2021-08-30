@@ -72,7 +72,7 @@ class OPSv3_3_0UpgradeMigration extends Migration
         $schemaDAOs = [
             'SiteDAO',
             \PKP\announcement\DAO::class,
-            'AuthorDAO',
+            \PKP\author\DAO::class,
             'ArticleGalleyDAO',
             'JournalDAO',
             'EmailTemplateDAO',

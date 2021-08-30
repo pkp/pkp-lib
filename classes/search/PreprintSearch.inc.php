@@ -53,7 +53,7 @@ class PreprintSearch extends SubmissionSearch
         // slicing it. So this seems to be the most appropriate place, although we
         // may have to retrieve some objects again when formatting results.
         $orderedResults = [];
-        $authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
+
         $contextDao = Application::getContextDAO();
         $contextTitles = [];
         if ($orderBy == 'popularityAll' || $orderBy == 'popularityMonth') {

@@ -31,7 +31,6 @@ class OAIDAO extends PKPOAIDAO
     public $serverDao;
     public $sectionDao;
     public $preprintGalleyDao;
-    public $authorDao;
 
     public $serverCache;
     public $sectionCache;
@@ -45,7 +44,6 @@ class OAIDAO extends PKPOAIDAO
         $this->serverDao = DAORegistry::getDAO('ServerDAO');
         $this->sectionDao = DAORegistry::getDAO('SectionDAO');
         $this->preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
-        $this->authorDao = DAORegistry::getDAO('AuthorDAO');
 
         $this->serverCache = [];
         $this->sectionCache = [];

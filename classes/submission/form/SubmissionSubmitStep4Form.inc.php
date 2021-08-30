@@ -51,8 +51,8 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
             $user = $request->getUser();
             $primaryAuthor = $submission->getPrimaryAuthor();
             if (!isset($primaryAuthor)) {
-                $authors = $submission->getAuthors();
-                $primaryAuthor = $authors[0];
+                $authors = Repo::author()->getSubmissionAuthors($submission);
+                $primaryAuthor = $authors->first();
             }
             $mail->addRecipient($user->getEmail(), $user->getFullName());
 
@@ -76,7 +76,7 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
                 $authorMail->addRecipient($primaryAuthor->getEmail(), $primaryAuthor->getFullName());
             }
 
-            $assignedAuthors = $submission->getAuthors();
+            $assignedAuthors = Repo::author()->getSubmissionAuthors($submission);
 
             foreach ($assignedAuthors as $author) {
                 $authorEmail = $author->getEmail();

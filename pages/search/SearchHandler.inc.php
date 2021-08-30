@@ -217,8 +217,6 @@ class SearchHandler extends Handler
         $server = $request->getServer();
         $user = $request->getUser();
 
-        $authorDao = DAORegistry::getDAO('AuthorDAO');
-
         if (isset($args[0]) && $args[0] == 'view') {
             // View a specific author
             $authorName = $request->getUserVar('authorName');
@@ -227,22 +225,26 @@ class SearchHandler extends Handler
             $affiliation = $request->getUserVar('affiliation');
             $country = $request->getUserVar('country');
 
-            $authorRecords = iterator_to_array(Services::get('author')->getMany([
-                'contextIds' => $server ? [$server->getId()] : [],
-                'givenName' => $givenName,
-                'familyName' => $familyName,
-                'affiliation' => $affiliation,
-                'country' => $country,
-            ]));
-            $publicationIds = array_map(function ($author) {
-                return $author->getData('publicationId');
-            }, $authorRecords);
-            $submissionIds = array_map(function ($publicationId) {
-                return Repo::publication()->get($publicationId)->getData('submissionId');
-            }, array_unique($publicationIds));
-            $submissions = array_map(function ($submissionId) {
-                return Repo::submission()->get($submissionId);
-            }, array_unique($submissionIds));
+            $submissions = Repo::author()
+                ->getMany(
+                    Repo::author()
+                        ->getCollector()
+                        ->filterByContextIds($server ? [$server->getId()] : [])
+                        ->filterByName($givenName, $familyName)
+                        ->filterByAffiliation($affiliation)
+                        ->filterByCountry($country)
+                )
+                ->map(function($author) {
+                    return $author->getData('publicationId');
+                })
+                ->unique()
+                ->map(function($publicationId) {
+                    return Repo::publication()->get($publicationId)->getData('submissionId');
+                })
+                ->unique()
+                ->map(function($submissionId) {
+                    return Repo::submission()->get($submissionId);
+                });
 
             // Load information associated with each preprint.
             $servers = [];
@@ -290,7 +292,7 @@ class SearchHandler extends Handler
             $searchInitial = $request->getUserVar('searchInitial');
             $rangeInfo = $this->getRangeInfo($request, 'authors');
 
-            $authors = $authorDao->getAuthorsAlphabetizedByServer(
+            $authors = Repo::author()->dao->getAuthorsAlphabetizedByServer(
                 isset($server) ? $server->getId() : null,
                 $searchInitial,
                 $rangeInfo

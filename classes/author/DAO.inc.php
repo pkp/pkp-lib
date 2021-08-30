@@ -1,32 +1,32 @@
 <?php
 
 /**
- * @file classes/preprint/AuthorDAO.inc.php
+ * @file classes/author/DAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class AuthorDAO
- * @ingroup preprint
+ * @class DAO
+ * @ingroup author
  *
  * @see Author
  *
  * @brief Operations for retrieving and modifying Author objects.
  */
 
-namespace APP\preprint;
+namespace APP\author;
 
 use APP\core\Application;
-use APP\core\AppLocale;
+use APP\i18n\AppLocale;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
+use PKP\db\DAOResultFactory;
 
-use PKP\submission\PKPAuthorDAO;
 use PKP\submission\PKPSubmission;
 
-class AuthorDAO extends PKPAuthorDAO
+class DAO extends \PKP\author\DAO
 {
     /**
      * Retrieve all published authors for a server by the first letter of the family name.
@@ -41,6 +41,9 @@ class AuthorDAO extends PKPAuthorDAO
      * @param $includeEmail Whether or not to include the email in the select distinct
      *
      * @return DAOResultFactory Authors ordered by last name, given name
+     *
+     * @deprecated 3.4.0.0
+     *
      */
     public function getAuthorsAlphabetizedByServer($serverId = null, $initial = null, $rangeInfo = null, $includeEmail = false)
     {
@@ -57,7 +60,7 @@ class AuthorDAO extends PKPAuthorDAO
 
         $supportedLocales = [];
         if ($serverId !== null) {
-            $serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var $serverDao \ServerDAO */
             $server = $serverDao->getById($serverId);
             $supportedLocales = $server->getSupportedLocales();
         } else {
@@ -102,7 +105,7 @@ class AuthorDAO extends PKPAuthorDAO
             $initialSql .= ')';
         }
 
-        $result = $this->retrieveRange(
+        $result = $this->deprecatedDao->retrieveRange(
             $sql = 'SELECT a.*, ug.show_title, s.locale,
 				COALESCE(agl.setting_value, agpl.setting_value) AS author_given,
 				CASE WHEN agl.setting_value <> \'\' THEN afl.setting_value ELSE afpl.setting_value END AS author_family
@@ -140,20 +143,6 @@ class AuthorDAO extends PKPAuthorDAO
             $rangeInfo
         );
 
-        return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params, $rangeInfo);
+        return new DAOResultFactory($result, $this, 'fromRow', [], $sql, $params, $rangeInfo);
     }
-
-    /**
-     * Get a new data object
-     *
-     * @return DataObject
-     */
-    public function newDataObject()
-    {
-        return new Author();
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\preprint\AuthorDAO', '\AuthorDAO');
 }

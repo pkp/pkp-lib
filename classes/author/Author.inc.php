@@ -10,19 +10,13 @@
  * @class Author
  * @ingroup preprint
  *
- * @see AuthorDAO
+ * @see DAO
  *
  * @brief Preprint author metadata class.
  */
 
-namespace APP\preprint;
+namespace APP\author;
 
-use PKP\submission\PKPAuthor;
-
-class Author extends PKPAuthor
+class Author extends \PKP\author\Author
 {
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\preprint\Author', '\Author');
 }

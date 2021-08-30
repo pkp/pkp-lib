@@ -190,7 +190,6 @@ class PKPSubmissionMetadataFormImplementation
     public function execute($submission, $request)
     {
         $publication = $submission->getCurrentPublication();
-        $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
         $context = $request->getContext();
 
         // Get params to update
@@ -214,7 +213,7 @@ class PKPSubmissionMetadataFormImplementation
                 $params['locale'] = $newLocale;
             }
             if ($newLocale !== $oldLocale) {
-                $authorDao->changePublicationLocale($publication->getId(), $oldLocale, $newLocale);
+                Repo::author()->changePublicationLocale($publication->getId(), $oldLocale, $newLocale);
             }
         }
 

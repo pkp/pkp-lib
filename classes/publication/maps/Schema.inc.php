@@ -14,12 +14,12 @@
 namespace PKP\publication\maps;
 
 use APP\core\Request;
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\publication\Publication;
+
 use APP\submission\Submission;
 
 use Illuminate\Support\Enumerable;
-
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
@@ -115,12 +115,7 @@ class Schema extends \PKP\core\maps\Schema
                     if ($this->anonymize) {
                         $output[$prop] = [];
                     } else {
-                        $output[$prop] = array_map(
-                            function ($author) {
-                                return Services::get('author')->getSummaryProperties($author, ['request' => $this->request]);
-                            },
-                            $publication->getData('authors')
-                        );
+                        $output[$prop] = Repo::author()->getSchemaMap()->summarizeMany($publication->getData('authors'));
                     }
                     break;
                 case 'authorsString':

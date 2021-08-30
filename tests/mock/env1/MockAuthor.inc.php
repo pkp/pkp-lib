@@ -12,8 +12,6 @@
  * @brief a mock author.
  */
 
-use PKP\submission\PKPAuthor;
-
-class Author extends PKPAuthor
+class Author extends PKP\author\Author
 {
 }

@@ -1,0 +1,232 @@
+<?php
+/**
+ * @file classes/author/Collector.inc.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class author
+ *
+ * @brief A helper class to configure a Query Builder to get a collection of announcements
+ */
+
+namespace PKP\author;
+
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
+use PKP\core\interfaces\CollectorInterface;
+use PKP\plugins\HookRegistry;
+
+class Collector implements CollectorInterface
+{
+    public const ORDERBY_SEQUENCE = 'sequence';
+    public const ORDERBY_ID = 'id';
+
+    /** @var string The default orderBy value for authors collector */
+    public $orderBy = self::ORDERBY_SEQUENCE;
+
+    /** @var DAO */
+    public $dao;
+
+    /** @var array|null */
+    public $contextIds = null;
+
+    /** @var array|null */
+    public $publicationIds = null;
+
+    /** @var string get authors with a family name */
+    protected $familyName = null;
+
+    /** @var string get authors with a given name */
+    protected $givenName = null;
+
+    /** @var string get authors with a specified country code */
+    protected $country = null;
+
+    /** @var string get authors with a specified affiliation */
+    protected $affiliation = null;
+
+    /** @var int */
+    public ?int $count;
+
+    /** @var int */
+    public ?int $offset;
+
+    /** @var bool|null */
+    public $includeInBrowse = null;
+
+    public function __construct(DAO $dao)
+    {
+        $this->dao = $dao;
+    }
+
+    /**
+     * Filter by contexts
+     */
+    public function filterByContextIds(?array $contextIds): self
+    {
+        $this->contextIds = $contextIds;
+        return $this;
+    }
+
+    /**
+     * Filter by publications
+     */
+    public function filterByPublicationIds(?array $publicationIds): self
+    {
+        $this->publicationIds = $publicationIds;
+        return $this;
+    }
+
+    /**
+     * Filter by include in browse
+     */
+    public function filterByIncludeInBrowse(bool $includeInBrowse): self
+    {
+        $this->includeInBrowse = $includeInBrowse;
+        return $this;
+    }
+
+    /**
+     * Include orderBy columns to the collector query
+     */
+    public function orderBy(string $orderBy): self
+    {
+        $this->orderBy = $orderBy;
+        return $this;
+    }
+
+    /**
+     * Filter by the given and family name
+     *
+     *
+     */
+    public function filterByName(string $givenName, string $familyName): self
+    {
+        $this->givenName = $givenName;
+        $this->familyName = $familyName;
+        return $this;
+    }
+
+    /**
+     * Filter by the specified country code
+     *
+     * @param $country string Country code (2-letter)
+     *
+     * */
+    public function filterByCountry(string $country): self
+    {
+        $this->country = $country;
+        return $this;
+    }
+
+    /**
+     * Filter by the specified affiliation code
+     *
+     * */
+    public function filterByAffiliation(string $affiliation): self
+    {
+        $this->affiliation = $affiliation;
+        return $this;
+    }
+
+    /**
+     * Limit the number of objects retrieved
+     */
+    public function limit(?int $count): self
+    {
+        $this->count = $count;
+        return $this;
+    }
+
+    /**
+     * Offset the number of objects retrieved, for example to
+     * retrieve the second page of contents
+     */
+    public function offset(?int $offset): self
+    {
+        $this->offset = $offset;
+        return $this;
+    }
+
+    /**
+     * @copydoc CollectorInterface::getQueryBuilder()
+     */
+    public function getQueryBuilder(): Builder
+    {
+        $q = DB::table('authors as a')
+            ->Join('publications as p', 'a.publication_id', '=', 'p.publication_id')
+            ->Join('submissions as s', 'p.submission_id', '=', 's.submission_id');
+
+        if (isset($this->contextIds)) {
+            $q->whereIn('s.context_id', $this->contextIds);
+        }
+
+        if (isset($this->familyName) && isset($this->givenName)) {
+            $familyName = $this->familyName;
+            $givenName = $this->givenName;
+            $q->leftJoin('author_settings as fn', 'a.author_id', '=', 'fn.author_id')
+                ->where(function ($q) use ($familyName) {
+                    $q->where('fn.setting_name', '=', 'familyName');
+                    $q->where('fn.setting_value', '=', $familyName);
+                });
+            $q->leftJoin('author_settings as gn', 'a.author_id', '=', 'gn.author_id')
+                ->where(function ($q) use ($givenName) {
+                    $q->where('gn.setting_name', '=', 'givenName');
+                    $q->where('gn.setting_value', '=', $givenName);
+                });
+        }
+
+        if (isset($this->publicationIds)) {
+            $q->whereIn('a.publication_id', $this->publicationIds);
+        }
+
+        if (isset($this->country)) {
+            $country = $this->country;
+            $q->join('author_settings as cs', 'a.author_id', '=', 'cs.author_id')
+                ->where(function ($q) use ($country) {
+                    $q->where('cs.setting_name', '=', 'country');
+                    $q->where('cs.setting_value', '=', $country);
+                });
+        }
+
+        if (isset($this->affiliation)) {
+            $affiliation = $this->affiliation;
+            $q->join('author_settings as afs', 'a.author_id', '=', 'afs.author_id')
+                ->where(function ($q) use ($affiliation) {
+                    $q->where('afs.setting_name', '=', 'affiliation');
+                    $q->where('afs.setting_value', '=', $affiliation);
+                });
+        }
+
+        if ($this->includeInBrowse) {
+            $q->where('a.include_in_browse', $this->includeInBrowse);
+        }
+
+        if (isset($this->count)) {
+            $q->limit($this->count);
+        }
+
+        if (isset($this->offset)) {
+            $q->offset($this->offset);
+        }
+
+        switch ($this->orderBy) {
+            case self::ORDERBY_SEQUENCE:
+                $q->orderBy('a.seq', 'asc');
+                break;
+            case self::ORDERBY_ID:
+            default:
+                $q->orderBy('a.author_id', 'asc');
+                break;
+        }
+
+        // Add app-specific query statements
+        HookRegistry::call('Author::Collector', [&$q, $this]);
+
+        $q->select(['*', 's.locale AS submission_locale']);
+
+        return $q;
+    }
+}

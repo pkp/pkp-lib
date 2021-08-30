@@ -13,11 +13,12 @@
  * @brief Form for adding/editing a author
  */
 
+use APP\author\Author;
+
 use APP\facades\Repo;
-
 use APP\publication\Publication;
-use APP\template\TemplateManager;
 
+use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\security\Role;
 
@@ -69,7 +70,7 @@ class PKPAuthorForm extends Form
      *
      * @return Author
      */
-    public function getAuthor()
+    public function getAuthor(): ?Author
     {
         return $this->_author;
     }
@@ -197,13 +198,12 @@ class PKPAuthorForm extends Form
      */
     public function execute(...$functionParams)
     {
-        $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
         $publication = $this->getPublication(); /** @var Publication $publication */
 
         $author = $this->getAuthor();
         if (!$author) {
             // this is a new submission contributor
-            $this->_author = $authorDao->newDataObject();
+            $this->_author = Repo::author()->newDataObject();
             $author = $this->getAuthor();
             $author->setData('publicationId', $publication->getId());
             $author->setData('seq', count($publication->getData('authors')));
@@ -231,10 +231,10 @@ class PKPAuthorForm extends Form
         parent::execute(...$functionParams);
 
         if ($existingAuthor) {
-            $authorDao->updateObject($author);
+            Repo::author()->edit($author, []);
             $authorId = $author->getId();
         } else {
-            $authorId = $authorDao->insertObject($author);
+            $authorId = Repo::author()->add($author);
         }
 
         if ($this->getData('primaryContact')) {

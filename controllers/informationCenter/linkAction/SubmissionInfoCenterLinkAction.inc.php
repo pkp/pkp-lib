@@ -35,10 +35,8 @@ class SubmissionInfoCenterLinkAction extends LinkAction
 
         $primaryAuthor = $submission->getPrimaryAuthor();
         if (!isset($primaryAuthor)) {
-            $authors = $submission->getAuthors();
-            if (sizeof($authors) > 0) {
-                $primaryAuthor = $authors[0];
-            }
+            $authors = Repo::author()->getSubmissionAuthors($submission);
+            $primaryAuthor = $authors->first();
         }
 
         $title = (isset($primaryAuthor)) ? implode(', ', [$primaryAuthor->getFullName(), $submission->getLocalizedTitle()]) : $submission->getLocalizedTitle();

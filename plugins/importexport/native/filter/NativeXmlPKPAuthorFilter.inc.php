@@ -1,5 +1,8 @@
 <?php
 
+use APP\facades\Repo;
+use PKP\author\Author;
+
 /**
  * @file plugins/importexport/native/filter/NativeXmlPKPAuthorFilter.inc.php
  *
@@ -68,7 +71,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
      *
      * @param $node DOMElement
      *
-     * @return PKPAuthor
+     * @return \PKP\author\Author
      */
     public function handleElement($node)
     {
@@ -79,8 +82,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         assert($publication instanceof \PKP\publication\PKPPublication);
 
         // Create the data object
-        $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
-        $author = $authorDao->newDataObject(); /** @var PKPAuthor $author */
+        $author = Repo::author()->newDataObject();
 
         $author->setData('publicationId', $publication->getId());
         if ($node->getAttribute('primary_contact')) {
@@ -155,7 +157,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
             $deployment->addError(ASSOC_TYPE_SUBMISSION, $publication->getId(), __('plugins.importexport.common.error.missingGivenName', ['authorName' => $author->getLocalizedGivenName(), 'localeName' => $allLocales[$submission->getLocale()]]));
         }
 
-        $authorId = $authorDao->insertObject($author);
+        $authorId = Repo::author()->add($author);
         $author->setId($authorId);
 
         $importAuthorId = $node->getAttribute('id');
@@ -172,7 +174,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
      * Parse an identifier node
      *
      * @param $element DOMElement
-     * @param $author PKPAuthor
+     * @param $author \PKP\author\Author
      */
     public function parseIdentifier($element, $author)
     {

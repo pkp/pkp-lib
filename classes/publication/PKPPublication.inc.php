@@ -206,16 +206,18 @@ class PKPPublication extends \PKP\core\DataObject
     {
         $authors = $this->getData('authors');
 
-        if (empty($authors)) {
+        if (!$authors->count()) {
             return '';
         }
 
-        $str = $authors[0]->getLocalizedFamilyName($defaultLocale);
+        $firstAuthor = $authors->first();
+
+        $str = $firstAuthor->getLocalizedFamilyName();
         if (!$str) {
-            $str = $authors[0]->getLocalizedGivenName($defaultLocale);
+            $str = $firstAuthor->getLocalizedGivenName();
         }
 
-        if (count($authors) > 1) {
+        if ($authors->count() > 1) {
             AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
             return __('submission.shortAuthor', ['author' => $str], $defaultLocale);
         }

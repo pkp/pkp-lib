@@ -13,7 +13,7 @@
 
 namespace PKP\publication;
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\publication\Publication;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
@@ -386,9 +386,15 @@ class DAO extends EntityDAO
      */
     protected function setAuthors(Publication $publication)
     {
-        $publication->setData('authors', iterator_to_array(
-            Services::get('author')->getMany(['publicationIds' => $publication->getId()])
-        ));
+        $publication->setData(
+            'authors',
+            Repo::author()->getMany(
+                Repo::author()
+                    ->getCollector()
+                    ->filterByPublicationIds([$publication->getId()])
+                    ->orderBy(Repo::author()->getCollector()::ORDERBY_ID)
+            )
+        );
     }
 
     /**
@@ -396,9 +402,14 @@ class DAO extends EntityDAO
      */
     protected function deleteAuthors(int $publicationId)
     {
-        $authorsIterator = Services::get('author')->getMany(['publicationIds' => $publicationId]);
-        foreach ($authorsIterator as $author) {
-            Services::get('author')->delete($author);
+        $authors = Repo::author()->getMany(
+            Repo::author()
+                ->getCollector()
+                ->filterByPublicationIds([$publicationId])
+        );
+
+        foreach ($authors as $author) {
+            Repo::author()->delete($author);
         }
     }
 

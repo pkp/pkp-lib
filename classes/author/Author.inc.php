@@ -1,28 +1,28 @@
 <?php
 
 /**
- * @file classes/submission/PKPAuthor.inc.php
+ * @file classes/author/Author.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPAuthor
- * @ingroup submission
+ * @class \PKP\author\Author
+ * @ingroup author
  *
- * @see PKPAuthorDAO
+ * @see DAO
  *
  * @brief Author metadata class.
  */
 
-namespace PKP\submission;
+namespace PKP\author;
 
 use APP\i18n\AppLocale;
 use PKP\db\DAORegistry;
 
 use PKP\identity\Identity;
 
-class PKPAuthor extends Identity
+class Author extends Identity
 {
     /**
      * Get a piece of data for this object, localized to the current
@@ -281,8 +281,4 @@ class PKPAuthor extends Identity
         $userGroup = $this->getUserGroup();
         return $userGroup->getLocalizedName();
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\PKPAuthor', '\PKPAuthor');
 }

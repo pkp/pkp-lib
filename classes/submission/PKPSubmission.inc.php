@@ -512,20 +512,6 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     }
 
     /**
-     * Get all authors of the current publication
-     *
-     * @param $onlyIncludeInBrowse boolean whether to limit to include_in_browse authors.
-     *
-     * @return LazyCollection Of Author objects
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getAuthors($onlyIncludeInBrowse = false)
-    {
-        return Repo::author()->getSubmissionAuthors($this, $onlyIncludeInBrowse);
-    }
-
-    /**
      * Get the primary author of the current publication
      *
      * @return Author|null

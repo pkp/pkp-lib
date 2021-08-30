@@ -35,26 +35,23 @@ class Collector implements CollectorInterface
     /** @var array|null */
     public $publicationIds = null;
 
-    /** @var string get authors with a family name */
-    protected $familyName = null;
+    /** Get authors with a family name */
+    protected ?string $familyName = null;
 
-    /** @var string get authors with a given name */
-    protected $givenName = null;
+    /** Get authors with a given name */
+    protected ?string $givenName = null;
 
-    /** @var string get authors with a specified country code */
-    protected $country = null;
+    /** Get authors with a specified country code */
+    protected ?string $country = null;
 
-    /** @var string get authors with a specified affiliation */
-    protected $affiliation = null;
+    /** Get authors with a specified affiliation */
+    protected ?string $affiliation = null;
 
-    /** @var int */
-    public ?int $count;
+    public ?int $count = null;
 
-    /** @var int */
-    public ?int $offset;
+    public ?int $offset = null;
 
-    /** @var bool|null */
-    public $includeInBrowse = null;
+    public ?bool $includeInBrowse = null;
 
     public function __construct(DAO $dao)
     {
@@ -82,7 +79,7 @@ class Collector implements CollectorInterface
     /**
      * Filter by include in browse
      */
-    public function filterByIncludeInBrowse(bool $includeInBrowse): self
+    public function filterByIncludeInBrowse(?bool $includeInBrowse): self
     {
         $this->includeInBrowse = $includeInBrowse;
         return $this;
@@ -91,7 +88,7 @@ class Collector implements CollectorInterface
     /**
      * Include orderBy columns to the collector query
      */
-    public function orderBy(string $orderBy): self
+    public function orderBy(?string $orderBy): self
     {
         $this->orderBy = $orderBy;
         return $this;
@@ -102,7 +99,7 @@ class Collector implements CollectorInterface
      *
      *
      */
-    public function filterByName(string $givenName, string $familyName): self
+    public function filterByName(?string $givenName, ?string $familyName): self
     {
         $this->givenName = $givenName;
         $this->familyName = $familyName;
@@ -115,7 +112,7 @@ class Collector implements CollectorInterface
      * @param $country string Country code (2-letter)
      *
      * */
-    public function filterByCountry(string $country): self
+    public function filterByCountry(?string $country): self
     {
         $this->country = $country;
         return $this;
@@ -125,7 +122,7 @@ class Collector implements CollectorInterface
      * Filter by the specified affiliation code
      *
      * */
-    public function filterByAffiliation(string $affiliation): self
+    public function filterByAffiliation(?string $affiliation): self
     {
         $this->affiliation = $affiliation;
         return $this;
@@ -156,25 +153,26 @@ class Collector implements CollectorInterface
     public function getQueryBuilder(): Builder
     {
         $q = DB::table('authors as a')
-            ->Join('publications as p', 'a.publication_id', '=', 'p.publication_id')
-            ->Join('submissions as s', 'p.submission_id', '=', 's.submission_id');
+            ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
+            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
 
         if (isset($this->contextIds)) {
             $q->whereIn('s.context_id', $this->contextIds);
         }
 
-        if (isset($this->familyName) && isset($this->givenName)) {
-            $familyName = $this->familyName;
-            $givenName = $this->givenName;
-            $q->leftJoin('author_settings as fn', 'a.author_id', '=', 'fn.author_id')
+        if (isset($this->familyName)) {
+            $q->join('author_settings as fn', 'a.author_id', '=', 'fn.author_id')
                 ->where(function ($q) use ($familyName) {
                     $q->where('fn.setting_name', '=', 'familyName');
-                    $q->where('fn.setting_value', '=', $familyName);
+                    $q->where('fn.setting_value', '=', $this->familyName);
                 });
-            $q->leftJoin('author_settings as gn', 'a.author_id', '=', 'gn.author_id')
+        }
+
+        if (isset($this->givenName)) {
+            $q->join('author_settings as gn', 'a.author_id', '=', 'gn.author_id')
                 ->where(function ($q) use ($givenName) {
                     $q->where('gn.setting_name', '=', 'givenName');
-                    $q->where('gn.setting_value', '=', $givenName);
+                    $q->where('gn.setting_value', '=', $this->givenName);
                 });
         }
 
@@ -183,20 +181,18 @@ class Collector implements CollectorInterface
         }
 
         if (isset($this->country)) {
-            $country = $this->country;
             $q->join('author_settings as cs', 'a.author_id', '=', 'cs.author_id')
                 ->where(function ($q) use ($country) {
                     $q->where('cs.setting_name', '=', 'country');
-                    $q->where('cs.setting_value', '=', $country);
+                    $q->where('cs.setting_value', '=', $this->country);
                 });
         }
 
         if (isset($this->affiliation)) {
-            $affiliation = $this->affiliation;
             $q->join('author_settings as afs', 'a.author_id', '=', 'afs.author_id')
                 ->where(function ($q) use ($affiliation) {
                     $q->where('afs.setting_name', '=', 'affiliation');
-                    $q->where('afs.setting_value', '=', $affiliation);
+                    $q->where('afs.setting_value', '=', $this->affiliation);
                 });
         }
 

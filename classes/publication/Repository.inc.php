@@ -328,10 +328,10 @@ abstract class Repository
                 $newAuthor = clone $author;
                 $newAuthor->setData('id', null);
                 $newAuthor->setData('publicationId', $newPublication->getId());
-                $newAuthor = Services::get('author')->add($newAuthor, $this->request);
+                $newAuthorId = Repo::author()->add($newAuthor);
 
                 if ($author->getId() === $publication->getData('primaryContactId')) {
-                    $this->edit($newPublication, ['primaryContactId' => $newAuthor->getId()]);
+                    $this->edit($newPublication, ['primaryContactId' => $newAuthorId]);
                 }
             }
         }

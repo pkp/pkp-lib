@@ -17,6 +17,7 @@ namespace PKP\controllers\grid;
 
 use APP\template\TemplateManager;
 
+use Illuminate\Support\LazyCollection;
 use PKP\core\JSONMessage;
 
 class CategoryGridHandler extends GridHandler
@@ -209,6 +210,8 @@ class CategoryGridHandler extends GridHandler
             $this->_categoryData[$categoryElementId] = $data->toAssociativeArray();
         } elseif ($data instanceof \PKP\core\ItemIterator) {
             $this->_categoryData[$categoryElementId] = $data->toArray();
+        } elseif ($data instanceof LazyCollection) {
+            $this->_categoryData[$categoryElementId] = iterator_to_array($data);
         } else {
             assert(false);
         }

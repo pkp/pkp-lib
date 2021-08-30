@@ -95,7 +95,6 @@ class AuthorGridRow extends GridRow
                     )
                 );
 
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
                 $author = Repo::author()->get((int) $rowId);
 
                 if ($author && !Repo::user()->getByEmail($author->getEmail(), true)) {

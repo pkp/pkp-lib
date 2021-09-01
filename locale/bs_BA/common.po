@@ -1,10 +1,12 @@
+# Udruženje ilmijje Islamske zajednice u BiH <web@ilmijja.ba>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2020-11-27 10:51+0000\n"
-"Last-Translator: Tihomir Veselinovic <tiho@efsa.unsa.ba>\n"
+"PO-Revision-Date: 2021-09-02 15:44+0000\n"
+"Last-Translator: Udruženje ilmijje Islamske zajednice u BiH <web@ilmijja.ba>"
+"\n"
 "Language-Team: Bosnian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "bs_BA/>\n"
 "Language: bs_BA\n"
@@ -757,46 +759,48 @@ msgid "semicolon"
 msgstr "{$label}:"
 
 msgid "common.notice"
-msgstr ""
+msgstr "Napomena"
 
 msgid "common.navigation.site"
-msgstr ""
+msgstr "Navigacija na stranici"
 
 msgid "common.confirmDelete"
 msgstr ""
+"Jeste li sigurni da želite izbrisati ovu stavku? Ova radnja se ne može "
+"poništiti."
 
 msgid "navigation.breadcrumbSeparator"
 msgstr ""
 
 msgid "common.warning"
-msgstr ""
+msgstr "Upozorenje"
 
 msgid "common.accepted"
-msgstr ""
+msgstr "Prihvaćeno"
 
 msgid "about.description"
-msgstr ""
+msgstr "Opis"
 
 msgid "common.closePanel"
 msgstr ""
 
 msgid "common.allDownloads"
-msgstr ""
+msgstr "Sva preuzimanja"
 
 msgid "navigation.archives"
 msgstr ""
 
 msgid "common.tasks"
-msgstr ""
+msgstr "Zadaci"
 
 msgid "common.navigation.user"
-msgstr ""
+msgstr "Korisnička navigacija"
 
 msgid "common.available"
-msgstr ""
+msgstr "Dostupno"
 
 msgid "announcement.announcements"
-msgstr ""
+msgstr "Obavještenja"
 
 msgid "common.navigation.siteContext"
 msgstr ""
@@ -811,28 +815,28 @@ msgid "common.captcha.error.missing-input-secret"
 msgstr ""
 
 msgid "common.grid"
-msgstr ""
+msgstr "Mreža"
 
 msgid "common.titleSmallWords"
 msgstr ""
 
 msgid "common.acknowledged"
-msgstr ""
+msgstr "Potvrđeno"
 
 msgid "common.currentStyleSheet"
 msgstr ""
 
 msgid "about.aboutSite"
-msgstr ""
+msgstr "O nama"
 
 msgid "common.and"
-msgstr ""
+msgstr "i"
 
 msgid "common.name"
-msgstr ""
+msgstr "Ime"
 
 msgid "announcement.postedOn"
-msgstr ""
+msgstr "Objavljeno {$postDate}"
 
 msgid "common.captcha.error.invalid-input-secret"
 msgstr ""
@@ -841,22 +845,67 @@ msgid "common.homepageNavigationLabel"
 msgstr ""
 
 msgid "common.abstract"
-msgstr ""
+msgstr "Apstrakt"
 
 msgid "common.list"
-msgstr ""
+msgstr "Lista"
 
 msgid "common.navigation.sidebar"
-msgstr ""
+msgstr "Bočna traka"
 
 msgid "about.guidelines"
-msgstr ""
+msgstr "Upustva"
 
 msgid "common.assigned.date"
-msgstr ""
+msgstr "Dodijeljeno: {$dateAssigned}"
 
 msgid "common.error"
-msgstr ""
+msgstr "Greška"
 
 msgid "common.publicKnowledgeProject"
-msgstr ""
+msgstr "Public Knowledge Project"
+
+msgid "common.enable"
+msgstr "Omogući"
+
+msgid "common.editItem"
+msgstr "Uredi {$name}"
+
+msgid "common.downloadPdf"
+msgstr "Preuzmi PDF"
+
+msgid "common.disable"
+msgstr "Onemogući"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&puta;{$height} piksela"
+
+msgid "common.deleting"
+msgstr "Brisanje"
+
+msgid "common.declined"
+msgstr "Odbijeno"
+
+msgid "common.dateHijri"
+msgstr "Hidžretski kalendar"
+
+msgid "common.dateDecided"
+msgstr "Datum donošenja odluke"
+
+msgid "common.contents"
+msgstr "Sadržaji"
+
+msgid "common.content"
+msgstr "Sadržaj"
+
+msgid "common.confirmed.date"
+msgstr "Potvrđeno: {$dateConfirmed}"
+
+msgid "common.confirm"
+msgstr "Potvrdi"
+
+msgid "common.completed.date"
+msgstr "Završeno: {$dateCompleted}"
+
+msgid "common.inactive"
+msgstr "Neaktivan"

@@ -339,8 +339,6 @@ class Repository
         $sessionDao->deleteByUserId($oldUserId);
         $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
         $temporaryFileDao->deleteByUserId($oldUserId);
-        $userSettingsDao = DAORegistry::getDAO('UserSettingsDAO'); /** @var UserSettingsDAO $userSettingsDao */
-        $userSettingsDao->deleteSettings($oldUserId);
         $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
         $subEditorsDao->deleteByUserId($oldUserId);
 

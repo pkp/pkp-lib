@@ -134,6 +134,29 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
+		"profileImage": {
+			"type": "object",
+			"validation": [
+				"nullable"
+			],
+			"properties": {
+				"dateUploaded": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"height": {
+					"type": "integer"
+				},
+				"width": {
+					"type": "integer"
+				}
+			}
+		},
 		"interests": {
 			"type": "array",
 			"readOnly": true,

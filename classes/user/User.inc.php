@@ -487,46 +487,6 @@ class User extends Identity
     {
         $this->_roles[$contextId] = $roles;
     }
-
-    /**
-     * Retrieve array of user settings.
-     *
-     * @param contextId int
-     * @param null|mixed $contextId
-     *
-     * @return array
-     */
-    public function getSettings($contextId = null)
-    {
-        $userSettingsDao = DAORegistry::getDAO('UserSettingsDAO'); /** @var UserSettingsDAO $userSettingsDao */
-        return $userSettingsDao->getSettingsByContextId($this->getId(), $contextId);
-    }
-
-    /**
-     * Retrieve a user setting value.
-     *
-     * @param $name
-     * @param $contextId int
-     */
-    public function getSetting($name, $contextId = null)
-    {
-        $userSettingsDao = DAORegistry::getDAO('UserSettingsDAO'); /** @var UserSettingsDAO $userSettingsDao */
-        return $userSettingsDao->getSetting($this->getId(), $name, $contextId);
-    }
-
-    /**
-     * Set a user setting value.
-     *
-     * @param $name string
-     * @param $value mixed
-     * @param $type string optional
-     * @param $contextId int optional
-     */
-    public function updateSetting($name, $value, $type = null, $contextId = null)
-    {
-        $userSettingsDao = DAORegistry::getDAO('UserSettingsDAO'); /** @var UserSettingsDAO $userSettingsDao */
-        return $userSettingsDao->updateSetting($this->getId(), $name, $value, $type, $contextId);
-    }
 }
 
 if (!PKP_STRICT_MODE) {

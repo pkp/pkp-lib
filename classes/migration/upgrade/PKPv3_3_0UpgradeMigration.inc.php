@@ -413,7 +413,7 @@ class PKPv3_3_0UpgradeMigration extends Migration
 
         // Get all the unique file_ids. For each one, determine the latest revision
         // in order to keep it in the table. The others will be flagged for removal
-        foreach (Capsule::table('submission_files')->select('file_id')->distinct()->get() as $row) {
+        foreach (DB::table('submission_files')->select('file_id')->distinct()->get() as $row) {
             $submissionFileRows = DB::table('submission_files')
                 ->where('file_id', '=', $row->file_id)
                 ->orderBy('revision', 'desc')
@@ -431,7 +431,7 @@ class PKPv3_3_0UpgradeMigration extends Migration
 
         // Delete the rows for old revisions (chunked for performance)
         foreach (array_chunk($newFileIdsToDelete, 100) as $chunkFileIds) {
-            Capsule::table('submission_files')
+            DB::table('submission_files')
                 ->whereIn('new_file_id', $chunkFileIds)
                 ->delete();
         }

@@ -156,45 +156,51 @@ class Collector implements CollectorInterface
             ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
             ->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
 
+        $q->select(['*', 's.locale AS submission_locale']);
+
         if (isset($this->contextIds)) {
             $q->whereIn('s.context_id', $this->contextIds);
         }
 
-        if (isset($this->familyName)) {
-            $q->join('author_settings as fn', 'a.author_id', '=', 'fn.author_id')
-                ->where(function ($q) use ($familyName) {
-                    $q->where('fn.setting_name', '=', 'familyName');
-                    $q->where('fn.setting_value', '=', $this->familyName);
-                });
-        }
+        $q->when($this->familyName !== null, function (Builder $q) {
+            $q->whereIn('a.author_id', function (Builder $q) {
+                $q->select('author_id')
+                    ->from($this->dao->settingsTable)
+                    ->where('setting_name', '=', 'familyName')
+                    ->whereIn('setting_value', $this->familyName);
+            });
+        });
 
-        if (isset($this->givenName)) {
-            $q->join('author_settings as gn', 'a.author_id', '=', 'gn.author_id')
-                ->where(function ($q) use ($givenName) {
-                    $q->where('gn.setting_name', '=', 'givenName');
-                    $q->where('gn.setting_value', '=', $this->givenName);
-                });
-        }
+        $q->when($this->givenName !== null, function (Builder $q) {
+            $q->whereIn('a.author_id', function (Builder $q) {
+                $q->select('author_id')
+                    ->from($this->dao->settingsTable)
+                    ->where('setting_name', '=', 'givenName')
+                    ->whereIn('setting_value', $this->givenName);
+            });
+        });
 
         if (isset($this->publicationIds)) {
             $q->whereIn('a.publication_id', $this->publicationIds);
         }
 
-        if (isset($this->country)) {
-            $q->join('author_settings as cs', 'a.author_id', '=', 'cs.author_id')
-                ->where(function ($q) use ($country) {
-                    $q->where('cs.setting_name', '=', 'country');
-                    $q->where('cs.setting_value', '=', $this->country);
-                });
-        }
+        $q->when($this->country !== null, function (Builder $q) {
+            $q->whereIn('a.author_id', function (Builder $q) {
+                $q->select('author_id')
+                    ->from($this->dao->settingsTable)
+                    ->where('setting_name', '=', 'country')
+                    ->whereIn('setting_value', $this->country);
+            });
+        });
 
-        if (isset($this->affiliation)) {
-            $q->join('author_settings as afs', 'a.author_id', '=', 'afs.author_id')
-                ->where(function ($q) use ($affiliation) {
-                    $q->where('afs.setting_name', '=', 'affiliation');
-                    $q->where('afs.setting_value', '=', $this->affiliation);
-                });
-        }
+        $q->when($this->affiliation !== null, function (Builder $q) {
+            $q->whereIn('a.author_id', function (Builder $q) {
+                $q->select('author_id')
+                    ->from($this->dao->settingsTable)
+                    ->where('setting_name', '=', 'affiliation')
+                    ->whereIn('setting_value', $this->affiliation);
+            });
+        });
 
         if ($this->includeInBrowse) {
             $q->where('a.include_in_browse', $this->includeInBrowse);
@@ -221,7 +227,7 @@ class Collector implements CollectorInterface
         // Add app-specific query statements
         HookRegistry::call('Author::Collector', [&$q, $this]);
 
-        $q->select(['*', 's.locale AS submission_locale']);
+
 
         return $q;
     }

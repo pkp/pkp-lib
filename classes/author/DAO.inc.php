@@ -21,7 +21,6 @@ use APP\author\Author;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
@@ -104,7 +103,6 @@ class DAO extends EntityDAO
     {
         $rows = $query
             ->getQueryBuilder()
-            ->select(['a.*'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {
@@ -121,14 +119,8 @@ class DAO extends EntityDAO
     {
         $author = parent::fromRow($row);
 
-        $locale = DB::table($this->table . ' as a')
-            ->join('publications as p', 'p.publication_id', '=', 'a.publication_id')
-            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
-            ->where('author_id', '=', $author->getId())
-            ->value('s.locale');
-
         // Set the primary locale from the submission
-        $author->setData('locale', $locale);
+        $author->setData('locale', $row->submission_locale);
 
         return $author;
     }

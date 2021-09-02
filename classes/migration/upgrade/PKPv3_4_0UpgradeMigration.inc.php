@@ -65,6 +65,18 @@ class PKPv3_4_0UpgradeMigration extends Migration
 
         // pkp/pkp-lib#6685: Drop old tombstones table in OJS and OPS
         Schema::dropIfExists('submission_tombstones');
+
+        // pkp/pkp-lib#7246: Allow default null values for the last login date
+        Schema::table('users', function (Blueprint $table) {
+            $table->dateTime('date_last_login')->nullable()->change();
+        });
+
+        // pkp/pkp-lib#7246: Remove setting_type in user_settings
+        if (Schema::hasColumn('user_settings', 'setting_type')) {
+            Schema::table('user_settings', function (Blueprint $table) {
+                $table->dropColumn('setting_type');
+            });
+        }
     }
 
     /**
@@ -80,6 +92,9 @@ class PKPv3_4_0UpgradeMigration extends Migration
         });
         Schema::table('review_assignments', function (Blueprint $table) {
             $table->dropUnique('review_assignment_reviewer_round_unique');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->dateTime('date_last_login')->nullable(false)->default(null)->change();
         });
     }
 }

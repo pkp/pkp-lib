@@ -177,6 +177,16 @@ class PreprintSearchIndexTest extends PKPTestCase
         // Make sure that no hook is being called.
         HookRegistry::clear('PreprintSearchIndex::preprintMetadataChanged');
 
+        // FIXME: getAuthors function removed
+        // Mock an preprint so that the authors are not
+        // being retrieved from the database.
+        $preprint = $this->getMockBuilder(Preprint::class)
+            ->setMethods(['getAuthors'])
+            ->getMock();
+        $preprint->expects($this->any())
+            ->method('getAuthors')
+            ->will($this->returnValue([]));
+
         // Test indexing an preprint with a mock environment.
         $preprintSearchIndex = $this->getMockPreprintSearchIndex($this->atLeastOnce());
         $preprintSearchIndex->submissionMetadataChanged($preprint);

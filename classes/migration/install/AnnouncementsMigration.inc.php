@@ -27,9 +27,12 @@ class AnnouncementsMigration extends Migration
         // Announcement types.
         Schema::create('announcement_types', function (Blueprint $table) {
             $table->bigInteger('type_id')->autoIncrement();
-            $table->smallInteger('assoc_type');
-            $table->bigInteger('assoc_id');
-            $table->index(['assoc_type', 'assoc_id'], 'announcement_types_assoc');
+
+            $table->bigInteger('context_id');
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
+            $table->index(['context_id'], 'announcement_types_context_id');
         });
 
         // Locale-specific announcement type data

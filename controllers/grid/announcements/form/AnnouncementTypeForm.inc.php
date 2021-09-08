@@ -111,8 +111,7 @@ class AnnouncementTypeForm extends Form
             $announcementType = $announcementTypeDao->newDataObject();
         }
 
-        $announcementType->setAssocType(Application::getContextAssocType());
-        $announcementType->setAssocId($this->contextId);
+        $announcementType->setContextId($this->contextId);
         $announcementType->setName($this->getData('name'), null); // Localized
 
         // Update or insert announcement type

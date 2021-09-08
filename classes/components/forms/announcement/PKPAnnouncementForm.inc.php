@@ -66,7 +66,7 @@ class PKPAnnouncementForm extends FormComponent
             ]));
 
         $announcementTypeDao = \DAORegistry::getDAO('AnnouncementTypeDAO');
-        $announcementTypes = $announcementTypeDao->getByAssoc(\Application::get()->getContextAssocType(), $announcementContext->getId());
+        $announcementTypes = $announcementTypeDao->getByContextId($announcementContext->getId());
         $announcementOptions = [];
         foreach ($announcementTypes as $announcementType) {
             $announcementOptions[] = [

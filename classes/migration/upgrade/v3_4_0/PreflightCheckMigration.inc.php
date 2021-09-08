@@ -25,6 +25,14 @@ class PreflightCheckMigration extends Migration
      */
     public function up(): void
     {
+        // pkp/pkp-lib#6903 Prepare to add foreign key relationships
+        // Clean orphaned assoc_type/assoc_id data in announcement_types
+        $contextDao = \APP\core\Application::getContextDAO();
+        $orphanedIds = DB::table('announcement_types AS at')->leftJoin($contextDao->tableName . ' AS c', 'at.assoc_id', '=', 'c.' . $contextDao->primaryKeyColumn)->whereNull('c.' . $contextDao->primaryKeyColumn)->orWhere('at.assoc_type', '<>', \Application::get()->getContextAssocType())->distinct()->pluck('at.type_id');
+        foreach ($orphanedIds as $typeId) {
+            error_log("Removing orphaned announcement type ID ${typeId} with no matching context ID.");
+            DB::table('announcement_types')->where('type_id', '=', $typeId)->delete();
+        }
     }
 
     /**

@@ -52,7 +52,7 @@ class migrationTool extends \PKP\cliTool\CommandLineTool
     public function usage()
     {
         echo "Run a migration.\n\n"
-            . "Usage: {$this->scriptName} qualified.migration.name [up|down]\n\n";
+            . "Usage: {$this->scriptName} \\fully\\qualified\\migration\\Name [up|down]\n\n";
     }
 
     /**
@@ -60,12 +60,8 @@ class migrationTool extends \PKP\cliTool\CommandLineTool
      */
     public function execute()
     {
+        $migration = new $this->class();
         try {
-            $migration = instantiate($this->class, ['Illuminate\Database\Migrations\Migration']);
-            if (!$migration) {
-                throw new Exception('Could not instantiate "' . $this->class . '"!');
-            }
-
             $direction = $this->direction;
             $migration->$direction();
         } catch (Exception $e) {

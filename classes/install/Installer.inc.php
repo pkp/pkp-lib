@@ -439,10 +439,17 @@ class Installer
             case 'migration':
                 assert(isset($action['attr']['class']));
                 $fullClassName = $action['attr']['class'];
-                import($fullClassName);
-                $shortClassName = substr($fullClassName, strrpos($fullClassName, '.') + 1);
-                $this->log(sprintf('migration: %s', $shortClassName));
-                $migration = new $shortClassName();
+                if (strpos($fullClassName, '\\') !== false) {
+                    // Migration is specified fully-qualified PHP class name; allow autoloading
+                    $this->log(sprintf('migration: %s', $fullClassName));
+                    $migration = new $fullClassName();
+                } else {
+                    // Migration is specified using old-style class.name.like.this
+                    import($fullClassName);
+                    $shortClassName = substr($fullClassName, strrpos($fullClassName, '.') + 1);
+                    $this->log(sprintf('migration: %s', $shortClassName));
+                    $migration = new $shortClassName();
+                }
                 try {
                     $migration->up();
                     $this->migrations[] = $migration;

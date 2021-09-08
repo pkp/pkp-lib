@@ -1805,6 +1805,9 @@ msgstr "This may only contain letters."
 msgid "validator.alpha_dash"
 msgstr "This may only contain letters, numbers, dashes and underscores."
 
+msgid "validator.alpha_dash_period"
+msgstr "This may only contain letters, numbers, dashes, underscores and periods."
+
 msgid "validator.alpha_num"
 msgstr "This may only contain letters and numbers."
 

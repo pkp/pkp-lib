@@ -630,7 +630,7 @@ abstract class Repository
         return [
             'locale.regex' => __('validator.localeKey'),
             'datePublished.date_format' => __('publication.datePublished.errorFormat'),
-            'urlPath.regex' => __('validator.alpha_dash'),
+            'urlPath.regex' => __('validator.alpha_dash_period'),
         ];
     }
 }

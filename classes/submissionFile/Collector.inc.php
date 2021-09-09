@@ -50,6 +50,9 @@ class Collector implements CollectorInterface
     /** @var boolean include submission files in the SUBMISSION_FILE_DEPENDENT stage */
     protected $includeDependentFiles = false;
 
+    /** @var array get submission files matching one or more uploader users id */
+    protected $uploaderUserIds = null;
+
     /** @var int */
     public $count;
 

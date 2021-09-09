@@ -90,7 +90,3 @@ class LogMigration extends Migration
         Schema::drop('event_log');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\LogMigration', '\LogMigration');
-}

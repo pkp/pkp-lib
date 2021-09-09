@@ -58,7 +58,3 @@ class MetricsMigration extends Migration
         Schema::drop('metrics');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\MetricsMigration', '\MetricsMigration');
-}

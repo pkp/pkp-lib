@@ -39,7 +39,3 @@ class I4904_UsageStatsTemporaryRecords extends Migration
     {
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\upgrade\v3_4_0\I4904_UsageStatsTemporaryRecords', '\I4904_UsageStatsTemporaryRecords');
-}

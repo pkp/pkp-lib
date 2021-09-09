@@ -45,7 +45,3 @@ class JobsMigration extends Migration
         Schema::drop('jobs');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\JobsMigration', '\JobsMigration');
-}

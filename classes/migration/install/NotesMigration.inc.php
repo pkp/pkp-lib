@@ -45,7 +45,3 @@ class NotesMigration extends Migration
         Schema::drop('notes');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\NotesMigration', '\NotesMigration');
-}

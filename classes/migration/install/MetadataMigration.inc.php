@@ -117,7 +117,3 @@ class MetadataMigration extends Migration
         Schema::drop('citations');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\MetadataMigration', '\MetadataMigration');
-}

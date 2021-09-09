@@ -42,7 +42,3 @@ class ViewsMigration extends Migration
         Schema::drop('item_views');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\ViewsMigration', '\ViewsMigration');
-}

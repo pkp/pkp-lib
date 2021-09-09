@@ -62,7 +62,3 @@ class LibraryFilesMigration extends Migration
         Schema::drop('libraryR_files');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\LibraryFilesMigration', '\LibraryFilesMigration');
-}

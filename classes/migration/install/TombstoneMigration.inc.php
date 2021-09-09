@@ -66,7 +66,3 @@ class TombstoneMigration extends Migration
         Schema::drop('data_object_tombstones');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\TombstoneMigration', '\TombstoneMigration');
-}

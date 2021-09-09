@@ -40,7 +40,3 @@ class FilesMigration extends Migration
         Schema::drop('files');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\FilesMigration', '\FilesMigration');
-}

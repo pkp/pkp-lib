@@ -71,7 +71,3 @@ class ControlledVocabMigration extends Migration
         Schema::drop('controlled_vocabs');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\ControlledVocabMigration', '\ControlledVocabMigration');
-}

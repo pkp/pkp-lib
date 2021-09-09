@@ -201,7 +201,3 @@ class SubmissionsMigration extends Migration
         Schema::drop('submissions');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\SubmissionsMigration', '\SubmissionsMigration');
-}

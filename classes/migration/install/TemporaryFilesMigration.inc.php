@@ -45,7 +45,3 @@ class TemporaryFilesMigration extends Migration
         Schema::drop('temporary_files');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\TemporaryFilesMigration', '\TemporaryFilesMigration');
-}

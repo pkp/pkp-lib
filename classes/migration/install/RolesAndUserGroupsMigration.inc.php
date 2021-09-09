@@ -96,7 +96,3 @@ class RolesAndUserGroupsMigration extends Migration
         Schema::drop('user_groups');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\RolesAndUserGroupsMigration', '\RolesAndUserGroupsMigration');
-}

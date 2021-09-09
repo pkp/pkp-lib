@@ -84,7 +84,3 @@ class NavigationMenusMigration extends Migration
         Schema::drop('navigation_menus');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\NavigationMenusMigration', '\NavigationMenusMigration');
-}

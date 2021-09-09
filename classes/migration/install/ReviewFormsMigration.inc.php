@@ -88,7 +88,3 @@ class ReviewFormsMigration extends Migration
         Schema::drop('review_forms');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\ReviewFormsMigration', '\ReviewFormsMigration');
-}

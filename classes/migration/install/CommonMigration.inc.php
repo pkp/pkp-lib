@@ -266,7 +266,3 @@ class CommonMigration extends Migration
         Schema::drop('versions');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\CommonMigration', '\CommonMigration');
-}

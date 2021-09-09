@@ -98,7 +98,3 @@ class PKPv3_4_0UpgradeMigration extends Migration
         });
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\upgrade\PKPv3_4_0UpgradeMigration', '\PKPv3_4_0UpgradeMigration');
-}

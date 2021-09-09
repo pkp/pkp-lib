@@ -64,7 +64,3 @@ class CategoriesMigration extends Migration
         Schema::drop('publication_categories');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\CategoriesMigration', '\CategoriesMigration');
-}

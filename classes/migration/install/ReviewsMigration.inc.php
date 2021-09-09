@@ -118,7 +118,3 @@ class ReviewsMigration extends Migration
         Schema::drop('review_rounds');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\ReviewsMigration', '\ReviewsMigration');
-}

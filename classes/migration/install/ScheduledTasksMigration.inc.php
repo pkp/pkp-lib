@@ -40,7 +40,3 @@ class ScheduledTasksMigration extends Migration
         Schema::drop('scheduled_tasks');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\ScheduledTasksMigration', '\ScheduledTasksMigration');
-}

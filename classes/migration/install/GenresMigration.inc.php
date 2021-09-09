@@ -61,7 +61,3 @@ class GenresMigration extends Migration
         Schema::drop('genres');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\GenresMigration', '\GenresMigration');
-}

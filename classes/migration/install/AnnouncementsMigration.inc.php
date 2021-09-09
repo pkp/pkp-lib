@@ -81,7 +81,3 @@ class AnnouncementsMigration extends Migration
         Schema::drop('announcement_settings');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\AnnouncementsMigration', '\AnnouncementsMigration');
-}

@@ -45,7 +45,8 @@ class PKPContextForm extends FormComponent
         $this->locales = $locales;
         $this->method = $context ? 'PUT' : 'POST';
 
-        $isoCodes = new IsoCodesFactory();
+        $isoCodes = app(IsoCodesFactory::class);
+
         $countries = [];
         foreach ($isoCodes->getCountries() as $country) {
             $countries[] = [
@@ -53,6 +54,7 @@ class PKPContextForm extends FormComponent
                 'label' => $country->getLocalName()
             ];
         }
+
         usort($countries, function ($a, $b) {
             return strcmp($a['label'], $b['label']);
         });

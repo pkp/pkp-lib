@@ -248,6 +248,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
                 $q->where('sfs.setting_name', '=', 'pub-id::' . $pubIdType);
                 $q->where('sfs.setting_value', '=', $pubId);
             })
+            ->groupBy('sf.submission_file_id')
             ->value('sf.submission_file_id');
 
         if (empty($submissionFileId)) {

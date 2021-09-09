@@ -34,7 +34,7 @@ use PKP\submission\reviewRound\ReviewRound;
 
 use stdClass;
 
-abstract class DAO extends EntityDAO implements PKPPubIdPluginDAO
+class DAO extends EntityDAO implements PKPPubIdPluginDAO
 {
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_SUBMISSION_FILE;
@@ -202,9 +202,8 @@ abstract class DAO extends EntityDAO implements PKPPubIdPluginDAO
             ->where('submission_file_id', '=', $submissionFileId)
             ->delete();
 
-        DB::table('review_files')
-            ->where('submission_file_id', '=', $submissionFileId)
-            ->delete();
+        $reviewFilesDAO = DAORegistry::getDAO('ReviewFilesDAO');
+        $reviewFilesDAO->revokeBySubmissionFileId($submissionFileId);
 
         parent::deleteById($submissionFileId);
     }

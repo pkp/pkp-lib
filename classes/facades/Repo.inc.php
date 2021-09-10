@@ -37,4 +37,9 @@ class Repo
     {
         return App::make(\PKP\author\Repository::class);
     }
+
+    public static function emailTemplate(): \PKP\emailTemplate\Repository
+    {
+        return App::make(\PKP\emailTemplate\Repository::class);
+    }
 }

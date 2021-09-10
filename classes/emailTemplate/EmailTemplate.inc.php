@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/mail/EmailTemplate.inc.php
+ * @file classes/emailTemplate/EmailTemplate.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -15,7 +15,7 @@
  * @brief Describes basic email template properties.
  */
 
-namespace PKP\mail;
+namespace PKP\emailTemplate;
 
 class EmailTemplate extends \PKP\core\DataObject
 {
@@ -249,5 +249,5 @@ class EmailTemplate extends \PKP\core\DataObject
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\mail\EmailTemplate', '\EmailTemplate');
+    class_alias('\PKP\emailTemplate\EmailTemplate', '\EmailTemplate');
 }

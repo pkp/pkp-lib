@@ -15,6 +15,7 @@
 namespace PKP\components\listPanels;
 
 use PKP\components\forms\emailTemplate\PKPEmailTemplateForm;
+use PKP\emailTemplate\Collector;
 use PKP\security\Role;
 
 class PKPEmailTemplatesListPanel extends ListPanel
@@ -163,7 +164,7 @@ class PKPEmailTemplatesListPanel extends ListPanel
         $stageFilters[] = [
             'param' => 'stageIds',
             'title' => __('common.other'),
-            'value' => \PKP\services\PKPEmailTemplateService::EMAIL_TEMPLATE_STAGE_DEFAULT
+            'value' => Collector::EMAIL_TEMPLATE_STAGE_DEFAULT
         ];
 
         $config['filters'][] = [

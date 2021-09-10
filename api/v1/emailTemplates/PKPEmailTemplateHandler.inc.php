@@ -9,16 +9,19 @@
  * @class PKPEmailTemplateHandler
  * @ingroup api_v1_email_templates
  *
- * @brief Base class to handle API requests for contexts (journals/presses).
+ * @brief Base class to handle API requests for email templates.
  */
 
+use PKP\facades\Repo;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
-use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
+use PKP\plugins\HookRegistry;
+use Slim\Http\Request as SlimRequest;
+use Slim\Http\Response;
 
 class PKPEmailTemplateHandler extends APIHandler
 {
@@ -92,64 +95,57 @@ class PKPEmailTemplateHandler extends APIHandler
 
     /**
      * Get a collection of email templates
-     *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
-     * @param $args array arguments
-     *
-     * @return Response
      */
-    public function getMany($slimRequest, $response, $args)
+    public function getMany(SlimRequest $slimRequest, Response $response, array $args): Response
     {
         $request = $this->getRequest();
 
-        $allowedParams = [];
+        $collector = Repo::emailTemplate()->getCollector();
 
         // Process query params to format incoming data as needed
         foreach ($slimRequest->getQueryParams() as $param => $val) {
             switch ($param) {
-                case 'isCustom':
-                case 'isEnabled':
-                    $allowedParams[$param] = (bool) $val;
+                case 'isModified':
+                    $collector->filterByIsModified((bool) $val);
                     break;
-
+                case 'isCustom':
+                    $collector->filterByIsCustom((bool) $val);
+                    break;
+                case 'isEnabled':
+                    $collector->filterByIsEnabled((bool) $val);
+                    break;
                 case 'fromRoleIds':
+                    $collector->filterByFromRoleIds(array_map('intval', $this->paramToArray($val)));
+                    break;
                 case 'toRoleIds':
+                    $collector->filterByToRoleIds(array_map('intval', $this->paramToArray($val)));
+                    break;
                 case 'stageIds':
-                    if (is_string($val)) {
-                        $val = explode(',', $val);
-                    } elseif (!is_array($val)) {
-                        $val = [$val];
-                    }
-                    $allowedParams[$param] = array_map('intval', $val);
+                    $collector->filterByStageIds(array_map('intval', $this->paramToArray($val)));
                     break;
                 case 'searchPhrase':
-                    $allowedParams[$param] = trim($val);
+                    $collector->searchPhrase(trim($val));
+                    break;
+                case 'count':
+                    $collector->limit((int) $val);
+                    break;
+                case 'offset':
+                    $collector->offset((int) $val);
                     break;
             }
         }
 
-        \HookRegistry::call('API::emailTemplates::params', [&$allowedParams, $slimRequest]);
+        HookRegistry::call('API::emailTemplates::params', [$collector, $slimRequest]);
 
         // Always restrict results to the current context
-        $allowedParams['contextId'] = $request->getContext()->getId();
+        $collector->filterByContext($request->getContext()->getId());
 
-        $items = [];
-        $emailTemplatesIterator = Services::get('emailTemplate')->getMany($allowedParams);
-        foreach ($emailTemplatesIterator as $emailTemplate) {
-            $items[] = Services::get('emailTemplate')->getSummaryProperties($emailTemplate, [
-                'slimRequest' => $slimRequest,
-                'request' => $request,
-                'supportedLocales' => $request->getContext()->getData('supportedFormLocales'),
-            ]);
-        }
+        $emailTemplatesCollection = Repo::emailTemplate()->getMany($collector);
 
-        $data = [
-            'itemsMax' => Services::get('emailTemplate')->getMax($allowedParams),
-            'items' => $items,
-        ];
-
-        return $response->withJson($data, 200);
+        return $response->withJson([
+            'itemsMax' => Repo::emailTemplate()->getCount($collector->limit(null)->offset(null)),
+            'items' => Repo::emailTemplate()->getSchemaMap()->summarizeMany($emailTemplatesCollection),
+        ], 200);
     }
 
     /**
@@ -165,19 +161,13 @@ class PKPEmailTemplateHandler extends APIHandler
     {
         $request = $this->getRequest();
 
-        $emailTemplate = Services::get('emailTemplate')->getByKey($request->getContext()->getId(), $args['key']);
+        $emailTemplate = Repo::emailTemplate()->getByKey($request->getContext()->getId(), $args['key']);
 
         if (!$emailTemplate) {
             return $response->withStatus(404)->withJsonError('api.emailTemplates.404.templateNotFound');
         }
 
-        $data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
-            'slimRequest' => $slimRequest,
-            'request' => $request,
-            'supportedLocales' => $request->getContext()->getData('supportedFormLocales'),
-        ]);
-
-        return $response->withJson($data, 200);
+        return $response->withJson(Repo::emailTemplate()->getSchemaMap()->map($emailTemplate), 200);
     }
 
     /**
@@ -202,23 +192,17 @@ class PKPEmailTemplateHandler extends APIHandler
 
         $primaryLocale = $requestContext->getData('primaryLocale');
         $allowedLocales = $requestContext->getData('supportedFormLocales');
-        $errors = Services::get('emailTemplate')->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
+        $errors = Repo::emailTemplate()->validate(null, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $emailTemplate = Application::getContextDAO()->newDataObject();
-        $emailTemplate->setAllData($params);
-        $emailTemplate = Services::get('emailTemplate')->add($emailTemplate, $request);
+        $emailTemplate = Repo::emailTemplate()->newDataObject($params);
+        Repo::emailTemplate()->add($emailTemplate);
+        $emailTemplate = Repo::emailTemplate()->getByKey($emailTemplate->getData('contextId'), $emailTemplate->getData('key'));
 
-        $data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
-            'slimRequest' => $slimRequest,
-            'request' => $request,
-            'supportedLocales' => $requestContext->getData('supportedFormLocales'),
-        ]);
-
-        return $response->withJson($data, 200);
+        return $response->withJson(Repo::emailTemplate()->getSchemaMap()->map($emailTemplate), 200);
     }
 
     /**
@@ -235,7 +219,7 @@ class PKPEmailTemplateHandler extends APIHandler
         $request = $this->getRequest();
         $requestContext = $request->getContext();
 
-        $emailTemplate = Services::get('emailTemplate')->getByKey($requestContext->getId(), $args['key']);
+        $emailTemplate = Repo::emailTemplate()->getByKey($requestContext->getId(), $args['key']);
 
         if (!$emailTemplate) {
             return $response->withStatus(404)->withJsonError('api.emailTemplates.404.templateNotFound');
@@ -255,8 +239,8 @@ class PKPEmailTemplateHandler extends APIHandler
             $params['contextId'] = $requestContext->getId();
         }
 
-        $errors = Services::get('emailTemplate')->validate(
-            EntityWriteInterface::VALIDATE_ACTION_EDIT,
+        $errors = Repo::emailTemplate()->validate(
+            $emailTemplate,
             $params,
             $requestContext->getData('supportedFormLocales'),
             $requestContext->getData('primaryLocale')
@@ -266,15 +250,15 @@ class PKPEmailTemplateHandler extends APIHandler
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $emailTemplate = Services::get('emailTemplate')->edit($emailTemplate, $params, $request);
+        Repo::emailTemplate()->edit($emailTemplate, $params);
 
-        $data = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
-            'slimRequest' => $slimRequest,
-            'request' => $request,
-            'supportedLocales' => $requestContext->getData('supportedFormLocales'),
-        ]);
+        $emailTemplate = Repo::emailTemplate()->getByKey(
+            // context ID is null if edited for the first time
+            $emailTemplate->getData('contextId') ?? $params['contextId'],
+            $emailTemplate->getData('key')
+        );
 
-        return $response->withJson($data, 200);
+        return $response->withJson(Repo::emailTemplate()->getSchemaMap()->map($emailTemplate), 200);
     }
 
     /**
@@ -291,22 +275,17 @@ class PKPEmailTemplateHandler extends APIHandler
         $request = $this->getRequest();
         $requestContext = $request->getContext();
 
-        $emailTemplate = Services::get('emailTemplate')->getByKey($requestContext->getId(), $args['key']);
+        $emailTemplate = Repo::emailTemplate()->getByKey($requestContext->getId(), $args['key']);
 
         // Only custom email templates can be deleted, so return 404 if no id exists
         if (!$emailTemplate || !$emailTemplate->getData('id')) {
             return $response->withStatus(404)->withJsonError('api.emailTemplates.404.templateNotFound');
         }
 
-        $emailTemplateProps = Services::get('emailTemplate')->getFullProperties($emailTemplate, [
-            'slimRequest' => $slimRequest,
-            'request' => $request,
-            'supportedLocales' => $requestContext->getData('supportedFormLocales'),
-        ]);
+        $props = Repo::emailTemplate()->getSchemaMap()->map($emailTemplate);
+        Repo::emailTemplate()->delete($emailTemplate);
 
-        Services::get('emailTemplate')->delete($emailTemplate);
-
-        return $response->withJson($emailTemplateProps, 200);
+        return $response->withJson($props, 200);
     }
 
     /**
@@ -321,7 +300,7 @@ class PKPEmailTemplateHandler extends APIHandler
     public function restoreDefaults($slimRequest, $response, $args)
     {
         $contextId = $this->getRequest()->getContext()->getId();
-        $deletedKeys = Services::get('emailTemplate')->restoreDefaults($contextId);
+        $deletedKeys = Repo::emailTemplate()->restoreDefaults($contextId);
         return $response->withJson($deletedKeys, 200);
     }
 }

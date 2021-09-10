@@ -86,10 +86,10 @@ abstract class PKPStageParticipantNotifyForm extends Form
         $customTemplateKeys = [];
         $roleDao = DAORegistry::getDAO('RoleDAO');
         if ($roleDao->userHasRole($submission->getData('contextId'), $user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
-            $emailTemplates = Services::get('emailTemplate')->getMany([
-                'contextId' => $submission->getData('contextId'),
-                'isCustom' => true,
-            ]);
+            $emailTemplates = Repo::emailTemplate()->getMany(Repo::emailTemplate()->getCollector()
+                ->filterByContext($submission->getData('contextId'))
+                ->filterByIsCustom(true));
+
             foreach ($emailTemplates as $emailTemplate) {
                 $customTemplateKeys[] = $emailTemplate->getData('key');
             }

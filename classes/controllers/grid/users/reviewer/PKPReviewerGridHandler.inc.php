@@ -33,7 +33,7 @@ use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
-use PKP\mail\EmailTemplate;
+use PKP\emailtemplate\EmailTemplate;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\MailReviewerReinstated;
 use PKP\mail\mailables\MailReviewerUnassigned;
@@ -551,7 +551,7 @@ class PKPReviewerGridHandler extends GridHandler
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $user = $request->getUser();
             $context = PKPServices::get('context')->get($submission->getData('contextId'));
-            $template = PKPServices::get('emailTemplate')->getByKey($context->getId(), 'REVIEW_REINSTATE');
+            $template = Repo::emailTemplate()->getByKey($context->getId(), 'REVIEW_REINSTATE');
             $mailable = new MailReviewerReinstated($context, $submission, $reviewAssignment);
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
         }
@@ -586,7 +586,7 @@ class PKPReviewerGridHandler extends GridHandler
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $user = $request->getUser();
             $context = PKPServices::get('context')->get($submission->getData('contextId'));
-            $template = PKPServices::get('emailTemplate')->getByKey($context->getId(), 'REVIEW_CANCEL');
+            $template = Repo::emailTemplate()->getByKey($context->getId(), 'REVIEW_CANCEL');
             $mailable = new MailReviewerUnassigned($context, $submission, $reviewAssignment);
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
         }

@@ -22,7 +22,7 @@ use APP\notification\Notification;
 use DateTimeInterface;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
-use PKP\mail\EmailTemplate;
+use PKP\emailTemplate\EmailTemplate;
 
 use PKP\mail\Mail;
 use PKP\mail\MailTemplate;
@@ -192,7 +192,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
      */
     public function getNotificationContents($request, $notification): EmailTemplate
     {
-        return Services::get('emailTemplate')->getByKey($notification->getContextId(), 'STATISTICS_REPORT_NOTIFICATION');
+        return Repo::emailTemplate()->getByKey($notification->getContextId(), 'STATISTICS_REPORT_NOTIFICATION');
     }
 
     /**

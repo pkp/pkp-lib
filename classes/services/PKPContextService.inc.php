@@ -586,7 +586,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                 ->filterByContextIds([$context->getId()])
         );
 
-        Services::get('emailTemplate')->restoreDefaults($context->getId());
+        Repo::emailTemplate()->restoreDefaults($context->getId());
 
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
         $pluginSettingsDao->deleteByContextId($context->getId());

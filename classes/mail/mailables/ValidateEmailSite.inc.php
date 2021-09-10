@@ -15,9 +15,9 @@
 
 namespace PKP\mail\mailables;
 
-use PKP\core\PKPServices;
+use PKP\facades\Repo;
 use PKP\mail\Mailable;
-use PKP\mail\EmailTemplate;
+use PKP\emailTemplate\EmailTemplate;
 use PKP\site\Site;
 
 class ValidateEmailSite extends Mailable
@@ -33,6 +33,6 @@ class ValidateEmailSite extends Mailable
 
     public function getTemplate(int $contextId) : EmailTemplate
     {
-        return PKPServices::get('emailTemplate')->getByKey($contextId, self::EMAIL_KEY);
+        return Repo::emailTemplate()->getByKey($contextId, self::EMAIL_KEY);
     }
 }

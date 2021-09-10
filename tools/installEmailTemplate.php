@@ -13,6 +13,8 @@
  * @brief CLI tool to install email templates from PO files into the database.
  */
 
+use PKP\facades\Repo;
+
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
 
@@ -66,8 +68,7 @@ class installEmailTemplates extends CommandLineTool
         }
 
         // Install to the database
-        $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /** @var EmailTemplateDAO $emailTemplateDao */
-        $emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), $locales, false, $this->_emailKey);
+        Repo::emailTemplate()->dao->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $locales, $this->_emailKey);
     }
 }
 

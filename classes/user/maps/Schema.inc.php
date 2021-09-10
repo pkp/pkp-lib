@@ -24,11 +24,9 @@ use PKP\user\User;
 
 class Schema extends \PKP\core\maps\Schema
 {
-    /** @var Enumerable */
-    public $collection;
+    public Enumerable $collection;
 
-    /** @var string */
-    public $schema = PKPSchemaService::SCHEMA_USER;
+    public string $schema = PKPSchemaService::SCHEMA_USER;
 
     public function __construct(Request $request, Context $context, PKPSchemaService $schemaService)
     {

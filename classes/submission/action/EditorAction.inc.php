@@ -187,7 +187,7 @@ class EditorAction
             if (!$request->getUserVar('skipEmail')) {
                 $context = PKPServices::get('context')->get($submission->getData('contextId'));
                 $user = $request->getUser();
-                $emailTemplate = PKPServices::get('emailTemplate')->getByKey($submission->getData('contextId'), $request->getUserVar('template'));
+                $emailTemplate = Repo::emailTemplate()->getByKey($submission->getData('contextId'), $request->getUserVar('template'));
                 $emailBody = $request->getUserVar('personalMessage');
                 $emailSubject = $emailTemplate->getLocalizedData('subject');
                 $mailable = $this->createMail($submission, $reviewAssignment, $reviewer, $user, $emailBody, $emailSubject, $context);

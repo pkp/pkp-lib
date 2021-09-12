@@ -433,3 +433,30 @@ msgstr "Send a copy of the submission acknowledgement email to this preprint ser
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled.description"
 msgstr "No primary contact has been defined for this preprint server. You can enter a primary contact in the <a href="{$url}">preprint server settings</a>"
+
+msgid "emailTemplate.variable.context.contextName"
+msgstr "The server's name"
+
+msgid "emailTemplate.variable.context.contextUrl"
+msgstr "The URL to the server's homepage"
+
+msgid "emailTemplate.variable.context.contactName"
+msgstr "The name of the server's primary contact"
+
+msgid "emailTemplate.variable.context.principalContactSignature"
+msgstr "The server's email signature for automated emails"
+
+msgid "emailTemplate.variable.context.contactEmail"
+msgstr "The email address of the server's primary contact"
+
+msgid "emailTemplate.variable.queuedPayment.itemName"
+msgstr "The name of the type of payment"
+
+msgid "emailTemplate.variable.queuedPayment.itemCost"
+msgstr "The payment amount"
+
+msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
+msgstr "The currency of the payment amount, such as USD"
+
+msgid "emailTemplate.variable.site.siteTitle"
+msgstr "Name of the website when more than one server is hosted"

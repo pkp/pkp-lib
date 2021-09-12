@@ -37,7 +37,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
      */
     public function __construct($argv = [])
     {
-        Application::get()->initializeLaravelContainer();
         parent::__construct($argv);
 
         if (!isset($this->argv[0]) || !in_array($this->argv[0], ['check', 'latest', 'upgrade', 'download'])) {

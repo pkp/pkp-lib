@@ -29,14 +29,11 @@ namespace PKP\install;
 
 use APP\core\Application;
 use APP\core\Services;
+use PKP\facades\Locale;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
-use Illuminate\Config\Repository;
-use Illuminate\Database\DatabaseServiceProvider;
-use Illuminate\Events\EventServiceProvider;
+use Illuminate\Support\Facades\Config as FacadesConfig;
 use PKP\config\Config;
 use PKP\core\Core;
-use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\security\Role;
@@ -74,7 +71,7 @@ class PKPInstall extends Installer
         if (!isset($this->installedLocales) || !is_array($this->installedLocales)) {
             $this->installedLocales = [];
         }
-        if (!in_array($this->locale, $this->installedLocales) && AppLocale::isLocaleValid($this->locale)) {
+        if (!in_array($this->locale, $this->installedLocales) && Locale::isLocaleValid($this->locale)) {
             array_push($this->installedLocales, $this->locale);
         }
 
@@ -87,8 +84,9 @@ class PKPInstall extends Installer
             $driver = 'mysql';
         }
 
-        $items['database']['default'] = $driver;
-        $items['database']['connections'][$driver] = [
+        $config = FacadesConfig::get('database');
+        $config['default'] = $driver;
+        $config['connections'][$driver] = [
             'driver' => $driver,
             'host' => $this->getParam('databaseHost'),
             'database' => $this->getParam('databaseName'),
@@ -97,17 +95,7 @@ class PKPInstall extends Installer
             'charset' => $connectionCharset == 'latin1' ? 'latin1' : 'utf8',
             'collation' => 'utf8_general_ci',
         ];
-
-        try {
-            // Register database and related services in the container
-            $laravelContainer = PKPContainer::getInstance();
-            $laravelContainer->instance('config', new Repository($items));
-            $laravelContainer->register(new EventServiceProvider($laravelContainer));
-            $laravelContainer->register(new DatabaseServiceProvider($laravelContainer));
-        } catch (Exception $e) {
-            $this->setError(Installer::INSTALLER_ERROR_DB, $e->getMessage());
-            return false;
-        }
+        FacadesConfig::set('database', $config);
 
         return parent::preInstall();
     }

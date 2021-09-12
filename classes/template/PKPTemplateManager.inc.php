@@ -906,17 +906,6 @@ class PKPTemplateManager extends Smarty
             ]
         );
 
-        // If there's a locale-specific stylesheet, add it.
-        if (($localeStyleSheet = AppLocale::getLocaleStyleSheet(AppLocale::getLocale())) != null) {
-            $this->addStyleSheet(
-                'pkpLibLocale',
-                $request->getBaseUrl() . '/' . $localeStyleSheet,
-                [
-                    'contexts' => ['backend'],
-                ]
-            );
-        }
-
         // Set up required state properties
         $this->setState([
             'menu' => [],

@@ -21,13 +21,20 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\i18n\AppLocale;
 use APP\statistics\StatisticsHelper;
+use DateTime;
+use DateTimeZone;
+use DomainException;
 use Exception;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
-
+use PKP\session\SessionManager;
 use PKP\db\DAORegistry;
 use PKP\i18n\PKPLocale;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
+use PKP\site\VersionCheck;
+use PKP\site\VersionDAO;
 use PKP\statistics\PKPStatisticsHelper;
 
 interface iPKPApplicationInfoProvider
@@ -199,23 +206,23 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
         Registry::set('application', $this);
 
-        PKPString::init();
-
         $microTime = Core::microtime();
         Registry::set('system.debug.startTime', $microTime);
 
         $notes = [];
         Registry::set('system.debug.notes', $notes);
 
-        if (Config::getVar('general', 'installed')) {
-            $this->initializeLaravelContainer();
-        }
+        $this->initializeLaravelContainer();
+        PKPString::init();
+
+        // Load default locale files
+        Locale::registerFolder(BASE_SYS_DIR . '/lib/pkp/locale');
     }
 
     /**
      * Initialize Laravel container and register service providers
      */
-    public function initializeLaravelContainer()
+    public function initializeLaravelContainer(): void
     {
         // Ensure multiple calls to this function don't cause trouble
         static $containerInitialized = false;
@@ -229,10 +236,60 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $laravelContainer = new PKPContainer();
         $laravelContainer->registerConfiguredProviders();
 
+        // Add the application version as a cache invalidator (avoid unstable deserializations due to structural changes)
+        if (Cache::getStore() instanceof \ElcoBvg\Opcache\Store) {
+            Cache::setSubDirectory(preg_replace('/[^\da-z.]/i', '-', VersionCheck::getCurrentCodeVersion()->getVersionString()));
+        }
+        $this->initializeTimeZone();
+
         if (Config::getVar('database', 'debug')) {
-            \Illuminate\Support\Facades\DB::listen(function ($query) {
+            DB::listen(function ($query) {
                 error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings));
             });
+        }
+    }
+
+    /**
+     * Setup the internal time zone for the database and PHP.
+     */
+    protected function initializeTimeZone(): void
+    {
+        $timeZone = null;
+        // Loads the time zone from the configuration file
+        if ($setting = Config::getVar('general', 'time_zone')) {
+            try {
+                $timeZone = (new DateTimeZone($setting))->getName();
+            } catch (Exception $e) {
+                $setting = strtolower($setting);
+                foreach (DateTimeZone::listIdentifiers() as $identifier) {
+                    // Backward compatibility identification
+                    if ($setting == strtolower(preg_replace(['/^\w+\//', '/_/'], ['', ' '], $identifier))) {
+                        $timeZone = $identifier;
+                        break;
+                    }
+                }
+            }
+        }
+        // Set the default timezone
+        date_default_timezone_set($timeZone ?: ini_get('date.timezone') ?: 'UTC');
+
+        // Synchronize the database time zone
+        if (Application::isInstalled()) {
+            // Retrieve the current offset
+            $offset = (new DateTime())->format('P');
+
+            // Setup the database time zone
+            switch (get_class(DB::connection())) {
+                case \Illuminate\Database\MySqlConnection::class:
+                    $statement = "SET time_zone = '$offset'";
+                    break;
+                case \Illuminate\Database\PostgresConnection::class:
+                    $statement = "SET TIME ZONE INTERVAL '$offset' HOUR TO MINUTE";
+                    break;
+                default:
+                    throw new DomainException('Unrecognized database');
+            }
+            DB::statement($statement);
         }
     }
 
@@ -511,7 +568,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'SubmissionKeywordEntryDAO' => 'PKP\submission\SubmissionKeywordEntryDAO',
             'SubmissionSubjectDAO' => 'PKP\submission\SubmissionSubjectDAO',
             'SubmissionSubjectEntryDAO' => 'PKP\submission\SubmissionSubjectEntryDAO',
-            'TimeZoneDAO' => 'PKP\i18n\TimeZoneDAO',
             'TemporaryFileDAO' => 'PKP\file\TemporaryFileDAO',
             'UserGroupAssignmentDAO' => 'PKP\security\UserGroupAssignmentDAO',
             'UserGroupDAO' => 'PKP\security\UserGroupDAO',

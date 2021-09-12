@@ -134,8 +134,6 @@ class Dispatcher
             fatalError('None of the configured routers supports this request.');
         }
 
-        AppLocale::initialize($request);
-
         // Can we serve a cached response?
         if ($router->isCacheable($request)) {
             $this->_requestCallbackHack = & $request;

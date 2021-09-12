@@ -72,20 +72,6 @@ class OPSMigration extends Migration
             $table->unique(['section_id', 'locale', 'setting_name'], 'section_settings_pkey');
         });
 
-        // Archived, removed from TOC, unscheduled or unpublished server preprints.
-        Schema::create('submission_tombstones', function (Blueprint $table) {
-            $table->bigInteger('tombstone_id')->autoIncrement();
-            $table->bigInteger('submission_id');
-            $table->datetime('date_deleted');
-            $table->bigInteger('server_id');
-            $table->bigInteger('section_id');
-            $table->string('set_spec', 255);
-            $table->string('set_name', 255);
-            $table->string('oai_identifier', 255);
-            $table->index(['server_id'], 'submission_tombstones_server_id');
-            $table->index(['submission_id'], 'submission_tombstones_submission_id');
-        });
-
         // Publications
         Schema::create('publications', function (Blueprint $table) {
             $table->bigInteger('publication_id')->autoIncrement();
@@ -146,7 +132,6 @@ class OPSMigration extends Migration
         Schema::drop('server_settings');
         Schema::drop('sections');
         Schema::drop('section_settings');
-        Schema::drop('submission_tombstones');
         Schema::drop('publications');
         Schema::drop('publication_galleys');
         Schema::drop('publication_galley_settings');

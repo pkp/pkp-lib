@@ -52,9 +52,3 @@ msgstr "The version that you requested is not part of this submission."
 
 msgid "api.submissionFiles.400.badRepresentationAssocType"
 msgstr "You can not associated a file from this file stage with a galley."
-
-msgid "api.publications.400.noRelations"
-msgstr "You must indicate if this preprint is related to a publication."
-
-msgid "api.publications.400.invalidRelation"
-msgstr "The relationStatus you passed is not valid."

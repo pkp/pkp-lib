@@ -222,8 +222,11 @@ class Repository extends \PKP\publication\Repository
     /**
      * Set the DOI of a related preprint
      */
-    public function relate(Publication $publication, int $relationStatus, string $vorDoi)
+    public function relate(Publication $publication, int $relationStatus, ?string $vorDoi = '')
     {
+        if ($relationStatus !== Publication::PUBLICATION_RELATION_PUBLISHED) {
+            $vorDoi = '';
+        }
         $this->edit($publication, [
             'relationStatus' => $relationStatus,
             'vorDoi' => $vorDoi,
@@ -263,5 +266,15 @@ class Repository extends \PKP\publication\Repository
 
         // If the user is not an author, has to be an editor, return true
         return true;
+    }
+
+    /**
+     * @copydoc \PKP\publication\Repository::getErrorMessageOverrides
+     */
+    protected function getErrorMessageOverrides(): array
+    {
+        $overrides = parent::getErrorMessageOverrides();
+        $overrides['relationStatus'] = __('validation.invalidOption');
+        return $overrides;
     }
 }

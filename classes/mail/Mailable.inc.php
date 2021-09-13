@@ -203,9 +203,23 @@ class Mailable extends IlluminateMailable
         $map = static::templateVariablesMap();
         $variables = [];
 
-        $traits = class_uses(static::class);
+        // check presence of traits in the current class and parents
+        $traits = class_uses(static::class) ?: [];
+        if ($parents = class_parents(static::class)) {
+            foreach ($parents as $parent) {
+                $parentTraits = class_uses($parent);
+                if (!$parentTraits) {
+                    continue;
+                }
 
-        if ($traits) {
+                $traits = array_merge(
+                    $traits,
+                    $parentTraits
+                );
+            }
+        }
+
+        if (!empty($traits)) {
             if (array_key_exists(Recipient::class, $traits)) {
                 $variables = array_merge(
                     $variables,

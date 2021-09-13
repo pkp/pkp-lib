@@ -307,7 +307,7 @@ msgstr "Server main page views"
 
 msgid "manager.statistics.reports.filters.byObject.description"
 msgstr "Narrow results by object type (server, preprint, file types) and/or by one or more object id(s)."
-\t
+
 msgid "grid.category.path"
 msgstr "Path"
 
@@ -345,7 +345,7 @@ msgid "plugins.importexport.common.missingRequirements"
 msgstr "Plugin requirements not met"
 
 msgid "plugins.importexport.common.error.DOIsNotAvailable"
-msgstr "In order to use this plugin please go to the "Public Identifier" plugin category, enable and configure the DOI plugin and specify a valid DOI prefix there."
+msgstr "In order to use this plugin please go to the \"Public Identifier\" plugin category, enable and configure the DOI plugin and specify a valid DOI prefix there."
 
 msgid "plugins.importexport.common.error.pluginNotConfigured"
 msgstr "The plugin is not fully set up."

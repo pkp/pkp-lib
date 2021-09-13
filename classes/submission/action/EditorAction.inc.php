@@ -318,7 +318,8 @@ class EditorAction
 
         // Additional template variable
         $mailable->addVariables([
-            'reviewerName' => $mailable->viewData['userFullName']
+            'reviewerName' => $mailable->viewData['userFullName'],
+            'reviewerUserName' => $mailable->viewData['username'],
         ]);
 
         return $mailable;

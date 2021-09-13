@@ -21,6 +21,7 @@ use APP\author\Author;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
@@ -72,7 +73,16 @@ class DAO extends EntityDAO
      */
     public function get(int $id): ?Author
     {
-        return parent::get($id);
+        // This is ovveriden due to the need to include submission_locale
+        // to the fromRow function
+        $row = DB::table('authors as a')
+            ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
+            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
+            ->where('a.author_id', '=', $id)
+            ->select(['*', 's.locale AS submission_locale'])
+            ->first();
+
+        return $row ? $this->fromRow($row) : null;
     }
 
     /**
@@ -103,6 +113,7 @@ class DAO extends EntityDAO
     {
         $rows = $query
             ->getQueryBuilder()
+            ->select(['*', 's.locale AS submission_locale'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {
@@ -120,9 +131,7 @@ class DAO extends EntityDAO
         $author = parent::fromRow($row);
 
         // Set the primary locale from the submission
-        if (property_exists($row, 'submission_locale')) {
-            $author->setData('locale', $row->submission_locale);
-        }
+        $author->setData('locale', $row->submission_locale);
 
         return $author;
     }

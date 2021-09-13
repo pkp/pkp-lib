@@ -45,7 +45,8 @@
 			"description": "The DOI of the VOR version.",
 			"apiSummary": true,
 			"validation": [
-				"nullable"
+				"nullable",
+				"url"
 			]
 		}
 	}

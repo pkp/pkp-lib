@@ -14,13 +14,14 @@
  *
  */
 
-import('lib.pkp.api.v1.submissions.PKPSubmissionHandler');
-
+use APP\core\Services;
 use APP\facades\Repo;
 
-use APP\publication\Publication;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
+use PKP\services\PKPSchemaService;
+
+import('lib.pkp.api.v1.submissions.PKPSubmissionHandler');
 
 class SubmissionHandler extends PKPSubmissionHandler
 {
@@ -88,25 +89,35 @@ class SubmissionHandler extends PKPSubmissionHandler
             return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
         }
 
-        $relationStatus = (int) $slimRequest->getParam('relationStatus');
-        $vorDoi = trim((string) $slimRequest->getParam('vorDoi'));
+        // Only accept publication props for relations
+        $params = array_intersect_key($slimRequest->getParsedBody(), array_flip(['relationStatus', 'vorDoi']));
 
-        if (empty($relationStatus)) {
-            return $response->withJson([
-                'relationStatus' => [__('api.publications.400.noRelations')],
-            ], 400);
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $params);
+
+        // Required in this handler
+        if (!isset($params['relationStatus'])) {
+            return $response->withStatus(400)->withJson(['relationStatus' => [__('validator.filled')]]);
         }
 
-
-        $validRelations = [
-            Publication::PUBLICATION_RELATION_NONE,
-            Publication::PUBLICATION_RELATION_SUBMITTED,
-            Publication::PUBLICATION_RELATION_PUBLISHED,
-        ];
-        if (!in_array($relationStatus, $validRelations)) {
-            return $response->withStatus(403)->withJsonError('api.publications.400.invalidRelation');
+        // Validate against the schema
+        $submissionContext = $request->getContext();
+        if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
+            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
-        Repo::publication()->relate($publication, $relationStatus, $vorDoi);
+        $primaryLocale = $publication->getData('locale');
+        $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
+
+        $errors = Repo::publication()->validate($publication, $params, $allowedLocales, $primaryLocale);
+
+        if (!empty($errors)) {
+            return $response->withStatus(400)->withJson($errors);
+        }
+
+        Repo::publication()->relate(
+            $publication,
+            $params['relationStatus'],
+            $params['vorDoi'] ?? ''
+        );
 
         $publication = Repo::publication()->get($publication->getId());
 

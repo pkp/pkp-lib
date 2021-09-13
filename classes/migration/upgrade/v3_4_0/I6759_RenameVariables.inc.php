@@ -77,12 +77,6 @@ class I6759_RenameVariables extends Migration
             $table->renameColumn('journal_id', 'server_id');
             $table->index(['server_id'], 'sections_server_id');
         });
-
-        Schema::table('submission_tombstones', function (Blueprint $table) {
-            $table->dropIndex('submission_tombstones_journal_id');
-            $table->renameColumn('journal_id', 'server_id');
-            $table->index(['server_id'], 'submission_tombstones_server_id');
-        });
     }
 
 

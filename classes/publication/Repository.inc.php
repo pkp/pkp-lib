@@ -155,11 +155,7 @@ abstract class Repository
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),
-            [
-                'locale.regex' => __('validator.localeKey'),
-                'datePublished.date_format' => __('publication.datePublished.errorFormat'),
-                'urlPath.regex' => __('validator.alpha_dash'),
-            ]
+            $this->getErrorMessageOverrides(),
         );
 
         ValidatorFactory::required(
@@ -624,5 +620,17 @@ abstract class Repository
         }
 
         return false;
+    }
+
+    /**
+     * Get error message overrides for the validator
+     */
+    protected function getErrorMessageOverrides(): array
+    {
+        return [
+            'locale.regex' => __('validator.localeKey'),
+            'datePublished.date_format' => __('publication.datePublished.errorFormat'),
+            'urlPath.regex' => __('validator.alpha_dash'),
+        ];
     }
 }

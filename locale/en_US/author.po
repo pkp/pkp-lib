@@ -14,10 +14,10 @@ msgstr ""
 msgid "author.submit"
 msgstr "New Submission"
 
-msgid "author.competingInterests">
+msgid "author.competingInterests"
 msgstr "Competing interests <a target=\"_new\" class=\"action\" href=\"{$competingInterestGuidelinesUrl}\">CI Policy</a>"
 
-msgid "author.submit.startHereLink">
+msgid "author.submit.startHereLink"
 msgstr "<a href=\"{$submitUrl}\" class=\"action\">Click here</a> to go to step one of the five-step submission process."
 
 msgid "author.submit.start"
@@ -53,7 +53,7 @@ msgstr "Comments for the Moderator"
 msgid "author.submit.form.sectionRequired"
 msgstr "Please select an appropriate server section for this submission."
 
-msgid "author.submit.languageInstructions">
+msgid "author.submit.languageInstructions"
 msgstr "English=en; French=fr; Spanish=es. <a href=\"http://www.loc.gov/standards/iso639-2/php/code_list.php\" target=\"_blank\">Additional codes</a>."
 
 msgid "author.submit.form.abstractRequired"

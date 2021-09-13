@@ -15,7 +15,7 @@
 
 namespace PKP\mail\variables;
 
-use APP\article\Author;
+use PKP\submission\PKPAuthor as Author;
 use PKP\core\PKPApplication;
 use PKP\i18n\PKPLocale;
 use PKP\publication\PKPPublication;

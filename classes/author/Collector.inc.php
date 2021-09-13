@@ -156,8 +156,6 @@ class Collector implements CollectorInterface
             ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
             ->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
 
-        $q->select(['*', 's.locale AS submission_locale']);
-
         if (isset($this->contextIds)) {
             $q->whereIn('s.context_id', $this->contextIds);
         }

@@ -50,9 +50,22 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 		foreach ($reviewAssignments as $reviewAssignment) {
 			if ($context->getData('restrictReviewerFileAccess') && !$reviewAssignment->getDateConfirmed()) continue;
 
+			// Determine which file stage the requested file should be in.
+			$reviewFileStage = null;
+			switch ($reviewAssignment->getStageId()) {
+			case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+				$reviewFileStage = SUBMISSION_FILE_INTERNAL_REVIEW_FILE;
+				break;
+			case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+				$reviewFileStage = SUBMISSION_FILE_REVIEW_FILE;
+				break;
+			default: throw new Exception('Unknown review workflow stage ID!');
+			}
+
+			// Check to make sure that the requested file meets expectations.
 			if (
 				$submissionFile->getData('submissionId') == $reviewAssignment->getSubmissionId() &&
-				$submissionFile->getData('fileStage') == SUBMISSION_FILE_REVIEW_FILE &&
+				$submissionFile->getData('fileStage') == $reviewFileStage &&
 				$reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getId())
 			) {
 				$this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);

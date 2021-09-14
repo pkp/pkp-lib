@@ -16,25 +16,30 @@
 namespace PKP\controllers\grid\users\reviewer;
 
 use APP\core\Application;
-
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
+use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
+use PKP\core\PKPServices;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
+use PKP\mail\EmailTemplate;
+use PKP\mail\Mailable;
+use PKP\mail\mailables\MailReviewerReinstated;
+use PKP\mail\mailables\MailReviewerUnassigned;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
-
+use PKP\notification\PKPNotificationManager;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -42,10 +47,15 @@ use PKP\security\Role;
 
 // FIXME: Add namespacing
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
+
+use PKP\user\User;
+use ReinstateReviewerForm;
 use ReviewerGridCellProvider;
 
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
 use ReviewerGridRow;
+use Swift_TransportException;
+use UnassignReviewerForm;
 
 class PKPReviewerGridHandler extends GridHandler
 {
@@ -536,7 +546,16 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false, __('editor.review.errorReinstatingReviewer'));
         }
 
-        $reinstateReviewerForm->execute();
+        // Create mailable and send email
+        if ($reinstateReviewerForm->execute() && !$request->getUserVar('skipEmail')) {
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            $user = $request->getUser();
+            $context = PKPServices::get('context')->get($submission->getData('contextId'));
+            $template = PKPServices::get('emailTemplate')->getByKey($context->getId(), 'REVIEW_REINSTATE');
+            $mailable = new MailReviewerReinstated($context, $submission, $reviewAssignment);
+            $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
+        }
+
         return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
     }
 
@@ -562,7 +581,16 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
         }
 
-        $unassignReviewerForm->execute();
+        // Create mailable and send email
+        if ($unassignReviewerForm->execute() && !$request->getUserVar('skipEmail')) {
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            $user = $request->getUser();
+            $context = PKPServices::get('context')->get($submission->getData('contextId'));
+            $template = PKPServices::get('emailTemplate')->getByKey($context->getId(), 'REVIEW_CANCEL');
+            $mailable = new MailReviewerUnassigned($context, $submission, $reviewAssignment);
+            $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
+        }
+
         return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
     }
 
@@ -1090,6 +1118,38 @@ class PKPReviewerGridHandler extends GridHandler
             'sendEmail',
             'gossip',
         ];
+    }
+
+    /**
+     * Creates and sends email to the reviewer
+     */
+    protected function createMail(Mailable $mailable, string $emailBody, EmailTemplate $template, User $sender, User $reviewer) : void
+    {
+
+        if ($subject = $template->getLocalizedData('subject')) {
+            $mailable->subject($subject);
+        }
+
+        $mailable
+            ->body($emailBody)
+            ->setSender($sender)
+            ->setRecipients([$reviewer]);
+
+        $mailable->addVariables([
+            'reviewerName' => $mailable->viewData['userFullName']
+        ]);
+
+        try {
+            Mail::send($mailable);
+        } catch (Swift_TransportException $e) {
+            $notificationMgr = new PKPNotificationManager();
+            $notificationMgr->createTrivialNotification(
+                $sender->getId(),
+                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                ['contents' => __('email.compose.error')]
+            );
+            trigger_error($e->getMessage(), E_USER_WARNING);
+        }
     }
 }
 

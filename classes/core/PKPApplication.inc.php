@@ -25,6 +25,7 @@ use Exception;
 use PKP\config\Config;
 
 use PKP\db\DAORegistry;
+use PKP\i18n\PKPLocale;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;

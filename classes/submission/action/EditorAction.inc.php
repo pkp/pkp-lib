@@ -22,7 +22,13 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\workflow\EditorDecisionActionsManager;
 
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
+use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
+use PKP\core\PKPServices;
 use PKP\db\DAORegistry;
 use PKP\log\PKPSubmissionEventLogEntry;
 
@@ -30,9 +36,15 @@ use PKP\log\PKPSubmissionEventLogEntry;
 import('classes.workflow.EditorDecisionActionsManager');
 
 use PKP\log\SubmissionLog;
+use PKP\mail\mailables\MailReviewerAssigned;
 use PKP\notification\PKPNotification;
+use PKP\notification\PKPNotificationManager;
 use PKP\plugins\HookRegistry;
+use PKP\security\AccessKeyManager;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\user\User;
+use Swift_TransportException;
 
 class EditorAction
 {
@@ -170,6 +182,28 @@ class EditorAction
 
             // Add log
             SubmissionLog::logEvent($request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ASSIGN, 'log.review.reviewerAssigned', ['reviewAssignmentId' => $reviewAssignment->getId(), 'reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $stageId, 'round' => $round]);
+
+            // Send mail
+            if (!$request->getUserVar('skipEmail')) {
+                $context = PKPServices::get('context')->get($submission->getData('contextId'));
+                $user = $request->getUser();
+                $emailTemplate = PKPServices::get('emailTemplate')->getByKey($submission->getData('contextId'), $request->getUserVar('template'));
+                $emailBody = $request->getUserVar('personalMessage');
+                $emailSubject = $emailTemplate->getLocalizedData('subject');
+                $mailable = $this->createMail($submission, $reviewAssignment, $reviewer, $user, $emailBody, $emailSubject, $context);
+
+                try {
+                    Mail::send($mailable);
+                } catch (Swift_TransportException $e) {
+                    $notificationMgr = new PKPNotificationManager();
+                    $notificationMgr->createTrivialNotification(
+                        $request->getUser()->getId(),
+                        PKPNotification::NOTIFICATION_TYPE_ERROR,
+                        ['contents' => __('email.compose.error')]
+                    );
+                    trigger_error($e->getMessage(), E_USER_WARNING);
+                }
+            }
         }
     }
 
@@ -240,6 +274,55 @@ class EditorAction
     public function incrementWorkflowStage($submission, $newStage)
     {
         Repo::submission()->edit($submission, ['stageId' => $newStage]);
+    }
+
+    protected function createMail(
+        PKPSubmission $submission,
+        ReviewAssignment $reviewAssignment,
+        User $reviewer,
+        User $sender,
+        string $emailBody,
+        string $emailSubject,
+        Context $context
+    ) : Mailable
+    {
+        $mailable = new MailReviewerAssigned($context, $submission, $reviewAssignment);
+
+        if ($context->getData('reviewerAccessKeysEnabled')) {
+            // Overwrite default submissionReviewUrl variable value
+            $accessKeyManager = new AccessKeyManager();
+            $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
+            $accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewAssignment->getId(), $expiryDays);
+            $mailable->addVariables([
+                'submissionReviewUrl' => PKPApplication::get()->getDispatcher()->url(
+                    PKPApplication::get()->getRequest(),
+                    PKPApplication::ROUTE_PAGE,
+                    $context->getData('urlPath'),
+                    'reviewer',
+                    'submission',
+                    null,
+                    [
+                        'submissionId' => $reviewAssignment->getSubmissionId(),
+                        'reviewId' => $reviewAssignment->getId(),
+                        'key' => $accessKey,
+                    ]
+                )
+            ]);
+        }
+
+        $mailable
+            ->body($emailBody)
+            ->subject($emailSubject)
+            ->setSender($sender)
+            ->setRecipients([$reviewer]);
+
+        // Additional template variable
+        $mailable->addVariables([
+            'reviewerName' => $mailable->viewData['userFullName'],
+            'reviewerUserName' => $mailable->viewData['username'],
+        ]);
+
+        return $mailable;
     }
 }
 

@@ -328,48 +328,7 @@ class RegistrationForm extends Form
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $this->getData('interests'));
 
-        if ($requireValidation) {
-            // Create an access key
-            $accessKeyManager = new AccessKeyManager();
-            $accessKey = $accessKeyManager->createKey('RegisterContext', $user->getId(), null, Config::getVar('email', 'validation_timeout'));
-
-            // Send email validation request to user
-            $mail = new MailTemplate('USER_VALIDATE');
-            $this->_setMailFrom($request, $mail);
-            $context = $request->getContext();
-            $contextPath = $context ? $context->getPath() : null;
-            $mail->assignParams([
-                'userFullName' => $user->getFullName(),
-                'contextName' => $context ? $context->getLocalizedName() : $site->getLocalizedTitle(),
-                'activateUrl' => $request->url($contextPath, 'user', 'activateUser', [$this->getData('username'), $accessKey])
-            ]);
-            $mail->addRecipient($user->getEmail(), $user->getFullName());
-            if (!$mail->send()) {
-                $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
-            }
-            unset($mail);
-        }
         return $userId;
-    }
-
-    /**
-     * Set mail from address
-     *
-     * @param $request PKPRequest
-     * @param $mail MailTemplate
-     */
-    public function _setMailFrom($request, $mail)
-    {
-        $site = $request->getSite();
-        $context = $request->getContext();
-
-        // Set the sender based on the current context
-        if ($context && $context->getData('supportEmail')) {
-            $mail->setReplyTo($context->getData('supportEmail'), $context->getData('supportName'));
-        } else {
-            $mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-        }
     }
 }
 

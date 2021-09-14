@@ -2090,3 +2090,54 @@ msgstr "Process failed to parse authors"
 
 msgid "plugins.importexport.publication.exportFailed"
 msgstr "Process failed to parse publications"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "The URL to a page where the user can recover a lost password"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "The full name of the recipient or all recipients"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "The username of the recipient or all recipients"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Date when the reviewer should accept or decline the assignment"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Date when the review should be completed"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "The URL to the review assignment"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "The full name of the sender"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "The email address of the sender"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "The email signature of the sender"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "The full name of the website's primary contact"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "The editors assigned to this submission who can make a decision"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "The submission's title"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "The submission's unique ID number"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "The submission's abstract"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Author names in a form of a shortened string"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "The full names of the authors"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "The URL to the submission in the editorial backend"

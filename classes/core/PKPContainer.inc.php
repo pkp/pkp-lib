@@ -90,6 +90,7 @@ class PKPContainer extends Container
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new \Illuminate\Queue\QueueServiceProvider($this));
+        $this->register(new MailServiceProvider($this));
         $this->register(new AppServiceProvider($this));
     }
 
@@ -164,6 +165,23 @@ class PKPContainer extends Container
             'table' => 'jobs',
             'queue' => 'default',
             'retry_after' => 90,
+        ];
+
+        // Mail Service
+        $items['mail']['default'] = Config::getVar('email', 'smtp') ? 'smtp' : 'sendmail';
+        $items['mail']['mailers']['sendmail'] = [
+            'transport' => 'sendmail',
+            'path' => Config::getVar('email', 'sendmail_path'),
+        ];
+        $items['mail']['mailers']['smtp'] = [
+            'transport' => 'smtp',
+            'host' => Config::getVar('email', 'smtp_server'),
+            'port' => Config::getVar('email', 'smtp_port'),
+            'encryption' => Config::getVar('email', 'smtp_auth'),
+            'username' => Config::getVar('email', 'smtp_username'),
+            'password' => Config::getVar('email', 'smtp_password'),
+            'timeout' => null,
+            'auth_mode' => null,
         ];
 
         $this->instance('config', new Repository($items)); // create instance and bind to use globally

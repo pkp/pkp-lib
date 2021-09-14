@@ -15,9 +15,10 @@
  * @brief Class defining operations for AccessKey management.
  */
 
-namespace PKP\db;
+namespace PKP\security;
 
-use PKP\security\AccessKey;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 
 class AccessKeyManager
 {

@@ -31,7 +31,7 @@
 			symbolic="author=>native-xml"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
-			inputType="class::classes.preprint.Author[]"
+			inputType="class::classes.author.Author[]"
 			outputType="xml::schema(plugins/importexport/native/native.xsd)" />
 		<!-- Native XML author input -->
 		<filterGroup
@@ -39,7 +39,7 @@
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="xml::schema(plugins/importexport/native/native.xsd)"
-			outputType="class::classes.preprint.Author[]" />
+			outputType="class::classes.author.Author[]" />
 		<!-- preprint file native XML output -->
 		<filterGroup
 			symbolic="SubmissionFile=>native-xml"

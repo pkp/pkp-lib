@@ -15,7 +15,7 @@
 		"laravel/framework": "^7.0",
 		"firebase/php-jwt": "5.*",
 		"danielstjules/stringy": "3.*",
-		"adodb/adodb-php": "dev-v5.20.18-mods",
+		"adodb/adodb-php": "dev-v5.20.18-mods-magicport",
 		"gettext/gettext": "5.x",
 		"sokil/php-isocodes": "^3.0",
 		"doctrine/dbal": "^2.10",

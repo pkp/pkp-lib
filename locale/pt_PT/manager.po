@@ -1,9 +1,10 @@
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2021-04-22 01:44+0000\n"
+"PO-Revision-Date: 2021-09-16 00:34+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2221,3 +2222,46 @@ msgstr "Grupo de utilizadores em falta para nome de autor {$param}"
 
 msgid "plugins.importexport.common.id"
 msgstr "Id: {$id}"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "O resumo da submissão"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "O ID único da submissão"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "O título da submissão"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Os editores atribuídos a esta submissão que podem tomar uma decisão"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "O nome completo do contacto principal do website"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "A assinatura de e-mail do remetente"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "O endereço de e-mail do remetente"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "O nome completo do remetente"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "O URL para a tarefa de revisão"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Data em que a revisão deve estar concluída"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Data em que o revisor deve aceitar ou recusar a tarefa"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "O nome de utilizador do destinatário ou de todos os destinatários"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "O nome completo de um destinatário ou de todos os destinatários"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"O URL para uma página onde o utilizador pode recuperar a password perdida"

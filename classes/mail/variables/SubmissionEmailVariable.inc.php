@@ -15,10 +15,10 @@
 
 namespace PKP\mail\variables;
 
+use PKP\author\Author;
 use PKP\core\PKPApplication;
 use PKP\i18n\PKPLocale;
 use PKP\publication\PKPPublication;
-use PKP\submission\PKPAuthor as Author;
 use PKP\submission\PKPSubmission;
 
 class SubmissionEmailVariable extends Variable

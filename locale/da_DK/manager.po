@@ -1,9 +1,10 @@
+# Niels Erik Frederiksen <nef@kb.dk>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-06-08 06:11+0000\n"
+"PO-Revision-Date: 2021-09-16 00:34+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2315,3 +2316,6 @@ msgstr "UserGroup mangler forfatternavn {$param}"
 
 msgid "plugins.importexport.common.id"
 msgstr "Id: {$id}"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "URL til en side, hvor brugeren kan gendanne en mistet adgangskode"

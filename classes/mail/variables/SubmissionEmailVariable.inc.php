@@ -15,40 +15,38 @@
 
 namespace PKP\mail\variables;
 
-use PKP\submission\PKPAuthor as Author;
 use PKP\core\PKPApplication;
 use PKP\i18n\PKPLocale;
 use PKP\publication\PKPPublication;
+use PKP\submission\PKPAuthor as Author;
 use PKP\submission\PKPSubmission;
 
 class SubmissionEmailVariable extends Variable
 {
-    const SUBMISSION_TITLE = 'submissionTitle';
-    const SUBMISSION_ID = 'submissionId';
-    const SUBMISSION_ABSTRACT = 'submissionAbstract';
-    const AUTHORS = 'authors';
-    const AUTHORS_FULL = 'authorsFull';
-    const SUBMISSION_URL = 'submissionUrl';
+    public const SUBMISSION_TITLE = 'submissionTitle';
+    public const SUBMISSION_ID = 'submissionId';
+    public const SUBMISSION_ABSTRACT = 'submissionAbstract';
+    public const AUTHORS = 'authors';
+    public const AUTHORS_FULL = 'authorsFull';
+    public const SUBMISSION_URL = 'submissionUrl';
 
     protected PKPSubmission $submission;
 
     protected PKPPublication $currentPublication;
 
     /**
-     * @param PKPSubmission $submission
      */
     public function __construct(PKPSubmission $submission)
     {
         $this->submission = $submission;
         // Submission's current publication should always be set
         $this->currentPublication = $this->submission->getCurrentPublication();
-
     }
 
     /**
      * @copydoc Variable::description()
      */
-    protected static function description() : array
+    protected static function description(): array
     {
         return
         [
@@ -64,7 +62,7 @@ class SubmissionEmailVariable extends Variable
     /**
      * @copydoc Variable::values()
      */
-    protected function values() : array
+    protected function values(): array
     {
         return
         [
@@ -77,7 +75,7 @@ class SubmissionEmailVariable extends Variable
         ];
     }
 
-    protected function getPublicationTitle() : array
+    protected function getPublicationTitle(): array
     {
         $fullTitlesLocalized = [];
         $supportedLocales = PKPLocale::getSupportedLocales();
@@ -87,21 +85,22 @@ class SubmissionEmailVariable extends Variable
         return $fullTitlesLocalized;
     }
 
-    protected function getSubmissionId() : int
+    protected function getSubmissionId(): int
     {
         return $this->submission->getId();
     }
 
-    protected function getPublicationAbstract() : array
+    protected function getPublicationAbstract(): array
     {
         return $this->currentPublication->getData('abstract');
     }
 
     /**
      * Shortened authors string
+     *
      * @see PKPPublication::getShortAuthorString()
      */
-    protected function getAuthors() : array
+    protected function getAuthors(): array
     {
         $authorStringLocalized = [];
         $supportedLocales = PKPLocale::getSupportedLocales();
@@ -115,15 +114,15 @@ class SubmissionEmailVariable extends Variable
     /**
      * List of authors as a string separated by a comma
      */
-    protected function getAuthorsFull() : array
+    protected function getAuthorsFull(): array
     {
         $authorStringLocalized = [];
         $authors = $this->currentPublication->getData('authors');
         $supportedLocales = PKPLocale::getSupportedLocales();
         foreach ($supportedLocales as $localeKey => $localeValue) {
-            $fullNames = array_map(function(Author $author) use ($localeKey){
+            $fullNames = array_map(function (Author $author) use ($localeKey) {
                 return $author->getFullName(true, false, $localeKey);
-            }, $authors);
+            }, iterator_to_array($authors));
 
             $authorStringLocalized[$localeKey] = join(__('common.listSeparator'), $fullNames);
         }
@@ -134,7 +133,7 @@ class SubmissionEmailVariable extends Variable
     /**
      * URL to a current workflow stage of the submission
      */
-    protected function getSubmissionUrl() : string
+    protected function getSubmissionUrl(): string
     {
         $request = PKPApplication::get()->getRequest();
         return $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'workflow', 'index', [$this->submission->getId(), $this->submission->getData('stageId')]);

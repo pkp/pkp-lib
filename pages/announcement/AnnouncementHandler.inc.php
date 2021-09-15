@@ -64,7 +64,7 @@ class AnnouncementHandler extends Handler
         $announcements = Repo::announcement()->getMany(
             Repo::announcement()
                 ->getCollector()
-                ->filterByContextIds($context->getId())
+                ->filterByContextIds([$context->getId()])
                 ->filterByActive()
         );
         $templateMgr->assign('announcements', $announcements->toArray());

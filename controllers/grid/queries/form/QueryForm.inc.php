@@ -323,7 +323,7 @@ class QueryForm extends Form
                 // if current user is author, add open reviewers who have accepted the request
                 if (array_intersect([Role::ROLE_ID_AUTHOR], $assignedRoles)) {
                     foreach ($reviewAssignments as $reviewAssignment) {
-                        if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed()) {
+                        if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()) {
                             $includeUsers[] = $reviewAssignment->getReviewerId();
                         }
                     }
@@ -340,7 +340,7 @@ class QueryForm extends Form
             );
 
             $includedUsersIterator = Repo::user()->getMany(Repo::user()->getCollector()->filterByUserIds($includeUsers));
-            $usersIterator->merge($includedUsersIterator);
+            $usersIterator = $usersIterator->merge($includedUsersIterator);
 
             $allParticipants = [];
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */

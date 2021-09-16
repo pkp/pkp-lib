@@ -368,7 +368,7 @@ class Collector implements CollectorInterface
 
             ->when($this->settings !== null, function ($query) {
                 foreach ($this->settings as $settingName => $value) {
-                    $query->whereIn('u.user_id', function ($query) {
+                    $query->whereIn('u.user_id', function ($query) use ($settingName, $value) {
                         return $query->select('user_id')
                             ->from('user_settings')
                             ->where('setting_name', '=', $settingName)

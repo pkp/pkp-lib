@@ -74,6 +74,18 @@
 				"nullable"
 			]
 		},
+		"apiKey": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"apiKeyEnabled": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
 		"inlineHelp": {
 			"type": "boolean",
 			"validation": [

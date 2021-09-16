@@ -261,7 +261,7 @@ class QueryForm extends Form {
 				// if current user is author, add open reviewers who have accepted the request
 				if (array_intersect(array(ROLE_ID_AUTHOR), $assignedRoles)) {
 					foreach ($reviewAssignments as $reviewAssignment) {
-						if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed()){
+						if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()) {
 							$includeUsers[] = $reviewAssignment->getReviewerId();
 						}
 					}

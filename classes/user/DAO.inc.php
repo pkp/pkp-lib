@@ -153,19 +153,6 @@ class DAO extends \PKP\core\EntityDAO
     }
 
     /**
-     * Retrieve a user by API key.
-     *
-     * @return User?
-     */
-    public function getByApiKey(string $apiKey): ?User
-    {
-        return $this->getMany(
-            $this->getCollector()
-                ->filterBySettings(['apiKey' => $apiKey])
-        )->first();
-    }
-
-    /**
      * Retrieve a user by email address.
      *
      * @param $allowDisabled boolean

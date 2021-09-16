@@ -52,6 +52,17 @@ class Repository
         return $this->dao->get($id, $allowDisabled);
     }
 
+    /**
+     * Retrieve a user by API key.
+     */
+    public function getByApiKey(string $apiKey): ?User
+    {
+        return $this->getMany(
+            $this->getCollector()
+                ->filterBySettings(['apiKey' => $apiKey])
+        )->first();
+    }
+
     /** @copydoc DAO::getCount() */
     public function getCount(Collector $query): int
     {

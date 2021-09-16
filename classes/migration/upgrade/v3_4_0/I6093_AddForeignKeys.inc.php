@@ -37,6 +37,10 @@ class I6093_AddForeignKeys extends Migration
             // Introduce new index
             $table->index(['context_id'], 'announcement_types_context_id');
         });
+
+        Schema::table('announcement_type_settings', function (Blueprint $table) {
+            $table->foreign('type_id')->references('type_id')->on('announcement_types');
+        });
     }
 
     /**
@@ -55,6 +59,10 @@ class I6093_AddForeignKeys extends Migration
         // Drop the default we introduced for the sake of populating assoc_type
         Schema::table('announcement_types', function (Blueprint $table) {
             $table->smallInteger('assoc_type')->default(null)->change();
+        });
+
+        Schema::table('announcement_type_settings', function (Blueprint $table) {
+            $table->dropForeign('announcement_type_settings_type_id_foreign');
         });
     }
 }

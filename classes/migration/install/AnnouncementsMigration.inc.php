@@ -38,6 +38,7 @@ class AnnouncementsMigration extends Migration
         // Locale-specific announcement type data
         Schema::create('announcement_type_settings', function (Blueprint $table) {
             $table->bigInteger('type_id');
+            $table->foreign('type_id')->references('type_id')->on('announcement_types');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();

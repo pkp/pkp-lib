@@ -33,6 +33,13 @@ class PreflightCheckMigration extends Migration
             error_log("Removing orphaned announcement type ID ${typeId} with no matching context ID.");
             DB::table('announcement_types')->where('type_id', '=', $typeId)->delete();
         }
+
+        // Clean orphaned announcement_type_setting entries
+        $orphanedIds = DB::table('announcement_type_settings AS ats')->leftJoin('announcement_types AS at', 'ats.type_id', '=', 'at.type_id')->whereNull('at.type_id')->distinct()->pluck('ats.type_id');
+        foreach ($orphanedIds as $typeId) {
+            error_log("Removing orphaned settings for missing announcement type ID ${typeId}");
+            DB::table('announcement_type_settings')->where('type_id', '=', $typeId)->delete();
+        }
     }
 
     /**

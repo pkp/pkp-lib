@@ -22,19 +22,17 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\form\NotificationSettingsForm;
-use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\mail\MailTemplate;
-use PKP\notification\PKPNotification;
-use PKP\security\AccessKeyManager;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
 use PKP\user\InterestManager;
+
+use Sokil\IsoCodes\IsoCodesFactory;
 
 class RegistrationForm extends Form
 {
@@ -114,7 +112,8 @@ class RegistrationForm extends Form
             $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
         }
 
-        $isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+        $isoCodes = app(IsoCodesFactory::class);
+
         $countries = [];
         foreach ($isoCodes->getCountries() as $country) {
             $countries[$country->getAlpha2()] = $country->getLocalName();

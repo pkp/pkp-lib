@@ -74,9 +74,11 @@ class Mailable extends IlluminateMailable
      */
     protected static array $groupIds = [self::GROUP_OTHER];
 
-    public function __construct(array $args)
+    public function __construct(array $args = [])
     {
-        $this->setData($args);
+        if (!empty($args)) {
+            $this->setData($args);
+        }
     }
 
     /**

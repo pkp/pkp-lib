@@ -1,12 +1,13 @@
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-03-10 14:45+0000\n"
-"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"PO-Revision-Date: 2021-09-18 14:06+0000\n"
+"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/hu/>\n"
+"manager/hu_HU/>\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgid "manager.announcements"
 msgstr "Értesítések"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Biztos benne, hogy törölni akarja ezt az értesítést?"
+msgstr "Biztos benne, hogy törölni akarja ezt az értesítést {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "Új értesítés létrehozása"
@@ -66,7 +67,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Kérem, válasszon egy hónapot és/vagy napot a lejárati év mellé."
 
 msgid "manager.announcements.form.description"
-msgstr "Leírás"
+msgstr "Hirdetmény"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Az értesítés teljes szövege."
@@ -2337,3 +2338,102 @@ msgstr "HIBA:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "A megadott folyóirat , \"{$contextPath}\", nem létezik."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Egyedi"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Dátum & Idő (rövid)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Dátum & Idő"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Idő"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Dátum (rövid)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Dátum"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Dátum és idő formátumok"
+
+msgid "manager.setup.dateTime"
+msgstr "Dátum & Idő"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Másik e-mail küldése"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-mail sikeresen elküldve az összes címzettnek."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"E-mail küldése folyamatban. Kérjük ne navigáljon tovább, amíg a küldés be "
+"nem fejeződött."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Ön ennyi  {$total} felhasználónak készül egy e-mailt küldeni. Biztos benne, "
+"hogy elküldi ezt az e-mailt?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "E-mail küldése"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Küldjön egy példányt nekem erre a címre {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+"Válassza ki azokat a felhasználókat, akiknek kapniuk kell az ön e-mailes "
+"értesítéséből."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Értesít"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Ezekből az e-mail címekből egy vagy több érvénytelen."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Értesítsen bárkit"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nem"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Igen, küldjön egy példányt neki {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Elsődleges kapcsolattartó értesítése"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Értesítések"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Beküldések letiltása"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Egyedi jelentés készítő"
+
+msgid "manager.people.signedInAs"
+msgstr "Jelenleg bejelentkezve, mint {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Válassza ki az Excel/CSV fájlba exportálandó felhasználókat."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Export Excel/CSV formátumba"
+
+msgid "manager.emails.resetComplete"
+msgstr "E-mail sablon sikeresen visszaállítva."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Az alapértelmezett e-mail sablonok vissza lettek állítva."
+
+msgid "manager.emails.otherTemplates"
+msgstr "Egyéb sablonok"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Értesítés törlése"

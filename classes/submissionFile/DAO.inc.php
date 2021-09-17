@@ -77,7 +77,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      */
     public function get(int $id): ?SubmissionFile
     {
-        $row = DB::table($this->tableName . ' as sf')
+        $row = DB::table($this->table . ' as sf')
             ->leftJoin('submissions as s', 's.submission_id', '=', 'sf.submission_id')
             ->leftJoin('files as f', 'f.file_id', '=', 'sf.file_id')
             ->where($this->primaryKeyColumn, '=', $id)

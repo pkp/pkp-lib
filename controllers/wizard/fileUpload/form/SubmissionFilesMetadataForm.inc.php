@@ -192,7 +192,7 @@ class SubmissionFilesMetadataForm extends Form
 
         Repo::submissionFiles()->edit($this->getSubmissionFile(), $props);
         $this->_submissionFile = Repo::submissionFiles()->get(
-            $this->getSubmissionFile->getId()
+            $this->getSubmissionFile()->getId()
         );
 
         parent::execute(...$functionParams);

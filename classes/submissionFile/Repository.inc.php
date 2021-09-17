@@ -23,6 +23,7 @@ use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
+use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogEntry;
@@ -181,6 +182,9 @@ class Repository
     /** @copydoc DAO::insert() */
     public function add(SubmissionFile $submissionFile): int
     {
+        $submissionFile->setData('createdAt', Core::getCurrentDate());
+        $submissionFile->setData('updatedAt', Core::getCurrentDate());
+
         $id = $this->dao->insert($submissionFile);
 
         $submissionFile = $this->get($id);
@@ -358,6 +362,8 @@ class Repository
                 $params
             ]
         );
+
+        $newSubmissionFile->setData('updatedAt', Core::getCurrentDate());
 
         $this->dao->update($newSubmissionFile);
 

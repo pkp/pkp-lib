@@ -41,6 +41,10 @@ class I6093_AddForeignKeys extends Migration
         Schema::table('announcement_type_settings', function (Blueprint $table) {
             $table->foreign('type_id')->references('type_id')->on('announcement_types');
         });
+
+        Schema::table('announcements', function (Blueprint $table) {
+            $table->foreign('type_id')->references('type_id')->on('announcement_types');
+        });
     }
 
     /**
@@ -63,6 +67,10 @@ class I6093_AddForeignKeys extends Migration
 
         Schema::table('announcement_type_settings', function (Blueprint $table) {
             $table->dropForeign('announcement_type_settings_type_id_foreign');
+        });
+
+        Schema::table('announcements', function (Blueprint $table) {
+            $table->dropForeign('announcements_type_id_foreign');
         });
     }
 }

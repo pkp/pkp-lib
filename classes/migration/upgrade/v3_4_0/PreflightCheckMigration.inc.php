@@ -40,6 +40,10 @@ class PreflightCheckMigration extends Migration
             error_log("Removing orphaned settings for missing announcement type ID ${typeId}");
             DB::table('announcement_type_settings')->where('type_id', '=', $typeId)->delete();
         }
+
+        if ($count = DB::table('announcements AS a')->leftJoin('announcement_types AS at', 'a.type_id', '=', 'at.type_id')->whereNull('at.type_id')->whereNotNull('a.type_id')->update(['a.type_id' => null])) {
+            error_log("Reset ${count} announcements with orphaned (non-null) announcement types to no announcement type.");
+        }
     }
 
     /**

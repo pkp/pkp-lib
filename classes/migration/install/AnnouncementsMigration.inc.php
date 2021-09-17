@@ -54,6 +54,7 @@ class AnnouncementsMigration extends Migration
             $table->smallInteger('assoc_type')->nullable();
             $table->bigInteger('assoc_id');
             $table->bigInteger('type_id')->nullable();
+            $table->foreign('type_id')->references('type_id')->on('announcement_types');
             $table->date('date_expire')->nullable();
             $table->datetime('date_posted');
             $table->index(['assoc_type', 'assoc_id'], 'announcements_assoc');

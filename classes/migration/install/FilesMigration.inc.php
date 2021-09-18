@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration FilesMigration.inc.php
+ * @file classes/migration install/FilesMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,7 +11,7 @@
  * @brief Create the files database table
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

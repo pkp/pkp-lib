@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/CategoriesMigration.inc.php
+ * @file classes/migration/install/CategoriesMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,7 +11,7 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

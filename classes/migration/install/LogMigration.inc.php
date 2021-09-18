@@ -13,17 +13,16 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class LogMigration extends Migration
+class LogMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // A log of all events associated with an object.
         Schema::create('event_log', function (Blueprint $table) {
@@ -82,7 +81,7 @@ class LogMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('email_log_users');
         Schema::drop('email_log');

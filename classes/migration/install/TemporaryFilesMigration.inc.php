@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TemporaryFilesMigration extends Migration
+class TemporaryFilesMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Temporary file storage
         Schema::create('temporary_files', function (Blueprint $table) {
@@ -40,7 +39,7 @@ class TemporaryFilesMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('temporary_files');
     }

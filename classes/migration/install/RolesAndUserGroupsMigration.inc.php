@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RolesAndUserGroupsMigration extends Migration
+class RolesAndUserGroupsMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // User groups for a context.
         Schema::create('user_groups', function (Blueprint $table) {
@@ -87,7 +86,7 @@ class RolesAndUserGroupsMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('stage_assignments');
         Schema::drop('user_group_stage');

@@ -13,16 +13,15 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class I4904_UsageStatsTemporaryRecords extends Migration
+class I4904_UsageStatsTemporaryRecords extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // pkp/pkp-lib#4904: additional column in the table usage_stats_temporary_records
         if (Schema::hasTable('usage_stats_temporary_records') && !Schema::hasColumn('usage_stats_temporary_records', 'representation_id')) {
@@ -35,7 +34,7 @@ class I4904_UsageStatsTemporaryRecords extends Migration
     /**
      * Reverse the downgrades
      */
-    public function down()
+    public function down(): void
     {
     }
 }

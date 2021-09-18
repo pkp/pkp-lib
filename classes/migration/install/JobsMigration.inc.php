@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class JobsMigration extends Migration
+class JobsMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -40,7 +39,7 @@ class JobsMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('jobs');
     }

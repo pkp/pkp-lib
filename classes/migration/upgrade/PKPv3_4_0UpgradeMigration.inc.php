@@ -13,17 +13,16 @@
 
 namespace PKP\migration\upgrade;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class PKPv3_4_0UpgradeMigration extends Migration
+class PKPv3_4_0UpgradeMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent submissions.
         $orphanedIds = DB::table('review_assignments AS ra')->leftJoin('submissions AS s', 'ra.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('ra.submission_id', 'ra.review_id');
@@ -82,7 +81,7 @@ class PKPv3_4_0UpgradeMigration extends Migration
     /**
      * Reverse the downgrades
      */
-    public function down()
+    public function down(): void
     {
         Schema::table('review_assignments', function (Blueprint $table) {
             $table->dropForeign(['reviewer_id']);

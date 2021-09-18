@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class FilesMigration extends Migration
+class FilesMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Create a new table to track files in file storage
         Schema::create('files', function (Blueprint $table) {
@@ -35,7 +34,7 @@ class FilesMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('files');
     }

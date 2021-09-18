@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CategoriesMigration extends Migration
+class CategoriesMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Permits the organization of content into categories.
         Schema::create('categories', function (Blueprint $table) {
@@ -57,7 +56,7 @@ class CategoriesMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('categories');
         Schema::drop('category_settings');

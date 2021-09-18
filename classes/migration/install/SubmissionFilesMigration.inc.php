@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SubmissionFilesMigration extends Migration
+class SubmissionFilesMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Files associated with submission. Includes submission files, etc.
         Schema::create('submission_files', function (Blueprint $table) {
@@ -70,7 +69,7 @@ class SubmissionFilesMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('submission_file_revisions');
         Schema::drop('submission_file_settings');

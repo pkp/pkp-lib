@@ -16,9 +16,8 @@ namespace PKP\migration\upgrade\v3_4_0;
 use Illuminate\Support\Facades\DB;
 
 use PKP\db\DAORegistry;
-use PKP\migration\Migration;
 
-class PreflightCheckMigration extends Migration
+class PreflightCheckMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.

@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class LibraryFilesMigration extends Migration
+class LibraryFilesMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Library files for a context
         Schema::create('library_files', function (Blueprint $table) {
@@ -56,7 +55,7 @@ class LibraryFilesMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('library_file_settings');
         Schema::drop('libraryR_files');

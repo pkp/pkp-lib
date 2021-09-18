@@ -15,7 +15,6 @@ namespace PKP\migration\upgrade;
 
 use APP\core\Application;
 use APP\core\Services;
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 use Illuminate\Support\Facades\DB;
@@ -27,12 +26,12 @@ use PKP\db\XMLDAO;
 use PKP\file\FileManager;
 use PKP\submission\SubmissionFile;
 
-class PKPv3_3_0UpgradeMigration extends Migration
+class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         if (Schema::hasColumn('submissions', 'locale')) {
             Schema::table('submissions', function (Blueprint $table) {
@@ -223,7 +222,7 @@ class PKPv3_3_0UpgradeMigration extends Migration
     /**
      * Reverse the downgrades
      */
-    public function down()
+    public function down(): void
     {
         throw new PKP\install\DowngradeNotSupportedException();
     }

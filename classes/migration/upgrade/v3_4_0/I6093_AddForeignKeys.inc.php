@@ -13,16 +13,15 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class I6093_AddForeignKeys extends Migration
+class I6093_AddForeignKeys extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::table('announcement_types', function (Blueprint $table) {
             // Drop the old assoc_type column and assoc-based index
@@ -54,7 +53,7 @@ class I6093_AddForeignKeys extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
         // Drop foreign key and restore assoc_type/assoc_id columns
         Schema::table('announcement_types', function (Blueprint $table) {

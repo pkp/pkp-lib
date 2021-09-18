@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TombstoneMigration extends Migration
+class TombstoneMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Unnavailable data object tombstones.
         Schema::create('data_object_tombstones', function (Blueprint $table) {
@@ -59,7 +58,7 @@ class TombstoneMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('data_object_tombstone_oai_set_objects');
         Schema::drop('data_object_tombstone_settings');

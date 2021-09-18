@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class NavigationMenusMigration extends Migration
+class NavigationMenusMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // NavigationMenus
         Schema::create('navigation_menus', function (Blueprint $table) {
@@ -75,7 +74,7 @@ class NavigationMenusMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('navigation_menu_item_assignment_settings');
         Schema::drop('navigation_menu_item_assignments');

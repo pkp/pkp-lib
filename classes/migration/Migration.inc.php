@@ -39,5 +39,5 @@ abstract class Migration extends \Illuminate\Database\Migrations\Migration
      *
      * @return ?bool True iff further downgrades should be prevented.
      */
-    abstract public function down(): ?bool;
+    abstract public function down(): void;
 }

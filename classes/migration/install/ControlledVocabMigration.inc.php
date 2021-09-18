@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ControlledVocabMigration extends Migration
+class ControlledVocabMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Controlled vocabularies
         Schema::create('controlled_vocabs', function (Blueprint $table) {
@@ -63,7 +62,7 @@ class ControlledVocabMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('user_interests');
         Schema::drop('controlled_vocab_entry_settings');

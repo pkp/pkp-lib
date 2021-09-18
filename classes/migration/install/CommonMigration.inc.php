@@ -13,16 +13,15 @@
 
 namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CommonMigration extends Migration
+class CommonMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Describes the installation and upgrade version history for the application and all installed plugins.
         Schema::create('versions', function (Blueprint $table) {
@@ -244,7 +243,7 @@ class CommonMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('plugin_settings');
         Schema::drop('oai_resumption_tokens');

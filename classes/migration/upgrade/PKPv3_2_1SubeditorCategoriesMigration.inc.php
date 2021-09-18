@@ -13,17 +13,16 @@
 
 namespace PKP\migration\upgrade;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class PKPv3_2_1SubeditorCategoriesMigration extends Migration
+class PKPv3_2_1SubeditorCategoriesMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Schema changes
         Schema::rename('section_editors', 'subeditor_submission_group');
@@ -52,7 +51,7 @@ class PKPv3_2_1SubeditorCategoriesMigration extends Migration
     /**
      * Reverse the downgrades
      */
-    public function down()
+    public function down(): void
     {
         throw new PKP\install\DowngradeNotSupportedException();
     }

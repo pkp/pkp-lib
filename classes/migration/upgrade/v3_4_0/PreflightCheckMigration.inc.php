@@ -44,6 +44,13 @@ class PreflightCheckMigration extends Migration
         if ($count = DB::table('announcements AS a')->leftJoin('announcement_types AS at', 'a.type_id', '=', 'at.type_id')->whereNull('at.type_id')->whereNotNull('a.type_id')->update(['a.type_id' => null])) {
             error_log("Reset ${count} announcements with orphaned (non-null) announcement types to no announcement type.");
         }
+
+        // Clean orphaned announcement_setting entries
+        $orphanedIds = DB::table('announcement_settings AS a_s')->leftJoin('announcements AS a', 'a_s.announcement_id', '=', 'a.announcement_id')->whereNull('a.announcement_id')->distinct()->pluck('a_s.announcement_id');
+        foreach ($orphanedIds as $announcementId) {
+            error_log("Removing orphaned settings for missing announcement ID ${announcementId}");
+            DB::table('announcement_settings')->where('announcement_id', '=', $announcementId)->delete();
+        }
     }
 
     /**

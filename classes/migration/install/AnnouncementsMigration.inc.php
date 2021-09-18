@@ -63,6 +63,7 @@ class AnnouncementsMigration extends Migration
         // Locale-specific announcement data
         Schema::create('announcement_settings', function (Blueprint $table) {
             $table->bigInteger('announcement_id');
+            $table->foreign('announcement_id')->references('announcement_id')->on('announcements');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();

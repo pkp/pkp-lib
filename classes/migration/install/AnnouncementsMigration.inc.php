@@ -78,9 +78,9 @@ class AnnouncementsMigration extends Migration
      */
     public function down()
     {
-        Schema::drop('announcement_types');
-        Schema::drop('announcement_type_settings');
-        Schema::drop('announcements');
         Schema::drop('announcement_settings');
+        Schema::drop('announcements');
+        Schema::drop('announcement_type_settings');
+        Schema::drop('announcement_types');
     }
 }

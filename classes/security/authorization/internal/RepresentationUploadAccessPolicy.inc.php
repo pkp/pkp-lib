@@ -65,8 +65,7 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $representationDao = Application::get()->getRepresentationDAO();
-        $representation = $representationDao->getById($this->_representationId);
+        $representation = Repo::articleGalley()->get((int) $this->_representationId);
 
         if (!$representation) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;

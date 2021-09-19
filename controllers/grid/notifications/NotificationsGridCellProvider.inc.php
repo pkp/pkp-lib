@@ -153,8 +153,7 @@ class NotificationsGridCellProvider extends GridCellProvider
                         $submissionId = $query->getAssocId();
                         break;
                     case ASSOC_TYPE_REPRESENTATION:
-                        $representationDao = Application::getRepresentationDAO();
-                        $representation = $representationDao->getById($query->getAssocId());
+                        $representation = Repo::articleGalley()->get((int) $query->getAssocId());
                         $publication = Repo::publication()->get($representation->getData('publicationId'));
                         $submissionId = $publication->getData('submissionId');
                         break;

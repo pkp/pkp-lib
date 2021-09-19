@@ -15,6 +15,7 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
 
@@ -62,8 +63,8 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         // Make sure the representation belongs to the submission.
-        $representationDao = Application::getRepresentationDAO();
-        $representation = $representationDao->getById($representationId, $publication->getId(), null);
+        $representation = Repo::articleGalley()->get($representationId);
+
         if (!$representation instanceof Representation) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

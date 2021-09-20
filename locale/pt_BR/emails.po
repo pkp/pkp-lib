@@ -1,7 +1,8 @@
+# cicilia conceiçao de maria <ccmaria@uem.br>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-13 10:39+0000\n"
-"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
+"PO-Revision-Date: 2021-09-21 17:06+0000\n"
+"Last-Translator: cicilia conceiçao de maria <ccmaria@uem.br>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "emails/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -19,6 +20,7 @@ msgstr ""
 "{$contextName}. Você pode gerenciar sua submissão efetuando login no site do "
 "servidor.<br />\n"
 
+#, fuzzy
 msgid "emails.submissionAck.subject"
 msgstr "Confirmação de Submissão"
 
@@ -144,12 +146,16 @@ msgstr ""
 msgid "emails.notification.subject"
 msgstr "Nova notificação de {$siteTitle}"
 
+#, fuzzy
 msgid "emails.postedAck.body"
 msgstr ""
-"{$authorName}:<br />\n"
+"Um sufixo DOI pode adotar qualquer forma, porém deve ser único entre todos "
+"os objetos de publicação com o mesmo prefixo DOI atribuído:Um sufixo DOI "
+"pode adotar qualquer forma, porém deve ser único entre todos os objetos de "
+"publicação com o mesmo prefixo DOI atribuído:{$authorName}:<br />\n"
 "<br />\n"
 "Seu preprint, &quot;{$submissionTitle}&quot; foi postado no servidor "
-"{$contextName}.<br />\n"
+"{$contextName}.<br />"
 
 msgid "emails.postedAck.subject"
 msgstr "Aviso de postagem de preprint"

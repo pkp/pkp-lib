@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-09-16 00:34+0000\n"
+"PO-Revision-Date: 2021-09-20 12:00+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2319,3 +2319,53 @@ msgstr "Id: {$id}"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL til en side, hvor brugeren kan gendanne en mistet adgangskode"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "Indsendelsens URL i den redaktionelle backend"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Forfatternes fulde navne"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Forfatternavne i form af en forkortet streng"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Indsendelsens resumé"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Indsendelsen unikke ID-nummer"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Indsendelsens titel"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"De redaktører, der er tildelt denne indsendelse, og som er sat til at kunne "
+"tage en beslutning"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Det fulde navn på webstedets primære kontaktperson"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Afsenderens e -mail -signatur"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Afsenders e-mail-adresse"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Afsenders fulde navn"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "Webadressen til bedømmelsestildelingen"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Dato for, hvornår anmeldelsen skal være afsluttet"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Dato, hvor korrekturlæseren skal acceptere eller afvise opgaven"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Modtagerens eller alle modtagers brugernavn"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Modtagerens eller alle modtageres fulde navn"

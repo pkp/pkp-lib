@@ -122,7 +122,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
 
         return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
-                yield $this->fromRow($row);
+                yield $row->submission_file_id = $this->fromRow($row);
             }
         });
     }
@@ -248,6 +248,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
                 $q->where('sfs.setting_name', '=', 'pub-id::' . $pubIdType);
                 $q->where('sfs.setting_value', '=', $pubId);
             })
+            ->groupBy('sf.submission_file_id')
             ->value('sf.submission_file_id');
 
         if (empty($submissionFileId)) {

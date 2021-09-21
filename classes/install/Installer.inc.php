@@ -463,9 +463,8 @@ class Installer
                     // Back out already-executed migrations.
                     while ($previousMigration = array_pop($this->migrations)) {
                         try {
-                            if ($previousMigration->down() === true) {
-                                break;
-                            }
+                            $this->log(sprintf('revert migration: %s', get_class($previousMigration)));
+                            $previousMigration->down();
                         } catch (\PKP\install\DowngradeNotSupportedException $e) {
                             break;
                         }

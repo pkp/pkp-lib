@@ -18,12 +18,27 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\core\Services;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use PKP\context\Context;
 use PKP\services\PKPSchemaService;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public function boot()
+    {
+        DB::listen(function ($query) {
+            $message = [
+                'query' => $query->sql,
+                'bindings' => $query->bindings,
+                'time' => $query->time
+            ];
+            error_log(json_encode($message, JSON_PRETTY_PRINT));
+        });
+
+        parent::boot();
+    }
+
     /**
      * Register application services
      *

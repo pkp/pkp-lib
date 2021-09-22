@@ -44,15 +44,6 @@ class PKPContainer extends Container
         $this->basePath = BASE_SYS_DIR;
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
-
-        DB::listen(function ($query) {
-            $message = [
-                'query' => $query->sql,
-                'bindings' => $query->bindings,
-                'time' => $query->time
-            ];
-            error_log(json_encode($message, JSON_PRETTY_PRINT));
-        });
     }
 
     /**

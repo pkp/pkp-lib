@@ -106,7 +106,11 @@ class SearchHandler extends Handler
         }
 
         // Assign the year range.
-        $yearRange = Repo::publication()->getDateBoundaries(['contextIds' => $serverId]);
+        $collector = Repo::publication()->getCollector();
+        if ($serverId) {
+            $collector->filterByContextIds([(int) $serverId]);
+        }
+        $yearRange = Repo::publication()->getDateBoundaries($collector);
         $yearStart = substr($yearRange[0], 0, 4);
         $yearEnd = substr($yearRange[1], 0, 4);
         $templateMgr->assign([
@@ -234,15 +238,15 @@ class SearchHandler extends Handler
                         ->filterByAffiliation($affiliation)
                         ->filterByCountry($country)
                 )
-                ->map(function($author) {
+                ->map(function ($author) {
                     return $author->getData('publicationId');
                 })
                 ->unique()
-                ->map(function($publicationId) {
+                ->map(function ($publicationId) {
                     return Repo::publication()->get($publicationId)->getData('submissionId');
                 })
                 ->unique()
-                ->map(function($submissionId) {
+                ->map(function ($submissionId) {
                     return Repo::submission()->get($submissionId);
                 });
 

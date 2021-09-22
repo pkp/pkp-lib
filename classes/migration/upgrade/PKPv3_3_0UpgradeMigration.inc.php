@@ -224,7 +224,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
      */
     public function down(): void
     {
-        throw new PKP\install\DowngradeNotSupportedException();
+        throw new \PKP\install\DowngradeNotSupportedException();
     }
 
     /**

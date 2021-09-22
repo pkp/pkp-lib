@@ -35,8 +35,6 @@ class AppServiceProvider extends ServiceProvider
             ];
             error_log(json_encode($message, JSON_PRETTY_PRINT));
         });
-
-        parent::boot();
     }
 
     /**

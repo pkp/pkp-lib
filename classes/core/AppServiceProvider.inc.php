@@ -28,12 +28,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         DB::listen(function ($query) {
-            $message = [
-                'query' => $query->sql,
-                'bindings' => $query->bindings,
-                'time' => $query->time
-            ];
-            error_log(json_encode($message, JSON_PRETTY_PRINT));
+            if (strpos($query->sql, 'submission_file_id') !== false) {
+                $message = [
+                    'query' => $query->sql,
+                    'bindings' => $query->bindings,
+                    'time' => $query->time
+                ];
+                error_log(json_encode($message, JSON_PRETTY_PRINT));
+            }
         });
     }
 

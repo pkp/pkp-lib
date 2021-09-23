@@ -439,14 +439,21 @@ class Installer
             case 'migration':
                 assert(isset($action['attr']['class']));
                 $fullClassName = $action['attr']['class'];
-                import($fullClassName);
-                $shortClassName = substr($fullClassName, strrpos($fullClassName, '.') + 1);
-                $this->log(sprintf('migration: %s', $shortClassName));
-                $migration = new $shortClassName();
+                if (strpos($fullClassName, '\\') !== false) {
+                    // Migration is specified fully-qualified PHP class name; allow autoloading
+                    $this->log(sprintf('migration: %s', $fullClassName));
+                    $migration = new $fullClassName($this, $action['attr']);
+                } else {
+                    // Migration is specified using old-style class.name.like.this
+                    import($fullClassName);
+                    $shortClassName = substr($fullClassName, strrpos($fullClassName, '.') + 1);
+                    $this->log(sprintf('migration: %s', $shortClassName));
+                    $migration = new $shortClassName($this, $action['attr']);
+                }
                 try {
                     $migration->up();
                     $this->migrations[] = $migration;
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     // Log an error message
                     $this->setError(
                         self::INSTALLER_ERROR_DB,
@@ -456,8 +463,9 @@ class Installer
                     // Back out already-executed migrations.
                     while ($previousMigration = array_pop($this->migrations)) {
                         try {
+                            $this->log(sprintf('revert migration: %s', get_class($previousMigration)));
                             $previousMigration->down();
-                        } catch (PKP\install\DowngradeNotSupportedException $e) {
+                        } catch (\PKP\install\DowngradeNotSupportedException $e) {
                             break;
                         }
                     }

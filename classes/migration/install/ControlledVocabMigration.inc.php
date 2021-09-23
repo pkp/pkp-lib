@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/ControlledVocabMigration.inc.php
+ * @file classes/migration/install/ControlledVocabMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,18 +11,17 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ControlledVocabMigration extends Migration
+class ControlledVocabMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Controlled vocabularies
         Schema::create('controlled_vocabs', function (Blueprint $table) {
@@ -63,15 +62,11 @@ class ControlledVocabMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('user_interests');
         Schema::drop('controlled_vocab_entry_settings');
         Schema::drop('controlled_vocab_entries');
         Schema::drop('controlled_vocabs');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\ControlledVocabMigration', '\ControlledVocabMigration');
 }

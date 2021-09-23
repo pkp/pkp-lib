@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/NavigationMenusMigration.inc.php
+ * @file classes/migration/install/NavigationMenusMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,18 +11,17 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class NavigationMenusMigration extends Migration
+class NavigationMenusMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // NavigationMenus
         Schema::create('navigation_menus', function (Blueprint $table) {
@@ -75,7 +74,7 @@ class NavigationMenusMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('navigation_menu_item_assignment_settings');
         Schema::drop('navigation_menu_item_assignments');
@@ -83,8 +82,4 @@ class NavigationMenusMigration extends Migration
         Schema::drop('navigation_menu_items');
         Schema::drop('navigation_menus');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\NavigationMenusMigration', '\NavigationMenusMigration');
 }

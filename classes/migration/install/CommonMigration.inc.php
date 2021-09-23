@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/CommonMigration.inc.php
+ * @file classes/migration/install/CommonMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,18 +11,17 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CommonMigration extends Migration
+class CommonMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Describes the installation and upgrade version history for the application and all installed plugins.
         Schema::create('versions', function (Blueprint $table) {
@@ -244,7 +243,7 @@ class CommonMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('plugin_settings');
         Schema::drop('oai_resumption_tokens');
@@ -265,8 +264,4 @@ class CommonMigration extends Migration
         Schema::drop('site');
         Schema::drop('versions');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\CommonMigration', '\CommonMigration');
 }

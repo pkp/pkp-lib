@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/ReviewFormsMigration.inc.php
+ * @file classes/migration/install/ReviewFormsMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,18 +11,17 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ReviewFormsMigration extends Migration
+class ReviewFormsMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Review forms.
         Schema::create('review_forms', function (Blueprint $table) {
@@ -79,7 +78,7 @@ class ReviewFormsMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('review_form_responses');
         Schema::drop('review_form_element_settings');
@@ -87,8 +86,4 @@ class ReviewFormsMigration extends Migration
         Schema::drop('review_form_settings');
         Schema::drop('review_forms');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\ReviewFormsMigration', '\ReviewFormsMigration');
 }

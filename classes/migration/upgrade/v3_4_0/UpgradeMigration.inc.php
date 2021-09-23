@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/PKPv3_4_0UpgradeMigration.inc.php
+ * @file classes/migration/upgrade/v3_4_0/UpgradeMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,19 +11,18 @@
  * @brief Describe upgrade/downgrade operations from 3.3.x to 3.4.0.
  */
 
-namespace PKP\migration\upgrade;
+namespace PKP\migration\upgrade\v3_4_0;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class PKPv3_4_0UpgradeMigration extends Migration
+class UpgradeMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent submissions.
         $orphanedIds = DB::table('review_assignments AS ra')->leftJoin('submissions AS s', 'ra.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('ra.submission_id', 'ra.review_id');
@@ -82,7 +81,7 @@ class PKPv3_4_0UpgradeMigration extends Migration
     /**
      * Reverse the downgrades
      */
-    public function down()
+    public function down(): void
     {
         Schema::table('review_assignments', function (Blueprint $table) {
             $table->dropForeign(['reviewer_id']);
@@ -97,8 +96,4 @@ class PKPv3_4_0UpgradeMigration extends Migration
             $table->dateTime('date_last_login')->nullable(false)->default(null)->change();
         });
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\upgrade\PKPv3_4_0UpgradeMigration', '\PKPv3_4_0UpgradeMigration');
 }

@@ -35,24 +35,19 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
      * Retrieve an announcement type by announcement type ID.
      *
      * @param $typeId int Announcement type ID
-     * @param $assocType int Optional assoc type
-     * @param $assocId int Optional assoc ID
+     * @param $contextId int Optional context ID
      *
      * @return AnnouncementType
      */
-    public function getById($typeId, $assocType = null, $assocId = null)
+    public function getById($typeId, $contextId = null)
     {
         $params = [(int) $typeId];
-        if ($assocType !== null) {
-            $params[] = (int) $assocType;
-        }
-        if ($assocId !== null) {
-            $params[] = (int) $assocId;
+        if ($contextId !== null) {
+            $params[] = (int) $contextId;
         }
         $result = $this->retrieve(
             'SELECT * FROM announcement_types WHERE type_id = ?' .
-            ($assocType !== null ? ' AND assoc_type = ?' : '') .
-            ($assocId !== null ? ' AND assoc_id = ?' : ''),
+            ($contextId !== null ? ' AND context_id = ?' : ''),
             $params
         );
         $row = $result->current();
@@ -80,8 +75,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     {
         $announcementType = $this->newDataObject();
         $announcementType->setId($row['type_id']);
-        $announcementType->setAssocType($row['assoc_type']);
-        $announcementType->setAssocId($row['assoc_id']);
+        $announcementType->setContextId($row['context_id']);
         $this->getDataObjectSettings('announcement_type_settings', 'type_id', $row['type_id'], $announcementType);
 
         return $announcementType;
@@ -112,10 +106,10 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     {
         $this->update(
             sprintf('INSERT INTO announcement_types
-				(assoc_type, assoc_id)
+				(context_id)
 				VALUES
 				(?, ?)'),
-            [(int) $announcementType->getAssocType(), (int) $announcementType->getAssocId()]
+            [(int) $announcementType->getContextId()]
         );
         $announcementType->setId($this->getInsertId());
         $this->updateLocaleFields($announcementType);
@@ -133,12 +127,10 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     {
         $returner = $this->update(
             'UPDATE	announcement_types
-			SET	assoc_type = ?,
-				assoc_id = ?
+                        SET	context_id = ?
 			WHERE	type_id = ?',
             [
-                (int) $announcementType->getAssocType(),
-                (int) $announcementType->getAssocId(),
+                (int) $announcementType->getContextId(),
                 (int) $announcementType->getId()
             ]
         );
@@ -176,31 +168,29 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     }
 
     /**
-     * Delete announcement types by association.
+     * Delete announcement types by context ID.
      *
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int
+     * @param $contextId int
      */
-    public function deleteByAssoc($assocType, $assocId)
+    public function deleteByContextId($contextId)
     {
-        foreach ($this->getByAssoc($assocType, $assocId) as $type) {
+        foreach ($this->getByContextId($contextId) as $type) {
             $this->deleteObject($type);
         }
     }
 
     /**
-     * Retrieve an array of announcement types matching a particular Assoc ID.
+     * Retrieve an array of announcement types matching a particular context ID.
      *
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int
+     * @param $contextId int
      *
      * @return Generator Matching AnnouncementTypes
      */
-    public function getByAssoc($assocType, $assocId)
+    public function getByContextId($contextId)
     {
         $result = $this->retrieve(
-            'SELECT * FROM announcement_types WHERE assoc_type = ? AND assoc_id = ? ORDER BY type_id',
-            [(int) $assocType, (int) $assocId]
+            'SELECT * FROM announcement_types WHERE context_id = ? ORDER BY type_id',
+            [(int) $contextId]
         );
         foreach ($result as $row) {
             yield $row->type_id => $this->_fromRow((array) $row);

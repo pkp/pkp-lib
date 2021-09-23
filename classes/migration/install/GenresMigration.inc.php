@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/GenresMigration.inc.php
+ * @file classes/migration/install/GenresMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,20 +11,18 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration;
-
-use Illuminate\Database\Migrations\Migration;
+namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use PKP\submission\Genre;
 
-class GenresMigration extends Migration
+class GenresMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // A context's submission file genres.
         Schema::create('genres', function (Blueprint $table) {
@@ -55,13 +53,9 @@ class GenresMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('genre_settings');
         Schema::drop('genres');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\GenresMigration', '\GenresMigration');
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/SubmissionFilesMigration.inc.php
+ * @file classes/migration/install/SubmissionFilesMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,18 +11,17 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SubmissionFilesMigration extends Migration
+class SubmissionFilesMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Files associated with submission. Includes submission files, etc.
         Schema::create('submission_files', function (Blueprint $table) {
@@ -70,14 +69,10 @@ class SubmissionFilesMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('submission_file_revisions');
         Schema::drop('submission_file_settings');
         Schema::drop('submission_files');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\SubmissionFilesMigration', '\SubmissionFilesMigration');
 }

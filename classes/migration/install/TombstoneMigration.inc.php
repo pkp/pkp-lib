@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/TombstoneMigration.inc.php
+ * @file classes/migration/install/TombstoneMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,18 +11,17 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TombstoneMigration extends Migration
+class TombstoneMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Unnavailable data object tombstones.
         Schema::create('data_object_tombstones', function (Blueprint $table) {
@@ -59,14 +58,10 @@ class TombstoneMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('data_object_tombstone_oai_set_objects');
         Schema::drop('data_object_tombstone_settings');
         Schema::drop('data_object_tombstones');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\TombstoneMigration', '\TombstoneMigration');
 }

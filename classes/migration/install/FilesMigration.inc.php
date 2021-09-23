@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration FilesMigration.inc.php
+ * @file classes/migration install/FilesMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,18 +11,17 @@
  * @brief Create the files database table
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class FilesMigration extends Migration
+class FilesMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Create a new table to track files in file storage
         Schema::create('files', function (Blueprint $table) {
@@ -35,12 +34,8 @@ class FilesMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('files');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\FilesMigration', '\FilesMigration');
 }

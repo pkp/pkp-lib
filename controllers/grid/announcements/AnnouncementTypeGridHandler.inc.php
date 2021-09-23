@@ -61,7 +61,7 @@ class AnnouncementTypeGridHandler extends GridHandler
             // Ensure announcement type is valid and for this context
             $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
             $announcementType = $announcementTypeDao->getById($announcementTypeId);
-            if (!$announcementType || $announcementType->getAssocType() != $context->getAssocType() || $announcementType->getAssocId() != $context->getId()) {
+            if (!$announcementType || $announcementType->getContextId() != $context->getId()) {
                 return false;
             }
         }
@@ -127,7 +127,7 @@ class AnnouncementTypeGridHandler extends GridHandler
     {
         $context = $request->getContext();
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
-        return $announcementTypeDao->getByAssoc($context->getAssocType(), $context->getId());
+        return $announcementTypeDao->getByContextId($context->getId());
     }
 
     /**
@@ -232,7 +232,7 @@ class AnnouncementTypeGridHandler extends GridHandler
         $context = $request->getContext();
 
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
-        $announcementType = $announcementTypeDao->getById($announcementTypeId, $context->getAssocType(), $context->getId());
+        $announcementType = $announcementTypeDao->getById($announcementTypeId, $context->getId());
         if ($announcementType && $request->checkCSRF()) {
             $announcementTypeDao->deleteObject($announcementType);
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/RolesAndUserGroupsMigration.inc.php
+ * @file classes/migration/install/RolesAndUserGroupsMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,18 +11,17 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration;
+namespace PKP\migration\install;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RolesAndUserGroupsMigration extends Migration
+class RolesAndUserGroupsMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // User groups for a context.
         Schema::create('user_groups', function (Blueprint $table) {
@@ -87,7 +86,7 @@ class RolesAndUserGroupsMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('stage_assignments');
         Schema::drop('user_group_stage');
@@ -95,8 +94,4 @@ class RolesAndUserGroupsMigration extends Migration
         Schema::drop('user_group_settings');
         Schema::drop('user_groups');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\RolesAndUserGroupsMigration', '\RolesAndUserGroupsMigration');
 }

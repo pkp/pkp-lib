@@ -14,7 +14,6 @@
 namespace PKP\core;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\db\DAO;
 use PKP\services\PKPSchemaService;
 use stdClass;
@@ -262,10 +261,10 @@ abstract class EntityDAO
      */
     public function deleteById(int $id)
     {
-        DB::table($this->table)
+        DB::table($this->settingsTable)
             ->where($this->primaryKeyColumn, '=', $id)
             ->delete();
-        DB::table($this->settingsTable)
+        DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
             ->delete();
     }

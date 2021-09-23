@@ -65,7 +65,7 @@ class migrationTool extends \PKP\cliTool\CommandLineTool
             $direction = $this->direction;
             $migration->$direction();
         } catch (Exception $e) {
-            echo 'ERROR: ' . $e->getMessage() . "\n\n";
+            echo 'ERROR: ' . $e->toString() . "\n\n";
             exit(2);
         }
     }

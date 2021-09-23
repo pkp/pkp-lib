@@ -15,6 +15,7 @@
 
 namespace PKP\install;
 
+use adoSchema;
 use APP\core\Application;
 use APP\file\LibraryFileManager;
 use APP\i18n\AppLocale;
@@ -27,6 +28,7 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 use PKP\db\DBDataXMLParser;
 use PKP\file\FileManager;
 use PKP\filter\FilterHelper;

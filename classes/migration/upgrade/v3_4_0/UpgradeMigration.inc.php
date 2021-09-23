@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/PKPv3_4_0UpgradeMigration.inc.php
+ * @file classes/migration/upgrade/v3_4_0/UpgradeMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,13 +11,13 @@
  * @brief Describe upgrade/downgrade operations from 3.3.x to 3.4.0.
  */
 
-namespace PKP\migration\upgrade;
+namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class PKPv3_4_0UpgradeMigration extends \PKP\migration\Migration
+class UpgradeMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.

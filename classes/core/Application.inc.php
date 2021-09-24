@@ -108,7 +108,6 @@ class Application extends PKPApplication
             'PreprintGalleyDAO' => 'APP\preprint\PreprintGalleyDAO',
             'PreprintSearchDAO' => 'APP\search\PreprintSearchDAO',
             'ServerDAO' => 'APP\server\ServerDAO',
-            'ServerSettingsDAO' => 'APP\server\ServerSettingsDAO',
             'MetricsDAO' => 'APP\statistics\MetricsDAO',
             'OAIDAO' => 'APP\oai\ops\OAIDAO',
             'SectionDAO' => 'APP\server\SectionDAO',

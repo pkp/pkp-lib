@@ -119,6 +119,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
             ->select(['sf.*', 'f.*', 's.locale as locale'])
             ->groupBy(['sf.submission_file_id', 'f.file_id', 's.locale'])
             ->get();
+        // GroupBy and LeftJoin
 
         return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {

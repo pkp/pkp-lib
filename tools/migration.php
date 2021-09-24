@@ -60,7 +60,8 @@ class migrationTool extends \PKP\cliTool\CommandLineTool
      */
     public function execute()
     {
-        $migration = new $this->class();
+        $upgrade = new \APP\install\Upgrade([]);
+        $migration = new $this->class($upgrade, []);
         try {
             $direction = $this->direction;
             $migration->$direction();

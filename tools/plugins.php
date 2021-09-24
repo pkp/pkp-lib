@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file tools/pluginGalleryTool.php
+ * @file tools/plugins.php
  *
  * Copyright (c) 2014-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Distributed under the GNU GPL v2 or later. For full terms see the file docs/COPYING.
  *
- * @class PluginGalleryTool
+ * @class PluginsTool
  * @ingroup tools
  *
  * @brief CLI tool for installing a plugin version descriptor.
@@ -19,7 +19,7 @@ import('lib.pkp.classes.plugins.PluginGalleryDAO');
 
 define('PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE', 'all');
 
-class PluginGalleryTool extends CommandLineTool {
+class PluginsTool extends CommandLineTool {
 	/**
 	 * Constructor.
 	 * @param $argv array command-line arguments
@@ -60,7 +60,7 @@ class PluginGalleryTool extends CommandLineTool {
 	 * Print command usage information.
 	 */
 	function usage() {
-		echo "Plugin Gallery tool\n"
+		echo "Plugins tool\n"
 			. "Usage: {$this->scriptName} action [arguments]\n"
 			. "  Actions:\n"
 			. "\tlist [search]: show latest compatible plugin(s), by optional criteria \"search\"\n"
@@ -157,12 +157,12 @@ class PluginGalleryTool extends CommandLineTool {
 			}
 			$keyOut = explode('.', $statusKey);
 			$keyOut = array_pop($keyOut);
-			print implode('/', array('plugins', $plugin->getData('category'), $plugin->getData('product'))) . ' ' . $plugin->getData('releasePackage') . ' ' . $keyOut . "\n";
+			print implode('/', array($plugin->getData('category'), $plugin->getData('product'))) . ' ' . $plugin->getData('releasePackage') . ' ' . $keyOut . "\n";
 		}
 	}
 }
 
-$tool = new PluginGalleryTool(isset($argv) ? $argv : array());
+$tool = new PluginsTool(isset($argv) ? $argv : array());
 $tool->execute();
 
 

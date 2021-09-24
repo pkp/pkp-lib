@@ -108,7 +108,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
             sprintf('INSERT INTO announcement_types
 				(context_id)
 				VALUES
-				(?, ?)'),
+				(?)'),
             [(int) $announcementType->getContextId()]
         );
         $announcementType->setId($this->getInsertId());

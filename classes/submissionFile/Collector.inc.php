@@ -188,7 +188,7 @@ class Collector implements CollectorInterface
     public function getQueryBuilder(): Builder
     {
         $qb = DB::table($this->dao->table . ' as sf')
-            ->select('u.*');
+            ->select('sf.*');
 
         if ($this->submissionIds !== null) {
             $qb->whereIn('sf.submission_id', $this->submissionIds);

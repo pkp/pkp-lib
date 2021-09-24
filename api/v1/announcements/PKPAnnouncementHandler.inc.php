@@ -228,6 +228,7 @@ class PKPAnnouncementHandler extends APIHandler
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
         $params['id'] = $announcement->getId();
+        $params['typeId'] ??= null;
 
         $context = $request->getContext();
         $primaryLocale = $context->getPrimaryLocale();

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/OPSMigration.inc.php
+ * @file classes/migration/install/OPSMigration.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -11,17 +11,18 @@
  * @brief Describe database table structures.
  */
 
-use Illuminate\Database\Migrations\Migration;
+namespace APP\migration\install;
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class OPSMigration extends Migration
+class OPSMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         // Servers and basic server settings.
         Schema::create('servers', function (Blueprint $table) {
@@ -125,7 +126,7 @@ class OPSMigration extends Migration
     /**
      * Reverse the migration.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('completed_payments');
         Schema::drop('servers');

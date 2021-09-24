@@ -14,7 +14,6 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use APP\core\Application;
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 
@@ -22,7 +21,7 @@ use Illuminate\Support\Facades\Schema;
 
 use PKP\config\Config;
 
-class I6759_RenameVariables extends Migration
+class I6759_RenameVariables extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
@@ -136,8 +135,4 @@ class I6759_RenameVariables extends Migration
             rename($publicFilesDir . '/journals/', $publicFilesDir . '/contexts/');
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\upgrade\v3_4_0\I6759_RenameVariables', '\I6759_RenameVariables');
 }

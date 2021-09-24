@@ -117,7 +117,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
             ->leftJoin('submissions as s', 's.submission_id', '=', 'sf.submission_id')
             ->leftJoin('files as f', 'f.file_id', '=', 'sf.file_id')
             ->addSelect(['f.*', 's.locale as locale'])
-            ->groupBy(['f.file_id', 's.locale', 'sf.created_at'])
+            ->groupBy(['sf.submission_file_id', 'f.file_id', 's.locale', 'sf.created_at'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {

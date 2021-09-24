@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         DB::listen(function ($query) {
-            if (strpos($query->sql, 'submission_file_id') !== false) {
+            if (strpos($query->sql, 'submission_files') !== false) {
                 $message = [
                     'query' => $query->sql,
                     'bindings' => $query->bindings,

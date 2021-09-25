@@ -468,7 +468,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'CitationDAO' => 'PKP\citation\CitationDAO',
             'ControlledVocabDAO' => 'PKP\controlledVocab\ControlledVocabDAO',
             'ControlledVocabEntryDAO' => 'PKP\controlledVocab\ControlledVocabEntryDAO',
-            'ControlledVocabEntrySettingsDAO' => 'PKP\controlledVocab\ControlledVocabEntrySettingsDAO',
             'DataObjectTombstoneDAO' => 'PKP\tombstone\DataObjectTombstoneDAO',
             'DataObjectTombstoneSettingsDAO' => 'PKP\tombstone\DataObjectTombstoneSettingsDAO',
             'EditDecisionDAO' => 'PKP\submission\EditDecisionDAO',

@@ -17,20 +17,10 @@
 
 namespace PKP\controlledVocab;
 
-use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 
 class ControlledVocabEntryDAO extends \PKP\db\DAO
 {
-    /**
-     * Return the entry settings DAO.
-     * Can be subclassed to provide extended DAOs.
-     */
-    public function getSettingsDAO()
-    {
-        return DAORegistry::getDAO('ControlledVocabEntrySettingsDAO');
-    }
-
     /**
      * Retrieve a controlled vocab entry by controlled vocab entry ID.
      *

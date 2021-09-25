@@ -20,8 +20,6 @@ namespace PKP\controlledVocab;
 use APP\i18n\AppLocale;
 use PKP\db\DAORegistry;
 
-use PKP\xml\PKPXMLParser;
-
 class ControlledVocabDAO extends \PKP\db\DAO
 {
     /**
@@ -145,7 +143,7 @@ class ControlledVocabDAO extends \PKP\db\DAO
      *
      * @return boolean
      */
-    public function updateObject(&$controlledVocab)
+    public function updateObject($controlledVocab)
     {
         $returner = $this->update(
             sprintf('UPDATE	controlled_vocabs
@@ -277,61 +275,6 @@ class ControlledVocabDAO extends \PKP\db\DAO
     public function getInsertId()
     {
         return parent::_getInsertId('controlled_vocabs', 'controlled_vocab_id');
-    }
-
-    /**
-     * Parse and install a controlled vocabulary from an XML file.
-     *
-     * @param $filename string Filename (including path) of XML file to install.
-     *
-     * @return array Array of parsed controlled vocabularies
-     */
-    public function installXML($filename)
-    {
-        $controlledVocabs = [];
-        $controlledVocabEntryDao = $this->getEntryDAO();
-        $controlledVocabEntrySettingsDao = $controlledVocabEntryDao->getSettingsDAO();
-        $parser = new PKPXMLParser();
-        $tree = $parser->parse($filename);
-        foreach ($tree->getChildren() as $controlledVocabNode) {
-            assert($controlledVocabNode->getName() == 'controlled_vocab');
-
-            // Try to fetch an existing controlled vocabulary
-            $controlledVocab = $this->getBySymbolic(
-                $symbolic = $controlledVocabNode->getAttribute('symbolic'),
-                $assocType = (int) $controlledVocabNode->getAttribute('assoc-type'),
-                $assocId = (int) $controlledVocabNode->getAttribute('assoc-id')
-            );
-            if ($controlledVocab) {
-                $controlledVocabs[] = $controlledVocab;
-                continue;
-            }
-
-            // It doesn't exist; create a new one.
-            $controlledVocabs[] = $controlledVocab = $this->_build($symbolic, $assocType, $assocId);
-            foreach ($controlledVocabNode->getChildren() as $entryNode) {
-                $seq = $entryNode->getAttribute('seq');
-                if ($seq !== null) {
-                    $seq = (float) $seq;
-                }
-
-                $controlledVocabEntry = $controlledVocabEntryDao->newDataObject();
-                $controlledVocabEntry->setControlledVocabId($controlledVocab->getId());
-                $controlledVocabEntry->setSequence($seq);
-                $controlledVocabEntryDao->insertObject($controlledVocabEntry);
-
-                foreach ($entryNode->getChildren() as $settingNode) {
-                    $controlledVocabEntrySettingsDao->updateSetting(
-                        $controlledVocabEntry->getId(),
-                        $settingNode->getAttribute('name'),
-                        $settingNode->getValue(),
-                        $settingNode->getAttribute('type'),
-                        false // Not localized
-                    );
-                }
-            }
-        }
-        return $controlledVocabs;
     }
 }
 

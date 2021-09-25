@@ -18,7 +18,7 @@
 
 namespace PKP\user;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use PKP\db\DAORegistry;
 
 class Report
@@ -96,7 +96,7 @@ class Report
         return [
             $user->getId(),
             $user->getLocalizedGivenName(),
-            $user->getFamilyName(AppLocale::getLocale()),
+            $user->getFamilyName(Locale::getLocale()),
             $user->getEmail(),
             $user->getPhone(),
             $user->getCountryLocalized(),

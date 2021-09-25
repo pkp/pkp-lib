@@ -597,18 +597,6 @@ abstract class Plugin
     }
 
     /**
-     * Retrieve a generator with the locales available in this plugin
-     */
-    private function _getLocalesIterator(): generator
-    {
-        foreach (new FilesystemIterator($this->getPluginPath() . '/locale') as $locale) {
-            if ($locale->isDir()) {
-                yield $locale->getBasename();
-            }
-        }
-    }
-
-    /**
      * Callback used to install email templates.
      *
      * @param string $hookName
@@ -623,7 +611,7 @@ abstract class Plugin
 
         // Load email template data as required from the locale files.
         $locales = [];
-        foreach ($this->_getLocalesIterator() as $locale) {
+        foreach ($installer->installedLocales as $locale) {
             if (file_exists($this->getPluginPath() . "/locale/$locale/emails.po")) {
                 $locales[] = $locale;
             }
@@ -655,7 +643,7 @@ abstract class Plugin
         $installer = & $args[0];
         $result = & $args[1];
 
-        foreach ($this->_getLocalesIterator() as $locale) {
+        foreach ($installer->installedLocales as $locale) {
             $filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
             if (!file_exists($filename)) {
                 continue;

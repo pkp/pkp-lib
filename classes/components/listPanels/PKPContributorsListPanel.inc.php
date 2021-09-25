@@ -14,7 +14,7 @@
 
 namespace PKP\components\listPanels;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 
 class PKPContributorsListPanel extends ListPanel
 {
@@ -32,8 +32,8 @@ class PKPContributorsListPanel extends ListPanel
      */
     public function getConfig()
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
+        Locale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
+        Locale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
         $config = parent::getConfig();
 

@@ -101,7 +101,7 @@
 namespace PKP\metadata;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 
 class MetadataDescription extends \PKP\core\DataObject
 {
@@ -293,7 +293,7 @@ class MetadataDescription extends \PKP\core\DataObject
         }
         if (!isset($locale) && $translated) {
             // Retrieve the current locale
-            $locale = AppLocale::getLocale();
+            $locale = Locale::getLocale();
         }
 
         // Check that the value is compliant with the property specification
@@ -391,7 +391,7 @@ class MetadataDescription extends \PKP\core\DataObject
         }
         if ($translated && !isset($locale)) {
             // Retrieve the current locale
-            $locale = AppLocale::getLocale();
+            $locale = Locale::getLocale();
         }
 
         // Retrieve the value

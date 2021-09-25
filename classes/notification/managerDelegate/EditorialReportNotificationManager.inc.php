@@ -16,8 +16,8 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\core\Services;
+use PKP\facades\Locale;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use DateTimeInterface;
 use PKP\context\Context;
@@ -174,7 +174,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     public function _getLocalizedMonthName(\DateTimeInterface $date, ?string $locale = null): string
     {
         static $cache = [];
-        $locale ?? $locale = AppLocale::getLocale();
+        $locale ?? $locale = Locale::getLocale();
         $formatter = $cache[$locale] ?? $cache[$locale] = \IntlDateFormatter::create($locale, null, null, null, null, 'MMMM');
         return $formatter->format($date);
     }

@@ -15,7 +15,6 @@
 
 namespace PKP\submission\reviewer\form;
 
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;

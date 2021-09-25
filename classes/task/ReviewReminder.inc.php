@@ -17,7 +17,6 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 
 use PKP\core\Core;
 use PKP\core\PKPApplication;

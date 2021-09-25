@@ -14,11 +14,11 @@
 namespace PKP\emailTemplate;
 
 use APP\emailTemplate\DAO;
-use APP\i18n\AppLocale;
 use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
+use PKP\facades\Locale;
 use PKP\validation\ValidatorFactory;
 use PKP\facades\Repo;
 
@@ -102,7 +102,7 @@ class Repository
             $this->schemaService->getValidationRules(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $allowedLocales)
         );
 
-        AppLocale::requireComponents(
+        Locale::requireComponents(
             LOCALE_COMPONENT_PKP_MANAGER,
             LOCALE_COMPONENT_APP_MANAGER
         );

@@ -15,7 +15,7 @@
 
 namespace PKP\controllers\listbuilder;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 
 class MultilingualListbuilderGridColumn extends ListbuilderGridColumn
 {
@@ -44,7 +44,7 @@ class MultilingualListbuilderGridColumn extends ListbuilderGridColumn
 
         // Provide a default set of available locales if not specified
         if (!$availableLocales) {
-            $availableLocales = AppLocale::getSupportedFormLocales();
+            $availableLocales = Locale::getSupportedFormLocales();
         }
 
         // Set some flags for multilingual support

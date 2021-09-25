@@ -17,8 +17,6 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
-
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 

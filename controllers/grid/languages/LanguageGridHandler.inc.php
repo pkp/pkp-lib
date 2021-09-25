@@ -21,7 +21,7 @@ use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
-
+use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
 
@@ -97,7 +97,7 @@ class LanguageGridHandler extends GridHandler
         $permittedSettings = ['supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales'];
         if (in_array($settingName, $permittedSettings) && $locale) {
             $currentSettingValue = (array) $context->getData($settingName);
-            if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
+            if (Locale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
                 if ($settingValue) {
                     array_push($currentSettingValue, $locale);
                     if ($settingName == 'supportedFormLocales') {
@@ -163,7 +163,7 @@ class LanguageGridHandler extends GridHandler
             ['contents' => __('notification.localeSettingsSaved')]
         );
 
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $newFormLocales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $context->getData('supportedFormLocales'));
@@ -190,7 +190,7 @@ class LanguageGridHandler extends GridHandler
         $context = $request->getContext();
         $availableLocales = $this->getGridDataElements($request);
 
-        if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
+        if (Locale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
             // Make sure at least the primary locale is chosen as available
             foreach (['supportedLocales', 'supportedSubmissionLocales', 'supportedFormLocales'] as $name) {
                 $$name = $context->getData($name);

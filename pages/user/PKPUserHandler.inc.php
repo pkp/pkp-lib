@@ -16,8 +16,9 @@
 use APP\handler\Handler;
 
 use APP\template\TemplateManager;
-use PKP\core\JSONMessage;
 
+use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\user\InterestManager;
 
 class PKPUserHandler extends Handler
@@ -45,7 +46,7 @@ class PKPUserHandler extends Handler
             $contextSupportedLocales = (array) $context->getSupportedLocales();
         }
 
-        if (AppLocale::isLocaleValid($setLocale) && (!isset($contextSupportedLocales) || in_array($setLocale, $contextSupportedLocales)) && in_array($setLocale, $site->getSupportedLocales())) {
+        if (Locale::isLocaleValid($setLocale) && (!isset($contextSupportedLocales) || in_array($setLocale, $contextSupportedLocales)) && in_array($setLocale, $site->getSupportedLocales())) {
             $session = $request->getSession();
             $session->setSessionVar('currentLocale', $setLocale);
         }

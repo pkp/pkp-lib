@@ -15,7 +15,6 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;

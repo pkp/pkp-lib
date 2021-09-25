@@ -19,7 +19,7 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\services\queryBuilders\ContextQueryBuilder;
 use PKP\config\Config;
 use PKP\context\ContextDAO;
@@ -622,7 +622,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function restoreLocaleDefaults($context, $request, $locale)
     {
-        AppLocale::reloadLocale($locale);
+        Locale::installLocale($locale);
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT, LOCALE_COMPONENT_APP_DEFAULT, $locale);
 
         // Specify values needed to render default locale strings

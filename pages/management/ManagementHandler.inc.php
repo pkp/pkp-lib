@@ -17,12 +17,12 @@ use APP\components\forms\context\DoiSetupSettingsForm;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\components\forms\context\PKPNotifyUsersForm;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
@@ -115,7 +115,7 @@ class ManagementHandler extends Handler
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedFormLocales);
@@ -181,7 +181,7 @@ class ManagementHandler extends Handler
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedFormLocales);
@@ -247,7 +247,7 @@ class ManagementHandler extends Handler
         );
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedFormLocales);
@@ -308,7 +308,7 @@ class ManagementHandler extends Handler
         $paymentsUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_payments');
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedFormLocales);
@@ -349,7 +349,7 @@ class ManagementHandler extends Handler
         $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'announcements');
 
         $supportedFormLocales = $request->getContext()->getSupportedFormLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedFormLocales);

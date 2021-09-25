@@ -19,7 +19,7 @@ namespace PKP\core;
 use APP\core\Application;
 
 use APP\core\Request;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\statistics\StatisticsHelper;
 use DateTime;
 use DateTimeZone;
@@ -28,9 +28,7 @@ use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
-use PKP\session\SessionManager;
 use PKP\db\DAORegistry;
-use PKP\i18n\PKPLocale;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
@@ -838,12 +836,12 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             '|http[s]?://(www\.)?creativecommons.org/licenses/by-sa/3.0[/]?|' => 'submission.license.cc.by-sa3.footer'
         ];
         if ($locale === null) {
-            $locale = AppLocale::getLocale();
+            $locale = Locale::getLocale();
         }
 
         foreach ($licenseKeyMap as $pattern => $key) {
             if (preg_match($pattern, $ccLicenseURL)) {
-                PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, $locale);
+                Locale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, $locale);
                 return __($key, [], $locale);
             }
         }

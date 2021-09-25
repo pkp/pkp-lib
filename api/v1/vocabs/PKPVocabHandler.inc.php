@@ -31,6 +31,7 @@ use PKP\submission\SubmissionSubjectDAO;
 use Slim\Http\Request;
 use Sokil\IsoCodes\IsoCodesFactory;
 use Stringy\Stringy;
+use PKP\facades\Locale;
 
 class PKPVocabHandler extends APIHandler
 {
@@ -77,7 +78,7 @@ class PKPVocabHandler extends APIHandler
         $requestParams = $slimRequest->getQueryParams();
 
         $vocab = $requestParams['vocab'] ?? '';
-        $locale = $requestParams['locale'] ?? AppLocale::getLocale();
+        $locale = $requestParams['locale'] ?? Locale::getLocale();
         $term = $requestParams['term'] ?? null;
 
         if (!in_array($locale, $context->getData('supportedSubmissionLocales'))) {

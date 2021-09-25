@@ -16,7 +16,6 @@ namespace PKP\submission\maps;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\submission\Submission;
 
 use Illuminate\Support\Enumerable;

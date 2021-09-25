@@ -20,8 +20,6 @@ namespace PKP\cliTool;
 define('RUNNING_UPGRADE', 1);
 
 use APP\core\Application;
-
-use APP\i18n\AppLocale;
 use APP\install\Upgrade;
 use PKP\site\VersionCheck;
 

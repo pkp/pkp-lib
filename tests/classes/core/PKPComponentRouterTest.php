@@ -18,7 +18,7 @@
 require_mock_env('env1');
 
 import('classes.core.Request'); // This will import our mock request class.
-import('classes.i18n.AppLocale'); // This will import our mock AppLocale class.
+import('classes.i18n.Locale'); // This will import our mock Locale class.
 import('lib.pkp.tests.classes.core.PKPRouterTestCase');
 
 use PKP\core\PKPComponentRouter;

@@ -15,7 +15,7 @@
 
 namespace PKP\form\validation;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 
 class FormValidatorLocale extends FormValidator
 {
@@ -36,7 +36,7 @@ class FormValidatorLocale extends FormValidator
     {
         parent::__construct($form, $field, $type, $message, $validator);
         if ($requiredLocale === null) {
-            $requiredLocale = AppLocale::getPrimaryLocale();
+            $requiredLocale = Locale::getPrimaryLocale();
         }
         $this->_requiredLocale = $requiredLocale;
     }
@@ -53,7 +53,7 @@ class FormValidatorLocale extends FormValidator
      */
     public function getMessage()
     {
-        $allLocales = AppLocale::getAllLocales();
+        $allLocales = Locale::getAllLocales();
         return parent::getMessage() . ' (' . $allLocales[$this->_requiredLocale] . ')';
     }
 

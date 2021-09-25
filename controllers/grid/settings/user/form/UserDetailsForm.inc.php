@@ -17,6 +17,7 @@ import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use PKP\facades\Locale;
 use APP\template\TemplateManager;
 use PKP\identity\Identity;
 use PKP\mail\MailTemplate;
@@ -295,7 +296,7 @@ class UserDetailsForm extends UserForm
 
         $locales = [];
         foreach ($this->getData('locales') as $locale) {
-            if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
+            if (Locale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
                 array_push($locales, $locale);
             }
         }

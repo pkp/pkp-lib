@@ -23,6 +23,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
@@ -144,7 +145,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         $site = $request->getSite();
         $data = [];
 
-        $allLocales = AppLocale::getAllLocales();
+        $allLocales = Locale::getAllLocales();
         $installedLocales = $site->getInstalledLocales();
         $supportedLocales = $site->getSupportedLocales();
         $primaryLocale = $site->getPrimaryLocale();
@@ -152,7 +153,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         foreach ($installedLocales as $localeKey) {
             $data[$localeKey] = [];
             $data[$localeKey]['name'] = $allLocales[$localeKey];
-            $data[$localeKey]['incomplete'] = !AppLocale::isLocaleComplete($localeKey);
+            $data[$localeKey]['incomplete'] = !(Locale::getLocaleMetadata($localeKey)->isLocaleComplete ?? false);
             if (in_array($localeKey, $supportedLocales)) {
                 $supported = true;
             } else {
@@ -259,7 +260,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
                 $siteDao->updateObject($site);
 
                 $this->_updateContextLocaleSettings($request);
-                AppLocale::uninstallLocale($locale);
+                Locale::uninstallLocale($locale);
 
                 $notificationManager = new NotificationManager();
                 $user = $request->getUser();
@@ -359,7 +360,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         $site = $request->getSite();
 
         if (array_key_exists($rowId, $gridData)) {
-            if (AppLocale::isLocaleValid($rowId)) {
+            if (Locale::isLocaleValid($rowId)) {
                 $oldSitePrimaryLocale = $site->getPrimaryLocale();
                 Repo::user()->dao->changeSitePrimaryLocale($oldSitePrimaryLocale, $rowId);
                 $site->setPrimaryLocale($rowId);
@@ -401,7 +402,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
             }
         }
 
-        if (AppLocale::isLocaleValid($rowId)) {
+        if (Locale::isLocaleValid($rowId)) {
             if ($enable) {
                 array_push($newSupportedLocales, $rowId);
             } else {

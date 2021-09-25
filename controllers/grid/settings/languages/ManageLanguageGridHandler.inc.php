@@ -19,6 +19,7 @@ use APP\core\Services;
 use APP\notification\NotificationManager;
 
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
@@ -58,7 +59,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler
         $site = $request->getSite();
         $context = $request->getContext();
 
-        $allLocales = AppLocale::getAllLocales();
+        $allLocales = Locale::getAllLocales();
         $supportedLocales = $site->getSupportedLocales();
         $contextPrimaryLocale = $context->getPrimaryLocale();
         $data = [];

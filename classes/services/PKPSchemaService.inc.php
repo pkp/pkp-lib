@@ -533,6 +533,7 @@ class PKPSchemaService
      */
     public function getDefault($propSchema, $localeParams = null, $localeKey = null)
     {
+        $localeParams ??= [];
         switch ($propSchema->type) {
             case 'boolean':
             case 'integer':

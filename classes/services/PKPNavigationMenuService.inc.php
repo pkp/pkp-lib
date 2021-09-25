@@ -16,7 +16,7 @@
 namespace PKP\services;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\template\TemplateManager;
 
 use NavigationMenuItemHandler;
@@ -200,14 +200,14 @@ class PKPNavigationMenuService
                 case NavigationMenuItem::NMI_TYPE_USER_LOGOUT:
                     if ($isUserLoggedInAs) {
                         $userName = $request->getUser() ? ' ' . $request->getUser()->getUserName() : '';
-                        $navigationMenuItem->setTitle(__('user.logOutAs', ['username' => $userName]), AppLocale::getLocale());
+                        $navigationMenuItem->setTitle(__('user.logOutAs', ['username' => $userName]), Locale::getLocale());
                     }
                     break;
                 case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
                     $templateMgr->assign('navigationMenuItem', $navigationMenuItem);
                     if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)) {
                         $displayTitle = $templateMgr->fetch('frontend/components/navigationMenus/dashboardMenuItem.tpl');
-                        $navigationMenuItem->setTitle($displayTitle, AppLocale::getLocale());
+                        $navigationMenuItem->setTitle($displayTitle, Locale::getLocale());
                     }
                     break;
             }
@@ -534,7 +534,7 @@ class PKPNavigationMenuService
 
             $templateReplaceTitle = $templateMgr->getTemplateVars($titleRepl);
             if ($templateReplaceTitle) {
-                $navigationMenuItem->setTitle($templateReplaceTitle, AppLocale::getLocale());
+                $navigationMenuItem->setTitle($templateReplaceTitle, Locale::getLocale());
             }
         }
     }
@@ -602,11 +602,11 @@ class PKPNavigationMenuService
         if ($nmi) {
             AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER);
             if ($localisedTitle = $nmi->getLocalizedTitle()) {
-                $nmi->setTitle($localisedTitle, AppLocale::getLocale());
+                $nmi->setTitle($localizedTitle, Locale::getLocale());
             } elseif ($nmi->getTitleLocaleKey() === '{$loggedInUsername}') {
-                $nmi->setTitle($nmi->getTitleLocaleKey(), AppLocale::getLocale());
+                $nmi->setTitle($nmi->getTitleLocaleKey(), Locale::getLocale());
             } else {
-                $nmi->setTitle(__($nmi->getTitleLocaleKey()), AppLocale::getLocale());
+                $nmi->setTitle(__($nmi->getTitleLocaleKey()), Locale::getLocale());
             }
         }
     }
@@ -619,7 +619,7 @@ class PKPNavigationMenuService
     public function setAllNMILocalisedTitles($nmi)
     {
         if ($nmi) {
-            $supportedFormLocales = AppLocale::getSupportedFormLocales();
+            $supportedFormLocales = Locale::getSupportedFormLocales();
 
             foreach ($supportedFormLocales as $supportedFormLocale => $supportedFormLocaleValue) {
                 AppLocale::requireComponents(

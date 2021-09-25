@@ -16,7 +16,6 @@
 namespace PKP\controllers\tab\workflow;
 
 use APP\handler\Handler;
-use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;

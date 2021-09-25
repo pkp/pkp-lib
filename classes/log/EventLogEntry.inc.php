@@ -17,8 +17,8 @@
 
 namespace PKP\log;
 
+use PKP\facades\Locale;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use PKP\db\DAORegistry;
 use PKP\submissionFile\SubmissionFile;
 
@@ -189,7 +189,7 @@ class EventLogEntry extends \PKP\core\DataObject
 
         // Otherwise, translate it and include parameters.
         if ($locale === null) {
-            $locale = AppLocale::getLocale();
+            $locale = Locale::getLocale();
         }
 
         $params = array_merge($this->_data, $this->getParams());

@@ -19,8 +19,8 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
+use PKP\facades\Locale;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\form\NotificationSettingsForm;
 use APP\template\TemplateManager;
 use PKP\config\Config;
@@ -243,7 +243,7 @@ class RegistrationForm extends Form
         $request = Application::get()->getRequest();
         $site = $request->getSite();
         $sitePrimaryLocale = $site->getPrimaryLocale();
-        $currentLocale = AppLocale::getLocale();
+        $currentLocale = Locale::getLocale();
 
         // Set the base user fields (name, etc.)
         $user->setGivenName($this->getData('givenName'), $currentLocale);

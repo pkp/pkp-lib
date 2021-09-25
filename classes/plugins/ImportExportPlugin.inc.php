@@ -16,7 +16,6 @@
 namespace PKP\plugins;
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\config\Config;
@@ -24,6 +23,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\linkAction\LinkAction;
 
@@ -215,7 +215,7 @@ abstract class ImportExportPlugin extends Plugin
             echo __('plugins.importexport.common.invalidXML') . "\n";
             echo $xml . "\n";
         } else {
-            $charset = Config::getVar('i18n', 'client_charset');
+            $charset = Locale::getDefaultEncoding();
             header('Content-type: text/html; charset=' . $charset);
             echo '<html><body>';
             echo '<h2>' . __('plugins.importexport.common.validationErrors') . '</h2>';

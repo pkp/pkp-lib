@@ -16,8 +16,8 @@
 namespace PKP\core;
 
 use APP\core\Services;
-use APP\i18n\AppLocale;
 use PKP\config\Config;
+use PKP\facades\Locale;
 use PKP\plugins\HookRegistry;
 
 use PKP\plugins\PluginRegistry;
@@ -257,7 +257,7 @@ class Dispatcher
             return false;
         }
 
-        header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
+        header('Content-Type: text/html; charset=' . Locale::getDefaultEncoding());
 
         echo $contents;
         return true;

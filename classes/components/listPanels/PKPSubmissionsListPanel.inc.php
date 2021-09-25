@@ -16,7 +16,6 @@ namespace PKP\components\listPanels;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\components\forms\FieldAutosuggestPreset;
 use PKP\components\forms\FieldSelectUsers;

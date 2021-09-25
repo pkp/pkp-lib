@@ -14,7 +14,6 @@
 namespace PKP\user;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use Carbon\Carbon;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\Query\Builder;
@@ -23,6 +22,7 @@ use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\core\PKPString;
+use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
 
@@ -585,7 +585,7 @@ class Collector implements CollectorInterface
         if ($nameSettings[$this->orderBy] ?? null) {
             $locales = array_unique(
                 empty($this->orderLocales)
-                    ? [AppLocale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()]
+                    ? [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()]
                     : array_values($this->orderLocales)
             );
             $sortedSettings = array_values($this->orderBy === self::ORDERBY_GIVENNAME ? $nameSettings : array_reverse($nameSettings));

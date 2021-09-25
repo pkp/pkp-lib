@@ -17,7 +17,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Support\Collection;
@@ -26,6 +25,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionFileLog;
@@ -127,7 +127,7 @@ class Repository
         array $allowedLocales,
         string $primaryLocale
     ): array {
-        AppLocale::requireComponents(
+        Locale::requireComponents(
             LOCALE_COMPONENT_PKP_MANAGER,
             LOCALE_COMPONENT_APP_MANAGER
         );

@@ -18,7 +18,6 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
-use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\publication\DAO;
 use APP\publication\Publication;

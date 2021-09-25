@@ -61,7 +61,6 @@ define('COMPONENT_ROUTER_PARTS_MAXDEPTH', 9);
 define('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-use APP\i18n\AppLocale;
 use Exception;
 
 use PKP\config\Config;

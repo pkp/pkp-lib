@@ -16,7 +16,6 @@
 namespace PKP\controllers\modals\editorDecision;
 
 use APP\handler\Handler;
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;

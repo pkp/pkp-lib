@@ -19,7 +19,6 @@
 
 namespace PKP\user;
 
-use APP\i18n\AppLocale;
 use PKP\db\DAORegistry;
 
 use PKP\identity\Identity;

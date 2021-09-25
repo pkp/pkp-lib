@@ -17,7 +17,6 @@
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Collector;

@@ -27,13 +27,13 @@
 
 namespace PKP\mail;
 
-use APP\i18n\AppLocale;
 use BadMethodCallException;
 use Exception;
 use Illuminate\Mail\Mailable as IlluminateMailable;
 use InvalidArgumentException;
 use PKP\context\Context;
 use APP\mail\variables\ContextEmailVariable;
+use PKP\facades\Locale;
 use PKP\mail\variables\QueuedPaymentEmailVariable;
 use PKP\mail\variables\RecipientEmailVariable;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
@@ -120,7 +120,7 @@ class Mailable extends IlluminateMailable
     public function setData(?string $locale = null)
     {
         if (is_null($locale)) {
-            $locale = AppLocale::getLocale();
+            $locale = Locale::getLocale();
         }
         foreach ($this->variables as $variable) {
             $this->viewData = array_merge(

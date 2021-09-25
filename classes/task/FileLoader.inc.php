@@ -15,7 +15,6 @@
 
 namespace PKP\task;
 
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;

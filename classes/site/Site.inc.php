@@ -22,7 +22,7 @@
 
 namespace PKP\site;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 
 use PKP\core\Registry;
 
@@ -40,7 +40,7 @@ class Site extends \PKP\core\DataObject
 
         if ($supportedLocales === null) {
             $supportedLocales = [];
-            $localeNames = & AppLocale::getAllLocales();
+            $localeNames = Locale::getAllLocales();
 
             $locales = $this->getSupportedLocales();
             foreach ($locales as $localeKey) {
@@ -87,14 +87,14 @@ class Site extends \PKP\core\DataObject
         if ($this->getLocalizedData('pageHeaderTitleImage')) {
             return $this->getLocalizedData('pageHeaderTitleImage');
         }
-        if ($this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale())) {
-            return $this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale());
+        if ($this->getData('pageHeaderTitleImage', Locale::getPrimaryLocale())) {
+            return $this->getData('pageHeaderTitleImage', Locale::getPrimaryLocale());
         }
         if ($this->getLocalizedData('title')) {
             return $this->getLocalizedData('title');
         }
-        if ($this->getData('title', AppLocale::getPrimaryLocale())) {
-            return $this->getData('title', AppLocale::getPrimaryLocale());
+        if ($this->getData('title', Locale::getPrimaryLocale())) {
+            return $this->getData('title', Locale::getPrimaryLocale());
         }
         return '';
     }

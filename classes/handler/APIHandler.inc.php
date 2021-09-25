@@ -17,7 +17,6 @@ namespace PKP\handler;
 
 use APP\core\Application;
 use APP\core\Services;
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\core\APIResponse;
 use PKP\plugins\HookRegistry;

@@ -16,6 +16,7 @@
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 
+use PKP\facades\Locale;
 use PKP\install\form\InstallForm;
 use PKP\install\form\UpgradeForm;
 
@@ -39,7 +40,7 @@ class InstallHandler extends Handler
         $this->validate(null, $request);
         $this->setupTemplate($request);
 
-        if (($setLocale = $request->getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
+        if (($setLocale = $request->getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
             $request->setCookieVar('currentLocale', $setLocale);
         }
 
@@ -107,7 +108,7 @@ class InstallHandler extends Handler
         $this->validate(null, $request);
         $this->setupTemplate($request);
 
-        if (($setLocale = $request->getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
+        if (($setLocale = $request->getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
             $request->setCookieVar('currentLocale', $setLocale);
         }
 

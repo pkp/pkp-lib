@@ -15,6 +15,7 @@
  */
 
 use PKP\form\Form;
+use PKP\facades\Locale;
 
 class SubmissionChecklistForm extends Form
 {
@@ -52,14 +53,14 @@ class SubmissionChecklistForm extends Form
         $submissionChecklistAll = $context->getData('submissionChecklist');
         $checklistItem = [];
         // preparea  localizable array for this checklist Item
-        foreach (AppLocale::getSupportedLocales() as $locale => $name) {
+        foreach ($context->getSupportedLocaleNames() as $locale => $name) {
             $checklistItem[$locale] = null;
         }
 
         // if editing, set the content
         // use of 'content' as key is for backwards compatibility
         if (isset($this->submissionChecklistId)) {
-            foreach (AppLocale::getSupportedLocales() as $locale => $name) {
+            foreach ($context->getSupportedLocaleNames() as $locale => $name) {
                 if (!isset($submissionChecklistAll[$locale][$this->submissionChecklistId]['content'])) {
                     $checklistItem[$locale] = '';
                 } else {
@@ -106,7 +107,7 @@ class SubmissionChecklistForm extends Form
         $router = $request->getRouter();
         $context = $router->getContext($request);
         $submissionChecklistAll = $context->getData('submissionChecklist');
-        $locale = AppLocale::getPrimaryLocale();
+        $locale = Locale::getPrimaryLocale();
         //FIXME: a bit of kludge to get unique submissionChecklist id's
         $this->submissionChecklistId = ($this->submissionChecklistId != null ? $this->submissionChecklistId : (max(array_keys($submissionChecklistAll[$locale])) + 1));
 
@@ -119,7 +120,7 @@ class SubmissionChecklistForm extends Form
         $order++;
 
         $checklistItem = $this->getData('checklistItem');
-        foreach (AppLocale::getSupportedLocales() as $locale => $name) {
+        foreach ($context->getSupportedLocaleNames() as $locale => $name) {
             if (isset($checklistItem[$locale])) {
                 $submissionChecklistAll[$locale][$this->submissionChecklistId]['content'] = $checklistItem[$locale];
                 $submissionChecklistAll[$locale][$this->submissionChecklistId]['order'] = $order;

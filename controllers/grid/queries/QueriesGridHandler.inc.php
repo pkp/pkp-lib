@@ -20,7 +20,7 @@ use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
-use PKP\i18n\PKPLocale;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
@@ -633,7 +633,7 @@ class QueriesGridHandler extends GridHandler
             }
 
             // Send notifications
-            PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
+            Locale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
             $currentUser = $request->getUser();
             $newParticipantIds = $queryForm->getData('users');
             $added = array_diff($newParticipantIds, $oldParticipantIds);

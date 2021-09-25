@@ -15,7 +15,6 @@
 
 namespace PKP\controllers\grid\plugins;
 
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;

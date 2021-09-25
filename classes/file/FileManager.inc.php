@@ -25,8 +25,7 @@ use Exception;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
-use PKP\i18n\PKPLocale;
-
+use PKP\facades\Locale;
 use PKP\plugins\HookRegistry;
 
 class FileManager
@@ -725,7 +724,7 @@ class FileManager
      */
     private function _executeGzip($filePath, $decompress = false)
     {
-        PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
+        Locale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
         $gzipPath = Config::getVar('cli', 'gzip');
         if (!is_executable($gzipPath)) {
             throw new Exception(__('admin.error.executingUtil', ['utilPath' => $gzipPath, 'utilVar' => 'gzip']));

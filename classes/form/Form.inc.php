@@ -23,7 +23,7 @@
 namespace PKP\form;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -75,15 +75,15 @@ class Form
     public function __construct($template = null, $callHooks = true, $requiredLocale = null, $supportedLocales = null)
     {
         if ($requiredLocale === null) {
-            $requiredLocale = AppLocale::getPrimaryLocale();
+            $requiredLocale = Locale::getPrimaryLocale();
         }
         $this->requiredLocale = $requiredLocale;
         if ($supportedLocales === null) {
-            $supportedLocales = AppLocale::getSupportedFormLocales();
+            $supportedLocales = Locale::getSupportedFormLocales();
         }
         $this->supportedLocales = $supportedLocales;
 
-        $this->defaultLocale = AppLocale::getLocale();
+        $this->defaultLocale = Locale::getLocale();
 
         $this->_template = $template;
         $this->_data = [];
@@ -495,11 +495,11 @@ class Form
                 $returner .= $this->_decomposeArray($name, $subValue, $newStack);
             }
         } else {
-            $name = htmlentities($name, ENT_COMPAT, LOCALE_ENCODING);
-            $value = htmlentities($value, ENT_COMPAT, LOCALE_ENCODING);
+            $name = htmlentities($name, ENT_COMPAT, Locale::getDefaultEncoding());
+            $value = htmlentities($value, ENT_COMPAT, Locale::getDefaultEncoding());
             $returner .= '<input type="hidden" name="' . $name;
             while (($item = array_shift($stack)) !== null) {
-                $item = htmlentities($item, ENT_COMPAT, LOCALE_ENCODING);
+                $item = htmlentities($item, ENT_COMPAT, Locale::getDefaultEncoding());
                 $returner .= '[' . $item . ']';
             }
             $returner .= '" value="' . $value . "\" />\n";

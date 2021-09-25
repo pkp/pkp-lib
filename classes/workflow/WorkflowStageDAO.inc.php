@@ -17,7 +17,6 @@
 namespace PKP\workflow;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 
 class WorkflowStageDAO extends \PKP\db\DAO
 {

@@ -17,7 +17,6 @@ namespace PKP\controllers\grid\users\reviewer;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;

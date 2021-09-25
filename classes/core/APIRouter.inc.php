@@ -19,7 +19,6 @@
 
 namespace PKP\core;
 
-use APP\i18n\AppLocale;
 use Exception;
 use PKP\config\Config;
 

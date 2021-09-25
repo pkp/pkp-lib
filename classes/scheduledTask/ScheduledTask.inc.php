@@ -18,7 +18,6 @@
 
 namespace PKP\scheduledTask;
 
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\core\Core;
 

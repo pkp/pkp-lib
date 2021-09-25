@@ -14,7 +14,6 @@
 namespace PKP\announcement;
 
 use APP\core\Request;
-use APP\i18n\AppLocale;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;

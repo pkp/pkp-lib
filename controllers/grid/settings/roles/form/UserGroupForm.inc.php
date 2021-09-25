@@ -17,6 +17,7 @@ use APP\template\TemplateManager;
 
 use PKP\core\JSONMessage;
 use PKP\form\Form;
+use PKP\facades\Locale;
 use PKP\security\Role;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -307,7 +308,7 @@ class UserGroupForm extends Form
                 }
             }
         } else {
-            $localeKey = AppLocale::getLocale();
+            $localeKey = Locale::getLocale();
             $userGroup->setName($this->getData('name'), $localeKey);
             $userGroup->setAbbrev($this->getData('abbrev'), $localeKey);
         }

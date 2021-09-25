@@ -19,7 +19,7 @@ define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
@@ -179,14 +179,14 @@ class PKPPageRouter extends PKPRouter
         if (!isset($this->_cacheFilename)) {
             if ($request->isPathInfoEnabled()) {
                 $id = $_SERVER['PATH_INFO'] ?? 'index';
-                $id .= '-' . AppLocale::getLocale();
+                $id .= '-' . Locale::getLocale();
             } else {
                 $id = '';
                 $application = $this->getApplication();
                 foreach ($application->getContextList() as $contextName) {
                     $id .= $request->getUserVar($contextName) . '-';
                 }
-                $id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . AppLocale::getLocale();
+                $id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . Locale::getLocale();
             }
             $path = Core::getBaseDir();
             $this->_cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';

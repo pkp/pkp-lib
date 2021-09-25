@@ -17,7 +17,7 @@
 
 namespace PKP\publication;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 
 use PKP\core\Core;
 use PKP\core\PKPString;
@@ -45,9 +45,9 @@ class PKPPublication extends \PKP\core\DataObject
             return $this->getData($key, $preferredLocale);
         }
         // 2. User's current locale
-        if (!empty($this->getData($key, AppLocale::getLocale()))) {
-            $selectedLocale = AppLocale::getLocale();
-            return $this->getData($key, AppLocale::getLocale());
+        if (!empty($this->getData($key, Locale::getLocale()))) {
+            $selectedLocale = Locale::getLocale();
+            return $this->getData($key, Locale::getLocale());
         }
         // 3. Publication's primary locale
         if (!empty($this->getData($key, $this->getData('locale')))) {

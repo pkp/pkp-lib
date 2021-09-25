@@ -27,7 +27,7 @@ namespace PKP\submission;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -284,8 +284,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
             return $this->getData($key, $preferredLocale);
         }
         // 2. User's current locale
-        if (!empty($this->getData($key, AppLocale::getLocale()))) {
-            return $this->getData($key, AppLocale::getLocale());
+        if (!empty($this->getData($key, Locale::getLocale()))) {
+            return $this->getData($key, Locale::getLocale());
         }
         // 3. Submission's primary locale
         if (!empty($this->getData($key, $this->getData('locale')))) {

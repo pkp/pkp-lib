@@ -16,7 +16,6 @@
 namespace PKP\task;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use DateTimeImmutable;
 use PKP\db\DAORegistry;
 use PKP\notification\managerDelegate\EditorialReportNotificationManager;

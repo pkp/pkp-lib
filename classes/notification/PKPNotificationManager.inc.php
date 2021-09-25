@@ -19,7 +19,6 @@ namespace PKP\notification;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;

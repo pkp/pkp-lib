@@ -16,6 +16,8 @@
 use APP\handler\Handler;
 
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleConversion;
 
 class HelpHandler extends Handler
 {
@@ -40,7 +42,7 @@ class HelpHandler extends Handler
         $urlPart = join('/', $request->getRequestedArgs());
         $filename = $urlPart . '.md';
 
-        $language = AppLocale::getIso1FromLocale(AppLocale::getLocale());
+        $language = LocaleConversion::getIso1FromLocale(Locale::getLocale());
         $summaryFile = $path . $language . '/SUMMARY.md';
 
         // Default to English

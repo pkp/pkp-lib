@@ -17,8 +17,9 @@
 
 namespace PKP\submission\reviewAssignment;
 
+use Exception;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
+
 use PKP\db\DAORegistry;
 
 class ReviewAssignmentDAO extends \PKP\db\DAO
@@ -237,7 +238,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewRoundJoinString = $this->getReviewRoundJoin();
 
         if (!$reviewRoundJoinString) {
-            throw new \Exception('Review round join string not specified');
+            throw new Exception('Review round join string not specified');
         }
         $result = $this->retrieve(
             'SELECT	r.*, r2.review_revision
@@ -289,7 +290,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewRoundJoinString = $this->getReviewRoundJoin();
 
         if (!$reviewRoundJoinString) {
-            throw new \Exception('Review round join string not specified');
+            throw new Exception('Review round join string not specified');
         }
         $result = $this->retrieve(
             'SELECT	r.*, r2.review_revision

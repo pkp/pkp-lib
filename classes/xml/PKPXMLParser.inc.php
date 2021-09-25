@@ -20,13 +20,13 @@
 
 namespace PKP\xml;
 
-use PKP\config\Config;
+use PKP\facades\Locale;
 
 use APP\core\Application;
 
 // The default character encodings
-define('XML_PARSER_SOURCE_ENCODING', Config::getVar('i18n', 'client_charset'));
-define('XML_PARSER_TARGET_ENCODING', Config::getVar('i18n', 'client_charset'));
+define('XML_PARSER_SOURCE_ENCODING', Locale::getDefaultEncoding());
+define('XML_PARSER_TARGET_ENCODING', Locale::getDefaultEncoding());
 
 class PKPXMLParser {
 	/** @var object instance of XMLParserHandler */

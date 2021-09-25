@@ -20,8 +20,8 @@
 namespace PKP\notification;
 
 use APP\core\Application;
+use PKP\facades\Locale;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -112,8 +112,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      */
     public function getParamsForCurrentLocale($params)
     {
-        $locale = AppLocale::getLocale();
-        $primaryLocale = AppLocale::getPrimaryLocale();
+        $locale = Locale::getLocale();
+        $primaryLocale = Locale::getPrimaryLocale();
 
         $localizedParams = [];
         foreach ($params as $name => $value) {
@@ -127,8 +127,9 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
                 // Check if the parameter is in the default site locale
                 $localizedParams[$name] = $value[$primaryLocale];
             } else {
+                $context = Application::get()->getRequest()->getContext();
                 // Otherwise, iterate over all supported locales and return the first match
-                $locales = AppLocale::getSupportedLocales();
+                $locales = $context->getSupportedLocaleNames();
                 foreach ($locales as $localeKey) {
                     if (isset($value[$localeKey])) {
                         $localizedParams[$name] = $value[$localeKey];

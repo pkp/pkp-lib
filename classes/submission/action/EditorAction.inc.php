@@ -16,7 +16,6 @@
 namespace PKP\submission\action;
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;

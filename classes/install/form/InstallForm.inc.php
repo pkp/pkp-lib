@@ -18,7 +18,7 @@
 namespace PKP\install\form;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\install\Install;
 use APP\template\TemplateManager;
 use PKP\core\Core;
@@ -58,10 +58,10 @@ class InstallForm extends MaintenanceForm
         parent::__construct($request, 'install/install.tpl');
 
         // FIXME Move the below options to an external configuration file?
-        $this->supportedLocales = AppLocale::getAllLocales();
+        $this->supportedLocales = Locale::getAllLocales();
         $this->localesComplete = [];
         foreach ($this->supportedLocales as $key => $name) {
-            $this->localesComplete[$key] = AppLocale::isLocaleComplete($key);
+            $this->localesComplete[$key] = Locale::getLocaleMetadata($key)->isLocaleComplete ?? false;
         }
 
         $this->supportedClientCharsets = [
@@ -97,7 +97,9 @@ class InstallForm extends MaintenanceForm
         // Validation checks for this form
         $form = $this;
         $this->addCheck(new \PKP\form\validation\FormValidatorInSet($this, 'locale', 'required', 'installer.form.localeRequired', array_keys($this->supportedLocales)));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'locale', 'required', 'installer.form.localeRequired', ['AppLocale', 'isLocaleValid']));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'locale', 'required', 'installer.form.localeRequired', function ($locale) {
+            return Locale::isLocaleValid($locale);
+        }));
         $this->addCheck(new \PKP\form\validation\FormValidatorInSet($this, 'clientCharset', 'required', 'installer.form.clientCharsetRequired', array_keys($this->supportedClientCharsets)));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'filesDir', 'required', 'installer.form.filesDirRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'adminUsername', 'required', 'installer.form.usernameRequired'));
@@ -156,7 +158,7 @@ class InstallForm extends MaintenanceForm
         }
 
         $this->_data = [
-            'locale' => AppLocale::getLocale(),
+            'locale' => Locale::getLocale(),
             'additionalLocales' => [],
             'clientCharset' => 'utf-8',
             'connectionCharset' => 'utf8',

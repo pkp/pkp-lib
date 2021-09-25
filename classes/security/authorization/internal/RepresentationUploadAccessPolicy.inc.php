@@ -20,7 +20,6 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;

@@ -17,8 +17,8 @@ namespace PKP\user\form;
 
 use APP\core\Application;
 
+use PKP\facades\Locale;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 
 use Sokil\IsoCodes\IsoCodesFactory;
@@ -119,7 +119,7 @@ class ContactForm extends BaseProfileForm
         $availableLocales = $site->getSupportedLocales();
         $locales = [];
         foreach ($this->getData('locales') as $locale) {
-            if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
+            if (Locale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
                 array_push($locales, $locale);
             }
         }

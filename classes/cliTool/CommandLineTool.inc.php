@@ -36,7 +36,6 @@ define('SESSION_DISABLE_INIT', 1);
 require('./lib/pkp/includes/bootstrap.inc.php');
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use PKP\core\Registry;
 
 use PKP\db\DAORegistry;

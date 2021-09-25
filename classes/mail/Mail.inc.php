@@ -30,7 +30,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PKP\config\Config;
 use PKP\core\PKPString;
-
+use PKP\facades\Locale;
 use PKP\plugins\HookRegistry;
 
 class Mail extends \PKP\core\DataObject
@@ -617,7 +617,7 @@ class Mail extends \PKP\core\DataObject
                 ];
             }
         }
-        $mailer->CharSet = Config::getVar('i18n', 'client_charset');
+        $mailer->CharSet = Locale::getDefaultEncoding();
         if (($t = $this->getContentType()) != null) {
             $mailer->ContentType = $t;
         }

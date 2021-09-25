@@ -21,7 +21,7 @@ use APP\workflow\EditorDecisionActionsManager;
 use Illuminate\Support\Enumerable;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
-
+use PKP\facades\Locale;
 use PKP\security\Role;
 
 use PKP\submission\PKPSubmission;
@@ -206,7 +206,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         }
 
         $supportedSubmissionLocales = $submissionContext->getSupportedSubmissionLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedSubmissionLocales);

@@ -17,7 +17,7 @@ namespace PKP\mail;
 
 use APP\core\Application;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\mail\variables\ContextEmailVariable;
 use PKP\core\PKPApplication;
 use PKP\facades\Repo;
@@ -74,7 +74,7 @@ class MailTemplate extends Mail
 
         $this->includeSignature = $includeSignature;
         // Use current user's locale if none specified
-        $this->locale = $locale ?? AppLocale::getLocale();
+        $this->locale = $locale ?? Locale::getLocale();
 
         // Record whether or not to BCC the sender when sending message
         $this->bccSender = $request->getUserVar('bccSender');

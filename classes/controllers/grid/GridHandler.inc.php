@@ -38,7 +38,6 @@
 
 namespace PKP\controllers\grid;
 
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;

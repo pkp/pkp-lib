@@ -17,7 +17,7 @@
 
 namespace PKP\controlledVocab;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use PKP\db\DAORegistry;
 
 class ControlledVocabDAO extends \PKP\db\DAO
@@ -250,8 +250,8 @@ class ControlledVocabDAO extends \PKP\db\DAO
 			WHERE	e.controlled_vocab_id = ?
 			ORDER BY e.seq',
             [
-                $settingName, AppLocale::getLocale(),		// Current locale
-                $settingName, AppLocale::getPrimaryLocale(),	// Primary locale
+                $settingName, Locale::getLocale(),		// Current locale
+                $settingName, Locale::getPrimaryLocale(),	// Primary locale
                 $settingName, '',				// No locale
                 (int) $controlledVocabId
             ]

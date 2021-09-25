@@ -18,12 +18,13 @@ namespace PKP\xslt;
 use DOMDocument;
 
 use PKP\config\Config;
+use PKP\facades\Locale;
 use PKP\file\FileManager;
 
 use XSLTProcessor;
 
 // The default character encoding
-define('XSLT_PROCESSOR_ENCODING', Config::getVar('i18n', 'client_charset'));
+define('XSLT_PROCESSOR_ENCODING', Locale::getDefaultEncoding());
 
 class XSLTransformer
 {

@@ -24,7 +24,7 @@ use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
-
+use PKP\facades\Locale;
 use PKP\submission\PKPSubmission;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -197,7 +197,7 @@ abstract class PKPWorkflowHandler extends Handler
         }
 
         $supportedSubmissionLocales = $submissionContext->getSupportedSubmissionLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedSubmissionLocales);

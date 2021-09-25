@@ -18,7 +18,7 @@
 
 namespace PKP\controllers\grid;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\template\TemplateManager;
 
 class GridCellProvider
@@ -63,7 +63,7 @@ class GridCellProvider
             'column' => $column,
             'actions' => $this->getCellActions($request, $row, $column),
             'flags' => $column->getFlags(),
-            'formLocales' => AppLocale::getSupportedFormLocales(),
+            'formLocales' => Locale::getSupportedFormLocales(),
         ]);
         $template = $column->getTemplate();
         assert(!empty($template));

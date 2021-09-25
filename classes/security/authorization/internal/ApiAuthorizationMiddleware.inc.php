@@ -15,9 +15,7 @@
 
 namespace PKP\security\authorization\internal;
 
-use APP\i18n\AppLocale;
 use PKP\core\JSONMessage;
-
 use PKP\handler\APIHandler;
 
 class ApiAuthorizationMiddleware

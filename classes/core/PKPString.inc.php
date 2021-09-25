@@ -17,7 +17,7 @@
 namespace PKP\core;
 
 use PKP\config\Config;
-
+use PKP\facades\Locale;
 use Stringy\Stringy;
 
 class PKPString
@@ -33,7 +33,7 @@ class PKPString
      */
     public static function init()
     {
-        $clientCharset = strtolower_codesafe(Config::getVar('i18n', 'client_charset'));
+        $clientCharset = strtolower_codesafe(Locale::getDefaultEncoding());
 
         // Check if mbstring is installed
         if (self::hasMBString() && !defined('ENABLE_MBSTRING')) {
@@ -409,7 +409,7 @@ class PKPString
         static $purifier;
         if (!isset($purifier)) {
             $config = \HTMLPurifier_Config::createDefault();
-            $config->set('Core.Encoding', Config::getVar('i18n', 'client_charset'));
+            $config->set('Core.Encoding', Locale::getDefaultEncoding());
             $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
             $config->set('HTML.Allowed', Config::getVar('security', 'allowed_html'));
             $config->set('Cache.SerializerPath', 'cache');

@@ -18,7 +18,7 @@ namespace PKP\install;
 use adoSchema;
 use APP\core\Application;
 use APP\file\LibraryFileManager;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -161,11 +161,11 @@ class Installer
         }
 
         if (!isset($this->locale)) {
-            $this->locale = AppLocale::getLocale();
+            $this->locale = Locale::getLocale();
         }
 
         if (!isset($this->installedLocales)) {
-            $this->installedLocales = array_keys(AppLocale::getAllLocales());
+            $this->installedLocales = array_keys(Locale::getAllLocales());
         }
 
         if (!isset($this->dataXMLParser)) {

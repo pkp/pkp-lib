@@ -29,6 +29,7 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\Domains\Jobs\Providers\JobServiceProvider;
+use PKP\facades\Locale;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\Support\ProxyParser;
 use Sokil\IsoCodes\IsoCodesFactory;
@@ -96,7 +97,7 @@ class PKPContainer extends Container
         // This singleton is necessary to keep user selected language across the application
         $this->singleton(IsoCodesFactory::class, function () {
             $driver = new GettextExtensionDriver();
-            $driver->setLocale(PKPLocale::getLocale());
+            $driver->setLocale(Locale::getLocale());
             return new IsoCodesFactory(null, $driver);
         });
 

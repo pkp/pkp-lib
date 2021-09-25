@@ -16,7 +16,7 @@
 namespace PKP\submissionFile;
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use PKP\core\PKPApplication;
 
 // Define the file stage identifiers.
@@ -48,7 +48,7 @@ class SubmissionFile extends \PKP\core\DataObject
     public function &getLocalizedData($key, $preferredLocale = null)
     {
         if (is_null($preferredLocale)) {
-            $preferredLocale = AppLocale::getLocale();
+            $preferredLocale = Locale::getLocale();
         }
         $localePrecedence = [$preferredLocale, $this->getData('locale')];
         foreach ($localePrecedence as $locale) {

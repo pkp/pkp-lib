@@ -42,6 +42,7 @@ class PubIdExportSubmissionsListGridHandler extends ExportPublishedSubmissionsLi
             $this->_plugin->getPubIdType(),
             $title,
             $author,
+            null,
             $pubIdStatusSettingName,
             $statusId,
             $this->getGridRangeInfo($request, $this->getId())

@@ -15,8 +15,8 @@ namespace APP\submission;
 
 use APP\core\Application;
 use APP\facades\Repo;
-
 use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 use PKP\db\Generator;
 
 class DAO extends \PKP\submission\DAO
@@ -116,6 +116,7 @@ class DAO extends \PKP\submission\DAO
             . ' GROUP BY s.submission_id
             ORDER BY MAX(p.date_published) DESC, s.submission_id DESC';
 
-        return $this->deprecatedDao->retrieveRange($sql, $params, $rangeInfo);
+        $rows = $this->deprecatedDao->retrieveRange($sql, $params, $rangeInfo);
+        return new DAOResultFactory($rows, $this, 'fromRow', [], $sql, $params, $rangeInfo);
     }
 }

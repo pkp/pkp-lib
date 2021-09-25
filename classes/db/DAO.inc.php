@@ -305,9 +305,13 @@ class DAO
      *
      * @param mixed $value Value from the database
      * @param string $type Type from the database, eg `string`
+     * @param bool $nullable True iff the value is allowed to be null
      */
-    public function convertFromDB($value, $type)
+    public function convertFromDB($value, $type, $nullable = false)
     {
+        if ($nullable && $value === null) {
+            return null;
+        }
         switch ($type) {
             case 'bool':
             case 'boolean':
@@ -329,10 +333,7 @@ class DAO
                 }
                 // no break
             case 'date':
-                if ($value !== null) {
-                    return strtotime($value);
-                }
-                break;
+                return strtotime($value);
             case 'string':
             default:
                 // Nothing required.
@@ -376,11 +377,16 @@ class DAO
      *
      * @param $value mixed
      * @param $type string
+     * @param $nullable bool True iff the value is allowed to be null.
      *
      * @return string
      */
-    public function convertToDB($value, &$type)
+    public function convertToDB($value, &$type, $nullable = false)
     {
+        if ($nullable && $value === null) {
+            return null;
+        }
+
         if ($type == null) {
             $type = $this->getType($value);
         }
@@ -526,7 +532,7 @@ class DAO
                         if ($isTranslated) {
                             // Translated data comes in as an array
                             // with the locale as the key.
-                            $values = $dataObject->getData($fieldName);
+                            $values = $dataObject->getData($fieldName) ?? [];
                             if (!is_array($values)) {
                                 // Inconsistent data: should have been an array
                                 assert(false);

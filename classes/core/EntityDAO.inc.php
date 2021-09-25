@@ -108,7 +108,7 @@ abstract class EntityDAO
             if (property_exists($row, $column)) {
                 $object->setData(
                     $propName,
-                    $this->convertFromDb($row->{$column}, $schema->properties->{$propName}->type)
+                    $this->convertFromDB($row->{$column}, $schema->properties->{$propName}->type, true)
                 );
             }
         }
@@ -285,7 +285,7 @@ abstract class EntityDAO
         $primaryDbProps = [];
         foreach ($this->primaryTableColumns as $propName => $columnName) {
             if ($propName !== 'id' && array_key_exists($propName, $sanitizedProps)) {
-                $primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type);
+                $primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName] ?? null, $schema->properties->{$propName}->type, true);
                 // Convert empty string values for DATETIME columns into null values
                 // because an empty string can not be saved to a DATETIME column
                 if ($primaryDbProps[$columnName] === ''
@@ -306,16 +306,16 @@ abstract class EntityDAO
     /**
      * @copydoc DAO::convertFromDB()
      */
-    protected function convertFromDB($value, string $type)
+    protected function convertFromDB($value, string $type, bool $nullable = false)
     {
-        return $this->deprecatedDao->convertFromDB($value, $type);
+        return $this->deprecatedDao->convertFromDB($value, $type, $nullable);
     }
 
     /**
      * @copydoc DAO::convertToDB()
      */
-    protected function convertToDB($value, string $type)
+    protected function convertToDB($value, string $type, bool $nullable = false)
     {
-        return $this->deprecatedDao->convertToDB($value, $type);
+        return $this->deprecatedDao->convertToDB($value, $type, $nullable);
     }
 }

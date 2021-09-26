@@ -78,8 +78,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     public function get(int $id): ?SubmissionFile
     {
         $row = DB::table($this->table . ' as sf')
-            ->leftJoin('submissions as s', 's.submission_id', '=', 'sf.submission_id')
-            ->leftJoin('files as f', 'f.file_id', '=', 'sf.file_id')
+            ->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
+            ->join('files as f', 'f.file_id', '=', 'sf.file_id')
             ->where($this->primaryKeyColumn, '=', $id)
             ->select(['sf.*', 'f.*', 's.locale as locale'])
             ->first();
@@ -247,6 +247,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
                 $q->where('sfs.setting_name', '=', 'pub-id::' . $pubIdType);
                 $q->where('sfs.setting_value', '=', $pubId);
             })
+            ->select('sf.submission_file_id')
             ->groupBy('sf.submission_file_id')
             ->value('sf.submission_file_id');
 

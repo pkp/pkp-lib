@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-09-26 17:33+0000\n"
+"PO-Revision-Date: 2021-09-27 09:29+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: bg (generated) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/bg/>\n"
@@ -24,3 +24,136 @@ msgstr "Стойност на настройката"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Име на настройката"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Изчистване на отчетите (logs) за изпълнение на планирани задачи"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Сигурни ли сте, че искате да изтриете всички отчети (logs) за изпълнение на "
+"задачи?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Вашата инсталация {$softwareName} автоматично се изпълни и завърши тази "
+"задача и можете да изтеглите отчетния файл тук: {$url}"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Процесът за изпълнение на задачата не записа отчет (no log)."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Процесът за изпълнение на задачата завърши."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Процесът за изпълнение на задачата стартира."
+
+msgid "admin.scheduledTask"
+msgstr "Планирана задача"
+
+msgid "admin.phpInfo"
+msgstr "Разширена информация за PHP"
+
+msgid "admin.languages.uninstall"
+msgstr "Деинсталирай език"
+
+msgid "admin.languages.reload"
+msgstr "Презареди език"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Не са налични допълнителни езици за инсталиране."
+
+msgid "admin.languages.languageSettings"
+msgstr "Настройки на език"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Инсталиране на нови езици"
+
+msgid "admin.languages.installLocales"
+msgstr "Инсталирай"
+
+msgid "admin.languages.installLocale"
+msgstr "Инсталиране на език"
+
+msgid "admin.languages.availableLocales"
+msgstr "Достъпни езици"
+
+msgid "admin.languages.installLanguages"
+msgstr "Управление на езици"
+
+msgid "admin.languages.installedLocales"
+msgstr "Инсталирани езици"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Наистина ли искате да презаредите този език? Това ще изтрие всички "
+"съществуващи специфични за езика данни, като персонализирани шаблони за "
+"имейли."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Наистина ли искате да промените основния език на сайта? Имената на "
+"потребителите, които се изискват в основния език на сайта, ще бъдат копирани "
+"от съществуващия първичен език, ако и където липсват."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Тази езикова версия е основният език на сайта. Не можете да го деактивирате, "
+"докато не изберете друг основен език."
+
+msgid "admin.expireSessions"
+msgstr "Прекратяване на потребителските сесии"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Показване на нова конфигурация"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Съдържанието на актуализираната ви конфигурация е показано по-долу. За да "
+"приложите промените в конфигурацията, трябва да отворите "
+"<tt>config.inc.php</tt> в подходящ текстов редактор и да замените "
+"съдържанието му със съдържанието на текстовото поле по-долу."
+
+msgid "admin.dateInstalled"
+msgstr "Дата на инсталиране"
+
+msgid "admin.currentVersion"
+msgstr "Текуща версия"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Наистина ли искате да изтриете за постоянно {$contextName} и цялото му "
+"съдържание?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Съдържание на конфигурационен файл"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Наистина ли искате да прекратите всички потребителски сесии? Всички "
+"потребители, които в момента са влезли в системата, ще бъдат принудени да "
+"влязат отново (включително и вие)."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Сигурни ли сте, че искате да изчистите кеша на компилираните шаблони?"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Вашият конфигурационен файл е актуализиран успешно. Моля, обърнете внимание, "
+"че ако вашият сайт вече не функционира правилно, може да се наложи ръчно да "
+"коригирате конфигурацията си, като редактирате директно "
+"<tt>config.inc.php</tt>."
+
+msgid "admin.clearTemplateCache"
+msgstr "Изчистване на кеша на шаблоните"
+
+msgid "admin.clearDataCache"
+msgstr "Изчистване на кеша на данните"
+
+msgid "admin.authSources"
+msgstr "Източници за удостоверяване"
+
+msgid "admin.auth.noneCreated"
+msgstr "Не са дефинирани източници за удостоверяване."
+
+msgid "admin.auth.create"
+msgstr "Създайте източник за удостоверяване"

@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        DB::enableQueryLog();
         DB::listen(function ($query) {
             if (strpos($query->sql, 'submission_files') !== false) {
                 $message = [

@@ -17,8 +17,10 @@ namespace PKP\core;
 
 use APP\core\AppServiceProvider;
 
+use Exception;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
+use Illuminate\Log\LogServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use Throwable;
@@ -87,6 +89,7 @@ class PKPContainer extends Container
         $this->loadConfiguration();
 
         $this->register(new PKPEventServiceProvider($this));
+        $this->register(new LogServiceProvider($this));
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new \Illuminate\Queue\QueueServiceProvider($this));
@@ -121,6 +124,7 @@ class PKPContainer extends Container
             'queue' => [\Illuminate\Queue\QueueManager::class, \Illuminate\Contracts\Queue\Factory::class, \Illuminate\Contracts\Queue\Monitor::class],
             'queue.connection' => [\Illuminate\Contracts\Queue\Queue::class],
             'queue.failer' => [\Illuminate\Queue\Failed\FailedJobProviderInterface::class],
+            'log' => [\Illuminate\Log\LogManager::class, \Psr\Log\LoggerInterface::class],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);
@@ -167,8 +171,13 @@ class PKPContainer extends Container
             'retry_after' => 90,
         ];
 
+        // Logging
+        $items['logging']['channels']['errorlog'] = [
+            'driver' => 'errorlog',
+            'level' => 'debug',
+        ];
+
         // Mail Service
-        $items['mail']['default'] = Config::getVar('email', 'smtp') ? 'smtp' : 'sendmail';
         $items['mail']['mailers']['sendmail'] = [
             'transport' => 'sendmail',
             'path' => Config::getVar('email', 'sendmail_path'),
@@ -183,6 +192,12 @@ class PKPContainer extends Container
             'timeout' => null,
             'auth_mode' => null,
         ];
+        $items['mail']['mailers']['log'] = [
+            'transport' => 'log',
+            'channel' => 'errorlog',
+        ];
+
+        $items['mail']['default'] = static::getDefaultMailer();
 
         $this->instance('config', new Repository($items)); // create instance and bind to use globally
     }
@@ -203,6 +218,21 @@ class PKPContainer extends Container
     public function path($path = '')
     {
         return $this->basePath($path);
+    }
+
+    /**
+     * Retrieves default mailer driver depending on the configuration
+     * @throws Exception
+     */
+    protected static function getDefaultMailer(): string
+    {
+        $default = Config::getVar('email', 'default');
+
+        if (!$default) {
+            throw new Exception('Mailer driver isn\'t specified in the application\'s config');
+        }
+
+        return $default;
     }
 }
 

@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        DB::enableQueryLog();
+        DB::enableQueryLog(); //Enabling logging query at Laravel Database
         DB::listen(function ($query) {
             if (strpos($query->sql, 'submission_files') !== false) {
                 $message = [

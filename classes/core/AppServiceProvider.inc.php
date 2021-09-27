@@ -18,28 +18,12 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\core\Services;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use PKP\context\Context;
 use PKP\services\PKPSchemaService;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
-        DB::enableQueryLog(); //Enabling logging query at Laravel Database
-        DB::listen(function ($query) {
-            if (strpos($query->sql, 'submission_files') !== false) {
-                $message = [
-                    'query' => $query->sql,
-                    'bindings' => $query->bindings,
-                    'time' => $query->time
-                ];
-                error_log(json_encode($message, JSON_PRETTY_PRINT));
-            }
-        });
-    }
-
     /**
      * Register application services
      *

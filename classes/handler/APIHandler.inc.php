@@ -405,7 +405,7 @@ class APIHandler extends PKPHandler
                         }
                         $newObject[$propName] = $this->_convertStringsToSchema($value[$propName], $propSchema->type, $propSchema);
                     }
-                    return $value;
+                    return $newObject;
                 }
                 break;
         }

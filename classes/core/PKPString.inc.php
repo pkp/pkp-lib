@@ -346,8 +346,23 @@ class PKPString {
 		if ($suggestedExtension) {
 			$ext = $suggestedExtension;
 		}
-		// SUGGESTED_EXTENSION:DETECTED_MIME_TYPE => OVERRIDE_MIME_TYPE
-		$ambiguities = array(
+
+		$ambiguities = self::getAmbiguousExtensionsMap();
+		if (isset($ambiguities[strtolower($ext . ':' . $result)])) {
+			$result = $ambiguities[strtolower($ext . ':' . $result)];
+		}
+
+		return $result;
+	}
+
+	/**
+	 * @return string[]
+	 * @brief overrides for ambiguous mime types returned by finfo
+	 * SUGGESTED_EXTENSION:DETECTED_MIME_TYPE => OVERRIDE_MIME_TYPE
+	 */
+	public static function getAmbiguousExtensionsMap()
+	{
+		return [
 			'html:text/xml' => 'text/html',
 			'css:text/x-c' => 'text/css',
 			'css:text/plain' => 'text/css',
@@ -359,12 +374,7 @@ class PKPString {
 			'sldx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
 			'docx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 			'dotx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
-		);
-		if (isset($ambiguities[strtolower($ext.':'.$result)])) {
-			$result = $ambiguities[strtolower($ext.':'.$result)];
-		}
-
-		return $result;
+		];
 	}
 
 	/**

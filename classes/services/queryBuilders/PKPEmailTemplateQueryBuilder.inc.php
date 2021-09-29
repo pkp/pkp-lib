@@ -293,14 +293,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
     protected function getDefault()
     {
         $q = DB::table('email_templates_default as etd')
-            ->orderBy('email_key', 'asc')
-            ->groupBy('etd.email_key')
-            ->groupBy('etd.can_disable')
-            ->groupBy('etd.can_edit')
-            ->groupBy('etd.from_role_id')
-            ->groupBy('etd.to_role_id')
-            ->groupBy('etd.stage_id')
-            ->groupBy('et.email_id');
+            ->orderBy('email_key', 'asc');
 
         if (!is_null($this->contextId)) {
             $contextId = $this->contextId;
@@ -354,31 +347,24 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface
         }
 
         // search phrase
-        if (!empty($this->searchPhrase)) {
+        $q->when($this->searchPhrase !== null, function ($query) {
             $words = explode(' ', $this->searchPhrase);
-            if (count($words)) {
-                $q->leftJoin('email_templates_settings as ets', 'et.email_id', '=', 'ets.email_id');
-                $q->leftJoin('email_templates_default_data as etddata', 'etd.email_key', '=', 'etddata.email_key');
-                foreach ($words as $word) {
-                    $word = strtolower(addcslashes($word, '%_'));
-                    $q->where(function ($q) use ($word) {
-                        $q->where(DB::raw('lower(et.email_key)'), 'LIKE', "%{$word}%")
-                            ->orWhere(function ($q) use ($word) {
-                                $q->where('ets.setting_name', 'subject');
-                                $q->where(DB::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
-                            })
-                            ->orWhere(function ($q) use ($word) {
-                                $q->where('ets.setting_name', 'body');
-                                $q->where(DB::raw('lower(ets.setting_value)'), 'LIKE', "%{$word}%");
-                            })
-                            ->orWhere(DB::raw('lower(etd.email_key)'), 'LIKE', "%{$word}%")
-                            ->orWhere(DB::raw('lower(etddata.subject)'), 'LIKE', "%{$word}%")
-                            ->orWhere(DB::raw('lower(etddata.body)'), 'LIKE', "%{$word}%")
-                            ->orWhere(DB::raw('lower(etddata.description)'), 'LIKE', "%{$word}%");
-                    });
-                }
+            $rawClause = DB::raw("CONCAT('%', LOWER(?), '%')");
+            foreach ($words as $word) {
+                $query->whereIn('et.email_id', function ($query) use ($word, $rawClause) {
+                    return $query->select('email_id')
+                        ->from('email_templates_settings')
+                        ->whereIn('setting_name', ['subject', 'body'])
+                        ->where(DB::raw('LOWER(setting_value)'), 'LIKE', $rawClause)->addBinding($word);
+                })->orWhereIn('etd.email_key', function ($query) use ($word, $rawClause) {
+                    return $query->select('email_key')
+                        ->from('email_templates_default_data')
+                        ->where(DB::raw('LOWER(subject)'), 'LIKE', $rawClause)->addBinding($word)
+                        ->orWhere(DB::raw('LOWER(body)'), 'LIKE', $rawClause)->addBinding($word)
+                        ->orWhere(DB::raw('LOWER(description)'), 'LIKE', $rawClause)->addBinding($word);
+                })->orWhere(DB::raw('LOWER(et.email_key)'), 'LIKE', $rawClause)->addBinding($word);
             }
-        }
+        });
 
         if (!empty($this->keys)) {
             $keys = $this->keys;

@@ -53,9 +53,6 @@ abstract class Collector implements CollectorInterface
     /** @var array|int */
     public $assignedTo = null;
 
-    /** @var array list of columns to select with query */
-    protected $columns = [];
-
     public function __construct(DAO $dao)
     {
         $this->dao = $dao;
@@ -197,9 +194,8 @@ abstract class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $this->columns[] = 's.*';
         $q = DB::table('submissions as s')
-            ->groupBy('s.submission_id');
+            ->select(['s.*']);
 
         // Never permit a query without a context_id unless the CONTEXT_ID_ALL wildcard
         // has been set explicitly.
@@ -211,10 +207,9 @@ abstract class Collector implements CollectorInterface
 
         switch ($this->orderBy) {
             case self::ORDERBY_DATE_PUBLISHED:
-                $this->columns[] = 'po.date_published';
+                $q->addSelect(['po.date_published']);
                 $q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
                 $q->orderBy('po.date_published', $this->orderDirection);
-                $q->groupBy('po.date_published');
                 break;
             case self::ORDERBY_LAST_ACTIVITY:
                 $q->orderBy('s.date_last_activity', $this->orderDirection);
@@ -223,10 +218,9 @@ abstract class Collector implements CollectorInterface
                 $q->orderBy('s.last_modified', $this->orderDirection);
                 break;
             case self::ORDERBY_SEQUENCE:
-                $this->columns[] = 'po.seq';
+                $q->addSelect(['po.seq']);
                 $q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
                 $q->orderBy('po.seq', $this->orderDirection);
-                $q->groupBy('po.seq');
                 break;
             case self::ORDERBY_TITLE:
                 $locale = AppLocale::getLocale();
@@ -240,9 +234,8 @@ abstract class Collector implements CollectorInterface
                     ->where('publication_tlpsl.locale', '=', DB::raw('s.locale'));
 
                 $coalesceTitles = 'COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)';
-                $this->columns[] = DB::raw($coalesceTitles);
+                $q->addSelect([DB::raw($coalesceTitles)]);
                 $q->orderBy(DB::raw($coalesceTitles), $this->orderDirection);
-                $q->groupBy(DB::raw($coalesceTitles));
                 break;
             case self::ORDERBY_DATE_SUBMITTED:
             default:
@@ -319,8 +312,7 @@ abstract class Collector implements CollectorInterface
 
             $q->whereNotNull('s.date_submitted')
                 ->mergeBindings($sub)
-                ->where(DB::raw('(' . $sub->toSql() . ')'), '=', '0')
-                ->groupBy('s.date_submitted'); // postgres compatibility
+                ->where(DB::raw('(' . $sub->toSql() . ')'), '=', '0');
         }
 
         // search phrase
@@ -378,8 +370,6 @@ abstract class Collector implements CollectorInterface
 
         // Add app-specific query statements
         HookRegistry::call('Submission::Collector', [&$q, $this]);
-
-        $q->select($this->columns);
 
         return $q;
     }

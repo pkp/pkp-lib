@@ -172,6 +172,10 @@ class PKPContainer extends Container
             'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
         ];
 
+        if ($driver === 'mysql') {
+            $items['database']['connections'][$driver]['strict'] = false;
+        }
+
         // Queue connection
         $items['queue']['default'] = 'database';
         $items['queue']['connections']['sync']['driver'] = 'sync';

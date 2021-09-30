@@ -2,7 +2,7 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-09-30 07:03+0000\n"
+"PO-Revision-Date: 2021-09-30 07:09+0000\n"
 "Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/submissions/"
 "de_DE/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "submission.publications"
-msgstr "Preprints"
+msgstr "Vorabdrucke"
 
 msgid "submission.publication"
 msgstr "Vorabdruck"
@@ -163,3 +163,92 @@ msgstr "Einreichen in meiner Rolle als..."
 
 msgid "submission.submit.title"
 msgstr "Vorabdruck einreichen"
+
+msgid "submission.queries.production"
+msgstr "Diskussionen"
+
+msgid "publication.version.details"
+msgstr "Details für Version {$version}"
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+"Sind Sie sicher, dass Sie nicht möchten, dass dieser Beitrag veröffentlicht "
+"wird?"
+
+msgid "publication.unpublish.confirm"
+msgstr "Sind Sie sicher, dass Sie nicht möchten, dass dies veröffentlicht wird?"
+
+msgid "publication.unpublish"
+msgstr "unveröffentlichen"
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+"Das Urheberrecht für die eingereichten Beiträge ist an die folgende "
+"Organisation zu übertragen."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Das Urheberrecht wird automatisch {$copyright} zugewiesen, wenn dies "
+"veröffentlicht wird."
+
+msgid "submission.license.description"
+msgstr ""
+"Die Lizenz wird automatisch auf <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> gesetzt, wenn dies veröffentlicht wird."
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Der Beitrag muss sich in der Produktionsphase befinden, bevor er "
+"veröffentlicht werden kann."
+
+msgid "publication.required.declined"
+msgstr "Ein abgelehnter Beitrag kann nicht veröffentlicht werden."
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Die folgenden Voraussetzungen müssen erfüllt sein, damit die Stelle "
+"ausgeschrieben werden kann."
+
+msgid "publication.publish"
+msgstr "Posten"
+
+msgid "publication.invalidSubmission"
+msgstr "Die Vorlage für diesen Vorabdruck konnte nicht gefunden werden."
+
+msgid "publication.event.versionUnpublished"
+msgstr ""
+"Diese Version wurde unveröffentlicht und ist nicht mehr öffentlich "
+"zugänglich."
+
+msgid "publication.event.versionScheduled"
+msgstr "Die Veröffentlichung einer neuen Version war geplant."
+
+msgid "publication.event.versionPublished"
+msgstr "Eine neue Version wurde veröffentlicht."
+
+msgid "publication.event.unpublished"
+msgstr "Die Einreichung wurde unveröffentlicht."
+
+msgid "publication.event.scheduled"
+msgstr "Die Einreichung war zur Veröffentlichung geplant."
+
+msgid "publication.event.published"
+msgstr "Der Einreichung wurde veröffentlicht."
+
+msgid "publication.editDisabled"
+msgstr ""
+"Diese Version wurde bereits veröffentlicht und kann nicht mehr bearbeitet "
+"werden."
+
+msgid "publication.datePublished"
+msgstr "Datum der Veröffentlichung"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Das Jahr des Urheberrechts wird automatisch auf der Basis des "
+"Veröffentlichungsdatums festgelegt."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Das Jahr des Urheberrechts wird bei der Veröffentlichung automatisch "
+"eingestellt."

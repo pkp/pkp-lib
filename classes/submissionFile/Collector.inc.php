@@ -232,7 +232,7 @@ class Collector implements CollectorInterface
             $qb->whereIn('sf.uploader_user_id', $this->uploaderUserIds);
         }
 
-        if (empty($this->includeDependentFiles) && !in_array(SubmissionFile::SUBMISSION_FILE_DEPENDENT, $this->fileStages)) {
+        if (empty($this->includeDependentFiles) && $this->fileStages !== null && !in_array(SubmissionFile::SUBMISSION_FILE_DEPENDENT, $this->fileStages)) {
             $qb->where('sf.file_stage', '!=', SubmissionFile::SUBMISSION_FILE_DEPENDENT);
         }
 

@@ -418,7 +418,7 @@ class FileUploadWizardHandler extends Handler
 
         // Validate the form and upload the file.
         if (!$uploadForm->validate()) {
-            return new JSONMessage(true, $uploadForm->fetch($request));
+            return new JSONMessage(false, $uploadForm->fetch($request));
         }
 
         $uploadedFile = $uploadForm->execute(); /** @var SubmissionFile $uploadedFile */

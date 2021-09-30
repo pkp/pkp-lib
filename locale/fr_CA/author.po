@@ -1,8 +1,8 @@
+# Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-28 19:34+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2021-10-01 08:06+0000\n"
+"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "author/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 msgid "author.competingInterests"
 msgstr ""
-"Conflits&nbsp;d'intérêts <a target=\"_new\" class=\"action\" href=\""
+"Intérêts conflictuels <a target=\"_new\" class=\"action\" href=\""
 "{$competingInterestGuidelinesUrl}\">Politique de CI</a>"
 
 msgid "author.submit"

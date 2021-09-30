@@ -1,8 +1,165 @@
 # Matthias <matt@m2labs.de>, 2021.
+# Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-09-30 07:03+0000\n"
+"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/submissions/"
+"de_DE/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "submission.publications"
+msgstr "Preprints"
+
+msgid "submission.publication"
+msgstr "Vorabdruck"
+
+msgid "publication.status.unscheduled"
+msgstr "Unveröffentlicht"
+
+msgid "submission.status.scheduled"
+msgstr "Geplant"
+
+msgid "publication.status.published"
+msgstr "Veröffentlicht"
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+"Sie können Ihren eigenen Vorabdruck nicht veröffentlichen. Er muss von einem "
+"Moderator genehmigt und veröffentlicht werden."
+
+msgid "publication.publish.confirmation"
+msgstr ""
+"Alle Anforderungen sind erfüllt. Sind Sie sicher, dass Sie dies "
+"veröffentlichen wollen?\n"
+
+msgid "publication.relation.vorDoi"
+msgstr "DOI des veröffentlichten Vorabdrucks."
+
+msgid "publication.relation.published"
+msgstr "Vorabdruck wurde in einer Zeitschrift als Vorabdruck veröffentlicht"
+
+msgid "publication.relation.submitted"
+msgstr "Der Vorabdruck wurde zur Veröffentlichung im Server eingereicht"
+
+msgid "publication.relation.none"
+msgstr "Vorabdruck wurde nicht zur Veröffentlichung eingereicht"
+
+msgid "publication.relation.label"
+msgstr "Eingereicht zur Veröffentlichung"
+
+msgid "publication.relation"
+msgstr "Verbindugen"
+
+msgid "publication.datePublished.description"
+msgstr ""
+"Das Veröffentlichungsdatum wird automatisch festgelegt, wenn der Vordruck "
+"veröffentlicht wird. Geben Sie kein Buchungsdatum ein, es sei denn, Sie "
+"müssen es rückdatieren."
+
+msgid "publication.issue.success"
+msgstr "Die Angaben zum Vorabdruck-Eintrag wurden aktualisiert."
+
+msgid "preprint.entry"
+msgstr "Vorabdruck-Eintrag"
+
+msgid "publication.inactiveSection"
+msgstr "{$abschnitt} (inaktiv)\n"
+
+msgid "publication.invalidSection"
+msgstr "Der Abschnitt für diese Version konnte nicht gefunden werden."
+
+msgid "galley.publicationNotFound"
+msgstr "Die Version für diese Dateityp konnte nicht gefunden werden."
+
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"Die Dateitypen dieser Version können nicht bearbeitet werden, da sie bereits "
+"veröffentlicht wurde."
+
+msgid "catalog.category.heading"
+msgstr "Alle Items"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} Einträge"
+
+msgid "submission.sectionOptions"
+msgstr "Abschnitt Optionen"
+
+msgid "submission.metadataDescription"
+msgstr ""
+"Diese Spezifikationen basieren auf dem Dublin-Core-Metadatensatz, einem "
+"internationalen Standard zur Beschreibung von Inhalten."
+
+msgid "submission.submit.form.contributorRoleRequired"
+msgstr "Bitte wählen Sie die Rolle des Mitwirkenden aus."
+
+msgid "submission.submit.form.wordCountAlert"
+msgstr ""
+"Ihre Zusammenfassung ist zu lang. Bitte kürzen Sie sie auf weniger als die "
+"für diesen Abschnitt angegebene Wortanzahl."
+
+msgid "submission.submit.form.abstractRequired"
+msgstr "Bitte geben Sie die Zusammenfassung Ihres Vorabdrucks ein."
+
+msgid "submission.submit.form.titleRequired"
+msgstr "Bitte geben Sie den Titel Ihres Vorabdrucks ein."
+
+msgid "submission.submit.form.authorRequired"
+msgstr "Mindestens ein Autor ist erforderlich."
+
+msgid "submission.submit.contributorRole"
+msgstr "Rolle des Beitragenden"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Bevor Sie fortfahren, müssen Sie die nachstehenden Anforderungen lesen und "
+"bestätigen, dass Sie diese erfüllt haben."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Einreichungs-Checkliste"
+
+msgid "submission.submit.form.localeRequired"
+msgstr "Bitte wählen Sie eine Sprache für die Einreichung."
+
+msgid "submission.complete"
+msgstr "Genehmigt"
+
+msgid "submission.upload.fileContents"
+msgstr "Vorabdruck Komponente"
+
+msgid "submission.confirmSubmit"
+msgstr ""
+"Sind Sie sicher, dass Sie diesen Vorabdruck auf den Server einreichen wollen?"
+
+msgid "submission.galleyFiles"
+msgstr "Dateitypen"
+
+msgid "submission.submit.noContext"
+msgstr "Der Einreichungsserver konnte nicht gefunden werden."
+
+msgid "submission.abstract.wordCount.description"
+msgstr "Die Zusammenfassung muss {$wordCount} Wörter oder weniger enthalten."
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Neue Einreichung"
+
+msgid "submission.title"
+msgstr "Vorabdruck Titel"
+
+msgid "submission.upload.selectComponent"
+msgstr "Vorabdruck-Komponente auswählen"
+
+msgid "submission.submit.userGroupDescription"
+msgstr "Wählen Sie die Funktion, unter der Sie diesen Vorabdruck einreichen."
+
+msgid "submission.submit.userGroup"
+msgstr "Einreichen in meiner Rolle als..."
+
+msgid "submission.submit.title"
+msgstr "Vorabdruck einreichen"

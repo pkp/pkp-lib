@@ -1,7 +1,7 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-01 08:06+0000\n"
+"PO-Revision-Date: 2021-10-01 11:44+0000\n"
 "Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/pubids-doi/"
 "de_DE/>\n"
@@ -124,3 +124,98 @@ msgstr ""
 
 msgid "plugins.pubIds.doi.displayName"
 msgstr "DOI"
+
+msgid "plugins.pubIds.doi.editor.preview.objects"
+msgstr "Eintrag"
+
+msgid "plugins.pubIds.doi.editor.preview.galleys"
+msgstr "Gesamtfahne: {$galleyLabel}"
+
+msgid "plugins.pubIds.doi.editor.preview.publication.none"
+msgstr "Für diese Veröffentlichung wurde kein DOI vergeben."
+
+msgid "plugins.pubIds.doi.editor.preview.publication"
+msgstr "Der DOI für diese Veröffentlichung lautet {$doi}."
+
+msgid "plugins.pubIds.doi.editor.missingPrefix"
+msgstr "Der DOI muss mit {$doiPrefix} beginnen."
+
+msgid "plugins.pubIds.doi.editor.assignDoi.assigned"
+msgstr "Der DOI {$pubId} ist zugewiesen worden."
+
+msgid "plugins.pubIds.doi.editor.assignDoi.pattern"
+msgstr ""
+"Der DOI {$pubId} kann nicht zugewiesen werden, da er ein nicht aufgelöstes "
+"Muster enthält."
+
+msgid "plugins.pubIds.doi.editor.assignDoi.emptySuffix"
+msgstr ""
+"Der DOI kann nicht zugewiesen werden, weil das benutzerdefinierte Suffix "
+"fehlt."
+
+msgid "plugins.pubIds.doi.editor.assignDoi"
+msgstr "Weisen Sie die DOI {$pubId} diesem {$pubObjectType} zu"
+
+msgid "plugins.pubIds.doi.editor.clearObjectsDoi.confirm"
+msgstr "Sind Sie sicher, dass Sie die bestehende DOI löschen möchten?"
+
+msgid "plugins.pubIds.doi.editor.clearObjectsDoi"
+msgstr "Löschen"
+
+msgid "plugins.pubIds.doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+"Das angegebene DOI-Suffix ist bereits für einen anderen veröffentlichten "
+"Artikel in Gebrauch. Bitte geben Sie für jeden Artikel ein eindeutiges DOI-"
+"Suffix ein."
+
+msgid "plugins.pubIds.doi.editor.assigned"
+msgstr "Der DOI wird diesem {$pubObjectType} zugewiesen."
+
+msgid "plugins.pubIds.doi.editor.canBeAssigned"
+msgstr ""
+"Sie sehen eine Vorschau des DOI. Aktivieren Sie das Kontrollkästchen und "
+"speichern Sie das Formular, um den DOI zuzuweisen."
+
+msgid "plugins.pubIds.doi.editor.patternNotResolved"
+msgstr ""
+"Der DOI kann nicht zugewiesen werden, da er ein nicht aufgelöstes Muster "
+"enthält."
+
+msgid "plugins.pubIds.doi.editor.missingParts"
+msgstr ""
+"Sie können keinen DOI erzeugen, weil ein oder mehrere Teile des DOI-Musters "
+"fehlen."
+
+msgid "plugins.pubIds.doi.editor.customSuffixMissing"
+msgstr ""
+"Der DOI kann nicht zugewiesen werden, weil das benutzerdefinierte Suffix "
+"fehlt."
+
+msgid "plugins.pubIds.doi.editor.doiObjectTypeRepresentation"
+msgstr "Gesamtfahne"
+
+msgid "plugins.pubIds.doi.editor.doiObjectTypeSubmission"
+msgstr "Vorabdruck"
+
+msgid "plugins.pubIds.doi.editor.doi.assignDoi"
+msgstr "zuweisen"
+
+msgid "plugins.pubIds.doi.editor.doi.description"
+msgstr "Der DOI muss mit {$prefix} beginnen."
+
+msgid "plugins.pubIds.doi.editor.doi"
+msgstr "DOI"
+
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+"Sind Sie sicher, dass Sie allen veröffentlichten Objekten, denen keine DOIs "
+"zugewiesen wurden, DOIs zuweisen möchten?"
+
+msgid "plugins.pubIds.doi.manager.settings.doiAssignServerWide.description"
+msgstr ""
+"Weisen Sie allen veröffentlichten Serverobjekten, denen noch keine DOIs "
+"zugewiesen wurden, DOIs zu. Diese Aktion kann nicht mit der individuellen "
+"Suffix-Konfiguration verwendet werden. Wenn Sie die obige DOI-Konfiguration "
+"geändert haben, speichern Sie bitte Ihre Änderungen, bevor Sie diese Aktion "
+"starten. Die Zuweisung von DOIs kann je nach der Anzahl der veröffentlichten "
+"Objekte auf dem Server lange dauern."

@@ -237,7 +237,6 @@ class Collector implements CollectorInterface
         }
 
         $qb->orderBy('sf.created_at', 'desc');
-        // $qb->groupBy('sf.submission_id');
 
         if ($this->count > 0) {
             $qb->limit($this->count);

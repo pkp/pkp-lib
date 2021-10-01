@@ -81,7 +81,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
             ->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
             ->join('files as f', 'f.file_id', '=', 'sf.file_id')
             ->where($this->primaryKeyColumn, '=', $id)
-            ->select(['sf.*', 'f.*', 's.locale as locale'])
+            ->addSelect(['sf.*', 'f.*', 's.locale as locale'])
             ->first();
         return $row ? $this->fromRow($row) : null;
     }
@@ -116,7 +116,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
             ->getQueryBuilder()
             ->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
             ->join('files as f', 'f.file_id', '=', 'sf.file_id')
-            ->select(['sf.*', 'f.*', 's.locale as locale'])
+            ->addSelect(['sf.*', 'f.*', 's.locale as locale'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {

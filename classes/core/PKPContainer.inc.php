@@ -174,7 +174,7 @@ class PKPContainer extends Container
 
         if ($driver === 'mysql') {
             // In this case, this flag won't allow the setting of sql_mode before each Database request
-            $items['database']['connections'][$driver]['strict'] = false;
+            // $items['database']['connections'][$driver]['strict'] = false;
         }
 
         // Queue connection

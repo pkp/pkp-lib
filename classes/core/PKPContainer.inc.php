@@ -172,11 +172,6 @@ class PKPContainer extends Container
             'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
         ];
 
-        if ($driver === 'mysql') {
-            // In this case, this flag won't allow the setting of sql_mode before each Database request
-            // $items['database']['connections'][$driver]['strict'] = false;
-        }
-
         // Queue connection
         $items['queue']['default'] = 'database';
         $items['queue']['connections']['sync']['driver'] = 'sync';

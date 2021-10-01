@@ -65,7 +65,6 @@ class PKPContainer extends Container
 
                 public function report(Throwable $e)
                 {
-                    error_log((string) $e);
                     error_log((string) $e->getTraceAsString());
                 }
 

@@ -216,7 +216,6 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     );
                 }
 
-
                 $this->_submissionFiles = iterator_to_array(
                     Repo::submissionFiles()->getMany($collector)
                 );

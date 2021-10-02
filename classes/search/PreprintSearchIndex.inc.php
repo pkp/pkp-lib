@@ -154,19 +154,26 @@ class PreprintSearchIndex extends SubmissionSearchIndex
         // If no search plug-in is activated then fall back to the
         // default database search implementation.
         if ($hookResult === false || is_null($hookResult)) {
-            $submissionFilesIterator = Services::get('submissionFile')->getMany([
-                'submissionIds' => [$preprint->getId()],
-                'fileStages' => [SubmissionFile::SUBMISSION_FILE_PROOF],
-            ]);
+            $collector = Repo::submissionFiles()
+                ->getCollector()
+                ->filterBySubmissionIds([$preprint->getId()])
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_PROOF]);
+
+            $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+
             foreach ($submissionFilesIterator as $submissionFile) {
                 $this->submissionFileChanged($preprint->getId(), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile);
-                $dependentFilesIterator = Services::get('submissionFile')->getMany([
-                    'assocTypes' => [PKPApplication::ASSOC_TYPE_SUBMISSION_FILE],
-                    'assocIds' => [$submissionFile->getId()],
-                    'submissionIds' => [$preprint->getId()],
-                    'fileStages' => [SubmissionFile::SUBMISSION_FILE_DEPENDENT],
-                    'includeDependentFiles' => true,
-                ]);
+
+                $collector = Repo::submissionFiles()
+                    ->getCollector()
+                    ->filterByAssoc(
+                        [ASSOC_TYPE_SUBMISSION_FILE],
+                        [$submissionFile->getId()]
+                    )->filterBySubmissionIds([$preprint->getId()])
+                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
+                    ->filterByIncludeDependentFiles(true);
+
+                $dependentFilesIterator = Repo::submissionFiles()->getMany($collector);
                 foreach ($dependentFilesIterator as $dependentFile) {
                     $this->submissionFileChanged($preprint->getId(), SubmissionSearch::SUBMISSION_SEARCH_SUPPLEMENTARY_FILE, $dependentFile);
                 }

@@ -350,19 +350,23 @@ class PreprintHandler extends Handler
 
             // If the file ID is not the galley's file ID, ensure it is a dependent file, or else 404.
             if ($this->fileId != $this->galley->getFileId()) {
-                $dependentFileIds = Services::get('submissionFile')->getIds([
-                    'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
-                    'assocIds' => [$this->galley->getFileId()],
-                    'fileStages' => [SubmissionFile::SUBMISSION_FILE_DEPENDENT],
-                    'includeDependentFiles' => true,
-                ]);
+                $collector = Repo::submissionFiles()
+                    ->getCollector()
+                    ->filterByAssoc(
+                        [ASSOC_TYPE_SUBMISSION_FILE],
+                        [$this->galley->getFileId()]
+                    )->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
+                    ->filterByIncludeDependentFiles(true);
+
+                $dependentFileIds = Repo::submissionFiles()->getIds($collector)->toArray();
+
                 if (!in_array($this->fileId, $dependentFileIds)) {
                     $request->getDispatcher()->handle404();
                 }
             }
 
             if (!HookRegistry::call('PreprintHandler::download', [$this->preprint, &$this->galley, &$this->fileId])) {
-                $submissionFile = Services::get('submissionFile')->get($this->fileId);
+                $submissionFile = Repo::submissionFiles()->get($this->fileId);
 
                 if (!Services::get('file')->fs->has($submissionFile->getData('path'))) {
                     $request->getDispatcher()->handle404();

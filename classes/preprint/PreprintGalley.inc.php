@@ -19,7 +19,7 @@ namespace APP\preprint;
 
 use APP\core\Application;
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use PKP\submission\Representation;
 
@@ -135,8 +135,9 @@ class PreprintGalley extends Representation
     public function getFile()
     {
         if (!isset($this->_submissionFile)) {
-            $this->_submissionFile = Services::get('submissionFile')->get($this->getFileId());
+            $this->_submissionFile = Repo::submissionFiles()->get($this->getFileId());
         }
+
         return $this->_submissionFile;
     }
 

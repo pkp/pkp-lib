@@ -103,8 +103,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select('a.' . $this->primaryKeyColumn)
-            ->pluck('a.' . $this->primaryKeyColumn);
+            ->select('sf.' . $this->primaryKeyColumn)
+            ->pluck('sf.' . $this->primaryKeyColumn);
     }
 
     /**

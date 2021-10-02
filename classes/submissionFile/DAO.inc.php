@@ -17,6 +17,8 @@ use Exception;
 use PKP\db\DAORegistry;
 use PKP\submissionFile\DAO as BaseDAO;
 
+use PKP\submissionFile\SubmissionFile;
+
 class DAO extends BaseDAO
 {
     /**

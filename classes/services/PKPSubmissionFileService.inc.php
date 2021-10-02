@@ -153,13 +153,16 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                     );
                     break;
                 case 'dependentFiles':
-                    $dependentFilesIterator = Services::get('submissionFile')->getMany([
-                        'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
-                        'assocIds' => [$submissionFile->getId()],
-                        'submissionIds' => [$submission->getId()],
-                        'fileStages' => [SubmissionFile::SUBMISSION_FILE_DEPENDENT],
-                        'includeDependentFiles' => true,
-                    ]);
+                    $collector = Repo::submissionFiles()
+                        ->getCollector()
+                        ->filterByAssoc(
+                            [ASSOC_TYPE_SUBMISSION_FILE],
+                            [$submissionFile->getId()]
+                        )->filterBySubmissionIds([$submission->getId()])
+                        ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
+                        ->filterByIncludeDependentFiles(true);
+
+                    $dependentFilesIterator = Repo::submissionFiles()->getMany($collector);
                     $dependentFiles = [];
                     foreach ($dependentFilesIterator as $dependentFile) {
                         $dependentFiles[] = $this->getFullProperties($dependentFile, $args);

@@ -1,9 +1,10 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2021-04-22 01:44+0000\n"
+"PO-Revision-Date: 2021-09-15 11:20+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -2285,3 +2286,54 @@ msgstr "Birincil Kişiye Bildir"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Bildirimler"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "Editör ekranında aday makalenin URL'si"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Yazarların tam isimleri"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Kısaltılmış bir dize biçimindeki yazar adları"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Aday makalenin özeti"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Aday makalenin benzersiz kimlik numarası"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Aday makalenin başlığı"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Bu aday makaleye atanan ve karar verebilecek editörler"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Birincil iletişim kişisinin tam adı"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Gönderenin e-posta imzası"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Gönderenin e-posta adresi"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Gönderenin tam adı"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "Hakem atamasının URL'si"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Değerlendirmenin tamamlanması gereken tarih"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Hakemin değerlendirmeyi kabul etmesi veya reddetmesi gereken tarih"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Alıcının veya tüm alıcıların kullanıcı adı"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Alıcının veya tüm alıcıların tam adı"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "Kullanıcının kayıp bir şifreyi kurtarabileceği bir sayfanın URL'si"

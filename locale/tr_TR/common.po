@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2021-07-28 13:04+0000\n"
+"PO-Revision-Date: 2021-09-14 13:15+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr_TR/>\n"
@@ -2072,3 +2072,9 @@ msgstr "Bu geçerli bir ülke değil."
 
 msgid "common.insert"
 msgstr "İçeri Aktar"
+
+msgid "validator.alpha_dash_period"
+msgstr "Sadece harf, rakam, tire, alt çizgi ve nokta içerebilir."
+
+msgid "validation.invalidOption"
+msgstr "Bu geçerli bir seçenek değil."

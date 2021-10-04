@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2021-06-27 05:03+0000\n"
+"PO-Revision-Date: 2021-09-23 12:50+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ru_RU/>\n"
@@ -2026,3 +2026,12 @@ msgstr ""
 
 msgid "validator.country"
 msgstr "Такой страны нет."
+
+msgid "validator.alpha_dash_period"
+msgstr "Может содержать только буквы, цифры, дефисы, подчеркивания и точки."
+
+msgid "validation.invalidOption"
+msgstr "Этот вариант не доступен."
+
+msgid "common.insert"
+msgstr "Вставить"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2021-08-01 07:04+0000\n"
+"PO-Revision-Date: 2021-10-04 04:06+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -2027,3 +2027,9 @@ msgstr "ليس هذا بلدًا صحيحًا."
 
 msgid "common.insert"
 msgstr "إدراج"
+
+msgid "validator.alpha_dash_period"
+msgstr "هذا ينبغي أن يحتوي حروفًا، أرقامًا، شُرطًا، خطوطًا تحتانية ونقاطًا فقط."
+
+msgid "validation.invalidOption"
+msgstr "هذا ليس خيارًا صحيحًا."

@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2021-09-10 09:05+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ca_ES/>\n"
@@ -346,7 +347,7 @@ msgid "user.authorization.workflowStageRequired"
 msgstr "No s'ha especificat cap fase del flux de treball."
 
 msgid "user.authorization.pluginRequired"
-msgstr "No s'ha especificat cap mòdul."
+msgstr "És obligatori especificar un mòdul."
 
 msgid "user.login.registrationComplete"
 msgstr "Registre complet"

@@ -1,0 +1,373 @@
+# Cyril Kamburov <cc@intermedia.bg>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-09-27 14:40+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: bg (generated) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"admin/bg/>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.auth.confirmDelete"
+msgstr ""
+"Наистина ли искате да изтриете за постоянно този източник за удостоверяване?"
+
+msgid "admin.adminFunctions"
+msgstr "Административни функции"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Стойност на настройката"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Име на настройката"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Изчистване на отчетите (logs) за изпълнение на планирани задачи"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Сигурни ли сте, че искате да изтриете всички отчети (logs) за изпълнение на "
+"задачи?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Вашата инсталация {$softwareName} автоматично се изпълни и завърши тази "
+"задача и можете да изтеглите отчетния файл тук: {$url}"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Процесът за изпълнение на задачата не записа отчет (no log)."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Процесът за изпълнение на задачата завърши."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Процесът за изпълнение на задачата стартира."
+
+msgid "admin.scheduledTask"
+msgstr "Планирана задача"
+
+msgid "admin.phpInfo"
+msgstr "Разширена информация за PHP"
+
+msgid "admin.languages.uninstall"
+msgstr "Деинсталирай език"
+
+msgid "admin.languages.reload"
+msgstr "Презареди език"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Не са налични допълнителни езици за инсталиране."
+
+msgid "admin.languages.languageSettings"
+msgstr "Настройки на език"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Инсталиране на нови езици"
+
+msgid "admin.languages.installLocales"
+msgstr "Инсталирай"
+
+msgid "admin.languages.installLocale"
+msgstr "Инсталиране на език"
+
+msgid "admin.languages.availableLocales"
+msgstr "Достъпни езици"
+
+msgid "admin.languages.installLanguages"
+msgstr "Управление на езици"
+
+msgid "admin.languages.installedLocales"
+msgstr "Инсталирани езици"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Наистина ли искате да презаредите този език? Това ще изтрие всички "
+"съществуващи специфични за езика данни, като персонализирани шаблони за "
+"имейли."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Наистина ли искате да промените основния език на сайта? Имената на "
+"потребителите, които се изискват в основния език на сайта, ще бъдат копирани "
+"от съществуващия първичен език, ако и където липсват."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Тази езикова версия е основният език на сайта. Не можете да го деактивирате, "
+"докато не изберете друг основен език."
+
+msgid "admin.expireSessions"
+msgstr "Прекратяване на потребителските сесии"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Показване на нова конфигурация"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Съдържанието на актуализираната ви конфигурация е показано по-долу. За да "
+"приложите промените в конфигурацията, трябва да отворите "
+"<tt>config.inc.php</tt> в подходящ текстов редактор и да замените "
+"съдържанието му със съдържанието на текстовото поле по-долу."
+
+msgid "admin.dateInstalled"
+msgstr "Дата на инсталиране"
+
+msgid "admin.currentVersion"
+msgstr "Текуща версия"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Наистина ли искате да изтриете за постоянно {$contextName} и цялото му "
+"съдържание?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Съдържание на конфигурационен файл"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Наистина ли искате да прекратите всички потребителски сесии? Всички "
+"потребители, които в момента са влезли в системата, ще бъдат принудени да "
+"влязат отново (включително и вие)."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Сигурни ли сте, че искате да изчистите кеша на компилираните шаблони?"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Вашият конфигурационен файл е актуализиран успешно. Моля, обърнете внимание, "
+"че ако вашият сайт вече не функционира правилно, може да се наложи ръчно да "
+"коригирате конфигурацията си, като редактирате директно "
+"<tt>config.inc.php</tt>."
+
+msgid "admin.clearTemplateCache"
+msgstr "Изчистване на кеша на шаблоните"
+
+msgid "admin.clearDataCache"
+msgstr "Изчистване на кеша на данните"
+
+msgid "admin.authSources"
+msgstr "Източници за удостоверяване"
+
+msgid "admin.auth.noneCreated"
+msgstr "Не са дефинирани източници за удостоверяване."
+
+msgid "admin.auth.create"
+msgstr "Създайте източник за удостоверяване"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Няма достъпни езици за изтегляне."
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Грешка: не може да се изпълни \"{$utilPath}\".  Проверете {$utilVar} "
+"настройките в config.inc.php."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+"Изпълнението на програмата \"{$utilPath}\"  върна следната грешка: {$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Успешно действие: {$filePath} в {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Предупреждение: файл {$filePath} вече съществува в директорията със "
+"статистически данни за употреба."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Грешка: файлът не може да бъде изтрит {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Грешка: не може да се копира файл от {$filePath} в {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Грешка: Файлът {$filePath} не съществува или не е достъпен."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Грешка: не може да се създаде временна директория {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Копирайте миналите регистрационни файлове (log) за достъп до apache, като "
+"филтрирате записите, свързани с тази инсталация,\n"
+"към текущата директория с файлове, в рамките на директорията на "
+"UsageStatsPlugin. Трябва да се изпълнява от потребител с достатъчни права за "
+"четене на файлове с достъп до apache.\n"
+"\n"
+"Този инструмент ще копира само файлове, които все още не са в директориите "
+"за зареждане на файлове useStats (етап, обработка, архивиране, отхвърляне))."
+"\n"
+"\n"
+"Употреба: {$scriptName} path/to/apache/log/file.log\n"
+"Употреба (обработка на всички файлове в директория): {$scriptName} path/to/"
+"apache/directory\n"
+"\t"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Зареждане на файлове"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Файлът {$filename} бе обработен и архивиран."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Файл {$filename} не можа да бъде преместен от {$currentFilePath} в "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Папката {$path} не е директория или не може да се чете."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Базовият път {$path} трябва да е в директорията с публични файлове."
+
+msgid "admin.version"
+msgstr "Версия"
+
+msgid "admin.version.upToDate"
+msgstr "Вашата система е актуална"
+
+msgid "admin.version.updateAvailable"
+msgstr "Налична е актуализирана версия"
+
+msgid "admin.versionRevision"
+msgstr "Ревизия"
+
+msgid "admin.version.moreInfo"
+msgstr "Повече информация"
+
+msgid "admin.versionMinor"
+msgstr "Вторична (не е основна) версия"
+
+msgid "admin.versionMajor"
+msgstr "Главна/основна версия"
+
+msgid "admin.version.latest"
+msgstr "Последна версия"
+
+msgid "admin.versionHistory"
+msgstr "История на версиите"
+
+msgid "admin.version.downloadPatch"
+msgstr "Свали софтуерна поправка (patch)"
+
+msgid "admin.version.downloadPackage"
+msgstr "Свали"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Проверка за обновления"
+
+msgid "admin.versionBuild"
+msgstr "Компилация (Build)"
+
+msgid "admin.systemInformation"
+msgstr "Системна информация"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Конфигурационният файл <tt>config.inc.php</tt> не съществува, не може да "
+"бъде прочетен или не е валиден."
+
+msgid "admin.siteSetup"
+msgstr "Инстралиране на сайта"
+
+msgid "admin.siteSettings"
+msgstr "Настройки на сайта"
+
+msgid "admin.siteManagement"
+msgstr "Управление на сайта"
+
+msgid "admin.siteAdmin"
+msgstr "Администрация на сайта"
+
+msgid "admin.settings.siteTheme"
+msgstr "Тема (оформление) на сайта"
+
+msgid "admin.settings.siteTitle"
+msgstr "Име на сайта"
+
+msgid "admin.settings.siteLogo"
+msgstr "Лого на сайта"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Таблица със стилове за сайта"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"Невалиден формат на файла със стилове за сайта. Приеманият формат е .css."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Език на сайта"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Само администратор има право да променя тази настройка."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Деактивиране на ролите"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Ограничаване на груповите имейли"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Минимална дължина на паролата (знаци)"
+
+msgid "admin.settings.introduction"
+msgstr "Въведение"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tВашата инсталация е конфигурирана да записва повече от един показател за "
+"използване. Статистическите данни за употребата ще се показват в няколко "
+"контекста.\n"
+"\t\tИма случаи, когато трябва да се използва единна статистика за употреба, "
+"напр. за показване на подреден списък с най-често използваните материали или "
+"за класиране\n"
+"\t\tна резултати от търсенето. Моля, изберете един от конфигурираните "
+"показатели по подразбиране.\n"
+"\t"
+
+msgid "admin.settings.contactName"
+msgstr "Име на контактното лице"
+
+msgid "admin.settings.contactEmail"
+msgstr "Имейл на контактното лице"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Групови имейли"
+
+msgid "admin.settings.about"
+msgstr "За този сайт"
+
+msgid "admin.settings"
+msgstr "Настройки"
+
+msgid "admin.server.platform"
+msgstr "ОС платформа"
+
+msgid "admin.server.phpVersion"
+msgstr "Версия на PHP"
+
+msgid "admin.serverInformation"
+msgstr "Информация за сървъра"
+
+msgid "admin.server.dbVersion"
+msgstr "Версия на сървъра на базата данни"
+
+msgid "admin.server.dbDriver"
+msgstr "Драйвър на базата данни"
+
+msgid "admin.server.apacheVersion"
+msgstr "Версия на Apache"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Напомняне за изтичане на абонамент"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Напомняне на рецензент"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Публикувайте изпратените материали, планирани за публикуване"

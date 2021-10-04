@@ -1,7 +1,7 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-01 08:06+0000\n"
+"PO-Revision-Date: 2021-10-04 21:04+0000\n"
 "Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/api/de_DE/>\n"
 "Language: de_DE\n"
@@ -13,8 +13,8 @@ msgstr ""
 
 msgid "api.submissionFiles.400.badRepresentationAssocType"
 msgstr ""
-"Sie können eine Datei aus diesem Stadium nicht mit einer Gesamtfahne "
-"verbinden."
+"Sie können eine Datei aus dieser Dateistufe nicht mit einer Gesamtfahne "
+"verknüpfen."
 
 msgid "api.publications.403.submissionsDidNotMatch"
 msgstr "Die von Ihnen angeforderte Version ist nicht Teil dieser Vorlage."

@@ -1,7 +1,7 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-01 08:06+0000\n"
+"PO-Revision-Date: 2021-10-04 21:04+0000\n"
 "Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/locale/de_DE/"
 ">\n"
@@ -194,7 +194,7 @@ msgstr "Sie müssen den Datenschutzbestimmungen dieser Website zustimmen."
 
 msgid "user.register.form.missingContextConsent"
 msgstr ""
-"Sie müssen der Datenschutzerklärung für jeden Server zustimmen, bei dem Sie "
+"Sie müssen die Datenschutzerklärung für jeden Server zustimmen, bei dem Sie "
 "sich registrieren."
 
 msgid "user.register.form.privacyConsentThisContext"

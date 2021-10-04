@@ -173,9 +173,10 @@ class PKPSubmissionFileHandler extends APIHandler
         }
 
         // Get the valid review round ids for allowed file stage ids
-        $allowedReviewRoundIds = [];
+        $allowedReviewRoundIds = null;
         // Check if requested reviewRounds are valid
         if (!empty($params['reviewRoundIds'])) {
+            $allowedReviewRoundIds = [];
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
             if (!empty(array_intersect([SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION], $params['fileStages']))) {
                 $result = $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW);
@@ -204,15 +205,12 @@ class PKPSubmissionFileHandler extends APIHandler
             )
             ->filterByReviewRoundIds($allowedReviewRoundIds)
             ->filterByFileStages($allowedFileStages);
-        $items = [];
-        // How use the params with the new repository pattern?
-        $filesIterator = Repo::submissionFiles()->getMany($collector);
-        foreach ($filesIterator as $file) {
-            // Which is the replacement for this?
-            $items[] = Repo::submissionFiles()
-                ->getSchemaMap()
-                ->map($file);
-        }
+
+        $files = Repo::submissionFiles()->getMany($collector);
+
+        $items = Repo::submissionFiles()
+            ->getSchemaMap()
+            ->summarizeMany($files);
 
         $data = [
             'itemsMax' => Repo::submissionFiles()->getCount($collector),
@@ -301,7 +299,7 @@ class PKPSubmissionFileHandler extends APIHandler
 
         $errors = Repo::submissionFiles()
             ->validate(
-                new SubmissionFile(),
+                null,
                 $params,
                 $allowedLocales,
                 $primaryLocale
@@ -375,8 +373,6 @@ class PKPSubmissionFileHandler extends APIHandler
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 
-        $submissionFileId = $submissionFile->getId();
-
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
 
         // Don't allow these properties to be modified
@@ -433,7 +429,7 @@ class PKPSubmissionFileHandler extends APIHandler
             );
 
         $submissionFile = Repo::submissionFiles()
-            ->get($submissionFileId);
+            ->get($submissionFile->getId());
 
         $data = Repo::submissionFiles()
             ->getSchemaMap()

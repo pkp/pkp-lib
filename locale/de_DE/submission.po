@@ -2,7 +2,7 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-01 08:06+0000\n"
+"PO-Revision-Date: 2021-10-04 21:04+0000\n"
 "Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/submissions/"
 "de_DE/>\n"
@@ -48,7 +48,7 @@ msgid "publication.relation.submitted"
 msgstr "Der Vorabdruck wurde zur Veröffentlichung im Server eingereicht"
 
 msgid "publication.relation.none"
-msgstr "Vorabdruck wurde nicht zur Veröffentlichung eingereicht"
+msgstr "Der Vorabdruck wurde nicht zur Veröffentlichung eingereicht"
 
 msgid "publication.relation.label"
 msgstr "Eingereicht zur Veröffentlichung"
@@ -58,7 +58,7 @@ msgstr "Verbindugen"
 
 msgid "publication.datePublished.description"
 msgstr ""
-"Das Veröffentlichungsdatum wird automatisch festgelegt, wenn der Vordruck "
+"Das Veröffentlichungsdatum wird automatisch festgelegt, wenn der Vorabdruck "
 "veröffentlicht wird. Geben Sie kein Buchungsdatum ein, es sei denn, Sie "
 "müssen es rückdatieren."
 
@@ -79,8 +79,8 @@ msgstr "Die Version für diese Dateityp konnte nicht gefunden werden."
 
 msgid "galley.editPublishedDisabled"
 msgstr ""
-"Die Dateitypen dieser Version können nicht bearbeitet werden, da sie bereits "
-"veröffentlicht wurde."
+"Die Gesamtfahnen dieser Version können nicht bearbeitet werden, da sie "
+"bereits veröffentlicht wurde."
 
 msgid "catalog.category.heading"
 msgstr "Alle Einträge"
@@ -137,9 +137,8 @@ msgid "submission.confirmSubmit"
 msgstr ""
 "Sind Sie sicher, dass Sie diesen Vorabdruck auf den Server einreichen wollen?"
 
-#, fuzzy
 msgid "submission.galleyFiles"
-msgstr "Dateitypen"
+msgstr "Gesamtfahnen"
 
 msgid "submission.submit.noContext"
 msgstr "Der Einreichungsserver konnte nicht gefunden werden."
@@ -234,7 +233,7 @@ msgid "publication.event.scheduled"
 msgstr "Die Einreichung war zur Veröffentlichung geplant."
 
 msgid "publication.event.published"
-msgstr "Der Einreichung wurde veröffentlicht."
+msgstr "Die Einreichung wurde veröffentlicht."
 
 msgid "publication.editDisabled"
 msgstr ""

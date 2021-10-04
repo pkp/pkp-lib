@@ -221,13 +221,10 @@ class EditorDecisionForm extends Form
                     $submissionFileId = Repo::submissionFiles()
                         ->add($oldSubmissionFile);
 
-                    $submissionFile = Repo::submissionFiles()
-                        ->get($submissionFileId);
-
                     Repo::submissionFiles()
                         ->dao
                         ->assignRevisionToReviewRound(
-                            $submissionFile->getId(),
+                            $submissionFileId,
                             $reviewRound
                         );
                 }

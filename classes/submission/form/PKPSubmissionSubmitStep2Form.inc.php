@@ -71,11 +71,10 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
 
             $submissionFilesIterator = Repo::submissionFiles()
                 ->getMany($submissionFilesCollector);
-            foreach ($submissionFilesIterator as $submissionFile) {
-                $submissionFiles[] = Repo::submissionFiles()
-                    ->getSchemaMap()
-                    ->map($submissionFile);
-            }
+
+            $submissionFiles = Repo::submissionFiles()
+                ->getSchemaMap()
+                ->summarizeMany($submissionFilesIterator);
         }
 
         $templateMgr = TemplateManager::getManager($request);

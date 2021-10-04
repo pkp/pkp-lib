@@ -2,7 +2,7 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-01 08:06+0000\n"
+"PO-Revision-Date: 2021-10-04 21:04+0000\n"
 "Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/author/de_DE/"
 ">\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "author.submit.proceedToPublish"
-msgstr "Weiter zum Posten."
+msgstr "Weiter zum Posten"
 
 msgid "author.submit.authorCanPublish"
 msgstr ""

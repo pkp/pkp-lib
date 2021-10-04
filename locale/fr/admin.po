@@ -1,0 +1,64 @@
+# Matina Curic <matina.curic@mikado-ac.info>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-10-01 08:06+0000\n"
+"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/ops/admin/fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.contexts.contextDescription"
+msgstr "Description du serveur"
+
+msgid "admin.contexts.form.pathExists"
+msgstr "Le chemin d'accès sélectionné est déjà utilisé par un autre serveur."
+
+msgid "admin.contexts.form.pathAlphaNumeric"
+msgstr ""
+"Le chemin d'accès ne peut contenir que des caractères alphanumériques, des "
+"caractères de soulignement, ou des tirets, et doit commencer et finir par un "
+"caractère alphanumérique."
+
+msgid "admin.contexts.create"
+msgstr "Créer un serveur"
+
+msgid "admin.systemConfiguration"
+msgstr "Configuration d'OPS"
+
+msgid "admin.languages.localeInstalled"
+msgstr "La langue \"{$locale}\" a été installée."
+
+msgid "admin.languages.installNewLocalesInstructions"
+msgstr ""
+"Sélectionner toute langue supplémentaire pour la prise en charge sur ce "
+"système. Les langues doivent être installées avant qu'elles ne puissent être "
+"utilisées par les serveurs hébergés. Voir la documentation d'OPS pour plus "
+"de renseignements sur la prise en charge de nouvelles langues."
+
+msgid "admin.languages.confirmUninstall"
+msgstr ""
+"Êtes-vous sûr de vouloir désinstaller cette langue? Ceci affectera tout "
+"serveur hébergé utilisant actuellement cette langue."
+
+msgid "admin.locale.maybeIncomplete"
+msgstr "Les langues sélectionnées peuvent être incomplètes."
+
+msgid "admin.languages.confirmDisable"
+msgstr ""
+"Êtes-vous certain-e de vouloir désactiver cette langue ? Ceci affectera tout "
+"serveur hébergé utilisant actuellement cette langue."
+
+msgid "admin.settings.redirectInstructions"
+msgstr ""
+"Les demandes faites au site principal seront réacheminées vers ce serveur. "
+"Cela peut être utile si le site n'héberge, par exemple, qu'un seul serveur."
+
+msgid "admin.settings.redirect"
+msgstr "Réacheminement vers le serveur"
+
+msgid "admin.hostedContexts"
+msgstr "Serveurs hébergés"

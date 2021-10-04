@@ -1,15 +1,19 @@
+# Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-09-30T06:56:49-07:00\n"
+"PO-Revision-Date: 2021-10-01 08:06+0000\n"
+"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/"
+"themes-default/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-09-30T06:56:49-07:00\n"
-"PO-Revision-Date: 2019-09-30T06:56:49-07:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.themes.default.name"
 msgstr "Standard-Thema"
@@ -21,7 +25,7 @@ msgid "plugins.themes.default.option.typography.label"
 msgstr "Typographie"
 
 msgid "plugins.themes.default.option.typography.description"
-msgstr "Wählen Sie eine Font-Kombination, die zur Zeitschrift passt."
+msgstr "Wählen Sie eine Font-Kombination, die zum diesem Server passt."
 
 msgid "plugins.themes.default.option.typography.notoSans"
 msgstr "Noto Sans: Ein von Google gestalteter, rein digitaler Font mit umfangreicher Sprachunterstützung."
@@ -49,3 +53,17 @@ msgstr "Farbe"
 
 msgid "plugins.themes.default.option.colour.description"
 msgstr "Wählen Sie eine Farbe für den Header."
+
+msgid "plugins.themes.default.option.useHomepageImageAsHeader.option"
+msgstr "Das Bild der Homepage als Hintergrund für die Kopfzeile anzeigen."
+
+msgid "plugins.themes.default.option.useHomepageImageAsHeader.description"
+msgstr ""
+"Wenn ein Bild für die Homepage hochgeladen wurde, wird es im Hintergrund der "
+"Kopfzeile angezeigt, anstatt an der üblichen Position auf der Homepage."
+
+msgid "plugins.themes.default.option.useHomepageImageAsHeader.label"
+msgstr "Kopfzeilen-Hintergrundbild"
+
+msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
+msgstr "Die Serverzusammenfassung auf der Startseite anzeigen."

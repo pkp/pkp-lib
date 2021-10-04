@@ -1,8 +1,49 @@
 # Matthias <matt@m2labs.de>, 2021.
+# Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-01 08:06+0000\n"
+"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/editor/de_DE/"
+">\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.action.addGalley"
+msgstr "Gesamtfahne hinzufügen"
+
+msgid "editor.publicIdentificationExists"
+msgstr ""
+"Der öffentliche Bezeichner '{$publicIdentifier}' existiert bereits für ein "
+"anderes Objekt (Preprint, Gesamtfahne oder Datei). Bitte wählen Sie "
+"eindeutige Bezeichner innerhalb Ihres Servers."
+
+msgid "editor.submissions.assignedTo"
+msgstr "Zugewiesen an Moderator"
+
+msgid "editor.submission.postPreprint"
+msgstr "Den Vorabdruck veröffentlichen"
+
+msgid "editor.publication.authorPublishRequirements"
+msgstr "Der Autor erfüllt die folgenden Entsendebedingungen nicht:"
+
+msgid "editor.preprint.coverImage"
+msgstr "Cover-Bild"
+
+msgid "editor.publicIdentificationExistsForTheSameType"
+msgstr ""
+"Der öffentliche Bezeichner '{$publicIdentifier}' existiert bereits für ein "
+"anderes Objekt desselben Typs. Bitte wählen Sie eindeutige Bezeichner für "
+"die Objekte desselben Typs auf Ihrem Server."
+
+msgid "editor.submission.proof.manageProofFilesDescription"
+msgstr ""
+"Alle Dateien, die bereits in einer beliebigen Einreichungsphase hochgeladen "
+"wurden, können der Liste für das Korrekturlesen hinzugefügt werden, indem "
+"Sie das Kontrollkästchen Einschließen unten aktivieren und auf Suchen "
+"klicken: Alle verfügbaren Dateien werden aufgelistet und können zur Aufnahme "
+"ausgewählt werden."

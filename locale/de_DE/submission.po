@@ -1,8 +1,254 @@
 # Matthias <matt@m2labs.de>, 2021.
+# Matina Curic <matina.curic@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-04 21:04+0000\n"
+"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/submissions/"
+"de_DE/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "submission.publications"
+msgstr "Vorabdrucke"
+
+msgid "submission.publication"
+msgstr "Vorabdruck"
+
+msgid "publication.status.unscheduled"
+msgstr "Unveröffentlicht"
+
+msgid "submission.status.scheduled"
+msgstr "Geplant"
+
+msgid "publication.status.published"
+msgstr "Veröffentlicht"
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+"Sie können Ihren eigenen Vorabdruck nicht veröffentlichen. Er muss von einem "
+"Moderator genehmigt und veröffentlicht werden."
+
+msgid "publication.publish.confirmation"
+msgstr ""
+"Alle Anforderungen sind erfüllt. Sind Sie sicher, dass Sie dies "
+"veröffentlichen wollen?"
+
+msgid "publication.relation.vorDoi"
+msgstr "DOI des veröffentlichten Vorabdrucks."
+
+msgid "publication.relation.published"
+msgstr "Der Vorabdruck wurde in einer Zeitschrift als Vorabdruck veröffentlicht"
+
+msgid "publication.relation.submitted"
+msgstr "Der Vorabdruck wurde zur Veröffentlichung im Server eingereicht"
+
+msgid "publication.relation.none"
+msgstr "Der Vorabdruck wurde nicht zur Veröffentlichung eingereicht"
+
+msgid "publication.relation.label"
+msgstr "Eingereicht zur Veröffentlichung"
+
+msgid "publication.relation"
+msgstr "Verbindugen"
+
+msgid "publication.datePublished.description"
+msgstr ""
+"Das Veröffentlichungsdatum wird automatisch festgelegt, wenn der Vorabdruck "
+"veröffentlicht wird. Geben Sie kein Buchungsdatum ein, es sei denn, Sie "
+"müssen es rückdatieren."
+
+msgid "publication.issue.success"
+msgstr "Die Angaben zum Vorabdruck-Eintrag wurden aktualisiert."
+
+msgid "preprint.entry"
+msgstr "Vorabdruck-Eintrag"
+
+msgid "publication.inactiveSection"
+msgstr "{$abschnitt} (inaktiv)"
+
+msgid "publication.invalidSection"
+msgstr "Der Abschnitt für diese Version konnte nicht gefunden werden."
+
+msgid "galley.publicationNotFound"
+msgstr "Die Version für diese Dateityp konnte nicht gefunden werden."
+
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"Die Gesamtfahnen dieser Version können nicht bearbeitet werden, da sie "
+"bereits veröffentlicht wurde."
+
+msgid "catalog.category.heading"
+msgstr "Alle Einträge"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} Einträge"
+
+msgid "submission.sectionOptions"
+msgstr "Abschnitt Optionen"
+
+msgid "submission.metadataDescription"
+msgstr ""
+"Diese Spezifikationen basieren auf dem Dublin-Core-Metadatensatz, einem "
+"internationalen Standard zur Beschreibung von Inhalten."
+
+msgid "submission.submit.form.contributorRoleRequired"
+msgstr "Bitte wählen Sie die Rolle des Mitwirkenden aus."
+
+msgid "submission.submit.form.wordCountAlert"
+msgstr ""
+"Ihre Zusammenfassung ist zu lang. Bitte kürzen Sie sie auf weniger als die "
+"für diesen Abschnitt angegebene Wortanzahl."
+
+msgid "submission.submit.form.abstractRequired"
+msgstr "Bitte geben Sie die Zusammenfassung Ihres Vorabdrucks ein."
+
+msgid "submission.submit.form.titleRequired"
+msgstr "Bitte geben Sie den Titel Ihres Vorabdrucks ein."
+
+msgid "submission.submit.form.authorRequired"
+msgstr "Mindestens ein Autor ist erforderlich."
+
+msgid "submission.submit.contributorRole"
+msgstr "Rolle des Beitragenden"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Bevor Sie fortfahren, müssen Sie die nachstehenden Anforderungen lesen und "
+"bestätigen, dass Sie diese erfüllt haben."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Einreichungs-Checkliste"
+
+msgid "submission.submit.form.localeRequired"
+msgstr "Bitte wählen Sie eine Sprache für die Einreichung."
+
+msgid "submission.complete"
+msgstr "Genehmigt"
+
+msgid "submission.upload.fileContents"
+msgstr "Vorabdruck Komponente"
+
+msgid "submission.confirmSubmit"
+msgstr ""
+"Sind Sie sicher, dass Sie diesen Vorabdruck auf den Server einreichen wollen?"
+
+msgid "submission.galleyFiles"
+msgstr "Gesamtfahnen"
+
+msgid "submission.submit.noContext"
+msgstr "Der Einreichungsserver konnte nicht gefunden werden."
+
+msgid "submission.abstract.wordCount.description"
+msgstr "Die Zusammenfassung muss {$wordCount} Wörter oder weniger enthalten."
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Neue Einreichung"
+
+msgid "submission.title"
+msgstr "Vorabdruck Titel"
+
+msgid "submission.upload.selectComponent"
+msgstr "Vorabdruck-Komponente auswählen"
+
+msgid "submission.submit.userGroupDescription"
+msgstr "Wählen Sie die Funktion, unter der Sie diesen Vorabdruck einreichen."
+
+msgid "submission.submit.userGroup"
+msgstr "Einreichen in meiner Rolle als..."
+
+msgid "submission.submit.title"
+msgstr "Vorabdruck einreichen"
+
+msgid "submission.queries.production"
+msgstr "Diskussionen"
+
+msgid "publication.version.details"
+msgstr "Details für Version {$version}"
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+"Sind Sie sicher, dass Sie nicht möchten, dass dieser Beitrag veröffentlicht "
+"wird?"
+
+msgid "publication.unpublish.confirm"
+msgstr "Sind Sie sicher, dass Sie nicht möchten, dass dies veröffentlicht wird?"
+
+msgid "publication.unpublish"
+msgstr "unveröffentlichen"
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+"Das Urheberrecht für die eingereichten Beiträge ist an die folgende "
+"Organisation zu übertragen."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Das Urheberrecht wird automatisch {$copyright} zugewiesen, wenn dies "
+"veröffentlicht wird."
+
+msgid "submission.license.description"
+msgstr ""
+"Die Lizenz wird automatisch auf <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a> gesetzt, wenn dies veröffentlicht wird."
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Der Beitrag muss sich in der Produktionsphase befinden, bevor er "
+"veröffentlicht werden kann."
+
+msgid "publication.required.declined"
+msgstr "Ein abgelehnter Beitrag kann nicht veröffentlicht werden."
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Die folgenden Voraussetzungen müssen erfüllt sein, damit die Stelle "
+"ausgeschrieben werden kann."
+
+msgid "publication.publish"
+msgstr "Posten"
+
+msgid "publication.invalidSubmission"
+msgstr "Die Vorlage für diesen Vorabdruck konnte nicht gefunden werden."
+
+msgid "publication.event.versionUnpublished"
+msgstr ""
+"Diese Version wurde unveröffentlicht und ist nicht mehr öffentlich "
+"zugänglich."
+
+msgid "publication.event.versionScheduled"
+msgstr "Die Veröffentlichung einer neuen Version war geplant."
+
+msgid "publication.event.versionPublished"
+msgstr "Eine neue Version wurde veröffentlicht."
+
+msgid "publication.event.unpublished"
+msgstr "Die Einreichung wurde unveröffentlicht."
+
+msgid "publication.event.scheduled"
+msgstr "Die Einreichung war zur Veröffentlichung geplant."
+
+msgid "publication.event.published"
+msgstr "Die Einreichung wurde veröffentlicht."
+
+msgid "publication.editDisabled"
+msgstr ""
+"Diese Version wurde bereits veröffentlicht und kann nicht mehr bearbeitet "
+"werden."
+
+msgid "publication.datePublished"
+msgstr "Datum der Veröffentlichung"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Das Jahr des Urheberrechts wird automatisch auf der Basis des "
+"Veröffentlichungsdatums festgelegt."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Das Jahr des Urheberrechts wird bei der Veröffentlichung automatisch "
+"eingestellt."

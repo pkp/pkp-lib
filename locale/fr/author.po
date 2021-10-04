@@ -3,27 +3,13 @@ msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-10-01 08:06+0000\n"
 "Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
-"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
-"author/fr_CA/>\n"
-"Language: fr_CA\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/ops/author/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
-
-msgid "author.submit.startHereLink"
-msgstr ""
-"<a href=\"{$submitUrl}\" class=\"action\">Cliquer ici</a> pour vous rendre à "
-"la première étape du processus de soumission en cinq étapes."
-
-msgid "author.competingInterests"
-msgstr ""
-"Intérêts conflictuels <a target=\"_new\" class=\"action\" href=\""
-"{$competingInterestGuidelinesUrl}\">Politique de CI</a>"
-
-msgid "author.submit"
-msgstr "Nouvelle soumission"
 
 msgid "author.submit.proceedToPublish"
 msgstr "Procéder à la publication"
@@ -35,7 +21,6 @@ msgstr ""
 "publication ont été remplies et vous pouvez passer à la révision et la "
 "publication de votre prépublication</b>."
 
-#, fuzzy
 msgid "author.submit.publishRequirements"
 msgstr ""
 "Le serveur a été informé de votre soumission et vous avez reçu une "
@@ -44,7 +29,6 @@ msgstr ""
 "ou vous contactera. Vous pouvez également publier par vous-même une fois les "
 "conditions suivantes remplies :"
 
-#, fuzzy
 msgid "author.submit.authorCanNotPublish"
 msgstr ""
 "Sur ce serveur les auteurs-es ne peuvent pas publier par eux-mêmes et elles-"
@@ -62,21 +46,17 @@ msgstr ""
 "standards/iso639-2/php/code_list.php\" target=\"_blank\">Codes "
 "supplémentaires</a>."
 
-#, fuzzy
 msgid "author.submit.form.sectionRequired"
 msgstr ""
 "Veuillez sélectionner une série du serveur appropriée pour cette soumission."
 
-#, fuzzy
 msgid "submission.submit.coverNote"
 msgstr "Commentaires pour le,la rédacteur-trice"
 
-#, fuzzy
 msgid "author.submit.serverSectionDescription"
 msgstr ""
 "Les prépublications doivent être soumises à l'une des séries du serveur."
 
-#, fuzzy
 msgid "author.submit.serverSection"
 msgstr "Séries du serveur"
 
@@ -102,3 +82,16 @@ msgstr "Téléverser la soumission"
 
 msgid "author.submit.start"
 msgstr "Débuter"
+
+msgid "author.submit.startHereLink"
+msgstr ""
+"<a href=\"{$submitUrl}\" class=\"action\">Cliquer ici</a> pour vous rendre à "
+"la première étape du processus de soumission en cinq étapes."
+
+msgid "author.competingInterests"
+msgstr ""
+"Intérêts conflictuels <a target=\"_new\" class=\"action\" href=\""
+"{$competingInterestGuidelinesUrl}\">Politique de CI</a>"
+
+msgid "author.submit"
+msgstr "Nouvelle soumission"

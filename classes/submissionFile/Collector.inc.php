@@ -23,34 +23,34 @@ class Collector implements CollectorInterface
     /** @var DAO */
     public $dao;
 
-    /** @var array get submission files for one or more file stages */
+    /** @var null|array get submission files for one or more file stages */
     protected $fileStages = null;
 
-    /** @var array get submission files for one or more genres */
+    /** @var null|array get submission files for one or more genres */
     protected $genreIds = null;
 
-    /** @var array get submission files for one or more review rounds */
+    /** @var null|array get submission files for one or more review rounds */
     protected $reviewRoundIds = null;
 
-    /** @var array get submission files for one or more review assignments */
+    /** @var null|array get submission files for one or more review assignments */
     protected $reviewIds = null;
 
-    /** @var array get submission files for one or more submissions */
+    /** @var null|array get submission files for one or more submissions */
     protected $submissionIds = null;
 
-    /** @var array get submission files matching one or more files */
+    /** @var null|array get submission files matching one or more files */
     protected $fileIds = null;
 
-    /** @var array get submission files matching one or more ASSOC_TYPE */
+    /** @var null|array get submission files matching one or more ASSOC_TYPE */
     protected $assocTypes = null;
 
-    /** @var array get submission files matching an ASSOC_ID with one of the assocTypes */
+    /** @var null|array get submission files matching an ASSOC_ID with one of the assocTypes */
     protected $assocIds = null;
 
     /** @var boolean include submission files in the SUBMISSION_FILE_DEPENDENT stage */
     protected $includeDependentFiles = false;
 
-    /** @var array get submission files matching one or more uploader users id */
+    /** @var null|array get submission files matching one or more uploader users id */
     protected $uploaderUserIds = null;
 
     /** @var int */

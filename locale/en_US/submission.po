@@ -1903,3 +1903,15 @@ msgstr "The abstract is too long. It shoud be {$limit} words or less. It is curr
 
 msgid "publication.wordCount"
 msgstr "Word Count: {$count}/{$limit}"
+
+msgid "chapter.volume"
+msgstr "Volume"
+
+msgid "submission.withoutChapter"
+msgstr "{$name} — Without this chapter"
+
+msgid "submission.chapterCreated"
+msgstr " — Chapter created"
+
+msgid "chapter.pages"
+msgstr "Pages"

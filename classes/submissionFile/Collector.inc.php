@@ -203,8 +203,11 @@ class Collector implements CollectorInterface
         }
 
         if ($this->fileIds !== null) {
-            $qb->join('submission_file_revisions as sfr', 'sfr.submission_file_id', '=', 'sf.submission_file_id')
-                ->whereIn('sfr.file_id', $this->fileIds);
+            $qb->whereIn('sf.submission_file_id', function ($query) {
+                return $query->select('submission_file_id')
+                    ->from('submission_file_revisions')
+                    ->whereIn('file_id', $this->fileIds);
+            });
         }
 
         if ($this->reviewRoundIds !== null) {

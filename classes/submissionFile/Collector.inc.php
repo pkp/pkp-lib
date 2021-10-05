@@ -53,11 +53,11 @@ class Collector implements CollectorInterface
     /** @var null|array get submission files matching one or more uploader users id */
     protected $uploaderUserIds = null;
 
-    /** @var int */
-    public $count;
+    /** @var null|int */
+    public $count = null;
 
-    /** @var int */
-    public $offset;
+    /** @var null|int */
+    public $offset = null;
 
     public function __construct(DAO $dao)
     {
@@ -164,7 +164,7 @@ class Collector implements CollectorInterface
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(int $count): self
+    public function limit(?int $count): self
     {
         $this->count = $count;
 
@@ -175,7 +175,7 @@ class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(int $offset): self
+    public function offset(?int $offset): self
     {
         $this->offset = $offset;
 
@@ -238,11 +238,11 @@ class Collector implements CollectorInterface
 
         $qb->orderBy('sf.created_at', 'desc');
 
-        if ($this->count > 0) {
+        if ($this->count !== null) {
             $qb->limit($this->count);
         }
 
-        if ($this->offset > 0) {
+        if ($this->offset !== null) {
             $qb->offset($this->offset);
         }
 

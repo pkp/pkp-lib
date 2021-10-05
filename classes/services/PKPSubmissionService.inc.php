@@ -309,9 +309,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 		$reviews = array();
 		foreach($reviewAssignments as $reviewAssignment) {
-			// @todo for now, only show reviews that haven't been
-			// declined or cancelled
-			if ($reviewAssignment->getDeclined()) {
+			if ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled()) {
 				continue;
 			}
 

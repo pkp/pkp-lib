@@ -104,12 +104,9 @@ class ServerOAI extends OAI
         $tmpArray = preg_split('/:/', $setSpec);
         if (count($tmpArray) == 1) {
             [$serverSpec] = $tmpArray;
-            $serverSpec = urldecode($serverSpec);
             $sectionSpec = null;
         } elseif (count($tmpArray) == 2) {
             [$serverSpec, $sectionSpec] = $tmpArray;
-            $serverSpec = urldecode($serverSpec);
-            $sectionSpec = urldecode($sectionSpec);
         } else {
             return [0, 0];
         }

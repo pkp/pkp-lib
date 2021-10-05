@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
 use PKP\oai\OAISet;
+use PKP\oai\OAIUtils;
 use PKP\oai\PKPOAIDAO;
 use PKP\plugins\HookRegistry;
 use PKP\submission\PKPSubmission;
@@ -105,18 +106,18 @@ class OAIDAO extends PKPOAIDAO
         $sets = [];
         foreach ($servers as $server) {
             $title = $server->getLocalizedName();
-            $abbrev = $server->getPath();
-            array_push($sets, new OAISet(urlencode($abbrev), $title, ''));
+            array_push($sets, new OAISet(self::setSpec($server), $title, ''));
 
             $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO');
             $preprintTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_SERVER, $server->getId());
 
             $sections = $this->sectionDao->getByServerId($server->getId());
             foreach ($sections->toArray() as $section) {
-                if (array_key_exists(urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev()), $preprintTombstoneSets)) {
-                    unset($preprintTombstoneSets[urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev())]);
+                $setSpec = self::setSpec($server, $section);
+                if (array_key_exists($setSpec, $preprintTombstoneSets)) {
+                    unset($preprintTombstoneSets[$setSpec]);
                 }
-                array_push($sets, new OAISet(urlencode($abbrev) . ':' . urlencode($section->getLocalizedAbbrev()), $section->getLocalizedTitle(), ''));
+                array_push($sets, new OAISet($setSpec, $section->getLocalizedTitle(), ''));
             }
             foreach ($preprintTombstoneSets as $preprintTombstoneSetSpec => $preprintTombstoneSetName) {
                 array_push($sets, new OAISet($preprintTombstoneSetSpec, $preprintTombstoneSetName, ''));
@@ -151,15 +152,26 @@ class OAIDAO extends PKPOAIDAO
         $sectionId = null;
 
         if (isset($sectionSpec)) {
-            $section = $this->sectionDao->getByAbbrev($sectionSpec, $server->getId());
-            if (isset($section)) {
-                $sectionId = $section->getId();
-            } else {
-                $sectionId = 0;
+            $sectionId = 0;
+            $sectionIterator = $this->sectionDao->getByServerId($serverId);
+
+            while ($section = $sectionIterator->next()) {
+                if ($sectionSpec == OAIUtils::toValidSetSpec($section->getLocalizedAbbrev())) {
+                    $sectionId = $section->getId();
+                    break;
+                }
             }
         }
 
         return [$serverId, $sectionId];
+    }
+
+    public static function setSpec($server, $section = null): string
+    {
+        // server path is already restricted to ascii alphanumeric, '-' and '_'
+        return isset($section)
+            ? $server->getPath() . ':' . OAIUtils::toValidSetSpec($section->getLocalizedAbbrev())
+            : $server->getPath();
     }
 
     //
@@ -175,7 +187,7 @@ class OAIDAO extends PKPOAIDAO
         $preprintId = $row['submission_id'];
 
         $record->identifier = $this->oai->preprintIdToIdentifier($preprintId);
-        $record->sets = [urlencode($server->getPath()) . ':' . urlencode($section->getLocalizedAbbrev())];
+        $record->sets = [self::setSpec($server, $section)];
 
         if ($isRecord) {
             $submission = Repo::submission()->get($preprintId);

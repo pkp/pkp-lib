@@ -1,9 +1,10 @@
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2021-04-22 01:44+0000\n"
+"PO-Revision-Date: 2021-08-31 00:04+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "sv_SE/>\n"
@@ -1607,7 +1608,7 @@ msgid "validator.date"
 msgstr "Detta är inte ett giltigt datum."
 
 msgid "validator.currency"
-msgstr "Detta är inte en giltig  valuta."
+msgstr "Detta är inte en giltig valuta."
 
 msgid "validator.confirmed"
 msgstr "Bekräftelsen för detta fält matchar inte."
@@ -2027,3 +2028,14 @@ msgstr "Kunde inte importera XML-nod"
 
 msgid "filter.error.missingRequirements"
 msgstr "Försöker utföra en transformation som inte stöds av denna installation."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtret ({$displayName}) stödjer indata {$inputTypeName} - {$typeofInput} "
+"angiven"
+
+msgid "validator.country"
+msgstr "Detta är inte ett giltigt land."
+
+msgid "common.insert"
+msgstr "Infoga"

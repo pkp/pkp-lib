@@ -17,8 +17,18 @@
 
 namespace PKP\oai;
 
+use Transliterator;
+
 class OAIUtils
 {
+    private static $TO_ASCII;
+    private static $NOT_IN_URI_NON_RESERVED_CHARS = '/[^A-Za-z0-9\-_\.!~*\'()]/';
+
+    public static function init()
+    {
+        self::$TO_ASCII = Transliterator::createFromRules(':: Any-Latin; :: Latin-ASCII; :: NFD; :: [:Nonspacing Mark:] Remove; :: NFC;', Transliterator::FORWARD);
+    }
+
     /**
      * Return a UTC-formatted datestamp from the specified UNIX timestamp.
      *
@@ -146,7 +156,27 @@ class OAIUtils
             }
         }
     }
+
+    /**
+     * Valid characters in setSpec [1] are URI unreserved characters [2]
+     * Create a valid string by
+     *  - transliterating all non-Latin characters
+     *  - stripping all diacritics
+     *  - dropping any remaining invalid characters
+     *
+     * [1] https://www.openarchives.org/OAI/2.0/openarchivesprotocol.htm#Set
+     * [2] http://www.ietf.org/rfc/rfc2396.txt
+     *
+     * @param $string string
+     * @return string
+     */
+    public static function toValidSetSpec(string $string): string
+    {
+        $t = self::$TO_ASCII->transliterate($string);
+        return preg_replace(self::$NOT_IN_URI_NON_RESERVED_CHARS, '', $t);
+    }
 }
+OAIUtils::init();
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\oai\OAIUtils', '\OAIUtils');

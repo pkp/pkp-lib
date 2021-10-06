@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2021-06-27 05:03+0000\n"
+"PO-Revision-Date: 2021-09-23 12:50+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru_RU/>\n"
@@ -2139,3 +2139,54 @@ msgstr "Уведомить основное контактное лицо"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Уведомления"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "URL материала в бэкенде редакции"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "ФИО авторов"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Имена авторов в форме короткой строки"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Аннотация материала"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Уникальный ID материала"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Название материала"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Редакторы, назначенные этому материалу, которые могут принять решение"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "ФИО основного контактного лица сайта"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Подпись отправителя в письме электронной почты"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Адрес электронной почты отправителя"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "ФИО отправителя"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "URL задания на рецензию"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Дата, когда рецензирование должно быть завершено"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Дата, когда рецензент должен принять или отклонить задание на рецензию"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Логин получателя или всех получателей"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "ФИО получателя или всех получателей"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "URL страницы, где пользователь может восстановить потерянный пароль"

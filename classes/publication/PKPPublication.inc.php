@@ -134,7 +134,7 @@ class PKPPublication extends \PKP\core\DataObject
             if (!$title) {
                 continue;
             }
-            $return[] = $this->getLocalizedTitle($locale);
+            $return[$locale] = $this->getLocalizedTitle($locale);
         }
         return $return;
     }

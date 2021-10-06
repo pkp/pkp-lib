@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2021-08-13 15:04+0000\n"
+"PO-Revision-Date: 2021-09-22 08:06+0000\n"
 "Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "hu_HU/>\n"
@@ -37,7 +37,7 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "A kért évfolyam, szám vagy év nem érvényes."
 
 msgid "api.stats.400.wrongDateFormat"
-msgstr "Nem megfelelő kérés. A dátumnak az alábbi formátumban kell szerepelni:  ÉÉÉÉ-HH-NN"
+msgstr "A dátumnak az alábbi formátumban kell szerepelni:  ÉÉÉÉ-HH-NN."
 
 msgid "api.stats.400.wrongDateRange"
 msgstr "A kezdő dátum nem lehet későbbi, mint a befejező dátum."
@@ -168,3 +168,61 @@ msgstr "A kért bejelentés nem található."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Nem lehetséges a létrehozás időpontját megváltoztatni."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nincs joga elérni fájlokat ebben a bírálati fordulóban."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nincs joga ezeket a fájlokat hozzáadni és szerkeszteni."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Ön nem férhet hozzá ezekhez a fájlokhoz."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Az a bírálati forduló, amit megadott nem tartozik ehhez a kézirathoz."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"A fájl szerkesztésére irányuló kérelemben nem találtunk változtatásokat."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Meg kell adnia egy fájlszakaszt."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"A bírálati szakaszban lévő fájlok bekérésekor meg kell adnia a bírálati "
+"fordulót."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Ebből a fájlszakaszból nem társíthat fájlt a bírálói körrel."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Ebből a fájlszakaszból nem társíthat fájlt a bírálói hozzárendeléshez."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Ebből a fájlszakaszból nem társíthat fájlt a vita jegyzethez."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Ebből a fájlszakaszból származó fájlt nem társíthat egy másik kéziratfájlhoz."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Az assocType és assocId megadása nélkül nem módosíthatja a fájl társítását."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"A kiválasztott szerepkör(ök)ben lévő felhasználóknak nem küldhet e-mailt."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Az API-token nem használható a webhely eléréséhez, mivel a webhely "
+"rendszergazdája nem állított be titkos kulcsot."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Az apiToken nem volt dekódolható a következő hiba miatt: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Az API-token nem volt érvényesíthető. Ez azt jelezheti, hogy az API-tokenben "
+"hiba van, vagy az API-token már nem érvényes."

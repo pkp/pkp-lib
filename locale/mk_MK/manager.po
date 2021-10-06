@@ -1,7 +1,8 @@
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-23 10:47+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2021-10-04 13:46+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -2459,3 +2460,54 @@ msgstr "Недостасува корисничка група за името �
 
 msgid "plugins.importexport.common.id"
 msgstr "ИД: {$id}"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "УРЛ од поднесокот во уредничкиот приод"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Целосно име на авторите"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Имиња на авторите во облик на скратен наслов"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Извадок на поднесокот"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Единствен ИД број на поднесокот"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Наслов на поднесокот"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Назначени уредници за овој поднесок кои можат да одлучат"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Целосно име на примарниот контакт за веб страница"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "И-мејл потпис на испраќачот"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "И-мејл адреса на испраќачот"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Целосно име на испраќачот"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "УРЛ кон назначување рецензент"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Дата кога рецензијата треба да се комплетира"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Дата кога рецензентот треба да го прифати или одбие назначувањето"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Корисничко име од примателот или примателите"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Целосно име од примателот или примателите"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "УРЛ кон страницата каде што корисникот може да ја обнови лозинката"

@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2021-09-10 09:05+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "es_ES/>\n"
@@ -378,7 +379,7 @@ msgid "user.authorization.workflowStageRequired"
 msgstr "No se ha especificado ninguna fase del proceso de trabajo."
 
 msgid "user.authorization.pluginRequired"
-msgstr "Debe especificar un conector."
+msgstr "Es obligatorio especificar un módulo."
 
 msgid "user.register.form.userGroupRequired"
 msgstr "Debe seleccionar un rol como mínimo."

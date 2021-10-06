@@ -1,12 +1,13 @@
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2020-03-10 14:45+0000\n"
-"Last-Translator: Gabor Klinger <ojshelp@konyvtar.mta.hu>\n"
+"PO-Revision-Date: 2021-09-22 08:06+0000\n"
+"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/hu/>\n"
+"manager/hu_HU/>\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgid "manager.announcements"
 msgstr "Értesítések"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Biztos benne, hogy törölni akarja ezt az értesítést?"
+msgstr "Biztos benne, hogy törölni akarja ezt az értesítést {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "Új értesítés létrehozása"
@@ -66,7 +67,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Kérem, válasszon egy hónapot és/vagy napot a lejárati év mellé."
 
 msgid "manager.announcements.form.description"
-msgstr "Leírás"
+msgstr "Hirdetmény"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "Az értesítés teljes szövege."
@@ -878,11 +879,10 @@ msgstr "Ha a lektor nem végzi el a lektorálást határidőre, ennyi idő múlv
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Alapértelmezett lektorálási határidők"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Ez a link <button type=\"button\">biztosítja a vak lektorálást</button> a "
-"feltöltés során"
+"Ez a link mutatja meg, hogy <button type=\"button\">hogyan lehet az összes "
+"fájl anonimizálását biztosítani</button> a feltöltés során"
 
 msgid "manager.setup.sortableByComponent"
 msgstr "Összetevők alapján csoportosított"
@@ -2065,7 +2065,8 @@ msgid "stats.name.submissionsDeclinedDeskReject"
 msgstr "Elutasított beküldés (Lektorálást megelőzően)"
 
 msgid "manager.setup.metadata.languages.request"
-msgstr "A benyújtás során kérje a szerzőtől a benyújtás nyelveinek megadását."
+msgstr ""
+"Kérje meg a szerzőt, hogy a benyújtás során jelölje meg a beadvány nyelveit."
 
 msgid "manager.setup.metadata.languages.noRequest"
 msgstr ""
@@ -2120,8 +2121,8 @@ msgstr "Alapértelmezett lektorálási mód"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
-"Ha a lektor nem végzi el a lektorálást határidőre, ennyi idő múlva (nap) "
-"küldjön emlékeztetőt a rendszer."
+"Küldjön e-mailben emlékeztetőt, ha a bíráló nem küldött véleményt a bírálat "
+"esedékességét követő ennyi napon belül."
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Lektorálási emlékeztető"
@@ -2337,3 +2338,261 @@ msgstr "HIBA:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "A megadott folyóirat , \"{$contextPath}\", nem létezik."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Egyedi"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Dátum & Idő (rövid)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Dátum & Idő"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Idő"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Dátum (rövid)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Dátum"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Dátum és idő formátumok"
+
+msgid "manager.setup.dateTime"
+msgstr "Dátum & Idő"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Másik e-mail küldése"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-mail sikeresen elküldve az összes címzettnek."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"E-mail küldése folyamatban. Kérjük ne navigáljon tovább, amíg a küldés be "
+"nem fejeződött."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Ön ennyi  {$total} felhasználónak készül egy e-mailt küldeni. Biztos benne, "
+"hogy elküldi ezt az e-mailt?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "E-mail küldése"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Küldjön egy példányt nekem erre a címre {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+"Válassza ki azokat a felhasználókat, akiknek kapniuk kell az ön e-mailes "
+"értesítéséből."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Értesít"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Ezekből az e-mail címekből egy vagy több érvénytelen."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Értesítsen bárkit"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nem"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Igen, küldjön egy példányt neki {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Elsődleges kapcsolattartó értesítése"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Értesítések"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Beküldések letiltása"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Egyedi jelentés készítő"
+
+msgid "manager.people.signedInAs"
+msgstr "Jelenleg bejelentkezve, mint {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Válassza ki az Excel/CSV fájlba exportálandó felhasználókat."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Export Excel/CSV formátumba"
+
+msgid "manager.emails.resetComplete"
+msgstr "E-mail sablon sikeresen visszaállítva."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Az alapértelmezett e-mail sablonok vissza lettek állítva."
+
+msgid "manager.emails.otherTemplates"
+msgstr "Egyéb sablonok"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Értesítés törlése"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Válassza ki a metaadatok típusát, amelyeket ezek a fájlok kaphatnak. A "
+"dokumentumot kell kiválasztani a fő publikációfájlokhoz, például a "
+"letölthető PDF-hez, hogy ezek a fájlok a metaadataikat a publikációtól "
+"örököljék. Ellenkező esetben a legtöbb fájltípushoz válassza a Kiegészítő "
+"tartalom lehetőséget. Az Alkotás olyan fájlok esetében megfelelő, amelyekhez "
+"különálló hitelesítési, felirat- és licencmetaadatokra van szükség."
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "A kézirat URL-címe a szerkesztői rendszerben"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Szerzők teljes neve"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Szerzői nevek rövidített karakterlánc formájában"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "A kézirat absztraktja"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "A kézirat egyedi azonosító száma"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "A kézirat címe"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"Azok a szerkesztők, akik ehhez a kézirathoz vannak rendelve és döntési joguk "
+"is van"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "A weboldal kapcsolattartójának teljes neve"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "A feladó e-mailes aláírása"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "A feladó e-mail címe"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "A feladó teljes neve"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "A bírálói felkérés URL-e"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Az az időpont, ameddig a bírálatot el kell készíteni"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+"Az az időpont ameddig a bírálónak el kell fogadnia vagy vissza kell "
+"utasítania a felkérést"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "A címzett vagy az összes címzett felhasználóneve"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "A címzett vagy az összes címzett teljes neve"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"Annak az oldalnak az URL címe, ahol a felhasználó visszaállíthatja az "
+"elveszett jelszavát"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "A folyamat nem tudta értelmezni a publikációkat"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "A folyamat nem tudta értelmezni a szerzőket"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Rossz szűrés konfiguráció [{$filterName}]: {$filterCount} jött létre. Csak "
+"egy lehetséges."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Általános tételek"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Töltse le az exportált fájlt az alábbi gombra kattintva."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Az exportálás sikeresen befejeződött."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Exportált fájl letöltése"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Kézirat exportálási eredmények"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr ""
+"A folyamat meghiúsult. Az alábbiakban ellenőrizze a hibákat/"
+"figyelmeztetéseket."
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/év)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"A kézirat fájl {$id} kihagyásra került, mivel egy olyan rekordhoz van "
+"csatolva, amely nem kerül importálásra, mint pl. egy bírálati hozzárendelés "
+"vagy vita."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "A szerzői névhez {$param} tartozó felhasználói csoport hiányzik"
+
+msgid "plugins.importexport.common.id"
+msgstr "Azonosító: {$id}"
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Fájl metaadat"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Ezek kiegészítő fájlok, például adatkészletek és kutatási anyagok, és a fő "
+"publikációs fájloktól elkülönítve jelennek majd meg."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Ezek függő fájlok, például egy HTML-fájl által megjelenített képek, és nem "
+"jelennek meg a közzétett tartalommal együtt."
+
+msgid "manager.setup.genres.label"
+msgstr "Fájltípus"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"A nyelvi beállítást nem lehetett menteni. Legalább egy nyelvet engedélyezni "
+"kell minden opcióhoz"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Biztosan engedélyezi ezt a rovatot?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Biztosan letiltja ezt a rovatot?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Tiltsa le ezt a rovatot, és ne engedélyezze új kéziratok benyújtását ide."
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Válassza ki a dátum és az idő kívánt formáját. Egyedi formátum is megadható "
+"a különleges <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>formázó "
+"karakterekkel</a>."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"A beküldést visszaigazoló e-mail másolata az itt megadott e-mail címek "
+"bármelyikére el lesz küldve. Az e-mail címeket vesszővel kell elválasztani. "
+"Példa: one@example.com,two@example.com"

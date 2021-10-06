@@ -1,9 +1,10 @@
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-05-22 00:06+0000\n"
+"PO-Revision-Date: 2021-09-14 23:04+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2247,3 +2248,54 @@ msgstr "Chybí zařazení do uživatelské skupiny pro autora jménem {$param}"
 
 msgid "plugins.importexport.common.id"
 msgstr "Id: {$id}"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "URL adresa příspěvku v redakčním backendu"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Plná jména autorů"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Jména autorů ve zkrácené formě"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Abstrakt příspěvku"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Unikátní ID příspěvku"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Název příspěvku"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Redaktoři přiřazení k tomuto podání, kteří mohou rozhodnout"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Celé jméno hlavního kontaktu webové stránky"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Emailový podpis odesilatele"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Emailová adresa odesilatele"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Celé jméno odesilatele"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "Adresa URL zadání recenze"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Datum, kdy má být recenze dokončena"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Datum, kdy by měl recenzent úkol přijmout nebo odmítnout"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Uživatelské jméno příjemce nebo všech příjemců"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Celé jméno příjemce nebo všech příjemců"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "Adresa URL stránky, na které může uživatel obnovit ztracené heslo"

@@ -1,7 +1,8 @@
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-20 22:11+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2021-10-04 13:46+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk_MK/>\n"
 "Language: mk_MK\n"
@@ -2163,3 +2164,12 @@ msgstr ""
 
 msgid "validator.country"
 msgstr "Ова е непостоечка земја."
+
+msgid "common.insert"
+msgstr "Вметни"
+
+msgid "validator.alpha_dash_period"
+msgstr "Може да содржи само букви, бројки, цртички, подвлечено или запирки."
+
+msgid "validation.invalidOption"
+msgstr "Ова не е валидна опција."

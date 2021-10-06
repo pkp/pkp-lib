@@ -1,9 +1,10 @@
+# M. Ali <vorteem@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2021-06-06 00:31+0000\n"
+"PO-Revision-Date: 2021-10-04 04:06+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2120,3 +2121,54 @@ msgstr "إشعار جهة الاتصال الرئيسية"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "الإشعارات"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "الرابط المؤدي إلى طلب التقديم من وجهة هيئة التحرير"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "الأسماء الكاملة للمؤلفين"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "أسماء المؤلفين بصيغة جملة مختصرة"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "ملخص طلب التقديم"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "رقم المُعرَّف الفريد لطلب التقديم"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "عنوان طلب التقديم"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "المحررون المعينون إلى طلب التقديم هذا؛ الذين يمكنهم اتخاذ قرار"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "الاسم الكامل لجهة الاتصال الرئيسية في الموقع"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "توقيع البريد الالكتروني للمرسل"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "عنوان البريد الالكتروني للمرسل"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "الاسم الكامل للمرسل"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "رابط مهمة التحكيم"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "التاريخ الذي ينبغي فيه إكمال التحكيم"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "التاريخ الذي على المحكم فيه قبول المهمة أو رفضها"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "اسم المستخدم للمتلقي أو كل المتلقين"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "الاسم الكامل للمتلقي أو كل المتلقين"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "رابط الصفحة التي يمكن للمستخدم فيها استعادة كلمة المرور المفقودة"

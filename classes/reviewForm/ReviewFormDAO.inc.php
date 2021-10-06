@@ -43,12 +43,10 @@ class ReviewFormDAO extends \PKP\db\DAO
 
         $result = $this->retrieve(
             'SELECT	rf.*,
-				SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
-				SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
-			FROM	review_forms rf
-				LEFT JOIN review_assignments ra ON (ra.review_form_id = rf.review_form_id AND ra.declined<>1)
-			WHERE	rf.review_form_id = ? AND rf.assoc_type = ? AND rf.assoc_id = ?
-			GROUP BY rf.review_form_id',
+                (SELECT COUNT(*) FROM review_assignments ra WHERE ra.date_completed IS NOT NULL AND ra.declined <> 1 AND ra.review_form_id = rf.review_form_id) AS complete_count,
+                (SELECT COUNT(*) FROM review_assignments ra WHERE ra.date_completed IS NULL AND ra.declined <> 1 AND ra.review_form_id = rf.review_form_id) AS incomplete_count
+            FROM review_forms rf
+            WHERE rf.review_form_id = ? AND rf.assoc_type = ? AND rf.assoc_id = ?',
             $params
         );
         $row = $result->current();
@@ -238,13 +236,11 @@ class ReviewFormDAO extends \PKP\db\DAO
     {
         $result = $this->retrieveRange(
             'SELECT rf.*,
-				SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
-				SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
-			FROM	review_forms rf
-				LEFT JOIN review_assignments ra ON (ra.review_form_id = rf.review_form_id AND ra.declined<>1)
-			WHERE   rf.assoc_type = ? AND rf.assoc_id = ?
-			GROUP BY rf.review_form_id
-			ORDER BY rf.seq',
+                (SELECT COUNT(*) FROM review_assignments ra WHERE ra.date_completed IS NOT NULL AND ra.declined <> 1 AND ra.review_form_id = rf.review_form_id) AS complete_count,
+                (SELECT COUNT(*) FROM review_assignments ra WHERE ra.date_completed IS NULL AND ra.declined <> 1 AND ra.review_form_id = rf.review_form_id) AS incomplete_count
+            FROM	review_forms rf
+            WHERE   rf.assoc_type = ? AND rf.assoc_id = ?
+            ORDER BY rf.seq',
             [(int) $assocType, (int) $assocId],
             $rangeInfo
         );
@@ -264,14 +260,12 @@ class ReviewFormDAO extends \PKP\db\DAO
     public function getActiveByAssocId($assocType, $assocId, $rangeInfo = null)
     {
         $result = $this->retrieveRange(
-            'SELECT	rf.*,
-				SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) AS complete_count,
-				SUM(CASE WHEN ra.review_id IS NOT NULL AND ra.date_completed IS NULL THEN 1 ELSE 0 END) AS incomplete_count
-			FROM	review_forms rf
-				LEFT JOIN review_assignments ra ON (ra.review_form_id = rf.review_form_id AND ra.declined<>1)
-			WHERE	rf.assoc_type = ? AND rf.assoc_id = ? AND rf.is_active = 1
-			GROUP BY rf.review_form_id
-			ORDER BY rf.seq',
+            'SELECT rf.*,
+                (SELECT COUNT(*) FROM review_assignments ra WHERE ra.date_completed IS NOT NULL AND ra.declined <> 1 AND ra.review_form_id = rf.review_form_id) AS complete_count,
+                (SELECT COUNT(*) FROM review_assignments ra WHERE ra.date_completed IS NULL AND ra.declined <> 1 AND ra.review_form_id = rf.review_form_id) AS incomplete_count
+                FROM    review_forms rf
+                WHERE	rf.assoc_type = ? AND rf.assoc_id = ? AND rf.is_active = 1
+                ORDER BY rf.seq',
             [(int) $assocType, (int) $assocId],
             $rangeInfo
         );

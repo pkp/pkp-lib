@@ -1,10 +1,11 @@
+# Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2021-06-11 19:49+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2021-09-30 00:39+0000\n"
+"Last-Translator: Felipe Geremia Nievinski <fgnievinski@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2256,3 +2257,54 @@ msgstr "Notificar o contato principal"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Notificações"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "Link para a submissão no sistema editorial"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Nomes completos dos autores"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Nomes dos autores na forma encurtada"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Resumo da submissão"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Número de identificação da submissão"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Título da submissão"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Editors designados para esta submissão que podem tomar decisão"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Nome completo do contato principal do website"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Assinatura de e-mail do remetente"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "E-mail do remetente"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Nome completo do remetente"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "Link para o convite da avaliação"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Prazo para conclusão da avaliação"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Prazo para o avaliador aceitar ou recusar o convite"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Login do destinatário ou destinatários"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Nome completo do destinatário ou destinatários"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "Link para página onde o usuário pode recuperar senha esquecida"

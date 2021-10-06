@@ -270,8 +270,8 @@ abstract class Repository
 
         // The contextId must match an existing context
         $validator->after(function ($validator) use ($props) {
-            if (isset($props['contextid']) && !$validator->errors()->get('contextid')) {
-                $submissionContext = Services::get('context')->get($props['contextid']);
+            if (isset($props['contextId']) && !$validator->errors()->get('contextId')) {
+                $submissionContext = Services::get('context')->get($props['contextId']);
                 if (!$submissionContext) {
                     $validator->errors()->add('contextId', __('submission.submit.noContext'));
                 }

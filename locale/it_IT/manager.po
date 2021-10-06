@@ -1,10 +1,11 @@
+# Alfredo Cosco <alfredo.cosco@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2021-03-12 18:08+0000\n"
-"Last-Translator: Piero Grandesso <piero.grandesso2@unibo.it>\n"
+"PO-Revision-Date: 2021-08-23 21:01+0000\n"
+"Last-Translator: Alfredo Cosco <alfredo.cosco@gmail.com>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "it_IT/>\n"
 "Language: it_IT\n"
@@ -2101,3 +2102,49 @@ msgstr "ERRORE:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Il path specificato, \"{$contextPath}\", non esiste."
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notifiche"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Disabilita le proposte"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Generatore di rapporti personalizzati"
+
+msgid "manager.people.signedInAs"
+msgstr "Al momento sei loggato come {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Seleziona gli utenti da esportare in un file Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Esporta in formato Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "Il modello di email è stato reimpostato correttamente."
+
+msgid "manager.emails.resetAll.complete"
+msgstr "I modelli di posta elettronica predefiniti sono stati ripristinati."
+
+msgid "manager.emails.otherTemplates"
+msgstr "Altri modelli"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Cancella avviso"
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadati del file"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Sono file supplementari, come set di dati e materiali di ricerca, e verranno "
+"visualizzati separatamente dai file di pubblicazione principali."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Questi file sono dipendenze, come le immagini visualizzate da un file HTML, "
+"e non verranno visualizzati con il contenuto pubblicato."
+
+msgid "manager.setup.genres.label"
+msgstr "Tipo di file"

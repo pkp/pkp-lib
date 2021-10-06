@@ -130,10 +130,6 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
                     ->where('cst.setting_name', '=', 'name')
                     ->where('cst.locale', '=', DB::raw('c.primary_locale'));
             })
-            ->groupBy([
-                'c.' . $this->dbIdColumn,
-                'cst.setting_value',
-            ])
             ->orderBy('c.seq')
             ->get()
             ->toArray();
@@ -145,9 +141,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
     public function getQuery()
     {
         $this->columns[] = 'c.*';
-        $q = DB::table($this->db . ' as c')
-            ->leftJoin($this->dbSettings . ' as cs', 'cs.' . $this->dbIdColumn, '=', 'c.' . $this->dbIdColumn)
-            ->groupBy('c.' . $this->dbIdColumn);
+        $q = DB::table($this->db . ' as c');
 
         if (!empty($this->isEnabled)) {
             $q->where('c.enabled', '=', 1);
@@ -168,35 +162,20 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
         }
 
         // search phrase
-        if (!empty($this->searchPhrase)) {
+        $q->when($this->searchPhrase !== null, function ($query) {
             $words = explode(' ', $this->searchPhrase);
-            if (count($words)) {
-                foreach ($words as $word) {
-                    $q->where(function ($q) use ($word) {
-                        $q->where(function ($q) use ($word) {
-                            $q->where('cs.setting_name', 'name');
-                            $q->where('cs.setting_value', 'LIKE', "%{$word}%");
-                        })
-                            ->orWhere(function ($q) use ($word) {
-                                $q->where('cs.setting_name', 'description');
-                                $q->where('cs.setting_value', 'LIKE', "%{$word}%");
-                            })
-                            ->orWhere(function ($q) use ($word) {
-                                $q->where('cs.setting_name', 'acronym');
-                                $q->where('cs.setting_value', 'LIKE', "%{$word}%");
-                            })
-                            ->orWhere(function ($q) use ($word) {
-                                $q->where('cs.setting_name', 'abbreviation');
-                                $q->where('cs.setting_value', 'LIKE', "%{$word}%");
-                            });
-                    });
-                }
+            foreach ($words as $word) {
+                $query->whereIn('c.' . $this->dbIdColumn, function ($query) use ($word) {
+                    return $query->select($this->dbIdColumn)
+                        ->from($this->dbSettings)
+                        ->whereIn('setting_name', ['description', 'acronym', 'abbreviation'])
+                        ->where(DB::raw('LOWER(setting_value)'), 'LIKE', DB::raw("CONCAT('%', LOWER(?), '%')"))->addBinding($word);
+                });
             }
-        }
+        });
 
         // Add app-specific query statements
         \HookRegistry::call('Context::getContexts::queryObject', [&$q, $this]);
-
         $q->select($this->columns);
 
         return $q;

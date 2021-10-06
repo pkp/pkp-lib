@@ -13,6 +13,9 @@
 
 namespace PKP\submissionFile\maps;
 
+use APP\core\Application;
+use APP\core\Services;
+use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\core\maps\Schema as BaseSchema;
 use PKP\services\PKPSchemaService;
@@ -79,6 +82,91 @@ class Schema extends BaseSchema
     {
         $output = [];
         foreach ($props as $prop) {
+            if ($prop === '_href') {
+                $values[$prop] = $this->getApiUrl(
+                    'submissions/' . $item->getData('submissionId') . '/files/' . $item->getId(),
+                    $this->context->getData('urlPath')
+                );
+
+                continue;
+            }
+
+            if ($prop === 'dependentFiles') {
+                $collector = Repo::submissionFiles()
+                    ->getCollector()
+                    ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$item->getId()])
+                    ->filterBySubmissionIds([$item->getData('submissionId')])
+                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
+                    ->filterByIncludeDependentFiles(true);
+
+                $dependentFiles = Repo::submissionFiles()->getMany($collector);
+
+                $values[$prop] = $this->summarizeMany($dependentFiles);
+
+                continue;
+            }
+
+            if ($prop === 'documentType') {
+                $values[$prop] = Services::get('file')->getDocumentType($item->getData('mimetype'));
+
+                continue;
+            }
+
+            if ($prop === 'revisions') {
+                $files = [];
+
+                $revisions = Repo::submissionFiles()->dao->getRevisions($item->getId());
+
+                foreach ($revisions as $revision) {
+                    if ($revision->fileId === $item->getData('fileId')) {
+                        continue;
+                    }
+
+                    $files[] = [
+                        'documentType' => Services::get('file')->getDocumentType($revision->mimetype),
+                        'fileId' => $revision->fileId,
+                        'mimetype' => $revision->mimetype,
+                        'path' => $revision->path,
+                        'url' => $this->request->getDispatcher()->url(
+                            $this->request,
+                            Application::ROUTE_COMPONENT,
+                            $this->context->getData('urlPath'),
+                            'api.file.FileApiHandler',
+                            'downloadFile',
+                            null,
+                            [
+                                'fileId' => $revision->fileId,
+                                'submissionFileId' => $item->getId(),
+                                'submissionId' => $item->getData('submissionId'),
+                                'stageId' => Repo::submissionFiles()->getWorkflowStageId($item),
+                            ]
+                        ),
+                    ];
+                }
+
+                $values[$prop] = $files;
+
+                continue;
+            }
+
+            if ($prop === 'url') {
+                $values[$prop] = $this->request->getDispatcher()->url(
+                    $this->request,
+                    Application::ROUTE_COMPONENT,
+                    $this->context->getData('urlPath'),
+                    'api.file.FileApiHandler',
+                    'downloadFile',
+                    null,
+                    [
+                        'submissionFileId' => $item->getId(),
+                        'submissionId' => $item->getData('submissionId'),
+                        'stageId' => Repo::submissionFiles()->getWorkflowStageId($item),
+                    ]
+                );
+
+                continue;
+            }
+
             $output[$prop] = $item->getData($prop);
         }
 

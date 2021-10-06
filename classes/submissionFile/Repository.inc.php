@@ -154,6 +154,71 @@ class Repository
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $this->schemaService->getMultilingualProps($this->dao->schema), $allowedLocales);
 
+        // Make sure that file stage and assocType match
+        if ($props['assocType'] !== null) {
+            $validator->after(function ($validator) use ($props) {
+                if (
+                    $props['assocType'] === ASSOC_TYPE_REVIEW_ROUND &&
+                    !in_array(
+                        $props['fileStage'],
+                        [SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION]
+                    )
+                ) {
+                    $validator
+                        ->errors()
+                        ->add(
+                            'assocType',
+                            __('api.submissionFiles.400.badReviewRoundAssocType')
+                        );
+                }
+
+                if ($props['assocType'] === ASSOC_TYPE_REVIEW_ASSIGNMENT && $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+                    $validator
+                        ->errors()
+                        ->add(
+                            'assocType',
+                            __('api.submissionFiles.400.badReviewAssignmentAssocType')
+                        );
+                }
+
+                if (
+                    $props['assocType'] === ASSOC_TYPE_SUBMISSION_FILE &&
+                    $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_DEPENDENT
+                ) {
+                    $validator
+                        ->errors()
+                        ->add(
+                            'assocType',
+                            __('api.submissionFiles.400.badDependentFileAssocType')
+                        );
+                }
+
+                if (
+                    $props['assocType'] === ASSOC_TYPE_NOTE &&
+                    $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_NOTE
+                ) {
+                    $validator
+                        ->errors()
+                        ->add(
+                            'assocType',
+                            __('api.submissionFiles.400.badNoteAssocType')
+                        );
+                }
+
+                if (
+                    $props['assocType'] === ASSOC_TYPE_REPRESENTATION &&
+                    $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_PROOF
+                ) {
+                    $validator
+                        ->errors()
+                        ->add(
+                            'assocType',
+                            __('api.submissionFiles.400.badRepresentationAssocType')
+                        );
+                }
+            });
+        }
+
         $errors = [];
 
         if ($validator->fails()) {

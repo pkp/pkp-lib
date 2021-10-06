@@ -396,11 +396,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
         $collector = Repo::submission()
             ->getCollector()
             ->filterByContextIds([$contextId]);
-        $submissions = Repo::submission()->getMany($collector);
-        $submissionsIds = [];
-        foreach ($submissions as $submission) {
-            $submissionsIds[] = $submission->getId();
-        }
+        $submissionsIds = Repo::submission()->getIds($collector)->toArray();
 
         $submissionFilesCollector = Repo::submissionFiles()
             ->getCollector()

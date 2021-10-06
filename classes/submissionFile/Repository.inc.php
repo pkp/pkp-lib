@@ -187,7 +187,7 @@ class Repository
         if ($props['assocType'] !== null) {
             $validator->after(function ($validator) use ($props) {
                 if (
-                    $props['assocType'] === ASSOC_TYPE_REVIEW_ROUND &&
+                    $props['assocType'] === PKPApplication::ASSOC_TYPE_REVIEW_ROUND &&
                     !in_array(
                         $props['fileStage'],
                         [SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION]
@@ -201,7 +201,7 @@ class Repository
                         );
                 }
 
-                if ($props['assocType'] === ASSOC_TYPE_REVIEW_ASSIGNMENT && $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+                if ($props['assocType'] === PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT && $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
                     $validator
                         ->errors()
                         ->add(
@@ -211,7 +211,7 @@ class Repository
                 }
 
                 if (
-                    $props['assocType'] === ASSOC_TYPE_SUBMISSION_FILE &&
+                    $props['assocType'] === PKPApplication::ASSOC_TYPE_SUBMISSION_FILE &&
                     $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_DEPENDENT
                 ) {
                     $validator
@@ -223,7 +223,7 @@ class Repository
                 }
 
                 if (
-                    $props['assocType'] === ASSOC_TYPE_NOTE &&
+                    $props['assocType'] === PKPApplication::ASSOC_TYPE_NOTE &&
                     $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_NOTE
                 ) {
                     $validator
@@ -235,7 +235,7 @@ class Repository
                 }
 
                 if (
-                    $props['assocType'] === ASSOC_TYPE_REPRESENTATION &&
+                    $props['assocType'] === PKPApplication::ASSOC_TYPE_REPRESENTATION &&
                     $props['fileStage'] !== SubmissionFile::SUBMISSION_FILE_PROOF
                 ) {
                     $validator

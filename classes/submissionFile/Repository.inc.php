@@ -2,8 +2,8 @@
 /**
  * @file classes/submissionFile/Repository.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class submissionFile
@@ -59,8 +59,6 @@ class Repository
         $this->schemaService = new PKPSchemaService();
         $this->dao = new DAO($this->schemaService);
         $this->request = $request;
-
-        HookRegistry::register('SubmissionFile::delete::before', [$this, 'deleteSubmissionFile']);
     }
 
     /** @copydoc DAO::newDataObject() */
@@ -502,9 +500,8 @@ class Repository
     /** @copydoc DAO::delete() */
     public function delete(SubmissionFile $submissionFile): void
     {
-        HookRegistry::call('SubmissionFile::delete::before', [$submissionFile]);
+        $this->deleteRelatedSubmissionFileObjects($submissionFile);
         $this->dao->delete($submissionFile);
-        HookRegistry::call('SubmissionFile::delete', [$submissionFile]);
     }
 
     /**
@@ -775,10 +772,8 @@ class Repository
     /**
      * Delete related objects when a submission file is deleted
      */
-    public function deleteSubmissionFile(array $args): void
+    public function deleteRelatedSubmissionFileObjects(SubmissionFile $submissionFile): void
     {
-        $submissionFile = $args[0];
-
         // Remove galley associations and update search index
         if ($submissionFile->getData('assocType') === PKPApplication::ASSOC_TYPE_REPRESENTATION) {
             $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $galleyDao ArticleGalleyDAO */

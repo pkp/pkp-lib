@@ -33,7 +33,6 @@ use PKP\log\SubmissionLog;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
-use PKP\search\SubmissionSearch;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -500,7 +499,6 @@ class Repository
     /** @copydoc DAO::delete() */
     public function delete(SubmissionFile $submissionFile): void
     {
-        $this->deleteRelatedSubmissionFileObjects($submissionFile);
         $this->dao->delete($submissionFile);
     }
 
@@ -646,8 +644,6 @@ class Repository
     }
 
     /**
-     * NOTE: This shouldn't be used inside a Helper file?
-     *
      * Get the path to a submission's file directory
      *
      * This returns the relative path from the files_dir set in the config.
@@ -667,8 +663,6 @@ class Repository
     }
 
     /**
-     * NOTE: This shouldn't be used inside a Helper file?
-     *
      * Get the workflow stage for a submission file
      */
     public function getWorkflowStageId(SubmissionFile $submissionFile): ?int
@@ -745,8 +739,6 @@ class Repository
     }
 
     /**
-     * NOTE: This shouldn't be used inside a Helper file?
-     *
      * Check if a submission file supports dependent files
      */
     public function supportsDependentFiles(SubmissionFile $submissionFile): bool
@@ -767,24 +759,5 @@ class Repository
         HookRegistry::call('SubmissionFile::supportsDependentFiles', [&$result, $submissionFile]);
 
         return $result;
-    }
-
-    /**
-     * Delete related objects when a submission file is deleted
-     */
-    public function deleteRelatedSubmissionFileObjects(SubmissionFile $submissionFile): void
-    {
-        // Remove galley associations and update search index
-        if ($submissionFile->getData('assocType') === PKPApplication::ASSOC_TYPE_REPRESENTATION) {
-            $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO'); /* @var $galleyDao ArticleGalleyDAO */
-            $galley = $galleyDao->getById($submissionFile->getData('assocId'));
-            if ($galley && $galley->getData('submissionFileId') == $submissionFile->getId()) {
-                $galley->_data['submissionFileId'] = null; // Work around pkp/pkp-lib#5740
-                $galleyDao->updateObject($galley);
-            }
-            // To-Do: Implement 4622 job cleaning here
-            $articleSearchIndex = Application::getSubmissionSearchIndex();
-            $articleSearchIndex->deleteTextIndex($submissionFile->getData('submissionId'), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile->getId());
-        }
     }
 }

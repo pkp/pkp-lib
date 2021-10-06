@@ -154,6 +154,35 @@ class Repository
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $this->schemaService->getMultilingualProps($this->dao->schema), $allowedLocales);
 
+        // Do not allow the uploaderUserId or createdAt properties to be modified
+        if ($object) {
+            $validator->after(function ($validator) use ($props) {
+                if (
+                    !empty($props['uploaderUserId']) &&
+                    !$validator->errors()->get('uploaderUserId')
+                ) {
+                    $validator
+                        ->errors()
+                        ->add(
+                            'uploaderUserId',
+                            __('submission.file.notAllowedUploaderUserId')
+                        );
+                }
+
+                if (
+                    !empty($props['createdAt']) &&
+                    !$validator->errors()->get('createdAt')
+                ) {
+                    $validator
+                        ->errors()
+                        ->add(
+                            'createdAt',
+                            __('api.files.400.notAllowedCreatedAt')
+                        );
+                }
+            });
+        }
+
         // Make sure that file stage and assocType match
         if ($props['assocType'] !== null) {
             $validator->after(function ($validator) use ($props) {

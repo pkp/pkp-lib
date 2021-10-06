@@ -17,6 +17,8 @@ namespace PKP\submission;
 
 use APP\i18n\AppLocale;
 
+use APP\monograph\ChapterDAO;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 
 // Define the file stage identifiers.
@@ -374,6 +376,34 @@ class SubmissionFile extends \PKP\core\DataObject
     {
         $this->setData('chapterId', $chapterId);
     }
+
+
+	/**
+	 * Get backlinks for viewer-plugins.
+	 *
+	 * @param PKPRequest $request
+	 *
+	 * @return array
+	 */
+	public function getBacklink(PKPRequest $request) : array
+	{
+		$server = $request->getIndexUrl();
+		$path = $request->getRequestedContextPath();
+		$submissionId = $this->getData('submissionId');
+		$backlinks = array();
+		$backlinks[] = $server . '/' . $path[0] . '/catalog/book/' . $submissionId;
+
+		$chapterId = $this->getData('chapterId');
+
+		if ($chapterId) {
+			$chapterDao = new ChapterDAO();
+			$chapter = $chapterDao->getChapter((int) $chapterId);
+			$sourceChapterId = $chapter->getData( 'sourceChapterId' );
+			$backlinks[] = $backlinks[0] . '/chapter/' . $sourceChapterId;
+		}
+
+		return $backlinks;
+	}
 }
 
 if (!PKP_STRICT_MODE) {

@@ -181,7 +181,7 @@ class Repository
         }
 
         // Make sure that file stage and assocType match
-        if ($props['assocType'] !== null) {
+        if (isset($props['assocType'])) {
             $validator->after(function ($validator) use ($props) {
                 if (
                     $props['assocType'] === PKPApplication::ASSOC_TYPE_REVIEW_ROUND &&

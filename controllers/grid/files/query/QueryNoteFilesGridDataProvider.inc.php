@@ -82,7 +82,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
         $collector = Repo::submissionFiles()
             ->getCollector()
             ->filterByAssoc(
-                [ASSOC_TYPE_NOTE],
+                ASSOC_TYPE_NOTE,
                 [$this->_noteId]
             )->filterBySubmissionIds([$submission->getId()])
             ->filterByFileStages([(int) $this->getFileStage()]);

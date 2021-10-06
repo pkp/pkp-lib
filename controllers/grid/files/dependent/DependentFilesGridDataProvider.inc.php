@@ -49,7 +49,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider
         $collector = Repo::submissionFiles()
             ->getCollector()
             ->filterByAssoc(
-                [ASSOC_TYPE_SUBMISSION_FILE],
+                ASSOC_TYPE_SUBMISSION_FILE,
                 [$this->getAssocId()]
             )->filterBySubmissionIds([$submission->getId()])
             ->filterByFileStages([$this->getFileStage()])

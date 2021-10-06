@@ -41,7 +41,7 @@ class Collector implements CollectorInterface
     /** @var null|array get submission files matching one or more files */
     protected $fileIds = null;
 
-    /** @var null|array get submission files matching one or more ASSOC_TYPE */
+    /** @var null|string get submission files matching one ASSOC_TYPE */
     protected $assocTypes = null;
 
     /** @var null|array get submission files matching an ASSOC_ID with one of the assocTypes */
@@ -127,10 +127,10 @@ class Collector implements CollectorInterface
     /**
      * Set assocType and assocId filters
      *
-     * @param null|array $assocTypes One or more of the ASSOC_TYPE_ constants
+     * @param null|array $assocTypes One of the ASSOC_TYPE_ constants
      * @param null|array $assocIds Match with ids for these assoc types
      */
-    public function filterByAssoc(?array $assocTypes, ?array $assocIds = []): self
+    public function filterByAssoc(?string $assocTypes, ?array $assocIds = []): self
     {
         $this->assocTypes = $assocTypes;
 

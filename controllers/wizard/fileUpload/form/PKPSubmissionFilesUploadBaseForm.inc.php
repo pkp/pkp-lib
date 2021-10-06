@@ -211,7 +211,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     ->filterBySubmissionIds([(int) $this->getData('submissionId')]);
                 if ($this->getAssocType() && $this->getAssocType() != ASSOC_TYPE_SUBMISSION) {
                     $collector = $collector->filterByAssoc(
-                        [$this->getAssocType()],
+                        $this->getAssocType(),
                         [$this->getAssocId()]
                     );
                 }

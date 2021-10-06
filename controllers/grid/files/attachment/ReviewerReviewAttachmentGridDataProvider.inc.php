@@ -88,7 +88,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
         $collector = Repo::submissionFiles()
             ->getCollector()
             ->filterByAssoc(
-                [ASSOC_TYPE_REVIEW_ASSIGNMENT],
+                ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 [$this->_getReviewId()]
             )->filterBySubmissionIds([$this->getSubmission()->getId()]);
         $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);

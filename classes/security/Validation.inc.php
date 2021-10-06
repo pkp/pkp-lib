@@ -16,6 +16,7 @@
 namespace PKP\security;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
@@ -38,8 +39,7 @@ class Validation
     public static function login($username, $password, &$reason, $remember = false)
     {
         $reason = null;
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getByUsername($username, true);
+        $user = Repo::user()->getByUsername($username, true);
         if (!isset($user)) {
             // User does not exist
             return false;
@@ -60,7 +60,7 @@ class Validation
                 $auth->doGetUserInfo($user);
                 if ($user->getEmail() != $oldEmail) {
                     // FIXME requires email addresses to be unique; if changed email already exists, ignore
-                    if ($userDao->userExistsByEmail($user->getEmail())) {
+                    if (Repo::user()->getByEmail($user->getEmail(), true)) {
                         $user->setEmail($oldEmail);
                     }
                 }
@@ -154,8 +154,7 @@ class Validation
         }
 
         $user->setDateLastLogin(Core::getCurrentDate());
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $userDao->updateObject($user);
+        Repo::user()->edit($user);
 
         return $user;
     }
@@ -214,8 +213,7 @@ class Validation
      */
     public static function checkCredentials($username, $password)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getByUsername($username, false);
+        $user = Repo::user()->getByUsername($username, false);
 
         $valid = false;
         if (isset($user)) {
@@ -236,7 +234,7 @@ class Validation
                     $user->setPassword($rehash);
 
                     // save new password hash to database
-                    $userDao->updateObject($user);
+                    Repo::user()->edit($user);
                 }
             }
         }
@@ -344,8 +342,7 @@ class Validation
      */
     public static function generatePasswordResetHash($userId, $expiry = null)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        if (($user = $userDao->getById($userId)) == null) {
+        if (($user = Repo::user()->get($userId)) == null) {
             // No such user
             return false;
         }
@@ -410,9 +407,8 @@ class Validation
             $name = $initial . $familyName;
         }
 
-        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', Stringy\Stringy::create($name)->toAscii()->toLowerCase());
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
+        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', \Stringy\Stringy::create($name)->toAscii()->toLowerCase());
+        for ($i = ''; Repo::user()->getByUsername($suggestion . $i, true); $i++);
         return $suggestion . $i;
     }
 

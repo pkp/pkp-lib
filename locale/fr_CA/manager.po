@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2021-04-22 01:44+0000\n"
+"PO-Revision-Date: 2021-06-22 20:34+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -2171,3 +2171,32 @@ msgstr "Aviser le contact principal"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Avis"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Télécharger le fichier exporté avec le bouton ci-dessous."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Exportation complétée avec succès."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Télécharger le fichier exporté"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr ""
+"Le processus a échoué. Veuillez consulter les erreurs ou avertissements ci-"
+"dessous."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Groupe d'utilisateurs-trices manquant pour le nom d'usager {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id : {$id}"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Un ou plusieurs de ces adresses de courriel sont invalides."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Une copie de l'accusé de réception sera envoyée à toute adresse de courriel "
+"saisie ici. Les adresses doivent être séparées par une virgule. Exemple : "
+"un@exemple.com,deux@exemple.com"

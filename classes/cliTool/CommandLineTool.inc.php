@@ -35,6 +35,7 @@ define('SESSION_DISABLE_INIT', 1);
 require('./lib/pkp/includes/bootstrap.inc.php');
 
 use APP\core\PageRouter;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use PKP\core\Registry;
 
@@ -119,10 +120,8 @@ class CommandLineTool
             unset($this->argv[$usernameKeyPos]);
         }
 
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-
         if ($this->username) {
-            $user = $userDao->getByUsername($this->username);
+            $user = Repo::user()->getByUsername($this->username, true);
 
             $this->setUser($user);
         }

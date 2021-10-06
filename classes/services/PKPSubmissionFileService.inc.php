@@ -408,7 +408,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 
                 $uploader = $request->getUser();
                 if ($uploader->getId() != $submissionFile->getData('uploaderUserId')) {
-                    $uploader = Services::get('user')->get($submissionFile->getData('uploaderUserId'));
+                    $uploader = Repo::user()->get($submissionFile->getData('uploaderUserId'), true);
                 }
 
                 // Fetch the latest notification email timestamp
@@ -431,10 +431,9 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 $mail->setEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION);
                 $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
                 // Get editors assigned to the submission, consider also the recommendOnly editors
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
                 $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $reviewRound->getStageId());
                 foreach ($editorsStageAssignments as $editorsStageAssignment) {
-                    $editor = $userDao->getById($editorsStageAssignment->getUserId());
+                    $editor = Repo::user()->get($editorsStageAssignment->getUserId());
                     // IF no prior notification exists
                     // OR if editor has logged in after the last revision upload
                     // OR the last upload and notification was sent more than a day ago,
@@ -795,10 +794,28 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
                 $reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());
                 return $reviewRound->getStageId();
             case SUBMISSION_FILE_QUERY:
+                // This file should be associated with a note. If not, fail.
+                if ($submissionFile->getData('assocType') != ASSOC_TYPE_NOTE) {
+                    return null;
+                }
+
+                // Get the associated note.
                 $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
                 $note = $noteDao->getById($submissionFile->getData('assocId'));
+                if (!$note) {
+                    return null;
+                }
+
+                // The note should be associated with a query. If not, fail.
+                if ($note->getAssocType() != ASSOC_TYPE_QUERY) {
+                    return null;
+                }
+
+                // Get the associated query.
                 $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
                 $query = $queryDao->getById($note->getAssocId());
+
+                // The query will have an associated file stage.
                 return $query ? $query->getStageId() : null;
         }
         throw new \Exception('Could not determine the workflow stage id from submission file ' . $submissionFile->getId() . ' with file stage ' . $submissionFile->getData('fileStage'));

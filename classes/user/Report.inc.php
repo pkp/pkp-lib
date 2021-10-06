@@ -18,6 +18,9 @@
 
 namespace PKP\user;
 
+use APP\i18n\AppLocale;
+use PKP\db\DAORegistry;
+
 class Report
 {
     /** @var iterable The report data source, should yield /User objects */
@@ -30,7 +33,7 @@ class Report
      */
     public function __construct(iterable $dataSource)
     {
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_COMMON);
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_COMMON);
         $this->_dataSource = $dataSource;
     }
 
@@ -81,18 +84,19 @@ class Report
      *
      * @return string[]
      */
-    private function _getDataRow(\User $user): array
+    private function _getDataRow(User $user): array
     {
-        $userGroups = \Services::get('user')->getProperties($user, ['groups'], ['request' => \Application::get()->getRequest()])['groups'];
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+        $userGroups = $userGroupDao->getByUserId($user->getId());
         $groups = [];
-        foreach ($userGroups as ['id' => $id]) {
-            $groups[$id] = 0;
+        while ($userGroup = $userGroups->next()) {
+            $groups[$userGroup->getId()] = 0;
         }
 
         return [
             $user->getId(),
             $user->getLocalizedGivenName(),
-            $user->getFamilyName(\AppLocale::getLocale()),
+            $user->getFamilyName(AppLocale::getLocale()),
             $user->getEmail(),
             $user->getPhone(),
             $user->getCountryLocalized(),
@@ -111,6 +115,6 @@ class Report
     private function _getUserGroups(): array
     {
         static $cache = null;
-        return $cache ?? $cache = iterator_to_array(\DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
+        return $cache ?? $cache = iterator_to_array(DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
     }
 }

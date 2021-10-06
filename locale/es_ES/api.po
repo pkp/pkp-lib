@@ -1,6 +1,7 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2021-08-04 09:04+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "es_ES/>\n"
@@ -154,8 +155,8 @@ msgstr ""
 
 msgid "api.emails.403.notAllowedUserGroup"
 msgstr ""
-"No puede enviar un correo electrónico a los usuarios/as en o más de los "
-"roles seleccionados."
+"No tiene permiso para enviar un correo electrónico a los usuarios/as en uno "
+"o más de los roles seleccionados."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -177,3 +178,58 @@ msgstr "No se ha encontrado el aviso solicitado."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "No es posible cambiar la fecha en que fue creado."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "No tiene permiso para acceder a los archivos en esta ronda de revisión."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "No tiene permiso para añadir y editar estos archivos."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "No tiene permiso para acceder a estos archivos."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "La ronda de revisión que ha proporcionado no forma parte de este envío."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "No se han encontrado cambios en la solicitud para editar este archivo."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Debe proporcionar una fase de archivo."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Debe especificar una ronda de revisión cuando solicite archivos en una fase "
+"de revisión."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "No puede asociar un archivo desde esta fase con una ronda de revisión."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"No puede asociar un archivo desde esta fase con una asignación de revisión."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "No puede asociar un archivo desde esta fase con una nota de discusión."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "No puede asociar un archivo desde esta fase con otro archivo del envío."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+"Las siguientes configuraciones regionales no son compatibles: {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"No se ha podido utilizar la API token para acceder a este sitio porque el "
+"administrador/a no ha configurado una clave secreta."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
+"No se ha podido descodificar la API token a causa del siguiente error: "
+"{$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"No se ha podido validar la API token. Esto podría indicar un error en la API "
+"token o que esta ya no es válida."

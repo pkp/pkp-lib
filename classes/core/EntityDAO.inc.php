@@ -261,10 +261,10 @@ abstract class EntityDAO
      */
     public function deleteById(int $id)
     {
-        DB::table($this->table)
+        DB::table($this->settingsTable)
             ->where($this->primaryKeyColumn, '=', $id)
             ->delete();
-        DB::table($this->settingsTable)
+        DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
             ->delete();
     }

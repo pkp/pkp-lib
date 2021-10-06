@@ -72,7 +72,7 @@ class DAO extends EntityDAO
     public function exists(int $id): bool
     {
         return DB::table($this->table)
-            ->where($this->settingsTable, '=', $id)
+            ->where($this->primaryKeyColumn, '=', $id)
             ->exists();
     }
 

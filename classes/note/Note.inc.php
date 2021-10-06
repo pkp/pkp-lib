@@ -16,7 +16,7 @@
 
 namespace PKP\note;
 
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 
 class Note extends \PKP\core\DataObject
 {
@@ -47,8 +47,7 @@ class Note extends \PKP\core\DataObject
      */
     public function getUser()
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        return $userDao->getById($this->getUserId(), true);
+        return Repo::user()->get($this->getUserId(), true);
     }
 
     /**

@@ -84,7 +84,8 @@ abstract class PKPStageParticipantNotifyForm extends Form
         // Determine if the current user can use any custom templates defined.
         $user = $request->getUser();
         $customTemplateKeys = [];
-        if (Services::get('user')->userHasRole($user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $submission->getData('contextId'))) {
+        $roleDao = DAORegistry::getDAO('RoleDAO');
+        if ($roleDao->userHasRole($submission->getData('contextId'), $user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
             $emailTemplates = Services::get('emailTemplate')->getMany([
                 'contextId' => $submission->getData('contextId'),
                 'isCustom' => true,
@@ -119,7 +120,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
         ]);
 
         if ($request->getUserVar('userId')) {
-            $user = Services::get('user')->get($request->getUserVar('userId'));
+            $user = Repo::user()->get($request->getUserVar('userId'));
             if ($user) {
                 $templateMgr->assign([
                     'userId' => $user->getId(),
@@ -168,8 +169,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
         $email = $this->_getMailTemplate($submission, $template, false);
         $email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
 
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getById($userId);
+        $user = Repo::user()->get($userId);
         if (isset($user)) {
             $email->addRecipient($user->getEmail(), $user->getFullName());
             $email->setBody($this->getData('message'));

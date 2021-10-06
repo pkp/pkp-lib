@@ -16,8 +16,12 @@
 
 import('pages.user.UserHandler');
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
-
+use PKP\notification\PKPNotification;
+use PKP\notification\PKPNotificationManager;
+use PKP\observers\events\UserRegisteredContext;
+use PKP\observers\events\UserRegisteredSite;
 use PKP\security\AccessKeyManager;
 use PKP\user\form\RegistrationForm;
 
@@ -71,7 +75,25 @@ class RegistrationHandler extends UserHandler
             return $regForm->display($request);
         }
 
-        $regForm->execute();
+        $userId = $regForm->execute();
+
+        $user = Repo::user()->get($userId);
+
+        try {
+            if ($context = $request->getContext()) {
+                event(new UserRegisteredContext($user, $context));
+            } else {
+                event(new UserRegisteredSite($user, $request->getSite()));
+            }
+        } catch(Swift_TransportException $e) {
+            $notificationMgr = new PKPNotificationManager();
+            $notificationMgr->createTrivialNotification(
+                $userId,
+                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                ['contents' => __('email.compose.error')]
+            );
+            trigger_error($e->getMessage(), E_USER_WARNING);
+        }
 
         // Inform the user of the email validation process. This must be run
         // before the disabled account check to ensure new users don't see the
@@ -135,8 +157,7 @@ class RegistrationHandler extends UserHandler
         $username = array_shift($args);
         $accessKeyCode = array_shift($args);
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getByUsername($username);
+        $user = Repo::user()->getByUsername($username);
         if (!$user) {
             $request->redirect(null, 'login');
         }
@@ -155,7 +176,7 @@ class RegistrationHandler extends UserHandler
             $user->setDisabled(false);
             $user->setDisabledReason('');
             $user->setDateValidated(Core::getCurrentDate());
-            $userDao->updateObject($user);
+            Repo::user()->edit($user);
 
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('message', 'user.login.activated');

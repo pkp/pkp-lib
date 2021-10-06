@@ -1,12 +1,13 @@
+# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2021-01-14 11:00+0000\n"
+"PO-Revision-Date: 2021-07-14 11:03+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/id/>\n"
+"manager/id_ID/>\n"
 "Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1391,8 +1392,8 @@ msgstr "Cara Mereview Bawaan"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
-"Kirim pengingat jika mitra bestari belum menanggapi permintaan review ini "
-"berhari-hari setelah batas waktu menjawab telah habis."
+"Kirim pengingat jika mitra bestari belum memberi rekomendasi dengan jumlah "
+"hari setelah batas waktu mereview telah habis."
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Pengingat Review"
@@ -2305,3 +2306,73 @@ msgstr "ERROR:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Path jurnal yang Anda cari, \"{$contextPath}\", tidak ada."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Gagal memparsing publikasi"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Proses gagal mengenali penulis"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Terjadi kesalahan konfigurasi penyaring [{$filterName}]: {$filterCount}. "
+"Hanya boleh satu."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Hal Umum"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Unduh file ekspor melalui tombol di bawah."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Ekspor berkasil."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Unduh File yang Terekspor"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Ekspor Laporan Nasakah"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Proses gagal. Perika galat/peringatan berikut."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "UserGroup Missing untuk nama penulis {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Pengaturan bahasa tidak bisa disimpan. Minimal satu bahasa harus aktif untuk "
+"setiap opsi"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Salah satualamat email atau lebih berikut tidak valid."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Salinan email bukti naskah telah diterima akan dikirim ke semua alamat email "
+"yang dimasukkan di sini. Pisahkan email dengan koma bila lebih dari satu. "
+"Contoh: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Kabari Semua"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Tidak"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ya, kirim salinan ke {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Beri  Tahu Narahubung Utama"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Pemberitahuan"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Templet Lain"

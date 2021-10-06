@@ -19,7 +19,7 @@ namespace PKP\citation;
 use PKP\core\PKPString;
 use PKP\filter\Filter;
 
-class CitationListTokenizerFilter extends \Filter
+class CitationListTokenizerFilter extends Filter
 {
     /**
      * Constructor

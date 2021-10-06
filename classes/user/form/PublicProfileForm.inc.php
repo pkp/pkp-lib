@@ -16,7 +16,7 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
-
+use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\template\TemplateManager;
 use PKP\core\Core;
@@ -93,18 +93,20 @@ class PublicProfileForm extends BaseProfileForm
 
         if ($width > self::PROFILE_IMAGE_MAX_WIDTH || $height > self::PROFILE_IMAGE_MAX_HEIGHT || $width <= 0 || $height <= 0) {
             $userSetting = null;
-            $user->updateSetting('profileImage', $userSetting);
+            $user->setData('profileImage', $userSetting);
+            Repo::user()->edit($user, ['profileImage']);
             $publicFileManager->removeSiteFile($filePath);
             return false;
         }
 
-        $user->updateSetting('profileImage', [
+        $user->setData('profileImage', [
             'name' => $publicFileManager->getUploadedFileName('uploadedFile'),
             'uploadName' => $uploadName,
             'width' => $width,
             'height' => $height,
             'dateUploaded' => Core::getCurrentDate(),
         ]);
+        Repo::user()->edit($user, ['profileImage']);
         return true;
     }
 
@@ -116,14 +118,16 @@ class PublicProfileForm extends BaseProfileForm
     public function deleteProfileImage()
     {
         $user = $this->getUser();
-        $profileImage = $user->getSetting('profileImage');
+        $profileImage = $user->getData('profileImage');
         if (!$profileImage) {
             return false;
         }
 
         $publicFileManager = new PublicFileManager();
         if ($publicFileManager->removeSiteFile($profileImage['uploadName'])) {
-            return $user->updateSetting('profileImage', null);
+            $user->setData('profileImage', null);
+            Repo::user()->edit($user, ['profileImage']);
+            return true;
         } else {
             return false;
         }
@@ -140,7 +144,7 @@ class PublicProfileForm extends BaseProfileForm
 
         $publicFileManager = new PublicFileManager();
         $templateMgr->assign([
-            'profileImage' => $request->getUser()->getSetting('profileImage'),
+            'profileImage' => $request->getUser()->getData('profileImage'),
             'profileImageMaxWidth' => self::PROFILE_IMAGE_MAX_WIDTH,
             'profileImageMaxHeight' => self::PROFILE_IMAGE_MAX_HEIGHT,
             'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),

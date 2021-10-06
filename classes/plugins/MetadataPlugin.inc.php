@@ -15,9 +15,6 @@
 
 namespace PKP\plugins;
 
-// Define the well-known file name for controlled vocabulary data.
-define('METADATA_PLUGIN_VOCAB_DATAFILE', 'controlledVocabs.xml');
-
 abstract class MetadataPlugin extends Plugin
 {
     //
@@ -35,33 +32,6 @@ abstract class MetadataPlugin extends Plugin
         }
         $this->addLocaleData();
         return true;
-    }
-
-    /**
-     * This implementation looks for files that contain controlled
-     * vocabulary data. It can discover and return more than one file.
-     *
-     * @see Plugin::getInstallControlledVocabFiles()
-     *
-     * @return array|null
-     */
-    public function getInstallControlledVocabFiles()
-    {
-        // Search the well-known locations for vocabulary data files. If
-        // one is found then return it.
-        $pluginPath = $this->getPluginPath();
-        $wellKnownVocabLocations = [
-            './' . $pluginPath . '/schema/' . METADATA_PLUGIN_VOCAB_DATAFILE,
-            './lib/pkp/' . $pluginPath . '/schema/' . METADATA_PLUGIN_VOCAB_DATAFILE
-        ];
-
-        $controlledVocabFiles = parent::getInstallControlledVocabFiles();
-        foreach ($wellKnownVocabLocations as $wellKnownVocabLocation) {
-            if (file_exists($wellKnownVocabLocation)) {
-                $controlledVocabFiles[] = $wellKnownVocabLocation;
-            }
-        }
-        return $controlledVocabFiles;
     }
 
     /**

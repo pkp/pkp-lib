@@ -20,11 +20,11 @@
 namespace PKP\notification;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use Firebase\JWT\JWT;
 use PKP\config\Config;
 use PKP\core\Core;
@@ -411,8 +411,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     protected function sendNotificationEmail($request, $notification, ?int $contextId, callable $mailConfigurator = null)
     {
         $userId = $notification->getUserId();
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getById($userId);
+        $user = Repo::user()->get($userId, true);
         if ($user && !$user->getDisabled()) {
             AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 

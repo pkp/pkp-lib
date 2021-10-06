@@ -13,6 +13,7 @@
  * @brief User grid row definition
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectConfirmationModal;
@@ -70,8 +71,7 @@ class UserGridRow extends GridRow
                 $actionArgs['newUserId'] = $rowId;
 
                 // Verify that the old user exists
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-                $oldUser = $userDao->getById($this->getOldUserId());
+                $oldUser = Repo::user()->get((int) $this->getOldUserId(), true);
 
                 // Don't merge a user in itself
                 if ($oldUser && $actionArgs['oldUserId'] != $actionArgs['newUserId']) {

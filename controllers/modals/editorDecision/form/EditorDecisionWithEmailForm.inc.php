@@ -13,11 +13,12 @@
  * @brief Base class for the editor decision forms.
  */
 
+use APP\facades\Repo;
 use APP\file\LibraryFileManager;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use APP\workflow\EditorDecisionActionsManager;
 
+use APP\workflow\EditorDecisionActionsManager;
 use PKP\controllers\modals\editorDecision\form\EditorDecisionForm;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\SubmissionMailTemplate;
@@ -235,7 +236,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
 
         // Get submission authors in the same way as for the email template form,
         // that editor sees. This also ensures that the recipient list is not empty.
-        $authors = $submission->getAuthors(true);
+        $authors = Repo::author()->getSubmissionAuthors($submission, true);
         foreach ($authors as $author) {
             $email->addRecipient($author->getEmail(), $author->getFullName());
         }
@@ -259,9 +260,8 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
                 }
             }
 
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
             foreach (array_intersect($reviewers, (array) $this->getData('bccReviewers')) as $reviewerId) {
-                $user = $userDao->getById($reviewerId);
+                $user = Repo::user()->get($reviewerId);
                 if ($user && !$user->getDisabled()) {
                     $email->addBcc($user->getEmail(), $user->getFullName());
                 }

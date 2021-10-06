@@ -1,10 +1,11 @@
+# Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-01-21 15:55+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"PO-Revision-Date: 2021-07-14 11:03+0000\n"
+"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -709,15 +710,17 @@ msgstr "Nie erinnern"
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Die Standards können für jedes Gutachten im Rahmen des redaktionellen Prozesses angepasst werden."
 
+#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
 "Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht "
-"innerhalb der genannten Zeit geantwortet hat."
+"innerhalb der genannten Zeit geantwortet hat (in Tagen)."
 
+#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der "
-"genannten Zeit eine Empfehlung eingereicht hat."
+"genannten Zeit eine Empfehlung eingereicht hat (in Tagen)."
 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Standard-Fristen für Begutachtung"
@@ -1547,17 +1550,13 @@ msgstr "Ablehnquote"
 
 msgid "manager.setup.metadata.source.require"
 msgstr ""
-"Vom/n Autor/in eine Quellen-URL verlangen, bevor der Beitrag angenommen wird."
+"Vor Annahme der Einreichung Angaben zur Quellen-URL von Autor/in verlangen."
 
 msgid "manager.setup.metadata.source.request"
-msgstr ""
-"Den Autor/dieAutorin während des Einreichprozesses um eine Quellen-URL "
-"bitten."
+msgstr "Autor/in bei der Einreichung um Quellen-URL bitten."
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
-"Während des Einreichprozesses keine Quellen-URL von der/dem Autor/in "
-"verlangen."
+msgstr "Bei der Einreichung keine Quellen-URL von Autor/in erfragen."
 
 msgid "manager.setup.metadata.source.enable"
 msgstr "Metadaten für Quellen aktivieren"
@@ -1568,19 +1567,13 @@ msgstr ""
 "Grundlage der vorliegenden Einreichung war."
 
 msgid "manager.setup.metadata.rights.require"
-msgstr ""
-"Während des Enreichprozesses Angaben zu bestehenden Rechten vom Autor / der "
-"Autorin verlangen, bevor die Einreichung angenommen wird."
+msgstr "Vor Annahme der Einreichung Angaben zu Rechten von Autor/in verlangen."
 
 msgid "manager.setup.metadata.rights.request"
-msgstr ""
-"Den Autor/ die Autorin während des Enreichprozesses um Angaben zu "
-"bestehenden Rechten bitten."
+msgstr "Autor/in bei der Einreichung um Angaben zur Rechten bitten."
 
 msgid "manager.setup.metadata.rights.noRequest"
-msgstr ""
-"Während des Einreichprozesses keine Angaben zu Rechten von der/dem Autor/in "
-"verlangen."
+msgstr "Bei der Einreichung keine Angaben zu Rechten von Autor/in erfragen."
 
 msgid "manager.setup.metadata.rights.enable"
 msgstr "Metadaten für Rechte aktivieren"
@@ -1591,72 +1584,57 @@ msgstr ""
 "sowie Eigentumsrechten."
 
 msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Vom/n Autor/in Angaben zur Sprache verlangen, bevor der Beitrag angenommen "
-"wird."
+msgstr "Vor Annahme der Einreichung Angaben zur Sprache von Autor/in verlangen."
 
 msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Die Sprache der Einreichung während des Einreichprozesse von den Autoren/"
-"innen abfragen."
+msgstr "Autor/in bei der Einreichung um Angaben zur Sprache bitten."
 
 msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Die Sprache der Einreichung nicht von den Autoren/innen abfragen während des "
-"Einreichprozesses."
+msgstr "Bei der Einreichung keine Angabe zur Sprache von Autor/in erfragen."
 
 msgid "manager.setup.metadata.languages.enable"
 msgstr "Metadaten für Sprache aktivieren"
 
 msgid "manager.setup.metadata.languages.description"
 msgstr ""
-"Sprache weist die Hauptsprache der Arbeit aus, indem ein Sprachcode (\"en\") "
-"mit einem optionalen Ländercode (\"en_US\") verwendet wird."
+"Sprache weist die Hauptsprache der Arbeit aus, indem ein Sprachcode (\"de\") "
+"mit einem optionalen Ländercode (\"de_DE\") verwendet wird."
 
 msgid "manager.setup.metadata.keywords.require"
 msgstr ""
-"Vom/n Autor/in Vorschläge zu Stichworten verlangen, bevor der Beitrag "
-"angenommen wird."
+"Vor Annahme der Einreichung Angaben zu Schlagworten von Autor/in verlangen."
 
 msgid "manager.setup.metadata.keywords.request"
-msgstr ""
-"Den Autor/dieAutorin während des Einreichprozesses um Vorschläge zu "
-"Stichworten bitten."
+msgstr "Autor/in bei der Einreichung um Angaben zu Schlagworten bitten."
 
 msgid "manager.setup.metadata.keywords.noRequest"
-msgstr ""
-"Während des Einreichprozesses keine Stichworte von der/dem Autor/in "
-"verlangen."
+msgstr "Bei der Einreichung keine Schlagworte von Autor/in erfragen."
 
 msgid "manager.setup.metadata.keywords.enable"
-msgstr "Metadaten zu Stichworten aktivieren"
+msgstr "Metadaten zu Schlagworten aktivieren"
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
-"Stichworte sind typischerweise ein bis drei Worte lange Phrasen, die auf das "
-"Fachgebiet der Einreichung hinweisen."
+"Schlagworte sind typischerweise ein bis drei Worte lange Phrasen, die auf "
+"das Fachgebiet der Einreichung hinweisen."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
-"Während des Enreichprozesses Vorschläge zu Metadaten zur Abdeckung vom Autor "
-"verlangen."
+"Vor Annahme der Einreichung Angaben zur Abdeckung von Autor/in verlangen."
 
 msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"Den Autor während des Enreichprozesses um Vorschläge zu Metadaten zur "
-"Abdeckung bitten."
+msgstr "Autor/in bei der Einreichung um Angaben zur Abdeckung bitten."
 
 msgid "manager.setup.metadata.coverage.noRequest"
 msgstr ""
-"Während des Einreichprozesses keine Metadaten zur Abdeckung vom Autor "
-"anfordern."
+"Bei der Einreichung keine Metadaten zur Abdeckung von Autor/in erfragen."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr "Metadaten für Abdeckung anschalten"
+msgstr "Metadaten für Abdeckung aktivieren"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
-"Abdeckung gibt typischerweise Hinweise auf die räumliche Position (ein "
+"Die Abdeckung gibt typischerweise Hinweise auf die räumliche Position (ein "
 "Ortsname oder Koordinaten), einen Zeitraum (z.B. eine Periode oder ein Datum)"
 " oder eine Zuständigkeit (z.B. eine administrative Einrichtung)."
 
@@ -1667,7 +1645,7 @@ msgstr ""
 "Ratgeber, bevor Sie hier Tags hinzufügen."
 
 msgid "manager.setup.metadata.coverage"
-msgstr "Bereich"
+msgstr "Themenbereich"
 
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Änderung der Metadaten dieser Einreichung erlauben."
@@ -1777,21 +1755,16 @@ msgstr "Richtlinien für Gutachter"
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
-"Vor Annahme der Einreichung Angaben zur Disziplin vom Autor/von der Autorin "
-"verlangen."
+"Vor Annahme der Einreichung Angaben zu Disziplinen von Autor/in verlangen."
 
 msgid "manager.setup.metadata.disciplines.request"
-msgstr ""
-"Während der Einreichung eine Angabe zur Disziplin vom Autor  von der Autorin "
-"erfragen."
+msgstr "Autor/in bei der Einreichung um Angaben zu Disziplinen bitten."
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
-"Während der Einreichung keine Angabe zur Disziplin vom Autor  von der "
-"Autorin verlangen."
+msgstr "Bei der Einreichung keine Angabe zu Disziplinen von Autor/in erfragen."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Disziplin-Metadaten aktivieren"
+msgstr "Metadaten für Disziplinen aktivieren"
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
@@ -1799,43 +1772,36 @@ msgstr ""
 "Universitätsfakultäten oder Fachgesellschaften beschrieben werden."
 
 msgid "manager.setup.metadata.type.require"
-msgstr ""
-"Vor Annahme der Einreichung Angaben zum Typ vom Autor / von der Autorin "
-"verlangen."
+msgstr "Vor Annahme der Einreichung Angaben zum Typ von Autor/in verlangen."
 
 msgid "manager.setup.metadata.type.request"
-msgstr "Während der Einreichung den Autoren / die Autorin nach dem Typ fragen."
+msgstr "Autor/in bei der Einreichung um Angaben zum Typ bitten."
 
 msgid "manager.setup.metadata.type.noRequest"
-msgstr ""
-"Während der Einreichung den Autoren / die Autorin nicht nach dem Typ fragen."
+msgstr "Bei der Einreichung keine Angaben zum Typ von Autor/in erfragen."
 
 msgid "manager.setup.metadata.type.enable"
-msgstr "Typ-Metadaten aktivieren"
+msgstr "Metadaten für Typ aktivieren"
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
 "Art oder Genre vom Hauptteil der Einreichung. Der Typ ist normalerweise \""
-"Text\", kann aber auch \"\"Datensatz\", \"Bild\" oder jedem anderen der <a "
+"Text\", kann aber auch \"Datensatz\", \"Bild\" oder jedem anderen der <a "
 "target=\"_blank\" href=\"http://dublincore.org/documents/"
 "dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core Typen</a> "
 "entsprechen."
 
 msgid "manager.setup.metadata.subjects.require"
-msgstr ""
-"Während der Einreichung Angaben zum Thema vom Autor/von Autorin verlangen."
+msgstr "Vor Annahme der Einreichung Angaben zu Themen von Autor/in verlangen."
 
 msgid "manager.setup.metadata.subjects.request"
-msgstr ""
-"Während der Einreichung den Autoren/die Autorin bitten Angaben zum Thema zu "
-"machen."
+msgstr "Autor/in bei der Einreichung um Angaben zum Thema bitten."
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr ""
-"Während der Einreichung keine Angaben zu Themen von Autor/Autorin verlangen."
+msgstr "Bei der Einreichung keine Angaben zu Themen von Autor/in erfragen."
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr "Themen-Metadaten aktivieren"
+msgstr "Metadaten für Themen aktivieren"
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
@@ -2004,15 +1970,13 @@ msgstr "Alle Nutzer/innen"
 
 msgid "manager.setup.metadata.citations.require"
 msgstr ""
-"Vor Annahme der Einreichung die Angaben von Referenzen von Autor/in "
-"verlangen."
+"Vor Annahme der Einreichung Angaben zu Referenzen von Autor/in verlangen."
 
 msgid "manager.setup.metadata.citations.request"
-msgstr ""
-"Während der Einreichung die Angabe von Referenzen von Autor/in erfragen."
+msgstr "Autor/in bei der Einreichung um Angaben zu Referenzen bitten."
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Während der Einreichung keine Referenzen von Autor/in erfragen."
+msgstr "Bei der Einreichung keine Referenzen von Autor/in erfragen."
 
 msgid "manager.setup.metadata.citations.enable"
 msgstr "Metadaten zu Referenzen aktivieren"
@@ -2025,25 +1989,25 @@ msgstr ""
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
-"Von dem Autor/der Autorin während des Einreichprozesses die Angabe von "
-"unterstützenden Institutionen verlangen."
+"Vor Annahme der Einreichung Angaben zu unterstützenden Organistationen von "
+"Autor/in verlangen."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
-"Den Autor/die Autorin während des Einreichprozesses nach unterstützenden "
-"Institutionen fragen."
+"Autor/in bei der Einreichung um Angaben zu unterstützenden Organistationen "
+"bitten."
 
 msgid "manager.setup.metadata.agencies.noRequest"
 msgstr ""
-"Den Autor/die Autorin während des Einreichprozesses nicht nach "
-"unterstützenden Institutionen fragen."
+"Bei der Einreichung keine unterstützenden Organistationen von Autor/in "
+"erfragen."
 
 msgid "manager.setup.metadata.agencies.enable"
-msgstr "Metadaten für unterstützende Institutionen aktivieren"
+msgstr "Metadaten für unterstützende Organistationen aktivieren"
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
-"Unterstützende Institutionen können hier die Quelle der "
+"Unterstützende Organistationen können hier die Quelle der "
 "Forschungsfinanzierung oder andere Arten von Unterstützung für die Forschung "
 "angeben."
 
@@ -2178,8 +2142,79 @@ msgstr "Die Standard-E-Mail-Vorlagen wurden wiederhergestellt."
 
 msgid "manager.announcements.deleteAnnouncement"
 msgstr "Mitteilung löschen"
+
 msgid "plugins.importexport.common.cliError"
 msgstr "FEHLER:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Der angegebene Zeitschriftenpfad, \"{$contextPath}\", existiert nicht."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Prozess konnte Publikationen nicht parsen"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Prozess konnte Autoren nicht parsen"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Falsche Filterkonfiguration [{$filterName}]: {$filterCount} Vorkommen. "
+"Sollte nur eins sein."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Allgemeine Elemente"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Laden Sie die exportierte Datei über die Schaltfläche unten herunter."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Der Export wurde erfolgreich abgeschlossen."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Exportierte Datei herunterladen"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Einreichungsergebnisse exportieren"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Der Prozess ist fehlgeschlagen. Prüfen Sie die Fehler/Warnungen unten."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Nutzergruppe fehlt für Autorenname {$param}"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Die Spracheinstellung konnte nicht gespeichert werden. Für jede Option muss "
+"mindestens eine Sprache aktiviert sein"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Eine oder mehrere dieser E-Mail-Adressen sind nicht gültig."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Eine Kopie der Einreichungsbestätigungs-E-Mail wird an jede der hier "
+"eingegebenen E-Mail-Adressen gesendet. Trennen Sie mehrere E-Mail-Adressen "
+"mit einem Komma. Beispiel: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Alle benachrichtigen"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nein"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ja, senden Sie eine Kopie an {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Hauptkontakt benachrichtigen"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Benachrichtigungen"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Andere Templates"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.common.id"
+msgstr "ID: {$id}"

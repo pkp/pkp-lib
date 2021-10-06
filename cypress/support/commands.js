@@ -147,8 +147,8 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 			});
 			cy.get('select[id=genreId]').select(file.genre);
 			cy.fixture(file.file, 'base64').then(fileContent => {
-				cy.get('input[type=file]').upload(
-					{fileContent, 'fileName': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
+				cy.get('input[type=file]').attachFile(
+					{fileContent, 'filePath': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
 				);
 			});
 			cy.get('button').contains('Continue').click();
@@ -183,8 +183,8 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 		const primaryFileGenres = ['Article Text', 'Book Manuscript', 'Chapter Manuscript'];
 		data.files.forEach(file => {
 			cy.fixture(file.file, 'base64').then(fileContent => {
-				cy.get('input[type=file]').upload(
-					{fileContent, 'fileName': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
+				cy.get('input[type=file]').attachFile(
+					{fileContent, 'filePath': file.fileName, 'mimeType': 'application/pdf', 'encoding': 'base64'}
 				);
 				var $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
 				if (primaryFileGenres.includes(file.genre)) {
@@ -390,8 +390,16 @@ Cypress.Commands.add('createUser', user => {
 	user.roles.forEach(role => {
 		cy.get('form[id=userRoleForm]').contains(role).click();
 	});
+	cy.server();
+	cy.route({
+		method: "POST",
+		url: /update-user-roles$/
+	}).as('finishUserCreation');
 	cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
-	cy.get('span[id$="-username"]:contains("' + Cypress.$.escapeSelector(user.username) + '")');
+	cy.waitJQuery();
+	cy.wait('@finishUserCreation').then((interception) => {
+		assert.isTrue(interception.response.body.status);
+	});
 });
 
 Cypress.Commands.add('flushNotifications', function() {

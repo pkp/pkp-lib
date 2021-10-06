@@ -17,26 +17,12 @@
 
 namespace PKP\submission\reviewAssignment;
 
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
-
-use Exception;
-
 use PKP\db\DAORegistry;
 
 class ReviewAssignmentDAO extends \PKP\db\DAO
 {
-    public $userDao;
-
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->userDao = DAORegistry::getDAO('UserDAO');
-    }
-
-
     /**
      * Retrieve review assignments for the passed review round id.
      *
@@ -251,7 +237,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewRoundJoinString = $this->getReviewRoundJoin();
 
         if (!$reviewRoundJoinString) {
-            throw new Exception('Review round join string not specified');
+            throw new \Exception('Review round join string not specified');
         }
         $result = $this->retrieve(
             'SELECT	r.*, r2.review_revision
@@ -303,7 +289,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
         $reviewRoundJoinString = $this->getReviewRoundJoin();
 
         if (!$reviewRoundJoinString) {
-            throw new Exception('Review round join string not specified');
+            throw new \Exception('Review round join string not specified');
         }
         $result = $this->retrieve(
             'SELECT	r.*, r2.review_revision
@@ -515,7 +501,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     public function _fromRow($row)
     {
         $reviewAssignment = $this->newDataObject();
-        $user = $this->userDao->getById($row['reviewer_id']);
+        $user = Repo::user()->get($row['reviewer_id'], true);
 
         $reviewAssignment->setId((int) $row['review_id']);
         $reviewAssignment->setSubmissionId((int) $row['submission_id']);

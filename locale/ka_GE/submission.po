@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-30 07:17+0000\n"
+"PO-Revision-Date: 2021-05-14 09:47+0000\n"
 "Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
 "Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ka_GE/>\n"
@@ -432,7 +432,7 @@ msgid "editor.submission.recommendation"
 msgstr "რეკომენდაცია"
 
 msgid "editor.submission.decision.nextButton"
-msgstr "შემდეგი: აირჩეიტ ფაილები {$stageName}"
+msgstr "შემდეგი: აირჩიეთ ფაილები {$stageName}"
 
 msgid "editor.submission.decision.previousAuthorNotification"
 msgstr "წინა: ავტორების შეტყობინება"
@@ -754,7 +754,7 @@ msgid "submission.confirm.message"
 msgstr ""
 "თქვენი გაგზავნა აიტვირთა და მზად არის გასაგზავნად. გაგრძელებამდე შეგიძლიათ "
 "დაუბრუნდეთ თქვენს მიერ შეყვანილი ინფორმაციის გადახედვას და შესწორებას. "
-"როდესაც თქვენ მზად იქნებით, დააჭირეთ \"დასრულების გაგზავნას\"."
+"როდესაც თქვენ მზად იქნებით, დააჭირეთ “გაგზავნის დასრულება“."
 
 msgid "metadata.property.validationMessage.editor"
 msgstr ""
@@ -1330,7 +1330,7 @@ msgstr "ღია დისკუსიები"
 
 msgid "submission.list.dualWorkflowLinks"
 msgstr ""
-"ამ წარდგენისთვის თქვენ დაგნიშნეთ მრავალი როლი. გსურთ შეხვიდეთ <a href=\""
+"ამ წარდგენისთვის თქვენ მოგენიჭათ რამოდენიმე როლი. გსურთ შეხვიდეთ <a href=\""
 "{$urlAuthorWorkflow}\">ავტორის სამუშაო პროცესზე</a> ან <a href=\""
 "{$urlEditorialWorkflow}\">სარედაქციო სამუშაოზე</a> ?"
 
@@ -1539,8 +1539,8 @@ msgstr "დიახ, მსურს დამიკავშირდნენ
 
 msgid "submission.submit.userGroupDescriptionManagers"
 msgstr ""
-"წარადგინეთ შემდეგი რომელიმე როლი, თუ გსურთ ამ რედაქტირების რედაქტირება და "
-"გამოქვეყნება თავად შეძლოთ: {$managerGroups}"
+"წარადგინეთ შემდეგი რომელიმე როლი, თუ გსურთ ამ შეანატანის ჩასწორება და "
+"გამოქვეყნება თავად რომ შეძლოთ: {$managerGroups}"
 
 msgid "submission.submit.submissionChecklist"
 msgstr "მასალების მოთხოვნები"
@@ -1554,7 +1554,9 @@ msgid "submission.submit.submissionComplete"
 msgstr "შეტანა დასრულებულია"
 
 msgid "submission.submit.submissionCompleteThanks"
-msgstr "გმადლობთ დაინტერესებისთვის, რომ გამოაქვეყნოთ გამოცემა {$contextName}."
+msgstr ""
+"გმადლობთ დაინტერესებისთვის, რომ გამოაქვეყნოთ გამოცემა ჟურნალში "
+"{$contextName}."
 
 msgid "submission.submit.copyrightNoticeAgreementLabel"
 msgstr "საავტორო უფლებების შესახებ განცხადება"
@@ -1896,7 +1898,7 @@ msgstr ""
 "DOI-სთვის."
 
 msgid "submission.publisherId.enable"
-msgstr "ჩრთვა: {$objects}"
+msgstr "ჩართვა: {$objects}"
 
 msgid "submission.queries.submission"
 msgstr "მიმოხილვიებს წინასწარი დისკუსიები"

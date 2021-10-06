@@ -1,9 +1,10 @@
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2021-05-08 02:57+0000\n"
+"PO-Revision-Date: 2021-07-22 12:21+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_PT/>\n"
@@ -2098,3 +2099,6 @@ msgstr ""
 
 msgid "validator.country"
 msgstr "Este não é um país válido."
+
+msgid "common.insert"
+msgstr "Inserir"

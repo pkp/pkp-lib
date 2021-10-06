@@ -35,7 +35,7 @@
  *  information about composite meta-data properties.
  *
  *  Example: We implement a composite to represent authors that correspond to the
- *  PKPAuthor class. We do not implement composites for title meta-data
+ *  \PKP\author\Author class. We do not implement composites for title meta-data
  *  even if the chosen schema allows this (e.g. abbreviated title, alternative title)
  *  as this data is implemented as fields of the Submission object. This doesn't mean
  *  that such data cannot be mapped to composites in external bindings, e.g. in an

@@ -151,8 +151,7 @@ abstract class Repository
         if (is_null($userId)) {
             $user = $request->getUser();
         } else {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $user = $userDao->getById($userId);
+            $user = Repo::user()->get($userId);
         }
 
         if (is_null($user)) {

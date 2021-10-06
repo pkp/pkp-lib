@@ -32,4 +32,13 @@ class Repo
     {
         return App::make(\PKP\announcement\Repository::class);
     }
+    public static function user(): \PKP\user\Repository
+    {
+        return App::make(\PKP\user\Repository::class);
+    }
+
+    public static function author(): \PKP\author\Repository
+    {
+        return App::make(\PKP\author\Repository::class);
+    }
 }

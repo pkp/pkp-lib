@@ -1,15 +1,19 @@
+# Rahman Ramsi <rahmanramsi19@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2021-08-19 04:05+0000\n"
+"Last-Translator: Rahman Ramsi <rahmanramsi19@gmail.com>\n"
+"Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"fa_IR/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "پروژه دانش عمومی"
@@ -54,7 +58,7 @@ msgid "about.siteMap"
 msgstr "نقشه سایت"
 
 msgid "announcement.announcements"
-msgstr "اطلاعیه‌ها"
+msgstr "فراخوان‌ها"
 
 msgid "announcement.announcementsHome"
 msgstr "اطلاعیه‌ها"
@@ -1476,3 +1480,36 @@ msgstr "منوی گشت‌وگذار با موفقیت به‌روزرسانی �
 
 msgid "notification.removedNavigationMenu"
 msgstr "منوی گشت‌وگذار با موفقیت حذف شد"
+
+msgid "form.saved"
+msgstr "ذخیره شد"
+
+msgid "common.addFile"
+msgstr "افزودن فایل"
+
+msgid "notification.type.editorialReport"
+msgstr "خلاصه گزارش آماری"
+
+msgid "notification.email"
+msgstr "برای چنین آگهی‌هایی برایم ایمیل نفرست."
+
+msgid "common.lastActivity"
+msgstr "آخرین فعالیت ثبت شده در {$date}."
+
+msgid "common.override"
+msgstr "نادیده گرفتن"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.filter"
+msgstr "پالایش"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"این تصویر را برای بازدیدکنندگانی که سایت را در یک مرورگر فقط متن یا با "
+"دستگاه های کمکی مشاهده می کنند ، توصیف کنید. مثال: \\ \"سردبیر ما در کنفرانس "
+"PKP صحبت می کند. \\"
+
+msgid "common.inactive"
+msgstr "غیرفعال"

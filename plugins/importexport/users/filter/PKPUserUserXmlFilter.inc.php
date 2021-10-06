@@ -76,7 +76,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
     }
 
     //
-    // PKPAuthor conversion functions
+    // \PKP\author\Author conversion functions
     //
     /**
      * Create and return a user node.

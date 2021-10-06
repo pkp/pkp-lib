@@ -16,8 +16,8 @@
 import('lib.pkp.controllers.grid.settings.user.UserGridRow');
 import('lib.pkp.controllers.grid.settings.user.form.UserDetailsForm');
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
-use APP\user\UserAction;
 
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\PagingFeature;
@@ -30,7 +30,6 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
-use PKP\user\UserDAO;
 
 class UserGridHandler extends GridHandler
 {
@@ -132,7 +131,7 @@ class UserGridHandler extends GridHandler
         // User name.
         $this->addColumn(
             new GridColumn(
-                'username',
+                'userName',
                 'user.username',
                 null,
                 null,
@@ -183,21 +182,27 @@ class UserGridHandler extends GridHandler
      */
     protected function loadData($request, $filter)
     {
-        // Get the context.
         $context = $request->getContext();
 
-        // Get all users for this context that match search criteria.
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+        $collector = Repo::user()->getCollector();
+        $collector->filterByStatus($collector::STATUS_ALL);
+        if ($filter['userGroup'] ?? false) {
+            $collector->filterByUserGroupIds((array) $filter['userGroup']);
+        }
+        if (!($filter['includeNoRole'] ?? false)) {
+            $collector->filterByContextIds([$context->getId()]);
+        }
+        if (strlen($filter['search'] ?? '')) {
+            $collector->searchPhrase($filter['search']);
+        }
 
-        return $userGroupDao->getUsersById(
-            $filter['userGroup'],
-            $filter['includeNoRole'] ? null : $context->getId(),
-            $filter['searchField'],
-            $filter['search'] ? $filter['search'] : null,
-            $filter['searchMatch'],
-            $rangeInfo
-        );
+        // Handle grid paging (deprecated style)
+        $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+        $totalCount = Repo::user()->getCount($collector);
+        $collector->limit($rangeInfo->getCount());
+        $collector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
+        $iterator = Repo::user()->getMany($collector);
+        return new \PKP\core\VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**
@@ -213,12 +218,12 @@ class UserGridHandler extends GridHandler
             $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
         }
 
-        // Import UserDAO to define the UserDAO::USER_FIELD_* constants.
+        $userDao = Repo::user()->dao;
         $fieldOptions = [
             Identity::IDENTITY_SETTING_GIVENNAME => 'user.givenName',
             Identity::IDENTITY_SETTING_FAMILYNAME => 'user.familyName',
-            UserDAO::USER_FIELD_USERNAME => 'user.username',
-            UserDAO::USER_FIELD_EMAIL => 'user.email'
+            $userDao::USER_FIELD_USERNAME => 'user.username',
+            $userDao::USER_FIELD_EMAIL => 'user.email'
         ];
 
         $matchOptions = [
@@ -613,8 +618,7 @@ class UserGridHandler extends GridHandler
             if (!$request->checkCSRF()) {
                 return new JSONMessage(false);
             }
-            $userAction = new UserAction();
-            $userAction->mergeUsers($oldUserId, $newUserId);
+            Repo::user()->mergeUsers($oldUserId, $newUserId);
             $json = new JSONMessage(true);
             $json->setGlobalEvent('userMerged', [
                 'oldUserId' => $oldUserId,

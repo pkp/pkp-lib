@@ -18,11 +18,11 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
-
 use DOMDocument;
 use DOMElement;
-
 use PKP\core\PKPString;
+
+use PKP\db\DAORegistry;
 
 class PluginGalleryDAO extends \PKP\db\DAO
 {
@@ -65,8 +65,11 @@ class PluginGalleryDAO extends \PKP\db\DAO
     private function _getDocument()
     {
         $doc = new DOMDocument('1.0');
-        $client = Application::get()->getHttpClient();
-        $response = $client->request('GET', PLUGIN_GALLERY_XML_URL);
+        $application = Application::get();
+        $client = $application->getHttpClient();
+        $versionDao = DAORegistry::getDAO('VersionDAO');
+        $currentVersion = $versionDao->getCurrentVersion();
+        $response = $client->request('GET', PLUGIN_GALLERY_XML_URL, ['query' => ['application' => $application->getName(), 'version' => $currentVersion->getVersionString()]]);
         $doc->loadXML($response->getBody());
         return $doc;
     }

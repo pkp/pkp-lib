@@ -23,43 +23,23 @@ class AnnouncementType extends \PKP\core\DataObject
     // Get/set methods
     //
     /**
-     * Get assoc ID for this annoucement.
+     * Get context ID for this announcement.
      *
      * @return int
      */
-    public function getAssocId()
+    public function getContextId()
     {
-        return $this->getData('assocId');
+        return $this->getData('contextId');
     }
 
     /**
-     * Set assoc ID for this annoucement.
+     * Set context ID for this announcement.
      *
-     * @param $assocId int
+     * @param $contextId int
      */
-    public function setAssocId($assocId)
+    public function setContextId($contextId)
     {
-        $this->setData('assocId', $assocId);
-    }
-
-    /**
-     * Get assoc type for this annoucement.
-     *
-     * @return int
-     */
-    public function getAssocType()
-    {
-        return $this->getData('assocType');
-    }
-
-    /**
-     * Set assoc Type for this annoucement.
-     *
-     * @param $assocType int
-     */
-    public function setAssocType($assocType)
-    {
-        $this->setData('assocType', $assocType);
+        $this->setData('contextId', $contextId);
     }
 
     /**

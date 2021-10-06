@@ -16,6 +16,7 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use DateTimeInterface;
@@ -109,7 +110,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
             'publicationStatsLink' => $dispatcher->url($this->_request, PKPApplication::ROUTE_PAGE, $this->_context->getPath(), 'stats', 'publications')
         ];
 
-        $this->_userRolesOverview = Services::get('user')->getRolesOverview(['contextId' => $this->_context->getId()]);
+        $this->_userRolesOverview = Repo::user()->getRolesOverview(Repo::user()->getCollector()->filterByContextIds([$this->_context->getId()]));
 
         // Create the CSV file attachment
         // Active submissions by stage
@@ -252,7 +253,9 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
      */
     protected function getMailTemplate($emailKey = null): MailTemplate
     {
-        return new MailTemplate('STATISTICS_REPORT_NOTIFICATION', $this->_context->getPrimaryLocale(), $this->_context, false);
+        $mail = new MailTemplate('STATISTICS_REPORT_NOTIFICATION', $this->_context->getPrimaryLocale(), $this->_context, false);
+        $mail->setFrom($this->_context->getData('contactEmail'), $this->_context->getData('contactName'));
+        return $mail;
     }
 
     /**

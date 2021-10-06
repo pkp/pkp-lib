@@ -13,6 +13,7 @@
  * @brief Base class that converts a User XML document to a set of users
  */
 
+use APP\facades\Repo;
 use PKP\mail\MailTemplate;
 use PKP\user\InterestManager;
 
@@ -88,8 +89,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
         $site = $deployment->getSite();
 
         // Create the data object
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->newDataObject();
+        $user = Repo::user()->newDataObject();
 
         // Password encryption
         $encryption = null;
@@ -180,8 +180,8 @@ class UserXmlPKPUserFilter extends NativeImportFilter
         // Password Import Validation
         $password = $this->importUserPasswordValidation($user, $encryption);
 
-        $userByUsername = $userDao->getByUsername($user->getUsername(), true);
-        $userByEmail = $userDao->getUserByEmail($user->getEmail(), true);
+        $userByUsername = Repo::user()->getByUsername($user->getUsername(), true);
+        $userByEmail = Repo::user()->getByEmail($user->getEmail(), true);
         // username and email are both required and unique, so either
         // both exist for one and the same user, or both do not exist
         if ($userByUsername && $userByEmail && $userByUsername->getId() == $userByEmail->getId()) {
@@ -240,7 +240,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
                     }
                 }
             }
-            $userId = $userDao->insertObject($user);
+            $userId = Repo::user()->add($user);
 
             // Insert reviewing interests, now that there is a userId.
             $interestNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'review_interests');
@@ -275,7 +275,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
 
             // Extract user groups from the User XML and assign the user to those (existing) groups.
             // Note:  It is possible for a user to exist with no user group assignments so there is
-            // no fatalError() as is the case with PKPAuthor import.
+            // no fatalError() as is the case with \PKP\author\Author import.
             $userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
             if ($userGroupNodeList->length > 0) {
                 for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {

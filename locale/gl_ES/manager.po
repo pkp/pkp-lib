@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-10 21:53+0000\n"
+"PO-Revision-Date: 2021-06-19 08:03+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/gl_ES/>\n"
@@ -891,7 +891,7 @@ msgstr "Modo de revisión predeterminado"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
-"Envía un recordatorio por correo electrónico se un revisor/a non enviou "
+"Envía un recordatorio por correo electrónico se un revisor non enviou "
 "ningunha recomendación días despois da data de vencemento da revisión."
 
 msgid "manager.setup.reviewOptions.reminders.submit"
@@ -2334,3 +2334,86 @@ msgstr "Usuarios/as rexistrados"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} novo)"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Outros modelos"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Fallou o proceso ao analizar as publicacións"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Fallou o proceso ao analizar os autores"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "O camiño da publicación especificada, \"{$contextPath}\", non existe."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERRO:"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Configuración de filtro incorrecta [{$filterName}]: {$filterCount} "
+"ocorrencias. Debe ser só unha."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Elementos xenéricos"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Descarga o arquivo exportado dende o botón de abaixo."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "A exportación completouse correctamente."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Descargar arquivo exportado"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportar resultados de envíos"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "O proceso fallou. Comprobe abaixo se hai erros ou avisos."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Falta o grupo de usuarios para o nome do autor {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Non se puido gardar a configuración do idioma. Debe habilitarse polo menos "
+"un idioma para cada opción"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Un ou máis destes enderezos de correo electrónico non son válidos."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Enviarase unha copia do correo electrónico de confirmación de envío a "
+"calquera dos enderezos de correo electrónico aquí inseridos. Separe varios "
+"enderezos de correo electrónico cunha coma. Exemplo: un@example.com, "
+"dous@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Notificar a calquera persoa"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Non"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Si, enviar unha copia a {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notificar ao Contacto Principal"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notificacións"
+
+msgid "manager.setup.publishingDescription"
+msgstr "O nome da editorial aparecerá na sección \"Sobre a Revista\"."
+
+msgid "manager.setup.publishing"
+msgstr "Detalles da publicación"

@@ -19,11 +19,12 @@
 import('lib.pkp.tests.PKPTestCase');
 
 use APP\notification\Notification;
+use Illuminate\Support\Facades\App;
 use PKP\db\DAORegistry;
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
-
 use PKP\notification\PKPNotificationManager;
+use PKP\user\User;
 
 define('NOTIFICATION_ID', 1);
 
@@ -178,7 +179,7 @@ class PKPNotificationManagerTest extends PKPTestCase
      */
     protected function getMockedDAOs()
     {
-        return ['NotificationDAO', 'NotificationSettingsDAO', 'UserDAO'];
+        return ['NotificationDAO', 'NotificationSettingsDAO'];
     }
 
     protected function setUp(): void
@@ -250,7 +251,6 @@ class PKPNotificationManagerTest extends PKPTestCase
         $contextTitle = 'Context title';
 
         // Build a test user object.
-        import('lib.pkp.classes.user.User');
         $testUser = new User();
         $testUser->setId($expectedNotification->getUserId());
         $testUser->setGivenName($userFirstName, 'en_US');
@@ -258,7 +258,7 @@ class PKPNotificationManagerTest extends PKPTestCase
         $testUser->setEmail($userEmail);
 
         // Get the user full name to check.
-        $userFullName = $testUser->getFullName();
+        $userFullName = $testUser->getFullName(true, false, 'en_US');
 
         // Stub context.
         $application = Application::get();
@@ -354,13 +354,9 @@ class PKPNotificationManagerTest extends PKPTestCase
             ->will($this->returnValue($mailTemplateMock));
 
         // Register a UserDao stub to return the test user.
-        $userDaoStub = $this->getMockBuilder(UserDAO::class)
-            ->setMethods(['getById'])
-            ->getMock();
-        $userDaoStub->expects($this->any())
-            ->method('getById')
-            ->will($this->returnValue($testUser));
-        DAORegistry::registerDAO('UserDAO', $userDaoStub);
+        App::instance(\PKP\user\DAO::class, \Mockery::mock(\PKP\user\DAO::class, function ($mock) use ($testUser) {
+            $mock->shouldReceive('get')->with($testUser->getId(), true)->andReturn($testUser);
+        }));
 
         return [$notificationMgrStub, $requestStub];
     }
@@ -459,5 +455,13 @@ class PKPNotificationManagerTest extends PKPTestCase
         $notification->setLevel(Notification::NOTIFICATION_LEVEL_TRIVIAL);
 
         return $notification;
+    }
+
+    public function tearDown(): void
+    {
+        parent::tearDown();
+
+        // See: http://docs.mockery.io/en/latest/reference/phpunit_integration.html
+        \Mockery::close();
     }
 }

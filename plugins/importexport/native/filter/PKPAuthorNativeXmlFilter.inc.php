@@ -78,7 +78,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
      * Create and return an author node.
      *
      * @param $doc DOMDocument
-     * @param $author PKPAuthor
+     * @param $author \PKP\author\Author
      *
      * @return DOMElement
      */

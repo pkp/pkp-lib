@@ -102,6 +102,16 @@ class QueryForm extends Form
     // Getters and Setters
     //
     /**
+     * Set the flag indiciating whether the query is new (i.e. creates a placeholder that needs deleting on cancel)
+     *
+     * @param $isNew boolean
+     */
+    public function setIsNew(bool $isNew)
+    {
+        $this->_isNew = $isNew;
+    }
+
+    /**
      * Get the query
      *
      * @return Query
@@ -243,8 +253,7 @@ class QueryForm extends Form
             // All stages can select the default template
             $templateKeys = [];
             // Determine if the current user can use any custom templates defined.
-            $user = $request->getUser();
-            if (Services::get('user')->userHasRole($user->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
+            if ($user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
                 $emailTemplates = Services::get('emailTemplate')->getMany([
                     'contextId' => $context->getId(),
                     'isCustom' => true,
@@ -279,7 +288,8 @@ class QueryForm extends Form
             if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
 
                 // Get all review assignments for current submission
-                $reviewAssignments = Repo::submission()->getReviewAssignments($submission);
+                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+                $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());;
 
                 // Get current users roles
                 $assignedRoles = [];
@@ -313,26 +323,24 @@ class QueryForm extends Form
                 // if current user is author, add open reviewers who have accepted the request
                 if (array_intersect([Role::ROLE_ID_AUTHOR], $assignedRoles)) {
                     foreach ($reviewAssignments as $reviewAssignment) {
-                        if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed()) {
+                        if ($reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->getDateConfirmed() && !$reviewAssignment->getDeclined()) {
                             $includeUsers[] = $reviewAssignment->getReviewerId();
                         }
                     }
                 }
             }
 
-            // Get list of participants to include in query
-            $params = [
-                'contextId' => $context->getId(),
-                'count' => 100, // high upper value
-                'offset' => 0,
-                'assignedToSubmission' => $query->getAssocId(),
-                'assignedToSubmissionStage' => $query->getStageId(),
-                'includeUsers' => $includeUsers,
-                'excludeUsers' => $excludeUsers,
-            ];
+            $usersIterator = Repo::user()->getMany(
+                Repo::user()->getCollector()
+                    ->filterByContextIds([$context->getId()])
+                    ->limit(100)
+                    ->offset(0)
+                    ->assignedTo($query->getAssocId(), $query->getStageId())
+                    ->excludeUserIds($excludeUsers)
+            );
 
-            $userService = Services::get('user');
-            $usersIterator = $userService->getMany($params);
+            $includedUsersIterator = Repo::user()->getMany(Repo::user()->getCollector()->filterByUserIds($includeUsers));
+            $usersIterator = $usersIterator->merge($includedUsersIterator);
 
             $allParticipants = [];
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
@@ -500,30 +508,11 @@ class QueryForm extends Form
             $queryDao->insertParticipant($query->getId(), $userId);
         }
 
-        // Update participant notifications
-        $notificationManager = new NotificationManager();
         $removed = array_diff($oldParticipantIds, $newParticipantIds);
-        $added = array_diff($newParticipantIds, $oldParticipantIds);
         foreach ($removed as $userId) {
-            // Delete this users's notifications relating to this query
+            // Delete this users' notifications relating to this query
             $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
             $notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId(), $userId);
-        }
-        $currentUser = $request->getUser();
-        foreach ($added as $userId) {
-            // Skip sending a message to the current user.
-            if ($currentUser->getId() == $userId) {
-                continue;
-            }
-            $notificationManager->createNotification(
-                $request,
-                $userId,
-                PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
-                $request->getContext()->getId(),
-                ASSOC_TYPE_QUERY,
-                $query->getId(),
-                Notification::NOTIFICATION_LEVEL_TASK
-            );
         }
 
         // Stamp the submission status modification date.

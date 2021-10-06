@@ -7,6 +7,9 @@
  */
 
 describe('Announcements', function() {
+	// Announcement title that will be added
+	var newAnnouncementTitle = 'Call for Papers: Making knowledge public in scholarly communications';
+
 	it('Enables announcements and adds an announcement', function() {
 		cy.login('dbarnes');
 		cy.visit('index.php/publicknowledge/management/settings/website');
@@ -25,7 +28,7 @@ describe('Announcements', function() {
 
 		// Add announcement
 		cy.get('button:contains("Add Announcement")').click();
-		var title = 'Call for Papers: Making knowledge public in scholarly communications';
+		var title = newAnnouncementTitle;
 		var desc = '<p>The Journal of Public Knowledge is issuing a call for papers on making knowledge public in scholarly communications. We are soliciting submissions to be published in a special issue to be published in 2021.</p>';
 		cy.wait(500);
 		cy.get('#announcement-title-control-en_US').type(title, {delay: 0});
@@ -35,6 +38,12 @@ describe('Announcements', function() {
 		cy.get('#announcements .listPanel__itemTitle:contains("' + title + '")')
 			.parents('.listPanel__itemSummary').find('a').contains('View').click();
 		cy.get('h1').contains(title);
+	});
+
+	it('Goes to Announcements page', function() {
+		cy.login('dbarnes');
+		cy.visit('index.php/publicknowledge/announcement');
+		cy.get('a:contains(' + newAnnouncementTitle + ')').should('be.visible')
 	});
 
 	it('Edits and deletes announcements', function() {

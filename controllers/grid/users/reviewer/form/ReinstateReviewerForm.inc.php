@@ -52,9 +52,7 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
      */
     public function execute(...$functionArgs)
     {
-        if (!parent::execute(...$functionArgs)) {
-            return false;
-        }
+        parent::execute(...$functionArgs);
 
         $request = Application::get()->getRequest();
         $submission = $this->getSubmission(); /** @var Submission $submission */
@@ -62,10 +60,8 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
 
         // Reinstate the review assignment.
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-
         if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !HookRegistry::call('EditorAction::reinstateReview', [&$submission, $reviewAssignment])) {
-            $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             if (!isset($reviewer)) {
                 return false;
             }

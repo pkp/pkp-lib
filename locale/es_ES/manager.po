@@ -1,9 +1,11 @@
+# Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2020-12-01 11:47+0000\n"
+"PO-Revision-Date: 2021-08-07 02:45+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "es_ES/>\n"
@@ -150,7 +152,7 @@ msgid "manager.publication.reviewStage"
 msgstr "Revisión"
 
 msgid "manager.publication.editorialStage"
-msgstr "Editorial"
+msgstr "Edición"
 
 msgid "manager.publication.productionStage"
 msgstr "Producción"
@@ -239,7 +241,7 @@ msgid "manager.emails.resetToDefault"
 msgstr "Restaurar valores por defecto"
 
 msgid "manager.filesBrowser"
-msgstr "Navegación de ficheros"
+msgstr "Navegador de archivos"
 
 msgid "manager.files.confirmDelete"
 msgstr "¿Seguro que desea eliminar este archivo o directorio? Tenga en cuenta que el directorio debe estar vacío antes de eliminarlo."
@@ -2020,7 +2022,7 @@ msgstr "Modo de revisión por defecto"
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Enviar un correo electrónico de recordatorio si el revisor/a no ha enviado "
-"una recomendación varios días después de la fecha de vencimiento de la "
+"una recomendación dentro de estos días tras  la fecha de vencimiento de la "
 "revisión."
 
 msgid "manager.setup.reviewOptions.reminders.submit"
@@ -2256,3 +2258,82 @@ msgstr "ERROR:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "La ruta de la revista especificada, \"{$contextPath}\", no existe."
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Seleccione los usuarios/as que desee exportar a un archivo Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Exportar a Excel/CSV"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "El proceso ha fallado al analizar las publicaciones"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "El proceso ha fallado al analizar los autores/as"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Configuración de filtro errónea [{$filterName}]: {$filterCount} casos. "
+"Debería haber solo uno."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Elementos genéricos"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Descargar el archivo exportado con el botón de debajo."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "La exportación se ha completado correctamente."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Descargar el archivo exportado"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportar los resultados de los envíos"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "El proceso ha fallado. Revise debajo los errores/advertencias."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Falta el grupo de usuario/a para el nombre del autor/a {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"No se ha podido guardar la configuración de idioma. Por lo menos un idioma "
+"debe estar activo para cada opción"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Una o más de estas direcciones de correo electrónico no son válidas."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Se enviará una copia del correo de agradecimiento por el envío a todas las "
+"direcciones incluidas aquí. Separe las diferentes direcciones de correo "
+"electrónico con una coma. Ejemplo: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "No notificar"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "No"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Sí, enviar una copia a {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notificar al contacto principal"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notificaciones"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Generador de informes personalizado"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Otras plantillas"

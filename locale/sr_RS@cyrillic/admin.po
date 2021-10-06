@@ -1,27 +1,33 @@
+# Biljana Cubrovic <biljana.cubrovic@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
+"PO-Revision-Date: 2021-07-08 21:03+0000\n"
+"Last-Translator: Biljana Cubrovic <biljana.cubrovic@gmail.com>\n"
+"Language-Team: Serbian (cyrillic) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/admin/sr_Cyrl/>\n"
+"Language: sr_RS@cyrillic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:02+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "admin.adminFunctions"
 msgstr "Административне функције"
 
 msgid "admin.auth.confirmDelete"
-msgstr "Да ли сте сигурни да желите трајно обрисати овај извор аутентификације?"
+msgstr ""
+"Да ли сте сигурни да желите трајно да обришете овај извор аутентификације?"
 
 msgid "admin.auth.create"
 msgstr "Креирајте извор аутентификације"
 
 msgid "admin.auth.noneCreated"
-msgstr "Ни један извор аутентификације није дефинисан."
+msgstr "Ниједан извор аутентификације није дефинисан."
 
 msgid "admin.authSources"
 msgstr "Извори аутентификације"
@@ -33,25 +39,35 @@ msgid "admin.clearTemplateCache"
 msgstr "Брисање кеш меморије шаблона"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Ваш конфигурациони фајл је успешно ажурирана. Имајте на уму да уколико ваш сајт више не ради исправно, морате ручно подесити конфигурацију приликом директног уређивања <tt>config.inc.php</tt> фајла."
+msgstr ""
+"Ваш конфигурациони фајл је успешно ажуриран. Имајте на уму да уколико ваш "
+"сајт више не ради исправно, потребно је ручно подесити конфигурацију "
+"директним уређивањем фајла <tt>config.inc.php</tt>."
 
 msgid "admin.confirmClearTemplateCache"
-msgstr "Да ли сте сигурни да желите обрисати кеш меморију израђених шаблона?"
+msgstr "Да ли сте сигурни да желите да обришете кеш меморију израђених шаблона?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Да ли сте сигурни да желите да сесије свих корисника истекну? Сви корисници који су тренутно пријављени у систем ће бит присиљени да се поновно пријаве (Ви такође)."
+msgstr ""
+"Да ли сте сигурни да желите да сесије истекну свим корисницима? Сви "
+"корисници који су тренутно пријављени у систем биће присиљени да се поново "
+"пријаве (Ви такође)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Садржај конфигурационог фајла"
 
 msgid "admin.currentVersion"
-msgstr "Тренутна верзија"
+msgstr "Актуелна верзија"
 
 msgid "admin.dateInstalled"
 msgstr "Датум инсталације"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Систем не може аутоматски обавити преписивање преко конфигурационог фајла. Како бисте применили конфигурационе измене морате отворити фајл <tt>config.inc.php</tt> у прикладном уређивачу текста и замиенити његов садржај са садржајем текста у пољу испод."
+msgstr ""
+"Систем не може аутоматски обавити преписивање преко конфигурационог фајла. "
+"Како бисте применили конфигурационе измене морате отворити фајл "
+"<tt>config.inc.php</tt> у прикладном уређивачу текста и замeнити садржај у "
+"пољу испод."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Прикажи нову конфигурацију"
@@ -60,7 +76,10 @@ msgid "admin.expireSessions"
 msgstr "Учини корисничке сесије неважећима"
 
 msgid "admin.languages.confirmReload"
-msgstr "Да ли сте сигурни да поновно желите учитати овај превод? То ће обрисати све измене у преводу које су урађене у појединим часописима (на пример, прилагођени шаблони имејл поште)."
+msgstr ""
+"Да ли сте сигурни да поново желите да учитате овај превод? То ће обрисати "
+"све измене у преводу које су урађене у појединим часописима (на пример, "
+"прилагођени шаблони имејлова)."
 
 msgid "admin.languages.installedLocales"
 msgstr "Инсталиране локализације"
@@ -105,10 +124,10 @@ msgid "admin.server.phpVersion"
 msgstr "Верзија PHP-a"
 
 msgid "admin.server.platform"
-msgstr "Платформа ОС-а"
+msgstr "Платформа ОС"
 
 msgid "admin.settings.about"
-msgstr "Опис сајта"
+msgstr "О сајту"
 
 msgid "admin.settings.contactEmail"
 msgstr "Имејл главног контакта"
@@ -129,8 +148,9 @@ msgid "admin.settings.siteLanguage"
 msgstr "Језик сајта"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Неисправан формат странице стила. Систем прихвата само .css формат."
+msgstr "Неисправан формат упутства. Систем прихвата само .css формат."
 
+#, fuzzy
 msgid "admin.settings.siteStyleSheet"
 msgstr "Страница стила (CSS) сајта"
 
@@ -197,8 +217,9 @@ msgstr "Подешавања"
 msgid "admin.settings.siteTheme"
 msgstr "Шаблон сајта"
 
+#, fuzzy
 msgid "admin.siteSetup"
-msgstr "Намештање сајта"
+msgstr "Подешавање сајта"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Назив подешавања"
@@ -225,10 +246,12 @@ msgid "admin.scheduledTask.stopTime"
 msgstr "Процес задатка је стао."
 
 msgid "admin.scheduledTask.noLog"
-msgstr "Задатак је произвео лог."
+msgstr "Задатак није произвео лог запис."
 
 msgid "admin.scheduledTask.downloadLog"
-msgstr "Ваша {$softwareName} инсталација је аутоматски извршила и завршила овај задатак, лог фајл можете преузети и погледати овде: {$url}"
+msgstr ""
+"Ваша {$softwareName} инсталација је аутоматски извршила и завршила овај "
+"задатак, лог фајл можете преузети овде: {$url}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Да ли сте сигурни да желите да обришете све логове извршења планираних задатака?"
@@ -237,10 +260,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "Обриши логове извршења планираних задатака"
 
 msgid "admin.scheduledTask.reviewReminder"
-msgstr "Подсетник рецензирања"
+msgstr "Подсетник за рецензента"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Подсетник истека претплате"
+msgstr "Подсетник за истек претплате"
 
 msgid "admin.settings.siteLogo"
 msgstr "Лого сајта"
@@ -285,7 +308,7 @@ msgid "admin.error.executingUtil"
 msgstr "Грешка: не могу да извршим \"{$utilPath}\".  Проверите ваше подешавање {$utilVar} у config.inc.php."
 
 msgid "admin.languages.noLocalesToDownload"
-msgstr "Нема локализација доступних за преузимање"
+msgstr "Нема локализација доступних за преузимање."
 
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
@@ -295,3 +318,29 @@ msgstr ""
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr "Ископирајте приступне лог фајлове за apache, филтрирајући уписе везане за ову инсталацију у директориј за фајлове унутар UsageStatsPlugin статус/stage директорија. Морате обезбедити привилегије за читање и приступ apache лог фајловима. Овај алат ће ископирати само оне фајлове  који нису већ у директоријима  за usageStats (статус, обрада, архивирај, одбиј)."
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Само администратор може да промени подешавање."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Онемогући улогу"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Ограничи групне имејлове"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Групни имејл"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Објави радове планиране за објављивање"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Да ли сте сигурни да желите да промените примарну локализацију сајта? "
+"Корисничка имена, која су неопходна за сајт примарне локализације, биће "
+"копирана са постојеће примарне локализације тамо где недостају."
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Да ли сте сигурни да желите да трајно обришете {$contextName}  и цео његов "
+"садржај?"

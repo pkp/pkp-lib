@@ -15,10 +15,10 @@
 
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
-
 use APP\template\TemplateManager;
+use PKP\identity\Identity;
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\user\InterestManager;
@@ -57,7 +57,10 @@ class UserDetailsForm extends UserForm
         $form = $this;
         if ($userId == null) {
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
-            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [$this->userId, true], true));
+            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', function ($username, $userId) {
+                $user = Repo::user()->getByUsername($username, true);
+                return !$user || $user->getId() == $userId;
+            }, [$this->userId]));
             $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
@@ -68,8 +71,7 @@ class UserDetailsForm extends UserForm
                 return $password == $form->getData('password2');
             }));
         } else {
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $this->user = $userDao->getById($userId);
+            $this->user = Repo::user()->get($userId, true);
 
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
                 return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
@@ -90,7 +92,10 @@ class UserDetailsForm extends UserForm
         }));
         $this->addCheck(new \PKP\form\validation\FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'], [$this->userId, true], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email, $currentUserId) {
+            $user = Repo::user()->getByEmail($email, true);
+            return !$user || $user->getId() == $currentUserId;
+        }, [$this->userId]));
         $this->addCheck(new \PKP\form\validation\FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
@@ -128,10 +133,9 @@ class UserDetailsForm extends UserForm
                 'country' => $user->getCountry(),
                 'biography' => $user->getBiography(null), // Localized
                 'interests' => $interestManager->getInterestsForUser($user),
-                'userLocales' => $user->getLocales(),
+                'locales' => $user->getLocales(),
             ];
-            $userService = Services::get('user');
-            $data['canCurrentUserGossip'] = $userService->canCurrentUserGossip($user->getId());
+            $data['canCurrentUserGossip'] = Repo::user()->canCurrentUserGossip($user->getId());
             if ($data['canCurrentUserGossip']) {
                 $data['gossip'] = $user->getGossip();
             }
@@ -231,7 +235,7 @@ class UserDetailsForm extends UserForm
             'biography',
             'gossip',
             'interests',
-            'userLocales',
+            'locales',
             'generatePassword',
             'sendNotify',
             'mustChangePassword'
@@ -240,8 +244,8 @@ class UserDetailsForm extends UserForm
             $this->readUserVars(['username']);
         }
 
-        if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
-            $this->setData('userLocales', []);
+        if ($this->getData('locales') == null || !is_array($this->getData('locales'))) {
+            $this->setData('locales', []);
         }
     }
 
@@ -250,8 +254,7 @@ class UserDetailsForm extends UserForm
      */
     public function getLocaleFieldNames()
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        return $userDao->getLocaleFieldNames();
+        return ['biography', 'signature', 'affiliation', Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName'];
     }
 
     /**
@@ -259,12 +262,11 @@ class UserDetailsForm extends UserForm
      */
     public function execute(...$functionParams)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
         if (!isset($this->user)) {
-            $this->user = $userDao->newDataObject();
+            $this->user = Repo::user()->newDataObject();
             $this->user->setInlineHelp(1); // default new users to having inline help visible
         }
 
@@ -283,8 +285,7 @@ class UserDetailsForm extends UserForm
         $this->user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
         $this->user->setAuthId((int) $this->getData('authId'));
         // Users can never view/edit their own gossip fields
-        $userService = Services::get('user');
-        if ($userService->canCurrentUserGossip($this->user->getId())) {
+        if (Repo::user()->canCurrentUserGossip($this->user->getId())) {
             $this->user->setGossip($this->getData('gossip'));
         }
 
@@ -292,7 +293,7 @@ class UserDetailsForm extends UserForm
         $availableLocales = $site->getSupportedLocales();
 
         $locales = [];
-        foreach ($this->getData('userLocales') as $locale) {
+        foreach ($this->getData('locales') as $locale) {
             if (AppLocale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
                 array_push($locales, $locale);
             }
@@ -321,7 +322,7 @@ class UserDetailsForm extends UserForm
                 $auth->doSetUserInfo($this->user);
             }
 
-            $userDao->updateObject($this->user);
+            Repo::user()->edit($this->user);
         } else {
             $this->user->setUsername($this->getData('username'));
             if ($this->getData('generatePassword')) {
@@ -343,7 +344,8 @@ class UserDetailsForm extends UserForm
             }
 
             $this->user->setDateRegistered(Core::getCurrentDate());
-            $userId = $userDao->insertObject($this->user);
+            Repo::user()->add($this->user);
+            $userId = $this->user->getId();
 
             if ($sendNotify) {
                 // Send welcome email to user

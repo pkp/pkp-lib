@@ -13,10 +13,10 @@
  * @brief Handle login/logout requests.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -203,8 +203,7 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
 
         $email = $request->getUserVar('email');
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getUserByEmail($email);
+        $user = Repo::user()->getUserByEmail($email);
 
         if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
             $templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
@@ -241,10 +240,9 @@ class LoginHandler extends Handler
         $this->setupTemplate($request);
 
         $username = $args[0] ?? null;
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $confirmHash = $request->getUserVar('confirm');
 
-        if ($username == null || ($user = $userDao->getByUsername($username)) == null) {
+        if ($username == null || ($user = Repo::user()->getByUsername($username)) == null) {
             $request->redirect(null, null, 'lostPassword');
         }
 
@@ -274,7 +272,7 @@ class LoginHandler extends Handler
             }
 
             $user->setMustChangePassword(1);
-            $userDao->updateObject($user);
+            Repo::user()->edit($user);
 
             // Send email with new password
             $site = $request->getSite();
@@ -370,8 +368,7 @@ class LoginHandler extends Handler
                 return $templateMgr->display('frontend/pages/error.tpl');
             }
 
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $newUser = $userDao->getById($userId);
+            $newUser = Repo::user()->get($userId, true);
 
             if (isset($newUser) && $session->getUserId() != $newUser->getId()) {
                 $session->setSessionVar('signedInAs', $session->getUserId());
@@ -400,8 +397,7 @@ class LoginHandler extends Handler
         if (isset($signedInAs) && !empty($signedInAs)) {
             $signedInAs = (int)$signedInAs;
 
-            $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-            $oldUser = $userDao->getById($signedInAs);
+            $oldUser = Repo::user()->get($signedInAs, true);
 
             $session->unsetSessionVar('signedInAs');
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2021-04-07 23:27+0000\n"
+"PO-Revision-Date: 2021-06-11 14:09+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi_FI/>\n"
@@ -2165,3 +2165,18 @@ msgstr "VIRHE:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Annettua lehden polkua, \"{$contextPath}\", ei löydy."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Ilmoita kaikille"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Ei"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Kyllä, lähetä kopio osoitteeseen {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Ilmoita pääasialliselle yhteyshenkilölle"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Ilmoitukset"

@@ -16,26 +16,30 @@
 namespace PKP\controllers\grid\users\reviewer;
 
 use APP\core\Application;
-use APP\core\Services;
-
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
+use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
+use PKP\core\PKPServices;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
+use PKP\mail\EmailTemplate;
+use PKP\mail\Mailable;
+use PKP\mail\mailables\MailReviewerReinstated;
+use PKP\mail\mailables\MailReviewerUnassigned;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
-
+use PKP\notification\PKPNotificationManager;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -43,10 +47,15 @@ use PKP\security\Role;
 
 // FIXME: Add namespacing
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
+
+use PKP\user\User;
+use ReinstateReviewerForm;
 use ReviewerGridCellProvider;
 
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
 use ReviewerGridRow;
+use Swift_TransportException;
+use UnassignReviewerForm;
 
 class PKPReviewerGridHandler extends GridHandler
 {
@@ -417,7 +426,7 @@ class PKPReviewerGridHandler extends GridHandler
     {
         import('lib.pkp.controllers.grid.users.reviewer.form.EditReviewForm');
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $editReviewForm = new EditReviewForm($reviewAssignment);
+        $editReviewForm = new \EditReviewForm($reviewAssignment);
         $editReviewForm->initData();
         return new JSONMessage(true, $editReviewForm->fetch($request));
     }
@@ -434,7 +443,7 @@ class PKPReviewerGridHandler extends GridHandler
     {
         import('lib.pkp.controllers.grid.users.reviewer.form.EditReviewForm');
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $editReviewForm = new EditReviewForm($reviewAssignment);
+        $editReviewForm = new \EditReviewForm($reviewAssignment);
         $editReviewForm->readInputData();
         if ($editReviewForm->validate()) {
             $editReviewForm->execute();
@@ -488,7 +497,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
-        $unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $unassignReviewerForm = new \UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
         $unassignReviewerForm->initData();
 
         return new JSONMessage(true, $unassignReviewerForm->fetch($request));
@@ -509,7 +518,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
-        $reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $reinstateReviewerForm = new \ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
         $reinstateReviewerForm->initData();
 
         return new JSONMessage(true, $reinstateReviewerForm->fetch($request));
@@ -529,7 +538,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.ReinstateReviewerForm');
-        $reinstateReviewerForm = new ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $reinstateReviewerForm = new \ReinstateReviewerForm($reviewAssignment, $reviewRound, $submission);
         $reinstateReviewerForm->readInputData();
 
         // Reinstate the reviewer and return status message
@@ -537,7 +546,16 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false, __('editor.review.errorReinstatingReviewer'));
         }
 
-        $reinstateReviewerForm->execute();
+        // Create mailable and send email
+        if ($reinstateReviewerForm->execute() && !$request->getUserVar('skipEmail')) {
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            $user = $request->getUser();
+            $context = PKPServices::get('context')->get($submission->getData('contextId'));
+            $template = PKPServices::get('emailTemplate')->getByKey($context->getId(), 'REVIEW_REINSTATE');
+            $mailable = new MailReviewerReinstated($context, $submission, $reviewAssignment);
+            $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
+        }
+
         return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
     }
 
@@ -555,7 +573,7 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         import('lib.pkp.controllers.grid.users.reviewer.form.UnassignReviewerForm');
-        $unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
+        $unassignReviewerForm = new \UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
         $unassignReviewerForm->readInputData();
 
         // Unassign the reviewer and return status message
@@ -563,7 +581,16 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
         }
 
-        $unassignReviewerForm->execute();
+        // Create mailable and send email
+        if ($unassignReviewerForm->execute() && !$request->getUserVar('skipEmail')) {
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            $user = $request->getUser();
+            $context = PKPServices::get('context')->get($submission->getData('contextId'));
+            $template = PKPServices::get('emailTemplate')->getByKey($context->getId(), 'REVIEW_CANCEL');
+            $mailable = new MailReviewerUnassigned($context, $submission, $reviewAssignment);
+            $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
+        }
+
         return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
     }
 
@@ -693,7 +720,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Initialize form.
         import('lib.pkp.controllers.grid.users.reviewer.form.ThankReviewerForm');
-        $thankReviewerForm = new ThankReviewerForm($reviewAssignment);
+        $thankReviewerForm = new \ThankReviewerForm($reviewAssignment);
         $thankReviewerForm->initData();
 
         // Render form.
@@ -773,7 +800,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Form handling
         import('lib.pkp.controllers.grid.users.reviewer.form.ThankReviewerForm');
-        $thankReviewerForm = new ThankReviewerForm($reviewAssignment);
+        $thankReviewerForm = new \ThankReviewerForm($reviewAssignment);
         $thankReviewerForm->readInputData();
         if ($thankReviewerForm->validate()) {
             $thankReviewerForm->execute();
@@ -805,7 +832,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Initialize form.
         import('lib.pkp.controllers.grid.users.reviewer.form.ReviewReminderForm');
-        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
+        $reviewReminderForm = new \ReviewReminderForm($reviewAssignment);
         $reviewReminderForm->initData();
 
         // Render form.
@@ -826,7 +853,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Form handling
         import('lib.pkp.controllers.grid.users.reviewer.form.ReviewReminderForm');
-        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
+        $reviewReminderForm = new \ReviewReminderForm($reviewAssignment);
         $reviewReminderForm->readInputData();
         if ($reviewReminderForm->validate()) {
             $reviewReminderForm->execute();
@@ -855,7 +882,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Form handling.
         import('lib.pkp.controllers.grid.users.reviewer.form.EmailReviewerForm');
-        $emailReviewerForm = new EmailReviewerForm($reviewAssignment);
+        $emailReviewerForm = new \EmailReviewerForm($reviewAssignment);
         if (!$request->isPost()) {
             $emailReviewerForm->initData();
             return new JSONMessage(
@@ -913,19 +940,18 @@ class PKPReviewerGridHandler extends GridHandler
     public function gossip($args, $request)
     {
         $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->getById($reviewAssignment->getReviewerId());
+        $user = Repo::user()->get($reviewAssignment->getReviewerId(), true);
 
         // Check that the current user is specifically allowed to access gossip for
         // this user
-        $canCurrentUserGossip = Services::get('user')->canCurrentUserGossip($user->getId());
+        $canCurrentUserGossip = Repo::user()->canCurrentUserGossip($user->getId());
         if (!$canCurrentUserGossip) {
             return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
         }
 
         $requestArgs = array_merge($this->getRequestArgs(), ['reviewAssignmentId' => $reviewAssignment->getId()]);
         import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerGossipForm');
-        $reviewerGossipForm = new ReviewerGossipForm($user, $requestArgs);
+        $reviewerGossipForm = new \ReviewerGossipForm($user, $requestArgs);
 
         // View form
         if (!$request->isPost()) {
@@ -1092,6 +1118,38 @@ class PKPReviewerGridHandler extends GridHandler
             'sendEmail',
             'gossip',
         ];
+    }
+
+    /**
+     * Creates and sends email to the reviewer
+     */
+    protected function createMail(Mailable $mailable, string $emailBody, EmailTemplate $template, User $sender, User $reviewer) : void
+    {
+
+        if ($subject = $template->getLocalizedData('subject')) {
+            $mailable->subject($subject);
+        }
+
+        $mailable
+            ->body($emailBody)
+            ->setSender($sender)
+            ->setRecipients([$reviewer]);
+
+        $mailable->addVariables([
+            'reviewerName' => $mailable->viewData['userFullName']
+        ]);
+
+        try {
+            Mail::send($mailable);
+        } catch (Swift_TransportException $e) {
+            $notificationMgr = new PKPNotificationManager();
+            $notificationMgr->createTrivialNotification(
+                $sender->getId(),
+                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                ['contents' => __('email.compose.error')]
+            );
+            trigger_error($e->getMessage(), E_USER_WARNING);
+        }
     }
 }
 

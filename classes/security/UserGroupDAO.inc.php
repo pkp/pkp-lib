@@ -17,20 +17,17 @@
 
 namespace PKP\security;
 
+use APP\facades\Repo;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
-use PKP\user\UserDAO;
 use PKP\workflow\WorkflowStageDAO;
 use PKP\xml\PKPXMLParser;
 
 class UserGroupDAO extends DAO
 {
-    /** @var a shortcut to get the UserDAO **/
-    public $userDao;
-
     /** @var a shortcut to get the UserGroupAssignmentDAO **/
     public $userGroupAssignmentDao;
 
@@ -40,7 +37,6 @@ class UserGroupDAO extends DAO
     public function __construct()
     {
         parent::__construct();
-        $this->userDao = DAORegistry::getDAO('UserDAO');
         $this->userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
     }
 
@@ -542,7 +538,7 @@ class UserGroupDAO extends DAO
             $params,
             $rangeInfo
         );
-        return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
+        return new DAOResultFactory($result, Repo::user()->dao, 'fromRow');
     }
 
     /**
@@ -559,10 +555,8 @@ class UserGroupDAO extends DAO
      */
     public function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null)
     {
-        $params = array_merge(
-            $this->userDao->getFetchParameters(),
-            [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME]
-        );
+        $userDao = Repo::user()->dao;
+        $params = [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME];
         if ($contextId) {
             $params[] = (int) $contextId;
         }
@@ -573,15 +567,13 @@ class UserGroupDAO extends DAO
 
         // Get the result set
         $result = $this->retrieveRange(
-            $sql = 'SELECT DISTINCT u.*,
-				' . $this->userDao->getFetchColumns() . '
+            $sql = 'SELECT DISTINCT u.*
 			FROM	users AS u
 				LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = \'affiliation\')
 				LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
 				LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
 				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-				' . $this->userDao->getFetchJoins() . '
 				LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
 				LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
 
@@ -593,7 +585,7 @@ class UserGroupDAO extends DAO
             $dbResultRange
         );
 
-        return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData', [], $sql, $params, $dbResultRange);
+        return new DAOResultFactory($result, $userDao, 'fromRow', [], $sql, $params, $dbResultRange);
     }
 
     //
@@ -915,12 +907,13 @@ class UserGroupDAO extends DAO
      */
     public function _getSearchSql($searchType, $search, $searchMatch, &$params)
     {
+        $userDao = Repo::user()->dao;
         $searchTypeMap = [
             Identity::IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
             Identity::IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
-            UserDAO::USER_FIELD_USERNAME => 'u.username',
-            UserDAO::USER_FIELD_EMAIL => 'u.email',
-            UserDAO::USER_FIELD_AFFILIATION => 'us.setting_value',
+            $userDao::USER_FIELD_USERNAME => 'u.username',
+            $userDao::USER_FIELD_EMAIL => 'u.email',
+            $userDao::USER_FIELD_AFFILIATION => 'us.setting_value',
         ];
 
         $searchSql = '';
@@ -960,14 +953,13 @@ class UserGroupDAO extends DAO
                 }
             }
         } else {
+            $userDao = Repo::user()->dao;
             switch ($searchType) {
-                case UserDAO::USER_FIELD_USERID:
+                case $userDao::USER_FIELD_USERID:
                     $searchSql = 'AND u.user_id = ?';
                     break;
             }
         }
-
-        $searchSql .= $this->userDao->getOrderBy(); // FIXME Add "sort field" parameter?
 
         return $searchSql;
     }

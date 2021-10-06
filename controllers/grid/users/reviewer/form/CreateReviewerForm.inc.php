@@ -15,9 +15,9 @@
 
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\user\InterestManager;
@@ -51,10 +51,12 @@ class CreateReviewerForm extends ReviewerForm
             }
             return true;
         }));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByUsername'], [], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user(), 'getByUsername'], [true], true));
         $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'], [], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email) {
+            return !Repo::user()->getByEmail($email, true);
+        }));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
     }
 
@@ -100,8 +102,7 @@ class CreateReviewerForm extends ReviewerForm
      */
     public function execute(...$functionArgs)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $user = $userDao->newDataObject();
+        $user = Repo::user()->newDataObject();
 
         $user->setGivenName($this->getData('givenName'), null);
         $user->setFamilyName($this->getData('familyName'), null);
@@ -128,7 +129,7 @@ class CreateReviewerForm extends ReviewerForm
         $user->setMustChangePassword(true); // Emailed P/W not safe
 
         $user->setDateRegistered(Core::getCurrentDate());
-        $reviewerId = $userDao->insertObject($user);
+        $reviewerId = Repo::user()->add($user);
 
         // Set the reviewerId in the Form for the parent class to use
         $this->setData('reviewerId', $reviewerId);

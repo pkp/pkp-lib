@@ -468,7 +468,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
 
         $userGroupIds = array_map(function ($author) {
             return $author->getData('userGroupId');
-        }, $this->getAuthors());
+        }, Repo::author()->getSubmissionAuthors($this)->toArray());
         $userGroups = array_map(function ($userGroupId) {
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
             return $userGroupDao->getbyId($userGroupId);
@@ -502,40 +502,13 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function getAuthorEmails()
     {
-        $authors = $this->getAuthors();
+        $authors = Repo::author()->getSubmissionAuthors($this);
 
         $returner = [];
         foreach ($authors as $author) {
             $returner[] = Mail::encodeDisplayName($author->getFullName()) . ' <' . $author->getEmail() . '>';
         }
         return $returner;
-    }
-
-    /**
-     * Get all authors of the current publication
-     *
-     * @param $onlyIncludeInBrowse boolean whether to limit to include_in_browse authors.
-     *
-     * @return array Authors
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getAuthors($onlyIncludeInBrowse = false)
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return [];
-        }
-        $authors = $publication->getData('authors');
-        if (empty($authors)) {
-            return [];
-        }
-        if ($onlyIncludeInBrowse) {
-            return array_filter($authors, function ($author) {
-                return $author->getData('includeInBrowse');
-            });
-        }
-        return $authors;
     }
 
     /**

@@ -567,6 +567,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     {
         HookRegistry::call('Context::delete::before', [&$context]);
 
+        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+        $announcementTypeDao->deleteByContextId($context->getId());
+
         $contextDao = Application::getContextDao();
         $contextDao->deleteObject($context);
 
@@ -582,9 +585,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                 ->getCollector()
                 ->filterByContextIds([$context->getId()])
         );
-
-        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-        $announcementTypeDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
         Services::get('emailTemplate')->restoreDefaults($context->getId());
 

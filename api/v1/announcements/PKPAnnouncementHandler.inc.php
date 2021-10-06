@@ -157,7 +157,7 @@ class PKPAnnouncementHandler extends APIHandler
         $announcements = Repo::announcement()->getMany($collector);
 
         return $response->withJson([
-            'itemsMax' => $announcements->count(),
+            'itemsMax' => Repo::announcement()->getCount($collector->limit(null)->offset(null)),
             'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements),
         ], 200);
     }
@@ -228,6 +228,7 @@ class PKPAnnouncementHandler extends APIHandler
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
         $params['id'] = $announcement->getId();
+        $params['typeId'] ??= null;
 
         $context = $request->getContext();
         $primaryLocale = $context->getPrimaryLocale();

@@ -139,8 +139,13 @@ class ManagementHandler extends Handler
             ]);
 
             // Get contact information for site administrator
-            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-            $siteAdmins = $roleDao->getUsersByRoleId(Role::ROLE_ID_SITE_ADMIN);
+            $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+            $userGroups = $userGroupDao->getByRoleId(Role::ROLE_ID_SITE_ADMIN, PKPApplication::CONTEXT_SITE);
+            $adminUserGroup = $userGroups->first();
+
+            $collector = Repo::user()->getCollector();
+            $collector->filterByUserGroupIds([$adminUserGroup->getId()]);
+            $siteAdmin = Repo::user()->getMany($collector)->first();
             $templateMgr->assign('siteAdmin', $siteAdmins->next());
         }
 

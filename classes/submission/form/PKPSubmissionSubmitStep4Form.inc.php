@@ -151,16 +151,11 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 
         // Send a notification to associated users if an editor needs assigning
         if (empty($notifyUsers)) {
-            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-
-            // Get the managers.
-            $managers = $roleDao->getUsersByRoleId(Role::ROLE_ID_MANAGER, $this->submission->getContextId());
-
-            $managersArray = $managers->toAssociativeArray();
-
-            $allUserIds = array_keys($managersArray);
-            foreach ($allUserIds as $userId) {
-
+            $collector = Repo::user()->getCollector()
+                ->filterByRoleIds([Role::ROLE_ID_MANAGER])
+                ->filterByContextIds([$this->submission->getContextId()]);
+            $managerIds = Repo::user()->getIds($collector);
+            foreach ($managerIds as $userId) {
                 // Add TASK notification indicating that a submission is unassigned
                 $notificationManager->createNotification(
                     $request,

@@ -25,6 +25,7 @@ use Exception;
 use PKP\config\Config;
 
 use PKP\db\DAORegistry;
+use PKP\i18n\PKPLocale;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
@@ -467,7 +468,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'CitationDAO' => 'PKP\citation\CitationDAO',
             'ControlledVocabDAO' => 'PKP\controlledVocab\ControlledVocabDAO',
             'ControlledVocabEntryDAO' => 'PKP\controlledVocab\ControlledVocabEntryDAO',
-            'ControlledVocabEntrySettingsDAO' => 'PKP\controlledVocab\ControlledVocabEntrySettingsDAO',
             'DataObjectTombstoneDAO' => 'PKP\tombstone\DataObjectTombstoneDAO',
             'DataObjectTombstoneSettingsDAO' => 'PKP\tombstone\DataObjectTombstoneSettingsDAO',
             'EditDecisionDAO' => 'PKP\submission\EditDecisionDAO',
@@ -520,9 +520,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'TimeZoneDAO' => 'PKP\i18n\TimeZoneDAO',
             'TemporaryFileDAO' => 'PKP\file\TemporaryFileDAO',
             'UserGroupAssignmentDAO' => 'PKP\security\UserGroupAssignmentDAO',
-            'UserDAO' => 'PKP\user\UserDAO',
             'UserGroupDAO' => 'PKP\security\UserGroupDAO',
-            'UserSettingsDAO' => 'PKP\user\UserSettingsDAO',
             'UserStageAssignmentDAO' => 'PKP\user\UserStageAssignmentDAO',
             'VersionDAO' => 'PKP\site\VersionDAO',
             'ViewsDAO' => 'PKP\views\ViewsDAO',
@@ -903,10 +901,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $scale = strtolower(substr(UPLOAD_MAX_FILESIZE, -1));
         switch ($scale) {
             case 'g':
-                $num = $num / 1024;
-                // no break
-            case 'k':
                 $num = $num * 1024;
+                break;
+            case 'k':
+                $num = $num / 1024;
+                break;
+            case 'm':
+                break; // Is set as MB already, do nothing.
+            default:
+                // No suffix, so this is "b" (Byte)
+                // Reset $num to the limit without cut the last digit
+                $num = UPLOAD_MAX_FILESIZE / 1024 / 1024;
+                break;
         }
         return floor($num);
     }

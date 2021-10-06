@@ -13,6 +13,7 @@
  * @brief Cell provider to retrieve the user's name from the stage assignment
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 
@@ -35,8 +36,7 @@ class StageParticipantGridCellProvider extends DataObjectGridCellProvider
         switch ($column->getId()) {
             case 'participants':
                 $stageAssignment = $row->getData();
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-                $user = $userDao->getById($stageAssignment->getUserId());
+                $user = Repo::user()->get($stageAssignment->getUserId(), true);
                 assert($user);
                 return ['label' => $user ? $user->getFullName() : ''];
             default:

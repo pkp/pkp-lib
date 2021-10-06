@@ -1,9 +1,10 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-03-25 08:29+0000\n"
+"PO-Revision-Date: 2021-08-07 02:45+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ca_ES/>\n"
@@ -150,7 +151,7 @@ msgid "manager.publication.reviewStage"
 msgstr "Revisió"
 
 msgid "manager.publication.editorialStage"
-msgstr "Editorial"
+msgstr "Edició"
 
 msgid "manager.publication.productionStage"
 msgstr "Producció"
@@ -620,7 +621,7 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Enviar un recordatori per correu electrònic si el revisor/a no ha emès una "
-"recomanació diversos dies després de la data límit de revisió."
+"recomanació dins d'aquests dies després de la data límit de revisió."
 
 msgid "manager.setup.dependentGenre"
 msgstr "Gèneres dependents"
@@ -2420,8 +2421,71 @@ msgstr "Exportar a Excel/CSV"
 
 msgid "manager.emails.otherTemplates"
 msgstr "Altres plantilles"
+
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "La ruta de revista especificada, \"{$contextPath}\", no existeix."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "ERROR:"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "El procés ha fallat en analitzar les publicacions"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "El procés ha fallat en analitzar els autors/ores"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Configuració de filtre errònia [{$filterName}]: {$filterCount} casos. N'hi "
+"hauria d'haver només un."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Elements genèrics"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Descarregar l'arxiu exportat amb el botó de sota."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "L'exportació s'ha completat correctament."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Descarregar l'arxiu exportat"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportar els resultats de les trameses"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "El procés ha fallat. Reviseu a sota els errors/advertències."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Falta el grup d'usuari/ària per al nom de l'autor/a {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Una o més d'aquestes adreces de correu electrònic no són vàlides."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"S'enviarà una còpia del correu d'agraïment per la tramesa a totes les "
+"adreces incloses aquí. Separeu les diferents adreces de correu electrònic "
+"amb una coma. Exemple: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "No notificar"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "No"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Sí, enviar una còpia a {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notificar el contacte principal"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notificacions"

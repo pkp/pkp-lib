@@ -155,11 +155,7 @@ abstract class Repository
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),
-            [
-                'locale.regex' => __('validator.localeKey'),
-                'datePublished.date_format' => __('publication.datePublished.errorFormat'),
-                'urlPath.regex' => __('validator.alpha_dash'),
-            ]
+            $this->getErrorMessageOverrides(),
         );
 
         ValidatorFactory::required(
@@ -332,10 +328,10 @@ abstract class Repository
                 $newAuthor = clone $author;
                 $newAuthor->setData('id', null);
                 $newAuthor->setData('publicationId', $newPublication->getId());
-                $newAuthor = Services::get('author')->add($newAuthor, $this->request);
+                $newAuthorId = Repo::author()->add($newAuthor);
 
                 if ($author->getId() === $publication->getData('primaryContactId')) {
-                    $this->edit($newPublication, ['primaryContactId' => $newAuthor->getId()]);
+                    $this->edit($newPublication, ['primaryContactId' => $newAuthorId]);
                 }
             }
         }
@@ -574,7 +570,7 @@ abstract class Repository
             if ($fileName) {
                 // File may be in use by other publications
                 $fileInUse = false;
-                foreach ((array) $submission->getData('publications') as $iPublication) {
+                foreach ($submission->getData('publications') as $iPublication) {
                     if ($publication->getId() === $iPublication->getId()) {
                         continue;
                     }
@@ -624,5 +620,17 @@ abstract class Repository
         }
 
         return false;
+    }
+
+    /**
+     * Get error message overrides for the validator
+     */
+    protected function getErrorMessageOverrides(): array
+    {
+        return [
+            'locale.regex' => __('validator.localeKey'),
+            'datePublished.date_format' => __('publication.datePublished.errorFormat'),
+            'urlPath.regex' => __('validator.alpha_dash_period'),
+        ];
     }
 }

@@ -14,12 +14,12 @@
  *
  */
 
-use APP\core\Services;
+use APP\facades\Repo;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-
 use PKP\security\Role;
 
 class PKPStatsUserHandler extends APIHandler
@@ -77,31 +77,30 @@ class PKPStatsUserHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $defaultParams = [
-            'status' => 'active'
-        ];
-
-        $params = [];
+        $collector = Repo::user()->getCollector();
         foreach ($slimRequest->getQueryParams() as $param => $value) {
             switch ($param) {
-                case 'registeredAfter':
-                case 'registeredBefore':
-                    $params[$param] = $value;
-                    break;
-
-                case 'status':
-                    $params[$param] = $value === 'disabled' ? $value : 'active';
-                    break;
+                case 'registeredAfter': $collector->filterRegisteredAfter($value); break;
+                case 'registeredBefore': $collector->filterRegisteredBefore($value); break;
+                case 'status': switch ($value) {
+                    case 'disabled':
+                        $collector->filterByStatus($collector::STATUS_DISABLED);
+                        break;
+                    case 'all':
+                        $collector->filterByStatus($collector::STATUS_ALL);
+                        break;
+                    default:
+                    case 'active':
+                        $collector->filterByStatus($collector::STATUS_ACTIVE);
+                        break;
+                }
             }
         }
 
-        $params = array_merge($defaultParams, $params);
+        HookRegistry::call('API::stats::users::params', [$collector, $slimRequest]);
 
-        \HookRegistry::call('API::stats::users::params', [&$params, $slimRequest]);
+        $collector->filterByContextIds([$request->getContext()->getId()]);
 
-        $params['contextId'] = [$request->getContext()->getId()];
-
-        $result = $this->_validateStatDates($params, 'registeredAfter', 'registeredBefore');
         if ($result !== true) {
             return $response->withStatus(400)->withJsonError($result);
         }
@@ -111,7 +110,7 @@ class PKPStatsUserHandler extends APIHandler
                 $item['name'] = __($item['name']);
                 return $item;
             },
-            Services::get('user')->getRolesOverview($params)
+            Repo::user()->getRolesOverview($collector)
         ));
     }
 }

@@ -14,16 +14,15 @@
  * N.B. Requires a subclass to implement the "reviewerId" to be added.
  */
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
-use PKP\security\AccessKeyManager;
 use PKP\security\Role;
 use PKP\submission\action\EditorAction;
 use PKP\submission\SubmissionFile;
@@ -172,8 +171,7 @@ class ReviewerForm extends Form
         // The reviewer id has been set
         if (!empty($reviewerId)) {
             if ($this->_isValidReviewer($context, $submission, $reviewRound, $reviewerId)) {
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-                $reviewer = $userDao->getById($reviewerId);
+                $reviewer = Repo::user()->get($reviewerId);
                 $this->setData('userNameString', sprintf('%s (%s)', $reviewer->getFullname(), $reviewer->getUsername()));
             }
         }
@@ -420,42 +418,8 @@ class ReviewerForm extends Form
             }
         }
 
-        // Notify the reviewer via email.
-        $templateKey = $this->getData('template');
-        $mail = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $reviewer = $userDao->getById($reviewerId);
-
-        if ($mail->isEnabled() && !$this->getData('skipEmail')) {
-            $user = $request->getUser();
-            $mail->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
-            $mail->setBody($this->getData('personalMessage'));
-            $dispatcher = $request->getDispatcher();
-
-            // Set the additional arguments for the one click url
-            $reviewUrlArgs = ['submissionId' => $this->getSubmissionId()];
-            if ($context->getData('reviewerAccessKeysEnabled')) {
-                $accessKeyManager = new AccessKeyManager();
-                $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
-                $accessKey = $accessKeyManager->createKey($context->getId(), $reviewerId, $reviewAssignment->getId(), $expiryDays);
-                $reviewUrlArgs = array_merge($reviewUrlArgs, ['reviewId' => $reviewAssignment->getId(), 'key' => $accessKey]);
-            }
-
-            // Assign the remaining parameters
-            $mail->assignParams([
-                'reviewerName' => $reviewer->getFullName(),
-                'responseDueDate' => $responseDueDate,
-                'reviewDueDate' => $reviewDueDate,
-                'reviewerUserName' => $reviewer->getUsername(),
-                'submissionReviewUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs)
-            ]);
-            if (!$mail->send($request)) {
-                $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
-            }
-        }
-
         // Insert a trivial notification to indicate the reviewer was added successfully.
+        $reviewer = Repo::user()->get($reviewerId);
         $currentUser = $request->getUser();
         $notificationMgr = new NotificationManager();
         $msgKey = $this->getData('skipEmail') ? 'notification.addedReviewerNoEmail' : 'notification.addedReviewer';
@@ -511,14 +475,18 @@ class ReviewerForm extends Form
      */
     public function _isValidReviewer($context, $submission, $reviewRound, $reviewerId)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-        $reviewerFactory = $userDao->getReviewersNotAssignedToSubmission($context->getId(), $submission->getId(), $reviewRound);
-        $reviewersArray = $reviewerFactory->toAssociativeArray();
-        if (array_key_exists($reviewerId, $reviewersArray)) {
-            return true;
-        } else {
-            return false;
+        // Ensure the user isn't already assigned to the current submission
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
+        foreach ($reviewAssignments as $reviewAssignment) {
+            if ($reviewerId == $reviewAssignment->getReviewerId()) {
+                return false;
+            }
         }
+
+        // Ensure that they are a reviewer
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+        return $roleDao->userHasRole($context->getId(), $reviewerId, \PKP\security\Role::ROLE_ID_REVIEWER);
     }
 
     /**

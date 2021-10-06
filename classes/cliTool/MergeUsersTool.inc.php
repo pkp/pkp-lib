@@ -15,7 +15,7 @@
 
 namespace PKP\cliTool;
 
-use PKP\user\UserAction;
+use APP\facades\Repo;
 
 class MergeUsersTool extends \PKP\cliTool\CommandLineTool
 {
@@ -94,9 +94,8 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
         }
 
         // Merge the accounts.
-        $userAction = new UserAction();
         foreach ($mergeArray as $userId => $username) {
-            $userAction->mergeUsers($userId, $targetUser->getId());
+            Repo::user()->mergeUsers($userId, $targetUser->getId());
         }
 
         if (count($mergeArray) == 1) {
@@ -115,11 +114,14 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
      */
     protected function _getUserBySpecifier($specifier)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         if (substr($specifier, 0, 3) == 'id=') {
-            return $userDao->getById(substr($specifier, 3));
+            $userId = substr($specifier, 3);
+            if (!ctype_digit($userId)) {
+                return null;
+            }
+            return Repo::user()->get((int) $userId, true);
         }
-        return $userDao->getByUsername($specifier);
+        return Repo::user()->getByUsername($specifier, true);
     }
 }
 

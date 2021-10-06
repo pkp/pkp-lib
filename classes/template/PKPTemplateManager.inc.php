@@ -366,7 +366,7 @@ class PKPTemplateManager extends Smarty
                 $this->assign([
                     'currentUser' => $user,
                     // Assign the user name to be used in the sitenav
-                    'loggedInUsername' => $user->getUserName(),
+                    'loggedInUsername' => $user->getUsername(),
                     // Assign a count of unread tasks
                     'unreadNotificationCount' => $notificationDao->getNotificationCount(false, $user->getId(), null, Notification::NOTIFICATION_LEVEL_TASK),
                 ]);

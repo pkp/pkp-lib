@@ -13,8 +13,8 @@
  * @brief Form for adding/editing a section
  */
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
-
 use PKP\form\Form;
 use PKP\security\Role;
 
@@ -90,12 +90,10 @@ class PKPSectionForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $params = [
-            'contextId' => $request->getContext()->getId(),
-            'roleIds' => Role::ROLE_ID_SUB_EDITOR,
-        ];
-
-        $usersIterator = Services::get('user')->getMany($params);
+        $collector = Repo::user()->getCollector()
+            ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
+            ->filterByContextIds([$request->getContext()->getId()]);
+        $usersIterator = Repo::user()->getMany($collector);
         $subeditors = [];
         foreach ($usersIterator as $user) {
             $subeditors[(int) $user->getId()] = $user->getFullName();

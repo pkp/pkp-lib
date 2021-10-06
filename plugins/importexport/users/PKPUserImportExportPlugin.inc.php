@@ -13,11 +13,11 @@
  * @brief User XML import/export plugin
  */
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
-
 use PKP\plugins\ImportExportPlugin;
 
 abstract class PKPUserImportExportPlugin extends ImportExportPlugin
@@ -214,7 +214,6 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
      */
     public function exportUsers($ids, $context, $user, &$filter = null)
     {
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $xml = '';
 
         if (!$filter) {
@@ -226,7 +225,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
             if (is_a($id, 'User')) {
                 $users[] = $id;
             } else {
-                $user = $userDao->getById($id, $context->getId());
+                $user = Repo::user()->get($id, true);
                 if ($user) {
                     $users[] = $user;
                 }

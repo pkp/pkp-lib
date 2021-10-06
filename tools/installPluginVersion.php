@@ -87,9 +87,6 @@ class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
         if ($plugin->getInstallSitePluginSettingsFile()) {
             $plugin->installSiteSettings('Installer::postInstall', $param);
         }
-        if ($plugin->getInstallControlledVocabFiles()) {
-            $plugin->installControlledVocabs('Installer::postInstall', $param);
-        }
         if ($plugin->getInstallEmailTemplatesFile()) {
             $plugin->installEmailTemplates('Installer::postInstall', $param);
         }

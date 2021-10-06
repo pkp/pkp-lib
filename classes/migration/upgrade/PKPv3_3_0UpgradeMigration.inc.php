@@ -15,7 +15,6 @@ namespace PKP\migration\upgrade;
 
 use APP\core\Application;
 use APP\core\Services;
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 use Illuminate\Support\Facades\DB;
@@ -27,12 +26,12 @@ use PKP\db\XMLDAO;
 use PKP\file\FileManager;
 use PKP\submission\SubmissionFile;
 
-class PKPv3_3_0UpgradeMigration extends Migration
+class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         if (Schema::hasColumn('submissions', 'locale')) {
             Schema::table('submissions', function (Blueprint $table) {
@@ -223,9 +222,9 @@ class PKPv3_3_0UpgradeMigration extends Migration
     /**
      * Reverse the downgrades
      */
-    public function down()
+    public function down(): void
     {
-        throw new PKP\install\DowngradeNotSupportedException();
+        throw new \PKP\install\DowngradeNotSupportedException();
     }
 
     /**
@@ -413,12 +412,9 @@ class PKPv3_3_0UpgradeMigration extends Migration
 
         // Get all the unique file_ids. For each one, determine the latest revision
         // in order to keep it in the table. The others will be flagged for removal
-        $revisionRowFileIds = DB::table('submission_files')
-            ->groupBy('file_id')
-            ->pluck('file_id');
-        foreach ($revisionRowFileIds as $revisionRowFileId) {
+        foreach (DB::table('submission_files')->select('file_id')->distinct()->get() as $row) {
             $submissionFileRows = DB::table('submission_files')
-                ->where('file_id', '=', $revisionRowFileId)
+                ->where('file_id', '=', $row->file_id)
                 ->orderBy('revision', 'desc')
                 ->get([
                     'file_id',
@@ -432,10 +428,12 @@ class PKPv3_3_0UpgradeMigration extends Migration
             }
         }
 
-        // Delete the rows for old revisions
-        DB::table('submission_files')
-            ->whereIn('new_file_id', $newFileIdsToDelete)
-            ->delete();
+        // Delete the rows for old revisions (chunked for performance)
+        foreach (array_chunk($newFileIdsToDelete, 100) as $chunkFileIds) {
+            DB::table('submission_files')
+                ->whereIn('new_file_id', $chunkFileIds)
+                ->delete();
+        }
 
         // Remove all review round files that point to file ids
         // that don't exist, so that the foreign key can be set
@@ -696,8 +694,4 @@ class PKPv3_3_0UpgradeMigration extends Migration
             error_log('Failed to create title for custom blocks. This can be fixed manually by editing each custom block and adding a title.');
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\migration\upgrade\PKPv3_3_0UpgradeMigration', '\PKPv3_3_0UpgradeMigration');
 }

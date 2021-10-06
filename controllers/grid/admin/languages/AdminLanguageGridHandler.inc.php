@@ -19,8 +19,8 @@ import('lib.pkp.controllers.grid.languages.LanguageGridHandler');
 import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
-
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
 use PKP\linkAction\LinkAction;
@@ -361,8 +361,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         if (array_key_exists($rowId, $gridData)) {
             if (AppLocale::isLocaleValid($rowId)) {
                 $oldSitePrimaryLocale = $site->getPrimaryLocale();
-                $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
-                $userDao->changeSitePrimaryLocale($oldSitePrimaryLocale, $rowId);
+                Repo::user()->dao->changeSitePrimaryLocale($oldSitePrimaryLocale, $rowId);
                 $site->setPrimaryLocale($rowId);
                 $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
                 $siteDao->updateObject($site);

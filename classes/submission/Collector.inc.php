@@ -36,47 +36,22 @@ abstract class Collector implements CollectorInterface
     public const ORDER_DIR_ASC = 'ASC';
     public const ORDER_DIR_DESC = 'DESC';
 
-    /** @var DAO */
-    public $dao;
+    public DAO $dao;
+    public ?array $categoryIds;
+    public ?array $contextIds;
+    public ?int $count;
+    public ?int $daysInactive;
+    public bool $isIncomplete = false;
+    public bool $isOverdue = false;
+    public ?int $offset;
+    public string $orderBy = self::ORDERBY_DATE_SUBMITTED;
+    public string $orderDirection = 'DESC';
+    public string $searchPhrase = '';
+    public ?array $statuses;
+    public ?array $stageIds;
 
     /** @var array|int */
     public $assignedTo = null;
-
-    /** @var array|null */
-    public $categoryIds = null;
-
-    /** @var array|null */
-    public $contextIds = null;
-
-    /** @var int */
-    public $count = 30;
-
-    /** @var int */
-    public $daysInactive;
-
-    /** @var bool */
-    public $isIncomplete = false;
-
-    /** @var bool */
-    public $isOverdue = false;
-
-    /** @var int */
-    public $offset = 0;
-
-    /** @var string */
-    public $orderBy = self::ORDERBY_DATE_SUBMITTED;
-
-    /** @var string */
-    public $orderDirection = 'DESC';
-
-    /** @var string */
-    public $searchPhrase = '';
-
-    /** @var array|null */
-    public $statuses = null;
-
-    /** @var array|null */
-    public $stageIds = null;
 
     /** @var array list of columns to select with query */
     protected $columns = [];
@@ -89,7 +64,7 @@ abstract class Collector implements CollectorInterface
     /**
      * Limit results to submissions in these contexts
      */
-    public function filterByContextIds(array $contextIds): AppCollector
+    public function filterByContextIds(?array $contextIds): AppCollector
     {
         $this->contextIds = $contextIds;
         return $this;
@@ -98,7 +73,7 @@ abstract class Collector implements CollectorInterface
     /**
      * Limit results by submissions assigned to these categories
      */
-    public function filterByCategoryIds(array $categoryIds): AppCollector
+    public function filterByCategoryIds(?array $categoryIds): AppCollector
     {
         $this->categoryIds = $categoryIds;
         return $this;
@@ -109,7 +84,7 @@ abstract class Collector implements CollectorInterface
      *
      * @see \PKP\submissions\PKPSubmission::STATUS_
      */
-    public function filterByStatus(array $statuses): AppCollector
+    public function filterByStatus(?array $statuses): AppCollector
     {
         $this->statuses = $statuses;
         return $this;
@@ -118,7 +93,7 @@ abstract class Collector implements CollectorInterface
     /**
      * Limit results by submissions in these workflow stage ids
      */
-    public function filterByStageIds(array $stageIds): AppCollector
+    public function filterByStageIds(?array $stageIds): AppCollector
     {
         $this->stageIds = $stageIds;
         return $this;
@@ -148,7 +123,7 @@ abstract class Collector implements CollectorInterface
     /**
      *  Limit results to submission with no activity for X days
      */
-    public function filterByDaysInactive(int $daysInactive): AppCollector
+    public function filterByDaysInactive(?int $daysInactive): AppCollector
     {
         $this->daysInactive = $daysInactive;
         return $this;
@@ -178,7 +153,7 @@ abstract class Collector implements CollectorInterface
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(int $count): AppCollector
+    public function limit(?int $count): AppCollector
     {
         $this->count = $count;
         return $this;
@@ -188,7 +163,7 @@ abstract class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(int $offset): AppCollector
+    public function offset(?int $offset): AppCollector
     {
         $this->offset = $offset;
         return $this;
@@ -228,7 +203,7 @@ abstract class Collector implements CollectorInterface
 
         // Never permit a query without a context_id unless the CONTEXT_ID_ALL wildcard
         // has been set explicitly.
-        if (!is_array($this->contextIds)) {
+        if (!isset($this->contextIds)) {
             throw new Exception('Submissions can not be retrieved without a context id. Pass the CONTEXT_ID_ALL wildcard to get submissions from any context.');
         } elseif (!in_array(Application::CONTEXT_ID_ALL, $this->contextIds)) {
             $q->whereIn('s.context_id', $this->contextIds);
@@ -275,23 +250,23 @@ abstract class Collector implements CollectorInterface
                 break;
         }
 
-        if (is_array($this->statuses)) {
+        if (isset($this->statuses)) {
             $q->whereIn('s.status', $this->statuses);
         }
 
-        if (is_array($this->stageIds)) {
+        if (isset($this->stageIds)) {
             $q->whereIn('s.stage_id', $this->stageIds);
         }
 
-        if (!empty($this->isIncomplete)) {
+        if ($this->isIncomplete) {
             $q->where('s.submission_progress', '>', 0);
         }
 
-        if (!empty($this->daysInactive)) {
+        if (isset($this->daysInactive)) {
             $q->where('s.date_last_activity', '<', Core::getCurrentDate(strtotime('-' . $this->daysInactive . ' days')));
         }
 
-        if (!empty($this->isOverdue)) {
+        if ($this->isOverdue) {
             $q->leftJoin('review_assignments as raod', 'raod.submission_id', '=', 's.submission_id')
                 ->leftJoin('review_rounds as rr', function ($table) {
                     $table->on('rr.submission_id', '=', 's.submission_id');
@@ -388,21 +363,21 @@ abstract class Collector implements CollectorInterface
             }
         }
 
-        if (is_array($this->categoryIds)) {
+        if (isset($this->categoryIds)) {
             $q->leftJoin('publication_categories as pc', 's.current_publication_id', '=', 'pc.publication_id')
                 ->whereIn('pc.category_id', $this->categoryIds);
         }
 
         // Limit and offset results for pagination
-        if (!is_null($this->count)) {
+        if (isset($this->count)) {
             $q->limit($this->count);
         }
-        if (!is_null($this->offset)) {
+        if (isset($this->offset)) {
             $q->offset($this->offset);
         }
 
         // Add app-specific query statements
-        HookRegistry::call('Submission::getMany::queryObject', [&$q, $this]);
+        HookRegistry::call('Submission::Collector', [&$q, $this]);
 
         $q->select($this->columns);
 

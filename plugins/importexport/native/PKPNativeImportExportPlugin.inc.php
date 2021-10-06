@@ -277,7 +277,6 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
         $this->cliDeployment = $cliDeployment;
 
         $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 
         $contextPath = $cliDeployment->contextPath;
         $context = $contextDao->getByPath($contextPath);

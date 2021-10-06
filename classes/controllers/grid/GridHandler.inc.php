@@ -40,10 +40,12 @@ namespace PKP\controllers\grid;
 
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
+use Illuminate\Support\Enumerable;
+use Illuminate\Support\LazyCollection;
+
 use PKP\core\JSONMessage;
 use PKP\handler\PKPHandler;
 use PKP\linkAction\LinkAction;
-
 use PKP\linkAction\request\NullAction;
 use PKP\plugins\HookRegistry;
 
@@ -390,7 +392,9 @@ class GridHandler extends PKPHandler
     {
         $this->callFeaturesHook('setGridDataElements', ['grid' => &$this, 'data' => &$data]);
 
-        if (is_iterable($data)) {
+        if ($data instanceof Enumerable) {
+            $this->_data = $this->toAssociativeArray($data);
+        } elseif (is_iterable($data)) {
             $this->_data = $data;
         } elseif ($data instanceof \PKP\db\DAOResultFactory) {
             $this->_data = $data->toAssociativeArray();
@@ -1332,6 +1336,22 @@ class GridHandler extends PKPHandler
             assert($feature instanceof \PKP\controllers\grid\feature\GridFeature);
             $this->_features[$feature->getId()] = $feature;
         }
+    }
+
+    /**
+     * Legacy function for grid handlers.
+     *Prepares LazyCollections in associative array GridHandler expects, e.g. [item_id => item]
+     *
+     * @see PKP\db\DAOResultFactory::toAssociativeArray()
+     *
+     */
+    public static function toAssociativeArray(LazyCollection $lazyCollection, string $idField = 'id'): array
+    {
+        $returner = [];
+        foreach ($lazyCollection as $item) {
+            $returner[$item->getData($idField)] = $item;
+        }
+        return $returner;
     }
 }
 

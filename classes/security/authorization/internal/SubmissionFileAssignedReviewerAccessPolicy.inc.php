@@ -65,9 +65,21 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
                 continue;
             }
 
+            // Determine which file stage the requested file should be in.
+            $reviewFileStage = null;
+            switch ($reviewAssignment->getStageId()) {
+            case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+                $reviewFileStage = SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE;
+                break;
+            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+                $reviewFileStage = SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
+                break;
+            default: throw new Exception('Unknown review workflow stage ID!');
+            }
+
             if (
                 $submissionFile->getData('submissionId') == $reviewAssignment->getSubmissionId() &&
-                $submissionFile->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_REVIEW_FILE &&
+                $submissionFile->getData('fileStage') == $reviewFileStage &&
                 $reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getId())
             ) {
                 $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);

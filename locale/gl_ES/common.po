@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-15 17:47+0000\n"
+"PO-Revision-Date: 2021-06-19 08:03+0000\n"
 "Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
 "Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "gl_ES/>\n"
@@ -901,7 +901,6 @@ msgstr "Texto alternativo"
 msgid "common.alreadyAssigned"
 msgstr "Asignado"
 
-#, fuzzy
 msgid "common.titleSmallWords"
 msgstr ""
 "de un unha uns unhas o a os as e o ni pero es si despois ademáis cando en "
@@ -2091,3 +2090,17 @@ msgstr "Non puidemos cancelar a túa subscrición"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Fuches dado de baixa"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Non é posibel importar o nodo XML"
+
+msgid "filter.error.missingRequirements"
+msgstr "A transformación que tenta executar non a soporta a súa instalación."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"O filtro ({$displayName}) soporta a entrada {$inputTypeName} - {$typeofInput}"
+" fornecido"
+
+msgid "validator.country"
+msgstr "Este non é un país válido."

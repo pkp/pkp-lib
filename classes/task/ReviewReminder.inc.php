@@ -50,10 +50,9 @@ class ReviewReminder extends ScheduledTask
     public function sendReminder($reviewAssignment, $submission, $context, $reminderType = 'REVIEW_REMIND_AUTO')
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
         $reviewId = $reviewAssignment->getId();
 
-        $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) {
             return false;
         }

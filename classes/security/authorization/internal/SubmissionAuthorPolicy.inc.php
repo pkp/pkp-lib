@@ -18,10 +18,9 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-use APP\core\Services;
+use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\db\DAORegistry;
-
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 use PKP\user\User;
@@ -74,7 +73,7 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
             if ($userGroup->getRoleId() == Role::ROLE_ID_AUTHOR) {
                 $accessibleWorkflowStages = [];
                 foreach ($workflowStages as $stageId) {
-                    $accessibleStageRoles = Services::get('user')->getAccessibleStageRoles($user->getId(), $context->getId(), $submission, $stageId);
+                    $accessibleStageRoles = Repo::user()->getAccessibleStageRoles($user->getId(), $context->getId(), $submission, $stageId);
                     if (!empty($accessibleStageRoles)) {
                         $accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
                     }

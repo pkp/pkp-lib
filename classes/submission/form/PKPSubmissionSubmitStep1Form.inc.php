@@ -395,8 +395,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 
             // Update author name data when submission locale is changed
             if ($oldLocale !== $this->submission->getData('locale')) {
-                $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
-                $authorDao->changePublicationLocale($publication->getId(), $oldLocale, $this->getData('locale'));
+                Repo::author()->changePublicationLocale($publication->getId(), $oldLocale, $this->getData('locale'));
             }
         } else {
             // Create new submission
@@ -413,9 +412,6 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
             $this->submissionId = Repo::submission()->add($this->submission, $publication);
             $this->submission = Repo::submission()->get($this->submissionId);
 
-            // Set user to initial author
-            $authorDao = DAORegistry::getDAO('AuthorDAO'); /** @var AuthorDAO $authorDao */
-            $author = $authorDao->newDataObject();
             // if no user names exist for this submission locale,
             // copy the names in default site primary locale for this locale as well
             $userGivenNames = $user->getGivenName(null);
@@ -429,6 +425,9 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
                 // then there should also be no family name for the submission locale
                 $userFamilyNames[$this->submission->getData('locale')] = !empty($userFamilyNames[$site->getPrimaryLocale()]) ? $userFamilyNames[$site->getPrimaryLocale()] : '';
             }
+
+            // Set user to initial author
+            $author = Repo::author()->newDataObject();
             $author->setGivenName($userGivenNames, null);
             $author->setFamilyName($userFamilyNames, null);
             $author->setAffiliation($user->getAffiliation(null), null);
@@ -443,7 +442,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
             // Get the user group to display the submitter as
             $author->setUserGroupId($userGroupId);
 
-            $authorId = $authorDao->insertObject($author);
+            $authorId = Repo::author()->add($author);
             Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
             $publication = Repo::publication()->get($publication->getId());
 

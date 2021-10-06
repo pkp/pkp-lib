@@ -327,7 +327,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     {
         // Remove currently assigned review files.
         DB::table('review_round_files')->where([
-            'submission_id' => (int) $submissionFileId
+            'submission_file_id' => (int) $submissionFileId
         ])->delete();
     }
 

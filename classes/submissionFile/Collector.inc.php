@@ -224,7 +224,7 @@ class Collector implements CollectorInterface
         }
 
         if ($this->assocTypes !== null) {
-            $qb->whereIn('sf.assoc_type', $this->assocTypes);
+            $qb->where('sf.assoc_type', $this->assocTypes);
 
             if ($this->assocIds !== null) {
                 $qb->whereIn('sf.assoc_id', $this->assocIds);

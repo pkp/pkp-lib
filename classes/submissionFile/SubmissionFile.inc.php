@@ -22,7 +22,6 @@ use PKP\core\PKPApplication;
 
 class SubmissionFile extends \PKP\core\DataObject
 {
-    public const SUBMISSION_FILE_PUBLIC = 1;
     public const SUBMISSION_FILE_SUBMISSION = 2;
     public const SUBMISSION_FILE_NOTE = 3;
     public const SUBMISSION_FILE_REVIEW_FILE = 4;

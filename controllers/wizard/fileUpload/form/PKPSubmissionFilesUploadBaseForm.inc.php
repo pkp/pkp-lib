@@ -13,6 +13,7 @@
  * @brief Form for adding/editing a submission file
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 
@@ -194,10 +195,16 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     $this->_submissionFiles = [];
                 } elseif ($reviewRound) {
                     // Retrieve the submission files for the given review round.
+                    $submissionId = (int) $this->getData('submissonId');
+                    $submission = Repo::submission()->get($submissionId);
+                    if ($submission->getData('contextId') !== Application::get()->getRequest()->getContext()->getId()) {
+                        throw new Exception('Can not request submission files from another context.');
+                    }
+
                     $collector = Repo::submissionFiles()
                         ->getCollector()
                         ->filterByReviewRoundIds([(int) $reviewRound->getId()])
-                        ->filterBySubmissionIds([(int) $this->getData('submissionId')]);
+                        ->filterBySubmissionIds([$submissionId]);
                     $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
                     $this->_submissionFiles = iterator_to_array($submissionFilesIterator);
                 } else {

@@ -301,7 +301,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 
         $collector = Repo::submissionFiles()
             ->getCollector()
-            ->filterByAssoc([ASSOC_TYPE_GALLEY], [$galley->getId()]);
+            ->filterByAssoc(ASSOC_TYPE_GALLEY, [$galley->getId()]);
 
         $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         foreach ($submissionFilesIterator as $submissionFile) {

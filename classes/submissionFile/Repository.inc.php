@@ -53,10 +53,10 @@ class Repository
     /** @var PKPSchemaService $schemaService */
     protected $schemaService;
 
-    public function __construct(Request $request)
+    public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
     {
-        $this->schemaService = new PKPSchemaService();
-        $this->dao = new DAO($this->schemaService);
+        $this->schemaService = $schemaService;
+        $this->dao = $dao;
         $this->request = $request;
     }
 

@@ -257,7 +257,16 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
 
         $submissionFile = $this->get($submissionFileId);
 
-        if (!$submissionFile->itsOnFileProofStage()) {
+        if (
+            $submissionFile &&
+            in_array(
+                $submissionFile->getData('fileStage'),
+                [
+                    SubmissionFile::SUBMISSION_FILE_PROOF,
+                    SubmissionFile::SUBMISSION_FILE_DEPENDENT
+                ]
+            )
+        ) {
             return $submissionFile;
         }
 

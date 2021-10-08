@@ -364,6 +364,7 @@ class UserGroupGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	private function _toggleAssignment($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 		$userGroup = $this->_userGroup;
 		$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
 		$contextId = $this->_getContextId();

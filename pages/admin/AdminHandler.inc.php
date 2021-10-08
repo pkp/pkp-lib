@@ -381,9 +381,11 @@ class AdminHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function expireSessions($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$sessionDao = DAORegistry::getDAO('SessionDAO'); /* @var $sessionDao SessionDAO */
 		$sessionDao->deleteAllSessions();
-		$request->redirect(null, 'admin');
+		$request->redirect(null, 'login');
 	}
 
 	/**
@@ -392,6 +394,8 @@ class AdminHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function clearTemplateCache($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->clearTemplateCache();
 		$templateMgr->clearCssCache();
@@ -404,6 +408,8 @@ class AdminHandler extends Handler {
 	 * @param $request PKPRequest
 	 */
 	function clearDataCache($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		// Clear the CacheManager's caches
 		$cacheManager = CacheManager::getManager();
 		$cacheManager->flush();
@@ -418,9 +424,7 @@ class AdminHandler extends Handler {
 	/**
 	 * Download scheduled task execution log file.
 	 */
-	function downloadScheduledTaskLogFile() {
-		$request = Application::get()->getRequest();
-
+	function downloadScheduledTaskLogFile($args, $request) {
 		$file = basename($request->getUserVar('file'));
 		import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 		ScheduledTaskHelper::downloadExecutionLog($file);
@@ -429,11 +433,12 @@ class AdminHandler extends Handler {
 	/**
 	 * Clear scheduled tasks execution logs.
 	 */
-	function clearScheduledTaskLogFiles() {
+	function clearScheduledTaskLogFiles($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
 		ScheduledTaskHelper::clearExecutionLogs();
 
-		$request = Application::get()->getRequest();
 		$request->redirect(null, 'admin');
 	}
 }

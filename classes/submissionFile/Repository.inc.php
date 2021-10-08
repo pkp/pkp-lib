@@ -21,6 +21,7 @@ use PKP\search\SubmissionSearch;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\Repository as BaseRepository;
+use PKP\submissionFile\SubmissionFile;
 
 class Repository extends BaseRepository
 {
@@ -28,35 +29,36 @@ class Repository extends BaseRepository
     public $dao;
 
     public function __construct(
-        Request $request
+        DAO $dao,
+        Request $request,
+        PKPSchemaService $schemaService
     ) {
-        parent::__construct($request);
+        parent::__construct($dao, $request, $schemaService);
 
-        $this->dao = new DAO(new PKPSchemaService());
-
-        HookRegistry::register('SubmissionFile::delete::before', [$this, 'deleteSubmissionFile']);
         HookRegistry::register('SubmissionFile::assignedFileStages', [$this, 'modifyAssignedFileStages']);
+    }
+
+    /** @copydoc DAO::delete() */
+    public function delete(SubmissionFile $submissionFile): void
+    {
+        $this->deleteRelatedSubmissionFileObjects($submissionFile);
+        parent::delete($submissionFile);
     }
 
     /**
      * Delete related objects when a submission file is deleted
-     *
-     * @param array $args [
-     *      @option SubmissionFile
-     * ]
      */
-    public function deleteSubmissionFile(array $args): void
+    public function deleteRelatedSubmissionFileObjects(SubmissionFile $submissionFile): void
     {
-        $submissionFile = $args[0];
-
         // Remove galley associations and update search index
-        if ($submissionFile->getData('assocType') == ASSOC_TYPE_REPRESENTATION) {
+        if ($submissionFile->getData('assocType') == Application::ASSOC_TYPE_REPRESENTATION) {
             $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
             $galley = $galleyDao->getById($submissionFile->getData('assocId'));
             if ($galley && $galley->getData('submissionFileId') == $submissionFile->getId()) {
                 $galley->_data['submissionFileId'] = null; // Work around pkp/pkp-lib#5740
                 $galleyDao->updateObject($galley);
             }
+
             $preprintSearchIndex = Application::getSubmissionSearchIndex();
             $preprintSearchIndex->deleteTextIndex($submissionFile->getData('submissionId'), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile->getId());
         }

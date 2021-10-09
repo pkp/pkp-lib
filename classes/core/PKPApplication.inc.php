@@ -284,6 +284,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'headers' => [
                 'User-Agent' => $userAgent,
             ],
+            'verify' => false,
         ]);
     }
 

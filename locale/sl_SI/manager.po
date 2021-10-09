@@ -1,9 +1,10 @@
+# Primož Svetek <primoz.svetek@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2021-04-23 14:55+0000\n"
+"PO-Revision-Date: 2021-10-10 05:02+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl_SI/>\n"
@@ -2243,3 +2244,55 @@ msgstr "Obvesti primarni kontakt"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Obvestila"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "URL do prispevka v uredniškem pogledu"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Polna imena avtorjev"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Skrajšana oblika imen avtorjev"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Povzetek prispevka"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Unikaten ID prispevka"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Naslov prispevka"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Dodeljeni uredniki temu prispevku, ki lahko sprejmejo odločitev"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Polno ime glavnega kontakta spletne strani"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Noga emaila pošiljatelja"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Email naslov pošiljatelja"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Polno ime pošiljatelja"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "URL do recenzentske zadolžitve"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Datum do kdaj mora biti recenzija končana"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+"Datum do kdaj mora recenzent potrditi ali zavrniti opravljanje recenzije"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Uporabniško ime naslovnika ali naslovnikov"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Polno ime naslovnika ali naslovnikov"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "URL naslov strani, kjer lahko uporabnik pridobi izgubljeno geslo"

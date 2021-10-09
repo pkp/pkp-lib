@@ -26,6 +26,8 @@ namespace PKP\facades;
 
 use Illuminate\Support\Facades\App;
 
+use PKP\submissionFile\Repository as SubmissionFileRepository;
+
 class Repo
 {
     public static function announcement(): \PKP\announcement\Repository
@@ -48,8 +50,8 @@ class Repo
         return App::make(\PKP\category\Repository::class);
     }
 
-    public static function submissionFiles(): \PKP\submissionFile\Repository
+    public static function submissionFiles(): SubmissionFileRepository
     {
-        return app()->make(\PKP\submissionFile\Repository::class);
+        return app()->make(SubmissionFileRepository::class);
     }
 }

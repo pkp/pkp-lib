@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-08-07 02:45+0000\n"
+"PO-Revision-Date: 2021-10-12 12:06+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ca_ES/>\n"
@@ -2489,3 +2489,55 @@ msgstr "Notificar el contacte principal"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Notificacions"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "L'URL a la tramesa en la interfície d'administració editorial"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Noms complets dels autors/ores"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Noms abreujats dels autors/ores"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "El resum de la tramesa"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "El número d'ID únic de la tramesa"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "El títol de la tramesa"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"Els editors/ores assignats a aquesta tramesa que poden prendre una decisió"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "El nom complet del contacte principal del lloc web"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "La signatura del correu electrònic del remitent"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "L'adreça de correu electrònic del remitent"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "El nom complet del remitent"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "L'URL a l'assignació de revisió"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Data en què la revisió hauria d'haver-se completat"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Data en què el revisor/a hauria d'acceptar o rebutjar l'assignació"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "El nom d'usuari/ària del destinatari/ària o tots els destinataris/àries"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "El nom complet del destinatari/ària o tots els destinataris/àries"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "L'URL a una pàgina perquè l'usuari/ària pugui recuperar la contrasenya"

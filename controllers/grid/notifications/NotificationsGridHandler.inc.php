@@ -165,6 +165,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function markNew($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 
@@ -187,6 +188,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function markRead($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 
@@ -217,6 +219,7 @@ class NotificationsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteNotifications($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
 		$notificationDao = DAORegistry::getDAO('NotificationDAO'); /* @var $notificationDao NotificationDAO */
 		$user = $request->getUser();
 

@@ -21,7 +21,8 @@
 	 * @param {jQueryObject} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {{
-	 *  requestType: string
+	 *  requestType: string,
+	 *  data: PlainObject
 	 *  }} options Configuration of the link action
 	 *  request.
 	 */
@@ -51,11 +52,11 @@
 						this.handleResponse, this);
 		switch (options.requestType) {
 			case 'get':
-				$.getJSON(options.url, responseHandler);
+				$.getJSON(options.url, options.data, responseHandler);
 				break;
 
 			case 'post':
-				$.post(options.url, responseHandler, 'json');
+				$.post(options.url, options.data, responseHandler, 'json');
 				break;
 		}
 		return returnValue;

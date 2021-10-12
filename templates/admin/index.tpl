@@ -34,25 +34,25 @@
 			<li>
 				<form type="post" action="{url op="expireSessions"}">
 					{csrf}
-					<button onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</button>
+					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</button>
 				</form>
 			</li>
 			<li>
 				<form type="post" action="{url op="clearDataCache"}">
 					{csrf}
-					<button>{translate key="admin.clearDataCache"}</button>
+					<button class="-linkButton">{translate key="admin.clearDataCache"}</button>
 				</form>
 			</li>
 			<li>
 				<form type="post" action="{url op="clearTemplateCache"}">
 					{csrf}
-					<button onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</button>
+					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</button>
 				</form>
 			</li>
 			<li>
 				<form type="post" action="{url op="clearScheduledTaskLogFiles"}">
 					{csrf}
-					<button onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs"}</button>
+					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs"}</button>
 				</form>
 			</li>
 			{call_hook name="Templates::Admin::Index::AdminFunctions"}

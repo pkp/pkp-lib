@@ -404,9 +404,13 @@ class AdminHandler extends Handler
      */
     public function expireSessions($args, $request)
     {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
+
         $sessionDao = DAORegistry::getDAO('SessionDAO'); /** @var SessionDAO $sessionDao */
         $sessionDao->deleteAllSessions();
-        $request->redirect(null, 'admin');
+        $request->redirect(null, 'login');
     }
 
     /**
@@ -417,6 +421,10 @@ class AdminHandler extends Handler
      */
     public function clearTemplateCache($args, $request)
     {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->clearTemplateCache();
         $templateMgr->clearCssCache();
@@ -431,6 +439,10 @@ class AdminHandler extends Handler
      */
     public function clearDataCache($args, $request)
     {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
+
         // Clear the CacheManager's caches
         $cacheManager = CacheManager::getManager();
         $cacheManager->flush();
@@ -441,10 +453,8 @@ class AdminHandler extends Handler
     /**
      * Download scheduled task execution log file.
      */
-    public function downloadScheduledTaskLogFile()
+    public function downloadScheduledTaskLogFile($args, $request)
     {
-        $request = Application::get()->getRequest();
-
         $file = basename($request->getUserVar('file'));
         ScheduledTaskHelper::downloadExecutionLog($file);
     }
@@ -454,9 +464,12 @@ class AdminHandler extends Handler
      */
     public function clearScheduledTaskLogFiles()
     {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
+
         ScheduledTaskHelper::clearExecutionLogs();
 
-        $request = Application::get()->getRequest();
         $request->redirect(null, 'admin');
     }
 }

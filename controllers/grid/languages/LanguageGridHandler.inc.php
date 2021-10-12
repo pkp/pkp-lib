@@ -83,6 +83,9 @@ class LanguageGridHandler extends GridHandler
      */
     public function saveLanguageSetting($args, $request)
     {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
         $locale = (string) $request->getUserVar('rowId');
         $settingName = (string) $request->getUserVar('setting');
         $settingValue = (bool) $request->getUserVar('value');
@@ -180,6 +183,9 @@ class LanguageGridHandler extends GridHandler
      */
     public function setContextPrimaryLocale($args, $request)
     {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
         $locale = (string) $request->getUserVar('rowId');
         $context = $request->getContext();
         $availableLocales = $this->getGridDataElements($request);

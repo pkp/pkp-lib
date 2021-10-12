@@ -198,6 +198,9 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
 
                 break;
             case 'import':
+                if (!$request->checkCSRF()) {
+                    throw new Exception('CSRF mismatch!');
+                }
                 $temporaryFilePath = $this->getImportedFilePath($request->getUserVar('temporaryFileId'), $user);
                 [$filter, $xmlString] = $this->getImportFilter($temporaryFilePath);
                 $result = $this->getImportTemplateResult($filter, $xmlString, $this->getDeployment(), $templateMgr);

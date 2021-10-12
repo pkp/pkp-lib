@@ -14,6 +14,8 @@
 
 namespace PKP\linkAction\request;
 
+use APP\core\Application;
+
 class AjaxAction extends LinkActionRequest
 {
     public const AJAX_REQUEST_TYPE_GET = 'get';
@@ -25,18 +27,24 @@ class AjaxAction extends LinkActionRequest
     /** @var string */
     public $_requestType;
 
+    /** @var array */
+    public $_requestData;
 
     /**
      * Constructor
      *
      * @param $remoteAction string The target URL.
      * @param $requestType string One of the AJAX_REQUEST_TYPE_* constants.
+     * @param $requestData array Any request data (e.g. POST params) to be sent.
      */
-    public function __construct($remoteAction, $requestType = self::AJAX_REQUEST_TYPE_POST)
+    public function __construct($remoteAction, $requestType = self::AJAX_REQUEST_TYPE_POST, $requestData = [])
     {
         parent::__construct();
         $this->_remoteAction = $remoteAction;
         $this->_requestType = $requestType;
+        $this->_requestData = array_merge($requestData, [
+            'csrfToken' => Application::getRequest()->getSession()->getCSRFToken(),
+        ]);
     }
 
 
@@ -54,13 +62,23 @@ class AjaxAction extends LinkActionRequest
     }
 
     /**
-     * Get the modal object.
+     * Get the request type.
      *
-     * @return Modal
+     * @return string
      */
     public function getRequestType()
     {
         return $this->_requestType;
+    }
+
+    /**
+     * Get the request data.
+     *
+     * @return array
+     */
+    public function getRequestData()
+    {
+        return $this->_requestData;
     }
 
 
@@ -82,7 +100,8 @@ class AjaxAction extends LinkActionRequest
     {
         return [
             'url' => $this->getRemoteAction(),
-            'requestType' => $this->getRequestType()
+            'requestType' => $this->getRequestType(),
+            'data' => $this->getRequestData(),
         ];
     }
 }

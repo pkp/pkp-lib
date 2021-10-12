@@ -31,10 +31,30 @@
 		<h2>{translate key="admin.adminFunctions"}</h2>
 		<ul>
 			<li><a href="{url op="systemInfo"}">{translate key="admin.systemInformation"}</a></li>
-			<li><a href="{url op="expireSessions"}" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</a></li>
-			<li><a href="{url op="clearDataCache"}">{translate key="admin.clearDataCache"}</a></li>
-			<li><a href="{url op="clearTemplateCache"}" onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</a></li>
-			<li><a href="{url op="clearScheduledTaskLogFiles"}" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs"}</a></li>
+			<li>
+				<form type="post" action="{url op="expireSessions"}">
+					{csrf}
+					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</button>
+				</form>
+			</li>
+			<li>
+				<form type="post" action="{url op="clearDataCache"}">
+					{csrf}
+					<button class="-linkButton">{translate key="admin.clearDataCache"}</button>
+				</form>
+			</li>
+			<li>
+				<form type="post" action="{url op="clearTemplateCache"}">
+					{csrf}
+					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</button>
+				</form>
+			</li>
+			<li>
+				<form type="post" action="{url op="clearScheduledTaskLogFiles"}">
+					{csrf}
+					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs"}</button>
+				</form>
+			</li>
 			{call_hook name="Templates::Admin::Index::AdminFunctions"}
 		</ul>
 	</div>

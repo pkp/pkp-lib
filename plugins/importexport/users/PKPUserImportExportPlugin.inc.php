@@ -116,11 +116,14 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
                 $json = new JSONMessage(true);
                 $json->setEvent('addTab', [
                     'title' => __('plugins.importexport.users.results'),
-                    'url' => $request->url(null, null, null, ['plugin', $this->getName(), 'import'], ['temporaryFileId' => $request->getUserVar('temporaryFileId')]),
+                    'url' => $request->url(null, null, null, ['plugin', $this->getName(), 'import'], ['temporaryFileId' => $request->getUserVar('temporaryFileId'), 'csrfToken' => $request->getSession()->getCSRFToken()]),
                 ]);
                 header('Content-Type: application/json');
                 return $json->getString();
             case 'import':
+                if (!$request->checkCSRF()) {
+                    throw new Exception('CSRF mismatch!');
+                }
                 $temporaryFileId = $request->getUserVar('temporaryFileId');
                 $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
                 $user = $request->getUser();

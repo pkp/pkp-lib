@@ -400,7 +400,13 @@ abstract class ImportExportPlugin extends Plugin
         $json = new JSONMessage(true);
         $json->setEvent('addTab', [
             'title' => $title,
-            'url' => $request->url(null, null, null, ['plugin', $this->getName(), $bounceUrl], $bounceParameterArray),
+            'url' => $request->url(
+                null,
+                null,
+                null,
+                ['plugin', $this->getName(), $bounceUrl],
+                array_merge($bounceParameterArray, ['csrfToken' => $request->getSession()->getCSRFToken()])
+            ),
         ]);
         header('Content-Type: application/json');
         return $json->getString();

@@ -44,7 +44,7 @@
 		{if $assignmentId}
 			<input type="hidden" name="userId" value="{$userIdSelected|escape}" />
 			{fbvFormSection title="stageParticipants.selectedUser"}
-				<b>{$currentUserName}</b> ({$currentUserGroup})
+				<b>{$currentUserName|escape}</b> ({$currentUserGroup|escape})
 			{/fbvFormSection}
 
 			{if $isChangeRecommendOnlyAllowed}

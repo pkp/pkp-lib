@@ -26,7 +26,7 @@
 			<input type="hidden" name="userId" value="{$userId|escape}"/>
 
 			{fbvFormSection title="stageParticipants.notify.startDiscussion"}
-				<p>{translate key="stageParticipants.notify.startDiscussion.description" userFullName=$userFullName}</p>
+				<p>{translate key="stageParticipants.notify.startDiscussion.description" userFullName=$userFullName|escape}</p>
 			{/fbvFormSection}
 
 			{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}

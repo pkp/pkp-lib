@@ -18,7 +18,7 @@
 		{assign var="checked" value=false}
 	{/if}
 	{if $userGroup->getPermitSelfRegistration()}
-		{fbvElement type="checkbox" id="readerGroup-$userGroupId" name="readerGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName() translate=false}
+		{fbvElement type="checkbox" id="readerGroup-$userGroupId" name="readerGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName()|escape translate=false}
 	{/if}
 {/foreach}
 {foreach from=$authorUserGroups[$contextId] item=userGroup}
@@ -29,7 +29,7 @@
 		{assign var="checked" value=false}
 	{/if}
 	{if $userGroup->getPermitSelfRegistration()}
-		{fbvElement type="checkbox" id="authorGroup-$userGroupId" name="authorGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName() translate=false}
+		{fbvElement type="checkbox" id="authorGroup-$userGroupId" name="authorGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName()|escape translate=false}
 	{/if}
 {/foreach}
 {foreach from=$reviewerUserGroups[$contextId] item=userGroup}
@@ -40,6 +40,6 @@
 		{assign var="checked" value=false}
 	{/if}
 	{if $userGroup->getPermitSelfRegistration()}
-		{fbvElement type="checkbox" id="reviewerGroup-$userGroupId" name="reviewerGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName() translate=false}
+		{fbvElement type="checkbox" id="reviewerGroup-$userGroupId" name="reviewerGroup[$userGroupId]" checked=$checked label=$userGroup->getLocalizedName()|escape translate=false}
 	{/if}
 {/foreach}

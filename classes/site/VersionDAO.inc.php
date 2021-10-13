@@ -25,14 +25,8 @@ class VersionDAO extends \PKP\db\DAO
 {
     /**
      * Retrieve the current version.
-     *
-     * @param string $productType
-     * @param string $product
-     * @param bool $isPlugin
-     *
-     * @return Version?
      */
-    public function getCurrentVersion($productType = null, $product = null, $isPlugin = false)
+    public function getCurrentVersion(?string $productType = null, ?string $product = null): ?Version
     {
         if (!$productType || !$product) {
             $application = Application::get();
@@ -51,12 +45,9 @@ class VersionDAO extends \PKP\db\DAO
     /**
      * Retrieve the complete version history, ordered by date (most recent first).
      *
-     * @param string $productType
-     * @param string $product
-     *
-     * @return array Versions
+     * @return Version[] Versions
      */
-    public function getVersionHistory($productType = null, $product = null)
+    public function getVersionHistory(?string $productType = null, ?string $product = null): array
     {
         $versions = [];
 
@@ -79,12 +70,8 @@ class VersionDAO extends \PKP\db\DAO
 
     /**
      * Internal function to return a Version object from a row.
-     *
-     * @param array $row
-     *
-     * @return Version
      */
-    public function _returnVersionFromRow($row)
+    public function _returnVersionFromRow($row): Version
     {
         $version = new Version(
             $row['major'],
@@ -107,11 +94,8 @@ class VersionDAO extends \PKP\db\DAO
 
     /**
      * Insert a new version.
-     *
-     * @param Version $version
-     * @param bool $isPlugin
      */
-    public function insertVersion($version, $isPlugin = false)
+    public function insertVersion(Version $version, bool $isPlugin = false): int
     {
         $isNewVersion = true;
 
@@ -148,9 +132,9 @@ class VersionDAO extends \PKP\db\DAO
             return $this->update(
                 sprintf(
                     'INSERT INTO versions
-					(major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load, sitewide)
-					VALUES
-					(?, ?, ?, ?, %s, ?, ?, ?, ?, ?, ?)',
+                    (major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load, sitewide)
+                    VALUES
+                    (?, ?, ?, ?, %s, ?, ?, ?, ?, ?, ?)',
                     $this->datetimeToDB($version->getDateInstalled())
                 ),
                 [
@@ -170,7 +154,7 @@ class VersionDAO extends \PKP\db\DAO
             // Update existing version entry
             return $this->update(
                 'UPDATE versions SET current = ?, product_class_name = ?, lazy_load = ?, sitewide = ?
-					WHERE product_type = ? AND product = ? AND major = ? AND minor = ? AND revision = ? AND build = ?',
+                    WHERE product_type = ? AND product = ? AND major = ? AND minor = ? AND revision = ? AND build = ?',
                 [
                     (int) $version->getCurrent(),
                     $version->getProductClassName(),
@@ -195,10 +179,8 @@ class VersionDAO extends \PKP\db\DAO
      *
      * @param array $context the application context, only
      *  products enabled in that context will be returned.
-     *
-     * @return array
      */
-    public function getCurrentProducts($context)
+    public function getCurrentProducts($context): array
     {
         if (count($context)) {
             assert(count($context) == 1); // Context depth > 1 no longer supported here.
@@ -208,11 +190,13 @@ class VersionDAO extends \PKP\db\DAO
         }
 
         $result = $this->retrieve(
-            'SELECT v.*
-			FROM versions v LEFT JOIN plugin_settings ps ON
-				lower(v.product_class_name) = ps.plugin_name
-				AND ps.setting_name = \'enabled\' ' . $contextWhereClause . '
-			WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)',
+            "SELECT v.*
+            FROM versions v
+            LEFT JOIN plugin_settings ps
+                ON LOWER(v.product_class_name) = ps.plugin_name
+                AND ps.setting_name = 'enabled'
+                $contextWhereClause
+            WHERE v.current = 1 AND (ps.setting_value = '1' OR v.lazy_load <> 1)",
             array_values($context),
             false
         );
@@ -230,7 +214,7 @@ class VersionDAO extends \PKP\db\DAO
      * @param string $productType
      * @param string $product
      */
-    public function disableVersion($productType, $product)
+    public function disableVersion($productType, $product): void
     {
         $this->update(
             'UPDATE versions SET current = 0 WHERE current = 1 AND product_type = ? AND product = ?',

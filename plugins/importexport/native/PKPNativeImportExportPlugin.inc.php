@@ -16,6 +16,7 @@
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIDeployment');
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportCLIToolKit');
 
+use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
@@ -56,7 +57,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
     public function register($category, $path, $mainContextId = null)
     {
         $success = parent::register($category, $path, $mainContextId);
-        if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) {
+        if (!Application::isReady()) {
             return $success;
         }
         if ($success && $this->getEnabled()) {

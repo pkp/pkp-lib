@@ -26,7 +26,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\linkAction\LinkAction;
-
+use PKP\session\SessionManager;
 use PKP\linkAction\request\RedirectAction;
 
 abstract class ImportExportPlugin extends Plugin
@@ -205,7 +205,7 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function displayXMLValidationErrors($errors, $xml)
     {
-        if (defined('SESSION_DISABLE_INIT')) {
+        if (SessionManager::isDisabled()) {
             echo __('plugins.importexport.common.validationErrors') . "\n";
             foreach ($errors as $error) {
                 echo trim($error->message) . "\n";

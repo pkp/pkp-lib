@@ -19,8 +19,10 @@ use APP\core\Application;
 
 use PKP\facades\Locale;
 use APP\mail\variables\ContextEmailVariable;
+use PKP\config\Config;
 use PKP\core\PKPApplication;
 use PKP\facades\Repo;
+use PKP\session\SessionManager;
 
 class MailTemplate extends Mail
 {
@@ -86,7 +88,7 @@ class MailTemplate extends Mail
         }
 
         $userSig = '';
-        $user = defined('SESSION_DISABLE_INIT') ? null : $request->getUser();
+        $user = SessionManager::isDisabled() ? null : $request->getUser();
         if ($user && $this->includeSignature) {
             $userSig = $user->getLocalizedSignature();
             if (!empty($userSig)) {
@@ -183,7 +185,7 @@ class MailTemplate extends Mail
             ], $params);
         }
 
-        if (!defined('SESSION_DISABLE_INIT') && ($user = $request->getUser())) {
+        if (!SessionManager::isDisabled() && ($user = $request->getUser())) {
             // Add user-specific variables
             $params = array_merge([
                 'senderEmail' => $user->getEmail(),
@@ -231,7 +233,7 @@ class MailTemplate extends Mail
         }
 
         $request = Application::get()->getRequest();
-        $user = defined('SESSION_DISABLE_INIT') ? null : $request->getUser();
+        $user = SessionManager::isDisabled() ? null : $request->getUser();
 
         if ($user && $this->bccSender) {
             $this->addBcc($user->getEmail(), $user->getFullName());

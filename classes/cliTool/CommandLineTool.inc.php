@@ -25,6 +25,12 @@ namespace PKP\cliTool;
 
 use APP\core\Application;
 use APP\core\PageRouter;
+use APP\facades\Repo;
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
+use PKP\plugins\PluginRegistry;
+use PKP\security\Role;
+use PKP\session\SessionManager;
 
 /** Initialization code */
 define('PWD', getcwd());
@@ -32,15 +38,8 @@ chdir(dirname(INDEX_FILE_LOCATION)); /* Change to base directory */
 if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
-define('SESSION_DISABLE_INIT', 1);
+SessionManager::disable();
 require('./lib/pkp/includes/bootstrap.inc.php');
-
-use APP\facades\Repo;
-use PKP\core\Registry;
-
-use PKP\db\DAORegistry;
-use PKP\plugins\PluginRegistry;
-use PKP\security\Role;
 
 class CommandLineTool
 {

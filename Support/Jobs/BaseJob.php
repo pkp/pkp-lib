@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace PKP\Support\Jobs;
 
+use APP\core\Application;
 use Illuminate\Bus\Queueable;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -56,7 +57,7 @@ abstract class BaseJob implements ShouldQueue
 
     protected function defaultConnection(): string
     {
-        if (defined('RUNNING_UPGRADE')) {
+        if (!Application::isReady()) {
             return 'sync';
         }
 

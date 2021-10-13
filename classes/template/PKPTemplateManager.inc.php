@@ -43,7 +43,7 @@ use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
-
+use PKP\session\SessionManager;
 use PKP\linkAction\request\NullAction;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
@@ -174,7 +174,7 @@ class PKPTemplateManager extends Smarty
             ]);
         }
 
-        if (Config::getVar('general', 'installed') && !$currentContext) {
+        if (Application::isInstalled() && !$currentContext) {
             $site = $request->getSite();
             $this->assign([
                 'displayPageHeaderTitle' => $site->getLocalizedTitle(),
@@ -192,7 +192,7 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             $activeTheme = null;
             $contextOrSite = $currentContext ? $currentContext : $request->getSite();
             $allThemes = PluginRegistry::getPlugins('themes');
@@ -245,7 +245,7 @@ class PKPTemplateManager extends Smarty
             }
 
             // Register meta tags
-            if (Config::getVar('general', 'installed')) {
+            if (Application::isInstalled()) {
                 if (($request->getRequestedPage() == '' || $request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedData('searchDescription')) {
                     $this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedData('searchDescription') . '">');
                 }
@@ -279,7 +279,7 @@ class PKPTemplateManager extends Smarty
             // Register Navigation Menus
             $nmService = Services::get('navigationMenu');
 
-            if (Config::getVar('general', 'installed')) {
+            if (Application::isInstalled()) {
                 HookRegistry::register('LoadHandler', [$nmService, '_callbackHandleCustomNavigationMenuItems']);
             }
         }
@@ -350,7 +350,7 @@ class PKPTemplateManager extends Smarty
          * Kludge to make sure no code that tries to connect to the
          * database is executed (e.g., when loading installer pages).
          */
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             $this->assign([
                 'isUserLoggedIn' => Validation::isLoggedIn(),
                 'isUserLoggedInAs' => Validation::isLoggedInAs(),
@@ -372,7 +372,7 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             // Respond to the sidebar hook
             if ($currentContext) {
                 $this->assign('hasSidebar', !empty($currentContext->getData('sidebar')));
@@ -729,7 +729,7 @@ class PKPTemplateManager extends Smarty
         ];
 
         // Add an array of rtl languages (right-to-left)
-        if (Config::getVar('general', 'installed') && !defined('SESSION_DISABLE_INIT')) {
+        if (Application::isInstalled() && !SessionManager::isDisabled()) {
             $allLocales = [];
             if ($context) {
                 $allLocales = array_merge(
@@ -913,7 +913,7 @@ class PKPTemplateManager extends Smarty
          * Kludge to make sure no code that tries to connect to the
          * database is executed (e.g., when loading installer pages).
          */
-        if (Config::getVar('general', 'installed') && !defined('SESSION_DISABLE_INIT')) {
+        if (Application::isInstalled() && !SessionManager::isDisabled()) {
             if ($request->getUser()) {
 
                 // Get a count of unread tasks
@@ -1148,7 +1148,7 @@ class PKPTemplateManager extends Smarty
      */
     public function getCompileId($resourceName)
     {
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             $context = $this->_request->getContext();
             if ($context instanceof \PKP\core\Context) {
                 $resourceName .= $context->getData('themePluginPath');
@@ -1192,7 +1192,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Load current user data
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             $user = $this->_request->getUser();
             if ($user) {
                 $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
@@ -1996,7 +1996,7 @@ class PKPTemplateManager extends Smarty
             $params['context'] = 'frontend';
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
             $appVersion = $versionDao->getCurrentVersion()->getVersionString();
         } else {
@@ -2082,9 +2082,9 @@ class PKPTemplateManager extends Smarty
             $params['context'] = 'frontend';
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-            $appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
+            $appVersion = SessionManager::isDisabled() ? null : $versionDao->getCurrentVersion()->getVersionString();
         } else {
             $appVersion = null;
         }

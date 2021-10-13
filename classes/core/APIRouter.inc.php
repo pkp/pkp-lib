@@ -117,7 +117,7 @@ class APIRouter extends PKPRouter
             exit;
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             // Initialize session
             SessionManager::getManager();
         }

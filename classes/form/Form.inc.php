@@ -27,6 +27,7 @@ use PKP\facades\Locale;
 
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\session\SessionManager;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 
@@ -299,7 +300,7 @@ class Form
             }
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             $request = Application::get()->getRequest();
             $user = $request->getUser();
 

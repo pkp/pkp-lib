@@ -39,8 +39,8 @@ class VersionCheck
     public static function getLatestVersion()
     {
         $application = Application::get();
-        $includeId = Config::getVar('general', 'installed') &&
-            !defined('RUNNING_UPGRADE') &&
+        $includeId = Application::isInstalled() &&
+            !Application::isUpgrading() &&
             Config::getVar('general', 'enable_beacon', true);
 
         if ($includeId) {

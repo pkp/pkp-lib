@@ -7,6 +7,8 @@
  * other CASE tools.
  */
 
+use PKP\cache\CacheManager;
+use PKP\session\SessionManager;
 
 // This script may not be executed remotely.
 if (isset($_SERVER['SERVER_NAME'])) {
@@ -20,9 +22,6 @@ chdir(dirname(INDEX_FILE_LOCATION));
 
 // Configure PKP error handling for tests
 define('DONT_DIE_ON_ERROR', true);
-
-// Don't support sessions
-define('SESSION_DISABLE_INIT', true);
 
 // Configure assertions for tests
 ini_set('assert.active', true);
@@ -162,6 +161,9 @@ require_once('./lib/pkp/includes/bootstrap.inc.php');
 
 // Make sure ADOdb doesn't "clean up" our /tmp folder.
 $ADODB_CACHE_DIR = CacheManager::getFileCachePath() . '/_db';
+
+// Disable the session initialization
+SessionManager::disable();
 
 // Remove the PKP error handler so that PHPUnit
 // can set its own error handler and catch errors for us.

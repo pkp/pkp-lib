@@ -13,6 +13,7 @@
  * @brief Handle installation requests.
  */
 
+use APP\core\Application;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 
@@ -62,7 +63,7 @@ class InstallHandler extends Handler
      */
     public function validate($requiredContexts = null, $request = null)
     {
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             $request->redirect(null, 'index');
         }
     }

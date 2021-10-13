@@ -23,8 +23,8 @@ use APP\core\Application;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\context\Context;
+use PKP\session\SessionManager;
 use PKP\core\Core;
-
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 
@@ -117,7 +117,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
 
         // Don't fully initialize the theme until OJS is installed, so that
         // there are no requests to the database before it exists
-        if (defined('SESSION_DISABLE_INIT')) {
+        if (SessionManager::isDisabled()) {
             return;
         }
 
@@ -156,7 +156,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function isActive()
     {
-        if (defined('SESSION_DISABLE_INIT')) {
+        if (SessionManager::isDisabled()) {
             return false;
         }
         $request = Application::get()->getRequest();

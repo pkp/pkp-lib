@@ -17,6 +17,7 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
 use PKP\facades\Locale;
 
 class DataObject

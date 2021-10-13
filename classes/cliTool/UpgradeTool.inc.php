@@ -17,11 +17,11 @@
 
 namespace PKP\cliTool;
 
-define('RUNNING_UPGRADE', 1);
-
 use APP\core\Application;
 use APP\install\Upgrade;
 use PKP\site\VersionCheck;
+
+Application::upgrade();
 
 class UpgradeTool extends \PKP\cliTool\CommandLineTool
 {

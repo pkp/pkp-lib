@@ -37,6 +37,10 @@ class SessionManager
      */
     public function __construct($sessionDao, $request)
     {
+        if (static::isDisabled()) {
+            return;
+        }
+
         $this->sessionDao = $sessionDao;
 
         // Configure PHP session parameters
@@ -296,6 +300,25 @@ class SessionManager
     public function updateSessionLifetime($expireTime = 0)
     {
         return $this->updateSessionCookie(false, $expireTime);
+    }
+
+    /**
+     * Retrieves whether the session initialization is disabled
+     */
+    public static function isDisabled(): bool
+    {
+        return defined('SESSION_DISABLE_INIT');
+    }
+
+    /**
+     * Prevents the session initialization
+     */
+    public static function disable(): void
+    {
+        // Constant kept for backwards compatibility
+        if (!defined('SESSION_DISABLE_INIT')) {
+            define('SESSION_DISABLE_INIT', true);
+        }
     }
 }
 

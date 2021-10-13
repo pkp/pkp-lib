@@ -25,12 +25,14 @@ use DateTime;
 use DateTimeZone;
 use DomainException;
 use Exception;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
+use PKP\session\SessionManager;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
 use PKP\statistics\PKPStatisticsHelper;
@@ -198,8 +200,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
 
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
-        if (!defined('SESSION_DISABLE_INIT') && !Config::getVar('general', 'installed')) {
-            define('SESSION_DISABLE_INIT', true);
+        if (!static::isInstalled()) {
+            SessionManager::disable();
         }
 
         Registry::set('application', $this);
@@ -314,13 +316,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Return a HTTP client implementation.
      *
-     * @return \GuzzleHttp\Client
+     * @return Client
      */
     public function getHttpClient()
     {
         $application = Application::get();
         $userAgent = $application->getName() . '/';
-        if (Config::getVar('general', 'installed') && !defined('RUNNING_UPGRADE')) {
+        if (static::isInstalled() && !static::isUpgrading()) {
             $versionDao = DAORegistry::getDAO('VersionDAO');
             $currentVersion = $versionDao->getCurrentVersion();
             $userAgent .= $currentVersion->getVersionString();
@@ -328,7 +330,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             $userAgent .= '?';
         }
 
-        return new \GuzzleHttp\Client([
+        return new Client([
             'proxy' => [
                 'http' => Config::getVar('proxy', 'http_proxy', null),
                 'https' => Config::getVar('proxy', 'https_proxy', null),
@@ -981,6 +983,41 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'agencies',
             'citations',
         ];
+    }
+
+    /**
+     * Retrieves whether the application is installed
+     */
+    public static function isInstalled(): bool
+    {
+        return !!Config::getVar('general', 'installed');
+    }
+
+    /**
+     * Retrieves whether the application is running an upgrade
+     */
+    public static function isUpgrading(): bool
+    {
+        return defined('RUNNING_UPGRADE');
+    }
+
+    /**
+     * Retrieves whether the application is ready (installed and not being upgraded)
+     */
+    public static function isReady(): bool
+    {
+        return static::isInstalled() && !static::isUpgrading();
+    }
+
+    /**
+     * Signals the application is undergoing an upgrade
+     */
+    public static function upgrade(): void
+    {
+        // Constant kept for backwards compatibility
+        if (!defined('RUNNING_UPGRADE')) {
+            define('RUNNING_UPGRADE', true);
+        }
     }
 }
 

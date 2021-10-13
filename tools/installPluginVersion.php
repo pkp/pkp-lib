@@ -13,15 +13,13 @@
  * @brief CLI tool for installing a plugin version descriptor.
  */
 
-define('RUNNING_UPGRADE', 1);
-
 require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
 
 use APP\core\Application;
 use APP\install\Upgrade;
-use PKP\site\Version;
-
 use PKP\site\VersionCheck;
+
+Application::upgrade();
 
 class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
 {

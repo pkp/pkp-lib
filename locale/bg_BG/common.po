@@ -1,8 +1,159 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-14 21:06+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/bg_BG/>\n"
 "Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "common.and"
+msgstr "и"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Опишете това изображение за посетители, които разглеждат сайта в текстов "
+"браузър или с помощни устройства. Пример: „Нашият редактор говори на "
+"конференцията на PKP.“"
+
+msgid "common.altText"
+msgstr "Алтернативен текст"
+
+msgid "common.alreadyAssigned"
+msgstr "Асоциииран"
+
+msgid "common.titleSmallWords"
+msgstr "на и или но ако тогава иначе когато при от вкл с"
+
+msgid "common.alphaList"
+msgstr "А Б В Г Д Е Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ь Ю Я"
+
+msgid "common.all"
+msgstr "Всички"
+
+msgid "common.name"
+msgstr "Име"
+
+msgid "common.addSelf"
+msgstr "Добавете себе си"
+
+msgid "common.add"
+msgstr "Добави"
+
+msgid "common.inactive"
+msgstr "Неактивно"
+
+msgid "common.active"
+msgstr "Активно"
+
+msgid "common.activate"
+msgstr "Активиране"
+
+msgid "common.action"
+msgstr "Действие"
+
+msgid "common.acknowledged"
+msgstr "Признато"
+
+msgid "common.accepted"
+msgstr "Прието"
+
+msgid "common.abstract"
+msgstr "Абстракт (резюме)"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Наистина ли искате да изтриете този елемент? Това действие не може да бъде "
+"отменено."
+
+msgid "common.grid"
+msgstr "Таблица"
+
+msgid "common.list"
+msgstr "Списък"
+
+msgid "common.tasks"
+msgstr "Задачи"
+
+msgid "common.navigation.user"
+msgstr "Протребителска навигация"
+
+msgid "common.navigation.siteContext"
+msgstr "Контекстна навигация на сайта"
+
+msgid "common.navigation.site"
+msgstr "Навигация на сайта"
+
+msgid "common.navigation.sidebar"
+msgstr "Странична лента"
+
+msgid "common.allDownloads"
+msgstr "Всички сваляния (downloads)"
+
+msgid "announcement.view"
+msgstr "Показване на съобщение"
+
+msgid "announcement.postedOn"
+msgstr "Пубикувано съобщение на {$postDate}"
+
+msgid "announcement.posted"
+msgstr "Пубикувано съобщение"
+
+msgid "announcement.noneExist"
+msgstr "Няма публикувани съощения."
+
+msgid "announcement.moreAnnouncements"
+msgstr "Още съобщения..."
+
+msgid "announcement.announcementsHome"
+msgstr "Съобщения"
+
+msgid "announcement.announcements"
+msgstr "Съобщения"
+
+msgid "about.siteMap"
+msgstr "Карта на сайта"
+
+msgid "about.policies"
+msgstr "Политики"
+
+msgid "about.people"
+msgstr "Екип"
+
+msgid "about.other"
+msgstr "Други"
+
+msgid "about.contact.supportContact"
+msgstr "Контакт за поддръжка"
+
+msgid "about.contact.principalContact"
+msgstr "Главен редакционен контакт"
+
+msgid "about.contact.phone"
+msgstr "Телефон"
+
+msgid "about.contact.email"
+msgstr "Имейл"
+
+msgid "about.contact"
+msgstr "Контакт"
+
+msgid "about.aboutSite"
+msgstr "За сайта"
+
+msgid "about.guidelines"
+msgstr "Ръководства"
+
+msgid "about.description"
+msgstr "Описание"
+
+msgid "common.currentStyleSheet"
+msgstr "Текуща таблица със стилове"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Проект Публично Познание (Public Knowledge Project)"

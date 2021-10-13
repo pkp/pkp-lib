@@ -21,8 +21,7 @@
 namespace PKP\xml;
 
 use PKP\facades\Locale;
-
-use APP\core\Application;
+use PKP\file\FileManager;
 
 // The default character encodings
 define('XML_PARSER_SOURCE_ENCODING', Locale::getDefaultEncoding());
@@ -87,7 +86,7 @@ class PKPXMLParser {
 		xml_set_element_handler($parser, "startElement", "endElement");
 		xml_set_character_data_handler($parser, "characterData");
 
-		if (!$stream = $this->_getStream($file)) return false;
+		if (!$stream = FileManager::getStream($file)) return false;
 
 		while (($data = $stream->read(16384)) !== '') {
 			if (!xml_parse($parser, $data, $stream->eof())) {
@@ -102,24 +101,6 @@ class PKPXMLParser {
 			$handler->destroy();
 		}
 		return $result;
-	}
-
-	/**
-	 * Get a PSR7 stream given a filename or URL.
-	 * @param string $filenameOrUrl
-	 * @return \GuzzleHttp\Psr7\Stream|null
-	 */
-	protected function _getStream($filenameOrUrl) {
-		if (filter_var($filenameOrUrl, FILTER_VALIDATE_URL)) {
-			// Remote URL.
-			$client = Application::get()->getHttpClient();
-			$response = $client->request('GET', $filenameOrUrl);
-			return \GuzzleHttp\Psr7\stream_for($response->getBody());
-		} elseif (file_exists($filenameOrUrl) && is_readable($filenameOrUrl)) {
-			$resource = fopen($filenameOrUrl, 'r');
-			return \GuzzleHttp\Psr7\stream_for($resource);
-		}
-		return null;
 	}
 
 	/**
@@ -199,7 +180,7 @@ class PKPXMLParser {
 	 * @return array|null a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
 	 */
 	function parseStruct($file, $tagsToMatch = array()) {
-		$stream = $this->_getStream($file);
+		$stream = FileManager::getStream($file);
 		$fileContents = $stream->getContents();
 		if (!$fileContents) {
 			return false;

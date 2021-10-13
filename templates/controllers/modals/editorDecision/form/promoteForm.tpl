@@ -32,7 +32,7 @@
 			<p>{translate key=$decisionData.help}</p>
 		{/if}
 
-		{capture assign="sendEmailLabel"}{translate key="editor.submissionReview.sendEmail" authorName=$authorName}{/capture}
+		{capture assign="sendEmailLabel"}{translate key="editor.submissionReview.sendEmail" authorName=$authorName|escape}{/capture}
 		{if $skipEmail}
 			{assign var="skipEmailSkip" value=true}
 		{else}

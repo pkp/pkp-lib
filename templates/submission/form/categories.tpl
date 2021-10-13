@@ -19,7 +19,7 @@
 	{else}
 		{fbvFormSection list=true title="grid.category.categories"}
 			{foreach from=$categories item="category" key="id"}
-				{fbvElement type="checkbox" id="categories[]" value=$id checked=in_array($id, $assignedCategories) label=$category translate=false}
+				{fbvElement type="checkbox" id="categories[]" value=$id checked=in_array($id, $assignedCategories) label=$category|escape translate=false}
 			{/foreach}
 		{/fbvFormSection}
 	{/if}

@@ -57,7 +57,7 @@
 			{fbvFormSection}
 				{fbvFormSection list=true title="grid.user.userRoles"}
 					{foreach from=$allUserGroups item="userGroup" key="id"}
-						{fbvElement type="checkbox" id="userGroupIds[]" value=$id checked=in_array($id, $assignedUserGroups) label=$userGroup translate=false}
+						{fbvElement type="checkbox" id="userGroupIds[]" value=$id checked=in_array($id, $assignedUserGroups) label=$userGroup|escape translate=false}
 					{/foreach}
 				{/fbvFormSection}
 			{/fbvFormSection}

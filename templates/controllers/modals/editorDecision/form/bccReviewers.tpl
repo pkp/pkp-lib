@@ -14,7 +14,7 @@
 		<span class="description">{translate key="submission.comments.sendCopyToReviewers"}</span>
 		<ul class="checkbox_and_radiobutton">
 			{foreach from=$reviewers item="name" key="id"}
-				{fbvElement type="checkbox" id="bccReviewers[]" value=$id checked=in_array($id, $selected) label=$name translate=false}
+				{fbvElement type="checkbox" id="bccReviewers[]" value=$id checked=in_array($id, $selected) label=$name|escape translate=false}
 			{/foreach}
 		</ul>
 	{/fbvFormSection}

@@ -18,14 +18,14 @@
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userRoleFormNotification"}
 
-	<h3>{translate key="grid.user.step2" userFullName=$userFullName}</h3>
+	<h3>{translate key="grid.user.step2" userFullName=$userFullName|escape}</h3>
 
 		<input type="hidden" id="userId" name="userId" value="{$userId|escape}" />
 
 		{fbvFormSection}
 			{fbvFormSection list=true title="grid.user.userRoles"}
 				{foreach from=$allUserGroups item="userGroup" key="id"}
-					{fbvElement type="checkbox" id="userGroupIds[]" value=$id checked=in_array($id, $assignedUserGroups) label=$userGroup translate=false}
+					{fbvElement type="checkbox" id="userGroupIds[]" value=$id checked=in_array($id, $assignedUserGroups) label=$userGroup|escape translate=false}
 				{/foreach}
 			{/fbvFormSection}
 		{/fbvFormSection}

@@ -22,7 +22,7 @@
 	{fbvFormArea id="availableLocalesFormArea" title="admin.languages.availableLocales"}
 		{fbvFormSection list="true" description="admin.languages.installNewLocalesInstructions"}
 			{foreach name=locales from=$notInstalledLocales item=locale}
-				{fbvElement type="checkbox" id="locale-$locale" name="localesToInstall[$locale]" value=$locale label=$allLocales.$locale translate=false}
+				{fbvElement type="checkbox" id="locale-$locale" name="localesToInstall[$locale]" value=$locale label=$allLocales.$locale|escape translate=false}
 			{foreachelse}
 				<p>{translate key="admin.languages.noLocalesAvailable"}</p>
 			{/foreach}

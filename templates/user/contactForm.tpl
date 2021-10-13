@@ -41,7 +41,7 @@
 				{else}
 					{assign var="checked" value=false}
 				{/if}
-				{fbvElement type="checkbox" name="locales[]" id="locales-$localeKey" value=$localeKey checked=$checked label=$localeName translate=false}
+				{fbvElement type="checkbox" name="locales[]" id="locales-$localeKey" value=$localeKey checked=$checked label=$localeName|escape translate=false}
 			{/foreach}
 		{/fbvFormSection}
 	{/if}

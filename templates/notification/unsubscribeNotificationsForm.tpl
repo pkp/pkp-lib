@@ -13,7 +13,7 @@
 <div class="page page_unsubscribe_notifications">
 	<h1>{translate key="notification.unsubscribeNotifications"}</h1>
 
-	<p>{translate key="notification.unsubscribeNotifications.pageMessage" contextName=$contextName email=$userEmail}
+	<p>{translate key="notification.unsubscribeNotifications.pageMessage" contextName=$contextName|escape email=$userEmail|escape}
 
 	<form class="cmp_form" id="unsubscribeNotificationForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="notification" op="unsubscribe"}">
 		{csrf}

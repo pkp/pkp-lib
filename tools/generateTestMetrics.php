@@ -15,8 +15,10 @@
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Support\Facades\DB;
 
 class generateTestMetrics extends \PKP\cliTool\CommandLineTool
 {
@@ -64,20 +66,16 @@ class generateTestMetrics extends \PKP\cliTool\CommandLineTool
         $endDate = new DateTime($this->dateEnd);
         $endDateTimeStamp = $endDate->getTimestamp();
 
-        $metricsDao = DAORegistry::getDao('MetricsDAO');
-
         $count = 0;
         while ($currentDate->getTimestamp() < $endDateTimeStamp) {
             foreach ($submissionIds as $submissionId) {
-                $metricsDao->insertRecord([
+                DB::table('metrics_submission')->insert([
                     'load_id' => 'test_events_' . $currentDate->format('Ymd'),
-                    'assoc_type' => ASSOC_TYPE_SUBMISSION,
-                    'assoc_id' => $submissionId,
+                    'context_id' => $this->contextId,
                     'submission_id' => $submissionId,
-                    'metric_type' => METRIC_TYPE_COUNTER,
+                    'assoc_type' => Application::ASSOC_TYPE_SUBMISSION,
+                    'date' => $currentDate->format('Y-m-d'),
                     'metric' => rand(1, 10),
-                    'day' => $currentDate->format('Ymd'),
-                    'representation_id' => null,
                 ]);
                 $count++;
             }

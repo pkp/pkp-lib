@@ -237,8 +237,13 @@ class PKPNavigationMenuItemsForm extends Form
                     $this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
                 }
             } elseif ($this->getData('menuItemType') == NavigationMenuItem::NMI_TYPE_REMOTE_URL) {
+                $context = Application::get()->getRequest()->getContext();
                 $remoteUrls = $this->getData('remoteUrl');
-                foreach ($remoteUrls as $remoteUrl) {
+                foreach ($remoteUrls as $locale => $remoteUrl) {
+                    // URLs are optional for languages other than the primary locale.
+                    if ($locale !== $context->getPrimaryLocale() && $remoteUrl == '') {
+                        continue;
+                    }
                     if (!filter_var($remoteUrl, FILTER_VALIDATE_URL)) {
                         $this->addError('remoteUrl', __('manager.navigationMenus.form.customUrlError'));
                     }

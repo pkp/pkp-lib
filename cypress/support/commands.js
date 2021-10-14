@@ -52,6 +52,10 @@ Cypress.Commands.add('logout', function() {
 	cy.visit('index.php/index/login/signOut');
 });
 
+Cypress.Commands.add('setLocale', locale => {
+	cy.visit('index.php/index/user/setLocale/' + locale);
+});
+
 Cypress.Commands.add('resetPassword', (username,oldPassword,newPassword) => {
 	oldPassword = oldPassword || (username + username);
 	newPassword = newPassword || oldPassword;

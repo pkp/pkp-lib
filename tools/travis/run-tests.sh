@@ -9,7 +9,7 @@
 # Script to run data build, unit, and integration tests.
 #
 
-set -xe
+set -e
 
 # Run the data build suite (integration tests).
 $(npm bin)/cypress run --headless --browser chrome --config integrationFolder=cypress/tests/data

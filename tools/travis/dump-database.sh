@@ -16,7 +16,7 @@
 # - DBHOST: Database hostname
 # - DATABASEDUMP: Path and filename to database dump file
 
-set -xe
+set -e
 
 # Dump the completed database.
 case "$DBTYPE" in

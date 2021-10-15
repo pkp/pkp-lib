@@ -9,7 +9,7 @@
 # Script to install the Composer dependencies.
 #
 
-set -xe
+set -e
 
 # Search for composer.json files, and run Composer to install the dependencies.
 find . -maxdepth 4 -name composer.json -exec bash -c 'composer --working-dir="`dirname {}`" install' ";"

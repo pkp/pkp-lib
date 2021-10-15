@@ -22,7 +22,7 @@
 #  TIMEOUT=30: Selenium timeout; optional, 30 seconds by default
 #
 
-set -xe # Fail on first error
+set -e # Fail on first error
 
 # We recommend using Travis (https://travis-ci.org/) for continuous-integration
 # based testing. Review the Travis configuration file (.travis.yml) as a

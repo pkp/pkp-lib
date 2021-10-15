@@ -14,11 +14,12 @@ set -xe
 # Set some environment variables.
 export BASEURL="http://localhost" # This is the URL to the OJS installation directory.
 export DBHOST=localhost # Database hostname
-export DBNAME=ojs-ci # Database name
-export DBUSERNAME=ojs-ci # Database username
-export DBPASSWORD=ojs-ci # Database password
+export DBNAME=${APPLICATION}-ci # Database name
+export DBUSERNAME=${APPLICATION}-ci # Database username
+export DBPASSWORD=${APPLICATION}-ci # Database password
 export FILESDIR=files # Files directory (relative to OJS installation -- do not do this in production!)
 export DATABASEDUMP=~/database.sql.gz # Path and filename where a database dump can be created/accessed
+export FILESDUMP=~/files.tar.gz # Path and filename where a database dump can be created/accessed
 
 # Install required software
 sudo apt-get install -q -y libbiblio-citation-parser-perl libhtml-parser-perl
@@ -26,17 +27,17 @@ sudo apt-get install -q -y libbiblio-citation-parser-perl libhtml-parser-perl
 # Create the database and grant permissions.
 if [[ "$TEST" == "pgsql" ]]; then
 	sudo service postgresql start
-	psql -c "CREATE DATABASE \"ojs-ci\";" -U postgres
-	psql -c "CREATE USER \"ojs-ci\" WITH PASSWORD 'ojs-ci';" -U postgres
-	psql -c "GRANT ALL PRIVILEGES ON DATABASE \"ojs-ci\" TO \"ojs-ci\";" -U postgres
+	psql -c "CREATE DATABASE \"${DBNAME}\";" -U postgres
+	psql -c "CREATE USER \"${DBUSERNAME}\" WITH PASSWORD '${DBPASSWORD}';" -U postgres
+	psql -c "GRANT ALL PRIVILEGES ON DATABASE \"${DBNAME}\" TO \"${DBUSERNAME}\";" -U postgres
 	echo "${DBHOST}:5432:${DBNAME}:${DBUSERNAME}:${DBPASSWORD}" > ~/.pgpass
 	chmod 600 ~/.pgpass
 	export DBTYPE=PostgreSQL
 elif [[ "$TEST" == "mysql" ]]; then
 	sudo service mysql start
-	sudo mysql -u root -e 'CREATE DATABASE `ojs-ci` DEFAULT CHARACTER SET utf8'
-	sudo mysql -u root -e "CREATE USER \`ojs-ci\`@localhost IDENTIFIED BY 'ojs-ci'"
-	sudo mysql -u root -e "GRANT ALL ON \`ojs-ci\`.* TO \`ojs-ci\`@localhost WITH GRANT OPTION"
+	sudo mysql -u root -e "CREATE DATABASE \`${DBNAME}\` DEFAULT CHARACTER SET utf8"
+	sudo mysql -u root -e "CREATE USER \`${DBUSERNAME}\`@${DBHOST} IDENTIFIED BY '${DBPASSWORD}'"
+	sudo mysql -u root -e "GRANT ALL ON \`${DBNAME}\`.* TO \`${DBUSERNAME}\`@localhost WITH GRANT OPTION"
 	export DBTYPE=MySQLi
 fi
 

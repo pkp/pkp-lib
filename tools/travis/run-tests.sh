@@ -19,6 +19,22 @@ $(npm bin)/cypress run --headless --browser chrome --config integrationFolder=cy
 ./lib/pkp/tools/travis/dump-database.sh
 tar czf ${FILESDUMP} ${FILESDIR}
 
+# If desired, store the built dataset in https://github.com/pkp/datasets
+if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$SAVE_BUILD" == "true" ]]; then
+      git clone https://pkp-machine-user:${GITHUB_ACCESS_KEY}@github.com/pkp/datasets
+      rm -rf datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
+      mkdir -p datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
+      zcat ${DATABASEDUMP} > datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/database.sql
+      tar -C datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST} -x -z -f ${FILESDUMP}
+      cp config.inc.php datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/config.inc.php
+      cp -r public datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
+      cd datasets
+      git add --all
+      git commit -m "Update datasets (${TRAVIS_BRANCH})"
+      git push
+      cd ..
+fi
+
 # Run the pkp-lib integration tests.
 $(npm bin)/cypress run --headless --browser chrome --config integrationFolder=lib/pkp/cypress/tests/integration
 if [ -d "cypress/tests/integration" ]; then

@@ -9,7 +9,7 @@
 # Script to prepare and start the PHP internal webserver for Travis testing.
 #
 
-set -xe
+set -e
 
 # Add our PHP configuration variables to the default configuration.
 if [ -z "$TRAVIS" ] ; then

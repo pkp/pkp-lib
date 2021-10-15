@@ -9,7 +9,7 @@
 # Script to validate all JSON files in the repository (unless excluded).
 #
 
-set -xe # Fail on first error
+set -e # Fail on first error
 
 # Search for all JSON files in the current directory
 REPOSITORY_DIR="."

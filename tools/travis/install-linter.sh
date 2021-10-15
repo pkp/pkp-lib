@@ -9,7 +9,7 @@
 # Script to install the JS linter.
 #
 
-set -xe
+set -e
 
 # Install python, linter, closure compiler stuff
 sudo pip install six

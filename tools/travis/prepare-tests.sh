@@ -9,7 +9,7 @@
 # Script to prepare the environment for the test suite.
 #
 
-set -xe
+set -e
 
 # Set some environment variables.
 export BASEURL="http://localhost" # This is the URL to the OJS installation directory.

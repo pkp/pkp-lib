@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-14 21:06+0000\n"
+"PO-Revision-Date: 2021-10-16 12:06+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -157,3 +157,232 @@ msgstr "Текуща таблица със стилове"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Проект Публично Познание (Public Knowledge Project)"
+
+msgid "common.fullscreen"
+msgstr "Цял екран"
+
+msgid "common.finish"
+msgstr "Завършване"
+
+msgid "common.export"
+msgstr "Експорт"
+
+msgid "common.event"
+msgstr "Събитие"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Тази страница изисква рамки. <a href=\"{$url}\"> Щракнете тук </a> за "
+"версията без рамки."
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Възникна неизвестна грешка при свързване към база данни."
+
+msgid "common.error.databaseError"
+msgstr "Възникна грешка в базата данни: {$error}"
+
+msgid "common.enabled"
+msgstr "Активиран"
+
+msgid "common.enable"
+msgstr "Активиране"
+
+msgid "common.editItem"
+msgstr "Редактиране {$name}"
+
+msgid "common.edit"
+msgstr "Редактиране"
+
+msgid "common.downloadPdf"
+msgstr "Сваляне на PDF"
+
+msgid "common.download"
+msgstr "Сваляне"
+
+msgid "common.done"
+msgstr "Изпълнено"
+
+msgid "common.discipline"
+msgstr "Дисциплина"
+
+msgid "common.disabled"
+msgstr "Деактивиран"
+
+msgid "common.disable"
+msgstr "Деактивиране"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} пиксела"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; в {$dpi} DPI/PPI"
+
+msgid "common.description"
+msgstr "Описание"
+
+msgid "common.designation"
+msgstr "Обозначаване"
+
+msgid "common.deleteSelection"
+msgstr "Изтриване на избраното"
+
+msgid "common.deleting"
+msgstr "В процес на изтриване"
+
+msgid "common.delete"
+msgstr "Изтриване"
+
+msgid "common.declined"
+msgstr "Отказан"
+
+msgid "common.default"
+msgstr "По подразбиране"
+
+msgid "common.deactivate"
+msgstr "Деактивиране"
+
+msgid "common.day"
+msgstr "Ден"
+
+msgid "common.dateHijri"
+msgstr "Календар Хиджри"
+
+msgid "common.dateUploaded"
+msgstr "Дата на качване"
+
+msgid "common.dateSubmitted"
+msgstr "Дата на изпращане"
+
+msgid "common.dateRequested"
+msgstr "Дата на искане"
+
+msgid "common.dateModified"
+msgstr "Дата на промяна"
+
+msgid "common.date"
+msgstr "Дата"
+
+msgid "common.dateDecided"
+msgstr "Дата на решението"
+
+msgid "common.dateCompleted"
+msgstr "Дата на завършване"
+
+msgid "common.create"
+msgstr "Създай"
+
+msgid "common.country"
+msgstr "Държава"
+
+msgid "common.copy"
+msgstr "Копиране"
+
+msgid "common.continue"
+msgstr "Продължи"
+
+msgid "common.contents"
+msgstr "Съдържания"
+
+msgid "common.content"
+msgstr "Съдържание"
+
+msgid "common.confirmed.date"
+msgstr "Потвърдено: {$dateConfirmed}"
+
+msgid "common.confirm"
+msgstr "Потвърди"
+
+msgid "common.completed.date"
+msgstr "Завършено: {$dateCompleted}"
+
+msgid "common.completed"
+msgstr "Завършено"
+
+msgid "common.complete"
+msgstr "Завършване"
+
+msgid "common.closeWindow"
+msgstr "Затвори прозореца"
+
+msgid "common.closePanel"
+msgstr "Затвори панела"
+
+msgid "common.close"
+msgstr "Затвори"
+
+msgid "common.chooseOne"
+msgstr "Изберете едно"
+
+msgid "common.changesSaved"
+msgstr "Вашите промени са запазени."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tТази работа е лицензирана под <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
+"Commons Attribution 3.0 лиценз</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tТази работа е лицензирана под  <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0  лиценз</a>.\n"
+"\t"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Трябва да завършите проверката за валидиране, използвана за предотвратяване "
+"на изпращането на спам."
+
+msgid "common.notice"
+msgstr "Бележка"
+
+msgid "common.error"
+msgstr "Грешка"
+
+msgid "common.warning"
+msgstr "Предупреждение"
+
+msgid "common.cancelled"
+msgstr "Отказан"
+
+msgid "common.cancel"
+msgstr "Отказ"
+
+msgid "common.between"
+msgstr "между"
+
+msgid "common.back"
+msgstr "Назад"
+
+msgid "common.available"
+msgstr "Достъпно"
+
+msgid "common.assigned.date"
+msgstr "Присвоени: {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "Присвоени"
+
+msgid "common.assign"
+msgstr "Присвояване"
+
+msgid "common.applyAction"
+msgstr "Прилагане на действието"

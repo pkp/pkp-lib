@@ -14,9 +14,10 @@ set -xe
 # Run the data build suite (integration tests).
 $(npm bin)/cypress run --headless --browser chrome --config integrationFolder=cypress/tests/data
 
-# Dump the database before continuing. Some tests restore this to reset the
+# Dump the database and files before continuing. Tests may restore this to reset the
 # environment.
 ./lib/pkp/tools/travis/dump-database.sh
+tar czf ${FILESDUMP} ${FILESDIR}
 
 # Run the pkp-lib integration tests.
 $(npm bin)/cypress run --headless --browser chrome --config integrationFolder=lib/pkp/cypress/tests/integration

@@ -37,6 +37,11 @@
 	{rdelim});
 </script>
 
+{* Form for deleting the profile image (placed here to avoid nesting forms) *}
+<form type="post" action="{url op="deleteProfileImage"}" id="deleteProfileImageForm">
+	{csrf}
+</form>
+
 <form class="pkp_form" id="publicProfileForm" method="post" action="{url op="savePublicProfile"}" enctype="multipart/form-data">
 	{csrf}
 
@@ -47,7 +52,7 @@
 			{* Add a unique ID to prevent caching *}
 			<img src="{$baseUrl}/{$publicSiteFilesPath}/{$profileImage.uploadName}?{""|uniqid}" alt="{translate key="user.profile.form.profileImage"}" />
 			<div>
-				<a class="pkp_button pkp_button_offset" href="{url op="deleteProfileImage"}">{translate key="common.delete"}</a>
+				<button onclick="document.getElementById('deleteProfileImageForm').submit(); return false;" class="pkp_button pkp_button_offset">{translate key="common.delete"}</button>
 			</div>
 		{/if}
 	{/fbvFormSection}

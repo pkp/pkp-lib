@@ -117,6 +117,10 @@ class PublicProfileForm extends BaseProfileForm
      */
     public function deleteProfileImage()
     {
+        if (!Application::get()->getRequest()->checkCSRF()) {
+            throw new \Exception('CSRF mismatch!');
+        }
+
         $user = $this->getUser();
         $profileImage = $user->getData('profileImage');
         if (!$profileImage) {

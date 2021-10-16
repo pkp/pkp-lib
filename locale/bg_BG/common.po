@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-16 12:06+0000\n"
+"PO-Revision-Date: 2021-10-16 21:51+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -386,3 +386,165 @@ msgstr "Присвояване"
 
 msgid "common.applyAction"
 msgstr "Прилагане на действието"
+
+msgid "common.note"
+msgstr "Бележка"
+
+msgid "common.notAvailable"
+msgstr "Не е достъпно"
+
+msgid "common.notApplicableShort"
+msgstr "Неприл."
+
+msgid "common.notApplicable"
+msgstr "Не е приложимо"
+
+msgid "common.noComments"
+msgstr "Няма коментари"
+
+msgid "common.noItemsFound"
+msgstr "Не са намерени елементи."
+
+msgid "common.no"
+msgstr "Не"
+
+msgid "common.none"
+msgstr "Нито един"
+
+msgid "common.noneAssigned"
+msgstr "Не е асоцииран"
+
+msgid "common.moreThanOnly"
+msgstr "Повече от"
+
+msgid "common.moreThan"
+msgstr "{$value} или повече"
+
+msgid "common.more"
+msgstr "Повече"
+
+msgid "common.month"
+msgstr "Месец"
+
+msgid "common.modify"
+msgstr "Модифициране"
+
+msgid "common.minute"
+msgstr "Минута(и)"
+
+msgid "common.billingAddress"
+msgstr "Адрес за плащане (ако е различен)"
+
+msgid "common.mailingAddress"
+msgstr "Пощенски адрес"
+
+msgid "common.manage"
+msgstr "Управление"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.lessThanOnly"
+msgstr "По-малко от"
+
+msgid "common.lessThan"
+msgstr "{$value} или по-малко"
+
+msgid "common.less"
+msgstr "По-малко"
+
+msgid "common.lastActivity"
+msgstr "Последна активност, записана на {$date}."
+
+msgid "common.languages"
+msgstr "Езици"
+
+msgid "common.language"
+msgstr "Език"
+
+msgid "common.keywords"
+msgstr "Ключови думи"
+
+msgid "common.itemsPerPage"
+msgstr "Елементи на страница"
+
+msgid "common.insert"
+msgstr "Вмъкване"
+
+msgid "common.inProgress"
+msgstr "В процес"
+
+msgid "common.initiate"
+msgstr "Започни"
+
+msgid "common.import"
+msgstr "Импорт"
+
+msgid "common.id"
+msgstr "Идентификатор"
+
+msgid "common.hour"
+msgstr "Час"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Лого на горния колонтитул (header) на  главната страница"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Начална"
+
+msgid "common.height"
+msgstr "Височина"
+
+msgid "common.go"
+msgstr "Изпълни"
+
+msgid "common.until"
+msgstr "До"
+
+msgid "common.fromWithValue"
+msgstr "От: {$value}"
+
+msgid "common.from"
+msgstr "От"
+
+msgid "common.filterRemove"
+msgstr "Изчистване на филтър: {$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "Добавяне на филтър: {$filterTitle}"
+
+msgid "common.filter"
+msgstr "Филтри"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Системният файл на качване на файлове се зарежда. Ако не се появи, вероятно "
+"този браузър не поддържа нито едно от неговите програмни изпълнения. Моля, "
+"свържете се с администрацията за поддръжка."
+
+msgid "common.fileType"
+msgstr "Тип на файл"
+
+msgid "common.fileSize"
+msgstr "Големина на файл"
+
+msgid "common.fileName"
+msgstr "Име на файл"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "БГ: {$genre}, {$originalFilename}"
+
+msgid "common.file.namingPattern"
+msgstr "БГ: {$username}, {$originalFilename}"
+
+msgid "common.file"
+msgstr "Файл"
+
+msgid "common.false"
+msgstr "Неистина (false)"
+
+msgid "common.fullscreenOff"
+msgstr "Изключване на режим \"цял екран\""

@@ -1,8 +1,9 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
+# Barbara Bornewasser <bornewasser@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-04 21:04+0000\n"
-"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"PO-Revision-Date: 2021-10-19 13:06+0000\n"
+"Last-Translator: Barbara Bornewasser <bornewasser@mikado-ac.info>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/emails/de_DE/"
 ">\n"
 "Language: de_DE\n"
@@ -321,7 +322,7 @@ msgid "emails.passwordResetConfirm.description"
 msgstr ""
 "Diese E-Mail wird an einen registrierten Benutzer gesendet, wenn dieser "
 "angibt, dass er sein Passwort vergessen hat oder sich nicht anmelden kann. "
-"Sie enthält eine URL, der sie folgen können, um ihr Passwort zurückzusetzen."
+"Sie enthält eine URL, der Sie folgen können, um Ihr Passwort zurückzusetzen."
 
 msgid "emails.passwordResetConfirm.body"
 msgstr ""

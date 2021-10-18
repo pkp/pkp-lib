@@ -414,11 +414,11 @@ class PKPMetricsDAO extends \PKP\db\DAO
                 $isFile = true;
                 $submissionId = $submissionFile->getData('submissionId');
 
-                if (!$submissionFile->itsAssocTypeRepresentation()) {
+                if (!$submissionFile->getData('assocType') === PKPApplication::ASSOC_TYPE_REPRESENTATION) {
                     throw new Exception('Cannot load record: submission file is not associated with a representation object.');
                 }
 
-                if ($submissionFile->itsAssocTypeRepresentation() &&
+                if ($submissionFile->getData('assocType') === PKPApplication::ASSOC_TYPE_REPRESENTATION &&
                     is_null($representationId)
                 ) {
                     throw new Exception('Cannot load record: the representation ID is missing for the submission file.');

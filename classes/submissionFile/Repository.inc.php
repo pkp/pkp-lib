@@ -317,8 +317,8 @@ class Repository
         );
 
         // Update status and notifications when revisions have been uploaded
-        if ($submissionFile->itsOnReviewRevisionStage() ||
-        $submissionFile->itsOnInternalReviewRevisionStage()) {
+        if ($submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION ||
+            $submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION) {
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $reviewRound = $reviewRoundDao->getById($submissionFile->getData('assocId'));
             if (!$reviewRound) {

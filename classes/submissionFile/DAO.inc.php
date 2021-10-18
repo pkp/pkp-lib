@@ -19,7 +19,7 @@ namespace PKP\submissionFile;
 
 use APP\core\Application;
 use APP\facades\Repo;
-
+use APP\submission\Submission;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
@@ -77,12 +77,12 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      */
     public function get(int $id): ?SubmissionFile
     {
-        $row = DB::table($this->table . ' as sf')
-            ->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
-            ->join('files as f', 'f.file_id', '=', 'sf.file_id')
+        $query = new Collector($this);
+        $row = $query
+            ->getQueryBuilder()
             ->where($this->primaryKeyColumn, '=', $id)
-            ->addSelect(['sf.*', 'f.*', 's.locale as locale'])
             ->first();
+
         return $row ? $this->fromRow($row) : null;
     }
 
@@ -114,9 +114,6 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     {
         $rows = $query
             ->getQueryBuilder()
-            ->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
-            ->join('files as f', 'f.file_id', '=', 'sf.file_id')
-            ->addSelect(['sf.*', 'f.*', 's.locale as locale'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {
@@ -257,7 +254,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
 
         $submissionFile = $this->get($submissionFileId);
 
-        if ($submissionFile->itsOnFileProofStage()) {
+        if ($submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_PROOF) {
             return $submissionFile;
         }
 

@@ -361,36 +361,6 @@ class SubmissionFile extends \PKP\core\DataObject
     {
         $this->setData('chapterId', $chapterId);
     }
-
-    public function itsOnReviewFileStage(): bool
-    {
-        return $this->getData('fileStage') === self::SUBMISSION_FILE_REVIEW_FILE;
-    }
-
-    public function itsOnReviewAttachmentStage(): bool
-    {
-        return $this->getData('fileStage') === self::SUBMISSION_FILE_REVIEW_ATTACHMENT;
-    }
-
-    public function itsOnReviewRevisionStage(): bool
-    {
-        return $this->getData('fileStage') === self::SUBMISSION_FILE_REVIEW_REVISION;
-    }
-
-    public function itsOnInternalReviewRevisionStage(): bool
-    {
-        return $this->getData('fileStage') === self::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION;
-    }
-
-    public function itsOnFileProofStage(): bool
-    {
-        return $this->getData('fileStage') === self::SUBMISSION_FILE_PROOF;
-    }
-
-    public function itsAssocTypeRepresentation(): bool
-    {
-        return $this->getData('assocType') === PKPApplication::ASSOC_TYPE_REPRESENTATION;
-    }
 }
 
 if (!PKP_STRICT_MODE) {

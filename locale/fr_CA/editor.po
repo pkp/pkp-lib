@@ -1,8 +1,8 @@
+# Barbara Bornewasser <bornewasser@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-28 19:34+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2021-10-19 13:06+0000\n"
+"Last-Translator: Barbara Bornewasser <bornewasser@mikado-ac.info>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "editor/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -41,3 +41,6 @@ msgstr ""
 "L'identifiant public « {$publicIdentifier} » existe déjà pour un autre objet "
 "(prépublication, épreuves ou fichier complémentaire). Veuillez choisir des "
 "identifiants uniques au sein de votre serveur."
+
+msgid "editor.submissions.assignedTo"
+msgstr "Assigné au modérateur"

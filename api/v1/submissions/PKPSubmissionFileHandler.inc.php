@@ -213,7 +213,7 @@ class PKPSubmissionFileHandler extends APIHandler
             ->summarizeMany($files);
 
         $data = [
-            'itemsMax' => Repo::submissionFiles()->getCount($collector),
+            'itemsMax' => $files->count(),
             'items' => $items,
         ];
 

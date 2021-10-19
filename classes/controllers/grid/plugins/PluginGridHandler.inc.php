@@ -397,6 +397,9 @@ abstract class PluginGridHandler extends CategoryGridHandler
      */
     public function saveUploadPlugin($args, $request)
     {
+        if (!$request->checkCSRF()) {
+            throw new Exception('CSRF mismatch!');
+        }
         $function = $request->getUserVar('function');
         $uploadPluginForm = new UploadPluginForm($function);
         $uploadPluginForm->readInputData();

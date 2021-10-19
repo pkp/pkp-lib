@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-19 15:06+0000\n"
+"PO-Revision-Date: 2021-10-21 09:07+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -651,3 +651,93 @@ msgid "common.noTemporaryFile"
 msgstr ""
 "Каченият от вас файл не може да бъде намерен. Моля, опитайте да го качите "
 "отново."
+
+msgid "common.selectedPrefix"
+msgstr "Избрани:"
+
+msgid "common.selectAll"
+msgstr "Избиране на всички"
+
+msgid "common.second"
+msgstr "Секунда(и)"
+
+msgid "common.clearSearch"
+msgstr "Изтрий търсената фраза"
+
+msgid "common.searchQuery"
+msgstr "Въпрос (query) за търсене"
+
+msgid "common.search"
+msgstr "Търсене"
+
+msgid "common.saving"
+msgstr "Записва се в момента"
+
+msgid "common.save"
+msgstr "Записване"
+
+msgid "common.saveAndEmail"
+msgstr "Запис и изпращане на имейл"
+
+msgid "common.saveAndContinue"
+msgstr "Запис и продължение"
+
+msgid "common.reset"
+msgstr "Нулиране (reset)"
+
+msgid "common.required"
+msgstr "Задължително"
+
+msgid "common.requiredField"
+msgstr "* Обозначава задължително поле"
+
+msgid "common.replaceFile"
+msgstr "Заместване на файл"
+
+msgid "common.replaced"
+msgstr "Заместен"
+
+msgid "common.removeSelection"
+msgstr "Премахване на избраното"
+
+msgid "common.removeItem"
+msgstr "Премахване на {$item}"
+
+msgid "common.remove"
+msgstr "Премахване"
+
+msgid "common.remoteURL"
+msgstr "Отдалечен URL"
+
+msgid "common.remote"
+msgstr "Отдалечен"
+
+msgid "common.reminded.date"
+msgstr "Напомняне на дата: {$dateReminded}"
+
+msgid "common.reminder"
+msgstr "Напомняне"
+
+msgid "common.related"
+msgstr "Свързани"
+
+msgid "common.refresh"
+msgstr "Обновяване"
+
+msgid "common.record"
+msgstr "Запис"
+
+msgid "common.readMoreWithTitle"
+msgstr "Повече за {$title}"
+
+msgid "common.readMore"
+msgstr "Повече"
+
+msgid "common.re"
+msgstr "Отг.:"
+
+msgid "common.range"
+msgstr "{$min} - {$max}"
+
+msgid "common.queue.long.active"
+msgstr "Всички активни"

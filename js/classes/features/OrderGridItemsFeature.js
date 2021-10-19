@@ -56,7 +56,7 @@
 		stringifiedData = JSON.stringify(this.getItemsDataId());
 		saveOrderCallback = this.callbackWrapper(
 				this.saveOrderResponseHandler_, this);
-		$.post(options.saveItemsSequenceUrl, {data: stringifiedData},
+		$.post(options.saveItemsSequenceUrl, {data: stringifiedData, csrfToken: options.csrfToken},
 				saveOrderCallback, 'json');
 
 		return false;

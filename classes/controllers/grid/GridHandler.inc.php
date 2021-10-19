@@ -857,6 +857,9 @@ class GridHandler extends PKPHandler
      */
     public function saveSequence($args, $request)
     {
+        if (!$request->checkCSRF()) {
+            throw new \Exception('CSRF mismatch!');
+        }
         $this->callFeaturesHook('saveSequence', ['request' => &$request, 'grid' => &$this]);
 
         return \PKP\db\DAO::getDataChangedEvent();

@@ -164,11 +164,11 @@ class PKPSubmissionFileHandler extends APIHandler
 
         if (empty($params['fileStages'])) {
             $params['fileStages'] = $allowedFileStages;
-        }
-
-        foreach ($params['fileStages'] as $fileStage) {
-            if (!in_array($fileStage, $allowedFileStages)) {
-                return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageId');
+        } else {
+            foreach ($params['fileStages'] as $fileStage) {
+                if (!in_array($fileStage, $allowedFileStages)) {
+                    return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageId');
+                }
             }
         }
 

@@ -19,7 +19,6 @@ namespace PKP\submissionFile;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\submission\Submission;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;

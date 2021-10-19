@@ -74,7 +74,7 @@ class RegistrationHandler extends UserHandler {
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign(array(
 				'requireValidation' => true,
-				'pageTitle' => 'user.login.registrationPendingValidation',
+				'pageTitle' => __('user.login.registrationPendingValidation'),
 				'messageTranslated' => __('user.login.accountNotValidated', array('email' => $regForm->getData('email'))),
 			));
 			return $templateMgr->display('frontend/pages/message.tpl');
@@ -91,11 +91,11 @@ class RegistrationHandler extends UserHandler {
 			$this->setupTemplate($request);
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign(array(
-				'pageTitle' => 'user.login',
-				'errorMsg' => $reason==''?'user.login.accountDisabled':'user.login.accountDisabledWithReason',
+				'pageTitle' => __('user.login'),
+				'errorMsg' => $reason==''? __('user.login.accountDisabled') : __('user.login.accountDisabledWithReason'),
 				'errorParams' => array('reason' => $reason),
 				'backLink' => $request->url(null, 'login'),
-				'backLinkLabel' => 'user.login',
+				'backLinkLabel' => __('user.login'),
 			));
 			return $templateMgr->display('frontend/pages/error.tpl');
 		}
@@ -150,7 +150,7 @@ class RegistrationHandler extends UserHandler {
 			$userDao->updateObject($user);
 
 			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('message', 'user.login.activated');
+			$templateMgr->assign('message', __('user.login.activated'));
 			return $templateMgr->display('frontend/pages/message.tpl');
 		}
 		$request->redirect(null, 'login');
@@ -182,10 +182,10 @@ class RegistrationHandler extends UserHandler {
 			$this->setupTemplate($request);
 			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign(array(
-				'pageTitle' => 'user.register',
-				'errorMsg' => 'user.register.registrationDisabled',
+				'pageTitle' => __('user.register'),
+				'errorMsg' => __('user.register.registrationDisabled'),
 				'backLink' => $request->url(null, 'login'),
-				'backLinkLabel' => 'user.login',
+				'backLinkLabel' => __('user.login'),
 			));
 			$templateMgr->display('frontend/pages/error.tpl');
 			exit;

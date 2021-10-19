@@ -125,7 +125,7 @@ class LoginHandler extends Handler {
 				'remember' => $request->getUserVar('remember'),
 				'source' => $request->getUserVar('source'),
 				'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
-				'error' => $reason===null?'user.login.loginError':($reason===''?'user.login.accountDisabled':'user.login.accountDisabledWithReason'),
+				'error' => $reason===null ? __('user.login.loginError') : ($reason==='' ? __('user.login.accountDisabled') : __('user.login.accountDisabledWithReason')),
 				'reason' => $reason,
 			));
 			$templateMgr->display('frontend/pages/userLogin.tpl');
@@ -170,7 +170,7 @@ class LoginHandler extends Handler {
 		$user = $userDao->getUserByEmail($email);
 
 		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
-			$templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
+			$templateMgr->assign('error', __('user.login.lostPassword.invalidUser'));
 			$templateMgr->display('frontend/pages/userLostPassword.tpl');
 
 		} else {
@@ -187,10 +187,10 @@ class LoginHandler extends Handler {
 			$mail->send();
 
 			$templateMgr->assign(array(
-				'pageTitle' => 'user.login.resetPassword',
-				'message' => 'user.login.lostPassword.confirmationSent',
+				'pageTitle' => __('user.login.resetPassword'),
+				'message' => __('user.login.lostPassword.confirmationSent'),
 				'backLink' => $request->url(null, $request->getRequestedPage()),
-				'backLinkLabel' => 'user.login',
+				'backLinkLabel' => __('user.login'),
 			));
 			$templateMgr->display('frontend/pages/message.tpl');
 		}
@@ -215,9 +215,9 @@ class LoginHandler extends Handler {
 
 		if (!Validation::verifyPasswordResetHash($user->getId(), $confirmHash)) {
 			$templateMgr->assign(array(
-				'errorMsg' => 'user.login.lostPassword.invalidHash',
+				'errorMsg' => __('user.login.lostPassword.invalidHash'),
 				'backLink' => $request->url(null, null, 'lostPassword'),
-				'backLinkLabel' => 'user.login.resetPassword',
+				'backLinkLabel' => __('user.login.resetPassword'),
 			));
 			$templateMgr->display('frontend/pages/error.tpl');
 
@@ -258,10 +258,10 @@ class LoginHandler extends Handler {
 			}
 
 			$templateMgr->assign(array(
-				'pageTitle' => 'user.login.resetPassword',
-				'message' => 'user.login.lostPassword.passwordSent',
+				'pageTitle' => __('user.login.resetPassword'),
+				'message' => __('user.login.lostPassword.passwordSent'),
 				'backLink' => $request->url(null, $request->getRequestedPage()),
-				'backLinkLabel' => 'user.login',
+				'backLinkLabel' => __('user.login'),
 			));
 			$templateMgr->display('frontend/pages/message.tpl');
 		}
@@ -326,10 +326,10 @@ class LoginHandler extends Handler {
 				// over this user. Display an error.
 				$templateMgr = TemplateManager::getManager($request);
 				$templateMgr->assign(array(
-					'pageTitle' => 'manager.people',
-					'errorMsg' => 'manager.people.noAdministrativeRights',
+					'pageTitle' => __('manager.people'),
+					'errorMsg' => __('manager.people.noAdministrativeRights'),
 					'backLink' => $request->url(null, null, 'people', 'all'),
-					'backLinkLabel' => 'manager.people.allUsers',
+					'backLinkLabel' => __('manager.people.allUsers'),
 				));
 				return $templateMgr->display('frontend/pages/error.tpl');
 			}

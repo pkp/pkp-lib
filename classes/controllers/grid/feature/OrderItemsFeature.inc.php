@@ -94,7 +94,8 @@ class OrderItemsFeature extends GridFeature {
 
 		$router = $request->getRouter();
 		$this->addOptions(array(
-			'saveItemsSequenceUrl' => $router->url($request, null, null, 'saveSequence', null, $grid->getRequestArgs())
+			'saveItemsSequenceUrl' => $router->url($request, null, null, 'saveSequence', null, $grid->getRequestArgs()),
+			'csrfToken' => $request->getSession()->getCsrfToken()
 		));
 	}
 

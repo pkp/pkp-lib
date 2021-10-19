@@ -21,6 +21,8 @@ use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 
+use Sokil\IsoCodes\IsoCodesFactory;
+
 class ContactForm extends BaseProfileForm
 {
     /**
@@ -49,7 +51,7 @@ class ContactForm extends BaseProfileForm
     public function fetch($request, $template = null, $display = false)
     {
         $site = $request->getSite();
-        $isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+        $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
         foreach ($isoCodes->getCountries() as $country) {
             $countries[$country->getAlpha2()] = $country->getLocalName();

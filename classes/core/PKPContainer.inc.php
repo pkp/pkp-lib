@@ -23,6 +23,9 @@ use Illuminate\Container\Container;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
+use PKP\i18n\PKPLocale;
+use Sokil\IsoCodes\IsoCodesFactory;
+use Sokil\IsoCodes\TranslationDriver\GettextExtensionDriver;
 use Throwable;
 
 class PKPContainer extends Container
@@ -75,6 +78,13 @@ class PKPContainer extends Container
                     echo (string) $e;
                 }
             };
+        });
+
+        // This singleton is necessary to keep user selected language across the application
+        $this->singleton(IsoCodesFactory::class, function () {
+            $driver = new GettextExtensionDriver();
+            $driver->setLocale(PKPLocale::getLocale());
+            return new IsoCodesFactory(null, $driver);
         });
 
         Facade::setFacadeApplication($this);
@@ -222,6 +232,7 @@ class PKPContainer extends Container
 
     /**
      * Retrieves default mailer driver depending on the configuration
+     *
      * @throws Exception
      */
     protected static function getDefaultMailer(): string

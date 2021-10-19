@@ -18,6 +18,8 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FormComponent;
 
+use Sokil\IsoCodes\IsoCodesFactory;
+
 define('FORM_PAYMENT_SETTINGS', 'paymentSettings');
 
 class PKPPaymentSettingsForm extends FormComponent
@@ -41,7 +43,7 @@ class PKPPaymentSettingsForm extends FormComponent
         $this->locales = $locales;
 
         $currencies = [];
-        $isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+        $isoCodes = app(IsoCodesFactory::class);
         foreach ($isoCodes->getCurrencies() as $currency) {
             $currencies[] = [
                 'value' => $currency->getLetterCode(),

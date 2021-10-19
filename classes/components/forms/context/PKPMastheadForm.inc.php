@@ -43,7 +43,7 @@ class PKPMastheadForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        $isoCodes = new IsoCodesFactory();
+        $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
         foreach ($isoCodes->getCountries() as $country) {
             $countries[] = [

@@ -21,6 +21,8 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 
 use PKP\core\JSONMessage;
+use PKP\core\PKPString;
+
 use PKP\plugins\PKPPubIdPlugin;
 
 abstract class PubIdPlugin extends PKPPubIdPlugin
@@ -113,8 +115,8 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
 
         // Get the context id.
         if ($pubObjectType === 'Representation') {
-            $publication = Repo::submission()->get($pubObject->getData('publicationId'));
-            $submission = Repo::publication()->get($publication->getData('submissionId'));
+            $publication = Repo::publication()->get($pubObject->getData('publicationId'));
+            $submission = Repo::submission()->get($publication->getData('submissionId'));
             $contextId = $submission->getData('contextId');
         } elseif ($pubObjectType === 'Publication') {
             $submission = Repo::submission()->get($pubObject->getData('submissionId'));

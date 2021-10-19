@@ -19,6 +19,7 @@ namespace APP\server;
 
 use APP\facades\Repo;
 use PKP\context\ContextDAO;
+use PKP\db\DAORegistry;
 use PKP\metadata\MetadataTypeDescription;
 
 class ServerDAO extends ContextDAO

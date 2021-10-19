@@ -222,12 +222,12 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler
             null,
             $title,
             $author,
+            null,
             $pubIdStatusSettingName,
             $statusId,
             $this->getGridRangeInfo($request, $this->getId())
         );
     }
-
 
     //
     // Own protected methods

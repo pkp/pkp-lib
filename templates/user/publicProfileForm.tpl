@@ -26,6 +26,9 @@
 							{ldelim} title : "Image files", extensions : "jpg,jpeg,png,svg,gif" {rdelim}
 						]
 					{rdelim},
+					multipart_params: {ldelim}
+						csrfToken: {csrf type="json"}
+					{rdelim},
 					resize: {ldelim}
 						width: {$profileImageMaxWidth|intval},
 						height: {$profileImageMaxHeight|intval},

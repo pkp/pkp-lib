@@ -65,6 +65,8 @@ class PublicProfileForm extends BaseProfileForm {
 	 * @return boolean True iff success.
 	 */
 	function uploadProfileImage() {
+		if (!Application::get()->getRequest()->checkCSRF()) throw new Exception('CSRF mismatch!');
+
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
 

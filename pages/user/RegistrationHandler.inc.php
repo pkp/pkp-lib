@@ -42,7 +42,7 @@ class RegistrationHandler extends UserHandler {
 		if (Validation::isLoggedIn()) {
 			$this->setupTemplate($request);
 			$templateMgr = TemplateManager::getManager($request);
-			$templateMgr->assign('pageTitle', __('user.login.registrationComplete'));
+			$templateMgr->assign('pageTitle', 'user.login.registrationComplete');
 			return $templateMgr->display('frontend/pages/userRegisterComplete.tpl');
 		}
 

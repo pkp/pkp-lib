@@ -75,6 +75,10 @@ class PublicProfileForm extends BaseProfileForm
      */
     public function uploadProfileImage()
     {
+        if (!Application::get()->getRequest()->checkCSRF()) {
+            throw new \Exception('CSRF mismatch!');
+        }
+
         $publicFileManager = new PublicFileManager();
 
         $user = $this->getUser();

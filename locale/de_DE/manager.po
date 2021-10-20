@@ -1,11 +1,12 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-07-14 11:03+0000\n"
-"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
+"PO-Revision-Date: 2021-10-21 09:07+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -710,13 +711,11 @@ msgstr "Nie erinnern"
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Die Standards können für jedes Gutachten im Rahmen des redaktionellen Prozesses angepasst werden."
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
 "Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht "
 "innerhalb der genannten Zeit geantwortet hat (in Tagen)."
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der "
@@ -2124,7 +2123,7 @@ msgid "manager.statistics.reports.customReportGenerator"
 msgstr "Benutzerdefinierte Berichterstellung"
 
 msgid "manager.people.signedInAs"
-msgstr "Sie sind derzeit als {$Benutzername} angemeldet"
+msgstr "Sie sind derzeit als {$username} angemeldet"
 
 msgid "manager.export.usersToCsv.description"
 msgstr ""
@@ -2218,3 +2217,61 @@ msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.common.id"
 msgstr "ID: {$id}"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "Die URL zu der Einreichung im redaktionellen Backend"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Die vollen Namen der Autor/innen"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Autor/innennamen in Form eines verkürzten Strings"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Der Abstract der Einreichung"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Die unikate ID-Nummer der Einreichung"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Der Titel der Einreichung"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"Die Redakteur/innen, die Entscheidungen über diese Einreichung treffen können"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Der volle Name des Hauptkontakts der Website"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Die E-Mail-Signatur der Absenderin/des Absenders"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Die E-Mail-Adresse der Absenderin/des Absenders"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Der volle Name der Absenderin/des Absenders"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "Die URL zu der zugeordneten Begutachtung"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr ""
+"Datum, zu dem die begutachtende Person die Begutachtung fertig stellen soll"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+"Datum, zu dem die begutachtende Person die Zuordnung annehmen oder ablehnen "
+"soll"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr ""
+"Der Benutzer/innenname der Empfängerin/des Empfängers oder aller Empfangenden"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Der volle Name der Empfängerin/des Empfängers oder aller Empfangenden"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"Die URL zu einer Seite auf der ein/e Nutzer/in ein verlorenes Passwort "
+"wiederherstellen kann"

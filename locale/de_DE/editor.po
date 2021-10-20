@@ -1,10 +1,11 @@
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-05-31 19:23+0000\n"
-"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
+"PO-Revision-Date: 2021-10-21 09:07+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -405,9 +406,12 @@ msgstr "Noch nie zugewiesen"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Dieser Gutachterin/diesem Gutachter ist diese Einreichung bereits zur Begutachtung zugewiesen worden."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "Diese Gutachterin/dieser Gutachter ist gesperrt, weil sie eine Rolle zugewiesen bekommen haben, ind der sie die Identität der Autorin/des Autors einsehen dürfen. Eine blinde Begutachtung kann nicht garantiert werden. Möchten Sie diese Gutachterin bzw. diesen Gutachter dennoch freischalten?"
+msgstr ""
+"Diese Gutachterin/dieser Gutachter ist gesperrt, weil ihr/ihm eine Rolle "
+"zugewiesen wurde, die es ihr/ihm erlaubt, die Identität der Autorin/des "
+"Autors einzusehen. Eine blinde Begutachtung kann deswegen nicht garantiert "
+"werden. Möchten Sie diese Gutachterin/diesen Gutachter trotzdem freischalten?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Freischalten"

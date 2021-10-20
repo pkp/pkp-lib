@@ -1,9 +1,10 @@
 # Matthias <matt@m2labs.de>, 2021.
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-01 08:06+0000\n"
-"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"PO-Revision-Date: 2021-10-21 10:07+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/editor/de_DE/"
 ">\n"
 "Language: de_DE\n"
@@ -26,7 +27,7 @@ msgid "editor.submissions.assignedTo"
 msgstr "Zugewiesen an Moderator"
 
 msgid "editor.submission.postPreprint"
-msgstr "Den Vorabdruck veröffentlichen"
+msgstr "Den Preprint veröffentlichen"
 
 msgid "editor.publication.authorPublishRequirements"
 msgstr "Der Autor erfüllt die folgenden Entsendebedingungen nicht:"

@@ -186,8 +186,11 @@ class UserGridRow extends GridRow
                     );
                 }
 
-                // do not allow the deletion of the admin account.
-                if ($rowId > 1 && $canAdminister) {
+		// do not allow the deletion of your own account.
+		if (
+			$request->getUser()->getId() != $this->getId() and
+			$canAdminister
+		) {
                     $this->addAction(
                         new LinkAction(
                             'mergeUser',

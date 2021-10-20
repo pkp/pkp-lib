@@ -1,9 +1,10 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 # Barbara Bornewasser <bornewasser@mikado-ac.info>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-19 13:06+0000\n"
-"Last-Translator: Barbara Bornewasser <bornewasser@mikado-ac.info>\n"
+"PO-Revision-Date: 2021-10-21 10:07+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -42,20 +43,20 @@ msgstr "Name des Servers"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled.description"
 msgstr ""
-"Für diesen Vorabdruckserver wurde kein Hauptkontakt definiert. Sie können "
-"einen Hauptkontakt in den <a href=\"{$url}\">Vorabdruck-"
-"Servereinstellungen</a> eingeben"
+"Für diesen Preprint-Server wurde kein Hauptkontakt definiert. Sie können "
+"einen Hauptkontakt in den <a href=\"{$url}\">Preprint-Servereinstellungen</a>"
+" eingeben"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
 msgstr ""
-"Senden Sie eine Kopie der Bestätigungs-E-Mail an den Hauptansprechpartner "
-"dieses Vorabdruck-Servers."
+"Senden Sie eine Kopie der Bestätigungs-E-Mail an den Hauptkontakt dieses "
+"Preprint-Servers."
 
 msgid "stats.publications.abstracts"
 msgstr "Abstracts"
 
 msgid "stats.publications.countOfTotal"
-msgstr "{$Anzahl} von {$Gesamt} Vorabdrucken"
+msgstr "{$count} von {$total} Preprints"
 
 msgid "stats.publications.totalGalleyViews.timelineInterval"
 msgstr "Gesamtzahl der Aufrufe des Abstracts nach Datum"
@@ -65,14 +66,14 @@ msgstr "Gesamtzahl der Aufrufe der Abstracts nach Datum"
 
 msgid "stats.publications.none"
 msgstr ""
-"Es wurden keine Vorabdrucke gefunden, deren Nutzungsstatistiken diesen "
+"Es wurden keine Preprints gefunden, deren Nutzungsstatistiken diesen "
 "Parametern entsprechen."
 
 msgid "stats.publications.details"
-msgstr "Vorabdruck Details"
+msgstr "Preprint-Details"
 
 msgid "stats.publicationStats"
-msgstr "Vorabdruck-Statistiken"
+msgstr "Preprint-Statistiken"
 
 msgid "plugins.importexport.common.error.unknownObjects"
 msgstr "Die angegebenen Objekte konnten nicht gefunden werden."
@@ -148,7 +149,7 @@ msgid "plugins.importexport.common.missingRequirements"
 msgstr "Plugin-Anforderungen nicht erfüllt"
 
 msgid "plugins.importexport.common.export.preprints"
-msgstr "Vorabdrucke"
+msgstr "Preprints"
 
 msgid "plugins.importexport.common.settings.DOIPluginSettings"
 msgstr "DOI-Plugin-Einstellungen"
@@ -157,54 +158,54 @@ msgid "plugins.importexport.common.settings"
 msgstr "Einstellungen"
 
 msgid "grid.genres.title"
-msgstr "Vorabdruck Komponenten"
+msgstr "Preprint-Komponenten"
 
 msgid "grid.genres.title.short"
 msgstr "Komponenten"
 
 msgid "manager.setup.resetPermissions.success"
-msgstr "Die Vorabdruckberechtigungen wurden erfolgreich zurückgesetzt."
+msgstr "Die Preprint-Berechtigungen wurden erfolgreich zurückgesetzt."
 
 msgid "manager.setup.resetPermissions.description"
 msgstr ""
 "Entfernen Sie die Urheberrechtserklärung und die Lizenzinformationen für "
-"jeden veröffentlichten Vorabdruck und setzen Sie sie damit auf die aktuellen "
+"jeden veröffentlichten Preprint und setzen Sie sie damit auf die aktuellen "
 "Standardeinstellungen des Servers zurück. Dadurch werden alle früheren "
-"Urheberrechts- und Lizenzinformationen, die den Vorabdrucken beigefügt sind, "
+"Urheberrechts- und Lizenzinformationen, die den Preprints beigefügt sind, "
 "dauerhaft entfernt. In einigen Fällen ist es Ihnen möglicherweise rechtlich "
 "nicht gestattet, Arbeiten, die unter einer anderen Lizenz veröffentlicht "
 "wurden, erneut zu lizenzieren. Bitte gehen Sie bei der Verwendung dieses "
 "Tools vorsichtig vor und konsultieren Sie Rechtsexperten, wenn Sie sich "
 "nicht sicher sind, welche Rechte Sie an den auf Ihrem Server eingestellten "
-"Vorabdrucken haben."
+"Preprints haben."
 
 msgid "manager.setup.resetPermissions.confirm"
 msgstr ""
-"Sind Sie sicher, dass Sie die Berechtigungsdaten für alle Vorabdrucke "
+"Sind Sie sicher, dass Sie die Berechtigungsdaten für alle Preprints "
 "zurücksetzen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
 
 msgid "manager.setup.resetPermissions"
-msgstr "Vorabdruckberechtigungen zurücksetzen"
+msgstr "Preprint-Berechtigungen zurücksetzen"
 
 msgid "manager.publication.library"
-msgstr "Vorabdruck-Server-Bibliothek"
+msgstr "Preprint-Server-Bibliothek"
 
 msgid "grid.category.path"
 msgstr "Pfad"
 
 msgid "manager.statistics.reports.filters.byObject.description"
 msgstr ""
-"Schränken Sie die Ergebnisse nach Objekttyp (Server, Vorabdruck, Dateitypen) "
+"Schränken Sie die Ergebnisse nach Objekttyp (Server, Preprint, Dateitypen) "
 "und/oder nach einer oder mehreren Objekt-ID(s) ein."
 
 msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Server-Hauptseitenaufrufe"
 
 msgid "manager.statistics.reports.defaultReport.preprintAbstract"
-msgstr "Seitenaufrufe der Abstracts von Vorabdrucken"
+msgstr "Seitenaufrufe der Abstracts von Preprints"
 
 msgid "manager.statistics.reports.defaultReport.preprintDownloads"
-msgstr "Downloads von Vorabdruck-Dateien"
+msgstr "Downloads von Preprint-Dateien"
 
 msgid "manager.statistics.statistics.registeredReaders"
 msgstr "Angemeldete Leser"
@@ -227,7 +228,7 @@ msgid "manager.statistics.statistics.itemsPublished"
 msgstr "Gepostete Einträge"
 
 msgid "manager.statistics.statistics.daysToPublication"
-msgstr "Tage bis zur Veröffentlichung des Vorabdrucks"
+msgstr "Tage bis zur Veröffentlichung des Preprints"
 
 msgid "manager.statistics.statistics.count.revise"
 msgstr "Erneut einreichen"
@@ -239,7 +240,7 @@ msgid "manager.statistics.statistics.count.accept"
 msgstr "Annehmen"
 
 msgid "manager.statistics.statistics.preprintViews"
-msgstr "Anzahl der Vorabdrucke (nur für Autoren)"
+msgstr "Anzahl der Preprints (nur für Autoren)"
 
 msgid "manager.statistics.statistics"
 msgstr "Server-Statistik"
@@ -250,8 +251,8 @@ msgstr ""
 "aufzeichnet. Die Nutzungsstatistiken werden in verschiedenen Kontexten "
 "angezeigt. \t\tEs gibt Fälle, in denen eine einzige Nutzungsstatistik "
 "verwendet werden muss, z. B. um eine geordnete Liste der meistgenutzten "
-"Vorabdrucke anzuzeigen oder um\t\t Suchergebnisse zu ordnen. Bitte wählen "
-"Sie eine der konfigurierten Metriken als Standard aus."
+"Preprints anzuzeigen oder um\t\t Suchergebnisse zu ordnen. Bitte wählen Sie "
+"eine der konfigurierten Metriken als Standard aus."
 
 msgid "manager.setup.userRegistration"
 msgstr "Benutzerregistrierung"
@@ -271,9 +272,9 @@ msgstr ""
 
 msgid "manager.setup.disableSubmissions.description"
 msgstr ""
-"Verhindern Sie, dass Benutzer neue Vorabdrucke an den Server übermitteln. "
-"Die Übermittlung kann für einzelne Serverbereiche auf der Einstellungsseite <"
-"a href=\"{$url}\">Serverbereiche</a> deaktiviert werden."
+"Verhindern Sie, dass Benutzer neue Preprints zu dem Server einreichen. Die "
+"Einreichung kann für einzelne Serverbereiche auf der Einstellungsseite <a "
+"href=\"{$url}\">Serverbereiche</a> deaktiviert werden."
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Einreichvorbereitung Checkliste"
@@ -282,7 +283,7 @@ msgid "manager.setup.sponsoringOrganization"
 msgstr "Sponsororganisation"
 
 msgid "manager.setup.siteAccess.viewContent"
-msgstr "Vorabdruck-Inhalt anzeigen"
+msgstr "Preprint-Inhalt anzeigen"
 
 msgid "manager.setup.siteAccess.view"
 msgstr "Zugang zur Website"
@@ -325,8 +326,8 @@ msgstr "Listen"
 
 msgid "manager.setup.keyInfo.description"
 msgstr ""
-"Geben Sie eine Beschreibung Ihres Servers und nennen Sie den/die Vorabdruck-"
-"Manager und andere Mitglieder des Vorabdruck-Server-Teams."
+"Geben Sie eine Beschreibung Ihres Servers und nennen Sie den/die Preprint-"
+"Manager und andere Mitglieder des Preprint-Server-Teams."
 
 msgid "manager.setup.keyInfo"
 msgstr "Wichtige Informationen"
@@ -396,7 +397,7 @@ msgid "manager.setup.information"
 msgstr "Information"
 
 msgid "manager.setup.identity"
-msgstr "Vorabdruck-Server-Identität"
+msgstr "Preprint-Server-Identität"
 
 msgid "manager.setup.enableUserRegistration"
 msgstr "Besucher können ein Benutzerkonto auf dem Server anlegen."
@@ -510,7 +511,7 @@ msgstr "Abschnitt erstellen"
 msgid "manager.sections.alertDelete"
 msgstr ""
 "Bevor dieser Bereich gelöscht werden kann, müssen Sie die dort eingestellten "
-"Vorabdrucke in einen anderen Bereich verschieben."
+"Preprints in einen anderen Bereich verschieben."
 
 msgid "manager.sections.confirmDelete"
 msgstr "Sind Sie sicher, dass Sie diesen Abschnitt endgültig löschen wollen?"
@@ -555,12 +556,12 @@ msgid "manager.distribution.publishingMode"
 msgstr "Posting-Modus"
 
 msgid "manager.distribution.copyrightYearBasis.submission"
-msgstr "Verwenden Sie das Datum der Veröffentlichung des Vorabdrucks"
+msgstr "Verwenden Sie das Datum der Veröffentlichung des Preprints"
 
 msgid "manager.distribution.copyrightYearBasis.description"
 msgstr ""
-"Wählen Sie, wie ein Standard-Urheberrechtsdatum für einen Vordruck "
-"ausgewählt wird. Diese Vorgabe kann von Fall zu Fall überschrieben werden."
+"Wählen Sie, wie ein Standard-Copyright-Datum für einen Preprint ausgewählt "
+"wird. Diese Vorgabe kann von Fall zu Fall überschrieben werden."
 
 msgid "manager.distribution.access"
 msgstr "Zugang"

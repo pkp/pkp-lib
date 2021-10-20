@@ -1,8 +1,9 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-01 11:44+0000\n"
-"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"PO-Revision-Date: 2021-10-21 10:07+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/pubids-doi/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -41,7 +42,7 @@ msgstr ""
 "eines jeden Artikels."
 
 msgid "plugins.pubIds.doi.manager.settings.doiSuffixDefault.description"
-msgstr "%j.%a für Vorabdrucke<br />%j.%a.g%g für Gesamtfahnen."
+msgstr "%j.%a für Preprints<br />%j.%a.g%g für Gesamtfahnen."
 
 msgid "plugins.pubIds.doi.manager.settings.doiSuffixDefault"
 msgstr "Verwenden Sie Standardmuster."
@@ -50,12 +51,12 @@ msgid "plugins.pubIds.doi.manager.settings.doiSuffixPattern.representations"
 msgstr "für Gesamtfahnen"
 
 msgid "plugins.pubIds.doi.manager.settings.doiSuffixPattern.submissions"
-msgstr "für Vorabdrucke"
+msgstr "für Preprints"
 
 msgid "plugins.pubIds.doi.manager.settings.doiSuffixPattern.example"
 msgstr ""
 "Zum Beispiel könnte %j.%a einen DOI wie 10.1234/server_initials.12345 "
-"erzeugen."
+"erzeugen"
 
 msgid "plugins.pubIds.doi.manager.settings.doiSuffixPattern"
 msgstr ""
@@ -96,7 +97,7 @@ msgid "plugins.pubIds.doi.manager.settings.enableRepresentationDoi"
 msgstr "Gesamtfahnen"
 
 msgid "plugins.pubIds.doi.manager.settings.enablePublicationDoi"
-msgstr "Vorabdrucke"
+msgstr "Preprints"
 
 msgid "plugins.pubIds.doi.manager.settings.explainDois"
 msgstr ""
@@ -120,7 +121,7 @@ msgstr "DOI"
 msgid "plugins.pubIds.doi.description"
 msgstr ""
 "Dieses Plugin ermöglicht die Zuweisung von Digital Object Identifiers zu "
-"Vorabdrucken und Gesamtfahnen im OPS."
+"Preprints und Gesamtfahnen im OPS."
 
 msgid "plugins.pubIds.doi.displayName"
 msgstr "DOI"
@@ -195,7 +196,7 @@ msgid "plugins.pubIds.doi.editor.doiObjectTypeRepresentation"
 msgstr "Gesamtfahne"
 
 msgid "plugins.pubIds.doi.editor.doiObjectTypeSubmission"
-msgstr "Vorabdruck"
+msgstr "Preprint"
 
 msgid "plugins.pubIds.doi.editor.doi.assignDoi"
 msgstr "zuweisen"

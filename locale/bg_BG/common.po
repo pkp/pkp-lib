@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-21 09:07+0000\n"
+"PO-Revision-Date: 2021-10-21 19:53+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -741,3 +741,172 @@ msgstr "{$min} - {$max}"
 
 msgid "common.queue.long.active"
 msgstr "Всички активни"
+
+msgid "debug.notes"
+msgstr "Бележки:"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "От езиковия файл липсва ключ «{$key}»."
+
+msgid "debug.notes.localeLoad"
+msgstr "Зареден файл с езици \"{$localeFile}\" от XML"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Зареден списък с езици \"{$localeList}\" от XML"
+
+msgid "debug.memoryUsage"
+msgstr "Използване на паметта"
+
+msgid "debug.executionTime"
+msgstr "Страница е генерирана за"
+
+msgid "debug.databaseQueries"
+msgstr "Брой заявки към базата данни"
+
+msgid "common.publicAccess"
+msgstr "Публичен (отворен) достъп"
+
+msgid "common.count"
+msgstr "Брояч"
+
+msgid "common.metric"
+msgstr "Метрика"
+
+msgid "common.plugins"
+msgstr "Плъгини (модули)"
+
+msgid "common.loading"
+msgstr "Зареждане"
+
+msgid "common.yes"
+msgstr "Да"
+
+msgid "common.year"
+msgstr "Година"
+
+msgid "common.width"
+msgstr "Ширина"
+
+msgid "common.weeks"
+msgstr "седмици"
+
+msgid "common.viewProfile"
+msgstr "Преглед на профил"
+
+msgid "common.viewWithName"
+msgstr "Преглеждане на {$name}"
+
+msgid "common.view"
+msgstr "Преглеждане"
+
+msgid "common.user.nonexistent"
+msgstr "[Несъществуващ потребител]"
+
+msgid "common.user"
+msgstr "Потребител"
+
+msgid "common.url"
+msgstr "URL-адрес"
+
+msgid "common.upload.dragFile"
+msgstr "Плъзнете и пуснете файл тук, за да започнете качването"
+
+msgid "common.upload.changeFile"
+msgstr "Промяна на файла"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Визуализация на избраното в момента изображение."
+
+msgid "common.upload.restore"
+msgstr "Връщане на оригинала"
+
+msgid "common.upload.addFile"
+msgstr "Качване на файл"
+
+msgid "common.addFile"
+msgstr "Добавяне на файл"
+
+msgid "common.up"
+msgstr "Горе"
+
+msgid "common.uploadFailed"
+msgstr "Файлът не можа да бъде качен или преработен."
+
+msgid "common.upload"
+msgstr "Качване"
+
+msgid "common.uploadedDate"
+msgstr "Дата на качване"
+
+msgid "common.updated"
+msgstr "Актуализиран"
+
+msgid "common.untitled"
+msgstr "Без заглавие"
+
+msgid "common.unread"
+msgstr "Непрочетен"
+
+msgid "common.unknownError"
+msgstr ""
+"Появи се неочаквана грешка. Моля, презаредете страницата и опитайте отново."
+
+msgid "common.uninitiated"
+msgstr "Незапочнат"
+
+msgid "common.component"
+msgstr "Компонент"
+
+msgid "common.type"
+msgstr "Тип"
+
+msgid "common.true"
+msgstr "Истина"
+
+msgid "common.toWithValue"
+msgstr "До: {$value}"
+
+msgid "common.top"
+msgstr "Горе"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.title"
+msgstr "Заглавие"
+
+msgid "common.suggest"
+msgstr "Предложи"
+
+msgid "common.subtitle"
+msgstr "Подзаглавие"
+
+msgid "common.submenu"
+msgstr "Подменю"
+
+msgid "common.subjects"
+msgstr "Теми"
+
+msgid "common.subject"
+msgstr "Тема"
+
+msgid "common.status"
+msgstr "Статус"
+
+msgid "common.source"
+msgstr "Източник"
+
+msgid "common.size"
+msgstr "Големина"
+
+msgid "common.sendEmail"
+msgstr "Изпращане на имейл"
+
+msgid "common.selectWithName"
+msgstr "Избери {$name}"
+
+msgid "common.select"
+msgstr "Избери"
+
+msgid "common.selectNone"
+msgstr "Отмяна на селекцията"

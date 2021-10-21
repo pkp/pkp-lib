@@ -1,6 +1,7 @@
+# Teodora Fildishevska <t.fildishevska@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-21 13:35+0000\n"
+"PO-Revision-Date: 2021-10-21 21:20+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "mk_MK/>\n"
@@ -383,3 +384,180 @@ msgid "manager.setup.selectCountry"
 msgstr ""
 "Изберете ја земјата во која се наоѓа серверот, или земјата на поштенската "
 "адреса на серверот или издавачката куќа."
+
+msgid "emailTemplate.variable.site.siteTitle"
+msgstr "Името на њеб-страницата кога е хостиран повеќе од еден сервер"
+
+msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
+msgstr "Валутата на сумата за наплата, на пр. USD"
+
+msgid "emailTemplate.variable.queuedPayment.itemCost"
+msgstr "Сумата за наплата"
+
+msgid "emailTemplate.variable.queuedPayment.itemName"
+msgstr "Името на типот на наплата"
+
+msgid "emailTemplate.variable.context.contactEmail"
+msgstr "И-меил адресата на главното лице за контакт на серверот"
+
+msgid "emailTemplate.variable.context.principalContactSignature"
+msgstr "Потписот за автоматска е-пошта на е-поштата на серверот"
+
+msgid "emailTemplate.variable.context.contactName"
+msgstr "Името на гланото лице за контакт на серверот"
+
+msgid "emailTemplate.variable.context.contextUrl"
+msgstr "УРЛ адреста на главната њеб-страница на серверот"
+
+msgid "emailTemplate.variable.context.contextName"
+msgstr "Името на серверот"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled.description"
+msgstr ""
+"Нема назначено главно лице за контакт на овој сервер со отисоци. Можете да "
+"внесете главно лице за контакт во <a href=\"{$url}\">поставките на серверот "
+"со отисоци</a>"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
+msgstr ""
+"Испратете копија на е-поштата за потврда на поднесокот до главното лице за "
+"контакт на овој сервер со отисоци."
+
+msgid "stats.publications.abstracts"
+msgstr "Апстракти"
+
+msgid "stats.publications.countOfTotal"
+msgstr "{$count} од {$total} отпечатоци"
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr "Вкупни прегледи на датотеката според датум"
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr "Вкупни прегледи на апстрактот според датум"
+
+msgid "stats.publications.none"
+msgstr ""
+"Не беа пронајден отпечатоци со статистички податоци за користење кои "
+"одговараат на овие параметри."
+
+msgid "stats.publications.details"
+msgstr "Детали за отпечатокот"
+
+msgid "stats.publicationStats"
+msgstr "Статистички податоци за отпечатокот"
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr "Назначените предмети не беа пронајдени."
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr "Недостасува ДОИ префиксот за серверот со патеката {$path}."
+
+msgid "plugins.importexport.common.register.success"
+msgstr "Успешна регистрација!"
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+"Регистрацијата не беше успешна! Серверот за ДОИ регистрација врати грешка: "
+"'{$param}'."
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr "Излезната датотека {$param} не може да се запише."
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr "Невалиден XML:"
+
+msgid "plugins.importexport.common.error.validation"
+msgstr "Не можеа да се конвертираат одбраните предмети."
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr "Нема одбрани предмети."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Валидирај го XML пред експортирање и регистрација."
+
+msgid "plugins.importexport.common.action.register"
+msgstr "Регистрирај"
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr "Означи како регистрирано"
+
+msgid "plugins.importexport.common.action.export"
+msgstr "Експортирај"
+
+msgid "plugins.importexport.common.action"
+msgstr "Акција"
+
+msgid "plugins.importexport.common.status.registered"
+msgstr "Регистрирани"
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr "Означени како регистрирани"
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr "Не се депонирани"
+
+msgid "plugins.importexport.common.status.any"
+msgstr "Било кој статус"
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+"Ве молиме имајте во предвид дека лозинката ќе биде зачувана како обичен "
+"текст, т.е. нема да биде шифрирана."
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr "Лозинка"
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr "Плагинот не е целосно поставен."
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+"За да го користите овој плагин, одете во плагин категоријата \"Јавен "
+"идентификатор\", овозможете и конфигурирајте го ДОИ плагинот и наведете "
+"валиден ДОИ префикс таму."
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr "Не се исполнети барањата за плагинот"
+
+msgid "plugins.importexport.common.export.preprints"
+msgstr "Отпечатоци"
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr "Поставки на ДОИ плагин"
+
+msgid "plugins.importexport.common.settings"
+msgstr "Поставки"
+
+msgid "grid.genres.title"
+msgstr "Компоненти на отпечатоци"
+
+msgid "grid.genres.title.short"
+msgstr "Компоненти"
+
+msgid "manager.setup.resetPermissions.success"
+msgstr "Дозволите на отпечатоците беа успешно ресетирани."
+
+msgid "manager.setup.resetPermissions.description"
+msgstr ""
+"Отстранете ја изјавата за авторски права и информации за лиценца за секој "
+"објавен отпечаток, враќајќи ги на тековните стандардни поставки на серверот. "
+"Ова трајно ќе ги отстрани сите претходни информации за авторските права и "
+"лиценцирање прикачени на отпечатоците. Во некои случаи, можеби легално нема "
+"да ви биде дозволено да ја ре-лиценцирате работата што е објавена под "
+"различна лиценца. Ве молиме бидете внимателни кога ја користите оваа алатка "
+"и консултирајте се со правни експерти доколку не сте сигурни кои права ги "
+"поседувате над отпечатоците објавени на вашиот сервер."
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+"Дали сте сигурни дека сакате да ги ресетирате податоците за дозволите за "
+"сите отпечатоци? Оваа одлука не може да се поништи."
+
+msgid "manager.setup.resetPermissions"
+msgstr "Ресетирај дозволи за отпечатоци"
+
+msgid "manager.publication.library"
+msgstr "Серверска библиотека со отпечатоци"
+
+msgid "grid.category.path"
+msgstr "Патека"

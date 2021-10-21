@@ -42,6 +42,9 @@ addons:
   apt:
     update: true
 before_install:
+  # Fix Travis certificate issue.
+  - sudo apt update && sudo apt install libgnutls-openssl27 libgnutls30
+
   # Check out submodules (this script checks out developer forks if necessary)
   - ./tools/startSubmodulesTRAVIS.sh
 

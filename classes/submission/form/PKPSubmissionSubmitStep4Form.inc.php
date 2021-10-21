@@ -201,29 +201,15 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         $assignedAuthors = Repo::author()->getSubmissionAuthors($this->submission);
         
         if ($assignedAuthors->count() > 0) {
-            $primaryAuthor = $this->submission
-                ->getCurrentPublication()
-                ->getPrimaryAuthor();
-
-            if (!isset($primaryAuthor)) {
-                $primaryAuthor = $assignedAuthors->first();
-            }
-
-            if ($user->getEmail() != $primaryAuthor->getEmail()) {
-                array_push($this->emailRecipients, $primaryAuthor);
-            }
-
             foreach ($assignedAuthors as $author) {
                 $authorEmail = $author->getEmail();
-                // only add the author email if they have not already been added as the primary author
-                // or user creating the submission.
-                if ($authorEmail != $primaryAuthor->getEmail() && $authorEmail != $user->getEmail()) {
+                // only add the author email if they have not aalready been added 
+                // as the user creating the submission.
+                if ($authorEmail != $user->getEmail()) {
                     array_push($this->emailRecipients, $author);
                 }
             }
         }
-
-        
 
         return $this->submissionId;
     }

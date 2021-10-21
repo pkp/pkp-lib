@@ -167,8 +167,8 @@ class UserGridRow extends GridRow
 
                 $canAdminister = Validation::canAdminister($this->getId(), $request->getUser()->getId());
                 if (
-                    !Validation::isLoggedInAs() and
-                    $request->getUser()->getId() != $this->getId() and
+                    !Validation::isLoggedInAs() &&
+                    $request->getUser()->getId() != $this->getId() &&
                     $canAdminister
                 ) {
                     $dispatcher = $router->getDispatcher();

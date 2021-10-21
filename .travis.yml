@@ -42,9 +42,6 @@ addons:
   apt:
     update: true
 before_install:
-  # Fix Travis certificate issue.
-  - sudo update-ca-certificates --fresh
-
   # Check out submodules (this script checks out developer forks if necessary)
   - ./tools/startSubmodulesTRAVIS.sh
 

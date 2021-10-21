@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-21 19:53+0000\n"
+"PO-Revision-Date: 2021-10-22 14:13+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -910,3 +910,49 @@ msgstr "Избери"
 
 msgid "common.selectNone"
 msgstr "Отмяна на селекцията"
+
+msgid "email.compose.tooManyRecipients"
+msgstr ""
+"Съобщението, което се опитвате да изпратите, има твърде много получатели."
+
+msgid "email.compose"
+msgstr "Изпращане на имейла"
+
+msgid "email.cc"
+msgstr "Копие (CC)"
+
+msgid "email.body"
+msgstr "Текст на имейла"
+
+msgid "email.bccSender"
+msgstr "Изпратете копие на това съобщение на моя адрес ({$address})"
+
+msgid "email.bcc"
+msgstr "Скрито копие (BCC)"
+
+msgid "email.attachments"
+msgstr "Прикачени файлове"
+
+msgid "email.addToRecipient"
+msgstr "Добави получател"
+
+msgid "email.addCcRecipient"
+msgstr "Добави CC (копие)"
+
+msgid "email.addBccRecipient"
+msgstr "Добави BCC (скрито копие)"
+
+msgid "email.addAttachment"
+msgstr "Прикачване на файл"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Качване на файл"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Качване на файл с рецензия"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Достъпни метрики"
+
+msgid "defaultMetric.title"
+msgstr "Метрика по подразбиране"

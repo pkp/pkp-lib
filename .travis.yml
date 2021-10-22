@@ -4,6 +4,9 @@ env:
   - secure: bP5CEyBsybJUx+iBxZ4XKoMPHd2iMdYVhTNNcVSSPUvLLjmLYVDkbH7b4tD9vN+3i/5pCs+m3sfq0iuQHsP8l7D4VsouB+3jt81gw59o8bpVuTpse0jmagoxsw3TvU3Mu/felE3loBz+BbRkpDCnTZHYn0fAd95Xk3es1iex0zs+fmk4ClYg2yzrtVRw972j0/wMWWXs+Phw2dhB9Mx5fHtm9zV6RoMndBWiq3vwdqGTOoBLoILJ0mQbkMA1SuILPQDN2DtCsBIFTRoH9DI+KUyTzPcvrTUZoMTpVa/09Vpb2cZAhzH9S0++bGs1Ib9m8rrnUyaQk/iJRYxEj9DcCvYpO7TypS13E69CfggCdI5EE5TKs1LBr8wkGMp8ajzh3qMEotF+9QMJkeyqqX5roV/kzB5HV2yqzJSD8aAdHxDw4VYfj312884DDanQh/RXeF8sg5+k8KBx6vjZOhONk5/pzvSR1FTS63+KCI1XHP/kWiDpHg215KekmUQg+SxZUFMqZN+8SL609F+TZqQt5s2uK2Gr/hSCUWY/KmeiLc83PGSSYw59E34CcADBysbJ0lueiPzDybOIAB1hcKHIF5pIANzPCocLmK0axGbp90fN85tcgDCY5axEwJ7s8Uw+h4kTi1HhPfap19I/9EMVrpML+vB+kTSNLFuMVV7keP4=
   - APPLICATION=ops
 
+# Attempt to work around Travis certificate failure problem
+dist: bionic
+
 # Configure the build matrix
 matrix:
   include:
@@ -39,6 +42,7 @@ cache:
     - $HOME/.composer/cache
 addons:
   chrome: beta
+  postgresql: "9.5"
   apt:
     update: true
 before_install:

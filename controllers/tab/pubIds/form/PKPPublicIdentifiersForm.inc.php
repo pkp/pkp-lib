@@ -226,8 +226,7 @@ class PKPPublicIdentifiersForm extends Form
         }
 
         if ($pubObject instanceof SubmissionFile) {
-            Repo::submissionFiles()->dao
-                ->update($pubObject);
+            Repo::submissionFiles()->edit($pubObject, []);
 
             return;
         }

@@ -276,9 +276,9 @@ class Repository
         $submissionFile->setData('createdAt', Core::getCurrentDate());
         $submissionFile->setData('updatedAt', Core::getCurrentDate());
 
-        $id = $this->dao->insert($submissionFile);
+        $submissionFileId = $this->dao->insert($submissionFile);
 
-        $submissionFile = $this->get($id);
+        $submissionFile = $this->get($submissionFileId);
 
         HookRegistry::call('SubmissionFile::add', [$submissionFile]);
 

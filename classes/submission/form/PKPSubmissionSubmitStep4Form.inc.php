@@ -31,6 +31,11 @@ import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 {
     /**
+     * Array of Users that are going to be used for email notifications 
+     */
+    protected array $emailRecipients = [];
+
+    /**
      * Constructor.
      *
      * @param $context Context
@@ -187,6 +192,24 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
             ASSOC_TYPE_SUBMISSION,
             $this->submission->getId()
         );
+
+        /**
+         * Define email recipients
+         */
+        $user = $request->getUser();
+
+        $assignedAuthors = Repo::author()->getSubmissionAuthors($this->submission);
+        
+        if ($assignedAuthors->count() > 0) {
+            foreach ($assignedAuthors as $author) {
+                $authorEmail = $author->getEmail();
+                // only add the author email if they have not aalready been added 
+                // as the user creating the submission.
+                if ($authorEmail != $user->getEmail()) {
+                    array_push($this->emailRecipients, $author);
+                }
+            }
+        }
 
         return $this->submissionId;
     }

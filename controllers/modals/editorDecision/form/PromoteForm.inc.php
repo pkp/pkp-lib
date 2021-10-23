@@ -128,9 +128,9 @@ class PromoteForm extends EditorDecisionWithEmailForm
                         $newSubmissionFile->setData('assocType', null);
                         $newSubmissionFile->setData('assocId', null);
 
-                        $id = Repo::submissionFiles()->add($newSubmissionFile);
+                        $newSubmissionFileId = Repo::submissionFiles()->add($newSubmissionFile);
 
-                        $newSubmissionFile = Repo::submissionFiles()->get($id);
+                        $newSubmissionFile = Repo::submissionFiles()->get($newSubmissionFileId);
                     }
                 }
 
@@ -169,9 +169,9 @@ class PromoteForm extends EditorDecisionWithEmailForm
                         $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
                         $newSubmissionFile->setData('assocType', null);
                         $newSubmissionFile->setData('assocId', null);
-                        $id = Repo::submissionFiles()->add($newSubmissionFile);
+                        $newSubmissionFileId = Repo::submissionFiles()->add($newSubmissionFile);
 
-                        $newSubmissionFile = Repo::submissionFiles()->get($id);
+                        $newSubmissionFile = Repo::submissionFiles()->get($newSubmissionFileId);
                     }
                 }
                 // Send email to the author.

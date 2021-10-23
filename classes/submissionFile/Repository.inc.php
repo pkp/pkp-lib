@@ -760,4 +760,17 @@ class Repository
 
         return $result;
     }
+
+    /**
+     * Get the files for each revision of a submission file
+     */
+    public function getRevisions(int $submissionFileId): Collection
+    {
+        return app('db')::table('submission_file_revisions as sfr')
+            ->leftJoin('files as f', 'f.file_id', '=', 'sfr.file_id')
+            ->where('submission_file_id', '=', $submissionFileId)
+            ->orderBy('revision_id', 'desc')
+            ->select(['f.file_id as fileId', 'f.path', 'f.mimetype'])
+            ->get();
+    }
 }

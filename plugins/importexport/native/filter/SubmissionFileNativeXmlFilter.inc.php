@@ -150,7 +150,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         }
 
         // Create the revision nodes
-        $revisions = Repo::submissionFiles()->dao->getRevisions(($submissionFile->getId()));
+        $revisions = Repo::submissionFiles()->getRevisions(($submissionFile->getId()));
         foreach ($revisions as $revision) {
             $localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $revision->path;
             $revisionNode = $doc->createElementNS($deployment->getNamespace(), 'file');

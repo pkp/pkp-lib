@@ -86,7 +86,6 @@ class FileApiHandler extends Handler
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
         $fileId = $request->getUserVar('fileId') ?? $submissionFile->getData('fileId');
         $revisions = Repo::submissionFiles()
-            ->dao
             ->getRevisions($submissionFile->getId());
         $file = null;
         foreach ($revisions as $revision) {

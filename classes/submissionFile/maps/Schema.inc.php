@@ -115,7 +115,7 @@ class Schema extends BaseSchema
             if ($prop === 'revisions') {
                 $files = [];
 
-                $revisions = Repo::submissionFiles()->dao->getRevisions($item->getId());
+                $revisions = Repo::submissionFiles()->getRevisions($item->getId());
 
                 foreach ($revisions as $revision) {
                     if ($revision->fileId === $item->getData('fileId')) {

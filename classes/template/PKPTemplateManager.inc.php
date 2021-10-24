@@ -50,6 +50,7 @@ use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\security\Validation;
 use Smarty;
+use Smarty_Internal_Template;
 
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . '/lib/pkp/lib/vendor/smarty/smarty/libs/');
@@ -285,7 +286,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Register custom functions
-        $this->registerPlugin('modifier', 'translate', '\__');
+        $this->registerPlugin('modifier', 'translate', [$this, 'smartyTranslateModifier']);
         $this->registerPlugin('modifier', 'strip_unsafe_html', '\PKP\core\PKPString::stripUnsafeHtml');
         $this->registerPlugin('modifier', 'String_substr', '\PKP\core\PKPString::substr');
         $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', '\PKP\core\PKPString::dateformatPHP2JQueryDatepicker');
@@ -1378,34 +1379,69 @@ class PKPTemplateManager extends Smarty
     //
 
     /**
-     * Smarty usage: {translate key="localization.key.name" [paramName="paramValue" ...]}
+     * Smarty usage:
+     * Simple translation
+     * {translate key="localization.key.name" [paramName="paramValue" ...]}
      *
+     * Pluralized translation
+     * {translate key="localization.key.name" count="10" [paramName="paramValue" ...]}
      * Custom Smarty function for translating localization keys.
      * Substitution works by replacing tokens like "{$foo}" with the value of the parameter named "foo" (if supplied).
+     * 
+     * The params named "key", "count", "locale" and "params" are reserved. If you need to pass one of them as a translation variable specify them using the "params":
+     * $smarty->assign('params', ['key' => "Golden key"]);
+     * {translate key="pluralized.key" locale="en_US" count="10" params=$params}
      *
      * @param array $params associative array, must contain "key" parameter for string to translate plus zero or more named parameters for substitution.
-     * 	Translation variables can be specified also as an optional
-     * 	associative array named "params".
+     * 	Translation variables can be specified also as an optional associative array named "params".
      * @param Smarty $smarty
      *
      * @return string the localized string, including any parameter substitutions
      */
-    public function smartyTranslate($params, $smarty)
+    public function smartyTranslate(array $params, Smarty_Internal_Template $smarty): string
     {
-        if (isset($params) && !empty($params)) {
-            if (!isset($params['key'])) {
-                return __('');
-            }
+        // Save reserved params before removing them
+        $key = $params['key'] ?? '';
+        $count = $params['count'] ?? null;
+        $locale = $params['locale'] ?? null;
+        $variables = $params['params'] ?? [];
+        // Remove reserved params
+        unset($params['key'], $params['count'], $params['params'], $params['locale']);
+        // Merge variables
+        $variables = $params + $variables;
+        // Decides between the simple/pluralized version
+        return $count === null ? __($key, $variables, $locale) : __p($key, $count, $variables, $locale);
+    }
 
-            $key = $params['key'];
-            unset($params['key']);
-            if (isset($params['params']) && is_array($params['params'])) {
-                $paramsArray = $params['params'];
-                unset($params['params']);
-                $params = array_merge($params, $paramsArray);
+    /**
+     * Applies a translation modifier, where the value to be transformed is used as locale key
+     * Simple translation
+     * {$foo|translate}
+     *
+     * Passing variables for the translation
+     * {$foo|translate:varFoo:valueFoo:varBar:valueBar}
+     *
+     * Pluralized translation with a different locale
+     * {$foo|translate:count:123:locale:pt_BR}
+     */
+    public function smartyTranslateModifier(): string
+    {
+        $params = func_get_args();
+        $key = array_shift($params);
+        $variables = [];
+        if (count($params)) {
+            $name = null;
+            foreach ($params as $i => $value) {
+                if ($i % 2) {
+                    $variables[$name] = $value;
+                } else {
+                    $name = $value;
+                }
             }
-            return __($key, $params);
         }
+        $count = $variables['count'] ?? null;
+        $locale = $variables['locale'] ?? null;
+        return $count === null ? __($key, $variables, $locale) : __p($key, $count, $variables, $locale);
     }
 
     /**

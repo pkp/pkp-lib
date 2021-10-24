@@ -182,6 +182,7 @@ class PKPInstall extends Installer
                     'base_url' => $request->getBaseUrl(),
                     'enable_beacon' => $this->getParam('enableBeacon') ? 'On' : 'Off',
                     'allowed_hosts' => json_encode([$request->getServerHost(null, false)]),
+                    'time_zone' => $this->getParam('timeZone')
                 ],
                 'database' => [
                     'driver' => $this->getParam('databaseDriver'),

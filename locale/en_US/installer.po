@@ -104,6 +104,9 @@ msgstr "The administrator username can contain only alphanumeric characters, und
 msgid "installer.form.usernameRequired"
 msgstr "A username for the administrator account is required."
 
+msgid "installer.form.timeZoneRequired"
+msgstr "A time zone must be selected."
+
 msgid "installer.installationWrongPhp"
 msgstr "<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>"
 
@@ -133,6 +136,12 @@ msgstr "Error parsing the filter configuration file <tt>{$file}</tt>."
 
 msgid "installer.unsupportedUpgradeError"
 msgstr "Upgrade unsupported. See docs/UPGRADE-UNSUPPORTED for details."
+
+msgid "installer.timezoneInstructions"
+msgstr "The time zone to use for this system."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr "Select any additional languages to support in this system. Additional languages can also be installed at any time from the site administration interface.<br>* = Denominates languages which are not fully translated (> 90% of terms translated)"
 
 msgid "installer.locale"
 msgstr "Locale"

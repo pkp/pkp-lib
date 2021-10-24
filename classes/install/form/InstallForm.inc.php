@@ -21,6 +21,8 @@ use APP\core\Application;
 use PKP\facades\Locale;
 use APP\install\Install;
 use APP\template\TemplateManager;
+use DateTime;
+use DateTimeZone;
 use PKP\core\Core;
 
 use PKP\core\PKPApplication;
@@ -111,6 +113,7 @@ class InstallForm extends MaintenanceForm
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'adminEmail', 'required', 'installer.form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorInSet($this, 'databaseDriver', 'required', 'installer.form.databaseDriverRequired', array_keys($this->supportedDatabaseDrivers)));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'databaseName', 'required', 'installer.form.databaseNameRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorInSet($this, 'timeZone', 'required', 'installer.form.timeZoneRequired', DateTimeZone::listIdentifiers()));
     }
 
     /**
@@ -121,8 +124,20 @@ class InstallForm extends MaintenanceForm
      */
     public function display($request = null, $template = null)
     {
+        $timeZones = array_reduce(DateTimeZone::listIdentifiers(), function ($timeZones, $current) {
+            if ($current !== 'UTC') {
+                $time = (new DateTime('now', new DateTimeZone($current)))->format('P');
+                $groups = explode('/', $current);
+                $continent = array_shift($groups);
+                $timeZone = str_replace('_', ' ', implode(' - ', $groups));
+                $timeZones[$continent ?? $timeZone][$current] = $timeZone . " (${time})";
+            }
+            return $timeZones;
+        }, ['UTC' => 'UTC']);
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
+            'timeZoneOptions' => $timeZones,
             'localeOptions' => $this->supportedLocales,
             'localesComplete' => $this->localesComplete,
             'clientCharsetOptions' => $this->supportedClientCharsets,
@@ -158,6 +173,7 @@ class InstallForm extends MaintenanceForm
         }
 
         $this->_data = [
+            'timeZone' => 'UTC',
             'locale' => Locale::getLocale(),
             'additionalLocales' => [],
             'clientCharset' => 'utf-8',
@@ -179,6 +195,7 @@ class InstallForm extends MaintenanceForm
     public function readInputData()
     {
         $this->readUserVars([
+            'timeZone',
             'locale',
             'additionalLocales',
             'clientCharset',

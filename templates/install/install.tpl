@@ -22,8 +22,8 @@
 	<br />
 
 	<div class="app__contentPanel">
-		{fbvFormSection label="installer.locale" for="locale" style="position: absolute;"}
-			{fbvElement type="select" name="locale" id="installLanguage" from=$localeOptions selected=$locale translate=false size=$fbvStyles.size.SMALL subLabelTranslate=true}
+		{fbvFormSection label="common.language" for="installLanguage" style="position: absolute;"}
+			{fbvElement type="select" name="installLanguage" id="installLanguage" from=$localeOptions selected=$locale translate=false size=$fbvStyles.size.SMALL subLabelTranslate=true}
 		{/fbvFormSection}
 
 		{capture assign="writable_config"}{if is_writeable('config.inc.php')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
@@ -113,6 +113,9 @@
 						{/if}
 						{fbvElement type="checkbox" name="additionalLocales[]" id="additionalLocales-$localeKeyEscaped" value=$localeKeyEscaped translate=false label="manager.people.createUserSendNotify" checked=$localeSelected label=$localeName|escape}
 					{/foreach}
+				{/fbvFormSection}
+				{fbvFormSection label="timeZone" description="installer.timeZoneInstructions" for="timeZone"}
+					{fbvElement type="select" name="timeZone" id="timeZoneOptions" from=$timeZoneOptions selected=$timeZone translate=false size=$fbvStyles.size.SMALL subLabelTranslate=true}
 				{/fbvFormSection}
 
 				{fbvFormSection label="installer.clientCharset" description="installer.clientCharsetInstructions"}

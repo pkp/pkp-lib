@@ -342,11 +342,11 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        $submissionFileObj = Repo::submissionFiles()
+        $submissionFile = Repo::submissionFiles()
             ->newDataObject($params);
 
         $submissionFileId = Repo::submissionFiles()
-            ->add($submissionFileObj);
+            ->add($submissionFile);
 
         $submissionFile = Repo::submissionFiles()
             ->get($submissionFileId);

@@ -224,14 +224,14 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
         }
 
         $submissionFileId = DB::table('submission_files as sf')
-            ->leftJoin($this->settingsTable . ' as sfs', 'sfs.submission_file_id', '=', 'sf.submission_file_id')
             ->where('sf.submission_id', '=', $submissionId)
-            ->where(function ($q) use ($pubIdType, $pubId) {
-                $q->where('sfs.setting_name', '=', 'pub-id::' . $pubIdType);
-                $q->where('sfs.setting_value', '=', $pubId);
+            ->whereIn('sf.submission_file_id', function ($q) use ($pubIdType, $pubId) {
+                return $q->select('sfs.submission_file_id')
+                    ->from($this->settingsTable . ' as sfs')
+                    ->where('sfs.setting_name', '=', 'pub-id::' . $pubIdType)
+                    ->where('sfs.setting_value', '=', $pubId);
             })
             ->select('sf.*')
-            ->groupBy('sf.submission_file_id')
             ->value('sf.submission_file_id');
 
         if (empty($submissionFileId)) {

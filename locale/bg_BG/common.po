@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-22 14:13+0000\n"
+"PO-Revision-Date: 2021-10-25 18:21+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -956,3 +956,155 @@ msgstr "Достъпни метрики"
 
 msgid "defaultMetric.title"
 msgstr "Метрика по подразбиране"
+
+msgid "form.startsWith"
+msgstr "започва с"
+
+msgid "form.is"
+msgstr "е"
+
+msgid "form.contains"
+msgstr "садържа"
+
+msgid "form.formLanguage"
+msgstr "Език на формуляра"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"За да въведете информацията по-долу на допълнителни езици, първо изберете "
+"езика."
+
+msgid "form.errorsOccurred"
+msgstr "Възникнаха грешки при обработката на този формуляр"
+
+msgid "form.errors"
+msgstr ""
+"Формулярът не беше запазен, защото бяха открити {$count} грешка(и). Моля, "
+"коригирайте тези грешки и опитайте отново."
+
+msgid "form.errorMany"
+msgstr "Моля, поправете {$count} грешки."
+
+msgid "form.errorOne"
+msgstr "Моля, коригирайте една грешка."
+
+msgid "form.errorA11y"
+msgstr "Преминаване към {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Преминаване към следващата грешка"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Не можете да качвате повече файлове."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Премахване на файла"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Наистина ли искате да анулирате това качване?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Качването е анулирано"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Анулиране на качването"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Сървърът отговори с код за грешка: {{statusCode}} . Моля, свържете се със "
+"системния администратор, ако този проблем продължава."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Файлове от този тип не могат да се качват."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Файлът е твърде голям - ({{filesize}}mb). Файлове, по-големи от "
+"{{maxFilesize}}mb не могат да бъдат качени."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Моля, използвайте резервния формуляр по-долу, за да качите вашите файлове."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Вашият браузър не поддържа качване на файлове с плъзгане и пускане."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Пуснете файлове тук, за да ги качите"
+
+msgid "form.disallowedProp"
+msgstr "Това свойство не е разрешено."
+
+msgid "form.disallowedLocales"
+msgstr "Разрешени са само следните езици: {$languages}."
+
+msgid "form.dataHasChanged"
+msgstr ""
+"Данните в този формуляр са променени. Искате ли да продължите без запазване?"
+
+msgid "form.emailRequired"
+msgstr "Изисква се имейл адрес."
+
+msgid "form.confirmSubmit.title"
+msgstr "Потвърждаване"
+
+msgid "form.confirmSubmit"
+msgstr "Наистина ли искате да изпратите този формуляр?"
+
+msgid "form.url.invalid"
+msgstr "Посоченият URL адрес е невалиден. Моля, проверете го и опитайте отново."
+
+msgid "email.to"
+msgstr "До"
+
+msgid "email.bodyRequired"
+msgstr "Моля, предоставете основния текст на имейла."
+
+msgid "email.subjectRequired"
+msgstr "Моля, посочете тема на имейла."
+
+msgid "email.subject"
+msgstr "Тема"
+
+msgid "email.skip"
+msgstr "Пропускане на пращането на имейл"
+
+msgid "email.send"
+msgstr "Изпращане"
+
+msgid "email.senderEmail"
+msgstr "Имейл на подателя"
+
+msgid "email.senderName"
+msgstr "Име на подател"
+
+msgid "email.sender"
+msgstr "Подател"
+
+msgid "email.recipients"
+msgstr "Получатели"
+
+msgid "email.recipient"
+msgstr "Получател"
+
+msgid "email.multipart"
+msgstr "Това е съобщение от няколко части във формат MIME."
+
+msgid "email.invalid"
+msgstr "Имейл адресът  {$email} е невалиден."
+
+msgid "email.from"
+msgstr "От"
+
+msgid "email.email"
+msgstr "Имейл"
+
+msgid "email.compose.error"
+msgstr ""
+"При изпращането на имейл съобщение възникна проблем. Моля, опитайте отново "
+"по-късно или се свържете с вашия системен администратор."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Опитвате се да изпратите съобщение твърде скоро след изпращането на "
+"последното ви съобщение. Моля, изчакайте, преди да изпратите друго съобщение."

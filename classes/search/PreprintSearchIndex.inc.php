@@ -170,7 +170,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
                         [$submissionFile->getId()]
                     )->filterBySubmissionIds([$preprint->getId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
-                    ->filterByIncludeDependentFiles(true);
+                    ->includeDependentFiles();
 
                 $dependentFilesIterator = Repo::submissionFiles()->getMany($collector);
                 foreach ($dependentFilesIterator as $dependentFile) {

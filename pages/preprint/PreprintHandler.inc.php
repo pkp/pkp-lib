@@ -356,7 +356,7 @@ class PreprintHandler extends Handler
                         ASSOC_TYPE_SUBMISSION_FILE,
                         [$this->galley->getFileId()]
                     )->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
-                    ->filterByIncludeDependentFiles(true);
+                    ->includeDependentFiles();
 
                 $dependentFileIds = Repo::submissionFiles()->getIds($collector)->toArray();
 

@@ -42,7 +42,7 @@ class Collector implements CollectorInterface
     protected $fileIds = null;
 
     /** @var null|string get submission files matching one ASSOC_TYPE */
-    protected $assocTypes = null;
+    protected $assocType = null;
 
     /** @var null|array get submission files matching an ASSOC_ID with one of the assocTypes */
     protected $assocIds = null;
@@ -127,16 +127,13 @@ class Collector implements CollectorInterface
     /**
      * Set assocType and assocId filters
      *
-     * @param null|array $assocTypes One of the ASSOC_TYPE_ constants
+     * @param null|int $assocType One of the ASSOC_TYPE_ constants
      * @param null|array $assocIds Match with ids for these assoc types
      */
-    public function filterByAssoc(?string $assocTypes, ?array $assocIds = []): self
+    public function filterByAssoc(?int $assocType, ?array $assocIds = null): self
     {
-        $this->assocTypes = $assocTypes;
-
-        if ($assocIds !== []) {
-            $this->assocIds = $assocIds;
-        }
+        $this->assocType = $assocType;
+        $this->assocIds = $assocIds;
 
         return $this;
     }
@@ -225,8 +222,8 @@ class Collector implements CollectorInterface
                 ->whereIn('rf.review_id', $this->reviewIds);
         }
 
-        if ($this->assocTypes !== null) {
-            $qb->where('sf.assoc_type', $this->assocTypes);
+        if ($this->assocType !== null) {
+            $qb->where('sf.assoc_type', $this->assocType);
 
             if ($this->assocIds !== null) {
                 $qb->whereIn('sf.assoc_id', $this->assocIds);

@@ -60,7 +60,7 @@ class FileApiHandler extends Handler
                 ->getCollector()
                 ->filterBySubmissionIds([$submissionId])
                 ->filterByFileStages([$fileStage])
-                ->filterByIncludeDependentFiles($fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT);
+                ->includeDependentFiles($fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT);
             $submissionFileIds = Repo::submissionFiles()->getIds($collector);
             $allFilesAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             foreach ($submissionFileIds as $submissionFileId) {

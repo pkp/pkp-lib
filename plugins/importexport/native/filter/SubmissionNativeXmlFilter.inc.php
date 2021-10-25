@@ -145,7 +145,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
         $collector = Repo::submissionFiles()
             ->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
-            ->filterByIncludeDependentFiles(true);
+            ->includeDependentFiles();
 
         $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         foreach ($submissionFilesIterator as $submissionFile) {

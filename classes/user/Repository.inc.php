@@ -14,7 +14,6 @@
 namespace PKP\user;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use Illuminate\Support\Collection;
@@ -306,7 +305,7 @@ class Repository
         $collector = Repo::submissionFiles()
             ->getCollector()
             ->filterByUploaderUserIds([$oldUserId])
-            ->filterByIncludeDependentFiles(true);
+            ->includeDependentFiles();
 
         $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         foreach ($submissionFilesIterator as $submissionFile) {

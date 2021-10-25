@@ -97,7 +97,7 @@ class Schema extends BaseSchema
                     ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$item->getId()])
                     ->filterBySubmissionIds([$item->getData('submissionId')])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
-                    ->filterByIncludeDependentFiles(true);
+                    ->includeDependentFiles();
 
                 $dependentFiles = Repo::submissionFiles()->getMany($collector);
 

@@ -53,7 +53,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider
                 [$this->getAssocId()]
             )->filterBySubmissionIds([$submission->getId()])
             ->filterByFileStages([$this->getFileStage()])
-            ->filterByIncludeDependentFiles(true);
+            ->includeDependentFiles();
         $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
     }

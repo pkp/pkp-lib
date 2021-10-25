@@ -434,7 +434,7 @@ class Repository
             }
         }
 
-        return $id;
+        return $submissionFileId;
     }
 
     /** @copydoc DAO::update() */

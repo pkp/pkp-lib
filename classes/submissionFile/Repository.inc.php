@@ -22,6 +22,7 @@ use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -766,7 +767,7 @@ class Repository
      */
     public function getRevisions(int $submissionFileId): Collection
     {
-        return app('db')::table('submission_file_revisions as sfr')
+        return DB::table('submission_file_revisions as sfr')
             ->leftJoin('files as f', 'f.file_id', '=', 'sfr.file_id')
             ->where('submission_file_id', '=', $submissionFileId)
             ->orderBy('revision_id', 'desc')

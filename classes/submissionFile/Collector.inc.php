@@ -154,7 +154,7 @@ class Collector implements CollectorInterface
     /**
      * Whether or not to include dependent files in the results
      */
-    public function filterByIncludeDependentFiles(bool $includeDependentFiles): self
+    public function includeDependentFiles(bool $includeDependentFiles = true): self
     {
         $this->includeDependentFiles = $includeDependentFiles;
 

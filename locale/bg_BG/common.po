@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-25 18:27+0000\n"
+"PO-Revision-Date: 2021-10-25 18:52+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -1114,3 +1114,12 @@ msgstr "Архиви"
 
 msgid "navigation.about"
 msgstr "За изданието"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Информация за читателите"
+
+msgid "navigation.infoForReaders"
+msgstr "За читатели"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"

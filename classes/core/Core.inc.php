@@ -43,13 +43,7 @@ class Core
     public static function getBaseDir()
     {
         static $baseDir;
-
-        if (!isset($baseDir)) {
-            // Need to change if the index file moves
-            $baseDir = dirname(INDEX_FILE_LOCATION);
-        }
-
-        return $baseDir;
+        return $baseDir ??= dirname(INDEX_FILE_LOCATION);
     }
 
     /**

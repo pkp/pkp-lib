@@ -453,7 +453,7 @@ class PKPHandler
         $context = $request->getContext();
         $pageNum = $request->getUserVar(self::getPageParamName($rangeName));
         if (empty($pageNum)) {
-            $session = & $request->getSession();
+            $session = $request->getSession();
             $pageNum = 1; // Default to page 1
             if ($session && $contextData !== null) {
                 // See if we can get a page number from a prior request
@@ -470,7 +470,7 @@ class PKPHandler
                 }
             }
         } else {
-            $session = & $request->getSession();
+            $session = $request->getSession();
             if ($session && $contextData !== null) {
                 // Store the page number
                 $contextHash = self::hashPageContext($request, $contextData);

@@ -29,6 +29,7 @@ use PKP\db\DAORegistry;
 use PKP\i18n\interfaces\LocaleInterface;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
+use PKP\security\Validation;
 use PKP\session\SessionManager;
 use Illuminate\Support\Facades\Cache;
 use PKP\i18n\translation\LocaleBundle;
@@ -139,7 +140,7 @@ class Locale implements LocaleInterface
             $request = $this->_getRequest();
             $locale = $request->getUserVar('uiLocale')
                 ?: $request->getUserVar('setLocale')
-                ?: (SessionManager::isDisabled() ? null : SessionManager::getManager()->getUserSession()->getSessionVar('currentLocale'))
+                ?: (SessionManager::hasSession() ? SessionManager::getManager()->getUserSession()->getSessionVar('currentLocale') : null)
                 ?: $request->getCookieVar('currentLocale');
             $this->setLocale(in_array($locale, array_keys($this->getSupportedLocales())) ? $locale : $this->getPrimaryLocale());
         }

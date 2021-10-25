@@ -145,11 +145,11 @@ class PKPTemplateManager extends Smarty
         $currentContext = $request->getContext();
 
         $this->assign([
-            'defaultCharset' => Locale::getDefaultEncoding(),
+            'defaultCharset' => 'utf-8',
             'baseUrl' => $request->getBaseUrl(),
             'currentContext' => $currentContext,
             'currentLocale' => $locale,
-            'currentLocaleLangDir' => (Locale::getLocaleMetadata($locale)->isRtlDirection ?? false) ? 'rtl' : 'ltr',
+            'currentLocaleLangDir' => Locale::getMetadata($locale)->isRightToLeft() ? 'rtl' : 'ltr',
             'applicationName' => __($application->getNameKey()),
         ]);
 
@@ -469,7 +469,7 @@ class PKPTemplateManager extends Smarty
      *
      * @param string $name Unique name for the LESS file
      *
-     * @return $path string Path to the less file or false if not found
+     * @return string Path to the less file or false if not found
      */
     public function getCachedLessFilePath($name)
     {
@@ -742,9 +742,7 @@ class PKPTemplateManager extends Smarty
                 $allLocales = $this->_request->getSite()->getSupportedLocales();
             }
             $allLocales = array_unique($allLocales);
-            $rtlLocales = array_filter($allLocales, function ($locale) {
-                return Locale::getLocaleMetadata($locale)->isRtlDirection ?? false;
-            });
+            $rtlLocales = array_filter($allLocales, fn(string $locale) => Locale::getMetadata($locale)->isRightToLeft());
             $app_data['rtlLocales'] = array_values($rtlLocales);
         }
 
@@ -1151,7 +1149,7 @@ class PKPTemplateManager extends Smarty
     {
         if (Application::isInstalled()) {
             $context = $this->_request->getContext();
-            if ($context instanceof \PKP\core\Context) {
+            if ($context instanceof \PKP\context\Context) {
                 $resourceName .= $context->getData('themePluginPath');
             }
         }
@@ -1237,7 +1235,7 @@ class PKPTemplateManager extends Smarty
         // case server is using Apache's AddDefaultCharset
         // directive (which can prevent browser auto-detection
         // of the proper character set).
-        header('Content-Type: text/html; charset=' . Locale::getDefaultEncoding());
+        header('Content-Type: text/html; charset=utf-8');
         header('Cache-Control: ' . $this->_cacheability);
 
         // If no compile ID was assigned, get one.
@@ -2376,7 +2374,7 @@ class PKPTemplateManager extends Smarty
     public function smartyLocaleDirection($params, $smarty)
     {
         $locale = empty($params['locale']) ? Locale::getLocale() : $params['locale'];
-        return (Locale::getLocaleMetadata($locale)->isRtlDirection ?? false) ? 'rtl' : 'ltr';
+        return Locale::getMetadata($locale)->isRightToLeft() ? 'rtl' : 'ltr';
     }
 
     /**

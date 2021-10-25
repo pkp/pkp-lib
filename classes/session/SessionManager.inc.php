@@ -16,6 +16,7 @@
 namespace PKP\session;
 
 use PKP\config\Config;
+use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 
@@ -35,12 +36,8 @@ class SessionManager
      * @param SessionDAO $sessionDao
      * @param PKPRequest $request
      */
-    public function __construct($sessionDao, $request)
+    public function __construct(SessionDAO $sessionDao, PKPRequest $request)
     {
-        if (static::isDisabled()) {
-            return;
-        }
-
         $this->sessionDao = $sessionDao;
 
         // Configure PHP session parameters
@@ -53,7 +50,6 @@ class SessionManager
         ini_set('session.cookie_domain', $request->getServerHost(null, false));
         ini_set('session.gc_probability', 1);
         ini_set('session.gc_maxlifetime', 60 * 60);
-        ini_set('session.auto_start', 1);
         ini_set('session.cache_limiter', 'none');
 
         session_set_save_handler(
@@ -75,15 +71,19 @@ class SessionManager
         $now = time();
 
         // Check if the session is tied to the parent domain
-        if (isset($this->userSession) && $this->userSession->getDomain() && $this->userSession->getDomain() != $request->getServerHost(null, false)) {
+        $domain = $this->userSession ? $this->userSession->getDomain() : null;
+        if ($domain && $domain != $request->getServerHost(null, false)) {
             // if current host contains . and the session domain (is a subdomain of the session domain), adjust the session's domain parameter to the parent
-            if (strtolower(substr($request->getServerHost(null, false), -1 - strlen($this->userSession->getDomain()))) == '.' . strtolower($this->userSession->getDomain())) {
-                ini_set('session.cookie_domain', $this->userSession->getDomain());
+            if (strtolower(substr($request->getServerHost(null, false), -1 - strlen($domain))) === '.' . strtolower($domain)) {
+                ini_set('session.cookie_domain', $domain);
             }
         }
 
-        if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != substr($userAgent, 0, 255)) {
-            if (isset($this->userSession)) {
+        if (!$this->userSession
+            || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() !== $ip)
+            || $this->userSession->getUserAgent() !== substr($userAgent, 0, 255)
+        ) {
+            if ($this->userSession) {
                 // Destroy old session
                 session_destroy();
             }
@@ -122,7 +122,7 @@ class SessionManager
      *
      * @return SessionManager
      */
-    public static function getManager()
+    public static function getManager(): SessionManager
     {
         // Reference required
         $instance = & Registry::get('sessionManager', true, null);
@@ -142,10 +142,8 @@ class SessionManager
 
     /**
      * Get the session associated with the current request.
-     *
-     * @return Session
      */
-    public function getUserSession()
+    public function getUserSession(): Session
     {
         return $this->userSession;
     }
@@ -153,10 +151,8 @@ class SessionManager
     /**
      * Open a session.
      * Does nothing; only here to satisfy PHP session handler requirements.
-     *
-     * @return bool
      */
-    public function open()
+    public function open(): bool
     {
         return true;
     }
@@ -164,41 +160,27 @@ class SessionManager
     /**
      * Close a session.
      * Does nothing; only here to satisfy PHP session handler requirements.
-     *
-     * @return bool
      */
-    public function close()
+    public function close(): bool
     {
         return true;
     }
 
     /**
      * Read session data from database.
-     *
-     * @param string $sessionId
-     *
-     * @return bool
      */
-    public function read($sessionId)
+    public function read(string $sessionId): string
     {
-        if (!isset($this->userSession)) {
+        if (!$this->userSession) {
             $this->userSession = $this->sessionDao->getSession($sessionId);
-            if (isset($this->userSession)) {
-                $data = $this->userSession->getSessionData();
-            }
         }
-        return $data ?? '';
+        return $this->userSession ? $this->userSession->getSessionData() : '';
     }
 
     /**
      * Save session data to database.
-     *
-     * @param string $sessionId
-     * @param array $data
-     *
-     * @return bool
      */
-    public function write($sessionId, $data)
+    public function write(string $sessionId, string $data): bool
     {
         if (isset($this->userSession)) {
             $this->userSession->setSessionData($data);
@@ -209,12 +191,8 @@ class SessionManager
 
     /**
      * Destroy (delete) a session.
-     *
-     * @param string $sessionId
-     *
-     * @return bool
      */
-    public function destroy($sessionId)
+    public function destroy(string $sessionId): bool
     {
         $this->sessionDao->deleteById($sessionId);
         return true;
@@ -222,13 +200,11 @@ class SessionManager
 
     /**
      * Garbage collect unused session data.
-     * TODO: Use $maxlifetime instead of assuming 24 hours?
+     * TODO: Use $lifetime instead of assuming 24 hours?
      *
-     * @param int $maxlifetime the number of seconds after which data will be seen as "garbage" and cleaned up
-     *
-     * @return bool
+     * @param int $lifetime the number of seconds after which data will be seen as "garbage" and cleaned up
      */
-    public function gc($maxlifetime)
+    public function gc(int $lifetime): bool
     {
         return (bool) $this->sessionDao->deleteByLastUsed(time() - 86400, Config::getVar('general', 'session_lifetime') <= 0 ? 0 : time() - Config::getVar('general', 'session_lifetime') * 86400);
     }
@@ -236,12 +212,8 @@ class SessionManager
     /**
      * Resubmit the session cookie.
      *
-     * @param string $sessionId new session ID (or false to keep current ID)
-     * @param int $expireTime new expiration time in seconds (0 = current session)
-     *
-     * @return bool
      */
-    public function updateSessionCookie($sessionId = false, $expireTime = 0)
+    public function updateSessionCookie($sessionId = false, int $expireTime = 0): bool
     {
         $domain = ini_get('session.cookie_domain');
         // Specific domains must contain at least one '.' (e.g. Chrome)
@@ -270,10 +242,8 @@ class SessionManager
      * This is useful to guard against the "session fixation" form of hijacking
      * by changing the user's session ID after they have logged in (in case the
      * original session ID had been pre-populated).
-     *
-     * @return bool
      */
-    public function regenerateSessionId()
+    public function regenerateSessionId(): bool
     {
         $success = false;
         $currentSessionId = session_id();
@@ -293,11 +263,8 @@ class SessionManager
     /**
      * Change the lifetime of the current session cookie.
      *
-     * @param int $expireTime new expiration time in seconds (0 = current session)
-     *
-     * @return bool
      */
-    public function updateSessionLifetime($expireTime = 0)
+    public function updateSessionLifetime(int $expireTime = 0): bool
     {
         return $this->updateSessionCookie(false, $expireTime);
     }
@@ -319,6 +286,15 @@ class SessionManager
         if (!defined('SESSION_DISABLE_INIT')) {
             define('SESSION_DISABLE_INIT', true);
         }
+    }
+
+    /**
+     * Retrieves whether the user has a session ID
+    */
+    public static function hasSession(): bool
+    {
+        // If the session isn't disabled and a cookie is present or a session was started in the current request
+        return !SessionManager::isDisabled() && (isset($_COOKIE[Config::getVar('general', 'session_cookie_name')]) || !!session_id());
     }
 }
 

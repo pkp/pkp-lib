@@ -17,6 +17,8 @@
 
 namespace PKP\search;
 
+use Illuminate\Support\Facades\DB;
+
 class SubmissionSearchDAO extends \PKP\db\DAO
 {
     /**
@@ -117,24 +119,36 @@ class SubmissionSearchDAO extends \PKP\db\DAO
 
     /**
      * Index an occurrence of a keyword in an object.
-     *
-     * @param $objectId int
-     * @param $keyword string
-     * @param $position int
-     *
-     * @return $keywordId
      */
-    public function insertObjectKeyword($objectId, $keyword, $position)
+    public function insertObjectKeywords(int $objectId, array $keywords): void
     {
-        $keywordId = $this->insertKeyword($keyword);
-        if ($keywordId === null) {
-            return null;
-        } // Bug #2324
-        $this->update(
-            'INSERT INTO submission_search_object_keywords (object_id, keyword_id, pos) VALUES (?, ?, ?)',
-            [(int) $objectId, (int) $keywordId, (int) $position]
-        );
-        return $keywordId;
+        // Get the latest position if exists
+        $position = DB::table('submission_search_object_keywords')->where('object_id', $objectId)->max('pos');
+        if ($position === null) {
+            $position = -1;
+        }
+
+        $collection = collect();
+        foreach ($keywords as $keyword) {
+            $keywordId = $this->insertKeyword($keyword);
+            if ($keywordId === null) {
+                continue;
+            } // Bug #2324
+
+            $collection->push([
+                'object_id' => $objectId,
+                'keyword_id' => $keywordId,
+                'pos' => ++$position,
+            ]);
+        }
+        if ($collection->isEmpty()) {
+            return;
+        }
+
+        $chunks = $collection->chunk(1000);
+        foreach ($chunks as $chunk) {
+            DB::table('submission_search_object_keywords')->insert($chunk->toArray());
+        }
     }
 
     /**

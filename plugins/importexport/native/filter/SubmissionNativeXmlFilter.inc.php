@@ -147,8 +147,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
             ->filterBySubmissionIds([$submission->getId()])
             ->includeDependentFiles();
 
-        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
-        foreach ($submissionFilesIterator as $submissionFile) {
+        $submissionFiles = Repo::submissionFiles()->getMany($collector);
+        foreach ($submissionFiles as $submissionFile) {
             // Skip files attached to objects that are not included in the export,
             // such as files uploaded to discussions and files uploaded by reviewers
             if (in_array($submissionFile->getData('fileStage'), [SubmissionFile::SUBMISSION_FILE_QUERY, SubmissionFile::SUBMISSION_FILE_NOTE, SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])) {

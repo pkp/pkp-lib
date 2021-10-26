@@ -46,7 +46,7 @@ abstract class Collector implements CollectorInterface
     public ?int $offset;
     public string $orderBy = self::ORDERBY_DATE_SUBMITTED;
     public string $orderDirection = 'DESC';
-    public string $searchPhrase = null;
+    public ?string $searchPhrase = null;
     public ?array $statuses;
     public ?array $stageIds;
 

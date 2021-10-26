@@ -24,7 +24,7 @@ class Collector implements CollectorInterface
     public DAO $dao;
     public ?array $contextIds;
     public string $isActive;
-    public string $searchPhrase = null;
+    public ?string $searchPhrase = null;
     public ?array $typeIds;
     public ?int $count;
     public ?int $offset;

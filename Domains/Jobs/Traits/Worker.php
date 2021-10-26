@@ -50,14 +50,14 @@ trait Worker
     /**
      * Job's worker force configuration
      *
-     * @var int
+     * @var bool
      */
     protected $forceFlag = false;
 
     /**
      * Job's worker stopWhenEmpty configuration
      *
-     * @var int
+     * @var bool
      */
     protected $stopWhenEmptyFlag = true;
 

@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace PKP\Jobs\Submissions;
 
 use APP\core\Application;
-use APP\core\Services;
+use APP\facades\Repo;
 use PKP\Domains\Jobs\Exceptions\JobException;
 
 use PKP\submission\PKPSubmission;
@@ -48,7 +48,7 @@ class UpdateSubmissionSearchJob extends BaseJob
      */
     public function handle(): void
     {
-        $submission = Services::get('submission')->get($this->submissionId);
+        $submission = Repo::submission()->get($this->submissionId);
 
         if (!$submission) {
             $this->failed(new JobException(JobException::INVALID_PAYLOAD));

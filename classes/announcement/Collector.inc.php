@@ -24,7 +24,7 @@ class Collector implements CollectorInterface
     public DAO $dao;
     public ?array $contextIds;
     public string $isActive;
-    public string $searchPhrase = '';
+    public string $searchPhrase = null;
     public ?array $typeIds;
     public ?int $count;
     public ?int $offset;
@@ -69,7 +69,7 @@ class Collector implements CollectorInterface
     /**
      * Filter announcements by those matching a search query
      */
-    public function searchPhrase(string $phrase): self
+    public function searchPhrase(?string $phrase): self
     {
         $this->searchPhrase = $phrase;
         return $this;
@@ -114,7 +114,7 @@ class Collector implements CollectorInterface
                 ->orWhereNull('date_expire');
         }
 
-        if (!empty($this->searchPhrase)) {
+        if ($this->searchPhrase !== null) {
             $words = explode(' ', $this->searchPhrase);
             if (count($words)) {
                 $qb->leftJoin($this->dao->settingsTable . ' as asrch', 'a.announcement_id', '=', 'asrch.announcement_id');

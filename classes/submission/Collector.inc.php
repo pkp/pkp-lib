@@ -46,7 +46,7 @@ abstract class Collector implements CollectorInterface
     public ?int $offset;
     public string $orderBy = self::ORDERBY_DATE_SUBMITTED;
     public string $orderDirection = 'DESC';
-    public string $searchPhrase = '';
+    public string $searchPhrase = null;
     public ?array $statuses;
     public ?array $stageIds;
 
@@ -141,7 +141,7 @@ abstract class Collector implements CollectorInterface
     /**
      * Limit results to submissions matching this search query
      */
-    public function searchPhrase(string $phrase): AppCollector
+    public function searchPhrase(?string $phrase): AppCollector
     {
         $this->searchPhrase = $phrase;
         return $this;
@@ -316,7 +316,7 @@ abstract class Collector implements CollectorInterface
         }
 
         // search phrase
-        if (!empty($this->searchPhrase)) {
+        if ($this->searchPhrase !== null) {
             $words = explode(' ', $this->searchPhrase);
             if (count($words)) {
                 $q->leftJoin('publications as p', 'p.submission_id', '=', 's.submission_id')

@@ -44,7 +44,7 @@ class PKPStatsPublicationPage extends PKPStatsComponent
     public $orderDirection = 'DESC';
 
     /** @var string A search phrase to filter the list of items */
-    public $searchPhrase = '';
+    public $searchPhrase = null;
 
     /**
      * Retrieve the configuration data to be used when initializing this
@@ -67,7 +67,7 @@ class PKPStatsPublicationPage extends PKPStatsComponent
                 'itemsMax' => $this->itemsMax,
                 'count' => $this->count,
                 'offset' => 0,
-                'searchPhrase' => '',
+                'searchPhrase' => null,
                 'orderBy' => $this->orderBy,
                 'orderDirection' => $this->orderDirection,
                 'isLoadingTimeline' => false,

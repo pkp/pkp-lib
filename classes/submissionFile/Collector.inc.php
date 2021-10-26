@@ -128,7 +128,7 @@ class Collector implements CollectorInterface
      * Set assocType and assocId filters
      *
      * @param null|int $assocType One of the ASSOC_TYPE_ constants
-     * @param null|array $assocIds Match with ids for these assoc types
+     * @param null|array $assocIds Match for the specified assoc type
      */
     public function filterByAssoc(?int $assocType, ?array $assocIds = null): self
     {
@@ -234,7 +234,7 @@ class Collector implements CollectorInterface
             $qb->whereIn('sf.uploader_user_id', $this->uploaderUserIds);
         }
 
-        if (empty($this->includeDependentFiles) && $this->fileStages !== null && !in_array(SubmissionFile::SUBMISSION_FILE_DEPENDENT, $this->fileStages)) {
+        if ($this->includeDependentFiles !== true && $this->fileStages !== null && !in_array(SubmissionFile::SUBMISSION_FILE_DEPENDENT, $this->fileStages)) {
             $qb->where('sf.file_stage', '!=', SubmissionFile::SUBMISSION_FILE_DEPENDENT);
         }
 

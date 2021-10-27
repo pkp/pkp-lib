@@ -1,7 +1,8 @@
+# Barbara Bornewasser <bornewasser@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-25 18:36+0000\n"
-"Last-Translator: Manuel Garcia <usuariodemanuel@gmail.com>\n"
+"PO-Revision-Date: 2021-10-28 08:07+0000\n"
+"Last-Translator: Barbara Bornewasser <bornewasser@mikado-ac.info>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/locale/"
 "es_ES/>\n"
 "Language: es_ES\n"
@@ -114,9 +115,9 @@ msgstr "Aviso de copyright"
 
 msgid "about.submissionPreparationChecklist.description"
 msgstr ""
-"Como parte del proceso de envío, los autores deben verificar el cumplimiento "
-"de su envío con todos los elementos siguients, y los envíos podrán "
-"devolverse a los autores que no cumplan con estas pautas."
+"Como parte del proceso de envío, los autores deben confirmar que su envió "
+"cumple con todos los puntos siguientes. Los envíos pueden ser devueltas a "
+"los autores que no se adhieren a estas directrices."
 
 msgid "about.submissionPreparationChecklist"
 msgstr "Lista de verificación de preparación de envío"

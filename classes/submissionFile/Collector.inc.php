@@ -187,7 +187,7 @@ class Collector implements CollectorInterface
         $qb = DB::table($this->dao->table . ' as sf')
             ->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
             ->join('files as f', 'f.file_id', '=', 'sf.file_id')
-            ->addSelect(['sf.*', 'f.*', 's.locale as locale']);
+            ->select(['sf.*', 'f.*', 's.locale as locale']);
 
         if ($this->submissionIds !== null) {
             $qb->whereIn('sf.submission_id', $this->submissionIds);

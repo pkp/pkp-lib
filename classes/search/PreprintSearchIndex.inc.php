@@ -19,6 +19,7 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use PKP\config\Config;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\search\SearchFileParser;
@@ -114,9 +115,8 @@ class PreprintSearchIndex extends SubmissionSearchIndex
                 $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
                 $objectId = $searchDao->insertObject($preprintId, $type, $submissionFile->getId());
 
-                $position = 0;
                 while (($text = $parser->read()) !== false) {
-                    $this->_indexObjectKeywords($objectId, $text, $position);
+                    $this->_indexObjectKeywords($objectId, $text);
                 }
                 $parser->close();
             }
@@ -161,7 +161,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
             foreach ($submissionFilesIterator as $submissionFile) {
                 $this->submissionFileChanged($preprint->getId(), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile);
                 $dependentFilesIterator = Services::get('submissionFile')->getMany([
-                    'assocTypes' => [ASSOC_TYPE_SUBMISSION_FILE],
+                    'assocTypes' => [PKPApplication::ASSOC_TYPE_SUBMISSION_FILE],
                     'assocIds' => [$submissionFile->getId()],
                     'submissionIds' => [$preprint->getId()],
                     'fileStages' => [SubmissionFile::SUBMISSION_FILE_DEPENDENT],
@@ -329,18 +329,13 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * Index a block of text for an object.
      *
      * @param $objectId int
-     * @param $text string
-     * @param $position int
+     * @param $text string|array
      */
-    protected function _indexObjectKeywords($objectId, $text, &$position)
+    protected function _indexObjectKeywords($objectId, $text)
     {
         $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
         $keywords = $this->filterKeywords($text);
-        for ($i = 0, $count = count($keywords); $i < $count; $i++) {
-            if ($searchDao->insertObjectKeyword($objectId, $keywords[$i], $position) !== null) {
-                ++$position;
-            }
-        }
+        $searchDao->insertObjectKeywords($objectId, $keywords);
     }
 
     /**
@@ -355,8 +350,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     {
         $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
         $objectId = $searchDao->insertObject($preprintId, $type, $assocId);
-        $position = 0;
-        $this->_indexObjectKeywords($objectId, $text, $position);
+        $this->_indexObjectKeywords($objectId, $text);
     }
 
     /**

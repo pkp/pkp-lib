@@ -1,6 +1,7 @@
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-07 22:34+0000\n"
+"PO-Revision-Date: 2021-10-28 16:07+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
@@ -397,3 +398,180 @@ msgid "manager.setup.selectCountry"
 msgstr ""
 "Selecione o país onde este servidor está localizado ou o país do endereço de "
 "correspondência do servidor ou editora."
+
+msgid "emailTemplate.variable.site.siteTitle"
+msgstr "Nome do site quando mais de um servidor é hospedado"
+
+msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
+msgstr "A moeda do valor do pagamento, como BRL"
+
+msgid "emailTemplate.variable.queuedPayment.itemCost"
+msgstr "O valor do pagamento"
+
+msgid "emailTemplate.variable.queuedPayment.itemName"
+msgstr "O nome da forma de pagamento"
+
+msgid "emailTemplate.variable.context.contactEmail"
+msgstr "O endereço de e-mail do contato principal do servidor"
+
+msgid "emailTemplate.variable.context.principalContactSignature"
+msgstr "A assinatura de e-mail do servidor para e-mails automáticos"
+
+msgid "emailTemplate.variable.context.contactName"
+msgstr "O nome do contato principal do servidor"
+
+msgid "emailTemplate.variable.context.contextUrl"
+msgstr "A URL para a página inicial do servidor"
+
+msgid "emailTemplate.variable.context.contextName"
+msgstr "O nome do servidor"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled.description"
+msgstr ""
+"Nenhum contato principal foi definido para este servidor de preprint. Você "
+"pode inserir um contato principal nas <a href=\"{$url}\"> configurações do "
+"servidor de preprint</a>"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
+msgstr ""
+"Envie uma cópia do e-mail de confirmação de submissão para o contato "
+"principal deste servidor de preprint."
+
+msgid "stats.publications.abstracts"
+msgstr "Resumos"
+
+msgid "stats.publications.countOfTotal"
+msgstr "{$count} de {$total} preprints"
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr "Total de visualizações de arquivo por data"
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr "Total de visualizações de resumo por data"
+
+msgid "stats.publications.none"
+msgstr ""
+"Não foram encontrados preprints com estatísticas de uso correspondentes a "
+"esses parâmetros."
+
+msgid "stats.publications.details"
+msgstr "Detalhes do preprint"
+
+msgid "stats.publicationStats"
+msgstr "Estatísticas de preprint"
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr "Os objetos especificados não foram encontrados."
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr "O prefixo DOI está ausente para o servidor com o caminho {$path}."
+
+msgid "plugins.importexport.common.register.success"
+msgstr "Registro realizado com sucesso!"
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+"O registo não foi bem sucedido! O servidor de registro DOI retornou um erro: "
+"'{$param}'."
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr "O arquivo de saída {$param} não é gravável."
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr "XML inválido:"
+
+msgid "plugins.importexport.common.error.validation"
+msgstr "Não foi possível converter os objetos selecionados."
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr "Nenhum objeto selecionado."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valide o XML antes de exportar e registrar."
+
+msgid "plugins.importexport.common.action.register"
+msgstr "Registro"
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr "Marca registrada"
+
+msgid "plugins.importexport.common.action.export"
+msgstr "Exportar"
+
+msgid "plugins.importexport.common.action"
+msgstr "Ação"
+
+msgid "plugins.importexport.common.status.registered"
+msgstr "Registrado"
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr "Marcado como registrado"
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr "Não depositado"
+
+msgid "plugins.importexport.common.status.any"
+msgstr "Qualquer status"
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+"Observe que a senha será salva como texto simples, ou seja, não "
+"criptografada."
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr "Senha"
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr "O plugin não está totalmente configurado."
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+"Para usar este plugin, vá para a categoria de plugin \"Identificador "
+"Público\", habilite e configure o plugin DOI e lá especifique um prefixo DOI "
+"válido."
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr "Requisitos de plug-in não atendidos"
+
+msgid "plugins.importexport.common.export.preprints"
+msgstr "Preprints"
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr "Configurações do plug-in DOI"
+
+msgid "plugins.importexport.common.settings"
+msgstr "Configurações"
+
+msgid "grid.genres.title"
+msgstr "Componentes de preprint"
+
+msgid "grid.genres.title.short"
+msgstr "Componentes"
+
+msgid "manager.setup.resetPermissions.success"
+msgstr "As permissões de preprint foram redefinidas com sucesso."
+
+msgid "manager.setup.resetPermissions.description"
+msgstr ""
+"Remova a declaração de direitos autorais e as informações de licença de cada "
+"preprint postado, revertendo-os para as configurações padrão atuais do "
+"servidor. Isso removerá permanentemente todos os direitos autorais "
+"anteriores e as informações de licenciamento anexadas aos preprints. Em "
+"alguns casos, você pode não ter permissão legal para licenciar novamente um "
+"trabalho que foi publicado sob uma licença diferente. Tome cuidado ao usar "
+"essa ferramenta e consulte um especialista jurídico se não tiver certeza de "
+"quais direitos você detém sobre os preprints postadas em seu servidor."
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+"Tem certeza de que deseja redefinir os dados de permissão para todas ao "
+"preprints? Essa ação não pode ser desfeita."
+
+msgid "manager.setup.resetPermissions"
+msgstr "Redefinir permissões do Preprint"
+
+msgid "manager.publication.library"
+msgstr "Biblioteca do servidor de Preprint"
+
+msgid "grid.category.path"
+msgstr "Caminho"

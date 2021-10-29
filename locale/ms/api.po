@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 07:16+0000\n"
+"PO-Revision-Date: 2021-10-29 07:17+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ms/>\n"
 "Language: ms\n"
@@ -186,3 +186,22 @@ msgstr ""
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr "Tiada perubahan ditemui dalam permintaan untuk menyunting fail ini."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Anda tidak boleh memadam penyerahan yang tidak ditugaskan kepada konteks ini."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Permintaan anda telah ditolak. Ini mungkin kerana log masuk anda telah tamat "
+"tempoh. Cuba muat semula halaman dan cuba lagi."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Jilid, nombor atau tahun yang diminta tidak sah."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Permintaan anda tidak dapat dipenuhi kerana tiada maklumat yang diperlukan."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Anda tidak dibenarkan mengakses fail dalam pusingan ulasan ini."

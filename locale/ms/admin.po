@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 06:55+0000\n"
+"PO-Revision-Date: 2021-10-29 06:57+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ms/>"
 "\n"
@@ -358,3 +358,11 @@ msgstr "Ralat: tidak dapat memadam fail {$tmpFilePath}"
 
 msgid "admin.copyAccessLogFileTool.error.copyingFile"
 msgstr "Ralat: tidak boleh menyalin fail daripada {$filePath} ke {$tmpFilePath}"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Tiada bahasa/locales yang tersedia untuk dimuat turun."
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Ralat: tidak dapat melaksanakan \"{$utilPath}\". Semak tetapan {$utilVar} "
+"anda dalam config.inc.php."

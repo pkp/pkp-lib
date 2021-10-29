@@ -103,14 +103,30 @@ class MailTemplate extends Mail
         }
 
         // Default "From" to user if available, otherwise site/context principal contact
-        if ($user) {
-            $this->setFrom($user->getEmail(), $user->getFullName());
-        } elseif (is_null($context) || is_null($context->getData('contactEmail'))) {
-            $site = $request->getSite();
-            $this->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-        } else {
-            $this->setFrom($context->getData('contactEmail'), $context->getData('contactName'));
-        }
+
+	// Note: smtp.office.365 not allowed to send as user email which is different from smtp_username
+	$fromEmail = Config::getVar('email', 'smtp_server') == 'smtp.office365.com'
+		? Config::getVar('email', 'smtp_username')
+		: null;
+
+	if ($user) {
+		if (is_null($fromEmail))
+			$fromEmail = $user->getEmail();
+
+		$this->setFrom($fromEmail, $user->getFullName());
+	} elseif (is_null($context) || is_null($context->getData('contactEmail'))) {
+		$site = $request->getSite();
+
+		if (is_null($fromEmail))
+			$fromEmail = $site->getLocalizedContactEmail();
+
+		$this->setFrom($fromEmail, $site->getLocalizedContactName());
+	} else {
+		if (is_null($fromEmail))
+			$fromEmail = $context->getData('contactEmail');
+
+		$this->setFrom($fromEmail, $context->getData('contactName'));
+	}
 
         if ($context) {
             $this->setSubject('[' . $context->getLocalizedAcronym() . '] ' . $this->getSubject());

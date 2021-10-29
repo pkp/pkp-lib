@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 07:15+0000\n"
+"PO-Revision-Date: 2021-10-29 07:16+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ms/>\n"
 "Language: ms\n"
@@ -173,3 +173,16 @@ msgid "api.submissionFiles.400.missingReviewRoundAssocType"
 msgstr ""
 "Anda mesti menentukan pusingan ulasan apabila meminta fail dalam peringkat "
 "ulasan."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Anda tidak dibenarkan menambah dan menyunting fail ini."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Anda tidak dibenarkan mengakses fail ini."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"Pusingan ulasan yang anda berikan bukan sebahagian daripada penyerahan ini."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Tiada perubahan ditemui dalam permintaan untuk menyunting fail ini."

@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 06:52+0000\n"
+"PO-Revision-Date: 2021-10-29 06:54+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ms/>"
 "\n"
@@ -338,3 +338,6 @@ msgstr "Maklumat Pelayan"
 
 msgid "admin.server.dbVersion"
 msgstr "Versi pelayan pangkalan data"
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Ralat: Fail {$filePath} tidak wujud atau tidak boleh diakses."

@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 07:02+0000\n"
+"PO-Revision-Date: 2021-10-29 07:03+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ms/>\n"
 "Language: ms\n"
@@ -18,3 +18,6 @@ msgstr ""
 
 msgid "api.400.paramNotSupported"
 msgstr "Parameter {$param} tidak disokong."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "ApiToken tidak dapat dinyahkod kerana ralat berikut: {$error}"

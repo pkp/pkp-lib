@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 06:54+0000\n"
+"PO-Revision-Date: 2021-10-29 06:55+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ms/>"
 "\n"
@@ -341,3 +341,20 @@ msgstr "Versi pelayan pangkalan data"
 
 msgid "admin.copyAccessLogFileTool.error.acessingFile"
 msgstr "Ralat: Fail {$filePath} tidak wujud atau tidak boleh diakses."
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+"Perlaksanaan program \"{$utilPath}\" mengembalikan ralat berikut: {$output}"
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Berjaya: {$filePath} ke {$destinationPath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Amaran: fail {$filePath} sudah wujud di dalam direktori statistik penggunaan."
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Ralat: tidak dapat memadam fail {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Ralat: tidak boleh menyalin fail daripada {$filePath} ke {$tmpFilePath}"

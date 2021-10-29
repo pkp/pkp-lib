@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 07:11+0000\n"
+"PO-Revision-Date: 2021-10-29 07:13+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ms/>\n"
 "Language: ms\n"
@@ -124,3 +124,19 @@ msgstr ""
 
 msgid "api.publicFiles.400.invalidImage"
 msgstr "Imej yang anda muat naik tidak sah."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Permintaan anda tidak sah. Arah pesanan mestilah `desc` atau `asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Permintaan anda tidak sah. Selang garis masa mestilah `hari` atau `bulan`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Tarikh tamat tidak boleh lewat daripada semalam."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Tarikh mula tidak boleh lebih awal daripada 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Tarikh mula tidak boleh lewat daripada tarikh tamat."

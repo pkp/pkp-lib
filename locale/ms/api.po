@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 07:14+0000\n"
+"PO-Revision-Date: 2021-10-29 07:15+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ms/>\n"
 "Language: ms\n"
@@ -165,3 +165,11 @@ msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
 "Anda tidak boleh mengubah suai perkaitan fail tanpa menghantar assocType dan "
 "assocId."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Anda mesti menyediakan peringkat fail."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Anda mesti menentukan pusingan ulasan apabila meminta fail dalam peringkat "
+"ulasan."

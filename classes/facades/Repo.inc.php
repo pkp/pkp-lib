@@ -24,20 +24,20 @@
 
 namespace PKP\facades;
 
-use Illuminate\Support\Facades\App;
-
+use PKP\announcement\Repository as AnnouncementRepository;
+use PKP\author\Repository as AuthorRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 
 class Repo
 {
-    public static function announcement(): \PKP\announcement\Repository
+    public static function announcement(): AnnouncementRepository
     {
-        return App::make(\PKP\announcement\Repository::class);
+        return app()->make(AnnouncementRepository::class);
     }
 
-    public static function author(): \PKP\author\Repository
+    public static function author(): AuthorRepository
     {
-        return App::make(\PKP\author\Repository::class);
+        return app()->make(AuthorRepository::class);
     }
 
     public static function emailTemplate(): \PKP\emailTemplate\Repository

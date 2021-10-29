@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 08:23+0000\n"
+"PO-Revision-Date: 2021-10-29 08:32+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/common/ms/"
 ">\n"
@@ -17,3 +17,66 @@ msgstr "Public Knowledge Project"
 
 msgid "common.currentStyleSheet"
 msgstr "Lembaran Gaya Semasa"
+
+msgid "common.navigation.sidebar"
+msgstr "Bar sisi"
+
+msgid "common.allDownloads"
+msgstr "Semua Muat Turun"
+
+msgid "announcement.view"
+msgstr "Lihat Pengumuman"
+
+msgid "announcement.postedOn"
+msgstr "Disiarkan pada {$postDate}"
+
+msgid "announcement.posted"
+msgstr "Disiarkan"
+
+msgid "announcement.noneExist"
+msgstr "Tiada pengumuman telah diterbitkan."
+
+msgid "announcement.moreAnnouncements"
+msgstr "Lagi Pengumuman..."
+
+msgid "announcement.announcementsHome"
+msgstr "Pengumuman"
+
+msgid "announcement.announcements"
+msgstr "Pengumuman"
+
+msgid "about.siteMap"
+msgstr "Peta Laman"
+
+msgid "about.policies"
+msgstr "Polisi"
+
+msgid "about.people"
+msgstr "Orang"
+
+msgid "about.other"
+msgstr "Lain-lain"
+
+msgid "about.contact.supportContact"
+msgstr "Kenalan Sokongan"
+
+msgid "about.contact.principalContact"
+msgstr "Hubungan Utama"
+
+msgid "about.contact.phone"
+msgstr "Telefon"
+
+msgid "about.contact.email"
+msgstr "E-mel"
+
+msgid "about.contact"
+msgstr "Kenalan"
+
+msgid "about.aboutSite"
+msgstr "Mengenai Laman"
+
+msgid "about.guidelines"
+msgstr "Panduan"
+
+msgid "about.description"
+msgstr "Penerangan"

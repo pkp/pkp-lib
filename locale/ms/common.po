@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 08:32+0000\n"
+"PO-Revision-Date: 2021-10-29 08:41+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/common/ms/"
 ">\n"
@@ -80,3 +80,66 @@ msgstr "Panduan"
 
 msgid "about.description"
 msgstr "Penerangan"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.all"
+msgstr "Semua"
+
+msgid "common.name"
+msgstr "Nama"
+
+msgid "common.addSelf"
+msgstr "Tambah Diri sendiri"
+
+msgid "common.add"
+msgstr "Tambah"
+
+msgid "common.inactive"
+msgstr "Tidak aktif"
+
+msgid "common.active"
+msgstr "Aktif"
+
+msgid "common.activate"
+msgstr "Aktifkan"
+
+msgid "common.action"
+msgstr "Tindakan"
+
+msgid "common.acknowledged"
+msgstr "Diakui"
+
+msgid "common.accepted"
+msgstr "Diterima"
+
+msgid "common.abstract"
+msgstr "Abstrak"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Adakah anda pasti mahu memadam item ini? Tindakan ini tidak boleh diulang."
+
+msgid "common.grid"
+msgstr "Grid"
+
+msgid "common.list"
+msgstr "Senarai"
+
+msgid "common.tasks"
+msgstr "Tugasan"
+
+msgid "common.navigation.user"
+msgstr "Navigasi Pengguna"
+
+msgid "common.navigation.siteContext"
+msgstr "Navigasi Konteks Laman"
+
+msgid "common.navigation.site"
+msgstr "Navigasi Laman"

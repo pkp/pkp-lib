@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 07:25+0000\n"
+"PO-Revision-Date: 2021-10-29 07:26+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "generic-acron/ms/>\n"
@@ -19,3 +19,18 @@ msgstr ""
 
 msgid "plugins.generic.acron.name"
 msgstr "Plugin Acron"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Tugasan Berjadual telah dimuatkan semula."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Muat semula Tugasan Berjadual"
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Tab Cron berjaya dimuat semula."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Plugin Acron telah dinyahdayakan."
+
+msgid "plugins.generic.acron.enabled"
+msgstr "Plugin Acron telah didayakan."

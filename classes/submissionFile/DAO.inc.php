@@ -3,7 +3,7 @@
  * @file classes/submissionFile/DAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class submission
@@ -26,8 +26,6 @@ class DAO extends BaseDAO
      */
     public function insert(SubmissionFile $submissionFile): int
     {
-        $id = parent::insert($submissionFile);
-
         if ($submissionFile->getData('assocType') === ASSOC_TYPE_REPRESENTATION) {
             $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
             $galley = $galleyDao->getById($submissionFile->getData('assocId'));
@@ -38,6 +36,8 @@ class DAO extends BaseDAO
             $galleyDao->updateObject($galley);
         }
 
-        return $id;
+        $submissionFileId = parent::insert($submissionFile);
+
+        return $submissionFileId;
     }
 }

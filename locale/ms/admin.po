@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 06:27+0000\n"
+"PO-Revision-Date: 2021-10-29 06:52+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ms/>"
 "\n"
@@ -170,3 +170,171 @@ msgid "admin.languages.cantDisable"
 msgstr ""
 "Bahasa/locale ini ialah bahasa utama laman. Anda tidak boleh "
 "menyahdayakannya sehingga anda memilih bahasa/locale utama yang lain."
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Ralat: tidak dapat mencipta folder sementara {$tmpDir}"
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+"Salin fail log akses apache yang diluluskan, tapis entri yang berkaitan "
+"dengan pemasangan ini,\n"
+"ke direktori fail semasa, di dalam direktori peringkat UsageStatsPlugin. "
+"Mesti dijalankan di bawah pengguna dengan keistimewaan yang mencukupi untuk "
+"membaca fail log apache akses.\n"
+"\n"
+"Alat ini hanya akan menyalin fail yang belum lagi berada di dalam direktori "
+"pemuat fail usageStats (peringkat, pemprosesan, arkib, tolak).\n"
+"\n"
+"Penggunaan: {$scriptName} path/to/apache/log/file.log\n"
+"Penggunaan (memproses semua fail di dalam direktori): {$scriptName} path/to/"
+"apache/directory\n"
+"\t"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Pemuat fail"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Fail {$filename} telah diproses dan diarkibkan."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Fail {$filename} tidak dapat dialihkan daripada {$currentFilePath} ke "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Folder {$path} bukan direktori atau tidak boleh dibaca."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Laluan url {$path} mesti berada di dalam direktori fail awam."
+
+msgid "admin.version"
+msgstr "Versi"
+
+msgid "admin.version.upToDate"
+msgstr "Sistem anda adalah terkini"
+
+msgid "admin.version.updateAvailable"
+msgstr "Versi yang dikemas kini tersedia"
+
+msgid "admin.versionRevision"
+msgstr "Semakan"
+
+msgid "admin.version.moreInfo"
+msgstr "Maklumat lanjut"
+
+msgid "admin.versionMinor"
+msgstr "Minor"
+
+msgid "admin.versionMajor"
+msgstr "Major"
+
+msgid "admin.version.latest"
+msgstr "Versi terkini"
+
+msgid "admin.versionHistory"
+msgstr "Sejarah versi"
+
+msgid "admin.version.downloadPatch"
+msgstr "Muat turun Patch"
+
+msgid "admin.version.downloadPackage"
+msgstr "Muat turun"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Semak kemas kini"
+
+msgid "admin.versionBuild"
+msgstr "Bina"
+
+msgid "admin.systemInformation"
+msgstr "Maklumat Sistem"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Fail konfigurasi <tt>config.inc.php</tt> tidak wujud, tidak boleh dibaca "
+"atau tidak sah."
+
+msgid "admin.siteSetup"
+msgstr "Persediaan Laman"
+
+msgid "admin.siteSettings"
+msgstr "Tetapan Laman"
+
+msgid "admin.siteManagement"
+msgstr "Pengurusan Laman"
+
+msgid "admin.siteAdmin"
+msgstr "Pentadbir Laman"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema Laman"
+
+msgid "admin.settings.siteTitle"
+msgstr "Nama Laman"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo Laman"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Lembaran gaya laman"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Format lembaran gaya laman tidak sah. Format yang diterima ialah .css."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Bahasa laman"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Hanya pentadbir dibenarkan mengubah suai tetapan ini."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Nyahdayakan Peranan"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Hadkan E-mel Pukal"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Panjang kata laluan minimum (aksara)"
+
+msgid "admin.settings.introduction"
+msgstr "Pengenalan"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tPemasangan anda dikonfigurasikan untuk merekodkan lebih daripada satu "
+"metrik penggunaan. Statistik penggunaan akan dipaparkan dalam beberapa "
+"konteks.\n"
+"\t\tTerdapat kes di mana satu statistik penggunaan mesti digunakan, mis. "
+"untuk memaparkan senarai tersusun bagi penyerahan yang paling banyak "
+"digunakan atau untuk menentukan kedudukan\n"
+"\t\tKeputusan Carian. Sila pilih salah satu metrik yang dikonfigurasikan "
+"sebagai lalai.\n"
+"\t"
+
+msgid "admin.settings.contactName"
+msgstr "Nama kenalan utama"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-mel kenalan utama"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "E-mel Pukal"
+
+msgid "admin.settings.about"
+msgstr "Mengenai Laman"
+
+msgid "admin.settings"
+msgstr "Tetapan"
+
+msgid "admin.server.platform"
+msgstr "platform OS"
+
+msgid "admin.server.phpVersion"
+msgstr "versi PHP"
+
+msgid "admin.serverInformation"
+msgstr "Maklumat Pelayan"
+
+msgid "admin.server.dbVersion"
+msgstr "Versi pelayan pangkalan data"

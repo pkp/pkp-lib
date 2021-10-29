@@ -1,8 +1,83 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-29 06:15+0000\n"
+"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ms/>"
+"\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.expireSessions"
+msgstr "Tamat tempoh Sesi Pengguna"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Paparkan Konfigurasi Baharu"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Kandungan konfigurasi anda yang dikemas kini dipaparkan di bawah. Untuk "
+"menggunakan perubahan konfigurasi anda mesti membuka <tt>config.inc.php</tt> "
+"dalam teks editor yang sesuai dan menggantikan kandungannya dengan kandungan "
+"medan teks di bawah."
+
+msgid "admin.dateInstalled"
+msgstr "Tarikh dipasang"
+
+msgid "admin.currentVersion"
+msgstr "Versi terkini"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Adakah anda pasti mahu memadam {$contextName} dan semua kandungannya secara "
+"kekal?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Kandungan fail konfigurasi"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Adakah anda pasti mahu tamat tempoh semua sesi pengguna? Semua pengguna yang "
+"sedang log masuk ke sistem akan dipaksa untuk log masuk semula (termasuk "
+"anda sendiri)."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Adakah anda pasti mahu mengosongkan cache templat yang disusun?"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Fail konfigurasi anda telah berjaya dikemas kini. Sila ambil perhatian "
+"bahawa jika laman anda tidak lagi berfungsi dengan betul, anda mungkin perlu "
+"membetulkan konfigurasi anda secara manual dengan mengedit "
+"<tt>config.inc.php</tt> secara langsung."
+
+msgid "admin.clearTemplateCache"
+msgstr "Kosongkan Cache Templat"
+
+msgid "admin.clearDataCache"
+msgstr "Kosongkan Cache Data"
+
+msgid "admin.authSources"
+msgstr "Sumber Pengesahan"
+
+msgid "admin.auth.noneCreated"
+msgstr "Tiada sumber pengesahan telah ditentukan."
+
+msgid "admin.auth.create"
+msgstr "Cipta sumber pengesahan"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Adakah anda pasti mahu memadam sumber pengesahan ini secara kekal?"
+
+msgid "admin.adminFunctions"
+msgstr "Fungsi Pentadbiran"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Tetapan Nilai"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Nama Tetapan"

@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 08:50+0000\n"
+"PO-Revision-Date: 2021-10-29 12:40+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/common/ms/"
 ">\n"
@@ -256,3 +256,400 @@ msgstr "Teks alternatif"
 
 msgid "common.alreadyAssigned"
 msgstr "Ditugaskan"
+
+msgid "common.queue.long.active"
+msgstr "Semua Aktif"
+
+msgid "common.quality"
+msgstr "Kualiti"
+
+msgid "common.publisher"
+msgstr "Penerbit"
+
+msgid "common.preview"
+msgstr "Pratonton"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Contoh: A, The"
+
+msgid "common.prefix"
+msgstr "Awalan"
+
+msgid "common.pluginDisabled"
+msgstr "Plugin \"{$pluginName}\" telah dinyahdayakan."
+
+msgid "common.pluginEnabled"
+msgstr "Plugin \"{$pluginName}\" telah didayakan."
+
+msgid "common.plugin"
+msgstr "Plugin"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.pageNumber"
+msgstr "Halaman {$pageNumber}"
+
+msgid "common.pagination.previous"
+msgstr "Halaman sebelumnya"
+
+msgid "common.pagination.next"
+msgstr "Muka surat seterusnya"
+
+msgid "common.pagination.goToPage"
+msgstr "Pergi ke {$page}"
+
+msgid "common.pagination.label"
+msgstr "Lihat halaman tambahan"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} daripada {$total}"
+
+msgid "common.override"
+msgstr "Override"
+
+msgid "common.overdue"
+msgstr "Tertunggak"
+
+msgid "common.other"
+msgstr "Lain-lain"
+
+msgid "common.or"
+msgstr "atau"
+
+msgid "common.originalFileName"
+msgstr "Nama fail asal"
+
+msgid "common.orderDown"
+msgstr "Kurangkan kedudukan {$itemTitle}"
+
+msgid "common.orderUp"
+msgstr "Tingkatkan kedudukan {$itemTitle}"
+
+msgid "common.order"
+msgstr "Perintah"
+
+msgid "common.options"
+msgstr "Pilihan"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.on"
+msgstr "Hidup"
+
+msgid "common.off"
+msgstr "Mati"
+
+msgid "common.noMatches"
+msgstr "Tiada Padanan"
+
+msgid "common.notified.date"
+msgstr "Dimaklumkan: {$dateNotified}"
+
+msgid "common.notified"
+msgstr "Dimaklumkan"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Nota (kuning: mempunyai nota baharu; biru: telah melihat nota; kelabu: tiada "
+"nota)"
+
+msgid "common.notes"
+msgstr "Nota"
+
+msgid "common.noTemporaryFile"
+msgstr "Fail yang anda muat naik tidak ditemui. Sila cuba muat naik semula."
+
+msgid "common.note"
+msgstr "Nota"
+
+msgid "common.notAvailable"
+msgstr "Tidak tersedia"
+
+msgid "common.notApplicableShort"
+msgstr "T/A"
+
+msgid "common.notApplicable"
+msgstr "Tidak berkaitan"
+
+msgid "common.noComments"
+msgstr "Tiada Komen"
+
+msgid "common.noItemsFound"
+msgstr "Tiada item ditemui."
+
+msgid "common.no"
+msgstr "Tidak"
+
+msgid "common.none"
+msgstr "Tiada"
+
+msgid "common.noneAssigned"
+msgstr "Tiada yang ditugaskan"
+
+msgid "common.moreThanOnly"
+msgstr "Lebih daripada"
+
+msgid "common.moreThan"
+msgstr "{$value} atau lebih"
+
+msgid "common.more"
+msgstr "Lagi"
+
+msgid "common.month"
+msgstr "Bulan"
+
+msgid "common.modify"
+msgstr "Ubah suai"
+
+msgid "common.minute"
+msgstr "Minit(s)"
+
+msgid "common.billingAddress"
+msgstr "Alamat pengebilan (jika berbeza)"
+
+msgid "common.mailingAddress"
+msgstr "Alamat Surat Menyurat"
+
+msgid "common.manage"
+msgstr "Urus"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.lessThanOnly"
+msgstr "Kurang daripada"
+
+msgid "common.lessThan"
+msgstr "{$value} atau kurang"
+
+msgid "common.less"
+msgstr "Kurang"
+
+msgid "common.lastActivity"
+msgstr "Aktiviti terakhir direkodkan pada {$date}."
+
+msgid "common.languages"
+msgstr "Bahasa"
+
+msgid "common.language"
+msgstr "Bahasa"
+
+msgid "common.keywords"
+msgstr "Kata kunci"
+
+msgid "common.itemsPerPage"
+msgstr "Item setiap halaman"
+
+msgid "common.insert"
+msgstr "Sisipkan"
+
+msgid "common.inProgress"
+msgstr "Sedang berlangsung"
+
+msgid "common.initiate"
+msgstr "Mulakan"
+
+msgid "common.import"
+msgstr "Import"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.hour"
+msgstr "Jam"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Logo Tajuk Halaman Utama"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Laman Utama"
+
+msgid "common.height"
+msgstr "Tinggi"
+
+msgid "common.go"
+msgstr "Pergi"
+
+msgid "common.until"
+msgstr "Sehingga"
+
+msgid "common.fromWithValue"
+msgstr "Dari: {$value}"
+
+msgid "common.from"
+msgstr "Dari"
+
+msgid "common.filterRemove"
+msgstr "Kosongkan penapis: {$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "Tambahkan penapis: {$filterTitle}"
+
+msgid "common.filter"
+msgstr "Penapis"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Pemuat naik fail sistem sedang dimuatkan. Jika ia tidak muncul, kemungkinan "
+"besar tiada satu pun runtimes disokong oleh pelayar ini. Sila hubungi "
+"pentadbiran untuk mendapatkan sokongan."
+
+msgid "common.fileType"
+msgstr "Jenis Fail"
+
+msgid "common.fileSize"
+msgstr "Saiz Fail"
+
+msgid "common.fileName"
+msgstr "Nama Fail"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file"
+msgstr "Fail"
+
+msgid "common.false"
+msgstr "Salah"
+
+msgid "common.fullscreenOff"
+msgstr "Skrin Penuh Dimatikan"
+
+msgid "common.fullscreen"
+msgstr "Skrin penuh"
+
+msgid "common.finish"
+msgstr "Selesai"
+
+msgid "common.export"
+msgstr "Eksport"
+
+msgid "common.event"
+msgstr "Peristiwa"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Halaman ini memerlukan bingkai. <a href=\"{$url}\">Klik di sini</a> untuk "
+"versi non-frame."
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Ralat sambungan pangkalan data yang tidak diketahui telah berlaku."
+
+msgid "common.error.databaseError"
+msgstr "Ralat pangkalan data telah berlaku: {$error}"
+
+msgid "common.enabled"
+msgstr "Didayakan"
+
+msgid "common.enable"
+msgstr "Dayakan"
+
+msgid "common.editItem"
+msgstr "Sunting {$name}"
+
+msgid "common.edit"
+msgstr "Sunting"
+
+msgid "common.downloadPdf"
+msgstr "Muat turun PDF"
+
+msgid "common.download"
+msgstr "Muat turun"
+
+msgid "common.done"
+msgstr "Siap"
+
+msgid "common.discipline"
+msgstr "Disiplin"
+
+msgid "common.disabled"
+msgstr "Nyahdayakan"
+
+msgid "common.disable"
+msgstr "Nyahdaya"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} piksel"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; pada {$dpi} DPI/PPI"
+
+msgid "common.description"
+msgstr "Penerangan"
+
+msgid "common.designation"
+msgstr "Jawatan"
+
+msgid "common.deleteSelection"
+msgstr "Padamkan Pilihan"
+
+msgid "common.deleting"
+msgstr "Memadam"
+
+msgid "common.delete"
+msgstr "Padam"
+
+msgid "common.declined"
+msgstr "Ditolak"
+
+msgid "common.default"
+msgstr "Lalai"
+
+msgid "common.deactivate"
+msgstr "Nyahaktifkan"
+
+msgid "common.day"
+msgstr "Hari"
+
+msgid "common.dateHijri"
+msgstr "Kalendar Hijrah"
+
+msgid "common.dateUploaded"
+msgstr "Tarikh dimuat naik"
+
+msgid "common.dateSubmitted"
+msgstr "Tarikh diserahkan"
+
+msgid "common.dateRequested"
+msgstr "Tarikh diminta"
+
+msgid "common.dateModified"
+msgstr "Tarikh diubah suai"
+
+msgid "common.date"
+msgstr "Tarikh"
+
+msgid "common.dateDecided"
+msgstr "Tarikh yang ditentukan"
+
+msgid "common.dateCompleted"
+msgstr "Tarikh selesai"
+
+msgid "common.create"
+msgstr "Cipta"
+
+msgid "common.country"
+msgstr "Negara"
+
+msgid "common.copy"
+msgstr "Salin"
+
+msgid "common.continue"
+msgstr "Teruskan"
+
+msgid "common.contents"
+msgstr "Kandungan"
+
+msgid "common.content"
+msgstr "Kandungan"
+
+msgid "common.confirmed.date"
+msgstr "Disahkan: {$dateConfirmed}"

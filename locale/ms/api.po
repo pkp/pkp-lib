@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 07:10+0000\n"
+"PO-Revision-Date: 2021-10-29 07:11+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ms/>\n"
 "Language: ms\n"
@@ -98,3 +98,29 @@ msgstr ""
 msgid "api.publication.403.cantEditPublished"
 msgstr ""
 "Anda tidak boleh menyunting penerbitan ini kerana ia telah pun diterbitkan."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Tarikh mestilah dalam format YYYY-MM-DD."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Direktori fail awam tidak ditemui atau fail tidak boleh disimpan ke "
+"dalamnya. Sila hubungi pentadbir anda untuk menyelesaikan masalah ini."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Anda tidak mempunyai ruang yang mencukupi dalam direktori pengguna anda. "
+"Fail yang anda muat naik ialah {$fileUploadSize}kb dan anda mempunyai baki "
+"{$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Anda tidak dibenarkan memuat naik fail."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Fail yang anda muat naik tidak sepadan dengan sambungan fail. Ini boleh "
+"berlaku apabila fail telah dinamakan semula kepada jenis yang tidak serasi, "
+"contohnya menukar photo.png kepada photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Imej yang anda muat naik tidak sah."

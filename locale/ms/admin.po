@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 06:15+0000\n"
+"PO-Revision-Date: 2021-10-29 06:27+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ms/>"
 "\n"
@@ -81,3 +81,92 @@ msgstr "Tetapan Nilai"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nama Tetapan"
+
+msgid "admin.server.dbDriver"
+msgstr "Pemandu pangkalan data"
+
+msgid "admin.server.apacheVersion"
+msgstr "versi Apache"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Peringatan tamat tempoh langganan"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Peringatan ulasan"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Terbitkan penyerahan yang dijadualkan untuk diterbitkan"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Kosongkan Log Pelaksanaan Tugasan Berjadual"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Adakah anda pasti mahu memadam semua log pelaksanaan tugas yang dijadualkan?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Pemasangan {$softwareName} anda secara automatik dilaksanakan dan "
+"menyelesaikan tugasan ini dan anda boleh memuat turun fail log di sini: "
+"{$url}"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Tugasan tidak menghasilkan log."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proses tugas dihentikan."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proses tugasan bermula."
+
+msgid "admin.scheduledTask"
+msgstr "Tugas yang dijadualkan"
+
+msgid "admin.phpInfo"
+msgstr "Maklumat PHP Lanjutan"
+
+msgid "admin.languages.uninstall"
+msgstr "Nyahpasang Bahasa/Locale"
+
+msgid "admin.languages.reload"
+msgstr "Muat semula Bahasa/Locale"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Tiada bahasa/locales tambahan tersedia untuk pemasangan."
+
+msgid "admin.languages.languageSettings"
+msgstr "Tetapan bahasa"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Pasang Bahasa/Locales Baharu"
+
+msgid "admin.languages.installLocales"
+msgstr "Pasang"
+
+msgid "admin.languages.installLocale"
+msgstr "Pasang Bahasa/Locale"
+
+msgid "admin.languages.availableLocales"
+msgstr "Bahasa/Locales Tersedia"
+
+msgid "admin.languages.installLanguages"
+msgstr "Urus Bahasa/Locales"
+
+msgid "admin.languages.installedLocales"
+msgstr "Bahasa/Locales yang Dipasang"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Adakah anda pasti mahu memuatkan semula bahasa ini? Ini akan memadam "
+"sebarang data khusus bahasa yang sedia ada seperti templat e-mel custom."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Adakah anda pasti mahu menukar bahasa/locale utama laman? Nama pengguna, "
+"yang diperlukan dalam bahasa/locale utama laman, akan disalin daripada "
+"bahasa utama sedia ada di mana mereka tiada."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Bahasa/locale ini ialah bahasa utama laman. Anda tidak boleh "
+"menyahdayakannya sehingga anda memilih bahasa/locale utama yang lain."

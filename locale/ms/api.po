@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 07:13+0000\n"
+"PO-Revision-Date: 2021-10-29 07:14+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ms/>\n"
 "Language: ms\n"
@@ -140,3 +140,28 @@ msgstr "Tarikh mula tidak boleh lebih awal daripada 2001-01-01."
 
 msgid "api.stats.400.wrongDateRange"
 msgstr "Tarikh mula tidak boleh lewat daripada tarikh tamat."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Anda tidak boleh mengaitkan fail dari peringkat fail ini dengan pusingan "
+"ulasan."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Anda tidak boleh mengaitkan fail daripada peringkat fail ini dengan tugasan "
+"ulasan."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Anda tidak boleh mengaitkan fail dari peringkat fail ini dengan nota "
+"perbincangan."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Anda tidak boleh mengaitkan fail dari peringkat fail ini dengan fail "
+"penyerahan lain."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Anda tidak boleh mengubah suai perkaitan fail tanpa menghantar assocType dan "
+"assocId."

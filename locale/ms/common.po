@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-30 06:02+0000\n"
+"PO-Revision-Date: 2021-10-30 06:49+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/common/ms/"
 ">\n"
@@ -1502,3 +1502,134 @@ msgstr "Re:"
 
 msgid "common.range"
 msgstr "{$min}-{$max}"
+
+msgid "grid.action.markRead"
+msgstr "Tanda Baca"
+
+msgid "grid.action.markNew"
+msgstr "Tanda Baharu"
+
+msgid "grid.action.deleteNotification"
+msgstr "Padam Tugas"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Baca polisi semasa ulasan"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Bagaimana untuk memastikan semua fail adalah tanpa nama"
+
+msgid "context.path"
+msgstr "Laluan URL"
+
+msgid "grid.action.downloadFile"
+msgstr "Muat turun fail ini"
+
+msgid "search.typeMethodApproach"
+msgstr "Jenis (kaedah/pendekatan)"
+
+msgid "search.title"
+msgstr "Tajuk"
+
+msgid "search.titleIndex"
+msgstr "Layari Indeks Tajuk"
+
+msgid "search.subject"
+msgstr "Kata Kunci"
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} item ditemui."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Menemui satu item."
+
+msgid "search.searchResults"
+msgstr "Hasil Carian"
+
+msgid "search.SearchFor"
+msgstr "Carian untuk"
+
+msgid "search.operator.or"
+msgstr "atau"
+
+msgid "search.operator.not"
+msgstr "tidak"
+
+msgid "search.operator.and"
+msgstr "dan"
+
+msgid "search.noResults"
+msgstr "Tiada Hasil"
+
+msgid "search.matchAll"
+msgstr "Padankan semua kategori"
+
+msgid "search.indexTermsLong"
+msgstr "Semua medan istilah indeks"
+
+msgid "search.indexTerms"
+msgstr "Istilah indeks"
+
+msgid "search.fullText"
+msgstr "Teks Penuh"
+
+msgid "search.discipline"
+msgstr "Disiplin"
+
+msgid "search.deleteFilter"
+msgstr "Padam"
+
+msgid "search.dateTo"
+msgstr "Diterbitkan Sebelum ini"
+
+msgid "search.dateFrom"
+msgstr "Diterbitkan Selepas"
+
+msgid "search.date"
+msgstr "Tarikh penerbitan"
+
+msgid "search.coverage"
+msgstr "Liputan"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} artikel diindeks"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "ralat"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "selesai"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Mengosongkan indeks"
+
+msgid "search.searchAgain"
+msgstr "Cari lagi"
+
+msgid "search.advancedSearchLess"
+msgstr "Sembunyikan lebih banyak pilihan carian"
+
+msgid "search.advancedSearchMore"
+msgstr "Lebih banyak pilihan carian"
+
+msgid "search.advancedFilters"
+msgstr "Penapis lanjutan"
+
+msgid "search.abstract"
+msgstr "Abstrak"
+
+msgid "search.author"
+msgstr "Mengikut Pengarang"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Hantar e-mel tentang perkara ini kepada semua pengguna berdaftar."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadata penyerahan disimpan."
+
+msgid "notification.reminderSent"
+msgstr "Kata laluan baharu anda telah dihantar ke alamat e-mel yang diberikan."
+
+msgid "notification.reminderError"
+msgstr ""
+"Terdapat ralat menghantar kata laluan anda, sila pastikan anda telah "
+"memasukkan alamat e-mel anda dengan betul."

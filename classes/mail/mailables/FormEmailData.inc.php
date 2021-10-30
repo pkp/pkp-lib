@@ -16,7 +16,7 @@
 namespace PKP\mail\mailables;
 
 use Illuminate\Support\LazyCollection;
-use PKP\facades\Repo;
+use App\facades\Repo;
 use PKP\user\User;
 
 class FormEmailData

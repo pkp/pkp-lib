@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-30 12:08+0000\n"
+"PO-Revision-Date: 2021-10-30 13:15+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/ms/"
 ">\n"
@@ -391,3 +391,123 @@ msgstr "Log Aktiviti"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Adakah anda pasti mahu memadam penyerahan ini secara kekal?"
+
+msgid "reviewer.list.empty"
+msgstr "Tiada pengulas ditemui"
+
+msgid "reviewer.list.biography"
+msgstr "Biografi"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Minat Displin Mengulas"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Buka kunci"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Pengulas ini dikunci kerana mereka telah diberikan peranan yang membolehkan "
+"mereka melihat identiti pengarang. Ulasan rakan sejawat tanpa nama tidak "
+"boleh dijamin. Adakah anda mahu membuka kunci pengulas ini juga?"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Pengulas ini telah ditugaskan untuk mengulas penyerahan ini."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Tidak pernah ditugaskan"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Purata hari untuk menyelesaikan ulasan"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Hari sejak ulasan terakhir ditugaskan"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Semalam"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} hari"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Rating pengulas: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Permintaan ulasan dibatalkan"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Permintaan ulasan ditolak"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Ulasan telah selesai"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Ulasan aktif ditugaskan pada masa ini"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktif"
+
+msgid "reviewer.list.filterRating"
+msgstr "Dinilai sekurang-kurangnya"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Corak {$pattern} tidak dibenarkan untuk pengenalpasti awam."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Pengenalpasti awam '{$publicIdentifier}' mestilah bukan nombor."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Adakah anda pasti mahu membatalkan keputusan untuk menolak penyerahan ini?"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Batalkan kelulusan untuk bukti ini untuk menunjukkan proofreading tidak lagi "
+"lengkap dan fail belum sedia untuk diterbitkan."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Luluskan bukti ini untuk menunjukkan proofreading telah selesai dan fail "
+"sedia untuk diterbitkan."
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Batalkan Kelulusan Bukti"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Luluskan Bukti"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Pengulas yang Dipilih"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+"Fail boleh dilampirkan untuk dimasukkan dalam perbincangan ini daripada "
+"senarai di bawah."
+
+msgid "grid.action.editQuery"
+msgstr "Sunting Perbincangan"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Fail yang Dilampirkan"
+
+msgid "submission.queries.messageRequired"
+msgstr "Mesej perbincangan diperlukan."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Subjek perbincangan diperlukan."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Anda belum memilih sebarang fail untuk diulas oleh penyemak."
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Tiada Fail Dipilih"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Amaran: Menukar borang ulasan akan menjejaskan sebarang jawapan yang dibuat "
+"oleh pengulas yang menggunakan borang ini. Adakah anda pasti mahu meneruskan?"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Pilih Borang Ulasan"
+
+msgid "editor.article.reviewForms"
+msgstr "Borang Ulasan"

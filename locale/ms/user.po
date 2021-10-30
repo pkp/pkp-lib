@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-30 10:05+0000\n"
+"PO-Revision-Date: 2021-10-30 10:59+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ms/>"
 "\n"
@@ -218,3 +218,282 @@ msgstr "Afiliasi"
 
 msgid "user.accountInformation"
 msgstr "Maklumat Akaun"
+
+msgid "user.privacyLink"
+msgstr ""
+"Data anda disimpan mengikut <a href=\"{$privacyUrl}\" target=\"_blank\">"
+"penyata privasi</a> kami."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Sebelum menjana kunci API, pentadbir laman anda mesti menetapkan rahsia "
+"dalam fail konfigurasi (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Menjana kunci API baharu akan membatalkan sebarang kunci sedia ada untuk "
+"pengguna ini."
+
+msgid "user.apiKey.generate"
+msgstr "Jana kunci API baharu"
+
+msgid "user.apiKeyEnabled"
+msgstr "Dayakan aplikasi luaran dengan kunci API untuk mengakses akaun ini"
+
+msgid "user.apiKey"
+msgstr "Kunci API"
+
+msgid "user.profile.public"
+msgstr "Awam"
+
+msgid "user.profile.contact"
+msgstr "Kenalan"
+
+msgid "user.profile.identity"
+msgstr "Identiti"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"iD ORCID yang anda nyatakan adalah tidak sah. Sila sertakan URI penuh (cth. "
+"\"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.orcid"
+msgstr "iD ORCID"
+
+msgid "user.workingLanguages"
+msgstr "Bahasa Kerja"
+
+msgid "user.username"
+msgstr "Nama pengguna"
+
+msgid "user.userHome"
+msgstr "Laman Utama Pengguna"
+
+msgid "user.url"
+msgstr "URL halaman utama"
+
+msgid "user.title"
+msgstr "Tajuk"
+
+msgid "user.signature"
+msgstr "Tandatangan"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Hantarkan saya e-mel pengesahan termasuk nama pengguna dan kata laluan saya"
+
+msgid "user.sendPassword"
+msgstr "Pengesahan"
+
+msgid "user.roles"
+msgstr "Peranan"
+
+msgid "user.role.layoutEditors"
+msgstr "Editor Susun Atur"
+
+msgid "user.role.layoutEditor"
+msgstr "Editor Susun Atur"
+
+msgid "user.role.proofreaders"
+msgstr "Proofreader"
+
+msgid "user.role.proofreader"
+msgstr "Proofreader"
+
+msgid "user.role.copyeditors"
+msgstr "Copyeditor"
+
+msgid "user.role.copyeditor"
+msgstr "Copyeditor"
+
+msgid "user.role.siteAdmins"
+msgstr "Pentadbir laman web"
+
+msgid "user.role.siteAdmin"
+msgstr "Pentadbir laman web"
+
+msgid "user.role.reviewers"
+msgstr "Pengulas"
+
+msgid "user.role.reviewer"
+msgstr "Pengulas"
+
+msgid "user.role.readers"
+msgstr "Pembaca"
+
+msgid "user.role.reader"
+msgstr "Pembaca"
+
+msgid "user.role.editors"
+msgstr "Editors"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.authors"
+msgstr "Pengarang"
+
+msgid "user.role.author_s"
+msgstr "Pengarang"
+
+msgid "user.role.author"
+msgstr "Pengarang"
+
+msgid "user.role.assistant"
+msgstr "Pembantu"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Anda telah berjaya mendaftar. <a href=\"{$profileUrl}\">Klik di sini</a> "
+"untuk melengkapkan profil pengguna anda."
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Nama pengguna mesti mengandungi hanya huruf kecil, nombor dan tanda sempang/"
+"garis bawah."
+
+msgid "user.register"
+msgstr "Daftar"
+
+msgid "user.register.registerAs"
+msgstr "Daftar dalam {$contextName} sebagai..."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Kata laluan mestilah sekurang-kurangnya {$length} aksara."
+
+msgid "user.register.form.usernameExists"
+msgstr "Nama pengguna yang dipilih sudah digunakan oleh pengguna lain."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Sekurang-kurangnya satu peranan mesti dipilih."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Nama pengguna boleh mengandungi hanya aksara abjad angka kecil, garis bawah "
+"dan sempang, dan mesti bermula dan berakhir dengan aksara abjad angka."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Medan alamat e-mel tidak sepadan."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Kata laluan tidak sepadan."
+
+msgid "user.register.form.emailExists"
+msgstr "Alamat e-mel yang dipilih sudah digunakan oleh pengguna lain."
+
+msgid "user.register.form.emailConsent"
+msgstr "Ya, saya ingin dimaklumkan tentang penerbitan dan pengumuman baharu."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Ya, saya bersetuju supaya data saya dikumpul dan disimpan mengikut <a href=\""
+"{$privacyUrl}\" target=\"_blank\">penyata privasi</a>."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Masukkan alamat e-mel akaun anda di bawah dan e-mel akan dihantar dengan "
+"arahan tentang cara untuk menetapkan semula kata laluan anda."
+
+msgid "user.login.registerNewAccount"
+msgstr "Daftar"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Ulang kata laluan baharu"
+
+msgid "user.profile.publicProfile"
+msgstr "Profil Pengguna"
+
+msgid "user.profile"
+msgstr "Profil"
+
+msgid "user.profile.oldPassword"
+msgstr "Kata laluan semasa"
+
+msgid "user.profile.newPassword"
+msgstr "Kata laluan baharu"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Biarkan medan kata laluan kosong untuk mengekalkan kata laluan semasa."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Anda mesti bersetuju dengan syarat pernyataan privasi."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Nama pengguna diperlukan."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Kumpulan pengguna diperlukan."
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"URL yang dinyatakan tidak sah. Sila semak semula URL dan cuba lagi. "
+"(Petunjuk: Cuba tambah http:// pada permulaan URL.)"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Notifikasi e-mel terbitan baru yang telah diterbitkan"
+
+msgid "user.profile.form.profileImage"
+msgstr "Imej Profil"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Kata laluan baharu anda adalah sama dengan kata laluan lama anda."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Kata laluan diperlukan."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Keluarkan e-mel pemberitahuan akses terbuka"
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Kata laluan semasa yang anda masukkan adalah salah."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Anda mesti memasukkan kata laluan baharu anda."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Alamat surat menyurat diperlukan."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Anda telah menambah nama keluarga untuk bahasa yang tiada nama yang "
+"diberikan. Sila tambahkan nama yang diberikan untuk bahasa ini."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Nama yang diberikan diperlukan."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Alamat e-mel yang sah diperlukan."
+
+msgid "user.profile.form.countryRequired"
+msgstr "Negara diperlukan."
+
+msgid "user.profile.editProfile"
+msgstr "Sunting Profil"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Masukkan kata laluan semasa dan baharu anda di bawah untuk menukar kata "
+"laluan akaun anda."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Bagaimana anda lebih suka digelar? Kata hormat, nama tengah dan akhiran "
+"boleh ditambah di sini jika anda mahu."
+
+msgid "user.preferredPublicName"
+msgstr "Nama Umum Pilihan"
+
+msgid "user.phone"
+msgstr "Telefon"
+
+msgid "user.repeatPassword"
+msgstr "Ulang kata laluan"
+
+msgid "user.password"
+msgstr "Kata laluan"
+
+msgid "user.name"
+msgstr "Nama"
+
+msgid "user.myAccount"
+msgstr "Akaun Saya"

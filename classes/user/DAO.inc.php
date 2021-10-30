@@ -86,7 +86,7 @@ class DAO extends \PKP\core\EntityDAO
      *
      * @param $allowDisabled boolean If true, allow fetching a disabled user.
      */
-    public function get($id, $allowDisabled = false): ?User
+    public function get(int $id, $allowDisabled = false): ?User
     {
         $user = parent::get($id);
         if (!$allowDisabled && $user->getDisabled()) {

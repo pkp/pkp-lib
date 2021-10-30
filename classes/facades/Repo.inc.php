@@ -27,4 +27,9 @@ class Repo extends \PKP\facades\Repo
     {
         return App::make(\APP\submission\Repository::class);
     }
+
+    public static function user(): \PKP\user\Repository
+    {
+        return App::make(\PKP\user\Repository::class);
+    }
 }

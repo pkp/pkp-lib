@@ -1,8 +1,73 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-30 10:59+0000\n"
+"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
+"ms/>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.plural.marketing"
+msgstr "Koordinator pemasaran dan jualan"
+
+msgid "default.groups.name.marketing"
+msgstr "Koordinator pemasaran dan jualan"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Pengulas Dalaman"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Pengulas Dalaman"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Rekaan"
+
+msgid "default.groups.plural.designer"
+msgstr "Pereka"
+
+msgid "default.groups.name.designer"
+msgstr "Pereka"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Proofreader"
+
+msgid "default.groups.name.proofreader"
+msgstr "Proofreader"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Copyeditor"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Copyeditor"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Editor produksi"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Editor produksi"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Pentadbir Laman"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Pentadbir Laman"

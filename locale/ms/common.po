@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-30 07:37+0000\n"
+"PO-Revision-Date: 2021-10-30 10:05+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/common/ms/"
 ">\n"
@@ -2027,3 +2027,70 @@ msgstr "Baris Beratur Saya"
 
 msgid "dashboard.tasks"
 msgstr "Tugasan"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Tidak dapat mengimport XML Node"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Cuba untuk menjalankan transformasi yang tidak disokong dalam persekitaran "
+"pemasangan anda."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Penapis ({$displayName}) menyokong input {$inputTypeName} - {$typeofInput} "
+"diberikan"
+
+msgid "validator.url"
+msgstr "Ini bukan URL yang sah."
+
+msgid "validator.unique"
+msgstr "{$attribute} telah pun diambil."
+
+msgid "validator.timezone"
+msgstr "Ini bukan zon waktu yang sah."
+
+msgid "validator.string"
+msgstr "Ini bukan string yang sah."
+
+msgid "validator.size.array"
+msgstr "Ini mesti mengandungi {$size} item."
+
+msgid "validator.size.string"
+msgstr "Ini mestilah {$size} aksara."
+
+msgid "validator.size.file"
+msgstr "Ini mestilah {$size} kilobait."
+
+msgid "validator.size.numeric"
+msgstr "Ini mestilah {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} dan {$other} mesti sepadan."
+
+msgid "validator.required_without_all"
+msgstr "Medan ini diperlukan apabila tiada {$values} hadir."
+
+msgid "validator.required_without"
+msgstr "Medan ini diperlukan apabila {$values} tiada."
+
+msgid "validator.required_with_all"
+msgstr "Medan ini diperlukan apabila {$values} ada."
+
+msgid "validator.required_with"
+msgstr "Medan ini diperlukan apabila {$values} ada."
+
+msgid "validator.required_unless"
+msgstr "Medan ini diperlukan melainkan {$other} berada dalam {$values}."
+
+msgid "validator.required_if"
+msgstr "Medan ini diperlukan apabila {$other} ialah {$value}."
+
+msgid "validator.required"
+msgstr "Medan ini diperlukan."
+
+msgid "validator.regex"
+msgstr "Ini tidak diformat dengan betul."
+
+msgid "validator.present"
+msgstr "Medan {$attribute} mesti ada."

@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-30 06:49+0000\n"
+"PO-Revision-Date: 2021-10-30 07:37+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/common/ms/"
 ">\n"
@@ -1633,3 +1633,397 @@ msgid "notification.reminderError"
 msgstr ""
 "Terdapat ralat menghantar kata laluan anda, sila pastikan anda telah "
 "memasukkan alamat e-mel anda dengan betul."
+
+msgid "validator.orcid"
+msgstr "Ini bukan ORCID yang sah."
+
+msgid "validator.numeric"
+msgstr "Ini bukan nombor yang sah."
+
+msgid "validator.not_in"
+msgstr "{$attribute} yang dipilih adalah tidak sah."
+
+msgid "validator.min.array"
+msgstr "Ini mesti mempunyai sekurang-kurangnya {$min} item."
+
+msgid "validator.min.string"
+msgstr "Ini mestilah sekurang-kurangnya {$min} aksara."
+
+msgid "validator.min.file"
+msgstr "Ini mestilah sekurang-kurangnya {$min} kilobait."
+
+msgid "validator.min.numeric"
+msgstr "Ini mestilah sekurang-kurangnya {$min}."
+
+msgid "validator.mimes"
+msgstr "Ini mestilah fail jenis {$values}."
+
+msgid "validator.max.array"
+msgstr "Ini mungkin tidak mempunyai lebih daripada {$max} item."
+
+msgid "validator.max.string"
+msgstr "Ini mungkin tidak lebih besar daripada {$max} aksara."
+
+msgid "validator.max.file"
+msgstr "Ini mungkin tidak lebih besar daripada {$max} kilobait."
+
+msgid "validator.max.numeric"
+msgstr "Ini mungkin tidak lebih besar daripada {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Bahasa mesti ditentukan menggunakan kod tempat. Contoh: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Bidang ini mempunyai pelbagai bahasa. Nilai berasingan mesti disediakan "
+"untuk setiap bahasa yang disokong."
+
+msgid "validator.locale"
+msgstr "Bahasa ini tidak diterima."
+
+msgid "validator.json"
+msgstr "Ini bukan string JSON yang sah."
+
+msgid "validator.issn"
+msgstr "Ini bukan ISSN yang sah."
+
+msgid "validator.ip"
+msgstr "Ini bukan alamat IP yang sah."
+
+msgid "validator.integer"
+msgstr "Ini bukan integer yang sah."
+
+msgid "validator.in"
+msgstr "{$attribute} yang dipilih adalah tidak sah."
+
+msgid "validator.image"
+msgstr "Ini mesti imej."
+
+msgid "validator.filled"
+msgstr "Medan ini diperlukan."
+
+msgid "validator.exists"
+msgstr "{$attribute} yang dipilih adalah tidak sah."
+
+msgid "validator.email"
+msgstr "Ini bukan alamat e-mel yang sah."
+
+msgid "validator.digits_between"
+msgstr "Ini mestilah antara {$min} dan {$max} digit."
+
+msgid "validator.digits"
+msgstr "Ini mestilah {$digits} digit panjang."
+
+msgid "validator.different"
+msgstr "{$attribute} dan {$other} mestilah berbeza."
+
+msgid "validator.date_format"
+msgstr "Ini tidak sepadan dengan format {$format}."
+
+msgid "validator.date"
+msgstr "Ini bukan tarikh yang sah."
+
+msgid "validator.currency"
+msgstr "Ini bukan mata wang yang sah."
+
+msgid "validator.country"
+msgstr "Ini bukan negara yang sah."
+
+msgid "validator.confirmed"
+msgstr "Pengesahan untuk medan ini tidak sepadan."
+
+msgid "validator.boolean"
+msgstr "Medan ini mestilah benar atau salah."
+
+msgid "validator.between.array"
+msgstr "Ini mesti mempunyai antara {$min} dan {$max} item."
+
+msgid "validator.between.string"
+msgstr "Ini mestilah antara {$min} dan {$max} aksara."
+
+msgid "validator.between.file"
+msgstr "Ini mestilah antara {$min} dan {$max} kilobait."
+
+msgid "validator.between.numeric"
+msgstr "Ini mestilah antara {$min} dan {$max}."
+
+msgid "validator.before"
+msgstr "Tarikh ini mestilah sebelum {$date}."
+
+msgid "validator.array"
+msgstr "Ini bukan array yang sah."
+
+msgid "validator.alpha_num"
+msgstr "Ini mungkin hanya mengandungi huruf dan nombor."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Ini mungkin hanya mengandungi huruf, nombor, sempang, garis bawah dan noktah."
+
+msgid "validator.alpha_dash"
+msgstr "Ini mungkin hanya mengandungi huruf, nombor, sempang dan garis bawah."
+
+msgid "validator.alpha"
+msgstr "Ini mungkin hanya mengandungi huruf."
+
+msgid "validator.after"
+msgstr "Tarikh ini mestilah selepas {$date}."
+
+msgid "validator.active_url"
+msgstr "Ini bukan URL yang sah."
+
+msgid "validator.accepted"
+msgstr "Sila terima item ini.."
+
+msgid "validation.invalidOption"
+msgstr "Ini bukan pilihan yang sah."
+
+msgid "list.viewLess"
+msgstr "Sembunyikan butiran lanjutan mengenai {$name}"
+
+msgid "list.viewMore"
+msgstr "Tunjukkan butiran lanjut mengenai {$name}"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Berhenti melanggan"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Terdapat ralat yang tidak dijangka dan kami tidak dapat menghentikan "
+"langganan alamat e-mel {$email}. Anda boleh berhenti melanggan semua "
+"pemberitahuan e-mel dalam <a href=\"{$profileNotificationUrl}\">profil "
+"pengguna</a> anda atau hubungi kami terus untuk mendapatkan bantuan."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Alamat e-mel {$email} telah berjaya dihentikan langganan. Kami tidak akan "
+"menghantar e-mel tersebut kepada anda lagi. Anda boleh melanggan semula e-"
+"mel pemberitahuan bila-bila masa daripada <a href=\"{$profileNotificationUrl}"
+"\">profil pengguna</a> anda."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Anda boleh melanggan semula e-mel pemberitahuan bila-bila masa daripada <a "
+"href=\"{$profileNotificationUrl}\">profil pengguna</a> anda."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Pilih e-mel yang anda tidak mahu terima lagi di {$email} daripada "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Kami tidak dapat menghentikan langganan anda"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Anda telah berhenti melanggan"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Menu navigasi berjaya dibuang"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Menu navigasi telah berjaya dikemas kini"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Menu navigasi telah berjaya ditambah"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Item menu navigasi telah berjaya ditambah"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Item menu navigasi telah berjaya dibuang"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Item menu navigasi telah berjaya dikemas kini"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Ini adalah peringatan untuk anda memeriksa kesihatan jurnal anda melalui "
+"laporan editorial."
+
+msgid "notification.type.editorialReport"
+msgstr "Ringkasan laporan statistik."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Status pusingan {$round}"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Menunggu Copyedits."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Tetapkan copyeditor menggunakan pautan Tugaskan dalam senarai Peserta."
+
+msgid "notification.type.queryAdded"
+msgstr "Perbincangan ditambah."
+
+msgid "notification.type.queryActivity"
+msgstr "Aktiviti perbincangan."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Pilihan Privasi"
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Pengguna semasa bukan pengarang penyerahan yang diminta. Sila sahkan bahawa "
+"anda telah log masuk dengan akaun pengguna yang betul."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Pada masa ini anda tidak mempunyai keistimewaan yang mencukupi untuk melihat "
+"penyerahan. Sila edit profil anda untuk memastikan bahawa anda telah "
+"diberikan peranan yang sesuai di bawah \"Daftar Sebagai\"."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Anda tidak mempunyai akses kepada tugasan ulasan ini."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Anda tidak mempunyai akses kepada mesej perbincangan ini."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Perbincangan tidak sah."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Pusingan ulasan tidak sah."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Perwakilan tidak sah."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Penyerahan tidak sah."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Penerbitan tidak sah."
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Pengguna semasa tidak dibenarkan untuk mengakses fail penyerahan yang "
+"ditentukan."
+
+msgid "user.email"
+msgstr "Alamat emel"
+
+msgid "notification.signedFile"
+msgstr "Fail dipertimbangkan."
+
+msgid "notification.type.reviewerComment"
+msgstr "Seorang pengulas telah komen tentang \"{$title}\"."
+
+msgid "notification.type.metadataModified"
+msgstr "Metadata \"{$title}'s\" telah diubah suai."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Semakan diserahkan kepada {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Semakan untuk dipertimbangkan dalam {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Fail yang disemak telah dimuat naik untuk pertimbangan editorial anda dalam "
+"{$stage}."
+
+msgid "notification.type.allReviewsIn"
+msgstr "Semua pengulas telah respon dan keputusan diperlukan dalam {$stage}."
+
+msgid "notification.type.auditorRequest"
+msgstr "Permintaan audit untuk \"{$file}\""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Tugasan ulasan dikemas kini."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Ulasan belum selesai."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Pengumuman baharu."
+
+msgid "notification.editStageParticipant"
+msgstr "Tugasan peringkat telah diubah."
+
+msgid "notification.addedStageParticipant"
+msgstr "Pengguna ditambahkan sebagai peserta peringkat."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Pengulas dipulihkan."
+
+msgid "notification.cancelledReviewer"
+msgstr "Pengulas telah dibatalkan."
+
+msgid "notification.removedReviewer"
+msgstr "Pengulas dibuang."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} telah ditugaskan untuk mengulas penyerahan ini dan tidak "
+"menghantar e-mel pemberitahuan."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} telah ditugaskan untuk menguas penyerahan ini dan menghantar "
+"e-mel pemberitahuan."
+
+msgid "navigation.goBack"
+msgstr "Pergi balik"
+
+msgid "submission.task.responseDueDate"
+msgstr "Tarikh Akhir Respon"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Tarikh Tamat Ulasan"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Tarikh Akhir Respon"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Permintaan Editor"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Jadual Ulasan"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Untuk memastikan integriti ulasan sejawat tanpa nama, segala usaha harus "
+"dilakukan untuk menghalang identiti pengarang dan pengulas daripada "
+"diketahui antara satu sama lain. Ini melibatkan pengarang, editor dan "
+"pengulas(yang memuat naik dokumen sebagai sebahagian daripada ulasan mereka) "
+"mengulas untuk melihat sama ada langkah berikut telah diambil berkenaan "
+"dengan teks dan sifat fail:</p>\n"
+"<ul><li>Pengarang dokumen telah memadamkan nama mereka daripada teks, dengan "
+"\"Pengarang\" dan tahun digunakan dalam rujukan dan nota kaki, bukannya nama "
+"pengarang, tajuk artikel, dsb.</li>\n"
+"<li>Pengarang dokumen telah mengalih keluar maklumat peribadi daripada sifat "
+"fail dengan mengambil langkah berikut:\n"
+"<ul><li>Microsoft Word untuk Windows:\n"
+"<ul><li>Pergi ke Fail</li>\n"
+"<li>Pilih Maklumat</li>\n"
+"<li>Klik pada Semak Terbitan</li>\n"
+"<li>Klik pada Periksa Dokumen</li>\n"
+"<li>Dalam kotak dialog Pemeriksa Dokumen, pilih kotak semak untuk memilih "
+"jenis kandungan tersembunyi yang ingin anda periksa.</li>\n"
+"<li>Klik Buang Semua</li>\n"
+"<li>Klik Tutup</li>\n"
+"<li>Simpan dokumen</li></ul>\n"
+"<li>Microsoft Word untuk MacOS:\n"
+"<ul><li>Pergi ke Alat</li>\n"
+"<li>Klik Lindungi Dokumen</li>\n"
+"<li>Pilih Buang maklumat peribadi untuk fail ini semasa disimpan</li>\n"
+"<li>Klik OK dan simpan fail</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Pergi ke Fail</li>\n"
+"<li>Pilih Sifat</li>\n"
+"<li>Alih keluar sebarang nama dalam medan pengarang</li>\n"
+"<li>Klik OK</li>\n"
+"<li>Simpan dokumen</li></ul></li></ul>\n"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Bagaimana untuk memastikan semua fail adalah tanpa nama"
+
+msgid "dashboard.myQueue"
+msgstr "Baris Beratur Saya"
+
+msgid "dashboard.tasks"
+msgstr "Tugasan"

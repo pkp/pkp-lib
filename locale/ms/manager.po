@@ -1,8 +1,389 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-31 11:27+0000\n"
+"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"ms/>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.payment.timestamp"
+msgstr "Cap masa"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Pilih semua bahasa/locale untuk disokong di laman melalui menu pilih bahasa "
+"untuk dipaparkan pada setiap halaman. Menu hanya akan muncul jika lebih "
+"daripada satu bahasa dipilih."
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Sistem ini secara pilihan membenarkan maklumat kritikal tertentu untuk "
+"dimasukkan dalam beberapa bahasa tambahan. Untuk menggunakan ciri ini, pilih "
+"bahasa/locale alternatif dan pilih daripada pilihan yang disenaraikan di "
+"bawah."
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Muat semula lalai"
+
+msgid "manager.language.forms"
+msgstr "Borang"
+
+msgid "manager.language.submissions"
+msgstr "Penyerahan"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.importExport"
+msgstr "Import/Eksport Data"
+
+msgid "manager.groups.title"
+msgstr "Tajuk"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Tiada pengguna ditemui."
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Kumpulan ini tidak mempunyai ahli."
+
+msgid "manager.groups.membership"
+msgstr "Keahlian"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Adakah anda pasti mahu memadamkan keahlian kumpulan ini?"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Tambah Ahli"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Tajuk kumpulan diperlukan."
+
+msgid "manager.groups.editTitle"
+msgstr "Sunting Tajuk"
+
+msgid "manager.groups.createTitle"
+msgstr "Cipta Tajuk"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Adakah anda pasti mahu memadamkan kumpulan ini?"
+
+msgid "manager.files.uploadFile"
+msgstr "Muat Naik Fail"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Fail yang dimuat naik"
+
+msgid "manager.files.parentDir"
+msgstr "Direktori Induk"
+
+msgid "manager.files.indexOfDir"
+msgstr "Indeks {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "Tiada fail ditemui dalam direktori ini."
+
+msgid "manager.files.createDir"
+msgstr "Cipta Direktori"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Padamkan fail atau direktori ini? Ambil perhatian bahawa direktori mesti "
+"kosong sebelum ia boleh dipadamkan."
+
+msgid "manager.filesBrowser"
+msgstr "Pelayar Fail"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Pilih pengguna untuk dieksport ke fail Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Eksport ke Excel/CSV"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Subjek: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Dihantar kepada"
+
+msgid "manager.emails.sentFrom"
+msgstr "Dihantar dari"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Tetapkan Semula Kepada Lalai"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Jika anda menetapkan semula templat ini, semua data mesej akan ditetapkan "
+"semula kepada nilai lalainya, kehilangan semua pengubahsuaian. Adakah anda "
+"ingin mengesahkan operasi ini?"
+
+msgid "manager.emails.resetComplete"
+msgstr "Templat e-mel berjaya ditetapkan semula."
+
+msgid "manager.emails.reset"
+msgstr "Tetapkan semula"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Templat e-mel lalai telah dipulihkan."
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Jika anda menetapkan semula semua templat, semua pengubahsuaian pada templat "
+"e-mel akan hilang. Adakah anda ingin mengesahkan operasi ini?"
+
+msgid "manager.emails.resetAll"
+msgstr "Tetapkan Semula Semua"
+
+msgid "manager.emails"
+msgstr "E-mel Disediakan"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Subjek diperlukan untuk e-mel."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Badan diperlukan untuk e-mel."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"Kunci e-mel unik yang tidak mengandungi ruang atau aksara khas diperlukan "
+"untuk e-mel."
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Anda akan mendayakan e-mel ini. Adakah anda ingin mengesahkan operasi ini?"
+
+msgid "manager.emails.enable"
+msgstr "Dayakan"
+
+msgid "manager.emails.enabled"
+msgstr "Dayakan templat e-mel ini"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Kunci yang anda berikan sudah digunakan."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Anda mesti memberikan ID konteks semasa menambah templat e-mel."
+
+msgid "manager.emails.otherTemplates"
+msgstr "Templat Lain"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Templat E-mel"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Templat E-mel"
+
+msgid "manager.emails.emailKeyExists"
+msgstr ""
+"E-mel dengan kunci yang diberikan sudah wujud. Kunci e-mel mestilah unik."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Kunci e-mel hanya boleh mengandungi huruf, nombor dan garis bawah."
+
+msgid "manager.emails.emailKey"
+msgstr "Kunci E-mel"
+
+msgid "manager.emails.editTestExample"
+msgstr "Sunting Contoh Ujian E-mel"
+
+msgid "manager.emails.editEmail"
+msgstr "Sunting E-mel"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Anda akan menyahdayakan templat e-mel ini. Jika terdapat proses sistem "
+"menggunakan templat ini, mereka tidak akan menggunakannya lagi. Adakah anda "
+"ingin mengesahkan operasi ini?"
+
+msgid "manager.emails.disable"
+msgstr "Nyahdaya"
+
+msgid "manager.emails.details"
+msgstr "Template Details"
+
+msgid "manager.emails.data"
+msgstr "Data Mesej Templat"
+
+msgid "manager.emails.customTemplate"
+msgstr "Templat Custom"
+
+msgid "manager.emails.createEmail"
+msgstr "Cipta E-mel"
+
+msgid "manager.emails.addEmail"
+msgstr "Tambah Templat"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"Adakah anda pasti mahu menetapkan semula templat e-mel ini kepada nilai "
+"lalainya?"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Adakah anda pasti mahu memadamkan templat e-mel ini?"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Butiran peringatan ulasan telah dikemas kini."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Panduan Pengulas"
+
+msgid "manager.publication.emails"
+msgstr "E-mel"
+
+msgid "manager.publication.productionStage"
+msgstr "Produksi"
+
+msgid "manager.publication.editorialStage"
+msgstr "Editorial"
+
+msgid "manager.publication.reviewStage"
+msgstr "Ulasan"
+
+msgid "manager.publication.submissionStage"
+msgstr "Penyerahan"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Jenis Pengumuman"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Tiada jenis pengumuman telah dicipta."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Nama jenis pengumuman diperlukan."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nama"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Jenis pengumuman dengan nama ini sudah wujud."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Simpan dan Cipta Satu Lagi"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Sunting"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Sunting Jenis Pengumuman"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Cipta"
+
+msgid "manager.announcementTypes.create"
+msgstr "Cipta Jenis Pengumuman"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Amaran! Semua pengumuman dengan jenis pengumuman ini juga akan dipadamkan. "
+"Adakah anda pasti mahu meneruskan dan memadamkan jenis pengumuman ini?"
+
+msgid "manager.announcementTypes"
+msgstr "Jenis Pengumuman"
+
+msgid "manager.announcements.type"
+msgstr "Jenis"
+
+msgid "manager.announcements.title"
+msgstr "Tajuk"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Tiada pengumuman dibuat."
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Sila pilih jenis pengumuman yang sah."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Jenis"
+
+msgid "manager.announcements.form.title"
+msgstr "Tajuk"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Tajuk pengumuman diperlukan."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Simpan dan Cipta Satu Lagi"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Penerangan Ringkas"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Penerangan pengumuman ringkas diperlukan."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Penerangan ringkas untuk dipaparkan bersama dengan tajuk pengumuman."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Penerangan pengumuman diperlukan."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Teks penuh pengumuman."
+
+msgid "manager.announcements.form.description"
+msgstr "Pengumuman"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr ""
+"Sila pilih bulan dan/atau hari sebagai tambahan kepada tahun tarikh luput."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Sila pilih tarikh luput pengumuman yang sah."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr ""
+"Sila pilih tahun dan/atau hari sebagai tambahan kepada bulan tarikh luput."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Pengumuman akan dipaparkan kepada pembaca sehingga tarikh ini. Biarkan "
+"kosong jika pengumuman perlu dipaparkan selama-lamanya."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Tarikh luput"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr ""
+"Sila pilih tahun dan/atau bulan sebagai tambahan kepada hari tarikh luput."
+
+msgid "manager.announcements.editTitle"
+msgstr "Sunting"
+
+msgid "manager.announcements.edit"
+msgstr "Sunting Pengumuman"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Padam Pengumuman"
+
+msgid "manager.announcements.datePublish"
+msgstr "Diterbitkan"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Luput"
+
+msgid "manager.announcements.createTitle"
+msgstr "Cipta"
+
+msgid "manager.announcements.create"
+msgstr "Cipta Pengumuman Baru"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Adakah anda pasti mahu memadamkan pengumuman {$title} secara kekal?"
+
+msgid "manager.announcements"
+msgstr "Pengumuman"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Fail imej diperlukan. Sila pastikan anda telah memilih dan memuat naik fail."
+
+msgid "manager.website.appearance"
+msgstr "Penampilan"
+
+msgid "manager.website.information"
+msgstr "Maklumat"

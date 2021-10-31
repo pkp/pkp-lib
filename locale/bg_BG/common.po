@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-25 18:52+0000\n"
+"PO-Revision-Date: 2021-10-31 08:05+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -1123,3 +1123,304 @@ msgstr "За читатели"
 
 msgid "navigation.breadcrumbSeparator"
 msgstr "/"
+
+msgid "navigation.viewFrontend"
+msgstr "Показване на сайта"
+
+msgid "navigation.userManagement"
+msgstr "Настройки за потребителите"
+
+msgid "navigation.user"
+msgstr "Потребител"
+
+msgid "navigation.userHome"
+msgstr "Начална страница на потребителя"
+
+msgid "navigation.system"
+msgstr "Система"
+
+msgid "navigation.submissions"
+msgstr "Изпратени материали"
+
+msgid "navigation.stepNumber"
+msgstr "Стъпка {$step}"
+
+msgid "navigation.skip.footer"
+msgstr "Преминаване към долния колонтитул на сайта"
+
+msgid "navigation.skip.nav"
+msgstr "Преминаване към главното меню за навигация"
+
+msgid "navigation.skip.main"
+msgstr "Преминаване към основното съдържание"
+
+msgid "navigation.skip.announcements"
+msgstr "Преминаване към съобщенията"
+
+msgid "navigation.skip.description"
+msgstr "Преминаване към съдържанието"
+
+msgid "navigation.sitemap"
+msgstr "Карта на сайта"
+
+msgid "navigation.setup"
+msgstr "Настройка"
+
+msgid "navigation.settings"
+msgstr "Настройки"
+
+msgid "navigation.search"
+msgstr "Търсене"
+
+msgid "navigation.publicMenu"
+msgstr "Публично меню"
+
+msgid "navigation.previousStep"
+msgstr "Предишна стъпка"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextStep"
+msgstr "Следваща стъпка"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} от {$total} елемента"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} от {$total} елемента"
+
+msgid "navigation.home"
+msgstr "Начална страница"
+
+msgid "navigation.data"
+msgstr "Данни"
+
+msgid "navigation.browseByTitle"
+msgstr "По заглавие"
+
+msgid "navigation.browseByAuthor"
+msgstr "По автор"
+
+msgid "navigation.backTo"
+msgstr "⟵ Назад към {$page}"
+
+msgid "navigation.browse"
+msgstr "Преглед"
+
+msgid "navigation.tools.statistics"
+msgstr "Статистики"
+
+msgid "navigation.tools.importExport"
+msgstr "Импорт/Експорт"
+
+msgid "navigation.tools"
+msgstr "Инструменти"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Вие сте тук:"
+
+msgid "navigation.access"
+msgstr "Потребители и роли"
+
+msgid "locale.supported"
+msgstr "Поддържани езици"
+
+msgid "locale.primary"
+msgstr "Основен език"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Не могат да се правят промени за настройките на този участник"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Участник"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Позволете на този участник да прави промени в публикацията, като заглавие, "
+"резюме, метаданни и други подробности за публикацията. Може да пожелаете да "
+"отмените това право, ако изпратените материали за статия са получили "
+"последна проверка и са готови за публикуване."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Права за редактиране на метаданни"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Този участник има право само да препоръча редакционно решение и ще изисква "
+"упълномощен редактор да записва редакционни решения."
+
+msgid "stageParticipants.options"
+msgstr "Назначаване на права"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Моля, уверете се, че сте попълнили полето за съобщение и сте включили някой "
+"друг освен себе си в дискусията."
+
+msgid "stageParticipants.notify.message"
+msgstr "Съобщение"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Изберете предварително дефинирано съобщение, което да използвате, или "
+"попълнете формуляра по-долу."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Започване на дискусия между вас и {$userFullName}."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Започване на дискусия"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Изпратено известие до потребителите."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Публикувана нова бележка."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Изпратено известие до потребителите."
+
+msgid "informationCenter.history.noItems"
+msgstr "Няма регистрирани събития."
+
+msgid "informationCenter.pastHistory"
+msgstr "Предходни ревизии"
+
+msgid "informationCenter.currentHistory"
+msgstr "Текуща ревизия"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Наистина ли искате да изтриете тази бележка?"
+
+msgid "informationCenter.pastNotes"
+msgstr "Бележки към ревизии"
+
+msgid "informationCenter.noNotes"
+msgstr "Няма бележки за показване."
+
+msgid "informationCenter.addNote"
+msgstr "Добяне на бележка"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Редакционна история"
+
+msgid "informationCenter.informationCenter"
+msgstr "Информационен център"
+
+msgid "icon.view.alt"
+msgstr "Преглед"
+
+msgid "icon.unchecked.alt"
+msgstr "Не е избрано"
+
+msgid "icon.mail.alt"
+msgstr "Поща"
+
+msgid "icon.letter.alt"
+msgstr "Писмо"
+
+msgid "icon.info.alt"
+msgstr "Информация"
+
+msgid "icon.font_small.alt"
+msgstr "Малък"
+
+msgid "icon.font_medium.alt"
+msgstr "Среден"
+
+msgid "icon.font_large.alt"
+msgstr "Голям"
+
+msgid "icon.folder.alt"
+msgstr "Папка"
+
+msgid "icon.edit.alt"
+msgstr "Редакция"
+
+msgid "icon.delete.alt"
+msgstr "Изтриване"
+
+msgid "icon.comment.alt"
+msgstr "Коментар"
+
+msgid "icon.checked.alt"
+msgstr "Избрано"
+
+msgid "help.upALevel"
+msgstr "Ниво нагоре"
+
+msgid "help.next"
+msgstr "Напред"
+
+msgid "help.previous"
+msgstr "Назад"
+
+msgid "help.toc"
+msgstr "Съдържание"
+
+msgid "navigation.login"
+msgstr "Вход"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Опции за поверителност"
+
+msgid "navigation.register"
+msgstr "Регистрация"
+
+msgid "help.help"
+msgstr "Помощ"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} завършени езици"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} в {$localeName}"
+
+msgid "form.invalidImage"
+msgstr ""
+"Беше качено невалидно изображение. Приетите формати са .png, .gif или .jpg."
+
+msgid "form.submit"
+msgstr "Изпрати"
+
+msgid "form.send"
+msgstr "Изпрати"
+
+msgid "form.saveToUpload"
+msgstr "Използвайте \"Запазване\", за да качите файл."
+
+msgid "form.saved"
+msgstr "Записано"
+
+msgid "form.resubmit"
+msgstr "Изпратете отново"
+
+msgid "form.requireId"
+msgstr "Трябва да предоставите валиден идентификатор (ID)."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Трябва да попълните това поле в {$language}."
+
+msgid "form.required"
+msgstr "(* Задължително)"
+
+msgid "form.fileRequired"
+msgstr "Изисква се качване на файл."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Формулярът не можа да бъде изпратен. Може да сте излезли от системата. Моля, "
+"презаредете страницата и опитайте отново."
+
+msgid "form.postRequired"
+msgstr "Формулярът не е изпратен правилно."
+
+msgid "navigation.admin"
+msgstr "Администриране"
+
+msgid "navigation.dashboard"
+msgstr "Контролен панел"

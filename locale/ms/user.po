@@ -1,7 +1,7 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-30 10:59+0000\n"
+"PO-Revision-Date: 2021-10-31 11:27+0000\n"
 "Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ms/>"
 "\n"
@@ -325,7 +325,7 @@ msgid "user.role.reader"
 msgstr "Pembaca"
 
 msgid "user.role.editors"
-msgstr "Editors"
+msgstr "Editor"
 
 msgid "user.role.editor"
 msgstr "Editor"

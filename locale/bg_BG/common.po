@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-31 11:27+0000\n"
+"PO-Revision-Date: 2021-10-31 20:02+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -1523,3 +1523,212 @@ msgstr "Премахнат е одитор."
 
 msgid "notification.addedAuditor"
 msgstr "Добавен е одитор."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Очаква рецензия."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Нова обява."
+
+msgid "notification.editStageParticipant"
+msgstr "Назначението на етапа беше променено."
+
+msgid "notification.addedStageParticipant"
+msgstr "Потребителят е добавен като участник в етапа."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Рецензентът е възстановен."
+
+msgid "notification.cancelledReviewer"
+msgstr "Рецензентът е отказан."
+
+msgid "notification.removedReviewer"
+msgstr "Рецензентът е изтрит."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"На {$reviewerName} беше възложено да прегледа тези изпратени материали за "
+"статия, без известие по имейл."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"На {$reviewerName} беше възложено да прегледа тези изпратени материали за "
+"статия, като беше изпратено известие по имейл."
+
+msgid "navigation.goBack"
+msgstr "Назад"
+
+msgid "submission.task.responseDueDate"
+msgstr "Отговор за рецензиране до дата"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Рецензиране до дата"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Отговор на молбата до дата"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Молба на редактора"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "График за рецензиране"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>За да се гарантира целостта на анонимната рецензия, трябва да се положат "
+"всички усилия, за да се предотврати взаимното познаване на самоличността на "
+"авторите и рецензентите. Това включва авторите, редакторите и рецензентите ("
+"които качват документи като част от прегледа си) да проверят дали са "
+"предприети следните стъпки по отношение на текста и свойствата на файла:</p>"
+"\n"
+"<ul><li>Авторите на документа са изтрили имената си от текста, като в "
+"препратките и бележките под линия са използвани „Автор“ и година, вместо "
+"името на автора, заглавието на статията и т.н.</li>\n"
+"<li>Авторите на документа са премахнали лична информация от свойствата на "
+"файла, като са предприели следните стъпки:\n"
+"<ul><li>Microsoft Word за Windows:\n"
+"<ul><li>Отидете във файл</li>\n"
+"<li>Изберете Информация</li>\n"
+"<li>Щракнете върху Проверка за проблеми</li>\n"
+"<li>Щракнете върху Проверка на документ</li>\n"
+"<li>В диалоговия прозорец Инспектор на документи поставете отметка в "
+"квадратчетата, за да изберете типа скрито съдържание, което искате да "
+"проверите.</li>\n"
+"<li>Щракнете върху Премахване на всички</li>\n"
+"<li>Щракнете върху Close</li>\n"
+"<li>Запазете документа</li></ul>\n"
+"<li>Microsoft Word за MacOS:\n"
+"<ul><li>Отидете на Инструменти</li>\n"
+"<li>Щракнете върху Защита на документ</li>\n"
+"<li>Изберете Премахване на лична информация за този файл при запазване</li>\n"
+"<li>Щракнете върху OK и запазете файла</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Отидете до файл</li>\n"
+"<li>Изберете свойства</li>\n"
+"<li>Премахнете всяко име в полето за автор</li>\n"
+"<li>Щракнете върху OK</li>\n"
+"<li>Запазете документа</li></ul></li></ul>\n"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Как да гарантираме, че всички файлове са анонимни"
+
+msgid "dashboard.myQueue"
+msgstr "Моята опашка от задачи"
+
+msgid "dashboard.tasks"
+msgstr "Задачи"
+
+msgid "grid.action.markRead"
+msgstr "Маркиране като прочетено"
+
+msgid "grid.action.markNew"
+msgstr "Маркиране като ново (непрочетено)"
+
+msgid "grid.action.deleteNotification"
+msgstr "Изтриване на задача"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Прочетете текущата политика за рецензиране"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Как да гарантираме, че всички файлове са анонимни"
+
+msgid "context.path"
+msgstr "Път"
+
+msgid "grid.action.downloadFile"
+msgstr "Сваляне на този файл"
+
+msgid "search.typeMethodApproach"
+msgstr "Тип (метод/подход)"
+
+msgid "search.title"
+msgstr "Заглавие"
+
+msgid "search.titleIndex"
+msgstr "Преглед на индекса на заглавията"
+
+msgid "search.subject"
+msgstr "Ключова(и) дума(и)"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} статии са индексирани"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "грешка"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "готово"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Изчистване на индекса"
+
+msgid "search.searchAgain"
+msgstr "Потърси отново"
+
+msgid "search.advancedSearchLess"
+msgstr "Скриване на разширените опции за търсене"
+
+msgid "search.advancedSearchMore"
+msgstr "Още опции за търсене"
+
+msgid "search.abstract"
+msgstr "Абстракт"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Изпратете имейл за това до всички регистрирани потребители."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Метаданните за подадените материали са запазени."
+
+msgid "notification.reminderSent"
+msgstr "Новата ви парола е изпратена на посочения имейл адрес."
+
+msgid "notification.reminderError"
+msgstr ""
+"Възникна грешка при изпращането на вашата парола. Моля, уверете се, че сте "
+"въвели правилно имейл адреса си."
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Изберете системните събития, за които искате да бъдете уведомени. "
+"Премахването на отметка от даден елемент ще попречи на известията за "
+"събитието да се показват в системата, както и да ви бъдат изпращани по "
+"имейл. Отметнатите събития ще се появят в системата и имате допълнителна "
+"опция да получавате или не същото известие по имейл."
+
+msgid "notification.settings"
+msgstr "Известия - настройки"
+
+msgid "notification.sentNotification"
+msgstr "Известието е изпратено."
+
+msgid "notification.notifications"
+msgstr "Известия"
+
+msgid "notification.notification"
+msgstr "Известие"
+
+msgid "notification.removedSubmission"
+msgstr "Изпратените материали са изтрити."
+
+msgid "notification.removedFile"
+msgstr "Файлът е изтрит."
+
+msgid "notification.removedNote"
+msgstr "Бележката е изтрита."
+
+msgid "notification.addedNote"
+msgstr "Бележката е публикувана."
+
+msgid "notification.noneExist"
+msgstr "В момента нямате известия."
+
+msgid "notification.email"
+msgstr "Не ми изпращайте имейл за тези видове известия."
+
+msgid "notification.confirmSuccess"
+msgstr "Успешно сте се абонирали."
+
+msgid "notification.confirmError"
+msgstr "Възникна грешка при потвърждаването на абонамента ви."

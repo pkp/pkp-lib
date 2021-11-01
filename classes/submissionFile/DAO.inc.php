@@ -26,6 +26,8 @@ class DAO extends BaseDAO
      */
     public function insert(SubmissionFile $submissionFile): int
     {
+        $submissionFileId = parent::insert($submissionFile);
+
         if ($submissionFile->getData('assocType') === ASSOC_TYPE_REPRESENTATION) {
             $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
             $galley = $galleyDao->getById($submissionFile->getData('assocId'));
@@ -35,8 +37,6 @@ class DAO extends BaseDAO
             $galley->setFileId($submissionFile->getId());
             $galleyDao->updateObject($galley);
         }
-
-        $submissionFileId = parent::insert($submissionFile);
 
         return $submissionFileId;
     }

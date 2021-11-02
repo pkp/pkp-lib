@@ -1,15 +1,19 @@
+# Huang Feilong <hfl@nominsang.org>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-04T08:55:21-08:00\n"
+"PO-Revision-Date: 2021-11-02 17:32+0000\n"
+"Last-Translator: Huang Feilong <hfl@nominsang.org>\n"
+"Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/grid/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-04T08:55:21-08:00\n"
-"PO-Revision-Date: 2019-11-04T08:55:21-08:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 msgid "grid.noItems"
 msgstr "没有项目"
@@ -475,3 +479,135 @@ msgstr "未完成的审稿"
 
 msgid "grid.task.status.reviewReady"
 msgstr "审稿完毕。点击左侧的通知按钮进行阅读。"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "所有注册用户"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "并入此用户"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "合并用户"
+
+msgid "grid.user.mergeUsers"
+msgstr "合并用户"
+
+msgid "grid.user.confirmLogInAs"
+msgstr "用此用户登录？您执行的所有操作将会跟此用户关联。"
+
+msgid "grid.user.addRole"
+msgstr "添加角色"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "所有权限级别"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "反馈意见"
+
+msgid "grid.action.newVersion"
+msgstr "创建一个新版本"
+
+msgid "grid.action.users"
+msgstr "查看/选择 用户"
+
+msgid "grid.action.moreItems"
+msgstr "加载更多"
+
+msgid "grid.action.install"
+msgstr "安装"
+
+msgid "grid.action.preview"
+msgstr "预览"
+
+msgid "grid.action.copy"
+msgstr "复制"
+
+msgid "grid.action.deactivate"
+msgstr "停用"
+
+msgid "grid.action.activate"
+msgstr "激活"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "您确认要导出所有用户吗？"
+
+msgid "grid.action.exportAllUsers"
+msgstr "导出所有用户"
+
+msgid "grid.action.logInAs"
+msgstr "登录为"
+
+msgid "grid.action.bookInfo"
+msgstr "稿件信息"
+
+msgid "grid.action.enable"
+msgstr "启用"
+
+msgid "grid.action.unconsiderReview"
+msgstr "此审核完成，但是您不必理会它"
+
+msgid "grid.action.viewLibrary"
+msgstr "查看文库"
+
+msgid "grid.action.search"
+msgstr "搜索"
+
+msgid "grid.action.removeUserGroup"
+msgstr "删除这个用户组"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "您确定要恢复默认设置吗？"
+
+msgid "grid.action.setApproval"
+msgstr "设置同意"
+
+msgid "grid.action.disapprove"
+msgstr "反对"
+
+msgid "grid.action.editorialHistory"
+msgstr "编辑历史"
+
+msgid "grid.action.deleteSection"
+msgstr "删除栏目"
+
+msgid "grid.action.export"
+msgstr "导出"
+
+msgid "grid.action.editSection"
+msgstr "编辑栏目"
+
+msgid "grid.action.reload"
+msgstr "重载"
+
+msgid "grid.action.approveCopyedit"
+msgstr "批准此文案编辑文件并将其发送到下一阶段"
+
+msgid "grid.action.unassignReviewer"
+msgstr "取消分配此审阅者"
+
+msgid "grid.action.updateQuery"
+msgstr "更新讨论"
+
+msgid "grid.action.deleteQuery"
+msgstr "删除讨论"
+
+msgid "grid.action.readQuery"
+msgstr "阅读讨论"
+
+msgid "grid.action.addQuery"
+msgstr "添加讨论"
+
+msgid "grid.action.addNote"
+msgstr "添加说明"
+
+msgid "grid.action.manageAccess"
+msgstr "管理访问"
+
+msgid "grid.action.uninstall"
+msgstr "卸载"
+
+msgid "grid.remotelyHostedItem"
+msgstr "项目是远程托管。"
+
+msgid "grid.noAuditors"
+msgstr "没有审校"

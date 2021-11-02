@@ -98,7 +98,7 @@ class ValidateRegisteredEmail
         $mailable
             ->body($registerTemplate->getLocalizedData('body'))
             ->subject($registerTemplate->getLocalizedData('subject'))
-            ->setRecipients($event->recipient);
+            ->recipients([$event->recipient]);
 
         Mail::send($mailable);
     }

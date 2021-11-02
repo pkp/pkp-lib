@@ -36,7 +36,7 @@ trait Sender
      * @copydoc Illuminate\Mail\Mailable::from()
      */
     public function from($address, $name = null) {
-        throw new BadMethodCallException(static::class . ' doesn\'t support ' . __FUNCTION__ . '(), use setSender() instead');
+        throw new BadMethodCallException(static::class . ' doesn\'t support ' . __FUNCTION__ . '(), use sender() instead');
     }
 
     /**
@@ -45,7 +45,7 @@ trait Sender
      * @param string|null $defaultLocale
      * @return Mailable
      */
-    public function setSender(User $sender, ?string $defaultLocale = null) : Mailable
+    public function sender(User $sender, ?string $defaultLocale = null) : Mailable
     {
         $this->setAddress($sender->getEmail(), $sender->getFullName($defaultLocale), 'from');
 

@@ -313,8 +313,8 @@ class EditorAction
         $mailable
             ->body($emailBody)
             ->subject($emailSubject)
-            ->setSender($sender)
-            ->setRecipients([$reviewer]);
+            ->sender($sender)
+            ->recipients([$reviewer]);
 
         // Additional template variable
         $mailable->addVariables([

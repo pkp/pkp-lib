@@ -58,8 +58,8 @@ class MailDiscussionMessage
             $mailable
                 ->body($emailTemplate->getLocalizedData('body'))
                 ->subject($emailTemplate->getLocalizedData('subject'))
-                ->setSender($sender)
-                ->setRecipients([$user])
+                ->sender($sender)
+                ->recipients([$user])
                 ->replyTo($event->context->getContactEmail(), $event->context->getContactName());
 
             Mail::send($mailable);

@@ -38,7 +38,7 @@ trait Recipient {
      */
     public function to($address, $name = null)
     {
-        throw new BadMethodCallException(static::class . ' doesn\'t support ' . __FUNCTION__ . '(), use setRecipients() instead');
+        throw new BadMethodCallException(static::class . ' doesn\'t support ' . __FUNCTION__ . '(), use recipients() instead');
     }
 
     /**
@@ -47,7 +47,7 @@ trait Recipient {
      * @param string|null $defaultLocale
      * @return Mailable
      */
-    public function setRecipients(array $recipients) : Mailable
+    public function recipients(array $recipients) : Mailable
     {
         $to = [];
         foreach ($recipients as $recipient) {

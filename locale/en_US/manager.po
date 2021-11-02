@@ -2141,3 +2141,34 @@ msgstr "The full names of the authors"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "The URL to the submission in the editorial backend"
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "New Discussion Message"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr "This email is automatically sent to discussion participants when a new message is added to the discussion."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Reviewer Assigned"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "This email is sent when a reviewer is assigned to a submission."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Reviewer Reinstated"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr "This email is sent when a reviewer that was unassigned is reinstated by an editor."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Reviewer Unassigned"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "This email is sent when an editor unassigns a reviewer."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Validate Email (Site)"
+
+msgid "mailable.validateEmailSite.description"
+msgstr "This email is automatically sent to a new user when they register with the site when the settings require the email address to be validated."
+

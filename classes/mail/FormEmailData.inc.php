@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @file mail/mailables/FormEmailData.inc.php
+ * @file mail/FormEmailData.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormEmailData
- * @ingroup mail_mailables
+ * @ingroup mail
  *
  * @brief Serves to transfer data from the form/request to mailable
  */
 
-namespace PKP\mail\mailables;
+namespace PKP\mail;
 
 use Illuminate\Support\LazyCollection;
 use App\facades\Repo;

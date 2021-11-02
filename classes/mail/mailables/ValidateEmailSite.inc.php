@@ -19,12 +19,17 @@ use PKP\facades\Repo;
 use PKP\mail\Mailable;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\site\Site;
+use PKP\mail\Recipient;
 
 class ValidateEmailSite extends Mailable
 {
     use Recipient;
 
     public const EMAIL_KEY = 'USER_VALIDATE';
+
+    protected static ?string $name = 'mailable.validateEmailSite.name';
+
+    protected static ?string $description = 'mailable.validateEmailSite.description';
 
     public function __construct(Site $site)
     {

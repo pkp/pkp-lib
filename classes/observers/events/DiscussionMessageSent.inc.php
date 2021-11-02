@@ -17,7 +17,7 @@ namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use PKP\context\Context;
-use PKP\mail\mailables\FormEmailData;
+use PKP\mail\FormEmailData;
 use PKP\query\Query;
 use PKP\submission\PKPSubmission;
 

@@ -20,12 +20,17 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Mail\Mailer as IlluminateMailer;
 use InvalidArgumentException;
+use PKP\cache\CacheManager;
+use PKP\cache\FileCache;
+use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\i18n\PKPLocale;
 use PKP\observers\events\MessageSendingContext;
 use PKP\observers\events\MessageSendingSite;
+use PKP\plugins\HookRegistry;
 use Swift_Mailer;
 use Swift_Message;
+use Symfony\Component\Finder\Finder;
 
 class Mailer extends IlluminateMailer
 {
@@ -224,5 +229,63 @@ class Mailer extends IlluminateMailer
 
         $site = $request->getSite();
         return $this->events->until(new MessageSendingSite($site, $message, $data)) !== false;
+    }
+
+    /**
+     * @return string[] mailable class names
+     */
+    public static function getMailables(): array
+    {
+        $mailables = static::getMailablesFromCache();
+        HookRegistry::call('Mailer::Mailables', [&$mailables]);
+
+        return $mailables;
+    }
+
+    /**
+     * @return string[] cached mailable class names
+     */
+    protected static function getMailablesFromCache(): array
+    {
+        $cacheManager = CacheManager::getManager();
+        $context = PKPApplication::get()->getRequest()->getContext();
+        $contextId = $context ? $context->getId() : PKPApplication::CONTEXT_SITE;
+        $cache = $cacheManager->getCache('mailable', $contextId, function (FileCache $cache) {
+            $cache->setEntireCache(static::scanMailables());
+        });
+
+        return $cache->getContents();
+    }
+
+    /**
+     * Scans mailable directories to retrieve class names
+     */
+    protected static function scanMailables()
+    {
+        $finder = (new Finder())->files()->in(array_filter(static::discoverMailablesWithin(), function ($directory) {
+            return is_dir($directory);
+        }));
+
+        $mailables = [];
+        foreach ($finder as $file) {
+            $className = Core::classFromFile($file);
+            if (is_a($className, Mailable::class, true)) {
+                $mailables[] = $className;
+            }
+        }
+        return $mailables;
+    }
+
+    /**
+     * @return string[] dirs to scan for mailables
+     */
+    protected static function discoverMailablesWithin(): array
+    {
+        $mailables = [
+            base_path('classes/mail/mailables'),
+            base_path('lib/pkp/classes/mail/mailables')
+        ];
+
+        return $mailables;
     }
 }

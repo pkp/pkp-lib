@@ -19,12 +19,17 @@ use PKP\context\Context;
 use PKP\facades\Repo;
 use PKP\mail\Mailable;
 use PKP\emailTemplate\EmailTemplate;
+use PKP\mail\Recipient;
 
 class ValidateEmailContext extends Mailable
 {
     use Recipient;
 
     public const EMAIL_KEY = 'USER_VALIDATE';
+
+    protected static ?string $name = 'mailable.validateEmailContext.name';
+
+    protected static ?string $description = 'mailable.validateEmailContext.description';
 
     public function __construct(Context $context)
     {

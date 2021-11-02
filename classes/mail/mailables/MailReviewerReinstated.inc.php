@@ -16,14 +16,24 @@
 namespace PKP\mail\mailables;
 
 use PKP\context\Context;
+use PKP\mail\Configurable;
 use PKP\mail\Mailable;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\mail\Recipient;
+use PKP\mail\Sender;
 
 class MailReviewerReinstated extends Mailable
 {
     use Recipient;
     use Sender;
+    use Configurable;
+
+    protected static ?string $name = 'mailable.mailReviewerReinstate.name';
+
+    protected static ?string $description = 'mailable.mailReviewerReinstate.description';
+
+    public static bool $supportsTemplates = true;
 
     protected static array $groupIds = [self::GROUP_REVIEW];
 

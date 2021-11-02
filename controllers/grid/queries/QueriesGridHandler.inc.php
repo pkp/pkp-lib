@@ -24,7 +24,7 @@ use PKP\i18n\PKPLocale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\mail\mailables\FormEmailData;
+use PKP\mail\FormEmailData;
 use PKP\mail\SubmissionMailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\observers\events\DiscussionMessageSent;

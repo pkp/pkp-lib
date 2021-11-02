@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-01 22:03+0000\n"
+"PO-Revision-Date: 2021-11-02 21:57+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -1768,3 +1768,35 @@ msgstr "Искане за одит за \"{$file}\""
 
 msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Заданието за рецензиране е актуализирано."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Текущият потребител не е автор на исканото подаване на материали. Моля, "
+"проверете дали сте влезли с правилния потребителски акаунт."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"В момента нямате достатъчно права, за да видите подадените материали. Моля, "
+"редактирайте профила си, за да се уверите, че сте получили съответните роли "
+"под „Регистрирайте се като“."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Нямате достъп до това задание за рецензия."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Нямате достъп до това съобщение в дискусия."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Невалидна дискусия."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Невалиден кръг за рецензиране."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Невалидно представяне."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Невалидно подаване на материали."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Невалидна публикация."

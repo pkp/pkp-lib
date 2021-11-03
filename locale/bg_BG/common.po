@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-02 21:57+0000\n"
+"PO-Revision-Date: 2021-11-03 18:34+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -1800,3 +1800,80 @@ msgstr "Невалидно подаване на материали."
 
 msgid "user.authorization.invalidPublication"
 msgstr "Невалидна публикация."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Отписване"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Възникна неочаквана грешка и не можахме да се отпишем от имейл адреса "
+"{$email}. Можете да се отпишете от всички известия по имейл във вашия <a "
+"href=\"{$profileNotificationUrl}\">потребителски профил</a> или се свържете "
+"директно с нас за помощ."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Имейл адресът {$email} е успешно отписан. Повече няма да ви изпращаме тези "
+"имейли. Можете да се абонирате повторно за известия по имейл по всяко време "
+"от вашия <a href=\"{$profileNotificationUrl}\">потребителски профил</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Можете да се абонирате повторно за известия по имейл по всяко време от вашия "
+"<a href=\"{$profileNotificationUrl}\">потребителски профил</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Изберете имейлите, на които вече не желаете да получавате {$email} от "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Не можахме да ви отпишем"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Абонаментът Ви беше прекратен"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Менюто за навигация бе премахнато успешно"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Менюто за навигация бе актуализирано успешно"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Менюто за навигация беше успешно добавено"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Елементът от менюто за навигация беше добавен успешно"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Елементът от менюто за навигация бе премахнат успешно"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Елементът от менюто за навигация бе актуализиран успешно"
+
+msgid "semicolon"
+msgstr "{$label} :"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Това е напомняне за вас да проверите състоянието на вашето списание чрез "
+"редакционния доклад."
+
+msgid "notification.type.editorialReport"
+msgstr "Резюме на статистическия доклад."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Статус на кръг {$round}"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Очакващи коректура."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Задайте коректор, като използвате връзката Присвояване в списъка с участници."
+
+msgid "notification.type.queryAdded"
+msgstr "Добавена е дискусия."
+
+msgid "notification.type.queryActivity"
+msgstr "Дискусионна активност."

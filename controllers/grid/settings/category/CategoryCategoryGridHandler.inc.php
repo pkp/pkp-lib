@@ -16,6 +16,8 @@
 // Import user group grid specific classes
 import('lib.pkp.controllers.grid.settings.category.CategoryGridCategoryRow');
 
+use APP\category\Category;
+use APP\facades\Repo;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\OrderCategoryGridItemsFeature;
@@ -119,9 +121,11 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     public function loadData($request, $filter)
     {
         // For top-level rows, only list categories without parents.
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        $categoriesIterator = $categoryDao->getByParentId(null, $this->_getContextId());
-        return $categoriesIterator->toAssociativeArray();
+        return iterator_to_array(Repo::category()->getMany(
+            Repo::category()->getCollector()
+                ->filterByContextIds([$this->_getContextId()])
+                ->filterByParentIds([null])
+        ));
     }
 
     /**
@@ -149,8 +153,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     public function setDataElementInCategorySequence($parentCategoryId, &$category, $newSequence)
     {
         $category->setSequence($newSequence);
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        $categoryDao->updateObject($category);
+        Repo::category()->edit($category, []);
     }
 
     /**
@@ -167,8 +170,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     public function setDataElementSequence($request, $categoryId, $category, $newSequence)
     {
         $category->setSequence($newSequence);
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        $categoryDao->updateObject($category);
+        Repo::category()->edit($category, []);
     }
 
     /**
@@ -204,9 +206,11 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     public function loadCategoryData($request, &$category, $filter = null)
     {
         $categoryId = $category->getId();
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        $categoriesIterator = $categoryDao->getByParentId($categoryId, $this->_getContextId());
-        return $categoriesIterator->toAssociativeArray();
+        return iterator_to_array(Repo::category()->getMany(
+            Repo::category()->getCollector()
+                ->filterByContextIds([$this->_getContextId()])
+                ->filterByParentIds([$categoryId])
+        ));
     }
 
     /**
@@ -268,18 +272,14 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
      */
     public function deleteCategory($args, $request)
     {
-        // Identify the category to be deleted
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
         $context = $request->getContext();
-        $category = $categoryDao->getById(
-            $request->getUserVar('categoryId'),
-            $context->getId()
-        );
+        $category = Repo::category()->get((int) $request->getUserVar('categoryId'));
+        if ($category && $category->getContextId() == $context->getId()) {
+            Repo::category()->delete($category);
+        }
 
         // FIXME delete dependent objects?
 
-        // Delete the category
-        $categoryDao->deleteObject($category);
         return \PKP\db\DAO::getDataChangedEvent();
     }
 

@@ -14,6 +14,7 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class I6093_AddForeignKeys extends \PKP\migration\Migration
@@ -48,6 +49,25 @@ class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('announcement_settings', function (Blueprint $table) {
             $table->foreign('announcement_id')->references('announcement_id')->on('announcements');
         });
+
+        Schema::table('category_settings', function (Blueprint $table) {
+            $table->dropColumn('setting_type');
+        });
+        // Permit nulls in categories.parent_id where previously 0 was used for "no parent"
+        Schema::table('categories', function (Blueprint $table) {
+            $table->bigInteger('parent_id')->nullable()->change();
+        });
+        DB::table('categories')->where('parent_id', '=', 0)->update(['parent_id' => null]);
+        Schema::table('categories', function (Blueprint $table) {
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
+            $table->foreign('parent_id')->references('category_id')->on('categories');
+        });
+        Schema::table('publication_categories', function (Blueprint $table) {
+            $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->foreign('publication_id')->references('publication_id')->on('publications');
+        });
     }
 
     /**
@@ -55,29 +75,6 @@ class I6093_AddForeignKeys extends \PKP\migration\Migration
      */
     public function down(): void
     {
-        // Drop foreign key and restore assoc_type/assoc_id columns
-        Schema::table('announcement_types', function (Blueprint $table) {
-            $table->dropForeign('announcement_types_context_id_foreign');
-            $table->dropIndex('announcement_types_context_id');
-            $table->renameColumn('context_id', 'assoc_id');
-            $table->smallInteger('assoc_type')->nullable(false)->default(\Application::get()->getContextAssocType());
-            $table->index(['assoc_type', 'assoc_id'], 'announcement_types_assoc');
-        });
-        // Drop the default we introduced for the sake of populating assoc_type
-        Schema::table('announcement_types', function (Blueprint $table) {
-            $table->smallInteger('assoc_type')->default(null)->change();
-        });
-
-        Schema::table('announcement_type_settings', function (Blueprint $table) {
-            $table->dropForeign('announcement_type_settings_type_id_foreign');
-        });
-
-        Schema::table('announcements', function (Blueprint $table) {
-            $table->dropForeign('announcements_type_id_foreign');
-        });
-
-        Schema::table('announcement_settings', function (Blueprint $table) {
-            $table->dropForeign('announcement_settings_announcement_id_foreign');
-        });
+        throw new \Exception('Downgrade unsupported due to removed data!');
     }
 }

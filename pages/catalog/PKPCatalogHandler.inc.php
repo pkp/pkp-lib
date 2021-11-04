@@ -55,8 +55,11 @@ class PKPCatalogHandler extends Handler
         $context = $request->getContext();
 
         // Get the category
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        $category = $categoryDao->getByPath($args[0], $context->getId());
+        $category = Repo::category()->getMany(
+            Repo::category()->getCollector()
+                ->filterByPaths([$args[0]])
+                ->filterByContextIds([$context->getId()])
+        )->first();
         if (!$category) {
             $this->getDispatcher()->handle404();
         }
@@ -84,15 +87,18 @@ class PKPCatalogHandler extends Handler
         $submissions = Repo::submission()->getMany($collector->limit($count)->offset($offset));
 
         // Provide the parent category and a list of subcategories
-        $parentCategory = $categoryDao->getById($category->getParentId());
-        $subcategories = $categoryDao->getByParentId($category->getId());
+        $parentCategory = $category->getParentId() ? Repo::category()->get($category->getParentId()) : null;
+        $subcategories = Repo::category()->getMany(
+            Repo::category()->getCollector()
+                ->filterByParentIds([$category->getId()])
+        );
 
         $this->_setupPaginationTemplate($request, count($submissions), $page, $count, $offset, $total);
 
         $templateMgr->assign([
             'category' => $category,
             'parentCategory' => $parentCategory,
-            'subcategories' => $subcategories->toArray(),
+            'subcategories' => iterator_to_array($subcategories),
             'publishedSubmissions' => $submissions->toArray(),
         ]);
 
@@ -110,9 +116,8 @@ class PKPCatalogHandler extends Handler
         switch ($request->getUserVar('type')) {
             case 'category':
                 $context = $request->getContext();
-                $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-                $category = $categoryDao->getById($request->getUserVar('id'), $context->getId());
-                if (!$category) {
+                $category = Repo::category()->get((int) $request->getUserVar('id'));
+                if (!$category || $category->getContextId() != $context->getId()) {
                     $this->getDispatcher()->handle404();
                 }
                 $imageInfo = $category->getImage();
@@ -135,9 +140,8 @@ class PKPCatalogHandler extends Handler
         switch ($request->getUserVar('type')) {
             case 'category':
                 $context = $request->getContext();
-                $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-                $category = $categoryDao->getById($request->getUserVar('id'), $context->getId());
-                if (!$category) {
+                $category = Repo::category()->get((int) $request->getUserVar('id'));
+                if (!$category || $category->getContextId() != $context->getId()) {
                     $this->getDispatcher()->handle404();
                 }
                 $imageInfo = $category->getImage();

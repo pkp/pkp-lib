@@ -13,6 +13,7 @@
  * @brief Category grid category row definition
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\GridCategoryRow;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
@@ -41,9 +42,11 @@ class CategoryGridCategoryRow extends GridCategoryRow
             $category = $this->getData();
             $router = $request->getRouter();
 
-            $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-            $childCategories = $categoryDao->getByParentId($categoryId);
-            if (!$childCategories->next()) {
+            $childCategoryCount = Repo::category()->getCount(
+                Repo::category()->getCollector()
+                    ->filterByParentIds([$categoryId])
+            );
+            if ($childCategoryCount == 0) {
                 $this->addAction(
                     new LinkAction(
                         'deleteCategory',

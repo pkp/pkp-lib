@@ -51,6 +51,25 @@ class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Removing orphaned settings for missing announcement ID ${announcementId}");
                 DB::table('announcement_settings')->where('announcement_id', '=', $announcementId)->delete();
             }
+
+            // Clean orphaned category_setting entries
+            $orphanedIds = DB::table('category_settings AS cs')->leftJoin('categories AS c', 'cs.category_id', '=', 'c.category_id')->whereNull('c.category_id')->distinct()->pluck('cs.category_id');
+            foreach ($orphanedIds as $categoryId) {
+                $this->_installer->log("Removing orphaned settings for missing category ID ${categoryId}");
+                DB::table('category_settings')->where('category_id', '=', $categoryId)->delete();
+            }
+
+            // Clean orphaned publication_categories entries
+            $orphanedIds = DB::table('publication_categories AS pc')->leftJoin('categories AS c', 'pc.category_id', '=', 'c.category_id')->whereNull('c.category_id')->distinct()->pluck('pc.category_id');
+            foreach ($orphanedIds as $categoryId) {
+                $this->_installer->log("Removing orphaned category/publication associations for missing category ID ${categoryId}");
+                DB::table('publication_categories')->where('category_id', '=', $categoryId)->delete();
+            }
+            $orphanedIds = DB::table('publication_categories AS pc')->leftJoin('publications AS p', 'pc.publication_id', '=', 'p.publication_id')->whereNull('p.publication_id')->distinct()->pluck('pc.publication_id');
+            foreach ($orphanedIds as $publicationId) {
+                $this->_installer->log("Removing orphaned category/publication associations for missing publication ID ${publicationId}");
+                DB::table('publication_categories')->where('publication_id', '=', $publicationId)->delete();
+            }
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

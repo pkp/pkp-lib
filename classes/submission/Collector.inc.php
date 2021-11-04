@@ -361,7 +361,7 @@ abstract class Collector implements CollectorInterface
 
         // Add app-specific query statements
         HookRegistry::call('Submission::Collector', [&$q, $this]);
-
+error_log($q->toSql());
         return $q;
     }
 }

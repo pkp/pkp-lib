@@ -318,26 +318,28 @@ abstract class Collector implements CollectorInterface
         if ($this->searchPhrase !== null) {
             $words = explode(' ', $this->searchPhrase);
             foreach ($words as $word) {
-                $q->whereIn('s.submission_id', function ($query) use ($word) {
-                    $query->select('p.submission_id')->from('publications AS p')
-                        ->leftJoin('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
-                        ->where('ps.setting_name', '=', 'title')
-                        ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', "%{$word}%");
+                $q->where(function ($query) use ($word) {
+                    $query->whereIn('s.submission_id', function ($query) use ($word) {
+                        $query->select('p.submission_id')->from('publications AS p')
+                            ->join('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
+                            ->where('ps.setting_name', '=', 'title')
+                            ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', "%{$word}%");
+                    });
+                    $query->orWhereIn('s.submission_id', function ($query) use ($word) {
+                        $query->select('p.submission_id')->from('publications AS p')
+                            ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
+                            ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
+                            ->whereIn('aus.setting_name', [
+                                Identity::IDENTITY_SETTING_GIVENNAME,
+                                Identity::IDENTITY_SETTING_FAMILYNAME,
+                                'orcid'
+                            ])
+                            ->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
+                    });
+                    if (ctype_digit((string) $word)) {
+                        $query->orWhere('s.submission_id', '=', $word);
+                    }
                 });
-                $q->orWhereIn('s.submission_id', function ($query) use ($word) {
-                    $query->select('p.submission_id')->from('publications AS p')
-                        ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
-                        ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
-                        ->whereIn('aus.setting_name', [
-                            Identity::IDENTITY_SETTING_GIVENNAME,
-                            Identity::IDENTITY_SETTING_FAMILYNAME,
-                            'orcid'
-                        ])
-                        ->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
-                });
-                if (ctype_digit((string) $word)) {
-                    $q->orWhere('s.submission_id', '=', $word);
-                }
             }
             if ($isAssignedOnly) {
                 $q->whereNull('ra.reviewer_id');

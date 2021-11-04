@@ -76,7 +76,7 @@ class Collector implements CollectorInterface
         $qb = DB::table('publications as p');
 
         if (isset($this->contextIds)) {
-            $qb->leftJoin('submissions as s', 'p.submission_id', '=', 's.submission_id');
+            $qb->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
             $qb->whereIn('s.context_id', $this->contextIds);
         }
 

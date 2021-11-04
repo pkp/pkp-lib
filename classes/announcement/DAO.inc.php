@@ -77,7 +77,6 @@ class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select('a.' . $this->primaryKeyColumn)
             ->pluck('a.' . $this->primaryKeyColumn);
     }
 
@@ -88,7 +87,6 @@ class DAO extends EntityDAO
     {
         $rows = $query
             ->getQueryBuilder()
-            ->select(['a.*'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {

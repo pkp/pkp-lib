@@ -194,7 +194,8 @@ abstract class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $q = DB::table('submissions as s')
+        $q = DB::table('submissions AS s')
+            ->leftJoin('publications AS po', 's.current_publication_id', '=', 'po.publication_id')
             ->select(['s.*']);
 
         // Never permit a query without a context_id unless the CONTEXT_ID_ALL wildcard
@@ -208,7 +209,6 @@ abstract class Collector implements CollectorInterface
         switch ($this->orderBy) {
             case self::ORDERBY_DATE_PUBLISHED:
                 $q->addSelect(['po.date_published']);
-                $q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
                 $q->orderBy('po.date_published', $this->orderDirection);
                 break;
             case self::ORDERBY_LAST_ACTIVITY:
@@ -219,7 +219,6 @@ abstract class Collector implements CollectorInterface
                 break;
             case self::ORDERBY_SEQUENCE:
                 $q->addSelect(['po.seq']);
-                $q->leftJoin('publications as po', 's.current_publication_id', '=', 'po.publication_id');
                 $q->orderBy('po.seq', $this->orderDirection);
                 break;
             case self::ORDERBY_TITLE:
@@ -318,40 +317,30 @@ abstract class Collector implements CollectorInterface
         // search phrase
         if ($this->searchPhrase !== null) {
             $words = explode(' ', $this->searchPhrase);
-            if (count($words)) {
-                $q->leftJoin('publications as p', 'p.submission_id', '=', 's.submission_id')
-                    ->leftJoin('publication_settings as ps', 'p.publication_id', '=', 'ps.publication_id')
-                    ->leftJoin('authors as au', 'p.publication_id', '=', 'au.publication_id')
-                    ->leftJoin('author_settings as aus', 'aus.author_id', '=', 'au.author_id');
-
-                foreach ($words as $word) {
-                    $word = strtolower(addcslashes($word, '%_'));
-                    $q->where(function ($q) use ($word, $isAssignedOnly) {
-                        $q->where(function ($q) use ($word) {
-                            $q->where('ps.setting_name', 'title');
-                            $q->where(DB::raw('lower(ps.setting_value)'), 'LIKE', "%{$word}%");
-                        })
-                            ->orWhere(function ($q) use ($word) {
-                                $q->where('aus.setting_name', Identity::IDENTITY_SETTING_GIVENNAME);
-                                $q->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
-                            })
-                            ->orWhere(function ($q) use ($word) {
-                                $q->where('aus.setting_name', Identity::IDENTITY_SETTING_FAMILYNAME);
-                                $q->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
-                            })
-                            ->orWhere(function ($q) use ($word) {
-                                $q->where('aus.setting_name', 'orcid');
-                                $q->where(DB::raw('lower(aus.setting_value)'), '=', "{$word}");
-                            });
-                        // Prevent reviewers from matching searches by author name
-                        if ($isAssignedOnly) {
-                            $q->whereNull('ra.reviewer_id');
-                        }
-                        if (ctype_digit((string) $word)) {
-                            $q->orWhere('s.submission_id', '=', $word);
-                        }
-                    });
+            foreach ($words as $word) {
+                $q->whereIn('s.submission_id', function ($query) use ($word) {
+                    $query->select('p.submission_id')->from('publications AS p')
+                        ->leftJoin('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
+                        ->where('ps.setting_name', '=', 'title')
+                        ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', "%{$word}%");
+                });
+                $q->orWhereIn('s.submission_id', function ($query) use ($word) {
+                    $query->select('p.submission_id')->from('publications AS p')
+                        ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
+                        ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
+                        ->whereIn('aus.setting_name', [
+                            Identity::IDENTITY_SETTING_GIVENNAME,
+                            Identity::IDENTITY_SETTING_FAMILYNAME,
+                            'orcid'
+                        ])
+                        ->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
+                });
+                if (ctype_digit((string) $word)) {
+                    $q->orWhere('s.submission_id', '=', $word);
                 }
+            }
+            if ($isAssignedOnly) {
+                $q->whereNull('ra.reviewer_id');
             }
         }
 

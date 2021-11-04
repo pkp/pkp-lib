@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class announcement
+ * @class Collector
  *
  * @brief A helper class to configure a Query Builder to get a collection of announcements
  */
@@ -22,12 +22,12 @@ use PKP\plugins\HookRegistry;
 class Collector implements CollectorInterface
 {
     public DAO $dao;
-    public ?array $contextIds;
-    public string $isActive;
+    public ?array $contextIds = null;
+    public ?string $isActive = null;
     public ?string $searchPhrase = null;
-    public ?array $typeIds;
-    public ?int $count;
-    public ?int $offset;
+    public ?array $typeIds = null;
+    public ?int $count = null;
+    public ?int $offset = null;
 
     public function __construct(DAO $dao)
     {
@@ -99,7 +99,8 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $qb = DB::table($this->dao->table . ' as a');
+        $qb = DB::table($this->dao->table . ' as a')
+            ->select(['a.*']);
 
         if (isset($this->contextIds)) {
             $qb->whereIn('a.assoc_id', $this->contextIds);

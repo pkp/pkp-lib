@@ -59,8 +59,8 @@ class IndexHandler extends PKPIndexHandler
             $sections = $sectionDao->getByContextId($server->getId());
 
             // OPS: categories
-            $categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
-            $categories = $categoryDao->getByContextId($server->getId());
+            $categories = Repo::category()->getMany(Repo::category()->getCollector()
+                ->filterByContextIds([$server->getId()]));
 
             // Latest preprints
             $collector = Repo::submission()->getCollector();
@@ -79,7 +79,7 @@ class IndexHandler extends PKPIndexHandler
                 'homepageImageAltText' => $server->getLocalizedData('homepageImageAltText'),
                 'serverDescription' => $server->getLocalizedData('description'),
                 'sections' => $sections,
-                'categories' => $categories,
+                'categories' => iterator_to_array($categories),
                 'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
                 'publishedSubmissions' => $publishedSubmissions->toArray(),
             ]);

@@ -17,7 +17,7 @@
 	{* Categories listing *}
 	<section class="archiveHeader_categories">
 	<ul class="categories_listing">
-		{iterate from=categories item=category}
+		{foreach from=$categories item=category}
 			{if !$category->getParentId()}
 				<li class="category_{$category->getPath()|escape}">
 					<a href="{url router=PKPApplication::ROUTE_PAGE page="preprints" op="category" path=$category->getPath()|escape}">
@@ -25,7 +25,7 @@
 					</a>
 				</li>
 			{/if}
-		{/iterate}
+		{/foreach}
 	</ul>
 	</section>
 </section>

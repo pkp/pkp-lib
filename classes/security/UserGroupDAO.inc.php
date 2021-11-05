@@ -472,32 +472,55 @@ class UserGroupDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
-		$params = $this->userDao->getFetchParameters();
-		if ($contextId) $params[] = (int) $contextId;
-		if ($userGroupId) $params[] = (int) $userGroupId;
+		$locale = AppLocale::getLocale();
+		// The users register for the site, thus the site primary locale should be the default locale
+		$site = Application::get()->getRequest()->getSite();
+		$primaryLocale = $site->getPrimaryLocale();
 
+		$settingValue = "(
+			SELECT us.setting_value
+			FROM user_settings AS us
+			WHERE
+				us.user_id = u.user_id
+				AND us.setting_name = ?
+				AND us.locale IN (?, ?)
+			-- First non-null/empty values, then give preference to the current locale
+			ORDER BY
+				COALESCE(us.setting_value, '') = '', us.locale <> ?
+			LIMIT 1
+		)";
+		$params = [
+			IDENTITY_SETTING_GIVENNAME, $locale, $primaryLocale, $locale,
+			IDENTITY_SETTING_FAMILYNAME, $locale, $primaryLocale, $locale
+		];
+
+		$sql = "SELECT u.*, $settingValue AS user_given, $settingValue AS user_family
+			FROM users AS u
+			WHERE 1 = 1";
+
+		// Has user group
+		if ($contextId || $userGroupId) {
+			if ($contextId) {
+				$params[] = (int) $contextId;
+			}
+			if ($userGroupId) {
+				$params[] = (int) $userGroupId;
+			}
+			$sql .= ' AND EXISTS (
+				SELECT 0
+				FROM user_user_groups uug
+				INNER JOIN user_groups ug
+					ON ug.user_group_id = uug.user_group_id
+				WHERE
+					uug.user_id = u.user_id
+					' . ($contextId ? 'AND ug.context_id = ?' : '') . '
+					' . ($userGroupId ? 'AND ug.user_group_id = ?' : '') . '
+			)';
+		}
+		$sql .= ' ' . $this->_getSearchSql($searchType, $search, $searchMatch, $params);
 
 		// Get the result set
-		$result = $this->retrieveRange(
-			$sql = 'SELECT u.*,
-				' . $this->userDao->getFetchColumns() .'
-			FROM	users AS u
-				' . $this->userDao->getFetchJoins() .'
-			WHERE	1=1 ' .
-				($contextId || $userGroupId ? 'AND EXISTS (
-					SELECT 0
-					FROM user_user_groups uug
-					INNER JOIN user_groups ug
-						ON ug.user_group_id = uug.user_group_id
-					WHERE
-						uug.user_id = u.user_id
-						' . ($contextId ? 'AND ug.context_id = ?' : '') . '
-						' . ($userGroupId ? 'AND ug.user_group_id = ?' : '') . '
-				)' : '') .
-				$this->_getSearchSql($searchType, $search, $searchMatch, $params),
-			$params,
-			$dbResultRange
-		);
+		$result = $this->retrieveRange($sql, $params, $dbResultRange);
 
 		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData', [], $sql, $params, $dbResultRange);
 	}
@@ -1028,5 +1051,3 @@ class UserGroupDAO extends DAO {
 		return [ROLE_ID_MANAGER];
 	}
 }
-
-

@@ -29,7 +29,7 @@ class OPSv3_3_0UpgradeMigration extends \PKP\migration\Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::table('journal_settings', function (Blueprint $table) {
             // pkp/pkp-lib#6096 DB field type TEXT is cutting off long content
@@ -53,7 +53,7 @@ class OPSv3_3_0UpgradeMigration extends \PKP\migration\Migration
     /**
      * Reverse the downgrades
      */
-    public function down()
+    public function down(): void
     {
         Schema::table('journal_settings', function (Blueprint $table) {
             // pkp/pkp-lib#6096 DB field type TEXT is cutting off long content
@@ -74,7 +74,7 @@ class OPSv3_3_0UpgradeMigration extends \PKP\migration\Migration
             \PKP\author\DAO::class,
             'ArticleGalleyDAO',
             'JournalDAO',
-            'EmailTemplateDAO',
+            \PKP\emailTemplate\DAO::class,
             \APP\publication\DAO::class,
             \APP\submission\DAO::class
         ];

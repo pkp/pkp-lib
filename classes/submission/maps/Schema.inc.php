@@ -33,13 +33,13 @@ use PKP\submission\SubmissionFile;
 class Schema extends \PKP\core\maps\Schema
 {
     /** @copydoc \PKP\core\maps\Schema::$collection */
-    public $collection;
+    public Enumerable $collection;
 
     /** @copydoc \PKP\core\maps\Schema::$schema */
-    public $schema = PKPSchemaService::SCHEMA_SUBMISSION;
+    public string $schema = PKPSchemaService::SCHEMA_SUBMISSION;
 
-    /** @var array The user groups for this context. */
-    public $userGroups;
+    /** The user groups for this context. */
+    public array $userGroups;
 
     public function __construct(Request $request, Context $context, PKPSchemaService $schemaService)
     {

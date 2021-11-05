@@ -299,10 +299,10 @@ class ReviewerForm extends Form
         $userRoles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
         foreach ($userRoles as $userRole) {
             if (in_array($userRole->getId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
-                $emailTemplatesIterator = Services::get('emailTemplate')->getMany([
-                    'contextId' => $submission->getData('contextId'),
-                    'isCustom' => true,
-                ]);
+                $emailTemplatesIterator = Repo::emailTemplate()->getMany(Repo::emailTemplate()->getCollector()
+                    ->filterByContext($submission->getData('contextId'))
+                    ->filterByIsCustom(true));
+
                 $customTemplateKeys = [];
                 foreach ($emailTemplatesIterator as $emailTemplate) {
                     $customTemplateKeys[] = $emailTemplate->getData('key');

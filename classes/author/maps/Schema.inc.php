@@ -19,11 +19,9 @@ use PKP\services\PKPSchemaService;
 
 class Schema extends \PKP\core\maps\Schema
 {
-    /** @var Enumerable */
-    public $collection;
+    public Enumerable $collection;
 
-    /** @var string */
-    public $schema = PKPSchemaService::SCHEMA_AUTHOR;
+    public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
 
     /**
      * Map an author

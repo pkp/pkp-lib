@@ -21,26 +21,23 @@ use PKP\services\PKPSchemaService;
 
 abstract class Schema extends Base
 {
-    /** @var PKPRequest */
-    public $request;
+    public PKPRequest $request;
 
-    /** @var Context */
-    public $context;
+    public Context $context;
 
-    /** @var PKPSchemaService */
-    public $schemaService;
+    public PKPSchemaService $schemaService;
 
-    /** @var Enumerable The collection of objects being mapped. Null if only one item is being mapped. */
-    public $collection;
+    /** The collection of objects being mapped. Null if only one item is being mapped. */
+    public Enumerable $collection;
 
-    /** @var array The property names for a summary of this entity according to its schema */
-    public $summaryProps;
+    /** The property names for a summary of this entity according to its schema */
+    public array $summaryProps;
 
-    /** @var array The property names of this entity according to its schema */
-    public $props;
+    /** The property names of this entity according to its schema */
+    public array $props;
 
-    /** @var string The name of the schema for this entity. One of the \PKP\services\PKPSchemaService::SCHEMA_... constants */
-    public $schema;
+    /** The name of the schema for this entity. One of the \PKP\services\PKPSchemaService::SCHEMA_... constants */
+    public string $schema;
 
     public function __construct(PKPRequest $request, Context $context, PKPSchemaService $schemaService)
     {

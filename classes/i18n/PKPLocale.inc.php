@@ -27,6 +27,7 @@ use PKP\config\Config;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
+use PKP\facades\Repo;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 
@@ -647,9 +648,8 @@ class PKPLocale
     public static function installLocale($locale)
     {
         // Install default locale-specific data
-        $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /** @var EmailTemplateDAO $emailTemplateDao */
         AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
-        $emailTemplateDao->installEmailTemplateLocaleData($emailTemplateDao->getMainEmailTemplatesFilename(), [$locale]);
+        Repo::emailTemplate()->dao->installEmailTemplateLocaleData(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), [$locale]);
 
         // Load all plugins so they can add locale data if needed
         $categories = PluginRegistry::getCategories();
@@ -667,9 +667,8 @@ class PKPLocale
     public static function uninstallLocale($locale)
     {
         // Delete locale-specific data
-        $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /** @var EmailTemplateDAO $emailTemplateDao */
-        $emailTemplateDao->deleteEmailTemplatesByLocale($locale);
-        $emailTemplateDao->deleteDefaultEmailTemplatesByLocale($locale);
+        Repo::emailTemplate()->dao->deleteEmailTemplatesByLocale($locale);
+        Repo::emailTemplate()->dao->deleteDefaultEmailTemplatesByLocale($locale);
     }
 
     /**

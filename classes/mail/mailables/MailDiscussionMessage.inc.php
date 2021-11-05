@@ -16,8 +16,8 @@
 namespace PKP\mail\mailables;
 
 use PKP\context\Context;
-use PKP\core\PKPServices;
-use PKP\mail\EmailTemplate;
+use PKP\emailTemplate\EmailTemplate;
+use PKP\facades\Repo;
 use PKP\mail\Mailable;
 use PKP\submission\PKPSubmission;
 
@@ -36,6 +36,6 @@ class MailDiscussionMessage extends Mailable
     }
 
     public function getTemplate(int $contextId) : EmailTemplate {
-        return PKPServices::get('emailTemplate')->getByKey($contextId, self::EMAIL_KEY);
+        return Repo::emailTemplate()->getByKey($contextId, self::EMAIL_KEY);
     }
 }

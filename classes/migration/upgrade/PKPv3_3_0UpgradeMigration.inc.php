@@ -23,6 +23,7 @@ use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
 
+use PKP\facades\Repo;
 use PKP\file\FileManager;
 use PKP\submission\SubmissionFile;
 
@@ -233,8 +234,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
     private function _populateEmailTemplates()
     {
         $xmlDao = new XMLDAO();
-        $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
-        $data = $xmlDao->parseStruct($emailTemplateDao->getMainEmailTemplatesFilename(), ['email']);
+        $data = $xmlDao->parseStruct(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), ['email']);
         foreach ($data['email'] as $template) {
             $attr = $template['attributes'];
             if (array_key_exists('stage_id', $attr)) {

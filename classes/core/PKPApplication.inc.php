@@ -471,7 +471,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'DataObjectTombstoneDAO' => 'PKP\tombstone\DataObjectTombstoneDAO',
             'DataObjectTombstoneSettingsDAO' => 'PKP\tombstone\DataObjectTombstoneSettingsDAO',
             'EditDecisionDAO' => 'PKP\submission\EditDecisionDAO',
-            'EmailTemplateDAO' => 'PKP\mail\EmailTemplateDAO',
             'FilterDAO' => 'PKP\filter\FilterDAO',
             'FilterGroupDAO' => 'PKP\filter\FilterGroupDAO',
             'GenreDAO' => 'PKP\submission\GenreDAO',

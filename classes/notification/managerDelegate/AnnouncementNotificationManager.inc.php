@@ -19,6 +19,8 @@ use APP\core\Services;
 use APP\notification\Notification;
 use PKP\core\PKPApplication;
 
+use PKP\emailTemplate\EmailTemplate;
+use PKP\facades\Repo;
 use PKP\mail\MailTemplate;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
@@ -51,7 +53,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
      */
     public function getNotificationContents($request, $notification): EmailTemplate
     {
-        return Services::get('emailTemplate')->getByKey($notification->getContextId(), 'ANNOUNCEMENT');
+        return Repo::emailTemplate()->getByKey($notification->getContextId(), 'ANNOUNCEMENT');
     }
 
     /**

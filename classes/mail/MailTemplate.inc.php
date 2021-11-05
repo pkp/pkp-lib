@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\i18n\AppLocale;
 use PKP\core\PKPApplication;
+use PKP\facades\Repo;
 
 class MailTemplate extends Mail
 {
@@ -81,7 +82,7 @@ class MailTemplate extends Mail
         $this->addressFieldsEnabled = true;
 
         if (isset($this->emailKey)) {
-            $emailTemplate = Services::get('emailTemplate')->getByKey($context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_SITE, $this->emailKey);
+            $emailTemplate = Repo::emailTemplate()->getByKey($context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_SITE, $this->emailKey);
         }
 
         $userSig = '';

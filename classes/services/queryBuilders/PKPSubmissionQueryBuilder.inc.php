@@ -284,7 +284,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 					$join->on('publication_tlps.locale', '=', Capsule::raw("'{$locale}'"));
 				});
 			$q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
-				->leftJoin('publication_settings as publication_tlpsl', function (object $join){
+				->leftJoin('publication_settings as publication_tlpsl', function (object $join) {
 					$join->on('publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id');
 					$join->on('publication_tlpsl.setting_name', '=', Capsule::raw("'title'"));
 					$join->on('publication_tlpsl.locale', '=', Capsule::raw('s.locale'));

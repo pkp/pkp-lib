@@ -1,8 +1,67 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-11-05 08:12+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"bg_BG/>\n"
 "Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Понастоящем нямате достъп до този етап от работния процес."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Потребител с роля на мениджър (т.е. редактор на продукцията) трябва да бъде "
+"назначен на етапа, преди да можете да продължите."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Трябва да зададете валидна потребителска група за достъп до тази операция."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Не сте били присвоени на това представяне на материали с роля, на която е "
+"разрешен достъп до тази операция."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Текущата роля няма достъп до тази операция."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Отказан ви е достъп. Достъпът до този сайт в момента е ограничен."
+
+msgid "user.authorization.privateOperation"
+msgstr ""
+"Операцията, до която се опитахте да осъществите достъп, е или частна, или не "
+"съществува."
+
+msgid "user.authorization.loginRequired"
+msgstr "Изисква се влизане с потребителско име в системата."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Не можете да изпълните тази операция без определен контекст (преса, дневник, "
+"конференция и т.н.)."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Маркерът за удостоверяване на процеса липсва или е невалиден."
+
+msgid "user.authorization.accessDenied"
+msgstr "Отказан достъп."
+
+msgid "user.affiliations"
+msgstr "Организации"
+
+msgid "user.affiliation.description"
+msgstr "(Вашата институция, напр. „Софийски университет“)"
+
+msgid "user.affiliation"
+msgstr "Организация"
+
+msgid "user.accountInformation"
+msgstr "Информация за профила"

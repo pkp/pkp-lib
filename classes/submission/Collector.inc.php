@@ -316,16 +316,17 @@ abstract class Collector implements CollectorInterface
 
         // search phrase
         if ($this->searchPhrase !== null) {
+            $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
             $words = explode(' ', $this->searchPhrase);
             foreach ($words as $word) {
-                $q->where(function ($query) use ($word) {
-                    $query->whereIn('s.submission_id', function ($query) use ($word) {
+                $q->where(function ($query) use ($word, $likePattern) {
+                    $query->whereIn('s.submission_id', function ($query) use ($word, $likePattern) {
                         $query->select('p.submission_id')->from('publications AS p')
                             ->join('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
                             ->where('ps.setting_name', '=', 'title')
-                            ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', "%{$word}%");
+                            ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', $likePattern)->addBinding($word);
                     });
-                    $query->orWhereIn('s.submission_id', function ($query) use ($word) {
+                    $query->orWhereIn('s.submission_id', function ($query) use ($word, $likePattern) {
                         $query->select('p.submission_id')->from('publications AS p')
                             ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
                             ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
@@ -334,7 +335,7 @@ abstract class Collector implements CollectorInterface
                                 Identity::IDENTITY_SETTING_FAMILYNAME,
                                 'orcid'
                             ])
-                            ->where(DB::raw('lower(aus.setting_value)'), 'LIKE', "%{$word}%");
+                            ->where(DB::raw('lower(aus.setting_value)'), 'LIKE', $likePattern)->addBinding($word);
                     });
                     if (ctype_digit((string) $word)) {
                         $query->orWhere('s.submission_id', '=', $word);
@@ -361,7 +362,7 @@ abstract class Collector implements CollectorInterface
 
         // Add app-specific query statements
         HookRegistry::call('Submission::Collector', [&$q, $this]);
-error_log($q->toSql());
+
         return $q;
     }
 }

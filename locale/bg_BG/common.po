@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-03 18:34+0000\n"
+"PO-Revision-Date: 2021-11-05 07:14+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg_BG/>\n"
@@ -1877,3 +1877,221 @@ msgstr "Добавена е дискусия."
 
 msgid "notification.type.queryActivity"
 msgstr "Дискусионна активност."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Не можа да се импортира XML възел"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Опитвате се да изпълните трансформация, която не се поддържа във вашата "
+"инсталационна среда."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Филтърът ({$displayName}) поддържа въвеждане {$inputTypeName} - дадено е "
+"{$typeofInput}"
+
+msgid "validator.url"
+msgstr "Това не е валиден URL адрес."
+
+msgid "validator.unique"
+msgstr "{$attribute} вече е зает."
+
+msgid "validator.timezone"
+msgstr "Това не е валидна часова зона."
+
+msgid "validator.string"
+msgstr "Това не е валиден низ."
+
+msgid "validator.size.array"
+msgstr "Това трябва да съдържа {$size} елемента."
+
+msgid "validator.size.string"
+msgstr "Това трябва да е {$size} знака."
+
+msgid "validator.size.file"
+msgstr "Това трябва да е {$size} килобайта."
+
+msgid "validator.size.numeric"
+msgstr "Това трябва да е {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} и {$other} трябва да съвпадат."
+
+msgid "validator.required_without_all"
+msgstr "Това поле е задължително, когато не присъства нито едно от {$values}."
+
+msgid "validator.required_without"
+msgstr "Това поле е задължително, когато {$values} не присъства."
+
+msgid "validator.required_with_all"
+msgstr "Това поле е задължително, когато присъства {$values}."
+
+msgid "validator.required_with"
+msgstr "Това поле е задължително, когато присъства {$values}."
+
+msgid "validator.required_unless"
+msgstr "Това поле е задължително, освен ако {$other} е {$values}."
+
+msgid "validator.required_if"
+msgstr "Това поле е задължително, когато {$other} е {$value}."
+
+msgid "validator.required"
+msgstr "Това поле е задължително."
+
+msgid "validator.regex"
+msgstr "Това не е форматирано правилно."
+
+msgid "validator.present"
+msgstr "Полето {$attribute} трябва да присъства."
+
+msgid "validator.orcid"
+msgstr "Това не е валиден ORCID."
+
+msgid "validator.numeric"
+msgstr "Това не е валидно число."
+
+msgid "validator.not_in"
+msgstr "Избраният {$attribute} е невалиден."
+
+msgid "validator.min.array"
+msgstr "Това трябва да съдържа поне {$min} елемента."
+
+msgid "validator.min.string"
+msgstr "Това трябва да е поне {$min} знака."
+
+msgid "validator.min.file"
+msgstr "Това трябва да е поне {$min} килобайта."
+
+msgid "validator.min.numeric"
+msgstr "Това трябва да е поне {$min}."
+
+msgid "validator.mimes"
+msgstr "Това трябва да е файл от тип {$values}."
+
+msgid "validator.max.array"
+msgstr "Това не може да съдържа повече от {$max} елемента."
+
+msgid "validator.max.string"
+msgstr "Това не може да е по-голямо от {$max} знака."
+
+msgid "validator.max.file"
+msgstr "Това не може да е по-голямо от {$max} килобайта."
+
+msgid "validator.max.numeric"
+msgstr "Това не може да е по-голямо от {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Езиците трябва да бъдат посочени с коректния езиков код. Примери: en_US, "
+"fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Това поле е многоезично. Трябва да се предоставят отделни стойности за всеки "
+"поддържан език."
+
+msgid "validator.locale"
+msgstr "Този език не се приема."
+
+msgid "validator.json"
+msgstr "Това не е валиден JSON низ."
+
+msgid "validator.issn"
+msgstr "Това не е валиден ISSN."
+
+msgid "validator.ip"
+msgstr "Това не е валиден IP адрес."
+
+msgid "validator.integer"
+msgstr "Това не е валидно цяло число."
+
+msgid "validator.in"
+msgstr "Избраният {$attribute} е невалиден."
+
+msgid "validator.image"
+msgstr "Това трябва да е изображение."
+
+msgid "validator.filled"
+msgstr "Това поле е задължително."
+
+msgid "validator.exists"
+msgstr "Избраният {$attribute} е невалиден."
+
+msgid "validator.email"
+msgstr "Това е невалиден имейл адрес."
+
+msgid "validator.digits_between"
+msgstr "Това трябва да е между {$min} и {$max} цифри."
+
+msgid "validator.digits"
+msgstr "Това трябва да е с дължина {$digits} цифри."
+
+msgid "validator.different"
+msgstr "{$attribute} и {$other} трябва да са различни."
+
+msgid "validator.date_format"
+msgstr "Това не съответства на формата {$format}."
+
+msgid "validator.date"
+msgstr "Това не е валидна дата."
+
+msgid "validator.currency"
+msgstr "Това не е валидна валута."
+
+msgid "validator.country"
+msgstr "Това не е валидна държава."
+
+msgid "validator.confirmed"
+msgstr "Потвърждението за това поле не съвпада."
+
+msgid "validator.boolean"
+msgstr "Това поле трябва да има стойност \"вярно\" или \"невярно\"."
+
+msgid "validator.between.array"
+msgstr "Това трябва да е между {$min} и {$max} елемента."
+
+msgid "validator.between.string"
+msgstr "Това трябва да е между {$min} и {$max} знака."
+
+msgid "validator.between.file"
+msgstr "Това трябва да е между {$min} и {$max} килобайта."
+
+msgid "validator.between.numeric"
+msgstr "Това трябва да е между {$min} и {$max}."
+
+msgid "validator.before"
+msgstr "Тази дата трябва да е преди {$date}."
+
+msgid "validator.array"
+msgstr "Това не е валиден масив."
+
+msgid "validator.alpha_num"
+msgstr "Това може да съдържа само букви и цифри."
+
+msgid "validator.alpha_dash_period"
+msgstr "Това може да съдържа само букви, цифри, тирета, долни черти и точки."
+
+msgid "validator.alpha_dash"
+msgstr "Това може да съдържа само букви, цифри, тирета и долни черти."
+
+msgid "validator.alpha"
+msgstr "Това може да съдържа само букви."
+
+msgid "validator.after"
+msgstr "Тази дата трябва да е след {$date}."
+
+msgid "validator.active_url"
+msgstr "Този URL е невалиден."
+
+msgid "validator.accepted"
+msgstr "Моля, приемете този елемент .."
+
+msgid "validation.invalidOption"
+msgstr "Тази опция не е достъпна."
+
+msgid "list.viewLess"
+msgstr "Скриване на подробности за {$name}"
+
+msgid "list.viewMore"
+msgstr "Показване на подробности за {$name}"

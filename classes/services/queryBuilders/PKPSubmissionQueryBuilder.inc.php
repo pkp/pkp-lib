@@ -277,14 +277,14 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 			$locale = \AppLocale::getLocale();
 			$this->columns[] = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
 			$q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
-				->leftJoin('publication_settings as publication_tlps', function($join) use ($locale) {
+				->leftJoin('publication_settings as publication_tlps', function (object $join) use ($locale) {
 					$join->on('publication_tlp.publication_id', '=', 'publication_tlps.publication_id');
 					$join->on('publication_tlps.setting_name', '=', Capsule::raw("'title'"));
 					$join->on('publication_tlps.setting_value', '!=', Capsule::raw("''"));
 					$join->on('publication_tlps.locale', '=', Capsule::raw("'{$locale}'"));
 				});
 			$q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
-				->leftJoin('publication_settings as publication_tlpsl', function($join){
+				->leftJoin('publication_settings as publication_tlpsl', function (object $join){
 					$join->on('publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id');
 					$join->on('publication_tlpsl.setting_name', '=', Capsule::raw("'title'"));
 					$join->on('publication_tlpsl.locale', '=', Capsule::raw('s.locale'));

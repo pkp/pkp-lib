@@ -17,7 +17,14 @@
 
 namespace PKP\security;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\i18n\AppLocale;
+use DomainException;
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Facades\DB;
+use PKP\core\PKPString;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -555,37 +562,56 @@ class UserGroupDAO extends DAO
      */
     public function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null)
     {
-        $userDao = Repo::user()->dao;
-        $params = [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME];
-        if ($contextId) {
-            $params[] = (int) $contextId;
-        }
-        if ($userGroupId) {
-            $params[] = (int) $userGroupId;
-        }
+        $locale = AppLocale::getLocale();
+        // The users register for the site, thus the site primary locale should be the default locale
+        $site = Application::get()->getRequest()->getSite();
+        $primaryLocale = $site->getPrimaryLocale();
 
+        $settingValue = "(
+            SELECT us.setting_value
+            FROM user_settings AS us
+            WHERE
+                us.user_id = u.user_id
+                AND us.setting_name = ?
+                AND us.locale IN (?, ?)
+            -- First non-null/empty values, then give preference to the current locale
+            ORDER BY
+                COALESCE(us.setting_value, '') = '', us.locale <> ?
+            LIMIT 1
+        )";
+        $params = [
+            Identity::IDENTITY_SETTING_GIVENNAME, $locale, $primaryLocale, $locale,
+            Identity::IDENTITY_SETTING_FAMILYNAME, $locale, $primaryLocale, $locale
+        ];
+
+        $sql = "SELECT u.*, $settingValue AS user_given, $settingValue AS user_family
+            FROM users AS u
+            WHERE 1 = 1";
+
+        // Has user group
+        if ($contextId || $userGroupId) {
+            if ($contextId) {
+                $params[] = (int) $contextId;
+            }
+            if ($userGroupId) {
+                $params[] = (int) $userGroupId;
+            }
+            $sql .= ' AND EXISTS (
+                SELECT 0
+                FROM user_user_groups uug
+                INNER JOIN user_groups ug
+                    ON ug.user_group_id = uug.user_group_id
+                WHERE
+                    uug.user_id = u.user_id
+                    ' . ($contextId ? 'AND ug.context_id = ?' : '') . '
+                    ' . ($userGroupId ? 'AND ug.user_group_id = ?' : '') . '
+            )';
+        }
+        $sql .= ' ' . $this->_getSearchSql($searchType, $search, $searchMatch, $params);
 
         // Get the result set
-        $result = $this->retrieveRange(
-            $sql = 'SELECT DISTINCT u.*
-			FROM	users AS u
-				LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = \'affiliation\')
-				LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
-				LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
-				LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
-				LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id)
-				LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
-				LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
-
-			WHERE	1=1 ' .
-                ($contextId ? 'AND ug.context_id = ? ' : '') .
-                ($userGroupId ? 'AND ug.user_group_id = ? ' : '') .
-                $this->_getSearchSql($searchType, $search, $searchMatch, $params),
-            $params,
-            $dbResultRange
-        );
-
-        return new DAOResultFactory($result, $userDao, 'fromRow', [], $sql, $params, $dbResultRange);
+        $result = $this->retrieveRange($sql, $params, $dbResultRange);
+        return new DAOResultFactory($result, Repo::user()->dao, 'fromRow', [], $sql, $params, $dbResultRange);
     }
 
     //
@@ -908,55 +934,96 @@ class UserGroupDAO extends DAO
     public function _getSearchSql($searchType, $search, $searchMatch, &$params)
     {
         $userDao = Repo::user()->dao;
+        $hasUserSetting = "EXISTS(
+            SELECT 0
+            FROM user_settings
+            WHERE user_id = u.user_id
+                AND setting_name = '%s'
+                AND LOWER(setting_value) LIKE LOWER(?)
+        )";
         $searchTypeMap = [
-            Identity::IDENTITY_SETTING_GIVENNAME => 'usgs.setting_value',
-            Identity::IDENTITY_SETTING_FAMILYNAME => 'usfs.setting_value',
-            $userDao::USER_FIELD_USERNAME => 'u.username',
-            $userDao::USER_FIELD_EMAIL => 'u.email',
-            $userDao::USER_FIELD_AFFILIATION => 'us.setting_value',
+            Identity::IDENTITY_SETTING_GIVENNAME => sprintf($hasUserSetting, Identity::IDENTITY_SETTING_GIVENNAME),
+            Identity::IDENTITY_SETTING_FAMILYNAME => sprintf($hasUserSetting, Identity::IDENTITY_SETTING_FAMILYNAME),
+            $userDao::USER_FIELD_USERNAME => 'LOWER(u.username) LIKE LOWER(?)',
+            $userDao::USER_FIELD_EMAIL => 'LOWER(u.email) LIKE LOWER(?)',
+            $userDao::USER_FIELD_AFFILIATION => sprintf($hasUserSetting, $userDao::USER_FIELD_AFFILIATION)
         ];
 
         $searchSql = '';
-
+        $search = trim($search);
         if (!empty($search)) {
             if (!isset($searchTypeMap[$searchType])) {
-                $str = $this->concat('COALESCE(usgs.setting_value,\'\')', 'COALESCE(usfs.setting_value,\'\')', 'u.email', 'COALESCE(us.setting_value,\'\')');
-                $concatFields = ' ( LOWER(' . $str . ') LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
+                $terms = array_map(
+                    function (string $term): string {
+                        return "%$term%";
+                    },
+                    PKPString::regexp_split('/\s+/', $search)
+                );
+                $filters = [];
 
-                $search = strtolower($search);
-
-                $words = preg_split('{\s+}', $search);
-                $searchFieldMap = [];
-
-                foreach ($words as $word) {
-                    $searchFieldMap[] = $concatFields;
-                    $term = '%' . $word . '%';
-                    array_push($params, $term, $term);
+                switch (get_class(DB::connection())) {
+                    case MySqlConnection::class:
+                        $concatSettingValue = "GROUP_CONCAT(setting_value SEPARATOR '')";
+                        break;
+                    case PostgresConnection::class:
+                        $concatSettingValue = "STRING_AGG(setting_value, '')";
+                        break;
+                    default:
+                        throw new DomainException('Unrecognized database');
                 }
 
-                $searchSql .= ' AND (  ' . join(' AND ', $searchFieldMap) . '  ) ';
+                $userSetting = "COALESCE((
+                    SELECT $concatSettingValue
+                    FROM user_settings
+                    WHERE user_id = u.user_id
+                    AND setting_name = '%s'
+                ), '')";
+
+                // Concat key user fields to search
+                $filters[] = '(1 = 1' . str_repeat(
+                    ' AND LOWER(' . $this->concat(
+                        sprintf($userSetting, Identity::IDENTITY_SETTING_GIVENNAME),
+                        sprintf($userSetting, Identity::IDENTITY_SETTING_FAMILYNAME),
+                        'u.email',
+                        sprintf($userSetting, $userDao::USER_FIELD_AFFILIATION),
+                        'u.username'
+                    ) . ') LIKE LOWER(?)', count($terms)
+                ) . ')';
+                array_push($params, ...$terms);
+
+                // Search the user interests
+                $filters[] = '
+                    EXISTS(
+                        SELECT 0
+                        FROM user_interests ui
+                        INNER JOIN controlled_vocab_entry_settings cves
+                            ON ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id
+                        WHERE
+                            u.user_id = ui.user_id
+                            ' . str_repeat(' AND LOWER(cves.setting_value) LIKE LOWER(?)', count($terms)) . '
+                    )';
+                array_push($params, ...$terms);
+
+                $searchSql .= 'AND (' . implode(' OR ', $filters) . ') ';
             } else {
-                $fieldName = $searchTypeMap[$searchType];
+                $filter = $searchTypeMap[$searchType];
+                $searchSql = "AND $filter";
                 switch ($searchMatch) {
                     case 'is':
-                        $searchSql = "AND LOWER(${fieldName}) = LOWER(?)";
                         $params[] = $search;
                         break;
                     case 'contains':
-                        $searchSql = "AND LOWER(${fieldName}) LIKE LOWER(?)";
                         $params[] = '%' . $search . '%';
                         break;
                     case 'startsWith':
-                        $searchSql = "AND LOWER(${fieldName}) LIKE LOWER(?)";
                         $params[] = $search . '%';
                         break;
                 }
             }
         } else {
-            $userDao = Repo::user()->dao;
             switch ($searchType) {
                 case $userDao::USER_FIELD_USERID:
-                    $searchSql = 'AND u.user_id = ?';
+                    $searchSql = ' AND u.user_id = ?';
                     break;
             }
         }

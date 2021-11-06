@@ -135,8 +135,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 			->includeUsers($args['includeUsers'])
 			->excludeUsers($args['excludeUsers'])
 			->filterByStatus($args['status'])
-			->searchPhrase($args['searchPhrase'])
-			->filterByUserGroupIds($args['userGroupIds']);
+			->searchPhrase($args['searchPhrase']);
 
 		if (isset($args['count'])) {
 			$userListQB->limitTo($args['count']);

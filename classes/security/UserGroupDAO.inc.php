@@ -537,34 +537,42 @@ class UserGroupDAO extends DAO
      */
     public function getUsersNotInRole($roleId, $contextId = null, $search = null, $rangeInfo = null)
     {
-        $params = isset($search) ? [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME] : [];
-        $params[] = (int) $roleId;
+        $params = [(int) $roleId];
         if ($contextId) {
             $params[] = (int) $contextId;
         }
-        if (isset($search)) {
-            $params = array_merge($params, array_pad([], 4, '%' . $search . '%'));
+        $sql = '
+            SELECT u.*
+            FROM users u
+            WHERE NOT EXISTS (
+                SELECT    0
+                FROM user_user_groups uug
+                INNER JOIN user_groups ug
+                    ON ug.user_group_id = uug.user_group_id
+                    AND ug.role_id = ?
+                WHERE u.user_id = uug.user_id
+                ' . ($contextId ? ' AND ug.context_id = ?' : '') . '
+            )';
+
+        $search = trim($search);
+        if (strlen($search)) {
+            $params = array_merge($params, array_pad([], 3, '%' . addcslashes($search, '%_') . '%'));
+            $sql .= "
+                AND (
+                    LOWER(u.email) LIKE LOWER(?)
+                    OR LOWER(u.username) LIKE LOWER(?)
+                    OR EXISTS (
+                        SELECT 0
+                        FROM user_settings us
+                        WHERE
+                            us.user_id = u.user_id
+                            AND us.setting_name IN ('givenName', 'familyName')
+                            AND LOWER(us.setting_value) LIKE LOWER(?)
+                    )
+                )";
         }
 
-        $result = $this->retrieveRange(
-            'SELECT	DISTINCT u.*
-			FROM	users u
-			' . (isset($search) ? '
-					LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
-					LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
-				' : '') . '
-			WHERE	u.user_id NOT IN (
-				SELECT	DISTINCT u.user_id
-				FROM	users u, user_user_groups uug, user_groups ug
-				WHERE	u.user_id = uug.user_id
-					AND ug.user_group_id = uug.user_group_id
-					AND ug.role_id = ?' .
-                ($contextId ? ' AND ug.context_id = ?' : '') .
-                ')' .
-            (isset($search) ? ' AND (usgs.setting_value LIKE ? OR usfs.setting_value LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
-            $params,
-            $rangeInfo
-        );
+        $result = $this->retrieveRange($sql, $params, $rangeInfo);
         return new DAOResultFactory($result, Repo::user()->dao, 'fromRow');
     }
 

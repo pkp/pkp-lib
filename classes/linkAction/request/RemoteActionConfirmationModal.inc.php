@@ -25,19 +25,19 @@ class RemoteActionConfirmationModal extends ConfirmationModal
     /**
      * Constructor
      *
-     * @param $session Session The user's session object.
-     * @param $dialogText string The localized text to appear
+     * @param Session $session The user's session object.
+     * @param string $dialogText The localized text to appear
      *  in the dialog modal.
-     * @param $title string (optional) The localized modal title.
-     * @param $remoteAction string (optional) A URL to be
+     * @param string $title (optional) The localized modal title.
+     * @param string $remoteAction (optional) A URL to be
      *  called when the confirmation button is clicked.
-     * @param $titleIcon string (optional) The icon to be used
+     * @param string $titleIcon (optional) The icon to be used
      *  in the modal title bar.
-     * @param $okButton string (optional) The localized text to
+     * @param string $okButton (optional) The localized text to
      *  appear on the confirmation button.
-     * @param $cancelButton string (optional) The localized text to
+     * @param string $cancelButton (optional) The localized text to
      *  appear on the cancel button.
-     * @param $canClose boolean (optional) Whether the modal will
+     * @param bool $canClose (optional) Whether the modal will
      *  have a close button.
      */
     public function __construct($session, $dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true)

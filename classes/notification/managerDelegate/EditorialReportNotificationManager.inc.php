@@ -61,9 +61,9 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * Initializes the class.
      *
-     * @param $context Context The context from where the statistics shall be retrieved
-     * @param $context DateTimeInterface Start date filter for the ranged statistics
-     * @param $context DateTimeInterface End date filter for the ranged statistics
+     * @param Context $context The context from where the statistics shall be retrieved
+     * @param DateTimeInterface $context Start date filter for the ranged statistics
+     * @param DateTimeInterface $context End date filter for the ranged statistics
      */
     public function initialize(Context $context, DateTimeInterface $dateStart, DateTimeInterface $dateEnd): void
     {
@@ -224,7 +224,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * Sends a notification to the given user.
      *
-     * @param $user User The user who will be notified
+     * @param User $user The user who will be notified
      *
      * @return PKPNotification The notification instance
      */
@@ -261,8 +261,8 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * Setups a customized message for the given user.
      *
-     * @param $mail Mail The message which will be customized
-     * @param $user User The user who will be notified
+     * @param Mail $mail The message which will be customized
+     * @param User $user The user who will be notified
      *
      * @return Mail The prepared message
      */
@@ -278,7 +278,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * Retrieves the message parameters.
      *
-     * @param $user User The user who will be notified
+     * @param User $user The user who will be notified
      *
      * @return array An array with the parameters and their values
      */

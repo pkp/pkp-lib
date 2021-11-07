@@ -58,8 +58,8 @@ abstract class PKPWorkflowTabHandler extends Handler
     /**
      * Fetch the specified workflow tab.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -156,7 +156,7 @@ abstract class PKPWorkflowTabHandler extends Handler
     /**
      * Setup variables for the template
      *
-     * @param $request Request
+     * @param Request $request
      */
     public function setupTemplate($request)
     {
@@ -193,7 +193,7 @@ abstract class PKPWorkflowTabHandler extends Handler
     /**
      * Return the editor assignment notification type based on stage id.
      *
-     * @param $stageId int
+     * @param int $stageId
      *
      * @return int
      */
@@ -215,7 +215,7 @@ abstract class PKPWorkflowTabHandler extends Handler
     /**
      * Get all production notification options to be used in the production stage tab.
      *
-     * @param $submissionId int
+     * @param int $submissionId
      *
      * @return array
      */
@@ -224,9 +224,9 @@ abstract class PKPWorkflowTabHandler extends Handler
     /**
      * Translate the requested operation to a stage id.
      *
-     * @param $request Request
+     * @param Request $request
      *
-     * @return integer One of the WORKFLOW_STAGE_* constants.
+     * @return int One of the WORKFLOW_STAGE_* constants.
      */
     private function _identifyStageId($request)
     {

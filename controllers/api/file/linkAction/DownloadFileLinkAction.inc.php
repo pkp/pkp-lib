@@ -24,13 +24,13 @@ class DownloadFileLinkAction extends FileLinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $submissionFile SubmissionFile the submission file to
+     * @param Request $request
+     * @param SubmissionFile $submissionFile the submission file to
      *  link to.
-     * @param $stageId int (optional)
-     * @param $label string (optional) Label to use instead of filename
-     * @param $fileId int (optional) Download a specific revision of a file
-     * @param $filename string (optional) The filename to use for the file
+     * @param int $stageId (optional)
+     * @param string $label (optional) Label to use instead of filename
+     * @param int $fileId (optional) Download a specific revision of a file
+     * @param string $filename (optional) The filename to use for the file
      */
     public function __construct($request, $submissionFile, $stageId = null, $label = null, $fileId = null, $filename = null)
     {
@@ -74,7 +74,7 @@ class DownloadFileLinkAction extends FileLinkAction
     /**
      * Get the label for the file download action.
      *
-     * @param $submissionFile SubmissionFile
+     * @param SubmissionFile $submissionFile
      *
      * @return string
      */

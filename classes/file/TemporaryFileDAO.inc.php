@@ -24,8 +24,8 @@ class TemporaryFileDAO extends \PKP\db\DAO
     /**
      * Retrieve a temporary file by ID.
      *
-     * @param $fileId int
-     * @param $userId int
+     * @param int $fileId
+     * @param int $userId
      *
      * @return TemporaryFile?
      */
@@ -53,7 +53,7 @@ class TemporaryFileDAO extends \PKP\db\DAO
     /**
      * Internal function to return a TemporaryFile object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return TemporaryFile
      */
@@ -76,7 +76,7 @@ class TemporaryFileDAO extends \PKP\db\DAO
     /**
      * Insert a new TemporaryFile.
      *
-     * @param $temporaryFile TemporaryFile
+     * @param TemporaryFile $temporaryFile
      *
      * @return int
      */
@@ -137,8 +137,8 @@ class TemporaryFileDAO extends \PKP\db\DAO
     /**
      * Delete a temporary file by ID.
      *
-     * @param $fileId int
-     * @param $userId int
+     * @param int $fileId
+     * @param int $userId
      */
     public function deleteTemporaryFileById($fileId, $userId)
     {
@@ -148,7 +148,7 @@ class TemporaryFileDAO extends \PKP\db\DAO
     /**
      * Delete temporary files by user ID.
      *
-     * @param $userId int
+     * @param int $userId
      */
     public function deleteByUserId($userId)
     {

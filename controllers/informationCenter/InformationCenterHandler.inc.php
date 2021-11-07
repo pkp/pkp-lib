@@ -61,7 +61,7 @@ abstract class InformationCenterHandler extends Handler
     /**
      * Fetch and store away objects
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function initialize($request)
     {
@@ -78,8 +78,8 @@ abstract class InformationCenterHandler extends Handler
     /**
      * Display the main information center modal.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -100,16 +100,16 @@ abstract class InformationCenterHandler extends Handler
      * Save a note.
      * Subclasses must implement.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     abstract public function saveNote($args, $request);
 
     /**
      * Delete a note.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -140,8 +140,8 @@ abstract class InformationCenterHandler extends Handler
     /**
      * Display the list of existing notes.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -179,10 +179,10 @@ abstract class InformationCenterHandler extends Handler
     /**
      * Log an event for this file or submission
      *
-     * @param $request PKPRequest
-     * @param $object Submission or SubmissionFile
-     * @param $eventType int SUBMISSION_LOG_...
-     * @param $logClass SubmissionLog or SubmissionFileLog
+     * @param PKPRequest $request
+     * @param Submission|SubmissionFile $object
+     * @param int $eventType SUBMISSION_LOG_...
+     * @param SubmissionLog|SubmissionFileLog $logClass
      */
     public function _logEvent($request, $object, $eventType, $logClass)
     {

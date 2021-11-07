@@ -25,10 +25,10 @@ class QueryAccessPolicy extends ContextPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
-     * @param $roleAssignments array
-     * @param $stageId int
+     * @param PKPRequest $request
+     * @param array $args request parameters
+     * @param array $roleAssignments
+     * @param int $stageId
      */
     public function __construct($request, $args, $roleAssignments, $stageId)
     {

@@ -34,10 +34,10 @@ abstract class PKPEditorDecisionActionsManager
      * Get the available decisions by stage ID and user making decision permissions,
      * if the user can make decisions or if it is recommendOnly user.
      *
-     * @param $context Context
-     * @param $submission Submission
-     * @param $stageId int WORKFLOW_STAGE_ID_...
-     * @param $makeDecision boolean If the user can make decisions
+     * @param Context $context
+     * @param Submission $submission
+     * @param int $stageId WORKFLOW_STAGE_ID_...
+     * @param bool $makeDecision If the user can make decisions
      */
     public function getStageDecisions($context, $submission, $stageId, $makeDecision = true)
     {
@@ -66,7 +66,7 @@ abstract class PKPEditorDecisionActionsManager
      * Get an associative array matching editor recommendation codes with locale strings.
      * (Includes default '' => "Choose One" string.)
      *
-     * @param $stageId integer
+     * @param int $stageId
      *
      * @return array recommendation => localeString
      */
@@ -87,9 +87,9 @@ abstract class PKPEditorDecisionActionsManager
      * the user can only send the submission to the review stage, and neither
      * acept nor decline the submission.
      *
-     * @param $submission Submission
-     * @param $stageId int WORKFLOW_STAGE_ID_...
-     * @param $makeDecision boolean If the user can make decisions
+     * @param Submission $submission
+     * @param int $stageId WORKFLOW_STAGE_ID_...
+     * @param bool $makeDecision If the user can make decisions
      *
      * @return array
      */
@@ -142,7 +142,7 @@ abstract class PKPEditorDecisionActionsManager
      * Currently it does not matter if the user cannot make decisions
      * i.e. if it is a recommendOnly user for this stage.
      *
-     * @param $makeDecision boolean If the user cannot make decisions
+     * @param bool $makeDecision If the user cannot make decisions
      *
      * @return array
      */

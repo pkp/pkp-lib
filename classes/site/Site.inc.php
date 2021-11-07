@@ -60,7 +60,7 @@ class Site extends \PKP\core\DataObject
     /**
      * Get site title.
      *
-     * @param $locale string Locale code to return, if desired.
+     * @param string $locale Locale code to return, if desired.
      */
     public function getTitle($locale = null)
     {
@@ -112,7 +112,7 @@ class Site extends \PKP\core\DataObject
     /**
      * Set redirect
      *
-     * @param $redirect int
+     * @param int $redirect
      */
     public function setRedirect($redirect)
     {
@@ -156,7 +156,7 @@ class Site extends \PKP\core\DataObject
     /**
      * Set minimum password length.
      *
-     * @param $minPasswordLength int
+     * @param int $minPasswordLength
      */
     public function setMinPasswordLength($minPasswordLength)
     {
@@ -176,7 +176,7 @@ class Site extends \PKP\core\DataObject
     /**
      * Set primary locale.
      *
-     * @param $primaryLocale string
+     * @param string $primaryLocale
      */
     public function setPrimaryLocale($primaryLocale)
     {
@@ -197,7 +197,7 @@ class Site extends \PKP\core\DataObject
     /**
      * Set installed locales.
      *
-     * @param $installedLocales array
+     * @param array $installedLocales
      */
     public function setInstalledLocales($installedLocales)
     {
@@ -218,7 +218,7 @@ class Site extends \PKP\core\DataObject
     /**
      * Set array of all supported locales (for static text).
      *
-     * @param $supportedLocales array
+     * @param array $supportedLocales
      */
     public function setSupportedLocales($supportedLocales)
     {

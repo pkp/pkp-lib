@@ -25,14 +25,14 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
     /** @var PKPRequest */
     public $_request;
 
-    /** @var string Workflow type. One of PKPApplication::WORKFLOW_TYPE_... **/
+    /** @var string Workflow type. One of PKPApplication::WORKFLOW_TYPE_... */
     public $_workflowType;
 
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $workflowType string Which workflow the stage access must be granted
+     * @param PKPRequest $request
+     * @param string $workflowType Which workflow the stage access must be granted
      *  for. One of PKPApplication::WORKFLOW_TYPE_*.
      */
     public function __construct($request, $workflowType = null)

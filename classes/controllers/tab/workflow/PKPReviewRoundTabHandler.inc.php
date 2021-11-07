@@ -45,8 +45,8 @@ class PKPReviewRoundTabHandler extends Handler
     /**
      * JSON fetch the external review round info (tab).
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -72,8 +72,8 @@ class PKPReviewRoundTabHandler extends Handler
     /**
      * Internal function to handle both internal and external reviews round info (tab content).
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      *
      * @return JSONMessage JSON object
      */

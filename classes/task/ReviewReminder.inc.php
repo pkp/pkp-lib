@@ -41,10 +41,10 @@ class ReviewReminder extends ScheduledTask
     /**
      * Send the automatic review reminder to the reviewer.
      *
-     * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment
-     * @param $submission Submission
-     * @param $context Context
-     * @param $reminderType string
+     * @param \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment
+     * @param Submission $submission
+     * @param Context $context
+     * @param string $reminderType
      * 	REVIEW_REMIND_AUTO, REVIEW_RESPONSE_OVERDUE_AUTO
      */
     public function sendReminder($reviewAssignment, $submission, $context, $reminderType = 'REVIEW_RESPONSE_OVERDUE_AUTO')

@@ -26,7 +26,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve a navigation menu item assignment by ID.
      *
-     * @param $navigationMenuItemAssignmentId int
+     * @param int $navigationMenuItemAssignmentId
      *
      * @return NavigationMenuItemAssignment?
      */
@@ -53,7 +53,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve items by menu id
      *
-     * @param $menuId int
+     * @param int $menuId
      *
      * @return DAOResultFactory
      */
@@ -73,7 +73,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve items by menu item id
      *
-     * @param $menuItemId int
+     * @param int $menuItemId
      *
      * @return DAOResultFactory
      */
@@ -93,9 +93,9 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve items by navigationMenuItemId menu item id and ParentId
      *
-     * @param $navigationMenuItemId int
-     * @param $menuId int
-     * @param $parentId int
+     * @param int $navigationMenuItemId
+     * @param int $menuId
+     * @param int $parentId
      *
      * @return NavigationMenuItemAssignment
      */
@@ -120,8 +120,8 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve items by navigationMenu id and ParentId
      *
-     * @param $menuId int
-     * @param $parentId int 0 if we want to return NMIAssignments with no parents
+     * @param int $menuId
+     * @param int $parentId 0 if we want to return NMIAssignments with no parents
      */
     public function getByMenuIdAndParentId($menuId, $parentId)
     {
@@ -139,7 +139,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
      * Internal function to return a NavigationMenuItemAssignment object from a
      * row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return NavigationMenuItemAssignment
      */
@@ -160,9 +160,9 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Update an existing NavigationMenuItemAssignment.
      *
-     * @param $navigationMenuItemAssignment NavigationMenuItemAssignment
+     * @param NavigationMenuItemAssignment $navigationMenuItemAssignment
      *
-     * @return boolean
+     * @return bool
      */
     public function updateObject($navigationMenuItemAssignment)
     {
@@ -190,7 +190,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Insert a new NavigationMenuItemAssignment.
      *
-     * @param $assignment NavigationMenuItemAssignment
+     * @param NavigationMenuItemAssignment $assignment
      *
      * @return int
      */
@@ -226,9 +226,9 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete all assignments by NavigationMenu ID
      *
-     * @param $menuId NavigationMenu id
+     * @param NavigationMenu $menuId id
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteByMenuId($menuId)
     {
@@ -243,9 +243,9 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete all assignments by NavigationMenuItem ID
      *
-     * @param $menuItemId NavigationMenuItem id
+     * @param NavigationMenuItem $menuItemId id
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteByMenuItemId($menuItemId)
     {
@@ -260,9 +260,9 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete a NavigationMenuItemAssignment.
      *
-     * @param $navigationMenuItemAssignment NavigationMenuItemAssignment
+     * @param NavigationMenuItemAssignment $navigationMenuItemAssignment
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObject($navigationMenuItemAssignment)
     {
@@ -272,9 +272,9 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete a NavigationMenuItemAssignment by NavigationMenuItemAssignment ID.
      *
-     * @param $navigationMenuItemAssignmentId int
+     * @param int $navigationMenuItemAssignmentId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteById($navigationMenuItemAssignmentId)
     {
@@ -307,7 +307,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Update the settings for this object
      *
-     * @param $navigationMenuItemAssignment object
+     * @param object $navigationMenuItemAssignment
      */
     public function updateLocaleFields($navigationMenuItemAssignment)
     {

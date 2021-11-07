@@ -39,7 +39,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
      * Get the name of this plugin. The name must be unique within
      * its category.
      *
-     * @return String name of plugin
+     * @return string name of plugin
      */
     public function getName()
     {
@@ -77,8 +77,8 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
     /**
      * Display the plugin.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function display($args, $request)
     {
@@ -188,9 +188,9 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
     /**
      * Get the XML for all of users.
      *
-     * @param $context Context
-     * @param $user User
-     * @param $filter Filter byRef parameter - import/export filter used
+     * @param Context $context
+     * @param User $user
+     * @param Filter $filter byRef parameter - import/export filter used
      *
      * @return string XML contents representing the supplied user IDs.
      */
@@ -208,10 +208,10 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
     /**
      * Get the XML for a set of users.
      *
-     * @param $ids array mixed Array of users or user IDs
-     * @param $context Context
-     * @param $user User
-     * @param $filter Filter byRef parameter - import/export filter used
+     * @param array $ids mixed Array of users or user IDs
+     * @param Context $context
+     * @param User $user
+     * @param Filter $filter byRef parameter - import/export filter used
      *
      * @return string XML contents representing the supplied user IDs.
      */
@@ -248,10 +248,10 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
     /**
      * Get the XML for a set of users.
      *
-     * @param $importXml string XML contents to import
-     * @param $context Context
-     * @param $user User
-     * @param $filter Filter byRef parameter - import/export filter used
+     * @param string $importXml XML contents to import
+     * @param Context $context
+     * @param User $user
+     * @param Filter $filter byRef parameter - import/export filter used
      *
      * @return array Set of imported users
      */
@@ -267,9 +267,9 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
     /**
      * Return user filter for import purposes
      *
-     * @param $context Context
-     * @param $user User
-     * @param $isImport bool return Import Filter if true - export if false
+     * @param Context $context
+     * @param User $user
+     * @param bool $isImport return Import Filter if true - export if false
      *
      * @return Filter
      */

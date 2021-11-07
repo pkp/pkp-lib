@@ -72,7 +72,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set ID of review assignment's submission
      *
-     * @param $submissionId int
+     * @param int $submissionId
      */
     public function setSubmissionId($submissionId)
     {
@@ -92,7 +92,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set ID of reviewer.
      *
-     * @param $reviewerId int
+     * @param int $reviewerId
      */
     public function setReviewerId($reviewerId)
     {
@@ -112,7 +112,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set full name of reviewer.
      *
-     * @param $reviewerFullName string
+     * @param string $reviewerFullName
      */
     public function setReviewerFullName($reviewerFullName)
     {
@@ -132,7 +132,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set reviewer comments.
      *
-     * @param $comments string
+     * @param string $comments
      */
     public function setComments($comments)
     {
@@ -152,7 +152,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set competing interests.
      *
-     * @param $competingInterests string
+     * @param string $competingInterests
      */
     public function setCompetingInterests($competingInterests)
     {
@@ -172,7 +172,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the workflow stage id.
      *
-     * @param $stageId int WORKFLOW_STAGE_ID_...
+     * @param int $stageId WORKFLOW_STAGE_ID_...
      */
     public function setStageId($stageId)
     {
@@ -192,7 +192,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the type of review.
      *
-     * @param $method int
+     * @param int $method
      */
     public function setReviewMethod($method)
     {
@@ -212,7 +212,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set review round id.
      *
-     * @param $reviewRoundId int
+     * @param int $reviewRoundId
      */
     public function setReviewRoundId($reviewRoundId)
     {
@@ -232,7 +232,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set reviewer recommendation.
      *
-     * @param $recommendation string
+     * @param string $recommendation
      */
     public function setRecommendation($recommendation)
     {
@@ -252,7 +252,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set unconsidered state.
      *
-     * @param $unconsidered int
+     * @param int $unconsidered
      */
     public function setUnconsidered($unconsidered)
     {
@@ -272,7 +272,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the date the reviewer was rated.
      *
-     * @param $dateRated string
+     * @param string $dateRated
      */
     public function setDateRated($dateRated)
     {
@@ -292,7 +292,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the date of the last modification.
      *
-     * @param $dateModified date
+     * @param date $dateModified
      */
     public function setLastModified($dateModified)
     {
@@ -320,7 +320,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's assigned date.
      *
-     * @param $dateAssigned string
+     * @param string $dateAssigned
      */
     public function setDateAssigned($dateAssigned)
     {
@@ -340,7 +340,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's notified date.
      *
-     * @param $dateNotified string
+     * @param string $dateNotified
      */
     public function setDateNotified($dateNotified)
     {
@@ -360,7 +360,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's confirmed date.
      *
-     * @param $dateConfirmed string
+     * @param string $dateConfirmed
      */
     public function setDateConfirmed($dateConfirmed)
     {
@@ -380,7 +380,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's completed date.
      *
-     * @param $dateCompleted string
+     * @param string $dateCompleted
      */
     public function setDateCompleted($dateCompleted)
     {
@@ -400,7 +400,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's acknowledged date.
      *
-     * @param $dateAcknowledged string
+     * @param string $dateAcknowledged
      */
     public function setDateAcknowledged($dateAcknowledged)
     {
@@ -420,7 +420,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's last reminder date.
      *
-     * @param $dateReminded string
+     * @param string $dateReminded
      */
     public function setDateReminded($dateReminded)
     {
@@ -440,7 +440,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's due date.
      *
-     * @param $dateDue string
+     * @param string $dateDue
      */
     public function setDateDue($dateDue)
     {
@@ -460,7 +460,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's response due date.
      *
-     * @param $dateResponseDue string
+     * @param string $dateResponseDue
      */
     public function setDateResponseDue($dateResponseDue)
     {
@@ -470,7 +470,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get the declined value.
      *
-     * @return boolean
+     * @return bool
      */
     public function getDeclined()
     {
@@ -480,7 +480,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's declined value.
      *
-     * @param $declined boolean
+     * @param bool $declined
      */
     public function setDeclined($declined)
     {
@@ -490,7 +490,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get the cancelled value.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCancelled()
     {
@@ -500,7 +500,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the reviewer's cancelled value.
      *
-     * @param $cancelled boolean
+     * @param bool $cancelled
      */
     public function setCancelled($cancelled)
     {
@@ -510,7 +510,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get a boolean indicating whether or not the last reminder was automatic.
      *
-     * @return boolean
+     * @return bool
      */
     public function getReminderWasAutomatic()
     {
@@ -520,7 +520,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the boolean indicating whether or not the last reminder was automatic.
      *
-     * @param $wasAutomatic boolean
+     * @param bool $wasAutomatic
      */
     public function setReminderWasAutomatic($wasAutomatic)
     {
@@ -540,7 +540,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set quality.
      *
-     * @param $quality int|null
+     * @param int|null $quality
      */
     public function setQuality($quality)
     {
@@ -560,7 +560,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set round.
      *
-     * @param $round int
+     * @param int $round
      */
     public function setRound($round)
     {
@@ -580,7 +580,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set review form id.
      *
-     * @param $reviewFormId int
+     * @param int $reviewFormId
      */
     public function setReviewFormId($reviewFormId)
     {
@@ -728,7 +728,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get the translation key for the review method
      *
-     * @param $method int|null Optionally pass a method to retrieve a specific key.
+     * @param int|null $method Optionally pass a method to retrieve a specific key.
      *  Default will return the key for the current review method
      *
      * @return string

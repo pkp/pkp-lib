@@ -20,11 +20,11 @@ class FieldMetadataSetting extends FieldOptions
     /** @copydoc Field::$component */
     public $component = 'field-metadata-setting';
 
-    /** @var integer What is the value that represents metadata that is disabled */
+    /** @var int What is the value that represents metadata that is disabled */
     public $disabledValue = METADATA_DISABLE;
 
     /**
-     * @var integer What is the value that represents metadata that is enabled,
+     * @var int What is the value that represents metadata that is enabled,
      *	but which is not requested or required during submission?
      */
     public $enabledOnlyValue = METADATA_ENABLE;

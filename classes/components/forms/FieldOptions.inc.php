@@ -22,7 +22,7 @@ class FieldOptions extends Field
     /** @var string Use a checkbox or radio button input type */
     public $type = 'checkbox';
 
-    /** @var boolean Should the user be able to re-order the options? */
+    /** @var bool Should the user be able to re-order the options? */
     public $isOrderable = false;
 
     /** @var array The options which can be selected */

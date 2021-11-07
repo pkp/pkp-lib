@@ -64,7 +64,7 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider
      * Extend the parent class to filter out review round files that aren't allowed
      * for this reviewer according to ReviewFilesDAO.
      *
-     * @param $filter array
+     * @param array $filter
      */
     public function loadData($filter = [])
     {

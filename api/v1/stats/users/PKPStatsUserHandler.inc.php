@@ -63,9 +63,9 @@ class PKPStatsUserHandler extends APIHandler
      *
      * Returns the count of users broken down by roles
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response object Response
-     * @param $args array
+     * @param Request $slimRequest Slim request object
+     * @param object $response Response
+     * @param array $args
      *
      * @return object Response
      */

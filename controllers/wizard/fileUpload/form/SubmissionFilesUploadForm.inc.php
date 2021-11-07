@@ -29,18 +29,18 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
     /**
      * Constructor.
      *
-     * @param $request Request
-     * @param $submissionId integer
-     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-     * @param $uploaderRoles array
-     * @param $fileStage integer
-     * @param $revisionOnly boolean
-     * @param $stageId integer
-     * @param $reviewRound ReviewRound
-     * @param $revisedFileId integer
-     * @param $assocType integer
-     * @param $assocId integer
-     * @param $queryId integer
+     * @param Request $request
+     * @param int $submissionId
+     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param array $uploaderRoles
+     * @param int $fileStage
+     * @param bool $revisionOnly
+     * @param int $stageId
+     * @param ReviewRound $reviewRound
+     * @param int $revisedFileId
+     * @param int $assocType
+     * @param int $assocId
+     * @param int $queryId
      */
     public function __construct(
         $request,
@@ -238,7 +238,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
     /**
      * Retrieve the genre list.
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return array
      */

@@ -39,11 +39,11 @@ class SubmissionMailTemplate extends MailTemplate
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $emailKey string optional
-     * @param $locale string optional
-     * @param $context object optional
-     * @param $includeSignature boolean optional
+     * @param Submission $submission
+     * @param string $emailKey optional
+     * @param string $locale optional
+     * @param object $context optional
+     * @param bool $includeSignature optional
      *
      * @see MailTemplate::MailTemplate()
      */
@@ -56,7 +56,7 @@ class SubmissionMailTemplate extends MailTemplate
     /**
      * Assign parameters to template
      *
-     * @param $paramArray array
+     * @param array $paramArray
      */
     public function assignParams($paramArray = [])
     {
@@ -76,7 +76,7 @@ class SubmissionMailTemplate extends MailTemplate
     /**
      * @see parent::send()
      *
-     * @param $request PKPRequest optional (used for logging purposes)
+     * @param PKPRequest $request optional (used for logging purposes)
      */
     public function send($request = null)
     {
@@ -109,7 +109,7 @@ class SubmissionMailTemplate extends MailTemplate
     /**
      * Add logging properties to this email.
      *
-     * @param $eventType int
+     * @param int $eventType
      */
     public function setEventType($eventType)
     {
@@ -119,7 +119,7 @@ class SubmissionMailTemplate extends MailTemplate
     /**
      * Set the context this message is associated with.
      *
-     * @param $context object
+     * @param object $context
      */
     public function setContext($context)
     {
@@ -166,8 +166,8 @@ class SubmissionMailTemplate extends MailTemplate
     /**
      *  Send this email to all assigned sub editors in the given stage
      *
-     * @param $submissionId int
-     * @param $stageId int
+     * @param int $submissionId
+     * @param int $stageId
      */
     public function toAssignedSubEditors($submissionId, $stageId)
     {
@@ -177,8 +177,8 @@ class SubmissionMailTemplate extends MailTemplate
     /**
      *  CC this email to all assigned sub editors in the given stage
      *
-     * @param $submissionId int
-     * @param $stageId int
+     * @param int $submissionId
+     * @param int $stageId
      *
      * @return array of Users
      */
@@ -190,8 +190,8 @@ class SubmissionMailTemplate extends MailTemplate
     /**
      *  BCC this email to all assigned sub editors in the given stage
      *
-     * @param $submissionId int
-     * @param $stageId int
+     * @param int $submissionId
+     * @param int $stageId
      */
     public function bccAssignedSubEditors($submissionId, $stageId)
     {
@@ -201,10 +201,10 @@ class SubmissionMailTemplate extends MailTemplate
     /**
      * Fetch the requested users and add to the email
      *
-     * @param $submissionId int
-     * @param $roleId int
-     * @param $stageId int
-     * @param $method string one of addRecipient, addCC, or addBCC
+     * @param int $submissionId
+     * @param int $roleId
+     * @param int $stageId
+     * @param string $method one of addRecipient, addCC, or addBCC
      *
      * @return array of Users
      */

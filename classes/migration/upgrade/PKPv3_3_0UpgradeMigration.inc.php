@@ -617,7 +617,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         return $fileStagePathMap[$fileStage];
     }
 
-    /*
+    /**
      * Update block names to be all lowercase
      *
      * In previous versions, a custom block name would be stored in the
@@ -625,7 +625,6 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
      * table is all lowercase. This migration aligns the two places by changing
      * the block names to always use lowercase.
      *
-     * @return void
      */
     private function _fixCapitalCustomBlockTitles()
     {
@@ -653,7 +652,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         }
     }
 
-    /*
+    /**
      * Create titles for custom block plugins
      *
      * This method copies the block names, which are a unique id,

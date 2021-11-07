@@ -271,7 +271,7 @@ class Mailable extends IlluminateMailable
             }
         }
 
-        foreach ($args as $arg) { /** @var  ReflectionParameter $arg) */
+        foreach ($args as $arg) { /** @var ReflectionParameter $arg) */
             $class = $arg->getType()->getName();
 
             if (!array_key_exists($class, $map)) {

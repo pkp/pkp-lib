@@ -22,7 +22,7 @@ class ManageCopyeditFilesForm extends ManageSubmissionFilesForm
     /**
      * Constructor.
      *
-     * @param $submissionId int Submission ID.
+     * @param int $submissionId Submission ID.
      */
     public function __construct($submissionId)
     {
@@ -32,8 +32,8 @@ class ManageCopyeditFilesForm extends ManageSubmissionFilesForm
     /**
      * Save selection of copyedited files
      *
-     * @param $stageSubmissionFiles array List of submission files in this stage.
-     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
+     * @param array $stageSubmissionFiles List of submission files in this stage.
+     * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
      */
     public function execute($stageSubmissionFiles, $fileStage = null)
     {

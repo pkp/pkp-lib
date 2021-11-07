@@ -30,9 +30,9 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     /**
      * Delete a notification setting by setting name
      *
-     * @param $notificationId int
-     * @param $userId int
-     * @param $settingName string optional
+     * @param int $notificationId
+     * @param int $userId
+     * @param string $settingName optional
      */
     public function deleteNotificationSubscriptionSettings($notificationId, $userId, $settingName = null)
     {
@@ -51,9 +51,9 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     /**
      * Retrieve Notification subscription settings by user id
      *
-     * @param $settingName string
-     * @param $userId int
-     * @param $contextId int
+     * @param string $settingName
+     * @param int $userId
+     * @param int $contextId
      *
      * @return array
      */
@@ -74,10 +74,10 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     /**
      * Update a user's notification subscription settings
      *
-     * @param $settingName string
-     * @param $settings array
-     * @param $userId int
-     * @param $contextId int
+     * @param string $settingName
+     * @param array $settings
+     * @param int $userId
+     * @param int $contextId
      */
     public function updateNotificationSubscriptionSettings($settingName, $settings, $userId, $contextId)
     {
@@ -107,8 +107,8 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     /**
      * Gets a user id by an RSS token value
      *
-     * @param $token int
-     * @param $contextId
+     * @param int $token
+     * @param int $contextId
      *
      * @return int|null
      */
@@ -125,8 +125,8 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     /**
      * Gets an RSS token for a user id
      *
-     * @param $userId int
-     * @param $contextId int
+     * @param int $userId
+     * @param int $contextId
      *
      * @return int|null
      */
@@ -143,8 +143,8 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     /**
      * Generates and inserts a new token for a user's RSS feed
      *
-     * @param $userId int
-     * @param $contextId int
+     * @param int $userId
+     * @param int $contextId
      *
      * @return int
      */

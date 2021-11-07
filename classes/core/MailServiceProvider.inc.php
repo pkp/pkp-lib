@@ -25,7 +25,6 @@ class MailServiceProvider extends IlluminateMailService
 {
     /**
      * Register mailer excluding markdown renderer
-     * @return void
      */
     public function register() : void
     {
@@ -42,7 +41,9 @@ class MailServiceProvider extends IlluminateMailService
             {
                 /**
                  * @see MailManager::resolve()
-                 * @param  string  $name
+                 *
+                 * @param string $name
+                 *
                  * @throws InvalidArgumentException
                  */
                 protected function resolve($name) : Mailer

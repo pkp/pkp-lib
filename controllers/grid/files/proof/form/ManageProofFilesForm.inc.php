@@ -27,9 +27,9 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm
     /**
      * Constructor.
      *
-     * @param $submissionId int Submission ID.
-     * @param $publicationId int Publication ID
-     * @param $representationId int Representation ID.
+     * @param int $submissionId Submission ID.
+     * @param int $publicationId Publication ID
+     * @param int $representationId Representation ID.
      */
     public function __construct($submissionId, $publicationId, $representationId)
     {

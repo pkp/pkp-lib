@@ -26,7 +26,7 @@ class Modal extends LinkActionRequest
     /** @var string The icon to be displayed in the title bar. */
     public $_titleIcon;
 
-    /** @var boolean Whether the modal has a close icon in the title bar. */
+    /** @var bool Whether the modal has a close icon in the title bar. */
     public $_canClose;
 
     /** @var string The id of a form which should close the modal when completed */
@@ -38,12 +38,12 @@ class Modal extends LinkActionRequest
     /**
      * Constructor
      *
-     * @param $title string (optional) The localized modal title.
-     * @param $titleIcon string (optional) The icon to be used in the modal title bar.
-     * @param $canClose boolean (optional) Whether the modal will have a close button.
-     * @param $closeOnFormSuccessId string (optional) Close the modal when the
+     * @param string $title (optional) The localized modal title.
+     * @param string $titleIcon (optional) The icon to be used in the modal title bar.
+     * @param bool $canClose (optional) Whether the modal will have a close button.
+     * @param string $closeOnFormSuccessId (optional) Close the modal when the
      *  form with this id fires a formSuccess event.
-     * @param $closeCleanVueInstances array (optional) When the modal is closed
+     * @param array $closeCleanVueInstances (optional) When the modal is closed
      *  destroy the registered vue instances with these ids
      */
     public function __construct(
@@ -90,7 +90,7 @@ class Modal extends LinkActionRequest
     /**
      * Whether the modal has a close icon in the title bar.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanClose()
     {

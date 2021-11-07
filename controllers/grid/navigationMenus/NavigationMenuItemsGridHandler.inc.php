@@ -156,8 +156,8 @@ class NavigationMenuItemsGridHandler extends GridHandler
     /**
      * Update NavigationMenuItem
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -203,8 +203,8 @@ class NavigationMenuItemsGridHandler extends GridHandler
     /**
      * Display form to edit a navigation menu item object.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -227,8 +227,8 @@ class NavigationMenuItemsGridHandler extends GridHandler
     /**
      * Add NavigationMenuItem
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -253,8 +253,8 @@ class NavigationMenuItemsGridHandler extends GridHandler
     /**
      * Delete a navigation Menu item.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

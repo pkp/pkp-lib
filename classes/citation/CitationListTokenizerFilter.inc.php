@@ -37,7 +37,7 @@ class CitationListTokenizerFilter extends Filter
     /**
      * @see Filter::process()
      *
-     * @param $input string
+     * @param string $input
      *
      * @return mixed array
      */

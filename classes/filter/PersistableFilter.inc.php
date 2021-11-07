@@ -63,7 +63,7 @@ class PersistableFilter extends Filter
      * configured via DataObject::setData(). Only parameters
      * that are available in the DataObject will be persisted.
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -104,7 +104,7 @@ class PersistableFilter extends Filter
      * There must be exactly one transformation template
      * for each supported filter group.
      *
-     * @param $isTemplate boolean
+     * @param bool $isTemplate
      */
     public function setIsTemplate($isTemplate)
     {
@@ -115,7 +115,7 @@ class PersistableFilter extends Filter
      * Is this a transformation template rather than
      * an actual transformation?
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsTemplate()
     {
@@ -125,7 +125,7 @@ class PersistableFilter extends Filter
     /**
      * Set the parent filter id
      *
-     * @param $parentFilterId integer
+     * @param int $parentFilterId
      */
     public function setParentFilterId($parentFilterId)
     {
@@ -135,7 +135,7 @@ class PersistableFilter extends Filter
     /**
      * Get the parent filter id
      *
-     * @return integer
+     * @return int
      */
     public function getParentFilterId()
     {
@@ -145,7 +145,7 @@ class PersistableFilter extends Filter
     /**
      * Add a filter setting
      *
-     * @param $setting FilterSetting
+     * @param FilterSetting $setting
      */
     public function addSetting($setting)
     {
@@ -165,7 +165,7 @@ class PersistableFilter extends Filter
     /**
      * Get a filter setting
      *
-     * @param $settingName string
+     * @param string $settingName
      *
      * @return FilterSetting
      */
@@ -197,7 +197,7 @@ class PersistableFilter extends Filter
     /**
      * Can this filter be parameterized?
      *
-     * @return boolean
+     * @return bool
      */
     public function hasSettings()
     {
@@ -287,8 +287,8 @@ class PersistableFilter extends Filter
      * filter group on the fly with only an input and an output type
      * which takes away at least some of the cruft.
      *
-     * @param $inputType string
-     * @param $outputType string
+     * @param string $inputType
+     * @param string $outputType
      */
     public static function tempGroup($inputType, $outputType)
     {

@@ -208,10 +208,10 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * Remove a notification.
      *
-     * @param $submissionId int
-     * @param $userId int
-     * @param $notificationType int NOTIFICATION_TYPE_
-     * @param $contextId int
+     * @param int $submissionId
+     * @param int $userId
+     * @param int $notificationType NOTIFICATION_TYPE_
+     * @param int $contextId
      */
     public function _removeNotification($submissionId, $userId, $notificationType, $contextId)
     {
@@ -228,11 +228,11 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * Create a notification if none exists.
      *
-     * @param $request PKPRequest
-     * @param $submissionId int
-     * @param $userId int
-     * @param $notificationType int NOTIFICATION_TYPE_
-     * @param $contextId int
+     * @param PKPRequest $request
+     * @param int $submissionId
+     * @param int $userId
+     * @param int $notificationType NOTIFICATION_TYPE_
+     * @param int $contextId
      */
     public function _createNotification($request, $submissionId, $userId, $notificationType, $contextId)
     {

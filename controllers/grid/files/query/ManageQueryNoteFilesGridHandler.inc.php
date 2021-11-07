@@ -83,8 +83,8 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
     /**
      * Save 'manage query files' form
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

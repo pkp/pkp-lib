@@ -20,7 +20,7 @@ class UserGroupNativeXmlFilter extends NativeExportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -47,7 +47,7 @@ class UserGroupNativeXmlFilter extends NativeExportFilter
     /**
      * @see Filter::process()
      *
-     * @param $userGroups array Array of user groups
+     * @param array $userGroups Array of user groups
      *
      * @return DOMDocument
      */
@@ -75,8 +75,8 @@ class UserGroupNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return a user group node.
      *
-     * @param $doc DOMDocument
-     * @param $userGroup UserGroup
+     * @param DOMDocument $doc
+     * @param UserGroup $userGroup
      *
      * @return DOMElement
      */

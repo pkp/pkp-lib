@@ -20,13 +20,13 @@ use PKP\security\Role;
 
 class PluginGridRow extends GridRow
 {
-    /** @var Array */
+    /** @var array */
     public $_userRoles;
 
     /**
      * Constructor
      *
-     * @param $userRoles array
+     * @param array $userRoles
      */
     public function __construct($userRoles)
     {
@@ -104,9 +104,9 @@ class PluginGridRow extends GridRow
     /**
      * Return if user can edit a plugin settings or not.
      *
-     * @param $plugin Plugin
+     * @param Plugin $plugin
      *
-     * @return boolean
+     * @return bool
      */
     protected function _canEdit($plugin)
     {

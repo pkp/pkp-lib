@@ -29,7 +29,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
     /**
      * Constructor
      *
-     * @param $noteId int Note ID
+     * @param int $noteId Note ID
      */
     public function __construct($noteId)
     {

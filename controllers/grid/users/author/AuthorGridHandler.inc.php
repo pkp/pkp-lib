@@ -33,7 +33,7 @@ use PKP\submission\PKPSubmission;
 
 class AuthorGridHandler extends GridHandler
 {
-    /** @var boolean */
+    /** @var bool */
     public $_readOnly;
 
     /** @var int */
@@ -81,7 +81,7 @@ class AuthorGridHandler extends GridHandler
     /**
      * Get whether or not this grid should be 'read only'
      *
-     * @return boolean
+     * @return bool
      */
     public function getReadOnly()
     {
@@ -91,7 +91,7 @@ class AuthorGridHandler extends GridHandler
     /**
      * Set the boolean for 'read only' status
      *
-     * @param boolean
+     * @param bool $readOnly
      */
     public function setReadOnly($readOnly)
     {
@@ -269,9 +269,9 @@ class AuthorGridHandler extends GridHandler
     /**
      * Determines if there should be add/edit actions on this grid.
      *
-     * @param $user User
+     * @param User $user
      *
-     * @return boolean
+     * @return bool
      */
     public function canAdminister($user)
     {
@@ -324,8 +324,8 @@ class AuthorGridHandler extends GridHandler
     /**
      * An action to manually add a new author
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function addAuthor($args, $request)
     {
@@ -340,8 +340,8 @@ class AuthorGridHandler extends GridHandler
     /**
      * Edit an author
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -366,8 +366,8 @@ class AuthorGridHandler extends GridHandler
     /**
      * Update an author
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -429,8 +429,8 @@ class AuthorGridHandler extends GridHandler
     /**
      * Delete a author
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -456,8 +456,8 @@ class AuthorGridHandler extends GridHandler
     /**
      * Add a user with data initialized from an existing author.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

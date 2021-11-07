@@ -19,13 +19,13 @@ use PKP\controllers\grid\GridColumn;
 
 class FileDateGridColumn extends GridColumn
 {
-    /** @var boolean */
+    /** @var bool */
     public $_includeNotes;
 
     /**
      * Constructor
      *
-     * @param $includeNotes boolean
+     * @param bool $includeNotes
      * without the history tab.
      */
     public function __construct($includeNotes = true)

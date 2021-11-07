@@ -29,8 +29,8 @@ abstract class BaseProfileForm extends Form
     /**
      * Constructor.
      *
-     * @param $template string
-     * @param $user User
+     * @param string $template
+     * @param User $user
      */
     public function __construct($template, $user)
     {

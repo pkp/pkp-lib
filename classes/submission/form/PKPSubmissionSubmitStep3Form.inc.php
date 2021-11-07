@@ -28,9 +28,9 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
     /**
      * Constructor.
      *
-     * @param $context Context
-     * @param $submission Submission
-     * @param $metadataFormImplementation MetadataFormImplementation
+     * @param Context $context
+     * @param Submission $submission
+     * @param MetadataFormImplementation $metadataFormImplementation
      */
     public function __construct($context, $submission, $metadataFormImplementation)
     {

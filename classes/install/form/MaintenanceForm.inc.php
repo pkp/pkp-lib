@@ -51,8 +51,8 @@ class MaintenanceForm extends Form
     /**
      * Fail with a generic installation error.
      *
-     * @param $errorMsg string
-     * @param $translate boolean
+     * @param string $errorMsg
+     * @param bool $translate
      */
     public function installError($errorMsg, $translate = true)
     {
@@ -64,7 +64,7 @@ class MaintenanceForm extends Form
     /**
      * Fail with a database installation error.
      *
-     * @param $errorMsg string
+     * @param string $errorMsg
      */
     public function dbInstallError($errorMsg)
     {

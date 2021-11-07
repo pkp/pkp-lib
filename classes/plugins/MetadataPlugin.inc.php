@@ -37,7 +37,7 @@ abstract class MetadataPlugin extends Plugin
     /**
      * Get a unique id for this metadata format
      *
-     * @param $format string The format to check for support.
+     * @param string $format The format to check for support.
      *
      * @return string
      */
@@ -46,7 +46,7 @@ abstract class MetadataPlugin extends Plugin
     /**
      * Instantiate and return the schema object for this metadata format
      *
-     * @param $format string The format to return the schema object for in case
+     * @param string $format The format to return the schema object for in case
      *  the plugin supports multiple formats.
      */
     abstract public function getSchemaObject($format);

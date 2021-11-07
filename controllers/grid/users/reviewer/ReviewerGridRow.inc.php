@@ -21,13 +21,13 @@ use PKP\linkAction\request\RedirectConfirmationModal;
 
 class ReviewerGridRow extends GridRow
 {
-    /** @var boolean Is the current user assigned as an author to this submission */
+    /** @var bool Is the current user assigned as an author to this submission */
     public $_isCurrentUserAssignedAuthor;
 
     /**
      * Constructor
      *
-     * @param $isCurrentUserAssignedAuthor boolean Is the current user assigned as an
+     * @param bool $isCurrentUserAssignedAuthor Is the current user assigned as an
      *  author to this submission?
      */
     public function __construct($isCurrentUserAssignedAuthor)

@@ -24,10 +24,10 @@ class PublicationAccessPolicy extends ContextPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
-     * @param $roleAssignments array
-     * @param $publicationParameterName string the request parameter we
+     * @param PKPRequest $request
+     * @param array $args request parameters
+     * @param array $roleAssignments
+     * @param string $publicationParameterName the request parameter we
      *  expect the submission id in.
      */
     public function __construct($request, $args, $roleAssignments, $publicationParameterName = 'publicationId')

@@ -21,11 +21,11 @@ class SelectFilesLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $actionArgs array The parameters required by the
+     * @param Request $request
+     * @param array $actionArgs The parameters required by the
      *  link action target to identify a list of files.
-     * @param $actionLabel string The localized label of the link action.
-     * @param $modalTitle string the (optional) title to be used for the modal.
+     * @param string $actionLabel The localized label of the link action.
+     * @param string $modalTitle the (optional) title to be used for the modal.
      */
     public function __construct($request, $actionArgs, $actionLabel, $modalTitle = null)
     {

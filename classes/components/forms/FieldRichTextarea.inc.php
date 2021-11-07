@@ -30,7 +30,7 @@ class FieldRichTextarea extends Field
     /** @var array Optional. A key/value list of content that can be inserted from a TinyMCE button. */
     public $preparedContent;
 
-    /** @var boolean Whether the $preparedContent properties should be replaced in the field's initial value. */
+    /** @var bool Whether the $preparedContent properties should be replaced in the field's initial value. */
     public $renderPreparedContent = false;
 
     /** @var string Optional. A preset size option. */
@@ -42,7 +42,7 @@ class FieldRichTextarea extends Field
     /** @var string Optional. The API endpoint to upload images to. Only include if image uploads are supported here. */
     public $uploadUrl;
 
-    /** @var integer Optional. When a word limit is specified a word counter will be shown */
+    /** @var int Optional. When a word limit is specified a word counter will be shown */
     public $wordLimit = 0;
 
     /**

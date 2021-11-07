@@ -23,17 +23,17 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
     /** @var int SubmissionFile::SUBMISSION_FILE_... */
     public $_fileStage;
 
-    /** @var boolean Whether the file has to be viewable */
+    /** @var bool Whether the file has to be viewable */
     public $_viewable;
 
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $submissionFileId int This policy will try to
+     * @param PKPRequest $request
+     * @param int $submissionFileId This policy will try to
      * get the submission file from this data.
-     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
-     * @param $viewable boolean Whether the file has to be viewable
+     * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
+     * @param bool $viewable Whether the file has to be viewable
      */
     public function __construct($request, $submissionFileId, $fileStage, $viewable = false)
     {

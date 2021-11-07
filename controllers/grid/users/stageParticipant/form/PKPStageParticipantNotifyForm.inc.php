@@ -33,7 +33,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
     /** @var int The type of item the form is for (used to determine which email template to use) */
     public $_itemType;
 
-    /** The stage Id **/
+    /** @var int The stage Id */
     public $_stageId;
 
     /** @var int the Submission id */
@@ -157,9 +157,9 @@ abstract class PKPStageParticipantNotifyForm extends Form
     /**
      * Send a message to a user.
      *
-     * @param $userId int the user id to send email to.
-     * @param $submission Submission
-     * @param $request PKPRequest
+     * @param int $userId the user id to send email to.
+     * @param Submission $submission
+     * @param PKPRequest $request
      */
     public function sendMessage($userId, $submission, $request)
     {
@@ -260,7 +260,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
     /**
      * Get the available email template variable names for the given template name.
      *
-     * @param $emailKey string Email template key
+     * @param string $emailKey Email template key
      *
      * @return array
      */
@@ -299,11 +299,11 @@ abstract class PKPStageParticipantNotifyForm extends Form
     /**
      * Add upload task notifications.
      *
-     * @param $request PKPRequest
-     * @param $type int NOTIFICATION_TYPE_...
-     * @param $userId int User ID
-     * @param $submissionId int Submission ID
-     * @param $suppressEmail bool Indicates whether not to send the Notification email to the user.
+     * @param PKPRequest $request
+     * @param int $type NOTIFICATION_TYPE_...
+     * @param int $userId User ID
+     * @param int $submissionId Submission ID
+     * @param bool $suppressEmail Indicates whether not to send the Notification email to the user.
      */
     private function _addAssignmentTaskNotification($request, $type, $userId, $submissionId, $suppressEmail = false)
     {
@@ -335,8 +335,8 @@ abstract class PKPStageParticipantNotifyForm extends Form
     /**
      * Convenience function for logging the message sent event and creating the notification.
      *
-     * @param $request PKPRequest
-     * @param $submission Submission
+     * @param PKPRequest $request
+     * @param Submission $submission
      */
     public function _logEventAndCreateNotification($request, $submission)
     {
@@ -351,7 +351,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
     /**
      * whether or not to include the Notify Users listbuilder  true, by default.
      *
-     * @return boolean
+     * @return bool
      */
     public function isMessageRequired()
     {
@@ -368,9 +368,9 @@ abstract class PKPStageParticipantNotifyForm extends Form
     /**
      * Return app-specific mail template.
      *
-     * @param $submission Submission
-     * @param $templateKey string
-     * @param $includeSignature boolean
+     * @param Submission $submission
+     * @param string $templateKey
+     * @param bool $includeSignature
      *
      * @return SubmissionMailTemplate
      */

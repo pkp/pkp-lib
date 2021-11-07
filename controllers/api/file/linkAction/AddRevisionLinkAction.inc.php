@@ -22,9 +22,9 @@ class AddRevisionLinkAction extends BaseAddFileLinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $reviewRound ReviewRound The review round to upload to.
-     * @param $uploaderRoles array The ids of all roles allowed to upload
+     * @param Request $request
+     * @param ReviewRound $reviewRound The review round to upload to.
+     * @param array $uploaderRoles The ids of all roles allowed to upload
      *  in the context of this action.
      */
     public function __construct($request, $reviewRound, $uploaderRoles)

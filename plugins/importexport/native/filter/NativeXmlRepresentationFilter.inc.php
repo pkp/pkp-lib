@@ -20,7 +20,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -43,7 +43,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
     /**
      * Handle a Representation element
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      *
      * @return Representation
      */
@@ -88,8 +88,8 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
     /**
      * Parse an identifier node and set up the representation object accordingly
      *
-     * @param $element DOMElement
-     * @param $representation Representation
+     * @param DOMElement $element
+     * @param Representation $representation
      */
     public function parseIdentifier($element, $representation)
     {

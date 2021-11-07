@@ -28,7 +28,7 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
     /**
      * Constructor.
      *
-     * @param $argv array command-line arguments
+     * @param array $argv command-line arguments
      */
     public function __construct($argv = [])
     {
@@ -108,7 +108,7 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
     /**
      * Get a username by specifier, i.e. username or id=xyz.
      *
-     * @param $specifier string The specifier
+     * @param string $specifier The specifier
      *
      * @return User|null
      */

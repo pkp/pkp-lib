@@ -36,8 +36,8 @@ class SubmissionDiscipline extends \PKP\controlledVocab\ControlledVocabEntry
     /**
      * Set the discipline text
      *
-     * @param discipline string
-     * @param locale string
+     * @param string $discipline
+     * @param string $locale
      */
     public function setDiscipline($discipline, $locale)
     {

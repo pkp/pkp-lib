@@ -32,7 +32,7 @@ class PKPSection extends \PKP\core\DataObject
     /**
      * Set ID of context.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function setContextId($contextId)
     {
@@ -52,7 +52,7 @@ class PKPSection extends \PKP\core\DataObject
     /**
      * Set sequence of section.
      *
-     * @param $sequence float
+     * @param float $sequence
      */
     public function setSequence($sequence)
     {
@@ -72,7 +72,7 @@ class PKPSection extends \PKP\core\DataObject
     /**
      * Get title of section.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -84,8 +84,8 @@ class PKPSection extends \PKP\core\DataObject
     /**
      * Set title of section.
      *
-     * @param $title string
-     * @param $locale string
+     * @param string $title
+     * @param string $locale
      */
     public function setTitle($title, $locale)
     {
@@ -95,7 +95,7 @@ class PKPSection extends \PKP\core\DataObject
     /**
      * Return boolean indicating whether or not submissions are restricted to [sub]Editors.
      *
-     * @return boolean
+     * @return bool
      */
     public function getEditorRestricted()
     {
@@ -105,7 +105,7 @@ class PKPSection extends \PKP\core\DataObject
     /**
      * Set whether or not submissions are restricted to [sub]Editors.
      *
-     * @param $editorRestricted boolean
+     * @param bool $editorRestricted
      */
     public function setEditorRestricted($editorRestricted)
     {
@@ -125,7 +125,7 @@ class PKPSection extends \PKP\core\DataObject
     /**
      * Set ID of primary review form.
      *
-     * @param $reviewFormId int
+     * @param int $reviewFormId
      */
     public function setReviewFormId($reviewFormId)
     {
@@ -156,7 +156,7 @@ class PKPSection extends \PKP\core\DataObject
     /**
      * Get policy.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -168,8 +168,8 @@ class PKPSection extends \PKP\core\DataObject
     /**
      * Set policy.
      *
-     * @param $policy string
-     * @param $locale string
+     * @param string $policy
+     * @param string $locale
      */
     public function setPolicy($policy, $locale)
     {

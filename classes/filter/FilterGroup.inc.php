@@ -49,7 +49,7 @@ class FilterGroup extends \PKP\core\DataObject
     /**
      * Set the symbolic name
      *
-     * @param $symbolic string
+     * @param string $symbolic
      */
     public function setSymbolic($symbolic)
     {
@@ -69,7 +69,7 @@ class FilterGroup extends \PKP\core\DataObject
     /**
      * Set the display name
      *
-     * @param $displayName string
+     * @param string $displayName
      */
     public function setDisplayName($displayName)
     {
@@ -89,7 +89,7 @@ class FilterGroup extends \PKP\core\DataObject
     /**
      * Set the description
      *
-     * @param $description string
+     * @param string $description
      */
     public function setDescription($description)
     {
@@ -109,7 +109,7 @@ class FilterGroup extends \PKP\core\DataObject
     /**
      * Set the input type
      *
-     * @param $inputType string a string representation of a TypeDescription
+     * @param string $inputType a string representation of a TypeDescription
      */
     public function setInputType($inputType)
     {
@@ -129,7 +129,7 @@ class FilterGroup extends \PKP\core\DataObject
     /**
      * Set the output type
      *
-     * @param $outputType string a string representation of a TypeDescription
+     * @param string $outputType a string representation of a TypeDescription
      */
     public function setOutputType($outputType)
     {

@@ -37,8 +37,8 @@ class PKPStatsComponent
     /**
      * Constructor
      *
-     * @param $apiUrl string The URL to fetch stats from
-     * @param $args array Optional arguments
+     * @param string $apiUrl The URL to fetch stats from
+     * @param array $args Optional arguments
      */
     public function __construct($apiUrl, $args = [])
     {
@@ -52,7 +52,7 @@ class PKPStatsComponent
     /**
      * Initialize the handler with config parameters
      *
-     * @param $args array Configuration params
+     * @param array $args Configuration params
      */
     public function init($args = [])
     {

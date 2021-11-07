@@ -101,8 +101,8 @@ class PKPRequestTest extends PKPTestCase
     /**
      * A hook for redirection testing.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      */
     public function redirectUrlHook($hookName, $args)
     {
@@ -414,7 +414,7 @@ class PKPRequestTest extends PKPTestCase
      * Helper function for testTrustXForwardedFor tests that prepares the
      * environment
      *
-     * @param $generalConfigData mixed Array containing overwrites for the
+     * @param mixed $generalConfigData Array containing overwrites for the
      * general section of the config
      */
     private function getRemoteAddrTestPrepare($generalConfigData = [])

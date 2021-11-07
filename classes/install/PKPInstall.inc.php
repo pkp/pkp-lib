@@ -52,9 +52,9 @@ class PKPInstall extends Installer
      *
      * @see install.form.InstallForm for the expected parameters
      *
-     * @param $xmlDescriptor string descriptor path
-     * @param $params array installer parameters
-     * @param $isPlugin boolean true iff a plugin is being installed
+     * @param string $xmlDescriptor descriptor path
+     * @param array $params installer parameters
+     * @param bool $isPlugin true iff a plugin is being installed
      */
     public function __construct($xmlDescriptor, $params, $isPlugin)
     {
@@ -72,7 +72,7 @@ class PKPInstall extends Installer
     /**
      * Pre-installation.
      *
-     * @return boolean
+     * @return bool
      */
     public function preInstall()
     {
@@ -142,7 +142,7 @@ class PKPInstall extends Installer
      * Create required files directories
      * FIXME No longer needed since FileManager will auto-create?
      *
-     * @return boolean
+     * @return bool
      */
     public function createDirectories()
     {
@@ -193,7 +193,7 @@ class PKPInstall extends Installer
     /**
      * Write the configuration file.
      *
-     * @return boolean
+     * @return bool
      */
     public function createConfig()
     {
@@ -230,7 +230,7 @@ class PKPInstall extends Installer
     /**
      * Create initial required data.
      *
-     * @return boolean
+     * @return bool
      */
     public function createData()
     {

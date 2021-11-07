@@ -19,7 +19,7 @@ namespace PKP\security;
 
 class Role extends \PKP\core\DataObject
 {
-    /** ID codes and paths for all default roles */
+    // ID codes and paths for all default roles
     public const ROLE_ID_MANAGER = 0x00000010;
     public const ROLE_ID_SITE_ADMIN = 0x00000001;
     public const ROLE_ID_SUB_EDITOR = 0x00000011;
@@ -32,7 +32,7 @@ class Role extends \PKP\core\DataObject
     /**
      * Constructor.
      *
-     * @param $roleId for this role.  Default to null for backwards
+     * @param int $roleId for this role.  Default to null for backwards
      * 	compatibility
      */
     public function __construct($roleId = null)
@@ -58,7 +58,7 @@ class Role extends \PKP\core\DataObject
     /**
      * Set role ID of this role.
      *
-     * @param $roleId int
+     * @param int $roleId
      */
     public function setRoleId($roleId)
     {

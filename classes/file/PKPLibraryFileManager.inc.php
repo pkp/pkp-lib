@@ -27,7 +27,7 @@ class PKPLibraryFileManager extends PrivateFileManager
     /**
      * Constructor
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function __construct($contextId)
     {
@@ -48,7 +48,7 @@ class PKPLibraryFileManager extends PrivateFileManager
     /**
      * Delete a file by ID.
      *
-     * @param $fileId int
+     * @param int $fileId
      *
      * @return int number of files removed
      */
@@ -65,8 +65,8 @@ class PKPLibraryFileManager extends PrivateFileManager
     /**
      * Generate a filename for a library file.
      *
-     * @param $type int LIBRARY_FILE_TYPE_...
-     * @param $originalFileName string
+     * @param int $type LIBRARY_FILE_TYPE_...
+     * @param string $originalFileName
      *
      * @return string
      */
@@ -102,8 +102,8 @@ class PKPLibraryFileManager extends PrivateFileManager
     /**
      * Routine to copy a library file from a temporary file.
      *
-     * @param $temporaryFile object
-     * @param $libraryFileType int LIBRARY_FILE_TYPE_...
+     * @param object $temporaryFile
+     * @param int $libraryFileType LIBRARY_FILE_TYPE_...
      *
      * @return LibraryFile the generated file, prepared as much as possible for insert (false if upload failed)
      */
@@ -128,7 +128,7 @@ class PKPLibraryFileManager extends PrivateFileManager
     /**
      * Get the file suffix for the given file type
      *
-     * @param $type int LIBRARY_FILE_TYPE_...
+     * @param int $type LIBRARY_FILE_TYPE_...
      */
     public function getFileSuffixFromType($type)
     {
@@ -155,7 +155,7 @@ class PKPLibraryFileManager extends PrivateFileManager
     /**
      * Get the symbolic name from the type
      *
-     * @param $type int LIBRARY_FILE_TYPE_...
+     * @param int $type LIBRARY_FILE_TYPE_...
      */
     public function getNameFromType($type)
     {
@@ -186,7 +186,7 @@ class PKPLibraryFileManager extends PrivateFileManager
     /**
      * Get the display name locale key from the type title
      *
-     * @param $type int LIBRARY_FILE_TYPE_...
+     * @param int $type LIBRARY_FILE_TYPE_...
      */
     public function getTitleKeyFromType($type)
     {

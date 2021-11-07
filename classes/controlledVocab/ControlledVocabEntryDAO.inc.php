@@ -24,7 +24,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
     /**
      * Retrieve a controlled vocab entry by controlled vocab entry ID.
      *
-     * @param $controlledVocabEntryId int
+     * @param int $controlledVocabEntryId
      * @param null|mixed $controlledVocabId
      *
      * @return ControlledVocabEntry
@@ -49,12 +49,12 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
      * Retrieve a controlled vocab entry by resolving one of its settings
      * to the corresponding entry id.
      *
-     * @param $settingValue string the setting value to be searched for
-     * @param $symbolic string the vocabulary to be searched, identified by its symbolic name
-     * @param $assocType integer
-     * @param $assocId integer
-     * @param $settingName string the setting to be searched
-     * @param $locale string
+     * @param string $settingValue the setting value to be searched for
+     * @param string $symbolic the vocabulary to be searched, identified by its symbolic name
+     * @param int $assocType
+     * @param int $assocId
+     * @param string $settingName the setting to be searched
+     * @param string $locale
      *
      * @return ControlledVocabEntry
      */
@@ -91,7 +91,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
      * Internal function to return a ControlledVocabEntry object from a
      * row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return ControlledVocabEntry
      */
@@ -120,7 +120,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
     /**
      * Update the localized fields for this table
      *
-     * @param $controlledVocabEntry object
+     * @param object $controlledVocabEntry
      */
     public function updateLocaleFields($controlledVocabEntry)
     {
@@ -132,7 +132,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
     /**
      * Insert a new ControlledVocabEntry.
      *
-     * @param $controlledVocabEntry ControlledVocabEntry
+     * @param ControlledVocabEntry $controlledVocabEntry
      *
      * @return int Inserted controlled vocabulary entry ID
      */
@@ -154,7 +154,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
     /**
      * Delete a controlled vocab entry.
      *
-     * @param $controlledVocabEntry ControlledVocabEntry
+     * @param ControlledVocabEntry $controlledVocabEntry
      */
     public function deleteObject($controlledVocabEntry)
     {
@@ -164,7 +164,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
     /**
      * Delete a controlled vocab entry by controlled vocab entry ID.
      *
-     * @param $controlledVocabEntryId int
+     * @param int $controlledVocabEntryId
      */
     public function deleteObjectById($controlledVocabEntryId)
     {
@@ -176,7 +176,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
      * Retrieve an iterator of controlled vocabulary entries matching a
      * particular controlled vocabulary ID.
      *
-     * @param $controlledVocabId int
+     * @param int $controlledVocabId
      * @param null|mixed $rangeInfo
      * @param null|mixed $filter
      *
@@ -208,9 +208,9 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
      * (assigned to at least one submission in that context) and which match the
      * requested symbolic (eg - keywords/subjects)
      *
-     * @param $symbolic string One of the CONTROLLED_VOCAB_* constants
-     * @param $contextId int
-     * @param $locale string
+     * @param string $symbolic One of the CONTROLLED_VOCAB_* constants
+     * @param int $contextId
+     * @param string $locale
      *
      * @return array
      */
@@ -242,7 +242,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
     /**
      * Update an existing review form element.
      *
-     * @param $controlledVocabEntry ControlledVocabEntry
+     * @param ControlledVocabEntry $controlledVocabEntry
      */
     public function updateObject($controlledVocabEntry)
     {
@@ -263,7 +263,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
     /**
      * Sequentially renumber entries in their sequence order.
      *
-     * @param $controlledVocabId int Controlled vocabulary ID
+     * @param int $controlledVocabId Controlled vocabulary ID
      */
     public function resequence($controlledVocabId)
     {

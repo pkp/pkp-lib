@@ -21,7 +21,7 @@ class PersistableTestFilter extends PersistableFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {

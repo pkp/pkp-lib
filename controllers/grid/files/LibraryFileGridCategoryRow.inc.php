@@ -19,7 +19,7 @@ use PKP\controllers\grid\GridCategoryRow;
 
 class LibraryFileGridCategoryRow extends GridCategoryRow
 {
-    /** the context for our Library file manager */
+    /** @var Context the context for our Library file manager */
     public $_context;
 
     /**

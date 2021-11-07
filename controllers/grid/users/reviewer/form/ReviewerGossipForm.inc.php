@@ -28,8 +28,8 @@ class ReviewerGossipForm extends Form
     /**
      * Constructor.
      *
-     * @param $user User The user to gossip about
-     * @param $requestArgs array Arguments used to route the form op to the
+     * @param User $user The user to gossip about
+     * @param array $requestArgs Arguments used to route the form op to the
      *  correct submission, stage and review round
      */
     public function __construct($user, $requestArgs)

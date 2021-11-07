@@ -38,7 +38,7 @@ class CompletedPayment extends Payment
     /**
      * Set the payment completion timestamp.
      *
-     * @param $timestamp string Timestamp
+     * @param string $timestamp Timestamp
      */
     public function setTimestamp($timestamp)
     {
@@ -58,7 +58,7 @@ class CompletedPayment extends Payment
     /**
      * Set the payment plugin name.
      *
-     * @param $paymentPluginName string
+     * @param string $paymentPluginName
      */
     public function setPayMethodPluginName($paymentPluginName)
     {

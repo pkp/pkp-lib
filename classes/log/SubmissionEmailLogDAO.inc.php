@@ -34,9 +34,8 @@ class SubmissionEmailLogDAO extends EmailLogDAO
     /**
      * Get submission email log entries by submission ID and event type
      *
-     * @param $submissionId int
-     * @param $eventType SubmissionEmailLogEntry::SUBMISSION_EMAIL_...
-     * @param $userId int optional Return only emails sent to this user.
+     * @param int $submissionId
+     * @param int $userId optional Return only emails sent to this user.
      *
      * @return DAOResultFactory
      */
@@ -48,7 +47,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO
     /**
      * Get submission email log entries by submission ID
      *
-     * @param $submissionId int
+     * @param int $submissionId
      *
      * @return DAOResultFactory
      */

@@ -26,8 +26,8 @@ class NotificationHandler extends Handler
     /**
      * Return formatted notification data using Json.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -78,8 +78,8 @@ class NotificationHandler extends Handler
     /**
      * Notification Unsubscribe handler
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function unsubscribe($args, $request)
     {
@@ -138,8 +138,8 @@ class NotificationHandler extends Handler
     /**
      * Performs all unsubscribe validation token validations
      *
-     * @param $validationToken string
-     * @param $notificationId int
+     * @param string $validationToken
+     * @param int $notificationId
      *
      * @return Notification
      */
@@ -170,11 +170,11 @@ class NotificationHandler extends Handler
     /**
      * Get the notifications using options.
      *
-     * @param $notificationOptions Array
-     * @param $contextId int
-     * @param $userId int
+     * @param array $notificationOptions
+     * @param int $contextId
+     * @param int $userId
      *
-     * @return Array
+     * @return array
      */
     public function _getNotificationsByOptions($notificationOptions, $contextId, $userId = null)
     {
@@ -212,8 +212,8 @@ class NotificationHandler extends Handler
      * Add notifications from a result factory to an array of
      * existing notifications.
      *
-     * @param $resultFactory DAOResultFactory
-     * @param $notificationArray Array
+     * @param DAOResultFactory $resultFactory
+     * @param array $notificationArray
      */
     public function _addNotificationsToArray($resultFactory, $notificationArray)
     {

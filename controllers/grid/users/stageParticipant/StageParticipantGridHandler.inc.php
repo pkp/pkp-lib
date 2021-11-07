@@ -73,7 +73,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     /**
      * Get the authorized workflow stage.
      *
-     * @return integer
+     * @return int
      */
     public function getStageId()
     {
@@ -97,7 +97,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
      * Determine whether the current user has admin priveleges for this
      * grid.
      *
-     * @return boolean
+     * @return bool
      */
     protected function _canAdminister()
     {
@@ -303,8 +303,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
     /**
      * Add a participant to the stages
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -328,8 +328,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
     /**
      * Update the row for the current userGroup's stage participant list.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -394,8 +394,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
     /**
      * Delete the participant from the user groups
      *
-     * @param $args
-     * @param $request
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -456,8 +456,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
     /**
      * Get the list of users for the specified user group
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -493,8 +493,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
     /**
      * Display the notify tab.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -512,8 +512,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
     /**
      * Send a notification from the notify tab.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -559,8 +559,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
     /**
      * Fetches an email template's message body and returns it via AJAX.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

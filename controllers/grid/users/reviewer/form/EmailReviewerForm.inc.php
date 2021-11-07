@@ -30,7 +30,7 @@ class EmailReviewerForm extends Form
     /**
      * Constructor.
      *
-     * @param $reviewAssignment ReviewAssignment The review assignment to use for this contact.
+     * @param ReviewAssignment $reviewAssignment The review assignment to use for this contact.
      */
     public function __construct($reviewAssignment)
     {
@@ -60,7 +60,7 @@ class EmailReviewerForm extends Form
     /**
      * Display the form.
      *
-     * @param $requestArgs array Request parameters to bounce back with the form submission.
+     * @param array $requestArgs Request parameters to bounce back with the form submission.
      * @param null|mixed $template
      *
      * @see Form::fetch
@@ -82,7 +82,7 @@ class EmailReviewerForm extends Form
     /**
      * Send the email
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     public function execute($submission, ...$functionArgs)
     {

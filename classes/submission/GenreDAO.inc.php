@@ -29,7 +29,7 @@ class GenreDAO extends DAO
     /**
      * Retrieve a genre by type id.
      *
-     * @param $genreId int
+     * @param int $genreId
      * @param null|mixed $contextId
      *
      * @return Genre
@@ -54,8 +54,8 @@ class GenreDAO extends DAO
     /**
      * Retrieve all genres
      *
-     * @param $contextId int
-     * @param $rangeInfo object optional
+     * @param int $contextId
+     * @param object $rangeInfo optional
      *
      * @return DAOResultFactory containing matching genres
      */
@@ -75,9 +75,9 @@ class GenreDAO extends DAO
     /**
      * Retrieve genres based on whether they are dependent or not.
      *
-     * @param $dependentFilesOnly boolean
-     * @param $contextId int
-     * @param $rangeInfo object optional
+     * @param bool $dependentFilesOnly
+     * @param int $contextId
+     * @param object $rangeInfo optional
      *
      * @return DAOResultFactory containing matching genres
      */
@@ -97,9 +97,9 @@ class GenreDAO extends DAO
     /**
      * Retrieve genres based on whether they are supplementary or not.
      *
-     * @param $supplementaryFilesOnly boolean
-     * @param $contextId int
-     * @param $rangeInfo object optional
+     * @param bool $supplementaryFilesOnly
+     * @param int $contextId
+     * @param object $rangeInfo optional
      *
      * @return DAOResultFactory
      */
@@ -119,8 +119,8 @@ class GenreDAO extends DAO
     /**
      * Retrieve genres that are not supplementary or dependent.
      *
-     * @param $contextId int
-     * @param $rangeInfo object optional
+     * @param int $contextId
+     * @param object $rangeInfo optional
      *
      * @return DAOResultFactory
      */
@@ -140,8 +140,8 @@ class GenreDAO extends DAO
     /**
      * Retrieve all genres
      *
-     * @param $contextId int
-     * @param $rangeInfo object optional
+     * @param int $contextId
+     * @param object $rangeInfo optional
      *
      * @return DAOResultFactory containing matching genres
      */
@@ -159,8 +159,8 @@ class GenreDAO extends DAO
     /**
      * Retrieves the genre associated with a key.
      *
-     * @param $key String the entry key
-     * @param $contextId int Optional context ID
+     * @param string $key the entry key
+     * @param int $contextId Optional context ID
      *
      * @return Genre
      */
@@ -194,7 +194,7 @@ class GenreDAO extends DAO
     /**
      * Update the settings for this object
      *
-     * @param $genre object
+     * @param object $genre
      */
     public function updateLocaleFields($genre)
     {
@@ -218,7 +218,7 @@ class GenreDAO extends DAO
     /**
      * Internal function to return a Genre object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return Genre
      */
@@ -244,7 +244,7 @@ class GenreDAO extends DAO
     /**
      * Insert a new genre.
      *
-     * @param $genre Genre
+     * @param Genre $genre
      *
      * @return int Inserted genre ID
      */
@@ -273,7 +273,7 @@ class GenreDAO extends DAO
     /**
      * Update an existing genre.
      *
-     * @param $genre Genre
+     * @param Genre $genre
      */
     public function updateObject($genre)
     {
@@ -302,7 +302,7 @@ class GenreDAO extends DAO
     /**
      * Delete a genre by id.
      *
-     * @param $genre Genre
+     * @param Genre $genre
      */
     public function deleteObject($genre)
     {
@@ -312,7 +312,7 @@ class GenreDAO extends DAO
     /**
      * Soft delete a genre by id.
      *
-     * @param $genreId int Genre ID
+     * @param int $genreId Genre ID
      */
     public function deleteById($genreId)
     {
@@ -326,7 +326,7 @@ class GenreDAO extends DAO
      * Delete the genre entries associated with a context.
      * Called when deleting a Context in ContextDAO.
      *
-     * @param $contextId int Context ID
+     * @param int $contextId Context ID
      */
     public function deleteByContextId($contextId)
     {
@@ -353,8 +353,8 @@ class GenreDAO extends DAO
     /**
      * Install default data for settings.
      *
-     * @param $contextId int Context ID
-     * @param $locales array List of locale codes
+     * @param int $contextId Context ID
+     * @param array $locales List of locale codes
      */
     public function installDefaults($contextId, $locales)
     {
@@ -419,11 +419,11 @@ class GenreDAO extends DAO
     /**
      * If a key exists for a context.
      *
-     * @param $key string
-     * @param $contextId int
-     * @param $genreId int (optional) Current genre to be ignored
+     * @param string $key
+     * @param int $contextId
+     * @param int $genreId (optional) Current genre to be ignored
      *
-     * @return boolean
+     * @return bool
      */
     public function keyExists($key, $contextId, $genreId = null)
     {
@@ -442,7 +442,7 @@ class GenreDAO extends DAO
     /**
      * Remove all settings associated with a locale
      *
-     * @param $locale string Locale code
+     * @param string $locale Locale code
      */
     public function deleteSettingsByLocale($locale)
     {

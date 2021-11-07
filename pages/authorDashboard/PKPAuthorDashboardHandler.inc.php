@@ -69,8 +69,8 @@ abstract class PKPAuthorDashboardHandler extends Handler
     /**
      * Displays the author dashboard.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function submission($args, $request)
     {
@@ -85,8 +85,8 @@ abstract class PKPAuthorDashboardHandler extends Handler
     /**
      * Fetches information about a specific email and returns it.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -111,7 +111,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
      * Get the SUBMISSION_FILE_... file stage based on the current
      * WORKFLOW_STAGE_... workflow stage.
      *
-     * @param $currentStage int WORKFLOW_STAGE_...
+     * @param int $currentStage WORKFLOW_STAGE_...
      *
      * @return int SUBMISSION_FILE_...
      */

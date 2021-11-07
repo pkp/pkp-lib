@@ -46,7 +46,7 @@ abstract class OAI
      * Constructor.
      * Initializes object and parses user input.
      *
-     * @param $config OAIConfig repository configuration
+     * @param OAIConfig $config repository configuration
      */
     public function __construct($config)
     {
@@ -117,9 +117,9 @@ abstract class OAI
     /**
      * Check if identifier is in the valid format.
      *
-     * @param $identifier string
+     * @param string $identifier
      *
-     * @return boolean
+     * @return bool
      */
     public function validIdentifier($identifier)
     {
@@ -129,9 +129,9 @@ abstract class OAI
     /**
      * Check if identifier exists.
      *
-     * @param $identifier string
+     * @param string $identifier
      *
-     * @return boolean
+     * @return bool
      */
     public function identifierExists($identifier)
     {
@@ -141,7 +141,7 @@ abstract class OAI
     /**
      * Return OAI record for specified identifier.
      *
-     * @param $identifier string
+     * @param string $identifier
      *
      * @return OAIRecord (or false, if identifier is invalid)
      */
@@ -150,13 +150,13 @@ abstract class OAI
     /**
      * Return set of OAI records.
      *
-     * @param $metadataPrefix string specified metadata prefix
-     * @param $from int minimum timestamp
-     * @param $until int maximum timestamp
-     * @param $set string specified set
-     * @param $offset int current record offset
-     * @param $limit int maximum number of records to return
-     * @param $total int output parameter, set to total number of records
+     * @param string $metadataPrefix specified metadata prefix
+     * @param int $from minimum timestamp
+     * @param int $until maximum timestamp
+     * @param string $set specified set
+     * @param int $offset current record offset
+     * @param int $limit maximum number of records to return
+     * @param int $total output parameter, set to total number of records
      *
      * @return array OAIRecord
      */
@@ -180,9 +180,9 @@ abstract class OAI
     /**
      * Return set of OAI sets.
      *
-     * @param $offset int current set offset
-     * @param $limit int Maximum number of sets to return
-     * @param $total int output parameter, set to total number of sets
+     * @param int $offset current set offset
+     * @param int $limit Maximum number of sets to return
+     * @param int $total output parameter, set to total number of sets
      */
     public function sets($offset, $limit, &$total)
     {
@@ -192,7 +192,7 @@ abstract class OAI
     /**
      * Retrieve a resumption token.
      *
-     * @param $tokenId string
+     * @param string $tokenId
      *
      * @return OAIResumptionToken|false
      */
@@ -201,8 +201,8 @@ abstract class OAI
     /**
      * Save a resumption token.
      *
-     * @param $offset int current offset
-     * @param $params array request parameters
+     * @param int $offset current offset
+     * @param array $params request parameters
      *
      * @return OAIResumptionToken the saved token
      */
@@ -211,8 +211,8 @@ abstract class OAI
     /**
      * Return array of supported metadata formats.
      *
-     * @param $namesOnly boolean return array of format prefix names only
-     * @param $identifier string return formats for specific identifier
+     * @param bool $namesOnly return array of format prefix names only
+     * @param string $identifier return formats for specific identifier
      *
      * @return array
      */
@@ -691,8 +691,8 @@ abstract class OAI
     /**
      * Output OAI response.
      *
-     * @param $response string text of response message.
-     * @param $printParams boolean display request parameters
+     * @param string $response text of response message.
+     * @param bool $printParams display request parameters
      */
     public function response($response, $printParams = true)
     {
@@ -723,7 +723,7 @@ abstract class OAI
     /**
      * Returns the value of the specified parameter.
      *
-     * @param $name string
+     * @param string $name
      *
      * @return string
      */
@@ -745,7 +745,7 @@ abstract class OAI
     /**
      * Set the request parameters.
      *
-     * @param $params array
+     * @param array $params
      */
     public function setParams($params)
     {
@@ -755,9 +755,9 @@ abstract class OAI
     /**
      * Returns true if the requested parameter is set, false if it is not set.
      *
-     * @param $name string
+     * @param string $name
      *
-     * @return boolean
+     * @return bool
      */
     public function paramExists($name)
     {
@@ -778,10 +778,10 @@ abstract class OAI
      * Check request parameters.
      * Outputs error response if an invalid parameter is found.
      *
-     * @param $required array required parameters for the current request
-     * @param $optional array optional parameters for the current request
+     * @param array $required required parameters for the current request
+     * @param array $optional optional parameters for the current request
      *
-     * @return boolean
+     * @return bool
      */
     public function checkParams($required = [], $optional = [])
     {
@@ -826,7 +826,7 @@ abstract class OAI
     /**
      * Returns formatted metadata response in specified format.
      *
-     * @param $format string
+     * @param string $format
      *
      * @return string
      */
@@ -841,11 +841,11 @@ abstract class OAI
      * Checks if from and until parameters have been passed.
      * If passed, validate and convert to UNIX timestamps.
      *
-     * @param $params array request parameters
-     * @param $from int from timestamp (output parameter)
-     * @param $until int until timestamp (output parameter)
+     * @param array $params request parameters
+     * @param int $from from timestamp (output parameter)
+     * @param int $until until timestamp (output parameter)
      *
-     * @return boolean
+     * @return bool
      */
     public function extractDateParams($params, &$from, &$until)
     {

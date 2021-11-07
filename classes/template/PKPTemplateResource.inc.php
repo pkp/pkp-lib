@@ -25,7 +25,7 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
     /**
      * Constructor
      *
-     * @param $templateDir string|array Template directory
+     * @param string|array $templateDir Template directory
      */
     public function __construct($templateDir)
     {
@@ -39,11 +39,11 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
     /**
      * Resource function to get a template.
      *
-     * @param $name string Template name
-     * @param $source string Reference to variable receiving fetched Smarty source
-     * @param $mtime Modification time
+     * @param string $name Template name
+     * @param string $source Reference to variable receiving fetched Smarty source
+     * @param int|bool $mtime Modification time
      *
-     * @return boolean
+     * @return bool
      */
     public function fetch($name, &$source, &$mtime)
     {
@@ -60,7 +60,7 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
     /**
      * Get the timestamp for the specified template.
      *
-     * @param $name string Template name
+     * @param string $name Template name
      *
      * @return int|boolean
      */

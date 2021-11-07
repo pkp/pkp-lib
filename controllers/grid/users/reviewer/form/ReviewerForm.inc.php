@@ -29,23 +29,23 @@ use PKP\submissionFile\SubmissionFile;
 
 class ReviewerForm extends Form
 {
-    /** The submission associated with the review assignment **/
+    /** @var Submission The submission associated with the review assignment */
     public $_submission;
 
-    /** The review round associated with the review assignment **/
+    /** @var ReviewRound The review round associated with the review assignment */
     public $_reviewRound;
 
-    /** An array of actions for the other reviewer forms */
+    /** @var array An array of actions for the other reviewer forms */
     public $_reviewerFormActions;
 
-    /** An array with all current user roles */
+    /** @var array An array with all current user roles */
     public $_userRoles;
 
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $reviewRound ReviewRound
+     * @param Submission $submission
+     * @param ReviewRound $reviewRound
      */
     public function __construct($submission, $reviewRound)
     {
@@ -98,7 +98,7 @@ class ReviewerForm extends Form
     /**
      * Set the submission
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     public function setSubmission($submission)
     {
@@ -108,7 +108,7 @@ class ReviewerForm extends Form
     /**
      * Set the ReviewRound
      *
-     * @param $reviewRound ReviewRound
+     * @param ReviewRound $reviewRound
      */
     public function setReviewRound($reviewRound)
     {
@@ -118,7 +118,7 @@ class ReviewerForm extends Form
     /**
      * Set a reviewer form action
      *
-     * @param $action LinkAction
+     * @param LinkAction $action
      */
     public function setReviewerFormAction($action)
     {
@@ -128,7 +128,7 @@ class ReviewerForm extends Form
     /**
      * Set current user roles.
      *
-     * @param $userRoles Array
+     * @param array $userRoles
      */
     public function setUserRoles($userRoles)
     {
@@ -441,7 +441,7 @@ class ReviewerForm extends Form
     /**
      * Get the link action that fetchs the advanced search form content
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return LinkAction
      */
@@ -468,12 +468,12 @@ class ReviewerForm extends Form
     /**
      * Check if a given user id is enrolled in reviewer user group.
      *
-     * @param $context Context
-     * @param $submission Submission
-     * @param $reviewRound ReviewRound
-     * @param $reviewerId int
+     * @param Context $context
+     * @param Submission $submission
+     * @param ReviewRound $reviewRound
+     * @param int $reviewerId
      *
-     * @return boolean
+     * @return bool
      */
     public function _isValidReviewer($context, $submission, $reviewRound, $reviewerId)
     {
@@ -495,7 +495,7 @@ class ReviewerForm extends Form
      * Get the email template key depending on if reviewer one click access is
      * enabled or not as well as on review round.
      *
-     * @param $context Context The user's current context.
+     * @param Context $context The user's current context.
      *
      * @return int Email template key
      */

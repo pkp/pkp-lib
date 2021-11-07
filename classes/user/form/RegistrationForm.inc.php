@@ -39,13 +39,13 @@ class RegistrationForm extends Form
     /** @var User The user object being created (available to hooks during registrationform::execute hook) */
     public $user;
 
-    /** @var boolean user is already registered with another context */
+    /** @var bool user is already registered with another context */
     public $existingUser;
 
     /** @var AuthPlugin default authentication source, if specified */
     public $defaultAuth;
 
-    /** @var boolean whether or not captcha is enabled for this form */
+    /** @var bool whether or not captcha is enabled for this form */
     public $captchaEnabled;
 
     /**

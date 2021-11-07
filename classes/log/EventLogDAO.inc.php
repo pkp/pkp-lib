@@ -25,9 +25,9 @@ class EventLogDAO extends \PKP\db\DAO
     /**
      * Retrieve a log entry by ID.
      *
-     * @param $logId int
-     * @param $assocId int optional
-     * @param $assocType int optional
+     * @param int $logId
+     * @param int $assocId optional
+     * @param int $assocType optional
      *
      * @return EventLogEntry
      */
@@ -51,9 +51,9 @@ class EventLogDAO extends \PKP\db\DAO
     /**
      * Retrieve all log entries matching the specified association.
      *
-     * @param $assocType int
-     * @param $assocId int
-     * @param $rangeInfo object optional
+     * @param int $assocType
+     * @param int $assocId
+     * @param object $rangeInfo optional
      *
      * @return DAOResultFactory containing matching EventLogEntry ordered by sequence
      */
@@ -81,7 +81,7 @@ class EventLogDAO extends \PKP\db\DAO
     /**
      * Internal function to return an EventLogEntry object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return EventLogEntry
      */
@@ -115,7 +115,7 @@ class EventLogDAO extends \PKP\db\DAO
     /**
      * Insert a new log entry.
      *
-     * @param $entry EventLogEntry
+     * @param EventLogEntry $entry
      */
     public function insertObject($entry)
     {
@@ -157,7 +157,7 @@ class EventLogDAO extends \PKP\db\DAO
     /**
      * Delete a single log entry (and associated settings).
      *
-     * @param $logId int
+     * @param int $logId
      * @param null|mixed $assocType
      * @param null|mixed $assocId
      */
@@ -180,8 +180,8 @@ class EventLogDAO extends \PKP\db\DAO
     /**
      * Delete all log entries for an object.
      *
-     * @param $assocType int
-     * @param $assocId int
+     * @param int $assocType
+     * @param int $assocId
      */
     public function deleteByAssoc($assocType, $assocId)
     {
@@ -194,8 +194,8 @@ class EventLogDAO extends \PKP\db\DAO
     /**
      * Transfer all log entries to another user.
      *
-     * @param $oldUserId int
-     * @param $newUserId int
+     * @param int $oldUserId
+     * @param int $newUserId
      */
     public function changeUser($oldUserId, $newUserId)
     {

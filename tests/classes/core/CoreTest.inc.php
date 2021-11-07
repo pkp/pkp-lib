@@ -23,9 +23,9 @@ class CoreTest extends PKPTestCase
      * Test Core::removeBaseUrl method using the default
      * base url config setting.
      *
-     * @param $baseUrl string
-     * @param $url string
-     * @param $expectUrl string
+     * @param string $baseUrl
+     * @param string $url
+     * @param string $expectUrl
      * @covers removeBaseUrl
      * @dataProvider testRemoveBaseUrlDataProvider
      */
@@ -42,10 +42,10 @@ class CoreTest extends PKPTestCase
      * Test Core::removeBaseUrl method using the base_url[...]
      * override config settings.
      *
-     * @param $contextPath string
-     * @param $baseUrl string
-     * @param $url string
-     * @param $expectUrl string
+     * @param string $contextPath
+     * @param string $baseUrl
+     * @param string $url
+     * @param string $expectUrl
      * @covers removeBaseUrl
      * @dataProvider testRemoveBaseUrlOverrideDataProvider
      */

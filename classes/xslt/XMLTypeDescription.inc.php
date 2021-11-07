@@ -57,7 +57,7 @@ class XMLTypeDescription extends TypeDescription
     /**
      * Set the validation strategy
      *
-     * @param $validationStrategy string XML_TYPE_DESCRIPTION_VALIDATE_...
+     * @param string $validationStrategy XML_TYPE_DESCRIPTION_VALIDATE_...
      */
     public function setValidationStrategy($validationStrategy)
     {

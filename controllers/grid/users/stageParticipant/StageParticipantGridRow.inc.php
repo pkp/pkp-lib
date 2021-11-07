@@ -27,7 +27,7 @@ class StageParticipantGridRow extends GridRow
     /** @var int */
     public $_stageId;
 
-    /** @var boolean Whether the user can admin this row */
+    /** @var bool Whether the user can admin this row */
     public $_canAdminister;
 
     /**

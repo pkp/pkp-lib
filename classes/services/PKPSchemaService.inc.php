@@ -47,8 +47,8 @@ class PKPSchemaService
      * - Passes schema through hook
      * - Returns pre-loaded schemas on request
      *
-     * @param $schemaName string One of the SCHEMA_... constants
-     * @param $forceReload boolean Optional. Compile the schema again from the
+     * @param string $schemaName One of the SCHEMA_... constants
+     * @param bool $forceReload Optional. Compile the schema again from the
      *  source files, bypassing any cached version.
      *
      * @return object
@@ -96,8 +96,8 @@ class PKPSchemaService
      * If both schemas contain definitions for the same property, the property
      * definition in the additional schema will override the base schema.
      *
-     * @param $baseSchema object The base schema
-     * @param $additionalSchema object The additional schema properties to apply
+     * @param object $baseSchema The base schema
+     * @param object $additionalSchema The additional schema properties to apply
      *  to $baseSchema.
      *
      * @return object
@@ -135,7 +135,7 @@ class PKPSchemaService
      * Gets the properties of a schema which are considered part of the summary
      * view presented in an API.
      *
-     * @param $schemaName string One of the SCHEMA_... constants
+     * @param string $schemaName One of the SCHEMA_... constants
      *
      * @return array List of property names
      */
@@ -158,7 +158,7 @@ class PKPSchemaService
      * Gets the complete list of properties of a schema which are considered part
      * of the full view presented in an API.
      *
-     * @param $schemaName string One of the SCHEMA_... constants
+     * @param string $schemaName One of the SCHEMA_... constants
      *
      * @return array List of property names
      */
@@ -179,7 +179,7 @@ class PKPSchemaService
     /**
      * Get required properties of a schema
      *
-     * @param $schemaName string One of the SCHEMA_... constants
+     * @param string $schemaName One of the SCHEMA_... constants
      *
      * @return array List of property names
      */
@@ -196,7 +196,7 @@ class PKPSchemaService
     /**
      * Get multilingual properties of a schema
      *
-     * @param $schemaName string One of the SCHEMA_... constants
+     * @param string $schemaName One of the SCHEMA_... constants
      *
      * @return array List of property names
      */
@@ -220,8 +220,8 @@ class PKPSchemaService
      * This method coerces properties to their appropriate type, and strips out
      * properties that are not specified in the schema.
      *
-     * @param $schemaName string One of the SCHEMA_... constants
-     * @param $props array Properties to be sanitized
+     * @param string $schemaName One of the SCHEMA_... constants
+     * @param array $props Properties to be sanitized
      *
      * @return array The sanitized props
      */
@@ -258,9 +258,8 @@ class PKPSchemaService
      *
      * It will leave null values alone.
      *
-     * @param $value mixed
-     * @param $type string boolean, integer, number, string, array, object
-     * @param $schema object A schema defining this property
+     * @param string $type boolean, integer, number, string, array, object
+     * @param object $schema A schema defining this property
      *
      * @return mixed The value coerced to type
      */
@@ -314,8 +313,8 @@ class PKPSchemaService
      * These validation rules are returned in a format that is ready to be passed
      * into ValidatorFactory::make().
      *
-     * @param $schemaName string One of the SCHEMA_... constants
-     * @param $allowedLocales array List of allowed locale keys.
+     * @param string $schemaName One of the SCHEMA_... constants
+     * @param array $allowedLocales List of allowed locale keys.
      *
      * @return array List of validation rules for each property
      */
@@ -340,7 +339,7 @@ class PKPSchemaService
     /**
      * Compile the validation rules for a single property's schema
      *
-     * @param $propSchema object The property schema
+     * @param object $propSchema The property schema
      *
      * @return array List of Laravel-formatted validation rules
      */
@@ -406,8 +405,8 @@ class PKPSchemaService
      *   bar: ['Error message'],
      * ]
      *
-     * @param $errorBag \Illuminate\Support\MessageBag
-     * @param $schema object The entity schema
+     * @param \Illuminate\Support\MessageBag $errorBag
+     * @param object $schema The entity schema
      *
      * @return array
      */
@@ -451,12 +450,12 @@ class PKPSchemaService
      *
      * ['contextName' => 'Journal of Public Knowledge']
      *
-     * @param $schemaName string One of the SCHEMA_... constants
-     * @param $object \PKP\core\DataObject The object to be modified
-     * @param $supportedLocales array List of locale keys that shoud receive
+     * @param string $schemaName One of the SCHEMA_... constants
+     * @param \PKP\core\DataObject $object The object to be modified
+     * @param array $supportedLocales List of locale keys that shoud receive
      *  default content. Example: ['en_US', 'fr_CA']
-     * @param $primaryLocale string Example: `en_US`
-     * @param $localeParams array Key/value params for the translation strings
+     * @param string $primaryLocale Example: `en_US`
+     * @param array $localeParams Key/value params for the translation strings
      *
      * @return DataObject
      */
@@ -500,9 +499,9 @@ class PKPSchemaService
     /**
      * Get the default values for a specific locale
      *
-     * @param $schemaName string One of the SCHEMA_... constants
-     * @param $locale string The locale key to get values for. Example: `en_US`
-     * @param $localeParams array Key/value params for the translation strings
+     * @param string $schemaName One of the SCHEMA_... constants
+     * @param string $locale The locale key to get values for. Example: `en_US`
+     * @param array $localeParams Key/value params for the translation strings
      *
      * @return array Key/value of property defaults for the specified locale
      */
@@ -525,9 +524,9 @@ class PKPSchemaService
     /**
      * Get a default value for a property based on the schema
      *
-     * @param $propSchema object The schema definition for this property
-     * @param $localeParams array\null Optional. Key/value params for the translation strings
-     * @param $localeKey string|null Optional. The locale to translate into
+     * @param object $propSchema The schema definition for this property
+     * @param array|null $localeParams Optional. Key/value params for the translation strings
+     * @param string|null $localeKey Optional. The locale to translate into
      *
      * @return mixed Will return null if no default value is available
      */
@@ -598,8 +597,8 @@ class PKPSchemaService
      * This is primarily used to ensure API responses present a consistent data
      * structure regardless of which properties have values.
      *
-     * @param $schemaName string One of the SCHEMA_... constants
-     * @param $values array Key/value list of entity properties
+     * @param string $schemaName One of the SCHEMA_... constants
+     * @param array $values Key/value list of entity properties
      *
      * @return array
      */

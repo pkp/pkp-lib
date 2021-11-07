@@ -79,9 +79,9 @@ class PKPSiteService implements EntityPropertyInterface
      *
      * This does NOT authenticate the current user to perform the action.
      *
-     * @param $props array The data to validate
-     * @param $allowedLocales array Which locales are allowed for this context
-     * @param $primaryLocale string
+     * @param array $props The data to validate
+     * @param array $allowedLocales Which locales are allowed for this context
+     * @param string $primaryLocale
      *
      * @return array List of error messages. The array keys are property names
      */
@@ -178,9 +178,9 @@ class PKPSiteService implements EntityPropertyInterface
      * This does not check if the user is authorized to edit the site, or validate or sanitize
      * the new content.
      *
-     * @param $site Context The context to edit
-     * @param $params Array Key/value array of new data
-     * @param $request Request
+     * @param Context $site The context to edit
+     * @param array $params Key/value array of new data
+     * @param Request $request
      *
      * @return Site
      */
@@ -217,12 +217,12 @@ class PKPSiteService implements EntityPropertyInterface
     /**
      * Move a temporary file to the site's public directory
      *
-     * @param $context Context
-     * @param $temporaryFile TemporaryFile
-     * @param $fileNameBase string Unique identifier to use for the filename. The
+     * @param Context $context
+     * @param TemporaryFile $temporaryFile
+     * @param string $fileNameBase Unique identifier to use for the filename. The
      *  Extension and locale will be appended.
-     * @param $userId int ID of the user who uploaded the temporary file
-     * @param $localeKey string Example: en_US. Leave empty for a file that is
+     * @param int $userId ID of the user who uploaded the temporary file
+     * @param string $localeKey Example: en_US. Leave empty for a file that is
      *  not localized.
      *
      * @return string|boolean The new filename or false on failure
@@ -261,15 +261,15 @@ class PKPSiteService implements EntityPropertyInterface
      * This method is protected because all operations which edit the site should
      * go through the editSite method in order to ensure that the appropriate hooks are fired.
      *
-     * @param $site Site The site being edited
-     * @param $value mixed The param value to be saved. Contains the temporary
+     * @param Site $site The site being edited
+     * @param mixed $value The param value to be saved. Contains the temporary
      *  file ID if a new file has been uploaded.
-     * @param $settingName string The name of the setting to save, typically used
+     * @param string $settingName The name of the setting to save, typically used
      *  in the filename.
-     * @param $userId integer ID of the user who owns the temporary file
-     * @param $localeKey string Optional. Used in the filename for multilingual
+     * @param int $userId ID of the user who owns the temporary file
+     * @param string $localeKey Optional. Used in the filename for multilingual
      *  properties.
-     * @param $isImage boolean Optional. For image files which return alt text,
+     * @param bool $isImage Optional. For image files which return alt text,
      *  width, height, etc in the param value.
      *
      * @return string|array|null New param value or null on failure

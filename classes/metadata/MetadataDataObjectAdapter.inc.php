@@ -30,7 +30,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     public const METADATA_DOA_INJECTION_MODE = 1;
     public const METADATA_DOA_EXTRACTION_MODE = 2;
 
-    /** @var integer */
+    /** @var int */
     public $_mode;
 
     /** @var MetadataSchema */
@@ -45,7 +45,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     /** @var string */
     public $_metadataSchemaName;
 
-    /** @var integer */
+    /** @var int */
     public $_assocType;
 
     /** @var string */
@@ -54,7 +54,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      * @param null|mixed $mode
      */
     public function __construct($filterGroup, $mode = null)
@@ -111,7 +111,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     /**
      * One of the METADATA_DOA_*_MODE constants.
      *
-     * @return integer
+     * @return int
      */
     public function getMode()
     {
@@ -190,7 +190,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
      * Get the association type corresponding to the data
      * object type.
      *
-     * @return integer
+     * @return int
      */
     public function getAssocType()
     {
@@ -200,7 +200,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     /**
      * Set the target data object for meta-data injection.
      *
-     * @param $targetDataObject DataObject
+     * @param DataObject $targetDataObject
      */
     public function setTargetDataObject(&$targetDataObject)
     {
@@ -222,8 +222,8 @@ class MetadataDataObjectAdapter extends PersistableFilter
     /**
      * Inject a MetadataDescription into the target DataObject
      *
-     * @param $metadataDescription MetadataDescription
-     * @param $targetDataObject DataObject
+     * @param MetadataDescription $metadataDescription
+     * @param DataObject $targetDataObject
      *
      * @return DataObject
      */
@@ -236,7 +236,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     /**
      * Extract a MetadataDescription from a source DataObject.
      *
-     * @param $sourceDataObject DataObject
+     * @param DataObject $sourceDataObject
      *
      * @return MetadataDescription
      */
@@ -254,7 +254,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
      * NB: The field names must be prefixed with the meta-data
      * schema namespace identifier.
      *
-     * @param $translated boolean if true, return localized field
+     * @param bool $translated if true, return localized field
      *  names, otherwise return additional field names.
      *
      * @return array an array of field names to be persisted.
@@ -275,7 +275,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
      *
      * @see Filter::process()
      *
-     * @param $input mixed either a MetadataDescription or an application object
+     * @param mixed $input either a MetadataDescription or an application object
      *
      * @return mixed either a MetadataDescription or an application object
      */
@@ -346,7 +346,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
      * Return all field names introduced by the
      * meta-data schema that might have to be persisted.
      *
-     * @param $translated boolean if true, return localized field
+     * @param bool $translated if true, return localized field
      *  names, otherwise return additional field names.
      *
      * @return array an array of field names to be persisted.
@@ -381,9 +381,9 @@ class MetadataDataObjectAdapter extends PersistableFilter
     /**
      * Set several localized statements in a meta-data schema.
      *
-     * @param $metadataDescription MetadataDescription
-     * @param $propertyName string
-     * @param $localizedValues array (keys: locale, values: localized values)
+     * @param MetadataDescription $metadataDescription
+     * @param string $propertyName
+     * @param array $localizedValues (keys: locale, values: localized values)
      */
     public function addLocalizedStatements(&$metadataDescription, $propertyName, $localizedValues)
     {
@@ -406,8 +406,8 @@ class MetadataDataObjectAdapter extends PersistableFilter
      * data object into the data object's data array for
      * automatic persistence by the meta-data framework.
      *
-     * @param $metadataDescription MetadataDescription
-     * @param $dataObject DataObject
+     * @param MetadataDescription $metadataDescription
+     * @param DataObject $dataObject
      */
     public function injectUnmappedDataObjectMetadataFields(&$metadataDescription, &$dataObject)
     {
@@ -436,8 +436,8 @@ class MetadataDataObjectAdapter extends PersistableFilter
      * Directly extract all fields that are not mapped to the
      * data object from the data object's data array.
      *
-     * @param $dataObject DataObject
-     * @param $metadataDescription MetadataDescription
+     * @param DataObject $dataObject
+     * @param MetadataDescription $metadataDescription
      */
     public function extractUnmappedDataObjectMetadataFields(&$dataObject, &$metadataDescription)
     {

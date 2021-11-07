@@ -143,10 +143,10 @@ class PKPAcronPlugin extends GenericPlugin
     /**
      * Post install hook to flag cron tab reload on every install/upgrade.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
-     * @return boolean
+     * @return bool
      *
      * @see Installer::postInstall() for the hook call.
      */
@@ -159,10 +159,10 @@ class PKPAcronPlugin extends GenericPlugin
     /**
      * Load handler hook to check for tasks to run.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
-     * @return boolean
+     * @return bool
      *
      * @see PKPPageRouter::loadHandler() for the hook call.
      */
@@ -201,10 +201,10 @@ class PKPAcronPlugin extends GenericPlugin
     /**
      * Syncronize crontab with lazy load plugins management.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
-     * @return boolean
+     * @return bool
      *
      * @see PluginHandler::plugin() for the hook call.
      */

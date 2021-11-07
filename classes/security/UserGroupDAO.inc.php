@@ -37,7 +37,7 @@ use PKP\xml\PKPXMLParser;
 
 class UserGroupDAO extends DAO
 {
-    /** @var a shortcut to get the UserGroupAssignmentDAO **/
+    /** @var UserGroupAssignmentDAO */
     public $userGroupAssignmentDao;
 
     /**
@@ -61,7 +61,7 @@ class UserGroupDAO extends DAO
     /**
      * Internal function to return a UserGroup object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return UserGroup
      */
@@ -86,7 +86,7 @@ class UserGroupDAO extends DAO
     /**
      * Insert a user group.
      *
-     * @param $userGroup UserGroup
+     * @param UserGroup $userGroup
      *
      * @return int Inserted user group ID
      */
@@ -115,7 +115,7 @@ class UserGroupDAO extends DAO
     /**
      * Update a user group.
      *
-     * @param $userGroup UserGroup
+     * @param UserGroup $userGroup
      */
     public function updateObject($userGroup)
     {
@@ -146,8 +146,8 @@ class UserGroupDAO extends DAO
      * Delete a user group by its id
      * will also delete related settings and all the assignments to this group
      *
-     * @param $contextId int
-     * @param $userGroupId int
+     * @param int $contextId
+     * @param int $userGroupId
      */
     public function deleteById($contextId, $userGroupId)
     {
@@ -161,7 +161,7 @@ class UserGroupDAO extends DAO
      * Delete a user group.
      * will also delete related settings and all the assignments to this group
      *
-     * @param $userGroup UserGroup
+     * @param UserGroup $userGroup
      */
     public function deleteObject($userGroup)
     {
@@ -172,7 +172,7 @@ class UserGroupDAO extends DAO
     /**
      * Delete a user group by its context id
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function deleteByContextId($contextId)
     {
@@ -227,8 +227,8 @@ class UserGroupDAO extends DAO
     /**
      * Get an individual user group
      *
-     * @param $userGroupId int User group ID
-     * @param $contextId int Optional context ID to use for validation
+     * @param int $userGroupId User group ID
+     * @param int $contextId Optional context ID to use for validation
      */
     public function getById($userGroupId, $contextId = null)
     {
@@ -249,8 +249,8 @@ class UserGroupDAO extends DAO
     /**
      * Get a single default user group with a particular roleId
      *
-     * @param $contextId int Context ID
-     * @param $roleId int ROLE_ID_...
+     * @param int $contextId Context ID
+     * @param int $roleId ROLE_ID_...
      *
      * @return UserGroup|false
      */
@@ -263,9 +263,9 @@ class UserGroupDAO extends DAO
     /**
      * Check whether the passed user group id is default or not.
      *
-     * @param $userGroupId Integer
+     * @param int $userGroupId
      *
-     * @return boolean
+     * @return bool
      */
     public function isDefault($userGroupId)
     {
@@ -281,9 +281,9 @@ class UserGroupDAO extends DAO
     /**
      * Get all user groups belonging to a role
      *
-     * @param Integer $contextId
-     * @param Integer $roleId
-     * @param boolean $default (optional)
+     * @param int $contextId
+     * @param int $roleId
+     * @param bool $default (optional)
      * @param DBResultRange $dbResultRange (optional)
      *
      * @return DAOResultFactory
@@ -311,8 +311,8 @@ class UserGroupDAO extends DAO
     /**
      * Get an array of user group ids belonging to a given role
      *
-     * @param $roleId int ROLE_ID_...
-     * @param $contextId int Context ID
+     * @param int $roleId ROLE_ID_...
+     * @param int $contextId Context ID
      */
     public function getUserGroupIdsByRoleId($roleId, $contextId = null)
     {
@@ -339,10 +339,10 @@ class UserGroupDAO extends DAO
     /**
      * Check if a user is in a particular user group
      *
-     * @param $userId int
-     * @param $userGroupId int
+     * @param int $userId
+     * @param int $userGroupId
      *
-     * @return boolean
+     * @return bool
      */
     public function userInGroup($userId, $userGroupId)
     {
@@ -362,10 +362,10 @@ class UserGroupDAO extends DAO
     /**
      * Check if a user is in any user group
      *
-     * @param $userId int
-     * @param $contextId int optional
+     * @param int $userId
+     * @param int $contextId optional
      *
-     * @return boolean
+     * @return bool
      */
     public function userInAnyGroup($userId, $contextId = null)
     {
@@ -389,8 +389,8 @@ class UserGroupDAO extends DAO
     /**
      * Retrieve user groups to which a user is assigned.
      *
-     * @param $userId int
-     * @param $contextId int
+     * @param int $userId
+     * @param int $contextId
      *
      * @return DAOResultFactory
      */
@@ -416,8 +416,8 @@ class UserGroupDAO extends DAO
     /**
      * Validation check to see if user group exists for a given context
      *
-     * @param $contextId
-     * @param $userGroupId
+     * @param int $contextId
+     * @param int $userGroupId
      *
      * @return bool
      */
@@ -437,7 +437,7 @@ class UserGroupDAO extends DAO
     /**
      * Retrieve user groups for a given context (all contexts if null)
      *
-     * @param Integer $contextId (optional)
+     * @param int $contextId (optional)
      * @param DBResultRange $dbResultRange (optional)
      *
      * @return DAOResultFactory
@@ -481,7 +481,7 @@ class UserGroupDAO extends DAO
     /**
      * Retrieve the number of users associated with the specified context.
      *
-     * @param $contextId int
+     * @param int $contextId
      * @param null|mixed $userGroupId
      * @param null|mixed $roleId
      *
@@ -528,10 +528,10 @@ class UserGroupDAO extends DAO
     /**
      * Find users that don't have a given role
      *
-     * @param $roleId ROLE_ID_... int (const)
-     * @param $contextId int Optional context ID
-     * @param $search string Optional search string
-     * @param $rangeInfo RangeInfo Optional range info
+     * @param int $roleId ROLE_ID_... int (const)
+     * @param int $contextId Optional context ID
+     * @param string $search Optional search string
+     * @param RangeInfo $rangeInfo Optional range info
      *
      * @return DAOResultFactory
      */
@@ -651,7 +651,7 @@ class UserGroupDAO extends DAO
     /**
      * Delete all assignments to a given user group
      *
-     * @param unknown_type $userGroupId
+     * @param int $userGroupId
      */
     public function deleteAssignmentsByUserGroupId($userGroupId)
     {
@@ -686,9 +686,9 @@ class UserGroupDAO extends DAO
     /**
      * remove a given user from a given user group
      *
-     * @param $userId int
-     * @param $groupId int
-     * @param $contextId int
+     * @param int $userId
+     * @param int $groupId
+     * @param int $contextId
      */
     public function removeUserFromGroup($userId, $groupId, $contextId)
     {
@@ -703,8 +703,8 @@ class UserGroupDAO extends DAO
     /**
      * Delete all stage assignments in a user group.
      *
-     * @param $contextId int
-     * @param $userGroupId int
+     * @param int $contextId
+     * @param int $userGroupId
      */
     public function removeAllStagesFromGroup($contextId, $userGroupId)
     {
@@ -717,9 +717,9 @@ class UserGroupDAO extends DAO
     /**
      * Assign a user group to a stage
      *
-     * @param $contextId int
-     * @param $userGroupId int
-     * @param $stageId int
+     * @param int $contextId
+     * @param int $userGroupId
+     * @param int $stageId
      */
     public function assignGroupToStage($contextId, $userGroupId, $stageId)
     {
@@ -732,9 +732,9 @@ class UserGroupDAO extends DAO
     /**
      * Remove a user group from a stage
      *
-     * @param $contextId int
-     * @param $userGroupId int
-     * @param $stageId int
+     * @param int $contextId
+     * @param int $userGroupId
+     * @param int $stageId
      */
     public function removeGroupFromStage($contextId, $userGroupId, $stageId)
     {
@@ -750,11 +750,10 @@ class UserGroupDAO extends DAO
     /**
      * Method for updatea userGroup setting
      *
-     * @param $userGroupId int
-     * @param $name string
-     * @param $value mixed
-     * @param $type string data type of the setting. If omitted, type will be guessed
-     * @param $isLocalized boolean
+     * @param int $userGroupId
+     * @param string $name
+     * @param string $type data type of the setting. If omitted, type will be guessed
+     * @param bool $isLocalized
      */
     public function updateSetting($userGroupId, $name, $value, $type = null, $isLocalized = false)
     {
@@ -796,9 +795,9 @@ class UserGroupDAO extends DAO
     /**
      * Retrieve a context setting value.
      *
-     * @param $userGroupId int
-     * @param $name string
-     * @param $locale string optional
+     * @param int $userGroupId
+     * @param string $name
+     * @param string $locale optional
      */
     public function getSetting($userGroupId, $name, $locale = null)
     {
@@ -833,10 +832,10 @@ class UserGroupDAO extends DAO
     /**
      * Load the XML file and move the settings to the DB
      *
-     * @param $contextId
-     * @param $filename
+     * @param int $contextId
+     * @param string $filename
      *
-     * @return boolean true === success
+     * @return bool true === success
      */
     public function installSettings($contextId, $filename)
     {
@@ -902,8 +901,8 @@ class UserGroupDAO extends DAO
     /**
      * use the locale keys stored in the settings table to install the locale settings
      *
-     * @param $locale
-     * @param $contextId
+     * @param string $locale
+     * @param int $contextId
      */
     public function installLocale($locale, $contextId = null)
     {
@@ -934,7 +933,7 @@ class UserGroupDAO extends DAO
     /**
      * Remove all settings associated with a locale
      *
-     * @param $locale
+     * @param string $locale
      */
     public function deleteSettingsByLocale($locale)
     {
@@ -1095,8 +1094,8 @@ class UserGroupDAO extends DAO
     /**
      * Get all stages assigned to one user group in one context.
      *
-     * @param $contextId int The context ID.
-     * @param $userGroupId int The user group ID
+     * @param int $contextId The context ID.
+     * @param int $userGroupId The user group ID
      *
      * @return array
      */
@@ -1141,10 +1140,10 @@ class UserGroupDAO extends DAO
     /**
      * Check to see whether a user is assigned to a stage ID via a user group.
      *
-     * @param $contextId int
-     * @param $userId int
+     * @param int $contextId
+     * @param int $userId
      *
-     * @return boolean
+     * @return bool
      */
     public function userAssignmentExists($contextId, $userId, $stageId)
     {
@@ -1165,8 +1164,8 @@ class UserGroupDAO extends DAO
     /**
      * Get all user group IDs with recommendOnly option enabled.
      *
-     * @param $contextId integer
-     * @param $roleId integer (optional)
+     * @param int $contextId
+     * @param int $roleId (optional)
      *
      * @return array
      */
@@ -1196,8 +1195,8 @@ class UserGroupDAO extends DAO
     /**
      * Get all user group IDs with permit_metadata_edit option enabled.
      *
-     * @param $contextId integer
-     * @param $roleId integer (optional)
+     * @param int $contextId
+     * @param int $roleId (optional)
      *
      * @return array
      */

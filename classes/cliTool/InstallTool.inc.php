@@ -126,7 +126,7 @@ class InstallTool extends \PKP\cliTool\CommandLineTool
     /**
      * Print input section title.
      *
-     * @param $title string
+     * @param string $title
      */
     public function printTitle($title)
     {
@@ -151,9 +151,9 @@ class InstallTool extends \PKP\cliTool\CommandLineTool
     /**
      * Read a string parameter.
      *
-     * @param $name string
-     * @param $prompt string
-     * @param $defaultValue string
+     * @param string $name
+     * @param string $prompt
+     * @param string $defaultValue
      */
     public function readParam($name, $prompt, $defaultValue = null)
     {
@@ -176,9 +176,9 @@ class InstallTool extends \PKP\cliTool\CommandLineTool
     /**
      * Prompt user for yes/no input.
      *
-     * @param $name string
-     * @param $prompt string
-     * @param $default string default value, 'Y' or 'N'
+     * @param string $name
+     * @param string $prompt
+     * @param string $default default value, 'Y' or 'N'
      */
     public function readParamBoolean($name, $prompt, $default = 'N')
     {
@@ -196,9 +196,9 @@ class InstallTool extends \PKP\cliTool\CommandLineTool
     /**
      * Read a parameter from a set of options.
      *
-     * @param $name string
-     * @param $prompt string
-     * @param $options array
+     * @param string $name
+     * @param string $prompt
+     * @param array $options
      * @param null|mixed $defaultValue
      */
     public function readParamOptions($name, $prompt, $options, $defaultValue = null, $allowMultiple = false)
@@ -249,7 +249,7 @@ class InstallTool extends \PKP\cliTool\CommandLineTool
     /**
      * Log install message to stdout.
      *
-     * @param $message string
+     * @param string $message
      */
     public function log($message)
     {

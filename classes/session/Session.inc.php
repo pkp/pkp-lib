@@ -27,14 +27,14 @@ use PKP\config\Config;
 
 class Session extends \PKP\core\DataObject
 {
-    /** The User object associated with this session */
+    /** @var User User object associated with this session */
     public $user;
 
 
     /**
      * Get a session variable's value.
      *
-     * @param $key string
+     * @param string $key
      */
     public function getSessionVar($key)
     {
@@ -44,8 +44,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Get a session variable's value.
      *
-     * @param $key string
-     * @param $value mixed
+     * @param string $key
      */
     public function setSessionVar($key, $value)
     {
@@ -56,7 +55,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Unset (delete) a session variable.
      *
-     * @param $key string
+     * @param string $key
      */
     public function unsetSessionVar($key)
     {
@@ -82,7 +81,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set user ID.
      *
-     * @param $userId int
+     * @param int $userId
      */
     public function setUserId($userId)
     {
@@ -111,7 +110,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set IP address.
      *
-     * @param $ipAddress string
+     * @param string $ipAddress
      */
     public function setIpAddress($ipAddress)
     {
@@ -131,7 +130,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set user agent.
      *
-     * @param $userAgent string
+     * @param string $userAgent
      */
     public function setUserAgent($userAgent)
     {
@@ -151,7 +150,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set time (in seconds) since session was created.
      *
-     * @param $created int
+     * @param int $created
      */
     public function setSecondsCreated($created)
     {
@@ -171,7 +170,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set time (in seconds) since session was last used.
      *
-     * @param $lastUsed int
+     * @param int $lastUsed
      */
     public function setSecondsLastUsed($lastUsed)
     {
@@ -181,7 +180,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Check if session is to be saved across browser sessions.
      *
-     * @return boolean
+     * @return bool
      */
     public function getRemember()
     {
@@ -191,7 +190,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set whether session is to be saved across browser sessions.
      *
-     * @param $remember boolean
+     * @param bool $remember
      */
     public function setRemember($remember)
     {
@@ -211,7 +210,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set session parameters.
      *
-     * @param $data array
+     * @param array $data
      */
     public function setSessionData($data)
     {
@@ -231,7 +230,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set the domain with which the session is registered
      *
-     * @param $data array
+     * @param string $data
      */
     public function setDomain($data)
     {

@@ -40,8 +40,8 @@ class PluginHelper
     /**
      * Extract and validate a plugin (prior to installation)
      *
-     * @param $filePath string Full path to plugin archive
-     * @param $originalFileName string Original filename of plugin archive
+     * @param string $filePath Full path to plugin archive
+     * @param string $originalFileName Original filename of plugin archive
      *
      * @return string Extracted plugin path
      */
@@ -93,7 +93,7 @@ class PluginHelper
     /**
      * Installs an extracted plugin
      *
-     * @param $path string path to plugin Directory
+     * @param string $path path to plugin Directory
      *
      * @return Version Version of installed plugin on success
      */
@@ -152,11 +152,11 @@ class PluginHelper
     /**
      * Checks to see if local version of plugin is newer than installed version
      *
-     * @param $productType string Product type of plugin
-     * @param $productName string Product name of plugin
-     * @param $newVersion Version Version object of plugin to check against database
+     * @param string $productType Product type of plugin
+     * @param string $productName Product name of plugin
+     * @param Version $newVersion Version object of plugin to check against database
      *
-     * @return boolean
+     * @return bool
      */
     protected function _checkIfNewer($productType, $productName, $newVersion)
     {
@@ -189,9 +189,9 @@ class PluginHelper
     /**
      * Upgrade a plugin to a newer version from the user's filesystem
      *
-     * @param $category string
-     * @param $plugin string
-     * @param $path string path to plugin Directory
+     * @param string $category
+     * @param string $plugin
+     * @param string $path path to plugin Directory
      *
      * @return Version
      */

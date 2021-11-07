@@ -32,7 +32,7 @@ class PKPImportExportFilter extends PersistableFilter
     /**
      * Set the import/export deployment
      *
-     * @param $deployment NativeImportExportDeployment
+     * @param NativeImportExportDeployment $deployment
      */
     public function setDeployment($deployment)
     {
@@ -52,9 +52,9 @@ class PKPImportExportFilter extends PersistableFilter
     /**
      * Static method that gets the filter object given its name
      *
-     * @param $filter string
-     * @param $deployment PKPImportExportDeployment
-     * @param $opts array
+     * @param string $filter
+     * @param PKPImportExportDeployment $deployment
+     * @param array $opts
      *
      * @return Filter
      */

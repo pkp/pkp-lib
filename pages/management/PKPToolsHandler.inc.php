@@ -55,8 +55,8 @@ class PKPToolsHandler extends ManagementHandler
     /**
      * Route to other Tools operations
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function tools($args, $request)
     {
@@ -79,8 +79,8 @@ class PKPToolsHandler extends ManagementHandler
     /**
      * Display tools index page.
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      */
     public function index($args, $request)
     {
@@ -93,8 +93,8 @@ class PKPToolsHandler extends ManagementHandler
     /**
      * Import or export data.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function importexport($args, $request)
     {
@@ -120,8 +120,8 @@ class PKPToolsHandler extends ManagementHandler
     /**
      * Display the permissipns area.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function permissions($args, $request)
     {
@@ -135,8 +135,8 @@ class PKPToolsHandler extends ManagementHandler
     /**
      * Reset article/monograph permissions
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function resetPermissions($args, $request)
     {

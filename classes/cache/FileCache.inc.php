@@ -70,7 +70,7 @@ class FileCache extends GenericCache
     /**
      * Get an object from the cache.
      *
-     * @param $id
+     * @param string $id
      */
     public function getCache($id)
     {
@@ -84,8 +84,8 @@ class FileCache extends GenericCache
      * Set an object in the cache. This function should be overridden
      * by subclasses.
      *
-     * @param $id
-     * @param $value
+     * @param string $id
+     * @param mixed $value
      */
     public function setCache($id, $value)
     {

@@ -36,8 +36,8 @@ class SubmissionLanguageEntryDAO extends ControlledVocabEntryDAO
      * Retrieve an iterator of controlled vocabulary entries matching a
      * particular controlled vocabulary ID.
      *
-     * @param $controlledVocabId int
-     * @param $filter null (Not yet supported)
+     * @param int $controlledVocabId
+     * @param null $filter (Not yet supported)
      * @param null|mixed $rangeInfo
      *
      * @return object DAOResultFactory containing matching CVE objects

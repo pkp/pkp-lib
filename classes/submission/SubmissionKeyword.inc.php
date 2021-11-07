@@ -36,8 +36,8 @@ class SubmissionKeyword extends \PKP\controlledVocab\ControlledVocabEntry
     /**
      * Set the keyword text
      *
-     * @param keyword string
-     * @param locale string
+     * @param string $keyword
+     * @param string $locale
      */
     public function setKeyword($keyword, $locale)
     {

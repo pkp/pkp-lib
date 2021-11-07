@@ -31,22 +31,22 @@ abstract class PKPSubmissionsListPanel extends ListPanel
     /** @var string URL to the API endpoint where items can be retrieved */
     public $apiUrl = '';
 
-    /** @var integer Number of items to show at one time */
+    /** @var int Number of items to show at one time */
     public $count = 30;
 
     /** @var array Query parameters to pass if this list executes GET requests  */
     public $getParams = [];
 
-    /** @var boolean Should items be loaded after the component is mounted?  */
+    /** @var bool Should items be loaded after the component is mounted?  */
     public $lazyLoad = false;
 
-    /** @var integer Count of total items available for list */
+    /** @var int Count of total items available for list */
     public $itemsMax = 0;
 
-    /** @var boolean Whether to show assigned to editors filter */
+    /** @var bool Whether to show assigned to editors filter */
     public $includeAssignedEditorsFilter = false;
 
-    /** @var boolean Whether to show categories filter */
+    /** @var bool Whether to show categories filter */
     public $includeCategoriesFilter = false;
 
     /** @var array List of all available categories */
@@ -238,7 +238,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
     /**
      * Compile the categories for passing as filters
      *
-     * @param $categories array
+     * @param array $categories
      *
      * @return array
      */

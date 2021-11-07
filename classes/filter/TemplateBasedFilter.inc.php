@@ -17,8 +17,7 @@
 namespace PKP\filter;
 
 use APP\template\TemplateManager;
-
-use PKPK\filter\PersistableFilter;
+use PKP\filter\PersistableFilter;
 
 class TemplateBasedFilter extends PersistableFilter
 {
@@ -52,10 +51,10 @@ class TemplateBasedFilter extends PersistableFilter
      * Sub-classes must implement this method to add
      * template variables to the template.
      *
-     * @param $templateMgr TemplateManager
-     * @param $input mixed the filter input
-     * @param $request Request
-     * @param $locale AppLocale
+     * @param TemplateManager $templateMgr
+     * @param mixed $input the filter input
+     * @param Request $request
+     * @param string $locale
      */
     public function addTemplateVars($templateMgr, &$input, $request, &$locale)
     {

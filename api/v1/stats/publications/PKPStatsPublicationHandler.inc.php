@@ -105,9 +105,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      * Returns total views by abstract, all galleys, pdf galleys,
      * html galleys, and other galleys.
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response object Response
-     * @param $args array
+     * @param Request $slimRequest Slim request object
+     * @param object $response Response
+     * @param array $args
      *
      * @return object Response
      */
@@ -238,9 +238,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      * Get the total abstract views for a set of publications
      * in a timeline broken down month or day
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response object Response
-     * @param $args array
+     * @param Request $slimRequest Slim request object
+     * @param object $response Response
+     * @param array $args
      *
      * @return object Response
      */
@@ -303,9 +303,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      * Get the total galley views for a set of publications
      * in a timeline broken down month or day
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response object Response
-     * @param $args array
+     * @param Request $slimRequest Slim request object
+     * @param object $response Response
+     * @param array $args
      *
      * @return object Response
      */
@@ -367,9 +367,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     /**
      * Get a single publication's usage statistics
      *
-     * @param $slimRequest object Request Slim request
-     * @param $response object Response
-     * @param $args array
+     * @param object $slimRequest Request Slim request
+     * @param object $response Response
+     * @param array $args
      *
      * @return object Response
      */
@@ -430,9 +430,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      * Get the total abstract views for a set of publications broken down by
      * month or day
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response object Response
-     * @param $args array
+     * @param Request $slimRequest Slim request object
+     * @param object $response Response
+     * @param array $args
      *
      * @return object Response
      */
@@ -483,9 +483,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      * Get the total galley views for a publication broken down by
      * month or day
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response object Response
-     * @param $args array
+     * @param Request $slimRequest Slim request object
+     * @param object $response Response
+     * @param array $args
      *
      * @return object Response
      */

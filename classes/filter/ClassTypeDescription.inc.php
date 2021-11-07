@@ -27,7 +27,7 @@ class ClassTypeDescription extends TypeDescription
     /**
      * Constructor
      *
-     * @param $typeName string a fully qualified class name.
+     * @param string $typeName a fully qualified class name.
      */
     public function __construct($typeName)
     {
@@ -93,7 +93,7 @@ class ClassTypeDescription extends TypeDescription
      * Splits a fully qualified class name into
      * a package and a class name string.
      *
-     * @param $typeName the type name to be split up.
+     * @param string $typeName the type name to be split up.
      *
      * @return array an array with the package name
      *  as its first entry and the class name as its

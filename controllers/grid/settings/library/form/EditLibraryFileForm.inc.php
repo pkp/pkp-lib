@@ -17,17 +17,17 @@ import('lib.pkp.controllers.grid.files.form.LibraryFileForm');
 
 class EditLibraryFileForm extends LibraryFileForm
 {
-    /** the file being edited, or null for new */
+    /** @var LibraryFile the file being edited, or null for new */
     public $libraryFile;
 
-    /** the id of the context this library file is attached to */
+    /** @var int the id of the context this library file is attached to */
     public $contextId;
 
     /**
      * Constructor.
      *
-     * @param $contextId int
-     * @param $fileId int optional
+     * @param int $contextId
+     * @param int $fileId optional
      */
     public function __construct($contextId, $fileId)
     {

@@ -33,7 +33,7 @@ class Note extends \PKP\core\DataObject
     /**
      * set user id of the note's author
      *
-     * @param $userId int
+     * @param int $userId
      */
     public function setUserId($userId)
     {
@@ -63,7 +63,7 @@ class Note extends \PKP\core\DataObject
     /**
      * set date note was created
      *
-     * @param $dateCreated date (YYYY-MM-DD HH:MM:SS)
+     * @param date $dateCreated (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateCreated($dateCreated)
     {
@@ -83,7 +83,7 @@ class Note extends \PKP\core\DataObject
     /**
      * set date note was modified
      *
-     * @param $dateModified date (YYYY-MM-DD HH:MM:SS)
+     * @param date $dateModified (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateModified($dateModified)
     {
@@ -103,7 +103,7 @@ class Note extends \PKP\core\DataObject
     /**
      * set note contents
      *
-     * @param $contents string
+     * @param string $contents
      */
     public function setContents($contents)
     {
@@ -123,7 +123,7 @@ class Note extends \PKP\core\DataObject
     /**
      * set note title
      *
-     * @param $title string
+     * @param string $title
      */
     public function setTitle($title)
     {
@@ -143,7 +143,7 @@ class Note extends \PKP\core\DataObject
     /**
      * set note type
      *
-     * @param $assocType int
+     * @param int $assocType
      */
     public function setAssocType($assocType)
     {
@@ -163,7 +163,7 @@ class Note extends \PKP\core\DataObject
     /**
      * set note assoc id
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {

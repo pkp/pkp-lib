@@ -34,9 +34,9 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Retrieve DataObjectTombstone by id.
      *
-     * @param $tombstoneId int
-     * @param $assocType int
-     * @param $assocId int
+     * @param int $tombstoneId
+     * @param int $assocType
+     * @param int $assocId
      *
      * @return DataObjectTombstone object
      */
@@ -58,7 +58,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Retrieve DataObjectTombstone by data object id.
      *
-     * @param $dataObjectId int
+     * @param int $dataObjectId
      *
      * @return DataObjectTombstone object
      */
@@ -75,7 +75,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Creates and returns a data object tombstone object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return DataObjectTombstone object
      */
@@ -98,11 +98,11 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Delete DataObjectTombstone by tombstone id.
      *
-     * @param $tombstoneId int
-     * @param $assocType int
-     * @param $assocId int
+     * @param int $tombstoneId
+     * @param int $assocType
+     * @param int $assocId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteById($tombstoneId, $assocType = null, $assocId = null)
     {
@@ -130,7 +130,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Delete DataObjectTombstone by data object id.
      *
-     * @param $dataObjectId int
+     * @param int $dataObjectId
      */
     public function deleteByDataObjectId($dataObjectId)
     {
@@ -143,7 +143,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Inserts a new data object tombstone into data_object_tombstone table.
      *
-     * @param $dataObjectTombstone DataObjectTombstone
+     * @param DataObjectTombstone $dataObjectTombstone
      *
      * @return int Data object tombstone id.
      */
@@ -174,7 +174,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Update a data object tombstone in the data_object_tombstones table.
      *
-     * @param $dataObjectTombstone DataObjectTombstone
+     * @param DataObjectTombstone $dataObjectTombstone
      *
      * @return int dataObjectTombstone id
      */
@@ -219,8 +219,8 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
      * Retrieve all sets for data object tombstones that are inside of
      * the passed set object id.
      *
-     * @param $assocType int The assoc type of the parent set object.
-     * @param $assocId int The id of the parent set object.
+     * @param int $assocType The assoc type of the parent set object.
+     * @param int $assocId The id of the parent set object.
      *
      * @return array('setSpec' => setName)
      */
@@ -244,7 +244,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
      * Get all objects ids that are part of the passed
      * tombstone OAI set.
      *
-     * @param $tombstoneId int
+     * @param int $tombstoneId
      *
      * @return array assocType => assocId
      */
@@ -265,7 +265,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Delete OAI set objects data from data_object_tombstone_oai_set_objects table.
      *
-     * @param $tombstoneId int The related tombstone id.
+     * @param int $tombstoneId The related tombstone id.
      */
     public function deleteOAISetObjects($tombstoneId)
     {
@@ -278,7 +278,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Insert OAI set objects data into data_object_tombstone_oai_set_objects table.
      *
-     * @param $dataObjectTombstone DataObjectTombstone
+     * @param DataObjectTombstone $dataObjectTombstone
      */
     public function insertOAISetObjects($dataObjectTombstone)
     {
@@ -300,9 +300,9 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Update OAI set objects data into data_object_tombstone_oai_set_objects table.
      *
-     * @param $dataObjectTombstone DataObjectTombstone
+     * @param DataObjectTombstone $dataObjectTombstone
      *
-     * @return boolean
+     * @return bool
      */
     public function updateOAISetObjects($dataObjectTombstone)
     {

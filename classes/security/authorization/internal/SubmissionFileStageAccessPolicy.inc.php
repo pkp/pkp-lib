@@ -36,9 +36,9 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $fileStage int SUBMISSION_FILE_...
-     * @param $action int SUBMISSION_FILE_ACCESS_READ or SUBMISSION_FILE_ACCESS_MODIFY
-     * @param $message string The message to display when authorization is denied
+     * @param int $fileStage SUBMISSION_FILE_...
+     * @param int $action SUBMISSION_FILE_ACCESS_READ or SUBMISSION_FILE_ACCESS_MODIFY
+     * @param string $message The message to display when authorization is denied
      */
     public function __construct($fileStage, $action, $message)
     {

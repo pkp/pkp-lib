@@ -30,8 +30,8 @@ class PKPCitationsForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $publication Publication The publication to change settings for
+     * @param string $action URL to submit the form to
+     * @param Publication $publication The publication to change settings for
      */
     public function __construct($action, $publication)
     {

@@ -31,13 +31,13 @@ class GridRow extends GridBodyElement
     /** @var array */
     public $_requestArgs;
 
-    /** @var the grid this row belongs to */
+    /** @var string the grid this row belongs to */
     public $_gridId;
 
     /** @var mixed the row's data source */
     public $_data;
 
-    /** @var boolean true if the row has been modified */
+    /** @var bool true if the row has been modified */
     public $_isModified;
 
     /**
@@ -68,7 +68,7 @@ class GridRow extends GridBodyElement
     /**
      * Set the grid id
      *
-     * @param $gridId string
+     * @param string $gridId
      */
     public function setGridId($gridId)
     {
@@ -90,7 +90,7 @@ class GridRow extends GridBodyElement
      *
      * @see GridHandler::getRequestArgs()
      *
-     * @param $requestArgs array
+     * @param array $requestArgs
      */
     public function setRequestArgs($requestArgs)
     {
@@ -112,7 +112,6 @@ class GridRow extends GridBodyElement
     /**
      * Set the data element(s) for this controller
      *
-     * @param $data mixed
      */
     public function setData(&$data)
     {
@@ -130,7 +129,7 @@ class GridRow extends GridBodyElement
     /**
      * Set the modified flag for the row
      *
-     * @param $isModified boolean
+     * @param bool $isModified
      */
     public function setIsModified($isModified)
     {
@@ -140,7 +139,7 @@ class GridRow extends GridBodyElement
     /**
      * Get the modified flag for the row
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsModified()
     {
@@ -150,7 +149,7 @@ class GridRow extends GridBodyElement
     /**
      * Get whether this row has any actions or not.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasActions()
     {
@@ -165,7 +164,7 @@ class GridRow extends GridBodyElement
     /**
      * Get all actions for a given position within the controller
      *
-     * @param $position string the position of the actions
+     * @param string $position the position of the actions
      *
      * @return array the LinkActions for the given position
      */
@@ -180,8 +179,8 @@ class GridRow extends GridBodyElement
     /**
      * Add an action
      *
-     * @param $action mixed a single action
-     * @param $position string the position of the action
+     * @param mixed $action a single action
+     * @param string $position the position of the action
      */
     public function addAction($action, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {
@@ -205,7 +204,7 @@ class GridRow extends GridBodyElement
     /**
      * Set the controller template
      *
-     * @param $template string
+     * @param string $template
      */
     public function setTemplate($template)
     {
@@ -220,8 +219,8 @@ class GridRow extends GridBodyElement
      *
      * Subclasses can override this method.
      *
-     * @param $request PKPRequest
-     * @param $template string
+     * @param PKPRequest $request
+     * @param string $template
      */
     public function initialize($request, $template = null)
     {

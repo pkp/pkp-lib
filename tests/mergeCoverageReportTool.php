@@ -27,7 +27,7 @@ class MergeCoverageReportTool extends \PKP\cliTool\CommandLineTool
     /**
      * Constructor.
      *
-     * @param $argv array command-line arguments
+     * @param array $argv command-line arguments
      *  The first argument must be the file to check
      */
     public function __construct($argv = [])

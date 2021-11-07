@@ -29,8 +29,8 @@ abstract class AuthPlugin extends Plugin
     /**
      * Constructor.
      *
-     * @param $settings array
-     * @param $authId int ID for this instance
+     * @param array $settings
+     * @param int $authId ID for this instance
      */
     public function __construct($settings = [], $authId = null)
     {
@@ -61,9 +61,9 @@ abstract class AuthPlugin extends Plugin
     /**
      * Update local user profile from the remote source, if enabled.
      *
-     * @param $user User
+     * @param User $user
      *
-     * @return boolean true if successful
+     * @return bool true if successful
      */
     public function doGetUserInfo($user)
     {
@@ -76,9 +76,9 @@ abstract class AuthPlugin extends Plugin
     /**
      * Update remote user profile, if enabled.
      *
-     * @param $user User
+     * @param User $user
      *
-     * @return boolean true if successful
+     * @return bool true if successful
      */
     public function doSetUserInfo($user)
     {
@@ -91,10 +91,10 @@ abstract class AuthPlugin extends Plugin
     /**
      * Update remote user password, if enabled.
      *
-     * @param $username string
-     * @param $password string
+     * @param string $username
+     * @param string $password
      *
-     * @return boolean true if successful
+     * @return bool true if successful
      */
     public function doSetUserPassword($username, $password)
     {
@@ -107,9 +107,9 @@ abstract class AuthPlugin extends Plugin
     /**
      * Create remote user account, if enabled.
      *
-     * @param $user User to create
+     * @param User $user User to create
      *
-     * @return boolean true if successful
+     * @return bool true if successful
      */
     public function doCreateUser($user)
     {
@@ -127,8 +127,8 @@ abstract class AuthPlugin extends Plugin
     /**
      * Returns an instance of the authentication plugin
      *
-     * @param $settings array settings specific to this instance
-     * @param $authId int identifier for this instance
+     * @param array $settings settings specific to this instance
+     * @param int $authId identifier for this instance
      *
      * @return AuthPlugin
      */
@@ -137,10 +137,10 @@ abstract class AuthPlugin extends Plugin
     /**
      * Authenticate a username and password.
      *
-     * @param $username string
-     * @param $password string
+     * @param string $username
+     * @param string $password
      *
-     * @return boolean true if authentication is successful
+     * @return bool true if authentication is successful
      */
     abstract public function authenticate($username, $password);
 
@@ -152,9 +152,9 @@ abstract class AuthPlugin extends Plugin
     /**
      * Check if a username exists.
      *
-     * @param $username string
+     * @param string $username
      *
-     * @return boolean
+     * @return bool
      */
     public function userExists($username)
     {
@@ -165,9 +165,9 @@ abstract class AuthPlugin extends Plugin
      * Retrieve user profile information from the remote source.
      * Any unsupported fields (e.g., OJS- or OMP-specific ones) should not be modified.
      *
-     * @param $user User to update
+     * @param User $user User to update
      *
-     * @return boolean true if successful
+     * @return bool true if successful
      */
     public function getUserInfo($user)
     {
@@ -177,9 +177,9 @@ abstract class AuthPlugin extends Plugin
     /**
      * Store user profile information on the remote source.
      *
-     * @param $user User to store
+     * @param User $user User to store
      *
-     * @return boolean true if successful
+     * @return bool true if successful
      */
     public function setUserInfo($user)
     {
@@ -189,10 +189,10 @@ abstract class AuthPlugin extends Plugin
     /**
      * Change a user's password on the remote source.
      *
-     * @param $username string user to update
-     * @param $password string the new password
+     * @param string $username user to update
+     * @param string $password the new password
      *
-     * @return boolean true if successful
+     * @return bool true if successful
      */
     public function setUserPassword($username, $password)
     {
@@ -202,9 +202,9 @@ abstract class AuthPlugin extends Plugin
     /**
      * Create a user on the remote source.
      *
-     * @param $user User to create
+     * @param User $user User to create
      *
-     * @return boolean true if successful
+     * @return bool true if successful
      */
     public function createUser($user)
     {
@@ -216,9 +216,9 @@ abstract class AuthPlugin extends Plugin
      * This function is currently not used within OJS or OMP,
      * but is reserved for future use.
      *
-     * @param $username string user to delete
+     * @param string $username user to delete
      *
-     * @return boolean true if successful
+     * @return bool true if successful
      */
     public function deleteUser($username)
     {

@@ -28,7 +28,7 @@ class ScheduledTaskDAO extends \PKP\db\DAO
     /**
      * Get the last time a scheduled task was executed.
      *
-     * @param $className string
+     * @param string $className
      *
      * @return int
      */
@@ -45,8 +45,8 @@ class ScheduledTaskDAO extends \PKP\db\DAO
     /**
      * Update a scheduled task's last run time.
      *
-     * @param $className string
-     * @param $timestamp int optional, if omitted the current time is used.
+     * @param string $className
+     * @param int $timestamp optional, if omitted the current time is used.
      *
      * @return int
      */

@@ -22,13 +22,13 @@ class ListbuilderGridColumn extends GridColumn
     /**
      * Constructor
      *
-     * @param $listbuilder ListbuilderHandler The listbuilder handler this column belongs to.
-     * @param $id string The optional symbolic ID for this column.
-     * @param $title string The optional title for this column.
-     * @param $titleTranslated string The optional translated title for this column.
-     * @param $template string The optional overridden template for this column.
-     * @param $cellProvider ListbuilderGridCellProvider The optional overridden grid cell provider.
-     * @param $flags array Optional set of flags for this column's display.
+     * @param ListbuilderHandler $listbuilder The listbuilder handler this column belongs to.
+     * @param string $id The optional symbolic ID for this column.
+     * @param string $title The optional title for this column.
+     * @param string $titleTranslated The optional translated title for this column.
+     * @param string $template The optional overridden template for this column.
+     * @param ListbuilderGridCellProvider $cellProvider The optional overridden grid cell provider.
+     * @param array $flags Optional set of flags for this column's display.
      */
     public function __construct(
         $listbuilder,

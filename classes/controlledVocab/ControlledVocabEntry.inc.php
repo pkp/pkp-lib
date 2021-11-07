@@ -36,7 +36,7 @@ class ControlledVocabEntry extends \PKP\core\DataObject
     /**
      * Set the ID of the controlled vocab.
      *
-     * @param $controlledVocabId int
+     * @param int $controlledVocabId
      */
     public function setControlledVocabId($controlledVocabId)
     {
@@ -56,7 +56,7 @@ class ControlledVocabEntry extends \PKP\core\DataObject
     /**
      * Set sequence number.
      *
-     * @param $sequence float
+     * @param float $sequence
      */
     public function setSequence($sequence)
     {
@@ -76,7 +76,7 @@ class ControlledVocabEntry extends \PKP\core\DataObject
     /**
      * Get the name of the controlled vocabulary entry.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -88,8 +88,8 @@ class ControlledVocabEntry extends \PKP\core\DataObject
     /**
      * Set the name of the controlled vocabulary entry.
      *
-     * @param $name string
-     * @param $locale string
+     * @param string $name
+     * @param string $locale
      */
     public function setName($name, $locale)
     {

@@ -45,7 +45,7 @@ class AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $message string
+     * @param string $message
      */
     public function __construct($message = null)
     {
@@ -60,8 +60,7 @@ class AuthorizationPolicy
     /**
      * Set an advice
      *
-     * @param $adviceType integer
-     * @param $adviceContent mixed
+     * @param int $adviceType
      */
     public function setAdvice($adviceType, $adviceContent)
     {
@@ -72,9 +71,9 @@ class AuthorizationPolicy
      * Whether this policy implements
      * the given advice type.
      *
-     * @param $adviceType integer
+     * @param int $adviceType
      *
-     * @return boolean
+     * @return bool
      */
     public function hasAdvice($adviceType)
     {
@@ -84,7 +83,7 @@ class AuthorizationPolicy
     /**
      * Get advice for the given advice type.
      *
-     * @param $adviceType integer
+     * @param int $adviceType
      */
     public function &getAdvice($adviceType)
     {
@@ -99,8 +98,7 @@ class AuthorizationPolicy
     /**
      * Add an object to the authorized context
      *
-     * @param $assocType integer
-     * @param $authorizedObject mixed
+     * @param int $assocType
      */
     public function addAuthorizedContextObject($assocType, &$authorizedObject)
     {
@@ -111,9 +109,9 @@ class AuthorizationPolicy
      * Check whether an object already exists in the
      * authorized context.
      *
-     * @param $assocType integer
+     * @param int $assocType
      *
-     * @return boolean
+     * @return bool
      */
     public function hasAuthorizedContextObject($assocType)
     {
@@ -123,7 +121,7 @@ class AuthorizationPolicy
     /**
      * Retrieve an object from the authorized context
      *
-     * @param $assocType integer
+     * @param int $assocType
      *
      * @return mixed will return null if the context
      *  for the given assoc type does not exist.
@@ -164,7 +162,7 @@ class AuthorizationPolicy
     /**
      * Whether this policy applies.
      *
-     * @return boolean
+     * @return bool
      */
     public function applies()
     {

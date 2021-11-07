@@ -26,11 +26,11 @@ class SetFilterSetting extends FilterSetting
     /**
      * Constructor
      *
-     * @param $name string
-     * @param $displayName string
-     * @param $validationMessage string
-     * @param $acceptedValues array
-     * @param $required boolean
+     * @param string $name
+     * @param string $displayName
+     * @param string $validationMessage
+     * @param array $acceptedValues
+     * @param bool $required
      */
     public function __construct($name, $displayName, $validationMessage, $acceptedValues, $required = FormValidator::FORM_VALIDATOR_REQUIRED_VALUE)
     {
@@ -44,7 +44,7 @@ class SetFilterSetting extends FilterSetting
     /**
      * Set the accepted values
      *
-     * @param $acceptedValues array
+     * @param array $acceptedValues
      */
     public function setAcceptedValues($acceptedValues)
     {

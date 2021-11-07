@@ -24,7 +24,7 @@ class InitiateReviewForm extends EditorDecisionForm
     /**
      * Constructor.
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     public function __construct($submission, $decision, $stageId, $template)
     {

@@ -61,13 +61,13 @@ abstract class LazyLoadPlugin extends Plugin
     /**
      * Determine whether or not this plugin is currently enabled.
      *
-     * @param $contextId integer To identify if the plugin is enabled
+     * @param int $contextId To identify if the plugin is enabled
      *  we need a context. This context is usually taken from the
      *  request but sometimes there is no context in the request
      *  (e.g. when executing CLI commands). Then the main context
      *  can be given as an explicit ID.
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled($contextId = null)
     {
@@ -83,7 +83,7 @@ abstract class LazyLoadPlugin extends Plugin
     /**
      * Set whether or not this plugin is currently enabled.
      *
-     * @param $enabled boolean
+     * @param bool $enabled
      */
     public function setEnabled($enabled)
     {

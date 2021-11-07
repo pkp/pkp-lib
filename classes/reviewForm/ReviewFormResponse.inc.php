@@ -37,7 +37,7 @@ class ReviewFormResponse extends \PKP\core\DataObject
     /**
      * Set the review ID.
      *
-     * @param $reviewId int
+     * @param int $reviewId
      */
     public function setReviewId($reviewId)
     {
@@ -57,7 +57,7 @@ class ReviewFormResponse extends \PKP\core\DataObject
     /**
      * Set ID of review form element.
      *
-     * @param $reviewFormElementId int
+     * @param int $reviewFormElementId
      */
     public function setReviewFormElementId($reviewFormElementId)
     {
@@ -77,7 +77,7 @@ class ReviewFormResponse extends \PKP\core\DataObject
     /**
      * Set response value.
      *
-     * @param $value int
+     * @param int $value
      */
     public function setValue($value)
     {
@@ -97,7 +97,7 @@ class ReviewFormResponse extends \PKP\core\DataObject
     /**
      * Set response type.
      *
-     * @param $type string
+     * @param string $type
      */
     public function setResponseType($type)
     {

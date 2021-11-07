@@ -53,7 +53,7 @@ class XSLTransformer
      * Constructor.
      * Initialize transformer and set parser options.
      *
-     * @return boolean returns false if no XSLT processor could be created
+     * @return bool returns false if no XSLT processor could be created
      */
     public function __construct()
     {
@@ -66,7 +66,7 @@ class XSLTransformer
     /**
      * Fetch configuration and check whether XSLT is properly supported.
      *
-     * @return boolean True iff XSLT support is present.
+     * @return bool True iff XSLT support is present.
      */
     public static function checkSupport()
     {
@@ -109,7 +109,7 @@ class XSLTransformer
     /**
      * Set the parameter list for internal processors.
      *
-     * @param $parameters array
+     * @param array $parameters
      */
     public function setParameters($parameters)
     {
@@ -119,7 +119,7 @@ class XSLTransformer
     /**
      * Set the registerPHPFunctions setting on or off.
      *
-     * @param $flag boolean
+     * @param bool $flag
      */
     public function setRegisterPHPFunctions($flag)
     {
@@ -131,8 +131,8 @@ class XSLTransformer
     /**
      * Apply an XSLT transform to a given XML and XSL source files
      *
-     * @param $xmlFile string absolute pathname to the XML source file
-     * @param $xslFile string absolute pathname to the XSL stylesheet
+     * @param string $xmlFile absolute pathname to the XML source file
+     * @param string $xslFile absolute pathname to the XSL stylesheet
      *
      * @return string containing the transformed XML output, or false on error
      */
@@ -144,8 +144,8 @@ class XSLTransformer
     /**
      * Apply an XSLT transform to a given XML and XSL strings
      *
-     * @param $xml string containing source XML
-     * @param $xsl string containing source XSL
+     * @param string $xml containing source XML
+     * @param string $xsl containing source XSL
      *
      * @return string containing the transformed XML output, or false on error
      */
@@ -158,11 +158,9 @@ class XSLTransformer
      * Apply an XSLT transform to a given XML and XSL. Both parameters
      * can be either strings, files or DOM objects.
      *
-     * @param $xml mixed
-     * @param $xmlType integer
-     * @param $xsl mixed
-     * @param $xslType integer
-     * @param $resultType integer self::XSL_TRANSFORMER_DOCTYPE_...
+     * @param int $xmlType
+     * @param int $xslType
+     * @param int $resultType self::XSL_TRANSFORMER_DOCTYPE_...
      *
      * @return mixed return type depends on the $resultType parameter and can be
      *  DOMDocument or string. The method returns a boolean value of false if the
@@ -205,11 +203,9 @@ class XSLTransformer
     /**
      * Use external programs to do the XSL transformation
      *
-     * @param $xml mixed
-     * @param $xmlType integer
-     * @param $xsl mixed
-     * @param $xslType integer
-     * @param $resultType integer self::XSL_TRANSFORMER_DOCTYPE_...
+     * @param int $xmlType
+     * @param int $xslType
+     * @param int $resultType self::XSL_TRANSFORMER_DOCTYPE_...
      *
      * @return mixed return type depends on the $resultType parameter and can be
      *  DOMDocument or string. Returns boolean "false" on error.
@@ -282,11 +278,9 @@ class XSLTransformer
     /**
      * Use PHP5's DOMDocument and XSLTProcessor to do the transformation
      *
-     * @param $xml mixed
-     * @param $xmlType integer
-     * @param $xsl mixed
-     * @param $xslType integer
-     * @param $resultType integer self::XSL_TRANSFORMER_DOCTYPE_...
+     * @param int $xmlType
+     * @param int $xslType
+     * @param int $resultType self::XSL_TRANSFORMER_DOCTYPE_...
      *
      * @return mixed return type depends on the $resultType parameter and can be
      *  DOMDocument or string. Returns boolean "false" on error.
@@ -387,7 +381,7 @@ class XSLTransformer
     /**
      * Add an error to the current error list
      *
-     * @param $error string
+     * @param string $error
      */
     public function addError($error)
     {

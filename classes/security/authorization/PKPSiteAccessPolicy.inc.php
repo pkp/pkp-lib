@@ -23,11 +23,11 @@ class PKPSiteAccessPolicy extends PolicySet
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $operations array|string either a single operation or a list of operations that
+     * @param PKPRequest $request
+     * @param array|string $operations either a single operation or a list of operations that
      *  this policy is targeting.
-     * @param $roleAssignments array|int Either an array of role -> operation assignments or the constant SITE_ACCESS_ALL_ROLES
-     * @param $message string a message to be displayed if the authorization fails
+     * @param array|int $roleAssignments Either an array of role -> operation assignments or the constant SITE_ACCESS_ALL_ROLES
+     * @param string $message a message to be displayed if the authorization fails
      */
     public function __construct($request, $operations, $roleAssignments, $message = 'user.authorization.loginRequired')
     {

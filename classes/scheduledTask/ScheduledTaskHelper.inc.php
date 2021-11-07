@@ -40,8 +40,8 @@ class ScheduledTaskHelper
      * Constructor.
      * Ovewrites both parameters if one is not passed.
      *
-     * @param $email string (optional)
-     * @param $contactName string (optional)
+     * @param string $email (optional)
+     * @param string $contactName (optional)
      */
     public function __construct($email = '', $contactName = '')
     {
@@ -70,7 +70,7 @@ class ScheduledTaskHelper
     /**
      * Get the arguments for a task from the parsed XML.
      *
-     * @param XMLNode
+     * @param XMLNode $task
      *
      * @return array
      */
@@ -91,8 +91,8 @@ class ScheduledTaskHelper
      * Check if the specified task should be executed according to the specified
      * frequency and its last run time.
      *
-     * @param $className string
-     * @param $frequency XMLNode
+     * @param string $className
+     * @param XMLNode $frequency
      *
      * @return string
      */
@@ -147,11 +147,11 @@ class ScheduledTaskHelper
      * Notifies site administrator about the
      * task execution result.
      *
-     * @param $id int Task id.
-     * @param $name string Task name.
-     * @param $result boolean Whether or not the task
+     * @param int $id Task id.
+     * @param string $name Task name.
+     * @param bool $result Whether or not the task
      * execution was successful.
-     * @param $executionLogFile string Task execution log file path.
+     * @param string $executionLogFile Task execution log file path.
      */
     public function notifyExecutionResult($id, $name, $result, $executionLogFile = '')
     {
@@ -178,7 +178,7 @@ class ScheduledTaskHelper
     /**
      * Get execution log email message.
      *
-     * @param $executionLogFile string
+     * @param string $executionLogFile
      *
      * @return string
      */
@@ -213,7 +213,7 @@ class ScheduledTaskHelper
     /**
      * Download execution log file.
      *
-     * @param $file string
+     * @param string $file
      */
     public static function downloadExecutionLog($file)
     {
@@ -229,10 +229,10 @@ class ScheduledTaskHelper
     /**
      * Send email to the site administrator.
      *
-     * @param $message string
-     * @param $subject string
+     * @param string $message
+     * @param string $subject
      *
-     * @return boolean
+     * @return bool
      */
     private function _sendEmail($message, $subject)
     {
@@ -247,14 +247,14 @@ class ScheduledTaskHelper
     /**
      * Check if a value is within the specified range.
      *
-     * @param $rangeStr string the range (e.g., 0, 1-5, *, etc.)
-     * @param $currentValue int value to check if its in the range
-     * @param $lastTimestamp int the last time the task was executed
-     * @param $timeCompareStr string value to use in strtotime("-X $timeCompareStr")
-     * @param $passTimestamp int If the last run is older than this timestamp, consider executing.
-     * @param $blockTimestamp int If the last run is newer than this timestamp, do not execute.
+     * @param string $rangeStr the range (e.g., 0, 1-5, *, etc.)
+     * @param int $currentValue value to check if its in the range
+     * @param int $lastTimestamp the last time the task was executed
+     * @param string $timeCompareStr value to use in strtotime("-X $timeCompareStr")
+     * @param int $passTimestamp If the last run is older than this timestamp, consider executing.
+     * @param int $blockTimestamp If the last run is newer than this timestamp, do not execute.
      *
-     * @return boolean
+     * @return bool
      */
     private static function _isInRange($rangeStr, $currentValue, $lastTimestamp, $timeCompareStr, $passTimestamp, $blockTimestamp)
     {
@@ -306,11 +306,11 @@ class ScheduledTaskHelper
     /**
      * Check if a numeric value is within the specified range.
      *
-     * @param $value int
-     * @param $min int
-     * @param $max int
+     * @param int $value
+     * @param int $min
+     * @param int $max
      *
-     * @return boolean
+     * @return bool
      */
     private static function _isInNumericRange($value, $min, $max)
     {

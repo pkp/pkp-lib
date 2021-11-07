@@ -24,7 +24,7 @@ class XMLDAO
      *
      * @see PKPXMLParser::parse()
      *
-     * @param $file string
+     * @param string $file
      */
     public function parse($file)
     {
@@ -37,8 +37,8 @@ class XMLDAO
      *
      * @see PKPXMLParser::parse()
      *
-     * @param $file string
-     * @param $handler reference to the handler to use with the parser.
+     * @param string $file
+     * @param callable $handler reference to the handler to use with the parser.
      */
     public function parseWithHandler($file, $handler)
     {
@@ -52,10 +52,10 @@ class XMLDAO
      *
      * @see PKPXMLParser::parseStruct()
      *
-     * @param $file string
-     * @param $tagsToMatch array
+     * @param string $file
+     * @param array $tagsToMatch
      *
-     * @return array?
+     * @return array|null
      */
     public function parseStruct($file, $tagsToMatch = [])
     {

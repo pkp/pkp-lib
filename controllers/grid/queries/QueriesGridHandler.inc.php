@@ -35,7 +35,7 @@ use PKP\security\Role;
 
 class QueriesGridHandler extends GridHandler
 {
-    /** @var integer WORKFLOW_STAGE_ID_... */
+    /** @var int WORKFLOW_STAGE_ID_... */
     public $_stageId;
 
     /** @var PKPRequest */
@@ -88,7 +88,7 @@ class QueriesGridHandler extends GridHandler
     /**
      * Get the stage id.
      *
-     * @return integer
+     * @return int
      */
     public function getStageId()
     {
@@ -335,8 +335,8 @@ class QueriesGridHandler extends GridHandler
     /**
      * Add a query
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -360,8 +360,8 @@ class QueriesGridHandler extends GridHandler
     /**
      * Delete a query.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -403,8 +403,8 @@ class QueriesGridHandler extends GridHandler
     /**
      * Open a closed query.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -424,8 +424,8 @@ class QueriesGridHandler extends GridHandler
     /**
      * Close an open query.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -455,8 +455,8 @@ class QueriesGridHandler extends GridHandler
     /**
      * Read a query
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -520,8 +520,8 @@ class QueriesGridHandler extends GridHandler
     /**
      * Fetch the list of participants for a query
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -558,8 +558,8 @@ class QueriesGridHandler extends GridHandler
     /**
      * Edit a query
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -586,8 +586,8 @@ class QueriesGridHandler extends GridHandler
     /**
      * Save a query
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -708,8 +708,8 @@ class QueriesGridHandler extends GridHandler
     /**
      * Leave query
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -731,9 +731,9 @@ class QueriesGridHandler extends GridHandler
     /**
      * Check if the current user can leave a query. Only allow if query has more than two participants.
      *
-     * @param $queryId int
+     * @param int $queryId
      *
-     * @return boolean
+     * @return bool
      */
     public function _getCurrentUserCanLeave($queryId)
     {

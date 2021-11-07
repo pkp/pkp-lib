@@ -22,7 +22,7 @@ class PrimitiveTypeDescription extends TypeDescription
     /**
      * Constructor
      *
-     * @param $typeName string Allowed primitive types are
+     * @param string $typeName Allowed primitive types are
      *  'integer', 'string', 'float' and 'boolean'.
      */
     public function __construct($typeName)
@@ -85,7 +85,6 @@ class PrimitiveTypeDescription extends TypeDescription
     /**
      * Return a string representation of a primitive type.
      *
-     * @param $variable mixed
      */
     public function _getPrimitiveTypeName(&$variable)
     {

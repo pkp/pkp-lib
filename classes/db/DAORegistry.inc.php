@@ -37,8 +37,8 @@ class DAORegistry
     /**
      * Register a new DAO with the system.
      *
-     * @param $name string The name of the DAO to register
-     * @param $dao object A reference to the DAO to be registered
+     * @param string $name The name of the DAO to register
+     * @param object $dao A reference to the DAO to be registered
      *
      * @return object A reference to previously-registered DAO of the same
      *    name, if one was already registered; null otherwise
@@ -58,7 +58,7 @@ class DAORegistry
     /**
      * Retrieve a reference to the specified DAO.
      *
-     * @param $name string the class name of the requested DAO
+     * @param string $name the class name of the requested DAO
      *
      * @return DAO
      */

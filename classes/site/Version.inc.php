@@ -62,7 +62,7 @@ class Version extends \PKP\core\DataObject
      *     0 if they are equal
      *     > 0 if this version is higher
      *
-     * @param $version string/Version the version to compare against
+     * @param string|Version $version the version to compare against
      *
      * @return int
      */
@@ -77,12 +77,12 @@ class Version extends \PKP\core\DataObject
     /**
      * Static method to return a new version from a version string of the form "W.X.Y.Z".
      *
-     * @param $versionString string
-     * @param $productType string
-     * @param $product string
-     * @param $productClass string
-     * @param $lazyLoad integer
-     * @param $sitewide integer
+     * @param string $versionString
+     * @param string $productType
+     * @param string $product
+     * @param string $productClass
+     * @param int $lazyLoad
+     * @param int $sitewide
      *
      * @return Version
      */
@@ -130,7 +130,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set major version.
      *
-     * @param $major int
+     * @param int $major
      */
     public function setMajor($major)
     {
@@ -150,7 +150,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set minor version.
      *
-     * @param $minor int
+     * @param int $minor
      */
     public function setMinor($minor)
     {
@@ -170,7 +170,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set revision version.
      *
-     * @param $revision int
+     * @param int $revision
      */
     public function setRevision($revision)
     {
@@ -190,7 +190,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set build version.
      *
-     * @param $build int
+     * @param int $build
      */
     public function setBuild($build)
     {
@@ -210,7 +210,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set date installed.
      *
-     * @param $dateInstalled date
+     * @param date $dateInstalled
      */
     public function setDateInstalled($dateInstalled)
     {
@@ -230,7 +230,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set if current version.
      *
-     * @param $current int
+     * @param int $current
      */
     public function setCurrent($current)
     {
@@ -250,7 +250,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set product type.
      *
-     * @param $productType string
+     * @param string $productType
      */
     public function setProductType($productType)
     {
@@ -270,7 +270,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set product name.
      *
-     * @param $product string
+     * @param string $product
      */
     public function setProduct($product)
     {
@@ -290,7 +290,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set the product's class name
      *
-     * @param $productClassName string
+     * @param string $productClassName
      */
     public function setProductClassName($productClassName)
     {
@@ -300,7 +300,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Get the lazy load flag for this product
      *
-     * @return boolean
+     * @return bool
      */
     public function getLazyLoad()
     {
@@ -310,7 +310,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set the lazy load flag for this product
      *
-     * @param $lazyLoad boolean
+     * @param bool $lazyLoad
      */
     public function setLazyLoad($lazyLoad)
     {
@@ -320,7 +320,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Get the sitewide flag for this product
      *
-     * @return boolean
+     * @return bool
      */
     public function getSitewide()
     {
@@ -330,7 +330,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set the sitewide flag for this product
      *
-     * @param $sitewide boolean
+     * @param bool $sitewide
      */
     public function setSitewide($sitewide)
     {
@@ -340,7 +340,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Return complete version string.
      *
-     * @numeric boolean True (default) iff a numeric (comparable) version is to be returned.
+     * @param bool True (default) iff a numeric (comparable) version is to be returned.
      *
      * @return string
      */

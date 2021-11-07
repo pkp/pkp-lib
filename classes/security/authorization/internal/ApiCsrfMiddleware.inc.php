@@ -60,7 +60,7 @@ class ApiCsrfMiddleware
      *
      * @param SlimRequest $slimRequest
      *
-     * @return boolean
+     * @return bool
      */
     protected function _isCSRFRequired($slimRequest)
     {
@@ -76,7 +76,7 @@ class ApiCsrfMiddleware
      *
      * @param SlimRequest $slimRequest
      *
-     * @return boolean
+     * @return bool
      */
     protected function _isCSRFValid($slimRequest)
     {

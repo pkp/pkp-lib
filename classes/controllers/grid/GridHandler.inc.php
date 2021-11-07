@@ -78,7 +78,7 @@ class GridHandler extends PKPHandler
     /** @var array The GridColumns of this grid. */
     public $_columns = [];
 
-    /** @var Array The grid's data source. */
+    /** @var array The grid's data source. */
     public $_data;
 
     /** @var ItemIterator The item iterator to be used for paging. */
@@ -100,7 +100,7 @@ class GridHandler extends PKPHandler
     /**
      * Constructor.
      *
-     * @param $dataProvider GridDataProvider An optional data provider
+     * @param GridDataProvider $dataProvider An optional data provider
      *  for the grid. If no data provider is given then the grid
      *  assumes that child classes will override default method
      *  implementations.
@@ -160,7 +160,7 @@ class GridHandler extends PKPHandler
      *
      * @see getRequestArgs()
      *
-     * @param $key string The name of the parameter to retrieve.
+     * @param string $key The name of the parameter to retrieve.
      */
     public function getRequestArg($key)
     {
@@ -182,7 +182,7 @@ class GridHandler extends PKPHandler
     /**
      * Set the grid title.
      *
-     * @param $title string locale key
+     * @param string $title locale key
      */
     public function setTitle($title)
     {
@@ -202,7 +202,7 @@ class GridHandler extends PKPHandler
     /**
      * Set the no items locale key
      *
-     * @param $emptyRowText string locale key
+     * @param string $emptyRowText locale key
      */
     public function setEmptyRowText($emptyRowText)
     {
@@ -222,7 +222,7 @@ class GridHandler extends PKPHandler
     /**
      * Set the grid foot note.
      *
-     * @param $footNote string locale key
+     * @param string $footNote locale key
      */
     public function setFootNote($footNote)
     {
@@ -232,7 +232,7 @@ class GridHandler extends PKPHandler
     /**
      * Get all actions for a given position within the grid.
      *
-     * @param $position string The position of the actions.
+     * @param string $position The position of the actions.
      *
      * @return array The LinkActions for the given position.
      */
@@ -247,8 +247,8 @@ class GridHandler extends PKPHandler
     /**
      * Add an action.
      *
-     * @param $action Mixed a single action.
-     * @param $position string The position of the action.
+     * @param mixed $action a single action.
+     * @param string $position The position of the action.
      */
     public function addAction($action, $position = self::GRID_ACTION_POSITION_ABOVE)
     {
@@ -271,7 +271,7 @@ class GridHandler extends PKPHandler
     /**
      * Retrieve a single column by id.
      *
-     * @param $columnId
+     * @param int $columnId
      *
      * @return GridColumn
      */
@@ -284,7 +284,7 @@ class GridHandler extends PKPHandler
     /**
      * Get columns by flag.
      *
-     * @param $flag string
+     * @param string $flag
      *
      * @return array
      */
@@ -304,7 +304,7 @@ class GridHandler extends PKPHandler
      * Get columns number. If a flag is passed, the columns
      * using it will not be counted.
      *
-     * @param $flag optional string
+     * @param string $flag optional
      *
      * @return int
      */
@@ -323,9 +323,9 @@ class GridHandler extends PKPHandler
     /**
      * Checks whether a column exists.
      *
-     * @param $columnId
+     * @param int $columnId
      *
-     * @return boolean
+     * @return bool
      */
     public function hasColumn($columnId)
     {
@@ -335,7 +335,7 @@ class GridHandler extends PKPHandler
     /**
      * Add a column.
      *
-     * @param $column mixed A single GridColumn instance.
+     * @param mixed $column A single GridColumn instance.
      */
     public function addColumn($column)
     {
@@ -346,7 +346,7 @@ class GridHandler extends PKPHandler
     /**
      * Get the grid data.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return array
      */
@@ -374,7 +374,7 @@ class GridHandler extends PKPHandler
     /**
      * Check whether the grid has rows.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasGridDataElements($request)
     {
@@ -386,7 +386,7 @@ class GridHandler extends PKPHandler
     /**
      * Set the grid data.
      *
-     * @param $data mixed an array or ItemIterator with element data
+     * @param mixed $data an array or ItemIterator with element data
      */
     public function setGridDataElements($data)
     {
@@ -422,7 +422,7 @@ class GridHandler extends PKPHandler
     /**
      * Set the grid template.
      *
-     * @param $template string
+     * @param string $template
      */
     public function setTemplate($template)
     {
@@ -444,8 +444,8 @@ class GridHandler extends PKPHandler
      * Define the urls that will be used
      * in JS handler.
      *
-     * @param $request PKPRequest
-     * @param $extraUrls array Optional extra urls.
+     * @param PKPRequest $request
+     * @param array $extraUrls Optional extra urls.
      */
     public function setUrls($request, $extraUrls = [])
     {
@@ -463,7 +463,7 @@ class GridHandler extends PKPHandler
      * to use the grid within another component (e.g. to
      * remove the title or change the layout accordingly).
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsSubcomponent()
     {
@@ -514,7 +514,6 @@ class GridHandler extends PKPHandler
     /**
      * Override to return the data element sequence value.
      *
-     * @param $gridDataElement mixed
      *
      * @return int
      */
@@ -526,10 +525,9 @@ class GridHandler extends PKPHandler
     /**
      * Override to set the data element new sequence.
      *
-     * @param $request PKPRequest
-     * @param $rowId int
-     * @param $gridDataElement mixed
-     * @param $newSequence int
+     * @param PKPRequest $request
+     * @param int $rowId
+     * @param int $newSequence
      */
     public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
     {
@@ -543,9 +541,8 @@ class GridHandler extends PKPHandler
      * Returns the current selection state
      * of the grid data element.
      *
-     * @param $gridDataElement mixed
      *
-     * @return boolean
+     * @return bool
      */
     public function isDataElementSelected($gridDataElement)
     {
@@ -569,8 +566,8 @@ class GridHandler extends PKPHandler
      * Raises a fatal error if such an element cannot be
      * found.
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      *
      * @return \PKP\controllers\grid\GridRow the requested grid row, already
      *  configured with id and data or null if the row
@@ -612,8 +609,8 @@ class GridHandler extends PKPHandler
     /**
      * Render the passed row and return its markup.
      *
-     * @param $request PKPRequest
-     * @param $row \PKP\controllers\grid\GridRow
+     * @param PKPRequest $request
+     * @param \PKP\controllers\grid\GridRow $row
      *
      * @return string
      */
@@ -626,9 +623,8 @@ class GridHandler extends PKPHandler
     /**
      * Get grid range info.
      *
-     * @param $request PKPRequest
-     * @param $rangeName string The grid id.
-     * @param $contextData mixed
+     * @param PKPRequest $request
+     * @param string $rangeName The grid id.
      *
      * @return DBResultRange
      */
@@ -668,8 +664,8 @@ class GridHandler extends PKPHandler
     /**
      * @see PKPHandler::initialize()
      *
-     * @param $request PKPRequest
-     * @param $args array optional
+     * @param PKPRequest $request
+     * @param array $args optional
      */
     public function initialize($request, $args = null)
     {
@@ -704,8 +700,8 @@ class GridHandler extends PKPHandler
      * Render the entire grid controller and send
      * it to the client.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -750,8 +746,8 @@ class GridHandler extends PKPHandler
     /**
      * Fetch all grid rows from loaded data.
      *
-     * @param $args Array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object.
      */
@@ -783,8 +779,8 @@ class GridHandler extends PKPHandler
      * Render a row and send it to the client. If the row no
      * longer exists then inform the client.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object.
      */
@@ -817,8 +813,8 @@ class GridHandler extends PKPHandler
     /**
      * Render a cell and send it to the client
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -850,8 +846,8 @@ class GridHandler extends PKPHandler
      * hook is attached to this grid, this operation will only return
      * the data changed event json message.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -885,7 +881,7 @@ class GridHandler extends PKPHandler
      * that they are loaded. To handle grid items ordering, see
      * OrderItemsFeature class.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return array
      */
@@ -913,8 +909,8 @@ class GridHandler extends PKPHandler
      * new rows prior to their insertion or existing rows that have
      * been edited but not saved.
      *
-     * @param $request PKPRequest
-     * @param $elementId int Reference to be filled with element
+     * @param PKPRequest $request
+     * @param int $elementId Reference to be filled with element
      *  ID (if one is to be used)
      *
      * @return object
@@ -929,8 +925,8 @@ class GridHandler extends PKPHandler
      * source corresponding to the given row id. If none is
      * found then return null.
      *
-     * @param $request PKPRequest
-     * @param $rowId string The row ID; reference permits modification.
+     * @param PKPRequest $request
+     * @param string $rowId The row ID; reference permits modification.
      */
     protected function getRowDataElement($request, &$rowId)
     {
@@ -947,8 +943,8 @@ class GridHandler extends PKPHandler
     /**
      * Implement this method to load data into the grid.
      *
-     * @param $request PKPRequest
-     * @param $filter array An associative array with filter data as returned by
+     * @param PKPRequest $request
+     * @param array $filter An associative array with filter data as returned by
      *  getFilterSelectionData(). If no filter has been selected by the user
      *  then the array will be empty.
      *
@@ -982,7 +978,7 @@ class GridHandler extends PKPHandler
     /**
      * Determine whether a filter form should be collapsible.
      *
-     * @return boolean
+     * @return bool
      */
     protected function isFilterFormCollapsible()
     {
@@ -994,7 +990,7 @@ class GridHandler extends PKPHandler
      * by instantiating the filter's Form object or by reading the request directly
      * (if using a simple filter template only).
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return array
      */
@@ -1006,8 +1002,8 @@ class GridHandler extends PKPHandler
     /**
      * Render the filter (a template).
      *
-     * @param $request PKPRequest
-     * @param $filterData Array Data to be used by the filter template.
+     * @param PKPRequest $request
+     * @param array $filterData Data to be used by the filter template.
      *
      * @return string
      */
@@ -1052,9 +1048,9 @@ class GridHandler extends PKPHandler
      * different actions than the ones implemented here.
      * This method is called by GridHandler::fetchGrid()
      *
-     * @param $args array
-     * @param $request PKPRequest
-     * @param $templateMgr PKPTemplateManager
+     * @param array $args
+     * @param PKPRequest $request
+     * @param PKPTemplateManager $templateMgr
      */
     protected function doSpecificFetchGridActions($args, $request, $templateMgr)
     {
@@ -1083,8 +1079,8 @@ class GridHandler extends PKPHandler
      * method that use the returned array with the initialized
      * features to add them to grid.
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      *
      * @return array Array with initialized grid features objects.
      */
@@ -1099,8 +1095,8 @@ class GridHandler extends PKPHandler
     /**
      * Call the passed hook in all attached features.
      *
-     * @param $hookName string
-     * @param $args array Arguments provided by this handler.
+     * @param string $hookName
+     * @param array $args Arguments provided by this handler.
      */
     protected function callFeaturesHook($hookName, $args)
     {
@@ -1119,8 +1115,8 @@ class GridHandler extends PKPHandler
     /**
      * Cycle through the data and get generate the row HTML.
      *
-     * @param $request PKPRequest
-     * @param $elements array The grid data elements to be rendered.
+     * @param PKPRequest $request
+     * @param array $elements The grid data elements to be rendered.
      *
      * @return array of HTML Strings for Grid Rows.
      */
@@ -1146,8 +1142,8 @@ class GridHandler extends PKPHandler
      * NB: You must have initialized the row
      * before you call this method.
      *
-     * @param $request PKPRequest
-     * @param $row \PKP\controllers\grid\GridRow
+     * @param PKPRequest $request
+     * @param \PKP\controllers\grid\GridRow $row
      *
      * @return string the row HTML
      */
@@ -1176,7 +1172,7 @@ class GridHandler extends PKPHandler
     /**
      * Method that renders tbodys to go in the grid main body.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return array
      */
@@ -1204,10 +1200,9 @@ class GridHandler extends PKPHandler
     /**
      * Instantiate a new row.
      *
-     * @param $request PKPRequest
-     * @param $elementId string
-     * @param $element mixed
-     * @param $isModified boolean optional
+     * @param PKPRequest $request
+     * @param string $elementId
+     * @param bool $isModified optional
      *
      * @return \PKP\controllers\grid\GridRow
      */
@@ -1233,9 +1228,9 @@ class GridHandler extends PKPHandler
      * NB: You must have initialized the row
      * before you call this method.
      *
-     * @param $request PKPRequest
-     * @param $row \PKP\controllers\grid\GridRow
-     * @param $column GridColumn
+     * @param PKPRequest $request
+     * @param \PKP\controllers\grid\GridRow $row
+     * @param GridColumn $column
      *
      * @return string the cell HTML
      */
@@ -1330,7 +1325,7 @@ class GridHandler extends PKPHandler
     /**
      * Add grid features.
      *
-     * @param $features array
+     * @param array $features
      */
     private function _addFeatures($features)
     {

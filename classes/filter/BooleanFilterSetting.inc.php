@@ -23,9 +23,9 @@ class BooleanFilterSetting extends FilterSetting
     /**
      * Constructor
      *
-     * @param $name string
-     * @param $displayName string
-     * @param $validationMessage string
+     * @param string $name
+     * @param string $displayName
+     * @param string $validationMessage
      */
     public function __construct($name, $displayName, $validationMessage)
     {

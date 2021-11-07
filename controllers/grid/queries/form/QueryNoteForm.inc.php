@@ -31,16 +31,16 @@ class QueryNoteForm extends Form
     /** @var int Note ID */
     public $_noteId;
 
-    /** @var boolean Whether or not this is a new note */
+    /** @var bool Whether or not this is a new note */
     public $_isNew;
 
     /**
      * Constructor.
      *
-     * @param $actionArgs array Action arguments
-     * @param $query Query
-     * @param $user User The current user ID
-     * @param $noteId int The note ID to edit, or null for new.
+     * @param array $actionArgs Action arguments
+     * @param Query $query
+     * @param User $user The current user ID
+     * @param int $noteId The note ID to edit, or null for new.
      */
     public function __construct($actionArgs, $query, $user, $noteId = null)
     {
@@ -85,7 +85,7 @@ class QueryNoteForm extends Form
     /**
      * Set the query
      *
-     * @param @query Query
+     * @param Query $query
      */
     public function setQuery($query)
     {

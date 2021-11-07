@@ -129,7 +129,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Initialize the template manager.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function initialize($request)
     {
@@ -392,7 +392,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Flag the page as cacheable (or not).
      *
-     * @param $cacheability boolean optional
+     * @param bool $cacheability optional
      */
     public function setCacheability($cacheability = self::CACHEABILITY_PUBLIC)
     {
@@ -402,9 +402,9 @@ class PKPTemplateManager extends Smarty
     /**
      * Compile a LESS stylesheet
      *
-     * @param $name string Unique name for this LESS stylesheet
-     * @param $lessFile string Path to the LESS file to compile
-     * @param $args array Optional arguments. Supports:
+     * @param string $name Unique name for this LESS stylesheet
+     * @param string $lessFile Path to the LESS file to compile
+     * @param array $args Optional arguments. Supports:
      *   'baseUrl': Base URL to use when rewriting URLs in the LESS file.
      *   'addLess': Array of additional LESS files to parse before compiling
      *
@@ -449,8 +449,8 @@ class PKPTemplateManager extends Smarty
     /**
      * Save LESS styles to a cached file
      *
-     * @param $path string File path to save the compiled styles
-     * @param styles string CSS styles compiled from the LESS
+     * @param string $path File path to save the compiled styles
+     * @param string $styles CSS styles compiled from the LESS
      *
      * @return bool success/failure
      */
@@ -467,7 +467,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Retrieve the file path for a cached LESS file
      *
-     * @param $name string Unique name for the LESS file
+     * @param string $name Unique name for the LESS file
      *
      * @return $path string Path to the less file or false if not found
      */
@@ -482,10 +482,10 @@ class PKPTemplateManager extends Smarty
     /**
      * Register a stylesheet with the style handler
      *
-     * @param $name string Unique name for the stylesheet
-     * @param $style string The stylesheet to be included. Should be a URL
+     * @param string $name Unique name for the stylesheet
+     * @param string $style The stylesheet to be included. Should be a URL
      *   or, if the `inline` argument is included, stylesheet data to be output.
-     * @param $args array Key/value array defining display details
+     * @param array $args Key/value array defining display details
      *   `priority` int The order in which to print this stylesheet.
      *      Default: STYLE_SEQUENCE_NORMAL
      *   `contexts` string|array Where the stylesheet should be loaded.
@@ -516,10 +516,10 @@ class PKPTemplateManager extends Smarty
     /**
      * Register a script with the script handler
      *
-     * @param $name string Unique name for the script
-     * @param $script string The script to be included. Should be a URL or, if
+     * @param string $name Unique name for the script
+     * @param string $script The script to be included. Should be a URL or, if
      *   the `inline` argument is included, script data to be output.
-     * @param $args array Key/value array defining display details
+     * @param array $args Key/value array defining display details
      *   `priority` int The order in which to print this script.
      *      Default: STYLE_SEQUENCE_NORMAL
      *   `contexts` string|array Where the script should be loaded.
@@ -550,9 +550,9 @@ class PKPTemplateManager extends Smarty
     /**
      * Add a page-specific item to the <head>.
      *
-     * @param $name string Unique name for the header
-     * @param $header string The header to be included.
-     * @param $args array Key/value array defining display details
+     * @param string $name Unique name for the header
+     * @param string $header The header to be included.
+     * @param array $args Key/value array defining display details
      *   `priority` int The order in which to print this header.
      *      Default: STYLE_SEQUENCE_NORMAL
      *   `contexts` string|array Where the header should be loaded.
@@ -1130,9 +1130,9 @@ class PKPTemplateManager extends Smarty
     /**
      * Fetch content via AJAX and add it to the DOM, wrapped in a container element.
      *
-     * @param $id string ID to use for the generated container element.
-     * @param $url string URL to fetch the contents from.
-     * @param $element string Element to use for container.
+     * @param string $id ID to use for the generated container element.
+     * @param string $url URL to fetch the contents from.
+     * @param string $element Element to use for container.
      *
      * @return JSONMessage The JSON-encoded result.
      */
@@ -1151,7 +1151,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Calculate a compile ID for a resource.
      *
-     * @param $resourceName string Resource name.
+     * @param string $resourceName Resource name.
      *
      * @return string
      */
@@ -1170,8 +1170,8 @@ class PKPTemplateManager extends Smarty
     /**
      * Returns the template results as a JSON message.
      *
-     * @param $template string Template filename (or Smarty resource name)
-     * @param $status boolean
+     * @param string $template Template filename (or Smarty resource name)
+     * @param bool $status
      *
      * @return JSONMessage JSON object
      */
@@ -1279,8 +1279,8 @@ class PKPTemplateManager extends Smarty
     /**
      * Clear the cache when a context or site has changed it's active theme
      *
-     * @param $hookName string
-     * @param $args array [
+     * @param string $hookName
+     * @param array $args [
      * 	@option Context|Site The new values
      * 	@option Context|Site The old values
      * 	@option array Key/value of params that were modified
@@ -1300,7 +1300,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Return an instance of the template manager.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return TemplateManager the template manager object
      */
@@ -1344,8 +1344,8 @@ class PKPTemplateManager extends Smarty
     /**
      * Display the sidebar
      *
-     * @param $hookName string
-     * @param $args array [
+     * @param string $hookName
+     * @param array $args [
      *		@option array Params passed to the hook
      *		@option Smarty
      *		@option string The output
@@ -1392,10 +1392,10 @@ class PKPTemplateManager extends Smarty
      * Custom Smarty function for translating localization keys.
      * Substitution works by replacing tokens like "{$foo}" with the value of the parameter named "foo" (if supplied).
      *
-     * @param $params array associative array, must contain "key" parameter for string to translate plus zero or more named parameters for substitution.
+     * @param array $params associative array, must contain "key" parameter for string to translate plus zero or more named parameters for substitution.
      * 	Translation variables can be specified also as an optional
      * 	associative array named "params".
-     * @param $smarty Smarty
+     * @param Smarty $smarty
      *
      * @return string the localized string, including any parameter substitutions
      */
@@ -1423,7 +1423,7 @@ class PKPTemplateManager extends Smarty
      * Custom Smarty function for displaying a null link action; these will
      * typically be attached and handled in Javascript.
      *
-     * @param $smarty Smarty
+     * @param Smarty $smarty
      *
      * @return string the HTML for the generated link action
      */
@@ -1454,7 +1454,7 @@ class PKPTemplateManager extends Smarty
      *
      * Custom Smarty function for displaying a context-sensitive help link.
      *
-     * @param $smarty Smarty
+     * @param Smarty $smarty
      *
      * @return string the HTML for the generated link action
      */
@@ -1490,8 +1490,8 @@ class PKPTemplateManager extends Smarty
      *
      * Identical to Smarty's "html_options" function except option values are translated from i18n keys.
      *
-     * @param $params array
-     * @param $smarty Smarty
+     * @param array $params
+     * @param Smarty $smarty
      */
     public function smartyHtmlOptionsTranslate($params, $smarty)
     {
@@ -1630,7 +1630,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Generate a URL into a PKPApp.
      *
-     * @param $smarty object
+     * @param object $smarty
      * Available parameters:
      * - router: which router to use
      * - context
@@ -1717,8 +1717,8 @@ class PKPTemplateManager extends Smarty
      *
      * Usage: {title value="Journal Settings"}
      *
-     * @param $parameters array
-     * @param $smarty object
+     * @param array $parameters
+     * @param object $smarty
      * Available parameters:
      * - router: which router to use
      * - context
@@ -1851,10 +1851,10 @@ class PKPTemplateManager extends Smarty
     /**
      * Compare the parameters.
      *
-     * @param $a mixed Parameter A
-     * @param $a mixed Parameter B
-     * @param $strict boolean True iff a strict (===) compare should be used
-     * @param $invert booelan True iff the output should be inverted
+     * @param mixed $a Parameter A
+     * @param mixed $a Parameter B
+     * @param bool $strict True iff a strict (===) compare should be used
+     * @param bool $invert True iff the output should be inverted
      */
     public function smartyCompare($a, $b, $strict = false, $invert = false)
     {
@@ -1912,8 +1912,8 @@ class PKPTemplateManager extends Smarty
      *
      * Custom Smarty function for loading a URL via AJAX into any HTML element
      *
-     * @param $params array associative array
-     * @param $smarty Smarty
+     * @param array $params associative array
+     * @param Smarty $smarty
      *
      * @return string of HTML/Javascript
      */
@@ -1956,8 +1956,8 @@ class PKPTemplateManager extends Smarty
      * Custom Smarty function for loading a URL via AJAX into a DIV. Convenience
      * wrapper for smartyLoadUrlInEl.
      *
-     * @param $params array associative array
-     * @param $smarty Smarty
+     * @param array $params associative array
+     * @param Smarty $smarty
      *
      * @return string of HTML/Javascript
      */
@@ -1972,8 +1972,8 @@ class PKPTemplateManager extends Smarty
      *
      * Custom Smarty function for inserting a CSRF token.
      *
-     * @param $params array associative array
-     * @param $smarty Smarty
+     * @param array $params associative array
+     * @param Smarty $smarty
      *
      * @return string of HTML
      */
@@ -1994,8 +1994,8 @@ class PKPTemplateManager extends Smarty
      *
      * Custom Smarty function for printing stylesheets attached to a context.
      *
-     * @param $params array associative array
-     * @param $smarty Smarty
+     * @param array $params associative array
+     * @param Smarty $smarty
      *
      * @return string of HTML/Javascript
      */
@@ -2039,8 +2039,8 @@ class PKPTemplateManager extends Smarty
      * Any styles assigned to the `htmlGalley` context will be injected into the
      * galley unless the galley already has an embedded CSS file.
      *
-     * @param $htmlContent string The HTML file content
-     * @param $embeddedFiles array Additional files embedded in this galley
+     * @param string $htmlContent The HTML file content
+     * @param array $embeddedFiles Additional files embedded in this galley
      */
     public function loadHtmlGalleyStyles($htmlContent, $embeddedFiles)
     {
@@ -2080,8 +2080,8 @@ class PKPTemplateManager extends Smarty
      *
      * Custom Smarty function for printing scripts attached to a context.
      *
-     * @param $params array associative array
-     * @param $smarty Smarty
+     * @param array $params associative array
+     * @param Smarty $smarty
      *
      * @return string of HTML/Javascript
      */
@@ -2124,8 +2124,8 @@ class PKPTemplateManager extends Smarty
      *
      * Custom Smarty function for printing scripts attached to a context.
      *
-     * @param $params array associative array
-     * @param $smarty Smarty
+     * @param array $params associative array
+     * @param Smarty $smarty
      *
      * @return string of HTML/Javascript
      */
@@ -2154,8 +2154,8 @@ class PKPTemplateManager extends Smarty
      *
      * Custom Smarty function for printing navigation menu areas attached to a context.
      *
-     * @param $params array associative array
-     * @param $smarty Smarty
+     * @param array $params associative array
+     * @param Smarty $smarty
      *
      * @return string of HTML/Javascript
      */
@@ -2215,8 +2215,8 @@ class PKPTemplateManager extends Smarty
      * A helper function which retrieves script, style and header assets
      * assigned to a particular context.
      *
-     * @param $resources array Requested resources
-     * @param $context string Requested context
+     * @param array $resources Requested resources
+     * @param string $context Requested context
      *
      * @return array Resources assigned to these contexts
      */
@@ -2259,8 +2259,8 @@ class PKPTemplateManager extends Smarty
      * Custom Smarty function for plucking files from the array of $availableFiles
      * related to a submission. Intended to be used on the frontend
      *
-     * @param $params array associative array
-     * @param $smarty Smarty
+     * @param array $params associative array
+     * @param Smarty $smarty
      *
      * @return array of SubmissionFile objects
      */

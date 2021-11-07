@@ -20,17 +20,17 @@ use PKP\form\Form;
 
 class LibraryFileForm extends Form
 {
-    /** the id of the context this library file is attached to */
+    /** @var int the id of the context this library file is attached to */
     public $contextId;
 
-    /** the library file manager instantiated in this form. */
+    /** @var LibraryFileManager the library file manager instantiated in this form. */
     public $libraryFileManager;
 
     /**
      * Constructor.
      *
-     * @param $template string
-     * @param $contextId int
+     * @param string $template
+     * @param int $contextId
      */
     public function __construct($template, $contextId)
     {

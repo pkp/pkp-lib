@@ -19,13 +19,13 @@ use PKP\form\Form;
 
 class UserForm extends Form
 {
-    /** @var Id of the user being edited */
+    /** @var int Id of the user being edited */
     public $userId;
 
     /**
      * Constructor.
      *
-     * @param $userId int optional
+     * @param int $userId optional
      */
     public function __construct($template, $userId = null)
     {

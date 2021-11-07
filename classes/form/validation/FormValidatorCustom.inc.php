@@ -23,20 +23,20 @@ class FormValidatorCustom extends FormValidator
     /** @var array Additional arguments to pass to $userFunction */
     public $_additionalArguments;
 
-    /** @var boolean If true, field is considered valid if user function returns false instead of true */
+    /** @var bool If true, field is considered valid if user function returns false instead of true */
     public $_complementReturn;
 
     /** @var array If present, additional arguments to pass to the getMessage translation function
      * The user function is passed the form data as its first argument and $additionalArguments, if set, as the remaining arguments. This function must return a boolean value.
      *
-     * @param $form Form the associated form
-     * @param $field string the name of the associated field
-     * @param $type string the type of check, either "required" or "optional"
-     * @param $message string the error message for validation failures (i18n key)
-     * @param $userFunction callable function the user function to use for validation
-     * @param $additionalArguments array optional, a list of additional arguments to pass to $userFunction
-     * @param $complementReturn boolean optional, complement the value returned by $userFunction
-     * @param $messageArgs array optional, arguments to pass to getMessage()
+     * @param Form $form the associated form
+     * @param string $field the name of the associated field
+     * @param string $type the type of check, either "required" or "optional"
+     * @param string $message the error message for validation failures (i18n key)
+     * @param callable $userFunction function the user function to use for validation
+     * @param array $additionalArguments optional, a list of additional arguments to pass to $userFunction
+     * @param bool $complementReturn optional, complement the value returned by $userFunction
+     * @param array $messageArgs optional, arguments to pass to getMessage()
      */
     public function __construct(&$form, $field, $type, $message, $userFunction, $additionalArguments = [], $complementReturn = false, $messageArgs = [])
     {
@@ -69,7 +69,7 @@ class FormValidatorCustom extends FormValidator
      * @see FormValidator::isValid()
      * Value is valid if it is empty and optional or validated by user-supplied function.
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {

@@ -94,15 +94,15 @@ abstract class Plugin
      * registerOn() matches the current request operation. An empty array
      * matches all request operations.
      *
-     * @param $category String Name of category plugin was registered to
-     * @param $path String The path the plugin was found in
-     * @param $mainContextId integer To identify if the plugin is enabled
+     * @param string $category Name of category plugin was registered to
+     * @param string $path The path the plugin was found in
+     * @param int $mainContextId To identify if the plugin is enabled
      *  we need a context. This context is usually taken from the
      *  request but sometimes there is no context in the request
      *  (e.g. when executing CLI commands). Then the main context
      *  can be given as an explicit ID.
      *
-     * @return boolean True iff plugin registered successfully; if false,
+     * @return bool True iff plugin registered successfully; if false,
      * 	the plugin will not be executed.
      */
     public function register($category, $path, $mainContextId = null)
@@ -172,7 +172,7 @@ abstract class Plugin
      * should be registered compared to others of its category.
      * Higher = later.
      *
-     * @return integer
+     * @return int
      */
     public function getSeq()
     {
@@ -182,7 +182,7 @@ abstract class Plugin
     /**
      * Site-wide plugins should override this function to return true.
      *
-     * @return boolean
+     * @return bool
      */
     public function isSitePlugin()
     {
@@ -192,8 +192,8 @@ abstract class Plugin
     /**
      * Perform a management function.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage A JSON-encoded response
      */
@@ -207,7 +207,7 @@ abstract class Plugin
      * management interface. Useful in the case of derivative plugins,
      * i.e. when a generic plugin registers a feed plugin.
      *
-     * @return boolean
+     * @return bool
      */
     public function getHideManagement()
     {
@@ -314,7 +314,7 @@ abstract class Plugin
     /**
      * Get the name of the category this plugin is registered to.
      *
-     * @return String category
+     * @return string category
      */
     public function getCategory()
     {
@@ -324,7 +324,7 @@ abstract class Plugin
     /**
      * Get the path this plugin's files are located in.
      *
-     * @return String pathname
+     * @return string pathname
      */
     public function getPluginPath()
     {
@@ -334,7 +334,7 @@ abstract class Plugin
     /**
      * Get the directory name of the plugin
      *
-     * @return String directory name
+     * @return string directory name
      */
     public function getDirName()
     {
@@ -345,8 +345,8 @@ abstract class Plugin
      * Return the Resource Name for templates in this plugin, or if specified, the full resource locator
      * for a specific template.
      *
-     * @param $template Template path/filename, if desired
-     * @param $inCore boolean True if a "core" template should be used.
+     * @param Template $template path/filename, if desired
+     * @param bool $inCore True if a "core" template should be used.
      *
      * @return string
      */
@@ -375,7 +375,7 @@ abstract class Plugin
     /**
      * Return the canonical template path of this plug-in
      *
-     * @param $inCore Return the core template path if true.
+     * @param bool $inCore Return the core template path if true.
      *
      * @return string|null
      */
@@ -391,7 +391,7 @@ abstract class Plugin
     /**
      * Register this plugin's templates as a template resource
      *
-     * @param $inCore boolean True iff this is a core resource.
+     * @param bool $inCore True iff this is a core resource.
      */
     protected function _registerTemplateResource($inCore = false)
     {
@@ -408,14 +408,14 @@ abstract class Plugin
      * override template files by adding their own templates to:
      * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>.tpl
      *
-     * @param $hookName string TemplateResource::getFilename
-     * @param $args array [
+     * @param string $hookName TemplateResource::getFilename
+     * @param array $args [
      *		@option string File path to preferred template. Leave as-is to not
      *			override template.
      *		@option string Template file requested
      * ]
      *
-     * @return boolean
+     * @return bool
      */
     public function _overridePluginTemplates($hookName, $args)
     {
@@ -445,7 +445,7 @@ abstract class Plugin
     /**
      * Recursive check for existing templates
      *
-     * @param $path string
+     * @param string $path
      *
      * @return string|null
      */
@@ -478,9 +478,9 @@ abstract class Plugin
     /**
      * Load locale data for this plugin.
      *
-     * @param $locale string|null
+     * @param string|null $locale
      *
-     * @return boolean
+     * @return bool
      */
     public function addLocaleData($locale = null)
     {
@@ -497,8 +497,8 @@ abstract class Plugin
     /**
      * Retrieve a plugin setting within the given context
      *
-     * @param $contextId int Context ID
-     * @param $name string Setting name
+     * @param int $contextId Context ID
+     * @param string $name Setting name
      */
     public function getSetting($contextId, $name)
     {
@@ -520,10 +520,10 @@ abstract class Plugin
     /**
      * Update a plugin setting within the given context.
      *
-     * @param $contextId int Context ID
-     * @param $name string The name of the setting
-     * @param $value mixed Setting value
-     * @param $type string optional
+     * @param int $contextId Context ID
+     * @param string $name The name of the setting
+     * @param mixed $value Setting value
+     * @param string $type optional
      */
     public function updateSetting($contextId, $name, $value, $type = null)
     {
@@ -544,7 +544,7 @@ abstract class Plugin
     /**
      * Load a PHP file from this plugin's installation directory.
      *
-     * @param $class string
+     * @param string $class
      */
     public function import($class)
     {
@@ -561,7 +561,7 @@ abstract class Plugin
      * Get the filename for the locale data for this plugin.
      * (Warning: This function is used by the custom locale plugin)
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return array The locale file names.
      */
@@ -582,10 +582,10 @@ abstract class Plugin
     /**
      * Callback used to install settings on system install.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
-     * @return boolean
+     * @return bool
      */
     public function installSiteSettings($hookName, $args)
     {
@@ -609,10 +609,10 @@ abstract class Plugin
      * Callback used to install settings on new context
      * (e.g. journal, conference or press) creation.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
-     * @return boolean
+     * @return bool
      */
     public function installContextSpecificSettings($hookName, $args)
     {
@@ -625,10 +625,10 @@ abstract class Plugin
     /**
      * Callback used to install email templates.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
-     * @return boolean
+     * @return bool
      */
     public function installEmailTemplates($hookName, $args)
     {
@@ -660,10 +660,10 @@ abstract class Plugin
      *
      * @deprecated Email template data should be installed via installEmailTemplates (pkp/pkp-lib#5461)
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
-     * @return boolean
+     * @return bool
      */
     public function installEmailTemplateData($hookName, $args)
     {
@@ -689,10 +689,10 @@ abstract class Plugin
     /**
      * Callback used to install email template data on locale install.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
-     * @return boolean
+     * @return bool
      */
     public function installLocale($hookName, $args)
     {
@@ -716,13 +716,13 @@ abstract class Plugin
     /**
      * Callback used to install filters.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      */
     public function installFilters($hookName, $args)
     {
         $installer = & $args[0]; /** @var Installer $installer */
-        $result = & $args[1]; /** @var boolean $result */
+        $result = & $args[1]; /** @var bool $result */
 
         // Get the filter configuration file name(s).
         $filterConfigFiles = $this->getInstallFilterConfigFiles();
@@ -754,10 +754,10 @@ abstract class Plugin
      * Called during the install process to install the plugin schema,
      * if applicable.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
-     * @return boolean
+     * @return bool
      */
     public function updateSchema($hookName, $args)
     {
@@ -778,8 +778,8 @@ abstract class Plugin
     /**
      * Extend the {url ...} smarty to support plugins.
      *
-     * @param $params array
-     * @param $smarty Smarty
+     * @param array $params
+     * @param Smarty $smarty
      *
      * @return string
      */
@@ -835,8 +835,8 @@ abstract class Plugin
     /**
      * Get a list of link actions for plugin management.
      *
-     * @param request PKPRequest
-     * @param $actionArgs array The list of action args to be included in request URLs.
+     * @param PKPRequest $request
+     * @param array $actionArgs The list of action args to be included in request URLs.
      *
      * @return array List of LinkActions
      */
@@ -848,7 +848,7 @@ abstract class Plugin
     /**
      * Determine whether the plugin can be enabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanEnable()
     {
@@ -858,7 +858,7 @@ abstract class Plugin
     /**
      * Determine whether the plugin can be disabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanDisable()
     {
@@ -868,7 +868,7 @@ abstract class Plugin
     /**
      * Determine whether the plugin is enabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {

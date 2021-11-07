@@ -34,8 +34,8 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Retrieve an announcement type by announcement type ID.
      *
-     * @param $typeId int Announcement type ID
-     * @param $contextId int Optional context ID
+     * @param int $typeId Announcement type ID
+     * @param int $contextId Optional context ID
      *
      * @return AnnouncementType
      */
@@ -67,7 +67,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Internal function to return an AnnouncementType object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return AnnouncementType
      */
@@ -84,7 +84,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Update the localized settings for this object
      *
-     * @param $announcementType object
+     * @param object $announcementType
      */
     public function updateLocaleFields($announcementType)
     {
@@ -98,7 +98,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Insert a new AnnouncementType.
      *
-     * @param $announcementType AnnouncementType
+     * @param AnnouncementType $announcementType
      *
      * @return int
      */
@@ -119,9 +119,9 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Update an existing announcement type.
      *
-     * @param $announcementType AnnouncementType
+     * @param AnnouncementType $announcementType
      *
-     * @return boolean
+     * @return bool
      */
     public function updateObject($announcementType)
     {
@@ -143,9 +143,9 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
      * Delete an announcement type. Note that all announcements with this type are also
      * deleted.
      *
-     * @param $announcementType AnnouncementType
+     * @param AnnouncementType $announcementType
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObject($announcementType)
     {
@@ -156,7 +156,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
      * Delete an announcement type by announcement type ID. Note that all announcements with
      * this type ID are also deleted.
      *
-     * @param $typeId int
+     * @param int $typeId
      */
     public function deleteById($typeId)
     {
@@ -170,7 +170,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Delete announcement types by context ID.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function deleteByContextId($contextId)
     {
@@ -182,7 +182,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Retrieve an array of announcement types matching a particular context ID.
      *
-     * @param $contextId int
+     * @param int $contextId
      *
      * @return Generator Matching AnnouncementTypes
      */

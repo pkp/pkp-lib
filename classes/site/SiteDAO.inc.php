@@ -116,7 +116,7 @@ class SiteDAO extends \PKP\db\DAO
     /**
      * Insert site information.
      *
-     * @param $site Site
+     * @param Site $site
      */
     public function insertSite($site)
     {

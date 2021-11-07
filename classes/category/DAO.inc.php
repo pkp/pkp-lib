@@ -128,7 +128,7 @@ class DAO extends EntityDAO
     /**
      * Sequentially renumber categories in their sequence order by context ID and optionally parent category ID.
      *
-     * @param $parentCategoryId int Optional parent category ID
+     * @param int $parentCategoryId Optional parent category ID
      */
     public function resequenceCategories(int $contextId, ?int $parentCategoryId = null)
     {

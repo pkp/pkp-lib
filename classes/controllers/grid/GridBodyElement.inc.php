@@ -60,7 +60,7 @@ class GridBodyElement
     /**
      * Set the element id
      *
-     * @param $id string
+     * @param string $id
      */
     public function setId($id)
     {
@@ -80,7 +80,7 @@ class GridBodyElement
     /**
      * Get a single layout flag
      *
-     * @param $flag string
+     * @param string $flag
      */
     public function getFlag($flag)
     {
@@ -91,9 +91,9 @@ class GridBodyElement
     /**
      * Check whether a layout flag is set to true.
      *
-     * @param $flag string
+     * @param string $flag
      *
-     * @return boolean
+     * @return bool
      */
     public function hasFlag($flag)
     {
@@ -106,8 +106,8 @@ class GridBodyElement
     /**
      * Add a layout flag
      *
-     * @param $flag string
-     * @param $value mixed optional
+     * @param string $flag
+     * @param mixed $value optional
      */
     public function addFlag($flag, $value = true)
     {
@@ -127,7 +127,7 @@ class GridBodyElement
     /**
      * Set the cell provider
      *
-     * @param $cellProvider GridCellProvider
+     * @param GridCellProvider $cellProvider
      */
     public function setCellProvider($cellProvider)
     {

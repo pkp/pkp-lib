@@ -20,25 +20,25 @@ class XMLParserHandler {
 
 	/**
 	 * Callback function to act as the start element handler.
-	 * @param $parser PKPXMLParser
-	 * @param $tag string
-	 * @param $attributes array
+	 * @param PKPXMLParser $parser
+	 * @param string $tag
+	 * @param array $attributes
 	 */
 	function startElement($parser, $tag, $attributes) {
 	}
 
 	/**
 	 * Callback function to act as the end element handler.
-	 * @param $parser PKPXMLParser
-	 * @param $tag string
+	 * @param PKPXMLParser $parser
+	 * @param string $tag
 	 */
 	function endElement($parser, $tag) {
 	}
 
 	/**
 	 * Callback function to act as the character data handler.
-	 * @param $parser PKPXMLParser
-	 * @param $data string
+	 * @param PKPXMLParser $parser
+	 * @param string $data
 	 */
 	function characterData($parser, $data) {
 	}

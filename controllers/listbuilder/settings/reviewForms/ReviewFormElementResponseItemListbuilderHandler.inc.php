@@ -21,7 +21,7 @@ use PKP\controllers\listbuilder\MultilingualListbuilderGridColumn;
 
 class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHandler
 {
-    /** @var int Review form element ID **/
+    /** @var int Review form element ID */
     public $_reviewFormElementId;
 
 

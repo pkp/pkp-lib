@@ -19,7 +19,7 @@ use PKP\config\Config;
 
 class PrivateFileManager extends FileManager
 {
-    /** var $filesDir */
+    /** @var string $filesDir */
     public $filesDir;
 
     /**

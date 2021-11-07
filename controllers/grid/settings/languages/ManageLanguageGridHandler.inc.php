@@ -95,8 +95,8 @@ class ManageLanguageGridHandler extends LanguageGridHandler
     /**
      * Reload locale.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */

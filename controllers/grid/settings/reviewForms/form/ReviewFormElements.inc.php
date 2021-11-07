@@ -19,13 +19,13 @@ use PKP\form\Form;
 
 class ReviewFormElements extends Form
 {
-    /** The ID of the review form being edited */
+    /** @var int The ID of the review form being edited */
     public $reviewFormId;
 
     /**
      * Constructor.
      *
-     * @param $reviewFormId
+     * @param int $reviewFormId
      */
     public function __construct($reviewFormId)
     {

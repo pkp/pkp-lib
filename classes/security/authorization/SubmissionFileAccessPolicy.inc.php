@@ -36,18 +36,18 @@ class SubmissionFileAccessPolicy extends ContextPolicy
     public const SUBMISSION_FILE_ACCESS_READ = 1;
     public const SUBMISSION_FILE_ACCESS_MODIFY = 2;
 
-    /** var $_baseFileAccessPolicy the base file file policy before _SUB_EDITOR is considered */
+    /** @var PoliceSet $_baseFileAccessPolicy the base file file policy before _SUB_EDITOR is considered */
     public $_baseFileAccessPolicy;
 
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
-     * @param $roleAssignments array
-     * @param $mode int bitfield SUBMISSION_FILE_ACCESS_...
-     * @param $submissionFileId int
-     * @param $submissionParameterName string the request parameter we expect
+     * @param PKPRequest $request
+     * @param array $args request parameters
+     * @param array $roleAssignments
+     * @param int $mode bitfield SUBMISSION_FILE_ACCESS_...
+     * @param int $submissionFileId
+     * @param string $submissionParameterName the request parameter we expect
      *  the submission id in.
      */
     public function __construct($request, $args, $roleAssignments, $mode, $submissionFileId = null, $submissionParameterName = 'submissionId')
@@ -65,7 +65,7 @@ class SubmissionFileAccessPolicy extends ContextPolicy
      * @param PKPRequest $request
      * @param array $args
      * @param array $roleAssignments
-     * @param int bitfield $mode
+     * @param int $mode bitfield
      * @param int $submissionFileId
      * @param string $submissionParameterName
      */

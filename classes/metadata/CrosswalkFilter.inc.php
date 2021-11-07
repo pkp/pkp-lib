@@ -27,8 +27,8 @@ class CrosswalkFilter extends Filter
     /**
      * Constructor
      *
-     * @param $fromSchema string fully qualified class name of supported input meta-data schema
-     * @param $toSchema string fully qualified class name of supported output meta-data schema
+     * @param string $fromSchema fully qualified class name of supported input meta-data schema
+     * @param string $toSchema fully qualified class name of supported output meta-data schema
      */
     public function __construct($fromSchema, $toSchema)
     {

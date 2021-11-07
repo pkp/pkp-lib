@@ -32,7 +32,7 @@ abstract class PKPPublicFileManager extends FileManager
     /**
      * Get the path to a context's public files directory.
      *
-     * @param $contextId int Context ID
+     * @param int $contextId Context ID
      *
      * @return string
      */
@@ -41,11 +41,11 @@ abstract class PKPPublicFileManager extends FileManager
     /**
      * Upload a file to a context's public directory.
      *
-     * @param $contextId int The context ID
-     * @param $fileName string the name of the file in the upload form
-     * @param $destFileName string the destination file name
+     * @param int $contextId The context ID
+     * @param string $fileName the name of the file in the upload form
+     * @param string $destFileName the destination file name
      *
-     * @return boolean
+     * @return bool
      */
     public function uploadContextFile($contextId, $fileName, $destFileName)
     {
@@ -55,11 +55,11 @@ abstract class PKPPublicFileManager extends FileManager
     /**
      * Write a file to a context's public directory.
      *
-     * @param $contextId int Context ID
-     * @param $destFileName string the destination file name
-     * @param $contents string the contents to write to the file
+     * @param int $contextId Context ID
+     * @param string $destFileName the destination file name
+     * @param string $contents the contents to write to the file
      *
-     * @return boolean
+     * @return bool
      */
     public function writeContextFile($contextId, $destFileName, $contents)
     {
@@ -69,10 +69,10 @@ abstract class PKPPublicFileManager extends FileManager
     /**
      * Upload a file to the site's public directory.
      *
-     * @param $fileName string the name of the file in the upload form
-     * @param $destFileName string the destination file name
+     * @param string $fileName the name of the file in the upload form
+     * @param string $destFileName the destination file name
      *
-     * @return boolean
+     * @return bool
      */
     public function uploadSiteFile($fileName, $destFileName)
     {
@@ -82,11 +82,11 @@ abstract class PKPPublicFileManager extends FileManager
     /**
      * Copy a file to a context's public directory.
      *
-     * @param $contextId int Context ID
-     * @param $sourceFile string the source of the file to copy
-     * @param $destFileName string the destination file name
+     * @param int $contextId Context ID
+     * @param string $sourceFile the source of the file to copy
+     * @param string $destFileName the destination file name
      *
-     * @return boolean
+     * @return bool
      */
     public function copyContextFile($contextId, $sourceFile, $destFileName)
     {
@@ -96,10 +96,10 @@ abstract class PKPPublicFileManager extends FileManager
     /**
      * Delete a file from a context's public directory.
      *
-     * @param $contextId int Context ID
-     * @param $fileName string the target file name
+     * @param int $contextId Context ID
+     * @param string $fileName the target file name
      *
-     * @return boolean
+     * @return bool
      */
     public function removeContextFile($contextId, $fileName)
     {
@@ -109,9 +109,9 @@ abstract class PKPPublicFileManager extends FileManager
     /**
      * Delete a file from the site's public directory.
      *
-     * @param $fileName string the target file name
+     * @param string $fileName the target file name
      *
-     * @return boolean
+     * @return bool
      */
     public function removeSiteFile($fileName)
     {

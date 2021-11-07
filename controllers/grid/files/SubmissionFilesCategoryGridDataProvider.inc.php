@@ -26,11 +26,11 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
     /**
      * Constructor
      *
-     * @param $fileStage int The current file stage that the grid is handling
+     * @param int $fileStage The current file stage that the grid is handling
      * (others file stages could be shown activating the grid filter, but this
      * is the file stage that will be used to bring files from other stages, upload
      * new file, etc).
-     * @param $dataProviderInitParams array Other parameters to initiate the grid
+     * @param array $dataProviderInitParams Other parameters to initiate the grid
      * data provider that this category grid data provider will use to implement
      * common behaviours and data.
      */
@@ -193,8 +193,8 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      * Init the grid data provider that this category grid data provider
      * will use and return it. Override this to initiate another grid data provider.
      *
-     * @param $fileStage int
-     * @param $initParams array (optional) The parameters to initiate the grid data provider.
+     * @param int $fileStage
+     * @param array $initParams (optional) The parameters to initiate the grid data provider.
      *
      * @return SubmissionFilesGridDataProvider
      */
@@ -215,7 +215,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      * which file stage will be present on each workflow stage category
      * of the grid.
      *
-     * @param $stageId int
+     * @param int $stageId
      *
      * @return int|array
      */

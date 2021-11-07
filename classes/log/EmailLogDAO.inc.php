@@ -26,9 +26,9 @@ class EmailLogDAO extends \PKP\db\DAO
     /**
      * Retrieve a log entry by ID.
      *
-     * @param $logId int
-     * @param $assocType int optional
-     * @param $assocId int optional
+     * @param int $logId
+     * @param int $assocType optional
+     * @param int $assocId optional
      *
      * @return EmailLogEntry
      */
@@ -52,11 +52,11 @@ class EmailLogDAO extends \PKP\db\DAO
     /**
      * Retrieve a log entry by event type.
      *
-     * @param $assocType int
-     * @param $assocId int
-     * @param $eventType int
-     * @param $userId int optional
-     * @param $rangeInfo object optional
+     * @param int $assocType
+     * @param int $assocId
+     * @param int $eventType
+     * @param int $userId optional
+     * @param object $rangeInfo optional
      *
      * @return EmailLogEntry
      */
@@ -89,9 +89,9 @@ class EmailLogDAO extends \PKP\db\DAO
     /**
      * Retrieve all log entries for an object matching the specified association.
      *
-     * @param $assocType int
-     * @param $assocId int
-     * @param $rangeInfo object optional
+     * @param int $assocType
+     * @param int $assocId
+     * @param object $rangeInfo optional
      *
      * @return DAOResultFactory containing matching EventLogEntry ordered by sequence
      */
@@ -113,7 +113,7 @@ class EmailLogDAO extends \PKP\db\DAO
     /**
      * Internal function to return an EmailLogEntry object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return EmailLogEntry
      */
@@ -141,7 +141,7 @@ class EmailLogDAO extends \PKP\db\DAO
     /**
      * Insert a new log entry.
      *
-     * @param $entry EmailLogEntry
+     * @param EmailLogEntry $entry
      */
     public function insertObject($entry)
     {
@@ -176,9 +176,9 @@ class EmailLogDAO extends \PKP\db\DAO
     /**
      * Delete a single log entry for an object.
      *
-     * @param $logId int
-     * @param $assocType int optional
-     * @param $assocId int optional
+     * @param int $logId
+     * @param int $assocType optional
+     * @param int $assocId optional
      */
     public function deleteObject($logId, $assocType = null, $assocId = null)
     {
@@ -197,7 +197,7 @@ class EmailLogDAO extends \PKP\db\DAO
     /**
      * Delete all log entries for an object.
      *
-     * @param $assocType int
+     * @param int $assocType
      * @praam $assocId int
      */
     public function deleteByAssoc($assocType, $assocId)
@@ -211,8 +211,8 @@ class EmailLogDAO extends \PKP\db\DAO
     /**
      * Transfer all log entries to another user.
      *
-     * @param $oldUserId int
-     * @param $newUserId int
+     * @param int $oldUserId
+     * @param int $newUserId
      */
     public function changeUser($oldUserId, $newUserId)
     {
@@ -239,7 +239,7 @@ class EmailLogDAO extends \PKP\db\DAO
     /**
      * Stores the correspondent user ids of the all recipient emails.
      *
-     * @param $entry EmailLogEntry
+     * @param EmailLogEntry $entry
      */
     public function _insertLogUserIds($entry)
     {

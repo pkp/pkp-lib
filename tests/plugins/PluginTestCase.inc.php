@@ -55,10 +55,10 @@ class PluginTestCase extends DatabaseTestCase
     /**
      * Executes the plug-in test.
      *
-     * @param $pluginCategory string
-     * @param $pluginDir string
-     * @param $pluginName string
-     * @param $filterGroups array
+     * @param string $pluginCategory
+     * @param string $pluginDir
+     * @param string $pluginName
+     * @param array $filterGroups
      */
     protected function executePluginTest($pluginCategory, $pluginDir, $pluginName, $filterGroups)
     {

@@ -243,8 +243,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get a collection of submissions
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -369,8 +369,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get a single submission
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -393,8 +393,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Add a new submission
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -444,8 +444,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Edit a submission
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -495,8 +495,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Delete a submission
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -524,8 +524,8 @@ class PKPSubmissionHandler extends APIHandler
      *
      * This does not return reviewers.
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -560,9 +560,9 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get all of this submissions's publications
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
-     * @param $args array arguments
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
+     * @param array $args arguments
      *
      * @return Response
      */
@@ -599,8 +599,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get one of this submission's publications
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -634,8 +634,8 @@ class PKPSubmissionHandler extends APIHandler
      * This will create a new publication from scratch. If you want to create a new
      * version of a publication, see self::versionPublication().
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -682,8 +682,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Create a new version of a publication
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -737,8 +737,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Edit one of this submission's publications
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -811,8 +811,8 @@ class PKPSubmissionHandler extends APIHandler
      * checks and return errors but it will not perform the final
      * publication step.
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -866,8 +866,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Unpublish one of this submission's publications
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -908,8 +908,8 @@ class PKPSubmissionHandler extends APIHandler
      * Published publications can not be deleted. First you must unpublish them.
      * See self::unpublishPublication().
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -946,8 +946,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get one of a publication's contributors
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -984,9 +984,9 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get all publication's contributors
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
-     * @param $args array arguments
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
+     * @param array $args arguments
      *
      * @return Response
      */
@@ -1018,8 +1018,8 @@ class PKPSubmissionHandler extends APIHandler
      *
      * This will create a new contributor from scratch.
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -1079,8 +1079,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Delete one of this publication's contributors
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -1125,8 +1125,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Edit one of this publication's contributors
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -1196,8 +1196,8 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Save new order of contributors array
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response

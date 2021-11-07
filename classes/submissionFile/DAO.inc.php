@@ -285,8 +285,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     /**
      * Assign file to a review round.
      *
-     * @param $submissionFileId int The file to be assigned.
-     * @param $reviewRound ReviewRound
+     * @param int $submissionFileId The file to be assigned.
+     * @param ReviewRound $reviewRound
      */
     public function assignRevisionToReviewRound(
         int $submissionFileId,

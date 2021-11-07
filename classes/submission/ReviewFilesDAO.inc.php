@@ -23,8 +23,8 @@ class ReviewFilesDAO extends \PKP\db\DAO
     /**
      * Grant a review file to a review.
      *
-     * @param $reviewId int Review assignment ID
-     * @param $submissionFileId int Submission file ID
+     * @param int $reviewId Review assignment ID
+     * @param int $submissionFileId Submission file ID
      */
     public function grant($reviewId, $submissionFileId)
     {
@@ -40,8 +40,8 @@ class ReviewFilesDAO extends \PKP\db\DAO
     /**
      * Revoke a review's association with a review file.
      *
-     * @param $reviewId int Review assignment ID.
-     * @param $fileId int Review file ID.
+     * @param int $reviewId Review assignment ID.
+     * @param int $fileId Review file ID.
      */
     public function revoke($reviewId, $fileId)
     {
@@ -54,7 +54,7 @@ class ReviewFilesDAO extends \PKP\db\DAO
     /**
      * Revoke a review's association with all submission files.
      *
-     * @param $reviewId int Review assignment ID.
+     * @param int $reviewId Review assignment ID.
      */
     public function revokeByReviewId($reviewId)
     {
@@ -78,10 +78,10 @@ class ReviewFilesDAO extends \PKP\db\DAO
     /**
      * Check review file availability
      *
-     * @param $reviewId integer
-     * @param $submissionFileId int
+     * @param int $reviewId
+     * @param int $submissionFileId
      *
-     * @return boolean
+     * @return bool
      */
     public function check($reviewId, $submissionFileId)
     {

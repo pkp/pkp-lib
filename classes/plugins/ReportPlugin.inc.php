@@ -31,11 +31,11 @@ abstract class ReportPlugin extends Plugin
      * @see <https://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
      * for a full specification of the input and output format of this method.
      *
-     * @param $metricType null|string|array metrics selection
-     * @param $columns string|array column (aggregation level) selection
-     * @param $filters array report-level filter selection
-     * @param $orderBy array order criteria
-     * @param $range null|DBResultRange paging specification
+     * @param null|string|array $metricType metrics selection
+     * @param string|array $columns column (aggregation level) selection
+     * @param array $filters report-level filter selection
+     * @param array $orderBy order criteria
+     * @param null|DBResultRange $range paging specification
      *
      * @return null|array The selected data as a simple tabular result set or
      *  null if metrics are not supported by this plug-in, the specified report
@@ -60,7 +60,7 @@ abstract class ReportPlugin extends Plugin
     /**
      * Public metric type that will be displayed to end users.
      *
-     * @param $metricType string One of the values returned from getMetricTypes()
+     * @param string $metricType One of the values returned from getMetricTypes()
      *
      * @return null|string The metric type or null if the plug-in does not support
      *  standard metric retrieval or the metric type was not found.
@@ -73,7 +73,7 @@ abstract class ReportPlugin extends Plugin
     /**
      * Full name of the metric type.
      *
-     * @param $metricType string One of the values returned from getMetricTypes()
+     * @param string $metricType One of the values returned from getMetricTypes()
      *
      * @return null|string The full name of the metric type or null if the
      *  plug-in does not support standard metric retrieval or the metric type
@@ -88,7 +88,7 @@ abstract class ReportPlugin extends Plugin
      * Get the columns used in reports by the passed
      * metric type.
      *
-     * @param $metricType string One of the values returned from getMetricTypes()
+     * @param string $metricType One of the values returned from getMetricTypes()
      *
      * @return null|array Return an array with STATISTICS_DIMENSION_...
      * constants.
@@ -102,7 +102,7 @@ abstract class ReportPlugin extends Plugin
      * Get optional columns that are not required for this report
      * to implement the passed metric type.
      *
-     * @param $metricType string One of the values returned from getMetricTypes()
+     * @param string $metricType One of the values returned from getMetricTypes()
      *
      * @return array Return an array with STATISTICS_DIMENSION_...
      * constants.
@@ -116,7 +116,7 @@ abstract class ReportPlugin extends Plugin
      * Get the object types that the passed metric type
      * counts statistics for.
      *
-     * @param $metricType string One of the values returned from getMetricTypes()
+     * @param string $metricType One of the values returned from getMetricTypes()
      *
      * @return null|array Return an array with ASSOC_TYPE_...
      * constants.
@@ -132,7 +132,7 @@ abstract class ReportPlugin extends Plugin
      * Subclasses can override this method to add/remove
      * default formats.
      *
-     * @param $metricTypes string|array|null Define one or more metric types
+     * @param string|array|null $metricTypes Define one or more metric types
      * if you don't want to use all the implemented report metric types.
      *
      * @return array

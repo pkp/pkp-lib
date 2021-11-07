@@ -17,7 +17,7 @@ namespace PKP\config;
 
 class ConfigParser
 {
-    /** Contents of the config file currently being parsed */
+    /** @var string Contents of the config file currently being parsed */
     public $content;
 
     /**
@@ -31,7 +31,7 @@ class ConfigParser
      * Read a configuration file into a multidimensional array.
      * This is a replacement for the PHP parse_ini_file function, which does not type setting values.
      *
-     * @param $file string full path to the config file
+     * @param string $file full path to the config file
      *
      * @return array the configuration data (same format as http://php.net/parse_ini_file)
      */
@@ -123,10 +123,10 @@ class ConfigParser
      * This method stores the updated configuration but does not write it out.
      * Use writeConfig() or getFileContents() afterwards to do something with the new config.
      *
-     * @param $file string full path to the config file
-     * @param $params array an associative array of configuration parameters to update. If the value is an associative array (of variable name/value pairs) instead of a scalar, the key is treated as a section instead of a variable. Parameters not in $params remain unchanged
+     * @param string $file full path to the config file
+     * @param array $params an associative array of configuration parameters to update. If the value is an associative array (of variable name/value pairs) instead of a scalar, the key is treated as a section instead of a variable. Parameters not in $params remain unchanged
      *
-     * @return boolean true if file could be read, false otherwise
+     * @return bool true if file could be read, false otherwise
      */
     public function updateConfig($file, $params)
     {
@@ -183,9 +183,9 @@ class ConfigParser
     /**
      * Write contents of current config file
      *
-     * @param $file string full path to output file
+     * @param string $file full path to output file
      *
-     * @return boolean file write is successful
+     * @return bool file write is successful
      */
     public function writeConfig($file)
     {

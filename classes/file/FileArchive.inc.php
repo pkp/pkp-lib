@@ -67,7 +67,7 @@ class FileArchive
     /**
      * Return true if the zip extension is loaded.
      *
-     * @return boolean
+     * @return bool
      */
     public static function zipFunctional()
     {

@@ -27,7 +27,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class PKPEmailHandler extends APIHandler
 {
-    /** Number of emails to send in each job */
+    /** @var int Number of emails to send in each job */
     public const EMAILS_PER_JOB = 100;
 
     /**

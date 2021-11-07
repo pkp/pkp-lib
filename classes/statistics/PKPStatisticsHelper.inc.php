@@ -81,7 +81,7 @@ abstract class PKPStatisticsHelper
     * would require us to retrieve all context objects for the filtered
     * objects, etc.
     *
-    * @param $filter array
+    * @param array $filter
     *
     * @return null|Context
     */
@@ -103,11 +103,11 @@ abstract class PKPStatisticsHelper
     /**
     * Identify and canonicalize the filtered metric type.
     *
-    * @param $metricType string|array A wildcard can be used to
+    * @param string|array $metricType A wildcard can be used to
     * identify all metric types.
-    * @param $context null|Context
-    * @param $defaultSiteMetricType string
-    * @param $siteMetricTypes array
+    * @param null|Context $context
+    * @param string $defaultSiteMetricType
+    * @param array $siteMetricTypes
     *
     * @return null|array The canonicalized metric type array. Null if an error
     *  occurred.
@@ -155,7 +155,7 @@ abstract class PKPStatisticsHelper
      * Get the report plugin that implements
      * the passed metric type.
      *
-     * @param $metricType string
+     * @param string $metricType
      *
      * @return mixed ReportPlugin or null
      */
@@ -213,7 +213,7 @@ abstract class PKPStatisticsHelper
     /**
     * Get report column name.
     *
-    * @param $column string (optional)
+    * @param string $column (optional)
     *
     * @return array|string|null
     */
@@ -235,7 +235,7 @@ abstract class PKPStatisticsHelper
     /**
     * Get object type string.
     *
-    * @param $assocType mixed int or null (optional)
+    * @param mixed $assocType int or null (optional)
     *
     * @return mixed string or array
     */
@@ -257,7 +257,7 @@ abstract class PKPStatisticsHelper
     /**
      * Get file type string.
      *
-     * @param $fileType mixed int or null (optional)
+     * @param mixed $fileType int or null (optional)
      *
      * @return mixed string or array
      */
@@ -280,11 +280,11 @@ abstract class PKPStatisticsHelper
      * Get an url that requests a statiscs report,
      * using the passed parameters as request arguments.
      *
-     * @param $request PKPRequest
-     * @param $metricType string Report metric type.
-     * @param $columns array Report columns
-     * @param $filter array Report filters.
-     * @param $orderBy array (optional) Report order by values.
+     * @param PKPRequest $request
+     * @param string $metricType Report metric type.
+     * @param array $columns Report columns
+     * @param array $filter Report filters.
+     * @param array $orderBy (optional) Report order by values.
      *
      * @return string
      */
@@ -381,7 +381,7 @@ abstract class PKPStatisticsHelper
     /**
      * Get an application specific column name.
      *
-     * @param $column string One of the statistics column constant.
+     * @param string $column One of the statistics column constant.
      *
      * @return string A localized text.
      */

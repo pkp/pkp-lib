@@ -24,8 +24,8 @@ class XSLTransformationFilter extends PersistableFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
-     * @param $displayName string
+     * @param FilterGroup $filterGroup
+     * @param string $displayName
      *
      * NB: The input side of the transformation must always
      * be an XML format. See the XMLTypeDescription class for
@@ -65,7 +65,7 @@ class XSLTransformationFilter extends PersistableFilter
     /**
      * Get the XSL Type
      *
-     * @return integer
+     * @return int
      */
     public function getXSLType()
     {
@@ -75,7 +75,7 @@ class XSLTransformationFilter extends PersistableFilter
     /**
      * Set the XSL
      *
-     * @param $xsl DOMDocument|string
+     * @param DOMDocument|string $xsl
      */
     public function setXSL(&$xsl)
     {
@@ -94,7 +94,7 @@ class XSLTransformationFilter extends PersistableFilter
     /**
      * Set the XSL as a file name
      *
-     * @param $xslFile string
+     * @param string $xslFile
      */
     public function setXSLFilename($xslFile)
     {
@@ -105,7 +105,7 @@ class XSLTransformationFilter extends PersistableFilter
     /**
      * Get the result type
      *
-     * @return integer
+     * @return int
      */
     public function getResultType()
     {
@@ -115,7 +115,7 @@ class XSLTransformationFilter extends PersistableFilter
     /**
      * Set the result type
      *
-     * @param $resultType integer
+     * @param int $resultType
      */
     public function setResultType($resultType)
     {
@@ -143,7 +143,7 @@ class XSLTransformationFilter extends PersistableFilter
      *
      * @see Filter::process()
      *
-     * @param $xml DOMDocument|string
+     * @param DOMDocument|string $xml
      *
      * @return DOMDocument|string
      */

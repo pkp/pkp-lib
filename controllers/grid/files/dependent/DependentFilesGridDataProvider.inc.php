@@ -30,7 +30,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider
     /**
      * Constructor
      *
-     * @param $assocId int Association ID
+     * @param int $assocId Association ID
      */
     public function __construct($assocId)
     {

@@ -41,7 +41,7 @@ class CategoryGridDataProvider extends GridDataProvider
     /**
      * Set a grid data provider object.
      *
-     * @param $dataProvider GridDataProvider
+     * @param GridDataProvider $dataProvider
      */
     public function setDataProvider($dataProvider)
     {
@@ -79,9 +79,8 @@ class CategoryGridDataProvider extends GridDataProvider
     /**
      * Retrieve the category data to load into the grid.
      *
-     * @param $request PKPRequest
-     * @param $categoryDataElement mixed
-     * @param $filter mixed array or null
+     * @param PKPRequest $request
+     * @param array|null $filter
      *
      * @return array
      */

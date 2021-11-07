@@ -28,9 +28,9 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
     /**
      * Constructor
      *
-     * @param $reviewAssignment ReviewAssignment
-     * @param $reviewRound ReviewRound
-     * @param $submission Submission
+     * @param ReviewAssignment $reviewAssignment
+     * @param ReviewRound $reviewRound
+     * @param Submission $submission
      */
     public function __construct($reviewAssignment, $reviewRound, $submission)
     {

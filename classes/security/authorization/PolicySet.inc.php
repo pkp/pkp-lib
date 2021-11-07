@@ -26,17 +26,17 @@ class PolicySet
     /** @var array */
     public $_policies = [];
 
-    /** @var integer */
+    /** @var int */
     public $_combiningAlgorithm;
 
-    /** @var integer the default effect if none of the policies in the set applies */
+    /** @var int the default effect if none of the policies in the set applies */
     public $_effectIfNoPolicyApplies = AuthorizationPolicy::AUTHORIZATION_DENY;
 
 
     /**
      * Constructor
      *
-     * @param $combiningAlgorithm int COMBINING_...
+     * @param int $combiningAlgorithm COMBINING_...
      */
     public function __construct($combiningAlgorithm = self::COMBINING_DENY_OVERRIDES)
     {
@@ -49,8 +49,8 @@ class PolicySet
     /**
      * Add a policy or a nested policy set.
      *
-     * @param $policyOrPolicySet AuthorizationPolicy|PolicySet
-     * @param $addToTop boolean whether to insert the new policy
+     * @param AuthorizationPolicy|PolicySet $policyOrPolicySet
+     * @param bool $addToTop whether to insert the new policy
      *  to the top of the list.
      */
     public function addPolicy($policyOrPolicySet, $addToTop = false)
@@ -76,7 +76,7 @@ class PolicySet
     /**
      * Return the combining algorithm
      *
-     * @return integer
+     * @return int
      */
     public function getCombiningAlgorithm()
     {
@@ -86,7 +86,7 @@ class PolicySet
     /**
      * Set the default effect if none of the policies in the set applies
      *
-     * @param $effectIfNoPolicyApplies integer
+     * @param int $effectIfNoPolicyApplies
      */
     public function setEffectIfNoPolicyApplies($effectIfNoPolicyApplies)
     {
@@ -99,7 +99,7 @@ class PolicySet
     /**
      * Get the default effect if none of the policies in the set applies
      *
-     * @return integer
+     * @return int
      */
     public function getEffectIfNoPolicyApplies()
     {

@@ -62,13 +62,13 @@ class DAOResultFactory extends ItemIterator
      * Constructor.
      * Initialize the DAOResultFactory
      *
-     * @param $records object ADO record set, Generator, or Enumerable
-     * @param $dao object DAO class for factory
-     * @param $functionName The function to call on $dao to create an object
-     * @param $idFields array an array of primary key field names that uniquely identify a result row in the record set. Should be data object _data array key, not database column name
-     * @param $sql string Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
-     * @param $params array Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
-     * @param $rangeInfo DBResultRange Optional pagination information. WARNING: New code should not use this.
+     * @param object $records ADO record set, Generator, or Enumerable
+     * @param object $dao DAO class for factory
+     * @param string $functionName The function to call on $dao to create an object
+     * @param array $idFields an array of primary key field names that uniquely identify a result row in the record set. Should be data object _data array key, not database column name
+     * @param string $sql Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+     * @param array $params Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+     * @param DBResultRange $rangeInfo Optional pagination information. WARNING: New code should not use this.
      */
     public function __construct($records, $dao, $functionName, $idFields = [], $sql = null, $params = [], $rangeInfo = null)
     {
@@ -146,7 +146,7 @@ class DAOResultFactory extends ItemIterator
      *
      * @param null|mixed $idField
      *
-     * @return array? ($key, $value)
+     * @return array|null ($key, $value)
      */
     public function nextWithKey($idField = null)
     {
@@ -193,7 +193,7 @@ class DAOResultFactory extends ItemIterator
     /**
      * Return a boolean indicating whether or not we've reached the end of results
      *
-     * @return boolean
+     * @return bool
      */
     public function eof()
     {
@@ -206,7 +206,7 @@ class DAOResultFactory extends ItemIterator
     /**
      * Return true iff the result list was empty.
      *
-     * @return boolean
+     * @return bool
      */
     public function wasEmpty()
     {

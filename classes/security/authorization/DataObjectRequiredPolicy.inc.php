@@ -54,11 +54,11 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
-     * @param $parameterName string the request parameter we expect
-     * @param $message string
-     * @param $operations array Optional list of operations for which this check takes effect. If specified, operations outside this set will not be checked against this policy.
+     * @param PKPRequest $request
+     * @param array $args request parameters
+     * @param string $parameterName the request parameter we expect
+     * @param string $message
+     * @param array $operations Optional list of operations for which this check takes effect. If specified, operations outside this set will not be checked against this policy.
      */
     public function __construct($request, &$args, $parameterName, $message = null, $operations = null)
     {
@@ -103,10 +103,10 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
     /**
      * Identifies a data object id in the request.
      *
-     * @param $lookOnlyByParameterName boolean True iff page router
+     * @param bool $lookOnlyByParameterName True iff page router
      *  requests should only look for named parameters.
      *
-     * @return integer|false returns false if no valid submission id could be found.
+     * @return int|false returns false if no valid submission id could be found.
      */
     public function getDataObjectId($lookOnlyByParameterName = false)
     {

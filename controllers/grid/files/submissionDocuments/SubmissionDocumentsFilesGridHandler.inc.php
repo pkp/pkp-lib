@@ -125,8 +125,8 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
     /**
      * Load the (read only) context file library.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -142,7 +142,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
     /**
      * Returns a specific instance of the new form for this grid.
      *
-     * @param $context Context
+     * @param Context $context
      *
      * @return NewLibraryFileForm
      */
@@ -156,8 +156,8 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
     /**
      * Returns a specific instance of the edit form for this grid.
      *
-     * @param $context Press
-     * @param $fileId int
+     * @param Context $context
+     * @param int $fileId
      *
      * @return EditLibraryFileForm
      */

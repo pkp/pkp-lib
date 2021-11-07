@@ -30,7 +30,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
     /**
      * Convert a stage id into a stage path
      *
-     * @param $stageId integer
+     * @param int $stageId
      *
      * @return string|null
      */
@@ -52,9 +52,9 @@ class WorkflowStageDAO extends \PKP\db\DAO
     /**
      * Convert a stage path into a stage id
      *
-     * @param $stagePath string
+     * @param string $stagePath
      *
-     * @return integer|null
+     * @return int|null
      */
     public static function getIdFromPath($stagePath)
     {
@@ -74,7 +74,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
     /**
      * Convert a stage id into a stage translation key
      *
-     * @param $stageId integer
+     * @param int $stageId
      *
      * @return string|null
      */
@@ -131,9 +131,9 @@ class WorkflowStageDAO extends \PKP\db\DAO
      * Returns an array containing data for rendering the stage workflow tabs
      * for a submission.
      *
-     * @param $submission Submission
-     * @param $stagesWithDecisions array
-     * @param $stageNotifications array
+     * @param Submission $submission
+     * @param array $stagesWithDecisions
+     * @param array $stageNotifications
      *
      * @return array
      */

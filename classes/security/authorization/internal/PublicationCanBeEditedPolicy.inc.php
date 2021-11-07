@@ -39,7 +39,7 @@ class PublicationCanBeEditedPolicy extends AuthorizationPolicy
 	 */
 	public function effect()
 	{
-		$submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /* @var $submission Submission */
+		$submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
 
 		// Prevent users from editing publications if they do not have permission. Except for admins.
 		$userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);

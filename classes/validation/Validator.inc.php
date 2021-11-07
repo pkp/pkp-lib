@@ -27,9 +27,9 @@ abstract class Validator
     /**
      * Check whether the given value is valid.
      *
-     * @param $value mixed the value to be checked
+     * @param mixed $value the value to be checked
      *
-     * @return boolean
+     * @return bool
      */
     abstract public function isValid($value);
 }

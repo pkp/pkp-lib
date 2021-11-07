@@ -19,14 +19,14 @@ use PKP\security\authorization\AuthorizationPolicy;
 
 class PluginLevelRequiredPolicy extends AuthorizationPolicy
 {
-    /** @var boolean */
+    /** @var bool */
     public $_contextPresent;
 
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $contextPresent boolean
+     * @param PKPRequest $request
+     * @param bool $contextPresent
      */
     public function __construct($request, $contextPresent)
     {

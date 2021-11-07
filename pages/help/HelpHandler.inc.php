@@ -31,8 +31,8 @@ class HelpHandler extends Handler
     /**
      * Display help.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function index($args, $request)
     {

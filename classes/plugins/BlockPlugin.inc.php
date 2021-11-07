@@ -23,9 +23,9 @@ abstract class BlockPlugin extends LazyLoadPlugin
     /**
      * Determine whether or not this plugin is currently enabled.
      *
-     * @param $contextId int Context ID (journal/press)
+     * @param int $contextId Context ID (journal/press)
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled($contextId = null)
     {
@@ -35,8 +35,8 @@ abstract class BlockPlugin extends LazyLoadPlugin
     /**
      * Set whether or not this plugin is currently enabled.
      *
-     * @param $enabled boolean
-     * @param $contextId int Context ID (journal/press)
+     * @param bool $enabled
+     * @param int $contextId Context ID (journal/press)
      */
     public function setEnabled($enabled, $contextId = null)
     {
@@ -59,8 +59,8 @@ abstract class BlockPlugin extends LazyLoadPlugin
     /**
      * Get the HTML contents for this block.
      *
-     * @param $templateMgr object
-     * @param $request PKPRequest (Optional for legacy plugins)
+     * @param object $templateMgr
+     * @param PKPRequest $request (Optional for legacy plugins)
      *
      * @return string
      */

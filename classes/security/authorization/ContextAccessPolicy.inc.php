@@ -21,8 +21,8 @@ class ContextAccessPolicy extends ContextPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $roleAssignments array
+     * @param PKPRequest $request
+     * @param array $roleAssignments
      */
     public function __construct($request, $roleAssignments)
     {

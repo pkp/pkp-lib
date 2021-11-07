@@ -42,7 +42,7 @@ abstract class ScheduledTask
     /**
      * Constructor.
      *
-     * @param $args array
+     * @param array $args
      */
     public function __construct($args = [])
     {
@@ -109,8 +109,8 @@ abstract class ScheduledTask
     /**
      * Add an entry into the execution log.
      *
-     * @param $message string A translated message.
-     * @param $type string (optional) One of the ScheduledTaskHelper
+     * @param string $message A translated message.
+     * @param string $type (optional) One of the ScheduledTaskHelper
      * SCHEDULED_TASK_MESSAGE_TYPE... constants.
      */
     public function addExecutionLogEntry($message, $type = null)
@@ -145,7 +145,7 @@ abstract class ScheduledTask
     /**
      * Implement this method to execute the task actions.
      *
-     * @return boolean true iff success
+     * @return bool true iff success
      */
     abstract protected function executeActions();
 
@@ -158,7 +158,7 @@ abstract class ScheduledTask
      * This is not the method one should extend to implement the
      * task actions, for this see ScheduledTask::executeActions().
      *
-     * @return boolean Whether or not the task was succesfully
+     * @return bool Whether or not the task was succesfully
      * executed.
      */
     public function execute()

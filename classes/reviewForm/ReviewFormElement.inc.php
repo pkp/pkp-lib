@@ -74,7 +74,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Set the review form ID of the review form element.
      *
-     * @param $reviewFormId int
+     * @param int $reviewFormId
      */
     public function setReviewFormId($reviewFormId)
     {
@@ -94,7 +94,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Set sequence of review form element.
      *
-     * @param $sequence float
+     * @param float $sequence
      */
     public function setSequence($sequence)
     {
@@ -114,7 +114,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Set the type of the review form element.
      *
-     * @param $reviewFormElementType string
+     * @param string $reviewFormElementType
      */
     public function setElementType($reviewFormElementType)
     {
@@ -124,7 +124,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Get required flag
      *
-     * @return boolean
+     * @return bool
      */
     public function getRequired()
     {
@@ -142,7 +142,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * get included
      *
-     * @return boolean
+     * @return bool
      */
     public function getIncluded()
     {
@@ -152,7 +152,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * set included
      *
-     * @param $included boolean
+     * @param bool $included
      */
     public function setIncluded($included)
     {
@@ -162,7 +162,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Get question.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -174,8 +174,8 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Set question.
      *
-     * @param $question string
-     * @param $locale string
+     * @param string $question
+     * @param string $locale
      */
     public function setQuestion($question, $locale)
     {
@@ -185,7 +185,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Get description.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -197,8 +197,8 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Set description.
      *
-     * @param $description string
-     * @param $locale string
+     * @param string $description
+     * @param string $locale
      */
     public function setDescription($description, $locale)
     {
@@ -208,7 +208,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Get possible response.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -220,7 +220,7 @@ class ReviewFormElement extends \PKP\core\DataObject
     /**
      * Set possibleResponse.
      *
-     * @param $locale string
+     * @param string $locale
      */
     public function setPossibleResponses($possibleResponses, $locale)
     {

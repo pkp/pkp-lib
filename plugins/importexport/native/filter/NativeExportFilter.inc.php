@@ -18,14 +18,14 @@ use PKP\xslt\XMLTypeDescription;
 
 class NativeExportFilter extends PKPImportExportFilter
 {
-    /** @var boolean If set to true no validation (e.g. XML validation) will be done */
+    /** @var bool If set to true no validation (e.g. XML validation) will be done */
     public $_noValidation = null;
     public $opts = [];
 
     /**
      * Set no validation option
      *
-     * @param $noValidation boolean
+     * @param bool $noValidation
      */
     public function setNoValidation($noValidation)
     {
@@ -35,7 +35,7 @@ class NativeExportFilter extends PKPImportExportFilter
     /**
      * Get no validation option
      *
-     * @return boolean true|null
+     * @return bool true|null
      */
     public function getNoValidation()
     {
@@ -77,10 +77,10 @@ class NativeExportFilter extends PKPImportExportFilter
      * Create a set of child nodes of parentNode containing the
      * localeKey => value data representing translated content.
      *
-     * @param $doc DOMDocument
-     * @param $parentNode DOMNode
-     * @param $name string Node name
-     * @param $values array Array of locale key => value mappings
+     * @param DOMDocument $doc
+     * @param DOMNode $parentNode
+     * @param string $name Node name
+     * @param array $values Array of locale key => value mappings
      */
     public function createLocalizedNodes($doc, $parentNode, $name, $values)
     {
@@ -99,10 +99,10 @@ class NativeExportFilter extends PKPImportExportFilter
     /**
      * Create an optional node with a name and value.
      *
-     * @param $doc DOMDocument
-     * @param $parentNode DOMElement
-     * @param $name string
-     * @param $value string|null
+     * @param DOMDocument $doc
+     * @param DOMElement $parentNode
+     * @param string $name
+     * @param string|null $value
      *
      * @return DOMElement|null
      */
@@ -120,7 +120,7 @@ class NativeExportFilter extends PKPImportExportFilter
     /**
      * Set xml filtering opts
      *
-     * @param $opts array
+     * @param array $opts
      */
     public function setOpts($opts)
     {

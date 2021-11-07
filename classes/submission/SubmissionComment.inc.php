@@ -40,7 +40,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set comment type
      *
-     * @param $commentType int COMMENT_TYPE_...
+     * @param int $commentType COMMENT_TYPE_...
      */
     public function setCommentType($commentType)
     {
@@ -60,7 +60,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set role id
      *
-     * @param $roleId int
+     * @param int $roleId
      */
     public function setRoleId($roleId)
     {
@@ -80,7 +80,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set submission id
      *
-     * @param $submissionId int
+     * @param int $submissionId
      */
     public function setSubmissionId($submissionId)
     {
@@ -100,7 +100,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set assoc id
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -120,7 +120,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set author id
      *
-     * @param $authorId int
+     * @param int $authorId
      */
     public function setAuthorId($authorId)
     {
@@ -176,7 +176,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set comment title
      *
-     * @param $commentTitle string
+     * @param string $commentTitle
      */
     public function setCommentTitle($commentTitle)
     {
@@ -196,7 +196,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set comments
      *
-     * @param $comments string
+     * @param string $comments
      */
     public function setComments($comments)
     {
@@ -216,7 +216,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set date posted
      *
-     * @param $datePosted date
+     * @param date $datePosted
      */
     public function setDatePosted($datePosted)
     {
@@ -236,7 +236,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set date modified
      *
-     * @param $dateModified date
+     * @param date $dateModified
      */
     public function setDateModified($dateModified)
     {
@@ -246,7 +246,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * get viewable
      *
-     * @return boolean
+     * @return bool
      */
     public function getViewable()
     {
@@ -256,7 +256,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set viewable
      *
-     * @param $viewable boolean
+     * @param bool $viewable
      */
     public function setViewable($viewable)
     {

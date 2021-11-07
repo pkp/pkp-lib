@@ -30,7 +30,7 @@ class InterestManager
     /**
      * Get all interests for all users in the system
      *
-     * @param $filter string
+     * @param string $filter
      *
      * @return array
      */
@@ -50,7 +50,7 @@ class InterestManager
     /**
      * Get user reviewing interests. (Cached in memory for batch fetches.)
      *
-     * @param $user User
+     * @param User $user
      *
      * @return array
      */
@@ -80,7 +80,7 @@ class InterestManager
     /**
      * Returns a comma separated string of a user's interests
      *
-     * @param $user User
+     * @param User $user
      *
      * @return string
      */
@@ -94,8 +94,7 @@ class InterestManager
     /**
      * Set a user's interests
      *
-     * @param $user User
-     * @param $interests mixed
+     * @param User $user
      */
     public function setInterestsForUser($user, $interests)
     {

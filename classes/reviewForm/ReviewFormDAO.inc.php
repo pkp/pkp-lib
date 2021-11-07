@@ -27,9 +27,9 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Retrieve a review form by ID.
      *
-     * @param $reviewFormId int
-     * @param $assocType int optional
-     * @param $assocId int optional
+     * @param int $reviewFormId
+     * @param int $assocType optional
+     * @param int $assocId optional
      *
      * @return ReviewForm
      */
@@ -66,7 +66,7 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Internal function to return a ReviewForm object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return ReviewForm
      */
@@ -91,11 +91,11 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Check if a review form exists with the specified ID.
      *
-     * @param $reviewFormId int
-     * @param $assocType int
-     * @param $assocId int
+     * @param int $reviewFormId
+     * @param int $assocType
+     * @param int $assocId
      *
-     * @return boolean
+     * @return bool
      */
     public function reviewFormExists($reviewFormId, $assocType, $assocId)
     {
@@ -120,7 +120,7 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Update the localized fields for this table
      *
-     * @param $reviewForm object
+     * @param object $reviewForm
      */
     public function updateLocaleFields(&$reviewForm)
     {
@@ -132,7 +132,7 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Insert a new review form.
      *
-     * @param $reviewForm ReviewForm
+     * @param ReviewForm $reviewForm
      */
     public function insertObject($reviewForm)
     {
@@ -158,7 +158,7 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Update an existing review form.
      *
-     * @param $reviewForm ReviewForm
+     * @param ReviewForm $reviewForm
      */
     public function updateObject($reviewForm)
     {
@@ -187,7 +187,7 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Delete a review form.
      *
-     * @param $reviewForm ReviewForm
+     * @param ReviewForm $reviewForm
      */
     public function deleteObject($reviewForm)
     {
@@ -197,7 +197,7 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Delete a review form by Id.
      *
-     * @param $reviewFormId int
+     * @param int $reviewFormId
      */
     public function deleteById($reviewFormId)
     {
@@ -211,8 +211,8 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Delete all review forms by assoc Id.
      *
-     * @param $assocType int
-     * @param $assocId int
+     * @param int $assocType
+     * @param int $assocId
      */
     public function deleteByAssoc($assocType, $assocId)
     {
@@ -226,9 +226,9 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Get all review forms by assoc id.
      *
-     * @param $assocType int
-     * @param $assocId int
-     * @param $rangeInfo RangeInfo (optional)
+     * @param int $assocType
+     * @param int $assocId
+     * @param RangeInfo $rangeInfo (optional)
      *
      * @return DAOResultFactory containing matching ReviewForms
      */
@@ -251,9 +251,9 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Get active review forms for an associated object.
      *
-     * @param $assocType int
-     * @param $assocId int
-     * @param $rangeInfo object RangeInfo object (optional)
+     * @param int $assocType
+     * @param int $assocId
+     * @param RangeInfo $rangeInfo (optional)
      *
      * @return DAOResultFactory containing matching ReviewForms
      */
@@ -276,11 +276,11 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Check if a review form exists with the specified ID.
      *
-     * @param $reviewFormId int
-     * @param $assocType int optional
-     * @param $assocId int optional
+     * @param int $reviewFormId
+     * @param int $assocType optional
+     * @param int $assocId optional
      *
-     * @return boolean
+     * @return bool
      */
     public function unusedReviewFormExists($reviewFormId, $assocType = null, $assocId = null)
     {
@@ -297,8 +297,8 @@ class ReviewFormDAO extends \PKP\db\DAO
     /**
      * Sequentially renumber review form in their sequence order.
      *
-     * @param $assocType int
-     * @param $assocId int
+     * @param int $assocType
+     * @param int $assocId
      */
     public function resequenceReviewForms($assocType, $assocId)
     {

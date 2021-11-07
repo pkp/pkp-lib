@@ -21,27 +21,27 @@ use PKP\security\Role;
 
 class AddParticipantForm extends StageParticipantNotifyForm
 {
-    /** @var Submission The submission associated with the submission contributor being edited **/
+    /** @var Submission The submission associated with the submission contributor being edited */
     public $_submission;
 
-    /** @var int $_assignmentId Used for edit the assignment **/
+    /** @var int $_assignmentId Used for edit the assignment */
     public $_assignmentId;
 
-    /** @var array $_managerGroupIds Contains all manager group_ids  **/
+    /** @var array $_managerGroupIds Contains all manager group_ids  */
     public $_managerGroupIds;
 
-    /** @var array $_possibleRecommendOnlyUserGroupIds Contains all group_ids that can have the recommendOnly field available for change  **/
+    /** @var array $_possibleRecommendOnlyUserGroupIds Contains all group_ids that can have the recommendOnly field available for change  */
     public $_possibleRecommendOnlyUserGroupIds;
 
-    /** @var int $_contextId the current Context Id **/
+    /** @var int $_contextId the current Context Id */
     public $_contextId;
 
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $stageId int STAGE_ID_...
-     * @param $assignmentId int Optional - Used for edit the assignment
+     * @param Submission $submission
+     * @param int $stageId STAGE_ID_...
+     * @param int $assignmentId Optional - Used for edit the assignment
      */
     public function __construct($submission, $stageId, $assignmentId = null)
     {
@@ -89,9 +89,9 @@ class AddParticipantForm extends StageParticipantNotifyForm
     /**
      * Determine whether the specified user group is potentially restricted from editing metadata.
      *
-     * @param $userGroupId int
+     * @param int $userGroupId
      *
-     * @return boolean
+     * @return bool
      */
     protected function _isChangePermitMetadataAllowed($userGroupId)
     {
@@ -101,9 +101,9 @@ class AddParticipantForm extends StageParticipantNotifyForm
     /**
      * Determine whether the specified group is potentially required to make recommendations rather than decisions.
      *
-     * @param $userGroupId int
+     * @param int $userGroupId
      *
-     * @return boolean
+     * @return bool
      */
     protected function _isChangeRecommendOnlyAllowed($userGroupId)
     {
@@ -272,7 +272,7 @@ class AddParticipantForm extends StageParticipantNotifyForm
     /**
      * whether or not to require a message field
      *
-     * @return boolean
+     * @return bool
      */
     public function isMessageRequired()
     {

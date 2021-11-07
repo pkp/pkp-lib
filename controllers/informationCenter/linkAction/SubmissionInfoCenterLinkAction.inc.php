@@ -22,10 +22,10 @@ class SubmissionInfoCenterLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $submissionId int the ID of the submission to present link for
+     * @param Request $request
+     * @param int $submissionId the ID of the submission to present link for
      * to show information about.
-     * @param $linkKey string optional locale key to display for link
+     * @param string $linkKey optional locale key to display for link
      */
     public function __construct($request, $submissionId, $linkKey = 'informationCenter.editorialHistory')
     {

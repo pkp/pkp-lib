@@ -24,10 +24,10 @@ class UnconsiderReviewLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment The review assignment
+     * @param Request $request
+     * @param \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment The review assignment
      * to show information about.
-     * @param $submission Submission The reviewed submission.
+     * @param Submission $submission The reviewed submission.
      */
     public function __construct($request, $reviewAssignment, $submission)
     {

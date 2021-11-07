@@ -145,8 +145,8 @@ class AnnouncementTypeGridHandler extends GridHandler
     /**
      * Display form to add announcement type.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string
      */
@@ -158,8 +158,8 @@ class AnnouncementTypeGridHandler extends GridHandler
     /**
      * Display form to edit an announcement type.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -178,8 +178,8 @@ class AnnouncementTypeGridHandler extends GridHandler
     /**
      * Save an edited/inserted announcement type.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -221,8 +221,8 @@ class AnnouncementTypeGridHandler extends GridHandler
     /**
      * Delete an announcement type.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

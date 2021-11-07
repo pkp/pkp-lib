@@ -55,7 +55,7 @@ class AuthorizationDecisionManager
      * Set the default decision if none of the
      * policies in the root policy set applies.
      *
-     * @param $decisionIfNoPolicyApplies integer
+     * @param int $decisionIfNoPolicyApplies
      */
     public function setDecisionIfNoPolicyApplies($decisionIfNoPolicyApplies)
     {
@@ -65,8 +65,8 @@ class AuthorizationDecisionManager
     /**
      * Add an authorization policy or a policy set.
      *
-     * @param $policyOrPolicySet AuthorizationPolicy|PolicySet
-     * @param $addToTop boolean whether to insert the new policy
+     * @param AuthorizationPolicy|PolicySet $policyOrPolicySet
+     * @param bool $addToTop whether to insert the new policy
      *  to the top of the list.
      */
     public function addPolicy($policyOrPolicySet, $addToTop = false)
@@ -77,7 +77,7 @@ class AuthorizationDecisionManager
     /**
      * Add an authorization message
      *
-     * @param $message string
+     * @param string $message
      */
     public function addAuthorizationMessage($message)
     {
@@ -97,7 +97,7 @@ class AuthorizationDecisionManager
     /**
      * Retrieve an object from the authorized context
      *
-     * @param $assocType integer
+     * @param int $assocType
      *
      * @return mixed will return null if the context
      *  for the given assoc type does not exist.
@@ -129,7 +129,7 @@ class AuthorizationDecisionManager
     /**
      * Take an authorization decision.
      *
-     * @return integer one of AUTHORIZATION_PERMIT or
+     * @return int one of AUTHORIZATION_PERMIT or
      *  AUTHORIZATION_DENY.
      */
     public function decide()
@@ -159,11 +159,11 @@ class AuthorizationDecisionManager
     /**
      * Recursively decide the given policy set.
      *
-     * @param $policySet PolicySet
-     * @param $callOnDeny A "call-on-deny" advice will be passed
+     * @param PolicySet $policySet
+     * @param int $callOnDeny A "call-on-deny" advice will be passed
      *  back by reference if found.
      *
-     * @return integer one of the AUTHORIZATION_* values.
+     * @return int one of the AUTHORIZATION_* values.
      */
     public function _decidePolicySet(&$policySet, &$callOnDeny)
     {

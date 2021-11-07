@@ -78,8 +78,8 @@ class FileApiHandler extends Handler
     /**
      * Download a file.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function downloadFile($args, $request)
     {
@@ -127,8 +127,8 @@ class FileApiHandler extends Handler
     /**
      * Download a library file.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function downloadLibraryFile($args, $request)
     {
@@ -140,8 +140,8 @@ class FileApiHandler extends Handler
     /**
      * Download all passed files.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function downloadAllFiles($args, $request)
     {
@@ -179,8 +179,8 @@ class FileApiHandler extends Handler
     /**
      * Record file download and return js event to update grid rows.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return string
      */
@@ -194,8 +194,8 @@ class FileApiHandler extends Handler
      *  recordDownload since library files do not have downloads recorded and are in a
      *  different context.
      *
-     * @param $args aray
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */

@@ -84,7 +84,7 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * @copydoc EntityDAO::get()
      *
-     * @param $allowDisabled boolean If true, allow fetching a disabled user.
+     * @param bool $allowDisabled If true, allow fetching a disabled user.
      */
     public function get(int $id, $allowDisabled = false): ?User
     {
@@ -135,8 +135,6 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * Retrieve a user by username.
      *
-     * @param $username string
-     * @param $allowDisabled boolean
      *
      * @return User?
      */
@@ -155,7 +153,6 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * Retrieve a user by email address.
      *
-     * @param $allowDisabled boolean
      *
      * @return User?
      */
@@ -174,8 +171,8 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * Get the user by the TDL ID (implicit authentication).
      *
-     * @param $authstr string
-     * @param $allowDisabled boolean
+     * @param string $authstr
+     * @param bool $allowDisabled
      *
      * @return User?
      */
@@ -191,9 +188,9 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * Retrieve a user by username and (encrypted) password.
      *
-     * @param $username string
-     * @param $password string encrypted password
-     * @param $allowDisabled boolean
+     * @param string $username
+     * @param string $password encrypted password
+     * @param bool $allowDisabled
      *
      * @return User?
      */
@@ -213,7 +210,6 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * @copydoc EntityDAO::fromRow
      *
-     * @param $includeReviewerData boolean
      */
     public function fromRow(\stdClass $row, bool $includeReviewerData = false): DataObject
     {
@@ -261,8 +257,8 @@ class DAO extends \PKP\core\EntityDAO
     /**
      * Update user names when the site primary locale changes.
      *
-     * @param $oldLocale string
-     * @param $newLocale string
+     * @param string $oldLocale
+     * @param string $newLocale
      */
     public function changeSitePrimaryLocale($oldLocale, $newLocale)
     {

@@ -28,14 +28,14 @@ class GeneralPagingFeature extends GridFeature
     /** @var ItemIterator */
     private $_itemIterator;
 
-    /** @var itemsPerPage */
+    /** @var int itemsPerPage */
     private $_itemsPerPage;
 
     /**
      * @see GridFeature::GridFeature()
      *
-     * @param $id string Feature identifier.
-     * @param $itemsPerPage null|int Optional Number of items to show at
+     * @param string $id Feature identifier.
+     * @param null|int $itemsPerPage Optional Number of items to show at
      * the first time.
      * Constructor.
      */
@@ -101,7 +101,7 @@ class GeneralPagingFeature extends GridFeature
     //
     // Hooks implementation.
     //
-    /*
+    /**
      * @copydoc GridFeature::gridInitialize()
      * The feature will know about the current filter
      * value so it can request grid refreshes keeping
@@ -179,7 +179,7 @@ class GeneralPagingFeature extends GridFeature
     /**
      * Get the range info items per page parameter name.
      *
-     * @param $rangeName string
+     * @param string $rangeName
      *
      * @return string
      */

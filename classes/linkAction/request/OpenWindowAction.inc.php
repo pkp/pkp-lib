@@ -22,7 +22,7 @@ class OpenWindowAction extends LinkActionRequest
     /**
      * Constructor
      *
-     * @param $url string Target URL
+     * @param string $url Target URL
      */
     public function __construct($url)
     {

@@ -19,7 +19,7 @@ use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 
 class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
 {
-    /** @var boolean */
+    /** @var bool */
     protected $_showAll;
 
     /**
@@ -27,7 +27,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
      *
      * @copydoc SubmissionFilesGridDataProvider::__construct()
      *
-     * @param $showAll boolean True iff all review round files should be included.
+     * @param bool $showAll True iff all review round files should be included.
      */
     public function __construct($fileStageId, $viewableOnly = false, $showAll = false)
     {

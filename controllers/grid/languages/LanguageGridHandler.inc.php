@@ -76,8 +76,8 @@ class LanguageGridHandler extends GridHandler
     /**
      * Save language management settings.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONObject JSON message
      */
@@ -176,8 +176,8 @@ class LanguageGridHandler extends GridHandler
     /**
      * Set context primary locale.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -252,7 +252,7 @@ class LanguageGridHandler extends GridHandler
     /**
      * Add primary column.
      *
-     * @param $columnId string The column id.
+     * @param string $columnId The column id.
      */
     public function addPrimaryColumn($columnId)
     {
@@ -309,10 +309,10 @@ class LanguageGridHandler extends GridHandler
     /**
      * Add data related to management settings.
      *
-     * @param $request Request
-     * @param $data Array Data already loaded.
+     * @param Request $request
+     * @param array $data Data already loaded.
      *
-     * @return Array Same passed array, but with
+     * @return array Same passed array, but with
      * the extra management data inserted.
      */
     public function addManagementData($request, $data)

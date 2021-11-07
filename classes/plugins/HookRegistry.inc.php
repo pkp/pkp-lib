@@ -27,7 +27,7 @@ class HookRegistry
     /**
      * Get the current set of hook registrations.
      *
-     * @param $hookName string Name of hook to optionally return
+     * @param string $hookName Name of hook to optionally return
      *
      * @return mixed Array of all hooks or just those attached to $hookName, or
      *   null if nothing has been attached to $hookName
@@ -52,8 +52,8 @@ class HookRegistry
      * Set the hooks table for the given hook name to the supplied array
      * of callbacks.
      *
-     * @param $hookName string Name of hook to set
-     * @param $callbacks array Array of callbacks for this hook
+     * @param string $hookName Name of hook to set
+     * @param array $callbacks Array of callbacks for this hook
      */
     public static function setHooks($hookName, $callbacks)
     {
@@ -64,7 +64,7 @@ class HookRegistry
     /**
      * Clear hooks registered against the given name.
      *
-     * @param $hookName string Name of hook
+     * @param string $hookName Name of hook
      */
     public static function clear($hookName)
     {
@@ -76,9 +76,9 @@ class HookRegistry
     /**
      * Register a hook against the given hook name.
      *
-     * @param $hookName string Name of hook to register against
-     * @param $callback object Callback pseudotype
-     * @param $hookSequence int Optional hook sequence specifier HOOK_SEQUENCE_...
+     * @param string $hookName Name of hook to register against
+     * @param object $callback Callback pseudotype
+     * @param int $hookSequence Optional hook sequence specifier HOOK_SEQUENCE_...
      */
     public static function register($hookName, $callback, $hookSequence = HOOK_SEQUENCE_NORMAL)
     {
@@ -94,8 +94,8 @@ class HookRegistry
      * return value of this call will be the value returned by the last
      * callback.
      *
-     * @param $hookName string The name of the hook to register against
-     * @param $args string Hooks are called with this as the second param
+     * @param string $hookName The name of the hook to register against
+     * @param string $args Hooks are called with this as the second param
      */
     public static function call($hookName, $args = null)
     {
@@ -137,12 +137,12 @@ class HookRegistry
      * Set/query the flag that triggers storing of
      * called hooks.
      *
-     * @param $askOnly boolean When set to true, the flag will not
+     * @param bool $askOnly When set to true, the flag will not
      *   be changed but only returned.
-     * @param $updateTo boolean When $askOnly is set to 'true' then
+     * @param bool $updateTo When $askOnly is set to 'true' then
      *   this parameter defines the value of the flag.
      *
-     * @return boolean The current value of the flag.
+     * @return bool The current value of the flag.
      */
     public static function rememberCalledHooks($askOnly = false, $updateTo = true)
     {
@@ -157,7 +157,7 @@ class HookRegistry
      * Switch off the function to store hooks and delete all stored hooks.
      * Always call this after using otherwise we get a severe memory.
      *
-     * @param $leaveAlive boolean Set this to true if you only want to
+     * @param bool $leaveAlive Set this to true if you only want to
      *   delete hooks stored so far but if you want to record future
      *   hook calls, too.
      */

@@ -24,7 +24,7 @@ class HttpsPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function __construct($request)
     {

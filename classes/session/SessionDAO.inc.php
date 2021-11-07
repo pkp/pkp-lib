@@ -32,7 +32,7 @@ class SessionDAO extends DAO
     /**
      * Retrieve a session by ID.
      *
-     * @param $sessionId string
+     * @param string $sessionId
      *
      * @return Session
      */
@@ -60,7 +60,7 @@ class SessionDAO extends DAO
     /**
      * Insert a new session.
      *
-     * @param $session Session
+     * @param Session $session
      */
     public function insertObject($session)
     {
@@ -85,7 +85,7 @@ class SessionDAO extends DAO
     /**
      * Update an existing session.
      *
-     * @param $session Session
+     * @param Session $session
      *
      * @return int Number of affected rows
      */
@@ -120,7 +120,7 @@ class SessionDAO extends DAO
     /**
      * Delete a session.
      *
-     * @param $session Session
+     * @param Session $session
      */
     public function deleteObject($session)
     {
@@ -130,7 +130,7 @@ class SessionDAO extends DAO
     /**
      * Delete a session by ID.
      *
-     * @param $sessionId string
+     * @param string $sessionId
      */
     public function deleteById($sessionId)
     {
@@ -140,7 +140,7 @@ class SessionDAO extends DAO
     /**
      * Delete sessions by user ID.
      *
-     * @param $userId string
+     * @param string $userId
      */
     public function deleteByUserId($userId)
     {
@@ -153,8 +153,8 @@ class SessionDAO extends DAO
     /**
      * Delete all sessions older than the specified time.
      *
-     * @param $lastUsed int cut-off time in seconds for not-remembered sessions
-     * @param $lastUsedRemember int optional, cut-off time in seconds for remembered sessions
+     * @param int $lastUsed cut-off time in seconds for not-remembered sessions
+     * @param int $lastUsedRemember optional, cut-off time in seconds for remembered sessions
      */
     public function deleteByLastUsed($lastUsed, $lastUsedRemember = 0)
     {
@@ -182,9 +182,9 @@ class SessionDAO extends DAO
     /**
      * Check if a session exists with the specified ID.
      *
-     * @param $sessionId string
+     * @param string $sessionId
      *
-     * @return boolean
+     * @return bool
      */
     public function sessionExistsById($sessionId)
     {

@@ -18,7 +18,7 @@ use PKP\form\Form;
 
 class SubmissionChecklistForm extends Form
 {
-    /** @var int The id for the submissionChecklist being edited **/
+    /** @var int The id for the submissionChecklist being edited */
     public $submissionChecklistId;
 
     /**
@@ -42,7 +42,7 @@ class SubmissionChecklistForm extends Form
      *
      * @see Form::initData
      *
-     * @param $args array
+     * @param array $args
      */
     public function initData($args)
     {

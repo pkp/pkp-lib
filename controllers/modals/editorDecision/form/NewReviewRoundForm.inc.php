@@ -24,9 +24,9 @@ class NewReviewRoundForm extends EditorDecisionForm
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $decision int
-     * @param stageid int
+     * @param Submission $submission
+     * @param int $decision
+     * @param int $stageid
      * @param null|mixed $stageId
      */
     public function __construct($submission, $decision = EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND, $stageId = null, $reviewRound)
@@ -43,7 +43,7 @@ class NewReviewRoundForm extends EditorDecisionForm
     /**
      * @copydoc Form::execute()
      *
-     * @return integer The new review round number
+     * @return int The new review round number
      */
     public function execute(...$functionArgs)
     {

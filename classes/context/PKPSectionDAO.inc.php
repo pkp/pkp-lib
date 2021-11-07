@@ -29,7 +29,7 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
     /**
      * Retrieve a section by ID.
      *
-     * @param $sectionId int
+     * @param int $sectionId
      * @param null|mixed $contextId
      *
      * @return Section
@@ -39,7 +39,7 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
     /**
      * Generate a new PKPSection object from row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return PKPSection
      */
@@ -67,7 +67,7 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
     /**
      * Delete a section.
      *
-     * @param $section Section
+     * @param Section $section
      */
     public function deleteObject($section)
     {
@@ -77,7 +77,7 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
     /**
      * Delete a section by ID.
      *
-     * @param $sectionId int
+     * @param int $sectionId
      * @param null|mixed $contextId
      */
     abstract public function deleteById($sectionId, $contextId = null);
@@ -86,7 +86,7 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
      * Delete sections by context ID
      * NOTE: This does not necessarily delete dependent entries.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function deleteByContextId($contextId)
     {
@@ -99,9 +99,9 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
     /**
      * Retrieve all sections for a context.
      *
-     * @param $contextId int context ID
-     * @param $rangeInfo DBResultRange optional
-     * @param $submittableOnly boolean optional. Whether to return only sections
+     * @param int $contextId context ID
+     * @param DBResultRange $rangeInfo optional
+     * @param bool $submittableOnly optional. Whether to return only sections
      *  that can be submitted to by anyone.
      *
      * @return DAOResultFactory containing Sections ordered by sequence
@@ -111,8 +111,8 @@ abstract class PKPSectionDAO extends \PKP\db\DAO
     /**
      * Retrieve the IDs and titles of the sections for a context in an associative array.
      *
-     * @param $contextId int context ID
-     * @param $submittableOnly boolean optional. Whether to return only sections
+     * @param int $contextId context ID
+     * @param bool $submittableOnly optional. Whether to return only sections
      *  that can be submitted to by anyone.
      *
      * @return array

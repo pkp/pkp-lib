@@ -22,18 +22,18 @@ use PKP\workflow\WorkflowStageDAO;
 
 class UserGroupForm extends Form
 {
-    /** @var Id of the user group being edited */
+    /** @var int Id of the user group being edited */
     public $_userGroupId;
 
-    /** @var The context of the user group being edited */
+    /** @var int The context of the user group being edited */
     public $_contextId;
 
 
     /**
      * Constructor.
      *
-     * @param $contextId Context id.
-     * @param $userGroupId User group id.
+     * @param Context $contextId id.
+     * @param User $userGroupId group id.
      */
     public function __construct($contextId, $userGroupId = null)
     {
@@ -212,7 +212,7 @@ class UserGroupForm extends Form
             if (in_array($userGroup->getRoleId(), UserGroupDAO::getNotChangeMetadataEditPermissionRoles())) {
                 $userGroup->setPermitMetadataEdit(true);
             } else {
-                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var stageAssignmentDao StageAssignmentDAO */
+                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                 $allUserAssignments = $stageAssignmentDao
                     ->getByUserGroupId($userGroupId, $this->getContextId())
                     ->toAssociativeArray();
@@ -246,8 +246,8 @@ class UserGroupForm extends Form
     /**
      * Setup the stages assignments to a user group in database.
      *
-     * @param $userGroupId int User group id that will receive the stages.
-     * @param $userAssignedStages array of stages currently assigned to a user.
+     * @param int $userGroupId User group id that will receive the stages.
+     * @param array $userAssignedStages of stages currently assigned to a user.
      */
     public function _assignStagesToUserGroup($userGroupId, $userAssignedStages)
     {
@@ -284,8 +284,8 @@ class UserGroupForm extends Form
     /**
      * Set locale fields on a User Group object.
      *
-     * @param UserGroup
-     * @param Request
+     * @param UserGroup $userGroup
+     * @param Request $request
      *
      * @return UserGroup
      */

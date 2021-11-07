@@ -81,8 +81,8 @@ class CopyeditFilesGridHandler extends FileListGridHandler
     /**
      * Show the form to allow the user to select files from previous stages
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

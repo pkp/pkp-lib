@@ -24,15 +24,15 @@ use PKP\linkAction\request\NullAction;
 
 class ListbuilderHandler extends GridHandler
 {
-    /* Listbuilder source types: text-based, pulldown, ... */
+    /** @var int Listbuilder source types: text-based, pulldown, ... */
     public const LISTBUILDER_SOURCE_TYPE_TEXT = 0;
     public const LISTBUILDER_SOURCE_TYPE_SELECT = 1;
 
-    /* Listbuilder save types */
+    /** @var int Listbuilder save types */
     public const LISTBUILDER_SAVE_TYPE_EXTERNAL = 0;
     public const LISTBUILDER_SAVE_TYPE_INTERNAL = 1;
 
-    /* String to identify optgroup in the returning options data. If you want to use
+    /** @var string String to identify optgroup in the returning options data. If you want to use
      * optgroup in listbuilder select, return the options data in a multidimensional array
      * array[columnIndex][optgroupId][selectItemId] and also with
      * array[columnIndex][LISTBUILDER_OPTGROUP_LABEL][optgroupId] */
@@ -82,7 +82,7 @@ class ListbuilderHandler extends GridHandler
     /**
      * Set the type of source (Free text input, select from list, autocomplete)
      *
-     * @param $sourceType int LISTBUILDER_SOURCE_TYPE_...
+     * @param int $sourceType LISTBUILDER_SOURCE_TYPE_...
      */
     public function setSourceType($sourceType)
     {
@@ -120,7 +120,7 @@ class ListbuilderHandler extends GridHandler
     /**
      * Set the save field name for LISTBUILDER_SAVE_TYPE_EXTERNAL
      *
-     * @param $fieldName string
+     * @param string $fieldName
      */
     public function setSaveFieldName($fieldName)
     {
@@ -142,7 +142,7 @@ class ListbuilderHandler extends GridHandler
     /**
      * Get the "add item" link action.
      *
-     * @param $actionRequest ActionRequest
+     * @param ActionRequest $actionRequest
      *
      * @return LinkAction
      */
@@ -161,7 +161,7 @@ class ListbuilderHandler extends GridHandler
      * this is an array representing the row. For single-column
      * listbuilders, this is a single piece of data (i.e. a string or int)
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function getNewRowId($request)
     {
@@ -171,10 +171,10 @@ class ListbuilderHandler extends GridHandler
     /**
      * Delete an entry.
      *
-     * @param $request Request object
-     * @param $rowId mixed ID of row to modify
+     * @param Request $request object
+     * @param mixed $rowId ID of row to modify
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteEntry($request, $rowId)
     {
@@ -184,11 +184,11 @@ class ListbuilderHandler extends GridHandler
     /**
      * Persist an update to an entry.
      *
-     * @param $request Request object
-     * @param $rowId mixed ID of row to modify
-     * @param $newRowId mixed ID of the new entry
+     * @param Request $request object
+     * @param mixed $rowId ID of row to modify
+     * @param mixed $newRowId ID of the new entry
      *
-     * @return boolean
+     * @return bool
      */
     public function updateEntry($request, $rowId, $newRowId)
     {
@@ -204,10 +204,10 @@ class ListbuilderHandler extends GridHandler
     /**
      * Persist a new entry insert.
      *
-     * @param $request Request object
-     * @param $newRowId mixed ID of row to modify
+     * @param Request $request object
+     * @param mixed $newRowId ID of row to modify
      *
-     * @return boolean
+     * @return bool
      */
     public function insertEntry($request, $newRowId)
     {
@@ -222,7 +222,7 @@ class ListbuilderHandler extends GridHandler
      * 	array('column 1 option 2', 'column 2 option 2'
      * );
      *
-     * @param request Request
+     * @param Request $request
      *
      * @return array
      */
@@ -237,8 +237,8 @@ class ListbuilderHandler extends GridHandler
     /**
      * Fetch the listbuilder.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function fetch($args, $request)
     {
@@ -268,10 +268,10 @@ class ListbuilderHandler extends GridHandler
     /**
      * Unpack data to save using an external handler.
      *
-     * @param $data String (the json encoded data from the listbuilder itself)
-     * @param $deletionCallback array callback to be used for each deleted element
-     * @param $insertionCallback array callback to be used for each updated element
-     * @param $updateCallback array callback to be used for each updated element
+     * @param string $data (the json encoded data from the listbuilder itself)
+     * @param array $deletionCallback callback to be used for each deleted element
+     * @param array $insertionCallback callback to be used for each updated element
+     * @param array $updateCallback callback to be used for each updated element
      */
     public static function unpack($request, $data, $deletionCallback, $insertionCallback, $updateCallback)
     {
@@ -340,8 +340,8 @@ class ListbuilderHandler extends GridHandler
     /**
      * Save the listbuilder using the internal handler.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function save($args, $request)
     {
@@ -363,8 +363,8 @@ class ListbuilderHandler extends GridHandler
     /**
      * Load the set of options for a select list type listbuilder.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -378,7 +378,7 @@ class ListbuilderHandler extends GridHandler
     /**
      * Can items be added to this list builder?
      *
-     * @return boolean
+     * @return bool
      */
     public function canAddItems()
     {

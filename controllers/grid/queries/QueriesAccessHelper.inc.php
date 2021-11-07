@@ -36,8 +36,8 @@ class QueriesAccessHelper
     /**
      * Constructor
      *
-     * @param $authorizedContext array
-     * @param $user User
+     * @param array $authorizedContext
+     * @param User $user
      */
     public function __construct($authorizedContext, $user)
     {
@@ -48,7 +48,7 @@ class QueriesAccessHelper
     /**
      * Retrieve authorized context objects from the authorized context.
      *
-     * @param $assocType integer any of the ASSOC_TYPE_* constants
+     * @param int $assocType any of the ASSOC_TYPE_* constants
      */
     public function getAuthorizedContextObject($assocType)
     {
@@ -58,9 +58,9 @@ class QueriesAccessHelper
     /**
      * Determine whether the current user can open/close a query.
      *
-     * @param $query Query
+     * @param Query $query
      *
-     * @return boolean True if the user is allowed to open/close the query.
+     * @return bool True if the user is allowed to open/close the query.
      */
     public function getCanOpenClose($query)
     {
@@ -81,9 +81,9 @@ class QueriesAccessHelper
     /**
      * Determine whether the user can re-order the queries.
      *
-     * @param $stageId int
+     * @param int $stageId
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanOrder($stageId)
     {
@@ -93,9 +93,9 @@ class QueriesAccessHelper
     /**
      * Determine whether the user can create queries.
      *
-     * @param $stageId int
+     * @param int $stageId
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanCreate($stageId)
     {
@@ -105,9 +105,9 @@ class QueriesAccessHelper
     /**
      * Determine whether the current user can edit a query.
      *
-     * @param $queryId int Query ID
+     * @param int $queryId Query ID
      *
-     * @return boolean True iff the user is allowed to edit the query.
+     * @return bool True iff the user is allowed to edit the query.
      */
     public function getCanEdit($queryId)
     {
@@ -136,9 +136,9 @@ class QueriesAccessHelper
     /**
      * Determine whether the current user can delete a query.
      *
-     * @param $queryId int Query ID
+     * @param int $queryId Query ID
      *
-     * @return boolean True iff the user is allowed to delete the query.
+     * @return bool True iff the user is allowed to delete the query.
      */
     public function getCanDelete($queryId)
     {
@@ -165,9 +165,9 @@ class QueriesAccessHelper
     /**
      * Determine whether the current user can list all queries on the submission
      *
-     * @param $stageId int The stage ID to load discussions for
+     * @param int $stageId The stage ID to load discussions for
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanListAll($stageId)
     {
@@ -177,10 +177,10 @@ class QueriesAccessHelper
     /**
      * Determine whether the current user is assigned to the current query.
      *
-     * @param $userId int User ID
-     * @param $queryId int Query ID
+     * @param int $userId User ID
+     * @param int $queryId Query ID
      *
-     * @return boolean
+     * @return bool
      */
     protected function isAssigned($userId, $queryId)
     {
@@ -192,10 +192,10 @@ class QueriesAccessHelper
      * Determine whether the current user has role(s) in the current workflow
      * stage
      *
-     * @param $stageId int
-     * @param $roles array [ROLE_ID_...]
+     * @param int $stageId
+     * @param array $roles [ROLE_ID_...]
      *
-     * @return boolean
+     * @return bool
      */
     protected function hasStageRole($stageId, $roles)
     {

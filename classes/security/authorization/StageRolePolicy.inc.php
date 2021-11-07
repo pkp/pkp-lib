@@ -30,7 +30,7 @@ class StageRolePolicy extends AuthorizationPolicy
     /** @var int|null */
     private $_stageId;
 
-    /** @var boolean */
+    /** @var bool */
     private $_allowRecommendOnly;
 
     /**
@@ -39,7 +39,7 @@ class StageRolePolicy extends AuthorizationPolicy
      * @param array $roleIds The roles required to be authorized
      * @param int $stageId The stage the role assignment is required on to be authorized.
      *   Leave this null to check against the submission's currently active stage.
-     * @param boolean $allowRecommendOnly Authorize the user even if the stage assignment
+     * @param bool $allowRecommendOnly Authorize the user even if the stage assignment
      *   is a "recommend only" assignment. Default allows "recommend only" assignments to
      *   pass authorization.
      */

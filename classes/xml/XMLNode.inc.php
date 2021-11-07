@@ -35,7 +35,7 @@ class XMLNode {
 
 	/**
 	 * Constructor.
-	 * @param $name element/tag name
+	 * @param string $name element/tag name
 	 */
 	function __construct($name = null) {
 		$this->name = $name;
@@ -46,7 +46,7 @@ class XMLNode {
 	}
 
 	/**
-	 * @param $includeNamespace boolean
+	 * @param bool $includeNamespace
 	 * @return string
 	 */
 	function getName($includeNamespace = true) {
@@ -58,7 +58,7 @@ class XMLNode {
 	}
 
 	/**
-	 * @param $name string
+	 * @param string $name
 	 */
 	function setName($name) {
 		$this->name = $name;
@@ -72,7 +72,7 @@ class XMLNode {
 	}
 
 	/**
-	 * @param $parent XMLNode
+	 * @param XMLNode $parent
 	 */
 	function setParent(&$parent) {
 		$this->parent =& $parent;
@@ -86,7 +86,7 @@ class XMLNode {
 	}
 
 	/**
-	 * @param $name string attribute name
+	 * @param string $name attribute name
 	 * @return string attribute value
 	 */
 	function getAttribute($name) {
@@ -94,15 +94,15 @@ class XMLNode {
 	}
 
 	/**
-	 * @param $name string attribute name
-	 * @param value string attribute value
+	 * @param string $name attribute name
+	 * @param string $value attribute value
 	 */
 	function setAttribute($name, $value) {
 		$this->attributes[$name] = $value;
 	}
 
 	/**
-	 * @param $attributes array
+	 * @param array $attributes
 	 */
 	function setAttributes($attributes) {
 		$this->attributes = $attributes;
@@ -116,7 +116,7 @@ class XMLNode {
 	}
 
 	/**
-	 * @param $value string
+	 * @param string $value
 	 */
 	function setValue($value) {
 		$this->value =& $value;
@@ -130,8 +130,8 @@ class XMLNode {
 	}
 
 	/**
-	 * @param $name
-	 * @param $index
+	 * @param string $name
+	 * @param int $index
 	 * @return XMLNode the ($index+1)th child matching the specified name
 	 */
 	function &getChildByName($name, $index = 0) {
@@ -153,8 +153,8 @@ class XMLNode {
 
 	/**
 	 * Get the value of a child node.
-	 * @param $name String name of node
-	 * @param $index Optional integer index of child node to find
+	 * @param string $name name of node
+	 * @param int $index Optional index of child node to find
 	 */
 	function &getChildValue($name, $index = 0) {
 		$node =& $this->getChildByName($name);
@@ -167,14 +167,14 @@ class XMLNode {
 	}
 
 	/**
-	 * @param $node XMLNode the child node to add
+	 * @param XMLNode $node the child node to add
 	 */
 	function addChild(&$node) {
 		$this->children[] =& $node;
 	}
 
 	/**
-	 * @param $output file handle to write to, or true for stdout, or null if XML to be returned as string
+	 * @param resource $output file handle to write to, or true for stdout, or null if XML to be returned as string
 	 * @return string
 	 */
 	function &toXml($output = null) {

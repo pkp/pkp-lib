@@ -31,23 +31,23 @@ class QueryForm extends Form
     /** @var int Assoc ID (per _assocType) */
     public $_assocId;
 
-    /** @var int The stage id associated with the query being edited **/
+    /** @var int The stage id associated with the query being edited */
     public $_stageId;
 
-    /** @var Query The query being edited **/
+    /** @var Query The query being edited */
     public $_query;
 
-    /** @var boolean True iff this is a newly-created query */
+    /** @var bool True iff this is a newly-created query */
     public $_isNew;
 
     /**
      * Constructor.
      *
-     * @param $request Request
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int Assoc ID (per assocType)
-     * @param $stageId int WORKFLOW_STAGE_...
-     * @param $queryId int Optional query ID to edit. If none provided, a
+     * @param Request $request
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId Assoc ID (per assocType)
+     * @param int $stageId WORKFLOW_STAGE_...
+     * @param int $queryId Optional query ID to edit. If none provided, a
      *  (potentially temporary) query will be created.
      */
     public function __construct($request, $assocType, $assocId, $stageId, $queryId = null)
@@ -104,7 +104,6 @@ class QueryForm extends Form
     /**
      * Set the flag indiciating whether the query is new (i.e. creates a placeholder that needs deleting on cancel)
      *
-     * @param $isNew boolean
      */
     public function setIsNew(bool $isNew)
     {
@@ -124,7 +123,7 @@ class QueryForm extends Form
     /**
      * Set the query
      *
-     * @param @query Query
+     * @param Query $query
      */
     public function setQuery($query)
     {
@@ -144,7 +143,7 @@ class QueryForm extends Form
     /**
      * Set the stage id
      *
-     * @param int
+     * @param int $stageId
      */
     public function setStageId($stageId)
     {
@@ -164,7 +163,7 @@ class QueryForm extends Form
     /**
      * Set assoc type
      *
-     * @param $assocType int ASSOC_TYPE_...
+     * @param int $assocType ASSOC_TYPE_...
      */
     public function setAssocType($assocType)
     {
@@ -184,7 +183,7 @@ class QueryForm extends Form
     /**
      * Set assoc id
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -222,8 +221,8 @@ class QueryForm extends Form
      *
      * @see Form::fetch()
      *
-     * @param $request PKPRequest
-     * @param $actionArgs array Optional list of additional arguments
+     * @param PKPRequest $request
+     * @param array $actionArgs Optional list of additional arguments
      * @param null|mixed $template
      */
     public function fetch($request, $template = null, $display = false, $actionArgs = [])

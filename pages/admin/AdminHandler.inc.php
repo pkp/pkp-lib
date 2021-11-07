@@ -122,8 +122,8 @@ class AdminHandler extends Handler
     /**
      * Display site admin index page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function index($args, $request)
     {
@@ -138,8 +138,8 @@ class AdminHandler extends Handler
     /**
      * Display a list of the contexts hosted on the site.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function contexts($args, $request)
     {
@@ -160,8 +160,8 @@ class AdminHandler extends Handler
     /**
      * Display the administration settings page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function settings($args, $request)
     {
@@ -219,7 +219,7 @@ class AdminHandler extends Handler
     /**
      * Business logic for site settings single/multiple contexts availability
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return array [siteComponent, availability (bool)]
      */
@@ -261,8 +261,8 @@ class AdminHandler extends Handler
     /**
      * Display a settings wizard for a journal
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function wizard($args, $request)
     {
@@ -338,8 +338,8 @@ class AdminHandler extends Handler
     /**
      * Show system information summary.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function systemInfo($args, $request)
     {
@@ -399,8 +399,8 @@ class AdminHandler extends Handler
     /**
      * Expire all user sessions (will log out all users currently logged in).
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function expireSessions($args, $request)
     {
@@ -416,8 +416,8 @@ class AdminHandler extends Handler
     /**
      * Clear compiled templates.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function clearTemplateCache($args, $request)
     {
@@ -434,8 +434,8 @@ class AdminHandler extends Handler
     /**
      * Clear the data cache.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function clearDataCache($args, $request)
     {

@@ -22,7 +22,7 @@ class FieldText extends Field
     /** @var string What should the <input type=""> be? */
     public $inputType = 'text';
 
-    /** @var boolean Whether the user should have to click a button to edit the field */
+    /** @var bool Whether the user should have to click a button to edit the field */
     public $optIntoEdit = false;
 
     /** @var string The label of the button added by self::$optIntoEdit */

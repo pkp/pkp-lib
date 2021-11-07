@@ -23,11 +23,11 @@ class SubmissionFileLog extends SubmissionLog
     /**
      * Add a new file event log entry with the specified parameters
      *
-     * @param $request object
-     * @param $submissionFile object
-     * @param $eventType int
-     * @param $messageKey string
-     * @param $params array optional
+     * @param object $request
+     * @param object $submissionFile
+     * @param int $eventType
+     * @param string $messageKey
+     * @param array $params optional
      *
      * @return object SubmissionLogEntry iff the event was logged
      */

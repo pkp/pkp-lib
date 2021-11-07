@@ -335,9 +335,9 @@ class PKPRouterTestCase extends PKPTestCase
      * Set's up a mock environment for router tests (PKPApplication,
      * PKPRequest) with customizable contexts and path info flag.
      *
-     * @param $pathInfoEnabled boolean
-     * @param $contextDepth integer
-     * @param $contextList array
+     * @param bool $pathInfoEnabled
+     * @param int $contextDepth
+     * @param array $contextList
      *
      * @return unknown
      */
@@ -386,10 +386,10 @@ class PKPRouterTestCase extends PKPTestCase
      * Both DAOs will be registered with the DAORegistry and thereby be made available
      * to the router.
      *
-     * @param $firstContextPath string
-     * @param $secondContextPath string
-     * @param $firstContextIsNull boolean
-     * @param $secondContextIsNull boolean
+     * @param string $firstContextPath
+     * @param string $secondContextPath
+     * @param bool $firstContextIsNull
+     * @param bool $secondContextIsNull
      */
     protected function _setUpMockDAOs($firstContextPath = 'current-context1', $secondContextPath = 'current-context2', $firstContextIsNull = false, $secondContextIsNull = false)
     {

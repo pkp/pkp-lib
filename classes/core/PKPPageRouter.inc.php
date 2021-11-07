@@ -71,11 +71,11 @@ class PKPPageRouter extends PKPRouter
     /**
      * Determine whether or not the request is cacheable.
      *
-     * @param $request PKPRequest
-     * @param $testOnly boolean required for unit test to
+     * @param PKPRequest $request
+     * @param bool $testOnly required for unit test to
      *  bypass session check.
      *
-     * @return boolean
+     * @return bool
      */
     public function isCacheable($request, $testOnly = false)
     {
@@ -111,9 +111,9 @@ class PKPPageRouter extends PKPRouter
     /**
      * Get the page requested in the URL.
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      *
-     * @return String the page path (under the "pages" directory)
+     * @return string the page path (under the "pages" directory)
      */
     public function getRequestedPage($request)
     {
@@ -126,7 +126,7 @@ class PKPPageRouter extends PKPRouter
     /**
      * Get the operation requested in the URL (assumed to exist in the requested page handler).
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      *
      * @return string
      */
@@ -141,7 +141,7 @@ class PKPPageRouter extends PKPRouter
     /**
      * Get the arguments requested in the URL.
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      *
      * @return array
      */
@@ -480,7 +480,7 @@ class PKPPageRouter extends PKPRouter
     /**
      * Redirect to user home page (or the user group home page if the user has one user group).
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      */
     public function redirectHome($request)
     {
@@ -490,7 +490,7 @@ class PKPPageRouter extends PKPRouter
     /**
      * Get the user's "home" page URL (e.g. where they are sent after login).
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      */
     public function getHomeUrl($request)
     {
@@ -538,9 +538,9 @@ class PKPPageRouter extends PKPRouter
      * Retrieve part of the current requested
      * url using the passed callback method.
      *
-     * @param $callback array Core method to retrieve
+     * @param array $callback Core method to retrieve
      * page, operation or arguments from url.
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return array|string|null
      */

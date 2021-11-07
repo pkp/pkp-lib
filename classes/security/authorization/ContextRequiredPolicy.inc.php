@@ -22,7 +22,7 @@ class ContextRequiredPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function __construct($request, $message = 'user.authorization.contextRequired')
     {

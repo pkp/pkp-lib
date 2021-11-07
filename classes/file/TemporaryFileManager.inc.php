@@ -57,7 +57,7 @@ class TemporaryFileManager extends PrivateFileManager
     /**
      * Delete a file by ID.
      *
-     * @param $fileId int
+     * @param int $fileId
      */
     public function deleteById($fileId, $userId)
     {
@@ -72,10 +72,10 @@ class TemporaryFileManager extends PrivateFileManager
     /**
      * Download a file.
      *
-     * @param $fileId int the file id of the file to download
-     * @param $inline print file as inline instead of attachment, optional
+     * @param int $fileId the file id of the file to download
+     * @param bool $inline print file as inline instead of attachment, optional
      *
-     * @return boolean
+     * @return bool
      */
     public function downloadById($fileId, $userId, $inline = false)
     {
@@ -91,8 +91,8 @@ class TemporaryFileManager extends PrivateFileManager
     /**
      * Upload the file and add it to the database.
      *
-     * @param $fileName string index into the $_FILES array
-     * @param $userId int
+     * @param string $fileName index into the $_FILES array
+     * @param int $userId
      *
      * @return object|boolean The new TemporaryFile or false on failure
      */

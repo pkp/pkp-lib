@@ -19,21 +19,21 @@ use PKP\controllers\grid\GridHandler;
 
 class FileNameGridColumn extends GridColumn
 {
-    /** @var boolean */
+    /** @var bool */
     public $_includeNotes;
 
     /** @var int */
     public $_stageId;
 
-    /** @var boolean */
+    /** @var bool */
     public $_removeHistoryTab;
 
     /**
      * Constructor
      *
-     * @param $includeNotes boolean
-     * @param $stageId int (optional)
-     * @param $removeHistoryTab boolean (optional) Open the information center
+     * @param bool $includeNotes
+     * @param int $stageId (optional)
+     * @param bool $removeHistoryTab (optional) Open the information center
      * without the history tab.
      */
     public function __construct($includeNotes = true, $stageId = null, $removeHistoryTab = false)

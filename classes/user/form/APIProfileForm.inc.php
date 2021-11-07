@@ -29,7 +29,7 @@ class APIProfileForm extends BaseProfileForm
     /**
      * Constructor.
      *
-     * @param $user User
+     * @param User $user
      */
     public function __construct($user)
     {

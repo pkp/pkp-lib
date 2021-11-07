@@ -30,8 +30,8 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $reviewAssignmentId int
+     * @param PKPRequest $request
+     * @param int $reviewAssignmentId
      */
     public function __construct($request, $reviewAssignmentId)
     {

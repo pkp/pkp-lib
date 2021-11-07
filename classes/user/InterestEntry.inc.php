@@ -36,7 +36,7 @@ class InterestEntry extends \PKP\controlledVocab\ControlledVocabEntry
     /**
      * Set the interest text
      *
-     * @param interest
+     * @param string $interest
      */
     public function setInterest($interest)
     {

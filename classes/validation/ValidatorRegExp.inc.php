@@ -17,13 +17,13 @@ namespace PKP\validation;
 
 class ValidatorRegExp extends Validator
 {
-    /** @var The regular expression to match against the field value */
+    /** @var string The regular expression to match against the field value */
     public $_regExp;
 
     /**
      * Constructor.
      *
-     * @param $regExp string the regular expression (PCRE form)
+     * @param string $regExp the regular expression (PCRE form)
      */
     public function __construct($regExp)
     {

@@ -66,7 +66,7 @@ class PKPTemporaryFilesHandler extends APIHandler
      * A helper method which adds the necessary response headers to allow
      * file uploads
      *
-     * @param $response Response object
+     * @param Response $response object
      *
      * @return Response
      */
@@ -78,9 +78,9 @@ class PKPTemporaryFilesHandler extends APIHandler
     /**
      * Upload a requested file
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
-     * @param $args array arguments
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
+     * @param array $args arguments
      *
      * @return Response
      */
@@ -122,9 +122,9 @@ class PKPTemporaryFilesHandler extends APIHandler
      * Respond affirmatively to a HTTP OPTIONS request with headers which allow
      * file uploads
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
-     * @param $args array arguments
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
+     * @param array $args arguments
      *
      * @return Response
      */

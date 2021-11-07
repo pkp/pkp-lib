@@ -36,8 +36,8 @@ class SubmissionAgency extends \PKP\controlledVocab\ControlledVocabEntry
     /**
      * Set the agency text
      *
-     * @param agency string
-     * @param locale string
+     * @param string $agency
+     * @param string $locale
      */
     public function setAgency($agency, $locale)
     {

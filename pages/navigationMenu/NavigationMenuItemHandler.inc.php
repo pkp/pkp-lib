@@ -41,8 +41,8 @@ class NavigationMenuItemHandler extends Handler
     /**
      * View NavigationMenuItem content preview page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function preview($args, $request)
     {
@@ -94,8 +94,8 @@ class NavigationMenuItemHandler extends Handler
     /**
      * View NavigationMenuItem content page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function view($args, $request)
     {
@@ -140,8 +140,8 @@ class NavigationMenuItemHandler extends Handler
     /**
      * Handle index request (redirect to "view")
      *
-     * @param $args array Arguments array.
-     * @param $request PKPRequest Request object.
+     * @param array $args Arguments array.
+     * @param PKPRequest $request Request object.
      */
     public function index($args, $request)
     {
@@ -151,7 +151,7 @@ class NavigationMenuItemHandler extends Handler
     /**
      * Set a $nmi to view.
      *
-     * @param $nmi NavigationMenuItem
+     * @param NavigationMenuItem $nmi
      */
     public static function setPage($nmi)
     {

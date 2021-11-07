@@ -24,7 +24,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -59,7 +59,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Handle a user_groups element
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      *
      * @return array Array of UserGroup objects
      */
@@ -78,7 +78,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Handle a users element
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      *
      * @return array Array of User objects
      */
@@ -296,7 +296,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Handle a singular element import.
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      */
     public function handleElement($node)
     {
@@ -313,7 +313,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Handle an element whose parent is the submission element.
      *
-     * @param $n DOMElement
+     * @param DOMElement $n
      */
     public function handleChildElement($n)
     {
@@ -332,8 +332,8 @@ class UserXmlPKPUserFilter extends NativeImportFilter
     /**
      * Validation process for imported passwords
      *
-     * @param $userToImport User ByRef. The user that is being imported.
-     * @param $encryption string null, sha1, md5 (or any other encryption algorithm defined)
+     * @param User $userToImport ByRef. The user that is being imported.
+     * @param string $encryption null, sha1, md5 (or any other encryption algorithm defined)
      *
      * @return string if a new password is generated, the function returns it.
      */

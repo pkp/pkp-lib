@@ -21,10 +21,10 @@ use PKP\submissionFile\SubmissionFile;
 
 class ManageReviewFilesForm extends ManageSubmissionFilesForm
 {
-    /** @var int **/
+    /** @var int */
     public $_stageId;
 
-    /** @var int **/
+    /** @var int */
     public $_reviewRoundId;
 
 
@@ -95,7 +95,7 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm
      * @stageSubmissionFiles array The files that belongs to a file stage
      * that is currently being used by a grid inside this form.
      *
-     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
+     * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
      */
     public function execute($stageSubmissionFiles, $fileStage = null)
     {

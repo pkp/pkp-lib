@@ -30,9 +30,9 @@ class PKPContributorsListPanel extends ListPanel
     /**
      * Initialize the form with config parameters
      *
-     * @param $id string
-     * @param $title string
-     * @param $args array Configuration params
+     * @param string $id
+     * @param string $title
+     * @param array $args Configuration params
      */
     public function __construct($id, $title, $args = [])
     {

@@ -115,7 +115,7 @@ abstract class PKPStatsEditorialQueryBuilder
      * editor decisions
      *
      * @param array $decisions One or more SUBMISSION_EDITOR_DECISION_*
-     * @param boolean $forSubmittedDate How date restrictions should be applied.
+     * @param bool $forSubmittedDate How date restrictions should be applied.
      *  A false value will count the number of submissions with an editorial
      * 	decision within the date range. A true value will count the number of
      *  submissions received within the date range which eventually received

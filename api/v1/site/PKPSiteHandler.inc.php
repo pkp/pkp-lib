@@ -79,8 +79,8 @@ class PKPSiteHandler extends APIHandler
     /**
      * Get the site
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -100,8 +100,8 @@ class PKPSiteHandler extends APIHandler
     /**
      * Get the active theme on the site
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -136,8 +136,8 @@ class PKPSiteHandler extends APIHandler
     /**
      * Edit the site
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -168,8 +168,8 @@ class PKPSiteHandler extends APIHandler
     /**
      * Edit the active theme and theme options on the site
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response

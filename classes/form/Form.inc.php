@@ -32,28 +32,28 @@ use PKP\plugins\HookRegistry;
 
 class Form
 {
-    /** The template file containing the HTML form */
+    /** @var string The template file containing the HTML form */
     public $_template;
 
-    /** Associative array containing form data */
+    /** @var array Associative array containing form data */
     public $_data;
 
-    /** Validation checks for this form */
+    /** @var array Validation checks for this form */
     public $_checks;
 
-    /** Errors occurring in form validation */
+    /** @var array Errors occurring in form validation */
     public $_errors;
 
-    /** Array of field names where an error occurred and the associated error message */
+    /** @var array Array of field names where an error occurred and the associated error message */
     public $errorsArray;
 
-    /** Array of field names where an error occurred */
+    /** @var array Array of field names where an error occurred */
     public $errorFields;
 
-    /** Array of errors for the form section currently being processed */
+    /** @var array Array of errors for the form section currently being processed */
     public $formSectionErrors;
 
-    /** Client-side validation rules **/
+    /** @var array Client-side validation rules */
     public $cssValidation;
 
     /** @var string Symbolic name of required locale */
@@ -68,7 +68,7 @@ class Form
     /**
      * Constructor.
      *
-     * @param $template string the path to the form template file
+     * @param string $template the path to the form template file
      * @param null|mixed $requiredLocale
      * @param null|mixed $supportedLocales
      */
@@ -110,7 +110,7 @@ class Form
     /**
      * Set the template
      *
-     * @param $template string
+     * @param string $template
      */
     public function setTemplate($template)
     {
@@ -144,8 +144,8 @@ class Form
     /**
      * Display the form.
      *
-     * @param $request PKPRequest
-     * @param $template string the template to be rendered, mandatory
+     * @param PKPRequest $request
+     * @param string $template the template to be rendered, mandatory
      *  if no template has been specified on class instantiation.
      */
     public function display($request = null, $template = null)
@@ -156,10 +156,10 @@ class Form
     /**
      * Returns a string of the rendered form
      *
-     * @param $request PKPRequest
-     * @param $template string the template to be rendered, mandatory
+     * @param PKPRequest $request
+     * @param string $template the template to be rendered, mandatory
      *  if no template has been specified on class instantiation.
-     * @param $display boolean
+     * @param bool $display
      *
      * @return string the rendered form
      */
@@ -214,7 +214,7 @@ class Form
     /**
      * Get the value of a form field.
      *
-     * @param $key string
+     * @param string $key
      */
     public function getData($key)
     {
@@ -224,8 +224,7 @@ class Form
     /**
      * Set the value of one or several form fields.
      *
-     * @param $key string|array If a string, then set a single field. If an associative array, then set many.
-     * @param $value mixed
+     * @param string|array $key If a string, then set a single field. If an associative array, then set many.
      */
     public function setData($key, $value = null)
     {
@@ -264,7 +263,7 @@ class Form
     /**
      * Validate form data.
      *
-     * @param $callHooks boolean True (default) iff hooks are to be called.
+     * @param bool $callHooks True (default) iff hooks are to be called.
      */
     public function validate($callHooks = true)
     {
@@ -372,7 +371,7 @@ class Form
     /**
      * Set the default form locale.
      *
-     * @param $defaultLocale string
+     * @param string $defaultLocale
      */
     public function setDefaultFormLocale($defaultLocale)
     {
@@ -382,7 +381,7 @@ class Form
     /**
      * Add a supported locale.
      *
-     * @param $supportedLocale string
+     * @param string $supportedLocale
      */
     public function addSupportedFormLocale($supportedLocale)
     {
@@ -398,7 +397,7 @@ class Form
     /**
      * Adds specified user variables to input data.
      *
-     * @param $vars array the names of the variables to read
+     * @param array $vars the names of the variables to read
      */
     public function readUserVars($vars)
     {
@@ -418,7 +417,7 @@ class Form
     /**
      * Add a validation check to the form.
      *
-     * @param $formValidator FormValidator
+     * @param FormValidator $formValidator
      */
     public function addCheck($formValidator)
     {
@@ -429,7 +428,7 @@ class Form
      * Add an error to the form.
      * Errors are typically assigned as the form is validated.
      *
-     * @param $field string the name of the field where the error occurred
+     * @param string $field the name of the field where the error occurred
      */
     public function addError($field, $message)
     {
@@ -439,7 +438,7 @@ class Form
     /**
      * Add an error field for highlighting on form
      *
-     * @param $field string the name of the field where the error occurred
+     * @param string $field the name of the field where the error occurred
      */
     public function addErrorField($field)
     {
@@ -449,7 +448,7 @@ class Form
     /**
      * Check if form passes all validation checks.
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {
@@ -480,9 +479,9 @@ class Form
      * Convert PHP variable (literals or arrays) into HTML containing
      * hidden input fields.
      *
-     * @param $name string Name of variable
-     * @param $value mixed Value of variable
-     * @param $stack array Names of array keys (for recursive calling)
+     * @param string $name Name of variable
+     * @param mixed $value Value of variable
+     * @param array $stack Names of array keys (for recursive calling)
      *
      * @return string HTML hidden form elements describing the parameters.
      */

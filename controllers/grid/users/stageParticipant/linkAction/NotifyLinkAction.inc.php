@@ -20,10 +20,10 @@ class NotifyLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $submission Submission The submission
-     * @param $stageId int
-     * @param $userId optional
+     * @param Request $request
+     * @param Submission $submission The submission
+     * @param int $stageId
+     * @param int $userId optional
      *  to show information about.
      */
     public function __construct($request, &$submission, $stageId, $userId = null)

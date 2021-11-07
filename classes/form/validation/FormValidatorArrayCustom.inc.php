@@ -23,7 +23,7 @@ class FormValidatorArrayCustom extends FormValidator
     /** @var array Array of field names where an error occurred */
     public $_errorFields;
 
-    /** @var boolean is the field a multilingual-capable field */
+    /** @var bool is the field a multilingual-capable field */
     public $_isLocaleField;
 
     /** @var callable Custom validation function */
@@ -32,21 +32,21 @@ class FormValidatorArrayCustom extends FormValidator
     /** @var array Additional arguments to pass to $userFunction */
     public $_additionalArguments;
 
-    /** @var boolean If true, field is considered valid if user function returns false instead of true */
+    /** @var bool If true, field is considered valid if user function returns false instead of true */
     public $_complementReturn;
 
     /**
      * Constructor.
      *
-     * @param $form Form the associated form
-     * @param $field string the name of the associated field
-     * @param $type string the type of check, either "required" or "optional"
-     * @param $message string the error message for validation failures (i18n key)
-     * @param $userFunction function the user function to use for validation
-     * @param $additionalArguments array optional, a list of additional arguments to pass to $userFunction
-     * @param $complementReturn boolean optional, complement the value returned by $userFunction
-     * @param $fields array all subfields for each item in the array, i.e. name[][foo]. If empty it is assumed that name[] is a data field
-     * @param $isLocaleField boolean
+     * @param Form $form the associated form
+     * @param string $field the name of the associated field
+     * @param string $type the type of check, either "required" or "optional"
+     * @param string $message the error message for validation failures (i18n key)
+     * @param callable $userFunction the user function to use for validation
+     * @param array $additionalArguments optional, a list of additional arguments to pass to $userFunction
+     * @param bool $complementReturn optional, complement the value returned by $userFunction
+     * @param array $fields all subfields for each item in the array, i.e. name[][foo]. If empty it is assumed that name[] is a data field
+     * @param bool $isLocaleField
      */
     public function __construct(&$form, $field, $type, $message, $userFunction, $additionalArguments = [], $complementReturn = false, $fields = [], $isLocaleField = false)
     {
@@ -75,7 +75,7 @@ class FormValidatorArrayCustom extends FormValidator
     /**
      * Is it a multilingual-capable field.
      *
-     * @return boolean
+     * @return bool
      */
     public function isLocaleField()
     {
@@ -89,7 +89,7 @@ class FormValidatorArrayCustom extends FormValidator
     /**
      * @see FormValidator::isValid()
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {
@@ -176,7 +176,7 @@ class FormValidatorArrayCustom extends FormValidator
     /**
      * Is the field an array.
      *
-     * @return boolean
+     * @return bool
      */
     public function isArray()
     {

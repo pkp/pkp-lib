@@ -41,8 +41,8 @@ class SubmissionFile extends \PKP\core\DataObject
      * Get a piece of data for this object, localized to the current
      * locale if possible.
      *
-     * @param $key string
-     * @param $preferredLocale string
+     * @param string $key
+     * @param string $preferredLocale
      */
     public function &getLocalizedData($key, $preferredLocale = null)
     {
@@ -98,7 +98,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param $submissionLocale string
+     * @param string $submissionLocale
      */
     public function setSubmissionLocale($submissionLocale)
     {
@@ -108,7 +108,7 @@ class SubmissionFile extends \PKP\core\DataObject
     /**
      * Get stored public ID of the file.
      *
-     * @param @literal $pubIdType string One of the NLM pub-id-type values or
+     * @param string $pubIdType @literal One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>). @endliteral
      *
@@ -122,10 +122,10 @@ class SubmissionFile extends \PKP\core\DataObject
     /**
      * Set the stored public ID of the file.
      *
-     * @param $pubIdType string One of the NLM pub-id-type values or
+     * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-     * @param $pubId string
+     * @param string $pubId
      */
     public function setStoredPubId($pubIdType, $pubId)
     {
@@ -136,7 +136,7 @@ class SubmissionFile extends \PKP\core\DataObject
      * Get price of submission file.
      * A null return indicates "not available"; 0 is free.
      *
-     * @return numeric|null
+     * @return float|null
      */
     public function getDirectSalesPrice()
     {
@@ -147,7 +147,7 @@ class SubmissionFile extends \PKP\core\DataObject
      * Set direct sales price.
      * A null return indicates "not available"; 0 is free.
      *
-     * @param $directSalesPrice numeric|null
+     * @param float|null $directSalesPrice
      */
     public function setDirectSalesPrice($directSalesPrice)
     {
@@ -167,7 +167,7 @@ class SubmissionFile extends \PKP\core\DataObject
     /**
      * Set sales type.
      *
-     * @param $salesType string
+     * @param string $salesType
      */
     public function setSalesType($salesType)
     {
@@ -180,7 +180,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param $genreId int
+     * @param int $genreId
      */
     public function setGenreId($genreId)
     {
@@ -232,7 +232,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param $fileStage int SUBMISSION_FILE_...
+     * @param int $fileStage SUBMISSION_FILE_...
      */
     public function setFileStage($fileStage)
     {
@@ -257,7 +257,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param $updatedAt date
+     * @param date $updatedAt
      */
 
     public function setDateModified($updatedAt)
@@ -270,7 +270,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @return boolean
+     * @return bool
      */
     public function getViewable()
     {
@@ -283,7 +283,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param $viewable boolean
+     * @param bool $viewable
      */
     public function setViewable($viewable)
     {
@@ -295,7 +295,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param $uploaderUserId integer
+     * @param int $uploaderUserId
      */
     public function setUploaderUserId($uploaderUserId)
     {
@@ -307,7 +307,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @return integer
+     * @return int
      */
     public function getUploaderUserId()
     {
@@ -331,7 +331,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param $assocType int
+     * @param int $assocType
      */
     public function setAssocType($assocType)
     {
@@ -355,7 +355,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param $chapterId int
+     * @param int $chapterId
      */
     public function setChapterId($chapterId)
     {

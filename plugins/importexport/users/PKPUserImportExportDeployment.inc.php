@@ -24,8 +24,8 @@ class PKPUserImportExportDeployment extends PKPImportExportDeployment
     /**
      * Constructor
      *
-     * @param $context Context
-     * @param $user User
+     * @param Context $context
+     * @param User $user
      */
     public function __construct($context, $user)
     {
@@ -37,7 +37,7 @@ class PKPUserImportExportDeployment extends PKPImportExportDeployment
     /**
      * Set the site.
      *
-     * @param $site Site
+     * @param Site $site
      */
     public function setSite($site)
     {

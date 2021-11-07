@@ -32,8 +32,8 @@ class OAIUtils
     /**
      * Return a UTC-formatted datestamp from the specified UNIX timestamp.
      *
-     * @param $timestamp int *nix timestamp (if not used, the current time is used)
-     * @param $includeTime boolean include both the time and date
+     * @param int $timestamp *nix timestamp (if not used, the current time is used)
+     * @param bool $includeTime include both the time and date
      *
      * @return string UTC datestamp
      */
@@ -56,8 +56,8 @@ class OAIUtils
      * Returns the string "invalid" if datestamp is invalid,
      * or "invalid_granularity" if unsupported granularity.
      *
-     * @param $date string UTC datestamp
-     * @param $requiredGranularity string Datestamp granularity to require (default: not checked)
+     * @param string $date UTC datestamp
+     * @param string $requiredGranularity Datestamp granularity to require (default: not checked)
      *
      * @return int timestamp
      */
@@ -87,7 +87,7 @@ class OAIUtils
     /**
      * Clean input variables (by reference).
      *
-     * @param $data mixed request parameter(s)
+     * @param mixed $data request parameter(s)
      */
     public static function prepInput(&$data)
     { // REFERENCE REQUIRED
@@ -109,7 +109,7 @@ class OAIUtils
      * Prepare variables for output (by reference).
      * Data is assumed to be UTF-8 encoded (FIXME?)
      *
-     * @param $data mixed output parameter(s)
+     * @param mixed $data output parameter(s)
      *
      * @return mixed cleaned output parameter(s)
      */
@@ -135,7 +135,7 @@ class OAIUtils
      * Acts like parse_str($string, $array) except duplicate
      * variable names in $string are converted to an array.
      *
-     * @param $array array of parsed parameters
+     * @param array $array of parsed parameters
      */
     public static function parseStr($string, &$array)
     {
@@ -167,8 +167,6 @@ class OAIUtils
      * [1] https://www.openarchives.org/OAI/2.0/openarchivesprotocol.htm#Set
      * [2] http://www.ietf.org/rfc/rfc2396.txt
      *
-     * @param $string string
-     * @return string
      */
     public static function toValidSetSpec(string $string): string
     {

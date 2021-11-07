@@ -31,11 +31,11 @@ class MetadataRecord
     /**
      * Add a meta-data description.
      *
-     * @param $metadataDescription MetadataDescription
-     * @param $replace whether to replace a description if a description for
+     * @param MetadataDescription $metadataDescription
+     * @param bool $replace whether to replace a description if a description for
      *  the same application entity instance already exists.
      *
-     * @return boolean true if a valid description was added, otherwise false
+     * @return bool true if a valid description was added, otherwise false
      */
     public function addDescription($metadataDescription, $replace = true)
     {
@@ -62,9 +62,9 @@ class MetadataRecord
     /**
      * Remove description.
      *
-     * @param $applicationEntityId string consisting of 'assocType:assocId'
+     * @param string $applicationEntityId consisting of 'assocType:assocId'
      *
-     * @return boolean true if the description was found and removed, otherwise false
+     * @return bool true if the description was found and removed, otherwise false
      *
      * @see MetadataRecord::getApplicationEntityIdFromMetadataDescription()
      */
@@ -92,9 +92,9 @@ class MetadataRecord
     /**
      * Get a specific description
      *
-     * @param $applicationEntityId string consisting of 'assocType:assocId'
+     * @param string $applicationEntityId consisting of 'assocType:assocId'
      *
-     * @return boolean true if the description was found and removed, otherwise false
+     * @return bool true if the description was found and removed, otherwise false
      *
      * @see MetadataRecord::getApplicationEntityIdFromMetadataDescription()
      */
@@ -116,9 +116,9 @@ class MetadataRecord
      * is invalid then the meta-data record will be empty after this
      * operation.
      *
-     * @param $descriptions array descriptions
+     * @param array $descriptions descriptions
      *
-     * @return boolean true if all descriptions could be added, false otherwise
+     * @return bool true if all descriptions could be added, false otherwise
      */
     public function setDescriptions(&$descriptions)
     {

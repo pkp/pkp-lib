@@ -54,8 +54,8 @@ class EditorReviewFilesGridHandler extends FileListGridHandler
      *
      * FIXME: Move to its own handler so that it can be re-used among grids.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

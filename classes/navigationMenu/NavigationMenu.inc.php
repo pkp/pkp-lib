@@ -39,7 +39,7 @@ class NavigationMenu extends \PKP\core\DataObject
     /**
      * Set contextId of this NavigationMenu
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function setContextId($contextId)
     {
@@ -59,7 +59,7 @@ class NavigationMenu extends \PKP\core\DataObject
     /**
      * Set title of this NavigationMenu. Not localized.
      *
-     * @param $title string
+     * @param string $title
      */
     public function setTitle($title)
     {
@@ -79,7 +79,7 @@ class NavigationMenu extends \PKP\core\DataObject
     /**
      * Set navigationArea name of this NavigationMenu. Not localized.
      *
-     * @param $areaName string
+     * @param string $areaName
      */
     public function setAreaName($areaName)
     {

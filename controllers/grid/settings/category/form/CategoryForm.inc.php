@@ -23,10 +23,10 @@ use PKP\security\Role;
 
 class CategoryForm extends Form
 {
-    /** @var Id of the category being edited */
+    /** @var int Id of the category being edited */
     public $_categoryId;
 
-    /** @var The context ID of the category being edited */
+    /** @var int The context ID of the category being edited */
     public $_contextId;
 
     /** @var int $_userId The current user ID */
@@ -42,8 +42,8 @@ class CategoryForm extends Form
     /**
      * Constructor.
      *
-     * @param $contextId Context id.
-     * @param $categoryId Category id.
+     * @param int $contextId Context id.
+     * @param int $categoryId Category id.
      */
     public function __construct($contextId, $categoryId = null)
     {
@@ -93,7 +93,7 @@ class CategoryForm extends Form
     /**
      * Set the category ID for this section.
      *
-     * @param $categoryId int
+     * @param int $categoryId
      */
     public function setCategoryId($categoryId)
     {

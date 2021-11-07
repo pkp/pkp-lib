@@ -30,14 +30,14 @@ use PKP\security\Role;
 
 class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 {
-    /** @var boolean Is there a privacy statement to be confirmed? */
+    /** @var bool Is there a privacy statement to be confirmed? */
     public $hasPrivacyStatement = true;
 
     /**
      * Constructor.
      *
-     * @param $context Context
-     * @param $submission Submission (optional)
+     * @param Context $context
+     * @param Submission $submission (optional)
      */
     public function __construct($context, $submission = null)
     {
@@ -211,7 +211,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
      *
      * @see SubmissionSubmitForm::initData
      *
-     * @param $data array
+     * @param array $data
      */
     public function initData($data = [])
     {
@@ -281,10 +281,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
     /**
      * Add or update comments to editor
      *
-     * @param $submissionId int
-     * @param $commentsToEditor string
-     * @param $userId int
-     * @param $query Query optional
+     * @param int $submissionId
+     * @param string $commentsToEditor
+     * @param int $userId
+     * @param Query $query optional
      */
     public function setCommentsToEditor($submissionId, $commentsToEditor, $userId, $query = null)
     {
@@ -338,7 +338,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
     /**
      * Get comments to editor
      *
-     * @param $submissionId int
+     * @param int $submissionId
      *
      * @return null|Query
      */

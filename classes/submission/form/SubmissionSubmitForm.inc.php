@@ -40,8 +40,8 @@ class SubmissionSubmitForm extends Form
     /**
      * Constructor.
      *
-     * @param $submission object
-     * @param $step int
+     * @param object $submission
+     * @param int $step
      */
     public function __construct($context, $submission, $step)
     {

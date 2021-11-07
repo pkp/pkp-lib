@@ -26,9 +26,9 @@ class RevertDeclineForm extends EditorDecisionForm
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $decision int
-     * @param $stageId int
+     * @param Submission $submission
+     * @param int $decision
+     * @param int $stageId
      */
     public function __construct($submission, $decision, $stageId)
     {
@@ -42,7 +42,7 @@ class RevertDeclineForm extends EditorDecisionForm
     /**
      * @see Form::initData()
      *
-     * @param $actionLabels array
+     * @param array $actionLabels
      */
     public function initData($actionLabels = [])
     {

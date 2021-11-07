@@ -25,13 +25,13 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
     /**
      * Constructor.
      *
-     * @param $typeOption int Defines which grid elements will
+     * @param int $typeOption Defines which grid elements will
      * be orderable (categories and/or rows).
-     * @param $overrideRowTemplate boolean This feature uses row
+     * @param bool $overrideRowTemplate This feature uses row
      * actions and it will force the usage of the gridRow.tpl.
      * If you want to use a different grid row template file, set this flag to
      * false and make sure to use a template file that adds row actions.
-     * @param $grid GridHandler The grid this feature is to be part of
+     * @param GridHandler $grid The grid this feature is to be part of
      */
     public function __construct($typeOption = self::ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS, $overrideRowTemplate = true, $grid = null)
     {
@@ -138,10 +138,9 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
     /**
      * Save row elements sequence inside categories.
      *
-     * @param $request PKPRequest
-     * @param $grid GridHandler
-     * @param $gridCategoryElements array
-     * @param $data
+     * @param PKPRequest $request
+     * @param GridHandler $grid
+     * @param array $gridCategoryElements
      */
     public function _saveRowsInCategoriesSequence($request, &$grid, $gridCategoryElements, $data)
     {

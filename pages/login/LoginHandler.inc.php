@@ -85,7 +85,7 @@ class LoginHandler extends Handler
     /**
      * After a login has completed, direct the user somewhere.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function _redirectAfterLogin($request)
     {
@@ -233,7 +233,7 @@ class LoginHandler extends Handler
     /**
      * Reset a user's password
      *
-     * @param $args array first param contains the username of the user whose password is to be reset
+     * @param array $args first param contains the username of the user whose password is to be reset
      */
     public function resetPassword($args, $request)
     {
@@ -302,7 +302,7 @@ class LoginHandler extends Handler
     /**
      * Display form to change user's password.
      *
-     * @param $args array first argument may contain user's username
+     * @param array $args first argument may contain user's username
      */
     public function changePassword($args, $request)
     {
@@ -346,8 +346,8 @@ class LoginHandler extends Handler
     /**
      * Sign in as another user.
      *
-     * @param $args array ($userId)
-     * @param $request PKPRequest
+     * @param array $args ($userId)
+     * @param PKPRequest $request
      */
     public function signInAsUser($args, $request)
     {
@@ -386,8 +386,8 @@ class LoginHandler extends Handler
     /**
      * Restore original user account after signing in as a user.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function signOutAsUser($args, $request)
     {
@@ -414,7 +414,7 @@ class LoginHandler extends Handler
     /**
      * Redirect to redirectURL if exists else send to Home
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function _redirectByURL($request)
     {
@@ -431,9 +431,9 @@ class LoginHandler extends Handler
      * Helper function - set mail From
      * can be overriden by child classes
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      * @param MailTemplate $mail
-     * @param $site Site
+     * @param Site $site
      */
     public function _setMailFrom($request, $mail, $site)
     {
@@ -445,7 +445,7 @@ class LoginHandler extends Handler
      * Send the user "home" (typically to the dashboard, but that may not
      * always be available).
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     protected function sendHome($request)
     {

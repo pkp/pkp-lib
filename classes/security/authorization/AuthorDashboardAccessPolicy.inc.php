@@ -23,9 +23,9 @@ class AuthorDashboardAccessPolicy extends ContextPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request arguments
-     * @param $roleAssignments array
+     * @param PKPRequest $request
+     * @param array $args request arguments
+     * @param array $roleAssignments
      */
     public function __construct($request, &$args, $roleAssignments)
     {

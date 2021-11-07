@@ -38,17 +38,17 @@ class EditorDecisionForm extends Form
     /** @var ReviewRound Only required when in review stages */
     public $_reviewRound;
 
-    /** @var integer The decision being taken */
+    /** @var int The decision being taken */
     public $_decision;
 
 
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $stageId int
-     * @param $template string The template to display
-     * @param $reviewRound ReviewRound
+     * @param Submission $submission
+     * @param int $stageId
+     * @param string $template The template to display
+     * @param ReviewRound $reviewRound
      */
     public function __construct($submission, $decision, $stageId, $template, $reviewRound = null)
     {
@@ -69,7 +69,7 @@ class EditorDecisionForm extends Form
     /**
      * Get the decision
      *
-     * @return integer
+     * @return int
      */
     public function getDecision()
     {
@@ -154,10 +154,10 @@ class EditorDecisionForm extends Form
      * Initiate a new review round and add selected files
      * to it. Also saves the new round to the submission.
      *
-     * @param $submission Submission
-     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-     * @param $request Request
-     * @param $status integer One of the REVIEW_ROUND_STATUS_* constants.
+     * @param Submission $submission
+     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param Request $request
+     * @param int $status One of the REVIEW_ROUND_STATUS_* constants.
      *
      * @return $newRound integer The round number of the new review round.
      */

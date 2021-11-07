@@ -45,8 +45,8 @@ class UserApiHandler extends PKPHandler
     /**
      * Get a suggested username, making sure it's not already used.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

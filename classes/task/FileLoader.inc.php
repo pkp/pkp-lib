@@ -62,13 +62,13 @@ abstract class FileLoader extends ScheduledTask
     /** @var array List of staged back files after processing. */
     private $_stagedBackFiles = [];
 
-    /** @var boolean Whether to compress the archived files or not. */
+    /** @var bool Whether to compress the archived files or not. */
     private $_compressArchives = false;
 
     /**
      * Constructor.
      *
-     * @param $args array script arguments
+     * @param array $args script arguments
      */
     public function __construct($args)
     {
@@ -153,7 +153,7 @@ abstract class FileLoader extends ScheduledTask
     /**
      * Return whether the archives must be compressed or not.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCompressArchives()
     {
@@ -163,7 +163,7 @@ abstract class FileLoader extends ScheduledTask
     /**
      * Set whether the archives must be compressed or not.
      *
-     * @param $compressArchives boolean
+     * @param bool $compressArchives
      */
     public function setCompressArchives($compressArchives)
     {
@@ -223,10 +223,10 @@ abstract class FileLoader extends ScheduledTask
      * A public helper function that can be used to ensure
      * that the file structure has actually been installed.
      *
-     * @param $install boolean Set this parameter to true to
+     * @param bool $install Set this parameter to true to
      *  install the folder structure if it is missing.
      *
-     * @return boolean True if the folder structure exists,
+     * @return bool True if the folder structure exists,
      *  otherwise false.
      */
     public function checkFolderStructure($install = false)
@@ -282,7 +282,7 @@ abstract class FileLoader extends ScheduledTask
     /**
      * Process the passed file.
      *
-     * @param $filePath string
+     * @param string $filePath
      *
      * @see FileLoader::execute to understand
      * the expected return values.
@@ -292,9 +292,9 @@ abstract class FileLoader extends ScheduledTask
     /**
      * Move file between filesystem directories.
      *
-     * @param $sourceDir string
-     * @param $destDir string
-     * @param $filename string
+     * @param string $sourceDir
+     * @param string $destDir
+     * @param string $filename
      *
      * @return string The destination path of the moved file.
      */
@@ -396,7 +396,7 @@ abstract class FileLoader extends ScheduledTask
     /**
      * Send the passed message to the administrator by email.
      *
-     * @param $message string
+     * @param string $message
      */
     private function _notify($message, $messageType)
     {

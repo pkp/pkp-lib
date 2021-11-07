@@ -32,9 +32,9 @@ class PKPSubmissionsNotificationsForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $locales array Supported locales
-     * @param $context Context Journal or Press to change settings for
+     * @param string $action URL to submit the form to
+     * @param array $locales Supported locales
+     * @param Context $context Journal or Press to change settings for
      */
     public function __construct($action, $locales, $context)
     {
@@ -54,7 +54,7 @@ class PKPSubmissionsNotificationsForm extends FormComponent
     /**
      * Build the copy submission ack primary contact field
      *
-     * @param $context Context Journal or Press to change settings for
+     * @param Context $context Journal or Press to change settings for
      *
      */
     protected function buildCopySubmissionAckPrimaryContactField($context)

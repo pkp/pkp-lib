@@ -32,8 +32,8 @@ class Identity extends \PKP\core\DataObject
      * Get a piece of data for this object, localized to the current
      * locale if possible.
      *
-     * @param $key string
-     * @param $preferredLocale string
+     * @param string $key
+     * @param string $preferredLocale
      */
     public function &getLocalizedData($key, $preferredLocale = null)
     {
@@ -81,10 +81,10 @@ class Identity extends \PKP\core\DataObject
      * Get the identity's localized complete name.
      * Includes given name and family name.
      *
-     * @param $preferred boolean If the preferred public name should be used, if exist
-     * @param $familyFirst boolean False / default: Givenname Familyname
+     * @param bool $preferred If the preferred public name should be used, if exist
+     * @param bool $familyFirst False / default: Givenname Familyname
      * 	If true: Familyname, Givenname
-     * @param $defaultLocale string
+     * @param string $defaultLocale
      *
      * @return string
      */
@@ -119,7 +119,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Get given name.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string|array
      */
@@ -131,8 +131,8 @@ class Identity extends \PKP\core\DataObject
     /**
      * Set given name.
      *
-     * @param $givenName string
-     * @param $locale string
+     * @param string $givenName
+     * @param string $locale
      */
     public function setGivenName($givenName, $locale)
     {
@@ -154,7 +154,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Get family name.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string|array
      */
@@ -166,8 +166,8 @@ class Identity extends \PKP\core\DataObject
     /**
      * Set family name.
      *
-     * @param $familyName string
-     * @param $locale string
+     * @param string $familyName
+     * @param string $locale
      */
     public function setFamilyName($familyName, $locale)
     {
@@ -178,7 +178,7 @@ class Identity extends \PKP\core\DataObject
      * Get the localized family name
      * Return family name for the locale first name exists in
      *
-     * @param $defaultLocale string
+     * @param string $defaultLocale
      *
      * @return string
      */
@@ -207,7 +207,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Get preferred public name.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -219,8 +219,8 @@ class Identity extends \PKP\core\DataObject
     /**
      * Set preferred public name.
      *
-     * @param $preferredPublicName string
-     * @param $locale string
+     * @param string $preferredPublicName
+     * @param string $locale
      */
     public function setPreferredPublicName($preferredPublicName, $locale)
     {
@@ -230,7 +230,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Get affiliation (position, institution, etc.).
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -242,8 +242,8 @@ class Identity extends \PKP\core\DataObject
     /**
      * Set affiliation.
      *
-     * @param $affiliation string
-     * @param $locale string
+     * @param string $affiliation
+     * @param string $locale
      */
     public function setAffiliation($affiliation, $locale)
     {
@@ -271,7 +271,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Set email address.
      *
-     * @param $email string
+     * @param string $email
      */
     public function setEmail($email)
     {
@@ -291,7 +291,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Set ORCID identifier.
      *
-     * @param $orcid string
+     * @param string $orcid
      */
     public function setOrcid($orcid)
     {
@@ -327,7 +327,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Set country code (ISO 3166-1 two-letter codes)
      *
-     * @param $country string
+     * @param string $country
      */
     public function setCountry($country)
     {
@@ -347,7 +347,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Set URL.
      *
-     * @param $url string
+     * @param string $url
      */
     public function setUrl($url)
     {
@@ -367,7 +367,7 @@ class Identity extends \PKP\core\DataObject
     /**
      * Get biography.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -379,8 +379,8 @@ class Identity extends \PKP\core\DataObject
     /**
      * Set biography.
      *
-     * @param $biography string
-     * @param $locale string
+     * @param string $biography
+     * @param string $locale
      */
     public function setBiography($biography, $locale)
     {

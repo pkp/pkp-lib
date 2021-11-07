@@ -19,10 +19,10 @@ use PKP\form\Form;
 
 class UserDisableForm extends Form
 {
-    /** @var the user id of user to enable/disable */
+    /** @var int The user id of user to enable/disable */
     public $_userId;
 
-    /** @var whether to enable or disable the user */
+    /** @var bool Whether to enable or disable the user */
     public $_enable;
 
     /**

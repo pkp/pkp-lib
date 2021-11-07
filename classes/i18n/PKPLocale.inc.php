@@ -257,7 +257,7 @@ class PKPLocale
      * Get a list of locale files currently registered, either in all
      * locales (in an array for each locale), or for a specific locale.
      *
-     * @param $locale string Locale identifier (optional)
+     * @param string $locale Locale identifier (optional)
      */
     public static function &getLocaleFiles($locale = null)
     {
@@ -274,7 +274,7 @@ class PKPLocale
     /**
      * Add octothorpes to a key name for presentation of the key as missing.
      *
-     * @param @key string
+     * @param string $key
      *
      * @return string
      */
@@ -288,10 +288,10 @@ class PKPLocale
      * Substitution works by replacing tokens like "{$foo}" with the value
      * of the parameter named "foo" (if supplied).
      *
-     * @param $key string
-     * @param $params array named substitution parameters
-     * @param $locale string the locale to use
-     * @param $missingKeyHandler function Callback to be invoked when a key cannot be found.
+     * @param string $key
+     * @param array $params named substitution parameters
+     * @param string $locale the locale to use
+     * @param callable $missingKeyHandler Callback to be invoked when a key cannot be found.
      *
      * @return string
      */
@@ -328,7 +328,7 @@ class PKPLocale
     /**
      * Initialize the locale system.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public static function initialize($request)
     {
@@ -380,7 +380,7 @@ class PKPLocale
      * Build an associative array of LOCALE_COMPOMENT_... => filename
      * (use getFilenameComponentMap instead)
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return array
      */
@@ -407,7 +407,7 @@ class PKPLocale
     /**
      * Get an associative array of LOCALE_COMPOMENT_... => filename
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return array
      */
@@ -475,9 +475,9 @@ class PKPLocale
     /**
      * Register a locale file against the current list.
      *
-     * @param $locale string Locale key
-     * @param $filename string Filename to new locale XML file
-     * @param $addToTop boolean Whether to add to the top of the list (true)
+     * @param string $locale Locale key
+     * @param string $filename Filename to new locale XML file
+     * @param bool $addToTop Whether to add to the top of the list (true)
      * 	or the bottom (false). Allows overriding.
      */
     public static function registerLocaleFile($locale, $filename, $addToTop = false)
@@ -504,7 +504,7 @@ class PKPLocale
     /**
      * Get the stylesheet filename for a particular locale.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string or null if none configured.
      */
@@ -525,7 +525,7 @@ class PKPLocale
      * other value that is expected is `rtl`. This value is used in HTML and
      * CSS markup to present a right-to-left layout.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -541,9 +541,9 @@ class PKPLocale
     /**
      * Determine whether or not a locale is marked incomplete.
      *
-     * @param $locale xx_XX symbolic name of locale to check
+     * @param string $locale xx_XX symbolic name of locale to check
      *
-     * @return boolean
+     * @return bool
      */
     public static function isLocaleComplete($locale)
     {
@@ -560,9 +560,9 @@ class PKPLocale
     /**
      * Determine whether or not a locale uses family name first.
      *
-     * @param $locale xx_XX symbolic name of locale to check
+     * @param string $locale xx_XX symbolic name of locale to check
      *
-     * @return boolean
+     * @return bool
      */
     public static function isLocaleWithFamilyFirst($locale)
     {
@@ -576,9 +576,9 @@ class PKPLocale
     /**
      * Check if the supplied locale is currently installable.
      *
-     * @param $locale string
+     * @param string $locale
      *
-     * @return boolean
+     * @return bool
      */
     public static function isLocaleValid($locale)
     {
@@ -598,7 +598,7 @@ class PKPLocale
     /**
      * Load a locale list from a file.
      *
-     * @param $filename string
+     * @param string $filename
      *
      * @return array
      */
@@ -643,7 +643,7 @@ class PKPLocale
     /**
      * Install support for a new locale.
      *
-     * @param $locale string
+     * @param string $locale
      */
     public static function installLocale($locale)
     {
@@ -662,7 +662,7 @@ class PKPLocale
     /**
      * Uninstall support for an existing locale.
      *
-     * @param $locale string
+     * @param string $locale
      */
     public static function uninstallLocale($locale)
     {
@@ -674,7 +674,7 @@ class PKPLocale
     /**
      * Reload locale-specific data.
      *
-     * @param $locale string
+     * @param string $locale
      */
     public static function reloadLocale($locale)
     {
@@ -685,7 +685,7 @@ class PKPLocale
      * Given a locale string, get the list of parameter references of the
      * form {$myParameterName}.
      *
-     * @param $source string
+     * @param string $source
      *
      * @return array
      */
@@ -704,7 +704,7 @@ class PKPLocale
      * Translate the ISO 2-letter language string (ISO639-1)
      * into a ISO compatible 3-letter string (ISO639-2b).
      *
-     * @param $iso2Letter string
+     * @param string $iso2Letter
      *
      * @return string the translated string or null if we
      *  don't know about the given language.
@@ -726,7 +726,7 @@ class PKPLocale
      * Translate the ISO 3-letter language string (ISO639-2b)
      * into a ISO compatible 2-letter string (ISO639-1).
      *
-     * @param $iso3Letter string
+     * @param string $iso3Letter
      *
      * @return string the translated string or null if we
      *  don't know about the given language.
@@ -748,7 +748,7 @@ class PKPLocale
      * Translate the PKP locale identifier into an
      * ISO639-2b compatible 3-letter string.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -817,7 +817,7 @@ class PKPLocale
     /**
      * Translate the ISO 2-letter language string (ISO639-1) into ISO639-3.
      *
-     * @param $iso1 string
+     * @param string $iso1
      *
      * @return string the translated string or null if we
      * don't know about the given language.
@@ -838,7 +838,7 @@ class PKPLocale
     /**
      * Translate the ISO639-3 into ISO639-1.
      *
-     * @param $iso3 string
+     * @param string $iso3
      *
      * @return string the translated string or null if we
      * don't know about the given language.
@@ -860,7 +860,7 @@ class PKPLocale
      * Translate the PKP locale identifier into an
      * ISO639-3 compatible 3-letter string.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -875,7 +875,7 @@ class PKPLocale
     * Translate the PKP locale identifier into an
     * ISO639-1 compatible 2-letter string.
     *
-    * @param $locale string
+    * @param string $locale
     *
     * @return string
     */
@@ -896,7 +896,7 @@ class PKPLocale
      * If that still doesn't determine a unique locale then
      * we'll choose the first locale found.
      *
-     * @param $iso3 string
+     * @param string $iso3
      *
      * @return string
      */
@@ -988,8 +988,8 @@ class PKPLocale
     /**
      * Create a cache file with locale data.
      *
-     * @param $cache CacheManager
-     * @param $id the cache id (not used here, required by the cache manager)
+     * @param CacheManager $cache
+     * @param string $id the cache id (not used here, required by the cache manager)
      */
     public static function _allLocalesCacheMiss($cache, $id)
     {

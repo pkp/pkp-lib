@@ -32,14 +32,14 @@ class MetadataTypeDescription extends ClassTypeDescription
     /** @var string the expected meta-data schema class */
     public $_metadataSchemaClassName;
 
-    /** @var integer the expected assoc type of the meta-data description */
+    /** @var int the expected assoc type of the meta-data description */
     public $_assocType;
 
 
     /**
      * Constructor
      *
-     * @param $typeName string a fully qualified class name.
+     * @param string $typeName a fully qualified class name.
      */
     public function __construct($typeName)
     {
@@ -66,7 +66,7 @@ class MetadataTypeDescription extends ClassTypeDescription
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getAssocType()
     {

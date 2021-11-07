@@ -21,10 +21,10 @@ class FileInfoCenterLinkAction extends FileLinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $submissionFile SubmissionFile the submission file
+     * @param Request $request
+     * @param SubmissionFile $submissionFile the submission file
      * to show information about.
-     * @param $stageId int (optional) The stage id that user is looking at.
+     * @param int $stageId (optional) The stage id that user is looking at.
      */
     public function __construct($request, $submissionFile, $stageId = null)
     {
@@ -43,9 +43,9 @@ class FileInfoCenterLinkAction extends FileLinkAction
     /**
      * returns the modal for this link action.
      *
-     * @param $request PKPRequest
-     * @param $submissionFile SubmissionFile
-     * @param $stageId int
+     * @param PKPRequest $request
+     * @param SubmissionFile $submissionFile
+     * @param int $stageId
      *
      * @return AjaxModal
      */

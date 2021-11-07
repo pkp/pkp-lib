@@ -51,8 +51,8 @@ class PKPVocabHandler extends APIHandler
     /**
      * Get the controlled vocab entries available in this context
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response

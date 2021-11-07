@@ -37,7 +37,7 @@ class Schema extends \PKP\core\maps\Schema
     /** @copydoc \PKP\core\maps\Schema::$schema */
     public string $schema = PKPSchemaService::SCHEMA_SUBMISSION;
 
-    /** The user groups for this context. */
+    /** @var array The user groups for this context. */
     public array $userGroups;
 
     public function __construct(Request $request, Context $context, PKPSchemaService $schemaService)

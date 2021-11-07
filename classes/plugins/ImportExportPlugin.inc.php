@@ -40,15 +40,15 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Execute import/export tasks using the command-line interface.
      *
-     * @param $scriptName The name of the command-line script (displayed as usage info)
-     * @param $args Parameters to the plugin
+     * @param string $scriptName The name of the command-line script (displayed as usage info)
+     * @param array $args Parameters to the plugin
      */
     abstract public function executeCLI($scriptName, &$args);
 
     /**
      * Display the command-line usage information
      *
-     * @param $scriptName string
+     * @param string $scriptName
      */
     abstract public function usage($scriptName);
 
@@ -81,8 +81,8 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Display the import/export plugin.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function display($args, $request)
     {
@@ -110,8 +110,8 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @see calling conventions at http://www.smarty.net/docsv2/en/api.register.function.tpl
      *
-     * @param $params array
-     * @param $smarty Smarty
+     * @param array $params
+     * @param Smarty $smarty
      *
      * @return string
      */
@@ -125,7 +125,7 @@ abstract class ImportExportPlugin extends Plugin
      * Check if this is a relative path to the xml document
      * that describes public identifiers to be imported.
      *
-     * @param $url string path to the xml file
+     * @param string $url path to the xml file
      */
     public function isRelativePath($url)
     {
@@ -142,9 +142,9 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Determine whether the specified URL describes an allowed protocol.
      *
-     * @param $url string
+     * @param string $url
      *
-     * @return boolean
+     * @return bool
      */
     public function isAllowedMethod($url)
     {
@@ -185,10 +185,10 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Return the whole export file name.
      *
-     * @param $basePath string Base path for temporary file storage
-     * @param $objectsFileNamePart string Part different for each object type.
-     * @param $context Context
-     * @param $extension string
+     * @param string $basePath Base path for temporary file storage
+     * @param string $objectsFileNamePart Part different for each object type.
+     * @param Context $context
+     * @param string $extension
      *
      * @return string
      */
@@ -200,8 +200,8 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Display XML validation errors.
      *
-     * @param $errors array
-     * @param $xml string
+     * @param array $errors
+     * @param string $xml
      */
     public function displayXMLValidationErrors($errors, $xml)
     {
@@ -251,9 +251,9 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Get the submissions and proceed to the export
      *
-     * @param $submissionIds array Array of submissions to export
-     * @param $deployment PKPNativeImportExportDeployment
-     * @param $opts array
+     * @param array $submissionIds Array of submissions to export
+     * @param PKPNativeImportExportDeployment $deployment
+     * @param array $opts
      */
     public function getExportSubmissionsDeployment($submissionIds, $deployment, $opts = [])
     {
@@ -274,7 +274,7 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Save the export result as an XML
      *
-     * @param $deployment PKPNativeImportExportDeployment
+     * @param PKPNativeImportExportDeployment $deployment
      *
      * @return string
      */
@@ -294,9 +294,9 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Gets template result for the export process
      *
-     * @param $deployment PKPNativeImportExportDeployment
-     * @param $templateMgr PKPTemplateManager
-     * @param $exportFileName string
+     * @param PKPNativeImportExportDeployment $deployment
+     * @param PKPTemplateManager $templateMgr
+     * @param string $exportFileName
      *
      * @return string
      */
@@ -329,10 +329,10 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Gets template result for the import process
      *
-     * @param $filter string
-     * @param $xmlString string
-     * @param $deployment PKPNativeImportExportDeployment
-     * @param $templateMgr PKPTemplateManager
+     * @param string $filter
+     * @param string $xmlString
+     * @param PKPNativeImportExportDeployment $deployment
+     * @param PKPTemplateManager $templateMgr
      *
      * @return string
      */
@@ -360,8 +360,8 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Gets the imported file path
      *
-     * @param $temporaryFileId int
-     * @param $user User
+     * @param int $temporaryFileId
+     * @param User $user
      *
      * @return string
      */
@@ -385,10 +385,10 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Gets a tab to display after the import/export operation is over
      *
-     * @param $request PKPRequest
-     * @param $title string
-     * @param $bounceUrl string
-     * @param $bounceParameterArray array
+     * @param PKPRequest $request
+     * @param string $title
+     * @param string $bounceUrl
+     * @param array $bounceParameterArray
      *
      * @return string
      */
@@ -415,7 +415,7 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Download file given it's name
      *
-     * @param $exportFileName string
+     * @param string $exportFileName
      */
     public function downloadExportedFile($exportFileName)
     {
@@ -427,9 +427,9 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Create file given it's name and content
      *
-     * @param $filename string
-     * @param $fileContent string
-     * @param $context Context
+     * @param string $filename
+     * @param string $fileContent
+     * @param Context $context
      *
      * @return string
      */

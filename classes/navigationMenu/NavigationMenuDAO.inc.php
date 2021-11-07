@@ -39,8 +39,8 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Retrieve a navigation menu by navigation menu ID.
      *
-     * @param $navigationMenuId int navigation menu ID
-     * @param $contextId int Context Id
+     * @param int $navigationMenuId navigation menu ID
+     * @param int $contextId Context Id
      *
      * @return NavigationMenu?
      */
@@ -63,7 +63,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Retrieve a navigation menu by context Id.
      *
-     * @param $contextId int Context Id
+     * @param int $contextId Context Id
      *
      * @return NavigationMenu
      */
@@ -76,8 +76,8 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Retrieve a navigation menu by navigation menu area.
      *
-     * @param $contextId int Context Id
-     * @param $areaName string Template Area name
+     * @param int $contextId Context Id
+     * @param string $areaName Template Area name
      *
      * @return NavigationMenu
      */
@@ -90,8 +90,8 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Retrieve a navigation menu by title
      *
-     * @param $contextId int Context Id
-     * @param $title string
+     * @param int $contextId Context Id
+     * @param string $title
      *
      * @return NavigationMenu?
      */
@@ -105,10 +105,10 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Check if a navigationMenu exists with the given title.
      *
-     * @param $contextId int
-     * @param $title int
+     * @param int $contextId
+     * @param int $title
      *
-     * @return boolean True if a NM exists by that title
+     * @return bool True if a NM exists by that title
      */
     public function navigationMenuExistsByTitle($contextId, $title)
     {
@@ -130,7 +130,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Internal function to return an NavigationMenu object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return NavigationMenu
      */
@@ -148,7 +148,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Insert a new NavigationMenu.
      *
-     * @param $navigationMenu NavigationMenu
+     * @param NavigationMenu $navigationMenu
      *
      * @return int
      */
@@ -167,7 +167,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      *
      * @param NavigationMenu $navigationMenu
      *
-     * @return boolean
+     * @return bool
      */
     public function updateObject($navigationMenu)
     {
@@ -191,9 +191,9 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Delete a NavigationMenu.
      *
-     * @param $navigationMenu NavigationMenu
+     * @param NavigationMenu $navigationMenu
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObject($navigationMenu)
     {
@@ -203,7 +203,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Delete a NavigationMenu.
      *
-     * @param $navigationMenuId int
+     * @param int $navigationMenuId
      */
     public function deleteById($navigationMenuId)
     {
@@ -216,7 +216,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Delete NavigationMenus by contextId.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function deleteByContextId($contextId)
     {
@@ -239,10 +239,10 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Load the XML file and move the settings to the DB
      *
-     * @param $contextId
-     * @param $filename
+     * @param int $contextId
+     * @param string $filename
      *
-     * @return boolean true === success
+     * @return bool true === success
      */
     public function installSettings($contextId, $filename)
     {
@@ -326,7 +326,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Get the settings cache for a given ID
      *
-     * @param $id
+     * @param string $id
      *
      * @return array|null (Null indicates caching disabled)
      */
@@ -350,8 +350,8 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Callback for a cache miss.
      *
-     * @param $cache Cache
-     * @param $id string
+     * @param Cache $cache
+     * @param string $id
      */
     public function _cacheMiss($cache, $id)
     {

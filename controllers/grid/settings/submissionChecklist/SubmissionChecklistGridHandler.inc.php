@@ -121,8 +121,8 @@ class SubmissionChecklistGridHandler extends SetupGridHandler
     /**
      * An action to add a new submissionChecklist
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function addItem($args, $request)
     {
@@ -133,8 +133,8 @@ class SubmissionChecklistGridHandler extends SetupGridHandler
     /**
      * An action to edit a submissionChecklist
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -152,8 +152,8 @@ class SubmissionChecklistGridHandler extends SetupGridHandler
     /**
      * Update a submissionChecklist
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -178,8 +178,8 @@ class SubmissionChecklistGridHandler extends SetupGridHandler
     /**
      * Delete a submissionChecklist
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

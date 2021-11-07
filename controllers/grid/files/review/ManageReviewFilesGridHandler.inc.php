@@ -58,8 +58,8 @@ class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryG
     /**
      * Save 'manage review files' form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

@@ -28,7 +28,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function __construct($request)
     {
@@ -128,8 +128,8 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
      * Prepare an array with the passed user roles. Can optionally
      * add those roles to an already created array.
      *
-     * @param $userRoles array
-     * @param $contextRoles array
+     * @param array $userRoles
+     * @param array $contextRoles
      *
      * @return array
      */

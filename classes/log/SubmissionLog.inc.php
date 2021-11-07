@@ -31,11 +31,11 @@ class SubmissionLog
     /**
      * Add a new event log entry with the specified parameters
      *
-     * @param $request object
-     * @param $submission object
-     * @param $eventType int
-     * @param $messageKey string
-     * @param $params array optional
+     * @param object $request
+     * @param object $submission
+     * @param int $eventType
+     * @param string $messageKey
+     * @param array $params optional
      *
      * @return object SubmissionLogEntry iff the event was logged
      */

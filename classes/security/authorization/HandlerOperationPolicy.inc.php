@@ -26,10 +26,10 @@ class HandlerOperationPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $operations array|string either a single operation or a list of operations that
+     * @param PKPRequest $request
+     * @param array|string $operations either a single operation or a list of operations that
      *  this policy is targeting.
-     * @param $message string a message to be displayed if the authorization fails
+     * @param string $message a message to be displayed if the authorization fails
      */
     public function __construct($request, $operations, $message = null)
     {
@@ -77,7 +77,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy
      * Check whether the requested operation is on
      * the list of permitted operations.
      *
-     * @return boolean
+     * @return bool
      */
     public function _checkOperationWhitelist()
     {

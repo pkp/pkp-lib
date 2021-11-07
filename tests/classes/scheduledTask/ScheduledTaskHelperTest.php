@@ -27,9 +27,9 @@ class ScheduledTaskHelperTest extends PKPTestCase
      * Test ScheduledTaskHelper::notifyExecutionResult() method
      * when the scheduled task result is false.
      *
-     * @param $taskId string
-     * @param $taskName string
-     * @param $message string
+     * @param string $taskId
+     * @param string $taskName
+     * @param string $message
      * @dataProvider notifyExecutionResultTestsDataProvider
      * @covers ScheduledTaskHelper::notifyExecutionResult
      */
@@ -56,9 +56,9 @@ class ScheduledTaskHelperTest extends PKPTestCase
      * Test ScheduledTaskHelper::notifyExecutionResult() method
      * when the scheduled task result is true.
      *
-     * @param $taskId string
-     * @param $taskName string
-     * @param $message string
+     * @param string $taskId
+     * @param string $taskName
+     * @param string $message
      * @dataProvider notifyExecutionResultTestsDataProvider
      * @covers ScheduledTaskHelper::notifyExecutionResult
      */
@@ -99,8 +99,8 @@ class ScheduledTaskHelperTest extends PKPTestCase
     /**
      * Get helper mock object to exercise the system.
      *
-     * @param $expectedSubject string
-     * @param $message string
+     * @param string $expectedSubject
+     * @param string $message
      *
      * @return ScheduledTaskHelper
      */
@@ -141,7 +141,7 @@ class ScheduledTaskHelperTest extends PKPTestCase
     /**
      * Set the scheduled_task_report_error_only setting value.
      *
-     * @param $state string 'On' or 'Off'
+     * @param string $state 'On' or 'Off'
      */
     private function _setReportErrorOnly($state)
     {

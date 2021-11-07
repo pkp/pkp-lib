@@ -30,8 +30,8 @@ class PKPNavigationMenuItemsForm extends Form
     /**
      * Constructor
      *
-     * @param $contextId int
-     * @param $navigationMenuItemId int
+     * @param int $contextId
+     * @param int $navigationMenuItemId
      */
     public function __construct($contextId, $navigationMenuItemId)
     {

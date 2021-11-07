@@ -20,10 +20,10 @@ use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 class QueriesGridRow extends GridRow
 {
-    /** @var Submission **/
+    /** @var Submission */
     public $_submission;
 
-    /** @var int **/
+    /** @var int */
     public $_stageId;
 
     /** @var QueriesAccessHelper */
@@ -31,9 +31,9 @@ class QueriesGridRow extends GridRow
     /**
      * Constructor
      *
-     * @param $submission Submission
-     * @param $stageId int
-     * @param $queriesAccessHelper QueriesAccessHelper
+     * @param Submission $submission
+     * @param int $stageId
+     * @param QueriesAccessHelper $queriesAccessHelper
      */
     public function __construct($submission, $stageId, $queriesAccessHelper)
     {

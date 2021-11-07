@@ -24,7 +24,7 @@ use PKP\security\AccessKeyManager;
 
 class ReviewReminderForm extends Form
 {
-    /** The review assignment associated with the reviewer **/
+    /** @var ReviewAssignment The review assignment associated with the reviewer */
     public $_reviewAssignment;
 
     /**
@@ -198,7 +198,7 @@ class ReviewReminderForm extends Form
      * Get the email template key depending on if reviewer one click access is
      * enabled or not.
      *
-     * @param $context Context The user's current context.
+     * @param Context $context The user's current context.
      *
      * @return int Email template key
      */

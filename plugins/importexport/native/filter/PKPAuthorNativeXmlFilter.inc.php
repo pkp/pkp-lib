@@ -20,7 +20,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -47,7 +47,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
     /**
      * @see Filter::process()
      *
-     * @param $authors array Array of authors
+     * @param array $authors Array of authors
      *
      * @return DOMDocument
      */
@@ -77,8 +77,8 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return an author node.
      *
-     * @param $doc DOMDocument
-     * @param $author \PKP\author\Author
+     * @param DOMDocument $doc
+     * @param \PKP\author\Author $author
      *
      * @return DOMElement
      */

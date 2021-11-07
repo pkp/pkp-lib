@@ -25,9 +25,9 @@ class QueuedPaymentDAO extends \PKP\db\DAO
     /**
      * Retrieve a queued payment by ID.
      *
-     * @param $queuedPaymentId int
+     * @param int $queuedPaymentId
      *
-     * @return QueuedPayment or null on failure
+     * @return QueuedPayment|null on failure
      */
     public function getById($queuedPaymentId)
     {
@@ -46,8 +46,8 @@ class QueuedPaymentDAO extends \PKP\db\DAO
     /**
      * Insert a new queued payment.
      *
-     * @param $queuedPayment QueuedPayment
-     * @param $expiryDate date optional
+     * @param QueuedPayment $queuedPayment
+     * @param date $expiryDate optional
      */
     public function insertObject($queuedPayment, $expiryDate = null)
     {
@@ -72,8 +72,8 @@ class QueuedPaymentDAO extends \PKP\db\DAO
     /**
      * Update an existing queued payment.
      *
-     * @param $queuedPaymentId int
-     * @param $queuedPayment QueuedPayment
+     * @param int $queuedPaymentId
+     * @param QueuedPayment $queuedPayment
      */
     public function updateObject($queuedPaymentId, $queuedPayment)
     {
@@ -106,7 +106,7 @@ class QueuedPaymentDAO extends \PKP\db\DAO
     /**
      * Delete a queued payment.
      *
-     * @param $queuedPaymentId int
+     * @param int $queuedPaymentId
      */
     public function deleteById($queuedPaymentId)
     {

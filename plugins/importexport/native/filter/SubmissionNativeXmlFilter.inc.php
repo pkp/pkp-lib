@@ -25,7 +25,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -52,7 +52,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * @see Filter::process()
      *
-     * @param $submissions array Array of submissions
+     * @param array $submissions Array of submissions
      *
      * @return DOMDocument
      */
@@ -87,8 +87,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return a submission node.
      *
-     * @param $doc DOMDocument
-     * @param $submission Submission
+     * @param DOMDocument $doc
+     * @param Submission $submission
      *
      * @return DOMElement
      */
@@ -119,9 +119,9 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * Create and add identifier nodes to a submission node.
      *
-     * @param $doc DOMDocument
-     * @param $submissionNode DOMElement
-     * @param $submission Submission
+     * @param DOMDocument $doc
+     * @param DOMElement $submissionNode
+     * @param Submission $submission
      */
     public function addIdentifiers($doc, $submissionNode, $submission)
     {
@@ -136,9 +136,9 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * Add the submission files to its DOM element.
      *
-     * @param $doc DOMDocument
-     * @param $submissionNode DOMElement
-     * @param $submission Submission
+     * @param DOMDocument $doc
+     * @param DOMElement $submissionNode
+     * @param Submission $submission
      */
     public function addFiles($doc, $submissionNode, $submission)
     {
@@ -166,9 +166,9 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     /**
      * Add the submission files to its DOM element.
      *
-     * @param $doc DOMDocument
-     * @param $submissionNode DOMElement
-     * @param $submission Submission
+     * @param DOMDocument $doc
+     * @param DOMElement $submissionNode
+     * @param Submission $submission
      */
     public function addPublications($doc, $submissionNode, $submission)
     {
@@ -199,7 +199,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
      * Sets a flag to always include the <submissions> node, even if there
      * may only be one submission.
      *
-     * @param boolean $includeSubmissionsNode
+     * @param bool $includeSubmissionsNode
      */
     public function setIncludeSubmissionsNode($includeSubmissionsNode)
     {
@@ -210,7 +210,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
      * Returnes whether to always include the <submissions> node, even if there
      * may only be one submission.
      *
-     * @return boolean $includeSubmissionsNode
+     * @return bool $includeSubmissionsNode
      */
     public function getIncludeSubmissionsNode()
     {

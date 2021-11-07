@@ -17,13 +17,13 @@ namespace PKP\db;
 
 class DBResultRange
 {
-    /** The number of items to display */
+    /** @var int The number of items to display */
     public $count;
 
-    /** The number of pages to skip */
+    /** @var int The number of pages to skip */
     public $page;
 
-    /** Optional offset if pagination is not used. */
+    /** @var int Optional offset if pagination is not used. */
     public $offset;
 
     /**
@@ -42,7 +42,7 @@ class DBResultRange
     /**
      * Checks to see if the DBResultRange is valid.
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {
@@ -63,7 +63,7 @@ class DBResultRange
     /**
      * Set the count of pages to skip.
      *
-     * @param $page int
+     * @param int $page
      */
     public function setPage($page)
     {
@@ -83,7 +83,7 @@ class DBResultRange
     /**
      * Set the count of items in this range to display.
      *
-     * @param $count int
+     * @param int $count
      */
     public function setCount($count)
     {
@@ -103,7 +103,7 @@ class DBResultRange
     /**
      * Set the offset of items in this range to display.
      *
-     * @param $offset int
+     * @param int $offset
      */
     public function setOffset($offset)
     {

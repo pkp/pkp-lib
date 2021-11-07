@@ -69,8 +69,8 @@ abstract class PKPWorkflowHandler extends Handler
      * Redirect users to their most appropriate
      * submission workflow stage.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function access($args, $request)
     {
@@ -108,8 +108,8 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Show the workflow stage, with the stage path as an #anchor.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function index($args, $request)
     {
@@ -436,8 +436,8 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Show the submission stage.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function submission($args, $request)
     {
@@ -447,8 +447,8 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Show the external review stage.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function externalReview($args, $request)
     {
@@ -458,8 +458,8 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Show the editorial stage
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      */
     public function editorial($args, $request)
     {
@@ -469,8 +469,8 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Show the production stage
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      */
     public function production($args, $request)
     {
@@ -480,8 +480,8 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Redirect all old stage paths to index
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     protected function _redirectToIndex($args, $request)
     {
@@ -496,8 +496,8 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Fetch JSON-encoded editor decision options.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -711,8 +711,8 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Fetch the JSON-encoded submission progress bar.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -735,7 +735,7 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Setup variables for the template
      *
-     * @param $request Request
+     * @param Request $request
      */
     public function setupTemplate($request)
     {
@@ -747,7 +747,7 @@ abstract class PKPWorkflowHandler extends Handler
      * Placeholder method to be overridden by apps in order to add
      * app-specific data to the template
      *
-     * @param $request Request
+     * @param Request $request
      */
     public function setupIndex($request)
     {
@@ -760,10 +760,10 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Translate the requested operation to a stage id.
      *
-     * @param $request Request
-     * @param $args array
+     * @param Request $request
+     * @param array $args
      *
-     * @return integer One of the WORKFLOW_STAGE_* constants.
+     * @return int One of the WORKFLOW_STAGE_* constants.
      */
     protected function identifyStageId($request, $args)
     {
@@ -792,11 +792,11 @@ abstract class PKPWorkflowHandler extends Handler
      * Determine if a particular stage has a notification pending.  If so, return true.
      * This is used to set the CSS class of the submission progress bar.
      *
-     * @param $user User
-     * @param $stageId integer
-     * @param $contextId integer
+     * @param User $user
+     * @param int $stageId
+     * @param int $contextId
      *
-     * @return boolean
+     * @return bool
      */
     protected function notificationOptionsByStage($user, $stageId, $contextId)
     {
@@ -830,7 +830,7 @@ abstract class PKPWorkflowHandler extends Handler
     /**
     * Return the editor assignment notification type based on stage id.
     *
-    * @param $stageId int
+    * @param int $stageId
     *
     * @return int
     */

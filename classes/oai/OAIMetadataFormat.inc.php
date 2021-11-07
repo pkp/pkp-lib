@@ -55,8 +55,8 @@ class OAIMetadataFormat
     /**
      * Retrieve XML-formatted metadata for the specified record.
      *
-     * @param $record OAIRecord
-     * @param $format string OAI metadata prefix
+     * @param OAIRecord $record
+     * @param string $format OAI metadata prefix
      *
      * @return string
      */

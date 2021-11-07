@@ -29,8 +29,8 @@ class PKPReviewerHandler extends Handler
     /**
      * Display the submission review page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function submission($args, $request)
     {
@@ -64,8 +64,8 @@ class PKPReviewerHandler extends Handler
     /**
      * Display a step tab contents in the submission review page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -109,8 +109,8 @@ class PKPReviewerHandler extends Handler
     /**
      * Save a review step.
      *
-     * @param $args array first parameter is the step being saved
-     * @param $request PKPRequest
+     * @param array $args first parameter is the step being saved
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -158,8 +158,8 @@ class PKPReviewerHandler extends Handler
     /**
      * Show a form for the reviewer to enter regrets into.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -187,8 +187,8 @@ class PKPReviewerHandler extends Handler
     /**
      * Save the reviewer regrets form and decline the review.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function saveDeclineReview($args, $request)
     {
@@ -229,10 +229,10 @@ class PKPReviewerHandler extends Handler
     /**
      * Get a review form for the current step.
      *
-     * @param $step int current step
-     * @param $request PKPRequest
-     * @param $reviewerSubmission ReviewerSubmission
-     * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment
+     * @param int $step current step
+     * @param PKPRequest $request
+     * @param ReviewerSubmission $reviewerSubmission
+     * @param \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment
      */
     public function getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment)
     {

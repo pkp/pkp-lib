@@ -46,7 +46,7 @@ class User extends Identity
     /**
      * Set username.
      *
-     * @param $username string
+     * @param string $username
      */
     public function setUsername($username)
     {
@@ -56,7 +56,7 @@ class User extends Identity
     /**
      * Get implicit auth ID string.
      *
-     * @return String
+     * @return string
      */
     public function getAuthStr()
     {
@@ -66,7 +66,7 @@ class User extends Identity
     /**
      * Set Shib ID string for this user.
      *
-     * @param $authStr string
+     * @param string $authStr
      */
     public function setAuthStr($authStr)
     {
@@ -84,7 +84,7 @@ class User extends Identity
     /**
      * Get email signature.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -96,8 +96,8 @@ class User extends Identity
     /**
      * Set signature.
      *
-     * @param $signature string
-     * @param $locale string
+     * @param string $signature
+     * @param string $locale
      */
     public function setSignature($signature, $locale)
     {
@@ -117,7 +117,7 @@ class User extends Identity
     /**
      * Set password (assumed to be already encrypted).
      *
-     * @param $password string
+     * @param string $password
      */
     public function setPassword($password)
     {
@@ -137,7 +137,7 @@ class User extends Identity
     /**
      * Set phone number.
      *
-     * @param $phone string
+     * @param string $phone
      */
     public function setPhone($phone)
     {
@@ -157,7 +157,7 @@ class User extends Identity
     /**
      * Set mailing address.
      *
-     * @param $mailingAddress string
+     * @param string $mailingAddress
      */
     public function setMailingAddress($mailingAddress)
     {
@@ -177,7 +177,7 @@ class User extends Identity
     /**
      * Set billing address.
      *
-     * @param $billingAddress string
+     * @param string $billingAddress
      */
     public function setBillingAddress($billingAddress)
     {
@@ -208,7 +208,7 @@ class User extends Identity
     /**
      * Set user gossip.
      *
-     * @param $gossip string
+     * @param string $gossip
      */
     public function setGossip($gossip)
     {
@@ -229,7 +229,7 @@ class User extends Identity
     /**
      * Set user's working languages.
      *
-     * @param $locales array
+     * @param array $locales
      */
     public function setLocales($locales)
     {
@@ -249,7 +249,7 @@ class User extends Identity
     /**
      * Set date user last sent an email.
      *
-     * @param $dateLastEmail datestamp (YYYY-MM-DD HH:MM:SS)
+     * @param datestamp $dateLastEmail (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateLastEmail($dateLastEmail)
     {
@@ -269,7 +269,7 @@ class User extends Identity
     /**
      * Set date user registered with the site.
      *
-     * @param $dateRegistered datestamp (YYYY-MM-DD HH:MM:SS)
+     * @param datestamp $dateRegistered (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateRegistered($dateRegistered)
     {
@@ -289,7 +289,7 @@ class User extends Identity
     /**
      * Set date user email was validated with the site.
      *
-     * @param $dateValidated datestamp (YYYY-MM-DD HH:MM:SS)
+     * @param datestamp $dateValidated (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateValidated($dateValidated)
     {
@@ -309,7 +309,7 @@ class User extends Identity
     /**
      * Set date user last logged in to the site.
      *
-     * @param $dateLastLogin datestamp
+     * @param datestamp $dateLastLogin
      */
     public function setDateLastLogin($dateLastLogin)
     {
@@ -319,7 +319,7 @@ class User extends Identity
     /**
      * Check if user must change their password on their next login.
      *
-     * @return boolean
+     * @return bool
      */
     public function getMustChangePassword()
     {
@@ -329,7 +329,7 @@ class User extends Identity
     /**
      * Set whether or not user must change their password on their next login.
      *
-     * @param $mustChangePassword boolean
+     * @param bool $mustChangePassword
      */
     public function setMustChangePassword($mustChangePassword)
     {
@@ -339,7 +339,7 @@ class User extends Identity
     /**
      * Check if user is disabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getDisabled()
     {
@@ -349,7 +349,7 @@ class User extends Identity
     /**
      * Set whether or not user is disabled.
      *
-     * @param $disabled boolean
+     * @param bool $disabled
      */
     public function setDisabled($disabled)
     {
@@ -369,7 +369,7 @@ class User extends Identity
     /**
      * Set the reason the user is disabled.
      *
-     * @param $reasonDisabled string
+     * @param string $reasonDisabled
      */
     public function setDisabledReason($reasonDisabled)
     {
@@ -389,7 +389,7 @@ class User extends Identity
     /**
      * Set ID of authentication source for this user.
      *
-     * @param $authId int
+     * @param int $authId
      */
     public function setAuthId($authId)
     {
@@ -409,7 +409,7 @@ class User extends Identity
     /**
      * Set the inline help display status for this user.
      *
-     * @param $inlineHelp int
+     * @param int $inlineHelp
      */
     public function setInlineHelp($inlineHelp)
     {

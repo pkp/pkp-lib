@@ -55,8 +55,8 @@ class AuthorDashboardTabHandler extends Handler
     /**
      * Fetch the specified authorDashboard tab.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -123,8 +123,8 @@ class AuthorDashboardTabHandler extends Handler
     /**
      * Get the last review round numbers in an array by stage name.
      *
-     * @param $submission Submission
-     * @param $stageId int WORKFLOW_STAGE_ID_...
+     * @param Submission $submission
+     * @param int $stageId WORKFLOW_STAGE_ID_...
      *
      * @return int Round number, 0 if none.
      */
@@ -141,7 +141,7 @@ class AuthorDashboardTabHandler extends Handler
     /**
      * Get the notification request options.
      *
-     * @param $submission Submission
+     * @param Submission $submission
      *
      * @return array
      */

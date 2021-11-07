@@ -19,14 +19,14 @@ use PKP\submissionFile\SubmissionFile;
 
 class ManageSubmissionFilesForm extends Form
 {
-    /** @var int **/
+    /** @var int */
     public $_submissionId;
 
     /**
      * Constructor.
      *
-     * @param $submissionId int Submission ID
-     * @param $template string Template filename
+     * @param int $submissionId Submission ID
+     * @param string $template Template filename
      */
     public function __construct($submissionId, $template)
     {
@@ -75,9 +75,9 @@ class ManageSubmissionFilesForm extends Form
     /**
      * Save selection of submission files
      *
-     * @param $stageSubmissionFiles array The files that belongs to a file stage
+     * @param array $stageSubmissionFiles The files that belongs to a file stage
      * that is currently being used by a grid inside this form.
-     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
+     * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
      */
     public function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs)
     {
@@ -116,9 +116,9 @@ class ManageSubmissionFilesForm extends Form
     /**
      * Determine if a file with the same file stage is already present in the workflow stage.
      *
-     * @param $submissionFile SubmissionFile The submission file
-     * @param $stageSubmissionFiles array The list of submission files in the stage.
-     * @param $fileStage int FILE_STAGE_...
+     * @param SubmissionFile $submissionFile The submission file
+     * @param array $stageSubmissionFiles The list of submission files in the stage.
+     * @param int $fileStage FILE_STAGE_...
      */
     protected function fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)
     {
@@ -136,8 +136,8 @@ class ManageSubmissionFilesForm extends Form
     /**
      * Make a copy of the file to the specified file stage.
      *
-     * @param $submissionFile SubmissionFile
-     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
+     * @param SubmissionFile $submissionFile
+     * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
      *
      * @return SubmissionFile Resultant new submission file
      */

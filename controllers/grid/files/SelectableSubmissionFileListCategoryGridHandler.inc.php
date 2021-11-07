@@ -28,15 +28,15 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
     /** @var FilesGridCapabilities */
     public $_capabilities;
 
-    /** @var integer */
+    /** @var int */
     public $_stageId;
 
     /**
      * Constructor
      *
-     * @param $dataProvider GridDataProvider
-     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-     * @param $capabilities integer A bit map with zero or more
+     * @param GridDataProvider $dataProvider
+     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param int $capabilities A bit map with zero or more
      *  FILE_GRID_* capabilities set.
      */
     public function __construct($dataProvider, $stageId, $capabilities = 0)
@@ -68,7 +68,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
     /**
      * Get the workflow stage id.
      *
-     * @return integer
+     * @return int
      */
     public function getStageId()
     {
@@ -251,7 +251,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
     /**
      * Get all files of this grid to download.
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return array
      */

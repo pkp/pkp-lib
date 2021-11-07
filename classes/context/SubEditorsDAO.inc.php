@@ -22,9 +22,9 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Insert a new sub editor.
      *
-     * @param $contextId int
-     * @param $assocId int
-     * @param $userId int
+     * @param int $contextId
+     * @param int $assocId
+     * @param int $userId
      */
     public function insertEditor($contextId, $assocId, $userId, $assocType)
     {
@@ -45,10 +45,10 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Delete a sub editor.
      *
-     * @param $contextId int
-     * @param $assocId int
-     * @param $userId int
-     * @param $assocType int ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
+     * @param int $contextId
+     * @param int $assocId
+     * @param int $userId
+     * @param int $assocType ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
      */
     public function deleteEditor($contextId, $assocId, $userId, $assocType)
     {
@@ -66,9 +66,9 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Retrieve a list of all sub editors assigned to the specified submission group.
      *
-     * @param $assocId int
-     * @param $assocType int ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
-     * @param $contextId int
+     * @param int $assocId
+     * @param int $assocType ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
+     * @param int $contextId
      *
      * @return array matching Users
      */
@@ -94,9 +94,9 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Delete all sub editors for a specified submission group in a context.
      *
-     * @param $assocId int
-     * @param $assocType int ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
-     * @param $contextId int
+     * @param int $assocId
+     * @param int $assocType ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
+     * @param int $contextId
      */
     public function deleteBySubmissionGroupId($assocId, $assocType, $contextId = null)
     {
@@ -114,10 +114,10 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Delete all submission group assignments for the specified user.
      *
-     * @param $userId int
-     * @param $contextId int optional, include assignments only in this context
-     * @param $assocId int optional, include only this submission group
-     * @param $assocType int optional ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
+     * @param int $userId
+     * @param int $contextId optional, include assignments only in this context
+     * @param int $assocId optional, include only this submission group
+     * @param int $assocType optional ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
      */
     public function deleteByUserId($userId, $contextId = null, $assocId = null, $assocType = null)
     {
@@ -144,12 +144,12 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Check if a user is assigned to a specified submission group.
      *
-     * @param $contextId int
-     * @param $assocId int
-     * @param $userId int
-     * @param $assocType int optional ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
+     * @param int $contextId
+     * @param int $assocId
+     * @param int $userId
+     * @param int $assocType optional ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
      *
-     * @return boolean
+     * @return bool
      */
     public function editorExists($contextId, $assocId, $userId, $assocType)
     {

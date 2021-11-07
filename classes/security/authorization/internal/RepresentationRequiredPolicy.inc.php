@@ -27,8 +27,8 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
+     * @param PKPRequest $request
+     * @param array $args request parameters
      * @param null|mixed $operations
      */
     public function __construct($request, &$args, $parameterName = 'representationId', $operations = null)

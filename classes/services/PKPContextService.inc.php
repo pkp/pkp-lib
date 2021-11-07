@@ -615,9 +615,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      * after a context has been created, or when translations change and a journal
      * wants to take advantage of the new values.
      *
-     * @param $context Context The context to restore default values for
-     * @param $request Request
-     * @param $locale string Locale key to restore defaults for. Example: `en_US`
+     * @param Context $context The context to restore default values for
+     * @param Request $request
+     * @param string $locale Locale key to restore defaults for. Example: `en_US`
      */
     public function restoreLocaleDefaults($context, $request, $locale)
     {
@@ -658,12 +658,12 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     /**
      * Move a temporary file to the context's public directory
      *
-     * @param $context Context
-     * @param $temporaryFile TemporaryFile
-     * @param $fileNameBase string Unique identifier to use for the filename. The
+     * @param Context $context
+     * @param TemporaryFile $temporaryFile
+     * @param string $fileNameBase Unique identifier to use for the filename. The
      *  Extension and locale will be appended.
-     * @param $userId int ID of the user who uploaded the temporary file
-     * @param $localeKey string Example: en_US. Leave empty for a file that is
+     * @param int $userId ID of the user who uploaded the temporary file
+     * @param string $localeKey Example: en_US. Leave empty for a file that is
      *  not localized.
      *
      * @return string|boolean The new filename or false on failure
@@ -710,15 +710,15 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      * go through the add and edit methods in order to ensure that
      * the appropriate hooks are fired.
      *
-     * @param $context Context The context being edited
-     * @param $value mixed The param value to be saved. Contains the temporary
+     * @param Context $context The context being edited
+     * @param mixed $value The param value to be saved. Contains the temporary
      *  file ID if a new file has been uploaded.
-     * @param $settingName string The name of the setting to save, typically used
+     * @param string $settingName The name of the setting to save, typically used
      *  in the filename.
-     * @param $userId integer ID of the user who owns the temporary file
-     * @param $localeKey string Optional. Used in the filename for multilingual
+     * @param int $userId ID of the user who owns the temporary file
+     * @param string $localeKey Optional. Used in the filename for multilingual
      *  properties.
-     * @param $isImage boolean Optional. For image files which return alt text,
+     * @param bool $isImage Optional. For image files which return alt text,
      *  width, height, etc in the param value.
      *
      * @return string|array|null New param value or null on failure

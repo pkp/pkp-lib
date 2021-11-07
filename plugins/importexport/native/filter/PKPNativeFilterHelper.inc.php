@@ -19,9 +19,9 @@ class PKPNativeFilterHelper
     /**
      * Create and return an object covers node.
      *
-     * @param $filter NativeExportFilter
-     * @param $doc DOMDocument
-     * @param $object Publication
+     * @param NativeExportFilter $filter
+     * @param DOMDocument $doc
+     * @param Publication $object
      *
      * @return DOMElement?
      */
@@ -60,9 +60,9 @@ class PKPNativeFilterHelper
     /**
      * Parse out the object covers.
      *
-     * @param $filter NativeExportFilter
-     * @param $node DOMElement
-     * @param $object Publication
+     * @param NativeExportFilter $filter
+     * @param DOMElement $node
+     * @param Publication $object
      */
     public function parsePublicationCovers($filter, $node, $object)
     {
@@ -89,9 +89,9 @@ class PKPNativeFilterHelper
     /**
      * Parse out the cover and store it in the object.
      *
-     * @param $filter NativeExportFilter
-     * @param $node DOMElement
-     * @param $object Publication
+     * @param NativeExportFilter $filter
+     * @param DOMElement $node
+     * @param Publication $object
      */
     public function parsePublicationCover($filter, $node, $object)
     {

@@ -26,15 +26,15 @@ class SubmissionFilesGridHandler extends GridHandler
     /** @var FilesGridCapabilities */
     public $_capabilities;
 
-    /** @var integer */
+    /** @var int */
     public $_stageId;
 
     /**
      * Constructor
      *
-     * @param $dataProvider GridDataProvider
-     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-     * @param $capabilities integer A bit map with zero or more
+     * @param GridDataProvider $dataProvider
+     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param int $capabilities A bit map with zero or more
      *  FILE_GRID_* capabilities set.
      */
     public function __construct($dataProvider, $stageId, $capabilities = 0)
@@ -64,7 +64,7 @@ class SubmissionFilesGridHandler extends GridHandler
     /**
      * Set grid capabilities object.
      *
-     * @param $capabilities FilesGridCapabilities
+     * @param FilesGridCapabilities $capabilities
      */
     public function setCapabilities($capabilities)
     {
@@ -74,7 +74,7 @@ class SubmissionFilesGridHandler extends GridHandler
     /**
      * Get the workflow stage id.
      *
-     * @return integer
+     * @return int
      */
     public function getStageId()
     {
@@ -207,7 +207,7 @@ class SubmissionFilesGridHandler extends GridHandler
     /**
      * Get which columns can be used by users to filter data.
      *
-     * @return Array
+     * @return array
      */
     protected function getFilterColumns()
     {

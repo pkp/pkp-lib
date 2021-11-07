@@ -38,12 +38,12 @@ class GridColumn extends GridBodyElement
     /**
      * Constructor
      *
-     * @param $id string Grid column identifier
-     * @param $title string Locale key for grid column title
-     * @param $titleTranslated string Optional translated grid title
-     * @param $template string Optional template filename for grid column, including path
-     * @param $cellProvider GridCellProvider Optional grid cell provider for this column
-     * @param $flags array Optional set of flags for this grid column
+     * @param string $id Grid column identifier
+     * @param string $title Locale key for grid column title
+     * @param string $titleTranslated Optional translated grid title
+     * @param string $template Optional template filename for grid column, including path
+     * @param GridCellProvider $cellProvider Optional grid cell provider for this column
+     * @param array $flags Optional set of flags for this grid column
      */
     public function __construct(
         $id = '',
@@ -82,7 +82,7 @@ class GridColumn extends GridBodyElement
     /**
      * Set the column title (already translated)
      *
-     * @param $title string
+     * @param string $title
      */
     public function setTitle($title)
     {
@@ -123,7 +123,7 @@ class GridColumn extends GridBodyElement
     /**
      * set the column's cell template
      *
-     * @param $template string
+     * @param string $template
      */
     public function setTemplate($template)
     {
@@ -151,7 +151,7 @@ class GridColumn extends GridBodyElement
      * actually provide cell-specific actions. The default
      * implementation returns an empty array.
      *
-     * @param $row \PKP\controllers\grid\GridRow The row for which actions are
+     * @param \PKP\controllers\grid\GridRow $row The row for which actions are
      *  being requested.
      *
      * @return array An array of LinkActions for the cell.

@@ -87,7 +87,7 @@ class VersionCheck
     /**
      * Parse information from a version XML file.
      *
-     * @param $url string
+     * @param string $url
      *
      * @return array
      */
@@ -153,8 +153,8 @@ class VersionCheck
     /**
      * Find the applicable patch for the current code version (if available).
      *
-     * @param $versionInfo array as returned by parseVersionXML()
-     * @param $codeVersion as returned by getCurrentCodeVersion()
+     * @param array $versionInfo as returned by parseVersionXML()
+     * @param Version $codeVersion as returned by getCurrentCodeVersion()
      *
      * @return string
      */
@@ -174,7 +174,7 @@ class VersionCheck
      * contains valid data. Returns a Version object if everything
      * is ok, otherwise throws an Exception.
      *
-     * @param $versionFile string
+     * @param string $versionFile
      *
      * @return Version
      */

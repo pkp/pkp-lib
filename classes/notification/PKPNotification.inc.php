@@ -18,12 +18,12 @@ namespace PKP\notification;
 
 class PKPNotification extends \PKP\core\DataObject
 {
-    /** Notification levels.  Determines notification behavior **/
+    // Notification levels.  Determines notification behavior
     public const NOTIFICATION_LEVEL_TRIVIAL = 1;
     public const NOTIFICATION_LEVEL_NORMAL = 2;
     public const NOTIFICATION_LEVEL_TASK = 3;
 
-    /** Notification types.  Determines what text and URL to display for notification */
+    // Notification types.  Determines what text and URL to display for notification
     public const NOTIFICATION_TYPE_SUCCESS = 0x0000001;
     public const NOTIFICATION_TYPE_WARNING = 0x0000002;
     public const NOTIFICATION_TYPE_ERROR = 0x0000003;
@@ -101,7 +101,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * set user id associated with this notification
      *
-     * @param $userId int
+     * @param int $userId
      */
     public function setUserId($userId)
     {
@@ -121,7 +121,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * Set the level (NOTIFICATION_LEVEL_...) for this notification
      *
-     * @param $level int
+     * @param int $level
      */
     public function setLevel($level)
     {
@@ -141,7 +141,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * set date notification was created
      *
-     * @param $dateCreated date (YYYY-MM-DD HH:MM:SS)
+     * @param date $dateCreated (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateCreated($dateCreated)
     {
@@ -161,7 +161,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * set date notification is read by user
      *
-     * @param $dateRead date (YYYY-MM-DD HH:MM:SS)
+     * @param date $dateRead (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateRead($dateRead)
     {
@@ -181,7 +181,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * set notification type
      *
-     * @param $type int
+     * @param int $type
      */
     public function setType($type)
     {
@@ -201,7 +201,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * set notification type
      *
-     * @param $assocType int
+     * @param int $assocType
      */
     public function setAssocType($assocType)
     {
@@ -221,7 +221,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * set notification assoc id
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {

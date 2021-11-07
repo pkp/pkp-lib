@@ -40,8 +40,8 @@ class RegistrationHandler extends UserHandler
      * Display registration form for new users, validate and execute that form,
      * or display a registration success page if the user is logged in.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function register($args, $request)
     {
@@ -149,8 +149,8 @@ class RegistrationHandler extends UserHandler
     /**
      * Check credentials and activate a new user
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function activateUser($args, $request)
     {

@@ -109,7 +109,7 @@ class Collector implements CollectorInterface
     /**
      * Filter by the specified country code
      *
-     * @param $country string Country code (2-letter)
+     * @param string $country Country code (2-letter)
      *
      * */
     public function filterByCountry(?string $country): self

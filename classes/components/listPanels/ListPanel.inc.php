@@ -28,7 +28,7 @@ class ListPanel
     /** @var string The appropriate heading level for this component  */
     public $headingLevel = 'h2';
 
-    /** @var boolean Should the sidebar be visible on initial load?  */
+    /** @var bool Should the sidebar be visible on initial load?  */
     public $isSidebarVisible = false;
 
     /** @var string An ID for this component  */
@@ -43,9 +43,9 @@ class ListPanel
     /**
      * Initialize the form with config parameters
      *
-     * @param $id string
-     * @param $title string
-     * @param $args array Configuration params
+     * @param string $id
+     * @param string $title
+     * @param array $args Configuration params
      */
     public function __construct($id, $title, $args = [])
     {
@@ -57,7 +57,7 @@ class ListPanel
     /**
      * Set configuration data for the component
      *
-     * @param $args array Configuration params
+     * @param array $args Configuration params
      *
      * @return
      */

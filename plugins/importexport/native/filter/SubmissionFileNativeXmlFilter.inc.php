@@ -26,7 +26,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -52,7 +52,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     /**
      * @see Filter::process()
      *
-     * @param $submissionFile SubmissionFile
+     * @param SubmissionFile $submissionFile
      *
      * @return DOMDocument
      */
@@ -77,8 +77,8 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return a submissionFile node.
      *
-     * @param $doc DOMDocument
-     * @param $submissionFile SubmissionFile
+     * @param DOMDocument $doc
+     * @param SubmissionFile $submissionFile
      *
      * @return DOMElement
      */
@@ -192,9 +192,9 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     /**
      * Create and add identifier nodes to a submission node.
      *
-     * @param $doc DOMDocument
-     * @param $revisionNode DOMElement
-     * @param $submissionFile SubmissionFile
+     * @param DOMDocument $doc
+     * @param DOMElement $revisionNode
+     * @param SubmissionFile $submissionFile
      */
     public function addIdentifiers($doc, $revisionNode, $submissionFile)
     {
@@ -219,10 +219,10 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     /**
      * Add a single pub ID element for a given plugin to the document.
      *
-     * @param $doc DOMDocument
-     * @param $revisionNode DOMElement
-     * @param $submissionFile SubmissionFile
-     * @param $pubIdPlugin PubIdPlugin
+     * @param DOMDocument $doc
+     * @param DOMElement $revisionNode
+     * @param SubmissionFile $submissionFile
+     * @param PubIdPlugin $pubIdPlugin
      *
      * @return DOMElement|null
      */

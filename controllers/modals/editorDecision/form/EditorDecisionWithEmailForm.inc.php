@@ -203,7 +203,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
      * based on an EditorDecision.
      *
      * @param Submission $submission
-     * @param integer $status One of the REVIEW_ROUND_STATUS_* constants.
+     * @param int $status One of the REVIEW_ROUND_STATUS_* constants.
      * @param null|mixed $reviewRound
      */
     public function _updateReviewRoundStatus($submission, $status, $reviewRound = null)

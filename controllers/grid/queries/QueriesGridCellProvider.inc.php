@@ -22,10 +22,10 @@ use PKP\note\NoteDAO;
 
 class QueriesGridCellProvider extends DataObjectGridCellProvider
 {
-    /** @var Submission **/
+    /** @var Submission */
     public $_submission;
 
-    /** @var int **/
+    /** @var int */
     public $_stageId;
 
     /** @var QueriesAccessHelper */
@@ -34,9 +34,9 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
     /**
      * Constructor
      *
-     * @param $submission Submission
-     * @param $stageId int
-     * @param $queriesAccessHelper QueriesAccessHelper
+     * @param Submission $submission
+     * @param int $stageId
+     * @param QueriesAccessHelper $queriesAccessHelper
      */
     public function __construct($submission, $stageId, $queriesAccessHelper)
     {
@@ -53,8 +53,8 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
      * Extracts variables for a given column from a data element
      * so that they may be assigned to template before rendering.
      *
-     * @param $row \PKP\controllers\grid\GridRow
-     * @param $column GridColumn
+     * @param \PKP\controllers\grid\GridRow $row
+     * @param GridColumn $column
      *
      * @return array
      */
@@ -129,7 +129,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
     /**
      * Get request arguments.
      *
-     * @param $row \PKP\controllers\grid\GridRow
+     * @param \PKP\controllers\grid\GridRow $row
      *
      * @return array
      */

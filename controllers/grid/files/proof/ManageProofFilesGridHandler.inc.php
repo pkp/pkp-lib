@@ -84,8 +84,8 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
     /**
      * Save 'manage proof files' form
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

@@ -21,10 +21,10 @@ class DeleteFileLinkAction extends FileLinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $submissionFile SubmissionFile the submission file to be deleted
-     * @param $stageId int (optional)
-     * @param $localeKey string (optional) Locale key to use for delete link
+     * @param Request $request
+     * @param SubmissionFile $submissionFile the submission file to be deleted
+     * @param int $stageId (optional)
+     * @param string $localeKey (optional) Locale key to use for delete link
      *  be deleted.
      */
     public function __construct($request, $submissionFile, $stageId, $localeKey = 'grid.action.delete')

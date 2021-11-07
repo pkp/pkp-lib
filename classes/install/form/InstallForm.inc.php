@@ -51,7 +51,7 @@ class InstallForm extends MaintenanceForm
     /**
      * Constructor.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function __construct($request)
     {
@@ -203,7 +203,7 @@ class InstallForm extends MaintenanceForm
     /**
      * Perform installation.
      *
-     * @param ...$functionArgs Function arguments
+     * @param mixed[] ...$functionArgs Function arguments
      */
     public function execute(...$functionArgs)
     {

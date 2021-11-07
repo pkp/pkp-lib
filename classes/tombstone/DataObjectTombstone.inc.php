@@ -32,7 +32,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
     /**
      * set data object id
      *
-     * @param $dataObjectId int
+     * @param int $dataObjectId
      */
     public function setDataObjectId($dataObjectId)
     {
@@ -52,7 +52,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
     /**
      * set date deleted
      *
-     * @param $dateDeleted date
+     * @param date $dateDeleted
      */
     public function setDateDeleted($dateDeleted)
     {
@@ -80,7 +80,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
     /**
      * Set oai setSpec.
      *
-     * @param $setSpec string
+     * @param string $setSpec
      */
     public function setSetSpec($setSpec)
     {
@@ -100,7 +100,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
     /**
      * Set oai setName.
      *
-     * @param $setName string
+     * @param string $setName
      */
     public function setSetName($setName)
     {
@@ -120,7 +120,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
     /**
      * Set oai identifier.
      *
-     * @param $oaiIdentifier string
+     * @param string $oaiIdentifier
      */
     public function setOAIIdentifier($oaiIdentifier)
     {
@@ -131,7 +131,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
      * Get an specific object id that is part of
      * the OAI set of this tombstone.
      *
-     * @param $assocType int
+     * @param int $assocType
      *
      * @return int The object id.
      */
@@ -149,8 +149,8 @@ class DataObjectTombstone extends \PKP\core\DataObject
      * Set an specific object id that is part of
      * the OAI set of this tombstone.
      *
-     * @param $assocType int
-     * @param $assocId int
+     * @param int $assocType
+     * @param int $assocId
      */
     public function setOAISetObjectId($assocType, $assocId)
     {
@@ -175,7 +175,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
      * Set all objects ids that are part of
      * the OAI set of this tombstone.
      *
-     * @param $OAISetObjectsIds array assocType => assocId
+     * @param array $OAISetObjectsIds assocType => assocId
      */
     public function setOAISetObjectsIds($OAISetObjectsIds)
     {

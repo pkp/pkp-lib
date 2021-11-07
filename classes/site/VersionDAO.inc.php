@@ -26,9 +26,9 @@ class VersionDAO extends \PKP\db\DAO
     /**
      * Retrieve the current version.
      *
-     * @param $productType string
-     * @param $product string
-     * @param $isPlugin boolean
+     * @param string $productType
+     * @param string $product
+     * @param bool $isPlugin
      *
      * @return Version?
      */
@@ -51,8 +51,8 @@ class VersionDAO extends \PKP\db\DAO
     /**
      * Retrieve the complete version history, ordered by date (most recent first).
      *
-     * @param $productType string
-     * @param $product string
+     * @param string $productType
+     * @param string $product
      *
      * @return array Versions
      */
@@ -80,7 +80,7 @@ class VersionDAO extends \PKP\db\DAO
     /**
      * Internal function to return a Version object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return Version
      */
@@ -108,8 +108,8 @@ class VersionDAO extends \PKP\db\DAO
     /**
      * Insert a new version.
      *
-     * @param $version Version
-     * @param $isPlugin boolean
+     * @param Version $version
+     * @param bool $isPlugin
      */
     public function insertVersion($version, $isPlugin = false)
     {
@@ -193,7 +193,7 @@ class VersionDAO extends \PKP\db\DAO
      * first key representing the product type, the second
      * key the product name and the value the product version.
      *
-     * @param $context array the application context, only
+     * @param array $context the application context, only
      *  products enabled in that context will be returned.
      *
      * @return array
@@ -227,8 +227,8 @@ class VersionDAO extends \PKP\db\DAO
     /**
      * Disable a product by setting its 'current' column to 0
      *
-     * @param $productType string
-     * @param $product string
+     * @param string $productType
+     * @param string $product
      */
     public function disableVersion($productType, $product)
     {

@@ -22,8 +22,8 @@ class FormValidatorCSRF extends FormValidator
     /**
      * Constructor.
      *
-     * @param $form Form
-     * @param $message string the locale key to use (optional)
+     * @param Form $form
+     * @param string $message the locale key to use (optional)
      */
     public function __construct(&$form, $message = 'form.csrfInvalid')
     {
@@ -38,7 +38,7 @@ class FormValidatorCSRF extends FormValidator
      * Check if the CSRF token is correct.
      * overrides FormValidator::isValid()
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {

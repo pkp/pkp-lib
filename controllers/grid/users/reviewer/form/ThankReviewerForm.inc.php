@@ -22,7 +22,7 @@ use PKP\notification\PKPNotification;
 
 class ThankReviewerForm extends Form
 {
-    /** The review assignment associated with the reviewer **/
+    /** @var ReviewAssignment The review assignment associated with the reviewer */
     public $_reviewAssignment;
 
     /**

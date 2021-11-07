@@ -77,8 +77,8 @@ class PKPImportExportDeployment
     /**
      * Constructor
      *
-     * @param $context Context
-     * @param $user User optional
+     * @param Context $context
+     * @param User $user optional
      */
     public function __construct($context, $user = null)
     {
@@ -150,7 +150,7 @@ class PKPImportExportDeployment
     /**
      * Set the import/export context.
      *
-     * @param $context Context
+     * @param Context $context
      */
     public function setContext($context)
     {
@@ -170,7 +170,7 @@ class PKPImportExportDeployment
     /**
      * Set the import/export submission.
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     public function setSubmission($submission)
     {
@@ -193,7 +193,7 @@ class PKPImportExportDeployment
     /**
      * Set the import/export publication.
      *
-     * @param $publication PKPPublication
+     * @param PKPPublication $publication
      */
     public function setPublication($publication)
     {
@@ -216,8 +216,8 @@ class PKPImportExportDeployment
     /**
      * Add the processed object ID.
      *
-     * @param $assocType integer ASSOC_TYPE_...
-     * @param $assocId integer
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId
      */
     public function addProcessedObjectId($assocType, $assocId)
     {
@@ -227,9 +227,9 @@ class PKPImportExportDeployment
     /**
      * Add the error message to the processed object ID.
      *
-     * @param $assocType integer ASSOC_TYPE_...
-     * @param $assocId integer
-     * @param $errorMsg string
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId
+     * @param string $errorMsg
      */
     public function addError($assocType, $assocId, $errorMsg)
     {
@@ -239,9 +239,9 @@ class PKPImportExportDeployment
     /**
      * Add the warning message to the processed object ID.
      *
-     * @param $assocType integer ASSOC_TYPE_...
-     * @param $assocId integer
-     * @param $warningMsg string
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId
+     * @param string $warningMsg
      */
     public function addWarning($assocType, $assocId, $warningMsg)
     {
@@ -251,7 +251,7 @@ class PKPImportExportDeployment
     /**
      * Get the processed objects IDs.
      *
-     * @param $assocType integer ASSOC_TYPE_...
+     * @param int $assocType ASSOC_TYPE_...
      *
      * @return array
      */
@@ -266,7 +266,7 @@ class PKPImportExportDeployment
     /**
      * Get the processed objects errors.
      *
-     * @param $assocType integer ASSOC_TYPE_...
+     * @param int $assocType ASSOC_TYPE_...
      *
      * @return array
      */
@@ -280,7 +280,7 @@ class PKPImportExportDeployment
     /**
      * Get the processed objects errors.
      *
-     * @param $assocType integer ASSOC_TYPE_...
+     * @param int $assocType ASSOC_TYPE_...
      *
      * @return array
      */
@@ -296,7 +296,7 @@ class PKPImportExportDeployment
     /**
      * Remove the processed objects.
      *
-     * @param $assocType integer ASSOC_TYPE_...
+     * @param int $assocType ASSOC_TYPE_...
      */
     public function removeImportedObjects($assocType)
     {
@@ -317,7 +317,7 @@ class PKPImportExportDeployment
     /**
      * Set the import/export user.
      *
-     * @param $user User
+     * @param User $user
      */
     public function setUser($user)
     {
@@ -347,7 +347,7 @@ class PKPImportExportDeployment
     /**
      * Set the array of the inserted file DB Ids.
      *
-     * @param $fileDBIds array
+     * @param array $fileDBIds
      */
     public function setFileDBIds($fileDBIds)
     {
@@ -357,9 +357,9 @@ class PKPImportExportDeployment
     /**
      * Get the file DB Id.
      *
-     * @param $fileId integer The old file id
+     * @param int $fileId The old file id
      *
-     * @return integer The new file id
+     * @return int The new file id
      */
     public function getFileDBId($fileId)
     {
@@ -372,8 +372,8 @@ class PKPImportExportDeployment
     /**
      * Set the file DB Id.
      *
-     * @param $fileId integer The old file id
-     * @param $DBId integer The new file id
+     * @param int $fileId The old file id
+     * @param int $DBId The new file id
      */
     public function setFileDBId($fileId, $DBId)
     {
@@ -393,7 +393,7 @@ class PKPImportExportDeployment
     /**
      * Set the array of the inserted submission file DB Ids.
      *
-     * @param $submissionFileDBIds array
+     * @param array $submissionFileDBIds
      */
     public function setSubmissionFileDBIds($submissionFileDBIds)
     {
@@ -403,7 +403,7 @@ class PKPImportExportDeployment
     /**
      * Get the submission file DB Id.
      *
-     * @return integer The new submission file id
+     * @return int The new submission file id
      */
     public function getSubmissionFileDBId($submissionFileDBId)
     {
@@ -416,8 +416,8 @@ class PKPImportExportDeployment
     /**
      * Set the submission file DB Id.
      *
-     * @param $submissionFileDBId integer The old submission file id
-     * @param $DBId integer The new submission file id
+     * @param int $submissionFileDBId The old submission file id
+     * @param int $DBId The new submission file id
      */
     public function setSubmissionFileDBId($submissionFileDBId, $DBId)
     {
@@ -427,7 +427,7 @@ class PKPImportExportDeployment
     /**
      * Set the array of the inserted author DB Ids.
      *
-     * @param $authorDBIds array
+     * @param array $authorDBIds
      */
     public function setAuthorDBIds($authorDBIds)
     {
@@ -447,9 +447,9 @@ class PKPImportExportDeployment
     /**
      * Get the author DB Id.
      *
-     * @param $authorId integer
+     * @param int $authorId
      *
-     * @return integer?
+     * @return int?
      */
     public function getAuthorDBId($authorId)
     {
@@ -463,8 +463,8 @@ class PKPImportExportDeployment
     /**
      * Set the author DB Id.
      *
-     * @param $authorId integer
-     * @param $DBId integer
+     * @param int $authorId
+     * @param int $DBId
      */
     public function setAuthorDBId($authorId, $DBId)
     {
@@ -474,7 +474,7 @@ class PKPImportExportDeployment
     /**
      * Set the directory location for the import source
      *
-     * @param $path string
+     * @param string $path
      */
     public function setImportPath($path)
     {
@@ -494,7 +494,7 @@ class PKPImportExportDeployment
     /**
      * Add the imported root entities.
      *
-     * @param $assocType integer ASSOC_TYPE_...
+     * @param int $assocType ASSOC_TYPE_...
      */
     public function addImportedRootEntity($assocType, $entity)
     {
@@ -504,7 +504,7 @@ class PKPImportExportDeployment
     /**
      * Get the imported root entities.
      *
-     * @param $assocType integer ASSOC_TYPE_...
+     * @param int $assocType ASSOC_TYPE_...
      */
     public function getImportedRootEntities($assocType)
     {
@@ -518,7 +518,7 @@ class PKPImportExportDeployment
     /**
      * Set export root entities
      *
-     * @param $exportRootEntities array
+     * @param array $exportRootEntities
      */
     public function setExportRootEntities($exportRootEntities)
     {
@@ -538,8 +538,8 @@ class PKPImportExportDeployment
     /**
      * Wraps the import process
      *
-     * @param $rootFilter string
-     * @param $importXml string
+     * @param string $rootFilter
+     * @param string $importXml
      */
     public function import($rootFilter, $importXml)
     {
@@ -573,9 +573,9 @@ class PKPImportExportDeployment
     /**
      * Wraps the export process
      *
-     * @param $rootFilter string
-     * @param $exportObjects array
-     * @param $opts array
+     * @param string $rootFilter
+     * @param array $exportObjects
+     * @param array $opts
      */
     public function export($rootFilter, $exportObjects, $opts = [])
     {
@@ -638,7 +638,7 @@ class PKPImportExportDeployment
     /**
     * Get object type string.
     *
-    * @param $assocType mixed int or null (optional)
+    * @param mixed $assocType int or null (optional)
     *
     * @return mixed string or array
     */

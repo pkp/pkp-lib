@@ -22,7 +22,7 @@ class PKPReviewerReviewStep2Form extends ReviewerReviewForm
     /**
      * Constructor.
      *
-     * @param $reviewerSubmission ReviewerSubmission
+     * @param ReviewerSubmission $reviewerSubmission
      */
     public function __construct($request, $reviewerSubmission, $reviewAssignment)
     {

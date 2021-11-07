@@ -34,7 +34,7 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Retrieve a controlled vocab by controlled vocab ID.
      *
-     * @param $controlledVocabId int
+     * @param int $controlledVocabId
      *
      * @return ControlledVocab
      */
@@ -48,9 +48,9 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Fetch a controlled vocab by symbolic info, building it if needed.
      *
-     * @param $symbolic string
-     * @param $assocType int
-     * @param $assocId int
+     * @param string $symbolic
+     * @param int $assocType
+     * @param int $assocId
      *
      * @return $controlledVocab
      */
@@ -91,7 +91,7 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Internal function to return an ControlledVocab object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return ControlledVocab
      */
@@ -109,7 +109,7 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Insert a new ControlledVocab.
      *
-     * @param $controlledVocab ControlledVocab
+     * @param ControlledVocab $controlledVocab
      *
      * @return int? New insert ID on insert, or null on error
      */
@@ -139,9 +139,9 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Update an existing controlled vocab.
      *
-     * @param $controlledVocab ControlledVocab
+     * @param ControlledVocab $controlledVocab
      *
-     * @return boolean
+     * @return bool
      */
     public function updateObject($controlledVocab)
     {
@@ -164,9 +164,9 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Delete a controlled vocab.
      *
-     * @param $controlledVocab ControlledVocab
+     * @param ControlledVocab $controlledVocab
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObject($controlledVocab)
     {
@@ -176,9 +176,9 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Delete a controlled vocab by controlled vocab ID.
      *
-     * @param $controlledVocabId int
+     * @param int $controlledVocabId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObjectById($controlledVocabId)
     {
@@ -194,9 +194,9 @@ class ControlledVocabDAO extends \PKP\db\DAO
      * Retrieve an array of controlled vocabs matching the specified
      * symbolic name and assoc info.
      *
-     * @param $symbolic string
-     * @param $assocType int
-     * @param $assocId int
+     * @param string $symbolic
+     * @param int $assocType
+     * @param int $assocId
      *
      * @return ControlledVocab?
      */
@@ -213,10 +213,10 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Get a list of controlled vocabulary options.
      *
-     * @param $symbolic string
-     * @param $assocType int
-     * @param $assocId int
-     * @param $settingName string optional
+     * @param string $symbolic
+     * @param int $assocType
+     * @param int $assocId
+     * @param string $settingName optional
      *
      * @return array $controlledVocabEntryId => $settingValue
      */
@@ -232,8 +232,8 @@ class ControlledVocabDAO extends \PKP\db\DAO
     /**
      * Get a list of controlled vocabulary options.
      *
-     * @param $controlledVocabId int
-     * @param $settingName string optional
+     * @param int $controlledVocabId
+     * @param string $settingName optional
      *
      * @return array $controlledVocabEntryId => name
      */

@@ -25,7 +25,8 @@ class PluginsTool extends \PKP\cliTool\CommandLineTool
 {
     /**
      * Constructor.
-     * @param $argv array command-line arguments
+     *
+     * @param array $argv command-line arguments
      */
     function __construct($argv = array())
     {
@@ -120,8 +121,10 @@ class PluginsTool extends \PKP\cliTool\CommandLineTool
 
     /**
      * Select a specific plugin
-     * @param $category string a plugin category
-     * @param $name string a plugin name
+     *
+     * @param string $category a plugin category
+     * @param string $name a plugin name
+     *
      * @return GalleryPlugin|null
      */
     function selectPlugin($category, $name)
@@ -143,7 +146,8 @@ class PluginsTool extends \PKP\cliTool\CommandLineTool
 
     /**
      * Print the plugins as a list
-     * @param $plugins GalleryPlugin[] array of plugins
+     *
+     * @param GalleryPlugin[] $plugins array of plugins
      */
     function listPlugins($plugins)
     {

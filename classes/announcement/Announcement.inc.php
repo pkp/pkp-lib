@@ -42,7 +42,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set assoc ID for this annoucement.
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -62,7 +62,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set assoc type for this annoucement.
      *
-     * @param $assocType int
+     * @param int $assocType
      */
     public function setAssocType($assocType)
     {
@@ -82,7 +82,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set the announcement type of the announcement.
      *
-     * @param $typeId int
+     * @param int $typeId
      */
     public function setTypeId($typeId)
     {
@@ -129,7 +129,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Get announcement title.
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      */
@@ -141,8 +141,8 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement title.
      *
-     * @param $title string
-     * @param $locale string
+     * @param string $title
+     * @param string $locale
      */
     public function setTitle($title, $locale)
     {
@@ -162,7 +162,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Get announcement brief description.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -174,8 +174,8 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement brief description.
      *
-     * @param $descriptionShort string
-     * @param $locale string
+     * @param string $descriptionShort
+     * @param string $locale
      */
     public function setDescriptionShort($descriptionShort, $locale)
     {
@@ -195,7 +195,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Get announcement description.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -207,8 +207,8 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement description.
      *
-     * @param $description string
-     * @param $locale string
+     * @param string $description
+     * @param string $locale
      */
     public function setDescription($description, $locale)
     {
@@ -228,7 +228,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement expiration date.
      *
-     * @param $dateExpire date (YYYY-MM-DD)
+     * @param date $dateExpire (YYYY-MM-DD)
      */
     public function setDateExpire($dateExpire)
     {
@@ -258,7 +258,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement posted date.
      *
-     * @param $datePosted date (YYYY-MM-DD)
+     * @param date $datePosted (YYYY-MM-DD)
      */
     public function setDatePosted($datePosted)
     {
@@ -268,7 +268,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement posted datetime.
      *
-     * @param $datetimePosted date (YYYY-MM-DD HH:MM:SS)
+     * @param date $datetimePosted (YYYY-MM-DD HH:MM:SS)
      */
     public function setDatetimePosted($datetimePosted)
     {

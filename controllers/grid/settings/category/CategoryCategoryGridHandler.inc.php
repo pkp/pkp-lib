@@ -216,8 +216,8 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     /**
      * Handle the add category operation.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function addCategory($args, $request)
     {
@@ -227,8 +227,8 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     /**
      * Handle the edit category operation.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -244,8 +244,8 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     /**
      * Update category data in database and grid.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -265,8 +265,8 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     /**
      * Delete a category
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -286,8 +286,8 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     /**
      * Handle file uploads for cover/image art for things like Series and Categories.
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      *
      * @return JSONMessage JSON object
      */
@@ -314,7 +314,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     /**
      * Get a CategoryForm instance.
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return UserGroupForm
      */

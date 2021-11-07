@@ -35,7 +35,7 @@ class SubmissionEventLogGridHandler extends GridHandler
     /** @var int The current workflow stage */
     public $_stageId;
 
-    /** @var boolean Is the current user assigned as an author to this submission */
+    /** @var bool Is the current user assigned as an author to this submission */
     public $_isCurrentUserAssignedAuthor;
 
     /**
@@ -67,7 +67,7 @@ class SubmissionEventLogGridHandler extends GridHandler
     /**
      * Set the Submission
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     public function setSubmission($submission)
     {
@@ -81,9 +81,9 @@ class SubmissionEventLogGridHandler extends GridHandler
     /**
      * @see PKPHandler::authorize()
      *
-     * @param $request PKPRequest
-     * @param $args array
-     * @param $roleAssignments array
+     * @param PKPRequest $request
+     * @param array $args
+     * @param array $roleAssignments
      */
     public function authorize($request, &$args, $roleAssignments)
     {
@@ -230,8 +230,8 @@ class SubmissionEventLogGridHandler extends GridHandler
     /**
      * Get the contents of the email
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -245,7 +245,7 @@ class SubmissionEventLogGridHandler extends GridHandler
     /**
      * Format the contents of the email
      *
-     * @param $emailLogEntry EmailLogEntry
+     * @param EmailLogEntry $emailLogEntry
      *
      * @return string Formatted email
      */

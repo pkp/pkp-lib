@@ -56,7 +56,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set ID of context.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function setContextId($contextId)
     {
@@ -84,7 +84,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Get server-side file name of the file.
      *
-     * @param return string
+     * @return string
      */
     public function getServerFileName()
     {
@@ -94,7 +94,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set server-side file name of the file.
      *
-     * @param $fileName string
+     * @param string $fileName
      */
     public function setServerFileName($fileName)
     {
@@ -104,7 +104,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Get original file name of the file.
      *
-     * @param return string
+     * @return string
      */
     public function getOriginalFileName()
     {
@@ -114,7 +114,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set original file name of the file.
      *
-     * @param $originalFileName string
+     * @param string $originalFileName
      */
     public function setOriginalFileName($originalFileName)
     {
@@ -124,8 +124,8 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set the name of the file
      *
-     * @param $name string
-     * @param $locale string
+     * @param string $name
+     * @param string $locale
      */
     public function setName($name, $locale)
     {
@@ -135,7 +135,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Get the name of the file
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -157,7 +157,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Get file type of the file.
      *
-     * @ return string
+     * @return string
      */
     public function getFileType()
     {
@@ -167,7 +167,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set file type of the file.
      *
-     * @param $fileType string
+     * @param string $fileType
      */
     public function setFileType($fileType)
     {
@@ -177,7 +177,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Get type of the file.
      *
-     * @ return string
+     * @return string
      */
     public function getType()
     {
@@ -187,7 +187,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set type of the file.
      *
-     * @param $type string
+     * @param string $type
      */
     public function setType($type)
     {
@@ -207,7 +207,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set uploaded date of file.
      *
-     * @param $dateUploaded date
+     * @param date $dateUploaded
      */
     public function setDateUploaded($dateUploaded)
     {
@@ -227,7 +227,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set modified date of file.
      *
-     * @param $dateModified date
+     * @param date $dateModified
      */
     public function setDateModified($dateModified)
     {
@@ -248,7 +248,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set file size of file.
      *
-     * @param $fileSize int
+     * @param int $fileSize
      */
     public function setFileSize($fileSize)
     {
@@ -280,7 +280,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Get public access indication
      *
-     * @return boolean
+     * @return bool
      */
     public function getPublicAccess()
     {
@@ -290,7 +290,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set public access indication
      *
-     * @param $publicAccess boolean
+     * @param bool $publicAccess
      */
     public function setPublicAccess($publicAccess)
     {

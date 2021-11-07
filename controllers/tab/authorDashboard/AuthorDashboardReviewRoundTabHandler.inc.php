@@ -29,7 +29,7 @@ use PKP\security\Role;
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
 {
-    /** @var boolean Overwrite backend page handling of AuthorDashboardHandler */
+    /** @var bool Overwrite backend page handling of AuthorDashboardHandler */
     public $_isBackendPage = false;
 
     /**
@@ -68,8 +68,8 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
     /**
      * Fetch information for the author on the specified review round
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */

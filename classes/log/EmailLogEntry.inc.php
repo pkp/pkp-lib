@@ -38,7 +38,7 @@ class EmailLogEntry extends \PKP\core\DataObject
     /**
      * Set user ID of sender.
      *
-     * @param $senderId int
+     * @param int $senderId
      */
     public function setSenderId($senderId)
     {
@@ -58,7 +58,7 @@ class EmailLogEntry extends \PKP\core\DataObject
     /**
      * Set date email was sent.
      *
-     * @param $dateSent datestamp
+     * @param datestamp $dateSent
      */
     public function setDateSent($dateSent)
     {
@@ -78,7 +78,7 @@ class EmailLogEntry extends \PKP\core\DataObject
     /**
      * Set event type.
      *
-     * @param $eventType int
+     * @param int $eventType
      */
     public function setEventType($eventType)
     {
@@ -98,7 +98,7 @@ class EmailLogEntry extends \PKP\core\DataObject
     /**
      * Set associated type.
      *
-     * @param $assocType int
+     * @param int $assocType
      */
     public function setAssocType($assocType)
     {
@@ -118,7 +118,7 @@ class EmailLogEntry extends \PKP\core\DataObject
     /**
      * Set associated ID.
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {

@@ -45,7 +45,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set user ID of user that initiated the event.
      *
-     * @param $userId int
+     * @param int $userId
      */
     public function setUserId($userId)
     {
@@ -65,7 +65,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set date entry was logged.
      *
-     * @param $dateLogged datestamp
+     * @param datestamp $dateLogged
      */
     public function setDateLogged($dateLogged)
     {
@@ -85,7 +85,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set event type.
      *
-     * @param $eventType int
+     * @param int $eventType
      */
     public function setEventType($eventType)
     {
@@ -105,7 +105,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set associated type.
      *
-     * @param $assocType int
+     * @param int $assocType
      */
     public function setAssocType($assocType)
     {
@@ -125,7 +125,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set associated ID.
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -145,7 +145,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set custom log message (either locale key or literal string).
      *
-     * @param $message string
+     * @param string $message
      */
     public function setMessage($message)
     {
@@ -155,7 +155,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Get flag indicating whether or not message is translated.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsTranslated()
     {
@@ -165,7 +165,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set flag indicating whether or not message is translated.
      *
-     * @param $isTranslated int
+     * @param int $isTranslated
      */
     public function setIsTranslated($isTranslated)
     {
@@ -175,8 +175,8 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Get translated message, translating it if necessary.
      *
-     * @param $locale string optional
-     * @param $hideReviewerName boolean optional Don't reveal reviewer names in
+     * @param string $locale optional
+     * @param bool $hideReviewerName optional Don't reveal reviewer names in
      *  log descriptions.
      */
     public function getTranslatedMessage($locale = null, $hideReviewerName = false)
@@ -249,7 +249,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set custom log message parameters.
      *
-     * @param $params array
+     * @param array $params
      */
     public function setParams($params)
     {

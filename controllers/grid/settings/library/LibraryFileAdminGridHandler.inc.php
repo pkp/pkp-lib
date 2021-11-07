@@ -40,7 +40,7 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler
     // Overridden template methods
     //
 
-    /*
+    /**
      * Configure the grid
      * @see LibraryGridHandler::initialize
      */
@@ -55,7 +55,7 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler
     /**
      * Returns a specific instance of the new form for this grid.
      *
-     * @param $context Context
+     * @param Context $context
      *
      * @return NewLibraryFileForm
      */
@@ -68,8 +68,8 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler
     /**
      * Returns a specific instance of the edit form for this grid.
      *
-     * @param $context Context
-     * @param $fileId int
+     * @param Context $context
+     * @param int $fileId
      *
      * @return EditLibraryFileForm
      */

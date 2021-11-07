@@ -71,7 +71,7 @@ class PKPXMLParser {
 	/**
 	 * Parse an XML file using the specified handler.
 	 * If no handler has been specified, XMLParserDOMHandler is used by default, returning a tree structure representing the document.
-	 * @param $file string full path to the XML file
+	 * @param string $file full path to the XML file
 	 * @return object|false actual return type depends on the handler
 	 */
 	function parse($file) {
@@ -106,7 +106,7 @@ class PKPXMLParser {
 
 	/**
 	 * Get a PSR7 stream given a filename or URL.
-	 * @param $filenameOrUrl
+	 * @param string $filenameOrUrl
 	 * @return \GuzzleHttp\Psr7\Stream|null
 	 */
 	protected function _getStream($filenameOrUrl) {
@@ -124,7 +124,7 @@ class PKPXMLParser {
 
 	/**
 	 * Add an error to the current error list
-	 * @param $error string
+	 * @param string $error
 	 */
 	function addError($error) {
 		array_push($this->errors, $error);
@@ -140,7 +140,7 @@ class PKPXMLParser {
 	/**
 	 * Determine whether or not the parser encountered an error (false)
 	 * or completed successfully (true)
-	 * @return boolean
+	 * @return bool
 	 */
 	function getStatus() {
 		return empty($this->errors);
@@ -148,7 +148,7 @@ class PKPXMLParser {
 
 	/**
 	 * Set the handler to use for parse(...).
-	 * @param $handler XMLParserHandler
+	 * @param XMLParserHandler $handler
 	 */
 	function setHandler($handler) {
 		$this->handler = $handler;
@@ -157,9 +157,9 @@ class PKPXMLParser {
 	/**
 	 * Parse XML data using xml_parse_into_struct and return data in an array.
 	 * This is best suited for XML documents with fairly simple structure.
-	 * @param $text string XML data
-	 * @param $tagsToMatch array optional, if set tags not in the array will be skipped
-	 * @return array? a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
+	 * @param string $text XML data
+	 * @param array $tagsToMatch optional, if set tags not in the array will be skipped
+	 * @return array|null a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
 	 */
 	function parseTextStruct($text, $tagsToMatch = array()) {
 		$parser = $this->createParser();
@@ -194,9 +194,9 @@ class PKPXMLParser {
 	/**
 	 * Parse an XML file using xml_parse_into_struct and return data in an array.
 	 * This is best suited for XML documents with fairly simple structure.
-	 * @param $file string full path to the XML file
-	 * @param $tagsToMatch array optional, if set tags not in the array will be skipped
-	 * @return array? a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
+	 * @param string $file full path to the XML file
+	 * @param array $tagsToMatch optional, if set tags not in the array will be skipped
+	 * @return array|null a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
 	 */
 	function parseStruct($file, $tagsToMatch = array()) {
 		$stream = $this->_getStream($file);
@@ -220,7 +220,7 @@ class PKPXMLParser {
 
 	/**
 	 * Destroy XML parser.
-	 * @param $parser resource
+	 * @param resource $parser
 	 */
 	function destroyParser($parser) {
 		xml_parser_free($parser);

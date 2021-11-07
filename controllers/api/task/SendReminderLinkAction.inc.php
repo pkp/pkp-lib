@@ -21,8 +21,8 @@ class SendReminderLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $actionArgs array The action arguments.
+     * @param Request $request
+     * @param array $actionArgs The action arguments.
      */
     public function __construct($request, $modalTitle, $actionArgs)
     {

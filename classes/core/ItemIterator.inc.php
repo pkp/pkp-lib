@@ -48,7 +48,7 @@ class ItemIterator
     /**
      * Determine whether this iterator represents the first page of a set.
      *
-     * @return boolean
+     * @return bool
      */
     public function atFirstPage()
     {
@@ -58,7 +58,7 @@ class ItemIterator
     /**
      * Determine whether this iterator represents the last page of a set.
      *
-     * @return boolean
+     * @return bool
      */
     public function atLastPage()
     {
@@ -98,7 +98,7 @@ class ItemIterator
     /**
      * Return a boolean indicating whether or not we've reached the end of results
      *
-     * @return boolean
+     * @return bool
      */
     public function eof()
     {
@@ -108,7 +108,7 @@ class ItemIterator
     /**
      * Return a boolean indicating whether or not this iterator was empty from the beginning
      *
-     * @return boolean
+     * @return bool
      */
     public function wasEmpty()
     {

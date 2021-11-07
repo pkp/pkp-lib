@@ -190,7 +190,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
      * Mock method used in testCallOnDeny() to test the
      * call-on-deny feature.
      *
-     * @param $argument string
+     * @param string $argument
      */
     public function mockCallOnDeny($argument)
     {

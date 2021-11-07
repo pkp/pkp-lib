@@ -93,7 +93,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
     /**
      * Sends a notification to the given user.
      *
-     * @param $user User The user who will be notified
+     * @param User $user The user who will be notified
      *
      * @return PKPNotification|null The notification instance or null if no notification created
      */
@@ -133,8 +133,8 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
     /**
      * Setups a customized message for the given user.
      *
-     * @param $mail Mail The message which will be customized
-     * @param $user User The user who will be notified
+     * @param Mail $mail The message which will be customized
+     * @param User $user The user who will be notified
      *
      * @return Mail The prepared message
      */

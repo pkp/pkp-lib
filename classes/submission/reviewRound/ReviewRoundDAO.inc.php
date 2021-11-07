@@ -27,10 +27,10 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Fetch a review round, creating it if needed.
      *
-     * @param $submissionId integer
-     * @param $stageId integer One of the WORKFLOW_*_REVIEW_STAGE_ID constants.
-     * @param $round integer
-     * @param $status integer One of the REVIEW_ROUND_STATUS_* constants.
+     * @param int $submissionId
+     * @param int $stageId One of the WORKFLOW_*_REVIEW_STAGE_ID constants.
+     * @param int $round
+     * @param int $status One of the REVIEW_ROUND_STATUS_* constants.
      *
      * @return ReviewRound
      */
@@ -76,7 +76,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Insert a new review round.
      *
-     * @param $reviewRound ReviewRound
+     * @param ReviewRound $reviewRound
      *
      * @return int
      */
@@ -100,9 +100,9 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Update an existing review round.
      *
-     * @param $reviewRound ReviewRound
+     * @param ReviewRound $reviewRound
      *
-     * @return boolean
+     * @return bool
      */
     public function updateObject($reviewRound)
     {
@@ -125,9 +125,9 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Retrieve a review round
      *
-     * @param $submissionId integer
-     * @param $stageId int One of the Stage_id_* constants.
-     * @param $round int The review round to be retrieved.
+     * @param int $submissionId
+     * @param int $stageId One of the Stage_id_* constants.
+     * @param int $round The review round to be retrieved.
      *
      * @return ReviewRound?
      */
@@ -161,7 +161,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Retrieve a review round by a submission file id.
      *
-     * @param $submissionFileId int
+     * @param int $submissionFileId
      *
      * @return ReviewRound
      */
@@ -182,9 +182,9 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Get an iterator of review round objects associated with this submission
      *
-     * @param $submissionId int
-     * @param $stageId int (optional)
-     * @param $round int (optional)
+     * @param int $submissionId
+     * @param int $stageId (optional)
+     * @param int $round (optional)
      */
     public function getBySubmissionId($submissionId, $stageId = null, $round = null)
     {
@@ -210,8 +210,8 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Get the current review round for a given stage (or for the latest stage)
      *
-     * @param $submissionId int
-     * @param $stageId int
+     * @param int $submissionId
+     * @param int $stageId
      *
      * @return int
      */
@@ -235,8 +235,8 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Get the last review round for a give stage (or for the latest stage)
      *
-     * @param $submissionId int
-     * @param $stageId int
+     * @param int $submissionId
+     * @param int $stageId
      *
      * @return ReviewRound?
      */
@@ -272,8 +272,8 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Update the review round status.
      *
-     * @param $reviewRound ReviewRound
-     * @param $status int? Optionally pass a REVIEW_ROUND_STATUS_... to set a
+     * @param ReviewRound $reviewRound
+     * @param int? $status Optionally pass a REVIEW_ROUND_STATUS_... to set a
      *  specific status. If not included, will determine the appropriate status
      *  based on ReviewRound::determineStatus().
      */
@@ -301,7 +301,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Delete review rounds by submission ID.
      *
-     * @param $submissionId int
+     * @param int $submissionId
      */
     public function deleteBySubmissionId($submissionId)
     {
@@ -314,7 +314,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Delete a review round.
      *
-     * @param $reviewRound ReviewRound
+     * @param ReviewRound $reviewRound
      */
     public function deleteObject($reviewRound)
     {
@@ -324,9 +324,9 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Delete a review round by ID.
      *
-     * @param $reviewRoundId int
+     * @param int $reviewRoundId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteById($reviewRoundId)
     {
@@ -340,7 +340,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Internal function to return a review round object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return ReviewRound
      */

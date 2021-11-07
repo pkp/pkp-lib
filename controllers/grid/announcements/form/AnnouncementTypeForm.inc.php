@@ -25,14 +25,14 @@ class AnnouncementTypeForm extends Form
     /** @var int Context ID */
     public $contextId;
 
-    /** @var typeId int the ID of the announcement type being edited */
+    /** @var int The ID of the announcement type being edited */
     public $typeId;
 
     /**
      * Constructor
      *
-     * @param $contextId int Context ID
-     * @param $typeId int leave as default for new announcement type
+     * @param int $contextId Context ID
+     * @param int $typeId leave as default for new announcement type
      */
     public function __construct($contextId, $typeId = null)
     {

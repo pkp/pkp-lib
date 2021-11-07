@@ -27,8 +27,8 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
     /**
      * Build/fetch and return a controlled vocabulary for agencies.
      *
-     * @param $publicationId int
-     * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
+     * @param int $publicationId
+     * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
      *
      * @return ControlledVocab
      */
@@ -50,9 +50,9 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
     /**
      * Get agencies for a specified submission ID.
      *
-     * @param $publicationId int
-     * @param $locales array
-     * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
+     * @param int $publicationId
+     * @param array $locales
+     * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
      *
      * @return array
      */
@@ -97,10 +97,10 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
     /**
      * Add an array of agencies
      *
-     * @param $agencies array List of agencies.
-     * @param $publicationId int Submission ID.
-     * @param $deleteFirst boolean True iff existing agencies should be removed first.
-     * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
+     * @param array $agencies List of agencies.
+     * @param int $publicationId Submission ID.
+     * @param bool $deleteFirst True iff existing agencies should be removed first.
+     * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
      *
      * @return int
      */

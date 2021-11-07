@@ -36,8 +36,8 @@ class SubmissionSubject extends \PKP\controlledVocab\ControlledVocabEntry
     /**
      * Set the subject text
      *
-     * @param subject string
-     * @param locale string
+     * @param string $subject
+     * @param string $locale
      */
     public function setSubject($subject, $locale)
     {

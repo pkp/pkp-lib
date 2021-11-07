@@ -55,8 +55,8 @@ class DashboardHandler extends Handler
     /**
      * Display about index page.
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      */
     public function index($args, $request)
     {
@@ -198,8 +198,8 @@ class DashboardHandler extends Handler
     /**
      * View tasks tab
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -214,7 +214,7 @@ class DashboardHandler extends Handler
     /**
      * Setup common template variables.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function setupTemplate($request = null)
     {

@@ -20,18 +20,18 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
     /** @var array the target roles */
     public $_roles = [];
 
-    /** @var boolean */
+    /** @var bool */
     public $_allRoles;
 
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $roles array|integer either a single role ID or an array of role ids
-     * @param $operations array|string either a single operation or a list of operations that
+     * @param PKPRequest $request
+     * @param array|integer $roles either a single role ID or an array of role ids
+     * @param array|string $operations either a single operation or a list of operations that
      *  this policy is targeting.
-     * @param $message string a message to be displayed if the authorization fails
-     * @param $allRoles boolean whether all roles must match ("all of") or whether it is
+     * @param string $message a message to be displayed if the authorization fails
+     * @param bool $allRoles whether all roles must match ("all of") or whether it is
      *  enough for only one role to match ("any of"). Default: false ("any of")
      */
     public function __construct(
@@ -92,9 +92,9 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
      * to any of the allowed roles. If so then grant
      * access.
      *
-     * @param $userRoles array
+     * @param array $userRoles
      *
-     * @return boolean
+     * @return bool
      */
     public function _checkUserRoleAssignment($userRoles)
     {

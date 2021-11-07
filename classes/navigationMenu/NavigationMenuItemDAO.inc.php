@@ -19,13 +19,14 @@ namespace PKP\navigationMenu;
 
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\xml\XMLNode;
 
 class NavigationMenuItemDAO extends \PKP\db\DAO
 {
     /**
      * Retrieve a navigation menu item by ID.
      *
-     * @param $navigationMenuItemId int
+     * @param int $navigationMenuItemId
      *
      * @return NavigationMenuItem?
      */
@@ -44,8 +45,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Retrieve a navigation menu item by path.
      *
-     * @param $contextId int Context Id
-     * @param $path string
+     * @param int $contextId Context Id
+     * @param string $path
      *
      * @return NavigationMenuItem?
      */
@@ -63,7 +64,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Retrieve a navigation menu items by context Id.
      *
-     * @param $contextId int Context Id
+     * @param int $contextId Context Id
      *
      * @return NavigationMenu
      */
@@ -80,7 +81,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Retrieve items by menu id
      *
-     * @param $menuId int
+     * @param int $menuId
      */
     public function getByMenuId($menuId)
     {
@@ -98,9 +99,9 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Retrieve items by menuItemType and setting_name = titleLocaleKey
      *
-     * @param $contextId int
-     * @param $menuItemType string
-     * @param $menuItemTitleLocaleKey string
+     * @param int $contextId
+     * @param string $menuItemType
+     * @param string $menuItemTitleLocaleKey
      *
      * @return NavigationMenuItem?
      */
@@ -122,8 +123,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Retrieve the menu items with the specified type.
      *
-     * @param $type int NMI_TYPE_...
-     * @param $contextId int
+     * @param int $type NMI_TYPE_...
+     * @param int $contextId
      *
      * @return DAOResultFactory containing matching NavigationMenuItems
      */
@@ -172,7 +173,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Internal function to return a NavigationMenuItem object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return NavigationMenuItem
      */
@@ -192,7 +193,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Update the settings for this object
      *
-     * @param $navigationMenuItem object
+     * @param object $navigationMenuItem
      */
     public function updateLocaleFields($navigationMenuItem)
     {
@@ -204,7 +205,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Insert a new NavigationMenuItem.
      *
-     * @param $navigationMenuItem NavigationMenuItem
+     * @param NavigationMenuItem $navigationMenuItem
      *
      * @return int
      */
@@ -232,9 +233,9 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Update an existing NavigationMenuItem.
      *
-     * @param $navigationMenuItem NavigationMenuItem
+     * @param NavigationMenuItem $navigationMenuItem
      *
-     * @return boolean
+     * @return bool
      */
     public function updateObject($navigationMenuItem)
     {
@@ -262,9 +263,9 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Delete a NavigationMenuItem.
      *
-     * @param $navigationMenuItem NavigationMenuItem
+     * @param NavigationMenuItem $navigationMenuItem
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObject($navigationMenuItem)
     {
@@ -274,9 +275,9 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Delete a NavigationMenuItem by navigationMenuItem ID.
      *
-     * @param $navigationMenuItemId int
+     * @param int $navigationMenuItemId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteById($navigationMenuItemId)
     {
@@ -292,7 +293,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Delete NavigationMenuItems by contextId.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function deleteByContextId($contextId)
     {
@@ -316,10 +317,10 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Load the XML file and move the settings to the DB
      *
-     * @param $contextId
-     * @param $filename
+     * @param int $contextId
+     * @param string $filename
      *
-     * @return boolean true === success
+     * @return bool true === success
      */
     public function installSettings($contextId, $filename)
     {
@@ -349,14 +350,14 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Load a XML node to DB
      *
-     * @param $contextId int
-     * @param $node
-     * @param $navigationMenuId int
-     * @param $navigationMenuItemParentId int
-     * @param $seq int
-     * @param $checkChildren bool Optional
+     * @param int $contextId
+     * @param XMLNode $node
+     * @param int $navigationMenuId
+     * @param int $navigationMenuItemParentId
+     * @param int $seq
+     * @param bool $checkChildren Optional
      *
-     * @return boolean true === success
+     * @return bool true === success
      */
     public function installNodeSettings($contextId, $node, $navigationMenuId = null, $navigationMenuItemParentId = null, $seq = 0, $checkChildren = false)
     {
@@ -421,11 +422,10 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Method for update navigationMenuItem setting
      *
-     * @param $navigationMenuItemId int
-     * @param $name string
-     * @param $value mixed
-     * @param $type string data type of the setting. If omitted, type will be guessed
-     * @param $isLocalized boolean
+     * @param int $navigationMenuItemId
+     * @param string $name
+     * @param string $type data type of the setting. If omitted, type will be guessed
+     * @param bool $isLocalized
      */
     public function updateSetting($navigationMenuItemId, $name, $value, $type = null, $isLocalized = false)
     {
@@ -466,8 +466,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Retrieve a context setting value.
      *
-     * @param $name string
-     * @param $locale string optional
+     * @param string $name
+     * @param string $locale optional
      */
     public function getSetting($navigationMenuItemId, $name, $locale = null)
     {
@@ -500,7 +500,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Remove all settings associated with a locale
      *
-     * @param $locale
+     * @param string $locale
      */
     public function deleteSettingsByLocale($locale)
     {

@@ -88,13 +88,13 @@ class MetadataSchema
     /**
      * Constructor
      *
-     * @param $name string the meta-data schema name
-     * @param $namespace string a globally unique namespace for
+     * @param string $name the meta-data schema name
+     * @param string $namespace a globally unique namespace for
      *  the schema. Property names must be unique within this
      *  namespace.
-     * @param $classname the fully qualified class name of
+     * @param string $classname the fully qualified class name of
      *  this schema
-     * @param $assocTypes array|integer the association types of
+     * @param array|integer $assocTypes the association types of
      *  PKP application objects that can be described using
      *  this schema. A single association type can be given as
      *  a scalar.
@@ -192,7 +192,7 @@ class MetadataSchema
      * Returns the property id with prefixed name space
      * for use in an external context (e.g. Forms, Templates).
      *
-     * @param $propertyName string
+     * @param string $propertyName
      *
      * @return string
      */
@@ -206,7 +206,7 @@ class MetadataSchema
     /**
      * (Re-)set all properties of this meta-data schema.
      *
-     * @param $properties array an array of MetadataProperties
+     * @param array $properties an array of MetadataProperties
      */
     public function setProperties(&$properties)
     {
@@ -222,13 +222,13 @@ class MetadataSchema
     /**
      * Add a property to this meta-data schema.
      *
-     * @param $name string the unique name of the property within a meta-data schema (can be a property URI)
-     * @param $allowedTypes mixed must be a scalar or an array with the supported types, default: METADATA_PROPERTY_TYPE_STRING
-     * @param $translated boolean whether the property may have various language versions, default: false
-     * @param $cardinality integer must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
-     * @param $displayName string
-     * @param $validationMessage string A string that can be displayed in case a user tries to set an invalid value for this property.
-     * @param $mandatory boolean Is this a mandatory property within the schema?
+     * @param string $name the unique name of the property within a meta-data schema (can be a property URI)
+     * @param mixed $allowedTypes must be a scalar or an array with the supported types, default: METADATA_PROPERTY_TYPE_STRING
+     * @param bool $translated whether the property may have various language versions, default: false
+     * @param int $cardinality must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
+     * @param string $displayName
+     * @param string $validationMessage A string that can be displayed in case a user tries to set an invalid value for this property.
+     * @param bool $mandatory Is this a mandatory property within the schema?
      */
     public function addProperty(
         $name,
@@ -262,7 +262,7 @@ class MetadataSchema
     /**
      * Get the names of properties with a given data type.
      *
-     * @param $propertyType mixed a valid property type description
+     * @param mixed $propertyType a valid property type description
      *
      * @return array an array of string values representing valid property names
      */
@@ -284,9 +284,9 @@ class MetadataSchema
     /**
      * Checks whether a property exists in the meta-data schema
      *
-     * @param $propertyName string
+     * @param string $propertyName
      *
-     * @return boolean
+     * @return bool
      */
     public function hasProperty($propertyName)
     {

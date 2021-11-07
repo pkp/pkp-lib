@@ -37,7 +37,7 @@ class InterestDAO extends ControlledVocabDAO
     /**
      * Get a list of controlled vocabulary entry IDs (corresponding to interest keywords) attributed to a user
      *
-     * @param $userId int
+     * @param int $userId
      *
      * @return array
      */
@@ -82,7 +82,7 @@ class InterestDAO extends ControlledVocabDAO
     /**
      * Get all user's interests
      *
-     * @param $filter string (optional)
+     * @param string $filter (optional)
      *
      * @return object
      */
@@ -105,8 +105,8 @@ class InterestDAO extends ControlledVocabDAO
     /**
      * Update a user's set of interests
      *
-     * @param $interests array
-     * @param $userId int
+     * @param array $interests
+     * @param int $userId
      */
     public function setUserInterests($interests, $userId)
     {

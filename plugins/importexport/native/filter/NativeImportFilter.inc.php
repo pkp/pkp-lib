@@ -23,7 +23,7 @@ class NativeImportFilter extends PKPImportExportFilter
     /**
      * @see Filter::process()
      *
-     * @param $document DOMDocument|string
+     * @param DOMDocument|string $document
      *
      * @return array Array of imported documents
      */
@@ -86,7 +86,7 @@ class NativeImportFilter extends PKPImportExportFilter
     /**
      * Handle a singular element import
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      */
     public function handleElement($node)
     {
@@ -96,7 +96,7 @@ class NativeImportFilter extends PKPImportExportFilter
     /**
      * Parse a localized element
      *
-     * @param $element DOMElement
+     * @param DOMElement $element
      *
      * @return array Array("locale_KEY", "Localized Text")
      */
@@ -108,8 +108,8 @@ class NativeImportFilter extends PKPImportExportFilter
     /**
      * Import node to a given parent node
      *
-     * @param $n DOMElement The parent node
-     * @param $filter string The filter to execute it's import function
+     * @param DOMElement $n The parent node
+     * @param string $filter The filter to execute it's import function
      */
     public function importWithXMLNode($n, $filter = null)
     {

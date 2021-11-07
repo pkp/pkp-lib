@@ -71,7 +71,7 @@ class PKPString
     /**
      * Check if server has the mbstring library.
      *
-     * @return boolean Returns true iff the server supports mbstring functions.
+     * @return bool Returns true iff the server supports mbstring functions.
      */
     public static function hasMBString()
     {
@@ -83,6 +83,7 @@ class PKPString
         // If string overloading is active, it will break many of the
         // native implementations. mbstring.func_overload must be set
         // to 0, 1 or 4 in php.ini (string overloading disabled).
+        // Note: Overloading has been deprecated on PHP 7.2
         if (ini_get('mbstring.func_overload') && defined('MB_OVERLOAD_STRING')) {
             $hasMBString = false;
         } else {
@@ -106,9 +107,9 @@ class PKPString
     //
 
     /**
-     * @see http://ca.php.net/manual/en/function.strlen.php
+     * @see https://www.php.net/strlen
      *
-     * @param $string string Input string
+     * @param string $string Input string
      *
      * @return int String length
      */
@@ -118,11 +119,11 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.strpos.php
+     * @see https://www.php.net/strpos
      *
-     * @param $haystack string Input haystack to search
-     * @param $needle string Input needle to search for
-     * @param $offset int Offset at which to begin searching
+     * @param string $haystack Input haystack to search
+     * @param string $needle Input needle to search for
+     * @param int $offset Offset at which to begin searching
      *
      * @return int Position of needle within haystack
      */
@@ -132,10 +133,10 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.strrpos.php
+     * @see https://www.php.net/strrpos
      *
-     * @param $haystack string Haystack to search
-     * @param $needle string Needle to search haystack for
+     * @param string $haystack Haystack to search
+     * @param string $needle Needle to search haystack for
      *
      * @return int Last index of Needle in Haystack
      */
@@ -145,11 +146,11 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.substr.php
+     * @see https://www.php.net/substr
      *
-     * @param $string string Subject to extract substring from
-     * @param $start int Position to start from
-     * @param $length int Length to extract, or false for entire string from start position
+     * @param string $string Subject to extract substring from
+     * @param int $start Position to start from
+     * @param int $length Length to extract, or false for entire string from start position
      *
      * @return string Substring of $string
      */
@@ -159,9 +160,9 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.strtolower.php
+     * @see https://www.php.net/strtolower
      *
-     * @param $string string Input string
+     * @param string $string Input string
      *
      * @return string Lower case version of input string
      */
@@ -171,9 +172,9 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.strtoupper.php
+     * @see https://www.php.net/strtoupper
      *
-     * @param $string string Input string
+     * @param string $string Input string
      *
      * @return string Upper case version of input string
      */
@@ -183,9 +184,9 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.ucfirst.php
+     * @see https://www.php.net/ucfirst
      *
-     * @param $string string Input string
+     * @param string $string Input string
      *
      * @return string ucfirst version of input string
      */
@@ -195,10 +196,10 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.substr_count.php
+     * @see https://www.php.net/substr_count
      *
-     * @param $haystack string Input string to search
-     * @param $needle string String to search within $haystack for
+     * @param string $haystack Input string to search
+     * @param string $needle String to search within $haystack for
      *
      * @return int Count of number of times $needle appeared in $haystack
      */
@@ -208,9 +209,9 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.encode_mime_header.php
+     * @see https://www.php.net/encode_mime_header
      *
-     * @param $string string Input MIME header to encode.
+     * @param string $string Input MIME header to encode.
      *
      * @return string Encoded MIME header.
      */
@@ -229,10 +230,10 @@ class PKPString
     //
 
     /**
-     * @see http://ca.php.net/manual/en/function.regexp_quote.php
+     * @see https://www.php.net/preg_quote
      *
-     * @param $string string String to quote
-     * @param $delimiter string Delimiter for regular expression
+     * @param string $string String to quote
+     * @param string $delimiter Delimiter for regular expression
      *
      * @return string Quoted equivalent of $string
      */
@@ -242,10 +243,10 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.regexp_grep.php
+     * @see https://www.php.net/preg_grep
      *
-     * @param $pattern string Regular expression
-     * @param $input string Input string
+     * @param string $pattern Regular expression
+     * @param string $input Input string
      *
      * @return array
      */
@@ -255,10 +256,10 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.regexp_match.php
+     * @see https://www.php.net/preg_match
      *
-     * @param $pattern string Regular expression
-     * @param $subject string String to apply regular expression to
+     * @param string $pattern Regular expression
+     * @param string $subject String to apply regular expression to
      *
      * @return int
      */
@@ -268,11 +269,11 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.regexp_match_get.php
+     * @see https://www.php.net/preg_match_get
      *
-     * @param $pattern string Regular expression
-     * @param $subject string String to apply regular expression to
-     * @param $matches array Reference to receive matches
+     * @param string $pattern Regular expression
+     * @param string $subject String to apply regular expression to
+     * @param array $matches Reference to receive matches
      *
      * @return int|boolean Returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred.
      */
@@ -282,11 +283,11 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.regexp_match_all.php
+     * @see https://www.php.net/preg_match_all
      *
-     * @param $pattern string Regular expression
-     * @param $subject string String to apply regular expression to
-     * @param $matches array Reference to receive matches
+     * @param string $pattern Regular expression
+     * @param string $subject String to apply regular expression to
+     * @param array $matches Reference to receive matches
      *
      * @return int|boolean Returns number of full matches of given subject, or FALSE if an error occurred.
      */
@@ -296,12 +297,12 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.regexp_replace.php
+     * @see https://www.php.net/preg_replace
      *
-     * @param $pattern string Regular expression
-     * @param $replacement string String to replace matches in $subject with
-     * @param $subject string String to apply regular expression to
-     * @param $limit int Number of replacements to perform, maximum, or -1 for no limit.
+     * @param string $pattern Regular expression
+     * @param string $replacement String to replace matches in $subject with
+     * @param string $subject String to apply regular expression to
+     * @param int $limit Number of replacements to perform, maximum, or -1 for no limit.
      */
     public static function regexp_replace($pattern, $replacement, $subject, $limit = -1)
     {
@@ -309,12 +310,12 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.regexp_replace_callback.php
+     * @see https://www.php.net/preg_replace_callback
      *
-     * @param $pattern string Regular expression
-     * @param $callback callback PHP callback to generate content to replace matches with
-     * @param $subject string String to apply regular expression to
-     * @param $limit int Number of replacements to perform, maximum, or -1 for no limit.
+     * @param string $pattern Regular expression
+     * @param callable $callback PHP callback to generate content to replace matches with
+     * @param string $subject String to apply regular expression to
+     * @param int $limit Number of replacements to perform, maximum, or -1 for no limit.
      */
     public static function regexp_replace_callback($pattern, $callback, $subject, $limit = -1)
     {
@@ -322,11 +323,11 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.regexp_split.php
+     * @see https://www.php.net/preg_split
      *
-     * @param $pattern string Regular expression
-     * @param $subject string String to apply regular expression to
-     * @param $limit int Number of times to match; -1 for unlimited
+     * @param string $pattern Regular expression
+     * @param string $subject String to apply regular expression to
+     * @param int $limit Number of times to match; -1 for unlimited
      *
      * @return array Resulting string segments
      */
@@ -336,10 +337,10 @@ class PKPString
     }
 
     /**
-     * @see http://ca.php.net/manual/en/function.mime_content_type.php
+     * @see https://www.php.net/mime_content_type
      *
-     * @param $filename string Filename to test.
-     * @param $suggestedExtension string Suggested file extension (used for common misconfigurations)
+     * @param string $filename Filename to test.
+     * @param string $suggestedExtension Suggested file extension (used for common misconfigurations)
      *
      * @return string Detected MIME type
      */
@@ -417,7 +418,7 @@ class PKPString
      * Strip unsafe HTML from the input text. Covers XSS attacks like scripts,
      * onclick(...) attributes, javascript: urls, and special characters.
      *
-     * @param $input string input string
+     * @param string $input input string
      *
      * @return string
      */
@@ -438,7 +439,7 @@ class PKPString
     /**
      * Convert limited HTML into a string.
      *
-     * @param $html string
+     * @param string $html
      *
      * @return string
      */
@@ -456,7 +457,7 @@ class PKPString
      * Joins two title string fragments (in $fields) either with a
      * space or a colon.
      *
-     * @param $fields array
+     * @param array $fields
      *
      * @return string the joined string
      */
@@ -483,8 +484,8 @@ class PKPString
      * Transform "handler-class" to "HandlerClass"
      * and "my-op" to "myOp".
      *
-     * @param $string input string
-     * @param $type which kind of camel case?
+     * @param string $string input string
+     * @param int $type which kind of camel case?
      *
      * @return string the string in camel case
      */
@@ -507,7 +508,7 @@ class PKPString
      * Transform "HandlerClass" to "handler-class"
      * and "myOp" to "my-op".
      *
-     * @param $string
+     * @param string $string
      *
      * @return string
      */
@@ -528,7 +529,7 @@ class PKPString
     /**
      * Get a letter $steps places after 'A'
      *
-     * @param $steps int
+     * @param int $steps
      *
      * @return string Letter
      */
@@ -559,7 +560,7 @@ class PKPString
      * Matches each symbol of PHP strftime format string
      * to jQuery Datepicker widget date format.
      *
-     * @param $phpFormat string
+     * @param string $phpFormat
      *
      * @return string
      */
@@ -567,55 +568,55 @@ class PKPString
     {
         $symbols = [
             // Day
-            'a' => 'D',	// date() format 'D'
-            'A' => 'DD',	// date() format 'DD'
-            'd' => 'dd',	// date() format 'd'
-            'e' => 'd',	// date() format 'j'
-            'j' => 'oo',	// date() format none
-            'u' => '',		// date() format 'N'
-            'w' => '',		// date() format 'w'
+            'a' => 'D',  // date() format 'D'
+            'A' => 'DD', // date() format 'DD'
+            'd' => 'dd', // date() format 'd'
+            'e' => 'd',  // date() format 'j'
+            'j' => 'oo', // date() format none
+            'u' => '',   // date() format 'N'
+            'w' => '',   // date() format 'w'
 
             // Week
-            'U' => '',		// date() format none
-            'V' => '',		// date() format none
-            'W' => '',		// date() format 'W'
+            'U' => '',   // date() format none
+            'V' => '',   // date() format none
+            'W' => '',   // date() format 'W'
 
             // Month
-            'b' => 'M',	// date() format 'M'
-            'h' => 'M',	// date() format 'M'
-            'B' => 'MM',	// date() format 'F'
-            'm' => 'mm',	// date() format 'm'
+            'b' => 'M',  // date() format 'M'
+            'h' => 'M',  // date() format 'M'
+            'B' => 'MM', // date() format 'F'
+            'm' => 'mm', // date() format 'm'
 
             // Year
-            'C' => '',		// date() format none
-            'g' => 'y',	// date() format none
-            'G' => 'yy',	// date() format 'o'
-            'y' => 'y',	// date() format 'y'
-            'Y' => 'yy',	// date() format 'Y'
+            'C' => '',   // date() format none
+            'g' => 'y',  // date() format none
+            'G' => 'yy', // date() format 'o'
+            'y' => 'y',  // date() format 'y'
+            'Y' => 'yy', // date() format 'Y'
 
             // Time
-            'H' => '',		// date() format 'H'
-            'k' => '',		// date() format none
-            'I' => '',		// date() format 'h'
-            'l' => '',		// date() format 'g'
-            'P' => '',		// date() format 'a'
-            'p' => '',		// date() format 'A'
-            'M' => '',		// date() format 'i'
-            'S' => '',		// date() format 's'
-            's' => '',		// date() format 'u'
+            'H' => '',   // date() format 'H'
+            'k' => '',   // date() format none
+            'I' => '',   // date() format 'h'
+            'l' => '',   // date() format 'g'
+            'P' => '',   // date() format 'a'
+            'p' => '',   // date() format 'A'
+            'M' => '',   // date() format 'i'
+            'S' => '',   // date() format 's'
+            's' => '',   // date() format 'u'
 
             // Timezone
-            'z' => '',		// date() format 'O'
-            'Z' => '',		// date() format 'T'
+            'z' => '',   // date() format 'O'
+            'Z' => '',   // date() format 'T'
 
             // Full Date/Time
-            'r' => '',		// date() format none
-            'R' => '',		// date() format none
-            'X' => '',		// date() format none
-            'D' => '',		// date() format none
-            'F' => '',		// date() format none
-            'x' => '',		// date() format none
-            'c' => '',		// date() format none
+            'r' => '',   // date() format none
+            'R' => '',   // date() format none
+            'X' => '',   // date() format none
+            'D' => '',   // date() format none
+            'F' => '',   // date() format none
+            'x' => '',   // date() format none
+            'c' => '',   // date() format none
 
             // Other
             '%' => ''

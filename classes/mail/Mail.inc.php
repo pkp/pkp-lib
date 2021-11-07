@@ -77,8 +77,8 @@ class Mail extends \PKP\core\DataObject
     /**
      * Add a recipient.
      *
-     * @param $email string
-     * @param $name string optional
+     * @param string $email
+     * @param string $name optional
      */
     public function addRecipient($email, $name = '')
     {
@@ -94,7 +94,7 @@ class Mail extends \PKP\core\DataObject
      * Set the envelope sender (bounce address) for the message,
      * if supported.
      *
-     * @param $envelopeSender string Email address
+     * @param string $envelopeSender Email address
      */
     public function setEnvelopeSender($envelopeSender)
     {
@@ -130,7 +130,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Set the message content type (MIME)
      *
-     * @param $contentType string
+     * @param string $contentType
      */
     public function setContentType($contentType)
     {
@@ -150,7 +150,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Set the recipients for the message.
      *
-     * @param $recipients array
+     * @param array $recipients
      */
     public function setRecipients($recipients)
     {
@@ -160,8 +160,8 @@ class Mail extends \PKP\core\DataObject
     /**
      * Add a carbon-copy (CC) recipient to the message.
      *
-     * @param $email string
-     * @param $name string optional
+     * @param string $email
+     * @param string $name optional
      */
     public function addCc($email, $name = '')
     {
@@ -186,7 +186,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Set the carbon-copy (CC) recipients for the message.
      *
-     * @param $ccs array
+     * @param array $ccs
      */
     public function setCcs($ccs)
     {
@@ -196,8 +196,8 @@ class Mail extends \PKP\core\DataObject
     /**
      * Add a hidden carbon copy (BCC) recipient to the message.
      *
-     * @param $email string
-     * @param $name optional
+     * @param string $email
+     * @param string $name optional
      */
     public function addBcc($email, $name = '')
     {
@@ -222,7 +222,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Set the hidden carbon copy (BCC) recipients for the message.
      *
-     * @param $bccs array
+     * @param array $bccs
      */
     public function setBccs($bccs)
     {
@@ -233,7 +233,7 @@ class Mail extends \PKP\core\DataObject
      * If no recipients for this message, promote CC'd accounts to
      * recipients. If recipients exist, no effect.
      *
-     * @return boolean true iff CCs were promoted
+     * @return bool true iff CCs were promoted
      */
     public function promoteCcsIfNoRecipients()
     {
@@ -260,8 +260,8 @@ class Mail extends \PKP\core\DataObject
     /**
      * Add an SMTP header to the message.
      *
-     * @param $name string
-     * @param $content string
+     * @param string $name
+     * @param string $content
      */
     public function addHeader($name, $content)
     {
@@ -298,7 +298,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Set the SMTP headers for the message.
      *
-     * @param $headers array
+     * @param array $headers
      */
     public function setHeaders(&$headers)
     {
@@ -308,10 +308,10 @@ class Mail extends \PKP\core\DataObject
     /**
      * Adds a file attachment to the email.
      *
-     * @param $filePath string complete path to the file to attach
-     * @param $fileName string attachment file name (optional)
-     * @param $contentType string attachment content type (optional)
-     * @param $contentDisposition string attachment content disposition, inline or attachment (optional, default attachment)
+     * @param string $filePath complete path to the file to attach
+     * @param string $fileName attachment file name (optional)
+     * @param string $contentType attachment content type (optional)
+     * @param string $contentDisposition attachment content disposition, inline or attachment (optional, default attachment)
      */
     public function addAttachment($filePath, $fileName = '', $contentType = '', $contentDisposition = 'attachment')
     {
@@ -355,7 +355,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Return true iff attachments are included in this message.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasAttachments()
     {
@@ -366,8 +366,8 @@ class Mail extends \PKP\core\DataObject
     /**
      * Set the sender of the message.
      *
-     * @param $email string
-     * @param $name string optional
+     * @param string $email
+     * @param string $name optional
      */
     public function setFrom($email, $name = '')
     {
@@ -387,8 +387,8 @@ class Mail extends \PKP\core\DataObject
     /**
      * Set the reply-to of the message.
      *
-     * @param $email string or null to clear
-     * @param $name string optional
+     * @param string|null $email to clear
+     * @param string $name optional
      */
     public function setReplyTo($email, $name = '')
     {
@@ -401,8 +401,8 @@ class Mail extends \PKP\core\DataObject
     /**
     * Add a reply-to for the message.
     *
-    * @param $email string
-    * @param $name string optional
+    * @param string $email
+    * @param string $name optional
     */
     public function addReplyTo($email, $name = '')
     {
@@ -438,7 +438,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Set the subject of the message.
      *
-     * @param $subject string
+     * @param string $subject
      */
     public function setSubject($subject)
     {
@@ -458,7 +458,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Set the body of the message.
      *
-     * @param $body string
+     * @param string $body
      */
     public function setBody($body)
     {
@@ -493,7 +493,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Return a string from an array of (name, email) pairs.
      *
-     * @param $includeNames boolean
+     * @param bool $includeNames
      *
      * @return string;
      */
@@ -554,7 +554,7 @@ class Mail extends \PKP\core\DataObject
     /**
      * Send the email.
      *
-     * @return boolean
+     * @return bool
      */
     public function send()
     {
@@ -706,8 +706,8 @@ class Mail extends \PKP\core\DataObject
     /**
      * Encode a display name for proper inclusion with an email address.
      *
-     * @param $displayName string
-     * @param $send boolean True to encode the results for sending
+     * @param string $displayName
+     * @param bool $send True to encode the results for sending
      *
      * @return string
      */

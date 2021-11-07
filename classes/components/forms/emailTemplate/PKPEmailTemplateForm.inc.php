@@ -29,9 +29,9 @@ class PKPEmailTemplateForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $locales array Supported locales
-     * @param $emailTemplate EmailTemplate
+     * @param string $action URL to submit the form to
+     * @param array $locales Supported locales
+     * @param EmailTemplate $emailTemplate
      */
     public function __construct($action, $locales, $emailTemplate = null)
     {

@@ -31,8 +31,8 @@ class AboutSiteHandler extends Handler
     /**
      * Display aboutThisPublishingSystem page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function aboutThisPublishingSystem($args, $request)
     {
@@ -57,8 +57,8 @@ class AboutSiteHandler extends Handler
     /**
      * Display privacy policy page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function privacy($args, $request)
     {

@@ -20,9 +20,9 @@ class ViewsDAO extends \PKP\db\DAO
     /**
      * Mark an item as viewed.
      *
-     * @param $assocType integer The associated type for the item being marked.
-     * @param $assocId string The id of the object being marked.
-     * @param $userId integer The id of the user viewing the item.
+     * @param int $assocType The associated type for the item being marked.
+     * @param string $assocId The id of the object being marked.
+     * @param int $userId The id of the user viewing the item.
      *
      * @return int RECORD_VIEW_RESULT_...
      */
@@ -43,9 +43,9 @@ class ViewsDAO extends \PKP\db\DAO
     /**
      * Get the timestamp of the last view.
      *
-     * @param $assocType integer
-     * @param $assocId string
-     * @param $userId integer
+     * @param int $assocType
+     * @param string $assocId
+     * @param int $userId
      *
      * @return string|boolean Datetime of last view. False if no view found.
      */
@@ -70,9 +70,9 @@ class ViewsDAO extends \PKP\db\DAO
     /**
      * Move views from one assoc object to another.
      *
-     * @param $assocType integer One of the ASSOC_TYPE_* constants.
-     * @param $oldAssocId string
-     * @param $newAssocId string
+     * @param int $assocType One of the ASSOC_TYPE_* constants.
+     * @param string $oldAssocId
+     * @param string $newAssocId
      */
     public function moveViews($assocType, $oldAssocId, $newAssocId)
     {
@@ -85,8 +85,8 @@ class ViewsDAO extends \PKP\db\DAO
     /**
      * Delete views of an assoc object.
      *
-     * @param $assocType integer One of the ASSOC_TYPE_* constants.
-     * @param $assocId string
+     * @param int $assocType One of the ASSOC_TYPE_* constants.
+     * @param string $assocId
      */
     public function deleteViews($assocType, $assocId)
     {

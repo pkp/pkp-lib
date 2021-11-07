@@ -33,11 +33,11 @@ class PKPSiteAppearanceForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $locales array Supported locales
-     * @param $site Site
-     * @param $baseUrl string Site's base URL. Used for image previews.
-     * @param $temporaryFileApiUrl string URL to upload files to
+     * @param string $action URL to submit the form to
+     * @param array $locales Supported locales
+     * @param Site $site
+     * @param string $baseUrl Site's base URL. Used for image previews.
+     * @param string $temporaryFileApiUrl URL to upload files to
      */
     public function __construct($action, $locales, $site, $baseUrl, $temporaryFileApiUrl)
     {

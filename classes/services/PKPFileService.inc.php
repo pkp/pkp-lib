@@ -138,7 +138,7 @@ class PKPFileService
      *
      * @param int $fileId File ID
      * @param string $filename Filename to give to the downloaded file
-     * @param boolean $inline Whether to stream the file to the browser
+     * @param bool $inline Whether to stream the file to the browser
      */
     public function download($fileId, $filename, $inline = false)
     {
@@ -262,7 +262,7 @@ class PKPFileService
      *
      * Examples: 82B, 12KB, 2MB, 2GB
      *
-     * @param integer $size File size in bytes
+     * @param int $size File size in bytes
      *
      * @return string
      */

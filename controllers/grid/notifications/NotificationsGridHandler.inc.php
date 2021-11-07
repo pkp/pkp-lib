@@ -178,8 +178,8 @@ class NotificationsGridHandler extends GridHandler
     /**
      * Mark notifications unread
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -206,8 +206,8 @@ class NotificationsGridHandler extends GridHandler
     /**
      * Mark notifications unread
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -242,8 +242,8 @@ class NotificationsGridHandler extends GridHandler
     /**
      * Delete notifications
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

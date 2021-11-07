@@ -64,7 +64,7 @@ class TypeDescriptionFactory
      * Takes a plain text type descriptor, identifies the namespace
      * and instantiates the corresponding type description object.
      *
-     * @param $typeDescription string A plain text type description.
+     * @param string $typeDescription A plain text type description.
      *
      *  Type descriptions consist of two parts:
      *  * a type namespace
@@ -77,7 +77,7 @@ class TypeDescriptionFactory
      *  Each namespace will be mapped to one subclass of the TypeDescription
      *  class which will then be responsible to parse the given type name.
      *
-     * @return TypeDescription or null if the type description is invalid.
+     * @return TypeDescription|null if the type description is invalid.
      */
     public function &instantiateTypeDescription($typeDescription)
     {
@@ -114,7 +114,7 @@ class TypeDescriptionFactory
      *
      * FIXME: Move this map to the Application object.
      *
-     * @param $namespace string
+     * @param string $namespace
      *
      * @return string
      */

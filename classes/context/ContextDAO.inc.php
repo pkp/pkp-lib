@@ -26,7 +26,7 @@ abstract class ContextDAO extends SchemaDAO
     /**
      * Retrieve the IDs and names of all contexts in an associative array.
      *
-     * @param $enabledOnly true iff only enabled contexts are to be included
+     * @param bool $enabledOnly true iff only enabled contexts are to be included
      *
      * @return array
      */
@@ -53,9 +53,9 @@ abstract class ContextDAO extends SchemaDAO
     /**
      * Check if a context exists with a specified path.
      *
-     * @param $path string the path for the context
+     * @param string $path the path for the context
      *
-     * @return boolean
+     * @return bool
      */
     public function existsByPath($path)
     {
@@ -70,7 +70,7 @@ abstract class ContextDAO extends SchemaDAO
     /**
      * Retrieve a context by path.
      *
-     * @param $path string
+     * @param string $path
      *
      * @return Context?
      */
@@ -87,8 +87,8 @@ abstract class ContextDAO extends SchemaDAO
     /**
      * Retrieve all contexts.
      *
-     * @param $enabledOnly true iff only enabled contexts should be included
-     * @param $rangeInfo Object optional
+     * @param bool $enabledOnly true iff only enabled contexts should be included
+     * @param object $rangeInfo optional
      *
      * @return DAOResultFactory containing matching Contexts
      */
@@ -111,8 +111,8 @@ abstract class ContextDAO extends SchemaDAO
      *   or all contexts for site admin
      * If not user-based, retrieve all enabled contexts.
      *
-     * @param $userId int Optional user ID to find available contexts for
-     * @param $rangeInfo Object optional
+     * @param int $userId Optional user ID to find available contexts for
+     * @param object $rangeInfo optional
      *
      * @return DAOResultFactory containing matching Contexts
      */
@@ -144,9 +144,8 @@ abstract class ContextDAO extends SchemaDAO
     /**
      * Get journals by setting.
      *
-     * @param $settingName string
-     * @param $settingValue mixed
-     * @param $contextId int
+     * @param string $settingName
+     * @param int $contextId
      *
      * @return DAOResultFactory
      */

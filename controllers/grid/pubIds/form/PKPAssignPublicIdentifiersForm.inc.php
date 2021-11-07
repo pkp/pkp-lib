@@ -29,7 +29,7 @@ class PKPAssignPublicIdentifiersForm extends Form
      */
     public $_pubObject;
 
-    /** @var boolean */
+    /** @var bool */
     public $_approval;
 
     /**
@@ -40,10 +40,10 @@ class PKPAssignPublicIdentifiersForm extends Form
     /**
      * Constructor.
      *
-     * @param $template string Form template
-     * @param $pubObject object
-     * @param $approval boolean
-     * @param $confirmationText string
+     * @param string $template Form template
+     * @param object $pubObject
+     * @param bool $approval
+     * @param string $confirmationText
      */
     public function __construct($template, $pubObject, $approval, $confirmationText)
     {
@@ -102,7 +102,7 @@ class PKPAssignPublicIdentifiersForm extends Form
     /**
      * Get weather it is an approval
      *
-     * @return boolean
+     * @return bool
      */
     public function getApproval()
     {
@@ -112,7 +112,7 @@ class PKPAssignPublicIdentifiersForm extends Form
     /**
      * Get the context id
      *
-     * @return integer
+     * @return int
      */
     public function getContextId()
     {
@@ -141,7 +141,7 @@ class PKPAssignPublicIdentifiersForm extends Form
     /**
      * Assign pub ids.
      *
-     * @param $save boolean
+     * @param bool $save
      *  true if the pub id shall be saved here
      *  false if this form is integrated somewhere else, where the pub object will be updated.
      */

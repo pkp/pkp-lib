@@ -69,9 +69,9 @@ abstract class PKPStatsEditorialHandler extends APIHandler
      * Returns information on submissions received, accepted, declined,
      * average response times and more.
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response object Response
-     * @param $args array
+     * @param Request $slimRequest Slim request object
+     * @param object $response Response
+     * @param array $args
      *
      * @return object Response
      */
@@ -126,9 +126,9 @@ abstract class PKPStatsEditorialHandler extends APIHandler
      * Returns information on average submissions received, accepted
      * and declined per year.
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response object Response
-     * @param $args array
+     * @param Request $slimRequest Slim request object
+     * @param object $response Response
+     * @param array $args
      *
      * @return object Response
      */

@@ -77,8 +77,8 @@ class PKPNativeImportExportCLIDeployment
      * WARNING: This method is checked for by name in DepositPackage in the PLN plugin
      * to determine if options are supported!
      *
-     * @param &$args array
-     * #param $optCodes array
+     * @param array $args
+     * @param array $optCodes
      */
     public function parseOpts(&$args, $optCodes)
     {

@@ -26,7 +26,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve review assignments for the passed review round id.
      *
-     * @param $reviewRoundId int
+     * @param int $reviewRoundId
      *
      * @return array
      */
@@ -41,7 +41,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve open review assignments for the passed review round id.
      *
-     * @param $reviewRoundId int
+     * @param int $reviewRoundId
      *
      * @return array
      */
@@ -57,8 +57,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
      * Retrieve review assignments from table usign the passed
      * sql query and parameters.
      *
-     * @param $query string
-     * @param $queryParams array
+     * @param string $query
+     * @param array $queryParams
      *
      * @return array
      */
@@ -91,8 +91,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve a review assignment by review round and reviewer.
      *
-     * @param $reviewRoundId int
-     * @param $reviewerId int
+     * @param int $reviewRoundId
+     * @param int $reviewerId
      *
      * @return ReviewAssignment
      */
@@ -114,7 +114,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve a review assignment by review assignment id.
      *
-     * @param $reviewId int
+     * @param int $reviewId
      *
      * @return ReviewAssignment
      */
@@ -170,9 +170,9 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Get all review assignments for a submission.
      *
-     * @param $submissionId int Submission ID
-     * @param $reviewRoundId int Review round ID
-     * @param $stageId int Optional stage ID
+     * @param int $submissionId Submission ID
+     * @param int $reviewRoundId Review round ID
+     * @param int $stageId Optional stage ID
      *
      * @return array ReviewAssignments
      */
@@ -207,9 +207,9 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve all review assignments by submission and reviewer.
      *
-     * @param $submissionId int
-     * @param $reviewerId int
-     * @param $stageId int optional
+     * @param int $submissionId
+     * @param int $reviewerId
+     * @param int $stageId optional
      *
      * @return array
      */
@@ -228,7 +228,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Get all review assignments for a reviewer.
      *
-     * @param $userId int
+     * @param int $userId
      *
      * @return array ReviewAssignments
      */
@@ -259,10 +259,10 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Check if a reviewer is assigned to a specified submission.
      *
-     * @param $reviewRoundId int
-     * @param $reviewerId int
+     * @param int $reviewRoundId
+     * @param int $reviewerId
      *
-     * @return boolean
+     * @return bool
      */
     public function reviewerExists($reviewRoundId, $reviewerId)
     {
@@ -280,7 +280,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Get all review assignments for a review form.
      *
-     * @param $reviewFormId int
+     * @param int $reviewFormId
      *
      * @return array ReviewAssignments
      */
@@ -310,8 +310,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Determine the order of active reviews for the given round of the given submission
      *
-     * @param $submissionId int Submission ID
-     * @param $reviewRoundId int Review round ID
+     * @param int $submissionId Submission ID
+     * @param int $reviewRoundId Review round ID
      *
      * @return array Associating review ID with number, i.e. if review ID 26 is first returned['26']=0.
      */
@@ -337,7 +337,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Insert a new Review Assignment.
      *
-     * @param $reviewAssignment ReviewAssignment
+     * @param ReviewAssignment $reviewAssignment
      */
     public function insertObject($reviewAssignment)
     {
@@ -402,7 +402,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Update an existing review assignment.
      *
-     * @param $reviewAssignment object
+     * @param object $reviewAssignment
      */
     public function updateObject($reviewAssignment)
     {
@@ -472,7 +472,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
      * Update the status of the review round an assignment is attached to. This
      * should be fired whenever a reviewer assignment is modified.
      *
-     * @param $reviewAssignment ReviewAssignment
+     * @param ReviewAssignment $reviewAssignment
      */
     public function updateReviewRoundStatus($reviewAssignment)
     {
@@ -494,7 +494,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Internal function to return a review assignment object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return ReviewAssignment
      */
@@ -546,7 +546,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete review assignment.
      *
-     * @param $reviewId int
+     * @param int $reviewId
      */
     public function deleteById($reviewId)
     {
@@ -573,9 +573,9 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete review assignments by submission ID.
      *
-     * @param $submissionId int
+     * @param int $submissionId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteBySubmissionId($submissionId)
     {
@@ -605,8 +605,8 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Get the last review round review assignment for a given user.
      *
-     * @param $submissionId int
-     * @param $reviewerId int
+     * @param int $submissionId
+     * @param int $reviewerId
      *
      * @return ReviewAssignment?
      */

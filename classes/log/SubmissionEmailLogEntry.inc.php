@@ -67,7 +67,7 @@ class SubmissionEmailLogEntry extends EmailLogEntry
     /**
      * Set the submission ID for the log entry.
      *
-     * @param $submissionId int
+     * @param int $submissionId
      */
     public function setSubmissionId($submissionId)
     {

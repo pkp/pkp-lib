@@ -17,17 +17,17 @@ namespace PKP\form;
 
 class FormError
 {
-    /** The name of the field */
+    /** @var string The name of the field */
     public $field;
 
-    /** The error message */
+    /** @var string The error message */
     public $message;
 
     /**
      * Constructor.
      *
-     * @param $field string the name of the field
-     * @param $message string the error message (i18n key)
+     * @param string $field the name of the field
+     * @param string $message the error message (i18n key)
      */
     public function __construct($field, $message)
     {

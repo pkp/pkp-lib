@@ -26,9 +26,9 @@ class ValidatorControlledVocab extends Validator
     /**
      * Constructor.
      *
-     * @param $symbolic string
-     * @param $assocType int
-     * @param $assocId int
+     * @param string $symbolic
+     * @param int $assocType
+     * @param int $assocId
      */
     public function __construct($symbolic, $assocType, $assocId)
     {
@@ -49,9 +49,7 @@ class ValidatorControlledVocab extends Validator
      * @see Validator::isValid()
      * Value is valid if it is empty and optional or is in the set of accepted values.
      *
-     * @param $value mixed
-     *
-     * @return boolean
+     * @return bool
      */
     public function isValid($value)
     {

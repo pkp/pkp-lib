@@ -106,7 +106,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *  a param for the journal's default locale, or the first value (in case the value
      *  is not localized)
      *
-     * @param $params array
+     * @param array $params
      *
      * @return array
      */
@@ -143,16 +143,16 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Create a new notification with the specified arguments and insert into DB
      *
-     * @param $request PKPRequest
-     * @param $userId int (optional)
-     * @param $notificationType int
-     * @param $contextId int
-     * @param $assocType int
-     * @param $assocId int
-     * @param $level int
-     * @param $params array
-     * @param $suppressEmail boolean Whether or not to suppress the notification email.
-     * @param $mailConfigurator callable Enables the customization of the Notification email
+     * @param PKPRequest $request
+     * @param int $userId (optional)
+     * @param int $notificationType
+     * @param int $contextId
+     * @param int $assocType
+     * @param int $assocId
+     * @param int $level
+     * @param array $params
+     * @param bool $suppressEmail Whether or not to suppress the notification email.
+     * @param callable $mailConfigurator Enables the customization of the Notification email
      *
      * @return Notification object|null
      */
@@ -196,9 +196,9 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      * Create a new notification with the specified arguments and insert into DB
      * This is a static method
      *
-     * @param $userId int
-     * @param $notificationType int
-     * @param $params array
+     * @param int $userId
+     * @param int $notificationType
+     * @param array $params
      *
      * @return Notification object
      */
@@ -242,7 +242,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * General notification data formating.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      * @param array $notifications
      *
      * @return array
@@ -266,8 +266,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * In place notification data formating.
      *
-     * @param $request PKPRequest
-     * @param $notifications array
+     * @param PKPRequest $request
+     * @param array $notifications
      *
      * @return array
      */
@@ -288,8 +288,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Get set of notifications types user does not want to be notified of.
      *
-     * @param $userId int The notification user
-     * @param $contextId int
+     * @param int $userId The notification user
+     * @param int $contextId
      *
      * @return array
      */
@@ -313,7 +313,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Get a template mail instance.
      *
-     * @param $emailKey string
+     * @param string $emailKey
      *
      * @return MailTemplate
      *
@@ -327,8 +327,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Get a notification content with a link action.
      *
-     * @param $linkAction LinkAction
-     * @param $request Request
+     * @param LinkAction $linkAction
+     * @param Request $request
      *
      * @return string
      */
@@ -343,11 +343,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     //
     // Private helper methods.
     //
-    /*
+    /**
      * Return a string of formatted notifications for display
-     * @param $request PKPRequest
-     * @param $notifications object DAOResultFactory
-     * @param $notificationTemplate string optional Template to use for constructing an individual notification for display
+     *
+     * @param PKPRequest $request
+     * @param object $notifications DAOResultFactory
+     * @param string $notificationTemplate optional Template to use for constructing an individual notification for display
+     *
      * @return string
      */
     private function formatNotifications($request, $notifications, $notificationTemplate = 'notification/notification.tpl')
@@ -365,8 +367,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Return a fully formatted notification for display
      *
-     * @param $request PKPRequest
-     * @param $notification object Notification
+     * @param PKPRequest $request
+     * @param object $notification Notification
      *
      * @return string
      */
@@ -403,10 +405,10 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Send an email to a user regarding the notification
      *
-     * @param $request PKPRequest
-     * @param $notification object Notification
-     * @param $contextId ?int Context ID
-     * @param $mailConfigurator callable If specified, must return a MailTemplate instance. A ready MailTemplate object will be provided as argument
+     * @param PKPRequest $request
+     * @param object $notification Notification
+     * @param int|null $contextId Context ID
+     * @param callable $mailConfigurator If specified, must return a MailTemplate instance. A ready MailTemplate object will be provided as argument
      */
     protected function sendNotificationEmail($request, $notification, ?int $contextId, callable $mailConfigurator = null)
     {
@@ -468,7 +470,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Creates and returns a unique string for the given notification, that will be encoded and validated against.
      *
-     * @param $notification Notification
+     * @param Notification $notification
      *
      * @return string
      */
@@ -482,7 +484,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Creates and returns an encoded token that will be used to validate an unsubscribe url.
      *
-     * @param $notification Notification
+     * @param Notification $notification
      *
      * @return string
      */
@@ -502,8 +504,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * The given notification is validated against the requested token.
      *
-     * @param $token string
-     * @param $notification Notification
+     * @param string $token
+     * @param Notification $notification
      *
      * @return bool
      */
@@ -527,8 +529,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Returns the unsubscribe url for the given notification.
      *
-     * @param $request PKPRequest
-     * @param $notification Notification
+     * @param PKPRequest $request
+     * @param Notification $notification
      *
      * @return string
      */

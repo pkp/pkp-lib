@@ -22,7 +22,7 @@ namespace PKP\filter;
 class GenericMultiplexerFilter extends CompositeFilter
 {
     /**
-     * @var boolean whether some sub-filters can fail as long as at least one
+     * @var bool whether some sub-filters can fail as long as at least one
      *  filter returns a result.
      */
     public $_tolerateFailures = false;
@@ -30,8 +30,8 @@ class GenericMultiplexerFilter extends CompositeFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
-     * @param $displayName string
+     * @param FilterGroup $filterGroup
+     * @param string $displayName
      */
     public function __construct(&$filterGroup, $displayName = null)
     {
@@ -46,7 +46,7 @@ class GenericMultiplexerFilter extends CompositeFilter
      * Set to true if sub-filters can fail as long as
      * at least one filter returns a result.
      *
-     * @param $tolerateFailures boolean
+     * @param bool $tolerateFailures
      */
     public function setTolerateFailures($tolerateFailures)
     {
@@ -57,7 +57,7 @@ class GenericMultiplexerFilter extends CompositeFilter
      * Returns true when sub-filters can fail as long
      * as at least one filter returns a result.
      *
-     * @return boolean
+     * @return bool
      */
     public function getTolerateFailures()
     {
@@ -82,8 +82,6 @@ class GenericMultiplexerFilter extends CompositeFilter
     //
     /**
      * @see Filter::process()
-     *
-     * @param $input mixed
      *
      * @return array
      */

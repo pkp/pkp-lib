@@ -31,7 +31,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Set the submission ID
      *
-     * @param $submissionId int
+     * @param int $submissionId
      */
     public function setSubmissionId($submissionId)
     {
@@ -51,7 +51,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Set the stage ID
      *
-     * @param $stageId int
+     * @param int $stageId
      */
     public function setStageId($stageId)
     {
@@ -71,7 +71,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Set the User Group ID
      *
-     * @param $userGroupId int
+     * @param int $userGroupId
      */
     public function setUserGroupId($userGroupId)
     {
@@ -101,7 +101,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Set user ID for this stageAssignment.
      *
-     * @param $userId int
+     * @param int $userId
      */
     public function setUserId($userId)
     {
@@ -111,7 +111,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Set the date assigned
      *
-     * @param $dateAssigned datestamp (YYYY-MM-DD HH:MM:SS)
+     * @param datestamp $dateAssigned (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateAssigned($dateAssigned)
     {
@@ -131,7 +131,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Get recommendOnly option.
      *
-     * @return boolean
+     * @return bool
      */
     public function getRecommendOnly()
     {
@@ -141,7 +141,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Set recommendOnly option.
      *
-     * @param $recommendOnly boolean
+     * @param bool $recommendOnly
      */
     public function setRecommendOnly($recommendOnly)
     {
@@ -151,7 +151,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Get permit metadata edit option.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanChangeMetadata()
     {

@@ -49,10 +49,10 @@ class FormComponent
     /**
      * Initialize the form with config parameters
      *
-     * @param $id string
-     * @param $method string
-     * @param $action string
-     * @param $locales array
+     * @param string $id
+     * @param string $method
+     * @param string $action
+     * @param array $locales
      */
     public function __construct($id, $method, $action, $locales)
     {
@@ -65,8 +65,8 @@ class FormComponent
     /**
      * Add a form field
      *
-     * @param $field Field
-     * @param $position array [
+     * @param Field $field
+     * @param array $position [
      *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *  @option string The field to position it before or after
      * ]
@@ -86,7 +86,7 @@ class FormComponent
     /**
      * Remove a form field
      *
-     * @param $fieldName string
+     * @param string $fieldName
      *
      * @return FormComponent
      */
@@ -101,7 +101,7 @@ class FormComponent
     /**
      * Get a form field
      *
-     * @param $fieldName string
+     * @param string $fieldName
      *
      * @return Field
      */
@@ -118,13 +118,13 @@ class FormComponent
     /**
      * Add a form group
      *
-     * @param $args array [
+     * @param array $args [
      *  @option id string Required A unique ID for this form group
      *  @option label string A label to identify this group of fields. Will become the fieldset's <legend>
      *  @option description string A description of this group of fields.
      * ]
      *
-     * @param $position array [
+     * @param array $position [
      *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *  @option string The group to position it before or after
      * ]
@@ -147,7 +147,7 @@ class FormComponent
     /**
      * Remove a form group
      *
-     * @param $groupId string
+     * @param string $groupId
      *
      * @return FormComponent
      */
@@ -165,14 +165,14 @@ class FormComponent
     /**
      * Add a form page
      *
-     * @param $args array [
+     * @param array $args [
      *  @option id string Required A unique ID for this form page
      *  @option label string The name of the page to identify it in the page list
      *  @option submitButton array Required Assoc array defining submission/next button params. Supports any param of the Button component in the UI Library.
      *  @option previousButton array Assoc array defining button params to go back to the previous page. Supports any param of the Button component in the UI Library.
      * ]
      *
-     * @param $position array [
+     * @param array $position [
      *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *  @option string The page to position it before or after
      * ]
@@ -195,7 +195,7 @@ class FormComponent
     /**
      * Remove a form page
      *
-     * @param $pageId string
+     * @param string $pageId
      *
      * @return FormComponent
      */
@@ -215,10 +215,10 @@ class FormComponent
     /**
      * Add an field, group or page to a specific position in its array
      *
-     * @param $id string The id of the item to position before or after
-     * @param $list array The list of fields, groups or pages
-     * @param $item array The item to insert
-     * @param $position string FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
+     * @param string $id The id of the item to position before or after
+     * @param array $list The list of fields, groups or pages
+     * @param array $item The item to insert
+     * @param string $position FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *
      * @return array
      */
@@ -304,7 +304,7 @@ class FormComponent
     /**
      * Compile a configuration array for a single field
      *
-     * @param $field Field
+     * @param Field $field
      *
      * @return array
      */

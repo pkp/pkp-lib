@@ -26,8 +26,8 @@ class ArrayGridCellProvider extends GridCellProvider
      *
      * @see GridCellProvider::getTemplateVarsFromRowColumn()
      *
-     * @param $row \PKP\controllers\grid\GridRow
-     * @param $column GridColumn
+     * @param \PKP\controllers\grid\GridRow $row
+     * @param GridColumn $column
      *
      * @return array
      */

@@ -33,10 +33,10 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm
     /**
      * Constructor.
      *
-     * @param $submissionId int Submission ID.
-     * @param $queryId int Query ID.
-     * @param $noteId int Note ID.
-     * @param $actionArgs array Optional list of extra request parameters.
+     * @param int $submissionId Submission ID.
+     * @param int $queryId Query ID.
+     * @param int $noteId Note ID.
+     * @param array $actionArgs Optional list of extra request parameters.
      */
     public function __construct($submissionId, $queryId, $noteId, $actionArgs = [])
     {
@@ -65,8 +65,8 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm
     /**
      * Save selection of query files
      *
-     * @param $stageSubmissionFiles array The list of submission files in the stage.
-     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
+     * @param array $stageSubmissionFiles The list of submission files in the stage.
+     * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
      */
     public function execute($stageSubmissionFiles, $fileStage = null)
     {

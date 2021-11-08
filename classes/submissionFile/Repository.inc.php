@@ -606,9 +606,14 @@ class Repository
         ) {
             $hasEditorialAssignment = !empty(array_intersect($notAuthorRoles, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION]));
             // Authors only have read access
-            if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ || !$hasEditorialAssignment) {
+            if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
                 $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_PROOF;
             }
+
+            if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY && !$hasEditorialAssignment) {
+                $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_PROOF;
+            }
+
             if ($hasEditorialAssignment) {
                 $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY;
             }

@@ -27,6 +27,7 @@ namespace PKP\facades;
 use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
+use PKP\emailTemplate\Repository as EmailTemplateRepository;
 
 class Repo
 {
@@ -40,9 +41,9 @@ class Repo
         return app()->make(AuthorRepository::class);
     }
 
-    public static function emailTemplate(): \PKP\emailTemplate\Repository
+    public static function emailTemplate(): EmailTemplateRepository
     {
-        return App::make(\PKP\emailTemplate\Repository::class);
+        return app()->make(EmailTemplateRepository::class);
     }
 
     public static function category(): \PKP\category\Repository

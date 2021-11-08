@@ -135,7 +135,7 @@ class PreprintGalley extends Representation
     public function getFile()
     {
         if (!isset($this->_submissionFile)) {
-            $this->_submissionFile = Repo::submissionFiles()->get($this->getFileId());
+            $this->_submissionFile = Repo::submissionFiles()->get((int) $this->getFileId());
         }
 
         return $this->_submissionFile;

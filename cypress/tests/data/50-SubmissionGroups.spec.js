@@ -16,7 +16,7 @@ describe('Data suite tests', function() {
 		cy.get('button[id="sections-button"]').click();
 
 		// Edit Preprints section to add section editors
-		cy.get('a[class=show_extras]').click();
+		cy.get('div#sections a[class=show_extras]').click();
 		cy.get('a[id^=component-grid-settings-sections-sectiongrid-row-1-editSection-button-]').click();
 		cy.wait(1000); // Avoid occasional failure due to form init taking time
 		cy.get('label').contains('David Buskins').click();

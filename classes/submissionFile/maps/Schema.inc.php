@@ -24,10 +24,10 @@ use PKP\submissionFile\SubmissionFile;
 class Schema extends BaseSchema
 {
     /** @var Enumerable */
-    public $collection;
+    public Enumerable $collection;
 
     /** @var string */
-    public $schema = PKPSchemaService::SCHEMA_SUBMISSION_FILE;
+    public string $schema = PKPSchemaService::SCHEMA_SUBMISSION_FILE;
 
     /**
      * Map a submission file

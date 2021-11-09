@@ -16,7 +16,7 @@ namespace APP\facades;
 
 use APP\publication\Repository as PublicationRepository;
 use APP\submission\Repository as SubmissionRepository;
-use PKP\submissionFile\Repository as SubmissionFileRepository;
+use APP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\user\Repository as UserRepository;
 
 class Repo extends \PKP\facades\Repo

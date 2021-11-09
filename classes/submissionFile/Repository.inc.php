@@ -16,7 +16,6 @@ namespace APP\submissionFile;
 use APP\core\Application;
 use APP\core\Request;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
 use PKP\search\SubmissionSearch;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -34,8 +33,6 @@ class Repository extends BaseRepository
         PKPSchemaService $schemaService
     ) {
         parent::__construct($dao, $request, $schemaService);
-
-        HookRegistry::register('SubmissionFile::assignedFileStages', [$this, 'modifyAssignedFileStages']);
     }
 
     /** @copydoc DAO::delete() */
@@ -65,20 +62,23 @@ class Repository extends BaseRepository
     }
 
     /**
-     * Allow authors to upload to galley file stages
+     * Allow authors to upload to galley file stages.
      *
-     * @param string $hookName
-     * @param array $args [
-     * ]
+     * More information at PKP\submissionFile\Repository::getAssignedFileStages
+     *
+     * @return array List of file stages (SUBMISSION_FILE_*)
      */
-    public function modifyAssignedFileStages($hookName, $args)
-    {
-        $allowedFileStages = & $args[0];
-        $stageAssignments = $args[1];
+    public function getAssignedFileStages(
+        array $stageAssignments,
+        int $action
+    ): array {
+        $allowedFileStages = parent::getAssignedFileStages($stageAssignments, $action);
 
         if (array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $stageAssignments)
                 && in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION])) {
             $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_PROOF;
         }
+
+        return $allowedFileStages;
     }
 }

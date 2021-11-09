@@ -615,8 +615,6 @@ class Repository
             }
         }
 
-        HookRegistry::call('SubmissionFile::assignedFileStages', [&$allowedFileStages, $stageAssignments, $action]);
-
         return $allowedFileStages;
     }
 

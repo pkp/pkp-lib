@@ -71,7 +71,7 @@ class PKPVocabHandler extends APIHandler
         $vocab = !empty($requestParams['vocab']) ? $requestParams['vocab'] : '';
         $locale = !empty($requestParams['locale']) ? $requestParams['locale'] : AppLocale::getLocale();
 
-        if (!in_array($locale, $context->getData('supportedLocales'))) {
+        if (!in_array($locale, $context->getData('supportedSubmissionLocales'))) {
             return $response->withStatus(400)->withJsonError('api.vocabs.400.localeNotSupported', ['locale' => $locale]);
         }
 

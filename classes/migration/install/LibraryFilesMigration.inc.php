@@ -58,6 +58,6 @@ class LibraryFilesMigration extends \PKP\migration\Migration
     public function down(): void
     {
         Schema::drop('library_file_settings');
-        Schema::drop('libraryR_files');
+        Schema::drop('library_files');
     }
 }

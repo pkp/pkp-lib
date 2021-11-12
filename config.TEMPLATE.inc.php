@@ -529,3 +529,15 @@ log_web_service_info = Off
 [curl]
 ; cainfo = ""
 
+;;;;;;;;;;;;;;;;;;;
+; Queues Settings ;
+;;;;;;;;;;;;;;;;;;;
+
+[queues]
+
+; Default queue driver to be used
+default_connection = "database"
+; Default queue to be used if someone forgot to associate a queue during Queue::push();
+default_queue = "queue"
+; Flag to disable the jobs to run at php shutdown
+disable_jobs_run_at_shutdown = Off

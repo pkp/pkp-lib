@@ -35,6 +35,13 @@ class BasePublicationEvent
     /** @var PKPSubmission $submission Submission associated with the publication */
     public $submission;
 
+    /**
+     * Class construct
+     *
+     * @param PKPPublication $newPublication The publication being published
+     * @param PKPPublication $publication Old publication, before processing
+     * @param PKPSubmission $submission Submission associated with the publication
+     */
     public function __construct(
         PKPPublication $newPublication,
         PKPPublication $publication,

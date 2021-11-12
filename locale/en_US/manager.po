@@ -243,7 +243,7 @@ msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Submission Preparation Checklist"
 
 msgid "manager.setup.disableSubmissions.description"
-msgstr "Prevent users from submitting new preprints to the server. Submissions can be disabled for individual server sections on the <a href="{$url}">server sections</a> settings page."
+msgstr "Prevent users from submitting new preprints to the server. Submissions can be disabled for individual server sections on the <a href=\"{$url}\">server sections</a> settings page."
 
 msgid "manager.setup.disableSubmissions.notAccepting"
 msgstr "This server is not accepting submissions at this time. Visit the workflow settings to allow submissions."
@@ -432,7 +432,7 @@ msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
 msgstr "Send a copy of the submission acknowledgement email to this preprint server's primary contact."
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled.description"
-msgstr "No primary contact has been defined for this preprint server. You can enter a primary contact in the <a href="{$url}">preprint server settings</a>"
+msgstr "No primary contact has been defined for this preprint server. You can enter a primary contact in the <a href=\"{$url}\">preprint server settings</a>"
 
 msgid "emailTemplate.variable.context.contextName"
 msgstr "The server's name"
@@ -460,3 +460,9 @@ msgstr "The currency of the payment amount, such as USD"
 
 msgid "emailTemplate.variable.site.siteTitle"
 msgstr "Name of the website when more than one server is hosted"
+
+msgid "mailable.validateEmailContext.name"
+msgstr "Validate Email (Server Registration)"
+
+msgid "mailable.validateEmailContext.description"
+msgstr "This email is automatically sent to a new user when they register with the server when the settings require the email address to be validated."

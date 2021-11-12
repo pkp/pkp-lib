@@ -24,7 +24,6 @@ use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
 
-use PKP\facades\Repo;
 use PKP\file\FileManager;
 use PKP\submissionFile\SubmissionFile;
 

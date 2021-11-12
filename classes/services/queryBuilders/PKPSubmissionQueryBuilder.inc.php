@@ -16,6 +16,7 @@
 namespace PKP\Services\QueryBuilders;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Query\JoinClause;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface {
@@ -277,17 +278,17 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 			$locale = \AppLocale::getLocale();
 			$this->columns[] = Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)');
 			$q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
-				->leftJoin('publication_settings as publication_tlps', function (object $join) use ($locale) {
-					$join->on('publication_tlp.publication_id', '=', 'publication_tlps.publication_id');
-					$join->where('publication_tlps.setting_name', '=', 'title');
-					$join->where('publication_tlps.setting_value', '!=', '');
-					$join->where('publication_tlps.locale', '=', $locale);
+				->leftJoin('publication_settings as publication_tlps', function (JoinClause $join) use ($locale) {
+					$join->on('publication_tlp.publication_id', '=', 'publication_tlps.publication_id')
+						->where('publication_tlps.setting_name', '=', 'title')
+						->where('publication_tlps.setting_value', '!=', '')
+						->where('publication_tlps.locale', '=', $locale);
 				});
 			$q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
-				->leftJoin('publication_settings as publication_tlpsl', function (object $join) {
-					$join->on('publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id');
-					$join->where('publication_tlpsl.setting_name', '=', 'title');
-					$join->on('publication_tlpsl.locale', '=', 's.locale');
+				->leftJoin('publication_settings as publication_tlpsl', function (JoinClause $join) {
+					$join->on('publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id')
+						->on('publication_tlpsl.locale', '=', 's.locale')
+						->where('publication_tlpsl.setting_name', '=', 'title');
 				});
 			$q->groupBy(Capsule::raw('COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)'));
 		}

@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\install\Installer;
+use Illuminate\Support\Facades\DB;
 
 class Upgrade extends Installer
 {
@@ -80,7 +81,7 @@ class Upgrade extends Installer
      */
     public function changeSubmissionStageToProduction()
     {
-        Repo::submission()->dao->update('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', [WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION]);
+        DB::unprepared('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', [WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION]);
 
         return true;
     }

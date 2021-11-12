@@ -29,7 +29,8 @@
 				{if $grid->getPublishChangeEvents()}
 					publishChangeEvents: {$grid->getPublishChangeEvents()|@json_encode},
 				{/if}
-				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features}
+				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features},
+				csrfToken: {csrf type="json"}
 			{rdelim}
 		);
 	{rdelim});

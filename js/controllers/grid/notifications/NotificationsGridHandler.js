@@ -49,6 +49,15 @@
 	// Private properties
 	//
 	/**
+	 * The CSRF token for POST requests.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.grid.notifications.NotificationsGridHandler
+			.prototype.csrfToken_ = null;
+
+
+	/**
 	 * The "mark notifications as new" URL
 	 * @private
 	 * @type {?string}
@@ -89,6 +98,8 @@
 		this.markReadUrl_ = options.markReadUrl;
 		this.deleteUrl_ = options.deleteUrl;
 
+		this.csrfToken_ = options.csrfToken;
+
 		this.parent('initialize', options);
 	};
 
@@ -123,7 +134,8 @@
 	 */
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
 			markNewHandler_ = function(callingContext, opt_event) {
-		$.post(this.markNewUrl_, {selectedElements: this.getSelectedNotifications_()},
+		$.post(this.markNewUrl_, {selectedElements: this.getSelectedNotifications_(),
+					csrfToken: this.csrfToken_},
 				this.callbackWrapper(this.responseHandler_, null), 'json');
 
 		return false;
@@ -143,7 +155,8 @@
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
 			markReadHandler_ = function(callingContext, opt_event) {
 		$.post(this.markReadUrl_,
-				{selectedElements: this.getSelectedNotifications_()},
+				{selectedElements: this.getSelectedNotifications_(),
+					csrfToken: this.csrfToken_},
 				this.callbackWrapper(this.responseHandler_, null), 'json');
 
 		return false;
@@ -162,7 +175,8 @@
 	 */
 	$.pkp.controllers.grid.notifications.NotificationsGridHandler.prototype.
 			deleteHandler_ = function(callingContext, opt_event) {
-		$.post(this.deleteUrl_, {selectedElements: this.getSelectedNotifications_()},
+		$.post(this.deleteUrl_, {selectedElements: this.getSelectedNotifications_(),
+					csrfToken: this.csrfToken_},
 				this.callbackWrapper(this.responseHandler_, null), 'json');
 
 		return false;

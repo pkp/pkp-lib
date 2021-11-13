@@ -28,6 +28,7 @@ if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$SAVE_BUILD" == "true" ]]; then
       tar -C datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST} -x -z -f ${FILESDUMP}
       cp config.inc.php datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/config.inc.php
       cp -r public datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
+      rm -f datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/public/.gitignore
       cd datasets
       git add --all
       git commit -m "Update datasets (${TRAVIS_BRANCH})"

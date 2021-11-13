@@ -81,7 +81,7 @@ class Upgrade extends Installer
      */
     public function changeSubmissionStageToProduction()
     {
-        DB::unprepared('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', [WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION]);
+        DB::statement('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', [WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION]);
 
         return true;
     }

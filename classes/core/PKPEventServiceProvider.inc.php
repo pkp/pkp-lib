@@ -18,7 +18,8 @@ namespace PKP\core;
 use Illuminate\Events\EventServiceProvider;
 use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Str;
+use PKP\cache\CacheManager;
+use PKP\cache\FileCache;
 use SplFileInfo;
 
 class PKPEventServiceProvider extends EventServiceProvider
@@ -51,8 +52,14 @@ class PKPEventServiceProvider extends EventServiceProvider
      */
     public function getEvents()
     {
+        $cacheManager = CacheManager::getManager();
+        $cache = $cacheManager->getCache('event', PKPApplication::CONTEXT_SITE, function (FileCache $cache) {
+            $cache->setEntireCache($this->discoveredEvents());
+        });
+
+
         return array_merge_recursive(
-            $this->discoveredEvents(),
+            $cache->getContents(),
             $this->listens()
         );
     }
@@ -124,18 +131,7 @@ class PKPEventServiceProvider extends EventServiceProvider
              */
             protected static function classFromFile(SplFileInfo $file, $basePath): string
             {
-                $pathFromBase = trim(Str::replaceFirst($basePath, '', $file->getRealPath()), DIRECTORY_SEPARATOR);
-                $libPath = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR;
-                $namespace = Str::startsWith($pathFromBase, $libPath) ? 'PKP\\' : 'APP\\';
-
-                $path = $pathFromBase;
-                if ($namespace === 'PKP\\') {
-                    $path = Str::replaceFirst($libPath, '', $path);
-                }
-                if (Str::startsWith($path, 'classes')) {
-                    $path = Str::replaceFirst('classes' . DIRECTORY_SEPARATOR, '', $path);
-                }
-                return $namespace . str_replace('/', '\\', Str::replaceLast('.inc.php', '', $path));
+                return Core::classFromFile($file);
             }
         };
 

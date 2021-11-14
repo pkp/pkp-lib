@@ -17,7 +17,6 @@ namespace PKP\mail;
 
 use APP\core\Application;
 
-use APP\core\Services;
 use APP\i18n\AppLocale;
 use PKP\core\PKPApplication;
 use PKP\facades\Repo;

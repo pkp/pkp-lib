@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/observers/listeners/MailDiscussionUpdated.inc.php
+ * @file classes/observers/listeners/MailDiscussionMessage.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class MailDiscussionUpdated
+ * @class MailDiscussionMessage
  * @ingroup observers_listeners
  *
  * @brief Notify users when a discussion is updated
@@ -50,7 +50,7 @@ class MailDiscussionMessage
 
             $mailable->addVariables(array_merge(
                 [
-                    'siteTitle' => $mailable->viewData['contextName'],
+                    'siteTitle' => $mailable->viewData['journalName'],
                 ],
                 $event->formEmailData->getVariables($user->getId())
             ));

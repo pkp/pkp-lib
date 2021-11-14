@@ -1,27 +1,27 @@
 <?php
 
 /**
- * @file mail/mailables/Recipient.inc.php
+ * @file mail/Recipient.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Recipient
- * @ingroup mail_mailables
+ * @ingroup mail
  *
  * @brief mailable's trait to support User recipients
  */
 
-namespace PKP\mail\mailables;
+namespace PKP\mail;
 
 use BadMethodCallException;
 use InvalidArgumentException;
-use PKP\mail\Mailable;
 use PKP\mail\variables\RecipientEmailVariable;
 use PKP\user\User;
 
-trait Recipient {
+trait Recipient
+{
 
     /**
      * @copydoc Illuminate\Mail\Mailable::setAddress()

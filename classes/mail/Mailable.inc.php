@@ -32,8 +32,6 @@ use Exception;
 use Illuminate\Mail\Mailable as IlluminateMailable;
 use InvalidArgumentException;
 use PKP\context\Context;
-use PKP\mail\mailables\Recipient;
-use PKP\mail\mailables\Sender;
 use APP\mail\variables\ContextEmailVariable;
 use PKP\mail\variables\QueuedPaymentEmailVariable;
 use PKP\mail\variables\RecipientEmailVariable;
@@ -73,6 +71,15 @@ class Mailable extends IlluminateMailable
      * can be organized when shown in the UI.
      */
     protected static array $groupIds = [self::GROUP_OTHER];
+
+    // Locale key, name of the Mailable displayed in the UI
+    protected static ?string $name = null;
+
+    // Locale key, description of the Mailable displayed in the UI
+    protected static ?string $description = null;
+
+    // Whether Mailable supports additional templates, besides the default
+    public static bool $supportsTemplates = false;
 
     public function __construct(array $args = [])
     {

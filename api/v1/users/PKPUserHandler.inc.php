@@ -125,9 +125,11 @@ class PKPUserHandler extends APIHandler
             ->searchPhrase($params['searchPhrase'] ?? null)
             ->orderBy($orderBy, $orderDirection, [AppLocale::getLocale(), $request->getSite()->getPrimaryLocale()])
             ->limit($params['count'] ?? null)
-            ->offset($params['offset'] ?? null)
-            ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
-
+            ->offset($params['offset'] ?? null);
+        switch ($params['status'] ?? null) {
+            case 'active': $collector->filterByStatus($collector::STATUS_ACTIVE); break;
+            case 'disabled': $collector->filterByStatus($collector::STATUS_DISABLED); break;
+        }
         $users = Repo::user()->getMany($collector);
 
         $map = Repo::user()->getSchemaMap();

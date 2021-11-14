@@ -16,8 +16,12 @@
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
-
+use PKP\components\forms\context\PKPNotifyUsersForm;
+use PKP\config\Config;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
@@ -401,25 +405,25 @@ class ManagementHandler extends Handler
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
         $notifyUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_email');
         $progressUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_email/{queueId}');
-        $userGroups = DAORegistry::getDAO('UserGroupDAO')->getByContextId($context->getId());
 
         $userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
-        $notifyUsersForm = new \PKP\components\forms\context\PKPNotifyUsersForm($notifyUrl, $context, $userGroups);
+        $isBulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
+        $notifyUsersForm = $isBulkEmailsEnabled ? new PKPNotifyUsersForm($notifyUrl, $context) : null;
 
         $templateMgr->assign([
             'pageComponent' => 'AccessPage',
             'pageTitle' => __('navigation.access'),
-            'enableBulkEmails' => in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails')),
+            'enableBulkEmails' => $isBulkEmailsEnabled,
         ]);
 
         $templateMgr->setConstants([
-            'FORM_NOTIFY_USERS' => FORM_NOTIFY_USERS,
+            'FORM_NOTIFY_USERS' => PKPNotifyUsersForm::FORM_NOTIFY_USERS,
         ]);
 
         $templateMgr->setState([
             'components' => [
                 FORM_USER_ACCESS => $userAccessForm->getConfig(),
-                FORM_NOTIFY_USERS => $notifyUsersForm->getConfig(),
+                PKPNotifyUsersForm::FORM_NOTIFY_USERS => $notifyUsersForm ? $notifyUsersForm->getConfig() : null,
             ],
             'progressUrl' => $progressUrl,
         ]);

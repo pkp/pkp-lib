@@ -22,7 +22,6 @@ use PKP\i18n\interfaces\LocaleInterface;
  * @method static string choice(string $key, int $number, array $replace = [], string $locale = null)
  * @method static string getLocale()
  * @method static void setLocale(string $locale)
- * @method static string getDefaultEncoding()
  * @method static string getPrimaryLocale()
  * @method static void registerFolder(string $path, int $priority = 0)
  * @method static void registerLoader(callable $fileLoader, int $priority = 0)
@@ -38,7 +37,6 @@ use PKP\i18n\interfaces\LocaleInterface;
  * @method static callable getMissingKeyHandler()
  * @method static \PKP\i18n\translation\LocaleBundle getBundle(string $locale)
  * @method static string getDefaultLocale()
- * @method static LocaleInterface getInstance()
  */
 class Locale extends Facade
 {

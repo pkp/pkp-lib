@@ -138,8 +138,7 @@ class Locale implements LocaleInterface
     {
         if (!$this->locale) {
             $request = $this->_getRequest();
-            $locale = $request->getUserVar('uiLocale')
-                ?: $request->getUserVar('setLocale')
+            $locale = $request->getUserVar('setLocale')
                 ?: (SessionManager::hasSession() ? SessionManager::getManager()->getUserSession()->getSessionVar('currentLocale') : null)
                 ?: $request->getCookieVar('currentLocale');
             $this->setLocale(in_array($locale, array_keys($this->getSupportedLocales())) ? $locale : $this->getPrimaryLocale());
@@ -158,16 +157,9 @@ class Locale implements LocaleInterface
         }
 
         $this->locale = $locale;
-        setlocale(LC_ALL, $locale . '.' . $this->getDefaultEncoding(), $locale);
+        setlocale(LC_ALL, $locale . '.utf-8', $locale);
         putenv("LC_ALL=${locale}");
-    }
-
-    /**
-     * @copy LocaleInterface::getDefaultEncoding()
-     */
-    public function getDefaultEncoding(): ?string
-    {
-        return Config::getVar('i18n', 'client_charset');
+        ini_set('default_charset', 'utf-8');
     }
 
     /**
@@ -273,12 +265,6 @@ class Locale implements LocaleInterface
         foreach ($localeMetadata as $locale) {
             $locales[$locale->key] = $locale->name;
         }
-
-        // If client encoding is set to iso-8859-1, transcode locales from utf8
-        if (strtolower($this->getDefaultEncoding()) == 'iso-8859-1') {
-            $locales = array_map('utf8_decode', $locales);
-        }
-
         return $locales;
     }
 
@@ -378,14 +364,6 @@ class Locale implements LocaleInterface
     public function getDefaultLocale(): string
     {
         return Config::getVar('i18n', 'locale');
-    }
-
-    /**
-     * Retrieves a LocaleInterface instance from the container
-     */
-    public static function getInstance(): LocaleInterface
-    {
-        return App::make(LocaleInterface::class);
     }
 
     /**

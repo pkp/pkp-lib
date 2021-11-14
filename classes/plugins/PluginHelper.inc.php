@@ -23,7 +23,6 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\file\FileManager;
 
 use PKP\site\Version;
@@ -177,7 +176,6 @@ class PluginHelper
     protected function _getConnectionParams()
     {
         return [
-            'clientCharset' => Locale::getDefaultEncoding(),
             'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
             'databaseDriver' => Config::getVar('database', 'driver'),
             'databaseHost' => Config::getVar('database', 'host'),

@@ -26,12 +26,6 @@ msgstr "<span class=\"pkp_form_error formError\">NO</span>"
 msgid "installer.checkYes"
 msgstr "Yes"
 
-msgid "installer.clientCharset"
-msgstr "Client character set"
-
-msgid "installer.clientCharsetInstructions"
-msgstr "The encoding to use for data sent to and received from browsers."
-
 msgid "installer.configFileError"
 msgstr "The configuration file <tt>config.inc.php</tt> does not exist or is not readable."
 
@@ -45,7 +39,7 @@ msgid "installer.databaseDriver"
 msgstr "Database driver"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong>Database drivers listed in brackets do not appear to have the required PHP extension loaded and installation will likely fail if selected.</strong><br />Any unsupported database drivers listed above are listed solely for academic purposes and are unlikely to work."
+msgstr "<strong>The system currently supports MySQL and PostgreSQL, in case you're unable to select one of these options below, contact your system administrator to ensure your server has the required PHP extensions.</strong>"
 
 msgid "installer.databaseHost"
 msgstr "Host"

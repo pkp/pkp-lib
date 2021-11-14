@@ -14,9 +14,9 @@
  *
  * @see tools/runAllTests.sh
  */
-$GLOBALS['PHPUNIT_COVERAGE_DATA_DIRECTORY'] = get_cfg_var('phpunit_coverage_data_directory');
-include get_cfg_var('selenium_coverage_prepend_file');
+$GLOBALS['PHPUNIT_COVERAGE_DATA_DIRECTORY'] = ini_get('phpunit_coverage_data_directory');
+include ini_get('selenium_coverage_prepend_file');
 
 if (basename($_SERVER['SCRIPT_NAME']) == 'phpunit_coverage.php') {
-    chdir(get_cfg_var('phpunit_coverage_data_directory'));
+    chdir(ini_get('phpunit_coverage_data_directory'));
 }

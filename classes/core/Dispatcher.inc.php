@@ -17,7 +17,6 @@ namespace PKP\core;
 
 use APP\core\Services;
 use PKP\config\Config;
-use PKP\facades\Locale;
 use PKP\plugins\HookRegistry;
 
 use PKP\plugins\PluginRegistry;
@@ -257,7 +256,7 @@ class Dispatcher
             return false;
         }
 
-        header('Content-Type: text/html; charset=' . Locale::getDefaultEncoding());
+        header('Content-Type: text/html; charset=utf-8');
 
         echo $contents;
         return true;

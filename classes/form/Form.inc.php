@@ -496,11 +496,11 @@ class Form
                 $returner .= $this->_decomposeArray($name, $subValue, $newStack);
             }
         } else {
-            $name = htmlentities($name, ENT_COMPAT, Locale::getDefaultEncoding());
-            $value = htmlentities($value, ENT_COMPAT, Locale::getDefaultEncoding());
+            $name = htmlentities($name, ENT_COMPAT);
+            $value = htmlentities($value, ENT_COMPAT);
             $returner .= '<input type="hidden" name="' . $name;
             while (($item = array_shift($stack)) !== null) {
-                $item = htmlentities($item, ENT_COMPAT, Locale::getDefaultEncoding());
+                $item = htmlentities($item, ENT_COMPAT);
                 $returner .= '[' . $item . ']';
             }
             $returner .= '" value="' . $value . "\" />\n";

@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 /**
  * @file classes/i18n/translation/LocaleBundle.inc.php
@@ -18,7 +19,6 @@ namespace PKP\i18n\translation;
 
 use DateInterval;
 use Illuminate\Support\Facades\Cache;
-use PKP\facades\Locale;
 
 class LocaleBundle
 {
@@ -82,7 +82,7 @@ class LocaleBundle
         return strlen($message) ? $this->_format($message, $params) : null;
     }
 
-    
+
     /**
      * Adds a new locale to the bundle
     */
@@ -100,25 +100,13 @@ class LocaleBundle
     /**
      * Formats the translation
      */
-    private function _format(string $message, array $params = []) {
-        // Replace custom parameters
-        if (count($params)) {
-            $message = str_replace(
-                array_map(
-                    function (string $search): string {
-                        return "{\$${search}}";
-                    },
-                    array_keys($params)
-                ),
-                array_values($params),
-                $message
-            );
-        }
-
-        return strtolower(Locale::getDefaultEncoding()) == 'iso-8859-1'
-            // If the client encoding is set to iso-8859-1, transcode string from utf8 since we store all XML files in utf8
-            ? utf8_decode($message)
-            : $message;
+    private function _format(string $message, array $params = [])
+    {
+        static $replacer;
+        $replacer ?? ($replacer = function (string $search): string {
+            return "{\$${search}}";
+        });
+        return count($params) ? str_replace(array_map($replacer, array_keys($params)), array_values($params), $message) : $message;
     }
 
     /**
@@ -164,7 +152,7 @@ class LocaleBundle
 
     /**
      * Retrieves the locale paths (keys) that are part of this bundle together with their priorities (values)
-     * 
+     *
      * @return int[]
      */
     public function getEntries(): array

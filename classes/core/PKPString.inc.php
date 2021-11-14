@@ -17,7 +17,6 @@
 namespace PKP\core;
 
 use PKP\config\Config;
-use PKP\facades\Locale;
 use Stringy\Stringy;
 
 class PKPString
@@ -31,18 +30,16 @@ class PKPString
     /**
      * Perform initialization required for the string wrapper library.
      */
-    public static function init()
+    public static function initialize()
     {
-        $clientCharset = strtolower_codesafe(Locale::getDefaultEncoding());
-
-        // Check if mbstring is installed
-        if (self::hasMBString() && !defined('ENABLE_MBSTRING')) {
-            // mbstring routines are available
-            define('ENABLE_MBSTRING', true);
-
-            // Set up required ini settings for mbstring
-            // FIXME Do any other mbstring settings need to be set?
-            mb_internal_encoding($clientCharset);
+        static $isInitialized;
+        if (!$isInitialized) {
+            if (self::hasMBString()) {
+                // Set up default encoding
+                mb_internal_encoding('utf-8');
+                ini_set('default_charset', 'utf-8');
+            }
+            $isInitialized = true;
         }
     }
 
@@ -65,8 +62,7 @@ class PKPString
         if (ini_get('mbstring.func_overload') && defined('MB_OVERLOAD_STRING')) {
             $hasMBString = false;
         } else {
-            $hasMBString = (
-                extension_loaded('mbstring') &&
+            $hasMBString = extension_loaded('mbstring') &&
                 function_exists('mb_strlen') &&
                 function_exists('mb_strpos') &&
                 function_exists('mb_strrpos') &&
@@ -74,8 +70,7 @@ class PKPString
                 function_exists('mb_strtolower') &&
                 function_exists('mb_strtoupper') &&
                 function_exists('mb_substr_count') &&
-                function_exists('mb_send_mail')
-            );
+                function_exists('mb_send_mail');
         }
         return $hasMBString;
     }
@@ -195,11 +190,10 @@ class PKPString
      */
     public static function encode_mime_header($string)
     {
-        if (defined('ENABLE_MBSTRING')) {
-            return mb_encode_mimeheader($string, mb_internal_encoding(), 'B', MAIL_EOL);
-        } else {
-            return $string;
-        }
+        static::initialize();
+        return static::hasMBString()
+            ? mb_encode_mimeheader($string, mb_internal_encoding(), 'B', Core::isWindows() ? "\r\n" : "\n")
+            : $string;
     }
 
     //
@@ -409,7 +403,7 @@ class PKPString
         static $purifier;
         if (!isset($purifier)) {
             $config = \HTMLPurifier_Config::createDefault();
-            $config->set('Core.Encoding', Locale::getDefaultEncoding());
+            $config->set('Core.Encoding', 'utf-8');
             $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
             $config->set('HTML.Allowed', Config::getVar('security', 'allowed_html'));
             $config->set('Cache.SerializerPath', 'cache');

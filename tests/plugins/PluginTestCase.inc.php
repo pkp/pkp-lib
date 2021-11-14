@@ -25,11 +25,10 @@ import('lib.pkp.tests.DatabaseTestCase');
 
 use APP\core\Request;
 use APP\install\Install;
-
+use PKP\config\Config;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;
-use PKP\facades\Locale;
-use PKP\plugins\Plugin;
+use PKP\db\DAORegistry;
 use PKP\site\VersionCheck;
 
 class PluginTestCase extends DatabaseTestCase
@@ -138,7 +137,6 @@ class PluginTestCase extends DatabaseTestCase
     private function getConnectionParams()
     {
         return [
-            'clientCharset' => Locale::getDefaultEncoding(),
             'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
             'databaseDriver' => Config::getVar('database', 'driver'),
             'databaseHost' => Config::getVar('database', 'host'),

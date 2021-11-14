@@ -27,11 +27,6 @@ use PKP\i18n\translation\LocaleBundle;
 interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
 {
     /**
-     * Retrieves the default encoding
-     */
-    public function getDefaultEncoding(): ?string;
-
-    /**
      * Attempts to retrieve the primary locale for the current context, if not available, then for the site.
      */
     public function getPrimaryLocale(): string;

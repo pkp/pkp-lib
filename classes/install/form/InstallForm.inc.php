@@ -38,17 +38,13 @@ class InstallForm extends MaintenanceForm
     /** @var array locale completeness booleans */
     public $localesComplete;
 
-    /** @var array client character sets supported by this system */
-    public $supportedClientCharsets;
-
-    /** @var array connection character sets supported by this system */
-    public $supportedConnectionCharsets;
-
-    /** @var array database character sets supported by this system */
-    public $supportedDatabaseCharsets;
-
     /** @var array database drivers supported by this system */
-    public $supportedDatabaseDrivers;
+    public $supportedDatabaseDrivers = [
+        // <driver> => array(<php-module>, <name>)
+        'mysqli' => ['mysqli', 'MySQLi'],
+        'postgres9' => ['pgsql', 'PostgreSQL'],
+        'mysql' => ['mysql', 'MySQL']
+    ];
 
     /**
      * Constructor.
@@ -66,35 +62,11 @@ class InstallForm extends MaintenanceForm
             $this->localesComplete[$key] = Locale::getLocaleMetadata($key)->isLocaleComplete ?? false;
         }
 
-        $this->supportedClientCharsets = [
-            'utf-8' => 'Unicode (UTF-8)',
-            'iso-8859-1' => 'Western (ISO-8859-1)'
-        ];
-
-        $this->supportedConnectionCharsets = [
-            '' => __('common.notApplicable'),
-            'utf8' => 'Unicode (UTF-8)'
-        ];
-
-        $this->supportedDatabaseCharsets = [
-            '' => __('common.notApplicable'),
-            'utf8' => 'Unicode (UTF-8)'
-        ];
-
-        $this->supportedDatabaseDrivers = [
-            // <adodb-driver> => array(<php-module>, <name>)
-            'mysql' => ['mysql', 'MySQL'],
-            'mysqli' => ['mysqli', 'MySQLi'],
-            'postgres9' => ['pgsql', 'PostgreSQL'],
-            'oracle' => ['oci8', 'Oracle'],
-            'mssql' => ['mssql', 'MS SQL Server'],
-            'fbsql' => ['fbsql', 'FrontBase'],
-            'ibase' => ['ibase', 'Interbase'],
-            'firebird' => ['ibase', 'Firebird'],
-            'informix' => ['ifx', 'Informix'],
-            'sybase' => ['sybase', 'Sybase'],
-            'odbc' => ['odbc', 'ODBC'],
-        ];
+        foreach ($this->supportedDatabaseDrivers as $driver => [$module]) {
+            if (!extension_loaded($module)) {
+                unset($this->supportedDatabaseDrivers[$driver]);
+            }
+        }
 
         // Validation checks for this form
         $form = $this;
@@ -102,14 +74,11 @@ class InstallForm extends MaintenanceForm
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'locale', 'required', 'installer.form.localeRequired', function ($locale) {
             return Locale::isLocaleValid($locale);
         }));
-        $this->addCheck(new \PKP\form\validation\FormValidatorInSet($this, 'clientCharset', 'required', 'installer.form.clientCharsetRequired', array_keys($this->supportedClientCharsets)));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'filesDir', 'required', 'installer.form.filesDirRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'adminUsername', 'required', 'installer.form.usernameRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'adminUsername', 'required', 'installer.form.usernameAlphaNumeric'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'adminPassword', 'required', 'installer.form.passwordRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'adminPassword', 'required', 'installer.form.passwordsDoNotMatch', function ($password) use ($form) {
-            return $password == $form->getData('adminPassword2');
-        }));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'adminPassword', 'required', 'installer.form.passwordsDoNotMatch', fn(string $password) => $password == $form->getData('adminPassword2')));
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'adminEmail', 'required', 'installer.form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorInSet($this, 'databaseDriver', 'required', 'installer.form.databaseDriverRequired', array_keys($this->supportedDatabaseDrivers)));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'databaseName', 'required', 'installer.form.databaseNameRequired'));
@@ -136,15 +105,16 @@ class InstallForm extends MaintenanceForm
         }, ['UTC' => 'UTC']);
 
         $templateMgr = TemplateManager::getManager($request);
+        $languages = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName($locale->locale), Locale::getLocales());
+        asort($languages);
         $templateMgr->assign([
             'timeZoneOptions' => $timeZones,
+            'languageOptions' => $languages,
             'localeOptions' => $this->supportedLocales,
             'localesComplete' => $this->localesComplete,
-            'clientCharsetOptions' => $this->supportedClientCharsets,
-            'connectionCharsetOptions' => $this->supportedConnectionCharsets,
-            'allowFileUploads' => get_cfg_var('file_uploads') ? __('common.yes') : __('common.no'),
-            'maxFileUploadSize' => get_cfg_var('upload_max_filesize'),
-            'databaseDriverOptions' => $this->checkDBDrivers(),
+            'allowFileUploads' => ini_get('file_uploads') ? __('common.yes') : __('common.no'),
+            'maxFileUploadSize' => ini_get('upload_max_filesize'),
+            'databaseDriverOptions' => $this->getDatabaseDriversOptions(),
             'supportsMBString' => PKPString::hasMBString() ? __('common.yes') : __('common.no'),
             'phpIsSupportedVersion' => version_compare(PKPApplication::PHP_REQUIRED_VERSION, PHP_VERSION) != 1,
             'xslEnabled' => XSLTransformer::checkSupport(),
@@ -176,10 +146,8 @@ class InstallForm extends MaintenanceForm
             'timeZone' => 'UTC',
             'locale' => Locale::getLocale(),
             'additionalLocales' => [],
-            'clientCharset' => 'utf-8',
-            'connectionCharset' => 'utf8',
             'filesDir' => $docRoot . 'files',
-            'databaseDriver' => 'mysql',
+            'databaseDriver' => 'mysqli',
             'databaseHost' => 'localhost',
             'databaseUsername' => Application::getName(),
             'databasePassword' => '',
@@ -198,8 +166,6 @@ class InstallForm extends MaintenanceForm
             'timeZone',
             'locale',
             'additionalLocales',
-            'clientCharset',
-            'connectionCharset',
             'filesDir',
             'adminUsername',
             'adminPassword',
@@ -253,22 +219,13 @@ class InstallForm extends MaintenanceForm
     }
 
     /**
-     * Check if database drivers have the required PHP module loaded.
-     * The names of drivers that appear to be unavailable are bracketed.
+     * Retrieve the available databases
      *
      * @return array
      */
-    public function checkDBDrivers()
+    public function getDatabaseDriversOptions()
     {
-        $dbDrivers = [];
-        foreach ($this->supportedDatabaseDrivers as $driver => $info) {
-            [$module, $name] = $info;
-            if (!extension_loaded($module)) {
-                $name = '[ ' . $name . ' ]';
-            }
-            $dbDrivers[$driver] = $name;
-        }
-        return $dbDrivers;
+        return array_map(fn($item) => $item[1], $this->supportedDatabaseDrivers);
     }
 }
 

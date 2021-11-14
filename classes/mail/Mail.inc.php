@@ -27,10 +27,8 @@ use League\OAuth2\Client\Provider\Google;
 use PHPMailer\PHPMailer\OAuth;
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PKP\config\Config;
 use PKP\core\PKPString;
-use PKP\facades\Locale;
 use PKP\plugins\HookRegistry;
 
 class Mail extends \PKP\core\DataObject
@@ -617,7 +615,7 @@ class Mail extends \PKP\core\DataObject
                 ];
             }
         }
-        $mailer->CharSet = Locale::getDefaultEncoding();
+        $mailer->CharSet = 'utf-8';
         if (($t = $this->getContentType()) != null) {
             $mailer->ContentType = $t;
         }
@@ -696,7 +694,7 @@ class Mail extends \PKP\core\DataObject
                 error_log($mailer->ErrorInfo);
                 return false;
             }
-        } catch (phpmailerException $e) {
+        } catch (Exception $e) {
             error_log($mailer->ErrorInfo);
             return false;
         }
@@ -730,5 +728,5 @@ class Mail extends \PKP\core\DataObject
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\mail\Mail', '\Mail');
-    define('MAIL_WRAP', \Mail::MAIL_WRAP);
+    define('MAIL_WRAP', Mail::MAIL_WRAP);
 }

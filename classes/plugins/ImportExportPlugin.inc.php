@@ -23,7 +23,6 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\linkAction\LinkAction;
 use PKP\session\SessionManager;
@@ -214,8 +213,7 @@ abstract class ImportExportPlugin extends Plugin
             echo __('plugins.importexport.common.invalidXML') . "\n";
             echo $xml . "\n";
         } else {
-            $charset = Locale::getDefaultEncoding();
-            header('Content-type: text/html; charset=' . $charset);
+            header('Content-type: text/html; charset=utf-8');
             echo '<html><body>';
             echo '<h2>' . __('plugins.importexport.common.validationErrors') . '</h2>';
             foreach ($errors as $error) {

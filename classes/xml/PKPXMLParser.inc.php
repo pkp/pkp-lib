@@ -20,15 +20,14 @@
 
 namespace PKP\xml;
 
-use PKP\facades\Locale;
 use PKP\file\FileManager;
 
-// The default character encodings
-define('XML_PARSER_SOURCE_ENCODING', Locale::getDefaultEncoding());
-define('XML_PARSER_TARGET_ENCODING', Locale::getDefaultEncoding());
-
 class PKPXMLParser {
-	/** @var object instance of XMLParserHandler */
+	public const XML_PARSER_SOURCE_ENCODING = 'utf-8';
+
+	public const XML_PARSER_TARGET_ENCODING = 'utf-8';
+
+	/** @var XMLParserHandler instance of XMLParserHandler */
 	var $handler;
 
 	/** @var array List of error strings */
@@ -193,8 +192,8 @@ class PKPXMLParser {
 	 * @return resource
 	 */
 	function createParser() {
-		$parser = xml_parser_create(XML_PARSER_SOURCE_ENCODING);
-		xml_parser_set_option($parser, XML_OPTION_TARGET_ENCODING, XML_PARSER_TARGET_ENCODING);
+		$parser = xml_parser_create(static::XML_PARSER_SOURCE_ENCODING);
+		xml_parser_set_option($parser, XML_OPTION_TARGET_ENCODING, static::XML_PARSER_TARGET_ENCODING);
 		xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, false);
 		return $parser;
 	}

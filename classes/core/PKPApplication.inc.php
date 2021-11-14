@@ -213,7 +213,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         Registry::set('system.debug.notes', $notes);
 
         $this->initializeLaravelContainer();
-        PKPString::init();
+        PKPString::initialize();
 
         // Load default locale files
         Locale::registerFolder(BASE_SYS_DIR . '/lib/pkp/locale');

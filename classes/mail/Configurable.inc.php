@@ -25,9 +25,11 @@ trait Configurable
      */
     public static function getName(): string
     {
-        return !is_null(static::$name)
-            ? __(static::$name)
-            : throw new Exception('Configurable mailable created without a name.');
+        if (is_null(static::$name)) {
+            throw new Exception('Configurable mailable created without a name.');
+        }
+
+        return __(static::$name);
     }
 
     /**
@@ -36,8 +38,10 @@ trait Configurable
      */
     public static function getDescription(): string
     {
-        return !is_null(static::$description)
-            ? __(static::$description)
-            : throw new Exception('Configurable mailable created without a description.');
+        if (is_null(static::$description)) {
+            throw new Exception('Configurable mailable created without a description.');
+        }
+
+        return __(static::$description);
     }
 }

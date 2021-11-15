@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-09-20 12:00+0000\n"
+"PO-Revision-Date: 2021-11-16 03:30+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -19,7 +19,7 @@ msgid "manager.announcements"
 msgstr "Meddelelser"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Er du sikker på, at du vil slette meddelelsen  {$title} permanent?"
+msgstr "Er du sikker på, at du vil slette meddelelsen {$title} permanent?"
 
 msgid "manager.announcements.create"
 msgstr "Opret ny meddelelse"
@@ -2369,3 +2369,39 @@ msgstr "Modtagerens eller alle modtagers brugernavn"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "Modtagerens eller alle modtageres fulde navn"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Denne e-mail afsendes automatisk til nye brugere, når de registrerer sig på "
+"websitet og når indstillingerne kræver, at e-mailadressen skal valideres."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Validér e-mail (websted)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Denne e-mail afsendes når en redaktør framelder en bedømmer."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Bedømmer frameldt"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Denne e-mail afsendes, når en bedømmer, der tidligere blev frameldt, "
+"genindsættes af en redaktør."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Bedømmer genindsat"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Denne e-mail afsendes når en bedømmer bliver tildelt en indsendelse."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Bedømmer tilvalgt"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Denne e-mail sendes automatisk til deltagere i drøftelserne, når en ny "
+"meddelelse tilføjes."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Ny besked under drøftelser"

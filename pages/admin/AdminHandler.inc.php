@@ -177,9 +177,8 @@ class AdminHandler extends Handler
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
 
         $supportedLocales = $site->getSupportedLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        $locales = array_map(function ($localeKey) {
+            return ['key' => $localeKey, 'label' => Locale::getLocaleMetadata($localeKey)->name];
         }, $supportedLocales);
 
         $contexts = Services::get('context')->getManySummary();
@@ -286,9 +285,8 @@ class AdminHandler extends Handler
         $sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        $locales = array_map(function ($localeKey) {
+            return ['key' => $localeKey, 'label' => Locale::getLocaleMetadata($localeKey)->name];
         }, $supportedFormLocales);
 
         $contextForm = new APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);

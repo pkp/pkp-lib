@@ -59,14 +59,13 @@ class ManageLanguageGridHandler extends LanguageGridHandler
         $site = $request->getSite();
         $context = $request->getContext();
 
-        $allLocales = Locale::getAllLocales();
         $supportedLocales = $site->getSupportedLocales();
         $contextPrimaryLocale = $context->getPrimaryLocale();
         $data = [];
 
         foreach ($supportedLocales as $locale) {
             $data[$locale] = [];
-            $data[$locale]['name'] = $allLocales[$locale];
+            $data[$locale]['name'] = Locale::getLocaleMetadata($locale)->name;
             $data[$locale]['supported'] = true;
             $data[$locale]['primary'] = ($locale == $contextPrimaryLocale);
         }

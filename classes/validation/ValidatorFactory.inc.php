@@ -279,11 +279,10 @@ class ValidatorFactory
     public static function required($validator, $object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale)
     {
         $validator->after(function ($validator) use ($object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale) {
-            $allLocales = Locale::getAllLocales();
             $primaryLocaleName = $primaryLocale;
-            foreach ($allLocales as $locale => $name) {
+            foreach (Locale::getLocales() as $locale => $metadata) {
                 if ($locale === $primaryLocale) {
-                    $primaryLocaleName = $name;
+                    $primaryLocaleName = $metadata->name;
                 }
             }
 

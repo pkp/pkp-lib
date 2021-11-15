@@ -21,6 +21,7 @@
 
 use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
+use PKP\i18n\LocaleMetadata;
 
 require_mock_env('env1');
 
@@ -42,7 +43,7 @@ class LocaleTest extends PKPTestCase
     /**
      * @covers Locale
      */
-    public function testGetAllLocales()
+    public function testGetLocales()
     {
         $expectedLocales = [
             'en_US' => 'English',
@@ -50,7 +51,8 @@ class LocaleTest extends PKPTestCase
             'pt_PT' => 'Portuguese (Portugal)',
             'de_DE' => 'German'
         ];
-        self::assertEquals($expectedLocales, Locale::getAllLocales());
+        $locales = array_map(fn(LocaleMetadata $locale) => $locale->name, Locale::getLocales());
+        self::assertEquals($expectedLocales, $locales);
     }
 
     /**

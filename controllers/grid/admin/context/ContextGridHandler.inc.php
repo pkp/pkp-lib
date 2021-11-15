@@ -233,9 +233,8 @@ class ContextGridHandler extends GridHandler
             $supportedLocales = $request->getSite()->getSupportedLocales();
         }
 
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        $locales = array_map(function ($localeKey) {
+            return ['key' => $localeKey, 'label' => Locale::getLocaleMetadata($localeKey)->name];
         }, $supportedLocales);
 
         $contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);

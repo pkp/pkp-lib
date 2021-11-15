@@ -256,19 +256,6 @@ class Locale implements LocaleInterface
     }
 
     /**
-     * @copy LocaleInterface::getAllLocales()
-     */
-    public function getAllLocales(): array
-    {
-        $localeMetadata = $this->getLocales();
-        $locales = [];
-        foreach ($localeMetadata as $locale) {
-            $locales[$locale->key] = $locale->name;
-        }
-        return $locales;
-    }
-
-    /**
      * @copy LocaleInterface::installLocale()
      */
     public function installLocale(string $locale): void
@@ -302,7 +289,7 @@ class Locale implements LocaleInterface
         if (!$locales) {
             $request = $this->_getRequest();
             $locales = SessionManager::isDisabled()
-                ? $this->getAllLocales()
+                ? array_map(fn(LocaleMetadata $locale) => $locale->name, Locale::getLocales())
                 : (($context = $request->getContext()) ? $context->getSupportedFormLocaleNames() : $request->getSite()->getSupportedLocaleNames());
         }
         return $locales;
@@ -317,7 +304,7 @@ class Locale implements LocaleInterface
         if (!$locales) {
             $request = $this->_getRequest();
             $locales = SessionManager::isDisabled()
-                ? $this->getAllLocales()
+                ? array_map(fn(LocaleMetadata $locale) => $locale->name, Locale::getLocales())
                 : ($request->getContext() ?? $request->getSite())->getSupportedLocaleNames();
         }
         return $locales;

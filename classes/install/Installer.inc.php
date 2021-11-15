@@ -165,7 +165,7 @@ class Installer
         }
 
         if (!isset($this->installedLocales)) {
-            $this->installedLocales = array_keys(Locale::getAllLocales());
+            $this->installedLocales = array_keys(Locale::getLocales());
         }
 
         if (!isset($this->dataXMLParser)) {

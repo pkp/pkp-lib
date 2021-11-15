@@ -16,6 +16,7 @@
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
 use PKP\form\Form;
+use PKP\i18n\LocaleMetadata;
 
 class InstallLanguageForm extends Form
 {
@@ -49,8 +50,7 @@ class InstallLanguageForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $site = $request->getSite();
-        $allLocales = Locale::getAllLocales();
+        $allLocales = array_map(fn(LocaleMetadata $locale) => $locale->name, Locale::getLocales());
         $installedLocales = $this->getData('installedLocales');
         $notInstalledLocales = array_diff(array_keys($allLocales), $installedLocales);
 

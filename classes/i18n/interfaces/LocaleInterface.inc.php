@@ -68,13 +68,6 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
     public function getLocales(): array;
 
     /**
-     * Return a list of all available locales.
-
-     * @return string[]
-     */
-    public function getAllLocales(): array;
-
-    /**
      * Install support for a new locale.
      */
     public function installLocale(string $locale): void;

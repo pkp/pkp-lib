@@ -112,9 +112,8 @@ class ManagementHandler extends Handler
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        $locales = array_map(function ($localeKey) {
+            return ['key' => $localeKey, 'label' => Locale::getLocaleMetadata($localeKey)->name];
         }, $supportedFormLocales);
 
         $contactForm = new PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
@@ -177,9 +176,8 @@ class ManagementHandler extends Handler
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        $locales = array_map(function ($localeKey) {
+            return ['key' => $localeKey, 'label' => Locale::getLocaleMetadata($localeKey)->name];
         }, $supportedFormLocales);
 
         $announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
@@ -234,9 +232,8 @@ class ManagementHandler extends Handler
         $emailTemplatesApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'emailTemplates');
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        $locales = array_map(function ($localeKey) {
+            return ['key' => $localeKey, 'label' => Locale::getLocaleMetadata($localeKey)->name];
         }, $supportedFormLocales);
 
         $authorGuidelinesForm = new \PKP\components\forms\context\PKPAuthorGuidelinesForm($contextApiUrl, $locales, $context);
@@ -294,9 +291,8 @@ class ManagementHandler extends Handler
         $paymentsUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_payments');
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        $locales = array_map(function ($localeKey) {
+            return ['key' => $localeKey, 'label' => Locale::getLocaleMetadata($localeKey)->name];
         }, $supportedFormLocales);
 
         $licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
@@ -335,9 +331,8 @@ class ManagementHandler extends Handler
         $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'announcements');
 
         $supportedFormLocales = $request->getContext()->getSupportedFormLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
+        $locales = array_map(function ($localeKey) {
+            return ['key' => $localeKey, 'label' => Locale::getLocaleMetadata($localeKey)->name];
         }, $supportedFormLocales);
 
         $announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());

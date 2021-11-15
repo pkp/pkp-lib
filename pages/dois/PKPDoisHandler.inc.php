@@ -17,7 +17,7 @@ use APP\components\forms\context\DoiSetupSettingsForm;
 use APP\handler\Handler;
 use PKP\components\forms\context\PKPDoiRegistrationSettingsForm;
 use PKP\components\forms\context\PKPDoiSetupSettingsForm;
-use PKP\facades\Locale;
+use PKP\context\Context;
 use PKP\plugins\IPKPDoiRegistrationAgency;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -89,11 +89,8 @@ abstract class PKPDoisHandler extends Handler
         $dispatcher = $request->getDispatcher();
 
         $contextApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-        $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-        }, $supportedFormLocales);
+        $supportedFormLocales = $context->getSupportedFormLocaleNames();
+        $locales = array_map(fn (string $key, string $name) => ['key' => $key, 'label' => $name], array_keys($supportedFormLocales), $supportedFormLocales);
 
         $doiSetupSettingsForm = new DoiSetupSettingsForm($contextApiUrl, $locales, $context);
         $doiRegistrationSettingsForm = new PKPDoiRegistrationSettingsForm($contextApiUrl, $locales, $context);

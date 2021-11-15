@@ -138,33 +138,22 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         $site = $request->getSite();
         $data = [];
 
-        $allLocales = Locale::getAllLocales();
         $installedLocales = $site->getInstalledLocales();
         $supportedLocales = $site->getSupportedLocales();
         $primaryLocale = $site->getPrimaryLocale();
 
         foreach ($installedLocales as $localeKey) {
             $data[$localeKey] = [];
-            $data[$localeKey]['name'] = $allLocales[$localeKey];
-            $data[$localeKey]['incomplete'] = !(Locale::getLocaleMetadata($localeKey)->isLocaleComplete ?? false);
-            if (in_array($localeKey, $supportedLocales)) {
-                $supported = true;
-            } else {
-                $supported = false;
-            }
-            $data[$localeKey]['supported'] = $supported;
+            $data[$localeKey]['name'] = Locale::getLocaleMetadata($localeKey)->name;
+            $data[$localeKey]['incomplete'] = !Locale::getLocaleMetadata($localeKey)->isComplete;
+            $data[$localeKey]['supported'] = in_array($localeKey, $supportedLocales);
 
             if ($this->_canManage($request)) {
                 $context = $request->getContext();
                 $primaryLocale = $context->getPrimaryLocale();
             }
 
-            if ($localeKey == $primaryLocale) {
-                $primary = true;
-            } else {
-                $primary = false;
-            }
-            $data[$localeKey]['primary'] = $primary;
+            $data[$localeKey]['primary'] = $localeKey === $primaryLocale;
         }
 
         if ($this->_canManage($request)) {

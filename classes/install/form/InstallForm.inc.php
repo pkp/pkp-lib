@@ -18,15 +18,16 @@
 namespace PKP\install\form;
 
 use APP\core\Application;
-use PKP\facades\Locale;
 use APP\install\Install;
 use APP\template\TemplateManager;
 use DateTime;
 use DateTimeZone;
 use PKP\core\Core;
-
 use PKP\core\PKPApplication;
+
 use PKP\core\PKPString;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 use PKP\install\Installer;
 use PKP\xslt\XSLTransformer;
 
@@ -56,10 +57,10 @@ class InstallForm extends MaintenanceForm
         parent::__construct($request, 'install/install.tpl');
 
         // FIXME Move the below options to an external configuration file?
-        $this->supportedLocales = Locale::getAllLocales();
+        $this->supportedLocales = array_map(fn(LocaleMetadata $locale) => $locale->name, Locale::getLocales());
         $this->localesComplete = [];
-        foreach ($this->supportedLocales as $key => $name) {
-            $this->localesComplete[$key] = Locale::getLocaleMetadata($key)->isLocaleComplete ?? false;
+        foreach (array_keys($this->supportedLocales) as $key) {
+            $this->localesComplete[$key] = Locale::getLocaleMetadata($key)->isComplete;
         }
 
         foreach ($this->supportedDatabaseDrivers as $driver => [$module]) {

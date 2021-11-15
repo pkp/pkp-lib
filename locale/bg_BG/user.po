@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-05 08:12+0000\n"
+"PO-Revision-Date: 2021-11-16 03:30+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg_BG/>\n"
@@ -65,3 +65,27 @@ msgstr "Организация"
 
 msgid "user.accountInformation"
 msgstr "Информация за профила"
+
+msgid "user.dateLastLogin"
+msgstr "Последно влизане"
+
+msgid "user.changePassword"
+msgstr "Промени парола"
+
+msgid "user.changeMyPassword"
+msgstr "Промени моята парола"
+
+msgid "user.biography"
+msgstr "Биография (напр. институция, отдел и ранг)"
+
+msgid "user.authorization.submissionQuery"
+msgstr "Нямате разрешение за достъп до тази дискусия."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Нямате разрешение за достъп до това задание за рецензия."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Плъгин не е посочен и се изисква."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Етап на работния процес не е посочен."

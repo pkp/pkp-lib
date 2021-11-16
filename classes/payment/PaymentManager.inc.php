@@ -18,6 +18,8 @@
 
 namespace PKP\payment;
 
+use PKP\db\DAORegistry;
+
 abstract class PaymentManager
 {
     public const PAYMENT_TYPE_PUBLICATION = 7; // FIXME: This is OJS-only but referred to in pkp-lib. Move back to OJS.

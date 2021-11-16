@@ -14,6 +14,8 @@
  * @brief Operations for retrieving and modifying User Groups and user group assignments
  */
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Query\Builder;
 
 import('lib.pkp.classes.security.UserGroup');
 import('lib.pkp.classes.workflow.WorkflowStageDAO');
@@ -388,6 +390,33 @@ class UserGroupDAO extends DAO {
 		);
 
 		return new DAOResultFactory($result, $this, '_returnFromRow', [], $sql, $params, $dbResultRange);
+	}
+
+	/**
+	 * Retrieve user groups counts
+	 */
+	public function getUserCountByContextId(int $contextId = null): array
+	{
+		$query = Capsule::table('user_groups', 'ug')
+			->join('user_user_groups AS uug', 'uug.user_id', '=', 'ug.user_group_id')
+			->whereColumn('uug.user_group_id', '=', 'ug.user_group_id')
+			->join('users AS u', 'u.user_id', '=', 'uug.user_id')
+			->when($contextId, function (Builder $query) use ($contextId): void {
+				$query->where('ug.context_id', '=', $contextId);
+			})
+			->where('u.disabled', '=', 0)
+			->groupBy('ug.user_group_id')
+			->select('ug.user_group_id')
+			->selectRaw('COUNT(0) AS count');
+
+		$sql = $query->toSql();
+		$params = $query->getBindings();
+
+		$result = [];
+		foreach ($this->retrieveRange($sql, $params) as $row) {
+			$result[$row->user_group_id] = $row->count;
+		}
+		return $result;
 	}
 
 	/**

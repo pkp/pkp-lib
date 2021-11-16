@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2021-11-16 03:30+0000\n"
+"PO-Revision-Date: 2021-11-16 18:16+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2277,3 +2277,36 @@ msgstr "O URL da submissão no dashboard editorial"
 
 msgid "mailable.mailDiscussionMessage.name"
 msgstr "Nova Mensagem de Discussão"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Este e-mail é automaticamente enviado para um novo utilizador quando se "
+"regista no site e as configurações requerem que o e-mail seja validado."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Validar E-mail (Site)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Este e-mail é enviado quando um editor desassocia um revisor."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Revisor Desassociado"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Este e-mail é enviado quando um revisor que foi desassociado é reintegrado "
+"por um editor."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Revisor Reintegrado"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Este e-mail é enviado quando um revisor é designado para a submissão."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Revisor Designado"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Este e-mail é enviado automaticamente a participantes da discussão quando "
+"uma nova mensagem é adicionada à discussão."

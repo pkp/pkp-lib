@@ -38,18 +38,18 @@ abstract class Collector implements CollectorInterface
     public const ORDER_DIR_DESC = 'DESC';
 
     public DAO $dao;
-    public ?array $categoryIds;
-    public ?array $contextIds;
-    public ?int $count;
-    public ?int $daysInactive;
+    public ?array $categoryIds = null;
+    public ?array $contextIds = null;
+    public ?int $count = null;
+    public ?int $daysInactive = null;
     public bool $isIncomplete = false;
     public bool $isOverdue = false;
-    public ?int $offset;
+    public ?int $offset = null;
     public string $orderBy = self::ORDERBY_DATE_SUBMITTED;
     public string $orderDirection = 'DESC';
     public ?string $searchPhrase = null;
-    public ?array $statuses;
-    public ?array $stageIds;
+    public ?array $statuses = null;
+    public ?array $stageIds = null;
 
     /** @var array|int */
     public $assignedTo = null;

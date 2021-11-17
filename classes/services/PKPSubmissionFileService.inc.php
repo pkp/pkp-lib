@@ -770,6 +770,9 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			case SUBMISSION_FILE_QUERY:
 				$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 				$note = $noteDao->getById($submissionFile->getData('assocId'));
+				if (!$note) {
+					return null;
+				}
 				$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 				$query = $queryDao->getById($note->getAssocId());
 				return $query ? $query->getStageId() : null;

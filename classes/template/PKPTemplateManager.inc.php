@@ -776,7 +776,7 @@ class PKPTemplateManager extends Smarty
         $dispatcher = $request->getDispatcher();
         $router = $request->getRouter();
 
-        if (empty($this->get_template_vars('pageComponent'))) {
+        if (empty($this->getTemplateVars('pageComponent'))) {
             $this->assign('pageComponent', 'Page');
         }
 
@@ -941,7 +941,7 @@ class PKPTemplateManager extends Smarty
                 $notificationsCount = count($notificationDao->getByUserId($request->getUser()->getId(), Notification::NOTIFICATION_LEVEL_TRIVIAL)->toArray());
 
                 // Load context switcher
-                $isAdmin = in_array(Role::ROLE_ID_SITE_ADMIN, $this->get_template_vars('userRoles'));
+                $isAdmin = in_array(Role::ROLE_ID_SITE_ADMIN, $this->getTemplateVars('userRoles'));
                 if ($isAdmin) {
                     $args = [];
                 } else {
@@ -1733,10 +1733,10 @@ class PKPTemplateManager extends Smarty
     public function smartyTitle($parameters, $smarty)
     {
         $page = $parameters['value'] ?? '';
-        if ($smarty->get_template_vars('currentContext')) {
-            $siteTitle = $smarty->get_template_vars('currentContext')->getLocalizedData('name');
-        } elseif ($smarty->get_template_vars('siteTitle')) {
-            $siteTitle = $smarty->get_template_vars('siteTitle');
+        if ($smarty->getTemplateVars('currentContext')) {
+            $siteTitle = $smarty->getTemplateVars('currentContext')->getLocalizedData('name');
+        } elseif ($smarty->getTemplateVars('siteTitle')) {
+            $siteTitle = $smarty->getTemplateVars('siteTitle');
         } else {
             $siteTitle = __('common.software');
         }
@@ -2437,35 +2437,6 @@ class PKPTemplateManager extends Smarty
         $output .= '</fieldset>';
 
         return $output;
-    }
-
-    /**
-     * DEPRECATED wrapper for Smarty2 backwards compatibility
-     *
-     * @param $varname
-     */
-    public function get_template_vars($varname = null)
-    {
-        if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Deprecated call to Smarty2 function ' . __FUNCTION__);
-        }
-        return $this->getTemplateVars($varname);
-    }
-
-    /**
-     * DEPRECATED wrapper for Smarty2 backwards compatibility
-     *
-     * @param $name
-     * @param $impl
-     * @param $cacheable
-     * @param $cache_attrs
-     */
-    public function register_function($name, $impl, $cacheable = true, $cache_attrs = null)
-    {
-        if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Deprecated call to Smarty2 function ' . __FUNCTION__);
-        }
-        $this->registerPlugin('function', $name, $impl, $cacheable, $cache_attrs);
     }
 }
 

@@ -145,7 +145,7 @@ class AdminHandler extends Handler
     {
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
-        $breadcrumbs = $templateMgr->get_template_vars('breadcrumbs');
+        $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
         $breadcrumbs[] = [
             'id' => 'contexts',
             'name' => __('admin.hostedContexts'),
@@ -202,7 +202,7 @@ class AdminHandler extends Handler
             ],
         ]);
 
-        $breadcrumbs = $templateMgr->get_template_vars('breadcrumbs');
+        $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
         $breadcrumbs[] = [
             'id' => 'settings',
             'name' => __('admin.siteSettings'),
@@ -314,7 +314,7 @@ class AdminHandler extends Handler
             'components' => $components,
         ]);
 
-        $breadcrumbs = $templateMgr->get_template_vars('breadcrumbs');
+        $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
         $breadcrumbs[] = [
             'id' => 'contexts',
             'name' => __('admin.hostedContexts'),
@@ -369,7 +369,7 @@ class AdminHandler extends Handler
 
         $templateMgr = TemplateManager::getManager($request);
 
-        $breadcrumbs = $templateMgr->get_template_vars('breadcrumbs');
+        $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
         $breadcrumbs[] = [
             'id' => 'wizard',
             'name' => __('admin.systemInformation'),

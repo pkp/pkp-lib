@@ -11,6 +11,8 @@
  * @ingroup tools
  */
 
+use Illuminate\Database\QueryException;
+
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
 
 class migrationTool extends \PKP\cliTool\CommandLineTool
@@ -66,7 +68,7 @@ class migrationTool extends \PKP\cliTool\CommandLineTool
             $direction = $this->direction;
             $migration->$direction();
         } catch (Exception $e) {
-            echo 'ERROR: ' . $e->toString() . "\n\n";
+            echo 'ERROR: ' . $e->getMessage() . "\n\n";
             exit(2);
         }
     }

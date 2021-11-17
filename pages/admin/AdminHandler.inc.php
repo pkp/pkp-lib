@@ -462,7 +462,7 @@ class AdminHandler extends Handler
     /**
      * Clear scheduled tasks execution logs.
      */
-    public function clearScheduledTaskLogFiles()
+    public function clearScheduledTaskLogFiles($args, $request)
     {
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);

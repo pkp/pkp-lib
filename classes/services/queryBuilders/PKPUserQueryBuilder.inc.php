@@ -17,6 +17,7 @@ namespace PKP\Services\QueryBuilders;
 use Carbon\Carbon;
 use DomainException;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\Query\Builder;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 use PKPString;
@@ -562,14 +563,9 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 			->when(!empty($this->getReviewerData), function (Builder $query) {
 				// Compile the statistics into a sub-query
 				$query->leftJoinSub(function (Builder $query): void {
-					switch (\Config::getVar('database', 'driver')) {
-						case 'mysql':
-						case 'mysqli':
-							$dateDiffClause = 'DATEDIFF(ra.date_completed, ra.date_notified)';
-							break;
-						default:
-							$dateDiffClause = "DATE_PART('day', ra.date_completed - ra.date_notified)";
-					}
+					$dateDiff = Capsule::connection() instanceof MySqlConnection
+						? 'DATEDIFF(ra.date_completed, ra.date_notified)'
+						: "DATE_PART('day', ra.date_completed - ra.date_notified)";
 					$query->from('review_assignments', 'ra')
 						->groupBy('ra.reviewer_id')
 						->select('ra.reviewer_id')
@@ -578,7 +574,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 						->selectRaw('COUNT(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined = 0 THEN 1 END) AS complete_count')
 						->selectRaw('SUM(ra.declined) AS declined_count')
 						->selectRaw('SUM(ra.cancelled) AS cancelled_count')
-						->selectRaw("AVG($dateDiffClause) AS average_time")
+						->selectRaw("AVG($dateDiff) AS average_time")
 						->selectRaw('AVG(ra.quality) AS reviewer_rating');
 				}, 'ra_stats', 'u.user_id', '=', 'ra_stats.reviewer_id')
 

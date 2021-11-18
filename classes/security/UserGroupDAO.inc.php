@@ -24,6 +24,7 @@ use DomainException;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPString;
 use PKP\db\DAO;
@@ -460,13 +461,12 @@ class UserGroupDAO extends DAO
     }
 
     /**
-     * Retrieve user groups counts
+     * Retrieves a keyed Collection (key = user_group_id, value = count) with the amount of active users for each user group
      */
-    public function getUserCountByContextId(int $contextId = null): array
+    public function getUserCountByContextId(int $contextId = null): Collection
     {
-        $query = DB::table('user_groups', 'ug')
-            ->join('user_user_groups AS uug', 'uug.user_id', '=', 'ug.user_group_id')
-            ->whereColumn('uug.user_group_id', '=', 'ug.user_group_id')
+        return DB::table('user_groups', 'ug')
+            ->join('user_user_groups AS uug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->join('users AS u', 'u.user_id', '=', 'uug.user_id')
             ->when($contextId, function (Builder $query) use ($contextId): void {
                 $query->where('ug.context_id', '=', $contextId);
@@ -474,16 +474,8 @@ class UserGroupDAO extends DAO
             ->where('u.disabled', '=', 0)
             ->groupBy('ug.user_group_id')
             ->select('ug.user_group_id')
-            ->selectRaw('COUNT(0) AS count');
-
-        $sql = $query->toSql();
-        $params = $query->getBindings();
-
-        $result = [];
-        foreach ($this->retrieveRange($sql, $params) as $row) {
-            $result[$row->user_group_id] = $row->count;
-        }
-        return $result;
+            ->selectRaw('COUNT(0) AS count')
+            ->pluck('count', 'user_group_id');
     }
 
     /**

@@ -39,8 +39,7 @@ class Collector implements CollectorInterface
     public const STATUS_DISABLED = 'disabled';
     public const STATUS_ALL = null;
 
-    /** @var DAO */
-    public $dao;
+    public DAO $dao;
 
     public string $orderBy = self::ORDERBY_ID;
     public string $orderDirection = 'ASC';
@@ -63,12 +62,9 @@ class Collector implements CollectorInterface
     public ?array $assignedTo = null;
     public ?int $reviewerRating = null;
     public ?int $reviewsCompleted = null;
-
-    /** @var int|array|null */
-    public $daysSinceLastAssignment = null;
-
+    public ?array $daysSinceLastAssignment = null;
     public ?int $averageCompletion = null;
-    public ?int $reviewsActive = null;
+    public ?array $reviewsActive = null;
     public ?int $count = null;
     public ?int $offset = null;
 
@@ -111,7 +107,7 @@ class Collector implements CollectorInterface
     /**
      * Limit results to those who have completed at least this many reviews
      */
-    public function filterByReviewsCompleted(?int $reviewsCompleted)
+    public function filterByReviewsCompleted(?int $reviewsCompleted): self
     {
         $this->includeReviewerData(true);
         $this->reviewsCompleted = $reviewsCompleted;
@@ -121,13 +117,11 @@ class Collector implements CollectorInterface
     /**
      * Limit results to those who's last review assignment was at least this many
      * days ago.
-     *
-     * @param $daysSinceLastAssignment int|array(min,max)|null
      */
-    public function filterByDaysSinceLastAssignment($daysSinceLastAssignment): self
+    public function filterByDaysSinceLastAssignment(?int $minimumDaysSinceLastAssignment = null, ?int $maximumDaysSinceLastAssignment = null): self
     {
         $this->includeReviewerData(true);
-        $this->daysSinceLastAssignment = $daysSinceLastAssignment;
+        $this->daysSinceLastAssignment = [$minimumDaysSinceLastAssignment, $maximumDaysSinceLastAssignment];
         return $this;
     }
 
@@ -144,13 +138,11 @@ class Collector implements CollectorInterface
 
     /**
      * Limit results to those who have at least this many active review assignments
-     *
-     * @param null|mixed $reviewsActive
      */
-    public function filterByReviewsActive($reviewsActive = null): self
+    public function filterByReviewsActive(?int $minimumReviewsActive = null, ?int $maximumReviewsActive = null): self
     {
         $this->includeReviewerData(true);
-        $this->reviewsActive = $reviewsActive;
+        $this->reviewsActive = [$minimumReviewsActive, $maximumReviewsActive];
         return $this;
     }
 
@@ -434,7 +426,7 @@ class Collector implements CollectorInterface
             })
 
             ->when(true, function (Builder $query): void {
-                foreach ([ASSOC_TYPE_SECTION => $this->assignedSectionIds, ASSOC_TYPE_CATEGORY => $this->assignedCategoryIds] as $assocType => $assocIds) {
+                foreach ([Application::ASSOC_TYPE_SECTION => $this->assignedSectionIds, Application::ASSOC_TYPE_CATEGORY => $this->assignedCategoryIds] as $assocType => $assocIds) {
                     if ($assocIds !== null) {
                         $query->whereExists(function (Builder $query) use ($assocIds, $assocType): void {
                             $query->from('subeditor_submission_group', 'ssg')
@@ -451,7 +443,7 @@ class Collector implements CollectorInterface
                     return '%' . addcslashes($word, '%_') . '%';
                 }, PKPString::regexp_split('/\s+/', $searchPhrase));
                 foreach ($words as $word) {
-                    $query->where(function(Builder $query) use ($word) {
+                    $query->where(function(Builder $query) use ($word): void {
                         $query->whereRaw('LOWER(u.username) LIKE LOWER(?)', [$word])
                             ->orWhereRaw('LOWER(u.email) LIKE LOWER(?)', [$word])
                             ->orWhereExists(function (Builder $query) use ($word): void {
@@ -459,6 +451,12 @@ class Collector implements CollectorInterface
                                     ->whereColumn('us.user_id', '=', 'u.user_id')
                                     ->whereIn('us.setting_name', [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName', 'affiliation', 'biography', 'orcid'])
                                     ->whereRaw('LOWER(us.setting_value) LIKE LOWER(?)', [$word]);
+                            })
+                            ->orWhereExists(function (Builder $query) use ($word): void {
+                                $query->from('user_interests', 'ui')
+                                    ->join('controlled_vocab_entry_settings AS cves', 'ui.controlled_vocab_entry_id', '=', 'cves.controlled_vocab_entry_id')
+                                    ->whereColumn('ui.user_id', '=', 'u.user_id')
+                                    ->whereRaw('LOWER(cves.setting_value) LIKE LOWER(?)', [$word]);
                             });
                     });
                 }
@@ -498,17 +496,25 @@ class Collector implements CollectorInterface
 
                     // Active reviews
                     ->when($this->reviewsActive !== null, function (Builder $query): void {
-                        $query->whereBetween('ra_stats.incomplete_count', $this->reviewsActive);
+                        [$min, $max] = $this->reviewsActive;
+                        if ($min !== null) {
+                            $query->where('ra_stats.incomplete_count', '>=', $min);
+                        }
+                        if ($max !== null) {
+                            $query->where('ra_stats.incomplete_count', '<=', $max);
+                        }
                     })
 
                     // Days since last review assignment
                     ->when($this->daysSinceLastAssignment !== null, function (Builder $query): void {
-                        $daysSinceLastAssignment = is_array($this->daysSinceLastAssignment) ? $this->daysSinceLastAssignment : [$this->daysSinceLastAssignment];
-                        $dbTimeMin = (string) Carbon::now()->subDays((int) reset($daysSinceLastAssignment))->toDateString();
-                        $query->where('ra_stats.last_assigned', '>', $dbTimeMin);
-                        if (count($daysSinceLastAssignment) > 1) {
-                            $dbTimeMax = (string) Carbon::now()->addDays((int) end($daysSinceLastAssignment) + 1)->toDateString(); // Add one to include upper bound
-                            $query->where('ra_stats.last_assigned', '<', $dbTimeMax);
+                        [$min, $max] = $this->daysSinceLastAssignment;
+                        if ($min !== null) {
+                            $dbTimeMin = (string) Carbon::now()->subDays((int) $min)->toDateString();
+                            $query->where('ra_stats.last_assigned', '<=', $dbTimeMin);
+                        }
+                        if ($max !== null) {
+                            $dbTimeMax = (string) Carbon::now()->subDays((int) $max + 1)->toDateString(); // Add one to include upper bound
+                            $query->where('ra_stats.last_assigned', '>=', $dbTimeMax);
                         }
                     })
 
@@ -531,11 +537,18 @@ class Collector implements CollectorInterface
             })
 
             ->when(
-                in_array($this->orderBy, [self::ORDERBY_GIVENNAME, self::ORDERBY_FAMILYNAME]),
-                function (Builder $query): void {
-                    $query->orderBy(function (Builder $query): void {
-                        $settingMap = [self::ORDERBY_GIVENNAME => Identity::IDENTITY_SETTING_GIVENNAME, self::ORDERBY_FAMILYNAME => Identity::IDENTITY_SETTING_FAMILYNAME];
-                        $locales = array_unique(empty($this->orderLocales) ? [AppLocale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()] : $this->orderLocales);
+                in_array($this->orderBy = self::ORDERBY_GIVENNAME, $settingMap = [
+                    self::ORDERBY_GIVENNAME => Identity::IDENTITY_SETTING_GIVENNAME,
+                    self::ORDERBY_FAMILYNAME => Identity::IDENTITY_SETTING_FAMILYNAME
+                ]),
+                function (Builder $query) use ($settingMap): void {
+                    $query->orderBy(function (Builder $query) use ($settingMap): void {
+                        $locales = array_unique(
+                            empty($this->orderLocales)
+                                ? [AppLocale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()]
+                                : $this->orderLocales
+                        );
+                        // The bindings below will be used to build a sequence of "CASE locale WHEN en_US THEN 1 WHEN pt_BR THEN 2 [...] ELSE $lastIndex + 1 END" below
                         $lastIndex = 0;
                         $bindinds = array_reduce($locales, function (array $bindings, string $locale) use (&$lastIndex): array {
                             array_push($bindings, $locale, ++$lastIndex);
@@ -547,8 +560,8 @@ class Collector implements CollectorInterface
                             ->whereColumn('us.user_id', '=', 'u.user_id')
                             ->where('us.setting_name', '=', $settingMap[$this->orderBy])
                             ->whereIn('us.locale', $locales)
-                            ->orderByRaw("COALESCE(us.setting_value, '') = ''") // Prefers non-null/non-empty values
-                            ->orderByRaw('CASE us.locale ' . str_repeat('WHEN ? THEN ?', count($locales)) . ' ELSE ? END', [$bindinds]) // Then follow the locale order
+                            ->orderByRaw("COALESCE(us.setting_value, '') = ''") // Not empty values first
+                            ->orderByRaw('CASE us.locale ' . str_repeat('WHEN ? THEN ?', count($locales)) . ' ELSE ? END', $bindinds) // Then follow the locale order
                             ->limit(1)
                             ->select('us.setting_value');
                     }, $this->orderDirection);

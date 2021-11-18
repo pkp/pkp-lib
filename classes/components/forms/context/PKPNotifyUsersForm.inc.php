@@ -59,7 +59,7 @@ class PKPNotifyUsersForm extends FormComponent
                 'value' => $userGroup->getId(),
                 'label' => $userGroup->getLocalizedData('name'),
             ];
-            $this->userGroupCounts[$userGroup->getId()] = $userCountByGroupId[$userGroup->getId()] ?? 0;
+            $this->userGroupCounts[$userGroup->getId()] = $userCountByGroupId->get($userGroup->getId(), 0);
         }
 
         $currentUser = Application::get()->getRequest()->getUser();

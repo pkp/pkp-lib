@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2021-10-10 05:02+0000\n"
+"PO-Revision-Date: 2021-11-20 18:23+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl_SI/>\n"
@@ -2296,3 +2296,39 @@ msgstr "Polno ime naslovnika ali naslovnikov"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL naslov strani, kjer lahko uporabnik pridobi izgubljeno geslo"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Ta email se avtomatično pošlje novemu uporabniku ob registraciji, če je v "
+"nastavitvah zahtevana potrditev email naslovov."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Potrdi email (Site)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Ta email se pošlje, ko urednik razreši recenzenta s prispevka."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Recenzent razrešen"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Ta email se pošlje, ko je urednik ponovno dodeli prispevek recenzentu, ki je "
+"prvotno prispevek zavrnil."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Recenzent ponovno dodeljen"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Ta email se pošlje, ko je prispevku dodeljen recenzent."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Recenzent dodeljen"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Ta email se pošlje vsem sodelujočim v diskusiji, ko je diskusiji dodano novo "
+"sporočilo."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Novo sporočilo v diskusiji"

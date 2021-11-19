@@ -50,8 +50,17 @@ abstract class BaseJob implements ShouldQueue
 
     public function __construct()
     {
-        $this->connection = Config::getVar('queues', 'default_connection', 'database');
+        $this->connection = $this->defaultConnection();
         $this->queue = Config::getVar('queues', 'default_queue', null);
+    }
+
+    protected function defaultConnection(): string
+    {
+        if (defined('RUNNING_UPGRADE')) {
+            return 'sync';
+        }
+
+        return Config::getVar('queues', 'default_connection', 'database');
     }
 
     abstract public function handle();

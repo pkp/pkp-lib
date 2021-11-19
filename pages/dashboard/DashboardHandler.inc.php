@@ -81,9 +81,11 @@ class DashboardHandler extends Handler
 
         // Get all available categories
         $categories = [];
-        $categoryDao = \DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        $categoryIterator = $categoryDao->getByContextId($context->getId())->toAssociativeArray();
-        foreach ($categoryIterator as $category) {
+        $categoryCollection = Repo::category()->getMany(
+            Repo::category()->getCollector()
+                ->filterByContextIds([$context->getId()])
+        );
+        foreach ($categoryCollection as $category) {
             $categories[] = [
                 'id' => $category->getId(),
                 'title' => $category->getLocalizedTitle(),

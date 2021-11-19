@@ -1,186 +1,144 @@
 <?php
 
 /**
- * @file classes/context/Category.inc.php
+ * @file classes/category/Category.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Category
- * @ingroup context
- *
- * @see CategoryDAO
- *
  * @brief Describes basic Category properties.
  */
 
-namespace PKP\context;
+namespace PKP\category;
 
 class Category extends \PKP\core\DataObject
 {
     /**
      * Get ID of context.
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): int
     {
         return $this->getData('contextId');
     }
 
     /**
      * Set ID of context.
-     *
-     * @param $contextId int
      */
-    public function setContextId($contextId)
+    public function setContextId(int $contextId)
     {
         return $this->setData('contextId', $contextId);
     }
 
     /**
      * Get ID of parent category.
-     *
-     * @return int
      */
-    public function getParentId()
+    public function getParentId(): ?int
     {
         return $this->getData('parentId');
     }
 
     /**
      * Set ID of parent category.
-     *
-     * @param $parentId int
      */
-    public function setParentId($parentId)
+    public function setParentId(?int $parentId)
     {
         return $this->setData('parentId', $parentId);
     }
 
     /**
      * Get sequence of category.
-     *
-     * @return int
      */
-    public function getSequence()
+    public function getSequence(): float
     {
-        return $this->getData('sequence');
+        return (float) $this->getData('sequence');
     }
 
     /**
      * Set sequence of category.
-     *
-     * @param $sequence int
      */
-    public function setSequence($sequence)
+    public function setSequence(float $sequence)
     {
         return $this->setData('sequence', $sequence);
     }
 
     /**
      * Get category path.
-     *
-     * @return string
      */
-    public function getPath()
+    public function getPath(): string
     {
         return $this->getData('path');
     }
 
     /**
      * Set category path.
-     *
-     * @param $path string
      */
-    public function setPath($path)
+    public function setPath(string $path)
     {
         return $this->setData('path', $path);
     }
 
     /**
      * Get localized title of the category.
-     *
-     * @return string
      */
-    public function getLocalizedTitle()
+    public function getLocalizedTitle(): string
     {
         return $this->getLocalizedData('title');
     }
 
     /**
      * Get title of category.
-     *
-     * @param $locale string
-     *
-     * @return string
      */
-    public function getTitle($locale)
+    public function getTitle(?string $locale = null)
     {
         return $this->getData('title', $locale);
     }
 
     /**
      * Set title of category.
-     *
-     * @param $title string
-     * @param $locale string
      */
-    public function setTitle($title, $locale)
+    public function setTitle($title, ?string $locale)
     {
         return $this->setData('title', $title, $locale);
     }
 
     /**
      * Get localized description of the category.
-     *
-     * @return string
      */
-    public function getLocalizedDescription()
+    public function getLocalizedDescription(): string
     {
         return $this->getLocalizedData('description');
     }
 
     /**
      * Get description of category.
-     *
-     * @param $locale string
-     *
-     * @return string
      */
-    public function getDescription($locale)
+    public function getDescription(?string $locale)
     {
         return $this->getData('description', $locale);
     }
 
     /**
      * Set description of category.
-     *
-     * @param $description string
-     * @param $locale string
      */
-    public function setDescription($description, $locale)
+    public function setDescription($description, ?string $locale)
     {
         return $this->setData('description', $description, $locale);
     }
 
     /**
      * Get the image.
-     *
-     * @return array
      */
-    public function getImage()
+    public function getImage(): ?array
     {
         return $this->getData('image');
     }
 
     /**
      * Set the image.
-     *
-     * @param $image array
      */
-    public function setImage($image)
+    public function setImage(?array $image)
     {
         return $this->setData('image', $image);
     }
@@ -188,26 +146,22 @@ class Category extends \PKP\core\DataObject
     /**
      * Get the option how the books in this category should be sorted,
      * in the form: concat(sortBy, sortDir).
-     *
-     * @return string
      */
-    public function getSortOption()
+    public function getSortOption(): ?string
     {
         return $this->getData('sortOption');
     }
 
     /**
-     * Set the option how the books in this categpry should be sorted,
+     * Set the option how the books in this category should be sorted,
      * in the form: concat(sortBy, sortDir).
-     *
-     * @param $sortOption string
      */
-    public function setSortOption($sortOption)
+    public function setSortOption(?string $sortOption)
     {
         return $this->setData('sortOption', $sortOption);
     }
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\context\Category', '\Category');
+    class_alias('\PKP\category\Category', '\Category');
 }

@@ -26,29 +26,41 @@ class CategoriesMigration extends \PKP\migration\Migration
         // Permits the organization of content into categories.
         Schema::create('categories', function (Blueprint $table) {
             $table->bigInteger('category_id')->autoIncrement();
+
             $table->bigInteger('context_id');
-            $table->bigInteger('parent_id');
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
+
+            $table->bigInteger('parent_id')->nullable(); // Self-referential foreign key set below
+
             $table->bigInteger('seq')->nullable();
             $table->string('path', 255);
             $table->text('image')->nullable();
             $table->index(['context_id', 'parent_id'], 'category_context_id');
             $table->unique(['context_id', 'path'], 'category_path');
         });
+        Schema::table('categories', function (Blueprint $table) {
+            $table->foreign('parent_id')->references('category_id')->on('categories');
+        });
 
         // Category-specific settings
         Schema::create('category_settings', function (Blueprint $table) {
             $table->bigInteger('category_id');
+            $table->foreign('category_id')->references('category_id')->on('categories');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
-            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->unique(['category_id', 'locale', 'setting_name'], 'category_settings_pkey');
         });
 
         // Associations for categories and publications.
         Schema::create('publication_categories', function (Blueprint $table) {
             $table->bigInteger('publication_id');
+            $table->foreign('publication_id')->references('publication_id')->on('publications');
+
             $table->bigInteger('category_id');
+            $table->foreign('category_id')->references('category_id')->on('categories');
+
             $table->unique(['publication_id', 'category_id'], 'publication_categories_id');
         });
     }

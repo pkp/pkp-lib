@@ -31,7 +31,7 @@ import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 {
     /**
-     * Array of Users that are going to be used for email notifications 
+     * Array of Users that are going to be used for email notifications
      */
     protected array $emailRecipients = [];
 
@@ -125,10 +125,12 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         }
 
         // Assign sub editors for categories
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
         $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
-        $categories = $categoryDao->getByPublicationId($this->submission->getCurrentPublication()->getId());
-        while ($category = $categories->next()) {
+        $categories = Repo::category()->getMany(
+            Repo::category()->getCollector()
+                ->filterByPublicationIds([$this->submission->getCurrentPublication()->getId()])
+        );
+        foreach ($categories as $category) {
             $subEditors = $subEditorsDao->getBySubmissionGroupId($category->getId(), ASSOC_TYPE_CATEGORY, $this->submission->getContextId());
             foreach ($subEditors as $subEditor) {
                 $userGroups = $userGroupDao->getByUserId($subEditor->getId(), $this->submission->getContextId());
@@ -199,11 +201,11 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         $user = $request->getUser();
 
         $assignedAuthors = Repo::author()->getSubmissionAuthors($this->submission);
-        
+
         if ($assignedAuthors->count() > 0) {
             foreach ($assignedAuthors as $author) {
                 $authorEmail = $author->getEmail();
-                // only add the author email if they have not aalready been added 
+                // only add the author email if they have not aalready been added
                 // as the user creating the submission.
                 if ($authorEmail != $user->getEmail()) {
                     array_push($this->emailRecipients, $author);

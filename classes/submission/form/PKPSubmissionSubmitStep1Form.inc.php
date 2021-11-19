@@ -178,18 +178,19 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 
         // Categories list
         $assignedCategories = [];
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
 
         if (isset($this->submission)) {
-            $categories = $categoryDao->getByPublicationId($this->submission->getCurrentPublication()->getId());
-            while ($category = $categories->next()) {
-                $assignedCategories[] = $category->getId();
-            }
+            $assignedCategories = iterator_to_array(Repo::category()->getIds(
+                Repo::category()->getCollector()
+                    ->filterByPublicationIds([$this->submission->getCurrentPublication()->getId()])
+            ));
         }
 
         $items = [];
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        $categories = $categoryDao->getByContextId($this->context->getId())->toAssociativeArray();
+        $categories = iterator_to_array(Repo::category()->getMany(
+            Repo::category()->getCollector()
+                ->filterByContextIds([$this->context->getId()])
+        ));
         foreach ($categories as $category) {
             $title = $category->getLocalizedTitle();
             if ($category->getParentId()) {
@@ -457,11 +458,10 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
         }
 
         // Save the submission categories
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        $categoryDao->deletePublicationAssignments($publication->getId());
+        Repo::category()->dao->deletePublicationAssignments($publication->getId());
         if ($categories = $this->getData('categories')) {
             foreach ((array) $categories as $categoryId) {
-                $categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
+                Repo::category()->dao->insertPublicationAssignment($categoryId, $publication->getId());
             }
         }
 

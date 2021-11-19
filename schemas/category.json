@@ -1,0 +1,67 @@
+{
+	"title": "Category",
+	"description": "A category of content.",
+	"required": [
+		"contextId",
+		"path",
+		"title"
+	],
+	"properties": {
+		"contextId": {
+			"type": "integer",
+			"description": "The journal, press or preprint server ID.",
+			"apiSummary": true
+		},
+		"sequence": {
+			"type": "number",
+			"description": "The sequence number for this category (for ordering)",
+			"apiSummary": true
+		},
+		"parentId": {
+			"type": "integer",
+			"description": "The optional ID of the parent category.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"sortOption": {
+			"type": "string",
+			"description": "The sorting order for contents of this category.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"title": {
+			"type": "string",
+			"description": "The title of the category.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"description": {
+			"type": "string",
+			"description": "A description of the category.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"path": {
+			"type": "string",
+			"description": "A URL slug for this category.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"id": {
+			"type": "integer",
+			"apiSummary": true
+		}
+	}
+}

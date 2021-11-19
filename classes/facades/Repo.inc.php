@@ -42,4 +42,9 @@ class Repo
     {
         return App::make(\PKP\emailTemplate\Repository::class);
     }
+
+    public static function category(): \PKP\category\Repository
+    {
+        return App::make(\PKP\category\Repository::class);
+    }
 }

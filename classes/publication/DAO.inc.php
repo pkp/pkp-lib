@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\citation\CitationDAO;
-use PKP\context\CategoryDAO;
 use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionAgencyDAO;
@@ -60,9 +59,6 @@ class DAO extends EntityDAO
     /** @var SubmissionAgencyDAO */
     public $submissionAgencyDao;
 
-    /** @var CategoryDAO */
-    public $categoryDao;
-
     /** @var CitationDAO */
     public $citationDao;
 
@@ -75,7 +71,6 @@ class DAO extends EntityDAO
         SubmissionDisciplineDAO $submissionDisciplineDao,
         SubmissionLanguageDAO $submissionLanguageDao,
         SubmissionAgencyDAO $submissionAgencyDao,
-        CategoryDAO $categoryDao,
         CitationDAO $citationDao,
         PKPSchemaService $schemaService
     ) {
@@ -86,7 +81,6 @@ class DAO extends EntityDAO
         $this->submissionDisciplineDao = $submissionDisciplineDao;
         $this->submissionLanguageDao = $submissionLanguageDao;
         $this->submissionAgencyDao = $submissionAgencyDao;
-        $this->categoryDao = $categoryDao;
         $this->citationDao = $citationDao;
     }
 
@@ -501,7 +495,10 @@ class DAO extends EntityDAO
             function ($category) {
                 return (int) $category->getId();
             },
-            $this->categoryDao->getByPublicationId($publication->getId())->toArray()
+            iterator_to_array(Repo::category()->getMany(
+                Repo::category()->getCollector()
+                    ->filterByPublicationIds([$publication->getId()])
+            ))
         ));
     }
 
@@ -510,10 +507,10 @@ class DAO extends EntityDAO
      */
     protected function saveCategories(Publication $publication)
     {
-        $this->categoryDao->deletePublicationAssignments($publication->getId());
+        Repo::category()->dao->deletePublicationAssignments($publication->getId());
         if (!empty($publication->getData('categoryIds'))) {
             foreach ($publication->getData('categoryIds') as $categoryId) {
-                $this->categoryDao->insertPublicationAssignment($categoryId, $publication->getId());
+                Repo::category()->dao->insertPublicationAssignment($categoryId, $publication->getId());
             }
         }
     }
@@ -523,7 +520,7 @@ class DAO extends EntityDAO
      */
     protected function deleteCategories(int $publicationId)
     {
-        $this->categoryDao->deletePublicationAssignments($publicationId);
+        Repo::category()->dao->deletePublicationAssignments($publicationId);
     }
 
     /**

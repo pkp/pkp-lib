@@ -65,8 +65,12 @@ class CategoryForm extends Form
             'required',
             'grid.category.pathExists',
             function ($path) use ($form, $contextId) {
-                $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-                return !$categoryDao->categoryExistsByPath($path, $contextId) || ($form->getData('oldPath') != null && $form->getData('oldPath') == $path);
+                $category = Repo::category()->getMany(
+                    Repo::category()->getCollector()
+                        ->filterByContextIds([$contextId])
+                        ->filterByPaths([$path])
+                )->first();
+                return !$category || $category->getPath() == $form->getData('oldPath');
             }
         ));
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
@@ -114,8 +118,7 @@ class CategoryForm extends Form
      */
     public function getLocaleFieldNames()
     {
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        return $categoryDao->getLocaleFieldNames();
+        return ['name', 'description'];
     }
 
     /**
@@ -123,10 +126,13 @@ class CategoryForm extends Form
      */
     public function initData()
     {
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-        $category = $categoryDao->getById($this->getCategoryId(), $this->getContextId());
+        $category = Repo::category()->get($this->getCategoryId());
 
         if ($category) {
+            if ($category->getContextId() != $this->getContextId()) {
+                throw new \Exception('Wrong context ID for category!');
+            }
+
             $this->setData('name', $category->getTitle(null)); // Localized
             $this->setData('description', $category->getDescription(null)); // Localized
             $this->setData('parentId', $category->getParentId());
@@ -168,8 +174,10 @@ class CategoryForm extends Form
 
         // For path duplicate checking; excuse the current path.
         if ($categoryId = $this->getCategoryId()) {
-            $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
-            $category = $categoryDao->getById($categoryId, $this->getContextId());
+            $category = Repo::category()->get($categoryId);
+            if ($category->getContextId() != $this->getContextId()) {
+                throw new \Exception('Wrong context ID for category!');
+            }
             $this->setData('oldPath', $category->getPath());
         }
     }
@@ -181,15 +189,18 @@ class CategoryForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
         $context = $request->getContext();
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('categoryId', $this->getCategoryId());
 
         // Provide a list of root categories to the template
-        $rootCategoriesIterator = $categoryDao->getByParentId(0, $context->getId());
-        $rootCategories = [0 => __('common.none')];
-        while ($category = $rootCategoriesIterator->next()) {
+        $rootCategoriesCollection = Repo::category()->getMany(
+            Repo::category()->getCollector()
+                ->filterByParentIds([null])
+                ->filterByContextIds([$context->getId()])
+        );
+        $rootCategories = [null => __('common.none')];
+        foreach ($rootCategoriesCollection as $category) {
             $categoryId = $category->getId();
             if ($categoryId != $this->getCategoryId()) {
                 // Don't permit time travel paradox
@@ -202,10 +213,12 @@ class CategoryForm extends Form
         // if so, prevent the user from giving it a parent.
         // (Forced two-level maximum tree depth.)
         if ($this->getCategoryId()) {
-            $children = $categoryDao->getByParentId($this->getCategoryId(), $context->getId());
-            if ($children->next()) {
-                $templateMgr->assign('cannotSelectChild', true);
-            }
+            $childCount = Repo::category()->getCount(
+                Repo::category()->getCollector()
+                    ->filterByParentIds([$this->getCategoryId()])
+                    ->filterByContextIds([$context->getId()])
+            );
+            $templateMgr->assign('cannotSelectChild', $childCount > 0);
         }
         // Sort options.
         $templateMgr->assign('sortOptions', Repo::submission()->getSortSelectOptions());
@@ -243,30 +256,32 @@ class CategoryForm extends Form
     public function execute(...$functionArgs)
     {
         $categoryId = $this->getCategoryId();
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /** @var CategoryDAO $categoryDao */
 
         // Get a category object to edit or create
         if ($categoryId == null) {
-            $category = $categoryDao->newDataObject();
+            $category = Repo::category()->dao->newDataObject();
             $category->setContextId($this->getContextId());
         } else {
-            $category = $categoryDao->getById($categoryId, $this->getContextId());
+            $category = Repo::category()->get($categoryId);
+            if ($category->getContextId() != $this->getContextId()) {
+                throw new \Exception('Wrong context ID for category!');
+            }
         }
 
         // Set the editable properties of the category object
         $category->setTitle($this->getData('name'), null); // Localized
         $category->setDescription($this->getData('description'), null); // Localized
-        $category->setParentId($this->getData('parentId'));
+        $category->setParentId(((int) $this->getData('parentId')) ?: null);
         $category->setPath($this->getData('path'));
         $category->setSortOption($this->getData('sortOption'));
 
         // Update or insert the category object
         if ($categoryId == null) {
-            $this->setCategoryId($categoryDao->insertObject($category));
-        } else {
+            $this->setCategoryId(Repo::category()->add($category));
             $category->setSequence(REALLY_BIG_NUMBER);
-            $categoryDao->updateObject($category);
-            $categoryDao->resequenceCategories($this->getContextId());
+            Repo::category()->dao->resequenceCategories($this->getContextId());
+        } else {
+            Repo::category()->edit($category, []);
         }
 
         // Update category editors
@@ -354,7 +369,7 @@ class CategoryForm extends Form
         }
 
         // Update category object to store image information.
-        $categoryDao->updateObject($category);
+        Repo::category()->edit($category, []);
         parent::execute(...$functionArgs);
         return $category;
     }

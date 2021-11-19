@@ -73,10 +73,10 @@ class ThankReviewerForm extends Form
 
         $dispatcher = $request->getDispatcher();
         $email->assignParams([
-            'reviewerName' => $reviewer->getFullName(),
-            'reviewerUserName' => $reviewer->getUsername(),
+            'recipientName' => $reviewer->getFullName(),
+            'recipientUsername' => $reviewer->getUsername(),
             'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-            'submissionReviewUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, ['submissionId' => $reviewAssignment->getSubmissionId()])
+            'reviewAssignmentUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, ['submissionId' => $reviewAssignment->getSubmissionId()])
         ]);
         $email->replaceParams();
 
@@ -120,10 +120,10 @@ class ThankReviewerForm extends Form
             $context = $request->getContext();
             $user = $request->getUser();
             $email->assignParams([
-                'reviewerName' => $reviewer->getFullName(),
-                'contextUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
-                'editorialContactSignature' => $user->getContactSignature(),
-                'signatureFullName' => $user->getFullname(),
+                'recipientName' => $reviewer->getFullName(),
+                'journalUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
+                'signature' => $user->getContactSignature(),
+                'senderName' => $user->getFullname(),
             ]);
             if (!$email->send($request)) {
                 $notificationMgr = new NotificationManager();

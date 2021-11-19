@@ -45,9 +45,9 @@ class ReviewReminder extends ScheduledTask
      * @param $submission Submission
      * @param $context Context
      * @param $reminderType string
-     * 	REVIEW_REMIND_AUTO, REVIEW_REQUEST_REMIND_AUTO
+     * 	REVIEW_REMIND_AUTO, REVIEW_RESPONSE_OVERDUE_AUTO
      */
-    public function sendReminder($reviewAssignment, $submission, $context, $reminderType = 'REVIEW_REMIND_AUTO')
+    public function sendReminder($reviewAssignment, $submission, $context, $reminderType = 'REVIEW_RESPONSE_OVERDUE_AUTO')
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewId = $reviewAssignment->getId();
@@ -63,8 +63,8 @@ class ReviewReminder extends ScheduledTask
             case $reviewerAccessKeysEnabled && ($reminderType == 'REVIEW_REMIND_AUTO'):
                 $emailKey = 'REVIEW_REMIND_AUTO_ONECLICK';
                 break;
-            case $reviewerAccessKeysEnabled && ($reminderType == REVIEW_REQUEST_REMIND_AUTO):
-                $emailKey = 'REVIEW_REQUEST_REMIND_AUTO_ONECLICK';
+            case $reviewerAccessKeysEnabled && ($reminderType == 'REVIEW_RESPONSE_OVERDUE_AUTO'):
+                $emailKey = 'REVIEW_RESPONSE_OVERDUE_AUTO_ONECLICK';
                 break;
         }
         $email = new SubmissionMailTemplate($submission, $emailKey, $context->getPrimaryLocale(), $context, false);
@@ -111,13 +111,13 @@ class ReviewReminder extends ScheduledTask
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
         $paramArray = [
-            'reviewerName' => $reviewer->getFullName(),
-            'reviewerUserName' => $reviewer->getUsername(),
+            'recipientName' => $reviewer->getFullName(),
+            'recipientUsername' => $reviewer->getUsername(),
             'reviewDueDate' => $reviewDueDate,
             'responseDueDate' => $responseDueDate,
-            'editorialContactSignature' => $context->getData('contactName') . "\n" . $context->getLocalizedName(),
+            'signature' => $context->getData('contactName') . "\n" . $context->getLocalizedName(),
             'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-            'submissionReviewUrl' => $submissionReviewUrl,
+            'reviewAssignmentUrl' => $submissionReviewUrl,
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')),
         ];
@@ -182,7 +182,7 @@ class ReviewReminder extends ScheduledTask
             if ($inviteReminderDays >= 1 && $reviewAssignment->getDateConfirmed() == null) {
                 $checkDate = strtotime($reviewAssignment->getDateResponseDue());
                 if (time() - $checkDate > 60 * 60 * 24 * $inviteReminderDays) {
-                    $reminderType = REVIEW_REQUEST_REMIND_AUTO;
+                    $reminderType = 'REVIEW_RESPONSE_OVERDUE_AUTO';
                 }
             }
 

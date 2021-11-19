@@ -432,7 +432,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
             $emailParams = [
                 'notificationContents' => $this->getNotificationContents($request, $notification),
-                'url' => $this->getNotificationUrl($request, $notification),
+                'notificationUrl' => $this->getNotificationUrl($request, $notification),
                 'siteTitle' => $context ? $context->getLocalizedName() : $site->getLocalizedTitle(),
             ];
 

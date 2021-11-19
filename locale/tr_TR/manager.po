@@ -2290,10 +2290,10 @@ msgstr "Bildirimler"
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "Editör ekranında aday makalenin URL'si"
 
-msgid "emailTemplate.variable.submission.authorsFull"
+msgid "emailTemplate.variable.submission.authors"
 msgstr "Yazarların tam isimleri"
 
-msgid "emailTemplate.variable.submission.authors"
+msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Kısaltılmış bir dize biçimindeki yazar adları"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"

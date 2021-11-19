@@ -218,7 +218,7 @@ class RecommendationForm extends Form
             $submissionUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'workflow', 'index', [$submission->getId(), $this->getStageId()]);
             $email->assignParams([
                 'editors' => $this->getData('editors'),
-                'editorialContactSignature' => $user->getContactSignature(),
+                'signature' => $user->getContactSignature(),
                 'submissionUrl' => $submissionUrl,
                 'recommendation' => __($recommendationOptions[$recommendation]),
             ]);

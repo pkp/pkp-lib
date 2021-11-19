@@ -2323,10 +2323,10 @@ msgstr "URL til en side, hvor brugeren kan gendanne en mistet adgangskode"
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "Indsendelsens URL i den redaktionelle backend"
 
-msgid "emailTemplate.variable.submission.authorsFull"
+msgid "emailTemplate.variable.submission.authors"
 msgstr "Forfatternes fulde navne"
 
-msgid "emailTemplate.variable.submission.authors"
+msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Forfatternavne i form af en forkortet streng"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"

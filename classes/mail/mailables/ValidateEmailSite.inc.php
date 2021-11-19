@@ -25,7 +25,7 @@ class ValidateEmailSite extends Mailable
 {
     use Recipient;
 
-    public const EMAIL_KEY = 'USER_VALIDATE';
+    public const EMAIL_KEY = 'USER_VALIDATE_SITE';
 
     protected static ?string $name = 'mailable.validateEmailSite.name';
 

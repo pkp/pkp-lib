@@ -86,7 +86,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
 
         $submissionUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
         $email->assignParams([
-            'authorName' => $submission->getAuthorString(),
+            'authors' => $submission->getAuthorString(),
             'submissionUrl' => $submissionUrl,
         ]);
         $email->replaceParams();
@@ -100,7 +100,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
         $data = [
             'submissionId' => $submission->getId(),
             'decision' => $this->getDecision(),
-            'authorName' => $submission->getAuthorString(),
+            'authors' => $submission->getAuthorString(),
             'personalMessage' => $email->getBody(),
             'actionLabel' => $actionLabels[$this->getDecision()],
             'bccReviewers' => []
@@ -344,9 +344,9 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
             $user = $request->getUser();
             $email->assignParams([
                 'submissionUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
-                'contextName' => $context->getLocalizedName(),
-                'authorName' => $submission->getAuthorString(),
-                'editorialContactSignature' => $user->getContactSignature(),
+                'journalName' => $context->getLocalizedName(),
+                'authors' => $submission->getAuthorString(),
+                'signature' => $user->getContactSignature(),
             ]);
             if (!$email->send($request)) {
                 $notificationMgr = new NotificationManager();
@@ -370,10 +370,10 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
         $user = $request->getUser();
         return [
             'submissionUrl' => __('common.url'),
-            'contextName' => $request->getContext()->getLocalizedName(),
-            'editorialContactSignature' => strip_tags($user->getContactSignature(), '<br>'),
+            'journalName' => $request->getContext()->getLocalizedName(),
+            'signature' => strip_tags($user->getContactSignature(), '<br>'),
             'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
-            'authorName' => strip_tags($submission->getAuthorString()),
+            'authors' => strip_tags($submission->getAuthorString()),
         ];
     }
 
@@ -385,10 +385,10 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
     public function _getAllowedVariablesType()
     {
         return [
-            'contextName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
-            'editorialContactSignature' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+            'journalName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+            'signature' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
             'submissionTitle' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
-            'authorName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+            'authors' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
         ];
     }
 }

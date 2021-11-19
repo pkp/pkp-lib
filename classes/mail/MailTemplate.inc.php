@@ -18,6 +18,7 @@ namespace PKP\mail;
 use APP\core\Application;
 
 use APP\i18n\AppLocale;
+use APP\mail\variables\ContextEmailVariable;
 use PKP\core\PKPApplication;
 use PKP\facades\Repo;
 
@@ -168,9 +169,9 @@ class MailTemplate extends Mail
             // Add context-specific variables
             $dispatcher = $application->getDispatcher();
             $params = array_merge([
-                'principalContactSignature' => $this->context->getData('contactName'),
-                'contextName' => $this->context->getLocalizedName(),
-                'contextUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $this->context->getPath()),
+                'signature' => $this->context->getData('contactName'),
+                ContextEmailVariable::CONTEXT_NAME => $this->context->getLocalizedName(),
+                ContextEmailVariable::CONTEXT_URL => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $this->context->getPath()),
                 'mailingAddress' => htmlspecialchars(nl2br($this->context->getData('mailingAddress'))),
                 'contactEmail' => htmlspecialchars($this->context->getData('contactEmail')),
                 'contactName' => htmlspecialchars($this->context->getData('contactName')),
@@ -178,7 +179,7 @@ class MailTemplate extends Mail
         } else {
             // No context available
             $params = array_merge([
-                'principalContactSignature' => $site->getLocalizedContactName(),
+                'signature' => $site->getLocalizedContactName(),
             ], $params);
         }
 

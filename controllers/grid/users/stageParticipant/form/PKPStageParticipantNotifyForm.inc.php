@@ -178,14 +178,10 @@ abstract class PKPStageParticipantNotifyForm extends Form
 
             // Parameters for various emails
             $email->assignParams([
-                // COPYEDIT_REQUEST, LAYOUT_REQUEST, INDEX_REQUEST
-                'participantName' => $user->getFullName(),
-                'participantUsername' => $user->getUsername(),
+                // COPYEDIT_REQUEST, LAYOUT_REQUEST, INDEX_REQUEST, LAYOUT_COMPLETE, INDEX_COMPLETE, EDITOR_ASSIGN, EDITOR_ASSIGN
+                'recipientName' => $user->getFullName(),
+                'recipientUsername' => $user->getUsername(),
                 'submissionUrl' => $submissionUrl,
-                // LAYOUT_COMPLETE, INDEX_COMPLETE, EDITOR_ASSIGN
-                'editorialContactName' => $user->getFullname(),
-                // EDITOR_ASSIGN
-                'editorUsername' => $user->getUsername(),
                 // AUTHOR ASSIGN, AUTHOR NOTIFY
                 'authorName' => $user->getFullName(),
             ]);
@@ -274,17 +270,17 @@ abstract class PKPStageParticipantNotifyForm extends Form
             case 'COPYEDIT_REQUEST':
             case 'LAYOUT_REQUEST':
             case 'INDEX_REQUEST': return [
-                'participantName' => __('user.name'),
-                'participantUsername' => __('user.username'),
+                'recipientName' => __('user.name'),
+                'recipientUsername' => __('user.username'),
                 'submissionUrl' => __('common.url'),
             ];
             case 'LAYOUT_COMPLETE':
             case 'INDEX_COMPLETE': return [
-                'editorialContactName' => __('user.role.editor'),
+                'recipientName' => __('user.role.editor'),
             ];
             case 'EDITOR_ASSIGN': return [
-                'editorUsername' => __('user.username'),
-                'editorialContactName' => __('user.role.editor'),
+                'recipientUsername' => __('user.username'),
+                'signature' => __('user.role.editor'),
                 'submissionUrl' => __('common.url'),
             ];
         }

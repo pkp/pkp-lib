@@ -214,7 +214,7 @@ class LoginHandler extends Handler
             $site = $request->getSite();
             $this->_setMailFrom($request, $mail, $site);
             $mail->assignParams([
-                'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), ['confirm' => $hash]),
+                'passwordResetUrl' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), ['confirm' => $hash]),
                 'siteTitle' => $site->getLocalizedTitle()
             ]);
             $mail->addRecipient($user->getEmail(), $user->getFullName());
@@ -279,7 +279,7 @@ class LoginHandler extends Handler
             $mail = new MailTemplate('PASSWORD_RESET');
             $this->_setMailFrom($request, $mail, $site);
             $mail->assignParams([
-                'username' => $user->getUsername(),
+                'recipientUsername' => $user->getUsername(),
                 'password' => $newPassword,
                 'siteTitle' => $site->getLocalizedTitle()
             ]);

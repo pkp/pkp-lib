@@ -2143,10 +2143,10 @@ msgstr "Уведомления"
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "URL материала в бэкенде редакции"
 
-msgid "emailTemplate.variable.submission.authorsFull"
+msgid "emailTemplate.variable.submission.authors"
 msgstr "ФИО авторов"
 
-msgid "emailTemplate.variable.submission.authors"
+msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Имена авторов в форме короткой строки"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"

@@ -88,8 +88,8 @@ class ValidateRegisteredEmail
             $mailable->from($event->site->getLocalizedContactEmail(), $event->site->getLocalizedContactName());
             $mailable->addData([
                 'activateUrl' => PKPApplication::get()->getRequest()->url(null, 'user', 'activateUser', [$event->recipient->getData('username'), $accessKey]),
-                'contextName' => $event->site->getLocalizedTitle(),
-                'principalContactSignature' => $mailable->viewData['siteContactName'],
+                'siteName' => $event->site->getLocalizedTitle(),
+                'signature' => $mailable->viewData['siteContactName'],
             ]);
             $registerTemplate = $mailable->getTemplate(PKPApplication::CONTEXT_SITE);
         }

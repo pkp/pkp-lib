@@ -258,7 +258,7 @@ class UserXmlPKPUserFilter extends NativeImportFilter
             if ($password) {
                 $mail = new MailTemplate('USER_REGISTER');
                 $mail->setReplyTo($context->getSetting('contactEmail'), $context->getSetting('contactName'));
-                $mail->assignParams(['username' => $user->getUsername(), 'password' => $password, 'userFullName' => $user->getFullName()]);
+                $mail->assignParams(['recipientUsername' => $user->getUsername(), 'password' => $password, 'recipientName' => $user->getFullName()]);
                 $mail->addRecipient($user->getEmail(), $user->getFullName());
                 $mail->send();
             }

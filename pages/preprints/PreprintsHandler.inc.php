@@ -54,8 +54,8 @@ class PreprintsHandler extends Handler
         $sections = $sectionDao->getByContextId($context->getId());
 
         // OPS: categories
-        $categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
-        $categories = $categoryDao->getByContextId($context->getId());
+        $categories = Repo::category()->getMany(Repo::category()->getCollector()
+            ->filterByContextIds([$context->getId()]));
 
         $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : (int) Config::getVar('interface', 'items_per_page');
         $offset = $page > 1 ? ($page - 1) * $count : 0;
@@ -75,7 +75,7 @@ class PreprintsHandler extends Handler
 
         $templateMgr->assign([
             'sections' => $sections,
-            'categories' => $categories,
+            'categories' => iterator_to_array($categories),
             'publishedSubmissions' => $publishedSubmissions,
             'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
             'showingStart' => $showingStart,

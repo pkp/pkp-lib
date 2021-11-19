@@ -19,6 +19,7 @@ use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
+use APP\facades\Repo;
 
 define('FORM_ISSUE_ENTRY', 'issueEntry');
 
@@ -62,8 +63,8 @@ class IssueEntryForm extends FormComponent
 
         // Categories
         $categoryOptions = [];
-        $categoryDao = \DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
-        $categories = $categoryDao->getByContextId($publicationContext->getId())->toAssociativeArray();
+        $categories = iterator_to_array(Repo::category()->getMany(Repo::category()->getCollector()
+            ->filterByContextIds([$publicationContext->getId()])));
         foreach ($categories as $category) {
             $label = $category->getLocalizedTitle();
             if ($category->getParentId()) {

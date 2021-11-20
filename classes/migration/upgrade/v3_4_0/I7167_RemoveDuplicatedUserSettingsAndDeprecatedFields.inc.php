@@ -33,10 +33,12 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
 
         $isMysql = DB::connection() instanceof MySqlConnection;
         $deleteFrom = 'DELETE FROM user_settings s USING';
+        $joinFilter = 'WHERE';
         if ($isMysql) {
             // The optimizer might cut-off the sub-queries/closures below and make MySQL fail to delete from the table which is selecting from
             DB::unprepared("SET optimizer_switch = 'derived_merge=off'");
             $deleteFrom = 'DELETE s FROM user_settings s INNER JOIN';
+            $joinFilter = 'ON';
         }
         // Locates and removes duplicated user_settings
         // The latest code stores settings using assoc_id = 0 and assoc_type = 0. Which means entries using null or anything else are outdated.
@@ -82,7 +84,7 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
                 ) best_duplicated
             ) best_duplicated
                 -- The record matches the key fields, which means it's part of the duplicated set
-                ON s.setting_name = best_duplicated.setting_name
+                ${joinFilter} s.setting_name = best_duplicated.setting_name
                 AND s.user_id = best_duplicated.user_id
                 AND s.locale = best_duplicated.locale
                 -- But unfortunately it's not the best match and thus will be removed

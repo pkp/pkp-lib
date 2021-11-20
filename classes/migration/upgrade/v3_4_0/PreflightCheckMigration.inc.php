@@ -7,7 +7,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class I6093_AddForeignKeys
+ * @class PreflightCheckMigration
  * @brief Check for common problems early in the upgrade process.
  */
 
@@ -78,6 +78,9 @@ class PreflightCheckMigration extends \PKP\migration\Migration
         }
     }
 
+    /**
+     * Rollback the migrations.
+     */
     public function down(): void
     {
         if ($fallbackVersion = $this->setFallbackVersion()) {

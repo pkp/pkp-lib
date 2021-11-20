@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2021-09-15 11:20+0000\n"
+"PO-Revision-Date: 2021-11-21 22:23+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr_TR/>\n"
@@ -2337,3 +2337,37 @@ msgstr "Alıcının veya tüm alıcıların tam adı"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "Kullanıcının kayıp bir şifreyi kurtarabileceği bir sayfanın URL'si"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Bu e-posta,  siteye kayıt yapıldığında e-posta adresinin doğrulanması için "
+"otomatik olarak gönderilir."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "E-postayı Doğrula (Site)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Bu e-posta, editör hakemden geri alındığında gönderilir."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Hakemden Geri Alındı"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr "Bu e-posta, editör tarafından hakem yeniden atandığında gönderilir."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Hakem Yeniden Atandı"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Bu e-posta, bir aday makaleye hakem atandığında gönderilir."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Hakem Atandı"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Bu e-posta, tartışmaya yeni bir mesaj eklendiğinde tartışma katılımcılarına "
+"otomatik olarak gönderilir."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Yeni Tartışma Mesajı"

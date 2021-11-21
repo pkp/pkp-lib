@@ -19,7 +19,7 @@ use adoSchema;
 use APP\core\Application;
 use APP\file\LibraryFileManager;
 use APP\i18n\AppLocale;
-
+use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -454,7 +454,7 @@ class Installer
                 try {
                     $migration->up();
                     $this->migrations[] = $migration;
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     // Log an error message
                     $this->setError(
                         self::INSTALLER_ERROR_DB,
@@ -466,7 +466,11 @@ class Installer
                         try {
                             $this->log(sprintf('revert migration: %s', get_class($previousMigration)));
                             $previousMigration->down();
-                        } catch (\PKP\install\DowngradeNotSupportedException $e) {
+                        } catch (DowngradeNotSupportedException $e) {
+                            $this->log(sprintf('downgrade for "%s" unsupported: %s', get_class($previousMigration), $e->getMessage()));
+                            break;
+                        } catch (Exception $e) {
+                            $this->log(sprintf('error while downgrading "%s": %s', get_class($previousMigration), Config::getVar('debug', 'show_stacktrace') ? (string) $e : $e->getMessage()));
                             break;
                         }
                     }
@@ -725,8 +729,8 @@ class Installer
      *
      * @param $installer object
      * @param $attr array Attributes: array containing
-     * 		'key' => 'EMAIL_KEY_HERE',
-     * 		'locales' => 'en_US,fr_CA,...'
+     *  'key' => 'EMAIL_KEY_HERE',
+     *  f'locales' => 'en_US,fr_CA,...'
      */
     public function installEmailTemplate($installer, $attr)
     {
@@ -849,12 +853,12 @@ class Installer
                             0,
                             0, // Major, minor, revision, build
                             Core::getCurrentDate(), // Date installed
-                            1,	// Current
+                            1, // Current
                             'plugins.' . $category, // Type
                             basename($plugin->getPluginPath()), // Product
-                            '',	// Class name
-                            0,	// Lazy load
-                            $plugin->isSitePlugin()	// Site wide
+                            '', // Class name
+                            0, // Lazy load
+                            $plugin->isSitePlugin() // Site wide
                         );
                     }
                     $versionDao->insertVersion($pluginVersion, true);
@@ -1028,15 +1032,16 @@ class Installer
         foreach ($metadataSettings as $metadataSetting) {
             foreach ($contextIds as $contextId) {
                 $result = $contextDao->retrieve(
-                    '
-					SELECT * FROM ' . $contextDao->settingsTableName . ' WHERE
-						' . $contextDao->primaryKeyColumn . ' = ?
-						AND (
-							setting_name = ?
-							OR setting_name = ?
-							OR setting_name = ?
-						)
-					',
+                    'SELECT *
+                    FROM ' . $contextDao->settingsTableName . '
+                    WHERE
+                        ' . $contextDao->primaryKeyColumn . ' = ?
+                        AND (
+                            setting_name = ?
+                            OR setting_name = ?
+                            OR setting_name = ?
+                        )
+                    ',
                     [
                         $contextId,
                         $metadataSetting . 'EnabledWorkflow',
@@ -1057,13 +1062,12 @@ class Installer
 
                 if ($value !== METADATA_DISABLE) {
                     $contextDao->update(
-                        '
-						INSERT INTO ' . $contextDao->settingsTableName . ' (
-							' . $contextDao->primaryKeyColumn . ',
-							locale,
-							setting_name,
-							setting_value
-						) VALUES (?, ?, ?, ?)',
+                        'INSERT INTO ' . $contextDao->settingsTableName . ' (
+                            ' . $contextDao->primaryKeyColumn . ',
+                            locale,
+                            setting_name,
+                            setting_value
+                        ) VALUES (?, ?, ?, ?)',
                         [
                             $contextId,
                             '',
@@ -1074,15 +1078,14 @@ class Installer
                 }
 
                 $contextDao->update(
-                    '
-					DELETE FROM ' . $contextDao->settingsTableName . ' WHERE
-						' . $contextDao->primaryKeyColumn . ' = ?
-						AND (
-							setting_name = ?
-							OR setting_name = ?
-							OR setting_name = ?
-						)
-					',
+                    'DELETE FROM ' . $contextDao->settingsTableName . ' WHERE
+                        ' . $contextDao->primaryKeyColumn . ' = ?
+                        AND (
+                            setting_name = ?
+                            OR setting_name = ?
+                            OR setting_name = ?
+                        )
+                    ',
                     [
                         $contextId,
                         $metadataSetting . 'EnabledWorkflow',
@@ -1112,9 +1115,9 @@ class Installer
                     for ($users = $userGroupDao->getUsersById($userGroup->getId(), $context->getId()); $user = $users->next();) {
                         $notificationSubscriptionSettingsDao->update(
                             'INSERT INTO notification_subscription_settings
-								(setting_name, setting_value, user_id, context, setting_type)
-								VALUES
-								(?, ?, ?, ?, ?)',
+                                (setting_name, setting_value, user_id, context, setting_type)
+                                VALUES
+                                (?, ?, ?, ?, ?)',
                             [
                                 'blocked_emailed_notification',
                                 PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,

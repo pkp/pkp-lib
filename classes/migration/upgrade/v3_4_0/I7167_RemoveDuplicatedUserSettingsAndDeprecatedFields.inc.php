@@ -13,11 +13,11 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
 
 class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
@@ -120,6 +120,6 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
      */
     public function down(): void
     {
-        throw new Exception('Downgrade unsupported due to removed data');
+        throw new DowngradeNotSupportedException('Downgrade unsupported due to removed data');
     }
 }

@@ -104,20 +104,14 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
         Schema::table(
             'user_settings',
             function (Blueprint $table): void {
-                try {
-                    // Drop the unique index
-                    $table->dropUnique('user_settings_pkey');
-                } catch (Exception $e) {
-                    error_log("Failed to gracefully drop the user_settings unique index, it will be dropped implicitly: ${e}");
-                }
-                // Drop deprecated fields
+                // Drop deprecated fields (this will implicitly drop the unique key "user_settings_pkey")
                 $table->dropColumn('assoc_id', 'assoc_type');
                 if (!Schema::hasColumn('user_settings', 'user_settings_id')) {
                     // Add an ID field for the sake of normalization
                     $table->bigInteger('user_settings_id')->autoIncrement();
                 }
                 // Restore the unique index, using the previous field order
-                $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_pkey');
+                $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_user_id_locale_setting_name');
             }
         );
     }

@@ -730,7 +730,7 @@ class Installer
      * @param $installer object
      * @param $attr array Attributes: array containing
      *  'key' => 'EMAIL_KEY_HERE',
-     *  f'locales' => 'en_US,fr_CA,...'
+     *  'locales' => 'en_US,fr_CA,...'
      */
     public function installEmailTemplate($installer, $attr)
     {

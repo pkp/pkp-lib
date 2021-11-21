@@ -13,6 +13,7 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -103,12 +104,18 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
         Schema::table(
             'user_settings',
             function (Blueprint $table): void {
-                // Drop the unique index
-                $table->dropUnique('user_settings_pkey');
+                try {
+                    // Drop the unique index
+                    $table->dropUnique('user_settings_pkey');
+                } catch (Exception $e) {
+                    error_log("Failed to gracefully drop the user_settings unique index, it will be dropped implicitly: ${e}");
+                }
                 // Drop deprecated fields
                 $table->dropColumn('assoc_id', 'assoc_type');
-                // Add an ID field for the sake of normalization
-                $table->bigInteger('user_settings_id')->autoIncrement();
+                if (!Schema::hasColumn('user_settings', 'user_settings_id')) {
+                    // Add an ID field for the sake of normalization
+                    $table->bigInteger('user_settings_id')->autoIncrement();
+                }
                 // Restore the unique index, using the previous field order
                 $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_pkey');
             }

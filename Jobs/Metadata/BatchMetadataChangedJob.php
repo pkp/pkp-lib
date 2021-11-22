@@ -47,7 +47,7 @@ class BatchMetadataChangedJob extends BaseJob
     {
         $successful = 0;
 
-        $articleSearchIndex = Application::getSubmissionSearchIndex();
+        $submissionSearchIndex = Application::getSubmissionSearchIndex();
 
         foreach ($this->submissionIds as $currentSubmissionId) {
             $submission = Repo::submission()->get($currentSubmissionId);
@@ -56,8 +56,8 @@ class BatchMetadataChangedJob extends BaseJob
                 continue;
             }
 
-            $articleSearchIndex->submissionMetadataChanged($submission);
-            $articleSearchIndex->submissionFilesChanged($submission);
+            $submissionSearchIndex->submissionMetadataChanged($submission);
+            $submissionSearchIndex->submissionFilesChanged($submission);
 
             $successful++;
         }
@@ -68,6 +68,6 @@ class BatchMetadataChangedJob extends BaseJob
             return;
         }
 
-        $articleSearchIndex->submissionChangesFinished();
+        $submissionSearchIndex->submissionChangesFinished();
     }
 }

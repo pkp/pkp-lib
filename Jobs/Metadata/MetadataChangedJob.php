@@ -55,9 +55,9 @@ class MetadataChangedJob extends BaseJob
             return;
         }
 
-        $articleSearchIndex = Application::getSubmissionSearchIndex();
-        $articleSearchIndex->submissionMetadataChanged($submission);
-        $articleSearchIndex->submissionFilesChanged($submission);
-        $articleSearchIndex->submissionChangesFinished();
+        $submissionSearchIndex = Application::getSubmissionSearchIndex();
+        $submissionSearchIndex->submissionMetadataChanged($submission);
+        $submissionSearchIndex->submissionFilesChanged($submission);
+        $submissionSearchIndex->submissionChangesFinished();
     }
 }

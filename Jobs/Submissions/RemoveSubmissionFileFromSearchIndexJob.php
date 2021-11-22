@@ -56,8 +56,8 @@ class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
             return;
         }
 
-        $articleSearchIndex = Application::getSubmissionSearchIndex();
-        $articleSearchIndex->deleteTextIndex(
+        $submissionSearchIndex = Application::getSubmissionSearchIndex();
+        $submissionSearchIndex->deleteTextIndex(
             $submissionFile->getData('submissionId'),
             SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE,
             $submissionFile->getId()

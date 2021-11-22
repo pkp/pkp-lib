@@ -22,11 +22,13 @@ use Illuminate\Support\Facades\Event;
 
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
+use PKP\observers\events\BatchMetadataChanged;
 use PKP\observers\events\MetadataChanged;
 use PKP\observers\events\PublishedEvent;
 use PKP\observers\events\SubmissionDeleted;
 use PKP\observers\events\SubmissionFileDeleted;
 use PKP\observers\events\UnpublishedEvent;
+use PKP\observers\listeners\BatchMetadataChangedListener;
 use PKP\observers\listeners\MetadataChangedListener;
 use PKP\observers\listeners\SubmissionDeletedListener;
 use PKP\observers\listeners\SubmissionFileDeletedListener;
@@ -48,6 +50,9 @@ class PKPEventServiceProvider extends EventServiceProvider
         ],
         MetadataChanged::class => [
             MetadataChangedListener::class
+        ],
+        BatchMetadataChanged::class => [
+            BatchMetadataChangedListener::class,
         ],
         PublishedEvent::class => [
             SubmissionUpdatedListener::class,

@@ -15,6 +15,7 @@ set -e
 if [ -z "$TRAVIS" ] ; then
 	echo "(Skipping phpenv add)"
 else
+	phpenv config-rm xdebug.ini
 	phpenv config-add lib/pkp/tools/travis/php.ini
 fi
 

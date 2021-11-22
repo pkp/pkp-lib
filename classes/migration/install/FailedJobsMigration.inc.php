@@ -24,6 +24,7 @@ class FailedJobsMigration extends Migration
      */
     public function up()
     {
+        // Schema matches https://github.com/illuminate/queue/blob/7.x/Console/stubs/failed_jobs.stub
         Schema::create('failed_jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('connection');

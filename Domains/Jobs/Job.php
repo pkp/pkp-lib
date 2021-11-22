@@ -112,7 +112,7 @@ class Job extends Model
     {
         parent::__construct($attributes);
 
-        $this->setDefaultQueue(Config::getVar('queues', 'default_queue', null));
+        $this->setDefaultQueue(Config::getVar('queues', 'default_queue', 'queue'));
         $this->setMaxAttempts(self::DEFAULT_MAX_ATTEMPTS);
     }
 

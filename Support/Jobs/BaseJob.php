@@ -51,7 +51,7 @@ abstract class BaseJob implements ShouldQueue
     public function __construct()
     {
         $this->connection = $this->defaultConnection();
-        $this->queue = Config::getVar('queues', 'default_queue', null);
+        $this->queue = Config::getVar('queues', 'default_queue', 'queue');
     }
 
     protected function defaultConnection(): string

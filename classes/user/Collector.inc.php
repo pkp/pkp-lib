@@ -574,24 +574,39 @@ class Collector implements CollectorInterface
             return $this;
         }
 
-        $settings = [self::ORDERBY_GIVENNAME => Identity::IDENTITY_SETTING_GIVENNAME, self::ORDERBY_FAMILYNAME => Identity::IDENTITY_SETTING_FAMILYNAME];
-        if ($setting = $settings[$this->orderBy] ?? null) {
-            $locales = array_unique(empty($this->orderLocales) ? [AppLocale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()] : $this->orderLocales);
-            $bindings = [];
-            foreach ($locales as $i => $locale) {
-                array_push($bindings, $locale, $i); // The bindings will feed a list of "WHEN ? THEN ? [...]"
-            }
-            $bindings[] = count($locales) + 1; // Feed the ELSE ?
-
+        $nameSettings = [self::ORDERBY_GIVENNAME => Identity::IDENTITY_SETTING_GIVENNAME, self::ORDERBY_FAMILYNAME => Identity::IDENTITY_SETTING_FAMILYNAME];
+        if ($nameSettings[$this->orderBy] ?? null) {
+            $locales = array_unique(
+                empty($this->orderLocales)
+                    ? [AppLocale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()]
+                    : array_values($this->orderLocales)
+            );
+            $sortedSettings = array_values($this->orderBy === self::ORDERBY_GIVENNAME ? $nameSettings : array_reverse($nameSettings));
             $query->orderBy(
-                fn(Builder $query) => $query->from('user_settings', 'us')
-                    ->whereColumn('us.user_id', '=', 'u.user_id')
-                    ->where('us.setting_name', '=', $setting)
-                    ->whereIn('us.locale', $locales)
-                    ->orderByRaw("COALESCE(us.setting_value, '') = ''") // Not empty values first
-                    ->orderByRaw('CASE us.locale ' . str_repeat('WHEN ? THEN ?', count($locales)) . ' ELSE ? END', $bindings) // Then follow the locale order
-                    ->limit(1)
-                    ->select('us.setting_value'),
+                function (Builder $query) use ($sortedSettings, $locales): void {
+                    $query->fromSub(fn(Builder $query) => $query->from(null)->selectRaw(0), 'placeholder');
+                    $aliasesBySetting = [];
+                    foreach ($sortedSettings as $i => $setting) {
+                        $aliases = [];
+                        foreach ($locales as $j => $locale) {
+                            $aliases[] = $alias = "us_${i}_${j}";
+                            $query->leftJoin(
+                                "user_settings AS ${alias}",
+                                fn(JoinClause $join) => $join
+                                    ->on("${alias}.user_id", '=', 'u.user_id')
+                                    ->where("${alias}.setting_name", '=', $setting)
+                                    ->where("${alias}.locale", '=', $locale)
+                            );
+                        }
+                        $aliasesBySetting[] = $aliases;
+                    }
+                    // Build a possibly long CONCAT(COALESCE(given_localeA, given_localeB, [...]), COALESCE(family_localeA, family_localeB, [...])
+                    $coalescedSettings = array_map(
+                        fn(array $aliases) => 'COALESCE(' . implode(', ', array_map(fn(string $alias) => "${alias}.setting_value", $aliases)) . ", '')",
+                        $aliasesBySetting
+                    );
+                    $query->selectRaw('CONCAT(' . implode(', ', $coalescedSettings) . ')');
+                },
                 $this->orderDirection
             );
         }

@@ -125,11 +125,9 @@ class PKPUserHandler extends APIHandler
             ->searchPhrase($params['searchPhrase'] ?? null)
             ->orderBy($orderBy, $orderDirection, [AppLocale::getLocale(), $request->getSite()->getPrimaryLocale()])
             ->limit($params['count'] ?? null)
-            ->offset($params['offset'] ?? null);
-        switch ($params['status'] ?? null) {
-            case 'active': $collector->filterByStatus($collector::STATUS_ACTIVE); break;
-            case 'disabled': $collector->filterByStatus($collector::STATUS_DISABLED); break;
-        }
+            ->offset($params['offset'] ?? null)
+            ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
+
         $users = Repo::user()->getMany($collector);
 
         $map = Repo::user()->getSchemaMap();
@@ -212,10 +210,10 @@ class PKPUserHandler extends APIHandler
             ->filterByWorkflowStageIds([$params['reviewStage']])
             ->searchPhrase($params['searchPhrase'] ?? null)
             ->filterByReviewerRating($params['reviewerRating'] ?? null)
-            ->filterByReviewsCompleted(isset($params['reviewsCompleted']) ? $params['reviewsCompleted'][0] : null)
-            ->filterByReviewsActive($params['reviewsActive'] ?? null)
-            ->filterByDaysSinceLastAssignment($params['daysSinceLastAssignment'] ?? null)
-            ->filterByAverageCompletion(isset($params['averageCompletion']) ? $params['averageCompletion'][0] : null)
+            ->filterByReviewsCompleted($params['reviewsCompleted'][0] ?? null)
+            ->filterByReviewsActive(...($params['reviewsActive'] ?? []))
+            ->filterByDaysSinceLastAssignment(...($params['daysSinceLastAssignment'] ?? []))
+            ->filterByAverageCompletion($params['averageCompletion'][0] ?? null)
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null);
         $usersCollection = Repo::user()->getMany($collector);

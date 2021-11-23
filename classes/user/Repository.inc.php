@@ -28,7 +28,7 @@ class Repository
     /** @var DAO $dao */
     public $dao;
 
-    /** @var string $schemaMap The name of the class to map this entity to its schemaa */
+    /** @var string $schemaMap The name of the class to map this entity to its schema */
     public $schemaMap = maps\Schema::class;
 
     public function __construct(DAO $dao)
@@ -182,7 +182,7 @@ class Repository
      * be a manager or site admin that has no assigned role in the
      * submission.
      *
-     * @param string $stageId One of the WORKFLOW_STAGE_ID_* contstants.
+     * @param string $stageId One of the WORKFLOW_STAGE_ID_* constants.
      * @param string $workflowType Accessing the editorial or author workflow? \PKPApplication::WORKFLOW_TYPE_*
      * @param array $userAccessibleStages User's assignments to the workflow stages. ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES
      * @param array $userRoles User's roles in the context
@@ -253,7 +253,7 @@ class Repository
     {
         $dataSource = $this->getMany(
             $this->getCollector()
-                ->filterByUserGroupids($args['userGroupIds'] ?? null)
+                ->filterByUserGroupIds($args['userGroupIds'] ?? null)
                 ->filterByContextIds($args['contextId'] ?? [])
         );
         $report = new Report($dataSource);

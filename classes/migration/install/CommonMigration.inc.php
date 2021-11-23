@@ -95,13 +95,12 @@ class CommonMigration extends \PKP\migration\Migration
 
         // Locale-specific user data
         Schema::create('user_settings', function (Blueprint $table) {
-            $table->bigInteger('user_settings_id')->autoIncrement();
             $table->bigInteger('user_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
             $table->index(['user_id'], 'user_settings_user_id');
-            $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_user_id_locale_setting_name');
+            $table->primary(['user_id', 'locale', 'setting_name']);
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
         });
 

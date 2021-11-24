@@ -32,72 +32,64 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
             return;
         }
 
-        $isMysql = DB::connection() instanceof MySqlConnection;
-        $deleteFrom = 'DELETE FROM user_settings s USING';
-        $joinFilter = 'WHERE';
-        if ($isMysql) {
-            // The optimizer might cut-off the sub-queries/closures below and make MySQL fail to delete from the table which is selecting from
-            DB::unprepared("SET optimizer_switch = 'derived_merge=off'");
-            $deleteFrom = 'DELETE s FROM user_settings s INNER JOIN';
-            $joinFilter = 'ON';
-        }
         // Locates and removes duplicated user_settings
         // The latest code stores settings using assoc_id = 0 and assoc_type = 0. Which means entries using null or anything else are outdated.
-        // Note: Old versions (e.g. OJS <= 2.x) made use of these fields, but these settings were removed years ago.
-        DB::unprepared(
-            "${deleteFrom}
-            (
-                SELECT best_duplicated.*
-                FROM (
-                    SELECT best.*
-                    -- Find the duplicated entries
-                    FROM (
-                        SELECT s.setting_name, s.user_id, s.locale
-                        FROM user_settings s
-                        GROUP BY
-                            s.setting_name, s.user_id, s.locale
-                        HAVING COUNT(0) > 1
-                    ) AS duplicated
-                    -- Find the best matching records for each entry
-                    INNER JOIN user_settings best
-                        ON best.setting_name = duplicated.setting_name
-                        AND best.user_id = duplicated.user_id
-                        AND best.locale = duplicated.locale
-                        AND CONCAT(COALESCE(best.assoc_id, -9999), '@', COALESCE(best.assoc_type, -9999)) = (
-                            SELECT CONCAT(COALESCE(s.assoc_id, -9999), '@', COALESCE(s.assoc_type, -9999))
-                            FROM user_settings s
-                            WHERE s.setting_name = duplicated.setting_name
-                            AND s.user_id = duplicated.user_id
-                            AND s.locale = duplicated.locale
-                            ORDER BY
-                                CASE s.assoc_id
-                                    WHEN 0 THEN 0
-                                    WHEN NULL THEN 1
-                                    ELSE 2
-                                END,
-                                CASE s.assoc_type
-                                    WHEN 0 THEN 0
-                                    WHEN NULL THEN 1
-                                    ELSE 2
-                                END, s.assoc_id, s.assoc_type
-                            LIMIT 1
+        // Note: Old versions (e.g. OJS <= 2.x) made use of these fields to store some settings, but they have been removed years ago, which means they are safe to be discarded.
+        if (DB::connection() instanceof MySqlConnection) {
+            DB::unprepared(
+                "DELETE s
+                FROM user_settings s
+                -- Locates all duplicated settings (same key fields, except the assoc_type/assoc_id)
+                INNER JOIN user_settings duplicated
+                    ON s.setting_name = duplicated.setting_name
+                    AND s.user_id = duplicated.user_id
+                    AND s.locale = duplicated.locale
+                    AND (
+                        COALESCE(s.assoc_type, -999999) <> COALESCE(duplicated.assoc_type, -999999)
+                        OR COALESCE(s.assoc_id, -999999) <> COALESCE(duplicated.assoc_id, -999999)
+                    )
+                -- Attempts to find a better fitting record among the duplicates (preference is given to the smaller assoc_id/assoc_type values)
+                LEFT JOIN user_settings best
+                    ON best.setting_name = duplicated.setting_name
+                    AND best.user_id = duplicated.user_id
+                    AND best.locale = duplicated.locale
+                    AND (
+                        COALESCE(best.assoc_id, 999999) < COALESCE(duplicated.assoc_id, 999999)
+                        OR (
+                            COALESCE(best.assoc_id, 999999) = COALESCE(duplicated.assoc_id, 999999)
+                            AND COALESCE(best.assoc_type, 999999) < COALESCE(duplicated.assoc_type, 999999)
                         )
-                ) best_duplicated
-            ) best_duplicated
-                -- The record matches the key fields, which means it's part of the duplicated set
-                ${joinFilter} s.setting_name = best_duplicated.setting_name
-                AND s.user_id = best_duplicated.user_id
-                AND s.locale = best_duplicated.locale
-                -- But unfortunately it's not the best match and thus will be removed
-                AND (
-                    COALESCE(s.assoc_id, -9999) <> COALESCE(best_duplicated.assoc_id, -9999)
-                    OR COALESCE(s.assoc_type, -9999) <> COALESCE(best_duplicated.assoc_type, -9999)
-                )"
-        );
-
-        if ($isMysql) {
-            // Restore the optimizer setting to its default
-            DB::unprepared("SET optimizer_switch = 'derived_merge=default'");
+                    )
+                -- Ensures a better record was found (if not found, it means the current duplicated record is the best and shouldn't be removed)
+                WHERE best.user_id IS NOT NULL"
+            );
+        } else {
+            DB::unprepared(
+                "DELETE FROM user_settings s
+                USING user_settings duplicated
+                -- Attempts to find a better fitting record among the duplicates (preference is given to the smaller assoc_id/assoc_type values)
+                LEFT JOIN user_settings best
+                    ON best.setting_name = duplicated.setting_name
+                    AND best.user_id = duplicated.user_id
+                    AND best.locale = duplicated.locale
+                    AND (
+                        COALESCE(best.assoc_id, 999999) < COALESCE(duplicated.assoc_id, 999999)
+                        OR (
+                            COALESCE(best.assoc_id, 999999) = COALESCE(duplicated.assoc_id, 999999)
+                            AND COALESCE(best.assoc_type, 999999) < COALESCE(duplicated.assoc_type, 999999)
+                        )
+                    )
+                -- Locates all duplicated settings (same key fields, except the assoc_type/assoc_id)
+                WHERE s.setting_name = duplicated.setting_name
+                    AND s.user_id = duplicated.user_id
+                    AND s.locale = duplicated.locale
+                    AND (
+                        COALESCE(s.assoc_type, -999999) <> COALESCE(duplicated.assoc_type, -999999)
+                        OR COALESCE(s.assoc_id, -999999) <> COALESCE(duplicated.assoc_id, -999999)
+                    )
+                    -- Ensures a better record was found (if not found, it means the current duplicated record is the best and shouldn't be removed)
+                    AND best.user_id IS NOT NULL"
+            );
         }
 
         // Here we should be free of duplicates, so it's safe to remove the columns without creating duplicated entries.

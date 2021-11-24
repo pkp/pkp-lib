@@ -48,55 +48,24 @@ class SenderEmailVariable extends Variable
     /**
      * @copydoc Variable::values()
      */
-    protected function values(): array
+    public function values(string $locale): array
     {
         return
         [
-            self::SENDER_NAME => $this->getUserFullName(),
-            self::SENDER_EMAIL => $this->getUserEmail(),
-            self::SENDER_CONTACT_SIGNATURE => $this->getUserContactSignature(),
+            self::SENDER_NAME => $this->sender->getFullName(true, false, $locale),
+            self::SENDER_EMAIL => $this->sender->getData('email'),
+            self::SENDER_CONTACT_SIGNATURE => $this->getSignature($locale),
         ];
-    }
-
-    /**
-     * Array of sender's full name in supported locales
-     */
-    protected function getUserFullName() : array
-    {
-        $fullNameLocalized = [];
-        $supportedLocales = PKPLocale::getSupportedLocales();
-        foreach ($supportedLocales as $localeKey => $localeValue) {
-            $fullNameLocalized[$localeKey] = $this->sender->getFullName(true, false, $localeKey);
-        }
-        return $fullNameLocalized;
-    }
-
-    /**
-     * Sender's email
-     */
-    protected function getUserEmail() : string
-    {
-        return $this->sender->getData('email');
     }
 
     /**
      * Sender's contact signature
      */
-    protected function getUserContactSignature() : array
+    protected function getSignature(string $locale): string
     {
-        $supportedLocales = PKPLocale::getSupportedLocales();
-        PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
-        $signatureLocalized = [];
-        foreach ($supportedLocales as $localeKey => $localeValue) {
-            $signature = $this->sender->getSignature($localeKey);
-            if (!$signature) {
-                $signature = '';
-            } else {
-                $signature = PKPString::stripUnsafeHtml($signature);
-            }
-            $signatureLocalized[$localeKey] = $signature;
-        }
-
-        return $signatureLocalized;
+        $signature = $this->sender->getSignature($locale);
+        return $signature
+            ? PKPString::stripUnsafeHtml($signature)
+            : '';
     }
 }

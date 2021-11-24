@@ -15,9 +15,11 @@
 
 namespace PKP\mail\variables;
 
+use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\i18n\PKPLocale;
 use PKP\stageAssignment\StageAssignment;
+use PKP\stageAssignment\StageAssignmentDAO;
 
 class StageAssignmentEmailVariable extends Variable
 {
@@ -44,37 +46,31 @@ class StageAssignmentEmailVariable extends Variable
     /**
      * @copydoc Variable::values()
      */
-    protected function values(): array
+    public function values(string $locale): array
     {
         return
         [
-            self::DECISION_MAKING_EDITORS => $this->getEditors(),
+            self::DECISION_MAKING_EDITORS => $this->getEditors($locale),
         ];
     }
 
     /**
      * Full names of editors associated with an assignment
      */
-    protected function getEditors() : array
+    protected function getEditors(string $locale): string
     {
-        $editorsStrLocalized = [];
-        $supportedLocales = PKPLocale::getSupportedLocales();
+        /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $userDao = DAORegistry::getDAO('UserDAO');
         $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($this->stageAssignment->getSubmissionId(), $this->stageAssignment->getStageId());
-        foreach ($supportedLocales as $localeKey => $localeValue) {
-            $editorsStr = '';
-            $i = 0;
-            foreach ($editorsStageAssignments as $editorsStageAssignment) {
-                if (!$editorsStageAssignment->getRecommendOnly()) {
-                    $editorFullName = $userDao->getUserFullName($editorsStageAssignment->getUserId());
-                    $editorsStr .= ($i == 0) ? $editorFullName : ', ' . $editorFullName;
-                    $i++;
-                }
+
+        $editorNames = [];
+        foreach ($editorsStageAssignments as $editorsStageAssignment) {
+            if (!$editorsStageAssignment->getRecommendOnly()) {
+                $user = Repo::user()->get($editorsStageAssignment->getUserId());
+                $editorNames[] = $user->getFullName(true, false, $locale);
             }
-            $editorsStrLocalized[$localeKey] = $editorsStr;
         }
 
-        return $editorsStrLocalized;
+        return join(__('common.commaListSeparator'), $editorNames);
     }
 }

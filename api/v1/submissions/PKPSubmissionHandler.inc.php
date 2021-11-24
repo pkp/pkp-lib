@@ -24,6 +24,7 @@ use APP\submission\Collector;
 use PKP\db\DAORegistry;
 
 use PKP\handler\APIHandler;
+use PKP\mail\mailables\MailDiscussionMessage;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;

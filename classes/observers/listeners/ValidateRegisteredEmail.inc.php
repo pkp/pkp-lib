@@ -79,14 +79,14 @@ class ValidateRegisteredEmail
         if (get_class($event) === UserRegisteredContext::class) {
             $mailable = new ContextMailable($event->context);
             $mailable->from($event->context->getData('supportEmail'), $event->context->getData('supportName'));
-            $mailable->addVariables([
+            $mailable->addData([
                 'activateUrl' => PKPApplication::get()->getRequest()->url($event->context->getData('urlPath'), 'user', 'activateUser', [$event->recipient->getData('username'), $accessKey]),
             ]);
             $registerTemplate = $mailable->getTemplate($event->context->getId());
         } else {
             $mailable = new SiteMailable($event->site);
             $mailable->from($event->site->getLocalizedContactEmail(), $event->site->getLocalizedContactName());
-            $mailable->addVariables([
+            $mailable->addData([
                 'activateUrl' => PKPApplication::get()->getRequest()->url(null, 'user', 'activateUser', [$event->recipient->getData('username'), $accessKey]),
                 'contextName' => $event->site->getLocalizedTitle(),
                 'principalContactSignature' => $mailable->viewData['siteContactName'],

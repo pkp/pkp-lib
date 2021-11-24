@@ -293,7 +293,7 @@ class EditorAction
             $accessKeyManager = new AccessKeyManager();
             $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
             $accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewAssignment->getId(), $expiryDays);
-            $mailable->addVariables([
+            $mailable->addData([
                 'submissionReviewUrl' => PKPApplication::get()->getDispatcher()->url(
                     PKPApplication::get()->getRequest(),
                     PKPApplication::ROUTE_PAGE,
@@ -317,7 +317,7 @@ class EditorAction
             ->recipients([$reviewer]);
 
         // Additional template variable
-        $mailable->addVariables([
+        $mailable->addData([
             'reviewerName' => $mailable->viewData['userFullName'],
             'reviewerUserName' => $mailable->viewData['username'],
         ]);

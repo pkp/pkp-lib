@@ -27,6 +27,7 @@
 
 namespace PKP\mail;
 
+use APP\i18n\AppLocale;
 use BadMethodCallException;
 use Exception;
 use Illuminate\Mail\Mailable as IlluminateMailable;
@@ -65,6 +66,13 @@ class Mailable extends IlluminateMailable
     public const GROUP_PRODUCTION = 'production';
 
     /**
+     * The email variables handled by this mailable
+     *
+     * @param array<Variable>
+     */
+    public array $variables = [];
+
+    /**
      * One or more groups this mailable should be included in
      *
      * Mailables are assigned to one or more groups so that they
@@ -81,10 +89,44 @@ class Mailable extends IlluminateMailable
     // Whether Mailable supports additional templates, besides the default
     public static bool $supportsTemplates = false;
 
-    public function __construct(array $args = [])
+    public function __construct(array $variables = [])
     {
-        if (!empty($args)) {
-            $this->setData($args);
+        if (!empty($variables)) {
+            $this->setupVariables($variables);
+        }
+    }
+
+    /**
+     * Add data for this email
+     */
+    public function addData(array $data) : self
+    {
+        $this->viewData = array_merge($this->viewData, $data);
+        return $this;
+    }
+
+    /**
+     * Get the data for this email
+     */
+    public function getData(?string $locale = null): array
+    {
+        $this->setData($locale);
+        return $this->viewData;
+    }
+
+    /**
+     * Set the data for this email
+     */
+    public function setData(?string $locale = null)
+    {
+        if (is_null($locale)) {
+            $locale = AppLocale::getLocale();
+        }
+        foreach ($this->variables as $variable) {
+            $this->viewData = array_merge(
+                $this->viewData,
+                $variable->values($locale)
+            );
         }
     }
 
@@ -96,15 +138,6 @@ class Mailable extends IlluminateMailable
     {
         throw new BadMethodCallException('This method isn\'t supported, data passed to ' . static::class .
             ' should already by localized.');
-    }
-
-    /**
-     * Adds variables to be compiled with email template
-     */
-    public function addVariables(array $variables) : self
-    {
-        $this->viewData = array_merge($this->viewData, $variables);
-        return $this;
     }
 
     /**
@@ -180,37 +213,32 @@ class Mailable extends IlluminateMailable
     /**
      * Scans arguments to retrieve variables which can be assigned to the template of the email
      */
-    protected function setData(array $args) : void
+    protected function setupVariables(array $variables) : void
     {
         $map = static::templateVariablesMap();
-
-        foreach ($args as $arg) {
+        foreach ($variables as $variable) {
             foreach ($map as $className => $assoc) {
-                if (is_a($arg, $className)) {
-                    $assocVariable = new $assoc($arg);
-                    $this->viewData = array_merge(
-                        $this->viewData,
-                        $assocVariable->getValue()
-                    );
+                if (is_a($variable, $className)) {
+                    $this->variables[] = new $assoc($variable);
                     continue 2;
                 }
             }
-
-            // Give up, object isn't mapped
-            $type = is_object($arg) ? get_class($arg) : gettype($arg);
+            $type = is_object($variable) ? get_class($variable) : gettype($variable);
             throw new InvalidArgumentException($type . ' argument passed to the ' . static::class . ' constructor isn\'t associated with template variables');
         }
     }
 
     /**
-     * Retrieves array of variables that can be assigned to email templates
+     * Get an array of data variables supported by this mailable
+     * with a description of each variable.
+     *
      * @return array ['variableName' => description]
      */
-    public static function getVariables() : array
+    public static function getDataDescriptions() : array
     {
         $args = static::getParamsClass(static::getConstructor());
         $map = static::templateVariablesMap();
-        $variables = [];
+        $descriptions = [];
 
         // check presence of traits in the current class and parents
         $traits = class_uses(static::class) ?: [];
@@ -230,14 +258,14 @@ class Mailable extends IlluminateMailable
 
         if (!empty($traits)) {
             if (array_key_exists(Recipient::class, $traits)) {
-                $variables = array_merge(
-                    $variables,
+                $descriptions = array_merge(
+                    $descriptions,
                     RecipientEmailVariable::getDescription(),
                 );
             }
             if (array_key_exists(Sender::class, $traits)) {
-                $variables = array_merge(
-                    $variables,
+                $descriptions = array_merge(
+                    $descriptions,
                     SenderEmailVariable::getDescription(),
                 );
             }
@@ -251,13 +279,13 @@ class Mailable extends IlluminateMailable
             }
 
             // No special treatment for others
-            $variables = array_merge(
-                $variables,
+            $descriptions = array_merge(
+                $descriptions,
                 $map[$class]::getDescription()
             );
         }
 
-        return $variables;
+        return $descriptions;
     }
 
     /**

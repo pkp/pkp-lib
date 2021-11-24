@@ -48,7 +48,7 @@ class MailDiscussionMessage
             $mailable = new \PKP\mail\mailables\MailDiscussionMessage($event->context, $submission);
             $emailTemplate = $mailable->getTemplate($event->context->getId());
 
-            $mailable->addVariables(array_merge(
+            $mailable->addData(array_merge(
                 [
                     'siteTitle' => $mailable->viewData['journalName'],
                 ],

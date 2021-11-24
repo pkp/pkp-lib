@@ -29,11 +29,6 @@ trait Recipient
     abstract protected function setAddress($address, $name = null, $property = 'to');
 
     /**
-     * @copydoc PKP\mail\Mailable::addVariables()
-     */
-    abstract public function addVariables(array $variables) : Mailable;
-
-    /**
      * @copydoc Illuminate\Mail\Mailable::to()
      */
     public function to($address, $name = null)
@@ -54,15 +49,13 @@ trait Recipient
             if (!is_a($recipient, User::class)) {
                 throw new InvalidArgumentException('Expecting an array consisting of instances of ' . User::class . ' to be passed to ' . static::class . '::' . __FUNCTION__);
             }
-
             $to[] = [
                 'email' => $recipient->getEmail(),
                 'name' => $recipient->getFullName(),
             ];
         }
         $this->setAddress($to);
-
-        $recipientVars = new RecipientEmailVariable($recipients);
-        return $this->addVariables($recipientVars->getValue());
+        $this->variables[] = new RecipientEmailVariable($recipients);
+        return $this;
     }
 }

@@ -48,7 +48,7 @@ class QueuedPaymentEmailVariable extends Variable
     /**
      * @copydoc Validation::values()
      */
-    protected function values() : array
+    public function values(string $locale): array
     {
         return
         [

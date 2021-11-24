@@ -29,7 +29,7 @@ abstract class Variable
      * Get the value of variables supported by this class
      * @return string[]
      */
-    abstract protected function values() : array;
+    abstract public function values(string $locale) : array;
 
     /**
      * Get description of all or specific variable

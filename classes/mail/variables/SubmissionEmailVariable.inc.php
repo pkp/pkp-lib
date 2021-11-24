@@ -15,11 +15,10 @@
 
 namespace PKP\mail\variables;
 
+use APP\publication\Publication;
+use APP\submission\Submission;
 use PKP\author\Author;
 use PKP\core\PKPApplication;
-use PKP\i18n\PKPLocale;
-use PKP\publication\PKPPublication;
-use PKP\submission\PKPSubmission;
 
 class SubmissionEmailVariable extends Variable
 {
@@ -30,16 +29,15 @@ class SubmissionEmailVariable extends Variable
     public const AUTHORS_FULL = 'authorsFull';
     public const SUBMISSION_URL = 'submissionUrl';
 
-    protected PKPSubmission $submission;
+    protected Submission $submission;
 
-    protected PKPPublication $currentPublication;
+    protected Publication $currentPublication;
 
     /**
      */
-    public function __construct(PKPSubmission $submission)
+    public function __construct(Submission $submission)
     {
         $this->submission = $submission;
-        // Submission's current publication should always be set
         $this->currentPublication = $this->submission->getCurrentPublication();
     }
 
@@ -62,72 +60,30 @@ class SubmissionEmailVariable extends Variable
     /**
      * @copydoc Variable::values()
      */
-    protected function values(): array
+    public function values(string $locale): array
     {
         return
         [
-            self::SUBMISSION_TITLE => $this->getPublicationTitle(),
-            self::SUBMISSION_ID => $this->getSubmissionId(),
-            self::SUBMISSION_ABSTRACT => $this->getPublicationAbstract(),
-            self::AUTHORS => $this->getAuthors(),
-            self::AUTHORS_FULL => $this->getAuthorsFull(),
+            self::SUBMISSION_TITLE => $this->currentPublication->getLocalizedFullTitle($locale),
+            self::SUBMISSION_ID => $this->submission->getId(),
+            self::SUBMISSION_ABSTRACT => $this->currentPublication->getLocalizedData('abstract', $locale),
+            self::AUTHORS => $this->currentPublication->getShortAuthorString($locale),
+            self::AUTHORS_FULL => $this->getAuthorsFull($locale),
             self::SUBMISSION_URL => $this->getSubmissionUrl(),
         ];
-    }
-
-    protected function getPublicationTitle(): array
-    {
-        $fullTitlesLocalized = [];
-        $supportedLocales = PKPLocale::getSupportedLocales();
-        foreach ($supportedLocales as $localeKey => $localeValue) {
-            $fullTitlesLocalized[$localeKey] = $this->currentPublication->getLocalizedFullTitle($localeKey);
-        }
-        return $fullTitlesLocalized;
-    }
-
-    protected function getSubmissionId(): int
-    {
-        return $this->submission->getId();
-    }
-
-    protected function getPublicationAbstract(): array
-    {
-        return $this->currentPublication->getData('abstract');
-    }
-
-    /**
-     * Shortened authors string
-     *
-     * @see PKPPublication::getShortAuthorString()
-     */
-    protected function getAuthors(): array
-    {
-        $authorStringLocalized = [];
-        $supportedLocales = PKPLocale::getSupportedLocales();
-        foreach ($supportedLocales as $localeKey => $localeValue) {
-            $authorStringLocalized[$localeKey] = $this->currentPublication->getShortAuthorString($localeKey);
-        }
-
-        return $authorStringLocalized;
     }
 
     /**
      * List of authors as a string separated by a comma
      */
-    protected function getAuthorsFull(): array
+    protected function getAuthorsFull(string $locale): string
     {
-        $authorStringLocalized = [];
         $authors = $this->currentPublication->getData('authors');
-        $supportedLocales = PKPLocale::getSupportedLocales();
-        foreach ($supportedLocales as $localeKey => $localeValue) {
-            $fullNames = array_map(function (Author $author) use ($localeKey) {
-                return $author->getFullName(true, false, $localeKey);
-            }, iterator_to_array($authors));
+        $fullNames = array_map(function (Author $author) use ($locale) {
+            return $author->getFullName(true, false, $locale);
+        }, iterator_to_array($authors));
 
-            $authorStringLocalized[$localeKey] = join(__('common.listSeparator'), $fullNames);
-        }
-
-        return $authorStringLocalized;
+         return join(__('common.commaListSeparator'), $fullNames);
     }
 
     /**
@@ -136,6 +92,14 @@ class SubmissionEmailVariable extends Variable
     protected function getSubmissionUrl(): string
     {
         $request = PKPApplication::get()->getRequest();
-        return $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'workflow', 'index', [$this->submission->getId(), $this->submission->getData('stageId')]);
+        return $request->getDispatcher()->url(
+            $request,
+            PKPApplication::ROUTE_PAGE,
+            null,
+            'workflow',
+            'index',
+            [$this->submission->getId(),
+            $this->submission->getData('stageId')]
+        );
     }
 }

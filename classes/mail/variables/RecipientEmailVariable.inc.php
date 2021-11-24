@@ -40,7 +40,7 @@ class RecipientEmailVariable extends Variable
     /**
      * @copydoc Variable::description()
      */
-    protected static function description() : array
+    protected static function description(): array
     {
         return
         [
@@ -65,7 +65,7 @@ class RecipientEmailVariable extends Variable
      * Array containing full names of recipients in all supported locales separated by a comma
      * @return array [localeKey => fullName]
      */
-    protected function getRecipientsFullName(string $locale) : array
+    protected function getRecipientsFullName(string $locale): string
     {
         $fullNames = array_map(function(User $user) use ($locale) {
             return $user->getFullName(true, false, $locale);
@@ -76,7 +76,7 @@ class RecipientEmailVariable extends Variable
     /**
      * Usernames of recipients separated by a comma
      */
-    protected function getRecipientsUserName() : string
+    protected function getRecipientsUserName(): string
     {
         $userNames = array_map(function (User $user) {
             return $user->getData('username');

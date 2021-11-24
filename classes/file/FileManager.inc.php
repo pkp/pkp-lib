@@ -28,7 +28,6 @@ use GuzzleHttp\Psr7\Utils;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
-use PKP\facades\Locale;
 use PKP\plugins\HookRegistry;
 
 class FileManager

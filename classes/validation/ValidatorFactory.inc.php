@@ -17,11 +17,13 @@ namespace PKP\validation;
 use PKP\facades\Locale;
 use Illuminate\Container\Container;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Arr;
 use Illuminate\Translation\FileLoader;
 use Illuminate\Translation\Translator;
 
 use Illuminate\Validation\Factory;
 use PKP\file\TemporaryFileManager;
+use PKP\i18n\LocaleMetadata;
 
 class ValidatorFactory
 {
@@ -275,13 +277,8 @@ class ValidatorFactory
     public static function required($validator, $object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale)
     {
         $validator->after(function ($validator) use ($object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale) {
-            $primaryLocaleName = $primaryLocale;
-            foreach (Locale::getLocales() as $locale => $metadata) {
-                if ($locale === $primaryLocale) {
-                    $primaryLocaleName = $metadata->name;
-                }
-            }
-
+            $locale = Arr::first(Locale::getLocales(), fn(LocaleMetadata $locale) => $locale->locale === $primaryLocale);
+            $primaryLocaleName = $locale ? $locale->getDisplayName() : $primaryLocale;
             $props = $validator->getData();
 
             foreach ($requiredProps as $requiredProp) {

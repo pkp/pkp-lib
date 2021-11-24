@@ -30,6 +30,12 @@ use Sokil\IsoCodes\Database\Scripts;
 
 interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
 {
+    /** Keeps the default locale of the application */
+    public const DEFAULT_LOCALE = 'en_US';
+
+    /** Regular expression to validate and extract pieces of a locale, variants can be composed of five to eight letters, or of four characters starting with a digit */
+    public const LOCALE_EXPRESSION = '/^(?P<language>[a-z]{2})(?:_(?P<country>[A-Z]{2}))?(?:@(?P<script>[A-Za-z\d]{5,8}|\d[A-Za-z\d]{3}))?$/';
+
     /**
      * Attempts to retrieve the primary locale for the current context, if not available, then for the site.
      */
@@ -41,7 +47,7 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
      * The application will then look for .po files and attempt to lazy load them when requested.
      * @param int $priority The priority controls which locale should be loaded first, higher priorities overwrite smaller ones (in case of locale key conflicts), the default is 0
      */
-    public function registerFolder(string $path, int $priority = 0): void;
+    public function registerPath(string $path, int $priority = 0): void;
 
     /**
      * Register a locale file loader
@@ -62,7 +68,7 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
     /**
      * Retrieves the metadata of a locale
      */
-    public function getLocaleMetadata(string $locale): ?LocaleMetadata;
+    public function getMetadata(string $locale): ?LocaleMetadata;
 
     /**
      * Retrieves a list of available locales with their metadata
@@ -82,15 +88,18 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
     public function uninstallLocale(string $locale): void;
 
     /**
-     * Get all supported form locales for the current context (if not available, then from the site).
+     * Retrieves whether the given locale is in the list of supported locales
+     */
+    public function isSupported(string $locale): bool;
 
+    /**
+     * Get all supported form locales for the current context (if not available, then from the site).
      * @return string[]
      */
     public function getSupportedFormLocales(): array;
 
     /**
      * Get all supported locales for the current context (if not available, then from the site).
-
      * @return string[]
      */
     public function getSupportedLocales(): array;
@@ -110,7 +119,7 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
      * 
      * @return LocaleBundle
      */
-    public function getBundle(string $locale): LocaleBundle;
+    public function getBundle(?string $locale = null, bool $useCache = true): LocaleBundle;
 
     /**
      * Retrieves the default locale

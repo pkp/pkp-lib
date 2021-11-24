@@ -53,7 +53,7 @@ class FormValidatorLocale extends FormValidator
      */
     public function getMessage()
     {
-        return parent::getMessage() . ' (' . Locale::getLocaleMetadata($this->_requiredLocale)->name . ')';
+        return parent::getMessage() . ' (' . Locale::getMetadata($this->_requiredLocale)->getDisplayName() . ')';
     }
 
     //

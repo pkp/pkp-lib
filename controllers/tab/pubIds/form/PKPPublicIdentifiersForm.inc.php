@@ -18,7 +18,6 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use PKP\facades\Locale;
 use PKP\form\Form;
 
 use PKP\plugins\PKPPubIdPluginHelper;

@@ -22,10 +22,14 @@ declare(strict_types = 1);
 namespace PKP\i18n\translation;
 
 use DateInterval;
+use Exception;
 use Gettext\Generator\ArrayGenerator;
+use Gettext\Loader\LoaderInterface;
+use Gettext\Loader\MoLoader;
 use Gettext\Loader\PoLoader;
 use Gettext\Translations;
 use Illuminate\Support\Facades\Cache;
+use SplFileInfo;
 
 abstract class LocaleFile
 {
@@ -33,27 +37,37 @@ abstract class LocaleFile
     protected const MAX_CACHE_LIFETIME = '1 year';
 
     /**
+     * Retrieves a suitable loader
+     */
+    public static function getLoader(string $path): LoaderInterface
+    {
+        switch ((new SplFileInfo($path))->getExtension()) {
+            case 'po':
+                return new PoLoader();
+            case 'mo':
+                return new MoLoader();
+            default:
+                throw new Exception("There's no suitable gettext loader for this file type");
+        }
+    }
+
+    /**
      * Loads the translations from a file
     */
     public static function loadTranslations(string $path): Translations
     {
-        $loader = new PoLoader();
-        return $loader->loadFile($path);
+        return self::getLoader($path)->loadFile($path);
     }
 
     /**
-     * Loads the translations from a file as an array
+     * Loads the translations from a file as an array and caches the content physically as a PHP file in order to use the opcache
     */
-    public static function loadArray(string $path): array
+    public static function loadArray(string $path, bool $useCache = false): array
     {
-        $key = self::_getCacheKey($path);
-        $cache = Cache::get($key);
-        if (!is_array($cache)) {
-            $arrayGenerator = new ArrayGenerator();
-            $cache = $arrayGenerator->generateArray(static::loadTranslations($path));
-            Cache::put($key, $cache, DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME));
-        }
-        return $cache;
+        $loader = fn() => (new ArrayGenerator())->generateArray(static::loadTranslations($path));
+        return $useCache
+            ? Cache::remember(static::_getCacheKey($path), DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME), $loader)
+            : $loader();
     }
 
     /**
@@ -61,6 +75,6 @@ abstract class LocaleFile
      */
     private static function _getCacheKey(string $path): string
     {
-        return static::class . '.' . sha1($path . filemtime($path));
+        return __METHOD__ . static::MAX_CACHE_LIFETIME . '.' . sha1($path . filemtime($path));
     }
 }

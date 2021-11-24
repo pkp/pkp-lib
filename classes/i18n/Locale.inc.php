@@ -21,14 +21,13 @@ declare(strict_types = 1);
 
 namespace PKP\i18n;
 
-use DateTime;
-use DomainException;
+use Closure;
+use DateInterval;
+use DirectoryIterator;
 use Illuminate\Support\Facades\Cache;
 use InvalidArgumentException;
-use LogicException;
 use PKP\config\Config;
 use PKP\core\PKPRequest;
-use PKP\core\Registry;
 use PKP\facades\Repo;
 use PKP\i18n\interfaces\LocaleInterface;
 use PKP\i18n\translation\LocaleBundle;
@@ -39,97 +38,71 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RecursiveRegexIterator;
 use RegexIterator;
-use SimpleXMLElement;
 use Sokil\IsoCodes\IsoCodesFactory;
 use Sokil\IsoCodes\Database\Countries;
 use Sokil\IsoCodes\Database\Currencies;
 use Sokil\IsoCodes\Database\LanguagesInterface;
+use Sokil\IsoCodes\Database\Scripts;
 use SplFileInfo;
 
 class Locale implements LocaleInterface
 {
-    /** @var string Keeps the locales available in the system */
-    protected const LOCALE_REGISTRY_FILE = 'registry/locales.xml';
+    /** Max lifetime for the locale metadata cache, the cache is built by scanning the provided paths */
+    protected const MAX_CACHE_LIFETIME = '1 hour';
     
     /**
      * @var callable Formatter for missing locale keys
      * Receives the locale key and must return a string
      */
-    protected $missingKeyHandler;
+    protected ?Closure $missingKeyHandler = null;
 
-    /** @var string Current locale */
-    protected $locale;
+    /** Current locale cache */
+    protected ?string $locale = null;
 
-    /** @var LocaleBundle[] List of locales */
-    protected $localeBundles = [];
+    /** @var int[] Folders where locales can be found, where key = path and value = loading priority */
+    protected array $paths = [];
 
-    /** @var array List of folders where locales can be found (also keeps a cache of locale files) */
-    protected $folders = [];
+    /** @var callable[] Custom locale loaders */
+    protected array $loaders = [];
 
-    /** @var callable[] List of custom loaders */
-    protected $loaders = [];
+    /** Keeps the request */
+    protected ?PKPRequest $request = null;
 
-    /** @var PKPRequest Keeps the request */
-    protected $request;
+    /** @var LocaleMetadata[]|null Discovered locales cache */
+    protected ?array $locales = null;
+
+    /** Primary locale cache */
+    protected ?string $primaryLocale = null;
+
+    /** @var string[]|null Supported form locales cache, where key = locale and value = name */
+    protected ?array $supportedFormLocales = null;
+
+    /** @var string[]|null Supported locales cache, where key = locale and value = name */
+    protected ?array $supportedLocales = null;
+
+    /** @var LocaleBundle[] Keeps a cache for the locale bundles */
+    protected array $localeBundles = [];
+
+    /** @var string[][][]|null Discovered locale files, keyed first by base path and then by locale */
+    protected array $localeFiles = [];
+
+    /** Keeps cached data related only to the current locale */
+    protected array $cache = [];
 
     /**
      * @copy \Illuminate\Contracts\Translation\Translator::get()
      */
-    public function get($key, ?array $params = [], $locale = null): string
+    public function get($key, array $params = [], $locale = null): string
     {
-        // Turned the array into a nullable array to avoid unexpected errors (it breaks the Laravel's contract, but doesn't emit errors)
-        if ($params === null) {
-            error_log((string) new LogicException('The $params argument cannot be null'));
-            $params = [];
-        }
-
-        if (($key = trim($key)) === '') {
-            return '';
-        }
-
-        $locale = $locale ?? $this->getLocale();
-        $localeBundle = $this->getBundle($locale);
-        if (($value = $localeBundle->translateSingular($key, $params)) !== null) {
-            return $value;
-        }
-
-        // Add a missing key to the debug notes.
-        $notes =& Registry::get('system.debug.notes');
-        $notes[] = ['debug.notes.missingLocaleKey', ['key' => $key]];
-
-        return HookRegistry::call('Locale::get', [&$key, &$params, &$locale, &$localeBundle, &$value])
-            ? $value
-            : $this->_handleMissingKey($key);
+        return $this->translate($key, null, $params, $locale);
     }
 
     /**
      * @copy \Illuminate\Contracts\Translation\Translator::choice()
      */
-    public function choice($key, $number, ?array $params = [], $locale = null): ?string
+    public function choice($key, $number, array $params = [], $locale = null): string
     {
-        // Turned the array into a nullable array to avoid unexpected errors (it breaks the Laravel's contract, but doesn't emit errors)
-        if ($params === null) {
-            error_log((string) new LogicException('The $params argument cannot be null'));
-            $params = [];
-        }
-
-        if (($key = trim($key)) === '') {
-            return '';
-        }
-
-        $locale = $locale ?? $this->getLocale();
-        $localeBundle = $this->getBundle($locale);
-        if (($value = $localeBundle->translatePlural($key, $number, $params)) !== null) {
-            return $value;
-        }
-
-        // Add a missing key to the debug notes.
-        $notes =& Registry::get('system.debug.notes');
-        $notes[] = ['debug.notes.missingLocaleKey', ['key' => $key]];
-
-        return HookRegistry::call('Locale::choice', [&$key, &$number, &$params, &$locale, &$localeBundle, &$value])
-            ? $value
-            : sprintf($this->missingKeyFormat, htmlentities($key));
+        return $this->translate($key, $number, $params, $locale);
     }
 
     /**
@@ -137,13 +110,14 @@ class Locale implements LocaleInterface
      */
     public function getLocale(): string
     {
-        if (!$this->locale) {
-            $request = $this->_getRequest();
-            $locale = $request->getUserVar('setLocale')
-                ?: (SessionManager::hasSession() ? SessionManager::getManager()->getUserSession()->getSessionVar('currentLocale') : null)
-                ?: $request->getCookieVar('currentLocale');
-            $this->setLocale(in_array($locale, array_keys($this->getSupportedLocales())) ? $locale : $this->getPrimaryLocale());
+        if (isset($this->locale)) {
+            return $this->locale;
         }
+        $request = $this->_getRequest();
+        $locale = $request->getUserVar('setLocale')
+            ?: (SessionManager::hasSession() ? SessionManager::getManager()->getUserSession()->getSessionVar('currentLocale') : null)
+            ?: $request->getCookieVar('currentLocale');
+        $this->setLocale($locale);
         return $this->locale;
     }
 
@@ -152,15 +126,16 @@ class Locale implements LocaleInterface
      */
     public function setLocale($locale): void
     {
-        if (!$this->isLocaleValid($locale) || !in_array($locale, array_keys($this->getSupportedLocales()))) {
-            error_log((string) new DomainException("Invalid \$locale (\"${locale}\"), default locale restored"));
+        if (!$this->isLocaleValid($locale) || !$this->isSupported($locale)) {
+            if ($locale) {
+                error_log((string) new InvalidArgumentException("Invalid/unsupported locale \"${locale}\", default locale restored"));
+            }
             $locale = $this->getPrimaryLocale();
         }
 
         $this->locale = $locale;
-        setlocale(LC_ALL, $locale . '.utf-8', $locale);
+        setlocale(LC_ALL, "${locale}.utf-8", $locale);
         putenv("LC_ALL=${locale}");
-        ini_set('default_charset', 'utf-8');
     }
 
     /**
@@ -168,23 +143,27 @@ class Locale implements LocaleInterface
      */
     public function getPrimaryLocale(): string
     {
-        static $locale;
-        if (!$locale) {
-            $request = $this->_getRequest();
-            $locale = SessionManager::isDisabled()
-                ? $this->getDefaultLocale()
-                : ($request->getContext() ?? $request->getSite())->getPrimaryLocale();
-            if (!$this->isLocaleValid($locale)) {
-                $locale = $this->getDefaultLocale();
-            }
+        if (isset($this->primaryLocale)) {
+            return $this->primaryLocale;
         }
-        return $locale;
+        $request = $this->_getRequest();
+        $locale = null;
+        if (SessionManager::isDisabled()) {
+            $locale = $this->getDefaultLocale();
+        } elseif ($context = $request->getContext()) {
+            $locale = $context->getPrimaryLocale();
+        } elseif ($site = $request->getSite()) {
+            $locale = $site->getPrimaryLocale();
+        }
+        return $this->primaryLocale = $this->isLocaleValid($locale)
+            ? $locale
+            : $this->getDefaultLocale();
     }
 
     /**
-     * @copy LocaleInterface::registerFolder()
+     * @copy LocaleInterface::registerPath()
      */
-    public function registerFolder(string $path, int $priority = 0): void
+    public function registerPath(string $path, int $priority = 0): void
     {
         $path = new SplFileInfo($path);
         if (!$path->isDir()) {
@@ -193,9 +172,10 @@ class Locale implements LocaleInterface
 
         // Invalidate the loaded bundles cache
         $realPath = $path->getRealPath();
-        if (($this->folders[$realPath] ?? null) !== $priority) {
-            $this->folders[$realPath] = $priority;
+        if (($this->paths[$realPath] ?? null) !== $priority) {
+            $this->paths[$realPath] = $priority;
             $this->localeBundles = [];
+            $this->locales = null;
         }
     }
 
@@ -217,16 +197,13 @@ class Locale implements LocaleInterface
      */
     public function isLocaleValid(?string $locale): bool
     {
-        // Variants can be composed of five to eight letters, or of four characters starting with a digit
-        return !empty($locale)
-            && preg_match('/^[a-z]{2}(_[A-Z]{2})?(@([A-Za-z\d]{5,8}|\d[A-Za-z\d]{3}))?$/', $locale)
-            && file_exists(BASE_SYS_DIR . "/locale/$locale");
+        return !empty($locale) && preg_match(LocaleInterface::LOCALE_EXPRESSION, $locale);
     }
 
     /**
-     * @copy LocaleInterface::getLocaleMetadata()
+     * @copy LocaleInterface::getMetadata()
      */
-    public function getLocaleMetadata(string $locale): ?LocaleMetadata
+    public function getMetadata(string $locale): ?LocaleMetadata
     {
         return $this->getLocales()[$locale] ?? null;
     }
@@ -236,24 +213,22 @@ class Locale implements LocaleInterface
      */
     public function getLocales(): array
     {
-        static $cache;
-
-        $key = static::class . static::LOCALE_REGISTRY_FILE;
-        $cache = $cache ?? Cache::get($key);
-        $path = BASE_SYS_DIR . '/' . static::LOCALE_REGISTRY_FILE;
-        if (!is_array($cache) || filemtime($path) > ($cache['createdAt'] ?? new DateTime())->getTimestamp()) {
-            $xml = new SimpleXMLElement(file_get_contents($path));
-            $locales = [];
-            foreach ($xml->locale as $item) {
-                $locales[(string) $item['key']] = LocaleMetadata::createFromXml($item);
+        return $this->locales ??= Cache::remember(
+            __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(array_keys($this->paths), fn(string $hash, string $path): string => sha1($hash . $path), ''),
+            DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME),
+            function () {
+                $locales = [];
+                foreach (array_keys($this->paths) as $folder) {
+                    foreach (new DirectoryIterator($folder) as $cursor) {
+                        if ($cursor->isDir() && $this->isLocaleValid($cursor->getBasename())) {
+                            $locales[$cursor->getBasename()] ??= LocaleMetadata::create($cursor->getBasename());
+                        }
+                    }
+                }
+                ksort($locales);
+                return $locales;
             }
-            $cache = [
-                'createdAt' => new DateTime(),
-                'data' => $locales
-            ];
-            Cache::put($key, $cache);
-        }
-        return $cache['data'];
+        );
     }
 
     /**
@@ -282,18 +257,26 @@ class Locale implements LocaleInterface
     }
 
     /**
+     * Retrieves whether the given locale is supported
+     */
+    public function isSupported(string $locale): bool
+    {
+        static $locales;
+        $locales ??= SessionManager::isDisabled()
+            ? array_keys($this->getLocales())
+            : (($context = $this->_getRequest()->getContext()) ? $context->getSupportedLocales() : $this->_getRequest()->getSite()->getSupportedLocales());
+        return in_array($locale, $locales);
+    }
+
+    /**
      * @copy LocaleInterface::getSupportedFormLocales()
      */
     public function getSupportedFormLocales(): array
     {
-        static $locales;
-        if (!$locales) {
-            $request = $this->_getRequest();
-            $locales = SessionManager::isDisabled()
-                ? array_map(fn(LocaleMetadata $locale) => $locale->name, Locale::getLocales())
-                : (($context = $request->getContext()) ? $context->getSupportedFormLocaleNames() : $request->getSite()->getSupportedLocaleNames());
-        }
-        return $locales;
+        return $this->supportedFormLocales ??= (fn(): array => SessionManager::isDisabled()
+            ? array_map(fn(LocaleMetadata $locale) => $locale->locale, $this->getLocales())
+            : (($context = $this->_getRequest()->getContext()) ? $context->getSupportedFormLocaleNames() : $this->_getRequest()->getSite()->getSupportedLocaleNames())
+        )();
     }
 
     /**
@@ -301,14 +284,10 @@ class Locale implements LocaleInterface
      */
     public function getSupportedLocales(): array
     {
-        static $locales;
-        if (!$locales) {
-            $request = $this->_getRequest();
-            $locales = SessionManager::isDisabled()
-                ? array_map(fn(LocaleMetadata $locale) => $locale->name, Locale::getLocales())
-                : ($request->getContext() ?? $request->getSite())->getSupportedLocaleNames();
-        }
-        return $locales;
+        return $this->supportedLocales ??= (fn(): array => SessionManager::isDisabled()
+            ? array_map(fn(LocaleMetadata $locale) => $locale->locale, $this->getLocales())
+            : ($this->_getRequest()->getContext() ?? $this->_getRequest()->getSite())->getSupportedLocaleNames()
+        )();
     }
 
     /**
@@ -330,21 +309,21 @@ class Locale implements LocaleInterface
     /**
      * @copy LocaleInterface::getBundle()
      */
-    public function getBundle(string $locale): LocaleBundle
+    public function getBundle(?string $locale = null, bool $useCache = true): LocaleBundle
     {
-        if (!isset($this->localeBundles[$locale])) {
+        $locale ??= $this->getLocale();
+        $getter = function () use ($locale): LocaleBundle {
             $bundle = [];
-            foreach ($this->folders as $folder => $priority) {
+            foreach ($this->paths as $folder => $priority) {
                 $bundle += $this->_getLocaleFiles($folder, $locale, $priority);
             }
             foreach ($this->loaders as $loader) {
                 $loader($locale, $bundle);
             }
-            $this->localeBundles[$locale] = new LocaleBundle($locale, $bundle);
-        }
-
-        return $this->localeBundles[$locale];
-    }
+            return new LocaleBundle($locale, $bundle);
+        };
+        return $useCache ? $this->localeBundles[$locale] ??= $getter() : $getter();
+}
 
     /**
      * @copy LocaleInterface::getDefaultLocale()
@@ -359,7 +338,7 @@ class Locale implements LocaleInterface
      */
     public function getCountries(?string $locale = null): Countries
     {
-        return $this->_getIsoCodes($locale)->getCountries();
+        return $this->_getLocaleCache(__METHOD__, $locale, fn () => $this->_getIsoCodes($locale)->getCountries());
     }
 
     /**
@@ -367,7 +346,7 @@ class Locale implements LocaleInterface
      */
     public function getCurrencies(?string $locale = null): Currencies
     {
-        return $this->_getIsoCodes($locale)->getCurrencies();
+        return $this->_getLocaleCache(__METHOD__, $locale, fn () => $this->_getIsoCodes($locale)->getCurrencies());
     }
 
     /**
@@ -375,7 +354,7 @@ class Locale implements LocaleInterface
      */
     public function getLanguages(?string $locale = null): LanguagesInterface
     {
-        return $this->_getIsoCodes($locale)->getLanguages();
+        return $this->_getLocaleCache(__METHOD__, $locale, fn () => $this->_getIsoCodes($locale)->getLanguages());
     }
 
     /**
@@ -383,7 +362,43 @@ class Locale implements LocaleInterface
      */
     public function getScripts(?string $locale = null): Scripts
     {
-        return $this->_getIsoCodes($locale)->getScripts();
+        return $this->_getLocaleCache(__METHOD__, $locale, fn () => $this->_getIsoCodes($locale)->getScripts());
+    }
+    
+
+    /**
+     * Translates the texts
+     */
+    protected function translate(string $key, ?int $number, array $params, ?string $locale): string
+    {
+        if (($key = trim($key)) === '') {
+            return '';
+        }
+
+        $locale ??= $this->getLocale();
+        $localeBundle = $this->getBundle($locale);
+        $value = $number === null ? $localeBundle->translateSingular($key, $params) : $localeBundle->translatePlural($key, $number, $params);
+        if ($value ?? HookRegistry::call('Locale::translate', [&$value, $key, $params, $number, $locale, $localeBundle])) {
+            return $value;
+        }
+
+        error_log("Missing locale key \"${key}\" for the locale \"${locale}\"");
+        return is_callable($this->missingKeyHandler) ? ($this->missingKeyHandler)($key) : '##' . htmlentities($key) . '##';
+    }
+
+    /**
+     * Retrieves a cached item only if it belongs to the current locale. If it doesn't exist, the getter will be called
+     */
+    private function _getLocaleCache(string $key, ?string $locale, callable $getter)
+    {
+        if (($locale ??= $this->getLocale()) !== $this->getLocale()) {
+            return $getter();
+        }
+        if (!isset($this->cache[$key][$locale])) {
+            // Ensures the previous cache is cleared
+            $this->cache[$key] = [$locale => $getter()];
+        }
+        return $this->cache[$key][$locale];
     }
 
     /**
@@ -393,16 +408,15 @@ class Locale implements LocaleInterface
      */
     private function _getLocaleFiles(string $folder, string $locale, int $priority): array
     {
-        static $cache = [];
-        $files = $cache[$folder][$locale] ?? null;
+        $files = $this->localeFiles[$folder][$locale] ?? null;
         if ($files === null) {
             $files = [];
-            if (is_dir($path = "$folder/$locale")) {
+            if (is_dir($path = "${folder}/${locale}")) {
                 $directory = new RecursiveDirectoryIterator($path);
                 $iterator = new RecursiveIteratorIterator($directory);
                 $files = array_keys(iterator_to_array(new RegexIterator($iterator, '/\.po$/i', RecursiveRegexIterator::GET_MATCH)));
             }
-            $cache[$folder][$locale] = $files;
+            $this->localeFiles[$folder][$locale] = $files;
         }
         return array_fill_keys($files, $priority);
     }
@@ -412,7 +426,7 @@ class Locale implements LocaleInterface
      */
     private function _getRequest(): PKPRequest
     {
-        return App::make(PKPRequest::class);
+        return app(PKPRequest::class);
     }
 
     /**
@@ -421,13 +435,5 @@ class Locale implements LocaleInterface
     private function _getIsoCodes(string $locale = null): IsoCodesFactory
     {
         return app(IsoCodesFactory::class, $locale ? ['locale' => $locale] : []);
-    }
-
-    /**
-     * Formats a missing locale key
-     */
-    private function _handleMissingKey(string $key): string
-    {
-        return is_callable($this->missingKeyHandler) ? ($this->missingKeyHandler)($key) : '##' . htmlentities($key) . '##';
     }
 }

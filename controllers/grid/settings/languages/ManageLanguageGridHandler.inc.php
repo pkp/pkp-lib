@@ -65,7 +65,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler
 
         foreach ($supportedLocales as $locale) {
             $data[$locale] = [];
-            $data[$locale]['name'] = Locale::getLocaleMetadata($locale)->name;
+            $data[$locale]['name'] = Locale::getMetadata($locale)->getDisplayName();
             $data[$locale]['supported'] = true;
             $data[$locale]['primary'] = ($locale == $contextPrimaryLocale);
         }

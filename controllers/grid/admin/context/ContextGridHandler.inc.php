@@ -22,7 +22,6 @@ use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
-use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\security\authorization\PolicySet;
@@ -227,15 +226,13 @@ class ContextGridHandler extends GridHandler
         $dispatcher = $request->getDispatcher();
         if ($context) {
             $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-            $supportedLocales = $context->getSupportedFormLocales();
+            $locales = $context->getSupportedFormLocaleNames();
         } else {
             $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'contexts');
-            $supportedLocales = $request->getSite()->getSupportedLocales();
+            $locales = $request->getSite()->getSupportedLocaleNames();
         }
 
-        $locales = array_map(function ($localeKey) {
-            return ['key' => $localeKey, 'label' => Locale::getLocaleMetadata($localeKey)->name];
-        }, $supportedLocales);
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
         $contextFormConfig = $contextForm->getConfig();

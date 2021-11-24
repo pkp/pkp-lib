@@ -29,6 +29,18 @@ class Translator extends GetTextTranslator
     use ExportableTrait;
 
     /**
+     * Builds a translator instance from arrays
+     */
+    public static function createFromTranslationsArray(array ...$translations): self
+    {
+        $translator = new static();
+        foreach ($translations as $translationSet) {
+            $translator->addTranslations($translationSet);
+        }
+        return $translator;
+    }
+
+    /**
      * Retrieves a singular translation
      *
      * @return string Empty string when a translation cannot be retrieved
@@ -50,5 +62,14 @@ class Translator extends GetTextTranslator
         $key = $this->getPluralIndex(null, $value, $translation === null);
 
         return $translation[$key] ?? '';
+    }
+
+    /**
+     * Retrieves the raw translator data
+     */
+    public function getEntries(): array
+    {
+        $context = '';
+        return $this->dictionary[$this->domain][$context] ?? [];
     }
 }

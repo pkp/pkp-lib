@@ -56,12 +56,8 @@ class InstallForm extends MaintenanceForm
     {
         parent::__construct($request, 'install/install.tpl');
 
-        // FIXME Move the below options to an external configuration file?
-        $this->supportedLocales = array_map(fn(LocaleMetadata $locale) => $locale->name, Locale::getLocales());
-        $this->localesComplete = [];
-        foreach (array_keys($this->supportedLocales) as $key) {
-            $this->localesComplete[$key] = Locale::getLocaleMetadata($key)->isComplete;
-        }
+        $this->supportedLocales = array_map(fn(LocaleMetadata $locale) => $locale->getDisplayName(), Locale::getLocales());
+        $this->localesComplete = array_map(fn (LocaleMetadata $locale) => $locale->isComplete(), Locale::getLocales());
 
         foreach ($this->supportedDatabaseDrivers as $driver => [$module]) {
             if (!extension_loaded($module)) {
@@ -72,9 +68,7 @@ class InstallForm extends MaintenanceForm
         // Validation checks for this form
         $form = $this;
         $this->addCheck(new \PKP\form\validation\FormValidatorInSet($this, 'locale', 'required', 'installer.form.localeRequired', array_keys($this->supportedLocales)));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'locale', 'required', 'installer.form.localeRequired', function ($locale) {
-            return Locale::isLocaleValid($locale);
-        }));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'locale', 'required', 'installer.form.localeRequired', fn(string $locale) => Locale::isLocaleValid($locale)));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'filesDir', 'required', 'installer.form.filesDirRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'adminUsername', 'required', 'installer.form.usernameRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'adminUsername', 'required', 'installer.form.usernameAlphaNumeric'));

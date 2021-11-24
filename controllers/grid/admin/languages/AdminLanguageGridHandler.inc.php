@@ -144,8 +144,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
 
         foreach ($installedLocales as $localeKey) {
             $data[$localeKey] = [];
-            $data[$localeKey]['name'] = Locale::getLocaleMetadata($localeKey)->name;
-            $data[$localeKey]['incomplete'] = !Locale::getLocaleMetadata($localeKey)->isComplete;
+            $data[$localeKey]['name'] = Locale::getMetadata($localeKey)->getDisplayName();
+            $data[$localeKey]['incomplete'] = !Locale::getMetadata($localeKey)->isComplete();
             $data[$localeKey]['supported'] = in_array($localeKey, $supportedLocales);
 
             if ($this->_canManage($request)) {

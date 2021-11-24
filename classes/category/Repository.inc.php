@@ -16,7 +16,6 @@ namespace PKP\category;
 use APP\core\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
-use PKP\facades\Locale;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;

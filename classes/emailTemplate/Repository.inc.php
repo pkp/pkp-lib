@@ -18,7 +18,6 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
-use PKP\facades\Locale;
 use PKP\validation\ValidatorFactory;
 use PKP\facades\Repo;
 

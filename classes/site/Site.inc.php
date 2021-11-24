@@ -24,8 +24,6 @@ namespace PKP\site;
 
 use PKP\facades\Locale;
 
-use PKP\core\Registry;
-
 class Site extends \PKP\core\DataObject
 {
     /**
@@ -34,20 +32,15 @@ class Site extends \PKP\core\DataObject
      *
      * @return array
      */
-    public function &getSupportedLocaleNames()
+    public function getSupportedLocaleNames()
     {
-        $supportedLocales = & Registry::get('siteSupportedLocales', true, null);
-
-        if ($supportedLocales === null) {
-            $supportedLocales = [];
-            $locales = $this->getSupportedLocales();
-            foreach ($locales as $localeKey) {
-                $supportedLocales[$localeKey] = Locale::getLocaleMetadata($localeKey)->name;
-            }
-
-            asort($supportedLocales);
+        static $supportedLocales;
+        if (isset($supportedLocales)) {
+            return $supportedLocales;
         }
-
+        $supportedLocales = array_fill_keys($this->getSupportedLocales(), '');
+        array_walk($supportedLocales, fn (&$item, string $locale) => $item = Locale::getMetadata($locale)->getDisplayName());
+        asort($supportedLocales);
         return $supportedLocales;
     }
 
@@ -188,8 +181,7 @@ class Site extends \PKP\core\DataObject
      */
     public function getInstalledLocales()
     {
-        $locales = $this->getData('installedLocales');
-        return $locales ?? [];
+        return $this->getData('installedLocales') ?? [];
     }
 
     /**
@@ -209,8 +201,7 @@ class Site extends \PKP\core\DataObject
      */
     public function getSupportedLocales()
     {
-        $locales = $this->getData('supportedLocales');
-        return $locales ?? [];
+        return $this->getData('supportedLocales') ?? [];
     }
 
     /**

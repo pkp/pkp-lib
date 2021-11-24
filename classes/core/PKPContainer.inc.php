@@ -29,11 +29,8 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\Domains\Jobs\Providers\JobServiceProvider;
-use PKP\facades\Locale;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\Support\ProxyParser;
-use Sokil\IsoCodes\IsoCodesFactory;
-use Sokil\IsoCodes\TranslationDriver\GettextExtensionDriver;
 
 use Throwable;
 
@@ -93,13 +90,6 @@ class PKPContainer extends Container
             KernelContract::class,
             Kernel::class
         );
-
-        // This singleton is necessary to keep user selected language across the application
-        $this->singleton(IsoCodesFactory::class, function (self $container, array $params): IsoCodesFactory {
-            $driver = new GettextExtensionDriver();
-            $driver->setLocale($params['locale'] ?? Locale::getLocale());
-            return new IsoCodesFactory(null, $driver);
-        });
 
         $this->singleton(
             'queue.failer',
@@ -258,7 +248,7 @@ class PKPContainer extends Container
             'stores' => [
                 'opcache' => [
                     'driver' => 'opcache',
-                    'path' => Core::getBaseDir() . '/cache'
+                    'path' => Core::getBaseDir() . '/cache/opcache'
                 ]
             ]
         ];

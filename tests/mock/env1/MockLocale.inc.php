@@ -16,14 +16,13 @@
 use PKP\i18n\Locale;
 use PKP\facades\Locale as LocaleFacade;
 
+import('lib.pkp.tests.mock.env1.MockLocaleMetadata');
+
 class MockLocale extends Locale
 {
-    // Loads a limited locale list
-    protected const LOCALE_REGISTRY_FILE = 'lib/pkp/tests/registry/locales.xml';
-
-    protected $primaryLocale = 'en_US';
-    protected $supportedLocales = ['en_US' => 'English/America'];
-    protected $translations = [];
+    protected ?string $primaryLocale = 'en_US';
+    protected ?array $supportedLocales = ['en_US' => 'English/America'];
+    protected array $translations = [];
 
     /**
      * Mocked method
@@ -31,10 +30,9 @@ class MockLocale extends Locale
      * @param $key string
      * @param $params array named substitution parameters
      * @param $locale string the locale to use
-     *
      * @return string
      */
-    public function get($key, ?array $params = [], $locale = null): string
+    public function get($key, array $params = [], $locale = null): string
     {
         if (isset($this->translations[$key])) {
             return $this->translations[$key];
@@ -52,10 +50,8 @@ class MockLocale extends Locale
         $this->translations = $translations;
     }
 
-    /*
-     * method required during setup of
-     * the PKP application framework
-     * @return string test locale
+    /**
+     * Method required during setup of the PKP application framework
      */
     public function getLocale(): string
     {
@@ -63,10 +59,20 @@ class MockLocale extends Locale
     }
 
     /**
-     * Setter to configure a custom
-     * primary locale for testing.
-     *
-     * @param $primaryLocale string
+     * Mocked method
+     */
+    public function getLocales(): array
+    {
+        return [
+            'en_US' => MockLocaleMetadata::create('en_US', true),
+            'pt_BR' => MockLocaleMetadata::create('pt_BR'),
+            'pt_PT' => MockLocaleMetadata::create('pt_PT'),
+            'de_DE' => MockLocaleMetadata::create('de_DE')
+        ];
+    }
+
+    /**
+     * Setter to configure a custom primary locale for testing.
      */
     public function setPrimaryLocale(string $primaryLocale): void
     {
@@ -75,8 +81,6 @@ class MockLocale extends Locale
 
     /**
      * Mocked method
-     *
-     * @return string
      */
     public function getPrimaryLocale(): string
     {
@@ -84,10 +88,9 @@ class MockLocale extends Locale
     }
 
     /**
-     * Setter to configure a custom
-     * primary locale for testing.
+     * Setter to configure a custom primary locale for testing.
      *
-     * @param $supportedLocales array
+     * @param array $supportedLocales
      *  example [
      *   'en_US' => 'English',
      *   'de_DE' => 'German'
@@ -100,8 +103,6 @@ class MockLocale extends Locale
 
     /**
      * Mocked method
-     *
-     * @return array
      */
     public function getSupportedLocales(): array
     {
@@ -110,8 +111,6 @@ class MockLocale extends Locale
 
     /**
      * Mocked method
-     *
-     * @return array
      */
     public function getSupportedFormLocales(): array
     {

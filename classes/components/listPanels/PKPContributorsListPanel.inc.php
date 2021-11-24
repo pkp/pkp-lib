@@ -14,8 +14,6 @@
 
 namespace PKP\components\listPanels;
 
-use PKP\facades\Locale;
-
 class PKPContributorsListPanel extends ListPanel
 {
     /** @param \PKP\components\forms\publication\PKPContributorForm Form for adding or editing a contributor */

@@ -35,9 +35,9 @@ class LocaleTest extends PKPTestCase
      */
     public function testIsLocaleComplete()
     {
-        self::assertTrue(Locale::getLocaleMetadata('en_US')->isComplete);
-        self::assertFalse(Locale::getLocaleMetadata('pt_BR')->isComplete);
-        self::assertNull(Locale::getLocaleMetadata('xx_XX'));
+        self::assertTrue(Locale::getMetadata('en_US')->isComplete());
+        self::assertFalse(Locale::getMetadata('pt_BR')->isComplete());
+        self::assertNull(Locale::getMetadata('xx_XX'));
     }
 
     /**
@@ -46,12 +46,12 @@ class LocaleTest extends PKPTestCase
     public function testGetLocales()
     {
         $expectedLocales = [
-            'en_US' => 'English',
+            'en_US' => 'English (United States)',
             'pt_BR' => 'Portuguese (Brazil)',
             'pt_PT' => 'Portuguese (Portugal)',
-            'de_DE' => 'German'
+            'de_DE' => 'German (Germany)'
         ];
-        $locales = array_map(fn(LocaleMetadata $locale) => $locale->name, Locale::getLocales());
+        $locales = array_map(fn(LocaleMetadata $locale) => $locale->getDisplayName(), Locale::getLocales());
         self::assertEquals($expectedLocales, $locales);
     }
 

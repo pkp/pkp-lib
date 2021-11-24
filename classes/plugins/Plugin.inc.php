@@ -485,7 +485,7 @@ abstract class Plugin
         $basePath = $this->getPluginPath() . "/locale";
         foreach ([$basePath, "lib/pkp/${basePath}"] as $path) {
             if (is_dir($path)) {
-                Locale::registerFolder($path);
+                Locale::registerPath($path);
             }
         }
     }

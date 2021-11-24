@@ -19,20 +19,21 @@ namespace PKP\i18n\translation;
 
 use DateInterval;
 use Illuminate\Support\Facades\Cache;
+use PKP\facades\Locale;
 
 class LocaleBundle
 {
-    /** @var string The locale assigned to this bundle */
-    public $locale;
-
     /** @var string Max lifetime for the bundle cache. A new cache is created anytime a locale file in the bundle is modified */
     protected const MAX_CACHE_LIFETIME = '1 year';
 
-    /** @var int[] Keeps the locale filenames (key) and their loading priorities (value) */
-    protected $paths;
+    /** The locale assigned to this bundle */
+    public string $locale;
 
-    /** @var Translator Keeps the translations, lazy initialized when a translation is requested */
-    protected $translator;
+    /** @var int[] Keeps the locale filenames (key) and their loading priorities (value) */
+    protected array $paths = [];
+
+    /** Keeps the translations, lazy initialized when a translation is requested */
+    protected ?Translator $translator = null;
 
     /**
      * Constructor.
@@ -59,8 +60,7 @@ class LocaleBundle
      */
     public function translateSingular(string $key, array $params = []): ?string
     {
-        $this->_prepare();
-        $message = $this->translator->getSingular($key);
+        $message = $this->getTranslator()->getSingular($key);
         return strlen($message) ? $this->_format($message, $params) : null;
     }
 
@@ -77,8 +77,7 @@ class LocaleBundle
      */
     public function translatePlural(string $key, int $count, array $params = []): ?string
     {
-        $this->_prepare();
-        $message = $this->translator->getPlural($key, $count);
+        $message = $this->getTranslator()->getPlural($key, $count);
         return strlen($message) ? $this->_format($message, $params) : null;
     }
 
@@ -98,59 +97,6 @@ class LocaleBundle
     }
 
     /**
-     * Formats the translation
-     */
-    private function _format(string $message, array $params = [])
-    {
-        static $replacer;
-        $replacer ?? ($replacer = function (string $search): string {
-            return "{\$${search}}";
-        });
-        return count($params) ? str_replace(array_map($replacer, array_keys($params)), array_values($params), $message) : $message;
-    }
-
-    /**
-     * Lazily prepares the class to retrieve translations
-     */
-    private function _prepare(): void
-    {
-        // Quit if it's already initialized
-        if ($this->translator) {
-            return;
-        }
-
-        $key = $this->_getCacheKey();
-        $cache = Cache::get($key);
-        // Attempts to load from the cache
-        if (!($cache instanceof Translator)) {
-            $cache = new Translator();
-            foreach (array_keys($this->paths) as $path) {
-                // Merge all the locale files into a single structure
-                $cache->addTranslations(LocaleFile::loadArray($path));
-            }
-            // Store for a limited amount of time, given that cache invalidations will not attempt to clean old data
-            Cache::put($this->_getCacheKey(), $cache, DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME));
-        }
-        $this->translator = $cache;
-    }
-
-    /**
-     * Retrieves a cache key based on the path and modification date of all locale files
-     */
-    private function _getCacheKey(): string
-    {
-        $key = array_reduce(
-            array_keys($this->paths),
-            function (string $hash, string $path): string {
-                return sha1($hash . $path . filemtime($path));
-            },
-            ''
-        );
-
-        return static::class . '.' . $key;
-    }
-
-    /**
      * Retrieves the locale paths (keys) that are part of this bundle together with their priorities (values)
      *
      * @return int[]
@@ -158,5 +104,40 @@ class LocaleBundle
     public function getEntries(): array
     {
         return $this->paths;
+    }
+
+    /**
+     * Lazily build and retrieves the Translator instance
+     */
+    public function getTranslator(): Translator
+    {
+        // Caches only the supported locales (avoid spending time with one-offs)
+        $isSupported = Locale::isSupported($this->locale);
+        $loader = function () use ($isSupported): Translator {
+            $translator = new Translator();
+            // Merge all the locale files into a single structure
+            array_walk($this->paths, fn (int $_, string $path) => $translator->addTranslations(LocaleFile::loadArray($path, $isSupported)));
+            return $translator;
+        };
+        return $this->translator ??= $isSupported
+            ? Cache::remember($this->_getCacheKey(), DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME), $loader)
+            : $loader();
+    }
+
+    /**
+     * Retrieves a cache key based on the path and modification date of all locale files
+     */
+    private function _getCacheKey(): string
+    {
+        $key = array_reduce(array_keys($this->paths), fn(string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
+        return __METHOD__ . static::MAX_CACHE_LIFETIME . ".${key}";
+    }
+
+    /**
+     * Formats the translation
+     */
+    private function _format(string $message, array $params = [])
+    {
+        return count($params) ? str_replace(array_map(fn(string $search): string => "{\$${search}}", array_keys($params)), array_values($params), $message) : $message;
     }
 }

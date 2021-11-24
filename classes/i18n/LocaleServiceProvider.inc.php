@@ -21,10 +21,14 @@ declare(strict_types = 1);
 
 namespace PKP\i18n;
 
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Support\ServiceProvider;
+use PKP\facades\Locale as LocaleFacade;
 use PKP\i18n\interfaces\LocaleInterface;
+use PKP\i18n\translation\IsoCodesTranslationDriver;
+use Sokil\IsoCodes\IsoCodesFactory;
 
 class LocaleServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -35,12 +39,19 @@ class LocaleServiceProvider extends ServiceProvider implements DeferrableProvide
      */
     public function register(): void
     {
-        $this->app->singleton(LocaleInterface::class, function () {
-            return $this->app->make(Locale::class);
-        });
+        $this->app->singleton(LocaleInterface::class, fn () => $this->app->make(Locale::class));
         // Replaces the default Laravel translator
         $this->app->alias(LocaleInterface::class, 'translator');
         $this->app->alias(LocaleInterface::class, Translator::class);
+
+        // Reuses the instance and keeps the user selected language across the application
+        $this->app->singleton(
+            IsoCodesFactory::class,
+            fn (Container $container, array $params): IsoCodesFactory => new IsoCodesFactory(
+                null,
+                new IsoCodesTranslationDriver($params['locale'] ?? LocaleFacade::getLocale())
+            )
+        );
     }
 
     /**

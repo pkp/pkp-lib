@@ -25,7 +25,6 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionFileLog;

@@ -323,8 +323,6 @@ class DAO extends EntityDAO
                         ->where('locale', $locale)
                         ->delete();
 
-
-
                     $previous = Locale::getMissingKeyHandler();
                     Locale::setMissingKeyHandler(fn (string $key): string => '');
                     $translatedSubject = __($subject, [], $locale);
@@ -376,9 +374,7 @@ class DAO extends EntityDAO
 
             // Translate variable contents
             foreach ([&$subject, &$body, &$description] as &$var) {
-                $var = preg_replace_callback('{{translate key="([^"]+)"}}', function ($matches) use($locale) {
-                    return __($matches[1], [], $locale);
-                }, $var);
+                $var = preg_replace_callback('{{translate key="([^"]+)"}}', fn($matches) => __($matches[1], [], $locale), $var);
             }
 
             if ($emailKey && $emailKey != $emailNode->getAttribute('key')) {

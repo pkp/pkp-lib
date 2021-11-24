@@ -23,18 +23,16 @@ use PKP\facades\Locale;
 use APP\statistics\StatisticsHelper;
 use DateTime;
 use DateTimeZone;
-use DomainException;
 use Exception;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Events\QueryExecuted;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\session\SessionManager;
-use PKP\site\VersionCheck;
-use PKP\site\VersionDAO;
 use PKP\statistics\PKPStatisticsHelper;
 
 interface iPKPApplicationInfoProvider
@@ -209,14 +207,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $microTime = Core::microtime();
         Registry::set('system.debug.startTime', $microTime);
 
-        $notes = [];
-        Registry::set('system.debug.notes', $notes);
-
         $this->initializeLaravelContainer();
         PKPString::initialize();
 
         // Load default locale files
-        Locale::registerFolder(BASE_SYS_DIR . '/lib/pkp/locale');
+        Locale::registerPath(BASE_SYS_DIR . '/lib/pkp/locale');
     }
 
     /**
@@ -236,16 +231,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $laravelContainer = new PKPContainer();
         $laravelContainer->registerConfiguredProviders();
 
-        // Add the application version as a cache invalidator (avoid unstable deserializations due to structural changes)
-        if (Cache::getStore() instanceof \ElcoBvg\Opcache\Store) {
-            Cache::setSubDirectory(preg_replace('/[^\da-z.]/i', '-', VersionCheck::getCurrentCodeVersion()->getVersionString()));
-        }
         $this->initializeTimeZone();
 
         if (Config::getVar('database', 'debug')) {
-            DB::listen(function ($query) {
-                error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings));
-            });
+            DB::listen(fn(QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
         }
     }
 
@@ -277,18 +266,9 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         if (Application::isInstalled()) {
             // Retrieve the current offset
             $offset = (new DateTime())->format('P');
-
-            // Setup the database time zone
-            switch (get_class(DB::connection())) {
-                case \Illuminate\Database\MySqlConnection::class:
-                    $statement = "SET time_zone = '$offset'";
-                    break;
-                case \Illuminate\Database\PostgresConnection::class:
-                    $statement = "SET TIME ZONE INTERVAL '$offset' HOUR TO MINUTE";
-                    break;
-                default:
-                    throw new DomainException('Unrecognized database');
-            }
+            $statement = DB::connection() instanceof MySqlConnection
+                ? "SET time_zone = '${offset}'"
+                : "SET TIME ZONE INTERVAL '${offset}' HOUR TO MINUTE";
             DB::statement($statement);
         }
     }
@@ -323,6 +303,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $application = Application::get();
         $userAgent = $application->getName() . '/';
         if (static::isInstalled() && !static::isUpgrading()) {
+            /** @var \PKP\site\VersionDAO */
             $versionDao = DAORegistry::getDAO('VersionDAO');
             $currentVersion = $versionDao->getCurrentVersion();
             $userAgent .= $currentVersion->getVersionString();
@@ -473,7 +454,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 $settingContext = array_combine($this->getContextList(), $settingContext);
             }
 
-            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
+            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
             $this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts($settingContext);
         }
 

@@ -21,29 +21,30 @@ declare(strict_types = 1);
 
 namespace PKP\i18n;
 
-use Illuminate\Support\Facades\App;
-use PKP\config\Config;
-use PKP\core\Registry;
-use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
-use PKP\i18n\interfaces\LocaleInterface;
-use PKP\plugins\HookRegistry;
-use PKP\plugins\PluginRegistry;
-use PKP\security\Validation;
-use PKP\session\SessionManager;
-use Illuminate\Support\Facades\Cache;
-use PKP\i18n\translation\LocaleBundle;
 use DateTime;
 use DomainException;
+use Illuminate\Support\Facades\Cache;
 use InvalidArgumentException;
 use LogicException;
+use PKP\config\Config;
+use PKP\core\PKPRequest;
+use PKP\core\Registry;
 use PKP\facades\Repo;
-use SplFileInfo;
+use PKP\i18n\interfaces\LocaleInterface;
+use PKP\i18n\translation\LocaleBundle;
+use PKP\plugins\HookRegistry;
+use PKP\plugins\PluginRegistry;
+use PKP\session\SessionManager;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RecursiveRegexIterator;
 use RegexIterator;
 use SimpleXMLElement;
+use Sokil\IsoCodes\IsoCodesFactory;
+use Sokil\IsoCodes\Database\Countries;
+use Sokil\IsoCodes\Database\Currencies;
+use Sokil\IsoCodes\Database\LanguagesInterface;
+use SplFileInfo;
 
 class Locale implements LocaleInterface
 {
@@ -354,6 +355,38 @@ class Locale implements LocaleInterface
     }
 
     /**
+     * @copy LocaleInterface::getCountries()
+     */
+    public function getCountries(?string $locale = null): Countries
+    {
+        return $this->_getIsoCodes($locale)->getCountries();
+    }
+
+    /**
+     * @copy LocaleInterface::getCurrencies()
+     */
+    public function getCurrencies(?string $locale = null): Currencies
+    {
+        return $this->_getIsoCodes($locale)->getCurrencies();
+    }
+
+    /**
+     * @copy LocaleInterface::getLanguages()
+     */
+    public function getLanguages(?string $locale = null): LanguagesInterface
+    {
+        return $this->_getIsoCodes($locale)->getLanguages();
+    }
+
+    /**
+     * @copy LocaleInterface::getScripts()
+     */
+    public function getScripts(?string $locale = null): Scripts
+    {
+        return $this->_getIsoCodes($locale)->getScripts();
+    }
+
+    /**
      * Given a locale folder, retrieves all locale files (.po)
      *
      * @return int[]
@@ -380,6 +413,14 @@ class Locale implements LocaleInterface
     private function _getRequest(): PKPRequest
     {
         return App::make(PKPRequest::class);
+    }
+
+    /**
+     * Retrieves the ISO codes factory
+     */
+    private function _getIsoCodes(string $locale = null): IsoCodesFactory
+    {
+        return app(IsoCodesFactory::class, $locale ? ['locale' => $locale] : []);
     }
 
     /**

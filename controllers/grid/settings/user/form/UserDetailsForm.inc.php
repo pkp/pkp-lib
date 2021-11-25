@@ -23,7 +23,6 @@ use PKP\identity\Identity;
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\user\InterestManager;
-use Sokil\IsoCodes\IsoCodesFactory;
 
 class UserDetailsForm extends UserForm
 {
@@ -175,9 +174,8 @@ class UserDetailsForm extends UserForm
     public function display($request = null, $template = null)
     {
         $site = $request->getSite();
-        $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
-        foreach ($isoCodes->getCountries() as $country) {
+        foreach (Locale::getCountries() as $country) {
             $countries[$country->getAlpha2()] = $country->getLocalName();
         }
         asort($countries);

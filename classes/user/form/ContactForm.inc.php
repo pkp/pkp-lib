@@ -21,8 +21,6 @@ use PKP\facades\Locale;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 
-use Sokil\IsoCodes\IsoCodesFactory;
-
 class ContactForm extends BaseProfileForm
 {
     /**
@@ -37,10 +35,9 @@ class ContactForm extends BaseProfileForm
         // Validation checks for this form
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email, $userId) {
-            $user = Repo::user()->getByEmail($email, true);
-            return !$user || $user->getId() != $userId;
-        }, [$user->getId()], true));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists',
+            fn($email, $userId) => !($user = Repo::user()->getByEmail($email, true)) || $user->getId() != $userId, [$user->getId()], true
+        ));
     }
 
     /**
@@ -51,9 +48,8 @@ class ContactForm extends BaseProfileForm
     public function fetch($request, $template = null, $display = false)
     {
         $site = $request->getSite();
-        $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
-        foreach ($isoCodes->getCountries() as $country) {
+        foreach (Locale::getCountries() as $country) {
             $countries[$country->getAlpha2()] = $country->getLocalName();
         }
         asort($countries);

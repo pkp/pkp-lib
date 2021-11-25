@@ -23,6 +23,10 @@ namespace PKP\i18n\interfaces;
 
 use PKP\i18n\LocaleMetadata;
 use PKP\i18n\translation\LocaleBundle;
+use Sokil\IsoCodes\Database\Countries;
+use Sokil\IsoCodes\Database\Currencies;
+use Sokil\IsoCodes\Database\LanguagesInterface;
+use Sokil\IsoCodes\Database\Scripts;
 
 interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
 {
@@ -112,4 +116,24 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
      * Retrieves the default locale
      */
     public function getDefaultLocale(): string;
+
+    /**
+     * Retrieve the countries
+     */
+    public function getCountries(?string $locale = null): Countries;
+
+    /**
+     * Retrieve the currencies
+     */
+    public function getCurrencies(?string $locale = null): Currencies;
+
+    /**
+     * Retrieve the languages
+     */
+    public function getLanguages(?string $locale = null): LanguagesInterface;
+
+    /**
+     * Retrieve the scripts
+     */
+    public function getScripts(?string $locale = null): Scripts;
 }

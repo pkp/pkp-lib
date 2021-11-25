@@ -36,7 +36,12 @@ use PKP\i18n\interfaces\LocaleInterface;
  * @method static callable getMissingKeyHandler()
  * @method static \PKP\i18n\translation\LocaleBundle getBundle(string $locale)
  * @method static string getDefaultLocale()
+ * @method static \Sokil\IsoCodes\Database\Countries getCountries(?string $locale = null)
+ * @method static \Sokil\IsoCodes\Database\Currencies getCurrencies(?string $locale = null)
+ * @method static \Sokil\IsoCodes\Database\LanguagesInterface getLanguages(?string $locale = null)
+ * @method static \Sokil\IsoCodes\Database\Scripts getScripts(?string $locale = null)
  */
+
 class Locale extends Facade
 {
     /**

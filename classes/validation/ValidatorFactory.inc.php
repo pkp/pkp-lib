@@ -23,8 +23,6 @@ use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory;
 use PKP\file\TemporaryFileManager;
 
-use Sokil\IsoCodes\IsoCodesFactory;
-
 class ValidatorFactory
 {
     /**
@@ -124,15 +122,13 @@ class ValidatorFactory
 
         // Add custom validation rule for currency
         $validation->extend('currency', function ($attribute, $value, $parameters, $validator) {
-            $isoCodes = app(IsoCodesFactory::class);
-            $currency = $isoCodes->getCurrencies()->getByLetterCode((string) $value);
+            $currency = Locale::getCurrencies()->getByLetterCode((string) $value);
             return isset($currency);
         });
 
         // Add custom validation rule for country
         $validation->extend('country', function ($attribute, $value, $parameters, $validator) {
-            $isoCodes = app(IsoCodesFactory::class);
-            $country = $isoCodes->getCountries()->getByAlpha2((string) $value);
+            $country = Locale::getCountries()->getByAlpha2((string) $value);
             return isset($country);
         });
 

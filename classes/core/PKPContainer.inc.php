@@ -95,9 +95,9 @@ class PKPContainer extends Container
         );
 
         // This singleton is necessary to keep user selected language across the application
-        $this->singleton(IsoCodesFactory::class, function () {
+        $this->singleton(IsoCodesFactory::class, function (self $container, array $params): IsoCodesFactory {
             $driver = new GettextExtensionDriver();
-            $driver->setLocale(Locale::getLocale());
+            $driver->setLocale($params['locale'] ?? Locale::getLocale());
             return new IsoCodesFactory(null, $driver);
         });
 

@@ -32,8 +32,6 @@ use PKP\security\Validation;
 use PKP\session\SessionManager;
 use PKP\user\InterestManager;
 
-use Sokil\IsoCodes\IsoCodesFactory;
-
 class RegistrationForm extends Form
 {
     /** @var User The user object being created (available to hooks during registrationform::execute hook) */
@@ -62,9 +60,7 @@ class RegistrationForm extends Form
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
         $this->addCheck(new \PKP\form\validation\FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
-            return $password == $form->getData('password2');
-        }));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', fn($password) => $password == $form->getData('password2')));
 
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'givenName', 'required', 'user.profile.form.givenNameRequired'));
 
@@ -84,9 +80,7 @@ class RegistrationForm extends Form
         $this->defaultAuth = $authDao->getDefaultPlugin();
         if (isset($this->defaultAuth)) {
             $auth = $this->defaultAuth;
-            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', function ($username) use ($form, $auth) {
-                return (!$auth->userExists($username) || $auth->authenticate($username, $form->getData('password')));
-            }));
+            $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', fn($username) => !$auth->userExists($username) || $auth->authenticate($username, $form->getData('password'))));
         }
 
         $context = Application::get()->getRequest()->getContext();
@@ -112,10 +106,8 @@ class RegistrationForm extends Form
             $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
         }
 
-        $isoCodes = app(IsoCodesFactory::class);
-
         $countries = [];
-        foreach ($isoCodes->getCountries() as $country) {
+        foreach (Locale::getCountries() as $country) {
             $countries[$country->getAlpha2()] = $country->getLocalName();
         }
         asort($countries);

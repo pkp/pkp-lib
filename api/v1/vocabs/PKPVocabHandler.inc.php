@@ -28,7 +28,6 @@ use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
 use Slim\Http\Request;
-use Sokil\IsoCodes\IsoCodesFactory;
 use Stringy\Stringy;
 use PKP\facades\Locale;
 
@@ -98,11 +97,9 @@ class PKPVocabHandler extends APIHandler
                 $entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
                 break;
             case SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE:
-                /** @var IsoCodesFactory */
-                $isoCodes = app(IsoCodesFactory::class);
                 $words = array_filter(PKPString::regexp_split('/\s+/', $term), 'strlen');
                 $languageNames = [];
-                foreach ($isoCodes->getLanguages(IsoCodesFactory::OPTIMISATION_IO) as $language) {
+                foreach (Locale::getLanguages() as $language) {
                     if ($language->getAlpha2() && $language->getType() === 'L' && $language->getScope() === 'I' && Stringy::create($language->getLocalName())->containsAny($words, false)) {
                         $languageNames[] = $language->getLocalName();
                     }

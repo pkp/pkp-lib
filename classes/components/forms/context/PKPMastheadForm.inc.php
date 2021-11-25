@@ -18,7 +18,7 @@ use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
-use Sokil\IsoCodes\IsoCodesFactory;
+use PKP\facades\Locale;
 
 define('FORM_MASTHEAD', 'masthead');
 
@@ -43,9 +43,8 @@ class PKPMastheadForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
-        foreach ($isoCodes->getCountries() as $country) {
+        foreach (Locale::getCountries() as $country) {
             $countries[] = [
                 'value' => $country->getAlpha2(),
                 'label' => $country->getLocalName()

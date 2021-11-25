@@ -320,8 +320,7 @@ class Identity extends \PKP\core\DataObject
         if (!$countryCode) {
             return null;
         }
-        $isoCodes = app(IsoCodesFactory::class);
-        $country = $isoCodes->getCountries()->getByAlpha2($countryCode);
+        $country = Locale::getCountries()->getByAlpha2($countryCode);
         return $country ? $country->getLocalName() : null;
     }
 

@@ -487,6 +487,8 @@ class FileManager {
 				return '.mp4';
 			case 'text/javascript':
 				return '.js';
+			case 'image/webp':
+				return '.webp';
 			default:
 				return false;
 		}

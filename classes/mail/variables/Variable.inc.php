@@ -47,22 +47,4 @@ abstract class Variable
         }
         return $description;
     }
-
-    /**
-     * Get value of all or specific variable
-     * @param string|null $variableConst
-     * @return string|string[]
-     */
-    function getValue(string $variableConst = null)
-    {
-        $values = static::values();
-        if (!is_null($variableConst)) {
-            if (!array_key_exists($variableConst, $values)) {
-                throw new InvalidArgumentException('Template variable \'' . $variableConst . '\' doesn\'t exist in ' . static::class);
-            }
-            return $values[$variableConst];
-        }
-
-        return $values;
-    }
 }

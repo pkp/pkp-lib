@@ -16,7 +16,6 @@
 namespace PKP\mail\variables;
 
 use InvalidArgumentException;
-use PKP\i18n\PKPLocale;
 use PKP\user\User;
 
 class RecipientEmailVariable extends Variable

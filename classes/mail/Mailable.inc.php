@@ -70,7 +70,7 @@ class Mailable extends IlluminateMailable
      *
      * @param array<Variable>
      */
-    public array $variables = [];
+    protected array $variables = [];
 
     /**
      * One or more groups this mailable should be included in
@@ -87,7 +87,7 @@ class Mailable extends IlluminateMailable
     protected static ?string $description = null;
 
     // Whether Mailable supports additional templates, besides the default
-    public static bool $supportsTemplates = false;
+    protected static bool $supportsTemplates = false;
 
     public function __construct(array $variables = [])
     {

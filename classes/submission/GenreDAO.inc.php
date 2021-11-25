@@ -373,6 +373,20 @@ class GenreDAO extends DAO {
 	function deleteSettingsByLocale($locale) {
 		$this->update('DELETE FROM genre_settings WHERE locale = ?', [$locale]);
 	}
+
+	/**
+	 * Check if genre is used by any submission files
+	 * @param $genreId
+	 * @return bool
+	 */
+	function genreEmpty($genreId) {
+		$result = $this->retrieve(
+			'SELECT sf.submission_file_id FROM submission_files sf WHERE sf.genre_id = ?',
+			[(int) $genreId]
+		);
+		$row = $result->current();
+		return !$row;
+	}
 }
 
 

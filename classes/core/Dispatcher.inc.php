@@ -90,6 +90,8 @@ class Dispatcher {
 		$routerNames = $this->getRouterNames();
 		assert(count($routerNames) > 0);
 
+		AppLocale::initialize($request);
+
 		// Go through all configured routers by priority
 		// and find out whether one supports the incoming request
 		foreach($routerNames as $shortcut => $routerCandidateName) {
@@ -128,7 +130,6 @@ class Dispatcher {
 			}
 		}
 
-		AppLocale::initialize($request);
 		PluginRegistry::loadCategory('generic', true);
 
 		$router->route($request);

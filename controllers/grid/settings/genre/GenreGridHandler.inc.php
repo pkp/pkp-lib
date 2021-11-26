@@ -215,11 +215,23 @@ class GenreGridHandler extends SetupGridHandler {
 		$context = $request->getContext();
 		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($genreId, $context->getId());
-		if ($genre && $request->checkCSRF()) {
-			$genreDao->deleteObject($genre);
-			return DAO::getDataChangedEvent($genre->getId());
+
+		if (!$request->checkCSRF()) {
+			return new JSONMessage(false, __('form.csrfInvalid'));
 		}
-		return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
+
+		if (!$genre) {
+			return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
+		}
+
+
+		$genreEmpty = $genreDao->genreEmpty($genreId);
+		if (!$genreEmpty) {
+			return new JSONMessage(false, __('manager.genres.alertDelete'));
+		}
+
+		$genreDao->deleteObject($genre);
+		return DAO::getDataChangedEvent($genre->getId());
 	}
 
 	/**

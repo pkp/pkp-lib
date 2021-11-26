@@ -14,16 +14,21 @@
 
 namespace PKP\Services\QueryBuilders;
 
+use Application;
+use AppLocale;
+use Carbon\Carbon;
+use DomainException;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
+use PKPString;
 
 class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 
 	/** @var int Context ID */
 	protected $contextId = null;
-
-	/** @var array list of columns for query */
-	protected $columns = array();
 
 	/** @var string order by column */
 	protected $orderColumn = 'u.user_id';
@@ -118,13 +123,16 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
 	 */
 	public function orderBy($column, $direction = 'DESC') {
-		if ($column === 'givenName') {
-			$this->orderColumn = 'user_given';
-		} elseif ($column === 'familyName') {
-			$this->orderColumn = 'user_family';
-		} else {
-			$this->orderColumn = 'u.user_id';
+		$orderColumns = [
+			'id' => 'u.user_id',
+			IDENTITY_SETTING_GIVENNAME => IDENTITY_SETTING_GIVENNAME,
+			IDENTITY_SETTING_FAMILYNAME => IDENTITY_SETTING_FAMILYNAME
+		];
+		if (!isset($orderColumns[$column])) {
+			error_log((string) new DomainException("Invalid sort column: ${column}"));
+			$column = 'id';
 		}
+		$this->orderColumn = $orderColumns[$column];
 		$this->orderDirection = $direction;
 		return $this;
 	}
@@ -137,6 +145,9 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	 * @return \PKP\Services\QueryBuilders\PKPUserQueryBuilder
 	 */
 	public function filterByStatus($status) {
+		if ($status && !in_array($status, ['active', 'disabled'])) {
+			error_log((string) new DomainException("Invalid status \"{$status}\""));
+		}
 		$this->status = $status;
 		return $this;
 	}
@@ -414,8 +425,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	 */
 	public function getCount() {
 		$q = $this->getQuery();
-		// Reset the groupBy and orderBy
-		$q->groups = ['u.user_id'];
+		// Reset the orderBy
 		$q->orders = [];
 		return $q->select('u.user_id')
 			->get()
@@ -427,8 +437,7 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	 */
 	public function getIds() {
 		$q = $this->getQuery();
-		// Reset the groupBy and orderBy
-		$q->groups = ['u.user_id'];
+		// Reset the orderBy
 		$q->orders = [];
 		return $q->select('u.user_id')
 			->pluck('u.user_id')
@@ -441,267 +450,256 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	 * @return object Query object
 	 */
 	public function getQuery() {
-		$locale = \AppLocale::getLocale();
-		// the users register for the site, thus
-		// the site primary locale should be the default locale
-		$site = \Application::get()->getRequest()->getSite();
-		$primaryLocale = $site->getPrimaryLocale();
-
-		$this->columns = ['u.*'];
-		$this->columns[] = Capsule::raw('COALESCE(ugl.setting_value, ugpl.setting_value) AS user_given');
-		$this->columns[] = Capsule::raw('CASE WHEN ugl.setting_value <> \'\' THEN ufl.setting_value ELSE ufpl.setting_value END AS user_family');
-		$q = Capsule::table('users as u')
-			->leftJoin('user_user_groups as uug', 'uug.user_id', '=', 'u.user_id')
-			->leftJoin('user_groups as ug', 'ug.user_group_id', '=', 'uug.user_group_id')
-			->leftJoin('user_settings as ugl', function ($join) use ($locale) {
-				$join->on('ugl.user_id', '=', 'u.user_id')
-					->where('ugl.setting_name', '=', IDENTITY_SETTING_GIVENNAME)
-					->where('ugl.locale', '=', $locale);
+		$query = Capsule::table('users', 'u')
+			->select('u.*')
+			// Filters by registration date
+			->when(!empty($this->registeredBefore), function (Builder $query) {
+				// Include users who registered up to the end of the day
+				$query->where('u.date_registered', '<', Carbon::rawParse($this->registeredBefore)->addDay()->toDateString());
 			})
-			->leftJoin('user_settings as ugpl', function ($join) use ($primaryLocale) {
-				$join->on('ugpl.user_id', '=', 'u.user_id')
-					->where('ugpl.setting_name', '=', IDENTITY_SETTING_GIVENNAME)
-					->where('ugpl.locale', '=', $primaryLocale);
+			->when(!empty($this->registeredAfter), function (Builder $query) {
+				$query->where('u.date_registered', '>=', $this->registeredAfter);
 			})
-			->leftJoin('user_settings as ufl', function ($join) use ($locale) {
-				$join->on('ufl.user_id', '=', 'u.user_id')
-					->where('ufl.setting_name', '=', IDENTITY_SETTING_FAMILYNAME)
-					->where('ufl.locale', '=', $locale);
+			->when(!empty($this->userIds), function (Builder $query) {
+				$query->whereIn('u.user_id', $this->userIds);
 			})
-			->leftJoin('user_settings as ufpl', function ($join) use ($primaryLocale) {
-				$join->on('ufpl.user_id', '=', 'u.user_id')
-					->where('ufpl.setting_name', '=', IDENTITY_SETTING_FAMILYNAME)
-					->where('ufpl.locale', '=', $primaryLocale);
+			->when(!empty($this->includeUsers), function (Builder $query) {
+				$query->orWhereIn('u.user_id', $this->includeUsers);
+			})
+			->when($this->excludeUsers !== null, function (Builder $query) {
+				$query->whereNotIn('u.user_id', $this->excludeUsers);
+			})
+			// User enabled/disabled state
+			->when(in_array($this->status, ['active', 'disabled']), function (Builder $query) {
+				$query->where('u.disabled', '=', $this->status === 'disabled');
+			})
+			// Adds limit and offset for pagination
+			->when($this->limit !== null, function (Builder $query) {
+				$query->limit($this->limit);
+			})
+			->when(!empty($this->offset), function (Builder $query) {
+				$query->offset($this->offset);
 			});
 
-		// context
-		// Never permit a query without a context_id clause unless the CONTEXT_ID_ALL wildcard
-		// has been set explicitely.
-		if (is_null($this->contextId)) {
-			$q->where('ug.context_id', '=', CONTEXT_ID_NONE);
-		} elseif ($this->contextId !== CONTEXT_ID_ALL) {
-			$q->where('ug.context_id', '=' , $this->contextId);
-		}
-
-		// roles
-		if (!is_null($this->roleIds)) {
-			$q->whereIn('ug.role_id', $this->roleIds);
-		}
-
-		// user groups
-		if (!empty($this->userGroupIds)) {
-			$q->whereIn('ug.user_group_id', $this->userGroupIds);
-		}
-
-		// user ids
-		if (!empty($this->userIds)) {
-			$q->whereIn('u.user_id', $this->userIds);
-		}
-
-		// Exclude users
-		if (!is_null($this->excludeUsers)) {
-			$excludeUsers = $this->excludeUsers;
-			$q->whereNotIn('u.user_id', $excludeUsers);
-		}
-		// status
-		if (!is_null($this->status)) {
-			if ($this->status === 'disabled') {
-				$q->where('u.disabled', '=', 1);
-			} elseif ($this->status === 'active') {
-				$q->where('u.disabled', '=', 0);
-			}
-		}
-
-		// assigned to submission
-		if (!is_null($this->assignedToSubmissionId)) {
-			$submissionId = $this->assignedToSubmissionId;
-
-			$q->leftJoin('stage_assignments as sa', function($table) use ($submissionId) {
-				$table->on('u.user_id', '=', 'sa.user_id');
-				$table->on('sa.submission_id', '=', Capsule::raw((int) $submissionId));
-			});
-
-			$q->whereNotNull('sa.stage_assignment_id');
-
-			if (!is_null($this->assignedToSubmissionStageId)) {
-				$stageId = $this->assignedToSubmissionStageId;
-
-				$q->leftJoin('user_group_stage as ugs', 'sa.user_group_id', '=', 'ugs.user_group_id');
-				$q->where('ugs.stage_id', '=', Capsule::raw((int) $stageId));
-			}
-		}
-
-		// date registered
-		if (!empty($this->registeredAfter)) {
-			$q->where('u.date_registered', '>=', $this->registeredAfter);
-		}
-		if (!empty($this->registeredBefore)) {
-			// Include useres who registered up to the end of the day
-			$dateTime = new \DateTime($this->registeredBefore);
-			$dateTime->add(new \DateInterval('P1D'));
-			$q->where('u.date_registered', '<', $dateTime->format('Y-m-d'));
-		}
-
-		// review stage id
-		if (!is_null($this->reviewStageId)) {
-			$q->leftJoin('user_group_stage as ugs', 'uug.user_group_id', '=', 'ugs.user_group_id');
-			$q->where('ugs.stage_id', '=', Capsule::raw((int) $this->reviewStageId));
-		}
-
-		// search phrase
-		if (!empty($this->searchPhrase)) {
-			$words = explode(' ', $this->searchPhrase);
-			if (count($words)) {
-				$q->leftJoin('user_settings as us', 'u.user_id', '=', 'us.user_id');
-				$q->leftJoin('user_interests as ui', 'u.user_id', '=', 'ui.user_id');
-				$q->leftJoin('controlled_vocab_entry_settings as cves', 'ui.controlled_vocab_entry_id', '=', 'cves.controlled_vocab_entry_id');
-				foreach ($words as $word) {
-					$word = strtolower(addcslashes($word, '%_'));
-					$q->where(function($q) use ($word) {
-						$q->where(Capsule::raw('lower(u.username)'), 'LIKE', "%{$word}%")
-							->orWhere(Capsule::raw('lower(u.email)'), 'LIKE', "%{$word}%")
-							->orWhere(function($q) use ($word) {
-								$q->where('us.setting_name', IDENTITY_SETTING_GIVENNAME);
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
-							})
-							->orWhere(function($q) use ($word) {
-								$q->where('us.setting_name', IDENTITY_SETTING_FAMILYNAME);
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
-							})
-							->orWhere(function($q) use ($word) {
-								$q->where('us.setting_name', 'preferredPublicName');
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
-							})
-							->orWhere(function($q) use ($word) {
-								$q->where('us.setting_name', 'affiliation');
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
-							})
-							->orWhere(function($q) use ($word) {
-								$q->where('us.setting_name', 'biography');
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
-							})
-							->orWhere(function($q) use ($word) {
-								$q->where('us.setting_name', 'orcid');
-								$q->where(Capsule::raw('lower(us.setting_value)'), 'LIKE', "%{$word}%");
-							})
-							->orWhere(Capsule::raw('lower(cves.setting_value)'), 'LIKE', "%{$word}%");
-					});
-				}
-			}
-		}
-
-		// reviewer data
-		if (!empty($this->getReviewerData)) {
-			$q->leftJoin('review_assignments as ra', 'u.user_id', '=', 'ra.reviewer_id');
-			$this->columns[] = Capsule::raw('MAX(ra.date_assigned) as last_assigned');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as incomplete_count');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as complete_count');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.declined = 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as declined_count');
-			$this->columns[] = Capsule::raw('(SELECT SUM(CASE WHEN ra.cancelled = 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id) as cancelled_count');
-			switch (\Config::getVar('database', 'driver')) {
-				case 'mysql':
-				case 'mysqli':
-					$dateDiffClause = 'DATEDIFF(ra.date_completed, ra.date_notified)';
-					break;
-				default:
-					$dateDiffClause = 'DATE_PART(\'day\', ra.date_completed - ra.date_notified)';
-			}
-			$this->columns[] = Capsule::raw('AVG(' . $dateDiffClause . ') as average_time');
-			$this->columns[] = Capsule::raw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) as reviewer_rating');
-
-			// reviewer rating
-			if (!empty($this->reviewerRating)) {
-				$q->havingRaw('(SELECT AVG(ra.quality) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id AND ra.quality IS NOT NULL) >= ' . (int) $this->reviewerRating);
-			}
-
-			// completed reviews
-			if (!empty($this->reviewsCompleted)) {
-				$doneMin = is_array($this->reviewsCompleted) ? $this->reviewsCompleted[0] : $this->reviewsCompleted;
-				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NOT NULL THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
-				$q->having(Capsule::raw($subqueryStatement), '>=', $doneMin);
-				if (is_array($this->reviewsCompleted) && !empty($this->reviewsCompleted[1])) {
-					$q->having(Capsule::raw($subqueryStatement), '<=', $this->reviewsCompleted[1]);
-				}
-			}
-
-			// active reviews
-			if (!empty($this->reviewsActive)) {
-				$activeMin = is_array($this->reviewsActive) ? $this->reviewsActive[0] : $this->reviewsActive;
-				$subqueryStatement = '(SELECT SUM(CASE WHEN ra.date_completed IS NULL AND ra.declined <> 1 THEN 1 ELSE 0 END) FROM review_assignments AS ra WHERE u.user_id = ra.reviewer_id)';
-				$q->having(Capsule::raw($subqueryStatement), '>=', $activeMin);
-				if (is_array($this->reviewsActive) && !empty($this->reviewsActive[1])) {
-					$q->having(Capsule::raw($subqueryStatement), '<=', $this->reviewsActive[1]);
-				}
-			}
-
-			// days since last review assignment
-			if (!empty($this->daysSinceLastAssignment)) {
-				$daysSinceMin = is_array($this->daysSinceLastAssignment) ? $this->daysSinceLastAssignment[0] : $this->daysSinceLastAssignment;
-				$userDao = \DAORegistry::getDAO('UserDAO');
-				$dbTimeMin = $userDao->dateTimeToDB(time() - ((int) $daysSinceMin * 86400));
-				$q->havingRaw('MAX(ra.date_assigned) <= ' . $dbTimeMin);
-				if (is_array($this->daysSinceLastAssignment) && !empty($this->daysSinceLastAssignment[1])) {
-					$daysSinceMax = $this->daysSinceLastAssignment[1];
-					// Subtract an extra day so that our outer bound rounds "up". This accounts
-					// for the UI rounding "down" in the string "X days ago".
-					$dbTimeMax = $userDao->dateTimeToDB(time() - ((int) $daysSinceMax * 86400) - 84600);
-					$q->havingRaw('MAX(ra.date_assigned) >= ' . $dbTimeMax);
-				}
-			}
-
-			// average days to complete review
-			if (!empty($this->averageCompletion)) {
-				$q->havingRaw('AVG(' . $dateDiffClause . ') <= ' . (int) $this->averageCompletion);
-			}
-		}
-
-		// Include users
-		if (!is_null($this->includeUsers)) {
-			$includeUsers = $this->includeUsers;
-			$q->orWhereIn('u.user_id', $includeUsers);
-		}
-
-		// Limit and offset results for pagination
-		if (!is_null($this->limit)) {
-			$q->limit($this->limit);
-		}
-		if (!empty($this->offset)) {
-			$q->offset($this->offset);
-		}
-
-		// Section assignments
-		if (!is_null($this->assignedToSectionId)) {
-			$sectionId = $this->assignedToSectionId;
-
-			$q->leftJoin('subeditor_submission_group as ssg', function($table) use ($sectionId) {
-				$table->on('u.user_id', '=', 'ssg.user_id');
-				$table->on('ssg.assoc_type', '=', Capsule::raw((int) ASSOC_TYPE_SECTION));
-				$table->on('ssg.assoc_id', '=', Capsule::raw((int) $sectionId));
-			});
-
-			$q->whereNotNull('ssg.assoc_id');
-		}
-
-		// Category assignments
-		if (!is_null($this->assignedToCategoryId)) {
-			$categoryId = $this->assignedToCategoryId;
-
-			$q->leftJoin('subeditor_submission_group as ssg', function($table) use ($categoryId) {
-				$table->on('u.user_id', '=', 'ssg.user_id');
-				$table->on('ssg.assoc_type', '=', Capsule::raw((int) ASSOC_TYPE_CATEGORY));
-				$table->on('ssg.assoc_id', '=', Capsule::raw((int) $categoryId));
-			});
-
-			$q->whereNotNull('ssg.assoc_id');
-		}
+			$this
+				->buildReviewerStatistics($query)
+				->buildUserGroupFilter($query)
+				->buildSearchFilter($query)
+				->buildSubEditorFilter($query)
+				->buildSubmissionAssignmentsFilter($query)
+				->buildOrderBy($query);
 
 		// Add app-specific query statements
-		\HookRegistry::call('User::getMany::queryObject', array(&$q, $this));
+		\HookRegistry::call('User::getMany::queryObject', array(&$query, $this));
 
-		$q->select($this->columns)
-			->groupBy('u.user_id', 'user_given', 'user_family')
-			->orderBy($this->orderColumn, $this->orderDirection);
+		return $query;
+	}
 
-		return $q;
+	/**
+	 * Builds the filters related to submission assignments (submission, stage, user group)
+	 */
+	protected function buildSubmissionAssignmentsFilter(Builder $query): self
+	{
+		if ($this->assignedToSubmissionId === null && $this->assignedToSubmissionStageId === null) {
+			return $this;
+		}
+		$query->whereExists(function (Builder $query) {
+			$query->from('stage_assignments', 'sa')
+				->join('user_group_stage AS ugs', 'sa.user_group_id', '=', 'ugs.user_group_id')
+				->whereColumn('sa.user_id', '=', 'u.user_id')
+				->when($this->assignedToSubmissionId !== null, function (Builder $query) {
+					$query->where('sa.submission_id', '=', $this->assignedToSubmissionId);
+				})
+				->when($this->assignedToSubmissionStageId, function (Builder $query) {
+					$query->where('ugs.stage_id', '=', $this->assignedToSubmissionStageId);
+				});
+		});
+		return $this;
+	}
+
+	/**
+	 * Builds the filters related to the user group
+	 */
+	protected function buildUserGroupFilter(Builder $query): self
+	{
+		if (empty($this->userGroupIds) && $this->roleIds === null && $this->contextId === CONTEXT_ID_ALL && $this->reviewStageId === null) {
+			return $this;
+		}
+		$query->whereExists(function (Builder $query) {
+			$query->from('user_user_groups', 'uug')
+				->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+				->whereColumn('uug.user_id', '=', 'u.user_id')
+				->when(!empty($this->userGroupIds), function (Builder $query) {
+					$query->whereIn('uug.user_group_id', $this->userGroupIds);
+				})
+				->when($this->reviewStageId !== null, function (Builder $query) {
+					$query->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
+						->where('ugs.stage_id', '=', $this->reviewStageId);
+				})
+				->when($this->roleIds !== null, function (Builder $query) {
+					$query->whereIn('ug.role_id', $this->roleIds);
+				})
+				->when($this->contextId !== CONTEXT_ID_ALL, function (Builder $query) {
+					$query->where('ug.context_id', '=', $this->contextId ?? CONTEXT_ID_NONE);
+				});
+		});
+		return $this;
+	}
+
+	/**
+	 * Builds the sub-editor filter
+	 */
+	protected function buildSubEditorFilter(Builder $query): self
+	{
+		foreach ([ASSOC_TYPE_SECTION => $this->assignedToSectionId, ASSOC_TYPE_CATEGORY => $this->assignedToCategoryId] as $type => $id) {
+			$query->when($id !== null, function (Builder $query) use ($id, $type) {
+				$query->whereExists(function (Builder $query) use ($id, $type) {
+					$query->from('subeditor_submission_group', 'ssg')
+						->whereColumn('ssg.user_id', '=', 'u.user_id')
+						->where('ssg.assoc_type', '=', $type)
+						->where('ssg.assoc_id', '=', $id);
+				});
+			});
+		}
+		return $this;
+	}
+
+	/**
+	 * Builds the reviewer statistics and related filters
+	 */
+	protected function buildReviewerStatistics(Builder $query): self
+	{
+		if (empty($this->getReviewerData)) {
+			return $this;
+		}
+		// Compile the statistics into a sub-query
+		$query->leftJoinSub(function (Builder $query) {
+			$dateDiff = Capsule::connection() instanceof MySqlConnection
+				? 'DATEDIFF(ra.date_completed, ra.date_notified)'
+				: "DATE_PART('day', ra.date_completed - ra.date_notified)";
+			$query->from('review_assignments', 'ra')
+				->groupBy('ra.reviewer_id')
+				->select('ra.reviewer_id')
+				->selectRaw('MAX(ra.date_assigned) AS last_assigned')
+				->selectRaw('COUNT(CASE WHEN ra.date_completed IS NULL AND ra.declined = 0 THEN 1 END) AS incomplete_count')
+				->selectRaw('COUNT(CASE WHEN ra.date_completed IS NOT NULL AND ra.declined = 0 THEN 1 END) AS complete_count')
+				->selectRaw('SUM(ra.declined) AS declined_count')
+				->selectRaw('SUM(ra.cancelled) AS cancelled_count')
+				->selectRaw("AVG($dateDiff) AS average_time")
+				->selectRaw('AVG(ra.quality) AS reviewer_rating');
+		}, 'ra_stats', 'u.user_id', '=', 'ra_stats.reviewer_id')
+			// Select all statistics columns
+			->addSelect('ra_stats.*')
+			// Reviewer rating
+			->when($this->reviewerRating !== null, function (Builder $query) {
+				$query->where('ra_stats.reviewer_rating', '>=', $this->reviewerRating);
+			})
+			// Completed reviews
+			->when(($reviewsCompleted = $this->reviewsCompleted[0] ?? $this->reviewsCompleted) !== null, function (Builder $query) use ($reviewsCompleted) {
+				$query->where('ra_stats.complete_count', '>=', $reviewsCompleted);
+			})
+			// Minimum active reviews
+			->when(($minReviews = $this->reviewsActive[0] ?? $this->reviewsActive) !== null, function (Builder $query) use ($minReviews) {
+				$query->where('ra_stats.incomplete_count', '>=', $minReviews);
+			})
+			// Maximum active reviews
+			->when(($maxReviews = $this->reviewsActive[1] ?? null) !== null, function (Builder $query) use ($maxReviews) {
+				$query->where('ra_stats.incomplete_count', '<=', $maxReviews);
+			})
+			// Minimum days since last review assignment
+			->when(($minDays = $this->daysSinceLastAssignment[0] ?? $this->daysSinceLastAssignment) !== null, function (Builder $query) use ($minDays) {
+				$query->where('ra_stats.last_assigned', '<=', Carbon::now()->subDays($minDays)->toDateString());
+			})
+			// Maximum days since last review assignment
+			->when(($maxDays = $this->daysSinceLastAssignment[1] ?? null) !== null, function (Builder $query) use ($maxDays) {
+				$query->where('ra_stats.last_assigned', '>=', Carbon::now()->subDays($maxDays + 1)->toDateString()); // Add one to include upper bound
+			})
+			// Average days to complete review
+			->when(($averageCompletion = $this->averageCompletion[0] ?? $this->averageCompletion) !== null, function (Builder $query) use ($averageCompletion) {
+				$query->where('ra_stats.average_time', '<=', $averageCompletion);
+			});
+		return $this;
+	}
+
+	/**
+	 * Builds the user search
+	 */
+	protected function buildSearchFilter(Builder $query): self
+	{
+		if (!strlen($searchPhrase = trim($this->searchPhrase))) {
+			return $this;
+		}
+		$words = array_map(function (string $word) {
+			return '%' . addcslashes($word, '%_') . '%';
+		}, PKPString::regexp_split('/\s+/', $searchPhrase));
+		foreach ($words as $word) {
+			$query->where(function (Builder $query) use ($word) {
+				$query->whereRaw('LOWER(u.username) LIKE LOWER(?)', [$word])
+					->orWhereRaw('LOWER(u.email) LIKE LOWER(?)', [$word])
+					->orWhereExists(function (Builder $query) use ($word) {
+						// Settings where the search will be performed
+						$settings = [IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName', 'affiliation', 'biography', 'orcid'];
+						$query->from('user_settings', 'us')
+							->whereColumn('us.user_id', '=', 'u.user_id')
+							->whereIn('us.setting_name', $settings)
+							->whereRaw('LOWER(us.setting_value) LIKE LOWER(?)', [$word]);
+					})
+					->orWhereExists(function (Builder $query) use ($word) {
+						$query->from('user_interests', 'ui')
+							->join('controlled_vocab_entry_settings AS cves', 'ui.controlled_vocab_entry_id', '=', 'cves.controlled_vocab_entry_id')
+							->whereColumn('ui.user_id', '=', 'u.user_id')
+							->whereRaw('LOWER(cves.setting_value) LIKE LOWER(?)', [$word]);
+					});
+			});
+		}
+		return $this;
+	}
+
+	/**
+	 * Handles the order by clause
+	 */
+	protected function buildOrderBy(Builder $query): self
+	{
+		$nameSettings = [IDENTITY_SETTING_GIVENNAME, IDENTITY_SETTING_FAMILYNAME];
+		if (in_array($this->orderColumn, $nameSettings)) {
+			$locales = array_unique([AppLocale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()]);
+			$sortedSettings = $this->orderColumn === IDENTITY_SETTING_GIVENNAME ? $nameSettings : array_reverse($nameSettings);
+			$query->orderBy(
+				function (Builder $query) use ($sortedSettings, $locales) {
+					$query->fromSub(function (Builder $query) {
+						$query->from(null)->selectRaw(0);
+					}, 'placeholder');
+					$aliasesBySetting = [];
+					foreach ($sortedSettings as $i => $setting) {
+						$aliases = [];
+						foreach ($locales as $j => $locale) {
+							$aliases[] = $alias = "us_${i}_${j}";
+							$query->leftJoin(
+								"user_settings AS ${alias}",
+								function (JoinClause $join) use ($alias, $setting, $locale) {
+									$join
+										->on("${alias}.user_id", '=', 'u.user_id')
+										->where("${alias}.setting_name", '=', $setting)
+										->where("${alias}.locale", '=', $locale);
+								}
+							);
+						}
+						$aliasesBySetting[] = $aliases;
+					}
+					// Build a possibly long CONCAT(COALESCE(given_localeA, given_localeB, [...]), COALESCE(family_localeA, family_localeB, [...])
+					$coalescedSettings = array_map(function (array $aliases) {
+						return 'COALESCE(' . implode(', ', array_map(function (string $alias) {
+							return "${alias}.setting_value";
+						}, $aliases)) . ", '')";
+					}, $aliasesBySetting);
+					$query->selectRaw('CONCAT(' . implode(', ', $coalescedSettings) . ')');
+				},
+				$this->orderDirection
+			);
+			return $this;
+		}
+
+		$query->orderBy($this->orderColumn, $this->orderDirection);
+		return $this;
 	}
 }

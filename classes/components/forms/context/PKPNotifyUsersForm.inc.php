@@ -12,6 +12,8 @@
  * @brief A preset form for sending an email notification to users.
  */
 namespace PKP\components\forms\context;
+
+use DAORegistry;
 use \PKP\components\forms\FormComponent;
 use \PKP\components\forms\FieldOptions;
 use \PKP\components\forms\FieldRichTextarea;
@@ -21,8 +23,10 @@ use \Services;
 define('FORM_NOTIFY_USERS', 'notifyUsers');
 
 class PKPNotifyUsersForm extends FormComponent {
+	public const FORM_NOTIFY_USERS = 'notifyUsers';
+
 	/** @copydoc FormComponent::$id */
-	public $id = FORM_NOTIFY_USERS;
+	public $id = self::FORM_NOTIFY_USERS;
 
 	/** @copydoc FormComponent::$method */
 	public $method = 'POST';
@@ -35,10 +39,13 @@ class PKPNotifyUsersForm extends FormComponent {
 	 *
 	 * @param string $action URL to submit the form to
 	 * @param Context $context Journal, press or preprint server
-	 * @param DAOResultFactory $userGroups Allowed user groups
 	 */
-	public function __construct($action, $context, $userGroups) {
+	public function __construct($action, $context) {
 		$this->action = $action;
+		/** @var \PKP\security\UserGroupDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroups = $userGroupDao->getByContextId($context->getId());
+		$userCountByGroupId = $userGroupDao->getUserCountByContextId($context->getId());
 
 		$userGroupOptions = [];
 		while ($userGroup = $userGroups->next()) {
@@ -49,11 +56,7 @@ class PKPNotifyUsersForm extends FormComponent {
 				'value' => $userGroup->getId(),
 				'label' => $userGroup->getLocalizedData('name'),
 			];
-			$this->userGroupCounts[$userGroup->getId()] = Services::get('user')->getCount([
-				'contextId' => $userGroup->getData('contextId'),
-				'userGroupIds' => [$userGroup->getId()],
-				'status' => 'active',
-			]);
+			$this->userGroupCounts[$userGroup->getId()] = $userCountByGroupId->get($userGroup->getId(), 0);
 		}
 
 		$currentUser = \Application::get()->getRequest()->getUser();

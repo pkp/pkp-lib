@@ -87,6 +87,7 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 				case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale')); break;
 				case 'abbrev': $userGroup->setAbbrev($n->textContent, $n->getAttribute('locale')); break;
 				case 'permit_self_registration': $userGroup->setPermitSelfRegistration($n->textContent); break;
+				case 'permit_metadata_edit': $userGroup->setPermitMetadataEdit($n->textContent); break;
 			}
 
 			$userGroupId = $userGroupDao->insertObject($userGroup);

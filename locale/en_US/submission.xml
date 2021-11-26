@@ -628,6 +628,7 @@
 	<message key="submission.list.viewSubmission">View Submission</message>
 	<message key="submission.list.reviewsCompleted">Assigned reviews completed</message>
 	<message key="submission.list.revisionsSubmitted">Revisions submitted</message>
+	<message key="submission.list.revisionsRequested">Revisions requested</message>
 	<message key="submission.list.copyeditsSubmitted">Copyedited files submitted</message>
 	<message key="submission.list.galleysCreated">Production galleys created</message>
 	<message key="submission.list.filesPrepared">Files prepared</message>
@@ -637,6 +638,7 @@
 	<message key="submission.list.incompleteSubmissionNotice">This submission must be completed before an editor will review it.</message>
 	<message key="submission.list.currentStage">Currently in the {$stage} stage.</message>
 	<message key="submission.list.assignEditor">Assign Editor</message>
+	<message key="submission.list.needsAction">Needs Action</message>
 
 	<message key="grid.category.categories">Categories</message>
 	<message key="catalog.sortBy.titleAsc">Title (A-Z)</message>

@@ -55,8 +55,23 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	/** @var bool whether to return only incomplete results */
 	protected $isIncomplete = false;
 
-	/** @var bool|null whether to return only submissions with overdue review assignments */
+	/** @var bool whether to return only submissions with overdue review assignments */
 	protected $isOverdue = false;
+
+	/** @var bool whether to return only submissions that need action in Review stage
+	 * (REVIEW_ROUND_STATUS_PENDING_REVIEWERS, REVIEW_ROUND_STATUS_REVIEWS_COMPLETED, REVIEW_ROUND_STATUS_REVIEWS_OVERDUE)
+	 */
+	protected $needsAction = false;
+
+	/** @var bool whether to return only submissions with revisions requested
+	 * (REVIEW_ROUND_STATUS_REVISIONS_REQUESTED, REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW)
+	 */
+	protected $revisionsRequested = false;
+
+	/** @var bool whether to return only submissions with revisions submitted
+	 *  (REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED, REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED)
+	 */
+	protected $revisionsSubmitted = false;
 
 	/** @var int|null whether to return only submissions that have not been modified for last X days */
 	protected $daysInactive = null;
@@ -159,6 +174,42 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 	 */
 	public function filterByOverdue($isOverdue) {
 		$this->isOverdue = $isOverdue;
+		return $this;
+	}
+
+	/**
+	 * Set needs action filter
+	 *
+	 * @param boolean $needsAction
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByNeedsAction($needsAction) {
+		$this->needsAction = $needsAction ;
+		return $this;
+	}
+
+	/**
+	 * Set revisons Requested filter
+	 *
+	 * @param boolean $revisionsRequested
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByRevisionsRequested($revisionsRequested) {
+		$this->revisionsRequested = $revisionsRequested;
+		return $this;
+	}
+
+	/**
+	 * Set revisions submitted filter
+	 *
+	 * @param boolean $revisionsSubmitted
+	 *
+	 * @return \OJS\Services\QueryBuilders\SubmissionListQueryBuilder
+	 */
+	public function filterByRevisionsSubmitted($revisionsSubmitted) {
+		$this->revisionsSubmitted = $revisionsSubmitted;
 		return $this;
 	}
 
@@ -280,6 +331,27 @@ abstract class PKPSubmissionListQueryBuilder extends BaseQueryBuilder {
 		//inactive for X days
 		if ($this->daysInactive) {
 			$q->where('s.date_status_modified', '<', \Core::getCurrentDate(strtotime('-'.$this->daysInactive.' days')));
+		}
+
+
+		if ($this->needsAction) {
+			$q->leftJoin('review_rounds as rr', 'rr.submission_id', '=', 's.submission_id');
+				
+			import('lib.pkp.classes.submission.reviewRound.ReviewRound');
+			$q->whereIn('rr.status', array(REVIEW_ROUND_STATUS_PENDING_REVIEWERS, REVIEW_ROUND_STATUS_REVIEWS_COMPLETED, REVIEW_ROUND_STATUS_REVIEWS_OVERDUE));
+		}
+
+		if ($this->revisionsRequested) {
+			$q->leftJoin('review_rounds as rr', 'rr.submission_id', '=', 's.submission_id');
+
+			import('lib.pkp.classes.submission.reviewRound.ReviewRound');
+			$q->whereIn('rr.status', array(REVIEW_ROUND_STATUS_REVISIONS_REQUESTED, REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW));
+		}
+
+		if ($this->revisionsSubmitted) {
+			$q->leftJoin('review_rounds as rr', 'rr.submission_id', '=', 's.submission_id');
+			import('lib.pkp.classes.submission.reviewRound.ReviewRound');
+			$q->whereIn('rr.status', array(REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED, REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED));
 		}
 
 		// overdue submisions

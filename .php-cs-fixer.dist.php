@@ -21,7 +21,7 @@ $finder = PhpCsFixer\Finder::create()
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
-$rules = include '.php_cs_rules';
+$rules = include '.php-cs-rules.php';
 
 $config = new PhpCsFixer\Config();
 return $config->setRules($rules)

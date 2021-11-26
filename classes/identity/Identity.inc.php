@@ -145,13 +145,11 @@ class Identity extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedFamilyName($defaultLocale = null) {
-		$localePriorityList = array();
-
+		// Prioritize the current locale, then the default locale.
+		$localePriorityList = [AppLocale::getLocale()];
 		if (!is_null($defaultLocale)) {
 			$localePriorityList[] = $defaultLocale;
 		}
-		
-		$localePriorityList[] = AppLocale::getLocale();
 
 		foreach ($localePriorityList as $locale) {
 			$givenName = $this->getGivenName($locale);

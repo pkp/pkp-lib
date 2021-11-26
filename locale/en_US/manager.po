@@ -146,6 +146,9 @@ msgstr "No announcement types have been created."
 msgid "manager.announcementTypes.typeName"
 msgstr "Announcement Type"
 
+msgid "manager.genres.alertDelete"
+msgstr "Before this component can be deleted, you must associate all related submission files with a different component."
+
 msgid "manager.publication.submissionStage"
 msgstr "Submission"
 

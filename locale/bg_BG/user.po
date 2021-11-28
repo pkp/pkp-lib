@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-28 12:58+0000\n"
+"PO-Revision-Date: 2021-11-28 15:18+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg_BG/>\n"
@@ -358,3 +358,146 @@ msgstr "Редактиране на моя профил"
 
 msgid "user.dateRegistered"
 msgstr "Дата на регистрация"
+
+msgid "user.privacyLink"
+msgstr ""
+"Вашите данни се съхраняват в съответствие с нашата <a href=\"{$privacyUrl}\" "
+"target=\"_blank\">декларация за поверителност</a>."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Преди да генерира API ключ, администраторът на вашия сайт трябва да зададе "
+"таен ключ в конфигурационния файл (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Генерирането на нов ключ за API ще анулира всички съществуващи ключове за "
+"този потребител."
+
+msgid "user.apiKey.generate"
+msgstr "Генерирайте нов API ключ"
+
+msgid "user.apiKeyEnabled"
+msgstr "Активирайте външни приложения с API ключа за достъп до този акаунт"
+
+msgid "user.apiKey"
+msgstr "API ключ"
+
+msgid "user.profile.public"
+msgstr "Отворен (публичен)"
+
+msgid "user.profile.contact"
+msgstr "Контакт"
+
+msgid "user.profile.identity"
+msgstr "Идентификация"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"Посоченият от вас ORCID iD идентификатор е невалиден. Моля, включете пълния "
+"URI (напр. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.orcid"
+msgstr "Идентификатор ORCID iD"
+
+msgid "user.workingLanguages"
+msgstr "Работни езици"
+
+msgid "user.username"
+msgstr "Потребителско име"
+
+msgid "user.userHome"
+msgstr "Начална страница на потребителя"
+
+msgid "user.url"
+msgstr "URL на главна страница"
+
+msgid "user.title"
+msgstr "Обръщение (титла)"
+
+msgid "user.signature"
+msgstr "Подпис"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Изпратете ми имейл за потвърждение, включително моето потребителско име и "
+"парола"
+
+msgid "user.sendPassword"
+msgstr "Подтвърждение"
+
+msgid "user.roles"
+msgstr "Роли"
+
+msgid "user.role.layoutEditors"
+msgstr "Стилови редактор"
+
+msgid "user.role.layoutEditor"
+msgstr "Стилов редактор"
+
+msgid "user.role.proofreaders"
+msgstr "Коректори"
+
+msgid "user.role.proofreader"
+msgstr "Коректор"
+
+msgid "user.role.copyeditors"
+msgstr "Редактори на оформление"
+
+msgid "user.role.copyeditor"
+msgstr "Редактор на оформление"
+
+msgid "user.role.siteAdmins"
+msgstr "Администратори на сайта"
+
+msgid "user.role.siteAdmin"
+msgstr "Администратор на сайта"
+
+msgid "user.role.reviewers"
+msgstr "Рецензенти"
+
+msgid "user.role.reviewer"
+msgstr "Рецензент"
+
+msgid "user.role.readers"
+msgstr "Читатели"
+
+msgid "user.role.reader"
+msgstr "Читател"
+
+msgid "user.role.editors"
+msgstr "Редактори"
+
+msgid "user.role.editor"
+msgstr "Редактор"
+
+msgid "user.role.authors"
+msgstr "Автори"
+
+msgid "user.role.author_s"
+msgstr "Автор(и)"
+
+msgid "user.role.author"
+msgstr "Автор"
+
+msgid "user.role.assistant"
+msgstr "Асистент"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Успешно се регистрирахте. <a href=\"{$profileUrl}\">Щракнете тук</a>, за да "
+"завършите потребителския си профил."
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Потребителското име трябва да съдържа само малки букви, цифри и тирета/долни "
+"черти."
+
+msgid "user.register"
+msgstr "Регистрация"
+
+msgid "user.register.registerAs"
+msgstr "Регистрирайте се в {$contextName} като..."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Паролата трябва да съдържа най-малко {$length} знака."

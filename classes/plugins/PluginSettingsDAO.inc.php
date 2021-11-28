@@ -32,23 +32,12 @@ class PluginSettingsDAO extends \PKP\db\DAO
      */
     public function _getCache($contextId, $pluginName)
     {
-        static $settingCache;
-
-        if (!isset($settingCache)) {
-            $settingCache = [];
-        }
-        if (!isset($settingCache[$contextId])) {
-            $settingCache[$contextId] = [];
-        }
-        if (!isset($settingCache[$contextId][$pluginName])) {
-            $cacheManager = CacheManager::getManager();
-            $settingCache[$contextId][$pluginName] = $cacheManager->getCache(
-                'pluginSettings-' . $contextId,
-                $pluginName,
-                [$this, '_cacheMiss']
-            );
-        }
-        return $settingCache[$contextId][$pluginName];
+        static $settingCache = [];
+        return $settingCache[$contextId][$pluginName] ??= CacheManager::getManager()->getCache(
+            'pluginSettings-' . $contextId,
+            $pluginName,
+            [$this, '_cacheMiss']
+        );
     }
 
     /**

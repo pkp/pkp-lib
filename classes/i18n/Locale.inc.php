@@ -323,7 +323,7 @@ class Locale implements LocaleInterface
             return new LocaleBundle($locale, $bundle);
         };
         return $useCache ? $this->localeBundles[$locale] ??= $getter() : $getter();
-}
+    }
 
     /**
      * @copy LocaleInterface::getDefaultLocale()

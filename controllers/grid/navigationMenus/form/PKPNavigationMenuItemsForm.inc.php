@@ -127,7 +127,7 @@ class PKPNavigationMenuItemsForm extends Form
 
         if ($navigationMenuItem) {
             Services::get('navigationMenu')
-                ->setAllNMILocalisedTitles($navigationMenuItem);
+                ->setAllNMILocalizedTitles($navigationMenuItem);
 
             $formData = [
                 'path' => $navigationMenuItem->getPath(),
@@ -177,16 +177,16 @@ class PKPNavigationMenuItemsForm extends Form
             $localizedTitlesFromDB = $navigationMenuItem->getTitle(null);
 
             Services::get('navigationMenu')
-                ->setAllNMILocalisedTitles($navigationMenuItem);
+                ->setAllNMILocalizedTitles($navigationMenuItem);
 
             $localizedTitles = $navigationMenuItem->getTitle(null);
-            $inputLocalisedTitles = $this->getData('title');
+            $inputLocalizedTitles = $this->getData('title');
             foreach ($localizedTitles as $locale => $title) {
-                if ($inputLocalisedTitles[$locale] != $title) {
-                    if (!isset($inputLocalisedTitles[$locale]) || trim($inputLocalisedTitles[$locale]) == '') {
+                if ($inputLocalizedTitles[$locale] != $title) {
+                    if (!isset($inputLocalizedTitles[$locale]) || trim($inputLocalizedTitles[$locale]) == '') {
                         $navigationMenuItem->setTitle(null, $locale);
                     } else {
-                        $navigationMenuItem->setTitle($inputLocalisedTitles[$locale], $locale);
+                        $navigationMenuItem->setTitle($inputLocalizedTitles[$locale], $locale);
                     }
                 } else {
                     if (!$localizedTitlesFromDB

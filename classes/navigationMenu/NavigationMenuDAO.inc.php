@@ -332,19 +332,12 @@ class NavigationMenuDAO extends \PKP\db\DAO
      */
     public function getCache($id)
     {
-        static $navigationMenuCache;
-        if (!isset($navigationMenuCache)) {
-            $navigationMenuCache = [];
-        }
-        if (!isset($navigationMenuCache[$id])) {
-            $cacheManager = CacheManager::getManager();
-            $navigationMenuCache[$id] = $cacheManager->getCache(
-                'navigationMenu',
-                $id,
-                [$this, '_cacheMiss']
-            );
-        }
-        return $navigationMenuCache[$id];
+        static $navigationMenuCache = [];
+        return $navigationMenuCache[$id] ??= CacheManager::getManager()->getCache(
+            'navigationMenu',
+            $id,
+            [$this, '_cacheMiss']
+        );
     }
 
     /**

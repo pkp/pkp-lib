@@ -599,7 +599,7 @@ class PKPNavigationMenuService
     public function setNMITitleLocalized($nmi)
     {
         if ($nmi) {
-            if ($localisedTitle = $nmi->getLocalizedTitle()) {
+            if ($localizedTitle = $nmi->getLocalizedTitle()) {
                 $nmi->setTitle($localizedTitle, Locale::getLocale());
             } elseif ($nmi->getTitleLocaleKey() === '{$loggedInUsername}') {
                 $nmi->setTitle($nmi->getTitleLocaleKey(), Locale::getLocale());
@@ -614,14 +614,14 @@ class PKPNavigationMenuService
      *
      * @param NavigationMenuItem $nmi The NMI to set its title
      */
-    public function setAllNMILocalisedTitles($nmi)
+    public function setAllNMILocalizedTitles($nmi)
     {
         if ($nmi) {
             $supportedFormLocales = Locale::getSupportedFormLocales();
 
             foreach ($supportedFormLocales as $supportedFormLocale => $supportedFormLocaleValue) {
-                if ($localisedTitle = $nmi->getTitle($supportedFormLocale)) {
-                    $nmi->setTitle($localisedTitle, $supportedFormLocale);
+                if ($localizedTitle = $nmi->getTitle($supportedFormLocale)) {
+                    $nmi->setTitle($localizedTitle, $supportedFormLocale);
                 } else {
                     $nmi->setTitle(__($nmi->getTitleLocaleKey(), [], $supportedFormLocale), $supportedFormLocale);
                 }

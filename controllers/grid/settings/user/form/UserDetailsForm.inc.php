@@ -15,13 +15,17 @@
 
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\facades\Locale;
 use APP\template\TemplateManager;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\identity\Identity;
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
+use PKP\security\Validation;
 use PKP\user\InterestManager;
 
 class UserDetailsForm extends UserForm

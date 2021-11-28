@@ -113,7 +113,7 @@ class Report
      */
     private function _getUserGroups(): array
     {
-        static $cache = null;
-        return $cache ?? $cache = iterator_to_array(DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
+        static $cache;
+        return $cache ??= iterator_to_array(DAORegistry::getDAO('UserGroupDAO')->getByContextId()->toIterator());
     }
 }

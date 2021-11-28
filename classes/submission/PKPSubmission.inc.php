@@ -168,15 +168,12 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function &getStatusMap()
     {
-        static $statusMap;
-        if (!isset($statusMap)) {
-            $statusMap = [
-                self::STATUS_QUEUED => 'submissions.queued',
-                self::STATUS_PUBLISHED => 'submission.status.published',
-                self::STATUS_DECLINED => 'submission.status.declined',
-                self::STATUS_SCHEDULED => 'submission.status.scheduled',
-            ];
-        }
+        static $statusMap = [
+            self::STATUS_QUEUED => 'submissions.queued',
+            self::STATUS_PUBLISHED => 'submission.status.published',
+            self::STATUS_DECLINED => 'submission.status.declined',
+            self::STATUS_SCHEDULED => 'submission.status.scheduled',
+        ];
         return $statusMap;
     }
 

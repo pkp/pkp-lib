@@ -18,7 +18,10 @@ namespace PKP\context;
 use APP\core\Application;
 use APP\i18n\AppLocale;
 
+use APP\plugins\IDoiRegistrationAgency;
 use PKP\config\Config;
+use PKP\plugins\Plugin;
+use PKP\plugins\PluginRegistry;
 use PKP\statistics\PKPStatisticsHelper;
 
 // Constant used to distinguish whether metadata is enabled and whether it
@@ -30,6 +33,63 @@ define('METADATA_REQUIRE', 'require');
 
 abstract class Context extends \PKP\core\DataObject
 {
+    public const SETTING_ENABLE_DOIS = 'enableDois';
+    public const SETTING_ENABLED_DOI_TYPES = 'enabledDoiTypes';
+    public const SETTING_DOI_PREFIX = 'doiPrefix';
+    public const SETTING_USE_DEFAULT_DOI_SUFFIX = 'useDefaultDoiSuffix';
+    public const SETTING_CUSTOM_DOI_SUFFIX_TYPE = 'customDoiSuffixType';
+    public const SETTING_CONFIGURED_REGISTRATION_AGENCY = 'registrationAgency';
+    public const SETTING_NO_REGISTRATION_AGENCY = 'none';
+    public const SETTING_DOI_CREATION_TIME = 'doiCreationTime';
+
+    /**
+     * Whether DOIs are enabled for this context
+     *
+     */
+    public function areDoisEnabled(): bool
+    {
+        return $this->getData(Context::SETTING_ENABLE_DOIS) == null ? false : $this->getData(Context::SETTING_ENABLE_DOIS);
+    }
+
+    /**
+     * Checks if DOIs of a given type are enabled for the current context
+     *
+     * @param string $doiType One of Repo::doi()::TYPE_*
+     *
+     */
+    public function isDoiTypeEnabled(string $doiType): bool
+    {
+        if (!$this->areDoisEnabled()) {
+            return false;
+        }
+
+        return in_array($doiType, $this->getData(Context::SETTING_ENABLED_DOI_TYPES));
+    }
+
+    /**
+     * Retrieves configured DOI registration agnecy plugin, if any active
+     *
+     */
+    public function getConfiguredDoiAgency(): ?IDoiRegistrationAgency
+    {
+        $configuredPluginName = $this->getData(Context::SETTING_CONFIGURED_REGISTRATION_AGENCY);
+
+        if (empty($configuredPluginName) || $configuredPluginName == Context::SETTING_NO_REGISTRATION_AGENCY) {
+            return null;
+        }
+
+        $plugins = PluginRegistry::getAllPlugins();
+        foreach ($plugins as $name => $plugin) {
+            if ($configuredPluginName == $name) {
+                if ($plugin instanceof IDoiRegistrationAgency) {
+                    return $plugin;
+                }
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Get the localized name of the context
      *

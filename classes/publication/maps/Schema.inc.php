@@ -16,10 +16,10 @@ namespace PKP\publication\maps;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
-
 use APP\submission\Submission;
 
 use Illuminate\Support\Enumerable;
+
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
@@ -132,6 +132,15 @@ class Schema extends \PKP\core\maps\Schema
                         },
                         $citationDao->getByPublicationId($publication->getId())->toArray()
                     );
+                    break;
+                case 'doiObject':
+                    if ($publication->getData('doiObject')) {
+                        $retVal = Repo::doi()->getSchemaMap()->summarize($publication->getData('doiObject'));
+                    } else {
+                        $retVal = null;
+                    }
+
+                    $output[$prop] = $retVal;
                     break;
                 case 'fullTitle':
                     $output[$prop] = $publication->getFullTitles();

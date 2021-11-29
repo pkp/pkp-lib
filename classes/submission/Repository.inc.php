@@ -124,10 +124,14 @@ abstract class Repository
             : null;
     }
 
-    /** @copydoc DAO::getByPubId() */
-    public function getByPubId(string $pubIdType, string $pubId, $contextId = null): ?Submission
+    /**
+     * Gets a submission by its current publication's DOI
+     *
+     *
+     */
+    public function getByDoi(string $doi, int $contextId): ?Submission
     {
-        return $this->dao->getByPubId($pubIdType, $pubId, $contextId);
+        return $this->dao->getByDoi($doi, $contextId);
     }
 
     /** @copydoc DAO::getIdsBySetting() */
@@ -520,6 +524,24 @@ abstract class Repository
     public function getDefaultSortOption(): string
     {
         return $this->getSortOption(Collector::ORDERBY_DATE_PUBLISHED, Collector::ORDER_DIR_DESC);
+    }
+
+    public function createDois(Submission $submission)
+    {
+        // TODO: #doi See what is common across OMP/OPS for submission DOIs
+    }
+
+    /**
+     *
+     */
+    public function checkIfValidForDoiExport(Submission $submission): bool
+    {
+        /** @var Publication $currentPublication */
+        $currentPublication = $submission->getCurrentPublication();
+        if ($currentPublication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+            return true;
+        }
+        return false;
     }
 
     /**

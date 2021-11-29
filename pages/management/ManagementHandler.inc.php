@@ -13,6 +13,7 @@
  * @brief Base class for all management page handlers.
  */
 
+use APP\components\forms\context\DoiSetupSettingsForm;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
@@ -314,6 +315,8 @@ class ManagementHandler extends Handler
         }, $supportedFormLocales);
 
         $licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
+        $doiSetupSettingsForm = new DoiSetupSettingsForm($apiUrl, $locales, $context);
+        $doiRegistrationSettingsForm = new \PKP\components\forms\context\PKPDoiRegistrationSettingsForm($apiUrl, $locales, $context);
         $searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
 
         $paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
@@ -324,6 +327,8 @@ class ManagementHandler extends Handler
         $templateMgr->setState([
             'components' => [
                 FORM_LICENSE => $licenseForm->getConfig(),
+                \PKP\components\forms\context\PKPDoiSetupSettingsForm::FORM_DOI_SETUP_SETTINGS => $doiSetupSettingsForm->getConfig(),
+                \PKP\components\forms\context\PKPDoiRegistrationSettingsForm::FORM_DOI_REGISTRATION_SETTINGS => $doiRegistrationSettingsForm->getConfig(),
                 FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
                 FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
             ],

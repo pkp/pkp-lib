@@ -22,6 +22,7 @@ use APP\file\PublicFileManager;
 use APP\i18n\AppLocale;
 use APP\services\queryBuilders\ContextQueryBuilder;
 use PKP\config\Config;
+use PKP\context\ContextDAO;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -697,6 +698,18 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $temporaryFileManager->deleteById($temporaryFile->getId(), $userId);
 
         return $fileName;
+    }
+
+    /**
+     * Checks if a context exists
+     *
+     *
+     */
+    public function exists(int $id): bool
+    {
+        /** @var ContextDAO $contextDao */
+        $contextDao = Application::getContextDao();
+        return $contextDao->exists($id);
     }
 
     /**

@@ -24,6 +24,7 @@ class PKPSchemaService
     public const SCHEMA_AUTHOR = 'author';
     public const SCHEMA_CATEGORY = 'category';
     public const SCHEMA_CONTEXT = 'context';
+    public const SCHEMA_DOI = 'doi';
     public const SCHEMA_EMAIL_TEMPLATE = 'emailTemplate';
     public const SCHEMA_GALLEY = 'galley';
     public const SCHEMA_ISSUE = 'issue';

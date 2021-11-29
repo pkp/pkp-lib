@@ -13,6 +13,7 @@
  * @brief Form for promoting a submission (to external review or editing)
  */
 
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
@@ -115,7 +116,9 @@ class PromoteForm extends EditorDecisionWithEmailForm
 
                 // Move to the editing stage.
                 $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_EDITING);
-
+                if ($request->getContext()->getData(\PKP\context\Context::SETTING_DOI_CREATION_TIME) === Repo::doi()::CREATION_TIME_COPYEDIT) {
+                    Repo::submission()->createDois($submission);
+                }
 
                 $selectedFiles = $this->getData('selectedFiles');
                 if (is_array($selectedFiles)) {
@@ -155,6 +158,9 @@ class PromoteForm extends EditorDecisionWithEmailForm
 
                 // Move to the editing stage.
                 $editorAction->incrementWorkflowStage($submission, WORKFLOW_STAGE_ID_PRODUCTION);
+                if ($request->getContext()->getData(\PKP\context\Context::SETTING_DOI_CREATION_TIME) === Repo::doi()::CREATION_TIME_COPYEDIT) {
+                    Repo::submission()->createDois($submission);
+                }
 
                 $selectedFiles = $this->getData('selectedFiles');
                 if (is_array($selectedFiles)) {

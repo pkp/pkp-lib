@@ -18,8 +18,8 @@
 namespace PKP\publication;
 
 use APP\i18n\AppLocale;
-use PKP\core\Core;
 
+use PKP\core\Core;
 use PKP\core\PKPString;
 
 class PKPPublication extends \PKP\core\DataObject
@@ -337,18 +337,37 @@ class PKPPublication extends \PKP\core\DataObject
     }
 
     /**
+     * Helper method to fetch current DOI
+     *
+     */
+    public function getDoi(): ?string
+    {
+        $doiObject = $this->getData('doiObject');
+
+        if (empty($doiObject)) {
+            return null;
+        } else {
+            return $doiObject->getData('doi');
+        }
+    }
+
+    /**
      * Get stored public ID of the publication
      *
      * This helper function is required by PKPPubIdPlugins.
+     * NB: To maintain backwards compatability, getDoi() is called from here
      *
      * @see Submission::getStoredPubId()
      */
     public function getStoredPubId($pubIdType)
     {
-        return $this->getData('pub-id::' . $pubIdType);
+        if ($pubIdType === 'doi') {
+            return $this->getDoi();
+        } else {
+            return $this->getData('pub-id::' . $pubIdType);
+        }
     }
 }
-
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\publication\PKPPublication', '\PKPPublication');
 }

@@ -1498,7 +1498,7 @@ msgid "manager.setup.metadata.citations.description"
 msgstr ""
 "Recolher as referências bibliográficas da submissão num campo separado. Esta "
 "opção pode necessitar que cumpra com os serviços de rastreamento de citações "
-"tal como a CrossRef."
+"tal como a Crossref."
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""

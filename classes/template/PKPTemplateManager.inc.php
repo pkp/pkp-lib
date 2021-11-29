@@ -34,6 +34,7 @@ use Exception;
 use Less_Parser;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
@@ -1000,6 +1001,16 @@ class PKPTemplateManager extends Smarty
                                 'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('announcements', (array) $router->getRequestedArgs($request)),
                             ];
                         }
+
+                        if ($request->getContext()->getData(Context::SETTING_ENABLE_DOIS)) {
+                            $menu['dois'] = [
+                                // TODO: #doi Move locale key out of plugin
+                                'name' => __('plugins.pubIds.doi.manager.displayName'),
+                                'url' => $router->url($request, null, 'dois'),
+                                'isCurrent' => $request->getRequestedPage() === 'dois',
+                            ];
+                        }
+
                         $menu['settings'] = [
                             'name' => __('navigation.settings'),
                             'submenu' => [

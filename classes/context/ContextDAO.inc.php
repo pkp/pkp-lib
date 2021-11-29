@@ -17,6 +17,7 @@
 
 namespace PKP\context;
 
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\db\SchemaDAO;
 use PKP\security\Role;
@@ -48,6 +49,18 @@ abstract class ContextDAO extends SchemaDAO
     public function getLocaleFieldNames()
     {
         return ['name', 'description'];
+    }
+
+    /**
+     * Check if a context exists
+     *
+     *
+     */
+    public function exists(int $id): bool
+    {
+        return DB::table($this->tableName)
+            ->where($this->primaryKeyColumn, '=', $id)
+            ->exists();
     }
 
     /**

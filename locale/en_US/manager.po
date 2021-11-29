@@ -146,6 +146,99 @@ msgstr "No announcement types have been created."
 msgid "manager.announcementTypes.typeName"
 msgstr "Announcement Type"
 
+msgid "manager.dois.actions.deposit.all"
+msgstr "Deposit all"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Deposit DOIs"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr "You are about to send DOI metadata records for {$count} item(s) to {$registrationAgency}. Are you sure you want to deposit these records?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Mark DOIs registered"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr "You are about to mark DOI metadata records for {$count} item(s) as registered. Are you sure you want to mark these records as registered?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Export DOIs"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr "You are about to export DOI metadata records for {$count} item(s) for {$registrationAgency}. Are you sure you want to export these records?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Assign DOIs"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr "You are about to assign new DOIs to {$count} item(s) for any eligible item that does not already have a DOI assigned. Are you sure you want to assign DOIs to these items?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Deposit all DOIs"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr "You are about to schedule all outstanding DOI metadata records to be deposited with {$registrationAgency}. Each item's individual status will be updated when a response is received. Are you sure you want to schedule deposits for all of these items?"
+
+msgid "manager.dois.depositStatus"
+msgstr "Deposit Status"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "The metadata for this item has been submitted to {$registrationAgency}."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "The metadata for this item has not been submitted to {$registrationAgency}."
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "This item cannot be deposited until it has been published."
+
+msgid "manager.dois.registration.viewError"
+msgstr "View Error"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Registration Error Message"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "View Record"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Successful Registration Message"
+
+msgid "manger.dois.update.success"
+msgstr "DOIs successfully updated"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Deposit DOI(s)"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Unregistered"
+
+msgid "manager.dois.status.submitted"
+msgstr "Submitted"
+
+msgid "manager.dois.status.registered"
+msgstr "Registered"
+
+msgid "manager.dois.status.error"
+msgstr "Error"
+
+msgid "manager.dois.status.stale"
+msgstr "Stale"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Some DOI(s) failed to update."
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Items successfully exported"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Items successfully marked registered"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Items successfully assigned new DOIs"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Items successfully submitted for deposit"
+
 msgid "manager.publication.submissionStage"
 msgstr "Submission"
 
@@ -166,6 +259,15 @@ msgstr "Reviewer Guidance"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "The review reminder details have been updated."
+
+msgid "manager.dois.title"
+msgstr "DOIs"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr "The following error was returned by {$registrationAgency} and contains details about the cause of the error:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr "The following message was returned by {$registrationAgency} and contains details about the registration:"
 
 msgid "manager.emails.confirmDelete"
 msgstr "Are you sure you want to delete this email template?"
@@ -648,6 +750,78 @@ msgstr "Narrow results by country, region and/or city."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
+
+msgid "manager.setup.dois"
+msgstr "DOIs"
+
+msgid "manager.setup.dois.setup"
+msgstr "Setup"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registration"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Enable DOIs"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI Prefix"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr "This is assigned by a DOI registration agency, such as <a href=\"https://www.crossref.org\" target=\"_new\">Crossref</a> or <a href=\"https://datacite.org/\" target=\"new\">DataCite</a> Example: 10.xxxx"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "The DOI prefix is required and must be in the form 10.xxxx."
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatic DOI Creation"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "At what point of the publication process should DOIs be created?"
+
+msgid "doi.manager.settings.doiCreationTime.copyedit"
+msgstr "At the copy-editing stage"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Upon publication"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Never"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} will be assigned a DOI"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI Suffix"
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr "A DOI suffix can take any form, but must be unique among all publishing objects with the same DOI prefix assigned:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Use default pattern."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr "Enter an individual DOI suffix for each published item. You'll find DOI input fields on the DOI Management page."
+
+msgid "doi.manager.settings.doiSuffixLegacy"
+msgstr "Use issue-volume-article-based pattern."
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr "[DEPRECATED] Previously available custom, user-defined pattern. No longer in use."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Registration Agency"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Please select the registration agency you would like to use when depositing DOIs."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "No Registration Agency Enabled"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr "DOIs can be automatically minted and deposited with a registration agency. To use this feature, locate and install a plugin from the appropriate registration agency."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "None"
 
 msgid "manager.setup.publishing"
 msgstr "Publishing Details"

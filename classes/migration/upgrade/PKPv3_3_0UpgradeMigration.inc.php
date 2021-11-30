@@ -396,7 +396,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             // Update revision data in event logs
             $eventLogIds = DB::table('event_log_settings')
                 ->where('setting_name', '=', 'fileId')
-                ->where('setting_value', '=', $row->file_id)
+                ->where('setting_value', '=', strval($row->file_id))
                 ->pluck('log_id');
             DB::table('event_log_settings')
                 ->whereIn('log_id', $eventLogIds)

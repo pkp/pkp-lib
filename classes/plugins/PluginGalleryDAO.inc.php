@@ -41,6 +41,11 @@ class PluginGalleryDAO extends \PKP\db\DAO
     public const DEFAULT_TIMEOUT = 10;
 
     /**
+     * TTL's Cache in seconds
+     */
+    public const TTL_CACHE_SECONDS = 86400;
+
+    /**
      * Get a set of GalleryPlugin objects describing the available
      * compatible plugins in their newest versions.
      *
@@ -122,9 +127,14 @@ class PluginGalleryDAO extends \PKP\db\DAO
         $cacheTime = $cache->getCacheTime();
 
         // Checking if the cache is older than 1 day, or its null
-        if ($cacheTime === null || (time() - $cacheTime > 24 * 3600)) {
-            // This cache is out of date; flush it.
-            $cache->setEntireCache($this->getExternalDocument());
+        if ($cacheTime === null || (time() - $cacheTime > self::TTL_CACHE_SECONDS)) {
+            // This cache is out of date; so, lets request a new version.
+            $response = $this->getExternalDocument();
+
+            // The plugins.xml request wasnt empty, so lets replace it
+            if ($response !== '') {
+                $cache->setEntireCache($this->getExternalDocument());
+            }
         }
 
         return $cache->getContents();

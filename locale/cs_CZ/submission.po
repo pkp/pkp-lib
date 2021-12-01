@@ -1,9 +1,10 @@
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-05-04 01:41+0000\n"
+"PO-Revision-Date: 2021-12-03 08:46+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs_CZ/>\n"
@@ -2002,3 +2003,6 @@ msgstr ""
 "Jeden nebo více recenzentů zmeškalo termín. Redakční tým byl upozorněn a "
 "přijme opatření, aby zajistil dokončení recenzí. V tuto chvíli nemusíte "
 "podnikat žádné kroky. Až bude učiněno rozhodnutí, budete upozorněni."
+
+msgid "category.category"
+msgstr "Kategorie"

@@ -159,6 +159,10 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                     $collector->filterByStageIds(array_map('intval', $this->paramToArray($val)));
                     break;
 
+                case 'categoryIds':
+                    $collector->filterByCategoryIds(array_map('intval', $this->paramToArray($val)));
+                    break;
+
                 case 'assignedTo':
                     $val = array_map('intval', $this->paramToArray($val));
                     if ($val == [-1]) {

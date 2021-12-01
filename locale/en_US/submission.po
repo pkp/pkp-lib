@@ -1838,6 +1838,9 @@ msgstr "Publication date (oldest first)"
 msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Publication date (newest first)"
 
+msgid "category.category"
+msgstr "Categories"
+
 msgid "category.coverImage"
 msgstr "Cover Image"
 

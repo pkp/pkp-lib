@@ -353,7 +353,7 @@ abstract class Collector implements CollectorInterface
         }
 
         if (isset($this->categoryIds)) {
-            $q->leftJoin('publication_categories as pc', 's.current_publication_id', '=', 'pc.publication_id')
+            $q->join('publication_categories as pc', 's.current_publication_id', '=', 'pc.publication_id')
                 ->whereIn('pc.category_id', $this->categoryIds);
         }
 

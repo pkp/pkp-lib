@@ -1,12 +1,13 @@
+# Huang Feilong <hfl@nominsang.org>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:15-08:00\n"
-"PO-Revision-Date: 2020-07-03 17:40+0000\n"
-"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
+"PO-Revision-Date: 2021-11-02 17:32+0000\n"
+"Last-Translator: Huang Feilong <hfl@nominsang.org>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/editor/zh_Hans/>\n"
+"pkp-lib/editor/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,13 +39,11 @@ msgstr "查找审稿人"
 msgid "editor.submission.findAndSelectUser"
 msgstr "查找用户"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "单盲"
+msgstr "单盲（匿名审稿/公开作者）"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "双盲"
+msgstr "双盲（匿名审稿/匿名作者）"
 
 msgid "editor.submissionReview.editReview"
 msgstr "编辑评审"
@@ -476,3 +475,12 @@ msgstr "文库"
 
 msgid "editor.activityLog"
 msgstr "活动日志"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "您确定要撤销拒绝此提交的决定吗？"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "选定的参与者未分配到此阶段。"
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr "无法与选定的参与者讨论，可能会影响审查过程的匿名性。"

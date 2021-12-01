@@ -1,0 +1,236 @@
+# Studiorimau <studiorimau@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-10-30 12:08+0000\n"
+"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/installer/"
+"ms/>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Versi PHP pelayan anda tidak disokong oleh perisian ini. Semak semula "
+"keperluan pemasangan dalam docs/README."
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Sediakan ID laman unik dan URL asas OAI kepada PKP untuk tujuan statistik "
+"dan amaran keselamatan sahaja."
+
+msgid "installer.beacon"
+msgstr "Suar"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>Pemasangan PHP anda tidak mendayakan modul XSL. Sama ada dayakannya atau "
+"konfigurasikan parameter xslt_command dalam fail config.inc.php anda.</p>"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Fail dan direktori berikut (dan kandungannya) mesti boleh "
+"ditulis:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> boleh ditulis (pilihan): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> boleh ditulis: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> boleh ditulis: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> boleh ditulis: "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> boleh ditulis: "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> boleh ditulis: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Direktori untuk menyimpan fail yang dimuat naik mesti dibuat dan "
+"dibuat boleh ditulis (lihat \"Tetapan Fail\" di bawah).</p>\n"
+"\t"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Langkah Pra-Pemasangan"
+
+msgid "installer.releaseNotes"
+msgstr "Nota Keluaran"
+
+msgid "installer.publicFilesDirError"
+msgstr "Direktori fail awam tidak wujud atau tidak boleh ditulis."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Pengenalpasti Repositori"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Pengenalpasti unik yang digunakan untuk mengenal pasti rekod metadata yang "
+"diindeks daripada laman ini menggunakan Protokol <a href=\""
+"https://www.openarchives.org/\" target=\"_blank\">Open Archives "
+"Initiative</a> untuk Penuaian Metadata."
+
+msgid "installer.oaiSettings"
+msgstr "Tetapan OAI"
+
+msgid "installer.localeSettings"
+msgstr "Tetapan Bahasa"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Bahasa/locale yang ditanda mungkin tidak lengkap."
+
+msgid "installer.locale"
+msgstr "Bahasa/Locale"
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Naik taraf tidak disokong. Lihat dokumen/NAIK TARAF-TIDAK DISOKONG untuk "
+"mendapatkan butiran."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Ralat menghuraikan fail konfigurasi penapis <tt>{$file}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Ralat menghuraikan fail templat e-mel <tt>{$file}</tt>."
+
+msgid "installer.installMigrationError"
+msgstr ""
+"Pengecualian telah dilemparkan apabila melaksanakan kelas migrasi "
+"<tt>{$class}</tt>. Pengecualian ialah {$message}."
+
+msgid "installer.installParseDBFileError"
+msgstr "Ralat menghuraikan fail pemasangan pangkalan data <tt>{$file}</tt>."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"Direktori yang ditentukan untuk fail yang dimuat naik tidak wujud atau tidak "
+"boleh ditulis."
+
+msgid "installer.installFileError"
+msgstr ""
+"Fail pemasangan <tt>dbscripts/xml/install.xml</tt> tidak wujud atau tidak "
+"boleh dibaca."
+
+msgid "installer.installerSQLStatements"
+msgstr "Penyata SQL untuk pemasangan"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Ralat berlaku semasa pemasangan"
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>AMARAN: Versi PHP semasa anda tidak memenuhi keperluan minimum "
+"untuk pemasangan. Adalah disyorkan untuk menaik taraf kepada keluaran PHP "
+"yang lebih terkini.</strong>"
+
+msgid "installer.form.usernameRequired"
+msgstr "Nama pengguna untuk akaun pentadbir diperlukan."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"Nama pengguna pentadbir boleh mengandungi hanya aksara abjad angka, garis "
+"bawah dan sempang, dan mesti bermula dan berakhir dengan aksara abjad angka."
+
+msgid "installer.form.separateMultiple"
+msgstr "Asingkan beberapa nilai dengan koma"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Kata laluan pentadbir tidak sepadan."
+
+msgid "installer.form.passwordRequired"
+msgstr "Kata laluan untuk akaun pentadbir diperlukan."
+
+msgid "installer.form.localeRequired"
+msgstr "Bahasa/locale mesti dipilih."
+
+msgid "installer.form.filesDirRequired"
+msgstr ""
+"Direktori yang akan digunakan untuk menyimpan fail yang dimuat naik "
+"diperlukan."
+
+msgid "installer.form.emailRequired"
+msgstr "Alamat e-mel yang sah untuk akaun pentadbir diperlukan."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Nama pangkalan data diperlukan."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Pemandu pangkalan data mesti dipilih."
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Set karakter klien mesti dipilih."
+
+msgid "installer.fileSettings"
+msgstr "Tetapan Fail"
+
+msgid "installer.filesDir"
+msgstr "Direktori untuk muat naik"
+
+msgid "installer.databaseUsername"
+msgstr "Nama pengguna"
+
+msgid "installer.databaseSettings"
+msgstr "Tetapan Pangkalan Data"
+
+msgid "installer.databasePassword"
+msgstr "Kata laluan"
+
+msgid "installer.databaseName"
+msgstr "Nama pangkalan data"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"Biarkan nama hos kosong untuk menyambung menggunakan soket domain dan "
+"bukannya melalui TCP/IP. Ini tidak diperlukan dengan MySQL, yang akan "
+"menggunakan soket secara automatik jika \"localhost\" dimasukkan, tetapi "
+"diperlukan dengan beberapa pelayan pangkalan data lain seperti PostgreSQL."
+
+msgid "installer.databaseHost"
+msgstr "Hos"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Pemandu pangkalan data yang disenaraikan dalam kurungan nampaknya "
+"tidak mempunyai sambungan PHP yang diperlukan dimuatkan dan pemasangan "
+"mungkin akan gagal jika dipilih.</strong><br />Mana-mana pemandu pangkalan "
+"data yang tidak disokong yang disenaraikan di atas disenaraikan semata-mata "
+"untuk tujuan akademik dan mungkin tidak berfungsi."
+
+msgid "installer.databaseDriver"
+msgstr "Pemandu pangkalan data"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Kandungan fail konfigurasi"
+
+msgid "installer.connectionCharset"
+msgstr "Set karakter sambungan"
+
+msgid "installer.configFileError"
+msgstr ""
+"Gagal konfigurasi <tt>config.inc.php</tt> tidak wujud atau tidak boleh "
+"dibaca."
+
+msgid "installer.clientCharsetInstructions"
+msgstr ""
+"Pengekodan untuk digunakan untuk data yang dihantar dan diterima daripada "
+"pelayar."
+
+msgid "installer.clientCharset"
+msgstr "Set karakter klien"
+
+msgid "installer.checkYes"
+msgstr "Ya"
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">TIDAK</span>"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Akaun pengguna ini akan menjadi pentadbir laman dan mempunyai akses lengkap "
+"kepada sistem. Akaun pengguna tambahan boleh dibuat selepas pemasangan."
+
+msgid "installer.administratorAccount"
+msgstr "Akaun Pentadbir"
+
+msgid "installer.additionalLocales"
+msgstr "Bahasa/locale tambahan"

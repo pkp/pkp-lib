@@ -1,11 +1,12 @@
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2021-09-30 00:39+0000\n"
-"Last-Translator: Felipe Geremia Nievinski <fgnievinski@gmail.com>\n"
+"PO-Revision-Date: 2021-11-22 17:39+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2308,3 +2309,42 @@ msgstr "Nome completo do destinatário ou destinatários"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "Link para página onde o usuário pode recuperar senha esquecida"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Este e-mail é enviado automaticamente para um novo usuário quando ele se "
+"registra no site, quando as configurações exigem que o endereço de e-mail "
+"seja validado."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Validar e-mail (site)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr ""
+"Este e-mail é enviado quando um editor cancela a atribuição de um avaliador."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Avaliador não atribuído"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Este e-mail é enviado quando um avaliador que não estava atribuído é "
+"reintegrado por um editor."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Avaliador reintegrado"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr ""
+"Este e-mail é enviado quando um avaliador é designado para uma submissão."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Avaliador designado"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Este e-mail é enviado automaticamente aos participantes da discussão quando "
+"uma nova mensagem é adicionada à discussão."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Nova mensagem de discussão"

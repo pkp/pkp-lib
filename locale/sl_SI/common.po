@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2021-08-14 16:04+0000\n"
+"PO-Revision-Date: 2021-10-10 05:02+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl_SI/>\n"
@@ -2029,3 +2029,9 @@ msgstr "To ni veljavna država."
 
 msgid "common.insert"
 msgstr "Vstavi"
+
+msgid "validator.alpha_dash_period"
+msgstr "Vsebuje lahko le črke, številke, vezaj, podčrtaj in piko."
+
+msgid "validation.invalidOption"
+msgstr "Ta opcija ni možna."

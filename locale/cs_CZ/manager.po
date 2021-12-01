@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-09-14 23:04+0000\n"
+"PO-Revision-Date: 2021-11-16 03:30+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2299,3 +2299,38 @@ msgstr "Celé jméno příjemce nebo všech příjemců"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "Adresa URL stránky, na které může uživatel obnovit ztracené heslo"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán novému uživateli při registraci na webu, "
+"pokud nastavení vyžaduje ověření e-mailové adresy."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Validace emailu (stránky)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Tento email je poslán v případě, že editor zruší přiřazení recenzenta."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Bylo zrušeno přiřazení recenzenta"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Tento e-mail je odeslán, když editor znovu přiřadí nepřiřazeného recenzenta."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Recenzent obnoven"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Tento e-mail je odeslán, když je k příspěvku přiřazen recenzent."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Přiřazený recenzent"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán účastníkům diskuse, jakmile je do "
+"diskuse přidána nová zpráva."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Nová diskusní zpráva"

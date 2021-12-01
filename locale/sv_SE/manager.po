@@ -1,9 +1,10 @@
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2021-04-22 01:44+0000\n"
+"PO-Revision-Date: 2021-10-08 17:06+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
@@ -2194,3 +2195,54 @@ msgstr "Informera primär kontakt"
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Meddelanden"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "URL till bidragen i det redaktionella gränssnittet"
+
+msgid "emailTemplate.variable.submission.authorsFull"
+msgstr "Författarnas fullständiga namn"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Författarnamn i form av en förkortad sträng"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Bidragets abstract"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Bidragets unika ID-nummer"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Bidragets titel"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Redaktörerna som tilldelats detta bidrag och kan fatta beslut"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Webbsidans primära kontakts fullständiga namn"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Avsändarens e-postsignatur"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Avsändarens e-postadress"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Avsändarens fullständiga namn"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "URL till granskningsuppdraget"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Datum då granskningen ska vara färdig"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Sista datum då granskaren måste acceptera eller avböja uppdraget"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Mottagarens eller mottagarnas användarnamn"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Mottagarens eller mottagarnas fullständiga namn"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "URL till en sida där användaren kan återställa sitt lösenord"

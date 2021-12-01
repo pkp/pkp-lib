@@ -1,0 +1,230 @@
+# Studiorimau <studiorimau@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-10-29 07:21+0000\n"
+"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ms/>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Token API tidak dapat disahkan. Ini mungkin menunjukkan ralat dalam token "
+"API atau token API tidak lagi sah."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parameter {$param} tidak disokong."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "ApiToken tidak dapat dinyahkod kerana ralat berikut: {$error}"
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Pengumuman yang anda minta tidak ditemui."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Token API tidak boleh digunakan untuk mengakses laman ini kerana pentadbir "
+"laman belum mengkonfigurasi kunci rahsia."
+
+msgid "api.404.endpointNotFound"
+msgstr "URL yang diminta tidak dikenali."
+
+msgid "api.404.resourceNotFound"
+msgstr "Sumber yang diminta tidak ditemui."
+
+msgid "api.403.unauthorized"
+msgstr "Anda tidak dibenarkan untuk mengakses sumber yang diminta."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Tidak boleh mengubah masa ianya dicipta."
+
+msgid "api.files.400.noUpload"
+msgstr "Tiada fail untuk dimuat naik dapat ditemui dengan permintaan itu."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Templat e-mel yang anda minta tidak ditemui."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Anda tidak dibenarkan menghantar e-mel kepada pengguna dalam satu atau lebih "
+"peranan yang dipilih."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Anda mesti menyatakan peranan pengguna yang sepatutnya menerima e-mel ini."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Anda mesti menyediakan subjek untuk e-mel."
+
+msgid "api.emails.400.missingBody"
+msgstr "Anda mesti memasukkan e-mel untuk dihantar."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Bahasa/Locales berikut tidak disokong: {$locales}."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Penerbitan yang anda ingin nyahterbitkan tidak diterbitkan."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Penerbitan yang anda ingin terbitkan telah pun diterbitkan."
+
+msgid "api.files.400.config"
+msgstr ""
+"Fail tidak dapat dimuat naik kerana ralat konfigurasi pelayan. Sila hubungi "
+"pentadbir sistem."
+
+msgid "api.files.400.fileSize"
+msgstr "Fail yang lebih besar daripada {$maxSize} tidak boleh dimuat naik."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Satu atau lebih fail tidak dapat dimuat naik."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Anda hanya boleh memuat naik jenis fail berikut: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Anda mesti menyahterbitkan penerbitan ini sebelum anda boleh memadamkannya."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Anda tidak boleh mengubah suai status secara langsung melalui API. "
+"Sebaliknya, gunakan titik akhir /publish dan /unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Anda tidak boleh menyunting penerbitan ini kerana ia telah pun diterbitkan."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Tarikh mestilah dalam format YYYY-MM-DD."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Direktori fail awam tidak ditemui atau fail tidak boleh disimpan ke "
+"dalamnya. Sila hubungi pentadbir anda untuk menyelesaikan masalah ini."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Anda tidak mempunyai ruang yang mencukupi dalam direktori pengguna anda. "
+"Fail yang anda muat naik ialah {$fileUploadSize}kb dan anda mempunyai baki "
+"{$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Anda tidak dibenarkan memuat naik fail."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Fail yang anda muat naik tidak sepadan dengan sambungan fail. Ini boleh "
+"berlaku apabila fail telah dinamakan semula kepada jenis yang tidak serasi, "
+"contohnya menukar photo.png kepada photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Imej yang anda muat naik tidak sah."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Permintaan anda tidak sah. Arah pesanan mestilah `desc` atau `asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Permintaan anda tidak sah. Selang garis masa mestilah `hari` atau `bulan`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Tarikh tamat tidak boleh lewat daripada semalam."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Tarikh mula tidak boleh lebih awal daripada 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Tarikh mula tidak boleh lewat daripada tarikh tamat."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Anda tidak boleh mengaitkan fail dari peringkat fail ini dengan pusingan "
+"ulasan."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Anda tidak boleh mengaitkan fail daripada peringkat fail ini dengan tugasan "
+"ulasan."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Anda tidak boleh mengaitkan fail dari peringkat fail ini dengan nota "
+"perbincangan."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Anda tidak boleh mengaitkan fail dari peringkat fail ini dengan fail "
+"penyerahan lain."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Anda tidak boleh mengubah suai perkaitan fail tanpa menghantar assocType dan "
+"assocId."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Anda mesti menyediakan peringkat fail."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Anda mesti menentukan pusingan ulasan apabila meminta fail dalam peringkat "
+"ulasan."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Anda tidak dibenarkan menambah dan menyunting fail ini."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Anda tidak dibenarkan mengakses fail ini."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"Pusingan ulasan yang anda berikan bukan sebahagian daripada penyerahan ini."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Tiada perubahan ditemui dalam permintaan untuk menyunting fail ini."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Anda tidak boleh memadam penyerahan yang tidak ditugaskan kepada konteks ini."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Permintaan anda telah ditolak. Ini mungkin kerana log masuk anda telah tamat "
+"tempoh. Cuba muat semula halaman dan cuba lagi."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Jilid, nombor atau tahun yang diminta tidak sah."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Permintaan anda tidak dapat dipenuhi kerana tiada maklumat yang diperlukan."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Anda tidak dibenarkan mengakses fail dalam pusingan ulasan ini."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Bahasa/locale {$locale} tidak disokong."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Tema aktif, {$themePluginPath}, tidak didayakan dan mungkin tidak dipasang."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Titik akhir ini tidak tersedia daripada konteks. Ia mesti diakses dari site-"
+"wide namespace."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Anda tidak dibenarkan menyunting penerbitan ini."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Anda tidak mempunyai kebenaran untuk memadam penyerahan ini."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Anda hanya boleh melihat penyerahan yang tidak diterbitkan yang telah "
+"tugaskan kepada anda."

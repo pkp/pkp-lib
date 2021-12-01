@@ -1,11 +1,12 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-07-24 11:48+0000\n"
-"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
+"PO-Revision-Date: 2021-10-21 09:07+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -96,7 +97,6 @@ msgstr "E-Mail"
 msgid "user.givenName"
 msgstr "Vorname"
 
-#, fuzzy
 msgid "user.interests"
 msgstr "Begutachtungsinteressen"
 

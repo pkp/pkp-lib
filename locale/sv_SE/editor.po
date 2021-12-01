@@ -1,10 +1,11 @@
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2021-03-24 12:55+0000\n"
-"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"PO-Revision-Date: 2021-11-17 13:02+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "sv_SE/>\n"
 "Language: sv_SE\n"
@@ -412,7 +413,7 @@ msgid "editor.submission.workflowDecision.submission"
 msgstr "Beslutet är registrerat"
 
 msgid "editor.activityLog"
-msgstr "Aktivitets logg"
+msgstr "Aktivitetslogg"
 
 msgid "editor.review.requestCancelled.tooltip"
 msgstr "Redaktören har avbrutit granskningsförfrågan."

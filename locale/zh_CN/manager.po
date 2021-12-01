@@ -1,9 +1,10 @@
+# Yukari Chiba <Charles@nia.ac.cn>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:35-08:00\n"
-"PO-Revision-Date: 2020-08-30 02:48+0000\n"
+"PO-Revision-Date: 2021-11-02 21:57+0000\n"
 "Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/zh_CN/>\n"
@@ -18,7 +19,7 @@ msgid "manager.announcements"
 msgstr "公告"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "您确定要永久删除此公告?"
+msgstr "您确定要永久删除公告 {$title}?"
 
 msgid "manager.announcements.create"
 msgstr "创建新的公告"
@@ -54,7 +55,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "根据到期日年选择一个月份和（或）日."
 
 msgid "manager.announcements.form.description"
-msgstr "描述"
+msgstr "公告"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "公告的全文."
@@ -1028,7 +1029,7 @@ msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "默认审阅模式"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "如果审阅者在审阅截止日期之后的指定时间内仍未提交推荐，将发送电子邮件提醒。"
+msgstr "如果审阅者在审阅截止日期之后的指定天数内仍未提交推荐，将发送电子邮件提醒。"
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "审阅提醒"
@@ -1246,10 +1247,10 @@ msgid "manager.setup.genres.key"
 msgstr "键"
 
 msgid "manager.setup.genres.supplementary"
-msgstr "将此类型的文件标记为补充文件（例如，不是主要提交内容）"
+msgstr "这些补充文件（例如数据集和研究材料）将与主要出版物文件分开显示。"
 
 msgid "manager.setup.genres.dependent"
-msgstr "将这种类型的文件标记为从属文件（例如，不要与已发布内容一起列出）"
+msgstr "这些依赖文件（例如由 HTML 文件显示的图像）不会与已发布的内容一起显示。"
 
 msgid "grid.action.restoreGenres"
 msgstr "将组件还原为默认设置"
@@ -1559,3 +1560,124 @@ msgstr "指定的期刊路径 \"{$contextPath}\"不存在。"
 
 msgid "plugins.importexport.common.cliError"
 msgstr "错误："
+
+msgid "manager.setup.genres.metatadata"
+msgstr "文件元数据"
+
+msgid "manager.setup.genres.label"
+msgstr "文件类型"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr "无法保存语言设置。 每个选项必须至少启用一种语言"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "您确定要激活此栏目吗？"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "您确定要停用此栏目吗？"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "停用此栏目，不允许对其进行新的提交。"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "自定义"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "日期与时间（短）"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "日期与时间"
+
+msgid "manager.setup.dateTime.time"
+msgstr "时间"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "日期（短）"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "日期"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"选择日期和时间的首选格式。 可以使用特殊的<a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-"
+"parameters'>格式化字符</a>输入自定义格式。"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "日期和时间格式"
+
+msgid "manager.setup.dateTime"
+msgstr "日期与时间"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "发送另一封电子邮件"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "电子邮件已成功发送给所有收件人。"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "电子邮件发送中。 在发送完成之前，请不要退出。"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr "您即将向 {$total} 个用户发送电子邮件。 您确定要发送此电子邮件吗？"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "发送电子邮件"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "通过 {$email} 将这封电子邮件的副本发送给我。"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "选择需要接收您的电子邮件通知的用户。"
+
+msgid "manager.setup.notifyUsers"
+msgstr "通知"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "一个或多个电子邮件地址无效。"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"确认提交的电子邮件将被发送到此处输入的电子邮件地址。 用逗号分隔多个电子邮件地址。 示例：one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "通知任何人"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "否"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "是的，将副本发送至 {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "通知主要联系人"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "通知"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "禁用提交"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "自定义报告生成器"
+
+msgid "manager.people.signedInAs"
+msgstr "您目前以 {$username} 的身份登录"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "选择要导出到 Excel/CSV 文件的用户。"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "导出到 Excel/CSV"
+
+msgid "manager.emails.resetComplete"
+msgstr "电子邮件模板已成功重置。"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "默认电子邮件模板已恢复。"
+
+msgid "manager.emails.otherTemplates"
+msgstr "其它模板"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "删除公告"

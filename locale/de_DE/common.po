@@ -1,10 +1,11 @@
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2021-06-14 20:48+0000\n"
-"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
+"PO-Revision-Date: 2021-10-21 09:06+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -348,7 +349,6 @@ msgstr "PDF herunterladen"
 msgid "common.edit"
 msgstr "Bearbeiten"
 
-#, fuzzy
 msgid "common.enable"
 msgstr "Aktivieren"
 
@@ -1237,7 +1237,6 @@ msgstr "Dankes-E-Mail an Gutachter/in geschickt."
 msgid "notification.updatedReviewFiles"
 msgstr "Begutachtungsdateien hochgeladen."
 
-#, fuzzy
 msgid "notification.allow"
 msgstr "Diese Arten von Benachrichtigungen aktivieren."
 
@@ -1265,9 +1264,9 @@ msgstr "Es gab einen Fehler beim Bestätigen Ihrer Registrierung."
 msgid "notification.confirmSuccess"
 msgstr "Sie haben sich erfolreich registriert."
 
-#, fuzzy
 msgid "notification.email"
-msgstr "Keine E-Mail über diese Arten von Benachrichtigungen zuschicken."
+msgstr ""
+"Ich möchte keine E-Mails über diese Arten von Benachrichtigungen erhalten."
 
 msgid "notification.noneExist"
 msgstr "Sie haben zurzeit keine Benachrichtigungen."
@@ -2058,3 +2057,13 @@ msgstr "Wir konnten die Benachrichtigungen nicht abbestellen"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Benachrichtigungen wurden abbestellt"
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Dies darf nur Buchstaben, Zahlen, Striche, Unterstriche und Punkte enthalten."
+
+msgid "validation.invalidOption"
+msgstr "Dies ist keine gültige Option."
+
+msgid "common.insert"
+msgstr "Einfügen"

@@ -71,7 +71,7 @@ class ContextEmailVariable extends Variable
         return $this->request->getDispatcher()->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'));
     }
 
-    protected function getPrincipalContactSignature(string $locale) : array
+    protected function getPrincipalContactSignature(string $locale) : string
     {
         return $this->context->getData('contactName')
             . "\n"

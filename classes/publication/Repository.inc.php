@@ -260,7 +260,7 @@ abstract class Repository
         }
 
         // Don't allow a publication to be published before passing the review stage
-        if ($submission->getData('stageId') < WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
+        if ($submission->getData('stageId') <= WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
             $errors['reviewStage'] = __('publication.required.reviewStage');
         }
 

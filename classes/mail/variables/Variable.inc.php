@@ -29,7 +29,7 @@ abstract class Variable
      * Get the value of variables supported by this class
      * @return string[]
      */
-    abstract protected function values() : array;
+    abstract public function values(string $locale) : array;
 
     /**
      * Get description of all or specific variable
@@ -46,23 +46,5 @@ abstract class Variable
             return $description[$variableConst];
         }
         return $description;
-    }
-
-    /**
-     * Get value of all or specific variable
-     * @param string|null $variableConst
-     * @return string|string[]
-     */
-    function getValue(string $variableConst = null)
-    {
-        $values = static::values();
-        if (!is_null($variableConst)) {
-            if (!array_key_exists($variableConst, $values)) {
-                throw new InvalidArgumentException('Template variable \'' . $variableConst . '\' doesn\'t exist in ' . static::class);
-            }
-            return $values[$variableConst];
-        }
-
-        return $values;
     }
 }

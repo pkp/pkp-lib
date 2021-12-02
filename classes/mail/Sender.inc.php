@@ -27,11 +27,6 @@ trait Sender
     abstract protected function setAddress($address, $name = null, $property = 'to');
 
     /**
-     * @copydoc PKP\mail\Mailable::addVariables()
-     */
-    abstract public function addVariables(array $variables) : Mailable;
-
-    /**
      * @copydoc Illuminate\Mail\Mailable::from()
      */
     public function from($address, $name = null) {
@@ -47,8 +42,7 @@ trait Sender
     public function sender(User $sender, ?string $defaultLocale = null) : Mailable
     {
         $this->setAddress($sender->getEmail(), $sender->getFullName($defaultLocale), 'from');
-
-        $senderVars = new SenderEmailVariable($sender);
-        return $this->addVariables($senderVars->getValue());
+        $this->variables[] = new SenderEmailVariable($sender);
+        return $this;
     }
 }

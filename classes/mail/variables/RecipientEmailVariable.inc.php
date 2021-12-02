@@ -16,7 +16,6 @@
 namespace PKP\mail\variables;
 
 use InvalidArgumentException;
-use PKP\i18n\PKPLocale;
 use PKP\user\User;
 
 class RecipientEmailVariable extends Variable
@@ -40,7 +39,7 @@ class RecipientEmailVariable extends Variable
     /**
      * @copydoc Variable::description()
      */
-    protected static function description() : array
+    protected static function description(): array
     {
         return
         [
@@ -52,11 +51,11 @@ class RecipientEmailVariable extends Variable
     /**
      * @copydoc Variable::values()
      */
-    protected function values() : array
+    public function values(string $locale): array
     {
         return
         [
-            self::RECIPIENT_FULL_NAME => $this->getRecipientsFullName(),
+            self::RECIPIENT_FULL_NAME => $this->getRecipientsFullName($locale),
             self::RECIPIENT_USERNAME => $this->getRecipientsUserName(),
         ];
     }
@@ -65,30 +64,22 @@ class RecipientEmailVariable extends Variable
      * Array containing full names of recipients in all supported locales separated by a comma
      * @return array [localeKey => fullName]
      */
-    protected function getRecipientsFullName() : array
+    protected function getRecipientsFullName(string $locale): string
     {
-        $fullNamesLocalized = [];
-        $supportedLocales = PKPLocale::getSupportedLocales();
-        foreach ($supportedLocales as $localeKey => $localeValue) {
-            $fullNames = array_map(function(User $user) use ($localeKey) {
-                return $user->getFullName(true, false, $localeKey);
-            }, $this->recipients);
-
-            $fullNamesLocalized[$localeKey] = join(__('common.listSeparator'), $fullNames);
-        }
-
-        return $fullNamesLocalized;
+        $fullNames = array_map(function(User $user) use ($locale) {
+            return $user->getFullName(true, false, $locale);
+        }, $this->recipients);
+        return join(__('common.commaListSeparator'), $fullNames);
     }
 
     /**
      * Usernames of recipients separated by a comma
      */
-    protected function getRecipientsUserName() : string
+    protected function getRecipientsUserName(): string
     {
         $userNames = array_map(function (User $user) {
             return $user->getData('username');
         }, $this->recipients);
-
-        return join(__('common.listSeparator'), $userNames);
+        return join(__('common.commaListSeparator'), $userNames);
     }
 }

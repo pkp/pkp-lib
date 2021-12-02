@@ -48,7 +48,7 @@ class ReviewAssignmentEmailVariable extends Variable
     /**
      * @copydoc Variable::values()
      */
-    protected function values(): array
+    public function values(string $locale): array
     {
         return
         [

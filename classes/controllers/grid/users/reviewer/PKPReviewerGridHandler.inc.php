@@ -1135,7 +1135,7 @@ class PKPReviewerGridHandler extends GridHandler
             ->sender($sender)
             ->recipients([$reviewer]);
 
-        $mailable->addVariables([
+        $mailable->addData([
             'reviewerName' => $mailable->viewData['userFullName']
         ]);
 

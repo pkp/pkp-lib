@@ -55,20 +55,15 @@ class ContextEmailVariable extends Variable
     /**
      * @copydoc Variable::values()
      */
-    protected function values() : array
+    public function values(string $locale): array
     {
         return
         [
-            self::CONTACT_NAME => $this->getContactName(),
-            self::PRINCIPAL_CONTACT_SIGNATURE => $this->getPrincipalContactSignature(),
-            self::CONTACT_EMAIL => $this->getContactEmail(),
+            self::CONTACT_NAME => $this->context->getData('contactName'),
+            self::PRINCIPAL_CONTACT_SIGNATURE => $this->getPrincipalContactSignature($locale),
+            self::CONTACT_EMAIL => $this->context->getData('contactEmail'),
             self::PASSWORD_LOST_URL => $this->getPasswordLostUrl(),
         ];
-    }
-
-    protected function getContextName() : array
-    {
-        return $this->context->getData('name');
     }
 
     protected function getContextUrl() : string
@@ -76,23 +71,11 @@ class ContextEmailVariable extends Variable
         return $this->request->getDispatcher()->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'));
     }
 
-    protected function getContactName() : ?string
+    protected function getPrincipalContactSignature(string $locale) : string
     {
-        return $this->context->getData('contactName');
-    }
-
-    protected function getPrincipalContactSignature() : array
-    {
-        $signature = [];
-        foreach ($this->getContextName() as $localeKey => $localizedContextName) {
-            $signature[$localeKey] = $this->getContactName() . "\n" . $localizedContextName;
-        }
-        return $signature;
-    }
-
-    protected function getContactEmail() : string
-    {
-        return $this->context->getData('contactEmail');
+        return $this->context->getData('contactName')
+            . "\n"
+            . $this->context->getLocalizedData('name', $locale);
     }
 
     /**

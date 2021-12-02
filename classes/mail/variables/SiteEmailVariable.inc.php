@@ -44,25 +44,12 @@ class SiteEmailVariable extends Variable
     /**
      * @copydoc Variable::values()
      */
-    protected function values(): array
+    public function values(string $locale): array
     {
        return
        [
-           self::SITE_TITLE => $this->getSiteTitle(),
-           self::SITE_CONTACT => $this->getSiteContactName(),
+           self::SITE_TITLE => $this->site->getLocalizedData('title', $locale),
+           self::SITE_CONTACT => $this->site->getLocalizedData('contactName', $locale),
        ];
-    }
-
-    protected function getSiteTitle() : ?array
-    {
-        return $this->site->getData('title');
-    }
-
-    /**
-     * Name of a person indicated as website's primary contact in supported locales
-     */
-    protected function getSiteContactName() : ?array
-    {
-        return $this->site->getData('contactName');
     }
 }

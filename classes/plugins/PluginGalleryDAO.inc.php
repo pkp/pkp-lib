@@ -132,8 +132,8 @@ class PluginGalleryDAO extends \PKP\db\DAO
             $response = $this->getExternalDocument();
 
             // The plugins.xml request wasnt empty, so lets replace it
-            if ($response !== '') {
-                $cache->setEntireCache($this->getExternalDocument());
+            if (!$response || $response !== '') {
+                $cache->setEntireCache($response);
             }
         }
 

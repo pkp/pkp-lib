@@ -100,7 +100,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
             $table->index(['user_id'], 'user_settings_user_id');
-            $table->primary(['user_id', 'locale', 'setting_name']);
+            $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_pkey');
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
         });
 

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2021-10-04 04:06+0000\n"
+"PO-Revision-Date: 2021-12-04 03:31+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2172,3 +2172,39 @@ msgstr "الاسم الكامل للمتلقي أو كل المتلقين"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "رابط الصفحة التي يمكن للمستخدم فيها استعادة كلمة المرور المفقودة"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل تلقائيًا إلى المستخدم الجديد عند تسجيله في "
+"الموقع في حالة كون الإعدادات تتطلب التحقق من البريد الالكتروني."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "التحقق من البريد الالكتروني (الموقع)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "هذا البريد الالكتروني يُرسل عندما يلغي المحرر تعيين المحكم."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "محكم تم إلغاء تعيينه"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل عندما يُعيد المحرر المحكم الذي سبق وأن تم إلغاء "
+"تعيينه."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "محكم تمت إعادته"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "هذا البريد الالكتروني يُرسل عند تعيين محكم لطلب التقديم."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "المحكم تم تعيينه"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل تلقائيًا إلى المشاركين في المناقشة عندما تُضاف "
+"رسالة جديدة إليها."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "رسالة جديدة من المناقشة"

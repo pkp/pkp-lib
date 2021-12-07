@@ -14,7 +14,6 @@
 namespace PKP\submission;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Collector;
 use APP\submission\Submission;
@@ -91,8 +90,6 @@ class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select('s.' . $this->primaryKeyColumn)
-            ->get()
             ->count();
     }
 
@@ -238,11 +235,15 @@ class DAO extends EntityDAO
         }
 
         // Delete submission files.
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'submissionIds' => [$submission->getId()],
-        ]);
+        $submissionFilesCollector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds([$submission->getId()]);
+
+        $submissionFilesIterator = Repo::submissionFiles()
+            ->getMany($submissionFilesCollector);
+
         foreach ($submissionFilesIterator as $submissionFile) {
-            Services::get('submissionFile')->delete($submissionFile);
+            Repo::submissionFiles()->delete($submissionFile);
         }
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */

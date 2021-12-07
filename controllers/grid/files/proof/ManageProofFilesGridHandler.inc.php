@@ -20,7 +20,7 @@ use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
 {

@@ -13,9 +13,10 @@
  * @brief Form for adding/editing a submission file
  */
 
+use APP\facades\Repo;
 use PKP\file\FileManager;
 use PKP\form\validation\FormValidator;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.wizard.fileUpload.form.PKPSubmissionFilesUploadBaseForm');
 
@@ -177,15 +178,15 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($_FILES['uploadedFile']['name']);
 
-        $submissionDir = Services::get('submissionFile')->getSubmissionDir($request->getContext()->getId(), $this->getData('submissionId'));
+        $submissionDir = Repo::submissionFiles()->getSubmissionDir($request->getContext()->getId(), $this->getData('submissionId'));
         $fileId = Services::get('file')->add(
             $_FILES['uploadedFile']['tmp_name'],
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
 
         if ($this->getRevisedFileId()) {
-            $submissionFile = Services::get('submissionFile')->get($this->getRevisedFileId());
-            $submissionFile = Services::get('submissionFile')->edit(
+            $submissionFile = Repo::submissionFiles()->get($this->getRevisedFileId());
+            Repo::submissionFiles()->edit(
                 $submissionFile,
                 [
                     'fileId' => $fileId,
@@ -193,11 +194,12 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                         $request->getContext()->getPrimaryLocale() => $_FILES['uploadedFile']['name'],
                     ],
                     'uploaderUserId' => $user->getId(),
-                ],
-                $request
+                ]
             );
+
+            $submissionFile = Repo::submissionFiles()->get($this->getRevisedFileId());
         } else {
-            $submissionFile = DAORegistry::getDao('SubmissionFileDAO')->newDataObject();
+            $submissionFile = Repo::submissionFiles()->dao->newDataObject();
             $submissionFile->setData('fileId', $fileId);
             $submissionFile->setData('fileStage', $this->getData('fileStage'));
             $submissionFile->setData('name', $_FILES['uploadedFile']['name'], $request->getContext()->getPrimaryLocale());
@@ -212,7 +214,9 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                 $submissionFile->setData('assocId', $this->getReviewRound()->getId());
             }
 
-            $submissionFile = Services::get('submissionFile')->add($submissionFile, $request);
+            $id = Repo::submissionFiles()->add($submissionFile);
+
+            $submissionFile = Repo::submissionFiles()->get($id);
         }
 
         if (!$submissionFile) {

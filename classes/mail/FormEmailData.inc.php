@@ -15,8 +15,8 @@
 
 namespace PKP\mail;
 
+use APP\facades\Repo;
 use Illuminate\Support\LazyCollection;
-use App\facades\Repo;
 use PKP\user\User;
 
 class FormEmailData
@@ -35,13 +35,13 @@ class FormEmailData
 
     protected array $variables = [];
 
-    public function setBody(string $body) : FormEmailData
+    public function setBody(string $body): FormEmailData
     {
         $this->body = $body;
         return $this;
     }
 
-    public function setSubject(?string $subject) : FormEmailData
+    public function setSubject(?string $subject): FormEmailData
     {
         if ($subject) {
             $this->subject = $subject;
@@ -49,35 +49,36 @@ class FormEmailData
         return $this;
     }
 
-    public function skipEmail(bool $skip) : FormEmailData
+    public function skipEmail(bool $skip): FormEmailData
     {
         $this->skipEmail = $skip;
         return $this;
     }
 
-    public function setRecipientIds(array $userIds) : FormEmailData
+    public function setRecipientIds(array $userIds): FormEmailData
     {
         $this->recipientIds = $userIds;
         return $this;
     }
 
-    public function setSenderId(int $userId) : FormEmailData
+    public function setSenderId(int $userId): FormEmailData
     {
         $this->senderId = $userId;
         return $this;
     }
 
-    public function addVariables(array $variablesToAdd) : FormEmailData
+    public function addVariables(array $variablesToAdd): FormEmailData
     {
         $this->variables = $variablesToAdd + $this->variables;
         return $this;
     }
 
-    public function shouldBeSkipped() {
+    public function shouldBeSkipped()
+    {
         return $this->skipEmail;
     }
 
-    public function getRecipients(int $contextId) : LazyCollection
+    public function getRecipients(int $contextId): LazyCollection
     {
         return Repo::user()->getMany(
             Repo::user()->getCollector()
@@ -86,12 +87,12 @@ class FormEmailData
         );
     }
 
-    public function getSender() : ?User
+    public function getSender(): ?User
     {
         return Repo::user()->get($this->senderId);
     }
 
-    public function getVariables(int $userId = null) : array
+    public function getVariables(int $userId = null): array
     {
         return $userId ? $this->variables[$userId] : $this->variables;
     }

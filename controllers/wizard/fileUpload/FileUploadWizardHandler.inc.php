@@ -14,6 +14,7 @@
  *  operations of the file upload wizard.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
@@ -28,7 +29,7 @@ use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class FileUploadWizardHandler extends Handler
 {
@@ -84,7 +85,7 @@ class FileUploadWizardHandler extends Handler
         // we don't need to validate in another places.
         $fileStage = (int) $request->getUserVar('fileStage');
         if ($fileStage) {
-            $fileStages = Services::get('submissionFile')->getFileStages();
+            $fileStages = Repo::submissionFiles()->getFileStages();
             if (!in_array($fileStage, $fileStages)) {
                 return false;
             }
@@ -417,7 +418,7 @@ class FileUploadWizardHandler extends Handler
 
         // Validate the form and upload the file.
         if (!$uploadForm->validate()) {
-            return new JSONMessage(true, $uploadForm->fetch($request));
+            return new JSONMessage(false, $uploadForm->fetch($request));
         }
 
         $uploadedFile = $uploadForm->execute(); /** @var SubmissionFile $uploadedFile */

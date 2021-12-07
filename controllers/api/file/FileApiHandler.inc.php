@@ -16,6 +16,7 @@
  * @brief Class defining an AJAX API for supplying file information.
  */
 
+use APP\facades\Repo;
 use APP\handler\Handler;
 
 use PKP\core\JSONMessage;
@@ -24,7 +25,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class FileApiHandler extends Handler
 {
@@ -55,11 +56,12 @@ class FileApiHandler extends Handler
         } elseif (is_numeric($libraryFileId)) {
             $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         } elseif (!empty($fileStage) && empty($submissionFileId)) {
-            $submissionFileIds = Services::get('submissionFile')->getIds([
-                'submissionIds' => [$submissionId],
-                'fileStages' => [$fileStage],
-                'includeDependentFiles' => $fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT,
-            ]);
+            $collector = Repo::submissionFiles()
+                ->getCollector()
+                ->filterBySubmissionIds([$submissionId])
+                ->filterByFileStages([$fileStage])
+                ->includeDependentFiles($fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT);
+            $submissionFileIds = Repo::submissionFiles()->getIds($collector);
             $allFilesAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             foreach ($submissionFileIds as $submissionFileId) {
                 $allFilesAccessPolicy->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ, $submissionFileId));
@@ -83,7 +85,8 @@ class FileApiHandler extends Handler
     {
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
         $fileId = $request->getUserVar('fileId') ?? $submissionFile->getData('fileId');
-        $revisions = DAORegistry::getDAO('SubmissionFileDAO')->getRevisions($submissionFile->getId());
+        $revisions = Repo::submissionFiles()
+            ->getRevisions($submissionFile->getId());
         $file = null;
         foreach ($revisions as $revision) {
             if ($revision->fileId == $fileId) {

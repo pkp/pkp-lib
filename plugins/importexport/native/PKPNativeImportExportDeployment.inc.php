@@ -15,7 +15,7 @@
  */
 
 use PKP\plugins\importexport\PKPImportExportDeployment;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPNativeImportExportDeployment extends PKPImportExportDeployment
 {

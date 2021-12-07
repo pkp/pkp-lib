@@ -13,7 +13,7 @@
  * @brief Provide access to copyedited files management.
  */
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 

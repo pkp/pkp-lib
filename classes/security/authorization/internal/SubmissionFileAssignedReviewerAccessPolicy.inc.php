@@ -18,7 +18,7 @@ namespace PKP\security\authorization\internal;
 
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -52,7 +52,7 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 
         // Get the submission file
         $submissionFile = $this->getSubmissionFile($request);
-        if (!$submissionFile instanceof \PKP\submission\SubmissionFile) {
+        if (!$submissionFile instanceof \PKP\submissionFile\SubmissionFile) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

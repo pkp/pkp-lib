@@ -18,7 +18,7 @@ import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class EditorReviewFilesGridHandler extends FileListGridHandler
 {

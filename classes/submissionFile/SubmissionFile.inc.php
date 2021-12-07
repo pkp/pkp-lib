@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionFile.inc.php
+ * @file classes/submissionFile/SubmissionFile.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -13,11 +13,10 @@
  * @brief Submission file class.
  */
 
-namespace PKP\submission;
+namespace PKP\submissionFile;
 
 use APP\i18n\AppLocale;
-
-use PKP\db\DAORegistry;
+use PKP\core\PKPApplication;
 
 // Define the file stage identifiers.
 
@@ -37,14 +36,6 @@ class SubmissionFile extends \PKP\core\DataObject
     public const SUBMISSION_FILE_QUERY = 18;
     public const SUBMISSION_FILE_INTERNAL_REVIEW_FILE = 19;
     public const SUBMISSION_FILE_INTERNAL_REVIEW_REVISION = 20;
-
-    /**
-     * @copydoc \PKP\core\DataObject::getDAO()
-     */
-    public function getDAO()
-    {
-        return DAORegistry::getDAO('SubmissionFileDAO');
-    }
 
     /**
      * Get a piece of data for this object, localized to the current
@@ -83,10 +74,6 @@ class SubmissionFile extends \PKP\core\DataObject
         $data = null;
         return $data;
     }
-
-    //
-    // Getters and Setters
-    //
 
     /**
      * Get the locale of the submission.
@@ -377,7 +364,7 @@ class SubmissionFile extends \PKP\core\DataObject
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\SubmissionFile', '\SubmissionFile');
+    class_alias('\PKP\submissionFile\SubmissionFile', '\SubmissionFile');
     foreach ([
         'SUBMISSION_FILE_SUBMISSION',
         'SUBMISSION_FILE_NOTE',

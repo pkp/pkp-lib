@@ -65,6 +65,17 @@ class ReviewFilesDAO extends \PKP\db\DAO
     }
 
     /**
+     * Revoke a review's association based on submission file id.
+     */
+    public function revokeBySubmissionFileId(int $submissionFileId)
+    {
+        $this->update(
+            'DELETE FROM review_files WHERE submission_file_id = ?',
+            [(int) $submissionFileId]
+        );
+    }
+
+    /**
      * Check review file availability
      *
      * @param $reviewId integer

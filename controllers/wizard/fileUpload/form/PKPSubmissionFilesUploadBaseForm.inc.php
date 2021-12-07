@@ -13,13 +13,17 @@
  * @brief Form for adding/editing a submission file
  */
 
+use APP\core\Application;
+
+use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Exception;
 
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\ConfirmationModal;
 use PKP\security\Role;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPSubmissionFilesUploadBaseForm extends Form
 {
@@ -166,7 +170,6 @@ class PKPSubmissionFilesUploadBaseForm extends Form
     public function getSubmissionFiles()
     {
         if (is_null($this->_submissionFiles)) {
-            $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /** @var SubmissionFileDAO $submissionFileDao */
             if ($this->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $this->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
                 // If we have a review stage id then we also expect a review round.
                 if (!$this->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_QUERY && !is_a($this->getReviewRound(), 'ReviewRound')) {
@@ -194,25 +197,37 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     $this->_submissionFiles = [];
                 } elseif ($reviewRound) {
                     // Retrieve the submission files for the given review round.
-                    $submissionFilesIterator = Services::get('submissionFile')->getMany([
-                        'reviewRoundIds' => [(int) $reviewRound->getId()],
-                        'submissionIds' => [(int) $this->getData('submissionId')],
-                    ]);
+                    $submissionId = (int) $this->getData('submissonId');
+                    $submission = Repo::submission()->get($submissionId);
+                    if ($submission->getData('contextId') !== Application::get()->getRequest()->getContext()->getId()) {
+                        throw new Exception('Can not request submission files from another context.');
+                    }
+
+                    $collector = Repo::submissionFiles()
+                        ->getCollector()
+                        ->filterByReviewRoundIds([(int) $reviewRound->getId()])
+                        ->filterBySubmissionIds([$submissionId]);
+                    $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
                     $this->_submissionFiles = iterator_to_array($submissionFilesIterator);
                 } else {
                     // No review round, e.g. for dependent or query files
                     $this->_submissionFiles = [];
                 }
             } else {
-                $params = [
-                    'fileStages' => [(int) $this->getData('fileStage')],
-                    'submissionIds' => [(int) $this->getData('submissionId')],
-                ];
+                $collector = Repo::submissionFiles()
+                    ->getCollector()
+                    ->filterByFileStages([(int) $this->getData('fileStage')])
+                    ->filterBySubmissionIds([(int) $this->getData('submissionId')]);
                 if ($this->getAssocType() && $this->getAssocType() != ASSOC_TYPE_SUBMISSION) {
-                    $params['assocTypes'] = [$this->getAssocType()];
-                    $params['assocIds'] = [$this->getAssocId()];
+                    $collector = $collector->filterByAssoc(
+                        $this->getAssocType(),
+                        [$this->getAssocId()]
+                    );
                 }
-                $this->_submissionFiles = iterator_to_array(Services::get('submissionFile')->getMany($params));
+
+                $this->_submissionFiles = iterator_to_array(
+                    Repo::submissionFiles()->getMany($collector)
+                );
             }
         }
 

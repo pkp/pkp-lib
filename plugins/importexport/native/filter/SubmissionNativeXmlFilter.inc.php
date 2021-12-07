@@ -15,7 +15,8 @@
 
 import('lib.pkp.plugins.importexport.native.filter.NativeExportFilter');
 
-use PKP\submission\SubmissionFile;
+use APP\facades\Repo;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionNativeXmlFilter extends NativeExportFilter
 {
@@ -141,12 +142,13 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
      */
     public function addFiles($doc, $submissionNode, $submission)
     {
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'submissionIds' => [$submission->getId()],
-            'includeDependentFiles' => true,
-        ]);
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->includeDependentFiles();
 
-        foreach ($submissionFilesIterator as $submissionFile) {
+        $submissionFiles = Repo::submissionFiles()->getMany($collector);
+        foreach ($submissionFiles as $submissionFile) {
             // Skip files attached to objects that are not included in the export,
             // such as files uploaded to discussions and files uploaded by reviewers
             if (in_array($submissionFile->getData('fileStage'), [SubmissionFile::SUBMISSION_FILE_QUERY, SubmissionFile::SUBMISSION_FILE_NOTE, SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])) {

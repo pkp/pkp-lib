@@ -14,6 +14,7 @@
 
 import('lib.pkp.controllers.grid.files.FilesGridDataProvider');
 
+use APP\facades\Repo;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 class SubmissionFilesGridDataProvider extends FilesGridDataProvider
@@ -96,10 +97,11 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
      */
     public function loadData($filter = [])
     {
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'submissionIds' => [$this->getSubmission()->getId()],
-            'fileStages' => [$this->getFileStage()],
-        ]);
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterBySubmissionIds([$this->getSubmission()->getId()])
+            ->filterByFileStages([$this->getFileStage()]);
+        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
     }
 

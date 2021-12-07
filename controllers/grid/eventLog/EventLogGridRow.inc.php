@@ -13,11 +13,12 @@
  * @brief EventLog grid row definition
  */
 
+use APP\facades\Repo;
 use PKP\controllers\grid\GridRow;
 use PKP\log\EmailLogEntry;
 use PKP\log\EventLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 // Other classes used
 import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
@@ -68,7 +69,7 @@ class EventLogGridRow extends GridRow
                 case SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD:
                     $submissionFileId = $params['submissionFileId'];
                     $fileId = $params['fileId'];
-                    $submissionFile = Services::get('submissionFile')->get($submissionFileId);
+                    $submissionFile = Repo::submissionFiles()->get($submissionFileId);
                     if (!$submissionFile) {
                         break;
                     }
@@ -84,7 +85,7 @@ class EventLogGridRow extends GridRow
                             }
                         }
                         if (!$anonymousAuthor) {
-                            $workflowStageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
+                            $workflowStageId = Repo::submissionFiles()->getWorkflowStageId($submissionFile);
                             // If a submission file is attached to a query that has been deleted, we cannot
                             // determine its stage. Don't present a download link in this case.
                             if ($workflowStageId || $submissionFile->getData('fileStage') != SubmissionFile::SUBMISSION_FILE_QUERY) {

@@ -13,6 +13,8 @@
  * @brief Class that converts an ArticleGalley to a Native XML document.
  */
 
+use APP\facades\Repo;
+
 import('lib.pkp.plugins.importexport.native.filter.RepresentationNativeXmlFilter');
 
 class PreprintGalleyNativeXmlFilter extends RepresentationNativeXmlFilter
@@ -57,11 +59,12 @@ class PreprintGalleyNativeXmlFilter extends RepresentationNativeXmlFilter
      */
     public function getFiles($representation)
     {
-        $submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
-        $galleyFiles = [];
         if ($representation->getFileId()) {
-            $galleyFiles = [Services::get('submissionFile')->get($representation->getFileId())];
+            return [
+                Repo::submissionFiles()->get($representation->getFileId())
+            ];
         }
-        return $galleyFiles;
+
+        return [];
     }
 }

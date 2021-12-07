@@ -14,22 +14,30 @@
 
 namespace APP\facades;
 
-use Illuminate\Support\Facades\App;
+use APP\publication\Repository as PublicationRepository;
+use APP\submission\Repository as SubmissionRepository;
+use APP\submissionFile\Repository as SubmissionFileRepository;
+use PKP\user\Repository as UserRepository;
 
 class Repo extends \PKP\facades\Repo
 {
-    public static function publication(): \APP\publication\Repository
+    public static function publication(): PublicationRepository
     {
-        return App::make(\APP\publication\Repository::class);
+        return app()->make(PublicationRepository::class);
     }
 
-    public static function submission(): \APP\submission\Repository
+    public static function submission(): SubmissionRepository
     {
-        return App::make(\APP\submission\Repository::class);
+        return app()->make(SubmissionRepository::class);
     }
 
-    public static function user(): \PKP\user\Repository
+    public static function user(): UserRepository
     {
-        return App::make(\PKP\user\Repository::class);
+        return app()->make(UserRepository::class);
+    }
+
+    public static function submissionFiles(): SubmissionFileRepository
+    {
+        return app()->make(SubmissionFileRepository::class);
     }
 }

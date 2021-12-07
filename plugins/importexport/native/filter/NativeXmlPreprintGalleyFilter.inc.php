@@ -13,6 +13,8 @@
  * @brief Class that converts a Native XML document to a set of publication formats.
  */
 
+use APP\facades\Repo;
+
 import('lib.pkp.plugins.importexport.native.filter.NativeXmlRepresentationFilter');
 
 class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter
@@ -102,14 +104,14 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter
 
         if ($addSubmissionFile) {
             // Update the submission file.
-            $submissionFile = Services::get('submissionFile')->get($newSubmissionFileId);
-            $submissionFile = Services::get('submissionFile')->edit(
+
+            $submissionFile = Repo::submissionFiles()->get($newSubmissionFileId);
+            Repo::submissionFiles()->edit(
                 $submissionFile,
                 [
                     'assocType' => ASSOC_TYPE_REPRESENTATION,
                     'assocId' => $representation->getId(),
-                ],
-                Application::get()->getRequest()
+                ]
             );
         }
 

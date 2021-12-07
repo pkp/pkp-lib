@@ -15,6 +15,7 @@
  * @brief Preprint galley editing form.
  */
 
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
@@ -81,7 +82,7 @@ class PreprintGalleyForm extends Form
                 'representationId' => $this->_preprintGalley->getId(),
                 'preprintGalley' => $this->_preprintGalley,
                 'preprintGalleyFile' => $preprintGalleyFile,
-                'supportsDependentFiles' => $preprintGalleyFile ? Services::get('submissionFile')->supportsDependentFiles($preprintGalleyFile, $filepath) : null,
+                'supportsDependentFiles' => $preprintGalleyFile ? Repo::submissionFiles()->supportsDependentFiles($preprintGalleyFile, $filepath) : null,
             ]);
         }
         $context = $request->getContext();

@@ -80,12 +80,13 @@ class ServerDAO extends ContextDAO
      */
     public function deleteAllPubIds($serverId, $pubIdType)
     {
-        $pubObjectDaos = ['PreprintGalleyDAO', 'SubmissionFileDAO'];
+        $pubObjectDaos = ['PreprintGalleyDAO'];
         foreach ($pubObjectDaos as $daoName) {
             $dao = DAORegistry::getDAO($daoName);
             $dao->deleteAllPubIds($serverId, $pubIdType);
         }
 
+        Repo::submissionFiles()->dao->deleteAllPubIds($serverId, $pubIdType);
         Repo::publication()->dao->deleteAllPubIds($journalId, $pubIdType);
     }
 
@@ -116,7 +117,7 @@ class ServerDAO extends ContextDAO
         $pubObjectDaos = [
             ASSOC_TYPE_SUBMISSION => Repo::publication()->dao,
             ASSOC_TYPE_GALLEY => Application::getRepresentationDAO(),
-            ASSOC_TYPE_SUBMISSION_FILE => DAORegistry::getDAO('SubmissionFileDAO')
+            ASSOC_TYPE_SUBMISSION_FILE => Repo::submissionFiles()->dao,
         ];
         if ($forSameType) {
             $dao = $pubObjectDaos[$assocType];

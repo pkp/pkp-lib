@@ -155,14 +155,16 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
                     break;
                 case 'file':
                     $values[$prop] = null;
-                    $submissionFile = Services::get('submissionFile')->get($galley->getData('submission_file_id'));
+                    $submissionFile = Repo::submissionFiles()->get($galley->getData('submission_file_id'));
+
                     if (empty($submissionFile)) {
                         break;
                     }
-                    $values[$prop] = Services::get('submissionFile')->getFullProperties($submissionFile, [
-                        'request' => $request,
-                        'submission' => $submission,
-                    ]);
+
+                    $values[$prop] = Repo::submissionFiles()
+                        ->getSchemaMap()
+                        ->map($submissionFile);
+
                     break;
                 default:
                     $values[$prop] = $galley->getData($prop);
@@ -296,12 +298,14 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
         $preprintGalleyDao->deleteObject($galley);
 
         // Delete related submission files
-        $submissionFilesIterator = Services::get('submissionFile')->getMany([
-            'assocTypes' => [ASSOC_TYPE_GALLEY],
-            'assocIds' => [$galley->getId()],
-        ]);
-        foreach ($submissionFilesIterator as $submissionFile) {
-            Services::get('submissionFile')->delete($submissionFile);
+
+        $collector = Repo::submissionFiles()
+            ->getCollector()
+            ->filterByAssoc(ASSOC_TYPE_GALLEY, [$galley->getId()]);
+
+        $submissionFiles = Repo::submissionFiles()->getMany($collector);
+        foreach ($submissionFiles as $submissionFile) {
+            Repo::submissionFiles()->delete($submissionFile);
         }
 
         HookRegistry::call('Galley::delete', [&$galley]);

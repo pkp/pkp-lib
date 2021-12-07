@@ -1,33 +1,32 @@
 <?php
-
 /**
- * @file classes/submission/SubmissionFileDAO.inc.php
+ * @file classes/submissionFile/DAO.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SubmissionFileDAO
- * @ingroup submission
+ * @class submission
  *
- * @see SubmissionFile
- *
- * @brief Operations for retrieving and modifying submission files
+ * @brief Read and write submissionFiles to the database.
  */
 
-namespace APP\submission;
+namespace APP\submissionFile;
 
+use Exception;
 use PKP\db\DAORegistry;
-use PKP\submission\PKPSubmissionFileDAO;
+use PKP\submissionFile\DAO as BaseDAO;
 
-class SubmissionFileDAO extends PKPSubmissionFileDAO
+use PKP\submissionFile\SubmissionFile;
+
+class DAO extends BaseDAO
 {
     /**
-     * @copydoc SchemaDAO::insertObject
+     * @copydoc EntityDAO::insert()
      */
-    public function insertObject($submissionFile)
+    public function insert(SubmissionFile $submissionFile): int
     {
-        parent::insertObject($submissionFile);
+        $galley = null;
 
         if ($submissionFile->getData('assocType') === ASSOC_TYPE_REPRESENTATION) {
             $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
@@ -35,14 +34,15 @@ class SubmissionFileDAO extends PKPSubmissionFileDAO
             if (!$galley) {
                 throw new Exception('Galley not found when adding submission file.');
             }
+        }
+
+        $submissionFileId = parent::insert($submissionFile);
+
+        if ($galley) {
             $galley->setFileId($submissionFile->getId());
             $galleyDao->updateObject($galley);
         }
 
-        return $submissionFile->getId();
+        return $submissionFileId;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\submission\SubmissionFileDAO', '\SubmissionFileDAO');
 }

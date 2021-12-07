@@ -793,7 +793,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             Repo::publication()->dao,
             Repo::submission()->dao,
             Application::getRepresentationDAO(),
-            DAORegistry::getDAO('SubmissionFileDAO'),
+            Repo::submissionFiles()->dao,
         ];
     }
 }

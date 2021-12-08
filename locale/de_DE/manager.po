@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-10-21 09:07+0000\n"
+"PO-Revision-Date: 2021-12-08 09:39+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de_DE/>\n"
@@ -2275,3 +2275,44 @@ msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
 "Die URL zu einer Seite auf der ein/e Nutzer/in ein verlorenes Passwort "
 "wiederherstellen kann"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Diese E-Mail wird automatisch an neue Nutzer/innen gesendet wenn sie sich "
+"auf der Seite registrieren, sofern die Überprüfung der E-Mail Adresse in den "
+"Einstellungen verlangt wird."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "E-Mail überprüfen (Seite)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr ""
+"Diese E-Mail wird verschickt wenn ein Editor die Zuordnung eines/r Gutachter/"
+"in rückgängig macht."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Gutachter/in nicht mehr zugeordnet"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Diese E-Mail wird verschickt wenn ein/e Gutachter/in, die/der nicht mehr "
+"zugeordnet war, von einem Editor wieder eingesetzt wird."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Gutachter/in wieder eingesetzt"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr ""
+"Diese E-Mail wird verschickt wenn ein/e Gutachter/in einer Einreichung "
+"zugewiesen wird."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Gutachter/in zugewiesen"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Diese E-Mail wird automatisch an Diskussionsteilnehmende verschickt wenn ein "
+"neuer Beitrag zu einer Diskussion hinzugefügt wurde."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Neuer Diskussionsbeitrag"

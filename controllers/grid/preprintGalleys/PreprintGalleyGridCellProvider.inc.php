@@ -90,7 +90,7 @@ class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
                     break;
                 }
 
-                $submissionFile = Repo::submissionFiles()->get($element->getData('submissionFileId'));
+                $submissionFile = Repo::submissionFile()->get($element->getData('submissionFileId'));
                 import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
                 return [new DownloadFileLinkAction($request, $submissionFile, WORKFLOW_STAGE_ID_PRODUCTION, $element->getLabel())];
         }

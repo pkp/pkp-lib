@@ -3,7 +3,7 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-21 10:07+0000\n"
+"PO-Revision-Date: 2021-12-09 10:15+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "de_DE/>\n"
@@ -565,3 +565,12 @@ msgstr ""
 
 msgid "manager.distribution.access"
 msgstr "Zugang"
+
+msgid "mailable.validateEmailContext.description"
+msgstr ""
+"Diese E-Mail wird automatisch an neue Nutzer/innen gesendet wenn sie sich "
+"mit einem Server registrieren, der die Überprüfung der E-Mail Adresse "
+"verlangt."
+
+msgid "mailable.validateEmailContext.name"
+msgstr "E-Mail überprüfen (Serverregistrierung)"

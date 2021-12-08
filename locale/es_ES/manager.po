@@ -1,7 +1,8 @@
+# Barbara Bornewasser <bornewasser@mikado-ac.info>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-12 16:48+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2021-10-19 13:06+0000\n"
+"Last-Translator: Barbara Bornewasser <bornewasser@mikado-ac.info>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "es_ES/>\n"
 "Language: es_ES\n"
@@ -43,7 +44,7 @@ msgstr ""
 "del servidor."
 
 msgid "manager.statistics.statistics.itemsPublished"
-msgstr "Ítens postados"
+msgstr "Objetos publicados"
 
 #, fuzzy
 msgid "manager.statistics.statistics.daysToPublication"
@@ -380,3 +381,67 @@ msgstr ""
 
 msgid "manager.distribution.access"
 msgstr "Acceso"
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+"Tome nota de que la contraseña se guardará como texto plano, es decir, no se "
+"cifrará."
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr "Contraseña"
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr "No se han cumplido los requisitos del plugin"
+
+msgid "plugins.importexport.common.export.preprints"
+msgstr "Preprints"
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr "Configuración del plugin DOI"
+
+msgid "plugins.importexport.common.settings"
+msgstr "Configuración"
+
+msgid "grid.genres.title"
+msgstr "Componentes del preprint"
+
+msgid "grid.genres.title.short"
+msgstr "Componentes"
+
+msgid "manager.setup.resetPermissions.success"
+msgstr "Los permisos de preprints se han restablecido con éxito."
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+"¿Está seguro de que desea restablecer los datos de permisos para todos los "
+"preprints? Esta acción no se puede deshacer."
+
+msgid "manager.setup.resetPermissions"
+msgstr "Restablecer permisos de preprint"
+
+msgid "manager.publication.library"
+msgstr "Biblioteca del servidor de preprints"
+
+msgid "grid.category.path"
+msgstr "Ruta"
+
+msgid "manager.setup.disableSubmissions.notAccepting"
+msgstr ""
+"Este servidor no acepta envíos en este momento. Visite la configuración del "
+"workflow para permitir los envíos."
+
+msgid "manager.setup.disableSubmissions.description"
+msgstr ""
+"Impida que los usuarios envíen nuevos preprints al servidor. Los envíos "
+"pueden desactivarse para secciones individuales del servidor en la página de "
+"configuración <a href=\"{$url}\">Secciones del servidor</a>."
+
+msgid "manager.setup.selectCountry"
+msgstr ""
+"Seleccione el país donde este servidor está localizado o el país de la "
+"dirección postal del servidor o del editor."
+
+msgid "manager.sections.confirmDeactivateSection.error"
+msgstr ""
+"Al menos una sección debe estar activa. Visite la configuración del workflow "
+"para desactivar todos los envíos a este servidor."

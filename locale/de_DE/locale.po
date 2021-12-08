@@ -1,8 +1,9 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-04 21:04+0000\n"
-"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"PO-Revision-Date: 2021-10-21 10:07+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/locale/de_DE/"
 ">\n"
 "Language: de_DE\n"
@@ -85,12 +86,12 @@ msgstr "Bearbeiten {$sectionTitle}"
 msgid "about.aboutOPSSite"
 msgstr ""
 "Diese Seite verwendet Open Preprint Systems {$opsVersion}, eine Open-Source-"
-"Software zur Verwaltung von Vorabdruckservern, die vom Public Knowledge "
+"Software zur Verwaltung von Preprint-Servern, die vom Public Knowledge "
 "Project unter der GNU General Public License entwickelt, unterstützt und "
 "frei verteilt wird. Besuchen Sie die Website des PKP, um <a href=\""
 "http://pkp.sfu.ca/\">mehr über die Software zu erfahren</a>. Bei Fragen zu "
-"den Servern und zur Einreichung von Vorabdrucken wenden Sie sich bitte "
-"direkt an die Website."
+"den Servern und zur Einreichung von Preprints wenden Sie sich bitte direkt "
+"an die Website."
 
 msgid "about.aboutOPSServer"
 msgstr ""
@@ -157,7 +158,7 @@ msgid "about.submissions"
 msgstr "Einreichungen"
 
 msgid "about.editorialTeam"
-msgstr "Vorabdruck-Server-Team"
+msgstr "Preprint-Server-Team"
 
 msgid "about.aboutContext"
 msgstr "Über den Server"
@@ -184,10 +185,10 @@ msgid "search.authorIndex"
 msgstr "Autorenindex durchsuchen"
 
 msgid "search.searchFor"
-msgstr "Suche nach Vorabdrucken für"
+msgstr "Suche nach Preprints für"
 
 msgid "index.latestPreprints"
-msgstr "Neueste Vorabdrucke"
+msgstr "Neueste Preprints"
 
 msgid "user.register.form.missingSiteConsent"
 msgstr "Sie müssen den Datenschutzbestimmungen dieser Website zustimmen."
@@ -245,13 +246,13 @@ msgid "search.results.orderBy.author"
 msgstr "Autor"
 
 msgid "search.results.orderBy.preprint"
-msgstr "Vorabdruck Titel"
+msgstr "Preprint Titel"
 
 msgid "search.results.orderBy"
 msgstr "Ergebnisse sortieren nach"
 
 msgid "submission.event.submissionSubmitted"
-msgstr "Vorabdruck eingereicht"
+msgstr "Preprint eingereicht"
 
 msgid "user.role.subEditors"
 msgstr "Moderatoren"
@@ -295,7 +296,7 @@ msgid "submission.numberOfVersions"
 msgstr "Versionen: {$numberOfVersions}"
 
 msgid "submission.search"
-msgstr "Vorabdruck-Suche"
+msgstr "Preprint-Suche"
 
 msgid "submissions.published"
 msgstr "Veröffentlicht"
@@ -313,10 +314,10 @@ msgid "publication.version"
 msgstr "Version {$version}"
 
 msgid "common.publications"
-msgstr "Vorabdrucke"
+msgstr "Preprints"
 
 msgid "common.publication"
-msgstr "Vorabdruck"
+msgstr "Preprint"
 
 msgid "category.categories"
 msgstr "Kategorien"

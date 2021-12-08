@@ -1,9 +1,10 @@
 # Matthias <matt@m2labs.de>, 2021.
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-04 21:04+0000\n"
-"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"PO-Revision-Date: 2021-10-21 10:07+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/submissions/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -14,10 +15,10 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "submission.publications"
-msgstr "Vorabdrucke"
+msgstr "Preprints"
 
 msgid "submission.publication"
-msgstr "Vorabdruck"
+msgstr "Preprint"
 
 msgid "publication.status.unscheduled"
 msgstr "Unveröffentlicht"
@@ -30,7 +31,7 @@ msgstr "Veröffentlicht"
 
 msgid "author.submit.authorsCanNotPublish"
 msgstr ""
-"Sie können Ihren eigenen Vorabdruck nicht veröffentlichen. Er muss von einem "
+"Sie können Ihren eigenen Preprint nicht veröffentlichen. Er muss von einem "
 "Moderator genehmigt und veröffentlicht werden."
 
 msgid "publication.publish.confirmation"
@@ -39,16 +40,16 @@ msgstr ""
 "veröffentlichen wollen?"
 
 msgid "publication.relation.vorDoi"
-msgstr "DOI des veröffentlichten Vorabdrucks."
+msgstr "DOI des veröffentlichten Preprints"
 
 msgid "publication.relation.published"
-msgstr "Der Vorabdruck wurde in einer Zeitschrift als Vorabdruck veröffentlicht"
+msgstr "Der Preprint wurde in einer Zeitschrift als ein Preprint veröffentlicht"
 
 msgid "publication.relation.submitted"
-msgstr "Der Vorabdruck wurde zur Veröffentlichung im Server eingereicht"
+msgstr "Der Preprint wurde zur Veröffentlichung im Server eingereicht"
 
 msgid "publication.relation.none"
-msgstr "Der Vorabdruck wurde nicht zur Veröffentlichung eingereicht"
+msgstr "Der Preprint wurde nicht zur Veröffentlichung eingereicht"
 
 msgid "publication.relation.label"
 msgstr "Eingereicht zur Veröffentlichung"
@@ -58,15 +59,15 @@ msgstr "Verbindugen"
 
 msgid "publication.datePublished.description"
 msgstr ""
-"Das Veröffentlichungsdatum wird automatisch festgelegt, wenn der Vorabdruck "
+"Das Veröffentlichungsdatum wird automatisch festgelegt, wenn der Preprint "
 "veröffentlicht wird. Geben Sie kein Buchungsdatum ein, es sei denn, Sie "
 "müssen es rückdatieren."
 
 msgid "publication.issue.success"
-msgstr "Die Angaben zum Vorabdruck-Eintrag wurden aktualisiert."
+msgstr "Die Angaben zum Preprint-Eintrag wurden aktualisiert."
 
 msgid "preprint.entry"
-msgstr "Vorabdruck-Eintrag"
+msgstr "Preprint-Eintrag"
 
 msgid "publication.inactiveSection"
 msgstr "{$abschnitt} (inaktiv)"
@@ -105,10 +106,10 @@ msgstr ""
 "für diesen Abschnitt angegebene Wortanzahl."
 
 msgid "submission.submit.form.abstractRequired"
-msgstr "Bitte geben Sie die Zusammenfassung Ihres Vorabdrucks ein."
+msgstr "Bitte geben Sie den Abstract Ihres Preprints ein."
 
 msgid "submission.submit.form.titleRequired"
-msgstr "Bitte geben Sie den Titel Ihres Vorabdrucks ein."
+msgstr "Bitte geben Sie den Titel Ihres Preprints ein."
 
 msgid "submission.submit.form.authorRequired"
 msgstr "Mindestens ein Autor ist erforderlich."
@@ -131,11 +132,11 @@ msgid "submission.complete"
 msgstr "Genehmigt"
 
 msgid "submission.upload.fileContents"
-msgstr "Vorabdruck Komponente"
+msgstr "Preprint-Komponente"
 
 msgid "submission.confirmSubmit"
 msgstr ""
-"Sind Sie sicher, dass Sie diesen Vorabdruck auf den Server einreichen wollen?"
+"Sind Sie sicher, dass Sie diesen Preprint auf den Server einreichen wollen?"
 
 msgid "submission.galleyFiles"
 msgstr "Gesamtfahnen"
@@ -150,19 +151,19 @@ msgid "submission.submit.newSubmissionSingle"
 msgstr "Neue Einreichung"
 
 msgid "submission.title"
-msgstr "Vorabdruck Titel"
+msgstr "Preprint-Titel"
 
 msgid "submission.upload.selectComponent"
-msgstr "Vorabdruck-Komponente auswählen"
+msgstr "Preprint-Komponente auswählen"
 
 msgid "submission.submit.userGroupDescription"
-msgstr "Wählen Sie die Funktion, unter der Sie diesen Vorabdruck einreichen."
+msgstr "Wählen Sie die Funktion, unter der Sie diesen Preprint einreichen."
 
 msgid "submission.submit.userGroup"
 msgstr "Einreichen in meiner Rolle als..."
 
 msgid "submission.submit.title"
-msgstr "Vorabdruck einreichen"
+msgstr "Preprint einreichen"
 
 msgid "submission.queries.production"
 msgstr "Diskussionen"
@@ -213,7 +214,7 @@ msgid "publication.publish"
 msgstr "Posten"
 
 msgid "publication.invalidSubmission"
-msgstr "Die Vorlage für diesen Vorabdruck konnte nicht gefunden werden."
+msgstr "Die Einreichung von diesem Preprint konnte nicht gefunden werden."
 
 msgid "publication.event.versionUnpublished"
 msgstr ""

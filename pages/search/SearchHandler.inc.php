@@ -16,9 +16,8 @@
 use APP\facades\Repo;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\template\TemplateManager;
-
-import('classes.search.PreprintSearch');
-import('classes.handler.Handler');
+use APP\search\PreprintSearch;
+use APP\handler\Handler;
 
 class SearchHandler extends Handler
 {

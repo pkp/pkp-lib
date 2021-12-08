@@ -14,6 +14,7 @@
  */
 
 use APP\facades\Repo;
+use APP\core\Services;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
@@ -61,7 +62,6 @@ class ExportPublishedSubmissionsListGridCellProvider extends DataObjectGridCellP
                 }
                 $authorsInTitle = $submission->getShortAuthorString();
                 $title = $authorsInTitle . '; ' . $title;
-                import('classes.core.Services');
                 return [
                     new LinkAction(
                         'itemWorkflow',

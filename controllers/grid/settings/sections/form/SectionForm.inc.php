@@ -161,7 +161,6 @@ class SectionForm extends PKPSectionForm
         if ($this->getSectionId()) {
             $section = $sectionDao->getById($this->getSectionId(), $server->getId());
         } else {
-            import('classes.server.Section');
             $section = $sectionDao->newDataObject();
             $section->setServerId($server->getId());
         }

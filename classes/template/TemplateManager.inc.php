@@ -19,13 +19,10 @@ namespace APP\template;
 
 use APP\core\Application;
 use APP\file\PublicFileManager;
+use APP\search\PreprintSearch;
 use PKP\core\PKPApplication;
-
 use PKP\db\DAORegistry;
 use PKP\template\PKPTemplateManager;
-
-// FIXME: Add namespacing
-import('classes.search.PreprintSearch');
 
 class TemplateManager extends PKPTemplateManager
 {

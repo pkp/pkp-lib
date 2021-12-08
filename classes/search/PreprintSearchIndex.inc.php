@@ -17,6 +17,7 @@ namespace APP\search;
 
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
+use APP\search\PreprintSearch;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
@@ -59,7 +60,6 @@ class PreprintSearchIndex extends SubmissionSearchIndex
         }
 
         // Update search index
-        import('classes.search.PreprintSearch');
         $submissionId = $submission->getId();
         $this->_updateTextIndex($submissionId, SubmissionSearch::SUBMISSION_SEARCH_AUTHOR, $authorText);
         $this->_updateTextIndex($submissionId, SubmissionSearch::SUBMISSION_SEARCH_TITLE, $publication->getFullTitles());

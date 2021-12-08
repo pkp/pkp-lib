@@ -15,7 +15,7 @@
 
 use APP\facades\Repo;
 use APP\template\TemplateManager;
-
+use APP\core\Services;
 use PKP\security\Role;
 
 import('lib.pkp.pages.submission.PKPSubmissionHandler');
@@ -51,7 +51,6 @@ class SubmissionHandler extends PKPSubmissionHandler
 
             // OPS: Check if author can publish
             // OPS: Author can publish, see if other criteria exists and create an array of errors
-            import('classes.core.Services');
             if (Repo::publication()->canCurrentUserPublish($submission->getId())) {
                 $primaryLocale = $context->getPrimaryLocale();
                 $allowedLocales = $context->getSupportedLocales();

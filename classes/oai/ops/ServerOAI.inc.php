@@ -17,10 +17,14 @@
  * (based on where the request is directed).
  */
 
+namespace APP\oai\ops;
+
 use APP\oai\ops\OAIDAO;
+use APP\core\Application;
+use PKP\db\DAORegistry;
+use PKP\plugins\HookRegistry;
 use PKP\oai\OAI;
 use PKP\oai\OAIRepository;
-
 use PKP\oai\OAIResumptionToken;
 
 class ServerOAI extends OAI
@@ -251,4 +255,8 @@ class ServerOAI extends OAI
         $this->dao->insertToken($token);
         return $token;
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\oai\ops\ServerOAI', '\ServerOAI');
 }

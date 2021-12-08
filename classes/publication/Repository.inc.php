@@ -200,7 +200,6 @@ class Repository extends \PKP\publication\Repository
                 ]);
 
                 if (!$mail->send($this->request)) {
-                    import('classes.notification.NotificationManager');
                     $notificationMgr = new NotificationManager();
                     $notificationMgr->createTrivialNotification($this->request->getUser()->getId(), Notification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
                 }

@@ -16,6 +16,7 @@
 // Import base class
 import('lib.pkp.pages.authorDashboard.PKPAuthorDashboardHandler');
 
+use APP\submission\Submission;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 
@@ -63,7 +64,6 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
         $relationForm = new APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $locales, $latestPublication);
 
         // Import constants
-        import('classes.submission.Submission');
         import('classes.components.forms.publication.RelationForm');
 
         $templateMgr->setConstants([

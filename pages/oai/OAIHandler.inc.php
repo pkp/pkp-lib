@@ -15,8 +15,8 @@
 
 define('SESSION_DISABLE_INIT', 1); // FIXME?
 
-import('classes.oai.ops.ServerOAI');
-import('classes.handler.Handler');
+use APP\oai\ops\ServerOAI;
+use APP\handler\Handler;
 
 use Firebase\JWT\JWT;
 

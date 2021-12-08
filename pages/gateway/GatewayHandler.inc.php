@@ -13,7 +13,7 @@
  * @brief Handle external gateway requests.
  */
 
-import('classes.handler.Handler');
+use APP\handler\Handler;
 
 class GatewayHandler extends Handler
 {

@@ -17,7 +17,7 @@ namespace APP\submission\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-
+use APP\core\Services;
 use APP\log\SubmissionEventLogEntry;
 use APP\mail\PreprintMailTemplate;
 use APP\notification\NotificationManager;
@@ -71,7 +71,6 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
 
             // OPS: Check if author can publish and let her know in the email
             $canAuthorPublish = '';
-            import('classes.core.Services');
             if (Repo::publication()->canCurrentUserPublish($submission->getId())) {
                 $primaryLocale = $context->getPrimaryLocale();
                 $allowedLocales = $context->getSupportedLocales();

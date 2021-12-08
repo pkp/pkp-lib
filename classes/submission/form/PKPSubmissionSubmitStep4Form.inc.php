@@ -26,8 +26,6 @@ use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
 
-import('lib.pkp.classes.submission.form.SubmissionSubmitForm');
-
 class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
 {
     /**

@@ -16,7 +16,6 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.core.DataObject');
 
 use PKP\core\DataObject;
 

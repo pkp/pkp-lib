@@ -15,8 +15,6 @@
 
 namespace PKP\components;
 
-import('classes.statistics.StatisticsHelper');
-
 class PKPStatsEditorialPage extends PKPStatsComponent
 {
     /** @var array A key/value array of active submissions by stage */

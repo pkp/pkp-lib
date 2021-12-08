@@ -16,12 +16,12 @@
  *  for several types of policy tests.
  */
 
+use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
+use PKP\security\UserGroup;
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.security.UserGroup');
-import('lib.pkp.classes.core.PKPRequest');
 
 define('ROLE_ID_TEST', 0x9999);
 

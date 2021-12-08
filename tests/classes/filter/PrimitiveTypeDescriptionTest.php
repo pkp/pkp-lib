@@ -21,8 +21,9 @@
  * return values.
  */
 
+use PKP\filter\PrimitiveTypeDescription;
+
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.filter.PrimitiveTypeDescription');
 
 class PrimitiveTypeDescriptionTest extends PKPTestCase
 {

@@ -15,8 +15,9 @@
  * @brief Test class for ClassTypeDescription.
  */
 
+use PKP\filter\ClassTypeDescription;
+
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.filter.ClassTypeDescription');
 import('lib.pkp.tests.classes.filter.TestClass1');
 import('lib.pkp.tests.classes.filter.TestClass2');
 

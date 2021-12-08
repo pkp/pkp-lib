@@ -15,8 +15,9 @@
  * @brief Test class for Filter.
  */
 
+use PKP\filter\Filter;
+
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.filter.Filter');
 import('lib.pkp.tests.classes.filter.TestClass1');
 import('lib.pkp.tests.classes.filter.TestClass2');
 

@@ -24,6 +24,7 @@
 namespace PKP\cliTool;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 
 /** Initialization code */
 define('PWD', getcwd());
@@ -74,7 +75,6 @@ class CommandLineTool
         $request = $application->getRequest();
 
         // FIXME: Write and use a CLIRouter here (see classdoc)
-        import('classes.core.PageRouter');
         $router = new PageRouter();
         $router->setApplication($application);
         $request->setRouter($router);

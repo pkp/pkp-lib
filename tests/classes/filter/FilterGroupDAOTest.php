@@ -15,9 +15,10 @@
  * @brief Test class for FilterGroupDAO.
  */
 
+use PKP\filter\FilterGroup;
+use PKP\filter\FilterGroupDAO;
+
 import('lib.pkp.tests.DatabaseTestCase');
-import('lib.pkp.classes.filter.FilterGroup');
-import('lib.pkp.classes.filter.FilterGroupDAO');
 
 class FilterGroupDAOTest extends DatabaseTestCase
 {

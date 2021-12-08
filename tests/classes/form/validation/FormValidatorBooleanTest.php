@@ -15,8 +15,9 @@
  * @brief Test class for FormValidatorBoolean.
  */
 
+use PKP\form\Form;
+
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.form.Form');
 
 class FormValidatorBooleanTest extends PKPTestCase
 {

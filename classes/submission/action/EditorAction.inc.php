@@ -32,9 +32,6 @@ use PKP\core\PKPServices;
 use PKP\db\DAORegistry;
 use PKP\log\PKPSubmissionEventLogEntry;
 
-// Access decision actions constants.
-import('classes.workflow.EditorDecisionActionsManager');
-
 use PKP\log\SubmissionLog;
 use PKP\mail\mailables\MailReviewerAssigned;
 use PKP\notification\PKPNotification;
@@ -284,8 +281,7 @@ class EditorAction
         string $emailBody,
         string $emailSubject,
         Context $context
-    ) : Mailable
-    {
+    ): Mailable {
         $mailable = new MailReviewerAssigned($context, $submission, $reviewAssignment);
 
         if ($context->getData('reviewerAccessKeysEnabled')) {

@@ -17,9 +17,6 @@ use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;
 
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
-
-
 class ReviewerGridCellProvider extends DataObjectGridCellProvider
 {
     /** @var boolean Is the current user assigned as an author to this submission */

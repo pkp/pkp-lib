@@ -26,8 +26,10 @@ import('lib.pkp.tests.DatabaseTestCase');
 use APP\core\Request;
 use APP\install\Install;
 
+use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\plugins\Plugin;
+use PKP\site\VersionCheck;
 
 class PluginTestCase extends DatabaseTestCase
 {
@@ -65,8 +67,6 @@ class PluginTestCase extends DatabaseTestCase
         $this->validateXmlConfig(['./' . $filterConfigFile, './lib/pkp/' . $filterConfigFile]);
 
         // Mock request and router.
-        import('lib.pkp.classes.core.PKPRouter');
-        import('classes.core.Request');
         $mockRequest = $this->getMockBuilder(Request::class)
             ->setMethods(['getRouter', 'getUser'])
             ->getMock();
@@ -85,7 +85,6 @@ class PluginTestCase extends DatabaseTestCase
         $installer = new Install($params, $installFile, true);
 
         // Parse the plug-ins version.xml.
-        import('lib.pkp.classes.site.VersionCheck');
         self::assertFileExists($versionFile = './plugins/' . $pluginCategory . '/' . $pluginDir . '/version.xml');
         self::assertArrayHasKey('version', $versionInfo = VersionCheck::parseVersionXML($versionFile));
         self::assertInstanceOf('Version', $pluginVersion = $versionInfo['version']);

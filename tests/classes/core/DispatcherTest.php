@@ -15,12 +15,10 @@
  * @brief Tests for the Dispatcher class.
  */
 
+use APP\core\Application;
+use PKP\core\Dispatcher;
+
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.core.Registry');
-import('classes.core.Application');
-import('lib.pkp.classes.core.Dispatcher');
-import('lib.pkp.classes.core.PKPRequest');
-import('lib.pkp.classes.plugins.HookRegistry');
 
 class DispatcherTest extends PKPTestCase
 {

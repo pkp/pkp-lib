@@ -346,7 +346,6 @@ abstract class Repository
         HookRegistry::call('Publication::version', [&$newPublication, $publication]);
 
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
-        import('classes.log.SubmissionEventLogEntry'); // PKPSubmissionEventLogEntry::SUBMISSION_LOG_CREATE_VERSION
         SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_CREATE_VERSION, 'publication.event.versionCreated');
 
         return $newPublication->getId();
@@ -387,8 +386,6 @@ abstract class Repository
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
         // Log an event when publication data is updated
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
         SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
     }
 
@@ -441,8 +438,6 @@ abstract class Repository
         } else {
             $msg = $newPublication->getData('status') === Submission::STATUS_SCHEDULED ? 'publication.event.scheduled' : 'publication.event.published';
         }
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
         SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH, $msg);
 
         HookRegistry::call('Publication::publish', [&$newPublication, $publication, $submission]);
@@ -497,8 +492,6 @@ abstract class Repository
         // Log an event when publication is unpublished. Adjust the message depending
         // on whether this is the first publication or a subsequent version
         $msg = count($submission->getData('publications')) > 1 ? 'publication.event.versionUnpublished' : 'publication.event.unpublished';
-        import('lib.pkp.classes.log.SubmissionLog');
-        import('classes.log.SubmissionEventLogEntry');
         SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UNPUBLISH, $msg);
 
         HookRegistry::call('Publication::unpublish', [&$newPublication, $publication, $submission]);

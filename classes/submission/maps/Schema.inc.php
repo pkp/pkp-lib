@@ -265,7 +265,6 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function getPropertyReviewAssignments(Submission $submission): array
     {
-        import('lib.pkp.classes.submission.reviewAssignment.ReviewAssignmentDAO');
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
 
@@ -355,7 +354,6 @@ class Schema extends \PKP\core\maps\Schema
 
         $stages = [];
         foreach ($stageIds as $stageId) {
-            import('lib.pkp.classes.workflow.WorkflowStageDAO');
             $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
             $stage = [
                 'id' => (int) $stageId,
@@ -401,7 +399,6 @@ class Schema extends \PKP\core\maps\Schema
             switch ($stageId) {
 
                 case WORKFLOW_STAGE_ID_SUBMISSION:
-                    import('lib.pkp.classes.stageAssignment.StageAssignmentDAO');
                     $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                     $assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
                     if (!$assignedEditors) {
@@ -417,7 +414,6 @@ class Schema extends \PKP\core\maps\Schema
 
                 case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
                 case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                    import('lib.pkp.classes.submission.reviewRound.ReviewRoundDAO');
                     $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                     $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
                     if ($reviewRound) {
@@ -459,8 +455,6 @@ class Schema extends \PKP\core\maps\Schema
                 // Review rounds are handled separately in the review stage below.
                 case WORKFLOW_STAGE_ID_EDITING:
                 case WORKFLOW_STAGE_ID_PRODUCTION:
-                    import('lib.pkp.classes.submissionFile.SubmissionFile'); // Import constants
-
                     $fileStages = [WORKFLOW_STAGE_ID_EDITING ? SubmissionFile::SUBMISSION_FILE_COPYEDIT : SubmissionFile::SUBMISSION_FILE_PROOF];
                     $collector = Repo::submissionFiles()
                         ->getCollector()

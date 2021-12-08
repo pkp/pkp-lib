@@ -15,9 +15,10 @@
  * @brief Test class for PersistableFilter.
  */
 
+use PKP\filter\EmailFilterSetting;
+use PKP\filter\PersistableFilter;
+
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.filter.PersistableFilter');
-import('lib.pkp.classes.filter.EmailFilterSetting');
 import('lib.pkp.tests.classes.filter.TestClass1');
 import('lib.pkp.tests.classes.filter.TestClass2');
 

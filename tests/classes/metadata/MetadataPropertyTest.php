@@ -15,6 +15,7 @@
  * @brief Test class for MetadataProperty.
  */
 
+use PKP\metadata\MetadataDescription;
 
 require_mock_env('env1');
 
@@ -234,7 +235,6 @@ class MetadataPropertyTest extends PKPTestCase
     {
         $metadataProperty = new MetadataProperty('testElement', [], [MetadataProperty::METADATA_PROPERTY_TYPE_COMPOSITE => 0x002], false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_ONE);
 
-        import('lib.pkp.classes.metadata.MetadataDescription');
         $metadataDescription = new MetadataDescription('lib.pkp.classes.metadata.MetadataSchema', 0x002);
         $anotherMetadataDescription = clone($metadataDescription);
         $stdObject = new stdClass();

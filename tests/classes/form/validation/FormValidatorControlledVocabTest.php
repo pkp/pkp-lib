@@ -15,10 +15,12 @@
  * @brief Test class for FormValidatorControlledVocab.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+use PKP\controlledVocab\ControlledVocab;
 
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
+
+import('lib.pkp.tests.PKPTestCase');
 
 class FormValidatorControlledVocabTest extends PKPTestCase
 {
@@ -40,7 +42,6 @@ class FormValidatorControlledVocabTest extends PKPTestCase
         $form = new Form('some template');
 
         // Mock a ControlledVocab object
-        import('lib.pkp.classes.controlledVocab.ControlledVocab');
         $mockControlledVocab = $this->getMockBuilder(ControlledVocab::class)
             ->setMethods(['enumerate'])
             ->getMock();

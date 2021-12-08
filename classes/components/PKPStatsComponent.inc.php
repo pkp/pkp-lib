@@ -14,8 +14,6 @@
 
 namespace PKP\components;
 
-import('classes.statistics.StatisticsHelper');
-
 class PKPStatsComponent
 {
     /** @var string The URL to the /stats API endpoint */

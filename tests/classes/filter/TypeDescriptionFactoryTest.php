@@ -15,8 +15,9 @@
  * @brief Test class for TypeDescriptionFactory.
  */
 
+use PKP\filter\TypeDescriptionFactory;
+
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.filter.TypeDescriptionFactory');
 import('lib.pkp.tests.classes.filter.TestClass1');
 import('lib.pkp.tests.classes.filter.TestClass2');
 

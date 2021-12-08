@@ -224,7 +224,6 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
             return $response->withStatus(403)->withJsonError('api.submissions.403.deleteSubmissionOutOfContext');
         }
 
-        import('classes.core.Services');
         if (!Repo::submission()->canCurrentUserDelete($submission)) {
             return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
         }

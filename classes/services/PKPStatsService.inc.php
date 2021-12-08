@@ -41,7 +41,6 @@ class PKPStatsService
     {
 
         // Get the stats constants
-        import('classes.statistics.StatisticsHelper');
 
         $defaultArgs = [
             'dateStart' => PKPStatisticsHelper::STATISTICS_EARLIEST_DATE,

@@ -22,9 +22,11 @@
 // Include PHPUnit
 import('lib.pkp.tests.PKPTestHelper');
 
-use PHPUnit\Framework\TestCase;
+use APP\core\PageRouter;
 
+use PHPUnit\Framework\TestCase;
 use PKP\config\Config;
+use PKP\core\Dispatcher;
 use PKP\db\DAORegistry;
 
 abstract class PKPTestCase extends TestCase
@@ -165,12 +167,10 @@ abstract class PKPTestCase extends TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['PATH_INFO'] = $path;
         $request = $application->getRequest();
-        import('classes.core.PageRouter');
 
         // Test router.
         $router = new PageRouter();
         $router->setApplication($application);
-        import('lib.pkp.classes.core.Dispatcher');
         $dispatcher = new Dispatcher();
         $dispatcher->setApplication($application);
         $router->setDispatcher($dispatcher);

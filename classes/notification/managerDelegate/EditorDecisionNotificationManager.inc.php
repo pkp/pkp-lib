@@ -22,8 +22,6 @@ use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
 
-import('lib.pkp.classes.notification.NotificationManagerDelegate');
-
 class EditorDecisionNotificationManager extends NotificationManagerDelegate
 {
     /**

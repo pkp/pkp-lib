@@ -13,6 +13,9 @@
  * @brief CLI tool to compile a complete swagger.json file for hosting API
  *  documentation.
  */
+
+use APP\core\Services;
+
 define('APP_ROOT', dirname(dirname(dirname(dirname(__FILE__)))));
 require(APP_ROOT . '/tools/bootstrap.inc.php');
 
@@ -62,7 +65,6 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                 exit;
             }
 
-            import('classes.core.Services');
             $locales = ['en_US', 'fr_CA'];
 
             $apiSchema = json_decode($source);
@@ -74,7 +76,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                 }
 
                 $editDefinition = $summaryDefinition = $readDefinition = ['type' => 'object', 'properties' => []];
-                $entitySchema = \Services::get('schema')->get($definition, true);
+                $entitySchema = Services::get('schema')->get($definition, true);
                 foreach ($entitySchema->properties as $propName => $propSchema) {
                     $editPropSchema = clone $propSchema;
                     $readPropSchema = clone $propSchema;

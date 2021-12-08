@@ -13,7 +13,8 @@
  * @brief Test class to be used to test the FilterDAO.
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
+use PKP\filter\FilterSetting;
+use PKP\filter\PersistableFilter;
 
 class PersistableTestFilter extends PersistableFilter
 {
@@ -24,7 +25,6 @@ class PersistableTestFilter extends PersistableFilter
      */
     public function __construct($filterGroup)
     {
-        import('lib.pkp.classes.filter.FilterSetting');
         $this->addSetting(new FilterSetting('some-key', null, null));
         parent::__construct($filterGroup);
     }

@@ -15,10 +15,14 @@
  * @brief Test class for FilterHelper.
  */
 
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.filter.FilterHelper');
+use PKP\filter\CompositeFilter;
+use PKP\filter\FilterGroup;
+use PKP\filter\FilterHelper;
+use PKP\filter\FilterSetting;
+use PKP\filter\PersistableFilter;
 
-import('lib.pkp.classes.filter.CompositeFilter');
+import('lib.pkp.tests.PKPTestCase');
+
 class OtherCompositeFilter extends CompositeFilter
 {
     // A test class.
@@ -33,18 +37,15 @@ class FilterHelperTest extends PKPTestCase
     {
         $filterHelper = new FilterHelper();
 
-        import('lib.pkp.classes.filter.FilterGroup');
         $someGroup = new FilterGroup();
         $someGroup->setInputType('primitive::string');
         $someGroup->setOutputType('primitive::string');
 
-        import('lib.pkp.classes.filter.PersistableFilter');
         $filterA = new PersistableFilter($someGroup);
         $filterBSettings = ['some-key' => 'some-value'];
         $filterBSubfilters = [];
         self::assertFalse($filterHelper->compareFilters($filterA, $filterBSettings, $filterBSubfilters));
 
-        import('lib.pkp.classes.filter.FilterSetting');
         $filterA->addSetting(new FilterSetting('some-key', null, null));
         self::assertFalse($filterHelper->compareFilters($filterA, $filterBSettings, $filterBSubfilters));
 

@@ -15,11 +15,11 @@
  * @brief Tests for the PKPRequest class.
  */
 
+use PKP\core\PKPRequest;
 
 require_mock_env('env1');
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.core.PKPRequest');
 import('lib.pkp.classes.plugins.HookRegistry'); // This imports our mock HookRegistry implementation.
 
 /**

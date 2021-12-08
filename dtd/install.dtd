@@ -44,7 +44,8 @@
 		condition CDATA #IMPLIED>
 <!ELEMENT migration EMPTY>
 	<!ATTLIST migration
-		class CDATA #REQUIRED>
+		class CDATA #REQUIRED
+		fallback CDATA #IMPLIED>
 <!ELEMENT code EMPTY>
 	<!ATTLIST code
 		message CDATA #IMPLIED

@@ -275,10 +275,10 @@ class DAO extends \PKP\core\EntityDAO
         // get all names of all users in the new locale
         $result = DB::select(
             'SELECT DISTINCT us.user_id, usg.setting_value AS given_name, usf.setting_value AS family_name, usp.setting_value AS preferred_public_name
-			FROM user_settings us
-				LEFT JOIN user_settings usg ON (usg.user_id = us.user_id AND usg.locale = ? AND usg.setting_name = ?)
-				LEFT JOIN user_settings usf ON (usf.user_id = us.user_id AND usf.locale = ? AND usf.setting_name = ?)
-				LEFT JOIN user_settings usp ON (usp.user_id = us.user_id AND usp.locale = ? AND usp.setting_name = ?)',
+            FROM user_settings us
+                LEFT JOIN user_settings usg ON (usg.user_id = us.user_id AND usg.locale = ? AND usg.setting_name = ?)
+                LEFT JOIN user_settings usf ON (usf.user_id = us.user_id AND usf.locale = ? AND usf.setting_name = ?)
+                LEFT JOIN user_settings usp ON (usp.user_id = us.user_id AND usp.locale = ? AND usp.setting_name = ?)',
             [$newLocale, Identity::IDENTITY_SETTING_GIVENNAME, $newLocale, Identity::IDENTITY_SETTING_FAMILYNAME, $newLocale, 'preferredPublicName']
         );
         foreach ($result as $row) {
@@ -287,20 +287,20 @@ class DAO extends \PKP\core\EntityDAO
                 // if no user name exists in the new locale, insert them all
                 foreach ($settingNames as $settingName) {
                     DB::insert(
-                        "INSERT INTO user_settings (user_id, locale, setting_name, setting_value, setting_type)
-						SELECT DISTINCT us.user_id, ?, ?, us.setting_value, 'string'
-						FROM user_settings us
-						WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?",
+                        "INSERT INTO user_settings (user_id, locale, setting_name, setting_value)
+                        SELECT DISTINCT us.user_id, ?, ?, us.setting_value
+                        FROM user_settings us
+                        WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?",
                         [$newLocale, $settingName, $settingName, $oldLocale, $userId]
                     );
                 }
             } elseif (empty($row->given_name)) {
                 // if the given name does not exist in the new locale (but one of the other names do exist), insert it
                 DB::insert(
-                    "INSERT INTO user_settings (user_id, locale, setting_name, setting_value, setting_type)
-					SELECT DISTINCT us.user_id, ?, ?, us.setting_value, 'string'
-					FROM user_settings us
-					WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?",
+                    "INSERT INTO user_settings (user_id, locale, setting_name, setting_value)
+                    SELECT DISTINCT us.user_id, ?, ?, us.setting_value
+                    FROM user_settings us
+                    WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?",
                     [$newLocale, Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_GIVENNAME, $oldLocale, $userId]
                 );
             }

@@ -16,6 +16,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\install\DowngradeNotSupportedException;
 
 class I6093_AddForeignKeys extends \PKP\migration\Migration
 {
@@ -75,6 +76,6 @@ class I6093_AddForeignKeys extends \PKP\migration\Migration
      */
     public function down(): void
     {
-        throw new \Exception('Downgrade unsupported due to removed data!');
+        throw new DowngradeNotSupportedException('Downgrade unsupported due to removed data');
     }
 }

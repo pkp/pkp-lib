@@ -89,21 +89,12 @@ class PluginRegistry
         $pluginName = $plugin->getName();
         $plugins = & self::getPlugins();
 
-        // Allow the plugin to register.
-        if (!$plugin->register($category, $path, $mainContextId)) {
+        // If the plugin is already loaded or failed/refused to register
+        if (isset($plugins[$category][$pluginName]) || !$plugin->register($category, $path, $mainContextId)) {
             return false;
         }
 
-        // If the plugin was already loaded, do not load it again.
-        if (isset($plugins[$category][$pluginName])) {
-            return false;
-        }
-
-        if (isset($plugins[$category])) {
-            $plugins[$category][$pluginName] = $plugin;
-        } else {
-            $plugins[$category] = [$pluginName => $plugin];
-        }
+        $plugins[$category][$pluginName] = $plugin;
         return true;
     }
 
@@ -258,9 +249,12 @@ class PluginRegistry
      */
     public static function loadAllPlugins($enabledOnly = false)
     {
-        // Retrieve and register categories (order is significant).
-        foreach (self::getCategories() as $category) {
-            self::loadCategory($category, $enabledOnly);
+        static $isLoaded;
+        if (!$isLoaded) {
+            // Retrieve and register categories (order is significant).
+            foreach (self::getCategories() as $category) {
+                self::loadCategory($category, $enabledOnly);
+            }
         }
         return self::getAllPlugins();
     }

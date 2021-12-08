@@ -15,6 +15,7 @@
 import('lib.pkp.classes.security.authorization.internal.ContextPolicy');
 import('lib.pkp.classes.security.authorization.PublicationAccessPolicy');
 import('lib.pkp.classes.security.authorization.StageRolePolicy');
+import('lib.pkp.classes.security.authorization.internal.PublicationCanBeEditedPolicy');
 
 class PublicationWritePolicy extends ContextPolicy {
 	/**
@@ -34,8 +35,7 @@ class PublicationWritePolicy extends ContextPolicy {
 		$this->addPolicy(new StageRolePolicy([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_AUTHOR]));
 
 		// Is publication editable by user
-		$currentUser = $request->getUser();
-		$this->addPolicy(new PublicationCanBeEditedPolicy($currentUser, 'api.submissions.403.userCantEdit'));
+		$this->addPolicy(new PublicationCanBeEditedPolicy($request, 'api.submissions.403.userCantEdit'));
 	}
 }
 

@@ -321,7 +321,7 @@ class PKPPublication extends \PKP\core\DataObject
         $pageArray = [];
         foreach ($ranges as $range) {
             // hyphens (or double-hyphens) indicate range spans
-            $pageArray[] = array_map('trim', explode('-', str_replace('--', '-', $range), 2));
+            $pageArray[] = array_map('trim', explode('-', str_replace(['--', '–'], '-', $range), 2));
         }
         return $pageArray;
     }

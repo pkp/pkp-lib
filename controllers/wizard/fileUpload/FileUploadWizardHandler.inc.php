@@ -85,7 +85,7 @@ class FileUploadWizardHandler extends Handler
         // we don't need to validate in another places.
         $fileStage = (int) $request->getUserVar('fileStage');
         if ($fileStage) {
-            $fileStages = Repo::submissionFiles()->getFileStages();
+            $fileStages = Repo::submissionFile()->getFileStages();
             if (!in_array($fileStage, $fileStages)) {
                 return false;
             }

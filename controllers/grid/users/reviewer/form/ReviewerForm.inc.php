@@ -404,12 +404,12 @@ class ReviewerForm extends Form
 
         $fileStages = [$stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE];
         // Grant access for this review to all selected files.
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
             ->filterByReviewRoundIds([$currentReviewRound->getId()])
             ->filterByFileStages($fileStages);
-        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
         $selectedFiles = array_map(function ($id) {
             return (int) $id;
         }, (array) $this->getData('selectedFiles'));

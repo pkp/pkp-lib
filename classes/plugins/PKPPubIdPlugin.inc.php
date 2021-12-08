@@ -352,7 +352,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
             Repo::publication()->dao,
             Repo::submission()->dao,
             Application::getRepresentationDAO(),
-            Repo::submissionFiles()->dao,
+            Repo::submissionFile()->dao,
         ];
     }
 
@@ -490,7 +490,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
             } elseif ($type === 'Representation') {
                 $typeDao = Application::getRepresentationDAO();
             } elseif ($type === 'SubmissionFile') {
-                $typeDao = Repo::submissionFiles()->dao;
+                $typeDao = Repo::submissionFile()->dao;
             }
             $excludeTypeId = $type === $pubObjectType ? $excludeId : null;
             if (isset($typeDao) && $typeDao->pubIdExists($this->getPubIdType(), $pubId, $excludeTypeId, $contextId)) {

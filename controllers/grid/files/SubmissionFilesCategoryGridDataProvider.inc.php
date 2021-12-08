@@ -110,12 +110,12 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
             }
             if ($reviewRound) {
-                $collector = Repo::submissionFiles()
+                $collector = Repo::submissionFile()
                     ->getCollector()
                     ->filterBySubmissionIds([$submission->getId()])
                     ->filterByReviewRoundIds([$reviewRound->getId()])
                     ->filterByFileStages([$fileStage]);
-                $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+                $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
                 $stageSubmissionFiles = iterator_to_array($submissionFilesIterator);
             } else {
                 $stageSubmissionFiles = [];
@@ -123,10 +123,10 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
         } else {
             // Filter the passed workflow stage files.
             if (!$this->_submissionFiles) {
-                $collector = Repo::submissionFiles()
+                $collector = Repo::submissionFile()
                     ->getCollector()
                     ->filterBySubmissionIds([$submission->getId()]);
-                $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+                $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
                 $this->_submissionFiles = iterator_to_array($submissionFilesIterator);
             }
             $submissionFiles = $this->_submissionFiles;

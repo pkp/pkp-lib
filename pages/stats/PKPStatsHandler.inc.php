@@ -717,7 +717,7 @@ class PKPStatsHandler extends Handler
                 }
                 return $section->getLocalizedTitle();
             case ASSOC_TYPE_SUBMISSION_FILE:
-                $submissionFile = Repo::submissionFiles()->get($assocId);
+                $submissionFile = Repo::submissionFile()->get($assocId);
                 if (!$submissionFile) {
                     break;
                 }

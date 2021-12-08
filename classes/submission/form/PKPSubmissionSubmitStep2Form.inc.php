@@ -64,15 +64,15 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
             );
             $submissionFileForm = new \PKP\components\forms\submission\PKPSubmissionFileForm($fileUploadApiUrl, $genres);
 
-            $submissionFilesCollector = Repo::submissionFiles()
+            $submissionFilesCollector = Repo::submissionFile()
                 ->getCollector()
                 ->filterBySubmissionIds([$this->submission->getId()])
                 ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION]);
 
-            $submissionFilesIterator = Repo::submissionFiles()
+            $submissionFilesIterator = Repo::submissionFile()
                 ->getMany($submissionFilesCollector);
 
-            $submissionFiles = Repo::submissionFiles()
+            $submissionFiles = Repo::submissionFile()
                 ->getSchemaMap()
                 ->summarizeMany($submissionFilesIterator);
         }
@@ -152,11 +152,11 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
     public function validate($callHooks = true)
     {
         // Validate that all upload files have been assigned a genreId
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
             ->filterBySubmissionIds([$this->submission->getId()]);
-        $submissionFilesIterator = Repo::submissionFiles()
+        $submissionFilesIterator = Repo::submissionFile()
             ->getMany($collector);
         foreach ($submissionFilesIterator as $submissionFile) {
             if (!$submissionFile->getData('genreId')) {

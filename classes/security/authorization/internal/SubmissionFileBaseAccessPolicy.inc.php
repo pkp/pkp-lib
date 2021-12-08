@@ -81,7 +81,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy
         // Fetch the object, caching if possible
         $cache = & $this->_getCache();
         if (!isset($cache[$this->_submissionFileId])) {
-            $cache[$this->_submissionFileId] = Repo::submissionFiles()->get($this->_submissionFileId);
+            $cache[$this->_submissionFileId] = Repo::submissionFile()->get($this->_submissionFileId);
         }
 
         return $cache[$this->_submissionFileId];

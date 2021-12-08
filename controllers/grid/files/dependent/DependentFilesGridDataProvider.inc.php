@@ -46,7 +46,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider
     {
         // Retrieve all dependent files for the given file stage and original submission file id (i.e. the main galley/production file)
         $submission = $this->getSubmission();
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterByAssoc(
                 ASSOC_TYPE_SUBMISSION_FILE,
@@ -54,7 +54,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider
             )->filterBySubmissionIds([$submission->getId()])
             ->filterByFileStages([$this->getFileStage()])
             ->includeDependentFiles();
-        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
     }
 

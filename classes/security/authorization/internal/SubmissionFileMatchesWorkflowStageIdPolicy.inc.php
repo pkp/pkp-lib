@@ -52,7 +52,7 @@ class SubmissionFileMatchesWorkflowStageIdPolicy extends SubmissionFileBaseAcces
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $workflowStageId = Repo::submissionFiles()->getWorkflowStageId($submissionFile);
+        $workflowStageId = Repo::submissionFile()->getWorkflowStageId($submissionFile);
 
         // Check if the submission file belongs to the specified workflow stage.
         if ($workflowStageId != $this->_stageId) {

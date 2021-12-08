@@ -196,12 +196,12 @@ class EditDecisionDAO extends \PKP\db\DAO
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
 
-        $submissionFileCollector = Repo::submissionFiles()
+        $submissionFileCollector = Repo::submissionFile()
             ->getCollector()
             ->filterByReviewRoundIds([$reviewRound->getId()])
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION]);
 
-        $submissionFilesIterator = Repo::submissionFiles()->getMany($submissionFileCollector);
+        $submissionFilesIterator = Repo::submissionFile()->getMany($submissionFileCollector);
 
         foreach ($submissionFilesIterator as $submissionFile) {
             if ($submissionFile->getData('updatedAt') > $decision['dateDecided']) {

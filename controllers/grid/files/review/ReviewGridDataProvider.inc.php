@@ -73,7 +73,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
     public function loadData($filter = [])
     {
         // Get all review files assigned to this submission.
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$this->getSubmission()->getId()])
             ->filterByReviewRoundIds([$this->getReviewRound()->getId()]);
@@ -82,7 +82,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
             $collector = $collector->filterByFileStages([(int) $this->getFileStage()]);
         }
 
-        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), $this->_viewableOnly, $filter);
     }
 

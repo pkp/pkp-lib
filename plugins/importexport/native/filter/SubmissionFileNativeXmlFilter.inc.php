@@ -150,7 +150,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         }
 
         // Create the revision nodes
-        $revisions = Repo::submissionFiles()->getRevisions(($submissionFile->getId()));
+        $revisions = Repo::submissionFile()->getRevisions(($submissionFile->getId()));
         foreach ($revisions as $revision) {
             $localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $revision->path;
             $revisionNode = $doc->createElementNS($deployment->getNamespace(), 'file');
@@ -161,7 +161,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
             if (array_key_exists('no-embed', $this->opts)) {
                 $hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
                 if (array_key_exists('use-file-urls', $this->opts)) {
-                    $stageId = Repo::submissionFiles()->getWorkflowStageId($submissionFile);
+                    $stageId = Repo::submissionFile()->getWorkflowStageId($submissionFile);
                     $dispatcher = Application::get()->getDispatcher();
                     $request = Application::get()->getRequest();
                     $params = [

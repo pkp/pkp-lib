@@ -69,7 +69,7 @@ class EventLogGridRow extends GridRow
                 case SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD:
                     $submissionFileId = $params['submissionFileId'];
                     $fileId = $params['fileId'];
-                    $submissionFile = Repo::submissionFiles()->get($submissionFileId);
+                    $submissionFile = Repo::submissionFile()->get($submissionFileId);
                     if (!$submissionFile) {
                         break;
                     }
@@ -85,7 +85,7 @@ class EventLogGridRow extends GridRow
                             }
                         }
                         if (!$anonymousAuthor) {
-                            $workflowStageId = Repo::submissionFiles()->getWorkflowStageId($submissionFile);
+                            $workflowStageId = Repo::submissionFile()->getWorkflowStageId($submissionFile);
                             // If a submission file is attached to a query that has been deleted, we cannot
                             // determine its stage. Don't present a download link in this case.
                             if ($workflowStageId || $submissionFile->getData('fileStage') != SubmissionFile::SUBMISSION_FILE_QUERY) {

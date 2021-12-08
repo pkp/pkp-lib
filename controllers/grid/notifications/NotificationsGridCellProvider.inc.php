@@ -167,7 +167,7 @@ class NotificationsGridCellProvider extends GridCellProvider
 
         if (!isset($submissionId) && isset($fileId)) {
             assert(is_numeric($fileId));
-            $submissionFile = Repo::submissionFiles()->get($fileId);
+            $submissionFile = Repo::submissionFile()->get($fileId);
             assert($submissionFile instanceof \PKP\submissionFile\SubmissionFile);
             $submissionId = $submissionFile->getData('submissionId');
         }

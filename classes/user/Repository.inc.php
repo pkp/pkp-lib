@@ -302,14 +302,14 @@ class Repository
 
         HookRegistry::call('UserAction::mergeUsers', [&$oldUserId, &$newUserId]);
 
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterByUploaderUserIds([$oldUserId])
             ->includeDependentFiles();
 
-        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
         foreach ($submissionFilesIterator as $submissionFile) {
-            Repo::submissionFiles()->edit($submissionFile, ['uploaderUserId' => $newUserId]);
+            Repo::submissionFile()->edit($submissionFile, ['uploaderUserId' => $newUserId]);
         }
 
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */

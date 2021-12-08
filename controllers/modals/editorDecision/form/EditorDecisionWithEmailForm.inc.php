@@ -283,7 +283,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
                 foreach ($selectedAttachments as $submissionFileId) {
 
                     // Retrieve the submission file.
-                    $submissionFile = Repo::submissionFiles()->get($submissionFileId);
+                    $submissionFile = Repo::submissionFile()->get($submissionFileId);
                     assert(is_a($submissionFile, 'SubmissionFile'));
 
                     // Check the association information.
@@ -310,7 +310,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
 
                     // Update submission file to set viewable as true, so author
                     // can view the file on their submission summary page.
-                    Repo::submissionFiles()->edit(
+                    Repo::submissionFile()->edit(
                         $submissionFile,
                         [
                             'viewable' => true

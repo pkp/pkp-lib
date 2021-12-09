@@ -24,6 +24,9 @@
  * Basic initialization (pre-classloading).
  */
 
+// Load Composer autoloader
+require_once('lib/pkp/lib/vendor/autoload.php');
+
 define('ENV_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? ';' : ':');
 if (!defined('DIRECTORY_SEPARATOR')) {
     // Older versions of PHP do not define this

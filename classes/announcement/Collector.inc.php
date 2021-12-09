@@ -118,29 +118,28 @@ class Collector implements CollectorInterface
         if ($this->searchPhrase !== null) {
             $words = explode(' ', $this->searchPhrase);
             if (count($words)) {
-                $qb->leftJoin($this->dao->settingsTable . ' as asrch', 'a.announcement_id', '=', 'asrch.announcement_id');
-                foreach ($words as $word) {
-                    $word = strtolower(addcslashes($word, '%_'));
-                    $qb->where(function ($qb) use ($word) {
-                        $qb->where(function ($qb) use ($word) {
-                            $qb->where('asrch.setting_name', 'title');
-                            $qb->where(DB::raw('lower(asrch.setting_value)'), 'LIKE', "%{$word}%");
-                        })
-                            ->orWhere(function ($qb) use ($word) {
-                                $qb->where('asrch.setting_name', 'descriptionShort');
-                                $qb->where(DB::raw('lower(asrch.setting_value)'), 'LIKE', "%{$word}%");
+                $qb->whereIn('a.announcement_id', function ($query) use ($words) {
+                    $query->select('announcement_id')->from($this->dao->settingsTable);
+                    foreach ($words as $word) {
+                        $word = strtolower(addcslashes($word, '%_'));
+                        $query->where(function ($query) use ($word) {
+                            $query->where(function ($query) use ($word) {
+                                $query->where('setting_name', 'title');
+                                $query->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%");
                             })
-                            ->orWhere(function ($qb) use ($word) {
-                                $qb->where('asrch.setting_name', 'description');
-                                $qb->where(DB::raw('lower(asrch.setting_value)'), 'LIKE', "%{$word}%");
+                                ->orWhere(function ($query) use ($word) {
+                                $query->where('setting_name', 'descriptionShort');
+                                $query->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%");
+                            })
+                                ->orWhere(function ($query) use ($word) {
+                                $query->where('setting_name', 'description');
+                                $query->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%");
                             });
-                    });
-                }
+                        });
+                    }
+                });
             }
         }
-
-        $qb->orderBy('a.date_posted', 'desc');
-        $qb->groupBy('a.announcement_id');
 
         if (isset($this->count)) {
             $qb->limit($this->count);

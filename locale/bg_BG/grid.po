@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-30 13:27+0000\n"
+"PO-Revision-Date: 2021-12-10 15:21+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "bg_BG/>\n"
@@ -53,3 +53,117 @@ msgstr "Настройки"
 
 msgid "grid.noItems"
 msgstr "Няма елементи"
+
+msgid "grid.action.selectFiles"
+msgstr "Изберете файлове за управление"
+
+msgid "grid.action.editFile"
+msgstr "Редактиране на файл"
+
+msgid "grid.action.addFile"
+msgstr "Добавяне на файл"
+
+msgid "grid.action.addReviewer"
+msgstr "Добавяне на рецензент"
+
+msgid "grid.action.email"
+msgstr "Изпращане на имейл"
+
+msgid "grid.action.readReview"
+msgstr "Прочитане на тази рецензия"
+
+msgid "grid.action.downloadAll"
+msgstr "Сваляне на всички файлове като единичен архив"
+
+msgid "grid.action.moveItem"
+msgstr "Преместване на елемент"
+
+msgid "grid.action.wizard"
+msgstr "Помощник за настройките"
+
+msgid "grid.action.collapseAll"
+msgstr "Редуциране на всички"
+
+msgid "grid.action.collapse"
+msgstr "Редуциране"
+
+msgid "grid.action.extendAll"
+msgstr "Показване на всички"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Отказ от подреждането"
+
+msgid "grid.action.order"
+msgstr "Подреждане"
+
+msgid "grid.action.upgrade"
+msgstr "Ъпгрейд (обновяване)"
+
+msgid "grid.action.addAuditor"
+msgstr "Добавяне на одитор"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Изтриване на автор"
+
+msgid "grid.action.editAuthor"
+msgstr "Редактиране на автор"
+
+msgid "grid.action.addAuthor"
+msgstr "Добавяне на автор"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Наистина ли искате да възстановите настройките по подразбиране?"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Възстановяване на настройките по подразбиране"
+
+msgid "grid.action.moreInformation"
+msgstr "Повече информация"
+
+msgid "grid.action.setApproval"
+msgstr "Задаване на одобрение"
+
+msgid "grid.action.disapprove"
+msgstr "Отмяна на одобрение"
+
+msgid "grid.action.approve"
+msgstr "Одобрение"
+
+msgid "grid.action.edit"
+msgstr "Редакция"
+
+msgid "grid.action.remove"
+msgstr "Премахване"
+
+msgid "grid.action.editorialHistory"
+msgstr "Редакционна история"
+
+msgid "grid.action.deleteSection"
+msgstr "Изтриване на раздел"
+
+msgid "grid.action.export"
+msgstr "Експорт"
+
+msgid "grid.action.editSection"
+msgstr "Редактиране на раздел"
+
+msgid "grid.action.editMedia"
+msgstr "Резакция на медия"
+
+msgid "grid.action.deleteMedia"
+msgstr "Изтриване на медия"
+
+msgid "grid.action.deleteFile"
+msgstr "Изтриване на файл"
+
+msgid "grid.action.delete"
+msgstr "Изтриване"
+
+msgid "grid.action.reload"
+msgstr "Презареждане"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Одобрете този файл с редакция за следващ етап на обработка"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Отменяне на рецензент"

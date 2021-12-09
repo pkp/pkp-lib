@@ -14,6 +14,7 @@
  */
 
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\announcements\AnnouncementTypeGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
@@ -21,7 +22,6 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
-
 use PKP\security\Role;
 
 import('lib.pkp.controllers.grid.announcements.form.AnnouncementTypeForm');
@@ -86,7 +86,6 @@ class AnnouncementTypeGridHandler extends GridHandler
         $context = $request->getContext();
 
         // Columns
-        import('lib.pkp.controllers.grid.announcements.AnnouncementTypeGridCellProvider');
         $announcementTypeCellProvider = new AnnouncementTypeGridCellProvider();
         $this->addColumn(
             new GridColumn(

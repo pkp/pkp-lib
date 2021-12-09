@@ -63,5 +63,17 @@
 				"./tools/pre-commit.sh"
 			]
 		}
+	},
+		"autoload": {
+		"psr-4": {
+			"PKP\\controllers\\": "controllers/",
+			"APP\\controllers\\": "../../controllers/",
+			"PKP\\pages\\": "pages/",
+			"APP\\pages\\": "../../pages/",
+			"PKP\\": "classes/",
+			"APP\\": "../../classes/",
+			"PKP\\plugins\\": "plugins/",
+			"APP\\plugins\\": "../../plugins/"
+		}
 	}
 }

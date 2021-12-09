@@ -192,9 +192,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             }
         }
 
-        // Load Composer autoloader
-        require_once('lib/pkp/lib/vendor/autoload.php');
-
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
         if (!defined('SESSION_DISABLE_INIT') && !Config::getVar('general', 'installed')) {
             define('SESSION_DISABLE_INIT', true);

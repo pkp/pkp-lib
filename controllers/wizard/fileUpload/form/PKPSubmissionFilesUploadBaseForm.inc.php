@@ -197,7 +197,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     $this->_submissionFiles = [];
                 } elseif ($reviewRound) {
                     // Retrieve the submission files for the given review round.
-                    $submissionId = (int) $this->getData('submissonId');
+                    $submissionId = (int) $this->getData('submissionId');
                     $submission = Repo::submission()->get($submissionId);
                     if ($submission->getData('contextId') !== Application::get()->getRequest()->getContext()->getId()) {
                         throw new Exception('Can not request submission files from another context.');

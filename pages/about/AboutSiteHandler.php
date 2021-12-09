@@ -13,9 +13,12 @@
  * @brief Handle requests for site-wide about functions.
  */
 
-use APP\handler\Handler;
+namespace PKP\pages\about;
 
+use APP\handler\Handler;
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
+use PKP\config\Config;
 
 class AboutSiteHandler extends Handler
 {

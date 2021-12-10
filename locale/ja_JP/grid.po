@@ -1,7 +1,8 @@
+# TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-16 05:46+0000\n"
-"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"PO-Revision-Date: 2021-12-10 20:33+0000\n"
+"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ja_JP/>\n"
 "Language: ja_JP\n"
@@ -229,7 +230,7 @@ msgid "grid.roles.add"
 msgstr "新しい役割を作成"
 
 msgid "grid.roles.currentRoles"
-msgstr "現在役割"
+msgstr "現在の役割"
 
 msgid "author.users.contributor.includeInBrowse"
 msgstr "リストで表示"

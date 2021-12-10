@@ -17,7 +17,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/asmecher/ADOdb/zipball/f24f521bd46222044c862aa85c4967111ee5810f",
-                "reference": "f24f521bd46222044c862aa85c4967111ee5810f",
+                "reference": "228c62019235f0c640b866c37a5aa3c19e6c714d",
                 "shasum": ""
             },
             "require": {

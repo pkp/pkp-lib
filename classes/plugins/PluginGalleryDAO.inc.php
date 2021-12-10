@@ -18,15 +18,32 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
+
 use DOMDocument;
 use DOMElement;
-use PKP\core\PKPString;
 
+use PKP\cache\CacheManager;
+use PKP\cache\FileCache;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+
+use Throwable;
 
 class PluginGalleryDAO extends \PKP\db\DAO
 {
     public const PLUGIN_GALLERY_XML_URL = 'https://pkp.sfu.ca/ojs/xml/plugins.xml';
+
+    /**
+     * The default timeout (in seconds) to wait plugins.xml request
+     *
+     * @see https://docs.guzzlephp.org/en/6.5/request-options.html#timeout
+     */
+    public const DEFAULT_TIMEOUT = 10;
+
+    /**
+     * TTL's Cache in seconds
+     */
+    public const TTL_CACHE_SECONDS = 86400;
 
     /**
      * Get a set of GalleryPlugin objects describing the available
@@ -42,6 +59,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
     {
         $doc = $this->_getDocument();
         $plugins = [];
+
         foreach ($doc->getElementsByTagName('plugin') as $index => $element) {
             $plugin = $this->_compatibleFromElement($element, $application);
             // May be null if no compatible version exists; also
@@ -54,7 +72,72 @@ class PluginGalleryDAO extends \PKP\db\DAO
                 $plugins[$index] = $plugin;
             }
         }
+
         return $plugins;
+    }
+
+    /**
+     * Get the external Plugin XML document
+     *
+     * @return ?string
+     */
+    protected function getExternalDocument(): ?string
+    {
+        $application = Application::get();
+        $client = $application->getHttpClient();
+        $versionDao = DAORegistry::getDAO('VersionDAO');
+        $currentVersion = $versionDao->getCurrentVersion();
+        try {
+            $response = $client->request(
+                'GET',
+                PLUGIN_GALLERY_XML_URL,
+                [
+                    'query' => [
+                        'application' => $application->getName(),
+                        'version' => $currentVersion->getVersionString()
+                    ],
+                    'timeout' => self::DEFAULT_TIMEOUT,
+                ]
+            );
+
+            return $response->getBody();
+        } catch (Throwable $e) {
+            error_log($e->getMessage());
+
+            return null;
+        }
+    }
+
+    /**
+     * Get the cached Plugin XML document
+     *
+     * @return ?string
+     */
+    protected function getCachedDocument(): ?string
+    {
+        $cacheManager = CacheManager::getManager();
+        $cache = $cacheManager->getCache(
+            'loadPluginsXML',
+            Application::CONTEXT_SITE,
+            function (FileCache $cache) {
+                $cache->setEntireCache($this->getExternalDocument());
+            }
+        );
+
+        $cacheTime = $cache->getCacheTime();
+
+        // Checking if the cache is older than 1 day, or its null
+        if ($cacheTime === null || (time() - $cacheTime > self::TTL_CACHE_SECONDS)) {
+            // This cache is out of date; so, lets request a new version.
+            $response = $this->getExternalDocument();
+
+            // The plugins.xml request wasnt empty, so lets replace it
+            if ($response !== null) {
+                $cache->setEntireCache($response);
+            }
+        }
+
+        return $cache->getContents();
     }
 
     /**
@@ -65,12 +148,8 @@ class PluginGalleryDAO extends \PKP\db\DAO
     private function _getDocument()
     {
         $doc = new DOMDocument('1.0');
-        $application = Application::get();
-        $client = $application->getHttpClient();
-        $versionDao = DAORegistry::getDAO('VersionDAO');
-        $currentVersion = $versionDao->getCurrentVersion();
-        $response = $client->request('GET', PLUGIN_GALLERY_XML_URL, ['query' => ['application' => $application->getName(), 'version' => $currentVersion->getVersionString()]]);
-        $doc->loadXML($response->getBody());
+        $doc->loadXML($this->getCachedDocument());
+
         return $doc;
     }
 

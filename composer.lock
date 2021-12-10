@@ -12,7 +12,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asmecher/ADOdb.git",
-                "reference": "f24f521bd46222044c862aa85c4967111ee5810f"
+                "reference": "e0cae940e09e7661e09bf3f13e225432faf395ac"
             },
             "dist": {
                 "type": "zip",

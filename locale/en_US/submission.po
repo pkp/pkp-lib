@@ -130,6 +130,9 @@ msgstr "Preprint has been published in a journal as an preprint"
 msgid "publication.relation.vorDoi"
 msgstr "DOI of the published preprint"
 
+msgid "publication.publish.relationStatus"
+msgstr "Related Publication"
+
 msgid "publication.publish.confirmation"
 msgstr "All requirements have been met. Are you sure you want to post this?"
 

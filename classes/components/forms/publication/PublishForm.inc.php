@@ -70,12 +70,32 @@ class PublishForm extends FormComponent
             ]);
         }
 
+        // Related Publication status
+        if ($publication->getData('relationStatus') == \Publication::PUBLICATION_RELATION_PUBLISHED && $publication->getData('vorDoi')) {
+            $relationStatus = __('publication.relation.published');
+            $relationStatus .= '<br /><a target="_blank" href="' . $publication->getData('vorDoi') . '">' . $publication->getData('vorDoi') . '</a>';
+        } elseif ($publication->getData('relationStatus') == \Publication::PUBLICATION_RELATION_SUBMITTED) {
+            $relationStatus = __('publication.relation.submitted');
+        } else {
+            $relationStatus = __('publication.relation.none');
+        }
+
+        $relationStatusMsg = '<table class="pkpTable"><thead><tr>' .
+            '<th>' . __('publication.publish.relationStatus') . '</th>' .
+            '</tr></thead><tbody>';
+        $relationStatusMsg .= '<tr><td>' . $relationStatus . '</td></tr>';
+        $relationStatusMsg .= '</tbody></table>';
+
         $this->addGroup([
             'id' => 'default',
             'pageId' => 'default',
         ])
             ->addField(new FieldHTML('validation', [
                 'description' => $msg,
+                'groupId' => 'default',
+            ]))
+            ->addField(new FieldHTML('relationStatus', [
+                'description' => $relationStatusMsg,
                 'groupId' => 'default',
             ]));
     }

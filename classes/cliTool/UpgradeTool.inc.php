@@ -233,7 +233,7 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
      */
     public function log($message)
     {
-        printf("[%s]\n", $message);
+        printf("%s [%s]\n", date('Y-m-d H:i:s'), $message);
     }
 }
 

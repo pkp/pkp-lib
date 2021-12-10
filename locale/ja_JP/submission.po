@@ -1,7 +1,7 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-10 15:20+0000\n"
+"PO-Revision-Date: 2021-12-10 20:33+0000\n"
 "Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja_JP/>\n"
@@ -155,7 +155,7 @@ msgid "submissions.noSubmissions"
 msgstr "投稿物はありません"
 
 msgid "submissions.incomplete"
-msgstr "投稿未了"
+msgstr "不完全"
 
 msgid "submissions.declined"
 msgstr "辞退"
@@ -1152,7 +1152,7 @@ msgid "submission.submit.whatNext.return"
 msgstr "ダッシュボードに戻る"
 
 msgid "submission.submit.whatNext.create"
-msgstr "新投稿を作成する"
+msgstr "新規投稿を作成する"
 
 msgid "submission.submit.whatNext.review"
 msgstr "この投稿を確認する"

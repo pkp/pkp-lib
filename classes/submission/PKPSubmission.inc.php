@@ -100,6 +100,24 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     }
 
     /**
+     * Get the first publication
+     *
+     * Returns the first created publication
+     *
+     * @return Publication|null
+     */
+    public function getOriginalPublication()
+    {
+        $publishedPublications = $this->getPublishedPublications();
+        if (empty($publishedPublications)) {
+            return null;
+        }
+        return array_reduce($publishedPublications, function ($a, $b) {
+            return $a && $a->getId() < $b->getId() ? $a : $b;
+        });
+    }
+
+    /**
      * Get the latest publication
      *
      * Returns the most recently created publication by ID

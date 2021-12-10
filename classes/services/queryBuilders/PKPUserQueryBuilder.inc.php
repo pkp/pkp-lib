@@ -463,9 +463,6 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 			->when(!empty($this->userIds), function (Builder $query) {
 				$query->whereIn('u.user_id', $this->userIds);
 			})
-			->when(!empty($this->includeUsers), function (Builder $query) {
-				$query->orWhereIn('u.user_id', $this->includeUsers);
-			})
 			->when($this->excludeUsers !== null, function (Builder $query) {
 				$query->whereNotIn('u.user_id', $this->excludeUsers);
 			})
@@ -481,13 +478,18 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 				$query->offset($this->offset);
 			});
 
-			$this
-				->buildReviewerStatistics($query)
-				->buildUserGroupFilter($query)
-				->buildSearchFilter($query)
-				->buildSubEditorFilter($query)
-				->buildSubmissionAssignmentsFilter($query)
-				->buildOrderBy($query);
+		$this
+			->buildReviewerStatistics($query)
+			->buildUserGroupFilter($query)
+			->buildSearchFilter($query)
+			->buildSubEditorFilter($query)
+			->buildSubmissionAssignmentsFilter($query)
+			->buildOrderBy($query);
+
+		// Forces the inclusion of determined users (must be the last statement)
+		$query->when(!empty($this->includeUsers), function (Builder $query) {
+			$query->orWhereIn('u.user_id', $this->includeUsers);
+		});
 
 		// Add app-specific query statements
 		\HookRegistry::call('User::getMany::queryObject', array(&$query, $this));

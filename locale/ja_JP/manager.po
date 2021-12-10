@@ -1,7 +1,7 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-10 15:21+0000\n"
+"PO-Revision-Date: 2021-12-10 20:33+0000\n"
 "Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ja_JP/>\n"
@@ -899,7 +899,7 @@ msgid "settings.libraryFiles.fileRequired"
 msgstr "ライブラリファイルが必要です。ファイルを選択してアップロードしたことを確認してください。"
 
 msgid "settings.roles.permitMetadataEdit"
-msgstr "投稿ののメタデータ編集を許可します。"
+msgstr "投稿のメタデータ編集を許可します。"
 
 msgid "settings.roles.stageIdRequired"
 msgstr "任命先のステージを定義する必要があります。"

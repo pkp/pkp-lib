@@ -43,16 +43,6 @@ use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 
-if (!isset($argc)) {
-    // In PHP < 4.3.0 $argc/$argv are not automatically registered
-    if (isset($_SERVER['argc'])) {
-        $argc = $_SERVER['argc'];
-        $argv = $_SERVER['argv'];
-    } else {
-        $argc = $argv = null;
-    }
-}
-
 class CommandLineTool
 {
     /** @var string the script being executed */

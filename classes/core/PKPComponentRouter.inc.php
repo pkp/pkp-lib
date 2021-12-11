@@ -200,11 +200,11 @@ class PKPComponentRouter extends PKPRouter
             //
             // Retrieve requested component handler
             $component = $this->getRequestedComponent($request);
-
+            $componentInstance = null;
             $allowedPackages = null;
 
             // Give plugins a chance to intervene
-            if (!HookRegistry::call('LoadComponentHandler', [&$component, &$op])) {
+            if (!HookRegistry::call('LoadComponentHandler', [&$component, &$op, &$componentInstance])) {
                 if (empty($component)) {
                     return $nullVar;
                 }
@@ -239,7 +239,9 @@ class PKPComponentRouter extends PKPRouter
                 $op, 'authorize', 'validate', 'initialize'
             ];
 
-            $componentInstance = & instantiate($component, 'PKPHandler', $allowedPackages, $requiredMethods);
+            if (!$componentInstance) {
+                $componentInstance = instantiate($component, 'PKPHandler', $allowedPackages, $requiredMethods);
+            }
             if (!is_object($componentInstance)) {
                 return $nullVar;
             }

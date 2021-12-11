@@ -2,7 +2,7 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-10 15:20+0000\n"
+"PO-Revision-Date: 2021-12-11 08:31+0000\n"
 "Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ja_JP/>\n"
@@ -374,7 +374,7 @@ msgid "editor.submissionReview.doubleAnonymous"
 msgstr "匿名の査読者/匿名の著者"
 
 msgid "editor.submissionReview.anonymous"
-msgstr "匿名の査読者/非公開の著者"
+msgstr "匿名の査読者/著者は公開"
 
 msgid "editor.submissionReview.open"
 msgstr "開く"

@@ -1,7 +1,8 @@
+# TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-03 20:34+0000\n"
-"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"PO-Revision-Date: 2021-12-11 08:31+0000\n"
+"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ja_JP/>\n"
 "Language: ja_JP\n"
@@ -251,7 +252,7 @@ msgid "user.role.assistant"
 msgstr "雑誌アシスタント"
 
 msgid "user.register.registrationCompleted"
-msgstr "登録が完了です。<a href=\"{$profileUrl}\">プロファイル情報</a>を完成してください。"
+msgstr "登録が完了です。<a href=\"{$profileUrl}\">プロフィール情報</a>を完成させてください。"
 
 msgid "user.register.usernameRestriction"
 msgstr "ユーザー名に使えるのは、英小文字と数字、ハイフンとアンダーバーだけです。"
@@ -302,7 +303,7 @@ msgid "user.profile.repeatNewPassword"
 msgstr "新パスワードの確認"
 
 msgid "user.profile.publicProfile"
-msgstr "ユーザープロファイル"
+msgstr "ユーザープロフィール"
 
 msgid "user.profile"
 msgstr "ユーザー情報"
@@ -332,7 +333,7 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "最新号出版のメール通知"
 
 msgid "user.profile.form.profileImage"
-msgstr "プロファイル画像"
+msgstr "プロフィール画像"
 
 msgid "user.profile.form.passwordSameAsOld"
 msgstr "新パスワードは前のパスワードと同じです。"

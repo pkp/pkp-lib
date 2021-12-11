@@ -1,7 +1,7 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-10 15:20+0000\n"
+"PO-Revision-Date: 2021-12-11 08:31+0000\n"
 "Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja_JP/>\n"
@@ -592,7 +592,7 @@ msgid "common.weeks"
 msgstr "週間"
 
 msgid "common.viewProfile"
-msgstr "プロファイルの閲覧"
+msgstr "プロフィールの閲覧"
 
 msgid "common.viewWithName"
 msgstr "{$name}を閲覧"
@@ -1529,7 +1529,7 @@ msgid "user.authorization.submissionAuthor"
 msgstr "現在のユーザーは、要求された投稿の著者ではありません。 正しいユーザアカウントでログインしていることを確認してください。"
 
 msgid "user.authorization.authorRoleMissing"
-msgstr "現在、投稿物を表示するための十分な権限がありません。 プロファイルを編集して、「登録者」で適切な役割が付与されていることを確認してください。"
+msgstr "現在、投稿物を表示するための十分な権限がありません。 プロフィールを編集して、「登録者」で適切な役割が付与されていることを確認してください。"
 
 msgid "user.authorization.unauthorizedReviewAssignment"
 msgstr "この査読割当にアクセス権がありません。"
@@ -1980,17 +1980,17 @@ msgstr "登録解除"
 msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
 "予期しないエラーが発生しました。メールアドレス {$email}を登録解除できませんでした。 <a href=\""
-"{$profileNotificationUrl}\"> ユーザープロファイル </a> "
+"{$profileNotificationUrl}\"> ユーザープロフィール </a> "
 "のすべてのメール通知の購読を解除するか、弊社に直接お問い合わせください。"
 
 msgid "notification.unsubscribeNotifications.successMessage"
 msgstr ""
 "メールアドレス  {$email}  は正常に登録解除されました。 これらのメールは送信されなくなります。 <a href=\""
-"{$profileNotificationUrl}\"> ユーザープロファイル </a> からいつでもメール通知に再サブスクライブできます。"
+"{$profileNotificationUrl}\"> ユーザープロフィール </a> からいつでもメール通知に再サブスクライブできます。"
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
-"<a href=\"{$profileNotificationUrl}\"> ユーザープロファイル </a> "
+"<a href=\"{$profileNotificationUrl}\"> ユーザープロフィール </a> "
 "からいつでもメール通知に再サブスクライブできます。"
 
 msgid "notification.unsubscribeNotifications.pageMessage"

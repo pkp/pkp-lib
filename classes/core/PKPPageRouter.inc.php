@@ -241,8 +241,9 @@ class PKPPageRouter extends PKPRouter
         $sourceFile = sprintf('pages/%s/index.php', $page);
 
         // If a hook has been registered to handle this page, give it the
-        // opportunity to load required resources and set HANDLER_CLASS.
-        if (!HookRegistry::call('LoadHandler', [&$page, &$op, &$sourceFile])) {
+        // opportunity to load required resources and set the handler.
+        $handler = null;
+        if (!HookRegistry::call('LoadHandler', [&$page, &$op, &$sourceFile, &$handler])) {
             if (file_exists($sourceFile)) {
                 require('./' . $sourceFile);
             } elseif (file_exists(PKP_LIB_PATH . DIRECTORY_SEPARATOR . $sourceFile)) {
@@ -269,7 +270,9 @@ class PKPPageRouter extends PKPRouter
         // Redirect to 404 if the operation doesn't exist
         // for the handler.
         $methods = [];
-        if (defined('HANDLER_CLASS')) {
+        if ($handler) {
+            $methods = get_class_methods($handler);
+        } elseif (defined('HANDLER_CLASS')) {
             $methods = get_class_methods(HANDLER_CLASS);
         }
         if (!in_array($op, $methods)) {
@@ -278,8 +281,10 @@ class PKPPageRouter extends PKPRouter
         }
 
         // Instantiate the handler class
-        $handlerClass = HANDLER_CLASS;
-        $handler = new $handlerClass($request);
+        if (!$handler) {
+            $handlerClass = HANDLER_CLASS;
+            $handler = new $handlerClass($request);
+        }
         $this->setHandler($handler);
 
         // Authorize and initialize the request but don't call the

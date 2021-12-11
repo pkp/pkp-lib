@@ -286,15 +286,21 @@ class PluginRegistry
             return null;
         }
 
-        // Try the plug-in wrapper first for backwards
-        // compatibility.
+        // Try the plug-in wrapper for backwards compatibility. (DEPRECATED as of 3.4.0)
         $pluginWrapper = "${pluginPath}/index.php";
         if (file_exists($pluginWrapper)) {
             $plugin = include($pluginWrapper);
             assert(is_a($plugin, $classToCheck ?: '\PKP\plugins\Plugin'));
             return $plugin;
         } else {
-            // Try the well-known plug-in class name next.
+            // First, try a namespaced class name matching the installation directory.
+            $pluginClassName = '\\APP\\plugins\\' . $category . '\\' . $file . '\\' . ucfirst($file) . 'Plugin';
+            if (class_exists($pluginClassName)) {
+                return new $pluginClassName();
+            }
+
+            // Try the well-known plug-in class name next (deprecated; pre-namespacing).
+            // (DEPRECATED as of 3.4.0.)
             $pluginClassName = ucfirst($file) . ucfirst($category) . 'Plugin';
             $pluginClassFile = $pluginClassName . '.inc.php';
             if (file_exists("${pluginPath}/${pluginClassFile}")) {

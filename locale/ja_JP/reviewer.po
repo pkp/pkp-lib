@@ -1,7 +1,8 @@
+# TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-25 08:29+0000\n"
-"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"PO-Revision-Date: 2021-12-12 14:15+0000\n"
+"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/ja_JP/>\n"
 "Language: ja_JP\n"
@@ -12,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "reviewer.submission.enterCompetingInterests"
-msgstr "本雑誌には、査読者からの潜在的な競合する利益の開示に関するポリシーがあります。 このポリシーを確認してください。"
+msgstr "本誌には、査読者からの潜在的な競合する利益の開示に関するポリシーがあります。 このポリシーを確認してください。"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr "次の投稿の潜在的な査読者として選択されました。 以下は、提出物の概要と、この査読のスケジュールです。 ぜひご協力をお願いいたします。"
@@ -34,7 +35,7 @@ msgstr "期限日について"
 
 msgid "reviewer.complete.whatNext"
 msgstr ""
-"この投稿物の査読を完了していただきありがとうございます。 査読は正常に送信されました。 本雑誌が公開する論文の質に対する貢献に感謝します。 "
+"この投稿物の査読を完了していただきありがとうございます。 査読は正常に送信されました。 本誌が公開する論文の質に対する貢献に感謝します。 "
 "必要に応じて、編集者が詳細について再度連絡する場合があります。"
 
 msgid "reviewer.confirmSubmit"

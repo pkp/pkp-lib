@@ -17,15 +17,33 @@ declare(strict_types=1);
 
 namespace PKP\observers\listeners;
 
+use Illuminate\Events\Dispatcher;
 use PKP\Jobs\Submissions\UpdateSubmissionSearchJob;
 use PKP\observers\events\BasePublicationEvent;
+use PKP\observers\events\PublishedEvent;
+
+use PKP\observers\events\UnpublishedEvent;
 
 class SubmissionUpdatedListener
 {
     /**
+     * Maps methods with correspondent events to listen
+     */
+    public function subscribe(Dispatcher $events): void
+    {
+        $events->listen(
+            PublishedEvent::class,
+            self::class . '@handle'
+        );
+
+        $events->listen(
+            UnpublishedEvent::class,
+            self::class . '@handle'
+        );
+    }
+
+    /**
      * Handle the listener call
-     *
-     *
      */
     public function handle(BasePublicationEvent $event)
     {

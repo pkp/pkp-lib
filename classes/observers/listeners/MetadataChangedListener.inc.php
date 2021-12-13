@@ -17,15 +17,26 @@ declare(strict_types=1);
 
 namespace PKP\observers\listeners;
 
+use Illuminate\Events\Dispatcher;
 use PKP\Jobs\Metadata\MetadataChangedJob;
+
 use PKP\observers\events\MetadataChanged;
 
 class MetadataChangedListener
 {
     /**
+     * Maps methods with correspondent events to listen
+     */
+    public function subscribe(Dispatcher $events): void
+    {
+        $events->listen(
+            MetadataChanged::class,
+            self::class . '@handle'
+        );
+    }
+
+    /**
      * Handle the listener call
-     *
-     *
      */
     public function handle(MetadataChanged $event)
     {

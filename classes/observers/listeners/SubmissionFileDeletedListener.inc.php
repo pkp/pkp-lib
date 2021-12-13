@@ -17,16 +17,26 @@ declare(strict_types=1);
 
 namespace PKP\observers\listeners;
 
+use Illuminate\Events\Dispatcher;
 use PKP\Jobs\Submissions\RemoveSubmissionFileFromSearchIndexJob;
+
 use PKP\observers\events\SubmissionFileDeleted;
 
 class SubmissionFileDeletedListener
 {
     /**
+     * Maps methods with correspondent events to listen
+     */
+    public function subscribe(Dispatcher $events): void
+    {
+        $events->listen(
+            SubmissionFileDeleted::class,
+            self::class . '@handle'
+        );
+    }
+
+    /**
      * Handle the listener call
-     *
-     * @param DeleteSubmissionFile $event
-     *
      */
     public function handle(SubmissionFileDeleted $event)
     {

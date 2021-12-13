@@ -21,9 +21,10 @@ use Exception;
 
 class JobException extends Exception
 {
-    public const INVALID_PAYLOAD = 'invalid.payload';
+    public const INVALID_PAYLOAD = 'invalid.job.payload';
 
     /**
+     * Customize the class getMessage()
      */
     public function __toString(): string
     {

@@ -18,9 +18,9 @@ declare(strict_types=1);
 namespace PKP\Jobs\Submissions;
 
 use APP\core\Application;
-use APP\core\Services;
-use PKP\Domains\Jobs\Exceptions\JobException;
+use APP\facades\Repo;
 
+use PKP\Domains\Jobs\Exceptions\JobException;
 use PKP\search\SubmissionSearch;
 use PKP\Support\Jobs\BaseJob;
 
@@ -48,7 +48,7 @@ class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
      */
     public function handle(): void
     {
-        $submissionFile = Services::get('submissionFile')->get($this->submissionFileId);
+        $submissionFile = Repo::submissionFiles()->get($this->submissionFileId);
 
         if (!$submissionFile) {
             $this->failed(new JobException(JobException::INVALID_PAYLOAD));

@@ -155,13 +155,13 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
                     break;
                 case 'file':
                     $values[$prop] = null;
-                    $submissionFile = Repo::submissionFiles()->get($galley->getData('submission_file_id'));
+                    $submissionFile = Repo::submissionFile()->get($galley->getData('submission_file_id'));
 
                     if (empty($submissionFile)) {
                         break;
                     }
 
-                    $values[$prop] = Repo::submissionFiles()
+                    $values[$prop] = Repo::submissionFile()
                         ->getSchemaMap()
                         ->map($submissionFile);
 
@@ -299,13 +299,13 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 
         // Delete related submission files
 
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterByAssoc(ASSOC_TYPE_GALLEY, [$galley->getId()]);
 
-        $submissionFiles = Repo::submissionFiles()->getMany($collector);
+        $submissionFiles = Repo::submissionFile()->getMany($collector);
         foreach ($submissionFiles as $submissionFile) {
-            Repo::submissionFiles()->delete($submissionFile);
+            Repo::submissionFile()->delete($submissionFile);
         }
 
         HookRegistry::call('Galley::delete', [&$galley]);

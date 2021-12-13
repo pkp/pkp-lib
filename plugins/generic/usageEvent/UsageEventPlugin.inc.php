@@ -128,7 +128,7 @@ class UsageEventPlugin extends PKPUsageEventPlugin
                     $canonicalUrlParams = [$preprint->getId(), $galley->getId(), $submissionFileId];
                     $idParams = ['a' . $preprint->getId(), 'g' . $galley->getId(), 'f' . $submissionFileId];
                     $downloadSuccess = false;
-                    $pubObject = Repo::submissionFiles()->get($submissionFileId);
+                    $pubObject = Repo::submissionFile()->get($submissionFileId);
                     break;
                 default:
                     // Why are we called from an unknown hook?

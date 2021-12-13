@@ -214,7 +214,7 @@ class PKPSubmissionFileHandler extends APIHandler
 
         $data = [
             'itemsMax' => $files->count(),
-            'items' => $items,
+            'items' => $items->values(),
         ];
 
         return $response->withJson($data, 200);

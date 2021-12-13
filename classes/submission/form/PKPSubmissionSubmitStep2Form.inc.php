@@ -110,7 +110,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
                         ];
                     }, $genres),
                     'id' => 'submissionFiles',
-                    'items' => $submissionFiles,
+                    'items' => $submissionFiles->values(),
                     'options' => [
                         'maxFilesize' => Application::getIntMaxFileMBs(),
                         'timeout' => ini_get('max_execution_time') ? ini_get('max_execution_time') * 1000 : 0,

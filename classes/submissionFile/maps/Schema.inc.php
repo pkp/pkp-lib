@@ -101,7 +101,7 @@ class Schema extends BaseSchema
 
                 $dependentFiles = Repo::submissionFile()->getMany($collector);
 
-                $output[$prop] = $this->summarizeMany($dependentFiles);
+                $output[$prop] = $this->summarizeMany($dependentFiles)->values();
 
                 continue;
             }

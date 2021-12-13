@@ -19,7 +19,7 @@ namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-use PKP\submission\SubmissionFile;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileDeleted
 {

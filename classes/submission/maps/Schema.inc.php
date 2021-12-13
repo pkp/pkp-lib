@@ -420,14 +420,14 @@ class Schema extends \PKP\core\maps\Schema
                         $stage['statusId'] = $reviewRound->determineStatus();
                         $stage['status'] = __($reviewRound->getStatusKey());
 
-                        $collector = Repo::submissionFiles()
+                        $collector = Repo::submissionFile()
                             ->getCollector()
                             ->filterBySubmissionIds([$submission->getId()])
                             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
                             ->filterByReviewRoundIds([$reviewRound->getId()]);
                         // Revision files in this round.
                         $stage['files'] = [
-                            'count' => Repo::submissionFiles()->getCount($collector),
+                            'count' => Repo::submissionFile()->getCount($collector),
                         ];
 
                         // See if the  curent user can only recommend:
@@ -456,13 +456,13 @@ class Schema extends \PKP\core\maps\Schema
                 case WORKFLOW_STAGE_ID_EDITING:
                 case WORKFLOW_STAGE_ID_PRODUCTION:
                     $fileStages = [WORKFLOW_STAGE_ID_EDITING ? SubmissionFile::SUBMISSION_FILE_COPYEDIT : SubmissionFile::SUBMISSION_FILE_PROOF];
-                    $collector = Repo::submissionFiles()
+                    $collector = Repo::submissionFile()
                         ->getCollector()
                         ->filterBySubmissionIds([$submission->getId()])
                         ->filterByFileStages($fileStages);
                     // Revision files in this round.
                     $stage['files'] = [
-                        'count' => Repo::submissionFiles()->getCount($collector),
+                        'count' => Repo::submissionFile()->getCount($collector),
                     ];
                     break;
             }

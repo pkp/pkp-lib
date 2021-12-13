@@ -82,10 +82,10 @@ class ManageSubmissionFilesForm extends Form
     public function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs)
     {
         $selectedFiles = (array)$this->getData('selectedFiles');
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$this->getSubmissionId()]);
-        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
 
         foreach ($submissionFilesIterator as $submissionFile) {
             // Get the viewable flag value.
@@ -98,7 +98,7 @@ class ManageSubmissionFilesForm extends Form
             if ($this->fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) {
                 // ...update the "viewable" flag accordingly.
                 if ($isViewable != $submissionFile->getData('viewable')) {
-                    $submissionFile = Repo::submissionFiles()
+                    $submissionFile = Repo::submissionFile()
                         ->edit(
                             $submissionFile,
                             ['viewable' => $isViewable]
@@ -146,8 +146,8 @@ class ManageSubmissionFilesForm extends Form
         $newSubmissionFile = clone $submissionFile;
         $newSubmissionFile->setData('fileStage', $fileStage);
         $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
-        $newSubmissionFileId = Repo::submissionFiles()->add($newSubmissionFile);
+        $newSubmissionFileId = Repo::submissionFile()->add($newSubmissionFile);
 
-        return Repo::submissionFiles()->get($newSubmissionFileId);
+        return Repo::submissionFile()->get($newSubmissionFileId);
     }
 }

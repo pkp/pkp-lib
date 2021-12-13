@@ -52,7 +52,7 @@ class Repo
         return app()->make(CategoryRepository::class);
     }
 
-    public static function submissionFiles(): SubmissionFileRepository
+    public static function submissionFile(): SubmissionFileRepository
     {
         return app()->make(SubmissionFileRepository::class);
     }

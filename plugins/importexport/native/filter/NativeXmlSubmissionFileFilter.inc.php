@@ -127,7 +127,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             ? (int) $user->getId()
             : Application::get()->getRequest()->getUser()->getId();
 
-        $submissionFile = Repo::submissionFiles()->dao->newDataObject();
+        $submissionFile = Repo::submissionFile()->dao->newDataObject();
         $submissionFile->setData('submissionId', $submission->getId());
         $submissionFile->setData('locale', $submission->getLocale());
         $submissionFile->setData('fileStage', $stageId);
@@ -234,9 +234,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         // Add and edit the submission file revisions one-by-one so that a useful activity
         // log is built and past revisions can be accessed
         if (count($allRevisionIds) < 2) {
-            $submissionFileId = Repo::submissionFiles()->add($submissionFile);
+            $submissionFileId = Repo::submissionFile()->add($submissionFile);
 
-            $submissionFile = Repo::submissionFiles()->get($submissionFileId);
+            $submissionFile = Repo::submissionFile()->get($submissionFileId);
         } else {
             $currentFileId = $submissionFile->getData('fileId');
             $allRevisionIds = array_filter($allRevisionIds, function ($fileId) use ($currentFileId) {
@@ -249,20 +249,20 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             foreach ($allRevisionIds as $i => $fileId) {
                 if ($i === 0) {
                     $submissionFile->setData('fileId', $fileId);
-                    $id = Repo::submissionFiles()->add($submissionFile);
+                    $id = Repo::submissionFile()->add($submissionFile);
 
-                    $submissionFile = Repo::submissionFiles()->get($submissionFileId);
+                    $submissionFile = Repo::submissionFile()->get($submissionFileId);
                 } else {
-                    Repo::submissionFiles()->edit($submissionFile, ['fileId' => $fileId]);
+                    Repo::submissionFile()->edit($submissionFile, ['fileId' => $fileId]);
                 }
             }
 
-            Repo::submissionFiles()->edit(
+            Repo::submissionFile()->edit(
                 $submissionFile,
                 ['fileId' => $currentFileId]
             );
 
-            $submissionFile = Repo::submissionFiles()->get($submissionFileId);
+            $submissionFile = Repo::submissionFile()->get($submissionFileId);
         }
 
         $deployment->setSubmissionFileDBId($submissionFileId, $submissionFile->getId());
@@ -354,7 +354,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             } else {
                 clearstatcache(true, $temporaryFilename);
                 $fileManager = new FileManager();
-                $submissionDir = Repo::submissionFiles()->getSubmissionDir($submission->getData('contextId'), $submission->getId());
+                $submissionDir = Repo::submissionFile()->getSubmissionDir($submission->getData('contextId'), $submission->getId());
                 $newFileId = Services::get('file')->add(
                     $temporaryFilename,
                     $submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')

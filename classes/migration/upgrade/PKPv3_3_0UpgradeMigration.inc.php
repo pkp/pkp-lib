@@ -368,7 +368,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             );
             $path = sprintf(
                 '%s/%s/%s',
-                Repo::submissionFiles()->getSubmissionDir(
+                Repo::submissionFile()->getSubmissionDir(
                     $row->context_id,
                     $row->submission_id
                 ),

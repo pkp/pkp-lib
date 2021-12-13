@@ -178,15 +178,15 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($_FILES['uploadedFile']['name']);
 
-        $submissionDir = Repo::submissionFiles()->getSubmissionDir($request->getContext()->getId(), $this->getData('submissionId'));
+        $submissionDir = Repo::submissionFile()->getSubmissionDir($request->getContext()->getId(), $this->getData('submissionId'));
         $fileId = Services::get('file')->add(
             $_FILES['uploadedFile']['tmp_name'],
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
 
         if ($this->getRevisedFileId()) {
-            $submissionFile = Repo::submissionFiles()->get($this->getRevisedFileId());
-            Repo::submissionFiles()->edit(
+            $submissionFile = Repo::submissionFile()->get($this->getRevisedFileId());
+            Repo::submissionFile()->edit(
                 $submissionFile,
                 [
                     'fileId' => $fileId,
@@ -197,9 +197,9 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                 ]
             );
 
-            $submissionFile = Repo::submissionFiles()->get($this->getRevisedFileId());
+            $submissionFile = Repo::submissionFile()->get($this->getRevisedFileId());
         } else {
-            $submissionFile = Repo::submissionFiles()->dao->newDataObject();
+            $submissionFile = Repo::submissionFile()->dao->newDataObject();
             $submissionFile->setData('fileId', $fileId);
             $submissionFile->setData('fileStage', $this->getData('fileStage'));
             $submissionFile->setData('name', $_FILES['uploadedFile']['name'], $request->getContext()->getPrimaryLocale());
@@ -214,9 +214,9 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                 $submissionFile->setData('assocId', $this->getReviewRound()->getId());
             }
 
-            $id = Repo::submissionFiles()->add($submissionFile);
+            $id = Repo::submissionFile()->add($submissionFile);
 
-            $submissionFile = Repo::submissionFiles()->get($id);
+            $submissionFile = Repo::submissionFile()->get($id);
         }
 
         if (!$submissionFile) {

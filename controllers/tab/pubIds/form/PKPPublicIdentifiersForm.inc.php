@@ -226,7 +226,7 @@ class PKPPublicIdentifiersForm extends Form
         }
 
         if ($pubObject instanceof SubmissionFile) {
-            Repo::submissionFiles()->edit($pubObject, []);
+            Repo::submissionFile()->edit($pubObject, []);
 
             return;
         }

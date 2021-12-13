@@ -68,7 +68,7 @@ abstract class PKPManageFileApiHandler extends Handler
         }
 
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-        Repo::submissionFiles()->delete($submissionFile);
+        Repo::submissionFile()->delete($submissionFile);
 
         $this->setupTemplate($request);
         $user = $request->getUser();

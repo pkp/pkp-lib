@@ -112,7 +112,7 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm
     {
         $newSubmissionFile = parent::importFile($submissionFile, $fileStage);
 
-        Repo::submissionFiles()
+        Repo::submissionFile()
             ->dao
             ->assignRevisionToReviewRound(
                 $newSubmissionFile->getId(),

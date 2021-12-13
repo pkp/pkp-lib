@@ -70,14 +70,14 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
     {
         switch ($column->getId()) {
             case 'contents':
-                $collector = Repo::submissionFiles()
+                $collector = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(
                         ASSOC_TYPE_NOTE,
                         [$row->getData()->getId()]
                     )->filterBySubmissionIds([$this->_submission->getId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_QUERY]);
-                $submissionFiles = Repo::submissionFiles()->getMany($collector);
+                $submissionFiles = Repo::submissionFile()->getMany($collector);
 
                 import('lib.pkp.controllers.api.file.linkAction.DownloadFileLinkAction');
                 $actions = [];

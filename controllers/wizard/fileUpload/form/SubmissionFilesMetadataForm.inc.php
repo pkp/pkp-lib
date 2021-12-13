@@ -155,7 +155,7 @@ class SubmissionFilesMetadataForm extends Form
             'submissionFile' => $this->getSubmissionFile(),
             'stageId' => $this->getStageId(),
             'reviewRoundId' => $reviewRound ? $reviewRound->getId() : null,
-            'supportsDependentFiles' => Repo::submissionFiles()->supportsDependentFiles($this->getSubmissionFile()),
+            'supportsDependentFiles' => Repo::submissionFile()->supportsDependentFiles($this->getSubmissionFile()),
             'genre' => $genre,
         ]);
         return parent::fetch($request, $template, $display);
@@ -190,8 +190,8 @@ class SubmissionFilesMetadataForm extends Form
             'dateCreated' => $this->getData('dateCreated'),
         ]);
 
-        Repo::submissionFiles()->edit($this->getSubmissionFile(), $props);
-        $this->_submissionFile = Repo::submissionFiles()->get(
+        Repo::submissionFile()->edit($this->getSubmissionFile(), $props);
+        $this->_submissionFile = Repo::submissionFile()->get(
             $this->getSubmissionFile()->getId()
         );
 

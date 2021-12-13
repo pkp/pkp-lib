@@ -211,17 +211,17 @@ class EditorDecisionForm extends Form
             $selectedFiles = $this->getData($userVar);
             if (is_array($selectedFiles)) {
                 foreach ($selectedFiles as $fileId) {
-                    $oldSubmissionFile = Repo::submissionFiles()
+                    $oldSubmissionFile = Repo::submissionFile()
                         ->get($fileId);
                     $oldSubmissionFile->setData('fileStage', $fileStage);
                     $oldSubmissionFile->setData('sourceSubmissionFileId', $fileId);
                     $oldSubmissionFile->setData('assocType', null);
                     $oldSubmissionFile->setData('assocId', null);
 
-                    $submissionFileId = Repo::submissionFiles()
+                    $submissionFileId = Repo::submissionFile()
                         ->add($oldSubmissionFile);
 
-                    Repo::submissionFiles()
+                    Repo::submissionFile()
                         ->dao
                         ->assignRevisionToReviewRound(
                             $submissionFileId,

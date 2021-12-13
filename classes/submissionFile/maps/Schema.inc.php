@@ -92,14 +92,14 @@ class Schema extends BaseSchema
             }
 
             if ($prop === 'dependentFiles') {
-                $collector = Repo::submissionFiles()
+                $collector = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$item->getId()])
                     ->filterBySubmissionIds([$item->getData('submissionId')])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
                     ->includeDependentFiles();
 
-                $dependentFiles = Repo::submissionFiles()->getMany($collector);
+                $dependentFiles = Repo::submissionFile()->getMany($collector);
 
                 $values[$prop] = $this->summarizeMany($dependentFiles);
 
@@ -115,7 +115,7 @@ class Schema extends BaseSchema
             if ($prop === 'revisions') {
                 $files = [];
 
-                $revisions = Repo::submissionFiles()->getRevisions($item->getId());
+                $revisions = Repo::submissionFile()->getRevisions($item->getId());
 
                 foreach ($revisions as $revision) {
                     if ($revision->fileId === $item->getData('fileId')) {
@@ -138,7 +138,7 @@ class Schema extends BaseSchema
                                 'fileId' => $revision->fileId,
                                 'submissionFileId' => $item->getId(),
                                 'submissionId' => $item->getData('submissionId'),
-                                'stageId' => Repo::submissionFiles()->getWorkflowStageId($item),
+                                'stageId' => Repo::submissionFile()->getWorkflowStageId($item),
                             ]
                         ),
                     ];
@@ -160,7 +160,7 @@ class Schema extends BaseSchema
                     [
                         'submissionFileId' => $item->getId(),
                         'submissionId' => $item->getData('submissionId'),
-                        'stageId' => Repo::submissionFiles()->getWorkflowStageId($item),
+                        'stageId' => Repo::submissionFile()->getWorkflowStageId($item),
                     ]
                 );
 

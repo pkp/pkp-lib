@@ -41,13 +41,13 @@ class ReviewRevisionsGridDataProvider extends ReviewGridDataProvider
     {
         // Grab the files that are new (incoming) revisions
         // of those currently assigned to the review round.
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$this->getSubmission()->getId()])
             ->filterByReviewRoundIds([$this->getReviewRound()->getId()])
             ->filterByFileStages([(int) $this->getFileStage()]);
 
-        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
         return $this->prepareSubmissionFileData(iterator_to_array($submissionFilesIterator), false, $filter);
     }
 

@@ -75,7 +75,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
         }
 
         // Determine the allowed file stages
-        $assignedFileStages = Repo::submissionFiles()
+        $assignedFileStages = Repo::submissionFile()
             ->getAssignedFileStages(
                 $stageAssignments,
                 $this->_action

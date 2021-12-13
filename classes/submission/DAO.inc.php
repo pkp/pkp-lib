@@ -235,15 +235,15 @@ class DAO extends EntityDAO
         }
 
         // Delete submission files.
-        $submissionFilesCollector = Repo::submissionFiles()
+        $submissionFilesCollector = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$submission->getId()]);
 
-        $submissionFilesIterator = Repo::submissionFiles()
+        $submissionFilesIterator = Repo::submissionFile()
             ->getMany($submissionFilesCollector);
 
         foreach ($submissionFilesIterator as $submissionFile) {
-            Repo::submissionFiles()->delete($submissionFile);
+            Repo::submissionFile()->delete($submissionFile);
         }
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */

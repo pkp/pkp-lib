@@ -155,7 +155,7 @@ class PKPSubmissionFileHandler extends APIHandler
         // Set the allowed file stages based on stage assignment
         // @see PKP\submissionFile\Repository::getAssignedFileStages() for excluded file stages
         if ($stageAssignments) {
-            $allowedFileStages = Repo::submissionFiles()
+            $allowedFileStages = Repo::submissionFile()
                 ->getAssignedFileStages(
                     $stageAssignments,
                     SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ
@@ -198,7 +198,7 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds(
                 [$submission->getId()]
@@ -206,9 +206,9 @@ class PKPSubmissionFileHandler extends APIHandler
             ->filterByReviewRoundIds($allowedReviewRoundIds)
             ->filterByFileStages($allowedFileStages);
 
-        $files = Repo::submissionFiles()->getMany($collector);
+        $files = Repo::submissionFile()->getMany($collector);
 
-        $items = Repo::submissionFiles()
+        $items = Repo::submissionFile()
             ->getSchemaMap()
             ->summarizeMany($files);
 
@@ -233,7 +233,7 @@ class PKPSubmissionFileHandler extends APIHandler
     {
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 
-        $data = Repo::submissionFiles()
+        $data = Repo::submissionFile()
             ->getSchemaMap()
             ->map($submissionFile);
 
@@ -265,7 +265,7 @@ class PKPSubmissionFileHandler extends APIHandler
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
 
-        $submissionDir = Repo::submissionFiles()
+        $submissionDir = Repo::submissionFile()
             ->getSubmissionDir(
                 $request->getContext()->getId(),
                 $submission->getId()
@@ -297,7 +297,7 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        $errors = Repo::submissionFiles()
+        $errors = Repo::submissionFile()
             ->validate(
                 null,
                 $params,
@@ -342,16 +342,16 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        $submissionFile = Repo::submissionFiles()
+        $submissionFile = Repo::submissionFile()
             ->newDataObject($params);
 
-        $submissionFileId = Repo::submissionFiles()
+        $submissionFileId = Repo::submissionFile()
             ->add($submissionFile);
 
-        $submissionFile = Repo::submissionFiles()
+        $submissionFile = Repo::submissionFile()
             ->get($submissionFileId);
 
-        $data = Repo::submissionFiles()
+        $data = Repo::submissionFile()
             ->getSchemaMap()
             ->map($submissionFile);
 
@@ -385,7 +385,7 @@ class PKPSubmissionFileHandler extends APIHandler
         $primaryLocale = $request->getContext()->getPrimaryLocale();
         $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
 
-        $errors = Repo::submissionFiles()
+        $errors = Repo::submissionFile()
             ->validate(
                 $submissionFile,
                 $params,
@@ -405,7 +405,7 @@ class PKPSubmissionFileHandler extends APIHandler
 
             $fileManager = new FileManager();
             $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
-            $submissionDir = Repo::submissionFiles()
+            $submissionDir = Repo::submissionFile()
                 ->getSubmissionDir(
                     $request->getContext()->getId(),
                     $submission->getId()
@@ -422,16 +422,16 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        Repo::submissionFiles()
+        Repo::submissionFile()
             ->edit(
                 $submissionFile,
                 $params
             );
 
-        $submissionFile = Repo::submissionFiles()
+        $submissionFile = Repo::submissionFile()
             ->get($submissionFile->getId());
 
-        $data = Repo::submissionFiles()
+        $data = Repo::submissionFile()
             ->getSchemaMap()
             ->map($submissionFile);
 
@@ -451,11 +451,11 @@ class PKPSubmissionFileHandler extends APIHandler
     {
         $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
 
-        $data = Repo::submissionFiles()
+        $data = Repo::submissionFile()
             ->getSchemaMap()
             ->map($submissionFile);
 
-        Repo::submissionFiles()->delete($submissionFile);
+        Repo::submissionFile()->delete($submissionFile);
 
         return $response->withJson($data, 200);
     }

@@ -135,12 +135,12 @@ class EditReviewForm extends Form
         $reviewFilesDao->revokeByReviewId($this->_reviewAssignment->getId());
 
         $fileStages = [$this->_reviewRound->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE];
-        $collector = Repo::submissionFiles()
+        $collector = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$this->_reviewAssignment->getSubmissionId()])
             ->filterByReviewRoundIds([$this->_reviewRound->getId()])
             ->filterByFileStages($fileStages);
-        $submissionFilesIterator = Repo::submissionFiles()->getMany($collector);
+        $submissionFilesIterator = Repo::submissionFile()->getMany($collector);
         $selectedFiles = array_map(function ($id) {
             return (int) $id;
         }, (array) $this->getData('selectedFiles'));

@@ -406,7 +406,7 @@ class PKPMetricsDAO extends \PKP\db\DAO
         switch ($assocType) {
             case PKPApplication::ASSOC_TYPE_SUBMISSION_FILE:
             case PKPApplication::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER:
-                $submissionFile = Repo::submissionFiles()->get($assocId);
+                $submissionFile = Repo::submissionFile()->get($assocId);
                 if ($submissionFile === null) {
                     throw new Exception('Cannot load record: invalid submission file id.');
                 }

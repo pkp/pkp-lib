@@ -55,7 +55,7 @@ abstract class PKPStageParticipantNotifyForm extends Form
         if ($itemType == ASSOC_TYPE_SUBMISSION) {
             $this->_submissionId = $itemId;
         } else {
-            $submissionFile = Repo::submissionFiles()->get($itemId);
+            $submissionFile = Repo::submissionFile()->get($itemId);
             $this->_submissionId = $submissionFile->getData('submissionId');
         }
 

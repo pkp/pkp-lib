@@ -601,7 +601,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		// Send reviewers to review wizard
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
-		if ($reviewAssignment) {
+		if ($reviewAssignment && !$reviewAssignment->getCancelled() && !$reviewAssignment->getDeclined()) {
 			return $dispatcher->url(
 				$request,
 				ROUTE_PAGE,

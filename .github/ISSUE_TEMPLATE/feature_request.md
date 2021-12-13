@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest a new feature for OJS or OMP
+about: Suggest a new feature for OJS, OMP or OPS.
 title: ''
 labels: ''
 assignees: ''

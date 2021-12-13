@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a broken feature in OJS or OMP
+about: Report a broken feature in OJS, OMP or OPS.
 title: ''
 labels: ''
 assignees: ''

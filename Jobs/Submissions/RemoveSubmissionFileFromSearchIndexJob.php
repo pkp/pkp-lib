@@ -48,7 +48,7 @@ class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
      */
     public function handle(): void
     {
-        $submissionFile = Repo::submissionFiles()->get($this->submissionFileId);
+        $submissionFile = Repo::submissionFile()->get($this->submissionFileId);
 
         if (!$submissionFile) {
             $this->failed(new JobException(JobException::INVALID_PAYLOAD));

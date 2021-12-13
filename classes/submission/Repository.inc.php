@@ -211,7 +211,7 @@ abstract class Repository
         // Send reviewers to review wizard
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
-        if ($reviewAssignment) {
+        if ($reviewAssignment && !$reviewAssignment->getCancelled() && !$reviewAssignment->getDeclined()) {
             return $dispatcher->url(
                 $request,
                 Application::ROUTE_PAGE,

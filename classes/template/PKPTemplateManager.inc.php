@@ -824,6 +824,8 @@ class PKPTemplateManager extends Smarty
             'common.pageNumber',
             'common.pagination.goToPage',
             'common.pagination.label',
+            'common.pagination.loadMore',
+            'common.pagination.loadMore.description',
             'common.pagination.next',
             'common.pagination.previous',
             'common.remove',

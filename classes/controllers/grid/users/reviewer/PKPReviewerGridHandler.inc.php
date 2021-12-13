@@ -44,6 +44,7 @@ use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
+use PKP\user\Collector;
 
 // FIXME: Add namespacing
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
@@ -466,11 +467,16 @@ class PKPReviewerGridHandler extends GridHandler
         $context = $request->getContext();
         $term = $request->getUserVar('term');
 
-        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-        $users = $userGroupDao->getUsersNotInRole(Role::ROLE_ID_REVIEWER, $context->getId(), $term);
-
+        $users = Repo::user()->getMany(
+            Repo::user()->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->excludeRoleIds([Role::ROLE_ID_REVIEWER])
+                ->searchPhrase($term)
+                ->orderBy(Collector::ORDERBY_GIVENNAME)
+        );
+        
         $userList = [];
-        while ($user = $users->next()) {
+        foreach ($users as $user) {
             $label = $user->getFullName() . ' (' . $user->getEmail() . ')';
             $userList[] = ['label' => $label, 'value' => $user->getId()];
         }

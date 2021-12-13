@@ -40,7 +40,9 @@
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 		this.bind('reloadTab', this.reloadTabHandler_);
 		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
-		this.bind('mousedown', this.mouseDownHandler_);
+		$('body').on('mousedown', function (e) {
+			this.mouseDownHandler_(e.target, e);
+		}.bind(this));
 
 		// Bind the pageUnloadHandler_ method to the DOM so it is
 		// called.

@@ -14,10 +14,15 @@
  * N.B. Requires a subclass to implement the "reviewerId" to be added.
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
+use PKP\core\Core;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
@@ -439,7 +444,7 @@ class ReviewerForm extends Form
     // Protected methods.
     //
     /**
-     * Get the link action that fetchs the advanced search form content
+     * Get the link action that fetches the advanced search form content
      *
      * @param $request Request
      *

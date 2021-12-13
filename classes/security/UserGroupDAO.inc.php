@@ -526,57 +526,6 @@ class UserGroupDAO extends DAO
     }
 
     /**
-     * Find users that don't have a given role
-     *
-     * @param $roleId ROLE_ID_... int (const)
-     * @param $contextId int Optional context ID
-     * @param $search string Optional search string
-     * @param $rangeInfo RangeInfo Optional range info
-     *
-     * @return DAOResultFactory
-     */
-    public function getUsersNotInRole($roleId, $contextId = null, $search = null, $rangeInfo = null)
-    {
-        $params = [(int) $roleId];
-        if ($contextId) {
-            $params[] = (int) $contextId;
-        }
-        $sql = '
-            SELECT u.*
-            FROM users u
-            WHERE NOT EXISTS (
-                SELECT    0
-                FROM user_user_groups uug
-                INNER JOIN user_groups ug
-                    ON ug.user_group_id = uug.user_group_id
-                    AND ug.role_id = ?
-                WHERE u.user_id = uug.user_id
-                ' . ($contextId ? ' AND ug.context_id = ?' : '') . '
-            )';
-
-        $search = trim($search);
-        if (strlen($search)) {
-            $params = array_merge($params, array_pad([], 3, '%' . addcslashes($search, '%_') . '%'));
-            $sql .= "
-                AND (
-                    LOWER(u.email) LIKE LOWER(?)
-                    OR LOWER(u.username) LIKE LOWER(?)
-                    OR EXISTS (
-                        SELECT 0
-                        FROM user_settings us
-                        WHERE
-                            us.user_id = u.user_id
-                            AND us.setting_name IN ('givenName', 'familyName')
-                            AND LOWER(us.setting_value) LIKE LOWER(?)
-                    )
-                )";
-        }
-
-        $result = $this->retrieveRange($sql, $params, $rangeInfo);
-        return new DAOResultFactory($result, Repo::user()->dao, 'fromRow');
-    }
-
-    /**
      * return an Iterator of User objects given the search parameters
      *
      * @param int $userGroupId optional

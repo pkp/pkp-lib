@@ -13,6 +13,12 @@
  * @brief Form for enrolling an existing reviewer and adding them to a submission.
  */
 
+use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
+use PKP\security\Role;
+use PKP\user\Collector;
+
 import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 
 class EnrollExistingReviewerForm extends ReviewerForm
@@ -32,6 +38,7 @@ class EnrollExistingReviewerForm extends ReviewerForm
     /**
      * @copydoc Form::fetch()
      *
+     * @param \PKP\core\PKPRequest $request
      * @param null|mixed $template
      */
     public function fetch($request, $template = null, $display = false)
@@ -39,6 +46,13 @@ class EnrollExistingReviewerForm extends ReviewerForm
         $advancedSearchAction = $this->getAdvancedSearchAction($request);
 
         $this->setReviewerFormAction($advancedSearchAction);
+        $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'users', null, null, [
+            'excludeRoleIds' => [Role::ROLE_ID_REVIEWER],
+            'status' => Collector::STATUS_ALL,
+            'orderDirection' => Collector::ORDER_DIR_ASC,
+            'orderBy' => Collector::ORDERBY_GIVENNAME
+        ]);
+        TemplateManager::getManager($request)->assign(['autocompleteApiUrl' => $apiUrl]);
         return parent::fetch($request, $template, $display);
     }
 

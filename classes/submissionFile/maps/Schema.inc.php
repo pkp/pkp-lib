@@ -83,7 +83,7 @@ class Schema extends BaseSchema
         $output = [];
         foreach ($props as $prop) {
             if ($prop === '_href') {
-                $values[$prop] = $this->getApiUrl(
+                $output[$prop] = $this->getApiUrl(
                     'submissions/' . $item->getData('submissionId') . '/files/' . $item->getId(),
                     $this->context->getData('urlPath')
                 );
@@ -101,13 +101,13 @@ class Schema extends BaseSchema
 
                 $dependentFiles = Repo::submissionFile()->getMany($collector);
 
-                $values[$prop] = $this->summarizeMany($dependentFiles);
+                $output[$prop] = $this->summarizeMany($dependentFiles);
 
                 continue;
             }
 
             if ($prop === 'documentType') {
-                $values[$prop] = Services::get('file')->getDocumentType($item->getData('mimetype'));
+                $output[$prop] = Services::get('file')->getDocumentType($item->getData('mimetype'));
 
                 continue;
             }
@@ -144,13 +144,13 @@ class Schema extends BaseSchema
                     ];
                 }
 
-                $values[$prop] = $files;
+                $output[$prop] = $files;
 
                 continue;
             }
 
             if ($prop === 'url') {
-                $values[$prop] = $this->request->getDispatcher()->url(
+                $output[$prop] = $this->request->getDispatcher()->url(
                     $this->request,
                     Application::ROUTE_COMPONENT,
                     $this->context->getData('urlPath'),

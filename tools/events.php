@@ -33,7 +33,7 @@ use Throwable;
 define('APP_ROOT', dirname(dirname(dirname(dirname(__FILE__)))));
 require(APP_ROOT . '/tools/bootstrap.inc.php');
 
-class listEvents extends CommandLineTool
+class commandEvents extends CommandLineTool
 {
     use InteractsWithIO;
 
@@ -187,7 +187,7 @@ class listEvents extends CommandLineTool
 }
 
 try {
-    $tool = new listEvents($argv ?? []);
+    $tool = new commandEvents($argv ?? []);
     $tool->execute();
 } catch (Throwable $e) {
     if ($e instanceOf CommandNotFoundException) {

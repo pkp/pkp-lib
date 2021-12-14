@@ -9,6 +9,7 @@
  *
  *}
 
+{assign var="uuid" value=""|uniqid|escape}
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
@@ -17,6 +18,12 @@
 				templateUrl: {url|json_encode router=\PKP\core\PKPApplication::ROUTE_COMPONENT component='grid.users.reviewer.ReviewerGridHandler' op='fetchTemplateBody' stageId=$stageId reviewRoundId=$reviewRoundId submissionId=$submissionId escape=false}
 			{rdelim}
 		);
+		pkp.registry.init('non-reviewer-autocomplete-{$uuid}', 'Container', {ldelim}
+			userIds: [],
+			userMapper: function(user) {ldelim}
+				return new Option(user.fullName + ' (' + user.email + ')', user.id);
+			{rdelim}
+		{rdelim});
 	{rdelim});
 </script>
 
@@ -36,8 +43,20 @@
 		{fbvElement type="select" name="userGroupId" id="userGroupId" from=$userGroups translate=false label="editor.review.userGroupSelect" required="true"}
 	{/fbvFormSection}
 	{fbvFormSection}
-		{capture assign=autocompleteUrl}{url op="getUsersNotAssignedAsReviewers" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
-		{fbvElement type="autocomplete" disableSync="true" required="true" autocompleteUrl=$autocompleteUrl id="userId" label="manager.reviewerSearch.searchByName.short" value=$userNameString}
+		<non-reviewer-autocomplete id="non-reviewer-autocomplete-{$uuid}">
+			<input type="hidden" name="userId" :value="userIds.length ? userIds[0].value : null">
+			<field-mapped-autosuggest
+				:selected="userIds"
+				:api-url="'{$autocompleteApiUrl|escape}'"
+				:label="'{{translate|escape key="manager.reviewerSearch.searchByName.short"}}'"
+				:is-required="true"
+				:min-input-length="2"
+				:data-mapper="userMapper"
+				deselect-label="Remove {ldelim}$item{rdelim}"
+				selected-label="Selected"
+				:max-selected-items="1"
+			/>
+		</non-reviewer-autocomplete>
 	{/fbvFormSection}
 
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}

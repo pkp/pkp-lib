@@ -46,6 +46,7 @@ class Collector implements CollectorInterface
     public ?array $orderLocales = null;
     public ?array $userGroupIds = null;
     public ?array $roleIds = null;
+    public ?array $excludeRoleIds = null;
     public ?array $userIds = null;
     public ?array $excludeUserIds = null;
     public ?array $workflowStageIds = null;
@@ -161,6 +162,15 @@ class Collector implements CollectorInterface
     public function filterByRoleIds(?array $roleIds): self
     {
         $this->roleIds = $roleIds;
+        return $this;
+    }
+
+    /**
+     * Remove users that have the given roles
+     */
+    public function excludeRoleIds(?array $roleIds): self
+    {
+        $this->excludeRoleIds = $roleIds;
         return $this;
     }
 
@@ -400,7 +410,7 @@ class Collector implements CollectorInterface
      */
     protected function buildUserGroupFilter(Builder $query): self
     {
-        if ($this->userGroupIds === null && $this->roleIds === null && $this->contextIds === null && $this->workflowStageIds === null) {
+        if ($this->userGroupIds === null && $this->roleIds === null && $this->excludeRoleIds === null && $this->contextIds === null && $this->workflowStageIds === null) {
             return $this;
         }
         $query->whereExists(
@@ -414,6 +424,7 @@ class Collector implements CollectorInterface
                         ->whereIn('ugs.stage_id', $this->workflowStageIds)
                 )
                 ->when($this->roleIds !== null, fn() => $subQuery->whereIn('ug.role_id', $this->roleIds))
+                ->when($this->excludeRoleIds !== null, fn() => $subQuery->whereNotIn('ug.role_id', $this->excludeRoleIds))
                 ->when($this->contextIds !== null, fn() => $subQuery->whereIn('ug.context_id', $this->contextIds))
         );
         return $this;

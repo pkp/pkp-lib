@@ -526,49 +526,6 @@ class UserGroupDAO extends DAO
     }
 
     /**
-     * Find users that don't have a given role
-     *
-     * @param $roleId ROLE_ID_... int (const)
-     * @param $contextId int Optional context ID
-     * @param $search string Optional search string
-     * @param $rangeInfo RangeInfo Optional range info
-     *
-     * @return DAOResultFactory
-     */
-    public function getUsersNotInRole($roleId, $contextId = null, $search = null, $rangeInfo = null)
-    {
-        $params = isset($search) ? [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME] : [];
-        $params[] = (int) $roleId;
-        if ($contextId) {
-            $params[] = (int) $contextId;
-        }
-        if (isset($search)) {
-            $params = array_merge($params, array_pad([], 4, '%' . $search . '%'));
-        }
-
-        $result = $this->retrieveRange(
-            'SELECT	DISTINCT u.*
-			FROM	users u
-			' . (isset($search) ? '
-					LEFT JOIN user_settings usgs ON (usgs.user_id = u.user_id AND usgs.setting_name = ?)
-					LEFT JOIN user_settings usfs ON (usfs.user_id = u.user_id AND usfs.setting_name = ?)
-				' : '') . '
-			WHERE	u.user_id NOT IN (
-				SELECT	DISTINCT u.user_id
-				FROM	users u, user_user_groups uug, user_groups ug
-				WHERE	u.user_id = uug.user_id
-					AND ug.user_group_id = uug.user_group_id
-					AND ug.role_id = ?' .
-                ($contextId ? ' AND ug.context_id = ?' : '') .
-                ')' .
-            (isset($search) ? ' AND (usgs.setting_value LIKE ? OR usfs.setting_value LIKE ? OR u.email LIKE ? OR u.username LIKE ?)' : ''),
-            $params,
-            $rangeInfo
-        );
-        return new DAOResultFactory($result, Repo::user()->dao, 'fromRow');
-    }
-
-    /**
      * return an Iterator of User objects given the search parameters
      *
      * @param int $userGroupId optional

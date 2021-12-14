@@ -34,6 +34,28 @@ abstract class FieldBaseAutosuggest extends Field
     /** @var array List of selected items. */
     public $selected = [];
 
+    /** The number of items to return with each request. */
+    public int $count = 30;
+
+    /** Pass true to fire off a request for items after the component is mounted. */
+    public bool $lazyLoad = false;
+
+    /** Defines the minimum amount of characters to trigger the API request. */
+    public int $minInputLength = 0;
+
+    /** Defines the maximum amount of items that can be selected. */
+    public ?int $maxSelectedItems = null;
+
+    /**
+     * Defines the behavior of selecting an additional item when the maxSelectedItems has been reached.
+     * True: The new item replaces the last item.
+     * False: Blocks adding the new item.
+     */
+    public bool $replaceWhenFull = true;
+
+    /** Defines the maximum height of the list, if the threshold is exceeded, a scrollbar will be added. If null, there will be no limits. */
+    public string $maxHeight = '260px';
+
     /**
      * @copydoc Field::getConfig()
      */
@@ -46,6 +68,12 @@ abstract class FieldBaseAutosuggest extends Field
         $config['initialPosition'] = $this->initialPosition;
         $config['selectedLabel'] = __('common.selectedPrefix');
         $config['selected'] = $this->selected;
+        $config['count'] = $this->count;
+        $config['lazyLoad'] = $this->lazyLoad;
+        $config['minInputLength'] = $this->minInputLength;
+        $config['maxSelectedItems'] = $this->maxSelectedItems;
+        $config['replaceWhenFull'] = $this->replaceWhenFull;
+        $config['maxHeight'] = $this->maxHeight;
 
         return $config;
     }

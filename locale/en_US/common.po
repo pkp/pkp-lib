@@ -600,6 +600,12 @@ msgstr "Previous page"
 msgid "common.pageNumber"
 msgstr "Page {$pageNumber}"
 
+msgid "common.pagination.loadMore"
+msgstr "Load more"
+
+msgid "common.pagination.loadMore.description"
+msgstr "{$quantity} results not shown"
+
 msgid "common.percentage"
 msgstr "{$percentage}%"
 

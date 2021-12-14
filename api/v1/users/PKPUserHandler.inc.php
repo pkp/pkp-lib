@@ -94,6 +94,7 @@ class PKPUserHandler extends APIHandler
             'orderBy',
             'orderDirection',
             'roleIds',
+            'excludeRoleIds',
             'searchPhrase',
             'status',
         ]);
@@ -122,6 +123,7 @@ class PKPUserHandler extends APIHandler
             ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
             ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
             ->filterByRoleIds($params['roleIds'] ?? null)
+            ->excludeRoleIds($params['excludeRoleIds'] ?? null)
             ->searchPhrase($params['searchPhrase'] ?? null)
             ->orderBy($orderBy, $orderDirection, [AppLocale::getLocale(), $request->getSite()->getPrimaryLocale()])
             ->limit($params['count'] ?? null)
@@ -312,6 +314,14 @@ class PKPUserHandler extends APIHandler
                 // Enforce a maximum count per request
                 case 'count':
                     $returnParams[$param] = min(100, (int) $val);
+                    break;
+                case 'excludeRoleIds':
+                    if (is_string($val)) {
+                        $val = explode(',', $val);
+                    } elseif (!is_array($val)) {
+                        $val = [$val];
+                    }
+                    $returnParams[$param] = array_map('intval', $val);
                     break;
             }
         }

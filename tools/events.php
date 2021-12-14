@@ -60,6 +60,13 @@ class commandEvents extends CommandLineTool
 
         $this->option = array_shift($argv);
 
+        if (!$this->option) {
+            throw new CommandNotFoundException(
+                sprintf('Option could not be empty! Check the usage method.', $this->option),
+                array_keys(self::AVAILABLE_OPTIONS)
+            );
+        }
+
         $output = new OutputStyle(
             new StringInput(''),
             new StreamOutput(fopen('php://stdout', 'w'))

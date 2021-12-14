@@ -16,7 +16,6 @@
 namespace PKP\controllers\listbuilder;
 
 use PKP\controllers\grid\GridRow;
-use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
 

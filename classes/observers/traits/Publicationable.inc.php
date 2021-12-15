@@ -15,17 +15,13 @@ declare(strict_types=1);
  * @brief Base event for publications being published or unpublished
  */
 
-namespace PKP\observers\events;
-
-use Illuminate\Foundation\Events\Dispatchable;
+namespace PKP\observers\traits;
 
 use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 
-class BasePublicationEvent
+trait Publicationable
 {
-    use Dispatchable;
-
     /** @var PKPPublication $newPublication The publication being published */
     public $newPublication;
 

@@ -19,10 +19,9 @@ namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
 use PKP\Jobs\Submissions\UpdateSubmissionSearchJob;
-use PKP\observers\events\BasePublicationEvent;
 use PKP\observers\events\PublishedEvent;
-
 use PKP\observers\events\UnpublishedEvent;
+use PKP\observers\traits\Publicationable;
 
 class SubmissionUpdatedListener
 {
@@ -33,19 +32,21 @@ class SubmissionUpdatedListener
     {
         $events->listen(
             PublishedEvent::class,
-            self::class . '@handle'
+            self::class . '@handlePublishedEvent'
         );
 
         $events->listen(
             UnpublishedEvent::class,
-            self::class . '@handle'
+            self::class . '@handleUnpublished'
         );
     }
 
-    /**
-     * Handle the listener call
-     */
-    public function handle(BasePublicationEvent $event)
+    public function handleUnpublished(UnpublishedEvent $event)
+    {
+        dispatch(new UpdateSubmissionSearchJob($event->submission->getId()));
+    }
+
+    public function handlePublishedEvent(PublishedEvent $event)
     {
         dispatch(new UpdateSubmissionSearchJob($event->submission->getId()));
     }

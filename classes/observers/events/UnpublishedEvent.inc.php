@@ -17,6 +17,11 @@ declare(strict_types=1);
 
 namespace PKP\observers\events;
 
-class UnpublishedEvent extends BasePublicationEvent
+use Illuminate\Foundation\Events\Dispatchable;
+use PKP\observers\traits\Publicationable;
+
+class UnpublishedEvent
 {
+    use Dispatchable;
+    use Publicationable;
 }

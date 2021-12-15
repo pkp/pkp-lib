@@ -2175,3 +2175,8 @@ msgstr "Validate Email (Site)"
 msgid "mailable.validateEmailSite.description"
 msgstr "This email is automatically sent to a new user when they register with the site when the settings require the email address to be validated."
 
+msgid "manager.jobs.confirmDelete"
+msgstr "Are you sure you want to permanently delete this job?"
+
+msgid "manager.jobs.deleteJob"
+msgstr "Delete Job"

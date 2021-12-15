@@ -18,8 +18,11 @@ import('lib.pkp.pages.management.ManagementHandler');
 
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\DB;
+use PKP\components\listPanels\ListPanel;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
 
@@ -38,7 +41,7 @@ class PKPToolsHandler extends ManagementHandler
         parent::__construct();
         $this->addRoleAssignment(
             Role::ROLE_ID_MANAGER,
-            ['tools', 'importexport', 'permissions']
+            ['tools', 'importexport', 'permissions', 'jobs']
         );
     }
 
@@ -72,6 +75,9 @@ class PKPToolsHandler extends ManagementHandler
             case 'resetPermissions':
                 $this->resetPermissions($args, $request);
                 break;
+            case 'jobs':
+                $this->jobs($args, $request);
+            break;
             default: assert(false);
         }
     }
@@ -159,5 +165,51 @@ class PKPToolsHandler extends ManagementHandler
         // JSONMessage, or JSONMessage::toString(), doesn't seem to do it.
         echo json_encode(true);
         exit;
+    }
+
+    public function jobs($args, $request)
+    {
+        $this->setupTemplate($request, true);
+
+        $dateFormatShort = Application::get()
+            ->getRequest()
+            ->getContext()
+            ->getLocalizedDateTimeFormatShort();
+
+        $queuedJobsItems = DB::table('jobs')
+            ->whereNotNull('queue')
+            ->whereNull('reserved_at')
+            ->get()
+            ->toArray();
+
+        $parsedItems = [];
+        foreach ($queuedJobsItems as $currentItem) {
+            // Parsing job contents
+            $parsedJob = json_decode($currentItem->payload, true);
+            $parsedItems[] = [
+                'id' => $currentItem->id,
+                'title' => $parsedJob['displayName'],
+                'createdAt' => strftime($dateFormatShort, $currentItem->created_at)
+            ];
+        }
+
+        $templateMgr = TemplateManager::getManager($request);
+
+        $jobsListPanel = new ListPanel(
+            'queuedJobsItems',
+            'Queued Jobs List',
+            [
+                'items' => $parsedItems
+            ]
+        );
+
+        $templateMgr->setState([
+            'components' => [
+                $jobsListPanel->id => $jobsListPanel->getConfig(),
+            ],
+        ]);
+
+        $templateMgr->assign('pageTitle', __('navigation.tools.jobs'));
+        $templateMgr->display('management/tools/jobs.tpl');
     }
 }

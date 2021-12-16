@@ -199,43 +199,43 @@ class PKPToolsHandler extends ManagementHandler
 
         $templateMgr = TemplateManager::getManager($request);
 
-        $queuedJobs = new ListPanel(
-            'queuedJobsItems',
-            'Queued Jobs List',
-            [
-                'items' => $parsedItems
-            ]
-        );
-
-        // $queuedJobs = new PKPStatsJobsTable(
-        //     'queuedJobsTable',
+        // $queuedJobs = new ListPanel(
+        //     'queuedJobsItems',
+        //     'Queued Jobs List',
         //     [
-        //         'label' => 'Queued Jobs Table',
-        //         'description' => 'Doesn\'t look fancy?',
-        //         'tableColumns' => [
-        //             [
-        //                 'name' => 'id',
-        //                 'label' => 'ID',
-        //                 'value' => 'id',
-        //             ],
-        //             [
-        //                 'name' => 'title',
-        //                 'label' => 'Job',
-        //                 'value' => 'title',
-        //             ],
-        //             [
-        //                 'name' => 'created_at',
-        //                 'label' => 'Created At',
-        //                 'value' => 'created_at',
-        //             ],
-        //             [
-        //                 'name' => 'actions',
-        //                 'label' => 'Actions',
-        //             ],
-        //         ],
-        //         'tableRows' => $parsedItems,
+        //         'items' => $parsedItems
         //     ]
         // );
+
+        $queuedJobs = new PKPStatsJobsTable(
+            'queuedJobsTable',
+            [
+                'label' => 'Queued Jobs Table',
+                'description' => 'Doesn\'t look fancy?',
+                'tableColumns' => [
+                    [
+                        'name' => 'id',
+                        'label' => 'ID',
+                        'value' => 'id',
+                    ],
+                    [
+                        'name' => 'title',
+                        'label' => 'Job',
+                        'value' => 'title',
+                    ],
+                    [
+                        'name' => 'created_at',
+                        'label' => 'Created At',
+                        'value' => 'created_at',
+                    ],
+                    [
+                        'name' => 'actions',
+                        'label' => 'Actions',
+                    ],
+                ],
+                'tableRows' => $parsedItems,
+            ]
+        );
 
         $templateMgr->setState([
             'components' => [

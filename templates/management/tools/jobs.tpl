@@ -10,25 +10,59 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
-    <h1 class="app__pageHeading">
-        {translate key="navigation.tools.jobs"}
-    </h1>
-
-    <tabs label="Jobs Operations">
-        <tab label="Queued Jobs" id="showQueuedJobs">
-            {literal}
-            <list-panel v-bind=components.queuedJobsItems>
-                <template v-slot:itemActions="{item}">
-                    <pkp-button isWarnable="true">
-                        Delete
-                    </pkp-button>
-                </template>
-            </list-panel>
-            {/literal}
-            {* <pkp-table v-bind=components.queuedJobsTable /> *}
-        </tab>
-        <tab label="Failed Jobs" id="showFailedJobs">
-            Lorem Ipsum
-        </tab>
-    </tabs>
+    <div class="pkpStats">
+        <div class="pkpStats__panel">
+            <pkp-header>
+                <h1 id="jobsList" class="pkpHeader__title">
+                    {translate key="navigation.tools.jobs"}
+                </h1>
+            </pkp-header>
+            <tabs label="Jobs Operations">
+                <tab label="Queued Jobs" id="showQueuedJobs">
+                    {*
+                    {literal}
+                    <list-panel v-bind=components.queuedJobsItems>
+                        <template slot="itemActions">
+                            <pkp-button ref="deleteQueuedJob" @click="$modal.show('export')">
+                                Delete
+                            </pkp-button>
+                        </template>
+                    </list-panel>
+                    {/literal}
+                    *}
+                    {*<pkp-table v-bind=components.queuedJobsTable />*}
+                    <table class="pkpTable" labelled-by="usersTableLabel">
+                        <thead>
+                            <tr>
+                                <th>{translate key="common.name"}</th>
+                                <th>{translate key="stats.total"}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td>Name</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </tab>
+                <tab label="Failed Jobs" id="showFailedJobs">
+                    Lorem Ipsum
+                </tab>
+            </tabs>
+        </div>
+    </div>
+    {*<modal
+        v-bind="MODAL_PROPS"
+        name="deleteQueuedJob"
+        @closed="setFocusToRef('deleteQueuedJob')"
+    >
+        <modal-content
+            close-label="common.close"
+            modal-name="deleteQueuedJob"
+            title="Delete Queued Job"
+        >
+            Delete this job?
+        </modal-content>
+    </modal>*}
 {/block}

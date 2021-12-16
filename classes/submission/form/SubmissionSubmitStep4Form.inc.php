@@ -17,11 +17,11 @@ namespace APP\submission\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\core\Services;
 use APP\log\SubmissionEventLogEntry;
 use APP\mail\PreprintMailTemplate;
 use APP\notification\NotificationManager;
 use PKP\log\SubmissionLog;
+use PKP\notification\PKPNotification;
 use PKP\submission\form\PKPSubmissionSubmitStep4Form;
 
 class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
@@ -76,7 +76,7 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
                 $allowedLocales = $context->getSupportedLocales();
                 $errors = Repo::publication()->validatePublish($submission->getLatestPublication(), $submission, $allowedLocales, $primaryLocale);
                 if (!empty($errors)) {
-                    $listErrors .= '<ul class="plain">';
+                    $listErrors = '<ul class="plain">';
                     foreach ($errors as $error) {
                         $listErrors .= '<li>' . $error . '</li>';
                     }
@@ -91,21 +91,21 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
             }
 
             $mail->assignParams([
-                'authorName' => $user->getFullName(),
-                'authorUsername' => $user->getUsername(),
-                'editorialContactSignature' => $context->getData('contactName'),
+                'recipientName' => $user->getFullName(),
+                'recipientUsername' => $user->getUsername(),
+                'signature' => $context->getData('contactName'),
                 'canAuthorPublish' => $canAuthorPublish,
                 'submissionUrl' => $router->url($request, null, 'authorDashboard', 'submission', $submission->getId()),
             ]);
 
             if (!$mail->send($request)) {
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
             }
 
             $authorMail->assignParams([
                 'submitterName' => $user->getFullName(),
-                'editorialContactSignature' => $context->getData('contactName'),
+                'signature' => $context->getData('contactName'),
             ]);
 
             foreach ($this->emailRecipients as $authorEmailRecipient) {
@@ -116,7 +116,7 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
             if (!empty($recipients)) {
                 if (!$authorMail->send($request)) {
                     $notificationMgr = new NotificationManager();
-                    $notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                    $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
                 }
             }
         }

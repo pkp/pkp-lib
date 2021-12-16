@@ -23,6 +23,7 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
 use PKP\components\listPanels\ListPanel;
+use PKP\components\PKPStatsJobsTable;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
 
@@ -189,13 +190,16 @@ class PKPToolsHandler extends ManagementHandler
             $parsedItems[] = [
                 'id' => $currentItem->id,
                 'title' => $parsedJob['displayName'],
-                'createdAt' => strftime($dateFormatShort, $currentItem->created_at)
+                'subtitle' => __('manager.jobs.createdAt', ['createdAt' => strftime($dateFormatShort, $currentItem->created_at)]),
+                'actions' => null,
             ];
         }
 
+        // dd($parsedItems);
+
         $templateMgr = TemplateManager::getManager($request);
 
-        $jobsListPanel = new ListPanel(
+        $queuedJobs = new ListPanel(
             'queuedJobsItems',
             'Queued Jobs List',
             [
@@ -203,12 +207,41 @@ class PKPToolsHandler extends ManagementHandler
             ]
         );
 
+        // $queuedJobs = new PKPStatsJobsTable(
+        //     'queuedJobsTable',
+        //     [
+        //         'label' => 'Queued Jobs Table',
+        //         'description' => 'Doesn\'t look fancy?',
+        //         'tableColumns' => [
+        //             [
+        //                 'name' => 'id',
+        //                 'label' => 'ID',
+        //                 'value' => 'id',
+        //             ],
+        //             [
+        //                 'name' => 'title',
+        //                 'label' => 'Job',
+        //                 'value' => 'title',
+        //             ],
+        //             [
+        //                 'name' => 'created_at',
+        //                 'label' => 'Created At',
+        //                 'value' => 'created_at',
+        //             ],
+        //             [
+        //                 'name' => 'actions',
+        //                 'label' => 'Actions',
+        //             ],
+        //         ],
+        //         'tableRows' => $parsedItems,
+        //     ]
+        // );
+
         $templateMgr->setState([
             'components' => [
-                $jobsListPanel->id => $jobsListPanel->getConfig(),
+                $queuedJobs->id => $queuedJobs->getConfig(),
             ],
         ]);
-
         $templateMgr->assign('pageTitle', __('navigation.tools.jobs'));
         $templateMgr->display('management/tools/jobs.tpl');
     }

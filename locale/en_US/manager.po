@@ -2180,3 +2180,6 @@ msgstr "Are you sure you want to permanently delete this job?"
 
 msgid "manager.jobs.deleteJob"
 msgstr "Delete Job"
+
+msgid "manager.jobs.createdAt"
+msgstr "Created at {$createdAt}"

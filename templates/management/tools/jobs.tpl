@@ -16,15 +16,16 @@
 
     <tabs label="Jobs Operations">
         <tab label="Queued Jobs" id="showQueuedJobs">
+            {literal}
             <list-panel v-bind=components.queuedJobsItems>
-                {literal}
                 <template v-slot:itemActions="{item}">
                     <pkp-button isWarnable="true">
                         Delete
                     </pkp-button>
                 </template>
-                {/literal}
             </list-panel>
+            {/literal}
+            {* <pkp-table v-bind=components.queuedJobsTable /> *}
         </tab>
         <tab label="Failed Jobs" id="showFailedJobs">
             Lorem Ipsum

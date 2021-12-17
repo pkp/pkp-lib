@@ -22,6 +22,7 @@ import StatsEditorialPage from '@/components/Container/StatsEditorialPage.vue';
 import StatsPublicationsPage from '@/components/Container/StatsPublicationsPage.vue';
 import StatsUsersPage from '@/components/Container/StatsUsersPage.vue';
 import WorkflowPage from '@/components/Container/WorkflowPageOPS.vue';
+import JobsPage from '@/components/Container/JobsPage.vue';
 
 // Required by the URN plugin
 import FieldText from '@/components/Form/fields/FieldText.vue';
@@ -35,6 +36,7 @@ window.pkp = Object.assign(PkpLoad, {
 		AddContextContainer,
 		AdminPage,
 		ImportExportPage,
+		JobsPage,
 		SettingsPage,
 		StatsEditorialPage,
 		StatsPublicationsPage,

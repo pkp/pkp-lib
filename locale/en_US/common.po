@@ -1996,12 +1996,3 @@ msgstr "Jobs"
 
 msgid "navigation.tools.queuedjobs"
 msgstr "Queued Jobs"
-
-msgid "navigation.tools.queuedjobs.emptyList"
-msgstr "Empty queued jobs list"
-
-msgid "navigation.tools.failedjobs"
-msgstr "Failed Jobs"
-
-msgid "navigation.tools.failedjobs.emptyList"
-msgstr "Empty failed jobs list"

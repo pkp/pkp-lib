@@ -1070,6 +1070,11 @@ class PKPTemplateManager extends Smarty
                             'url' => $router->url($request, null, 'management', 'tools'),
                             'isCurrent' => $router->getRequestedPage($request) === 'management' && $router->getRequestedOp($request) === 'tools',
                         ];
+                        $menu['jobs'] = [
+                            'name' => __('navigation.tools.jobs'),
+                            'url' => $router->url($request, null, 'management', 'jobs'),
+                            'isCurrent' => $router->getRequestedPage($request) === 'management' && $router->getRequestedOp($request) === 'jobs',
+                        ];
                     }
 
                     if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {

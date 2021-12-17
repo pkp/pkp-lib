@@ -40,7 +40,10 @@ class PKPStatsJobsTable
      */
     public function __construct(string $id, array $args = [])
     {
-        AppLocale::requireComponents([LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER]);
+        AppLocale::requireComponents([
+            LOCALE_COMPONENT_PKP_MANAGER,
+            LOCALE_COMPONENT_APP_MANAGER
+        ]);
 
         $this->id = $id;
         $this->init($args);
@@ -69,8 +72,8 @@ class PKPStatsJobsTable
     public function getConfig()
     {
         $config = [
-            'tableColumns' => $this->tableColumns,
-            'tableRows' => $this->tableRows,
+            'columns' => $this->tableColumns,
+            'rows' => $this->tableRows,
         ];
 
         if ($this->description) {

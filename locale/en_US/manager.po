@@ -2175,11 +2175,23 @@ msgstr "Validate Email (Site)"
 msgid "mailable.validateEmailSite.description"
 msgstr "This email is automatically sent to a new user when they register with the site when the settings require the email address to be validated."
 
-msgid "manager.jobs.confirmDelete"
-msgstr "Are you sure you want to permanently delete this job?"
+msgid "manager.jobs.totalCount"
+msgstr "There's a total of {$total} job(s) on the queue"
 
-msgid "manager.jobs.deleteJob"
-msgstr "Delete Job"
+msgid "manager.jobs.viewQueuedJobs"
+msgstr "View queued jobs"
+
+msgid "manager.jobs.list.id"
+msgstr "ID"
+
+msgid "manager.jobs.list.displayName"
+msgstr "Job"
+
+msgid "manager.jobs.list.attempts"
+msgstr "Attempts"
+
+msgid "manager.jobs.list.created_at"
+msgstr "Created At"
 
 msgid "manager.jobs.createdAt"
 msgstr "Created at {$createdAt}"

@@ -22,7 +22,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
-use PKP\components\listPanels\ListPanel;
 use PKP\components\PKPStatsJobsTable;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
@@ -172,77 +171,96 @@ class PKPToolsHandler extends ManagementHandler
     {
         $this->setupTemplate($request, true);
 
+        $templateMgr = TemplateManager::getManager($request);
+
+        $queuedJobs = $this->buildQueuedJobsTable();
+
+        $totalQueuedJobs = $queuedJobs['total'];
+        $queuedData = $queuedJobs['data'];
+
+        $state = [
+            'components' => [
+                $queuedData->id => $queuedData->getConfig(),
+            ]
+        ];
+
+        $templateMgr->setState($state);
+
+        $templateMgr->assign([
+            'pageComponent' => 'JobsPage',
+            'pageTitle' => __('navigation.tools.jobs'),
+            'totalQueuedJobs' => $totalQueuedJobs
+        ]);
+
+        $templateMgr->display('management/tools/jobs.tpl');
+    }
+
+    /**
+     * Build the Queued Jobs Table
+     */
+    protected function buildQueuedJobsTable(): array
+    {
         $dateFormatShort = Application::get()
             ->getRequest()
             ->getContext()
             ->getLocalizedDateTimeFormatShort();
 
-        $queuedJobsItems = DB::table('jobs')
+        $jobsQuery = DB::table('jobs')
             ->whereNotNull('queue')
-            ->whereNull('reserved_at')
-            ->get()
+            ->whereNull('reserved_at');
+
+        $totalQueuedJobs = $jobsQuery->count();
+
+        $queuedJobsItems = $jobsQuery->get()
             ->toArray();
 
         $parsedItems = [];
+
         foreach ($queuedJobsItems as $currentItem) {
             // Parsing job contents
             $parsedJob = json_decode($currentItem->payload, true);
             $parsedItems[] = [
                 'id' => $currentItem->id,
-                'title' => $parsedJob['displayName'],
-                'subtitle' => __('manager.jobs.createdAt', ['createdAt' => strftime($dateFormatShort, $currentItem->created_at)]),
-                'actions' => null,
+                'displayName' => $parsedJob['displayName'],
+                'attempts' => $currentItem->attempts,
+                'created_at' => __('manager.jobs.createdAt', ['createdAt' => strftime($dateFormatShort, $currentItem->created_at)]),
             ];
         }
-
-        // dd($parsedItems);
-
-        $templateMgr = TemplateManager::getManager($request);
-
-        // $queuedJobs = new ListPanel(
-        //     'queuedJobsItems',
-        //     'Queued Jobs List',
-        //     [
-        //         'items' => $parsedItems
-        //     ]
-        // );
 
         $queuedJobs = new PKPStatsJobsTable(
             'queuedJobsTable',
             [
-                'label' => 'Queued Jobs Table',
-                'description' => 'Doesn\'t look fancy?',
+                'label' => __('manager.jobs.viewQueuedJobs'),
+                'description' => __('manager.jobs.totalCount', ['total' => '<strong>' . $totalQueuedJobs . '</strong>']),
                 'tableColumns' => [
                     [
                         'name' => 'id',
-                        'label' => 'ID',
+                        'label' => __('manager.jobs.list.id'),
                         'value' => 'id',
                     ],
                     [
                         'name' => 'title',
-                        'label' => 'Job',
-                        'value' => 'title',
+                        'label' => __('manager.jobs.list.displayName'),
+                        'value' => 'displayName',
+                    ],
+                    [
+                        'name' => 'attempts',
+                        'label' => __('manager.jobs.list.attempts'),
+                        'value' => 'attempts',
                     ],
                     [
                         'name' => 'created_at',
-                        'label' => 'Created At',
+                        'label' => __('manager.jobs.list.created_at'),
                         'value' => 'created_at',
-                    ],
-                    [
-                        'name' => 'actions',
-                        'label' => 'Actions',
-                    ],
+                    ]
                 ],
                 'tableRows' => $parsedItems,
             ]
         );
 
-        $templateMgr->setState([
-            'components' => [
-                $queuedJobs->id => $queuedJobs->getConfig(),
-            ],
-        ]);
-        $templateMgr->assign('pageTitle', __('navigation.tools.jobs'));
-        $templateMgr->display('management/tools/jobs.tpl');
+        return [
+            'total' => $totalQueuedJobs,
+            'data' => $queuedJobs
+        ];
     }
 }

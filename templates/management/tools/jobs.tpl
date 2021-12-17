@@ -17,52 +17,13 @@
                     {translate key="navigation.tools.jobs"}
                 </h1>
             </pkp-header>
-            <tabs label="Jobs Operations">
-                <tab label="Queued Jobs" id="showQueuedJobs">
-                    {*
-                    {literal}
-                    <list-panel v-bind=components.queuedJobsItems>
-                        <template slot="itemActions">
-                            <pkp-button ref="deleteQueuedJob" @click="$modal.show('export')">
-                                Delete
-                            </pkp-button>
-                        </template>
-                    </list-panel>
-                    {/literal}
-                    *}
-                    {*<pkp-table v-bind=components.queuedJobsTable />*}
-                    <table class="pkpTable" labelled-by="usersTableLabel">
-                        <thead>
-                            <tr>
-                                <th>{translate key="common.name"}</th>
-                                <th>{translate key="stats.total"}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>ID</td>
-                                <td>Name</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </tab>
-                <tab label="Failed Jobs" id="showFailedJobs">
-                    Lorem Ipsum
+            <tabs label="{translate key="navigation.tools.jobs"}">
+                <tab label="{translate key="navigation.tools.queuedjobs"}" id="showQueuedJobs" badge="{{$totalQueuedJobs}}">
+                    <jobs-table
+                        :table_data=components.queuedJobsTable
+                    />
                 </tab>
             </tabs>
         </div>
     </div>
-    {*<modal
-        v-bind="MODAL_PROPS"
-        name="deleteQueuedJob"
-        @closed="setFocusToRef('deleteQueuedJob')"
-    >
-        <modal-content
-            close-label="common.close"
-            modal-name="deleteQueuedJob"
-            title="Delete Queued Job"
-        >
-            Delete this job?
-        </modal-content>
-    </modal>*}
 {/block}

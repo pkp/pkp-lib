@@ -22,6 +22,7 @@ import PkpButton from '@/components/Button/Button.vue';
 import Spinner from '@/components/Spinner/Spinner.vue';
 import Tab from '@/components/Tabs/Tab.vue';
 import Tabs from '@/components/Tabs/Tabs.vue';
+import JobsTable from '@/components/Table/JobsTable.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
@@ -41,6 +42,7 @@ Vue.component('PkpButton', PkpButton);
 Vue.component('Spinner', Spinner);
 Vue.component('Tab', Tab);
 Vue.component('Tabs', Tabs);
+Vue.component('JobsTable', JobsTable);
 
 export default {
 	Vue: Vue,

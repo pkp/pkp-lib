@@ -76,6 +76,15 @@ class UpgradeMigration extends \PKP\migration\Migration
                 $table->dropColumn('setting_type');
             });
         }
+
+        // pkp/pkp-lib#3094: migrate numWeeksPerResponse and numWeeksPerReview from weeks to days
+        $contextDao = Application::getContextDAO();
+        $settingsTableName = $contextDao->settingsTableName;
+        DB::table($settingsTableName)->where('setting_name', 'numWeeksPerResponse')->update(['setting_name' => 'numDaysPerResponse']);
+        DB::table($settingsTableName)->where('setting_name', 'numWeeksPerReview')->update(['setting_name' => 'numDaysPerReview']);
+        DB::statement("UPDATE " . $settingsTableName . " SET setting_value = setting_value * 7 WHERE setting_name = 'numDaysPerResponse'");
+        DB::statement("UPDATE " . $settingsTableName . " SET setting_value = setting_value * 7 WHERE setting_name = 'numDaysPerReview'");
+
     }
 
     /**

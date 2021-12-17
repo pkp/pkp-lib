@@ -206,20 +206,20 @@ class ReviewerForm extends Form
         if (isset($reviewAssignment) && $reviewAssignment->getDueDate() != null) {
             $reviewDueDate = strtotime($reviewAssignment->getDueDate());
         } else {
-            $numWeeks = (int) $context->getData('numWeeksPerReview');
-            if ($numWeeks <= 0) {
-                $numWeeks = 4;
+            $numDays = (int) $context->getData('numDaysPerReview');
+            if ($numDays <= 0) {
+                $numDays = 30;
             }
-            $reviewDueDate = strtotime('+' . $numWeeks . ' week');
+            $reviewDueDate = strtotime('+' . $numDays . ' day');
         }
         if (isset($reviewAssignment) && $reviewAssignment->getResponseDueDate() != null) {
             $responseDueDate = strtotime($reviewAssignment->getResponseDueDate());
         } else {
-            $numWeeks = (int) $context->getData('numWeeksPerResponse');
-            if ($numWeeks <= 0) {
-                $numWeeks = 3;
+            $numDays = (int) $context->getData('numDaysPerResponse');
+            if ($numDays <= 0) {
+                $numDays = 20;
             }
-            $responseDueDate = strtotime('+' . $numWeeks . ' week');
+            $responseDueDate = strtotime('+' . $numDays . ' day');
         }
 
         // Get the currently selected reviewer selection type to show the correct tab if we're re-displaying the form

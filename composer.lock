@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6efb09a300082643e36c2fd901f9ca4c",
+    "content-hash": "2e89355feb3888cef49f1aa8499db0e0",
     "packages": [
         {
             "name": "adodb/adodb-php",
-            "version": "dev-v5.20.18-mods-magicport",
+            "version": "v5.20.18",
             "source": {
                 "type": "git",
-                "url": "https://github.com/asmecher/ADOdb.git",
-                "reference": "6435e3a85900781dc0e3e68d0a55c2f32e7fb61b"
+                "url": "https://github.com/ADOdb/ADOdb.git",
+                "reference": "0363eca78eed8bd02d1456072c729da302655241"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asmecher/ADOdb/zipball/f24f521bd46222044c862aa85c4967111ee5810f",
-                "reference": "f24f521bd46222044c862aa85c4967111ee5810f",
+                "url": "https://api.github.com/repos/ADOdb/ADOdb/zipball/0363eca78eed8bd02d1456072c729da302655241",
+                "reference": "0363eca78eed8bd02d1456072c729da302655241",
                 "shasum": ""
             },
             "require": {
@@ -29,6 +29,7 @@
                     "adodb.inc.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
                 "LGPL-2.1-or-later"
@@ -61,7 +62,7 @@
                 "issues": "https://github.com/ADOdb/ADOdb/issues",
                 "source": "https://github.com/ADOdb/ADOdb"
             },
-            "time": "2020-08-13T23:24:52+00:00"
+            "time": "2020-06-28T17:52:20+00:00"
         },
         {
             "name": "brick/math",
@@ -8949,7 +8950,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "adodb/adodb-php": 20,
         "psy/psysh": 0
     },
     "prefer-stable": false,

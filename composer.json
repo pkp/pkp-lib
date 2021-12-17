@@ -15,7 +15,7 @@
 		"laravel/framework": "^7.0",
 		"firebase/php-jwt": "5.*",
 		"danielstjules/stringy": "3.*",
-		"adodb/adodb-php": "dev-v5.20.18-mods-magicport",
+		"adodb/adodb-php": "v5.20.18",
 		"gettext/gettext": "5.x",
 		"sokil/php-isocodes": "^3.0",
 		"doctrine/dbal": "^2.10",
@@ -40,17 +40,14 @@
 			"php": "7.3.0"
 		}
 	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/asmecher/ADOdb"
-		}
-	],
 	"scripts": {
 		"fix": "./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes"
 	},
 	"extra": {
 		"patches": {
+			"adodb/adodb-php": {
+				"Apply PKP ADODB patches": "lib/adodb.diff"
+			},
 			"laravel/framework": {
 				"Inhibit __ Laravel helper": "lib/laravel-helper-4017.diff"
 			}

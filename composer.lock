@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87761f2470935ed2d844209bf724fe48",
+    "content-hash": "6efb09a300082643e36c2fd901f9ca4c",
     "packages": [
         {
             "name": "adodb/adodb-php",
-            "version": "dev-v5.20.18-mods",
+            "version": "dev-v5.20.18-mods-magicport",
             "source": {
                 "type": "git",
                 "url": "https://github.com/asmecher/ADOdb.git",
@@ -17,7 +17,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/asmecher/ADOdb/zipball/f24f521bd46222044c862aa85c4967111ee5810f",
-                "reference": "228c62019235f0c640b866c37a5aa3c19e6c714d",
+                "reference": "f24f521bd46222044c862aa85c4967111ee5810f",
                 "shasum": ""
             },
             "require": {

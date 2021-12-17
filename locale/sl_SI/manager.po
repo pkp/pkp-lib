@@ -706,11 +706,13 @@ msgstr "Izjava o varovanju podatkov"
 msgid "manager.setup.privacyStatement.description"
 msgstr "Ta izjava se bo prikazala med procesom avtorjeve oddaje prispevka in na javno dostopni strani O reviji."
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Število dovoljenih tednov do sprejetja ali zavrnitve opravljanja recenzije."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Število dovoljenih tednov za dokončanje recenzije"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

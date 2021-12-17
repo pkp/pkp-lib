@@ -678,11 +678,13 @@ msgstr "Anna yhteystiedot (yleensä pääasiallisen päätoimittajan, toimitusp�
 msgid "manager.setup.privacyStatement"
 msgstr "Tietosuojaseloste"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Arviointipyynnön hyväksymiseen tai siitä kieltäytymiseen annettava aika (vk)."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Arvioinnin suorittamiseen annettava aika (vk)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

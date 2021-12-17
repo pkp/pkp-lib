@@ -1046,10 +1046,12 @@ msgstr "在编辑过程中，可以为每个评论修改默认值。"
 msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "永不提醒"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "审核完成所允许的周数"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "接受或拒绝审核请求的周数。"
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"

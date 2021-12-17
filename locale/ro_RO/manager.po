@@ -1497,10 +1497,12 @@ msgstr ""
 msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "Nu îmi amintiți"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Săptămânile au fost permise pentru finalizarea revizuirii"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Număr de săptămâni pentru a accepta sau refuza o solicitare de revizuire."
 

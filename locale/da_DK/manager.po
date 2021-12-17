@@ -680,7 +680,8 @@ msgstr "Indsendelsesformular"
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Kan ændres under den redaktionelle proces."
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Antal uger inden en accept eller et afslag skal foreligge."
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
@@ -862,7 +863,8 @@ msgstr ""
 msgid "manager.setup.privacyStatement"
 msgstr "Erklæring om beskyttelse af personlige oplysninger"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Antal uger afsat til at færdiggøre bedømmelsen"
 
 msgid "manager.setup.sponsors.note"

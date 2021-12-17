@@ -2011,10 +2011,12 @@ msgstr ""
 msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "არასოდეს შეახსენო"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "კვირის განმავლობაში დაშვებულია განხილვის დასრულება"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "კვირების რაოდენობა, რომ მიიღოთ ან უარყოთ განხილვის მოთხოვნა."
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"

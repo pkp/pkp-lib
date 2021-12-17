@@ -699,10 +699,12 @@ msgstr "Schutz personenbezogener Daten"
 msgid "manager.setup.privacyStatement.description"
 msgstr "Diese Erklärung wird während der Registrierung neuer Nutzer/innen, bei Autor/inneneinreichungen und auf der öffentlichen Seite zum Datenschutz angezeigt. In manchen Staaten sind Sie rechtlich verpflichtet, in dieser Erklärung anzugeben, wie Sie mit den Daten der Nutzer/innen verfahren."
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Zeit für Antwort auf Begutachtungsanfrage (Wochen)"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Zeit für Abschluss des Gutachtens (Wochen)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -906,10 +906,12 @@ msgstr "Insira os detalhes de contato, geralmente informação sobre o Director,
 msgid "manager.setup.privacyStatement"
 msgstr "Declaração Privacidade"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Número de semanas para aceitar ou recusar um pedido de revisão."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Semanas permitidas para concluir uma revisão"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -689,11 +689,13 @@ msgstr "Limiter les résultats selon le pays, la région ou la ville."
 msgid "manager.setup.competingInterests"
 msgstr "Intérêts concurrents"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Nombre de semaines pour accepter ou décliner la requête pour évaluation."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Délai alloué pour la révision (semaines)"
 
 msgid "manager.setup.reviewOptions.reminders.response.description"

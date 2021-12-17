@@ -715,10 +715,12 @@ msgstr "Glavni kontakt"
 msgid "manager.setup.privacyStatement"
 msgstr "Izjava o privatnosti"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Broj nedelja dozvoljenih za prihvatanje ili odbijanje recenzentskog zahteva"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Broj nedelja dozvoljenih zazavršetak recenzije"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

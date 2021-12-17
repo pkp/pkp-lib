@@ -858,10 +858,12 @@ msgstr "Adatvédelmi nyilatkozat"
 msgid "manager.setup.privacyStatement.description"
 msgstr "Ez a nyilatkozat megjelenik a szerzői beküldés folyamán, valamint nyilvánosan elérhető az Információk oldalon."
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Szakmai lektori felkérés elfogadásának határideje (hét)."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Engedélyezett hetek száma a lektorálás befejezéséig"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -1045,10 +1045,12 @@ msgstr "Zásady zachování soukromí"
 msgid "manager.setup.privacyStatement.description"
 msgstr "Toto oznámení se objeví autorovi během procesu podání příspěvku a je veřejně přístupný na stránce \"O časopisu\"."
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Počet týdnů k přijetí či odmítnutí požadavku na recenzi."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Počet týdnů na odevzdání hotové recenze"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

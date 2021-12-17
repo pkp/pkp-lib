@@ -690,10 +690,12 @@ msgstr "Integritetspolicy"
 msgid "manager.setup.privacyStatement.description"
 msgstr "Den här texten kommer att synas vid användarregistrering, när författare skickar in bidrag och på den publika sidan Integritet. I vissa jurisdiktioner är det ett lagkrav att publicera hur man hanterar persondata i en integritetspolicy."
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Antal veckor tillåtna att acceptera eller avböja en granskningsförfrågan."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Antal veckor tillåtna för granskning"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

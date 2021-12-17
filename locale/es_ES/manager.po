@@ -597,10 +597,12 @@ msgstr "Conflicto de intereses"
 msgid "manager.setup.competingInterestsDescription"
 msgstr "Se pedirá a los revisores/as que cumplan con la política de divulgación de conflictos de intereses que especifique a continuación."
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Número de semanas para aceptar o rechazar una petición de revisión."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Tiempo permitido para finalizar las respuestas (semanas)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

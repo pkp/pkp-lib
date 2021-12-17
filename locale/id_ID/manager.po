@@ -1412,10 +1412,12 @@ msgstr "Nilai asal dapat diubah untuk setiap review selama proses editorial."
 msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "Jangan Ingatkan"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Pekan dibolehkan menyelesaikan review"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Jumlah pekan untuk menerima atau menolak permintaan review."
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"

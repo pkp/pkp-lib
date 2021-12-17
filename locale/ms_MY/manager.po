@@ -2244,13 +2244,15 @@ msgstr "Jangan Ingatkan"
 msgid "manager.people.unenroll"
 msgstr "Nyahdaftar"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Minggu dibenarkan untuk penyiapan ulasan"
 
 msgid "manager.people.syncUsers"
 msgstr "Segerakkan Pendaftaran Pengguna"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Bilangan minggu untuk menerima atau menolak permintaan ulasan."
 
 msgid "manager.people.signInAsUser"

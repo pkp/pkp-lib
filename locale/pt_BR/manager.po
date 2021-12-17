@@ -656,10 +656,12 @@ msgstr "Restringir resultados por país, região e / ou cidade."
 msgid "manager.setup.competingInterests"
 msgstr "Conflito de Interesses"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Número de semanas para aceitar ou recusar um convite de avaliação."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Tempo para término da avaliação (semanas)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

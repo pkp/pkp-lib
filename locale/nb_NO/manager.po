@@ -1333,12 +1333,14 @@ msgstr ""
 msgid "manager.setup.privacyStatement"
 msgstr "Erklæring om personvern"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Antall uker fagfellen har på å godta eller avvise en forespørsel om "
 "fagfellevurdering."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Antall uker fagfellen har på å fullføre fagfellevurderingen"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

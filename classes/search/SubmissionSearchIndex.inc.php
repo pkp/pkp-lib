@@ -115,6 +115,12 @@ abstract class SubmissionSearchIndex
      * @param Submission $submission
      */
     abstract public function clearSubmissionFiles($submission);
+
+    /**
+     * Delete a Submission
+     *
+     */
+    abstract public function deleteSubmission(int $submissionId);
 }
 
 if (!PKP_STRICT_MODE) {

@@ -1,13 +1,15 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
- * @file tools/event/listEvents.php
+ * @file tools/events.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class listEvents
+ * @class commandEvents
  * @ingroup tools
  *
  * @brief CLI tool to list all events registered on the system
@@ -15,13 +17,13 @@
 
 namespace PKP\tools\event;
 
+use Illuminate\Console\Concerns\InteractsWithIO;
+use Illuminate\Console\OutputStyle;
 use PKP\cache\CacheManager;
 use PKP\cliTool\CommandLineTool;
+
 use PKP\core\PKPContainer;
 use PKP\core\PKPEventServiceProvider;
-
-use Illuminate\Console\OutputStyle;
-use Illuminate\Console\Concerns\InteractsWithIO;
 
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Helper\Helper;
@@ -128,7 +130,7 @@ class commandEvents extends CommandLineTool
 
         $rawEvents = $eventServiceProvider->getEvents();
 
-        foreach($rawEvents as $event => $listeners) {
+        foreach ($rawEvents as $event => $listeners) {
             $events[] = [$event, implode(', ', $listeners)];
         }
 
@@ -197,7 +199,7 @@ try {
     $tool = new commandEvents($argv ?? []);
     $tool->execute();
 } catch (Throwable $e) {
-    if ($e instanceOf CommandNotFoundException) {
+    if ($e instanceof CommandNotFoundException) {
         $output = new OutputStyle(
             new StringInput(''),
             new StreamOutput(fopen('php://stdout', 'w'))

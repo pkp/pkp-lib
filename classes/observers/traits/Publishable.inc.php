@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /**
- * @file classes/observers/events/BasePublicationEvent.inc.php
+ * @file classes/observers/events/Publishable.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class BasePublicationEvent
+ * @class Publishable
  * @ingroup core
  *
- * @brief Base event for publications being published or unpublished
+ * @brief Publishable trait
  */
 
 namespace PKP\observers\traits;
@@ -20,7 +20,7 @@ namespace PKP\observers\traits;
 use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 
-trait Publicationable
+trait Publishable
 {
     /** @var PKPPublication $newPublication The publication being published */
     public $newPublication;

@@ -18,10 +18,10 @@ declare(strict_types=1);
 namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
-use PKP\observers\traits\Publicationable;
+use PKP\observers\traits\Publishable;
 
 class PublishedEvent
 {
     use Dispatchable;
-    use Publicationable;
+    use Publishable;
 }

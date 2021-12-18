@@ -21,7 +21,6 @@ use Illuminate\Events\Dispatcher;
 use PKP\Jobs\Submissions\UpdateSubmissionSearchJob;
 use PKP\observers\events\PublishedEvent;
 use PKP\observers\events\UnpublishedEvent;
-use PKP\observers\traits\Publicationable;
 
 class SubmissionUpdatedListener
 {

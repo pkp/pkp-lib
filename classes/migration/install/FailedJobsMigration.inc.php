@@ -24,17 +24,15 @@ class FailedJobsMigration extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('failed_jobs')) {
-            // Schema matches https://github.com/illuminate/queue/blob/7.x/Console/stubs/failed_jobs.stub
-            Schema::create('failed_jobs', function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->text('connection');
-                $table->text('queue');
-                $table->longText('payload');
-                $table->longText('exception');
-                $table->timestamp('failed_at')->useCurrent();
-            });
-        }
+        // Schema matches https://github.com/illuminate/queue/blob/7.x/Console/stubs/failed_jobs.stub
+        Schema::create('failed_jobs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->text('connection');
+            $table->text('queue');
+            $table->longText('payload');
+            $table->longText('exception');
+            $table->timestamp('failed_at')->useCurrent();
+        });
     }
 
     /**

@@ -13,8 +13,8 @@
 
 namespace APP\submission;
 
-use APP\core\Application;
 use APP\facades\Repo;
+use APP\observers\events\DeletePreprintSearchIndex;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\Generator;
@@ -40,9 +40,7 @@ class DAO extends \PKP\submission\DAO
         $preprintSearchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $preprintSearchDao */
         $preprintSearchDao->deleteSubmissionKeywords($id);
 
-        $preprintSearchIndex = Application::getSubmissionSearchIndex();
-        $preprintSearchIndex->preprintDeleted($id);
-        $preprintSearchIndex->submissionChangesFinished();
+        event(new DeletePreprintSearchIndex($id));
 
         parent::deleteById($id);
     }

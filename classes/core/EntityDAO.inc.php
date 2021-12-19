@@ -112,22 +112,24 @@ abstract class EntityDAO
             }
         }
 
-        $rows = DB::table($this->settingsTable)
-            ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
-            ->get();
+        if ($this->settingsTable) {
+            $rows = DB::table($this->settingsTable)
+                ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
+                ->get();
 
-        $rows->each(function ($row) use ($object, $schema) {
-            if (!empty($schema->properties->{$row->setting_name})) {
-                $object->setData(
-                    $row->setting_name,
-                    $this->convertFromDB(
-                        $row->setting_value,
-                        $schema->properties->{$row->setting_name}->type
-                    ),
-                    empty($row->locale) ? null : $row->locale
-                );
-            }
-        });
+            $rows->each(function ($row) use ($object, $schema) {
+                if (!empty($schema->properties->{$row->setting_name})) {
+                    $object->setData(
+                        $row->setting_name,
+                        $this->convertFromDB(
+                            $row->setting_value,
+                            $schema->properties->{$row->setting_name}->type
+                        ),
+                        empty($row->locale) ? null : $row->locale
+                    );
+                }
+            });
+        }
 
         return $object;
     }

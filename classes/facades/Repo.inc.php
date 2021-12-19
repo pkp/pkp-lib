@@ -28,6 +28,7 @@ use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
+use PKP\jobs\Repository as JobRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 
 class Repo
@@ -55,5 +56,10 @@ class Repo
     public static function submissionFile(): SubmissionFileRepository
     {
         return app(SubmissionFileRepository::class);
+    }
+
+    public static function job(): JobRepository
+    {
+        return app()->make(JobRepository::class);
     }
 }

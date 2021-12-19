@@ -2176,7 +2176,7 @@ msgid "mailable.validateEmailSite.description"
 msgstr "This email is automatically sent to a new user when they register with the site when the settings require the email address to be validated."
 
 msgid "manager.jobs.totalCount"
-msgstr "There's a total of {$total} job(s) on the queue"
+msgstr "There's a total of <strong>{$total}</strong> job(s) on the queue"
 
 msgid "manager.jobs.viewQueuedJobs"
 msgstr "View queued jobs"
@@ -2190,7 +2190,7 @@ msgstr "Job"
 msgid "manager.jobs.list.attempts"
 msgstr "Attempts"
 
-msgid "manager.jobs.list.created_at"
+msgid "manager.jobs.list.createdAt"
 msgstr "Created At"
 
 msgid "manager.jobs.createdAt"

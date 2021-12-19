@@ -36,10 +36,12 @@ class PKPStatsJobsTable
     /**
      * Constructor
      *
-     * @param $args array Optional arguments
+     * @param array $args Optional arguments
      */
-    public function __construct(string $id, array $args = [])
-    {
+    public function __construct(
+        string $id,
+        array $args = []
+    ) {
         AppLocale::requireComponents([
             LOCALE_COMPONENT_PKP_MANAGER,
             LOCALE_COMPONENT_APP_MANAGER
@@ -52,14 +54,16 @@ class PKPStatsJobsTable
     /**
      * Initialize the handler with config parameters
      *
-     * @param $args array Configuration params
+     * @param array $args Configuration params
      */
-    public function init($args = [])
+    public function init(array $args = []): void
     {
         foreach ($args as $key => $value) {
-            if (property_exists($this, $key)) {
-                $this->{$key} = $value;
+            if (!property_exists($this, $key)) {
+                continue;
             }
+
+            $this->{$key} = $value;
         }
     }
 
@@ -69,7 +73,7 @@ class PKPStatsJobsTable
      *
      * @return array Configuration data
      */
-    public function getConfig()
+    public function getConfig(): array
     {
         $config = [
             'columns' => $this->tableColumns,

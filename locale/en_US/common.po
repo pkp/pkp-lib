@@ -1994,5 +1994,5 @@ msgstr "Could not import XML Node"
 msgid "navigation.tools.jobs"
 msgstr "Jobs"
 
-msgid "navigation.tools.queuedjobs"
+msgid "navigation.tools.queuedJobs"
 msgstr "Queued Jobs"

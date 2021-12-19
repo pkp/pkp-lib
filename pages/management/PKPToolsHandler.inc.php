@@ -21,11 +21,9 @@ define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
-use Illuminate\Support\Facades\DB;
 use PKP\components\PKPStatsJobsTable;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
-
 use PKP\security\Role;
 
 class PKPToolsHandler extends ManagementHandler
@@ -205,25 +203,30 @@ class PKPToolsHandler extends ManagementHandler
             ->getContext()
             ->getLocalizedDateTimeFormatShort();
 
-        $jobsQuery = DB::table('jobs')
-            ->whereNotNull('queue')
-            ->whereNull('reserved_at');
+        $collector = Repo::job()->getCollector()
+            ->filterWithEmptyQueue(false)
+            ->filterWithReserved(false);
 
-        $totalQueuedJobs = $jobsQuery->count();
+        $totalQueuedJobs = Repo::job()->getCount(
+            Repo::job()->getCollector()
+        );
 
-        $queuedJobsItems = $jobsQuery->get()
-            ->toArray();
+        if ($totalQueuedJobs > 10) {
+            $collector->limit(10);
+        }
+
+        $queuedJobsItems = Repo::job()->getMany($collector);
 
         $parsedItems = [];
 
         foreach ($queuedJobsItems as $currentItem) {
             // Parsing job contents
-            $parsedJob = json_decode($currentItem->payload, true);
+            $parsedJob = json_decode($currentItem->getData('payload'), true);
             $parsedItems[] = [
-                'id' => $currentItem->id,
+                'id' => $currentItem->getData('id'),
                 'displayName' => $parsedJob['displayName'],
-                'attempts' => $currentItem->attempts,
-                'created_at' => __('manager.jobs.createdAt', ['createdAt' => strftime($dateFormatShort, $currentItem->created_at)]),
+                'attempts' => $currentItem->getData('attempts'),
+                'created_at' => __('manager.jobs.createdAt', ['createdAt' => strftime($dateFormatShort, $currentItem->getData('created_at'))]),
             ];
         }
 
@@ -231,7 +234,7 @@ class PKPToolsHandler extends ManagementHandler
             'queuedJobsTable',
             [
                 'label' => __('manager.jobs.viewQueuedJobs'),
-                'description' => __('manager.jobs.totalCount', ['total' => '<strong>' . $totalQueuedJobs . '</strong>']),
+                'description' => __('manager.jobs.totalCount', ['total' => $totalQueuedJobs]),
                 'tableColumns' => [
                     [
                         'name' => 'id',
@@ -250,7 +253,7 @@ class PKPToolsHandler extends ManagementHandler
                     ],
                     [
                         'name' => 'created_at',
-                        'label' => __('manager.jobs.list.created_at'),
+                        'label' => __('manager.jobs.list.createdAt'),
                         'value' => 'created_at',
                     ]
                 ],

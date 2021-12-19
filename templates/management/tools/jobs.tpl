@@ -18,7 +18,7 @@
                 </h1>
             </pkp-header>
             <tabs label="{translate key="navigation.tools.jobs"}">
-                <tab label="{translate key="navigation.tools.queuedjobs"}" id="showQueuedJobs" badge="{{$totalQueuedJobs}}">
+                <tab label="{translate key="navigation.tools.queuedJobs"}" id="showQueuedJobs" badge="{{$totalQueuedJobs}}">
                     <jobs-table
                         :table_data=components.queuedJobsTable
                     />

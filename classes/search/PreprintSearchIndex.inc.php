@@ -17,7 +17,6 @@ namespace APP\search;
 
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
-use APP\search\PreprintSearch;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
@@ -225,6 +224,14 @@ class PreprintSearchIndex extends SubmissionSearchIndex
 
         // The default indexing back-end does nothing when an
         // preprint is deleted (FIXME?).
+    }
+
+    /**
+     * @copydoc SubmissionSearchIndex::deleteSubmission()
+     */
+    public function deleteSubmission(int $monographId)
+    {
+        $this->preprintDeleted($monographId);
     }
 
     /**

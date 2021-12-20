@@ -14,16 +14,12 @@
 
 namespace PKP\components\listPanels;
 
+use APP\i18n\AppLocale;
+
 class PKPContributorsListPanel extends ListPanel
 {
-    /** @var int How many items to display on one page in this list */
-    public $count = 30;
-
     /** @param \PKP\components\forms\publication\PKPContributorForm Form for adding or editing a contributor */
     public $form = null;
-
-    /** @var array Query parameters to pass if this list executes GET requests  */
-    public $getParams = [];
 
     /** @var int Max number of items available to display in this list panel  */
     public $itemsMax = [];
@@ -48,18 +44,21 @@ class PKPContributorsListPanel extends ListPanel
      */
     public function getConfig()
     {
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        \AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-        $request = \Application::get()->getRequest();
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
+        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
         $config = parent::getConfig();
+
+        // Remove some props not used in this list panel
+        unset($config['description']);
+        unset($config['expanded']);
+        unset($config['headingLevel']);
 
         $config = array_merge(
             $config,
             [
                 'addContributorLabel' => __('grid.action.addContributor'),
                 'confirmDeleteMessage' => __('grid.action.deleteContributor.confirmationMessage'),
-                'count' => $this->count,
                 'deleteContributorLabel' => __('grid.action.delete'),
                 'editContributorLabel' => __('grid.action.edit'),
                 'form' => $this->form->getConfig(),

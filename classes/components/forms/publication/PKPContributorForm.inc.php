@@ -92,7 +92,6 @@ class PKPContributorForm extends FormComponent
         ]))
         ->addField(new FieldSelect('country', [
             'label' => __('common.country'),
-            'description' => __('manager.setup.selectCountry'),
             'options' => $countries,
             'isRequired' => true,
         ]))

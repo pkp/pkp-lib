@@ -16,7 +16,10 @@
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\notification\Notification;
+use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
+use PKP\notification\managerDelegate\AnnouncementNotificationManager;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -194,6 +197,23 @@ class PKPAnnouncementHandler extends APIHandler
         $announcement = Repo::announcement()->newDataObject($params);
         $id = Repo::announcement()->add($announcement);
         $announcement = Repo::announcement()->get($id);
+
+        if(filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN)){
+			import('lib.pkp.classes.notification.managerDelegate.AnnouncementNotificationManager');
+			$announcementNotificationManager = new AnnouncementNotificationManager(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT);
+			$announcementNotificationManager->initialize($announcement);
+
+			$notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao  */
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+			$allUsers = $userGroupDao->getUsersByContextId($request->getContext()->getId());
+			while ($user = $allUsers->next()) {
+				if ($user->getDisabled()) continue;
+				$blockedEmails = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $user->getId(), $request->getContext()->getId());
+				if (!in_array(Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT, $blockedEmails)) {
+					$announcementNotificationManager->notify($user);
+				}
+			}
+		}
 
         return $response->withJson(Repo::announcement()->getSchemaMap()->map($announcement), 200);
     }

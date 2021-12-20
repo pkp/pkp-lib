@@ -17,17 +17,20 @@ namespace PKP\notification\managerDelegate;
 use APP\core\Application;
 use APP\core\Services;
 use APP\notification\Notification;
+use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
 
 use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Repo;
+use PKP\mail\Mail;
 use PKP\mail\MailTemplate;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
+use PKP\user\User;
 
 class AnnouncementNotificationManager extends NotificationManagerDelegate
 {
-    /** @var array The announcement to send a notification about */
+    /** @var Announcement The announcement to send a notification about */
     public $_announcement;
 
     /**

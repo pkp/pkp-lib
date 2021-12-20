@@ -1,9 +1,10 @@
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-01-03 17:40+0000\n"
+"PO-Revision-Date: 2021-12-20 15:29+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "cs_CZ/>\n"
@@ -463,8 +464,8 @@ msgstr "Je nutné zadat jméno."
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Jak si přejete být oslovován? Pokud chcete, můžete sem přidat pozdravy, "
-"prostřední jména a tituly."
+"Uveďte prosím celé jméno jak by autor měl být uveden v publikované práci. "
+"Příklad: Dr. Alan P. Mwandenga"
 
 msgid "user.preferredPublicName"
 msgstr "Upřednostňované veřejné jméno"

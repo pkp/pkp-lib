@@ -271,10 +271,12 @@ abstract class Collector implements CollectorInterface
                     $table->on('raod.review_round_id', '=', 'rr.review_round_id');
                 });
             // Only get overdue assignments on active review rounds
-            $q->where('rr.status', '!=', ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW);
-            $q->where('rr.status', '!=', ReviewRound::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL);
-            $q->where('rr.status', '!=', ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED);
-            $q->where('rr.status', '!=', ReviewRound::REVIEW_ROUND_STATUS_DECLINED);
+            $q->whereNotIn('rr.status', [
+                ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW,
+                ReviewRound::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
+                ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED,
+                ReviewRound::REVIEW_ROUND_STATUS_DECLINED,
+            ]);
             $q->where(function ($q) {
                 $q->where('raod.declined', '<>', 1);
                 $q->where('raod.cancelled', '<>', 1);

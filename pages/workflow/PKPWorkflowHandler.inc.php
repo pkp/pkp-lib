@@ -258,7 +258,7 @@ abstract class PKPWorkflowHandler extends Handler
         $publicationLicenseForm = new PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $authorUserGroups);
         $titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
         $contributorForm = new PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
-        
+
         $authorItems = [];
         foreach ($latestPublication->getData('authors') as $contributor) {
             $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
@@ -322,7 +322,6 @@ abstract class PKPWorkflowHandler extends Handler
                 FORM_CITATIONS => $citationsForm->getConfig(),
                 FORM_PUBLICATION_LICENSE => $publicationLicenseForm->getConfig(),
                 FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
-                FORM_CONTRIBUTOR => $contributorForm->getConfig(),
                 $contributorsListPanel->id => $contributorsListPanel->getConfig(),
             ],
             'currentPublication' => $currentPublicationProps,

@@ -18,6 +18,8 @@ use Illuminate\Support\Enumerable;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\core\PKPRequest;
+use PKP\db\DAORegistry;
+use PKP\security\UserGroupDAO;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -25,15 +27,14 @@ class Schema extends \PKP\core\maps\Schema
 
     public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
 
-    public array $userGroups = [];
+    protected array $authorUserGroups = [];
 
     public function __construct(PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
 
-        $userGroupDao = \DAORegistry::getDAO('UserGroupDAO'); /** @var \UserGroupDAO $userGroupDao */
-        $authorUserGroups = $userGroupDao->getByRoleId($this->context->getId(), Role::ROLE_ID_AUTHOR)->toAssociativeArray();
-        $this->userGroups = $authorUserGroups;
+        $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
+        $this->authorUserGroups = $userGroupDao->getByRoleId($this->context->getId(), Role::ROLE_ID_AUTHOR)->toAssociativeArray();
     }
 
     /**
@@ -93,8 +94,8 @@ class Schema extends \PKP\core\maps\Schema
                 case 'userGroupName':
                     $userGroupId = $item->getData('userGroupId');
 
-                    $output[$prop] = isset($this->userGroups[$userGroupId])
-                        ? $this->userGroups[$userGroupId]->getName(null)
+                    $output[$prop] = isset($this->authorUserGroups[$userGroupId])
+                        ? $this->authorUserGroups[$userGroupId]->getName(null)
                         : '';
 
                     break;

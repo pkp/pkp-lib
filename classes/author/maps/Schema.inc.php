@@ -15,13 +15,26 @@ namespace PKP\author\maps;
 
 use APP\author\Author;
 use Illuminate\Support\Enumerable;
+use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\core\PKPRequest;
 
 class Schema extends \PKP\core\maps\Schema
 {
     public Enumerable $collection;
 
     public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
+
+    public array $userGroups = [];
+
+    public function __construct(PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
+    {
+        parent::__construct($request, $context, $schemaService);
+
+        $userGroupDao = \DAORegistry::getDAO('UserGroupDAO'); /** @var \UserGroupDAO $userGroupDao */
+        $authorUserGroups = $userGroupDao->getByRoleId($this->context->getId(), Role::ROLE_ID_AUTHOR)->toAssociativeArray();
+        $this->userGroups = $authorUserGroups;
+    }
 
     /**
      * Map an author
@@ -76,7 +89,22 @@ class Schema extends \PKP\core\maps\Schema
     {
         $output = [];
         foreach ($props as $prop) {
-            $output[$prop] = $item->getData($prop);
+            switch ($prop) {
+                case 'userGroupName':
+                    $userGroupId = $item->getData('userGroupId');
+
+                    $output[$prop] = isset($this->userGroups[$userGroupId])
+                        ? $this->userGroups[$userGroupId]->getName(null)
+                        : '';
+
+                    break;
+                case 'fullName':
+                    $output[$prop] = $item->getFullName();
+                    break;
+                default:
+                    $output[$prop] = $item->getData($prop);
+                    break;
+            }
         }
 
         $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedSubmissionLocales());

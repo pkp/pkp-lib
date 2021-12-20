@@ -386,7 +386,7 @@ class DAO extends EntityDAO
                 Repo::author()
                     ->getCollector()
                     ->filterByPublicationIds([$publication->getId()])
-                    ->orderBy(Repo::author()->getCollector()::ORDERBY_ID)
+                    ->orderBy(Repo::author()->getCollector()::ORDERBY_SEQUENCE)
             )
         );
     }

@@ -36,6 +36,12 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
+		"authorsStringIncludeInBrowse": {
+			"type": "string",
+			"description": "A list of authors that are included in publication lists, like tables of content and search results, rendered with the appropriate separators according to the locale.",
+			"apiSummary": true,
+			"readOnly": true
+		},
 		"authorsStringShort": {
 			"type": "string",
 			"description": "A shortened version of the authors rendered with the appropriate separators according to the locale.",

@@ -128,6 +128,9 @@ msgstr "Upgrade"
 msgid "grid.action.order"
 msgstr "Order"
 
+msgid "grid.action.saveOrdering"
+msgstr "Save Order"
+
 msgid "grid.action.cancelOrdering"
 msgstr "Cancel ordering"
 
@@ -404,6 +407,9 @@ msgstr "Edit Contributor"
 msgid "grid.action.deleteContributor"
 msgstr "Delete Contributor"
 
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr "Are you sure you want to remove {$name} as a contributor? This action can not be undone."
+
 msgid "grid.action.newVersion"
 msgstr "Create a new version"
 
@@ -452,8 +458,32 @@ msgstr "Role"
 msgid "author.users.contributor.principalContact"
 msgstr "Primary Contact"
 
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Set Primary Contact"
+
 msgid "author.users.contributor.includeInBrowse"
 msgstr "In Browse Lists"
+
+msgid "contributor.listPanel.preview"
+msgstr "Preview"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "Contributors to this publication will be identified in this journal in the following formats."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Display"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Abbreviated"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Publication Lists"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Full"
 
 msgid "grid.roles.currentRoles"
 msgstr "Current Roles"

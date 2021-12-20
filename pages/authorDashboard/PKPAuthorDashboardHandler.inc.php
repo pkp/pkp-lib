@@ -216,17 +216,18 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
         $latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 
-        $contributorsGridUrl = $request->getDispatcher()->url(
+        $contributorApiUrl = $request->getDispatcher()->url(
             $request,
-            PKPApplication::ROUTE_COMPONENT,
-            null,
-            'grid.users.author.AuthorGridHandler',
-            'fetchGrid',
-            null,
-            [
-                'submissionId' => $submission->getId(),
-                'publicationId' => '__publicationId__',
-            ]
+            PKPApplication::ROUTE_API,
+            $request->getContext()->getPath('urlPath'),
+            'submissions/' . $submission->getId() . '/publications/__publicationId__/contributors'
+        );
+
+        $contributorPublicationApiUrl = $request->getDispatcher()->url(
+            $request,
+            PKPApplication::ROUTE_API,
+            $request->getContext()->getPath('urlPath'),
+            'submissions/' . $submission->getId() . '/publications'
         );
 
         $submissionLibraryUrl = $request->getDispatcher()->url(
@@ -241,6 +242,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         $titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
         $citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
+        $contributorForm = new PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
 
         // Import constants
         import('classes.components.forms.publication.PublishForm');
@@ -284,6 +286,24 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $canEditPublication = false;
         }
 
+        $authorItems = [];
+        foreach ($latestPublication->getData('authors') as $contributor) {
+            $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
+        }
+
+        $authorCollector = Repo::author()->getCollector();
+        $authorCollector->filterByPublicationIds([$latestPublication->getId()]);
+        $contributorsListPanel = new \PKP\components\listPanels\PKPContributorsListPanel(
+            'contributors',
+            __('publication.contributors'),
+            [
+                'form' => $contributorForm,
+                'items' => $authorItems,
+                'publicationApiUrl' => $contributorPublicationApiUrl,
+                'canEditPublication' => $canEditPublication
+            ]
+        );
+
         // Check if current author can access ArticleGalleyGrid within production stage
         $canAccessProductionStage = true;
         $userAllowedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
@@ -296,8 +316,8 @@ abstract class PKPAuthorDashboardHandler extends Handler
             'components' => [
                 FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
                 FORM_CITATIONS => $citationsForm->getConfig(),
+                $contributorsListPanel->id => $contributorsListPanel->getConfig(),
             ],
-            'contributorsGridUrl' => $contributorsGridUrl,
             'currentPublication' => $currentPublicationProps,
             'publicationFormIds' => [
                 FORM_TITLE_ABSTRACT,
@@ -335,6 +355,22 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $state['components'][FORM_METADATA] = $metadataForm->getConfig();
             $state['publicationFormIds'][] = FORM_METADATA;
         }
+
+        $templateMgr->setLocaleKeys([
+            'common.order',
+            'author.users.contributor.setPrincipalContact',
+            'author.users.contributor.principalContact',
+            'submission.contributors',
+            'grid.action.saveOrdering',
+            'grid.action.order',
+            'contributor.listPanel.preview',
+            'contributor.listPanel.preview.description',
+            'contributor.listPanel.preview.display',
+            'contributor.listPanel.preview.format',
+            'contributor.listPanel.preview.abbreviated',
+            'contributor.listPanel.preview.publicationLists',
+            'contributor.listPanel.preview.full',
+        ]);
 
         $templateMgr->setState($state);
 

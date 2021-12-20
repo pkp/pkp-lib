@@ -12,12 +12,18 @@
 			"type": "string",
 			"description": "The scholarly institution this contributor is employed by or affiliated with.",
 			"multilingual": "true",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"biography": {
 			"type": "string",
 			"description": "An optional bio statement about this contributor.",
-			"multilingual": "true"
+			"multilingual": "true",
+			"validation": [
+				"nullable"
+			]
 		},
 		"country": {
 			"type": "string"
@@ -32,7 +38,10 @@
 		"familyName": {
 			"type": "string",
 			"multilingual": "true",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"givenName": {
 			"type": "string",
@@ -57,6 +66,7 @@
 			"description": "The ORCID of this contributor. See: https://orcid.org/",
 			"apiSummary": true,
 			"validation": [
+				"nullable",
 				"orcid"
 			]
 		},
@@ -64,7 +74,10 @@
 			"type": "string",
 			"description": "An optional field for contributors to specify how they prefer to be identified in this publication.",
 			"multilingual": "true",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"publicationId": {
 			"type": "integer",
@@ -85,12 +98,24 @@
 			"type": "string",
 			"description": "An optional URL to this contributor's webpage.",
 			"validation": [
-				"url"
+				"url",
+				"nullable"
 			]
 		},
 		"userGroupId": {
 			"type": "integer",
-			"description": "in which user group should this contributor be identified. Usually one of the author roles, such as Author or Translator.",
+			"description": "The ID of this contributor's assigned user group. See userGroupName.",
+			"apiSummary": true
+		},
+		"userGroupName": {
+			"type": "string",
+			"description": "The name of this contributor's role in the publication, such as 'Author' or 'Translator'.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"fullName": {
+			"type": "string",
+			"description": "The full name of the author. This will be the preferredPublicName or, if that is not available, a string containing the givenName and familyName.",
 			"apiSummary": true
 		}
 	}

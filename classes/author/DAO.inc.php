@@ -26,6 +26,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
 use stdClass;
+use PKP\facades\Repo;
 
 class DAO extends EntityDAO
 {
@@ -79,7 +80,7 @@ class DAO extends EntityDAO
             ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
             ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
             ->where('a.author_id', '=', $id)
-            ->select(['*', 's.locale AS submission_locale'])
+            ->select(['a.*', 's.locale AS submission_locale'])
             ->first();
 
         return $row ? $this->fromRow($row) : null;
@@ -113,7 +114,7 @@ class DAO extends EntityDAO
     {
         $rows = $query
             ->getQueryBuilder()
-            ->select(['*', 's.locale AS submission_locale'])
+            ->select(['a.*', 's.locale AS submission_locale'])
             ->get();
 
         return LazyCollection::make(function () use ($rows) {
@@ -166,5 +167,43 @@ class DAO extends EntityDAO
     public function deleteById(int $authorId)
     {
         parent::deleteById($authorId);
+    }
+
+    /**
+     * Get the next sequence that should be used when adding a contributor to a publication
+     */
+    public function getNextSeq(int $publicationId): int
+    {
+        $nextSeq = 0;
+        $seq = DB::table('authors as a')
+            ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
+            ->where('p.publication_id', '=', $publicationId)
+            ->max('a.seq');
+
+        if ($seq) {
+            $nextSeq = $seq + 1;
+        }
+
+        return $nextSeq;
+    }
+
+    /**
+     * Reset the order of contributors in a publication
+     *
+     * This method resets the seq property for each contributor in a publication
+     * so that they are numbered sequentially without any gaps.
+     *
+     * eg - 1, 3, 4, 6 will become 1, 2, 3, 4
+     */
+    public function resetContributorsOrder(int $publicationId)
+    {
+        $authorIds = $this->getIds(Repo::author()
+            ->getCollector()
+            ->filterByPublicationIds([$publicationId])
+            ->orderBy(Repo::author()->getCollector()::ORDERBY_SEQUENCE)
+        );
+        foreach ($authorIds as $seq => $authorId) {
+            DB::table('authors')->where('author_id', '=', $authorId)->update(['seq' => $seq]);
+        }
     }
 }

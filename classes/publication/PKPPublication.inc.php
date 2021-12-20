@@ -145,15 +145,22 @@ class PKPPublication extends \PKP\core\DataObject
      * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)
      *
      * @param array $userGroups List of UserGroup objects
+     * @param bool $includeInBrowseOnly true if only the includeInBrowse Authors will be contained
      *
      * @return string
      */
-    public function getAuthorString($userGroups)
+    public function getAuthorString($userGroups, $includeInBrowseOnly = false)
     {
         $authors = $this->getData('authors');
 
         if (empty($authors)) {
             return '';
+        }
+
+        if ($includeInBrowseOnly) {
+            $authors = $authors->filter(function ($author, $key) {
+                return $author->getData('includeInBrowse');
+            });
         }
 
         $str = '';

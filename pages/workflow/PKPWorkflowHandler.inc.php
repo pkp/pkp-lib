@@ -207,17 +207,18 @@ abstract class PKPWorkflowHandler extends Handler
         $submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
         $latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 
-        $contributorsGridUrl = $request->getDispatcher()->url(
+        $contributorApiUrl = $request->getDispatcher()->url(
             $request,
-            PKPApplication::ROUTE_COMPONENT,
-            null,
-            'grid.users.author.AuthorGridHandler',
-            'fetchGrid',
-            null,
-            [
-                'submissionId' => $submission->getId(),
-                'publicationId' => '__publicationId__',
-            ]
+            PKPApplication::ROUTE_API,
+            $request->getContext()->getPath('urlPath'),
+            'submissions/' . $submission->getId() . '/publications/__publicationId__/contributors'
+        );
+
+        $contributorPublicationApiUrl = $request->getDispatcher()->url(
+            $request,
+            PKPApplication::ROUTE_API,
+            $request->getContext()->getPath('urlPath'),
+            'submissions/' . $submission->getId() . '/publications'
         );
 
         $editorialHistoryUrl = $request->getDispatcher()->url(
@@ -256,6 +257,25 @@ abstract class PKPWorkflowHandler extends Handler
         $citationsForm = new PKP\components\forms\publication\PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
         $publicationLicenseForm = new PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $authorUserGroups);
         $titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
+        $contributorForm = new PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
+        
+        $authorItems = [];
+        foreach ($latestPublication->getData('authors') as $contributor) {
+            $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
+        }
+
+        $authorCollector = Repo::author()->getCollector();
+        $authorCollector->filterByPublicationIds([$latestPublication->getId()]);
+        $contributorsListPanel = new \PKP\components\listPanels\PKPContributorsListPanel(
+            'contributors',
+            __('publication.contributors'),
+            [
+                'form' => $contributorForm,
+                'items' => $authorItems,
+                'publicationApiUrl' => $contributorPublicationApiUrl,
+                'canEditPublication' => $canEditPublication
+            ]
+        );
 
         // Import constants
         import('classes.components.forms.publication.PublishForm');
@@ -302,8 +322,9 @@ abstract class PKPWorkflowHandler extends Handler
                 FORM_CITATIONS => $citationsForm->getConfig(),
                 FORM_PUBLICATION_LICENSE => $publicationLicenseForm->getConfig(),
                 FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
+                FORM_CONTRIBUTOR => $contributorForm->getConfig(),
+                $contributorsListPanel->id => $contributorsListPanel->getConfig(),
             ],
-            'contributorsGridUrl' => $contributorsGridUrl,
             'currentPublication' => $currentPublicationProps,
             'editorialHistoryUrl' => $editorialHistoryUrl,
             'publicationFormIds' => [
@@ -370,6 +391,22 @@ abstract class PKPWorkflowHandler extends Handler
             $state['components'][FORM_PUBLICATION_IDENTIFIERS] = $identifiersForm->getConfig();
             $state['publicationFormIds'][] = FORM_PUBLICATION_IDENTIFIERS;
         }
+
+        $templateMgr->setLocaleKeys([
+            'common.order',
+            'author.users.contributor.setPrincipalContact',
+            'author.users.contributor.principalContact',
+            'submission.contributors',
+            'grid.action.saveOrdering',
+            'grid.action.order',
+            'contributor.listPanel.preview',
+            'contributor.listPanel.preview.description',
+            'contributor.listPanel.preview.display',
+            'contributor.listPanel.preview.format',
+            'contributor.listPanel.preview.abbreviated',
+            'contributor.listPanel.preview.publicationLists',
+            'contributor.listPanel.preview.full',
+        ]);
 
         $templateMgr->setState($state);
 

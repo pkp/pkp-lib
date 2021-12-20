@@ -144,6 +144,7 @@ class Repository
             }
         });
 
+        $errors = [];
         if ($validator->fails()) {
             $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
         }
@@ -158,6 +159,13 @@ class Repository
      */
     public function add(Author $author): int
     {
+        $existingSeq = $author->getData('seq');
+        
+        if (!isset($existingSeq)) {
+            $nextSeq = $this->dao->getNextSeq($author->getData('publicationId'));
+            $author->setData('seq', $nextSeq);
+        }
+        
         $authorId = $this->dao->insert($author);
         $author = Repo::author()->get($authorId);
 
@@ -187,6 +195,9 @@ class Repository
     {
         HookRegistry::call('Author::delete::before', [$author]);
         $this->dao->delete($author);
+
+        $this->dao->resetContributorsOrder($author->getData('publicationId'));
+
         HookRegistry::call('Author::delete', [$author]);
     }
 
@@ -238,5 +249,22 @@ class Repository
                 ->filterByPublicationIds([$publication->getId()])
                 ->orderBy(Repo::author()->getCollector()::ORDERBY_ID)
         );
+    }
+
+    /**
+    * Reorders the authors of a publication according to the given order of the authors in the provided author array
+    */
+    public function setAuthorsOrder(int $publicationId, array $authors) {
+        $seq = 0;
+        foreach ($authors as $author) {
+
+            $author->setData('seq', $seq);
+
+            $this->dao->update($author);
+            
+            $seq++;
+        }
+
+        HookRegistry::call('Author::reorder', [$publicationId, $authors]);
     }
 }

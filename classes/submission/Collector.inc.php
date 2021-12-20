@@ -293,21 +293,22 @@ abstract class Collector implements CollectorInterface
 
         $isAssignedOnly = is_array($this->assignedTo);
         if ($isAssignedOnly) {
-            $q->leftJoin('stage_assignments as sa', function ($table) {
-                $table->on('s.submission_id', '=', 'sa.submission_id');
-                $table->whereIn('sa.user_id', $this->assignedTo);
-            });
+            $q->whereIn('s.submission_id', function ($q) {
+                $q->select('sa.submission_id')
+                    ->from('stage_assignments as sa')
+                    ->whereIn('sa.user_id', $this->assignedTo);
 
-            $q->leftJoin('review_assignments as ra', function ($table) {
-                $table->on('s.submission_id', '=', 'ra.submission_id');
-                $table->on('ra.declined', '=', DB::raw((int) 0));
-                $table->on('ra.cancelled', '=', DB::raw((int) 0));
-                $table->whereIn('ra.reviewer_id', $this->assignedTo);
-            });
+                $q->leftJoin('review_assignments as ra', function ($table) {
+                    $table->on('sa.submission_id', '=', 'ra.submission_id');
+                    $table->on('ra.declined', '=', DB::raw((int) 0));
+                    $table->on('ra.cancelled', '=', DB::raw((int) 0));
+                    $table->whereIn('ra.reviewer_id', $this->assignedTo);
+                });
 
-            $q->where(function ($q) {
-                $q->whereNotNull('sa.stage_assignment_id');
-                $q->orWhereNotNull('ra.review_id');
+                $q->where(function ($q) {
+                    $q->whereNotNull('sa.stage_assignment_id');
+                    $q->orWhereNotNull('ra.review_id');
+                });
             });
         } elseif ($this->assignedTo === -1) {
             $sub = DB::table('stage_assignments')

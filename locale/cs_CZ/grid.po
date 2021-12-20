@@ -1,9 +1,10 @@
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-04-30 07:17+0000\n"
+"PO-Revision-Date: 2021-12-20 15:29+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "cs_CZ/>\n"
@@ -673,3 +674,37 @@ msgstr "Zobrazit/vybrat uživatele"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Odebrat tuto skupinu uživatelů"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Plný"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Seznam publikací"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Zkráceně"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Zobrazení"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Formát"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Přispěvatelé do této publikace budou v časopise uvedeni v následujících "
+"formátech."
+
+msgid "contributor.listPanel.preview"
+msgstr "Náhled"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Nastavit primární kontakt"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Jste si jisti, že chcete odebrat {$jméno} jako přispěvatele? Tuto akci nelze "
+"vzít zpět."
+
+msgid "grid.action.saveOrdering"
+msgstr "Uložit pořadí"

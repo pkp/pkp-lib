@@ -160,12 +160,12 @@ class Repository
     public function add(Author $author): int
     {
         $existingSeq = $author->getData('seq');
-        
+
         if (!isset($existingSeq)) {
             $nextSeq = $this->dao->getNextSeq($author->getData('publicationId'));
             $author->setData('seq', $nextSeq);
         }
-        
+
         $authorId = $this->dao->insert($author);
         $author = Repo::author()->get($authorId);
 
@@ -261,10 +261,8 @@ class Repository
             $author->setData('seq', $seq);
 
             $this->dao->update($author);
-            
+
             $seq++;
         }
-
-        HookRegistry::call('Author::reorder', [$publicationId, $authors]);
     }
 }

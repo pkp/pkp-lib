@@ -1005,7 +1005,10 @@ msgid "submission.submit.fileAdded"
 msgstr "File Added"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Include this contributor in browse lists?"
+msgstr "Include this contributor when identifying authors in lists of publications."
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Publication Lists"
 
 msgid "submission.submit.newFile"
 msgstr "Add Another File"

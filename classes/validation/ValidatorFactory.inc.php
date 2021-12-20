@@ -203,6 +203,7 @@ class ValidatorFactory
                 ],
                 'not_in' => __('validator.not_in'),
                 'numeric' => __('validator.numeric'),
+                'orcid' => __('user.orcid.orcidInvalid'),
                 'present' => __('validator.present'),
                 'regex' => __('validator.regex'),
                 'required' => __('validator.required'),

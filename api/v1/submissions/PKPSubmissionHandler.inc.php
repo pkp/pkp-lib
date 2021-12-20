@@ -60,11 +60,21 @@ class PKPSubmissionHandler extends APIHandler
         'publishPublication',
         'unpublishPublication',
         'deletePublication',
+        'getContributors',
+        'getContributor',
+        'addContributor',
+        'deleteContributor',
+        'editContributor',
+        'saveContributorsOrder',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
     public $requiresPublicationWriteAccess = [
         'editPublication',
+        'addContributor',
+        'deleteContributor',
+        'editContributor',
+        'saveContributorsOrder',
     ];
 
     /** @var array Handlers that must be authorized to access a submission's production stage */
@@ -121,6 +131,16 @@ class PKPSubmissionHandler extends APIHandler
                     'handler' => [$this, 'getPublication'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
                 ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors',
+                    'handler' => [$this, 'getContributors'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors/{contributorId:\d+}',
+                    'handler' => [$this, 'getContributor'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
+                ],
             ],
             'POST' => [
                 [
@@ -137,6 +157,11 @@ class PKPSubmissionHandler extends APIHandler
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/version',
                     'handler' => [$this, 'versionPublication'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors',
+                    'handler' => [$this, 'addContributor'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
             ],
             'PUT' => [
@@ -160,6 +185,16 @@ class PKPSubmissionHandler extends APIHandler
                     'handler' => [$this, 'unpublishPublication'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
                 ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors/{contributorId:\d+}',
+                    'handler' => [$this, 'editContributor'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors/saveOrder',
+                    'handler' => [$this, 'saveContributorsOrder'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                ],
             ],
             'DELETE' => [
                 [
@@ -171,6 +206,11 @@ class PKPSubmissionHandler extends APIHandler
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
                     'handler' => [$this, 'deletePublication'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors/{contributorId:\d+}',
+                    'handler' => [$this, 'deleteContributor'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
             ],
         ];
@@ -901,5 +941,302 @@ class PKPSubmissionHandler extends APIHandler
         Repo::publication()->delete($publication);
 
         return $response->withJson($output, 200);
+    }
+
+
+    /**
+     * Get one of a publication's contributors
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function getContributor($slimRequest, $response, $args)
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $author = Repo::author()->get((int) $args['contributorId']);
+
+        if (!$publication) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if (!$author) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+        }
+
+        if ($publication->getId() !== $author->getData('publicationId')) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        return $response->withJson(
+            Repo::author()->getSchemaMap()->map($author),
+            200
+        );
+    }
+
+    /**
+     * Get all publication's contributors
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param $args array arguments
+     *
+     * @return Response
+     */
+    public function getContributors($slimRequest, $response, $args)
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $publication = Repo::publication()->get((int) $args['publicationId']);
+
+        if (!$publication) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+        }
+
+        $collector = Repo::author()->getCollector();
+        $collector->filterByPublicationIds([$publication->getId()]);
+        $authors = Repo::author()->getMany($collector);
+
+        return $response->withJson([
+            'itemsMax' => Repo::author()->getCount($collector->limit(null)->offset(null)),
+            'items' => Repo::author()->getSchemaMap()->summarizeMany($authors),
+        ], 200);
+    }
+
+    /**
+     * Add a new contributor to publication
+     *
+     * This will create a new contributor from scratch.
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function addContributor($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
+
+        $publication = Repo::publication()->get((int) $args['publicationId']);
+
+        if (!$publication) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+        }
+
+        // Publications can not be edited when they are published
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+        }
+
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $slimRequest->getParsedBody());
+        $params['publicationId'] = $publication->getId();
+
+        $submissionContext = $request->getContext();
+        if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
+            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+        }
+        $primaryLocale = $submissionContext->getPrimaryLocale();
+        $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
+
+        // A publication may have a different primary locale
+        if (!empty($params['locale']) && in_array($params['locale'], $allowedLocales)) {
+            $primaryLocale = $params['locale'];
+        }
+
+        $errors = Repo::author()->validate(null, $params, $allowedLocales, $primaryLocale);
+
+        if (!empty($errors)) {
+            return $response->withStatus(400)->withJson($errors);
+        }
+
+        $author = Repo::author()->newDataObject($params);
+        $newId = Repo::author()->add($author);
+        $author = Repo::author()->get($newId);
+
+        return $response->withJson(
+            Repo::author()->getSchemaMap()->map($author),
+            200
+        );
+    }
+
+    /**
+     * Delete one of this publication's contributors
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function deleteContributor($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
+
+        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $author = Repo::author()->get((int) $args['contributorId']);
+
+        if (!$publication) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        // Publications can not be edited when they are published
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+        }
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+        }
+
+        if (!$author) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if ($publication->getId() !== $author->getData('publicationId')) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        $output = Repo::author()->getSchemaMap()->map($author);
+
+        Repo::author()->delete($author);
+
+        return $response->withJson($output, 200);
+    }
+
+    /**
+     * Edit one of this publication's contributors
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function editContributor($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
+
+        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $author = Repo::author()->get((int) $args['contributorId']);
+
+        if (!$publication) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if (!$author) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+        }
+
+        // Publications can not be edited when they are published
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+        }
+
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $slimRequest->getParsedBody());
+        $params['id'] = $author->getId();
+
+        $submissionContext = $request->getContext();
+        if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
+            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+        }
+
+        $primaryLocale = $publication->getData('locale');
+        $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
+
+        if ($publication->getId() !== $author->getData('publicationId')) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        // Prevent users from editing publications if they do not have permission. Except for admins.
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+            return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
+        }
+
+        $errors = Repo::author()->validate($author, $params, $allowedLocales, $primaryLocale);
+
+        if (!empty($errors)) {
+            return $response->withStatus(400)->withJson($errors);
+        }
+
+        Repo::author()->edit($author, $params);
+        $author = Repo::author()->get($author->getId());
+
+        return $response->withJson(
+            Repo::author()->getSchemaMap()->map($author),
+            200
+        );
+    }
+
+    /**
+     * Save new order of contributors array
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function saveContributorsOrder($slimRequest, $response, $args)
+    {
+        $params = $slimRequest->getParsedBody();
+
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
+
+        $publication = Repo::publication()->get((int) $args['publicationId']);
+
+        if (!$publication) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+        }
+
+        // Publications can not be edited when they are published
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+        }
+
+        if (!empty($params['sortedAuthors'])) {
+            $authors = [];
+            foreach ($params['sortedAuthors'] as $author) {
+                $newAuthor = Repo::author()->get((int) $author['id']);
+
+                array_push($authors, $newAuthor);
+            }
+            
+            Repo::author()->setAuthorsOrder($publication->getId(), $authors);
+        }
+
+        return $response->withJson($publication->getId());
     }
 }

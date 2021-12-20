@@ -165,7 +165,7 @@ class Collector implements CollectorInterface
                 $q->select('author_id')
                     ->from($this->dao->settingsTable)
                     ->where('setting_name', '=', 'familyName')
-                    ->whereIn('setting_value', $this->familyName);
+                    ->where('setting_value', $this->familyName);
             });
         });
 
@@ -174,7 +174,7 @@ class Collector implements CollectorInterface
                 $q->select('author_id')
                     ->from($this->dao->settingsTable)
                     ->where('setting_name', '=', 'givenName')
-                    ->whereIn('setting_value', $this->givenName);
+                    ->where('setting_value', $this->givenName);
             });
         });
 
@@ -187,7 +187,7 @@ class Collector implements CollectorInterface
                 $q->select('author_id')
                     ->from($this->dao->settingsTable)
                     ->where('setting_name', '=', 'country')
-                    ->whereIn('setting_value', $this->country);
+                    ->where('setting_value', $this->country);
             });
         });
 
@@ -196,7 +196,7 @@ class Collector implements CollectorInterface
                 $q->select('author_id')
                     ->from($this->dao->settingsTable)
                     ->where('setting_name', '=', 'affiliation')
-                    ->whereIn('setting_value', $this->affiliation);
+                    ->where('setting_value', $this->affiliation);
             });
         });
 

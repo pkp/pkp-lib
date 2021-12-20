@@ -17,6 +17,7 @@ namespace PKP\security\authorization;
 use PKP\security\authorization\internal\ContextPolicy;
 use PKP\security\authorization\internal\PublicationIsSubmissionPolicy;
 use PKP\security\authorization\internal\PublicationRequiredPolicy;
+use PKP\security\authorization\internal\PublicationCanBeEditedPolicy;
 
 class PublicationAccessPolicy extends ContextPolicy
 {

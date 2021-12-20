@@ -121,6 +121,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'authorsString':
                     $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups);
                     break;
+                case 'authorsStringIncludeInBrowse':
+                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups, true);
+                    break;
                 case 'authorsStringShort':
                     $output[$prop] = $this->anonymize ? '' : $publication->getShortAuthorString();
                     break;

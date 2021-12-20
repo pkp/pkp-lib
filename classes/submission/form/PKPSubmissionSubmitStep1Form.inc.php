@@ -415,36 +415,46 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
 
             // if no user names exist for this submission locale,
             // copy the names in default site primary locale for this locale as well
-            $userGivenNames = $user->getGivenName(null);
-            $userFamilyNames = $user->getFamilyName(null);
-            if (is_null($userFamilyNames)) {
-                $userFamilyNames = [];
+            $authorUserGroups = $userGroupDao->getByRoleId($this->context->getId(), Role::ROLE_ID_AUTHOR)->toArray();
+
+            $userInAuthorGroup = array_filter($authorUserGroups, function ($item) use ($userGroupId) {
+                return $item->getId() === $userGroupId;
+            });
+
+            if (!empty($userInAuthorGroup)) {
+                $userGivenNames = $user->getGivenName(null);
+                $userFamilyNames = $user->getFamilyName(null);
+                if (is_null($userFamilyNames)) {
+                    $userFamilyNames = [];
+                }
+                if (empty($userGivenNames[$this->submission->getData('locale')])) {
+                    $site = Application::get()->getRequest()->getSite();
+                    $userGivenNames[$this->submission->getData('locale')] = $userGivenNames[$site->getPrimaryLocale()];
+                    // then there should also be no family name for the submission locale
+                    $userFamilyNames[$this->submission->getData('locale')] = !empty($userFamilyNames[$site->getPrimaryLocale()]) ? $userFamilyNames[$site->getPrimaryLocale()] : '';
+                }
+
+                // Set user to initial author
+                $author = Repo::author()->newDataObject();
+                $author->setGivenName($userGivenNames, null);
+                $author->setFamilyName($userFamilyNames, null);
+                $author->setAffiliation($user->getAffiliation(null), null);
+                $author->setCountry($user->getCountry());
+                $author->setEmail($user->getEmail());
+                $author->setUrl($user->getUrl());
+                $author->setBiography($user->getBiography(null), null);
+                $author->setIncludeInBrowse(1);
+                $author->setOrcid($user->getOrcid());
+                $author->setData('publicationId', $publication->getId());
+
+                // Get the user group to display the submitter as
+                $author->setUserGroupId($userGroupId);
+
+                $authorId = Repo::author()->add($author);
+                Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
             }
-            if (empty($userGivenNames[$this->submission->getData('locale')])) {
-                $site = Application::get()->getRequest()->getSite();
-                $userGivenNames[$this->submission->getData('locale')] = $userGivenNames[$site->getPrimaryLocale()];
-                // then there should also be no family name for the submission locale
-                $userFamilyNames[$this->submission->getData('locale')] = !empty($userFamilyNames[$site->getPrimaryLocale()]) ? $userFamilyNames[$site->getPrimaryLocale()] : '';
-            }
 
-            // Set user to initial author
-            $author = Repo::author()->newDataObject();
-            $author->setGivenName($userGivenNames, null);
-            $author->setFamilyName($userFamilyNames, null);
-            $author->setAffiliation($user->getAffiliation(null), null);
-            $author->setCountry($user->getCountry());
-            $author->setEmail($user->getEmail());
-            $author->setUrl($user->getUrl());
-            $author->setBiography($user->getBiography(null), null);
-            $author->setIncludeInBrowse(1);
-            $author->setOrcid($user->getOrcid());
-            $author->setData('publicationId', $publication->getId());
-
-            // Get the user group to display the submitter as
-            $author->setUserGroupId($userGroupId);
-
-            $authorId = Repo::author()->add($author);
-            Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
+            
             $publication = Repo::publication()->get($publication->getId());
 
             // Assign the user author to the stage

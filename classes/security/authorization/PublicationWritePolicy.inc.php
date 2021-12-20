@@ -39,7 +39,7 @@ class PublicationWritePolicy extends ContextPolicy
         $this->addPolicy(new StageRolePolicy([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR]));
 
         // Can the user edit the publication?
-		$this->addPolicy(new PublicationCanBeEditedPolicy($request, 'api.submissions.403.userCantEdit'));
+        $this->addPolicy(new PublicationCanBeEditedPolicy($request, 'api.submissions.403.userCantEdit'));
     }
 }
 

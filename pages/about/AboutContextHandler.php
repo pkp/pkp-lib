@@ -13,9 +13,12 @@
  * @brief Handle requests for context-level about functions.
  */
 
-use APP\handler\Handler;
-use APP\template\TemplateManager;
+namespace PKP\pages\about;
 
+use APP\core\Application;
+use APP\handler\Handler;
+use APP\i18n\AppLocale;
+use APP\template\TemplateManager;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 

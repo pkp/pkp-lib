@@ -13,6 +13,8 @@
  * @brief Cell provider for title column of an announcement type grid.
  */
 
+namespace PKP\controllers\grid\announcements;
+
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -71,4 +73,8 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider
 
         return parent::getTemplateVarsFromRowColumn($row, $column);
     }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\grid\announcements\AnnouncementTypeGridCellProvider', '\AnnouncementTypeGridCellProvider');
 }

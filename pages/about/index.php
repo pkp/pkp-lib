@@ -21,12 +21,10 @@ switch ($op) {
     case 'editorialTeam':
     case 'submissions':
     case 'contact':
-        define('HANDLER_CLASS', 'AboutContextHandler');
-        import('lib.pkp.pages.about.AboutContextHandler');
+        define('HANDLER_CLASS', '\\PKP\\pages\\about\\AboutContextHandler');
         break;
     case 'privacy':
     case 'aboutThisPublishingSystem':
-        define('HANDLER_CLASS', 'AboutSiteHandler');
-        import('lib.pkp.pages.about.AboutSiteHandler');
+        define('HANDLER_CLASS', '\\PKP\\pages\\about\\AboutSiteHandler');
         break;
 }

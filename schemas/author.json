@@ -43,6 +43,12 @@
 				"nullable"
 			]
 		},
+		"fullName": {
+			"type": "string",
+			"description": "The full name of the author. This will be the preferredPublicName or, if that is not available, a string containing the givenName and familyName.",
+			"apiSummary": true,
+			"readOnly": true
+		},
 		"givenName": {
 			"type": "string",
 			"multilingual": "true",
@@ -112,11 +118,6 @@
 			"description": "The name of this contributor's role in the publication, such as 'Author' or 'Translator'.",
 			"apiSummary": true,
 			"readOnly": true
-		},
-		"fullName": {
-			"type": "string",
-			"description": "The full name of the author. This will be the preferredPublicName or, if that is not available, a string containing the givenName and familyName.",
-			"apiSummary": true
 		}
 	}
 }

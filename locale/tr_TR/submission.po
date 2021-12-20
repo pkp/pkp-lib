@@ -1,9 +1,10 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2020-12-08 07:36+0000\n"
+"PO-Revision-Date: 2021-12-07 01:21+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr_TR/>\n"
@@ -2004,3 +2005,6 @@ msgstr "Reddedilen aday makale yeniden etkinleştirildi."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Reddetmeyi Geri Al"
+
+msgid "category.category"
+msgstr "Kategoriler"

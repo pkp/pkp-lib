@@ -1,7 +1,8 @@
+# TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-04-16 05:46+0000\n"
-"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"PO-Revision-Date: 2021-12-10 20:33+0000\n"
+"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja_JP/>\n"
 "Language: ja_JP\n"
@@ -154,7 +155,7 @@ msgid "submissions.noSubmissions"
 msgstr "投稿物はありません"
 
 msgid "submissions.incomplete"
-msgstr "投稿未了"
+msgstr "不完全"
 
 msgid "submissions.declined"
 msgstr "辞退"
@@ -485,7 +486,7 @@ msgid "submission.event.reviewer.reviewReinitiated"
 msgstr "査読依頼が再開された"
 
 msgid "submission.event.reviewer.reviewRecommendation"
-msgstr "査読審査結果ファイル"
+msgstr "査読結果ファイル"
 
 msgid "submission.event.reviewer.reviewInitiated"
 msgstr "査読依頼が開始された"
@@ -868,7 +869,7 @@ msgid "submission.submit.uploadStep"
 msgstr "1. ファイルアップロード"
 
 msgid "submission.status.published"
-msgstr "出版済"
+msgstr "公開済"
 
 msgid "submission.status.declined"
 msgstr "辞退"
@@ -1151,7 +1152,7 @@ msgid "submission.submit.whatNext.return"
 msgstr "ダッシュボードに戻る"
 
 msgid "submission.submit.whatNext.create"
-msgstr "新投稿を作成する"
+msgstr "新規投稿を作成する"
 
 msgid "submission.submit.whatNext.review"
 msgstr "この投稿を確認する"
@@ -1439,10 +1440,10 @@ msgid "submission.queries.submission"
 msgstr "査読前のディスカッション"
 
 msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr "編集者からの推薦が提出されました。"
+msgstr "編集者からの査読結果が提出されました。"
 
 msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr "編集者の推薦待ちです。"
+msgstr "編集者の査読結果待ちです。"
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "期限切れの査読があります。"
@@ -1457,10 +1458,10 @@ msgid "editor.submission.roundStatus.pendingReviews"
 msgstr "査読者の応答待ちです。"
 
 msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr "査読者が割り当てられる待ちです。"
+msgstr "査読者の割り当て待ちです。"
 
 msgid "editor.submission.roundStatus.declined"
-msgstr "投稿が謝絶されました。"
+msgstr "投稿は辞退されました。"
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "投稿が採用されました。"
@@ -1719,7 +1720,7 @@ msgid "submission.review.status.responseOverdue"
 msgstr "査読者が回答期限を過ぎている。"
 
 msgid "submission.review.status.declined"
-msgstr "査読者が査読を謝絶した。"
+msgstr "査読者が査読を辞退した。"
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "査読者の応答待ちです。"
@@ -1767,10 +1768,10 @@ msgid "notification.uploadedResponse"
 msgstr "応答がアップロードされました。"
 
 msgid "notification.type.editorDecisionRevertDecline"
-msgstr "謝絶された投稿が復元されました。"
+msgstr "辞退された投稿が復元されました。"
 
 msgid "notification.type.editorDecisionDecline"
-msgstr "投稿が謝絶されました。"
+msgstr "投稿は辞退されました。"
 
 msgid "notification.type.editorDecisionNewRound"
 msgstr "新しい査読ラウンドが開始されました。"
@@ -1881,25 +1882,25 @@ msgid "editor.submission.decision.nextButton"
 msgstr "次：{$stageName}のためのファイルの選択"
 
 msgid "editor.submission.recordedRecommendations"
-msgstr "推薦記録"
+msgstr "保存された査読結果"
 
 msgid "editor.submission.recommendation.description"
 msgstr "この投稿の編集上の決定を推奨する。"
 
 msgid "editor.submission.recommendation"
-msgstr "推薦"
+msgstr "査読結果"
 
 msgid "editor.submission.allRecommendations.display"
-msgstr "推薦: {$recommendation}"
+msgstr "査読結果: {$recommendation}"
 
 msgid "editor.submission.recommendation.display"
-msgstr "推薦: {$recommendation}"
+msgstr "査読結果: {$recommendation}"
 
 msgid "editor.submission.changeRecommendation"
-msgstr "推薦の編集"
+msgstr "査読結果の編集"
 
 msgid "editor.submission.makeRecommendation"
-msgstr "推薦の提出"
+msgstr "査読結果の提出"
 
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "編集者を割り当てて、この段階の編集上の決定を可能にします。"
@@ -1911,7 +1912,7 @@ msgid "editor.submission.decision.approveProofsDescription"
 msgstr "校正ファイルを使用可能にするには、承認済みにする必要があります。 承認しますか。"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
-msgstr "この校正は、ダウンロードまたは購入のために公開されなくなります。 承認を却下しますか。"
+msgstr "この校正ファイルは、今後、一般にダウンロードや購入ができなくなります。非承認にしますか？"
 
 msgid "editor.submission.decision.approveProofs"
 msgstr "校正承認"
@@ -1994,4 +1995,7 @@ msgid "editor.submission.stageParticipants"
 msgstr "参加者"
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr "全ての編集者推薦が提出され、決定が必要です。"
+msgstr "全ての編集者の査読結果の提出と、最終決定が必要です。"
+
+msgid "category.category"
+msgstr "カテゴリー"

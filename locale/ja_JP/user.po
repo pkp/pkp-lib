@@ -1,7 +1,8 @@
+# TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-03 20:34+0000\n"
-"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"PO-Revision-Date: 2021-12-12 14:15+0000\n"
+"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ja_JP/>\n"
 "Language: ja_JP\n"
@@ -135,7 +136,7 @@ msgstr "アカウント情報"
 
 msgid "user.privacyLink"
 msgstr ""
-"本雑誌の<a href=\"{$privacyUrl}\" target=\"_blank\">個人情報保護方針</a>に従ってデータを保存します。"
+"本誌の<a href=\"{$privacyUrl}\" target=\"_blank\">個人情報保護方針</a>に従ってデータを保存します。"
 
 msgid "user.apiKey.secretRequired"
 msgstr "APIキーを発行する前に、サイト管理者は設定ファイル（ \"api_key_secret\" ）にシークレットを設定する必要があります。"
@@ -251,7 +252,7 @@ msgid "user.role.assistant"
 msgstr "雑誌アシスタント"
 
 msgid "user.register.registrationCompleted"
-msgstr "登録が完了です。<a href=\"{$profileUrl}\">プロファイル情報</a>を完成してください。"
+msgstr "登録が完了です。<a href=\"{$profileUrl}\">プロフィール情報</a>を完成させてください。"
 
 msgid "user.register.usernameRestriction"
 msgstr "ユーザー名に使えるのは、英小文字と数字、ハイフンとアンダーバーだけです。"
@@ -289,7 +290,7 @@ msgstr "雑誌の最新号についてのお知らせを受けたいです。"
 
 msgid "user.register.form.privacyConsent"
 msgstr ""
-"本雑誌の<a href=\"{$privacyUrl}\" target=\"_blank\""
+"本誌の<a href=\"{$privacyUrl}\" target=\"_blank\""
 ">個人情報保護方針</a>に従ってデータを収集し保存することに同意します。"
 
 msgid "user.login.resetPasswordInstructions"
@@ -302,7 +303,7 @@ msgid "user.profile.repeatNewPassword"
 msgstr "新パスワードの確認"
 
 msgid "user.profile.publicProfile"
-msgstr "ユーザープロファイル"
+msgstr "ユーザープロフィール"
 
 msgid "user.profile"
 msgstr "ユーザー情報"
@@ -332,7 +333,7 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "最新号出版のメール通知"
 
 msgid "user.profile.form.profileImage"
-msgstr "プロファイル画像"
+msgstr "プロフィール画像"
 
 msgid "user.profile.form.passwordSameAsOld"
 msgstr "新パスワードは前のパスワードと同じです。"

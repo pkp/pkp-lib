@@ -1,7 +1,8 @@
+# TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-25 08:29+0000\n"
-"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"PO-Revision-Date: 2021-12-10 15:20+0000\n"
+"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ja_JP/>\n"
 "Language: ja_JP\n"
@@ -303,7 +304,7 @@ msgstr ""
 "す。"
 
 msgid "admin.confirmClearTemplateCache"
-msgstr "コンパイル済テンプレートのキャッシュをクリアしてもよいですか。"
+msgstr "コンパイル済テンプレートのキャッシュをクリアしてもよいですか？"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""

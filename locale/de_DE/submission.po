@@ -1,11 +1,12 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-07-14 11:03+0000\n"
-"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
+"PO-Revision-Date: 2021-12-08 09:39+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/de_DE/>\n"
 "Language: de_DE\n"
@@ -2007,3 +2008,6 @@ msgid "submission.upload.instructions"
 msgstr ""
 "Laden Sie hier alle Dateien hoch, die die Redaktion zur Bewertung Ihrer "
 "Einreichung benötigt."
+
+msgid "category.category"
+msgstr "Kategorien"

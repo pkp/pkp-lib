@@ -1,9 +1,10 @@
+# Niels Erik Frederiksen <nef@kb.dk>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2020-12-09 09:51+0000\n"
+"PO-Revision-Date: 2021-12-03 08:46+0000\n"
 "Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
@@ -2003,3 +2004,6 @@ msgstr "Afvist indsendelse genaktiveret."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Omgør afvisning"
+
+msgid "category.category"
+msgstr "Kategorier"

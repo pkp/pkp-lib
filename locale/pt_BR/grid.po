@@ -1,9 +1,10 @@
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2020-06-07 13:56+0000\n"
+"PO-Revision-Date: 2021-12-22 12:24+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/grid/pt_BR/>\n"
@@ -686,3 +687,37 @@ msgstr "Remover este grupo de usuários"
 
 msgid "grid.action.uninstall"
 msgstr "Desinstalar"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Completo"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Listas de Publicação"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Abreviado"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Exibição"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Formato"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Os colaboradores desta publicação serão identificados neste periódico nos "
+"seguintes formatos."
+
+msgid "contributor.listPanel.preview"
+msgstr "Pré-visualizar"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Definir contato principal"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Tem certeza que deseja remover {$name} como um colaborador? Essa ação não "
+"pode ser desfeita."
+
+msgid "grid.action.saveOrdering"
+msgstr "Salvar Ordem"

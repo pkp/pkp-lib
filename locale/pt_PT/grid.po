@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2021-06-29 04:03+0000\n"
+"PO-Revision-Date: 2021-12-22 12:24+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/grid/pt_PT/>\n"
@@ -676,3 +676,37 @@ msgstr "Ver/Selecionar utilizadores"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Remover este grupo de utilizadores"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Completo"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Listas de Publicação"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Abreviado"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Exibir"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Formato"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Os contribuidores desta publicação serão indentificados nesta revista nos "
+"seguintes formatos."
+
+msgid "contributor.listPanel.preview"
+msgstr "Pré-visualizar"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Definir como Contacto Principal"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Deseja realmente eliminar {$name} como contribuidor? Esta ação não pode ser "
+"desfeita."
+
+msgid "grid.action.saveOrdering"
+msgstr "Guardar Ordem"

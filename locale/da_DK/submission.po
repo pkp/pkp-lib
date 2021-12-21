@@ -1,11 +1,12 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2021-12-03 08:46+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"PO-Revision-Date: 2021-12-21 08:58+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
 "Language: da_DK\n"
@@ -1044,7 +1045,9 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Primær kontaktperson for redaktionel korrespondance."
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Tilføj denne bidragyder til oversigtslisten?"
+msgstr ""
+"Tilføj denne bidragyder når forfattere identificeres i lister over "
+"udgivelser."
 
 msgid "submission.upload.query"
 msgstr "Upload indlægsfil"
@@ -2007,3 +2010,6 @@ msgstr "Omgør afvisning"
 
 msgid "category.category"
 msgstr "Kategorier"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Lister over udgivelser"

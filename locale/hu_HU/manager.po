@@ -2450,10 +2450,10 @@ msgstr ""
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "A kézirat URL-címe a szerkesztői rendszerben"
 
-msgid "emailTemplate.variable.submission.authorsFull"
+msgid "emailTemplate.variable.submission.authors"
 msgstr "Szerzők teljes neve"
 
-msgid "emailTemplate.variable.submission.authors"
+msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Szerzői nevek rövidített karakterlánc formájában"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"

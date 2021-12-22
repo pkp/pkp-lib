@@ -25,8 +25,8 @@ class SubmissionEmailVariable extends Variable
     public const SUBMISSION_TITLE = 'submissionTitle';
     public const SUBMISSION_ID = 'submissionId';
     public const SUBMISSION_ABSTRACT = 'submissionAbstract';
+    public const AUTHORS_SHORT = 'authorsShort';
     public const AUTHORS = 'authors';
-    public const AUTHORS_FULL = 'authorsFull';
     public const SUBMISSION_URL = 'submissionUrl';
 
     protected Submission $submission;
@@ -51,8 +51,8 @@ class SubmissionEmailVariable extends Variable
             self::SUBMISSION_TITLE => __('emailTemplate.variable.submission.submissionTitle'),
             self::SUBMISSION_ID => __('emailTemplate.variable.submission.submissionId'),
             self::SUBMISSION_ABSTRACT => __('emailTemplate.variable.submission.submissionAbstract'),
+            self::AUTHORS_SHORT => __('emailTemplate.variable.submission.authorsShort'),
             self::AUTHORS => __('emailTemplate.variable.submission.authors'),
-            self::AUTHORS_FULL => __('emailTemplate.variable.submission.authorsFull'),
             self::SUBMISSION_URL => __('emailTemplate.variable.submission.submissionUrl'),
         ];
     }
@@ -67,8 +67,8 @@ class SubmissionEmailVariable extends Variable
             self::SUBMISSION_TITLE => $this->currentPublication->getLocalizedFullTitle($locale),
             self::SUBMISSION_ID => $this->submission->getId(),
             self::SUBMISSION_ABSTRACT => $this->currentPublication->getLocalizedData('abstract', $locale),
-            self::AUTHORS => $this->currentPublication->getShortAuthorString($locale),
-            self::AUTHORS_FULL => $this->getAuthorsFull($locale),
+            self::AUTHORS_SHORT => $this->currentPublication->getShortAuthorString($locale),
+            self::AUTHORS => $this->getAuthorsFull($locale),
             self::SUBMISSION_URL => $this->getSubmissionUrl(),
         ];
     }

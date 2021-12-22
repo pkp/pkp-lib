@@ -74,8 +74,8 @@ abstract class ReviewerNotifyActionForm extends Form
             $user = $request->getUser();
 
             $template->assignParams([
-                'reviewerName' => $reviewer->getFullName(),
-                'signatureFullName' => $user->getFullname(),
+                'recipientName' => $reviewer->getFullName(),
+                'senderName' => $user->getFullname(),
             ]);
             $template->replaceParams();
 

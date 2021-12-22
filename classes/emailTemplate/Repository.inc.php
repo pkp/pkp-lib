@@ -13,6 +13,7 @@
 
 namespace PKP\emailTemplate;
 
+use APP\emailTemplate\DAO;
 use APP\i18n\AppLocale;
 use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;

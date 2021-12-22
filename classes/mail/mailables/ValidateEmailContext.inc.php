@@ -25,7 +25,7 @@ class ValidateEmailContext extends Mailable
 {
     use Recipient;
 
-    public const EMAIL_KEY = 'USER_VALIDATE';
+    public const EMAIL_KEY = 'USER_VALIDATE_CONTEXT';
 
     protected static ?string $name = 'mailable.validateEmailContext.name';
 

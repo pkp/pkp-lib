@@ -241,10 +241,10 @@ class ReviewerForm extends Form
             $dispatcher = $request->getDispatcher();
             AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER); // reviewer.step1.requestBoilerplate
             $template->assignParams([
-                'contextUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
-                'editorialContactSignature' => $user->getContactSignature(),
-                'signatureFullName' => $user->getFullname(),
-                'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
+                'journalUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
+                'signature' => $user->getContactSignature(),
+                'senderName' => $user->getFullname(),
+                'passwordLostUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
                 'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
                 'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
             ]);
@@ -283,11 +283,11 @@ class ReviewerForm extends Form
 
         $templateMgr->assign('reviewForms', $reviewForms);
         $templateMgr->assign('emailVariables', [
-            'reviewerName' => __('user.name'),
+            'recipientName' => __('user.name'),
             'responseDueDate' => __('reviewer.submission.responseDueDate'),
             'reviewDueDate' => __('reviewer.submission.reviewDueDate'),
-            'submissionReviewUrl' => __('common.url'),
-            'reviewerUserName' => __('user.username'),
+            'reviewAssignmentUrl' => __('common.url'),
+            'recipientUsername' => __('user.username'),
         ]);
         // Allow the default template
         $templateKeys[] = $this->_getMailTemplateKey($request->getContext());

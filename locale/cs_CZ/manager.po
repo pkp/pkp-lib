@@ -2252,10 +2252,10 @@ msgstr "Id: {$id}"
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "URL adresa příspěvku v redakčním backendu"
 
-msgid "emailTemplate.variable.submission.authorsFull"
+msgid "emailTemplate.variable.submission.authors"
 msgstr "Plná jména autorů"
 
-msgid "emailTemplate.variable.submission.authors"
+msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Jména autorů ve zkrácené formě"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"

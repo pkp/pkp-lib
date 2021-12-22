@@ -2125,10 +2125,10 @@ msgstr "الإشعارات"
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "الرابط المؤدي إلى طلب التقديم من وجهة هيئة التحرير"
 
-msgid "emailTemplate.variable.submission.authorsFull"
+msgid "emailTemplate.variable.submission.authors"
 msgstr "الأسماء الكاملة للمؤلفين"
 
-msgid "emailTemplate.variable.submission.authors"
+msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "أسماء المؤلفين بصيغة جملة مختصرة"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"

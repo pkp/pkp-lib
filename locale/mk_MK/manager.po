@@ -2464,10 +2464,10 @@ msgstr "ИД: {$id}"
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "УРЛ од поднесокот во уредничкиот приод"
 
-msgid "emailTemplate.variable.submission.authorsFull"
+msgid "emailTemplate.variable.submission.authors"
 msgstr "Целосно име на авторите"
 
-msgid "emailTemplate.variable.submission.authors"
+msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Имиња на авторите во облик на скратен наслов"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"

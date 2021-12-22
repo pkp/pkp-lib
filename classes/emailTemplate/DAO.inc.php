@@ -334,8 +334,8 @@ class DAO extends EntityDAO
                         DB::table('email_templates_default_data')->insert([
                             'email_key' => $attrs['key'],
                             'locale' => $locale,
-                            'subject' => $translatedSubject,
-                            'body' => $translatedBody,
+                            'subject' => $this->renameApplicationVariables($translatedSubject),
+                            'body' => $this->renameApplicationVariables($translatedBody),
                             'description' => __($description, [], $locale),
                         ]);
                     }
@@ -398,5 +398,36 @@ class DAO extends EntityDAO
             ]);
         }
         return true;
+    }
+
+    /**
+     * @param string $localizedData email template's localized subject or body
+     * @return string
+     */
+    protected function renameApplicationVariables(string $localizedData): string
+    {
+        $map = $this->variablesToRename();
+        if (empty($map)) {
+            return $localizedData;
+        }
+
+        $variables = [];
+        $replacements = [];
+        foreach ($map as $key => $value) {
+            $variables[] = '/\{\$' . $key . '\}/';
+            $replacements[] = '{$' . $value . '}';
+        }
+
+        return preg_replace($variables, $replacements, $localizedData);
+    }
+
+    /**
+     * Override this function on an application level to rename app-specific template variables
+     *
+     * Example: ['contextName' => 'journalName']
+     */
+    protected function variablesToRename(): array
+    {
+        return [];
     }
 }

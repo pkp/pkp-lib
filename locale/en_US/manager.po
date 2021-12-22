@@ -2121,6 +2121,9 @@ msgstr "The email signature of the sender"
 msgid "emailTemplate.variable.site.siteContactName"
 msgstr "The full name of the website's primary contact"
 
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "The email of the website's primary contact"
+
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr "The editors assigned to this submission who can make a decision"
 
@@ -2133,10 +2136,10 @@ msgstr "The submission's unique ID number"
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "The submission's abstract"
 
-msgid "emailTemplate.variable.submission.authors"
+msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Author names in a form of a shortened string"
 
-msgid "emailTemplate.variable.submission.authorsFull"
+msgid "emailTemplate.variable.submission.authors"
 msgstr "The full names of the authors"
 
 msgid "emailTemplate.variable.submission.submissionUrl"

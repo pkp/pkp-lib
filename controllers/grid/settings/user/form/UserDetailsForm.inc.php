@@ -352,7 +352,7 @@ class UserDetailsForm extends UserForm
                 // Send welcome email to user
                 $mail = new MailTemplate('USER_REGISTER');
                 $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
-                $mail->assignParams(['username' => $this->getData('username'), 'password' => $password, 'userFullName' => $this->user->getFullName()]);
+                $mail->assignParams(['recipientUsername' => $this->getData('username'), 'password' => $password, 'recipientName' => $this->user->getFullName()]);
                 $mail->addRecipient($this->user->getEmail(), $this->user->getFullName());
                 if (!$mail->send()) {
                     $notificationMgr = new NotificationManager();

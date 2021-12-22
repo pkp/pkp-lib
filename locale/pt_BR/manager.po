@@ -2262,10 +2262,10 @@ msgstr "Notificações"
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "Link para a submissão no sistema editorial"
 
-msgid "emailTemplate.variable.submission.authorsFull"
+msgid "emailTemplate.variable.submission.authors"
 msgstr "Nomes completos dos autores"
 
-msgid "emailTemplate.variable.submission.authors"
+msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Nomes dos autores na forma encurtada"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"

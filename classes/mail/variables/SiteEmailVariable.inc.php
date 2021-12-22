@@ -21,6 +21,7 @@ class SiteEmailVariable extends Variable
 {
     const SITE_TITLE = 'siteTitle';
     const SITE_CONTACT = 'siteContactName';
+    const SITE_EMAIL = 'siteContactEmail';
 
     protected Site $site;
 
@@ -38,6 +39,7 @@ class SiteEmailVariable extends Variable
         [
             self::SITE_TITLE => __('emailTemplate.variable.site.siteTitle'),
             self::SITE_CONTACT => __('emailTemplate.variable.site.siteContactName'),
+            self::SITE_EMAIL => __('emailTemplate.variable.site.siteContactEmail'),
         ];
     }
 
@@ -50,6 +52,7 @@ class SiteEmailVariable extends Variable
        [
            self::SITE_TITLE => $this->site->getLocalizedData('title', $locale),
            self::SITE_CONTACT => $this->site->getLocalizedData('contactName', $locale),
+           self::SITE_EMAIL => $this->site->getData('contactEmail'),
        ];
     }
 }

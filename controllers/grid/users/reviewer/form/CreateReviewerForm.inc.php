@@ -150,7 +150,7 @@ class CreateReviewerForm extends ReviewerForm
                 $request = Application::get()->getRequest();
                 $context = $request->getContext();
                 $mail->setReplyTo($context->getData('contactEmail'), $context->getData('contactName'));
-                $mail->assignParams(['username' => $this->getData('username'), 'password' => $password, 'userFullName' => $user->getFullName()]);
+                $mail->assignParams(['recipientUsername' => $this->getData('username'), 'password' => $password, 'recipientName' => $user->getFullName()]);
                 $mail->addRecipient($user->getEmail(), $user->getFullName());
                 if (!$mail->send($request)) {
                     $notificationMgr = new NotificationManager();

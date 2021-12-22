@@ -90,12 +90,12 @@ class ReviewReminderForm extends Form
 
         $dispatcher = $request->getDispatcher();
         $paramArray = [
-            'reviewerName' => $reviewer->getFullName(),
+            'recipientName' => $reviewer->getFullName(),
             'reviewDueDate' => $reviewDueDate,
-            'editorialContactSignature' => $user->getContactSignature(),
-            'reviewerUserName' => $reviewer->getUsername(),
+            'signature' => $user->getContactSignature(),
+            'recipientUsername' => $reviewer->getUsername(),
             'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-            'submissionReviewUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, ['submissionId' => $reviewAssignment->getSubmissionId()])
+            'reviewAssignmentUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, ['submissionId' => $reviewAssignment->getSubmissionId()])
         ];
         $email->assignParams($paramArray);
 
@@ -120,13 +120,13 @@ class ReviewReminderForm extends Form
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('emailVariables', [
-            'reviewerName' => __('user.name'),
+            'recipientName' => __('user.name'),
             'reviewDueDate' => __('reviewer.submission.reviewDueDate'),
-            'submissionReviewUrl' => __('common.url'),
+            'reviewAssignmentUrl' => __('common.url'),
             'submissionTitle' => __('submission.title'),
             'passwordResetUrl' => __('common.url'),
-            'contextName' => $context->getLocalizedName(),
-            'editorialContactSignature' => $user->getContactSignature(),
+            'journalName' => $context->getLocalizedName(),
+            'signature' => $user->getContactSignature(),
         ]);
         return parent::fetch($request, $template, $display);
     }
@@ -174,11 +174,11 @@ class ReviewReminderForm extends Form
         $email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
         $email->setBody($this->getData('message'));
         $email->assignParams([
-            'reviewerName' => $reviewer->getFullName(),
+            'recipientName' => $reviewer->getFullName(),
             'reviewDueDate' => $reviewDueDate,
             'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-            'submissionReviewUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs),
-            'editorialContactSignature' => $user->getContactSignature(),
+            'reviewAssignmentUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, $reviewUrlArgs),
+            'signature' => $user->getContactSignature(),
         ]);
         if (!$email->send($request)) {
             $notificationMgr = new NotificationManager();

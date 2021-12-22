@@ -20,8 +20,8 @@ use PKP\user\User;
 
 class RecipientEmailVariable extends Variable
 {
-    const RECIPIENT_FULL_NAME = 'userFullName';
-    const RECIPIENT_USERNAME = 'username';
+    const RECIPIENT_FULL_NAME = 'recipientName';
+    const RECIPIENT_USERNAME = 'recipientUsername';
 
     protected array $recipients;
 

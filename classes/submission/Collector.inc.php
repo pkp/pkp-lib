@@ -25,6 +25,7 @@ use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
+use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 
 abstract class Collector implements CollectorInterface
@@ -296,26 +297,30 @@ abstract class Collector implements CollectorInterface
             $q->whereIn('s.submission_id', function ($q) {
                 $q->select('sa.submission_id')
                     ->from('stage_assignments as sa')
-                    ->whereIn('sa.user_id', $this->assignedTo);
-
-                $q->leftJoin('review_assignments as ra', function ($table) {
-                    $table->on('sa.submission_id', '=', 'ra.submission_id');
-                    $table->on('ra.declined', '=', DB::raw((int) 0));
-                    $table->on('ra.cancelled', '=', DB::raw((int) 0));
-                    $table->whereIn('ra.reviewer_id', $this->assignedTo);
-                });
-
-                $q->where(function ($q) {
-                    $q->whereNotNull('sa.stage_assignment_id');
-                    $q->orWhereNotNull('ra.review_id');
-                });
+                    ->leftJoin('review_assignments as ra', 'sa.submission_id', '=', 'ra.submission_id')
+                    ->where(function (Builder $q) {
+                        $q->where('ra.declined', '=', 0)
+                            ->orWhereNull('ra.declined');
+                    })
+                    ->where(function (Builder $q) {
+                        $q->where('ra.cancelled', '=', 0)
+                            ->orWhereNull('ra.cancelled');
+                    })
+                    ->where(function (Builder $q) {
+                        $q->whereIn('sa.user_id', $this->assignedTo)
+                            ->orWhereIn('ra.reviewer_id', $this->assignedTo);
+                    })
+                    ->where(function (Builder $q) {
+                        $q->whereNotNull('sa.stage_assignment_id')
+                            ->orWhereNotNull('ra.review_id');
+                    });
             });
         } elseif ($this->assignedTo === -1) {
             $sub = DB::table('stage_assignments')
                 ->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
                 ->leftJoin('user_groups', 'stage_assignments.user_group_id', '=', 'user_groups.user_group_id')
                 ->where('stage_assignments.submission_id', '=', DB::raw('s.submission_id'))
-                ->whereIn('user_groups.role_id', [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]);
+                ->whereIn('user_groups.role_id', [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
 
             $q->whereNotNull('s.date_submitted')
                 ->mergeBindings($sub)
@@ -349,9 +354,6 @@ abstract class Collector implements CollectorInterface
                         $query->orWhere('s.submission_id', '=', $word);
                     }
                 });
-            }
-            if ($isAssignedOnly) {
-                $q->whereNull('ra.reviewer_id');
             }
         }
 

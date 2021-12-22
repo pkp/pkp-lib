@@ -1,8 +1,9 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-10 20:33+0000\n"
-"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
+"PO-Revision-Date: 2021-12-22 12:24+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja_JP/>\n"
 "Language: ja_JP\n"
@@ -92,7 +93,7 @@ msgid "submission.submit.newFile"
 msgstr "他のファイルを追加"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "この寄稿者をリストで表示しますか。"
+msgstr "この寄稿者を出版物のリストで表示しますか。"
 
 msgid "submission.submit.fileAdded"
 msgstr "ファイルが追加されました"
@@ -1999,3 +2000,6 @@ msgstr "全ての編集者の査読結果の提出と、最終決定が必要で
 
 msgid "category.category"
 msgstr "カテゴリー"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "出版リスト"

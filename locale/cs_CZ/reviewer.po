@@ -1,10 +1,11 @@
+# Michal Jelínek <jelinek@synetix.cz>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-03-12 19:38+0000\n"
-"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"PO-Revision-Date: 2021-12-22 10:00+0000\n"
+"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "cs_CZ/>\n"
 "Language: cs_CZ\n"
@@ -39,7 +40,7 @@ msgid "reviewer.submission.reviewerFiles"
 msgstr "Soubory recenzenta"
 
 msgid "reviewer.submission.declineReview"
-msgstr "Odmítnout požadavek na recenzi¨"
+msgstr "Odmítnout požadavek na recenzi"
 
 msgid "reviewer.submission.declineReviewMessage"
 msgstr "V následujícím poli můžete uvést důvody odmítnutí recenze."

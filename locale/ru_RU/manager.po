@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2021-09-23 12:50+0000\n"
+"PO-Revision-Date: 2021-12-26 09:24+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru_RU/>\n"
@@ -2190,3 +2190,43 @@ msgstr "ФИО получателя или всех получателей"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL страницы, где пользователь может восстановить потерянный пароль"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Это письмо автоматически отправляется новому пользователю, когда он "
+"регистрируется на сайте, настройки которого требуют подтверждения адреса "
+"электронной почты."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Проверка адреса почты (сайт)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Это письмо отправляется, когда редактор отменяет назначение рецензента."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Назначение рецензентом отменено"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Это письмо отправляется, когда снятый с назначения рецензент снова "
+"назначается редактором."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Рецензент назначен заново"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Это письмо отправляется, когда рецензенту назначают материал."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Назначен рецензент"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Это письмо автоматически отправляется участникам обсуждения, когда в "
+"обсуждение добавляется новое сообщение."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Новое сообщение в обсуждении"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Адрес электронной почты основного контактного лица сайта"

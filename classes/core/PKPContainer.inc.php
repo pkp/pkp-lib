@@ -27,8 +27,10 @@ use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\Domains\Jobs\Providers\JobServiceProvider;
+use PKP\file\PrivateFileManager;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\Support\ProxyParser;
 
@@ -37,10 +39,14 @@ use Throwable;
 class PKPContainer extends Container
 {
     /**
-     * @var string
-     * @brief the base path of the application, needed for base_path helper
+     * @brief The base path of the application, needed for base_path helper
      */
-    protected $basePath;
+    protected string $basePath;
+
+    /**
+     * @brief The base storage path of the application, might be used internally by Laravel
+     */
+    protected string $storagePath;
 
     /**
      * @brief Create own container instance, initialize bindings
@@ -102,6 +108,7 @@ class PKPContainer extends Container
             }
         );
 
+        $this->useStoragePath((new PrivateFileManager())->getBasePath());
         Facade::setFacadeApplication($this);
     }
 
@@ -179,12 +186,7 @@ class PKPContainer extends Container
         $items = [];
 
         // Database connection
-        $driver = 'mysql';
-
-        if (substr(strtolower(Config::getVar('database', 'driver')), 0, 8) === 'postgres') {
-            $driver = 'pgsql';
-        }
-
+        $driver = stripos(Config::getVar('database', 'driver'), 'postgres') === 0 ? 'pgsql' : 'mysql';
         $items['database']['default'] = $driver;
         $items['database']['connections'][$driver] = [
             'driver' => $driver,
@@ -215,6 +217,7 @@ class PKPContainer extends Container
         ];
 
         // Logging
+        $items['logging']['default'] = 'errorlog';
         $items['logging']['channels']['errorlog'] = [
             'driver' => 'errorlog',
             'level' => 'debug',
@@ -343,6 +346,24 @@ class PKPContainer extends Container
     public function runningUnitTests()
     {
         return false;
+    }
+
+    /**
+     * Set the storage directory.
+     */
+    public function useStoragePath(string $path): static
+    {
+        $this->storagePath = $path;
+        $this->instance('path.storage', $path);
+        return $this;
+    }
+
+    /**
+     * Get the path to the storage directory.
+     */
+    public function storagePath($path = ''): string
+    {
+        return ($this->storagePath ?: (new PrivateFileManager())->getBasePath()) . ($path != '' ? "/$path" : '');
     }
 }
 

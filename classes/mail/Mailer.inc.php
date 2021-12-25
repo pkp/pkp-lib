@@ -27,16 +27,11 @@ use PKP\core\PKPApplication;
 use PKP\observers\events\MessageSendingContext;
 use PKP\observers\events\MessageSendingSite;
 use PKP\plugins\HookRegistry;
-use Swift_Mailer;
-use Swift_Message;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\Mailer\Transport\TransportInterface;
 
 class Mailer extends IlluminateMailer
 {
-    const OPEN_TAG = '{';
-    const CLOSING_TAG = '}';
-    const DOLLAR_SIGN_TAG = '$';
-
     /**
      * Don't bind Laravel View Service, as it's not implemented
      * @var null
@@ -47,10 +42,10 @@ class Mailer extends IlluminateMailer
      * Creates new Mailer instance without binding with View
      * @copydoc \Illuminate\Mail\Mailer::__construct()
      */
-    public function __construct(string $name, Swift_Mailer $swift, Dispatcher $events = null)
+    public function __construct(string $name, TransportInterface $transport, Dispatcher $events = null)
     {
         $this->name = $name;
-        $this->swift = $swift;
+        $this->transport = $transport;
         $this->events = $events;
     }
 
@@ -112,7 +107,7 @@ class Mailer extends IlluminateMailer
 
     /**
      * Overrides Illuminate Mailer method to provide additional parameters to the event
-     * @param Swift_Message $message
+     * @param \Symfony\Component\Mime\Email  $message
      * @param array $data
      * @return bool
      */

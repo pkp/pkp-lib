@@ -57,7 +57,7 @@ class MailServiceProvider extends IlluminateMailService
                     // Override Illuminate mailer construction to remove unsupported view
                     $mailer = new Mailer(
                         $name,
-                        $this->createSwiftMailer($config),
+                        $this->createSymfonyTransport($config),
                         $this->app['events']
                     );
 

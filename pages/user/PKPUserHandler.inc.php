@@ -14,10 +14,11 @@
  */
 
 use APP\handler\Handler;
-
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
+use PKP\config\Config;
 use PKP\core\JSONMessage;
-
+use PKP\security\Validation;
 use PKP\user\InterestManager;
 
 class PKPUserHandler extends Handler
@@ -50,16 +51,26 @@ class PKPUserHandler extends Handler
             $session->setSessionVar('currentLocale', $setLocale);
         }
 
-        $source = $request->getUserVar('source');
-        if (preg_match('#^/\w#', $source) === 1) {
-            $request->redirectUrl($source);
+        if (!isset($_SERVER['HTTP_REFERER'])) {
+            $request->redirect(null, 'index');
+
+            return;
         }
 
-        if (isset($_SERVER['HTTP_REFERER'])) {
-            $request->redirectUrl($_SERVER['HTTP_REFERER']);
+        $baseUrlParsed = parse_url(Config::getVar('general', 'base_url'));
+        $refererParsed = parse_url($_SERVER['HTTP_REFERER']);
+
+        if (
+            !isset($baseUrlParsed['host']) ||
+            !isset($refererParsed['host']) ||
+            $baseUrlParsed['host'] !== $refererParsed['host']
+        ) {
+            $request->redirect(null, 'index');
+
+            return;
         }
 
-        $request->redirect(null, 'index');
+        $request->redirectUrl($_SERVER['HTTP_REFERER']);
     }
 
     /**

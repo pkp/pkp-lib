@@ -165,7 +165,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
 
                 case 'assignedTo':
                     $val = array_map('intval', $this->paramToArray($val));
-                    if ($val == [-1]) {
+                    if ($val == [\PKP\submission\Collector::UNASSIGNED]) {
                         $val = array_shift($val);
                     }
                     $collector->assignedTo($val);

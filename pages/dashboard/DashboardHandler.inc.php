@@ -135,7 +135,7 @@ class DashboardHandler extends Handler
                     'apiUrl' => $apiUrl,
                     'getParams' => [
                         'status' => PKPSubmission::STATUS_QUEUED,
-                        'assignedTo' => -1,
+                        'assignedTo' => \PKP\submission\Collector::UNASSIGNED,
                     ],
                     'lazyLoad' => true,
                     'includeIssuesFilter' => $includeIssuesFilter,

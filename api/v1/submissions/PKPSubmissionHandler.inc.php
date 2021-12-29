@@ -24,7 +24,6 @@ use APP\submission\Collector;
 use PKP\db\DAORegistry;
 
 use PKP\handler\APIHandler;
-use PKP\mail\mailables\MailDiscussionMessage;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -332,7 +331,7 @@ class PKPSubmissionHandler extends APIHandler
 
                 case 'assignedTo':
                     $val = array_map('intval', $this->paramToArray($val));
-                    if ($val == [-1]) {
+                    if ($val == [\PKP\submission\Collector::UNASSIGNED]) {
                         $val = array_shift($val);
                     }
                     $collector->assignedTo($val);
@@ -1233,7 +1232,7 @@ class PKPSubmissionHandler extends APIHandler
 
                 array_push($authors, $newAuthor);
             }
-            
+
             Repo::author()->setAuthorsOrder($publication->getId(), $authors);
         }
 

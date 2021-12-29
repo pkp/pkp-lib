@@ -38,6 +38,8 @@ abstract class Collector implements CollectorInterface
     public const ORDER_DIR_ASC = 'ASC';
     public const ORDER_DIR_DESC = 'DESC';
 
+    public const UNASSIGNED = -1;
+
     public DAO $dao;
     public ?array $categoryIds = null;
     public ?array $contextIds = null;
@@ -132,7 +134,7 @@ abstract class Collector implements CollectorInterface
      * Limit results to submissions assigned to these users
      *
      * @param int|array $assignedTo An array of user IDs
-     *  or -1 to get unassigned submissions
+     *  or self::UNASSIGNED to get unassigned submissions
      */
     public function assignedTo($assignedTo): AppCollector
     {
@@ -291,26 +293,25 @@ abstract class Collector implements CollectorInterface
             });
         }
 
-        $isAssignedOnly = is_array($this->assignedTo);
-        if ($isAssignedOnly) {
+        if (is_array($this->assignedTo)) {
             $q->whereIn('s.submission_id', function ($q) {
-                $q->select('sa.submission_id')
-                    ->from('stage_assignments as sa')
-                    ->whereIn('sa.user_id', $this->assignedTo);
+                $q->select('s.submission_id')
+                    ->from('submissions AS s')
+                    ->leftJoin('stage_assignments as sa', function ($q) {
+                      $q->on('s.submission_id', '=', 'sa.submission_id')
+                          ->whereIn('sa.user_id', $this->assignedTo);
+                  });
 
                 $q->leftJoin('review_assignments as ra', function ($table) {
-                    $table->on('sa.submission_id', '=', 'ra.submission_id');
-                    $table->on('ra.declined', '=', DB::raw((int) 0));
-                    $table->on('ra.cancelled', '=', DB::raw((int) 0));
+                    $table->on('s.submission_id', '=', 'ra.submission_id');
+                    $table->where('ra.declined', '=', (int) 0);
+                    $table->where('ra.cancelled', '=', (int) 0);
                     $table->whereIn('ra.reviewer_id', $this->assignedTo);
                 });
-
-                $q->where(function ($q) {
-                    $q->whereNotNull('sa.stage_assignment_id');
-                    $q->orWhereNotNull('ra.review_id');
-                });
+                $q->whereNotNull('sa.stage_assignment_id')
+                    ->orWhereNotNull('ra.review_id');
             });
-        } elseif ($this->assignedTo === -1) {
+        } elseif ($this->assignedTo === self::UNASSIGNED) {
             $sub = DB::table('stage_assignments')
                 ->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
                 ->leftJoin('user_groups', 'stage_assignments.user_group_id', '=', 'user_groups.user_group_id')
@@ -343,15 +344,18 @@ abstract class Collector implements CollectorInterface
                                 Identity::IDENTITY_SETTING_FAMILYNAME,
                                 'orcid'
                             ])
+                            // Don't permit reviewers to search on author names
+                            ->when(is_array($this->assignedTo), function ($q) {
+                                $q->leftJoin('review_assignments AS ra', 'ra.submission_id', '=', 'p.submission_id')
+                                    ->whereIn('ra.reviewer_id', $this->assignedTo)
+                                    ->whereNull('ra.reviewer_id');
+                            })
                             ->where(DB::raw('lower(aus.setting_value)'), 'LIKE', $likePattern)->addBinding($word);
                     });
                     if (ctype_digit((string) $word)) {
                         $query->orWhere('s.submission_id', '=', $word);
                     }
                 });
-            }
-            if ($isAssignedOnly) {
-                $q->whereNull('ra.reviewer_id');
             }
         }
 

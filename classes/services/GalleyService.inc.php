@@ -19,6 +19,7 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\services\queryBuilders\GalleyQueryBuilder;
 use APP\submission\Submission;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\HookRegistry;
@@ -125,33 +126,19 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
         foreach ($props as $prop) {
             switch ($prop) {
                 case 'urlPublished':
-                    if (is_a($galley, 'IssueGalley')) {
-                        $values[$prop] = $dispatcher->url(
-                            $request,
-                            \PKPApplication::ROUTE_PAGE,
-                            $context->getPath(),
-                            'issue',
-                            'view',
-                            [
-                                $galley->getIssueId(),
-                                $galley->getId()
-                            ]
-                        );
-                    } else {
-                        $values[$prop] = $dispatcher->url(
-                            $request,
-                            \PKPApplication::ROUTE_PAGE,
-                            $context->getPath(),
-                            'preprint',
-                            'view',
-                            [
-                                $submission->getBestId(),
-                                'version',
-                                $publication->getId(),
-                                $galley->getBestGalleyId(),
-                            ]
-                        );
-                    }
+                    $values[$prop] = $dispatcher->url(
+                        $request,
+                        PKPApplication::ROUTE_PAGE,
+                        $context->getPath(),
+                        'preprint',
+                        'view',
+                        [
+                            $submission->getBestId(),
+                            'version',
+                            $publication->getId(),
+                            $galley->getBestGalleyId(),
+                        ]
+                    );
                     break;
                 case 'file':
                     $values[$prop] = null;

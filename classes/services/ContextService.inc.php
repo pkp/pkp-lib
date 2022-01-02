@@ -51,8 +51,8 @@ class ContextService extends \PKP\services\PKPContextService
     /**
      * Take additional actions after a new context has been added
      *
-     * @param $hookName string
-     * @param $args array [
+     * @param string $hookName
+     * @param array $args [
      *		@option Server The new context
      *		@option Request
      * ]
@@ -80,8 +80,8 @@ class ContextService extends \PKP\services\PKPContextService
     /**
      * Update server-specific settings when a context is edited
      *
-     * @param $hookName string
-     * @param $args array [
+     * @param string $hookName
+     * @param array $args [
      *		@option Server The new context
      *		@option Server The current context
      *		@option array The params to edit
@@ -133,8 +133,8 @@ class ContextService extends \PKP\services\PKPContextService
      * in the database to complete the actions. Otherwise, use
      * ContextService::afterDeleteContext().
      *
-     * @param $hookName string
-     * @param $args array [
+     * @param string $hookName
+     * @param array $args [
      *      @option Context The new context
      *      @option Request
      * ]
@@ -151,8 +151,8 @@ class ContextService extends \PKP\services\PKPContextService
     /**
      * Take additional actions after a context has been deleted
      *
-     * @param $hookName string
-     * @param $args array [
+     * @param string $hookName
+     * @param array $args [
      *		@option Server The new context
      *		@option Request
      * ]
@@ -173,8 +173,8 @@ class ContextService extends \PKP\services\PKPContextService
     /**
      * Make additional validation checks
      *
-     * @param $hookName string
-     * @param $args array [
+     * @param string $hookName
+     * @param array $args [
      *		@option Server The new context
      *		@option Request
      * ]

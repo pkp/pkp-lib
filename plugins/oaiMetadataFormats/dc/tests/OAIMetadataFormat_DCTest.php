@@ -60,7 +60,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $serverId = 1;
 
         // Enable the DOI plugin.
-        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
+        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
         $pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enabled', 1);
         $pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enableIssueDoi', 1);
         $pluginSettingsDao->updateSetting($serverId, 'doipubidplugin', 'enablePublicationDoi', 1);
@@ -229,7 +229,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
     /**
      * Callback for server settings.
      *
-     * @param $settingName string
+     * @param string $settingName
      */
     public function getServerSetting($settingName)
     {

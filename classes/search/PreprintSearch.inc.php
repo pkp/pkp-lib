@@ -155,7 +155,7 @@ class PreprintSearch extends SubmissionSearch
     /**
      * Retrieve the search filters from the request.
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return array All search filters (empty and active)
      */
@@ -221,7 +221,7 @@ class PreprintSearch extends SubmissionSearch
     /**
      * Load the keywords array from a given search filter.
      *
-     * @param $searchFilters array Search filters as returned from
+     * @param array $searchFilters Search filters as returned from
      *  PreprintSearch::getSearchFilters()
      *
      * @return array Keyword array as required by SubmissionSearch::retrieveResults()
@@ -245,8 +245,8 @@ class PreprintSearch extends SubmissionSearch
     /**
      * See SubmissionSearch::formatResults()
      *
-     * @param $results array
-     * @param $user User optional (if availability information is desired)
+     * @param array $results
+     * @param User $user optional (if availability information is desired)
      *
      * @return array An array with the preprints, published submissions,
      * server, section.
@@ -254,7 +254,7 @@ class PreprintSearch extends SubmissionSearch
     public function formatResults($results, $user = null)
     {
         $contextDao = Application::getContextDAO();
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
 
         $publishedSubmissionCache = [];
         $preprintCache = [];
@@ -299,7 +299,7 @@ class PreprintSearch extends SubmissionSearch
     /**
      * Identify similarity terms for a given submission.
      *
-     * @param $submissionId integer
+     * @param int $submissionId
      *
      * @return null|array An array of string keywords or null
      * if some kind of error occurred.

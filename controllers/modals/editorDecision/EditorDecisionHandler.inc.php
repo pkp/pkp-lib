@@ -57,7 +57,7 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler
     /**
      * Get editor decision notification type and level by decision.
      *
-     * @param $decision int
+     * @param int $decision
      *
      * @return array
      */

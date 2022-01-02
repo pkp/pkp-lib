@@ -76,9 +76,9 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     /**
      * Delete keywords from the search index.
      *
-     * @param $preprintId int
-     * @param $type int optional
-     * @param $assocId int optional
+     * @param int $preprintId
+     * @param int $type optional
+     * @param int $assocId optional
      */
     public function deleteTextIndex($preprintId, $type = null, $assocId = null)
     {
@@ -92,9 +92,9 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * @see PreprintSearchIndex::submissionMetadataChanged() above for more
      * comments.
      *
-     * @param $preprintId int
-     * @param $type int
-     * @param $submissionFile SubmissionFile
+     * @param int $preprintId
+     * @param int $type
+     * @param SubmissionFile $submissionFile
      */
     public function submissionFileChanged($preprintId, $type, $submissionFile)
     {
@@ -124,7 +124,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     /**
      * Remove indexed file contents for a submission
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     public function clearSubmissionFiles($submission)
     {
@@ -139,7 +139,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * @see PreprintSearchIndex::submissionMetadataChanged() above for more
      * comments.
      *
-     * @param $preprint Preprint
+     * @param Preprint $preprint
      */
     public function submissionFilesChanged($preprint)
     {
@@ -185,9 +185,9 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * @see PreprintSearchIndex::submissionMetadataChanged() above for more
      * comments.
      *
-     * @param $preprintId int
-     * @param $type int optional
-     * @param $assocId int optional
+     * @param int $preprintId
+     * @param int $type optional
+     * @param int $assocId optional
      */
     public function submissionFileDeleted($preprintId, $type = null, $assocId = null)
     {
@@ -200,7 +200,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
         // If no search plug-in is activated then fall back to the
         // default database search implementation.
         if ($hookResult === false || is_null($hookResult)) {
-            $searchDao = DAORegistry::getDAO('PreprintSearchDAO'); /* @var $searchDao PreprintSearchDAO */
+            $searchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $searchDao */
             return $searchDao->deleteSubmissionKeywords($preprintId, $type, $assocId);
         }
     }
@@ -212,7 +212,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * @see PreprintSearchIndex::submissionMetadataChanged() above for more
      * comments.
      *
-     * @param $preprintId integer
+     * @param int $preprintId
      */
     public function preprintDeleted($preprintId)
     {
@@ -256,14 +256,14 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     /**
      * Rebuild the search index for one or all servers.
      *
-     * @param $log boolean Whether to display status information
+     * @param bool $log Whether to display status information
      *  to stdout.
-     * @param $server Server If given the user wishes to
+     * @param Server $server If given the user wishes to
      *  re-index only one server. Not all search implementations
      *  may be able to do so. Most notably: The default SQL
      *  implementation does not support server-specific re-indexing
      *  as index data is not partitioned by server.
-     * @param $switches array Optional index administration switches.
+     * @param array $switches Optional index administration switches.
      */
     public function rebuildIndex($log = false, $server = null, $switches = [])
     {
@@ -295,7 +295,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
             }
 
             // Build index
-            $serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
 
             $servers = $serverDao->getAll();
             while ($server = $servers->next()) {
@@ -333,8 +333,8 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     /**
      * Index a block of text for an object.
      *
-     * @param $objectId int
-     * @param $text string|array
+     * @param int $objectId
+     * @param string|array $text
      */
     protected function _indexObjectKeywords($objectId, $text)
     {
@@ -346,10 +346,10 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     /**
      * Add a block of text to the search index.
      *
-     * @param $preprintId int
-     * @param $type int
-     * @param $text string
-     * @param $assocId int optional
+     * @param int $preprintId
+     * @param int $type
+     * @param string $text
+     * @param int $assocId optional
      */
     protected function _updateTextIndex($preprintId, $type, $text, $assocId = null)
     {
@@ -361,7 +361,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     /**
      * Flattens array of localized fields to a single, non-associative array of items
      *
-     * @param $arrayWithLocales array Array of localized fields
+     * @param array $arrayWithLocales Array of localized fields
      *
      * @return array
      */

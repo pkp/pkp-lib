@@ -76,8 +76,8 @@ class SubmissionHandler extends PKPSubmissionHandler
     /**
      * Retrieves a JSON list of available choices for a tagit metadata input field.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function fetchChoices($args, $request)
     {
@@ -111,7 +111,7 @@ class SubmissionHandler extends PKPSubmissionHandler
     /**
      * Setup common template variables.
      *
-     * @param $request Request
+     * @param Request $request
      */
     public function setupTemplate($request)
     {

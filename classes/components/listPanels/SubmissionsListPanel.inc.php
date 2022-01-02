@@ -18,7 +18,7 @@ use PKP\components\listPanels\PKPSubmissionsListPanel;
 
 class SubmissionsListPanel extends PKPSubmissionsListPanel
 {
-    /** @var boolean Whether to show inactive section filters */
+    /** @var bool Whether to show inactive section filters */
     public $includeActiveSectionFiltersOnly = false;
 
     /**

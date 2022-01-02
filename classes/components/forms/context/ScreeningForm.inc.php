@@ -30,9 +30,9 @@ class ScreeningForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $locales array Supported locales
-     * @param $context Context to change settings for
+     * @param string $action URL to submit the form to
+     * @param array $locales Supported locales
+     * @param Context $context to change settings for
      */
     public function __construct($action, $locales, $context)
     {

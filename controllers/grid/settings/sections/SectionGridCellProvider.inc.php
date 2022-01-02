@@ -22,8 +22,8 @@ class SectionGridCellProvider extends GridCellProvider
      * Extracts variables for a given column from a data element
      * so that they may be assigned to template before rendering.
      *
-     * @param $row GridRow
-     * @param $column GridColumn
+     * @param GridRow $row
+     * @param GridColumn $column
      *
      * @return array
      */
@@ -45,7 +45,7 @@ class SectionGridCellProvider extends GridCellProvider
     {
         switch ($column->getId()) {
             case 'inactive':
-                $element = $row->getData(); /* @var $element DataObject */
+                $element = $row->getData(); /** @var DataObject $element */
 
                 $router = $request->getRouter();
 

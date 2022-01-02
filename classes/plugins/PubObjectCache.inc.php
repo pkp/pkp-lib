@@ -22,7 +22,7 @@ use PKP\submission\Genre;
 
 class PubObjectCache
 {
-    /* @var array */
+    /** @var array */
     public $_objectCache = [];
 
 
@@ -32,8 +32,8 @@ class PubObjectCache
     /**
      * Add a publishing object to the cache.
      *
-     * @param $object Submission|PreprintGalley
-     * @param $parent Submission|null Only required when adding a galley.
+     * @param Submission|PreprintGalley $object
+     * @param Submission|null $parent Only required when adding a galley.
      */
     public function add($object, $parent)
     {
@@ -55,8 +55,8 @@ class PubObjectCache
      * contains all child objects for the given object
      * id.
      *
-     * @param $cacheId
-     * @param $objectId
+     * @param string $cacheId
+     * @param string $objectId
      */
     public function markComplete($cacheId, $objectId)
     {
@@ -73,9 +73,9 @@ class PubObjectCache
      * NB: You must check whether an object is in the cache
      * before you try to retrieve it with this method.
      *
-     * @param $cacheId string
-     * @param $id1 integer
-     * @param $id2 integer
+     * @param string $cacheId
+     * @param int $id1
+     * @param int $id2
      *
      */
     public function get($cacheId, $id1, $id2 = null)
@@ -95,11 +95,11 @@ class PubObjectCache
     /**
      * Check whether a given object is in the cache.
      *
-     * @param $cacheId string
-     * @param $id1 integer
-     * @param $id2 integer
+     * @param string $cacheId
+     * @param int $id1
+     * @param int $id2
      *
-     * @return boolean
+     * @return bool
      */
     public function isCached($cacheId, $id1, $id2 = null)
     {
@@ -130,10 +130,10 @@ class PubObjectCache
     /**
      * Insert an object into the cache.
      *
-     * @param $object object
-     * @param $cacheId string
-     * @param $id1 integer
-     * @param $id2 integer
+     * @param object $object
+     * @param string $cacheId
+     * @param int $id1
+     * @param int $id2
      */
     public function _insertInternally($object, $cacheId, $id1, $id2 = null)
     {

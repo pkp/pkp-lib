@@ -28,7 +28,7 @@ use PKP\submission\PKPSubmission;
 
 class OAIDAO extends PKPOAIDAO
 {
-    /** Helper DAOs */
+    // Helper DAOs
     public $serverDao;
     public $sectionDao;
     public $preprintGalleyDao;
@@ -53,7 +53,7 @@ class OAIDAO extends PKPOAIDAO
     /**
      * Cached function to get a server
      *
-     * @param $serverId int
+     * @param int $serverId
      *
      * @return object
      */
@@ -68,7 +68,7 @@ class OAIDAO extends PKPOAIDAO
     /**
      * Cached function to get a server section
      *
-     * @param $sectionId int
+     * @param int $sectionId
      *
      * @return object
      */
@@ -87,9 +87,9 @@ class OAIDAO extends PKPOAIDAO
     /**
      * Return hierarchy of OAI sets (servers plus server sections).
      *
-     * @param $serverId int
-     * @param $offset int
-     * @param $total int
+     * @param int $serverId
+     * @param int $offset
+     * @param int $total
      *
      * @return array OAISet
      */
@@ -135,9 +135,9 @@ class OAIDAO extends PKPOAIDAO
     /**
      * Return the server ID and section ID corresponding to a server/section pairing.
      *
-     * @param $serverSpec string
-     * @param $sectionSpec string
-     * @param $restrictServerId int
+     * @param string $serverSpec
+     * @param string $sectionSpec
+     * @param int $restrictServerId
      *
      * @return array (int, int)
      */

@@ -200,12 +200,12 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Execute export action.
      *
-     * @param $request Request
-     * @param $objects array Array of objects to be exported
-     * @param $filter string Filter to use
-     * @param $tab string Tab to return to
-     * @param $objectsFileNamePart string Export file name part for this kind of objects
-     * @param $noValidation boolean If set to true no XML validation will be done
+     * @param Request $request
+     * @param array $objects Array of objects to be exported
+     * @param string $filter Filter to use
+     * @param string $tab Tab to return to
+     * @param string $objectsFileNamePart Export file name part for this kind of objects
+     * @param bool $noValidation If set to true no XML validation will be done
      */
     public function executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation = null)
     {
@@ -278,11 +278,11 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * Deposit XML document.
      * This must be implemented in the subclasses, if the action is supported.
      *
-     * @param $objects mixed Array of or single published submission or galley
-     * @param $context Context
-     * @param $filename Export XML filename
+     * @param mixed $objects Array of or single published submission or galley
+     * @param Context $context
+     * @param string $filename Export XML filename
      *
-     * @return boolean Whether the XML document has been registered
+     * @return bool Whether the XML document has been registered
      */
     abstract public function depositXML($objects, $context, $filename);
 
@@ -290,7 +290,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * Get detailed message of the object status i.e. failure messages.
      * Parameters needed have to be in the request object.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return string Preformatted text that will be displayed in a div element in the modal
      */
@@ -338,7 +338,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * Get status actions for the display to the user,
      * i.e. links to a web site with more information about the status.
      *
-     * @param $pubObject
+     * @param object $pubObject
      *
      * @return array (string status => link)
      */
@@ -350,7 +350,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Get actions.
      *
-     * @param $context Context
+     * @param Context $context
      *
      * @return array
      */
@@ -387,16 +387,16 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Get the XML for selected objects.
      *
-     * @param $objects mixed Array of or single published submission or galley
-     * @param $filter string
-     * @param $context Context
-     * @param $noValidation boolean If set to true no XML validation will be done
+     * @param mixed $objects Array of or single published submission or galley
+     * @param string $filter
+     * @param Context $context
+     * @param bool $noValidation If set to true no XML validation will be done
      *
      * @return string XML document.
      */
     public function exportXML($objects, $filter, $context, $noValidation = null)
     {
-        $filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+        $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
         $exportFilters = $filterDao->getObjectsByGroup($filter);
         assert(count($exportFilters) == 1); // Assert only a single serialization filter
         $exportFilter = array_shift($exportFilters);
@@ -420,8 +420,8 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Mark selected submissions as registered.
      *
-     * @param $context Context
-     * @param $objects array Array of published submissions or galleys
+     * @param Context $context
+     * @param array $objects Array of published submissions or galleys
      */
     public function markRegistered($context, $objects)
     {
@@ -434,7 +434,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Update the given object.
      *
-     * @param $object Submission|PreprintGalley
+     * @param Submission|PreprintGalley $object
      */
     protected function updateObject($object)
     {
@@ -454,7 +454,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      *
      * @see PubObjectsExportPlugin::addToSchema()
      *
-     * @param $hookName string
+     * @param string $hookName
      */
     public function getAdditionalFieldNames($hookName, $args)
     {
@@ -475,8 +475,8 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      *
      * @see PKPPubIdPlugin::getAdditionalFieldNames()
      *
-     * @param $hookName string `Schema::get::publication`
-     * @param $params array
+     * @param string $hookName `Schema::get::publication`
+     * @param array $params
      */
     public function addToSchema($hookName, $params)
     {
@@ -515,7 +515,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Retrieve all unregistered preprints.
      *
-     * @param $context Context
+     * @param Context $context
      *
      * @return array
      */
@@ -536,9 +536,9 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Check whether we are in test mode.
      *
-     * @param $context Context
+     * @param Context $context
      *
-     * @return boolean
+     * @return bool
      */
     public function isTestMode($context)
     {
@@ -648,13 +648,13 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Execute the CLI command
      *
-     * @param $scriptName The name of the command-line script (displayed as usage info)
-     * @param $command string (export or register)
-     * @param $context Context
-     * @param $outputFile string Path to the file where the exported XML should be saved
-     * @param $objects array Objects to be exported or registered
-     * @param $filter string Filter to use
-     * @param $objectsFileNamePart string Export file name part for this kind of objects
+     * @param The $scriptName name of the command-line script (displayed as usage info)
+     * @param string $command (export or register)
+     * @param Context $context
+     * @param string $outputFile Path to the file where the exported XML should be saved
+     * @param array $objects Objects to be exported or registered
+     * @param string $filter Filter to use
+     * @param string $objectsFileNamePart Export file name part for this kind of objects
      */
     public function executeCLICommand($scriptName, $command, $context, $outputFile, $objects, $filter, $objectsFileNamePart)
     {
@@ -691,8 +691,8 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Get published submissions from submission IDs.
      *
-     * @param $submissionIds array
-     * @param $context Context
+     * @param array $submissionIds
+     * @param Context $context
      *
      * @return array
      */
@@ -709,7 +709,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Get preprint galleys from gallley IDs.
      *
-     * @param $galleyIds array
+     * @param array $galleyIds
      *
      * @return array
      */
@@ -729,10 +729,10 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Add a notification.
      *
-     * @param $user User
-     * @param $message string An i18n key.
-     * @param $notificationType integer One of the NOTIFICATION_TYPE_* constants.
-     * @param $param string An additional parameter for the message.
+     * @param User $user
+     * @param string $message An i18n key.
+     * @param int $notificationType One of the NOTIFICATION_TYPE_* constants.
+     * @param string $param An additional parameter for the message.
      */
     public function _sendNotification($user, $message, $notificationType, $param = null)
     {
@@ -755,7 +755,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Instantiate the export deployment.
      *
-     * @param $context Context
+     * @param Context $context
      *
      * @return PKPImportExportDeployment
      */
@@ -770,7 +770,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Instantiate the settings form.
      *
-     * @param $context Context
+     * @param Context $context
      *
      * @return CrossRefSettingsForm
      */

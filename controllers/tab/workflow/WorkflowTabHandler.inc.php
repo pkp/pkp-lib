@@ -36,7 +36,7 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
                 $errors = [];
                 $context = $request->getContext();
 
-                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                 $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR);
 
                 while ($assignment = $submitterAssignments->next()) {
@@ -58,7 +58,7 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
     /**
      * Get all production notification options to be used in the production stage tab.
      *
-     * @param $submissionId int
+     * @param int $submissionId
      *
      * @return array
      */

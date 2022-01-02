@@ -27,19 +27,19 @@ use PKP\submissionFile\SubmissionFile;
 
 class PreprintHandler extends Handler
 {
-    /** context associated with the request **/
+    /** @var Context context associated with the request */
     public $context;
 
-    /** submission associated with the request **/
+    /** @var Submission submission associated with the request */
     public $preprint;
 
-    /** publication associated with the request **/
+    /** @var Publication publication associated with the request */
     public $publication;
 
-    /** galley associated with the request **/
+    /** @var Galley galley associated with the request */
     public $galley;
 
-    /** fileId associated with the request **/
+    /** @var int fileId associated with the request */
     public $fileId;
 
 
@@ -71,7 +71,7 @@ class PreprintHandler extends Handler
     /**
      * @see PKPHandler::initialize()
      *
-     * @param $args array Arguments list
+     * @param array $args Arguments list
      */
     public function initialize($request, $args = [])
     {
@@ -157,8 +157,8 @@ class PreprintHandler extends Handler
     /**
      * View Preprint. (Either preprint landing page or galley view.)
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function view($args, $request)
     {
@@ -183,7 +183,7 @@ class PreprintHandler extends Handler
         ]);
         $this->setupTemplate($request);
 
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $publicationCategories = Repo::category()->getMany(Repo::category()->getCollector()
             ->filterByPublicationIds([$publication->getId()]));
         $categories = [];
@@ -246,7 +246,7 @@ class PreprintHandler extends Handler
 
         // Citations
         if ($publication->getData('citationsRaw')) {
-            $citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
+            $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
             $parsedCitations = $citationDao->getByPublicationId($publication->getId());
             $templateMgr->assign([
                 'parsedCitations' => $parsedCitations->toArray(),
@@ -313,8 +313,8 @@ class PreprintHandler extends Handler
      * Download an preprint file
      * For deprecated OPS 2.x URLs; see https://github.com/pkp/pkp-lib/issues/1541
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function viewFile($args, $request)
     {
@@ -388,9 +388,9 @@ class PreprintHandler extends Handler
     /**
      * Determines whether a user can view this preprint galley or not.
      *
-     * @param $request Request
-     * @param $preprintId string
-     * @param $galleyId int or string
+     * @param Request $request
+     * @param string $preprintId
+     * @param int $galleyId or string
      */
     public function userCanViewGalley($request, $preprintId, $galleyId = null)
     {
@@ -406,7 +406,7 @@ class PreprintHandler extends Handler
     /**
      * Set up the template. (Load required locale components.)
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function setupTemplate($request)
     {

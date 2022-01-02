@@ -37,8 +37,8 @@ class PreprintsHandler extends Handler
     /**
      * Display the preprint archive listings
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return null|JSONMessage
      */
@@ -50,7 +50,7 @@ class PreprintsHandler extends Handler
         $context = $request->getContext();
 
         // OPS: sections
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $sections = $sectionDao->getByContextId($context->getId());
 
         // OPS: categories

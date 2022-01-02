@@ -235,9 +235,9 @@ class Repository extends \PKP\publication\Repository
     /**
      * Check if the current user can publish
      *
-     * @param $submissionId string
+     * @param string $submissionId
      *
-     * @return boolean
+     * @return bool
      *
      */
     public function canCurrentUserPublish(int $submissionId): bool

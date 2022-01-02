@@ -36,7 +36,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
      */
     public function get($galleyId)
     {
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $preprintGalleyDao */
         return $preprintGalleyDao->getById($galleyId);
     }
 
@@ -247,7 +247,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
      */
     public function add($galley, $request)
     {
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $preprintGalleyDao */
         $galleyId = $preprintGalleyDao->insertObject($galley);
         $galley = $this->get($galleyId);
 
@@ -281,7 +281,7 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
     {
         HookRegistry::call('Galley::delete::before', [&$galley]);
 
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $preprintGalleyDao */
         $preprintGalleyDao->deleteObject($galley);
 
         // Delete related submission files

@@ -25,7 +25,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
     /**
      * Setup variables for the template
      *
-     * @param $request Request
+     * @param Request $request
      */
     public function setupTemplate($request)
     {
@@ -113,10 +113,10 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
     /**
      * Translate the requested operation to a stage id.
      *
-     * @param $request Request
-     * @param $args array
+     * @param Request $request
+     * @param array $args
      *
-     * @return integer One of the WORKFLOW_STAGE_* constants.
+     * @return int One of the WORKFLOW_STAGE_* constants.
      */
     protected function identifyStageId($request, $args)
     {

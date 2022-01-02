@@ -85,8 +85,8 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     /**
      * Mark selected submissions as registered.
      *
-     * @param $context Context
-     * @param $objects array Array of published submissions or galleys
+     * @param Context $context
+     * @param array $objects Array of published submissions or galleys
      */
     public function markRegistered($context, $objects)
     {
@@ -104,9 +104,9 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
      * when several DOI registration plug-ins
      * are active at the same time.
      *
-     * @param $context Context
-     * @param $object Submission|PreprintGalley
-     * @param $testPrefix string
+     * @param Context $context
+     * @param Submission|PreprintGalley $object
+     * @param string $testPrefix
      */
     public function saveRegisteredDoi($context, $object, $testPrefix = '10.1234')
     {
@@ -134,7 +134,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     /**
      * Retrieve all unregistered preprints.
      *
-     * @param $context Context
+     * @param Context $context
      *
      * @return array
      */
@@ -156,14 +156,14 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     /**
      * Retrieve all unregistered galleys.
      *
-     * @param $context Context
+     * @param Context $context
      *
      * @return array
      */
     public function getUnregisteredGalleys($context)
     {
         // Retrieve all galleys that have not yet been registered.
-        $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
+        $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $galleyDao */
         $galleys = $galleyDao->getExportable(
             $context ? $context->getId() : null,
             $this->getPubIdType(),
@@ -180,8 +180,8 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     /**
      * Get published submissions with a DOI assigned from submission IDs.
      *
-     * @param $submissionIds array
-     * @param $context Context
+     * @param array $submissionIds
+     * @param Context $context
      *
      * @return array
      */
@@ -198,7 +198,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     /**
      * Get preprint galleys with a DOI assigned from gallley IDs.
      *
-     * @param $galleyIds array
+     * @param array $galleyIds
      *
      * @return array
      */

@@ -70,7 +70,7 @@ class ServerOAI extends OAI
     /**
      * Convert preprint ID to OAI identifier.
      *
-     * @param $preprintId int
+     * @param int $preprintId
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class ServerOAI extends OAI
     /**
      * Convert OAI identifier to preprint ID.
      *
-     * @param $identifier string
+     * @param string $identifier
      *
      * @return int
      */

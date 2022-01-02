@@ -61,7 +61,7 @@ class PreprintGalley extends Representation
     /**
      * Set label/title.
      *
-     * @param $label string
+     * @param string $label
      */
     public function setLabel($label)
     {
@@ -81,7 +81,7 @@ class PreprintGalley extends Representation
     /**
      * Set locale.
      *
-     * @param $locale string
+     * @param string $locale
      */
     public function setLocale($locale)
     {
@@ -106,7 +106,7 @@ class PreprintGalley extends Representation
      *
      * @deprecated 3.3
      *
-     * @param $submissionFileId int
+     * @param int $submissionFileId
      */
     public function setFileId($submissionFileId)
     {
@@ -157,7 +157,7 @@ class PreprintGalley extends Representation
     /**
      * Determine whether the galley is a PDF.
      *
-     * @return boolean
+     * @return bool
      */
     public function isPdfGalley()
     {
@@ -185,7 +185,7 @@ class PreprintGalley extends Representation
      * This override exists to provide a functional getName() in order to make
      * native XML export work correctly.  It is only used in that single instance.
      *
-     * @param $locale string unused, except to match the function prototype in Representation.
+     * @param string $locale unused, except to match the function prototype in Representation.
      *
      * @return array
      */

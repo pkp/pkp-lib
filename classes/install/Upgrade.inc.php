@@ -27,7 +27,7 @@ class Upgrade extends Installer
     /**
      * Constructor.
      *
-     * @param $params array upgrade parameters
+     * @param array $params upgrade parameters
      */
     public function __construct($params, $installFile = 'upgrade.xml', $isPlugin = false)
     {
@@ -38,7 +38,7 @@ class Upgrade extends Installer
     /**
      * Returns true iff this is an upgrade process.
      *
-     * @return boolean
+     * @return bool
      */
     public function isUpgrade()
     {
@@ -52,7 +52,7 @@ class Upgrade extends Installer
     /**
      * Rebuild the search index.
      *
-     * @return boolean
+     * @return bool
      */
     public function rebuildSearchIndex()
     {
@@ -64,7 +64,7 @@ class Upgrade extends Installer
     /**
      * Clear the CSS cache files (needed when changing LESS files)
      *
-     * @return boolean
+     * @return bool
      */
     public function clearCssCache()
     {
@@ -77,7 +77,7 @@ class Upgrade extends Installer
     /**
      * Submissions with stage_id=WORKFLOW_STAGE_ID_SUBMISSION should be changed to stage_id=WORKFLOW_STAGE_ID_PRODUCTION, which is the only stage in OPS
      *
-     * @return boolean
+     * @return bool
      */
     public function changeSubmissionStageToProduction()
     {

@@ -35,8 +35,8 @@ class PreprintTombstoneManager
 
     public function insertPreprintTombstone($preprint, $context)
     {
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
-        $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /* @var $tombstoneDao DataObjectTombstoneDAO */
+        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
+        $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /** @var DataObjectTombstoneDAO $tombstoneDao */
         // delete preprint tombstone -- to ensure that there aren't more than one tombstone for this preprint
 
         $tombstoneDao->deleteByDataObjectId($preprint->getId());
@@ -84,7 +84,7 @@ class PreprintTombstoneManager
      */
     public function deleteTombstonesByContextId(int $contextId)
     {
-        $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /* @var $tombstoneDao DataObjectTombstoneDAO */
+        $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO'); /** @var DataObjectTombstoneDAO $tombstoneDao */
         $submissions = Repo::submission()->getMany(
             Repo::submission()
                 ->getCollector()

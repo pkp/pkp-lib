@@ -25,7 +25,7 @@ use PKP\security\authorization\ContextRequiredPolicy;
 
 class SectionsHandler extends Handler
 {
-    /** sections associated with the request **/
+    /** @var array sections associated with the request */
     public $sections;
 
     /**
@@ -41,12 +41,12 @@ class SectionsHandler extends Handler
     /**
      * View a section
      *
-     * @param $args array [
+     * @param array $args [
      *		@option string Section ID
      *		@option string page number
      * ]
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return null|JSONMessage
      */

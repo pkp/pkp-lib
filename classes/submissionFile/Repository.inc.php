@@ -49,7 +49,7 @@ class Repository extends BaseRepository
     {
         // Remove galley associations and update search index
         if ($submissionFile->getData('assocType') == Application::ASSOC_TYPE_REPRESENTATION) {
-            $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
+            $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $galleyDao */
             $galley = $galleyDao->getById($submissionFile->getData('assocId'));
             if ($galley && $galley->getData('submissionFileId') == $submissionFile->getId()) {
                 $galley->_data['submissionFileId'] = null; // Work around pkp/pkp-lib#5740

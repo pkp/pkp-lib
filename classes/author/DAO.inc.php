@@ -35,10 +35,10 @@ class DAO extends \PKP\author\DAO
      * If authors have the same given names, first names and affiliations in all server locales,
      * as well as country and email (otional), they are considered to be the same.
      *
-     * @param $serverId int Optional server ID to restrict results to
-     * @param $initial An initial a family name must begin with, "-" for authors with no family names
-     * @param $rangeInfo Range information
-     * @param $includeEmail Whether or not to include the email in the select distinct
+     * @param int $serverId Optional server ID to restrict results to
+     * @param string $initial An initial a family name must begin with, "-" for authors with no family names
+     * @param RangeInfo $rangeInfo Range information
+     * @param bool $includeEmail Whether or not to include the email in the select distinct
      *
      * @return DAOResultFactory Authors ordered by last name, given name
      *
@@ -60,7 +60,7 @@ class DAO extends \PKP\author\DAO
 
         $supportedLocales = [];
         if ($serverId !== null) {
-            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var $serverDao \ServerDAO */
+            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var \ServerDAO $serverDao */
             $server = $serverDao->getById($serverId);
             $supportedLocales = $server->getSupportedLocales();
         } else {

@@ -69,8 +69,8 @@ class SubmissionHandler extends PKPSubmissionHandler
     /**
      * Create relations for publications
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response

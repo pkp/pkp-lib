@@ -16,40 +16,18 @@
 
 namespace PKP\core;
 
-/*
- * Perl-compatibile regular expression (PCRE) constants:
- * These are defined application-wide for consistency
- */
-
-/*
- * RFC-2396 URIs
- *
- * Thanks to the PEAR Validation package (Tomas V.V.Cox <cox@idecnet.com>,
- * Pierre-Alain Joye <pajoye@php.net>, Amir Mohammad Saied <amir@php.net>)
- *
- * Originally published under the "New BSD License"
- * http://www.opensource.org/licenses/bsd-license.php
- */
-define('PCRE_URI', '(?:([a-z][-+.a-z0-9]*):)?' .						// Scheme
-           '(?://' .
-           '(?:((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();:\&=+$,])*)@)?' .			// User
-           '(?:((?:[a-z0-9](?:[-a-z0-9]*[a-z0-9])?\.)*[a-z](?:[a-z0-9]+)?\.?)' .	// Hostname
-           '|([0-9]{1,3}(?:\.[0-9]{1,3}){3}))' .					// IP Address
-           '(?::([0-9]*))?)' .								// Port
-           '((?:/(?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'():@\&=+$,;])*)*/?)?' .			// Path
-           '(?:\?([^#]*))?' .								// Query String
-           '(?:\#((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();/?:@\&=+$,])*))?');			// Fragment
-
-// Two different types of camel case: one for class names and one for method names
-define('CAMEL_CASE_HEAD_UP', 0x01);
-define('CAMEL_CASE_HEAD_DOWN', 0x02);
-
 use PKP\config\Config;
 
 use Stringy\Stringy;
 
 class PKPString
 {
+    /** @var int Camel case for class names */
+    public const CAMEL_CASE_HEAD_UP = 1;
+
+    /** @var int Camel case for method names */
+    public const CAMEL_CASE_HEAD_DOWN = 2;
+
     /**
      * Perform initialization required for the string wrapper library.
      */
@@ -489,15 +467,15 @@ class PKPString
      *
      * @return string the string in camel case
      */
-    public static function camelize($string, $type = CAMEL_CASE_HEAD_UP)
+    public static function camelize($string, $type = self::CAMEL_CASE_HEAD_UP)
     {
-        assert($type == CAMEL_CASE_HEAD_UP || $type == CAMEL_CASE_HEAD_DOWN);
+        assert($type == static::CAMEL_CASE_HEAD_UP || $type == static::CAMEL_CASE_HEAD_DOWN);
 
         // Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
         $string = implode(array_map('ucfirst_codesafe', explode('-', $string)));
 
         // Transform "MyOp" to "myOp"
-        if ($type == CAMEL_CASE_HEAD_DOWN) {
+        if ($type == static::CAMEL_CASE_HEAD_DOWN) {
             $string = strtolower_codesafe(substr($string, 0, 1)) . substr($string, 1);
         }
 

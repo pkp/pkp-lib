@@ -17,7 +17,6 @@
 namespace PKP\filter;
 
 use APP\template\TemplateManager;
-use PKP\filter\PersistableFilter;
 
 class TemplateBasedFilter extends PersistableFilter
 {

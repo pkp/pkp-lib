@@ -21,7 +21,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 
@@ -68,7 +67,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      */
     public function newDataObject(): SubmissionFile
     {
-        return App::make(SubmissionFile::class);
+        return app(SubmissionFile::class);
     }
 
     /**

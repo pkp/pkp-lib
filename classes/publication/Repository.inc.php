@@ -24,7 +24,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -101,7 +100,7 @@ abstract class Repository
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {
-        return App::make(Collector::class);
+        return app(Collector::class);
     }
 
     /**

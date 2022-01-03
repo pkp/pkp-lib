@@ -16,7 +16,6 @@ namespace PKP\category;
 use APP\core\Request;
 use APP\i18n\AppLocale;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
@@ -81,7 +80,7 @@ class Repository
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {
-        return App::make(Collector::class);
+        return app(Collector::class);
     }
 
     /**

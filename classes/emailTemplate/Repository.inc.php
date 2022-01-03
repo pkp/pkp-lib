@@ -19,7 +19,6 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
-use Illuminate\Support\Facades\App;
 use PKP\validation\ValidatorFactory;
 use PKP\facades\Repo;
 
@@ -72,7 +71,7 @@ class Repository
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {
-        return App::make(Collector::class);
+        return app(Collector::class);
     }
 
     /**

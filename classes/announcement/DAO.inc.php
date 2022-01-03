@@ -14,7 +14,6 @@
 namespace PKP\announcement;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use stdClass;
@@ -48,7 +47,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): Announcement
     {
-        return App::make(Announcement::class);
+        return app(Announcement::class);
     }
 
     /**

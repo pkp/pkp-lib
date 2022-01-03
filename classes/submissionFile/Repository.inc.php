@@ -21,7 +21,6 @@ use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
@@ -99,7 +98,7 @@ class Repository
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {
-        return App::make(Collector::class);
+        return app(Collector::class);
     }
 
     /**

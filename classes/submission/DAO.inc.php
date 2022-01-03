@@ -20,7 +20,6 @@ use APP\submission\Submission;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\Facades\App;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
@@ -62,7 +61,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): Submission
     {
-        return App::make(Submission::class);
+        return app(Submission::class);
     }
 
     /**

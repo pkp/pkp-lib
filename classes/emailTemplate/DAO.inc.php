@@ -14,7 +14,6 @@
 namespace PKP\emailTemplate;
 
 use Exception;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
@@ -54,7 +53,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): EmailTemplate
     {
-        return App::make(EmailTemplate::class);
+        return app(EmailTemplate::class);
     }
 
     /**

@@ -16,7 +16,6 @@
 
 namespace PKP\core;
 
-use Illuminate\Support\Facades\App;
 use PKP\core\maps\Base;
 
 class MapContainer
@@ -34,9 +33,7 @@ class MapContainer
 
     public function getMap(string $class, array $dependencies = []): Base
     {
-        return empty($dependencies)
-            ? App::make($class)
-            : App::makeWith($class, $dependencies);
+        return app($class, $dependencies);
     }
 
     public function withExtensions(string $class, array $dependencies = []): Base

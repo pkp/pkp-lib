@@ -20,7 +20,6 @@ namespace PKP\author;
 use APP\author\Author;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
@@ -66,7 +65,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): Author
     {
-        return App::make(Author::class);
+        return app(Author::class);
     }
 
     /**

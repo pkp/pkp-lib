@@ -17,7 +17,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
@@ -90,7 +89,7 @@ class Repository
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {
-        return App::make(Collector::class);
+        return app(Collector::class);
     }
 
     /**

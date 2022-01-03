@@ -14,7 +14,6 @@
 namespace PKP\category;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
@@ -48,7 +47,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): Category
     {
-        return App::make(Category::class);
+        return app(Category::class);
     }
 
     /**

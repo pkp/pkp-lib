@@ -17,7 +17,6 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\citation\CitationDAO;
@@ -89,7 +88,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): Publication
     {
-        return App::make(Publication::class);
+        return app(Publication::class);
     }
 
     /**

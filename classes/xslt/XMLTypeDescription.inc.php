@@ -19,8 +19,6 @@
  *   xml::schema(http://www.crossref.org/schema/queryResultSchema/crossref_query_output2.0.xsd)
  *
  *  XML input/output can be either represented as a string or as a DOMDocument object.
- *
- *  NB: XML validation currently requires PHP5
  */
 
 namespace PKP\xslt;

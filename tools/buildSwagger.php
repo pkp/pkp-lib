@@ -53,7 +53,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
     {
         if (empty($this->outputFile)) {
             $this->usage();
-            exit();
+            exit;
         } elseif ((file_exists($this->outputFile) && !is_writable($this->outputFile)) ||
                 (!is_writeable(dirname($this->outputFile)))) {
             echo "You do not have permission to write to this file.\n";

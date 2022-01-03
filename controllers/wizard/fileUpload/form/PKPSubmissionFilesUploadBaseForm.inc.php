@@ -17,7 +17,6 @@ use APP\core\Application;
 
 use APP\facades\Repo;
 use APP\template\TemplateManager;
-use Exception;
 
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;

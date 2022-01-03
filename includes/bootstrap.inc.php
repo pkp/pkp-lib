@@ -25,18 +25,13 @@
  */
 
 // Load Composer autoloader
-require_once('lib/pkp/lib/vendor/autoload.php');
+require_once 'lib/pkp/lib/vendor/autoload.php';
 
-define('ENV_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? ';' : ':');
-if (!defined('DIRECTORY_SEPARATOR')) {
-    // Older versions of PHP do not define this
-    define('DIRECTORY_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? '\\' : '/');
-}
 define('BASE_SYS_DIR', dirname(INDEX_FILE_LOCATION));
 chdir(BASE_SYS_DIR);
 
 // System-wide functions
-require('./lib/pkp/includes/functions.inc.php');
+require_once './lib/pkp/includes/functions.inc.php';
 
 // Register custom autoloader functions for namespaces
 spl_autoload_register(function ($class) {

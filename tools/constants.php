@@ -28,7 +28,7 @@ class constants extends \PKP\cliTool\CommandLineTool
 
         if (isset($argv[1]) && in_array($argv[1], ['--help', '-h'])) {
             $this->usage();
-            die;
+            exit;
         }
 
         if (isset($argv[1])) {

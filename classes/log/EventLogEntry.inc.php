@@ -268,7 +268,7 @@ class EventLogEntry extends \PKP\core\DataObject
             $userFullName = Repo::user()->get($this->getUserId(), true)->getFullName();
         }
 
-        return ($userFullName ? $userFullName : '');
+        return $userFullName ?: '';
     }
 
     /**
@@ -284,7 +284,7 @@ class EventLogEntry extends \PKP\core\DataObject
             $userEmail = Repo::user()->get($this->getUserId(), true)->getEmail();
         }
 
-        return ($userEmail ? $userEmail : '');
+        return $userEmail ?: '';
     }
 }
 

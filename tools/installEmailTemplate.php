@@ -40,7 +40,7 @@ class installEmailTemplates extends CommandLineTool
 
         if ($this->_emailKey === null || $this->_locales === null) {
             $this->usage();
-            exit();
+            exit;
         }
     }
 

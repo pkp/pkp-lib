@@ -50,7 +50,6 @@ class DataObjectTest extends PKPTestCase
         ];
         self::assertEquals($expectedResult, $this->dataObject->getAllData());
         self::assertEquals('testVal1', $this->dataObject->getData('testVar1'));
-        // test for http://bugs.php.net/bug.php?id=29848
         self::assertNull($this->dataObject->getData('testVar1', 'en_US'));
         self::assertEquals('testVal2_US', $this->dataObject->getData('testVar2', 'en_US'));
 

@@ -158,6 +158,6 @@ class PKPToolsHandler extends ManagementHandler
         // method can communicate properly with the AjaxFormHandler. Returning a
         // JSONMessage, or JSONMessage::toString(), doesn't seem to do it.
         echo json_encode(true);
-        die;
+        exit;
     }
 }

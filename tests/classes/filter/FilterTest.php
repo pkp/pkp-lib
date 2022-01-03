@@ -66,8 +66,6 @@ class FilterTest extends PKPTestCase
         self::assertEquals($this->getTestOutput(), $mockFilter->getLastOutput());
 
         // Test execution without runtime requirements
-        // (We can safely use PHP 5.0.0 as a test here
-        // because this is a PHPUnit requirement anyway.)
         $mockFilter = $this->getFilterMock();
         $mockFilter->setData('phpVersionMin', '5.0.0');
         $testOutput = $mockFilter->execute($testInput);

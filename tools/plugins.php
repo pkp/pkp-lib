@@ -99,9 +99,9 @@ class PluginsTool extends \PKP\cliTool\CommandLineTool
                 if ($plugin) {
                     foreach ($plugin->getAllData() as $key => $data) {
                         if (is_array($data)) {
-                            print $key.': '.str_replace("\n", '\n', $plugin->getLocalizedData($key))."\n";
+                            echo $key.': '.str_replace("\n", '\n', $plugin->getLocalizedData($key))."\n";
                         } else {
-                            print $key.': '.str_replace("\n", '\n', $data)."\n";
+                            echo $key.': '.str_replace("\n", '\n', $data)."\n";
                         }
                     }
                     $result = true;
@@ -172,7 +172,7 @@ class PluginsTool extends \PKP\cliTool\CommandLineTool
             }
             $keyOut = explode('.', $statusKey);
             $keyOut = array_pop($keyOut);
-            print implode('/', array('plugins', $plugin->getData('category'), $plugin->getData('product'))) . ' ' . $plugin->getData('releasePackage') . ' ' . $keyOut . "\n";
+            echo implode('/', array('plugins', $plugin->getData('category'), $plugin->getData('product'))) . ' ' . $plugin->getData('releasePackage') . ' ' . $keyOut . "\n";
         }
     }
 }

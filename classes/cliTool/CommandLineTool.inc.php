@@ -75,7 +75,7 @@ class CommandLineTool
         $this->argv = isset($argv) && is_array($argv) ? $argv : [];
 
         if (isset($_SERVER['SERVER_NAME'])) {
-            die('This script can only be executed from the command-line');
+            exit('This script can only be executed from the command-line');
         }
 
         $this->scriptName = isset($this->argv[0]) ? array_shift($this->argv) : '';

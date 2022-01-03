@@ -24,15 +24,12 @@ if (!function_exists('import')) {
     function import($class)
     {
         $filePath = str_replace('.', '/', $class) . '.inc.php';
-        if ($filePath === 'lib/pkp/classes/webservice/WebService.inc.php') {
-            throw new Exception();
-        }
-        require_once(BASE_SYS_DIR . '/' . $filePath);
+        require_once BASE_SYS_DIR . '/' . $filePath;
     }
 }
 
 /**
- * Wrapper around die() to pretty-print an error message with an optional stack trace.
+ * Wrapper around exit() to pretty-print an error message with an optional stack trace.
  */
 function fatalError($reason)
 {
@@ -129,19 +126,7 @@ function fatalError($reason)
         return;
     }
 
-    die();
-}
-
-/**
- * Check to see if the server meets a minimum version requirement for PHP.
- *
- * @param string $version Name of version (see version_compare documentation)
- *
- * @return bool
- */
-function checkPhpVersion($version)
-{
-    return (version_compare(PHP_VERSION, $version) !== -1);
+    exit;
 }
 
 /**
@@ -258,24 +243,6 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 
     return $classInstance;
 }
-
-/**
- * Remove empty elements from an array
- *
- * @param array $array
- *
- * @return array
- */
-function arrayClean($array)
-{
-    if (!is_array($array)) {
-        return null;
-    }
-    return array_filter($array, function ($o) {
-        return !empty($o);
-    });
-}
-
 
 /**
  * Recursively strip HTML from a (multidimensional) array.

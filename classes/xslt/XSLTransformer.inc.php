@@ -10,7 +10,7 @@
  * @class XSLTransformer
  * @ingroup xslt
  *
- * @brief Wrapper class for running XSL transformations using PHP 4.x or 5.x
+ * @brief Wrapper class for running XSL transformations.
  */
 
 namespace PKP\xslt;
@@ -43,7 +43,7 @@ class XSLTransformer
     /** @var array of parameters to pass to XSL (built-in libraries only) */
     public $parameters;
 
-    /** @var array of PHP functions to allow in XSL (PHP5 built-in only) */
+    /** @var array of PHP functions to allow in XSL */
     public $registerPHPFunctions;
 
     /** @var array List of error strings */
@@ -276,7 +276,7 @@ class XSLTransformer
     }
 
     /**
-     * Use PHP5's DOMDocument and XSLTProcessor to do the transformation
+     * Use DOMDocument and XSLTProcessor to do the transformation
      *
      * @param int $xmlType
      * @param int $xslType

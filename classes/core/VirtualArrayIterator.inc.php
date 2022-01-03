@@ -186,35 +186,6 @@ class VirtualArrayIterator extends ItemIterator
     {
         return $this->theArray;
     }
-
-    /**
-     * A version of array_slice that takes keys into account.
-     * Thanks to pies at sputnik dot pl.
-     * This is made redundant by PHP 5.0.2's updated
-     * array_slice, but we can't assume everyone has that.
-     * FIXME: Reconcile this against the dupe in ArrayItemIterator.
-     *
-     * @see http://ca3.php.net/manual/en/function.array-slice.php
-     *
-     * @param array $array
-     * @param int $offset
-     * @param int $len
-     */
-    public function array_slice_key($array, $offset, $len = -1)
-    {
-        if (!is_array($array)) {
-            return false;
-        }
-
-        $return = [];
-        $length = $len >= 0 ? $len : count($array);
-        $keys = array_slice(array_keys($array), $offset, $length);
-        foreach ($keys as $key) {
-            $return[$key] = $array[$key];
-        }
-
-        return $return;
-    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -134,7 +134,7 @@ class Installer
      */
     public function isUpgrade()
     {
-        die('ABSTRACT CLASS');
+        exit('ABSTRACT CLASS');
     }
 
     /**

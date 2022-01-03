@@ -652,3 +652,6 @@ msgstr "The submitted DOI is not valid"
 
 msgid "api.issue.403.canEditPublishedDoi"
 msgstr "Only DOIs can be edited after a publication has been published"
+
+msgid "manager.institutions.noContext"
+msgstr "This institution's press could not be found."

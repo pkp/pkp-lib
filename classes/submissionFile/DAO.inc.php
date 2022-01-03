@@ -30,8 +30,6 @@ use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\services\PKPSchemaService;
 use PKP\submission\reviewRound\ReviewRound;
 
-use stdClass;
-
 class DAO extends EntityDAO implements PKPPubIdPluginDAO
 {
     /** @copydoc EntityDAO::$schema */
@@ -124,7 +122,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $primaryRow): SubmissionFile
+    public function fromRow(object $primaryRow): SubmissionFile
     {
         $submissionFile = parent::fromRow($primaryRow);
         $submissionFile->setData('locale', $primaryRow->locale);

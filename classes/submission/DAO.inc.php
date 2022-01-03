@@ -26,7 +26,6 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
-use stdClass;
 
 class DAO extends EntityDAO
 {
@@ -179,7 +178,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $row): Submission
+    public function fromRow(object $row): Submission
     {
         $submission = parent::fromRow($row);
 

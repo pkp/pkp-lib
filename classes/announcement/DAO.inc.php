@@ -16,7 +16,6 @@ namespace PKP\announcement;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
-use stdClass;
 
 class DAO extends EntityDAO
 {
@@ -98,7 +97,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $row): Announcement
+    public function fromRow(object $row): Announcement
     {
         return parent::fromRow($row);
     }

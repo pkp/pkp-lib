@@ -112,7 +112,7 @@ class FilterTest extends PKPTestCase
      * This method will be called to replace the abstract
      * process() method of our test filter.
      *
-     * @return stdClass
+     * @return object
      */
     public function processCallback($input)
     {
@@ -122,7 +122,7 @@ class FilterTest extends PKPTestCase
     /**
      * Generate a test object.
      *
-     * @return stdClass
+     * @return object
      */
     private function getTestOutput()
     {

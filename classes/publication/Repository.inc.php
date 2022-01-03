@@ -34,7 +34,6 @@ use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
-use stdClass;
 
 abstract class Repository
 {
@@ -125,7 +124,7 @@ abstract class Repository
     }
 
     /** @copydoc DAO:: getDateBoundaries()*/
-    public function getDateBoundaries(Collector $query): stdClass
+    public function getDateBoundaries(Collector $query): object
     {
         return $this->dao->getDateBoundaries($query);
     }

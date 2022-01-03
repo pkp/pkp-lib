@@ -27,7 +27,6 @@ use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
-use stdClass;
 
 class DAO extends EntityDAO
 {
@@ -140,9 +139,9 @@ class DAO extends EntityDAO
      * Get the publication dates of the first and last publications
      * matching the passed query
      *
-     * @return stdClass self::$min_date_published, self::$max_date_published
+     * @return object self::$min_date_published, self::$max_date_published
      */
-    public function getDateBoundaries(Collector $query): stdClass
+    public function getDateBoundaries(Collector $query): object
     {
         return $query
             ->getQueryBuilder()
@@ -178,7 +177,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $row): Publication
+    public function fromRow(object $row): Publication
     {
         $publication = parent::fromRow($row);
 

@@ -19,7 +19,6 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\db\XMLDAO;
 use PKP\facades\Repo;
-use stdClass;
 
 class DAO extends EntityDAO
 {
@@ -165,7 +164,7 @@ class DAO extends EntityDAO
      * Retrieve template together with data from the email_template_default_data
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $row): EmailTemplate
+    public function fromRow(object $row): EmailTemplate
     {
 	    /** @var EmailTemplate $emailTemplate */
         $emailTemplate = parent::fromRow($row);

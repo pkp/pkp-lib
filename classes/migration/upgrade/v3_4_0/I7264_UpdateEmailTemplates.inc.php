@@ -15,7 +15,6 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Builder;
-use stdClass;
 
 abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
 {
@@ -117,7 +116,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
 
             // Default templates
             $data = DB::table('email_templates_default_data')->where('email_key', $emailKey)->get();
-            $data->each(function (stdClass $entry) use ($variables, $replacements) {
+            $data->each(function (object $entry) use ($variables, $replacements) {
                 $subject = preg_replace($variables, $replacements, $entry->subject);
                 $body = preg_replace($variables, $replacements, $entry->body);
                 DB::table('email_templates_default_data')
@@ -128,7 +127,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
 
             // Custom templates
             $customData = DB::table('email_templates')->where('email_key', $emailKey)->get();
-            $customData->each(function (stdClass $customEntry) use ($variables, $replacements) {
+            $customData->each(function (object $customEntry) use ($variables, $replacements) {
                 $emailRows = DB::table('email_templates_settings')->where('email_id', $customEntry->{'email_id'})->get();
                 foreach ($emailRows as $emailRow) {
                     $value = preg_replace($variables, $replacements, $emailRow->{'setting_value'});

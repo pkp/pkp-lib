@@ -1,12 +1,14 @@
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021.
+# Jesper B. Thestrup <jbt@kb.dk>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2020-02-10 18:31+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
-"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/da/>"
-"\n"
+"PO-Revision-Date: 2021-12-22 12:24+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"da_DK/>\n"
 "Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -679,3 +681,37 @@ msgstr "Opret en ny udgave"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Fjern denne brugergruppe"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Lister over udgivelser"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Forkortet"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Vis"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Bidragydere til denne publikation vil blive identificeret i dette tidsskrift "
+"i de følgende formater."
+
+msgid "contributor.listPanel.preview"
+msgstr "Forhåndsvisning"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Vælg som primær kontakt"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Er du sikker på, at du ønsker at fjerne {$name} som bidragyder? Denne "
+"handling kan ikke fortrydes."
+
+msgid "grid.action.saveOrdering"
+msgstr "Gem rækkefølge"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Fuldt"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"

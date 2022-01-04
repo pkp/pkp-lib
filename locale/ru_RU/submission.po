@@ -1,9 +1,10 @@
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2020-12-18 16:52+0000\n"
+"PO-Revision-Date: 2021-12-26 09:24+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ru_RU/>\n"
@@ -1009,7 +1010,7 @@ msgid "submission.submit.fileAdded"
 msgstr "Файл добавлен"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Включить этого автора в список поиска?"
+msgstr "Добавить этого автора при указании авторов в списках публикаций."
 
 msgid "submission.submit.newFile"
 msgstr "Добавить другой файл"
@@ -1916,3 +1917,9 @@ msgstr "Отклонение материала было отменено."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Отменить отклонение материала"
+
+msgid "category.category"
+msgstr "Категории"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Списки публикаций"

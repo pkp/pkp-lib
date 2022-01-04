@@ -17,6 +17,7 @@
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use Sokil\IsoCodes\IsoCodesFactory;
 
 class PKPVocabHandler extends APIHandler
 {
@@ -89,9 +90,9 @@ class PKPVocabHandler extends APIHandler
                 $entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
                 break;
             case \PKP\submission\SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE:
-                $isoCodes = new \Sokil\IsoCodes\IsoCodesFactory(\Sokil\IsoCodes\IsoCodesFactory::OPTIMISATION_IO);
+                $isoCodes = app(IsoCodesFactory::class);
                 $languageNames = [];
-                foreach ($isoCodes->getLanguages() as $language) {
+                foreach ($isoCodes->getLanguages(IsoCodesFactory::OPTIMISATION_IO) as $language) {
                     if (!$language->getAlpha2() || $language->getType() != 'L' || $language->getScope() != 'I') {
                         continue;
                     }

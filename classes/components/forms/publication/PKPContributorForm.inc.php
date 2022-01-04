@@ -60,7 +60,7 @@ class PKPContributorForm extends FormComponent
             ];
         }
 
-        $isoCodes = new IsoCodesFactory();
+        $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
         foreach ($isoCodes->getCountries() as $country) {
             $countries[] = [

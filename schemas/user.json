@@ -127,7 +127,6 @@
 		},
 		"gossip": {
 			"type": "string",
-			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
 				"nullable"

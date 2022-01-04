@@ -71,14 +71,12 @@ msgstr "Nome de utilizador e/ou senha inválido(s). Tente novamente."
 msgid "user.login"
 msgstr "Autenticação"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Foi enviado um e-mail de confirmação. Siga as instruções para criar uma nova senha."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "O link acedido expirou ou é inválido. Lamentamos o inconveniente. Tente criar uma senha novamente."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Nenhum utilizador registado com o e-mail especificado."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Foi enviada uma nova senha. Aceda à revista com a nova senha."

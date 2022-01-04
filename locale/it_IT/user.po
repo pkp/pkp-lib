@@ -71,14 +71,12 @@ msgstr "Username o password non valida. Riprova."
 msgid "user.login"
 msgstr "Entra"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "La conferma è stata mandata al tuo indirizzo email. Si prega di seguire le istruzioni nella email per risettare la  password."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Il link utilizzato è scaduto o non è valido. Prova a rigenerare nuovamente la password."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Non esiste nessun utente con l'indirizzo email specificato."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Una nuova password è stata inviata la tuo indirizzo email. Puoi fare il login con la tua nuova password."

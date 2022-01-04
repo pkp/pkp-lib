@@ -137,14 +137,12 @@ msgstr "Неправильное имя пользователя или паро
 msgid "user.login"
 msgstr "Войти в систему"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Подтверждение было отправлено на ваш адрес электронной почты. Пожалуйста, следуйте инструкциям в письме, чтобы сбросить пароль."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Извините, ссылка на которой вы щелкнули, просрочена или неправильна. Пожалуйста, попробуйте сбросить ваш пароль еще раз."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Пользователя с таким адресом электронной почты не существует."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Новый пароль был отправлен на ваш адрес электронной почты. Теперь вы можете войти на сайт с вашим новым паролем."

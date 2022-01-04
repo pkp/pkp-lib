@@ -105,6 +105,7 @@ msgstr "Błędna nazwa użytkownika lub hasło. Spróbuj ponownie."
 msgid "user.login"
 msgstr "Zaloguj się"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Potwierdzenie zostało wysłane na skrzynkę e-mail. Aby zmienić hasło, proszę postępować zgodnie ze wskazówkami zamieszczonymi w przesłanej wiadomości."
 
@@ -112,9 +113,6 @@ msgid "user.login.lostPassword.invalidHash"
 msgstr ""
 "Przepraszamy, ten link jest nieaktywny. Spróbuj zresetować swoje hasło "
 "ponownie."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Użytkownik z takim adresem e-mail nie istnieje."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Nowe hasło zostało przesłane na podany adres e-mail. Możesz zalogować się na witrynę używając nowego hasła."

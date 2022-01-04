@@ -434,12 +434,10 @@ msgstr "登録ユーザーのメールアドレス"
 msgid "user.login.lostPassword.passwordSent"
 msgstr "新しいパスワードを指定のメールアドレスに送信しました。今後、新しいパスワードでこのサイトにログインすることができます。"
 
-msgid "user.login.lostPassword.invalidUser"
-msgstr "指定されたメールアドレスにユーザーが存在しません。"
-
 msgid "user.login.lostPassword.invalidHash"
 msgstr "このリンクは有効期限切れ、または正しくありません。申し訳ありませんが、もう一度、パスワードのリセット処理を行ってください。"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "確認メールを入力されたメールアドレスに送信しました。メールに書かれている指示に従って、パスワードをリセットしてください。"
 

@@ -78,14 +78,12 @@ msgstr "无效的用户名或者密码，请重试."
 msgid "user.login"
 msgstr "登录"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "一封确认已发送到您的电子邮件地址,请按照电子邮件中的说明重置您的密码."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "对不起，你点击链接已过期或无效,请尝试再次重置您的密码."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "指定的电子邮件相关用户不存在."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "一个新的密码已发送到您的电子邮件地址.您现在可以使用新的密码登录了."

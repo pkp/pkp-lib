@@ -110,14 +110,12 @@ msgstr "Login"
 msgid "user.logIn"
 msgstr "Login"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Konfirmasi telah dikirim ke alamat email Anda. Ikuti instruksi di email untuk mengatur ulang kata sandi Anda."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Maaf, tautan yang Anda klik telah berakhir atau tidak valid. Coba mengatur ulang kata sandi lagi."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Tidak ada pengguna dengan alamat email yang spesifik."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Kata sandi baru telah dikirim ke alamat emal Anda. Anda sekarang bisa login ke situs dengan kata sandi baru Anda."

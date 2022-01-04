@@ -71,14 +71,12 @@ msgstr "Erabiltzaile-izena edo pasahitza ez da baliozkoa. Saiatu berriro."
 msgid "user.login"
 msgstr "Hasi saioa"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Berrespen bat bidali da zure helbide elektronikora. Jarraitu mezuan emandako azalpenak pasahitza berrezartzeko."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Sakatu duzun esteka iraungita dago edo ez da baliozkoa. Saiatu zure pasahitza berriro berrezartzen."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Ez dago helbide elektroniko hori duen erabiltzailerik."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Pasahitz berri bat bidali da zure helbide elektronikora. Pasahitz berriarekin sartuko zara orain webgunean."

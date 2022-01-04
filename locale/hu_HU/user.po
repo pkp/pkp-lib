@@ -141,14 +141,12 @@ msgstr "Érvénytelen felhasználónév vagy jelszó. Kérem, próbálja újra."
 msgid "user.login"
 msgstr "Belépés"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Egy visszaigazoló emailt küldtünk az email címére. Kérem, kövesse az abban lévő utasításokat a jelszava visszaállításához."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Elnézést, a link, amire kattintott már elévült vagy nem érvényes. Kérem, próbálja meg a jelszó visszaállítást még egyszer."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Ezzel az email címmel nincs felhasználó."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Egy új jelszó ment az email címére. Az új jelszóval már be tud jelentkezni az oldalra."

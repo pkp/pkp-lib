@@ -134,14 +134,12 @@ msgstr "Fel användarnamn eller lösenord. Försök igen."
 msgid "user.login"
 msgstr "Logga in"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Vi har skickat ett meddelande till din e-postadress för bekräftelse. Följ instruktionerna i meddelandet för att återställa ditt lösenord."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Länken du har klickat på har upphört eller är ogiltig. Prova att återställa ditt lösenord igen."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Det finns ingen användare med den här e-postadressen."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Ett nytt lösenord har skickats till din e-postadress. Du kan nu logga in med det nya lösenordet."

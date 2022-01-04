@@ -136,14 +136,12 @@ msgstr ""
 "Испратена нова лозинка на имејл. Сега можете да се најавите на страницата со "
 "вашата нова лозинка."
 
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Ниту еден корисник не постои со наведениот имејл.."
-
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
 "Линкот што го кликнавте истече или не е валиден. Обидете се повторно да ја "
 "поставите вашата лозинка."
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
 "Испратена е потврда на вашиот имејл. Следете ги упатствата во имејлот за да "

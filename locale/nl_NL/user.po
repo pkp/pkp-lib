@@ -137,14 +137,12 @@ msgstr "Verkeerde gebruikersnaam of wachtwoord. Probeer het opnieuw"
 msgid "user.login"
 msgstr "Inloggen"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Er is een bevestiging gestuurd naar uw e-mailadres. Volg de instructies in die e-mail om uw wachtwoord terug te zetten"
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Helaas, de link waar u op klikte is verlopen of ongeldig. Probeer het terugzetten van uw wachtwoord opnieuw."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Er is geen gebruiker met dit e-mailadres."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Er is een nieuw wachtwoord verstuurd naar uw e-mailadres. U kunt nu inloggen met uw nieuwe wachtwoord."

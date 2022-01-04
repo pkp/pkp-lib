@@ -129,14 +129,12 @@ msgstr "El nombre de usuario/a o la contraseña no son válidos. Inténtelo de n
 msgid "user.login"
 msgstr "Entrar"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Se ha enviado una confirmación a su dirección de correo electrónico. Siga las instrucciones del correo electrónico para restablecer su contraseña."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "El enlace ha caducado o no es válido.  Intente restablecer su contraseña de nuevo."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "No existe ningún usuario/a con la dirección de correo electrónico especificada."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Se le ha enviado una nueva contraseña a su dirección de correo electrónico. Ahora puede iniciar sesión con la nueva contraseña."

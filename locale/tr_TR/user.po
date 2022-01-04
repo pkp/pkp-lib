@@ -116,14 +116,12 @@ msgstr "Kullanıcı adı yada şifre hatalı girildi. Büyük-küçük harf uyum
 msgid "user.login"
 msgstr "Giriş"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "E-posta adresinize bir doğrulama mesajı gönderilmiştir. Şifrenizi yenilemek için bu e-postadaki talimatları uygulayınız."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Üzgünüz, tıklamış olduğunuz bağlantı geçerli değildir. Şifrenizi yenilemek için tekrar deneyiniz."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Belirtilen e-posta adresiyle kayıtlı bir kullanıcı bulunamamıştır."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "E-posta adresinize yeni şifreniz gönderilmiştir. Yeni şifrenizi kullanarak siteme bağlanabilirsiniz."

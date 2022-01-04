@@ -83,6 +83,7 @@ msgstr "Ugyldig brukernavn eller passord. Prøv igjen."
 msgid "user.login"
 msgstr "Logg inn"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
 "Du har fått en bekreftelse tilsendt på e-post.  Følg instruksjonene i e-"
@@ -92,9 +93,6 @@ msgid "user.login.lostPassword.invalidHash"
 msgstr ""
 "Beklager, lenken du klikket på har utløpt eller er ugyldig. Prøv å "
 "tilbakestille passordet ditt igjen."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Det finnes ingen bruker med denne e-postadressen."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr ""

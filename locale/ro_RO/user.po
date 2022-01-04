@@ -336,14 +336,12 @@ msgstr ""
 "O nouă parolă a fost trimisă la adresa dvs. de e-mail. Acum vă puteți "
 "autentifica pe site cu noua parolă."
 
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Nu există utilizator cu adresa de e-mail specificată."
-
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
 "Ne pare rău, linkul pe care ai făcut clic a expirat sau nu este valid. "
 "Încercați să resetați parola din nou."
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
 "A fost trimisă o confirmare la adresa dvs. de e-mail. Vă rugăm să urmați "

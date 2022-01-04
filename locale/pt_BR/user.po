@@ -137,14 +137,12 @@ msgstr "Login e/ou senha inválido(s). Tente novamente."
 msgid "user.login"
 msgstr "Acesso"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Um e-mail de confirmação foi enviado. Siga as instruções para criar uma nova senha."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "O link acessado expirou ou é inválido. Lamentamos o inconveniente. Tente criar uma senha novamente."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Nenhum usuário cadastrado com o e-mail especificado."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Uma nova senha foi enviada. Acesse o sistema com a nova senha."

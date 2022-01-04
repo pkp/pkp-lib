@@ -114,14 +114,12 @@ msgstr "El nom d'usuari/ària o la contrasenya són no vàlids. Torneu-ho a inte
 msgid "user.login"
 msgstr "Inici de la sessió"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "S'ha enviat un missatge de confirmació a la vostra adreça electrònica. Seguiu les instruccions del correu electrònic per restablir la contrasenya."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "L'enllaç que heu seleccionat ha vençut o bé no és vàlid. Intenteu restablir la contrasenya de nou."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "No existeix cap usuari/usuària amb l’adreça electrònica especificada."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "S'ha enviat una nova contrasenya a la vostra adreça electrònica. Ja podeu iniciar la sessió amb aquesta contrasenya."

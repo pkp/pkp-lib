@@ -72,14 +72,12 @@ msgstr "Zaboravili ste lozinku?"
 msgid "user.login"
 msgstr "Prijava"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Potvrda je poslana na vašu adresu e-pošte. Molimo slijedite upute u  e-pošti zbog ponovnog uspostavljanja vaše lozinke."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Oprostite, poveznica na koju ste kliknuli nije važeća ili nije valjana. Molimo pokušajte ponovno zatražiti izmjenu vaše lozinke."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Ne postoji korisnik s navedenom adresom e-pošte."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Nova lozinka je poslana na vašu adresu e-pošte. Možete se sada prijaviti na stranici s vašom novom lozinkom."

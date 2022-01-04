@@ -126,14 +126,12 @@ msgstr "Napačno uporabniško ime ali geslo. Poskusite ponovno."
 msgid "user.login"
 msgstr "Prijava"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Potrdilo je bilo poslano na vaš e-poštni naslov. Prosimo sledite navodilom v sporočilu, da boste ponastavili vaše geslo."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Oprostite, povezava, ki ste jo uporabili, ni več veljavna ali pa je napačna. Poskusite ponovno ponastaviti geslo."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Uporabnik z vnešenim e-poštnim naslovom ne obstaja."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Novo geslo je bilo poslano na vaš e-poštni naslov. Prijavite se lahko z novim geslom."

@@ -203,12 +203,9 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
 
         $email = $request->getUserVar('email');
-        $user = Repo::user()->getUserByEmail($email);
+        $user = Repo::user()->getByEmail($email);
 
-        if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
-            $templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
-            $templateMgr->display('frontend/pages/userLostPassword.tpl');
-        } else {
+        if ($user !== null && ($hash = Validation::generatePasswordResetHash($user->getId())) !== false) {
             // Send email confirming password reset
             $mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
             $site = $request->getSite();
@@ -219,15 +216,15 @@ class LoginHandler extends Handler
             ]);
             $mail->addRecipient($user->getEmail(), $user->getFullName());
             $mail->send();
-
-            $templateMgr->assign([
-                'pageTitle' => 'user.login.resetPassword',
-                'message' => 'user.login.lostPassword.confirmationSent',
-                'backLink' => $request->url(null, $request->getRequestedPage()),
-                'backLinkLabel' => 'user.login',
-            ]);
-            $templateMgr->display('frontend/pages/message.tpl');
         }
+
+        $templateMgr->assign([
+            'pageTitle' => 'user.login.resetPassword',
+            'message' => 'user.login.lostPassword.confirmationSent',
+            'backLink' => $request->url(null, $request->getRequestedPage()),
+            'backLinkLabel' => 'user.login',
+        ]);
+        $templateMgr->display('frontend/pages/message.tpl');
     }
 
     /**

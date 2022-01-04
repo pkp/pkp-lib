@@ -334,14 +334,12 @@ msgstr ""
 "Một mật khẩu mới đã được gửi đến địa chỉ email của bạn. Bây giờ bạn có thể "
 "đăng nhập vào trang web bằng mật khẩu mới của mình."
 
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Không có người dùng nào tồn tại với địa chỉ email được chỉ định."
-
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
 "Xin lỗi, liên kết bạn nhấp vào đã hết hạn hoặc không hợp lệ. Vui lòng thử "
 "đặt lại mật khẩu của bạn một lần nữa."
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
 "Một xác nhận đã được gửi đến địa chỉ email của bạn. Vui lòng làm theo hướng "

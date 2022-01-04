@@ -119,14 +119,12 @@ msgstr "نام کاربری یا رمز عبور غلط است. لطفا از ن
 msgid "user.login"
 msgstr "ورود"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "یک نامه تاییدیه به آدرس ایمیل شما ارسال شد.  لطفا دستورات مندرج در آن را بدقت اجرا کنید تا رمز عبورتان به روز شود."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "متأسفانه لینکی که شما بر روی آن کلیک کرده اید تاریخ آن منقضی شده است یا دیگر وجود ندارد. برای دریافت رمز عبور از نو اقدام کنید."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "هیچ کاربری با این ایمیل وجود ندارد."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "یک رمز عبور جدید به آدرس ایمیل شما ارسال گردید. با این رمز عبور جدید هم اکنون میتوانید وارد سایت شوید."

@@ -71,14 +71,12 @@ msgstr "Nom d'usager ou mot de passe non valide. Veuillez essayer de nouveau."
 msgid "user.login"
 msgstr "Se connecter"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Une confirmation a été envoyée à votre adresse de courriel. Veuillez suivre les instructions dans le courriel pour réinitialiser votre mot de passe."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Malheureusement, le lien sur lequel vous avez cliqué est expiré ou n'est pas valide. Veuillez essayer de réinitialiser votre mot de passe encore une fois."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Aucun utilisateur n'existe avec l'adresse de courriel indiquée."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Un nouveau mot de passe a été envoyé à votre adresse de courriel. Vous pouvez maintenant vous connecter au site avec votre nouveau mot de passe."

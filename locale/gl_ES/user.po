@@ -391,15 +391,12 @@ msgstr ""
 "Enviouse un novo contrasinal ao seu enderezo de correo electrónico. Agora "
 "podes iniciar sesión no sitio co teu novo contrasinal."
 
-msgid "user.login.lostPassword.invalidUser"
-msgstr ""
-"Non existe ningún usuario/a co enderezo de correo electrónico especificado."
-
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
 "A ligazón caducou ou non é válida. Tenta restablecer o teu contrasinal de "
 "novo."
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
 "Enviouse unha confirmación ao seu enderezo de correo electrónico. Siga as "

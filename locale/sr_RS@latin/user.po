@@ -83,9 +83,6 @@ msgstr "Neispravno korisničko ime ili lozinka. Pokušajte ponovo."
 msgid "user.login"
 msgstr "Prijavi se"
 
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Ne postoji korisnik sa datom adresom."
-
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Nova lozinka je poslata na vašu adresu. Možete se prijaviti u sajt sa vašom novom lozinkom."
 
@@ -371,6 +368,7 @@ msgstr "Hvala što ste aktivirali vaš nalog. Možete se prijaviti u sistem kori
 msgid "user.login.changePasswordInstructions"
 msgstr "Morate odabrati novu lozinku pre nego se prijavite u sajt. <br /><br /> Molimo da unesete vaše korisničko ime i vašu sadašnju i novu lozinku kako bi izmenili lozinku vašeg naloga."
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Poslata je potvrda na vašu adresu. Sledite instrukcije u toj poruci da bi promenili lozinku."
 

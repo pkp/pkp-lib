@@ -125,14 +125,12 @@ msgstr "Virheellinen käyttäjätunnus tai salasana. Yritä uudelleen."
 msgid "user.login"
 msgstr "Kirjautuminen"
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr "Sähköpostiisi on lähetetty vahvistus. Seuraa sähköpostissa olevia ohjeita vaihtaaksesi salasanan."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr "Klikkaamasi linkki on vanhentunut tai se ei ole kelvollinen. Yritä vaihtaa salasana uudelleen."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Määritetty sähköpostiosoite ei kuulu yhdellekään käyttäjälle."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Uusi salasana on lähetetty sähköpostiosoitteeseesi. Voit nyt kirjautua sivustolle uudella salasanallasi."

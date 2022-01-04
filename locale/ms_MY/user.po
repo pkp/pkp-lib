@@ -57,14 +57,12 @@ msgstr ""
 "Kata laluan baharu telah dihantar ke alamat e-mel anda. Anda kini boleh log "
 "masuk ke laman dengan kata laluan baharu anda."
 
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Tiada pengguna wujud dengan alamat e-mel yang ditentukan."
-
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
 "Maaf, pautan yang anda klik telah tamat tempoh atau tidak sah. Sila cuba "
 "tetapkan semula kata laluan anda sekali lagi."
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
 "Pengesahan telah dihantar ke alamat e-mel anda. Sila ikut arahan dalam e-mel "

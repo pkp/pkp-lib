@@ -245,6 +245,7 @@ msgstr ""
 msgid "user.login.loginError"
 msgstr "პაროლი, ან მომხმარებლის სახელი არასწორია, გთხოვთ, სცადოთ ხელახლა."
 
+#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
 "დადასტურება გაიგზავნა თქვენს ელფოსტის მისამართზე. გთხოვთ, მიჰყვეთ ელფოსტის "
@@ -254,9 +255,6 @@ msgid "user.login.lostPassword.invalidHash"
 msgstr ""
 "უკაცრავად, ბმულს, რომელზეც დააწკაპუნეთ, ვადა ამოიწურა ან არასწორია. გთხოვთ, "
 "ისევ სცადოთ თქვენი პაროლის გადაყენება."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "მომხმარებელი არ არსებობს მითითებული ელფოსტის მისამართით."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr ""

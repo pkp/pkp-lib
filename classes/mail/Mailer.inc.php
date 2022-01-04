@@ -28,7 +28,9 @@ use PKP\observers\events\MessageSendingContext;
 use PKP\observers\events\MessageSendingSite;
 use PKP\plugins\HookRegistry;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mailer\Transport\TransportInterface;
+use Symfony\Component\Mime\Email;
 
 class Mailer extends IlluminateMailer
 {
@@ -183,5 +185,22 @@ class Mailer extends IlluminateMailer
         ];
 
         return $mailables;
+    }
+
+    /**
+     * Override method to catch an exception while sending email instance
+     *
+     * @return \Symfony\Component\Mailer\SentMessage|null
+     */
+    protected function sendSymfonyMessage(Email $message)
+    {
+        $sentMessage = null;
+        try {
+            $sentMessage = $this->transport->send($message, Envelope::create($message));
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+        }
+
+        return $sentMessage;
     }
 }

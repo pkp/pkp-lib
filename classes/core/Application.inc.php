@@ -121,7 +121,6 @@ class Application extends PKPApplication
         return array_merge(parent::getDAOMap(), [
             'PreprintSearchDAO' => 'APP\search\PreprintSearchDAO',
             'ServerDAO' => 'APP\server\ServerDAO',
-            'MetricsDAO' => 'APP\statistics\MetricsDAO',
             'OAIDAO' => 'APP\oai\ops\OAIDAO',
             'SectionDAO' => 'APP\server\SectionDAO',
             'TemporaryTotalsDAO' => 'APP\statistics\TemporaryTotalsDAO',

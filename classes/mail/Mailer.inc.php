@@ -29,6 +29,7 @@ use PKP\observers\events\MessageSendingSite;
 use PKP\plugins\HookRegistry;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Mailer\Envelope;
+use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\Transport\TransportInterface;
 use Symfony\Component\Mime\Email;
 
@@ -197,7 +198,7 @@ class Mailer extends IlluminateMailer
         $sentMessage = null;
         try {
             $sentMessage = $this->transport->send($message, Envelope::create($message));
-        } catch (Exception $e) {
+        } catch (TransportException $e) {
             error_log($e->getMessage());
         }
 

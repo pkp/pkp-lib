@@ -15,7 +15,7 @@
 
 use APP\facades\Repo;
 
-require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
 
 class SetVersionTool extends \PKP\cliTool\CommandLineTool
 {

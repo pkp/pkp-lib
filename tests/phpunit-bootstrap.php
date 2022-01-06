@@ -15,7 +15,7 @@ if (isset($_SERVER['SERVER_NAME'])) {
 
 
 // Configure the index file location, assume that pkp-lib is included within a PKP application.
-define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(__FILE__)))) . '/index.php');
+define('INDEX_FILE_LOCATION', dirname(__FILE__, 4) . '/index.php');
 chdir(dirname(INDEX_FILE_LOCATION));
 
 // Configure PKP error handling for tests

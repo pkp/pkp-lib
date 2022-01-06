@@ -17,7 +17,7 @@ use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\plugins\PluginGalleryDAO;
 
-require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
 
 import('lib.pkp.controllers.grid.plugins.PluginGalleryGridHandler'); // load constant: PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE
 

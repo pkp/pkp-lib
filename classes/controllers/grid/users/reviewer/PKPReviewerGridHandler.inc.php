@@ -1123,10 +1123,6 @@ class PKPReviewerGridHandler extends GridHandler
             ->sender($sender)
             ->recipients([$reviewer]);
 
-        $mailable->addData([
-            'reviewerName' => $mailable->viewData['userFullName']
-        ]);
-
         try {
             Mail::send($mailable);
         } catch (Swift_TransportException $e) {

@@ -193,6 +193,10 @@ class EditorAction
         }
     }
 
+    /**
+     * Create an email representation based on data entered by the editor to the ReviewerForm
+     * Associated templates: REVIEW_REQUEST, REVIEW_REQUEST_SUBSEQUENT, REVIEW_REQUEST_ONECLICK, REVIEW_REQUEST_ONECLICK_SUBSEQUENT
+     */
     protected function createMail(
         PKPSubmission $submission,
         ReviewAssignment $reviewAssignment,

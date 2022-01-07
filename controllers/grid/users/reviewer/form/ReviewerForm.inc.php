@@ -312,17 +312,17 @@ class ReviewerForm extends Form
             }
         }
 
-        $templates = [];
-        foreach ($templateKeys as $templateKey) {
-            $thisTemplate = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
-            $thisTemplate->assignParams([]);
-            $templates[$templateKey] = $thisTemplate->getSubject();
-        }
-
-        $templateMgr->assign('templates', $templates);
+        $templatesCollection = Repo::emailTemplate()->getMany(
+            Repo::emailTemplate()->getCollector()->filterByKeys($templateKeys)->filterByContext($context->getId())
+        );
+        $templates = $templatesCollection->mapWithKeys(function(EmailTemplate $emailTemplate, int $key) {
+            return [
+                $emailTemplate->getData('key') => $emailTemplate->getLocalizedData('subject')
+            ];
+        });
+        $templateMgr->assign('templates', $templates->all());
 
         // Get the reviewer user groups for the create new reviewer/enroll existing user tabs
-        $context = $request->getContext();
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $reviewRound = $this->getReviewRound();
         $reviewerUserGroups = $userGroupDao->getUserGroupsByStage($context->getId(), $reviewRound->getStageId(), Role::ROLE_ID_REVIEWER);

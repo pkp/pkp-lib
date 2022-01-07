@@ -34,9 +34,9 @@ class PreprintGalleyForm extends Form
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $publication Publication
-     * @param $preprintGalley PreprintGalley (optional)
+     * @param Submission $submission
+     * @param Publication $publication
+     * @param PreprintGalley $preprintGalley (optional)
      */
     public function __construct($request, $submission, $publication, $preprintGalley = null)
     {

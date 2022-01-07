@@ -29,7 +29,7 @@ class DAO extends \PKP\submission\DAO
         $publicationCollector = Repo::publication()->getCollector()->filterBySubmissionIds([$id]);
         $publicationIds = Repo::publication()->getIds($publicationCollector);
 
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $preprintGalleyDao */
         foreach ($publicationIds as $publicationId) {
             $galleys = $preprintGalleyDao->getByPublicationId($publicationId)->toArray();
             foreach ($galleys as $galley) {
@@ -37,7 +37,7 @@ class DAO extends \PKP\submission\DAO
             }
         }
 
-        $preprintSearchDao = DAORegistry::getDAO('PreprintSearchDAO'); /* @var $preprintSearchDao PreprintSearchDAO */
+        $preprintSearchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $preprintSearchDao */
         $preprintSearchDao->deleteSubmissionKeywords($id);
 
         $preprintSearchIndex = Application::getSubmissionSearchIndex();

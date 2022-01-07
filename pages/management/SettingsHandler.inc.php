@@ -45,8 +45,8 @@ class SettingsHandler extends ManagementHandler
     /**
      * Add the OPS workflow settings page
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function workflow($args, $request)
     {
@@ -77,8 +77,8 @@ class SettingsHandler extends ManagementHandler
     /**
      * Add OPS distribution settings
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function distribution($args, $request)
     {

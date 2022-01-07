@@ -20,9 +20,9 @@ class UserHandler extends PKPUserHandler
     /**
      * Determine if the server's setup has been sufficiently completed.
      *
-     * @param $server Object
+     * @param Object $server
      *
-     * @return boolean True iff setup is incomplete
+     * @return bool True iff setup is incomplete
      */
     public function _checkIncompleteSetup($server)
     {
@@ -37,7 +37,7 @@ class UserHandler extends PKPUserHandler
     /**
      * Setup common template variables.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function setupTemplate($request = null)
     {

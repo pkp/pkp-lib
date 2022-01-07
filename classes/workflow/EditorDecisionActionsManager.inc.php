@@ -31,9 +31,9 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager
     /**
      * Get decision actions labels.
      *
-     * @param $request PKPRequest
-     * @param $stageId int
-     * @param $decisions array
+     * @param PKPRequest $request
+     * @param int $stageId
+     * @param array $decisions
      *
      * @return array
      */
@@ -71,8 +71,8 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager
      * If the user cannot make decisions i.e. if it is a recommendOnly user,
      * there will be no decisions options in the production stage.
      *
-     * @param $submission Submission
-     * @param $makeDecision boolean If the user can make decisions
+     * @param Submission $submission
+     * @param bool $makeDecision If the user can make decisions
      *
      * @return array
      */

@@ -73,8 +73,8 @@ class ServerDAO extends ContextDAO
     /**
      * Delete the public IDs of all publishing objects in a server.
      *
-     * @param $serverId int
-     * @param $pubIdType string One of the NLM pub-id-type values or
+     * @param int $serverId
+     * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      */
@@ -94,17 +94,17 @@ class ServerDAO extends ContextDAO
      * Check whether the given public ID exists for any publishing
      * object in a server.
      *
-     * @param $serverId int
-     * @param $pubIdType string One of the NLM pub-id-type values or
+     * @param int $serverId
+     * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-     * @param $pubId string
-     * @param $assocType int The object type of an object to be excluded from
+     * @param string $pubId
+     * @param int $assocType The object type of an object to be excluded from
      *  the search. Identified by one of the ASSOC_TYPE_* constants.
-     * @param $assocId int The id of an object to be excluded from the search.
-     * @param $forSameType boolean Whether only the same objects should be considered.
+     * @param int $assocId The id of an object to be excluded from the search.
+     * @param bool $forSameType Whether only the same objects should be considered.
      *
-     * @return boolean
+     * @return bool
      */
     public function anyPubIdExists(
         $serverId,

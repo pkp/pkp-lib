@@ -69,9 +69,9 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Retrieve a section by ID.
      *
-     * @param $sectionId int
-     * @param $serverId int Server ID optional
-     * @param $useCache boolean optional
+     * @param int $sectionId
+     * @param int $serverId Server ID optional
+     * @param bool $useCache optional
      *
      * @return Section|null
      */
@@ -100,9 +100,9 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Retrieve a section by abbreviation.
      *
-     * @param $sectionAbbrev string
-     * @param $serverId int Server ID
-     * @param $locale string optional
+     * @param string $sectionAbbrev
+     * @param int $serverId Server ID
+     * @param string $locale optional
      *
      * @return Section
      */
@@ -130,9 +130,9 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Retrieve a section by title.
      *
-     * @param $sectionTitle string
-     * @param $serverId int Server ID
-     * @param $locale string optional
+     * @param string $sectionTitle
+     * @param int $serverId Server ID
+     * @param string $locale optional
      *
      * @return Section
      */
@@ -160,7 +160,7 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Retrieve section a submission is assigned to.
      *
-     * @param $submissionId int Submission id
+     * @param int $submissionId Submission id
      *
      * @return Section
      */
@@ -188,7 +188,7 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Internal function to return a Section object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return Section
      */
@@ -242,7 +242,7 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Update the localized fields for this table
      *
-     * @param $section object
+     * @param object $section
      */
     public function updateLocaleFields($section)
     {
@@ -256,7 +256,7 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Insert a new section.
      *
-     * @param $section Section
+     * @param Section $section
      *
      * @return int new Section ID
      */
@@ -290,7 +290,7 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Update an existing section.
      *
-     * @param $section Section
+     * @param Section $section
      */
     public function updateObject($section)
     {
@@ -328,8 +328,8 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Delete a section by ID.
      *
-     * @param $sectionId int Section ID
-     * @param $contextId int optional
+     * @param int $sectionId Section ID
+     * @param int $contextId optional
      */
     public function deleteById($sectionId, $contextId = null)
     {
@@ -355,7 +355,7 @@ class SectionDAO extends PKPSectionDAO
      * NOTE: This does not delete dependent entries EXCEPT from subeditor_submission_group. It is intended
      * to be called only when deleting a server.
      *
-     * @param $serverId int Server ID
+     * @param int $serverId Server ID
      */
     public function deleteByServerId($serverId)
     {
@@ -366,7 +366,7 @@ class SectionDAO extends PKPSectionDAO
      * Retrieve an array associating all section editor IDs with
      * arrays containing the sections they edit.
      *
-     * @param $serverId int Server ID
+     * @param int $serverId Server ID
      *
      * @return array editorId => array(sections they edit)
      */
@@ -392,8 +392,8 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Retrieve all sections for a server.
      *
-     * @param $serverId int Server ID
-     * @param $rangeInfo DBResultRange optional
+     * @param int $serverId Server ID
+     * @param DBResultRange $rangeInfo optional
      *
      * @return DAOResultFactory containing Sections ordered by sequence
      */
@@ -405,9 +405,9 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Retrieve all sections for a server.
      *
-     * @param $serverId int Server ID
-     * @param $rangeInfo DBResultRange optional
-     * @param $submittableOnly boolean optional. Whether to return only sections
+     * @param int $serverId Server ID
+     * @param DBResultRange $rangeInfo optional
+     * @param bool $submittableOnly optional. Whether to return only sections
      *  that can be submitted to by anyone.
      *
      * @return DAOResultFactory containing Sections ordered by sequence
@@ -428,7 +428,7 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Retrieve all sections.
      *
-     * @param $rangeInfo DBResultRange optional
+     * @param DBResultRange $rangeInfo optional
      *
      * @return DAOResultFactory containing Sections ordered by server ID and sequence
      */
@@ -448,7 +448,7 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Retrieve all empty (without preprints) section ids for a server.
      *
-     * @param $serverId int Server ID
+     * @param int $serverId Server ID
      *
      * @return array
      */
@@ -469,10 +469,10 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Check if a section exists with the specified ID.
      *
-     * @param $sectionId int Section ID
-     * @param $serverId int Server ID
+     * @param int $sectionId Section ID
+     * @param int $serverId Server ID
      *
-     * @return boolean
+     * @return bool
      */
     public function sectionExists($sectionId, $serverId)
     {
@@ -487,7 +487,7 @@ class SectionDAO extends PKPSectionDAO
     /**
      * Sequentially renumber sections in their sequence order.
      *
-     * @param $serverId int Server ID
+     * @param int $serverId Server ID
      */
     public function resequenceSections($serverId)
     {

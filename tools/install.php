@@ -22,7 +22,7 @@ class OPSInstallTool extends InstallTool
     /**
      * Constructor.
      *
-     * @param $argv array command-line arguments
+     * @param array $argv command-line arguments
      */
     public function __construct($argv = [])
     {

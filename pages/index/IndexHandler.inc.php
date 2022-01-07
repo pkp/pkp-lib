@@ -29,8 +29,8 @@ class IndexHandler extends PKPIndexHandler
      * If no server is selected, display list of servers.
      * Otherwise, display the index page for the selected server.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function index($args, $request)
     {
@@ -55,7 +55,7 @@ class IndexHandler extends PKPIndexHandler
         if ($server) {
 
             // OPS: sections
-            $sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+            $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
             $sections = $sectionDao->getByContextId($server->getId());
 
             // OPS: categories
@@ -88,7 +88,7 @@ class IndexHandler extends PKPIndexHandler
 
             $templateMgr->display('frontend/pages/indexServer.tpl');
         } else {
-            $serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
             $site = $request->getSite();
 
             if ($site->getRedirect() && ($server = $serverDao->getById($site->getRedirect())) != null) {

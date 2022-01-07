@@ -439,7 +439,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     private function getMockPreprintSearchIndex($expectedCall)
     {
         // Mock PreprintSearchIndex.
-        /* @var $preprintSearchIndex PreprintSearchIndex */
+        /** @var PreprintSearchIndex $preprintSearchIndex */
         $preprintSearchIndex = $this->getMockBuilder(PreprintSearchIndex::class)
             ->setMethods(['_updateTextIndex'])
             ->getMock();

@@ -52,8 +52,8 @@ class CrossrefDepositPlugin extends GenericPlugin
     /**
      * Deposit DOIs on publish
      *
-     * @param $hookName string
-     * @param $args array [
+     * @param string $hookName
+     * @param array $args [
      *		@option Publication The new version of the publication
      *		@option Publication The old version of the publication
      * ]

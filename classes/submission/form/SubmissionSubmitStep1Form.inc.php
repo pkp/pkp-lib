@@ -50,7 +50,7 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
             $roleDao->userHasRole($this->context->getId(), $user->getId(), Role::ROLE_ID_SUB_EDITOR);
 
         // Get section options for this context
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $sections = [];
         $sectionsIterator = $sectionDao->getByContextId($this->context->getId(), null, !$canSubmitAll);
         while ($section = $sectionsIterator->next()) {
@@ -136,7 +136,7 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
 
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $section = $sectionDao->getById($this->getData('sectionId'), $context->getId());
         if (!$section) {
             return false;
@@ -145,7 +145,7 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
 
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $sectionDao = DAORegistry::getDAO('SectionDAO'); /* @var $sectionDao SectionDAO */
+        $sectionDao = DAORegistry::getDAO('SectionDAO'); /** @var SectionDAO $sectionDao */
         $section = $sectionDao->getById($this->getData('sectionId'), $context->getId());
 
         // Validate that the section ID is attached to this server.
@@ -181,7 +181,7 @@ class SubmissionSubmitStep1Form extends PKPSubmissionSubmitStep1Form
         // OPS: Move comments for moderators discussion to production stage
         $query = $this->getCommentsToEditor($this->submissionId);
         if (isset($query)) {
-            $queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
+            $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
             $query->setStageId(WORKFLOW_STAGE_ID_PRODUCTION);
             $queryDao->updateObject($query);
         }

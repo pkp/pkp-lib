@@ -26,7 +26,7 @@ use PKP\notification\PKPNotificationManager;
 
 class NotificationManager extends PKPNotificationManager
 {
-    /* @var array Cache each user's most privileged role for each submission */
+    /** @var array Cache each user's most privileged role for each submission */
     public $privilegedRoles;
 
     /**
@@ -51,7 +51,7 @@ class NotificationManager extends PKPNotificationManager
     /**
      * Helper function to get an preprint title from a notification's associated object
      *
-     * @param $notification
+     * @param Notification $notification
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class NotificationManager extends PKPNotificationManager
     /**
      * Return a CSS class containing the icon of this notification type
      *
-     * @param $notification Notification
+     * @param Notification $notification
      *
      * @return string
      */

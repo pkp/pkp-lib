@@ -22,9 +22,9 @@ class PublicIdentifiersForm extends PKPPublicIdentifiersForm
     /**
      * Constructor.
      *
-     * @param $pubObject object
-     * @param $stageId integer
-     * @param $formParams array
+     * @param object $pubObject
+     * @param int $stageId
+     * @param array $formParams
      */
     public function __construct($pubObject, $stageId = null, $formParams = null)
     {

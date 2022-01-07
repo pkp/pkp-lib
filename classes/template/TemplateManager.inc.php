@@ -29,7 +29,7 @@ class TemplateManager extends PKPTemplateManager
     /**
      * Initialize template engine and assign basic template variables.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function initialize($request)
     {

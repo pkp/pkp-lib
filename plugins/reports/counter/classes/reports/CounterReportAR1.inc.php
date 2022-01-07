@@ -29,12 +29,12 @@ class CounterReportAR1 extends CounterReport
         return __('plugins.reports.counter.ar1.title');
     }
 
-    /*
+    /**
      * Convert an OPS metrics request to a COUNTER ReportItem
-     * @param $columns string|array column (aggregation level) selection
-     * @param $filters array report-level filter selection
-     * @param $orderBy array order criteria
-     * @param $range null|DBResultRange paging specification
+     * @param string|array $columns column (aggregation level) selection
+     * @param array $filters report-level filter selection
+     * @param array $orderBy order criteria
+     * @param null|DBResultRange $range paging specification
      * @see ReportPlugin::getMetrics for more details
      * @return array COUNTER\ReportItem
      */
@@ -140,7 +140,7 @@ class CounterReportAR1 extends CounterReport
         }
         $title = $preprint->getLocalizedTitle();
         $serverId = $preprint->getContextId();
-        $serverDao = DAORegistry::getDAO('ServerDAO'); /* @var $serverDao ServerDAO */
+        $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
         $server = $serverDao->getById($serverId);
         if (!$server) {
             return false;

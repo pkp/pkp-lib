@@ -37,8 +37,8 @@ class PreprintGalleyNativeXmlFilter extends RepresentationNativeXmlFilter
      * Create and return a representation node. Extend the parent class
      * with publication format specific data.
      *
-     * @param $doc DOMDocument
-     * @param $representation Representation
+     * @param DOMDocument $doc
+     * @param Representation $representation
      *
      * @return DOMElement
      */
@@ -53,7 +53,7 @@ class PreprintGalleyNativeXmlFilter extends RepresentationNativeXmlFilter
     /**
      * Get the available submission files for a representation
      *
-     * @param $representation Representation
+     * @param Representation $representation
      *
      * @return array
      */

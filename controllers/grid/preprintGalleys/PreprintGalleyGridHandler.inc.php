@@ -246,8 +246,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Edit preprint galley pub ids
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -264,8 +264,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Update preprint galley pub ids
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -287,8 +287,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Clear galley pub id
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -310,8 +310,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Add a galley
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -330,8 +330,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Delete a galley.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -365,8 +365,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Edit a galley metadata modal
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -399,8 +399,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Edit a galley
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -421,8 +421,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Save a galley
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -477,7 +477,7 @@ class PreprintGalleyGridHandler extends GridHandler
      * If the user is not assigned, they can edit if they are an editor
      * or admin.
      *
-     * @return boolean
+     * @return bool
      */
     public function canEdit()
     {

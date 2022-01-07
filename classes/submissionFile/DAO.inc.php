@@ -29,7 +29,7 @@ class DAO extends BaseDAO
         $galley = null;
 
         if ($submissionFile->getData('assocType') === ASSOC_TYPE_REPRESENTATION) {
-            $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $galleyDao PreprintGalleyDAO */
+            $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $galleyDao */
             $galley = $galleyDao->getById($submissionFile->getData('assocId'));
             if (!$galley) {
                 throw new Exception('Galley not found when adding submission file.');

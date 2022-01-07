@@ -41,8 +41,8 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
     /**
      * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
      *
-     * @param $metadataDescription MetadataDescription
-     * @param $targetDataObject Preprint
+     * @param MetadataDescription $metadataDescription
+     * @param Preprint $targetDataObject
      */
     public function &injectMetadataIntoDataObject(&$metadataDescription, &$targetDataObject)
     {
@@ -53,7 +53,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
     /**
      * @see MetadataDataObjectAdapter::extractMetadataFromDataObject()
      *
-     * @param $submission Submission
+     * @param Submission $submission
      *
      * @return MetadataDescription
      */
@@ -69,7 +69,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         // meta-data framework. We're using the OAIDAO here because it
         // contains cached entities and avoids extra database access if this
         // adapter is called from an OAI context.
-        $oaiDao = DAORegistry::getDAO('OAIDAO'); /* @var $oaiDao OAIDAO */
+        $oaiDao = DAORegistry::getDAO('OAIDAO'); /** @var OAIDAO $oaiDao */
         $server = $oaiDao->getServer($submission->getData('contextId'));
         $section = $oaiDao->getSection($submission->getSectionId());
 
@@ -127,7 +127,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $dc11Description->addStatement('dc:type', $driverVersion, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
 
         // Format
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $preprintGalleyDao */
         $galleys = $preprintGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId());
 
         $formats = [];
@@ -142,7 +142,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 
         // Get galleys and supp files.
         $galleys = [];
-        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /* @var $preprintGalleyDao PreprintGalleyDAO */
+        $preprintGalleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $preprintGalleyDao */
         $galleys = $preprintGalleyDao->getByPublicationId($submission->getCurrentPublication()->getId())->toArray();
 
         // Language
@@ -202,7 +202,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
     /**
      * @see MetadataDataObjectAdapter::getDataObjectMetadataFieldNames()
      *
-     * @param $translated boolean
+     * @param bool $translated
      */
     public function getDataObjectMetadataFieldNames($translated = true)
     {
@@ -217,9 +217,9 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
     /**
      * Add an array of localized values to the given description.
      *
-     * @param $description MetadataDescription
-     * @param $propertyName string
-     * @param $localizedValues array
+     * @param MetadataDescription $description
+     * @param string $propertyName
+     * @param array $localizedValues
      */
     public function _addLocalizedElements(&$description, $propertyName, $localizedValues)
     {

@@ -30,8 +30,8 @@ class ViewReviewGuidelinesLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $stageId int Stage ID of review assignment
+     * @param Request $request
+     * @param int $stageId Stage ID of review assignment
      */
     public function __construct($request, $stageId)
     {

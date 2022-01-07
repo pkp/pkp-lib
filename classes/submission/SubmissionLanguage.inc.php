@@ -36,8 +36,8 @@ class SubmissionLanguage extends \PKP\controlledVocab\ControlledVocabEntry
     /**
      * Set the language text
      *
-     * @param language string
-     * @param locale string
+     * @param string $language
+     * @param string $locale
      */
     public function setLanguage($language, $locale)
     {

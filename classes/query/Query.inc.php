@@ -35,7 +35,7 @@ class Query extends \PKP\core\DataObject
     /**
      * Set query assoc type
      *
-     * @param $assocType int ASSOC_TYPE_...
+     * @param int $assocType ASSOC_TYPE_...
      */
     public function setAssocType($assocType)
     {
@@ -55,7 +55,7 @@ class Query extends \PKP\core\DataObject
     /**
      * Set query assoc ID
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -75,7 +75,7 @@ class Query extends \PKP\core\DataObject
     /**
      * Set stage ID
      *
-     * @param $stageId int
+     * @param int $stageId
      */
     public function setStageId($stageId)
     {
@@ -95,7 +95,7 @@ class Query extends \PKP\core\DataObject
     /**
      * Set sequence of query.
      *
-     * @param $sequence float
+     * @param float $sequence
      */
     public function setSequence($sequence)
     {
@@ -105,7 +105,7 @@ class Query extends \PKP\core\DataObject
     /**
      * Get closed flag
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsClosed()
     {
@@ -115,7 +115,7 @@ class Query extends \PKP\core\DataObject
     /**
      * Set closed flag
      *
-     * @param $isClosed boolean
+     * @param bool $isClosed
      */
     public function setIsClosed($isClosed)
     {
@@ -136,10 +136,10 @@ class Query extends \PKP\core\DataObject
     /**
      * Get all notes on a query.
      *
-     * @param $userId int Optional user ID
-     * @param $sortBy int Optional NoteDAO::NOTE_ORDER_...
-     * @param $sortOrder int Optional SORT_DIRECTION_...
-     * @param $isAdmin bool Optional user sees all
+     * @param int $userId Optional user ID
+     * @param int $sortBy Optional NoteDAO::NOTE_ORDER_...
+     * @param int $sortOrder Optional SORT_DIRECTION_...
+     * @param bool $isAdmin Optional user sees all
      *
      * @return DAOResultFactory
      */

@@ -71,15 +71,15 @@ class PKPRouter
     public $_application;
     /** @var Dispatcher */
     public $_dispatcher;
-    /** @var integer context depth */
+    /** @var int context depth */
     public $_contextDepth;
-    /** @var integer context list */
+    /** @var int context list */
     public $_contextList;
-    /** @var integer context list with keys and values flipped */
+    /** @var int context list with keys and values flipped */
     public $_flippedContextList;
-    /** @var integer context paths */
+    /** @var int context paths */
     public $_contextPaths = [];
-    /** @var integer contexts */
+    /** @var int contexts */
     public $_contexts = [];
     /** @var PKPHandler Handler class */
     public $_handler;
@@ -105,7 +105,7 @@ class PKPRouter
     /**
      * set the application
      *
-     * @param $application PKPApplication
+     * @param PKPApplication $application
      */
     public function setApplication($application)
     {
@@ -131,7 +131,7 @@ class PKPRouter
     /**
      * set the dispatcher
      *
-     * @param $dispatcher PKPDispatcher
+     * @param PKPDispatcher $dispatcher
      */
     public function setDispatcher($dispatcher)
     {
@@ -141,7 +141,7 @@ class PKPRouter
     /**
      * Set the handler object for later retrieval.
      *
-     * @param $handler PKPHandler
+     * @param PKPHandler $handler
      */
     public function setHandler($handler)
     {
@@ -161,9 +161,9 @@ class PKPRouter
     /**
      * Determines whether this router can route the given request.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
-     * @return boolean true, if the router supports this request, otherwise false
+     * @return bool true, if the router supports this request, otherwise false
      */
     public function supports($request)
     {
@@ -174,9 +174,9 @@ class PKPRouter
     /**
      * Determine whether or not this request is cacheable
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
-     * @return boolean
+     * @return bool
      */
     public function isCacheable($request)
     {
@@ -187,7 +187,7 @@ class PKPRouter
     /**
      * A generic method to return an array of context paths (e.g. a Press or a Conference/SchedConf paths)
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      *
      * @return array of string (each element the path to one context element)
      */
@@ -234,8 +234,8 @@ class PKPRouter
     /**
      * A generic method to return a single context path (e.g. a Press or a SchedConf path)
      *
-     * @param $request PKPRequest the request to be routed
-     * @param $requestedContextLevel int (optional) the context level to return
+     * @param PKPRequest $request the request to be routed
+     * @param int $requestedContextLevel (optional) the context level to return
      *
      * @return string
      */
@@ -259,9 +259,9 @@ class PKPRouter
     /**
      * A Generic call to a context defining object (e.g. a Press, a Conference, or a SchedConf)
      *
-     * @param $request PKPRequest the request to be routed
-     * @param $requestedContextLevel int (optional) the desired context level
-     * @param $forceReload boolean (optional) Reset a context even if it's already been loaded
+     * @param PKPRequest $request the request to be routed
+     * @param int $requestedContextLevel (optional) the desired context level
+     * @param bool $forceReload (optional) Reset a context even if it's already been loaded
      *
      * @return object
      */
@@ -302,8 +302,8 @@ class PKPRouter
     /**
      * Get the object that represents the desired context (e.g. Conference or Press)
      *
-     * @param $request PKPRequest the request to be routed
-     * @param $requestedContextName string page context
+     * @param PKPRequest $request the request to be routed
+     * @param string $requestedContextName page context
      *
      * @return object
      */
@@ -326,7 +326,7 @@ class PKPRouter
     /**
      * Get the URL to the index script.
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      *
      * @return string
      */
@@ -351,7 +351,7 @@ class PKPRouter
     /**
      * Determine the filename to use for a local cache file.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return string
      */
@@ -364,7 +364,7 @@ class PKPRouter
     /**
      * Routes a given request to a handler operation
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function route($request)
     {
@@ -375,14 +375,14 @@ class PKPRouter
     /**
      * Build a handler request URL into PKPApplication.
      *
-     * @param $request PKPRequest the request to be routed
-     * @param $newContext mixed Optional contextual paths
-     * @param $handler string Optional name of the handler to invoke
-     * @param $op string Optional name of operation to invoke
-     * @param $path mixed Optional string or array of args to pass to handler
-     * @param $params array Optional set of name => value pairs to pass as user parameters
-     * @param $anchor string Optional name of anchor to add to URL
-     * @param $escape boolean Whether or not to escape ampersands, square brackets, etc. for this URL; default false.
+     * @param PKPRequest $request the request to be routed
+     * @param mixed $newContext Optional contextual paths
+     * @param string $handler Optional name of the handler to invoke
+     * @param string $op Optional name of operation to invoke
+     * @param mixed $path Optional string or array of args to pass to handler
+     * @param array $params Optional set of name => value pairs to pass as user parameters
+     * @param string $anchor Optional name of anchor to add to URL
+     * @param bool $escape Whether or not to escape ampersands, square brackets, etc. for this URL; default false.
      *
      * @return string the URL
      */
@@ -403,8 +403,8 @@ class PKPRouter
     /**
      * Handle an authorization failure.
      *
-     * @param $request Request
-     * @param $authorizationMessage string a translation key with the authorization
+     * @param Request $request
+     * @param string $authorizationMessage a translation key with the authorization
      *  failure message.
      */
     public function handleAuthorizationFailure(
@@ -429,10 +429,10 @@ class PKPRouter
      * 4) execution
      * 5) client response
      *
-     * @param $serviceEndpoint callable the handler operation
-     * @param $request PKPRequest
-     * @param $args array
-     * @param $validate boolean whether or not to execute the
+     * @param callable $serviceEndpoint the handler operation
+     * @param PKPRequest $request
+     * @param array $args
+     * @param bool $validate whether or not to execute the
      *  validation step.
      */
     public function _authorizeInitializeAndCallRequest(&$serviceEndpoint, $request, &$args, $validate = true)
@@ -499,7 +499,7 @@ class PKPRouter
      * When all entries are of the form 'contextName' => null or if
      * $newContext == null then we'll return an empty array.
      *
-     * @param $newContext the raw context array
+     * @param array $newContext the raw context array
      *
      * @return array the canonicalized context array
      */
@@ -541,8 +541,8 @@ class PKPRouter
      * in the config file using the 'base_url[context]' syntax in the
      * config file's 'general' section.
      *
-     * @param $request PKPRequest the request to be routed
-     * @param $newContext mixed (optional) context that differs from
+     * @param PKPRequest $request the request to be routed
+     * @param mixed $newContext (optional) context that differs from
      *  the current request's context
      *
      * @return array An array consisting of the base url as the first
@@ -614,10 +614,10 @@ class PKPRouter
     /**
      * Build the additional parameters part of the URL.
      *
-     * @param $request PKPRequest the request to be routed
-     * @param $params array (optional) the parameter list to be
+     * @param PKPRequest $request the request to be routed
+     * @param array $params (optional) the parameter list to be
      *  transformed to a url part.
-     * @param $escape boolean (optional) Whether or not to escape structural elements
+     * @param bool $escape (optional) Whether or not to escape structural elements
      *
      * @return array the encoded parameters or an empty array
      *  if no parameters were given.
@@ -644,11 +644,11 @@ class PKPRouter
     /**
      * Creates a valid URL from parts.
      *
-     * @param $baseUrl string the protocol, domain and initial path/parameters, no anchors allowed here
-     * @param $pathInfoArray array strings to be concatenated as path info
-     * @param $queryParametersArray array strings to be concatenated as query string
-     * @param $anchor string an additional anchor
-     * @param $escape boolean whether to escape ampersands
+     * @param string $baseUrl the protocol, domain and initial path/parameters, no anchors allowed here
+     * @param array $pathInfoArray strings to be concatenated as path info
+     * @param array $queryParametersArray strings to be concatenated as query string
+     * @param string $anchor an additional anchor
+     * @param bool $escape whether to escape ampersands
      *
      * @return string the URL
      */
@@ -710,7 +710,7 @@ class PKPRouter
     /**
      * Convert a context level to its corresponding context name.
      *
-     * @param $contextLevel integer
+     * @param int $contextLevel
      *
      * @return string context name
      */
@@ -723,9 +723,9 @@ class PKPRouter
     /**
      * Convert a context name to its corresponding context level.
      *
-     * @param $contextName string
+     * @param string $contextName
      *
-     * @return integer context level
+     * @return int context level
      */
     public function _contextNameToContextLevel($contextName)
     {

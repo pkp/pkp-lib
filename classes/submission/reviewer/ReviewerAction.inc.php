@@ -43,11 +43,11 @@ class ReviewerAction
     /**
      * Records whether or not the reviewer accepts the review assignment.
      *
-     * @param $request PKPRequest
-     * @param $reviewAssignment ReviewAssignment
-     * @param $submission Submission
-     * @param $decline boolean
-     * @param $emailText string optional
+     * @param PKPRequest $request
+     * @param ReviewAssignment $reviewAssignment
+     * @param Submission $submission
+     * @param bool $decline
+     * @param string $emailText optional
      */
     public function confirmReview($request, $reviewAssignment, $submission, $decline, $emailText = null)
     {

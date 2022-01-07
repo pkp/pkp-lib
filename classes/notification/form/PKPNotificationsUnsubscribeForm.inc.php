@@ -35,8 +35,8 @@ class PKPNotificationsUnsubscribeForm extends Form
     /**
      * Constructor.
      *
-     * @param $notification Notification The notification that triggered the unsubscribe event
-     * @param $validationToken string $name The unsubscribe validation token
+     * @param Notification $notification The notification that triggered the unsubscribe event
+     * @param string $validationToken $name The unsubscribe validation token
      */
     public function __construct($notification, $validationToken)
     {

@@ -26,8 +26,8 @@ class SubmissionFilesGridRow extends GridRow
     /**
      * Constructor
      *
-     * @param $capabilities FilesGridCapabilities
-     * @param $stageId int Stage ID (optional)
+     * @param FilesGridCapabilities $capabilities
+     * @param int $stageId Stage ID (optional)
      */
     public function __construct($capabilities = null, $stageId = null)
     {
@@ -43,7 +43,7 @@ class SubmissionFilesGridRow extends GridRow
     /**
      * Can the user delete files from this grid?
      *
-     * @return boolean
+     * @return bool
      */
     public function canDelete()
     {
@@ -53,7 +53,7 @@ class SubmissionFilesGridRow extends GridRow
     /**
      * Can the user view file notes on this grid?
      *
-     * @return boolean
+     * @return bool
      */
     public function canViewNotes()
     {
@@ -63,7 +63,7 @@ class SubmissionFilesGridRow extends GridRow
     /**
      * Can the user manage files in this grid?
      *
-     * @return boolean
+     * @return bool
      */
     public function canEdit()
     {

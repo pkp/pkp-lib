@@ -41,7 +41,7 @@ class ControlledVocab extends \PKP\core\DataObject
     /**
      * set assoc id
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -61,7 +61,7 @@ class ControlledVocab extends \PKP\core\DataObject
     /**
      * Set associated type.
      *
-     * @param $assocType int
+     * @param int $assocType
      */
     public function setAssocType($assocType)
     {
@@ -81,7 +81,7 @@ class ControlledVocab extends \PKP\core\DataObject
     /**
      * Set symbolic name.
      *
-     * @param $symbolic string
+     * @param string $symbolic
      */
     public function setSymbolic($symbolic)
     {
@@ -91,7 +91,7 @@ class ControlledVocab extends \PKP\core\DataObject
     /**
      * Get a list of controlled vocabulary options.
      *
-     * @param $settingName string optional
+     * @param string $settingName optional
      *
      * @return array $controlledVocabEntryId => name
      */

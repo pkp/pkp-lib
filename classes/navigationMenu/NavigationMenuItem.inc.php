@@ -19,7 +19,7 @@ namespace PKP\navigationMenu;
 
 class NavigationMenuItem extends \PKP\core\DataObject
 {
-    /** types for all default navigationMenuItems */
+    // Types for all default navigationMenuItems
     public const NMI_TYPE_ABOUT = 'NMI_TYPE_ABOUT';
     public const NMI_TYPE_SUBMISSIONS = 'NMI_TYPE_SUBMISSIONS';
     public const NMI_TYPE_EDITORIAL_TEAM = 'NMI_TYPE_EDITORIAL_TEAM';
@@ -51,7 +51,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set path for this navigation menu item.
      *
-     * @param $path string
+     * @param string $path
      */
     public function setPath($path)
     {
@@ -71,7 +71,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set url for this navigation menu item.
      *
-     * @param $url string
+     * @param string $url
      */
     public function setUrl($url)
     {
@@ -91,7 +91,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set type for this navigation menu item.
      *
-     * @param $type string
+     * @param string $type
      */
     public function setType($type)
     {
@@ -121,7 +121,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set context_id for this navigation menu item.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function setContextId($contextId)
     {
@@ -141,7 +141,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Get the title of the navigation menu item.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -153,8 +153,8 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set the title of the navigation menu item.
      *
-     * @param $title string
-     * @param $locale string
+     * @param string $title
+     * @param string $locale
      */
     public function setTitle($title, $locale)
     {
@@ -174,7 +174,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Get the content of the navigation menu item.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -186,8 +186,8 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set the content of the navigation menu item.
      *
-     * @param $content string
-     * @param $locale string
+     * @param string $content
+     * @param string $locale
      */
     public function setContent($content, $locale)
     {
@@ -207,7 +207,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set seq for this navigation menu item.
      *
-     * @param $seq int
+     * @param int $seq
      */
     public function setSequence($seq)
     {
@@ -217,7 +217,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Get $isDisplayed for this navigation menu item.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsDisplayed()
     {
@@ -227,7 +227,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set $isDisplayed for this navigation menu item.
      *
-     * @param $isDisplayed boolean
+     * @param bool $isDisplayed
      */
     public function setIsDisplayed($isDisplayed)
     {
@@ -237,7 +237,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Get $isChildVisible for this navigation menu item.
      *
-     * @return boolean true if at least one NMI child is visible. It is defined at the Service functionality level
+     * @return bool true if at least one NMI child is visible. It is defined at the Service functionality level
      */
     public function getIsChildVisible()
     {
@@ -247,7 +247,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set $isChildVisible for this navigation menu item.
      *
-     * @param $isChildVisible boolean true if at least one NMI child is visible. It is defined at the Service functionality level
+     * @param bool $isChildVisible true if at least one NMI child is visible. It is defined at the Service functionality level
      */
     public function setIsChildVisible($isChildVisible)
     {
@@ -267,7 +267,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set titleLocaleKey for this navigation menu item.
      *
-     * @param $titleLocaleKey string
+     * @param string $titleLocaleKey
      */
     public function setTitleLocaleKey($titleLocaleKey)
     {
@@ -287,7 +287,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Get the remoteUrl of the navigation menu item.
      *
-     * @param $locale string
+     * @param string $locale
      */
     public function getRemoteUrl($locale)
     {
@@ -297,8 +297,8 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set the remoteUrl of the navigation menu item.
      *
-     * @param $url string
-     * @param $locale string
+     * @param string $url
+     * @param string $locale
      */
     public function setRemoteUrl($url, $locale)
     {

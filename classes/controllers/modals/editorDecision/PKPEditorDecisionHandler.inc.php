@@ -89,8 +89,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Start a new review round
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -102,8 +102,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Jump from submission to external review
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -115,8 +115,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Start a new review round in external review, bypassing internal
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -136,8 +136,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Show a save review form (responsible for decline submission modals when not in review stage)
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -152,8 +152,8 @@ class PKPEditorDecisionHandler extends Handler
      * We need this because the authorization in review stages is different
      * when not in review stages (need to authorize review round id).
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -165,8 +165,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Save the send review form when user is not in review stage.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -178,8 +178,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Save the send review form when user is in review stages.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -191,8 +191,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Show a promote form (responsible for accept submission modals outside review stage)
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -206,8 +206,8 @@ class PKPEditorDecisionHandler extends Handler
      * in review stages). We need this because the authorization for promoting in review
      * stages is different when not in review stages (need to authorize review round id).
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -219,8 +219,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Save the send review form
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -233,8 +233,8 @@ class PKPEditorDecisionHandler extends Handler
      * Save the send review form (same case of the
      * promoteInReview() method, see description there).
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -246,8 +246,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Show a revert decline form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -259,8 +259,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Save the revert decline form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -272,8 +272,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Import all free-text/review form reviews to paste into message
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -381,8 +381,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Show the editor recommendation form
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage
      */
@@ -404,8 +404,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Show the editor recommendation form
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage
      */
@@ -447,7 +447,7 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Get the fully-qualified import name for the given form name.
      *
-     * @param $formName Class name for the desired form.
+     * @param string $formName Class name for the desired form.
      *
      * @return string
      */
@@ -468,8 +468,8 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Get an instance of an editor decision form.
      *
-     * @param $formName string
-     * @param $decision int
+     * @param string $formName
+     * @param int $decision
      *
      * @return EditorDecisionForm
      */
@@ -506,9 +506,9 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Initiate an editor decision.
      *
-     * @param $args array
-     * @param $request PKPRequest
-     * @param $formName string Name of form to call
+     * @param array $args
+     * @param PKPRequest $request
+     * @param string $formName Name of form to call
      *
      * @return JSONMessage JSON object
      */
@@ -527,10 +527,10 @@ class PKPEditorDecisionHandler extends Handler
     /**
      * Save an editor decision.
      *
-     * @param $args array
-     * @param $request PKPRequest
-     * @param $formName string Name of form to call
-     * @param $redirectOp string A workflow stage operation to
+     * @param array $args
+     * @param PKPRequest $request
+     * @param string $formName Name of form to call
+     * @param string $redirectOp A workflow stage operation to
      *  redirect to if successful (if any).
      * @param null|mixed $decision
      *

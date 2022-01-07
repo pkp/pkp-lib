@@ -23,8 +23,8 @@ class PostAndRedirectAction extends RedirectAction
     /**
      * Constructor
      *
-     * @param $postUrl string The target URL to post data.
-     * @param $redirectUrl string The target URL to redirect.
+     * @param string $postUrl The target URL to post data.
+     * @param string $redirectUrl The target URL to redirect.
      */
     public function __construct($postUrl, $redirectUrl)
     {

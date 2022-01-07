@@ -19,18 +19,18 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 
 class SubmissionFilesGridDataProvider extends FilesGridDataProvider
 {
-    /** @var integer */
+    /** @var int */
     public $_stageId;
 
-    /** @var integer */
+    /** @var int */
     public $_fileStage;
 
 
     /**
      * Constructor
      *
-     * @param $fileStage integer One of the SubmissionFile::SUBMISSION_FILE_* constants.
-     * @param $viewableOnly boolean True iff only viewable files should be included.
+     * @param int $fileStage One of the SubmissionFile::SUBMISSION_FILE_* constants.
+     * @param bool $viewableOnly True iff only viewable files should be included.
      */
     public function __construct($fileStage, $viewableOnly = false)
     {
@@ -48,7 +48,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
     /**
      * Set the workflow stage.
      *
-     * @param $stageId int WORKFLOW_STAGE_ID_...
+     * @param int $stageId WORKFLOW_STAGE_ID_...
      */
     public function setStageId($stageId)
     {
@@ -58,7 +58,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
     /**
      * Get the workflow stage.
      *
-     * @return integer WORKFLOW_STAGE_ID_...
+     * @return int WORKFLOW_STAGE_ID_...
      */
     public function getStageId()
     {
@@ -85,7 +85,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
     /**
      * Get the file stage.
      *
-     * @return integer SubmissionFile::SUBMISSION_FILE_...
+     * @return int SubmissionFile::SUBMISSION_FILE_...
      */
     public function getFileStage()
     {
@@ -144,8 +144,8 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
     /**
      * Apply the filter to the list of revisions, returning only matching elements.
      *
-     * @param $revisions array List of potential submission files to include.
-     * @param $filter array Associative array of filter data
+     * @param array $revisions List of potential submission files to include.
+     * @param array $filter Associative array of filter data
      *
      * @return array
      */
@@ -170,9 +170,9 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
      * data wrapped into an array so that grid implementations
      * can add further data.
      *
-     * @param $revisions array List of SubmissionFiles
-     * @param $viewableOnly boolean optional True iff only viewable files should be listed
-     * @param $filter array optional Associative array of filter conditions
+     * @param array $revisions List of SubmissionFiles
+     * @param bool $viewableOnly optional True iff only viewable files should be listed
+     * @param array $filter optional Associative array of filter conditions
      *
      * @return array
      */

@@ -23,8 +23,8 @@ class PKPIndexHandler extends Handler
      *
      * @protected
      *
-     * @param $context Context
-     * @param $templateMgr PKPTemplateManager
+     * @param Context $context
+     * @param PKPTemplateManager $templateMgr
      */
     protected function _setupAnnouncements($context, $templateMgr)
     {

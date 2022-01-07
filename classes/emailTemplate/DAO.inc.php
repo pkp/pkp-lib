@@ -218,9 +218,8 @@ class DAO extends EntityDAO
      * Check if a template exists with the given email key for a journal/
      * conference/...
      *
-     * @param $key string
      *
-     * @return boolean
+     * @return bool
      */
     public function defaultTemplateIsInstalled(string $key)
     {
@@ -240,14 +239,14 @@ class DAO extends EntityDAO
     /**
      * Install email templates from an XML file.
      *
-     * @param $templatesFile string Filename to install
-     * @param $locales array List of locales to install data for
-     * @param $emailKey string|null Optional name of single email key to install,
+     * @param string $templatesFile Filename to install
+     * @param array $locales List of locales to install data for
+     * @param string|null $emailKey Optional name of single email key to install,
      * skipping others
-     * @param $skipExisting boolean If true, do not install email templates
+     * @param bool $skipExisting If true, do not install email templates
      * that already exist in the database
      *
-     * @return boolean
+     * @return bool
      */
     public function installEmailTemplates(
         string $templatesFile,
@@ -290,12 +289,12 @@ class DAO extends EntityDAO
     /**
      * Install email template contents from an XML file.
      *
-     * @param $templatesFile string Filename to install
-     * @param $locales array List of locales to install data for
-     * @param $emailKey string|null Optional name of single email key to install,
+     * @param string $templatesFile Filename to install
+     * @param array $locales List of locales to install data for
+     * @param string|null $emailKey Optional name of single email key to install,
      * skipping others
      *
-     * @return boolean
+     * @return bool
      */
     public function installEmailTemplateLocaleData(
         string $templatesFile,
@@ -350,9 +349,9 @@ class DAO extends EntityDAO
      *
      * @deprecated Since OJS/OMP 3.2, this data should be supplied via the non-localized email template list and PO files. (pkp/pkp-lib#5461)
      *
-     * @param $templateDataFile string Filename to install
-     * @param $locale string Locale of template(s) to install
-     * @param $emailKey string|null If specified, the key of the single template
+     * @param string $templateDataFile Filename to install
+     * @param string $locale Locale of template(s) to install
+     * @param string|null $emailKey If specified, the key of the single template
      * to install (otherwise all are installed)
      *
      * @return array|boolean

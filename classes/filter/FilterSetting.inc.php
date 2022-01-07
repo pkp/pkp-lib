@@ -28,20 +28,20 @@ class FilterSetting
     /** @var string */
     public $_validationMessage;
 
-    /** @var boolean */
+    /** @var bool */
     public $_required;
 
-    /** @var boolean */
+    /** @var bool */
     public $_isLocalized;
 
     /**
      * Constructor
      *
-     * @param $name string
-     * @param $displayName string
-     * @param $validationMessage string
-     * @param $required string
-     * @param $isLocalized boolean
+     * @param string $name
+     * @param string $displayName
+     * @param string $validationMessage
+     * @param string $required
+     * @param bool $isLocalized
      */
     public function __construct($name, $displayName, $validationMessage, $required = FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, $isLocalized = false)
     {
@@ -58,7 +58,7 @@ class FilterSetting
     /**
      * Set the setting name
      *
-     * @param $name string
+     * @param string $name
      */
     public function setName($name)
     {
@@ -78,7 +78,7 @@ class FilterSetting
     /**
      * Set the display name
      *
-     * @param $displayName string
+     * @param string $displayName
      */
     public function setDisplayName($displayName)
     {
@@ -98,7 +98,7 @@ class FilterSetting
     /**
      * Set the validation message
      *
-     * @param $validationMessage string
+     * @param string $validationMessage
      */
     public function setValidationMessage($validationMessage)
     {
@@ -118,7 +118,7 @@ class FilterSetting
     /**
      * Set the required flag
      *
-     * @param $required string
+     * @param string $required
      */
     public function setRequired($required)
     {
@@ -138,7 +138,7 @@ class FilterSetting
     /**
      * Set the localization flag
      *
-     * @param $isLocalized boolean
+     * @param bool $isLocalized
      */
     public function setIsLocalized($isLocalized)
     {
@@ -148,7 +148,7 @@ class FilterSetting
     /**
      * Get the localization flag
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsLocalized()
     {

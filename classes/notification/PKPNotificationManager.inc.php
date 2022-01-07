@@ -364,12 +364,12 @@ class PKPNotificationManager extends PKPNotificationOperationManager
      * this method to update notifications associated with a certain type, you need
      * to first create a manager delegate and define it in getMgrDelegate() method.
      *
-     * @param $request PKPRequest
-     * @param $notificationTypes array The type(s) of the notification(s) to
+     * @param PKPRequest $request
+     * @param array $notificationTypes The type(s) of the notification(s) to
      * be updated.
-     * @param $userIds array|null The notification user(s) id(s), or null for all.
-     * @param $assocType int ASSOC_TYPE_... The notification associated object type.
-     * @param $assocId int The notification associated object id.
+     * @param array|null $userIds The notification user(s) id(s), or null for all.
+     * @param int $assocType ASSOC_TYPE_... The notification associated object type.
+     * @param int $assocId The notification associated object id.
      *
      * @return mixed Return false if no operation is executed or the last operation
      * returned value.
@@ -430,9 +430,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     /**
      * Get the notification manager delegate based on the passed notification type.
      *
-     * @param $notificationType int
-     * @param $assocType int
-     * @param $assocId int
+     * @param int $notificationType
+     * @param int $assocType
+     * @param int $assocId
      *
      * @return mixed Null or NotificationManagerDelegate
      */
@@ -484,7 +484,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
      * Try to use a delegate to retrieve a notification data that's defined
      * by the implementation of the
      *
-     * @param $operationName string
+     * @param string $operationName
      */
     protected function getByDelegate($notificationType, $assocType, $assocId, $operationName, $parameters)
     {
@@ -503,9 +503,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     /**
      * Return notification settings.
      *
-     * @param $notificationId int
+     * @param int $notificationId
      *
-     * @return Array
+     * @return array
      */
     private function getNotificationSettings($notificationId)
     {
@@ -521,10 +521,10 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     /**
      * Helper function to get a translated string from a notification with parameters
      *
-     * @param $key string
-     * @param $notificationId int
+     * @param string $key
+     * @param int $notificationId
      *
-     * @return String
+     * @return string
      */
     private function _getTranslatedKeyWithParameters($key, $notificationId)
     {

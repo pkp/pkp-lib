@@ -19,13 +19,13 @@ use PKP\controllers\grid\GridHandler;
 
 class ReviewerGridCellProvider extends DataObjectGridCellProvider
 {
-    /** @var boolean Is the current user assigned as an author to this submission */
+    /** @var bool Is the current user assigned as an author to this submission */
     public $_isCurrentUserAssignedAuthor;
 
     /**
      * Constructor
      *
-     * @param $isCurrentUserAssignedAuthor boolean Is the current user assigned
+     * @param bool $isCurrentUserAssignedAuthor Is the current user assigned
      *  as an author to this submission?
      */
     public function __construct($isCurrentUserAssignedAuthor)
@@ -40,8 +40,8 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
     /**
      * Gathers the state of a given cell given a $row/$column combination
      *
-     * @param $row \PKP\controllers\grid\GridRow
-     * @param $column GridColumn
+     * @param \PKP\controllers\grid\GridRow $row
+     * @param GridColumn $column
      *
      * @return string
      */
@@ -64,8 +64,8 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      * Extracts variables for a given column from a data element
      * so that they may be assigned to template before rendering.
      *
-     * @param $row \PKP\controllers\grid\GridRow
-     * @param $column GridColumn
+     * @param \PKP\controllers\grid\GridRow $row
+     * @param GridColumn $column
      *
      * @return array
      */
@@ -99,8 +99,8 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
     /**
      * Get cell actions associated with this row/column combination
      *
-     * @param $row \PKP\controllers\grid\GridRow
-     * @param $column GridColumn
+     * @param \PKP\controllers\grid\GridRow $row
+     * @param GridColumn $column
      *
      * @return array an array of LinkAction instances
      */
@@ -155,7 +155,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      * Provide meaningful locale keys for the various grid status states.
      *
      * @param string $state
-     * @param $row \PKP\controllers\grid\GridRow
+     * @param \PKP\controllers\grid\GridRow $row
      *
      * @return string
      */

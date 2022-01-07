@@ -200,8 +200,8 @@ class ReviewFormElementsGridHandler extends GridHandler
     /**
      * Add a new review form element.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -216,8 +216,8 @@ class ReviewFormElementsGridHandler extends GridHandler
     /**
      * Edit an existing review form element.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -235,8 +235,8 @@ class ReviewFormElementsGridHandler extends GridHandler
     /**
      * Save changes to a review form element.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -275,8 +275,8 @@ class ReviewFormElementsGridHandler extends GridHandler
     /**
      * Delete a review form element.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

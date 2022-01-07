@@ -87,7 +87,7 @@ class RuntimeEnvironment
      * Checks whether the current runtime environment is
      * compatible with the specified parameters.
      *
-     * @return boolean
+     * @return bool
      */
     public function isCompatible()
     {

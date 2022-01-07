@@ -33,9 +33,9 @@ class PKPPublication extends \PKP\core\DataObject
      * - the publication's primary locale
      * - the first locale we find data for
      *
-     * @param $key string
-     * @param $preferredLocale string
-     * @param $selectedLocale Optional reference to receive locale used for return value.
+     * @param string $key
+     * @param string $preferredLocale
+     * @param string $selectedLocale Optional reference to receive locale used for return value.
      */
     public function getLocalizedData($key, $preferredLocale = null, &$selectedLocale = null)
     {
@@ -336,7 +336,7 @@ class PKPPublication extends \PKP\core\DataObject
     /**
      * Is the license for copyright on this publication a Creative Commons license?
      *
-     * @return boolean
+     * @return bool
      */
     public function isCCLicense()
     {

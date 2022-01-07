@@ -28,8 +28,8 @@ abstract class SubmissionSearchIndex
     /**
      * Split a string into a clean array of keywords
      *
-     * @param $text string
-     * @param $allowWildcards boolean
+     * @param string $text
+     * @param bool $allowWildcards
      *
      * @return array of keywords
      */
@@ -105,14 +105,14 @@ abstract class SubmissionSearchIndex
      * mark articles as "changed" and let the indexing back-end decide
      * the best point in time to actually index the changed data.
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     abstract public function submissionMetadataChanged($submission);
 
     /**
      * Remove indexed file contents for a submission
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     abstract public function clearSubmissionFiles($submission);
 }

@@ -26,7 +26,7 @@ class QueuedPayment extends Payment
     /**
      * Set the request URL.
      *
-     * @param $url string
+     * @param string $url
      *
      * @return string New URL
      */

@@ -27,8 +27,8 @@ class CreateReviewerForm extends ReviewerForm
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $reviewRound ReviewRound
+     * @param Submission $submission
+     * @param ReviewRound $reviewRound
      */
     public function __construct($submission, $reviewRound)
     {

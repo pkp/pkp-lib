@@ -36,9 +36,9 @@ class NoteAccessPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $noteId int
-     * @param $accessMode int NOTE_ACCESS_...
+     * @param PKPRequest $request
+     * @param int $noteId
+     * @param int $accessMode NOTE_ACCESS_...
      */
     public function __construct($request, $noteId, $accessMode)
     {

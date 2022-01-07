@@ -56,8 +56,8 @@ abstract class PKPManageFileApiHandler extends Handler
     /**
      * Delete a file or revision
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -87,8 +87,8 @@ abstract class PKPManageFileApiHandler extends Handler
     /**
      * Edit submission file metadata modal.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -108,8 +108,8 @@ abstract class PKPManageFileApiHandler extends Handler
     /**
      * Edit submission file metadata tab.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -128,8 +128,8 @@ abstract class PKPManageFileApiHandler extends Handler
      * Save the metadata of the latest revision of
      * the requested submission file.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */

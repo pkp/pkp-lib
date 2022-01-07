@@ -56,7 +56,7 @@ class Core
      * Sanitize a value to be used in a file path.
      * Removes any characters except alphanumeric characters, underscores, and dashes.
      *
-     * @param $var string
+     * @param string $var
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class Core
     /**
      * Return the current date in ISO (YYYY-MM-DD HH:MM:SS) format.
      *
-     * @param $ts int optional, use specified timestamp instead of current time
+     * @param int $ts optional, use specified timestamp instead of current time
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class Core
     /**
      * Check if the server platform is Windows.
      *
-     * @return boolean
+     * @return bool
      */
     public static function isWindows()
     {
@@ -101,9 +101,9 @@ class Core
     /**
      * Checks to see if a PHP module is enabled.
      *
-     * @param $moduleName string
+     * @param string $moduleName
      *
-     * @return boolean
+     * @return bool
      */
     public static function checkGeneralPHPModule($moduleName)
     {
@@ -116,11 +116,11 @@ class Core
     /**
      * Check the passed user agent for a bot.
      *
-     * @param $userAgent string
-     * @param $botRegexpsFile string An alternative file with regular
+     * @param string $userAgent
+     * @param string $botRegexpsFile An alternative file with regular
      * expressions to find bots inside user agent strings.
      *
-     * @return boolean
+     * @return bool
      */
     public static function isUserAgentBot($userAgent, $botRegexpsFile = COUNTER_USER_AGENTS_FILE)
     {
@@ -149,12 +149,12 @@ class Core
      * Get context paths present into the passed
      * url information.
      *
-     * @param $urlInfo string Full url or just path info.
-     * @param $isPathInfo boolean Whether the
+     * @param string $urlInfo Full url or just path info.
+     * @param bool $isPathInfo Whether the
      * passed url info string is a path info or not.
-     * @param $contextList array (optional)
-     * @param $contextDepth int (optional)
-     * @param $userVars array (optional) Pass GET variables
+     * @param array $contextList (optional)
+     * @param int $contextDepth (optional)
+     * @param array $userVars (optional) Pass GET variables
      * if needed (for testing only).
      *
      * @return array
@@ -207,10 +207,10 @@ class Core
      * the passed url information. It expects that urls
      * were built using the system.
      *
-     * @param $urlInfo string Full url or just path info.
-     * @param $isPathInfo boolean Tell if the
+     * @param string $urlInfo Full url or just path info.
+     * @param bool $isPathInfo Tell if the
      * passed url info string is a path info or not.
-     * @param $userVars array (optional) Pass GET variables
+     * @param array $userVars (optional) Pass GET variables
      * if needed (for testing only).
      *
      * @return string
@@ -226,10 +226,10 @@ class Core
      * the passed url information. It expects that urls
      * were built using the system.
      *
-     * @param $urlInfo string Full url or just path info.
-     * @param $isPathInfo boolean Tell if the
+     * @param string $urlInfo Full url or just path info.
+     * @param bool $isPathInfo Tell if the
      * passed url info string is a path info or not.
-     * @param $userVars array (optional) Pass GET variables
+     * @param array $userVars (optional) Pass GET variables
      * if needed (for testing only).
      *
      * @return string
@@ -246,10 +246,10 @@ class Core
      * only arguments appended to the URL separated by "/").
      * It expects that urls were built using the system.
      *
-     * @param $urlInfo string Full url or just path info.
-     * @param $isPathInfo boolean Tell if the
+     * @param string $urlInfo Full url or just path info.
+     * @param bool $isPathInfo Tell if the
      * passed url info string is a path info or not.
-     * @param $userVars array (optional) Pass GET variables
+     * @param array $userVars (optional) Pass GET variables
      * if needed (for testing only).
      *
      * @return array
@@ -264,7 +264,7 @@ class Core
      * Also, if true, checks for the context path in
      * url and if it's missing, tries to add it.
      *
-     * @param $url string
+     * @param string $url
      *
      * @return string|bool The url without base url,
      * false if it was not possible to remove it.
@@ -323,7 +323,7 @@ class Core
      * is set to use base url override, context
      * path for the passed url.
      *
-     * @param $url string
+     * @param string $url
      *
      * @return array With two elements, base url and context path.
      */
@@ -398,12 +398,12 @@ class Core
      * full url (host plus path) or just the path,
      * but they have to be consistent.
      *
-     * @param $baseUrl string Full base url
+     * @param string $baseUrl Full base url
      * or just it's path info.
-     * @param $url string Full url or just it's
+     * @param string $url Full url or just it's
      * path info.
      *
-     * @return boolean
+     * @return bool
      */
     protected function _checkBaseUrl($baseUrl, $url)
     {
@@ -450,7 +450,7 @@ class Core
      * Bot list file cache miss fallback.
      * (WARNING: This function appears to be used externally, hence public despite _ prefix.)
      *
-     * @param $cache FileCache
+     * @param FileCache $cache
      *
      * @return array
      */
@@ -483,9 +483,9 @@ class Core
     /**
      * Get passed variable value inside the passed url.
      *
-     * @param $url string
-     * @param $varName string
-     * @param $userVars array
+     * @param string $url
+     * @param string $varName
+     * @param array $userVars
      *
      * @return string|null
      */
@@ -511,11 +511,11 @@ class Core
      * Get url components (page, operation and args)
      * based on the passed offset.
      *
-     * @param $urlInfo string
-     * @param $isPathInfo string
-     * @param $offset int
-     * @param $varName string
-     * @param $userVars array (optional) GET variables
+     * @param string $urlInfo
+     * @param string $isPathInfo
+     * @param int $offset
+     * @param string $varName
+     * @param array $userVars (optional) GET variables
      * (only for testing).
      *
      * @return mixed array|string|null
@@ -558,7 +558,7 @@ class Core
     /**
      * Extract the class name from the given file path.
      *
-     * @param  SplFileInfo $file info about a file extract class name from
+     * @param SplFileInfo $file info about a file extract class name from
      * @return string fully qualified class name
      * @see Finder
      */

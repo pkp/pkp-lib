@@ -19,7 +19,7 @@ class FieldControlledVocab extends FieldBaseAutosuggest
     /** @copydoc Field::$component */
     public $component = 'field-controlled-vocab';
 
-    /** @param array Key/value list of languages this field should support. Key = locale code. Value = locale name */
+    /** @var array Key/value list of languages this field should support. Key = locale code. Value = locale name */
     public $locales = [];
 
     /**
@@ -49,7 +49,7 @@ class FieldControlledVocab extends FieldBaseAutosuggest
      * Map the selected values to the format expected by an
      * autosuggest field
      *
-     * @param string value
+     * @param string $value
      *
      * @return array
      */

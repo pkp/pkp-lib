@@ -25,7 +25,7 @@ class PKPFile extends \PKP\core\DataObject
     /**
      * Get server-side file name of the file.
      *
-     * @param return string
+     * @return string
      */
     public function getServerFileName()
     {
@@ -35,7 +35,7 @@ class PKPFile extends \PKP\core\DataObject
     /**
      * Set server-side file name of the file.
      *
-     * @param $fileName string
+     * @param string $fileName
      */
     public function setServerFileName($fileName)
     {
@@ -45,7 +45,7 @@ class PKPFile extends \PKP\core\DataObject
     /**
      * Get original uploaded file name of the file.
      *
-     * @param return string
+     * @return string
      */
     public function getOriginalFileName()
     {
@@ -55,7 +55,7 @@ class PKPFile extends \PKP\core\DataObject
     /**
      * Set original uploaded file name of the file.
      *
-     * @param $originalFileName string
+     * @param string $originalFileName
      */
     public function setOriginalFileName($originalFileName)
     {
@@ -93,7 +93,7 @@ class PKPFile extends \PKP\core\DataObject
     /**
      * Set uploaded date of file.
      *
-     * @param $dateUploaded date
+     * @param date $dateUploaded
      */
     public function setDateUploaded($dateUploaded)
     {
@@ -113,7 +113,7 @@ class PKPFile extends \PKP\core\DataObject
     /**
      * Set file size of file.
      *
-     * @param $fileSize int
+     * @param int $fileSize
      */
     public function setFileSize($fileSize)
     {

@@ -203,8 +203,8 @@ class ContextGridHandler extends GridHandler
     /**
      * Add a new context.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function createContext($args, $request)
     {
@@ -215,8 +215,8 @@ class ContextGridHandler extends GridHandler
     /**
      * Edit an existing context.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -273,8 +273,8 @@ class ContextGridHandler extends GridHandler
     /**
      * Delete a context.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -300,8 +300,8 @@ class ContextGridHandler extends GridHandler
     /**
      * Display users management grid for the given context.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

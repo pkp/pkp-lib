@@ -22,9 +22,9 @@ class FormValidatorBoolean extends FormValidator
     /**
      * Constructor.
      *
-     * @param $form Form the associated form
-     * @param $field string the name of the associated field
-     * @param $message string the error message for validation failures (i18n key)
+     * @param Form $form the associated form
+     * @param string $field the name of the associated field
+     * @param string $message the error message for validation failures (i18n key)
      */
     public function __construct(&$form, $field, $message)
     {
@@ -42,7 +42,7 @@ class FormValidatorBoolean extends FormValidator
      *
      * @see FormValidator::isValid()
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {

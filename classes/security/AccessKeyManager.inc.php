@@ -37,7 +37,7 @@ class AccessKeyManager
     /**
      * Generate a key hash from a key.
      *
-     * @param $key string
+     * @param string $key
      *
      * @return string
      */
@@ -51,10 +51,10 @@ class AccessKeyManager
      * If $assocId is specified, it must match the associated ID of the
      * key exactly.
      *
-     * @param $context string The context of the access key
-     * @param $userId int
-     * @param $keyHash string The access key "passcode"
-     * @param $assocId string optional assoc ID to check against the keys in the database
+     * @param string $context The context of the access key
+     * @param int $userId
+     * @param string $keyHash The access key "passcode"
+     * @param string $assocId optional assoc ID to check against the keys in the database
      *
      * @return AccessKey
      */
@@ -66,10 +66,10 @@ class AccessKeyManager
     /**
      * Create an access key with the given information.
      *
-     * @param $context string The context of the access key
-     * @param $userId int The ID of the effective user for this access key
-     * @param $assocId int The associated ID of the key
-     * @param $expiryDays int The number of days before this key expires
+     * @param string $context The context of the access key
+     * @param int $userId The ID of the effective user for this access key
+     * @param int $assocId The associated ID of the key
+     * @param int $expiryDays The number of days before this key expires
      *
      * @return accessKey string The generated passkey
      */

@@ -28,12 +28,12 @@ class FormValidatorLength extends FormValidator
     /**
      * Constructor.
      *
-     * @param $form Form the associated form
-     * @param $field string the name of the associated field
-     * @param $type string the type of check, either "required" or "optional"
-     * @param $message string the error message for validation failures (i18n key)
-     * @param $comparator
-     * @param $length
+     * @param Form $form the associated form
+     * @param string $field the name of the associated field
+     * @param string $type the type of check, either "required" or "optional"
+     * @param string $message the error message for validation failures (i18n key)
+     * @param string $comparator
+     * @param int $length
      */
     public function __construct(&$form, $field, $type, $message, $comparator, $length)
     {
@@ -64,7 +64,7 @@ class FormValidatorLength extends FormValidator
      * @see FormValidator::isValid()
      * Value is valid if it is empty and optional or meets the specified length requirements.
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {

@@ -52,8 +52,8 @@ class DAO
     /**
      * Execute a SELECT SQL statement.
      *
-     * @param $sql string the SQL statement
-     * @param $params array parameters for the SQL statement
+     * @param string $sql the SQL statement
+     * @param array $params parameters for the SQL statement
      *
      * @deprecated 3.4
      *
@@ -79,9 +79,9 @@ class DAO
     /**
      * Execute a SELECT SQL statment, returning rows in the range supplied.
      *
-     * @param $sql string the SQL statement
-     * @param $params array parameters for the SQL statement
-     * @param $dbResultRange DBResultRange object describing the desired range
+     * @param string $sql the SQL statement
+     * @param array $params parameters for the SQL statement
+     * @param DBResultRange $dbResultRange object describing the desired range
      *
      * @deprecated 3.4
      *
@@ -113,8 +113,8 @@ class DAO
     /**
      * Count the number of records in the supplied SQL statement (with optional bind parameters parameters)
      *
-     * @param $sql string SQL query to be counted
-     * @param $params array Optional SQL query bind parameters
+     * @param string $sql SQL query to be counted
+     * @param array $params Optional SQL query bind parameters
      *
      * @deprecated 3.4
      *
@@ -129,7 +129,7 @@ class DAO
     /**
      * Concatenate SQL expressions into a single string.
      *
-     * @param ...$args SQL expressions (e.g. column names) to concatenate.
+     * @param array ...$args SQL expressions (e.g. column names) to concatenate.
      *
      * @deprecated 3.4
      *
@@ -143,10 +143,10 @@ class DAO
     /**
      * Execute an INSERT, UPDATE, or DELETE SQL statement.
      *
-     * @param $sql string the SQL statement the execute
-     * @param $params array an array of parameters for the SQL statement
-     * @param $callHooks boolean Whether or not to call hooks
-     * @param $dieOnError boolean Whether or not to die if an error occurs
+     * @param string $sql the SQL statement the execute
+     * @param array $params an array of parameters for the SQL statement
+     * @param bool $callHooks Whether or not to call hooks
+     * @param bool $dieOnError Whether or not to die if an error occurs
      *
      * @deprecated 3.4
      *
@@ -172,9 +172,9 @@ class DAO
     /**
      * Insert a row in a table, replacing an existing row if necessary.
      *
-     * @param $table string
-     * @param $arrFields array Associative array of colName => value
-     * @param $keyCols array Array of column names that are keys
+     * @param string $table
+     * @param array $arrFields Associative array of colName => value
+     * @param array $keyCols Array of column names that are keys
      *
      * @deprecated 3.4
      *
@@ -230,7 +230,7 @@ class DAO
     /**
      * Return datetime formatted for DB insertion.
      *
-     * @param $dt int/string *nix timestamp or ISO datetime string
+     * @param int|string $dt *nix timestamp or ISO datetime string
      *
      * @deprecated 3.4
      *
@@ -250,7 +250,7 @@ class DAO
     /**
      * Return date formatted for DB insertion.
      *
-     * @param $d int/string *nix timestamp or ISO date string
+     * @param int|string $d *nix timestamp or ISO date string
      *
      * @deprecated 3.4
      *
@@ -270,7 +270,7 @@ class DAO
     /**
      * Return datetime from DB as ISO datetime string.
      *
-     * @param $dt string datetime from DB
+     * @param string $dt datetime from DB
      *
      * @deprecated 3.4
      *
@@ -286,7 +286,7 @@ class DAO
     /**
      * Return date from DB as ISO date string.
      *
-     * @param $d string date from DB
+     * @param string $d date from DB
      *
      * @deprecated 3.4
      *
@@ -345,7 +345,7 @@ class DAO
     /**
      * Get the type of a value to be stored in the database
      *
-     * @param $value string
+     * @param string $value
      *
      * @deprecated 3.4
      *
@@ -375,9 +375,8 @@ class DAO
     /**
      * Convert a PHP variable into a string to be stored in the DB
      *
-     * @param $value mixed
-     * @param $type string
-     * @param $nullable bool True iff the value is allowed to be null.
+     * @param string $type
+     * @param bool $nullable True iff the value is allowed to be null.
      *
      * @return string
      */
@@ -429,7 +428,6 @@ class DAO
     /**
      * Cast the given parameter to an int, or leave it null.
      *
-     * @param $value mixed
      *
      * @deprecated 3.4
      *
@@ -487,9 +485,9 @@ class DAO
     /**
      * Update the settings table of a data object.
      *
-     * @param $tableName string
-     * @param $dataObject DataObject
-     * @param $idArray array
+     * @param string $tableName
+     * @param DataObject $dataObject
+     * @param array $idArray
      *
      * @deprecated 3.4
      */
@@ -587,9 +585,9 @@ class DAO
      * Get contents of the _settings table, storing entries in the specified
      * data object.
      *
-     * @param $tableName string Settings table name
-     * @param $idFieldName string Name of ID column
-     * @param $dataObject \PKP\core\DataObject Object in which to store retrieved values
+     * @param string $tableName Settings table name
+     * @param string $idFieldName Name of ID column
+     * @param \PKP\core\DataObject $dataObject Object in which to store retrieved values
      *
      * @deprecated 3.4
      */
@@ -618,7 +616,7 @@ class DAO
     /**
      * Get the driver for this connection.
      *
-     * @param $direction int
+     * @param int $direction
      *
      * @deprecated 3.4
      *
@@ -641,13 +639,13 @@ class DAO
      * to the client to refresh itself according to changes
      * in the DB.
      *
-     * @param $elementId string (Optional) To refresh a single element
+     * @param string $elementId (Optional) To refresh a single element
      *  give the element ID here. Otherwise all elements will
      *  be refreshed.
-     * @param $parentElementId string (Optional) To refresh a single
+     * @param string $parentElementId (Optional) To refresh a single
      *  element that is associated with another one give the parent
      *  element ID here.
-     * @param $content mixed (Optional) Additional content to pass back
+     * @param mixed $content (Optional) Additional content to pass back
      *  to the handler of the JSON message.
      *
      * @deprecated 3.4
@@ -676,16 +674,16 @@ class DAO
      * Format a passed date (in English textual datetime)
      * to Y-m-d H:i:s format, used in database.
      *
-     * @param $date string Any English textual datetime.
-     * @param $defaultNumWeeks int If passed and date is null,
+     * @param string $date Any English textual datetime.
+     * @param int $defaultNumWeeks If passed and date is null,
      * used to calculate a data in future from today.
-     * @param $acceptPastDate boolean Will not accept past dates,
+     * @param bool $acceptPastDate Will not accept past dates,
      * returning today if false and the passed date
      * is in the past.
      *
      * @deprecated 3.4
      *
-     * @return string or null
+     * @return string|null
      */
     protected function formatDateToDB($date, $defaultNumWeeks = null, $acceptPastDate = true)
     {

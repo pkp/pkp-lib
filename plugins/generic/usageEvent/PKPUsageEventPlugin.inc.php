@@ -180,8 +180,8 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
     /**
      * Build an usage event.
      *
-     * @param $hookName string
-     * @param $args array
+     * @param string $hookName
+     * @param array $args
      *
      * @return array
      */
@@ -344,7 +344,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         // TODO: Classify LOCKSS or similar as 'internal' access.
 
         /*
-         * Comparison of our event log format with Apache log parameters...
+        * Comparison of our event log format with Apache log parameters...
         *
         * 1) default parameters:
         * %h: remote hostname or IP => $ip, $host
@@ -392,12 +392,12 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
     * Get usage event details based on the passed hook.
     * Subclasses should extend to implement application specifics.
     *
-    * @param $hookName string
-    * @param $hookArgs array
-    * @param $request PKPRequest
-    * @param $router PageRouter
-    * @param $templateMgr PKPTemplateManager
-    * @param $context Context
+    * @param string $hookName
+    * @param array $hookArgs
+    * @param PKPRequest $request
+    * @param PageRouter $router
+    * @param PKPTemplateManager $templateMgr
+    * @param Context $context
     *
     * @return array With the following data:
     * DataObject the published object, boolean download success, integer used published object assoc type,
@@ -449,9 +449,9 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
      * Whether or not the passed object is of a type that can have
      * different public identifiers, like DOI, URN, etc.
      *
-     * @param $pubObject DataObject
+     * @param DataObject $pubObject
      *
-     * @return boolean
+     * @return bool
      */
     abstract protected function isPubIdObjectType($pubObject);
 }

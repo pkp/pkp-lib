@@ -31,11 +31,11 @@ class PKPMetadataForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $locales array Supported locales
-     * @param $publication Publication The publication to change settings for
-     * @param $submissionContext Context The journal or press of the submission.
-     * @param $suggestionUrlBase string The base URL to get suggestions for controlled vocab.
+     * @param string $action URL to submit the form to
+     * @param array $locales Supported locales
+     * @param Publication $publication The publication to change settings for
+     * @param Context $submissionContext The journal or press of the submission.
+     * @param string $suggestionUrlBase The base URL to get suggestions for controlled vocab.
      */
     public function __construct($action, $locales, $publication, $submissionContext, $suggestionUrlBase)
     {

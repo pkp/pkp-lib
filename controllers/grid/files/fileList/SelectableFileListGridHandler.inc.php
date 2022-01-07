@@ -23,9 +23,9 @@ class SelectableFileListGridHandler extends FileListGridHandler
     /**
      * Constructor
      *
-     * @param $dataProvider GridDataProvider
-     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-     * @param $capabilities integer A bit map with zero or more
+     * @param GridDataProvider $dataProvider
+     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param int $capabilities A bit map with zero or more
      *  FILE_GRID_* capabilities set.
      */
     public function __construct($dataProvider, $stageId, $capabilities = 0)

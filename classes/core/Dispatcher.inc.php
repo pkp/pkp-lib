@@ -53,7 +53,7 @@ class Dispatcher
     /**
      * Set the application
      *
-     * @param $application PKPApplication
+     * @param PKPApplication $application
      */
     public function setApplication($application)
     {
@@ -82,12 +82,12 @@ class Dispatcher
      * NB: Routers must be part of the core package
      * to be accepted by this dispatcher implementation.
      *
-     * @param $routerName string a class name of a router
+     * @param string $routerName a class name of a router
      *  to be given the chance to route the request.
      *  NB: These are class names and not instantiated objects. We'll
      *  use lazy instantiation to reduce the performance/memory impact
      *  to a minimum.
-     * @param $shortcut string a shortcut name for the router
+     * @param string $shortcut a shortcut name for the router
      *  to be used for quick router instance retrieval.
      */
     public function addRouterName($routerName, $shortcut)
@@ -101,7 +101,7 @@ class Dispatcher
      * let the router dispatch the request to the appropriate
      * handler method.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function dispatch($request)
     {
@@ -169,15 +169,15 @@ class Dispatcher
     /**
      * Build a handler request URL into PKPApplication.
      *
-     * @param $request PKPRequest the request to be routed
-     * @param $shortcut string the short name of the router that should be used to construct the URL
-     * @param $newContext mixed Optional contextual paths
-     * @param $handler string Optional name of the handler to invoke
-     * @param $op string Optional name of operation to invoke
-     * @param $path mixed Optional string or array of args to pass to handler
-     * @param $params array Optional set of name => value pairs to pass as user parameters
-     * @param $anchor string Optional name of anchor to add to URL
-     * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
+     * @param PKPRequest $request the request to be routed
+     * @param string $shortcut the short name of the router that should be used to construct the URL
+     * @param mixed $newContext Optional contextual paths
+     * @param string $handler Optional name of the handler to invoke
+     * @param string $op Optional name of operation to invoke
+     * @param mixed $path Optional string or array of args to pass to handler
+     * @param array $params Optional set of name => value pairs to pass as user parameters
+     * @param string $anchor Optional name of anchor to add to URL
+     * @param bool $escape Whether or not to escape ampersands for this URL; default false.
      *
      * @return string the URL
      */
@@ -207,8 +207,8 @@ class Dispatcher
     /**
      * Instantiate a router
      *
-     * @param $routerName string
-     * @param $shortcut string
+     * @param string $routerName
+     * @param string $shortcut
      */
     public function &_instantiateRouter($routerName, $shortcut)
     {
@@ -231,7 +231,7 @@ class Dispatcher
     /**
      * Display the request contents from cache.
      *
-     * @param $router PKPRouter
+     * @param PKPRouter $router
      */
     public function _displayCached($router, $request)
     {
@@ -268,7 +268,7 @@ class Dispatcher
     /**
      * Cache content as a local file.
      *
-     * @param $contents string
+     * @param string $contents
      *
      * @return string
      */

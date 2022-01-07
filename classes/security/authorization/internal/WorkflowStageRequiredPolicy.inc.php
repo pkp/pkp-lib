@@ -20,13 +20,13 @@ use PKP\security\authorization\AuthorizationPolicy;
 
 class WorkflowStageRequiredPolicy extends AuthorizationPolicy
 {
-    /** @var integer */
+    /** @var int */
     public $_stageId;
 
     /**
      * Constructor
      *
-     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
+     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
      */
     public function __construct($stageId)
     {

@@ -44,9 +44,12 @@ class GenreGridHandler extends SetupGridHandler
     //
     // Overridden template methods
     //
-    /*
+    /**
      * Configure the grid
+     *
      * @see SetupGridHandler::initialize
+     *
+     * @param null|mixed $args
      */
     public function initialize($request, $args = null)
     {
@@ -174,8 +177,8 @@ class GenreGridHandler extends SetupGridHandler
     /**
      * An action to add a new Genre
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function addGenre($args, $request)
     {
@@ -186,8 +189,8 @@ class GenreGridHandler extends SetupGridHandler
     /**
      * An action to edit a Genre
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -208,8 +211,8 @@ class GenreGridHandler extends SetupGridHandler
     /**
      * Update a Genre
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -235,8 +238,8 @@ class GenreGridHandler extends SetupGridHandler
     /**
      * Delete a Genre.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -257,8 +260,8 @@ class GenreGridHandler extends SetupGridHandler
      * Restore the default Genre settings for the context.
      * All default settings that were available when the context instance was created will be restored.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

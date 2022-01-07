@@ -212,8 +212,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get the value of a license field from the containing context.
      *
-     * @param $locale string Locale code
-     * @param $field PERMISSIONS_FIELD_...
+     * @param string $locale Locale code
+     * @param int $field PERMISSIONS_FIELD_...
      *
      * @return string|null
      */
@@ -226,7 +226,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get the localized copyright holder for the current publication
      *
-     * @param $preferredLocale string Preferred locale code
+     * @param string $preferredLocale Preferred locale code
      *
      * @return string Localized copyright holder.
      *
@@ -256,7 +256,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the context ID for the current publication
      *
-     * @param $contextId int
+     * @param int $contextId
      *
      * @deprecated 3.2.0.0
      */
@@ -305,7 +305,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get stored public ID of the submission.
      *
-     * @param @literal $pubIdType string One of the NLM pub-id-type values or
+     * @param string $pubIdType @literal One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>). @endliteral
      *
@@ -325,10 +325,10 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the stored public ID of the submission.
      *
-     * @param $pubIdType string One of the NLM pub-id-type values or
+     * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-     * @param $pubId string
+     * @param string $pubId
      *
      * @deprecated 3.2.0.0
      */
@@ -343,7 +343,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get stored copyright holder for the submission.
      *
-     * @param $locale string locale
+     * @param string $locale locale
      *
      * @return string
      *
@@ -361,8 +361,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the stored copyright holder for the submission.
      *
-     * @param $copyrightHolder string Copyright holder
-     * @param $locale string locale
+     * @param string $copyrightHolder Copyright holder
+     * @param string $locale locale
      *
      * @deprecated 3.2.0.0
      */
@@ -393,7 +393,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the stored copyright year for the submission.
      *
-     * @param $copyrightYear string Copyright holder
+     * @param string $copyrightYear Copyright holder
      *
      * @deprecated 3.2.0.0
      */
@@ -437,7 +437,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set option selection indicating if author should be hidden in issue ToC.
      *
-     * @param $hideAuthor int AUTHOR_TOC_...
+     * @param int $hideAuthor AUTHOR_TOC_...
      *
      * @deprecated 3.2.0.0
      */
@@ -452,8 +452,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Return string of author names, separated by the specified token
      *
-     * @param $preferred boolean If the preferred public name should be used, if exist
-     * @param $familyOnly boolean return list of family names only (default false)
+     * @param bool $preferred If the preferred public name should be used, if exist
+     * @param bool $familyOnly return list of family names only (default false)
      *
      * @return string
      *
@@ -542,7 +542,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the locale of the submission.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -554,8 +554,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get "localized" submission title (if applicable).
      *
-     * @param $preferredLocale string
-     * @param $includePrefix bool
+     * @param string $preferredLocale
+     * @param bool $includePrefix
      *
      * @return string
      *
@@ -573,8 +573,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get title.
      *
-     * @param $locale
-     * @param $includePrefix bool
+     * @param string $locale
+     * @param bool $includePrefix
      *
      * @return string|array
      *
@@ -598,8 +598,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set title.
      *
-     * @param $title string
-     * @param $locale
+     * @param string $title
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -627,7 +627,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get the subtitle for a given locale
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      *
@@ -645,8 +645,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the subtitle for a locale
      *
-     * @param $subtitle string
-     * @param $locale string
+     * @param string $subtitle
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -679,7 +679,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      * Get the submission full title (with prefix, title
      * and subtitle).
      *
-     * @param $locale string Locale to fetch data in.
+     * @param string $locale Locale to fetch data in.
      *
      * @return string
      *
@@ -716,7 +716,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get prefix.
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -734,8 +734,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set prefix.
      *
-     * @param $prefix string
-     * @param $locale
+     * @param string $prefix
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -766,7 +766,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get abstract.
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -784,8 +784,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set abstract.
      *
-     * @param $abstract string
-     * @param $locale
+     * @param string $abstract
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -816,7 +816,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get discipline
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -834,8 +834,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set discipline
      *
-     * @param $discipline string
-     * @param $locale
+     * @param string $discipline
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -866,7 +866,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get subject.
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -884,8 +884,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set subject.
      *
-     * @param $subject string
-     * @param $locale
+     * @param string $subject
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -916,7 +916,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get coverage.
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -934,8 +934,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set coverage.
      *
-     * @param $coverage string
-     * @param $locale
+     * @param string $coverage
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -966,7 +966,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get type (method/approach).
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -984,8 +984,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set type (method/approach).
      *
-     * @param $type string
-     * @param $locale
+     * @param string $type
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -1000,7 +1000,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get rights.
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -1018,8 +1018,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set rights.
      *
-     * @param $rights string
-     * @param $locale
+     * @param string $rights
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -1034,7 +1034,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get source.
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -1052,8 +1052,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set source.
      *
-     * @param $source string
-     * @param $locale
+     * @param string $source
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -1084,7 +1084,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set language.
      *
-     * @param $language string
+     * @param string $language
      *
      * @deprecated 3.2.0.0
      */
@@ -1115,7 +1115,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get sponsor.
      *
-     * @param $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -1133,8 +1133,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set sponsor.
      *
-     * @param $sponsor string
-     * @param $locale
+     * @param string $sponsor
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -1149,7 +1149,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get the copyright notice for a given locale
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      *
@@ -1167,8 +1167,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the copyright notice for a locale
      *
-     * @param $copyrightNotice string
-     * @param $locale string
+     * @param string $copyrightNotice
+     * @param string $locale
      *
      * @deprecated 3.2.0.0
      */
@@ -1199,7 +1199,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set citations.
      *
-     * @param $citations string
+     * @param string $citations
      *
      * @deprecated 3.2.0.0
      */
@@ -1226,7 +1226,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set submission date.
      *
-     * @param $dateSubmitted date
+     * @param date $dateSubmitted
      *
      * @deprecated 3.2.0.0
      */
@@ -1250,7 +1250,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the date of the last status modification.
      *
-     * @param $dateModified date
+     * @param date $dateModified
      *
      * @deprecated 3.2.0.0
      */
@@ -1274,7 +1274,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the date of the last modification.
      *
-     * @param $dateModified date
+     * @param date $dateModified
      *
      * @deprecated 3.2.0.0
      */
@@ -1298,7 +1298,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set submission status.
      *
-     * @param $status int
+     * @param int $status
      *
      * @deprecated 3.2.0.0
      */
@@ -1322,7 +1322,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set submission progress.
      *
-     * @param $submissionProgress int
+     * @param int $submissionProgress
      *
      * @deprecated 3.2.0.0
      */
@@ -1390,7 +1390,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * set pages
      *
-     * @param $pages string
+     * @param string $pages
      *
      * @deprecated 3.2.0.0
      */
@@ -1417,7 +1417,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the submission's current publication stage ID
      *
-     * @param $stageId int
+     * @param int $stageId
      *
      * @deprecated 3.2.0.0
      */
@@ -1445,7 +1445,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set date published.
      *
-     * @param $datePublished date
+     * @param date $datePublished
      *
      * @deprecated 3.2.0.0
      */
@@ -1461,7 +1461,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      * Determines whether or not the license for copyright on this submission is
      * a Creative Commons license or not.
      *
-     * @return boolean
+     * @return bool
      *
      * @deprecated 3.2.0.0
      */

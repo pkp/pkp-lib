@@ -23,14 +23,14 @@ use PKP\plugins\PluginHelper;
 
 class UploadPluginForm extends Form
 {
-    /** @var String PLUGIN_ACTION_... */
+    /** @var string PLUGIN_ACTION_... */
     public $_function;
 
 
     /**
      * Constructor.
      *
-     * @param $function string PLUGIN_ACTION_...
+     * @param string $function PLUGIN_ACTION_...
      */
     public function __construct($function)
     {

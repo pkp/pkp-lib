@@ -51,16 +51,16 @@ abstract class PKPReportGeneratorForm extends Form
     /**
      * Constructor.
      *
-     * @param $columns array Report column names.
-     * @param $optionalColumns array Report column names that are optional.
-     * @param $objects array Object types.
-     * @param $fileTypes array File types.
-     * @param $metricType string The default report metric type.
-     * @param $defaultReportTemplates array Default report templates that
+     * @param array $columns Report column names.
+     * @param array $optionalColumns Report column names that are optional.
+     * @param array $objects Object types.
+     * @param array $fileTypes File types.
+     * @param string $metricType The default report metric type.
+     * @param array $defaultReportTemplates Default report templates that
      * defines columns and filters selections. The key for each array
      * item is expected to be a localized key that describes the
      * report Template.
-     * @param $reportTemplateIndex int (optional) Current report template index
+     * @param int $reportTemplateIndex (optional) Current report template index
      * from the passed default report templates array.
      */
     public function __construct($columns, $optionalColumns, $objects, $fileTypes, $metricType, $defaultReportTemplates, $reportTemplateIndex = null)

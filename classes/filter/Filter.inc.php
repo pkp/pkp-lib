@@ -89,10 +89,10 @@ class Filter extends \PKP\core\DataObject
     /** @var TypeDescription */
     public $_outputType;
 
-    /**  */
+    /** @var mixed */
     public $_input;
 
-    /**  */
+    /** @var mixed */
     public $_output;
 
     /** @var array a list of errors occurred while filtering */
@@ -111,8 +111,8 @@ class Filter extends \PKP\core\DataObject
      *
      * @see TypeDescription
      *
-     * @param $inputType string a string representation of a TypeDescription
-     * @param $outputType string a string representation of a TypeDescription
+     * @param string $inputType a string representation of a TypeDescription
+     * @param string $outputType a string representation of a TypeDescription
      */
     public function __construct($inputType, $outputType)
     {
@@ -127,7 +127,7 @@ class Filter extends \PKP\core\DataObject
     /**
      * Set the display name
      *
-     * @param $displayName string
+     * @param string $displayName
      */
     public function setDisplayName($displayName)
     {
@@ -157,7 +157,7 @@ class Filter extends \PKP\core\DataObject
     /**
      * Set the sequence id
      *
-     * @param $seq integer
+     * @param int $seq
      */
     public function setSequence($seq)
     {
@@ -167,7 +167,7 @@ class Filter extends \PKP\core\DataObject
     /**
      * Get the sequence id
      *
-     * @return integer
+     * @return int
      */
     public function getSequence()
     {
@@ -177,8 +177,8 @@ class Filter extends \PKP\core\DataObject
     /**
      * Set the input/output type of this filter group.
      *
-     * @param $inputType TypeDescription|string
-     * @param $outputType TypeDescription|string
+     * @param TypeDescription|string $inputType
+     * @param TypeDescription|string $outputType
      *
      * @see TypeDescriptionFactory::instantiateTypeDescription() for more details
      */
@@ -264,7 +264,7 @@ class Filter extends \PKP\core\DataObject
     /**
      * Add a filter error
      *
-     * @param $message string
+     * @param string $message
      */
     public function addError($message)
     {
@@ -284,7 +284,7 @@ class Filter extends \PKP\core\DataObject
     /**
      * Whether this filter has produced errors.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasErrors()
     {
@@ -302,7 +302,7 @@ class Filter extends \PKP\core\DataObject
     /**
      * Set the required runtime environment
      *
-     * @param $runtimeEnvironment RuntimeEnvironment
+     * @param RuntimeEnvironment $runtimeEnvironment
      */
     public function setRuntimeEnvironment(&$runtimeEnvironment)
     {
@@ -336,7 +336,7 @@ class Filter extends \PKP\core\DataObject
      * This method performs the actual data processing.
      * NB: sub-classes must implement this method.
      *
-     * @param $input mixed validated filter input data
+     * @param mixed $input validated filter input data
      *
      * @return mixed non-validated filter output or null
      *  if processing was not successful.
@@ -368,10 +368,8 @@ class Filter extends \PKP\core\DataObject
      * implement any required stateful inspection
      * of the provided objects.
      *
-     * @param $input mixed
-     * @param $output mixed
      *
-     * @return boolean
+     * @return bool
      */
     public function supports(&$input, &$output)
     {
@@ -398,9 +396,8 @@ class Filter extends \PKP\core\DataObject
      * NB: sub-classes will not normally override
      * this method.
      *
-     * @param $input mixed
      *
-     * @return boolean
+     * @return bool
      */
     public function supportsAsInput(&$input)
     {
@@ -412,7 +409,7 @@ class Filter extends \PKP\core\DataObject
      * Check whether the filter is compatible with
      * the required runtime environment.
      *
-     * @return boolean
+     * @return bool
      */
     public function isCompatibleWithRuntimeEnvironment()
     {
@@ -460,9 +457,9 @@ class Filter extends \PKP\core\DataObject
      * NB: sub-classes will not normally override
      * this method.
      *
-     * @param $input mixed an input value that is supported
+     * @param mixed $input an input value that is supported
      *  by this filter
-     * @param $returnErrors boolean whether the value
+     * @param bool $returnErrors whether the value
      *  should be returned also if an error occurred
      *
      * @return mixed a valid return value or null

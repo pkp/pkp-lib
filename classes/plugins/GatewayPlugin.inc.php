@@ -22,15 +22,15 @@ abstract class GatewayPlugin extends Plugin
     /**
      * Handle fetch requests for this plugin.
      *
-     * @param $args array
-     * @param $request object
+     * @param array $args
+     * @param object $request
      */
     abstract public function fetch($args, $request);
 
     /**
      * Determine whether the plugin can be enabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanEnable()
     {
@@ -40,7 +40,7 @@ abstract class GatewayPlugin extends Plugin
     /**
      * Determine whether the plugin can be disabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanDisable()
     {
@@ -50,7 +50,7 @@ abstract class GatewayPlugin extends Plugin
     /**
      * Determine whether or not this plugin is currently enabled.
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
@@ -60,7 +60,7 @@ abstract class GatewayPlugin extends Plugin
     /**
      * Set whether or not this plugin is currently enabled.
      *
-     * @param $enabled boolean
+     * @param bool $enabled
      */
     public function setEnabled($enabled)
     {
@@ -80,7 +80,7 @@ abstract class GatewayPlugin extends Plugin
     /**
      * Get policies to the authorization process
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return array Set of authorization policies
      */

@@ -60,16 +60,16 @@ use Exception;
 
 class FormBuilderVocabulary
 {
-    /** Form associated with this object, if any.  Will inform smarty which forms to label as required **/
+    /** @var Form associated with this object, if any.  Will inform smarty which forms to label as required */
     public $_form;
 
-    /** Styles organized by parameter name */
+    /** @var array Styles organized by parameter name */
     public $_fbvStyles;
 
     /**
      * Constructor.
      *
-     * @param $form object Form associated with this object
+     * @param object $form Form associated with this object
      */
     public function __construct($form = null)
     {
@@ -86,7 +86,7 @@ class FormBuilderVocabulary
     /**
      * Set the form
      *
-     * @param $form object
+     * @param object $form
      */
     public function setForm($form)
     {
@@ -123,10 +123,10 @@ class FormBuilderVocabulary
     /**
      * A form area that contains form sections.
      *
-     * @param $params array
-     * @param $content string
-     * @param $smarty object
-     * @param $repeat
+     * @param array $params
+     * @param string $content
+     * @param object $smarty
+     * @param bool $repeat
      */
     public function smartyFBVFormArea($params, $content, $smarty, &$repeat)
     {
@@ -147,10 +147,10 @@ class FormBuilderVocabulary
     /**
      * A form section that contains controls in a variety of layout possibilities.
      *
-     * @param $params array
-     * @param $content string
-     * @param $smarty object
-     * @param $repeat
+     * @param array $params
+     * @param string $content
+     * @param object $smarty
+     * @param bool $repeat
      */
     public function smartyFBVFormSection($params, $content, $smarty, &$repeat)
     {
@@ -222,8 +222,8 @@ class FormBuilderVocabulary
     /**
      * Submit and (optional) cancel button for a form.
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function smartyFBVFormButtons($params, $smarty)
     {
@@ -245,8 +245,8 @@ class FormBuilderVocabulary
     /**
      * Base form element.
      *
-     * @param $params array
-     * @param $smarty object-
+     * @param array $params
+     * @param object $smarty
      * @param null|mixed $content
      */
     public function smartyFBVElement($params, $smarty, $content = null)
@@ -340,8 +340,8 @@ class FormBuilderVocabulary
      * Form button.
      * parameters: label (or value), disabled (optional), type (optional)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVButton($params, $smarty)
     {
@@ -372,8 +372,8 @@ class FormBuilderVocabulary
      * Form Autocomplete text input. (actually two inputs, label and value)
      * parameters: disabled (optional), name (optional - assigned value of 'id' by default)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVAutocompleteInput($params, $smarty)
     {
@@ -407,8 +407,8 @@ class FormBuilderVocabulary
      * Form text input.
      * parameters: disabled (optional), name (optional - assigned value of 'id' by default), multilingual (optional)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVTextInput($params, $smarty)
     {
@@ -482,8 +482,8 @@ class FormBuilderVocabulary
      *  - multilingual: boolean (default false)
      *  - rich: false (default), true, or 'extended'
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVTextArea($params, $smarty)
     {
@@ -550,8 +550,8 @@ class FormBuilderVocabulary
      * Hidden input element.
      * parameters: value, id, name (optional - assigned value of 'id' by default), disabled (optional), multilingual (optional)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVHiddenInput($params, $smarty)
     {
@@ -582,8 +582,8 @@ class FormBuilderVocabulary
      * parameters: from [array], selected [array index], defaultLabel (optional), defaultValue (optional), disabled (optional),
      * 	translate (optional), name (optional - value of 'id' by default)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVSelect($params, $smarty)
     {
@@ -634,8 +634,8 @@ class FormBuilderVocabulary
      * parameters: from [array], selected [array index], defaultLabel (optional), defaultValue (optional), disabled (optional),
      * 	translate (optional), name (optional - value of 'id' by default)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVCheckboxGroup($params, $smarty)
     {
@@ -673,8 +673,8 @@ class FormBuilderVocabulary
      * Checkbox input control.
      * parameters: label, disabled (optional), translate (optional), name (optional - value of 'id' by default)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVCheckbox($params, $smarty)
     {
@@ -706,8 +706,8 @@ class FormBuilderVocabulary
      * Radio input control.
      * parameters: label, disabled (optional), translate (optional), name (optional - value of 'id' by default)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVRadioButton($params, $smarty)
     {
@@ -744,8 +744,8 @@ class FormBuilderVocabulary
      * File upload input.
      * parameters: submit (optional - name of submit button to include), disabled (optional), name (optional - value of 'id' by default)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVFileInput($params, $smarty)
     {
@@ -773,8 +773,8 @@ class FormBuilderVocabulary
      * Keyword input.
      * parameters: available - all available keywords (for autosuggest); current - user's current keywords
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVKeywordInput($params, $smarty)
     {
@@ -812,8 +812,8 @@ class FormBuilderVocabulary
      * Reviewing interests input.
      * parameters: interests - current users's keywords (array)
      *
-     * @param $params array
-     * @param $smarty object
+     * @param array $params
+     * @param object $smarty
      */
     public function _smartyFBVInterestsInput($params, $smarty)
     {
@@ -836,8 +836,8 @@ class FormBuilderVocabulary
     /**
      * Custom Smarty function for labelling/highlighting of form fields.
      *
-     * @param $params array can contain 'name' (field name/ID), 'required' (required field), 'key' (localization key), 'label' (non-localized label string), 'suppressId' (boolean)
-     * @param $smarty Smarty
+     * @param array $params can contain 'name' (field name/ID), 'required' (required field), 'key' (localization key), 'label' (non-localized label string), 'suppressId' (boolean)
+     * @param Smarty $smarty
      */
     public function _smartyFBVSubLabel($params, $smarty)
     {
@@ -877,7 +877,7 @@ class FormBuilderVocabulary
     /**
      * Assign the appropriate class name to the element for client-side validation
      *
-     * @param $params array
+     * @param array $params
      * return array
      */
     public function _addClientSideValidation($params)
@@ -896,7 +896,7 @@ class FormBuilderVocabulary
     /**
      * Cycle through layout parameters to add the appropriate classes to the element's parent container
      *
-     * @param $params array
+     * @param array $params
      *
      * @return string
      */
@@ -929,8 +929,8 @@ class FormBuilderVocabulary
     /**
      * Custom Smarty function for labelling/highlighting of form fields.
      *
-     * @param $params array can contain 'name' (field name/ID), 'required' (required field), 'key' (localization key), 'label' (non-localized label string), 'suppressId' (boolean)
-     * @param $smarty Smarty
+     * @param array $params can contain 'name' (field name/ID), 'required' (required field), 'key' (localization key), 'label' (non-localized label string), 'suppressId' (boolean)
+     * @param Smarty $smarty
      */
     public function smartyFieldLabel($params, $smarty)
     {

@@ -35,9 +35,9 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
-     * @param $representationId int
+     * @param PKPRequest $request
+     * @param array $args request parameters
+     * @param int $representationId
      */
     public function __construct($request, &$args, $representationId)
     {

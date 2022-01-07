@@ -97,8 +97,8 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Get a single submission
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -122,8 +122,8 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Get a collection of announcements
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -168,8 +168,8 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Add an announcement
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -221,8 +221,8 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Edit an announcement
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -269,8 +269,8 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Delete an announcement
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response

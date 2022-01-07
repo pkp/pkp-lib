@@ -22,13 +22,13 @@ class AjaxModal extends Modal
     /**
      * Constructor
      *
-     * @param $url string The URL of the AJAX resource to load into the modal.
-     * @param $title string (optional) The localized modal title.
-     * @param $titleIcon string (optional) The icon to be used in the modal title bar.
-     * @param $canClose boolean (optional) Whether the modal will have a close button.
-     * @param $closeOnFormSuccessId string (optional) Close the modal when the
+     * @param string $url The URL of the AJAX resource to load into the modal.
+     * @param string $title (optional) The localized modal title.
+     * @param string $titleIcon (optional) The icon to be used in the modal title bar.
+     * @param bool $canClose (optional) Whether the modal will have a close button.
+     * @param string $closeOnFormSuccessId (optional) Close the modal when the
      *  form with this id fires a formSuccess event.
-     * @param $closeCleanVueInstances array (optional) When the modal is closed
+     * @param array $closeCleanVueInstances (optional) When the modal is closed
      *  destroy the registered vue instances with these ids
      */
     public function __construct(

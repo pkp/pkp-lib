@@ -29,10 +29,10 @@ class Validation
     /**
      * Authenticate user credentials and mark the user as logged in in the current session.
      *
-     * @param $username string
-     * @param $password string unencrypted password
-     * @param $reason string reference to string to receive the reason an account was disabled; null otherwise
-     * @param $remember boolean remember a user's session past the current browser session
+     * @param string $username
+     * @param string $password unencrypted password
+     * @param string $reason reference to string to receive the reason an account was disabled; null otherwise
+     * @param bool $remember remember a user's session past the current browser session
      *
      * @return User the User associated with the login credentials, or false if the credentials are invalid
      */
@@ -92,7 +92,7 @@ class Validation
      * @param string $hash the password hash from the database
      * @param string &$rehash if password needs rehash, this variable is used
      *
-     * @return boolean
+     * @return bool
      */
     public static function verifyPassword($username, $password, $hash, &$rehash)
     {
@@ -114,9 +114,9 @@ class Validation
     /**
      * Mark the user as logged in in the current session.
      *
-     * @param $user User user to register in the session
-     * @param $reason string reference to string to receive the reason an account was disabled; null otherwise
-     * @param $remember boolean remember a user's session past the current browser session
+     * @param User $user user to register in the session
+     * @param string $reason reference to string to receive the reason an account was disabled; null otherwise
+     * @param bool $remember remember a user's session past the current browser session
      *
      * @return mixed User or boolean the User associated with the login credentials, or false if the credentials are invalid
      */
@@ -162,7 +162,7 @@ class Validation
     /**
      * Mark the user as logged out in the current session.
      *
-     * @return boolean
+     * @return bool
      */
     public static function logout()
     {
@@ -186,7 +186,7 @@ class Validation
     /**
      * Redirect to the login page, appending the current URL as the source.
      *
-     * @param $message string Optional name of locale key to add to login page
+     * @param string $message Optional name of locale key to add to login page
      */
     public static function redirectLogin($message = null)
     {
@@ -206,10 +206,10 @@ class Validation
     /**
      * Check if a user's credentials are valid.
      *
-     * @param $username string username
-     * @param $password string unencrypted password
+     * @param string $username username
+     * @param string $password unencrypted password
      *
-     * @return boolean
+     * @return bool
      */
     public static function checkCredentials($username, $password)
     {
@@ -245,10 +245,10 @@ class Validation
     /**
      * Check if a user is authorized to access the specified role in the specified context.
      *
-     * @param $roleId int
-     * @param $contextId optional (e.g., for global site admin role), the ID of the context
+     * @param int $roleId
+     * @param int $contextId optional (e.g., for global site admin role), the ID of the context
      *
-     * @return boolean
+     * @return bool
      */
     public static function isAuthorized($roleId, $contextId = 0)
     {
@@ -276,10 +276,10 @@ class Validation
      * The username is used as a unique salt to make dictionary
      * attacks against a compromised database more difficult.
      *
-     * @param $username string username (kept for backwards compatibility)
-     * @param $password string unencrypted password
-     * @param $encryption string optional encryption algorithm to use, defaulting to the value from the site configuration
-     * @param $legacy boolean if true, use legacy hashing technique for backwards compatibility
+     * @param string $username username (kept for backwards compatibility)
+     * @param string $password unencrypted password
+     * @param string $encryption optional encryption algorithm to use, defaulting to the value from the site configuration
+     * @param bool $legacy if true, use legacy hashing technique for backwards compatibility
      *
      * @return string encrypted password
      */
@@ -311,7 +311,7 @@ class Validation
      * Generate a random password.
      * Assumes the random number generator has already been seeded.
      *
-     * @param $length int the length of the password to generate (default is site minimum)
+     * @param int $length the length of the password to generate (default is site minimum)
      *
      * @return string
      */
@@ -335,8 +335,8 @@ class Validation
     /**
      * Generate a hash value to use for confirmation to reset a password.
      *
-     * @param $userId int
-     * @param $expiry int timestamp when hash expires, defaults to CURRENT_TIME + RESET_SECONDS
+     * @param int $userId
+     * @param int $expiry timestamp when hash expires, defaults to CURRENT_TIME + RESET_SECONDS
      *
      * @return string (boolean false if user is invalid)
      */
@@ -373,10 +373,10 @@ class Validation
     /**
      * Check if provided password reset hash is valid.
      *
-     * @param $userId int
-     * @param $hash string
+     * @param int $userId
+     * @param string $hash
      *
-     * @return boolean
+     * @return bool
      */
     public static function verifyPasswordResetHash($userId, $hash)
     {
@@ -394,8 +394,8 @@ class Validation
     /**
      * Suggest a username given the first and last names.
      *
-     * @param $givenName string
-     * @param $familyName string
+     * @param string $givenName
+     * @param string $familyName
      *
      * @return string
      */
@@ -415,7 +415,7 @@ class Validation
     /**
      * Check if the user must change their password in order to log in.
      *
-     * @return boolean
+     * @return bool
      */
     public static function isLoggedIn()
     {
@@ -429,7 +429,7 @@ class Validation
     /**
      * Check if the user is logged in as a different user.
      *
-     * @return boolean
+     * @return bool
      */
     public static function isLoggedInAs()
     {
@@ -443,7 +443,7 @@ class Validation
     /**
      * Shortcut for checking authorization as site admin.
      *
-     * @return boolean
+     * @return bool
      */
     public static function isSiteAdmin()
     {
@@ -453,10 +453,10 @@ class Validation
     /**
      * Check whether a user is allowed to administer another user.
      *
-     * @param $administeredUserId int User ID of user to potentially administer
-     * @param $administratorUserId int User ID of user who wants to do the administrating
+     * @param int $administeredUserId User ID of user to potentially administer
+     * @param int $administratorUserId User ID of user who wants to do the administrating
      *
-     * @return boolean True IFF the administration operation is permitted
+     * @return bool True IFF the administration operation is permitted
      */
     public static function canAdminister($administeredUserId, $administratorUserId)
     {

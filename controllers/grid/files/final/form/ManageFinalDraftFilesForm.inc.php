@@ -22,7 +22,7 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm
     /**
      * Constructor.
      *
-     * @param $submissionId int Submission ID.
+     * @param int $submissionId Submission ID.
      */
     public function __construct($submissionId)
     {
@@ -36,9 +36,9 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm
     /**
      * Save Selection of Final Draft files
      *
-     * @param $stageSubmissionFiles array The files that belongs to a file stage
+     * @param array $stageSubmissionFiles The files that belongs to a file stage
      * that is currently being used by a grid inside this form.
-     * @param $fileStage int SubmissionFile::SUBMISSION_FILE_...
+     * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
      *
      * @return array a list of all submission files marked as "final".
      */

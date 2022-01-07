@@ -36,7 +36,7 @@ class AuthSourceDAO extends \PKP\db\DAO
     /**
      * Get plugin instance corresponding to the ID.
      *
-     * @param $authId int
+     * @param int $authId
      *
      * @return AuthPlugin
      */
@@ -74,7 +74,7 @@ class AuthSourceDAO extends \PKP\db\DAO
     /**
      * Retrieve a source.
      *
-     * @param $authId int
+     * @param int $authId
      *
      * @return AuthSource
      */
@@ -115,7 +115,7 @@ class AuthSourceDAO extends \PKP\db\DAO
     /**
      * Internal function to return an AuthSource object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return AuthSource
      */
@@ -140,7 +140,7 @@ class AuthSourceDAO extends \PKP\db\DAO
     /**
      * Insert a new source.
      *
-     * @param $auth AuthSource
+     * @param AuthSource $auth
      */
     public function insertObject($auth)
     {
@@ -169,7 +169,7 @@ class AuthSourceDAO extends \PKP\db\DAO
     /**
      * Update a source.
      *
-     * @param $auth AuthSource
+     * @param AuthSource $auth
      */
     public function updateObject($auth)
     {
@@ -189,7 +189,7 @@ class AuthSourceDAO extends \PKP\db\DAO
     /**
      * Delete a source.
      *
-     * @param $authId int
+     * @param int $authId
      */
     public function deleteObject($authId)
     {
@@ -202,7 +202,7 @@ class AuthSourceDAO extends \PKP\db\DAO
     /**
      * Set the default authentication source.
      *
-     * @param $authId int
+     * @param int $authId
      */
     public function setDefault($authId)
     {

@@ -42,11 +42,11 @@ class FormValidator
     /**
      * Constructor.
      *
-     * @param $form Form the associated form
-     * @param $field string the name of the associated field
-     * @param $type string the type of check, either "required" or "optional"
-     * @param $message string the error message for validation failures (i18n key)
-     * @param $validator Validator the validator used to validate this form field (optional)
+     * @param Form $form the associated form
+     * @param string $field the name of the associated field
+     * @param string $type the type of check, either "required" or "optional"
+     * @param string $message the error message for validation failures (i18n key)
+     * @param Validator $validator the validator used to validate this form field (optional)
      */
     public function __construct(&$form, $field, $type, $message, $validator = null)
     {
@@ -124,7 +124,7 @@ class FormValidator
      * Check if field value is valid.
      * Default check is that field is either optional or not empty.
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {
@@ -166,7 +166,7 @@ class FormValidator
     /**
      * Check if field value is empty and optional.
      *
-     * @return boolean
+     * @return bool
      */
     public function isEmptyAndOptional()
     {

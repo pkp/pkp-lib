@@ -35,7 +35,7 @@ class AnnouncementType extends \PKP\core\DataObject
     /**
      * Set context ID for this announcement.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function setContextId($contextId)
     {
@@ -55,7 +55,7 @@ class AnnouncementType extends \PKP\core\DataObject
     /**
      * Get the type of the announcement type.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -67,8 +67,8 @@ class AnnouncementType extends \PKP\core\DataObject
     /**
      * Set the type of the announcement type.
      *
-     * @param $name string
-     * @param $locale string
+     * @param string $name
+     * @param string $locale
      */
     public function setName($name, $locale)
     {

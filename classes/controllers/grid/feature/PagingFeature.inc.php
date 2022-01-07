@@ -24,7 +24,7 @@ class PagingFeature extends GeneralPagingFeature
      * @see GridFeature::GridFeature()
      * Constructor.
      *
-     * @param $id string Feature identifier.
+     * @param string $id Feature identifier.
      */
     public function __construct($id = 'paging')
     {

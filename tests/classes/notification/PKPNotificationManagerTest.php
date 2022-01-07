@@ -196,11 +196,11 @@ class PKPNotificationManagerTest extends PKPTestCase
      * Exercise the system for all test methods that covers the
      * PKPNotificationManager::createNotification() method.
      *
-     * @param $notificationMgr PKPNotificationManager An instance of the
+     * @param PKPNotificationManager $notificationMgr An instance of the
      * notification manager.
-     * @param $notificationToCreate PKPNotification
-     * @param $notificationToCreateParams array
-     * @param $request mixed (optional)
+     * @param PKPNotification $notificationToCreate
+     * @param array $notificationToCreateParams
+     * @param mixed $request (optional)
      */
     private function exerciseCreateNotification($notificationMgr, $notificationToCreate, $notificationToCreateParams = [], $request = null)
     {
@@ -365,13 +365,13 @@ class PKPNotificationManagerTest extends PKPTestCase
      * Get the notification manager stub for tests that
      * covers the PKPNotificationManager::createNotification() method.
      *
-     * @param $blockedNotifications array (optional) Each notification type
+     * @param array $blockedNotifications (optional) Each notification type
      * that is blocked by user. Will be used as return value for the
      * getUserBlockedNotifications method.
-     * @param $emailedNotifications array (optional) Each notification type
+     * @param array $emailedNotifications (optional) Each notification type
      * that user will be also notified by email. Will be used as return value
      * for the getEmailedNotifications method.
-     * @param $extraOpToStub array (optional) Method names to be stubbed.
+     * @param array $extraOpToStub (optional) Method names to be stubbed.
      * Its expectations can be set on the returned object.
      *
      * @return PHPUnit_Framework_MockObject_MockObject
@@ -400,7 +400,7 @@ class PKPNotificationManagerTest extends PKPTestCase
     /**
      * Setup NotificationDAO mock and register it.
      *
-     * @param $notification PKPNotification A notification that is
+     * @param PKPNotification $notification A notification that is
      * expected to be inserted by the DAO.
      */
     private function injectNotificationDaoMock($notification)
@@ -419,7 +419,7 @@ class PKPNotificationManagerTest extends PKPTestCase
     /**
      * Setup NotificationSettingsDAO mock and register it.
      *
-     * @param $notificationParams array Notification parameters.
+     * @param array $notificationParams Notification parameters.
      */
     private function injectNotificationSettingsDaoMock($notificationParams)
     {

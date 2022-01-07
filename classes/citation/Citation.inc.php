@@ -26,7 +26,7 @@ class Citation extends \PKP\core\DataObject
     /**
      * Constructor.
      *
-     * @param $rawCitation string an unparsed citation string
+     * @param string $rawCitation an unparsed citation string
      */
     public function __construct($rawCitation = null)
     {
@@ -73,7 +73,7 @@ class Citation extends \PKP\core\DataObject
     /**
      * Set the rawCitation
      *
-     * @param $rawCitation string
+     * @param string $rawCitation
      */
     public function setRawCitation($rawCitation)
     {
@@ -84,7 +84,7 @@ class Citation extends \PKP\core\DataObject
     /**
      * Get the sequence number
      *
-     * @return integer
+     * @return int
      */
     public function getSequence()
     {
@@ -94,7 +94,7 @@ class Citation extends \PKP\core\DataObject
     /**
      * Set the sequence number
      *
-     * @param $seq integer
+     * @param int $seq
      */
     public function setSequence($seq)
     {
@@ -107,7 +107,7 @@ class Citation extends \PKP\core\DataObject
     /**
      * Take a citation string and clean/normalize it
      *
-     * @param $citationString string
+     * @param string $citationString
      *
      * @return string
      */

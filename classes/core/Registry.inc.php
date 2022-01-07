@@ -32,9 +32,9 @@ class Registry
     /**
      * Get the value of an item in the registry.
      *
-     * @param $key string
-     * @param $createIfEmpty boolean Whether or not to create the entry if none exists
-     * @param $createWithDefault mixed If $createIfEmpty, this value will be used as a default
+     * @param string $key
+     * @param bool $createIfEmpty Whether or not to create the entry if none exists
+     * @param mixed $createWithDefault If $createIfEmpty, this value will be used as a default
      */
     public static function &get($key, $createIfEmpty = false, $createWithDefault = null)
     {
@@ -54,8 +54,7 @@ class Registry
      * Set the value of an item in the registry.
      * The item will be added if it does not already exist.
      *
-     * @param $key string
-     * @param $value mixed
+     * @param string $key
      */
     public static function set($key, &$value)
     {
@@ -66,7 +65,7 @@ class Registry
     /**
      * Remove an item from the registry.
      *
-     * @param $key string
+     * @param string $key
      */
     public static function delete($key)
     {

@@ -44,7 +44,7 @@ class PKPHandler
      */
     public $_id;
 
-    /** @var Dispatcher, mainly needed for cross-router url construction */
+    /** @var Dispatcher mainly needed for cross-router url construction */
     public $_dispatcher;
 
     /** @var array validation checks for this page - deprecated! */
@@ -63,13 +63,13 @@ class PKPHandler
     /** @var AuthorizationDecisionManager authorization decision manager for this handler */
     public $_authorizationDecisionManager;
 
-    /** @var boolean Whether to enforce site access restrictions. */
+    /** @var bool Whether to enforce site access restrictions. */
     public $_enforceRestrictedSite = true;
 
-    /** @var boolean Whether role assignments have been checked. */
+    /** @var bool Whether role assignments have been checked. */
     public $_roleAssignmentsChecked = false;
 
-    /** @var boolean Whether this is a handler for a page in the backend editorial UI */
+    /** @var bool Whether this is a handler for a page in the backend editorial UI */
     public $_isBackendPage = false;
 
     /**
@@ -90,7 +90,7 @@ class PKPHandler
     /**
      * Set the controller id
      *
-     * @param $id string
+     * @param string $id
      */
     public function setId($id)
     {
@@ -125,7 +125,7 @@ class PKPHandler
     /**
      * Set the dispatcher
      *
-     * @param $dispatcher PKPDispatcher
+     * @param PKPDispatcher $dispatcher
      */
     public function setDispatcher($dispatcher)
     {
@@ -135,8 +135,8 @@ class PKPHandler
     /**
      * Fallback method in case request handler does not implement index method.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function index($args, $request)
     {
@@ -157,8 +157,8 @@ class PKPHandler
      * call so that PKPHandler::authorize() will be able to enforce
      * them.
      *
-     * @param $authorizationPolicy AuthorizationPolicy
-     * @param $addToTop boolean whether to insert the new policy
+     * @param AuthorizationPolicy $authorizationPolicy
+     * @param bool $addToTop whether to insert the new policy
      *  to the top of the list.
      */
     public function addPolicy($authorizationPolicy, $addToTop = false)
@@ -180,7 +180,7 @@ class PKPHandler
      * and checked for permission in the policy class, it's then chucked into
      * the authorized context for later retrieval by code that needs it.
      *
-     * @param $assocType integer any of the ASSOC_TYPE_* constants
+     * @param int $assocType any of the ASSOC_TYPE_* constants
      */
     public function &getAuthorizedContextObject($assocType)
     {
@@ -222,9 +222,9 @@ class PKPHandler
     /**
      * Add role - operation assignments to the handler.
      *
-     * @param $roleIds integer|array one or more of the ROLE_ID_*
+     * @param int|array $roleIds one or more of the ROLE_ID_*
      *  constants
-     * @param $operations string|array a single method name or
+     * @param string|array $operations a single method name or
      *  an array of method names to be assigned.
      */
     public function addRoleAssignment($roleIds, $operations)
@@ -263,7 +263,7 @@ class PKPHandler
      * This method returns an assignment of operation names for the
      * given role.
      *
-     * @param $roleId int
+     * @param int $roleId
      *
      * @return array assignment for the given role.
      */
@@ -306,12 +306,12 @@ class PKPHandler
      *
      * NB: This method will be called once for every request only.
      *
-     * @param $request Request
-     * @param $args array request arguments
-     * @param $roleAssignments array the operation role assignment,
+     * @param Request $request
+     * @param array $args request arguments
+     * @param array $roleAssignments the operation role assignment,
      *  see getRoleAssignment() for more details.
      *
-     * @return boolean
+     * @return bool
      */
     public function authorize($request, &$args, $roleAssignments)
     {
@@ -371,8 +371,8 @@ class PKPHandler
      * to resources (e.g. via redirect) like handler operations
      * or data objects.
      *
-     * @param $requiredContexts array
-     * @param $request Request
+     * @param array $requiredContexts
+     * @param Request $request
      */
     public function validate($requiredContexts = null, $request = null)
     {
@@ -411,7 +411,7 @@ class PKPHandler
      * NB: This method will be called after validation and
      * authorization.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function initialize($request)
     {
@@ -438,9 +438,9 @@ class PKPHandler
     /**
      * Return the DBResultRange structure and misc. variables describing the current page of a set of pages.
      *
-     * @param $request PKPRequest
-     * @param $rangeName string Symbolic name of range of pages; must match the Smarty {page_list ...} name.
-     * @param $contextData array If set, this should contain a set of data that are required to
+     * @param PKPRequest $request
+     * @param string $rangeName Symbolic name of range of pages; must match the Smarty {page_list ...} name.
+     * @param array $contextData If set, this should contain a set of data that are required to
      * 	define the context of this request (for maintaining page numbers across requests).
      *	To disable persistent page contexts, set this variable to null.
      *
@@ -493,7 +493,7 @@ class PKPHandler
     /**
      * Get the range info page parameter name.
      *
-     * @param $rangeName string
+     * @param string $rangeName
      *
      * @return string
      */
@@ -505,7 +505,7 @@ class PKPHandler
     /**
      * Set up the basic template.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function setupTemplate($request)
     {
@@ -548,8 +548,8 @@ class PKPHandler
      * context that differentiates it from other similar pages (e.g. all
      * articles vs. all articles starting with "l").
      *
-     * @param $request PKPRequest
-     * @param $contextData array A set of information identifying the page
+     * @param PKPRequest $request
+     * @param array $contextData A set of information identifying the page
      *
      * @return string hash
      */
@@ -566,7 +566,7 @@ class PKPHandler
     /**
      * Return the context that is configured in site redirect setting.
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return mixed Either Context or null
      */
@@ -583,8 +583,8 @@ class PKPHandler
     /**
      * Return the first context that user is enrolled with.
      *
-     * @param $user User
-     * @param $contexts Array
+     * @param User $user
+     * @param array $contexts
      *
      * @return mixed Either Context or null
      */
@@ -605,7 +605,7 @@ class PKPHandler
     /**
      * Assume SSL is required for all handlers, unless overridden in subclasses.
      *
-     * @return boolean
+     * @return bool
      */
     public function requireSSL()
     {
@@ -636,8 +636,8 @@ class PKPHandler
      * a request needs to have one in its context but may be in a site-level
      * context as specified in the URL.
      *
-     * @param $request Request
-     * @param $hasNoContexts boolean Optional reference to receive true iff no contexts were found.
+     * @param Request $request
+     * @param bool $hasNoContexts Optional reference to receive true iff no contexts were found.
      *
      * @return mixed Either a Context or null if none could be determined.
      */

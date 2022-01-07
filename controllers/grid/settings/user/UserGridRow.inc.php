@@ -21,7 +21,7 @@ use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 class UserGridRow extends GridRow
 {
-    /** the user id of the old user to remove when merging users. */
+    /** @var int the user id of the old user to remove when merging users. */
     public $_oldUserId;
 
     /**

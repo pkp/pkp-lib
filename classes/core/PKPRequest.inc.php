@@ -41,10 +41,10 @@ class PKPRequest
     /** @var string request path */
     public $_requestPath;
 
-    /** @var boolean true if restful URLs are enabled in the config */
+    /** @var bool true if restful URLs are enabled in the config */
     public $_isRestfulUrlsEnabled;
 
-    /** @var boolean true if path info is enabled for this server */
+    /** @var bool true if path info is enabled for this server */
     public $_isPathInfoEnabled;
 
     /** @var string server host */
@@ -53,7 +53,7 @@ class PKPRequest
     /** @var string request protocol */
     public $_protocol;
 
-    /** @var boolean bot flag */
+    /** @var bool bot flag */
     public $_isBot;
 
     /** @var string user agent */
@@ -73,7 +73,7 @@ class PKPRequest
     /**
      * set the router instance
      *
-     * @param $router instance PKPRouter
+     * @param PKPRouter $router
      */
     public function setRouter($router)
     {
@@ -83,7 +83,7 @@ class PKPRequest
     /**
      * Set the dispatcher
      *
-     * @param $dispatcher Dispatcher
+     * @param Dispatcher $dispatcher
      */
     public function setDispatcher($dispatcher)
     {
@@ -104,7 +104,7 @@ class PKPRequest
     /**
      * Perform an HTTP redirect to an absolute or relative (to base system URL) URL.
      *
-     * @param $url string (exclude protocol for local redirects)
+     * @param string $url (exclude protocol for local redirects)
      */
     public function redirectUrl($url)
     {
@@ -119,7 +119,7 @@ class PKPRequest
     /**
      * Request an HTTP redirect via JSON to be used from components.
      *
-     * @param $url string
+     * @param string $url
      *
      * @return JSONMessage
      */
@@ -176,7 +176,7 @@ class PKPRequest
     /**
      * Get the base URL of the request (excluding script).
      *
-     * @param $allowProtocolRelative boolean True iff protocol-relative URLs are allowed
+     * @param bool $allowProtocolRelative True iff protocol-relative URLs are allowed
      *
      * @return string
      */
@@ -374,8 +374,8 @@ class PKPRequest
     /**
      * Get the server hostname in the request.
      *
-     * @param $default string Default hostname (defaults to localhost)
-     * @param $includePort boolean Whether to include non-standard port number; default true
+     * @param string $default Default hostname (defaults to localhost)
+     * @param bool $includePort Whether to include non-standard port number; default true
      *
      * @return string
      */
@@ -428,7 +428,7 @@ class PKPRequest
     /**
      * Determine whether the request is a POST request
      *
-     * @return boolean
+     * @return bool
      */
     public function isPost()
     {
@@ -438,7 +438,7 @@ class PKPRequest
     /**
      * Determine whether the request is a GET request
      *
-     * @return boolean
+     * @return bool
      */
     public function isGet()
     {
@@ -448,7 +448,7 @@ class PKPRequest
     /**
      * Determine whether a CSRF token is present and correct.
      *
-     * @return boolean
+     * @return bool
      */
     public function checkCSRF()
     {
@@ -525,7 +525,7 @@ class PKPRequest
     /**
      * Determine whether the user agent is a bot or not.
      *
-     * @return boolean
+     * @return bool
      */
     public function isBot()
     {
@@ -667,13 +667,13 @@ class PKPRequest
      * Get the value of a GET/POST variable generated using the Smarty
      * html_select_date and/or html_select_time function.
      *
-     * @param $prefix string
-     * @param $defaultDay int
-     * @param $defaultMonth int
-     * @param $defaultYear int
-     * @param $defaultHour int
-     * @param $defaultMinute int
-     * @param $defaultSecond int
+     * @param string $prefix
+     * @param int $defaultDay
+     * @param int $defaultMonth
+     * @param int $defaultYear
+     * @param int $defaultHour
+     * @param int $defaultMinute
+     * @param int $defaultSecond
      *
      * @return Date
      */
@@ -738,9 +738,8 @@ class PKPRequest
     /**
      * Set a cookie variable.
      *
-     * @param $key string
-     * @param $value mixed
-     * @param $expire int (optional)
+     * @param string $key
+     * @param int $expire (optional)
      */
     public function setCookieVar($key, $value, $expire = 0)
     {
@@ -757,12 +756,12 @@ class PKPRequest
      * Redirect to the specified page within a PKP Application.
      * Shorthand for a common call to $request->redirect($dispatcher->url($request, PKPApplication::ROUTE_PAGE, ...)).
      *
-     * @param $context Array The optional contextual paths
-     * @param $page string The name of the op to redirect to.
-     * @param $op string optional The name of the op to redirect to.
-     * @param $path mixed string or array containing path info for redirect.
-     * @param $params array Map of name => value pairs for additional parameters
-     * @param $anchor string Name of desired anchor on the target page
+     * @param array $context The optional contextual paths
+     * @param string $page The name of the op to redirect to.
+     * @param string $op optional The name of the op to redirect to.
+     * @param mixed $path string or array containing path info for redirect.
+     * @param array $params Map of name => value pairs for additional parameters
+     * @param string $anchor Name of desired anchor on the target page
      */
     public function redirect($context = null, $page = null, $op = null, $path = null, $params = null, $anchor = null)
     {

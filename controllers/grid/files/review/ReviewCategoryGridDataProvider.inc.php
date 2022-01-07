@@ -20,8 +20,8 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
     /**
      * Constructor
      *
-     * @param $fileStage int
-     * @param $viewableOnly int Will be passed to the review grid data provider.
+     * @param int $fileStage
+     * @param int $viewableOnly Will be passed to the review grid data provider.
      * See parameter description there.
      */
     public function __construct($fileStage, $viewableOnly = false)

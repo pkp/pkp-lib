@@ -39,12 +39,12 @@ class PKPCatalogHandler extends Handler
     /**
      * View the content of a category.
      *
-     * @param $args array [
+     * @param array $args [
      *		@option string Category path
      *		@option int Page number if available
      * ]
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return string
      */
@@ -108,8 +108,8 @@ class PKPCatalogHandler extends Handler
     /**
      * Serve the full sized image for a category.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function fullSize($args, $request)
     {
@@ -132,8 +132,8 @@ class PKPCatalogHandler extends Handler
     /**
      * Serve the thumbnail for a category.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function thumbnail($args, $request)
     {
@@ -165,12 +165,12 @@ class PKPCatalogHandler extends Handler
     /**
      * Assign the pagination template variables
      *
-     * @param $request PKPRequest
-     * @param $submissionsCount int Number of monographs being shown
-     * @param $page int Page number being shown
-     * @param $count int Max number of monographs being shown
-     * @param $offset int Starting position of monographs
-     * @param $total int Total number of monographs available
+     * @param PKPRequest $request
+     * @param int $submissionsCount Number of monographs being shown
+     * @param int $page Page number being shown
+     * @param int $count Max number of monographs being shown
+     * @param int $offset Starting position of monographs
+     * @param int $total Total number of monographs available
      */
     protected function _setupPaginationTemplate($request, $submissionsCount, $page, $count, $offset, $total)
     {

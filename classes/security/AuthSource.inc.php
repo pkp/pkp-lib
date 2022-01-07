@@ -38,7 +38,7 @@ class AuthSource extends \PKP\core\DataObject
     /**
      * Set ID of this source.
      *
-     * @param $authId int
+     * @param int $authId
      */
     public function setAuthId($authId)
     {
@@ -58,7 +58,7 @@ class AuthSource extends \PKP\core\DataObject
     /**
      * Set user-specified title of this source.
      *
-     * @param $title string
+     * @param string $title
      */
     public function setTitle($title)
     {
@@ -78,7 +78,7 @@ class AuthSource extends \PKP\core\DataObject
     /**
      * Set the authentication plugin associated with this source.
      *
-     * @param $plugin string
+     * @param string $plugin
      */
     public function setPlugin($plugin)
     {
@@ -88,7 +88,7 @@ class AuthSource extends \PKP\core\DataObject
     /**
      * Get flag indicating this is the default authentication source.
      *
-     * @return boolean
+     * @return bool
      */
     public function getDefault()
     {
@@ -98,7 +98,7 @@ class AuthSource extends \PKP\core\DataObject
     /**
      * Set flag indicating this is the default authentication source.
      *
-     * @param $authDefault boolean
+     * @param bool $authDefault
      */
     public function setDefault($authDefault)
     {
@@ -118,7 +118,7 @@ class AuthSource extends \PKP\core\DataObject
     /**
      * Set array of plugin-specific settings for this source.
      *
-     * @param $settings array
+     * @param array $settings
      */
     public function setSettings($settings)
     {
@@ -139,7 +139,7 @@ class AuthSource extends \PKP\core\DataObject
     /**
      * Set authentication plugin object associated with this source.
      *
-     * @param $authPlugin AuthPlugin
+     * @param AuthPlugin $authPlugin
      */
     public function setPluginClass($authPlugin)
     {

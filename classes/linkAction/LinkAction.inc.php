@@ -43,12 +43,12 @@ class LinkAction
     /**
      * Constructor
      *
-     * @param $id string
-     * @param $actionRequest LinkActionRequest The action to be taken when the link action is activated.
-     * @param $title string (optional) The localized title of the action.
-     * @param $image string (optional) The name of an icon for the
+     * @param string $id
+     * @param LinkActionRequest $actionRequest The action to be taken when the link action is activated.
+     * @param string $title (optional) The localized title of the action.
+     * @param string $image (optional) The name of an icon for the
      *  action.
-     * @param $toolTip string (optional) A localized tool tip to display when hovering over
+     * @param string $toolTip (optional) A localized tool tip to display when hovering over
      *  the link action.
      */
     public function __construct($id, $actionRequest, $title = null, $image = null, $toolTip = null)

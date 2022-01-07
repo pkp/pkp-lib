@@ -47,9 +47,9 @@ class PKPPublicIdentifiersForm extends Form
     /**
      * Constructor.
      *
-     * @param $pubObject object
-     * @param $stageId integer
-     * @param $formParams array
+     * @param object $pubObject
+     * @param int $stageId
+     * @param array $formParams
      */
     public function __construct($pubObject, $stageId = null, $formParams = null)
     {
@@ -129,7 +129,7 @@ class PKPPublicIdentifiersForm extends Form
     /**
      * Get the stage id
      *
-     * @return integer WORKFLOW_STAGE_ID_
+     * @return int WORKFLOW_STAGE_ID_
      */
     public function getStageId()
     {
@@ -139,7 +139,7 @@ class PKPPublicIdentifiersForm extends Form
     /**
      * Get the context id
      *
-     * @return integer
+     * @return int
      */
     public function getContextId()
     {
@@ -235,7 +235,7 @@ class PKPPublicIdentifiersForm extends Form
     /**
      * Clear pub id.
      *
-     * @param $pubIdPlugInClassName string
+     * @param string $pubIdPlugInClassName
      */
     public function clearPubId($pubIdPlugInClassName)
     {
@@ -246,9 +246,9 @@ class PKPPublicIdentifiersForm extends Form
     /**
      * Get assoc type of the given object.
      *
-     * @param $pubObject
+     * @param object $pubObject
      *
-     * @return integer ASSOC_TYPE_
+     * @return int ASSOC_TYPE_
      */
     public function getAssocType($pubObject)
     {

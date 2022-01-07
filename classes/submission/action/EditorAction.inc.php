@@ -58,13 +58,13 @@ class EditorAction
     /**
      * Records an editor's submission decision.
      *
-     * @param $request PKPRequest
-     * @param $submission Submission
-     * @param $decision integer
-     * @param $decisionLabels array(SUBMISSION_EDITOR_DECISION_... or SUBMISSION_EDITOR_RECOMMEND_... => editor.submission.decision....)
-     * @param $reviewRound ReviewRound optional Current review round that user is taking the decision, if any.
-     * @param $stageId integer optional
-     * @param $recommendation boolean optional
+     * @param PKPRequest $request
+     * @param Submission $submission
+     * @param int $decision
+     * @param array $decisionLabels array(SUBMISSION_EDITOR_DECISION_... or SUBMISSION_EDITOR_RECOMMEND_... => editor.submission.decision....)
+     * @param ReviewRound $reviewRound optional Current review round that user is taking the decision, if any.
+     * @param int $stageId optional
+     * @param bool $recommendation optional
      */
     public function recordDecision($request, $submission, $decision, $decisionLabels, $reviewRound = null, $stageId = null, $recommendation = false)
     {
@@ -127,12 +127,12 @@ class EditorAction
     /**
      * Assigns a reviewer to a submission.
      *
-     * @param $request PKPRequest
-     * @param $submission object
-     * @param $reviewerId int
-     * @param $reviewRound ReviewRound
-     * @param $reviewDueDate datetime
-     * @param $responseDueDate datetime
+     * @param PKPRequest $request
+     * @param object $submission
+     * @param int $reviewerId
+     * @param ReviewRound $reviewRound
+     * @param datetime $reviewDueDate
+     * @param datetime $responseDueDate
      * @param null|mixed $reviewMethod
      */
     public function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null)
@@ -207,12 +207,12 @@ class EditorAction
     /**
      * Sets the due date for a review assignment.
      *
-     * @param $request PKPRequest
-     * @param $submission Submission
-     * @param $reviewAssignment ReviewAssignment
-     * @param $reviewDueDate string
-     * @param $responseDueDate string
-     * @param $logEntry boolean
+     * @param PKPRequest $request
+     * @param Submission $submission
+     * @param ReviewAssignment $reviewAssignment
+     * @param string $reviewDueDate
+     * @param string $responseDueDate
+     * @param bool $logEntry
      */
     public function setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate, $logEntry = false)
     {
@@ -265,8 +265,8 @@ class EditorAction
     /**
      * Increment a submission's workflow stage.
      *
-     * @param $submission Submission
-     * @param $newStage integer One of the WORKFLOW_STAGE_* constants.
+     * @param Submission $submission
+     * @param int $newStage One of the WORKFLOW_STAGE_* constants.
      */
     public function incrementWorkflowStage($submission, $newStage)
     {

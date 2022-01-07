@@ -70,7 +70,7 @@ class LoginChangePasswordForm extends Form
     /**
      * @copydoc Form::execute()
      *
-     * @return boolean success
+     * @return bool success
      */
     public function execute(...$functionArgs)
     {

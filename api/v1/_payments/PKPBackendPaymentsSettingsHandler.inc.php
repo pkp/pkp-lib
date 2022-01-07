@@ -63,8 +63,8 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
     /**
      * Receive requests to edit the payments form
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      *
      * @return Response
      */

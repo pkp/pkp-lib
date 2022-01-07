@@ -25,8 +25,8 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Retrieve a library file by ID.
      *
-     * @param $fileId int
-     * @param $contextId int optional
+     * @param int $fileId
+     * @param int $contextId optional
      *
      * @return LibraryFile
      */
@@ -49,8 +49,8 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Retrieve all library files for a context.
      *
-     * @param $contextId int
-     * @param $type (optional)
+     * @param int $contextId
+     * @param string $type (optional)
      *
      * @return array LibraryFiles
      */
@@ -73,9 +73,9 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Retrieve all library files for a submission.
      *
-     * @param $submissionId int
-     * @param $type (optional)
-     * @param $contextId (optional) int
+     * @param int $submissionId
+     * @param string $type (optional)
+     * @param int $contextId (optional)
      *
      * @return array LibraryFiles
      */
@@ -122,7 +122,7 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Update the localized fields for this file.
      *
-     * @param $libraryFile
+     * @param LibraryFile $libraryFile
      */
     public function updateLocaleFields(&$libraryFile)
     {
@@ -136,7 +136,7 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Internal function to return a LibraryFile object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return LibraryFile
      */
@@ -165,7 +165,7 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Insert a new LibraryFile.
      *
-     * @param $libraryFile LibraryFile
+     * @param LibraryFile $libraryFile
      *
      * @return int
      */
@@ -209,7 +209,7 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Update a LibraryFile
      *
-     * @param $libraryFile LibraryFile
+     * @param LibraryFile $libraryFile
      *
      * @return int
      */
@@ -250,7 +250,7 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Delete a library file by ID.
      *
-     * @param $revision int
+     * @param int $revision
      */
     public function deleteById($fileId, $revision = null)
     {
@@ -261,7 +261,7 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Check if a file with this filename already exists
      *
-     * @param $contextId int the context to check in.
+     * @param int $contextId the context to check in.
      *
      * @return bool
      */

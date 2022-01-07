@@ -27,10 +27,10 @@ class EditDecisionDAO extends \PKP\db\DAO
     /**
      * Update the editor decision table.
      *
-     * @param $submissionId int
-     * @param $editorDecision array
-     * @param $stageId int Optional STAGE_ID_...
-     * @param $reviewRound ReviewRound (optional)
+     * @param int $submissionId
+     * @param array $editorDecision
+     * @param int $stageId Optional STAGE_ID_...
+     * @param ReviewRound $reviewRound (optional)
      */
     public function updateEditorDecision($submissionId, $editorDecision, $stageId = null, $reviewRound = null)
     {
@@ -57,7 +57,7 @@ class EditDecisionDAO extends \PKP\db\DAO
     /**
      * Delete editing decisions by submission ID.
      *
-     * @param $submissionId int
+     * @param int $submissionId
      */
     public function deleteDecisionsBySubmissionId($submissionId)
     {
@@ -70,10 +70,10 @@ class EditDecisionDAO extends \PKP\db\DAO
     /**
      * Get the editor decisions for a review round of a submission.
      *
-     * @param $submissionId int Submission ID
-     * @param $stageId int Optional STAGE_ID_...
-     * @param $round int Optional review round number
-     * @param $editorId int Optional editor ID
+     * @param int $submissionId Submission ID
+     * @param int $stageId Optional STAGE_ID_...
+     * @param int $round Optional review round number
+     * @param int $editorId Optional editor ID
      *
      * @return array List of information on the editor decisions:
      * 	editDecisionId, reviewRoundId, stageId, round, editorId, decision, dateDecided
@@ -121,8 +121,8 @@ class EditDecisionDAO extends \PKP\db\DAO
     /**
      * Transfer the decisions for an editor.
      *
-     * @param $oldUserId int
-     * @param $newUserId int
+     * @param int $oldUserId
+     * @param int $newUserId
      */
     public function transferEditorDecisions($oldUserId, $newUserId)
     {
@@ -137,9 +137,9 @@ class EditDecisionDAO extends \PKP\db\DAO
      * submission id. A valid decision is one that is not overriden by any
      * other decision.
      *
-     * @param $submissionId int
-     * @param $expectedStageId int
-     * @param $revisionDecision int SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS or SUBMISSION_EDITOR_DECISION_RESUBMIT
+     * @param int $submissionId
+     * @param int $expectedStageId
+     * @param int $revisionDecision SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS or SUBMISSION_EDITOR_DECISION_RESUBMIT
      *
      * @return mixed array or null
      */
@@ -182,10 +182,10 @@ class EditDecisionDAO extends \PKP\db\DAO
      * Find any file upload that's a revision and can be considered as
      * a pending revisions decision response.
      *
-     * @param $decision array
-     * @param $submissionId int
+     * @param array $decision
+     * @param int $submissionId
      *
-     * @return boolean
+     * @return bool
      */
     public function responseExists($decision, $submissionId)
     {

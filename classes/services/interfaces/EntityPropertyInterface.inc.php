@@ -21,9 +21,9 @@ interface EntityPropertyInterface
     /**
      * Returns the values for the requested list of properties
      *
-     * @param $entity object The object to convert
-     * @param $props array The properties to include in the result
-     * @param $args array Additional variable which may be required
+     * @param object $entity The object to convert
+     * @param array $props The properties to include in the result
+     * @param array $args Additional variable which may be required
      *		$args['request'] PKPRequest Required
      *		$args['slimRequest'] SlimRequest
      *
@@ -34,8 +34,8 @@ interface EntityPropertyInterface
     /**
      * Returns summary properties for an entity
      *
-     * @param $entity object The object to convert
-     * @param $args array Additional variables which may be required
+     * @param object $entity The object to convert
+     * @param array $args Additional variables which may be required
      *		$args['request'] PKPRequest Required
      *		$args['slimRequest'] SlimRequest
      *
@@ -46,8 +46,8 @@ interface EntityPropertyInterface
     /**
      * Returns full properties for an entity
      *
-     * @param $entity object The object to convert
-     * @param $args array Additional variable which may be required
+     * @param object $entity The object to convert
+     * @param array $args Additional variable which may be required
      *		$args['request'] PKPRequest Required
      *		$args['slimRequest'] SlimRequest
      *

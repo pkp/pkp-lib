@@ -49,9 +49,9 @@ class PluginGalleryDAO extends \PKP\db\DAO
      * Get a set of GalleryPlugin objects describing the available
      * compatible plugins in their newest versions.
      *
-     * @param $application PKPApplication
-     * @param $category string Optional category name to use as filter
-     * @param $search string Optional text to use as filter
+     * @param PKPApplication $application
+     * @param string $category Optional category name to use as filter
+     * @param string $search Optional text to use as filter
      *
      * @return array GalleryPlugin objects
      */
@@ -167,10 +167,10 @@ class PluginGalleryDAO extends \PKP\db\DAO
      * Build a GalleryPlugin from a DOM element, using the newest compatible
      * release with the supplied Application.
      *
-     * @param $element DOMElement
-     * @param $application Application
+     * @param DOMElement $element
+     * @param Application $application
      *
-     * @return GalleryPlugin or null, if no compatible plugin was available
+     * @return GalleryPlugin|null, if no compatible plugin was available
      */
     protected function _compatibleFromElement($element, $application)
     {
@@ -224,7 +224,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
     /**
      * Handle a maintainer element
      *
-     * @param $plugin GalleryPlugin
+     * @param GalleryPlugin $plugin
      */
     public function _handleMaintainer($element, $plugin)
     {
@@ -252,8 +252,8 @@ class PluginGalleryDAO extends \PKP\db\DAO
     /**
      * Handle a release element
      *
-     * @param $plugin GalleryPlugin
-     * @param $application PKPApplication
+     * @param GalleryPlugin $plugin
+     * @param PKPApplication $application
      */
     public function _handleRelease($element, $plugin, $application)
     {
@@ -309,10 +309,10 @@ class PluginGalleryDAO extends \PKP\db\DAO
      * Handle a compatibility element, fishing out the most recent statement
      * of compatibility.
      *
-     * @param $plugin GalleryPlugin
-     * @param $application PKPApplication
+     * @param GalleryPlugin $plugin
+     * @param PKPApplication $application
      *
-     * @return boolean True iff a compatibility statement matched this app
+     * @return bool True iff a compatibility statement matched this app
      */
     public function _handleCompatibility($element, $plugin, $application)
     {

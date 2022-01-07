@@ -23,9 +23,9 @@ class ReviewerViewMetadataLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $submissionId integer
-     * @param $reviewAssignmentId integer
+     * @param Request $request
+     * @param int $submissionId
+     * @param int $reviewAssignmentId
      */
     public function __construct($request, $submissionId, $reviewAssignmentId)
     {

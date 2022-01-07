@@ -33,7 +33,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Get the localized name of the context
      *
-     * @param $preferredLocale string
+     * @param string $preferredLocale
      *
      * @return string
      */
@@ -45,7 +45,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Set the name of the context
      *
-     * @param $name string
+     * @param string $name
      * @param null|mixed $locale
      */
     public function setName($name, $locale = null)
@@ -76,7 +76,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Set the contact name for this context
      *
-     * @param $contactName string
+     * @param string $contactName
      */
     public function setContactName($contactName)
     {
@@ -96,7 +96,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Set the contact email for this context
      *
-     * @param $contactEmail string
+     * @param string $contactEmail
      */
     public function setContactEmail($contactEmail)
     {
@@ -118,8 +118,8 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Set context description.
      *
-     * @param $description string
-     * @param $locale string optional
+     * @param string $description
+     * @param string $locale optional
      */
     public function setDescription($description, $locale = null)
     {
@@ -139,7 +139,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Set path to context (in URL).
      *
-     * @param $path string
+     * @param string $path
      */
     public function setPath($path)
     {
@@ -159,7 +159,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Set enabled flag of context
      *
-     * @param $enabled int
+     * @param int $enabled
      */
     public function setEnabled($enabled)
     {
@@ -196,7 +196,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Set sequence of context in site table of contents.
      *
-     * @param $sequence float
+     * @param float $sequence
      */
     public function setSequence($sequence)
     {
@@ -226,7 +226,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Get the acronym of the context.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -366,7 +366,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Return date or/and time formats available for forms, fallback to the default if not set
      *
-     * @param $format string datetime property, e.g., dateFormatShort
+     * @param string $format datetime property, e.g., dateFormatShort
      *
      * @return array
      */
@@ -515,10 +515,9 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Update a context setting value.
      *
-     * @param $name string
-     * @param $value mixed
-     * @param $type string optional
-     * @param $isLocalized boolean optional
+     * @param string $name
+     * @param string $type optional
+     * @param bool $isLocalized optional
      *
      * @deprecated 3.3.0.0
      */
@@ -609,10 +608,10 @@ abstract class Context extends \PKP\core\DataObject
     * @see <https://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
     * for a full specification of the input and output format of this method.
     *
-    * @param $metricType null|integer|array metrics selection
-    * @param $columns integer|array column (aggregation level) selection
-    * @param $orderBy array order criteria
-    * @param $range null|DBResultRange paging specification
+    * @param null|integer|array $metricType metrics selection
+    * @param int|array $columns column (aggregation level) selection
+    * @param array $orderBy order criteria
+    * @param null|DBResultRange $range paging specification
     *
     * @return null|array The selected data as a simple tabular
     *  result set or null if metrics are not supported by this context.

@@ -37,7 +37,7 @@ class SetupListbuilderHandler extends ListbuilderHandler
     /**
      * Set the current context
      *
-     * @param $context Context
+     * @param Context $context
      */
     public function setContext($context)
     {

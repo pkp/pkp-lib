@@ -47,8 +47,8 @@ class ReportGeneratorHandler extends Handler
     /**
     * Fetch form to generate custom reports.
     *
-    * @param $args array
-    * @param $request Request
+    * @param array $args
+    * @param Request $request
     *
      * @return JSONMessage JSON object
     */
@@ -73,8 +73,8 @@ class ReportGeneratorHandler extends Handler
     /**
      * Save form to generate custom reports.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -99,8 +99,8 @@ class ReportGeneratorHandler extends Handler
      * Fetch articles title and id from
      * the passed request variable issue id.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -131,8 +131,8 @@ class ReportGeneratorHandler extends Handler
      * Fetch regions from the passed request
      * variable country id.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */

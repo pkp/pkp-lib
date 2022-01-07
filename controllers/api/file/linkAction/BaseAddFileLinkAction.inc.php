@@ -24,19 +24,19 @@ class BaseAddFileLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $submissionId integer The submission the file should be
+     * @param Request $request
+     * @param int $submissionId The submission the file should be
      *  uploaded to.
-     * @param $stageId integer The workflow stage in which the file
+     * @param int $stageId The workflow stage in which the file
      *  uploader is being instantiated (one of the WORKFLOW_STAGE_ID_*
      *  constants).
-     * @param $uploaderRoles array The ids of all roles allowed to upload
+     * @param array $uploaderRoles The ids of all roles allowed to upload
      *  in the context of this action.
-     * @param $actionArgs array The arguments to be passed into the file
+     * @param array $actionArgs The arguments to be passed into the file
      *  upload wizard.
-     * @param $wizardTitle string The title to be displayed in the file
+     * @param string $wizardTitle The title to be displayed in the file
      *  upload wizard.
-     * @param $buttonLabel string The link action's button label.
+     * @param string $buttonLabel The link action's button label.
      */
     public function __construct(
         $request,

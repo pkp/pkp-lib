@@ -161,8 +161,8 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
      * Open a modal to read the reviewer's review and
      * download any files they may have uploaded
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

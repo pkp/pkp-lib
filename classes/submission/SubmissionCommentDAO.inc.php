@@ -25,9 +25,9 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Retrieve SubmissionComments by submission id
      *
-     * @param $submissionId int Submission ID
-     * @param $commentType int Comment type
-     * @param $assocId int Assoc ID
+     * @param int $submissionId Submission ID
+     * @param int $commentType Comment type
+     * @param int $assocId Assoc ID
      *
      * @return DAOResultFactory
      */
@@ -58,7 +58,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Retrieve SubmissionComments by user id
      *
-     * @param $userId int User ID.
+     * @param int $userId User ID.
      *
      * @return DAOResultFactory
      */
@@ -77,10 +77,10 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Retrieve SubmissionComments made my reviewers on a submission
      *
-     * @param $submissionId int The submission Id that was reviewered/commented on.
-     * @param $reviewerId int The user id of the reviewer.
-     * @param $reviewId int (optional) The review assignment ID the comment pertains to.
-     * @param $viewable boolean True for only viewable comments; false for non-viewable; null for both
+     * @param int $submissionId The submission Id that was reviewered/commented on.
+     * @param int $reviewerId The user id of the reviewer.
+     * @param int $reviewId (optional) The review assignment ID the comment pertains to.
+     * @param bool $viewable True for only viewable comments; false for non-viewable; null for both
      *
      * @return DAOResultFactory
      */
@@ -116,7 +116,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Retrieve submission comment by id
      *
-     * @param $commentId int Comment ID.
+     * @param int $commentId Comment ID.
      *
      * @return SubmissionComment object
      */
@@ -143,7 +143,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Creates and returns a submission comment object from a row
      *
-     * @param $row array
+     * @param array $row
      *
      * @return SubmissionComment object
      */
@@ -170,7 +170,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * inserts a new submission comment into the submission_comments table
      *
-     * @param SubmissionNote object
+     * @param SubmissionNote $submissionComment object
      *
      * @return Submission note ID int
      */
@@ -214,7 +214,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Removes a submission comment from the submission_comments table
      *
-     * @param SubmissionComment object
+     * @param SubmissionComment $submissionComment object
      */
     public function deleteObject($submissionComment)
     {
@@ -224,7 +224,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Removes a submission note by id
      *
-     * @param noteId int
+     * @param int $commentId
      */
     public function deleteById($commentId)
     {
@@ -237,7 +237,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Delete all comments for a submission.
      *
-     * @param $submissionId int
+     * @param int $submissionId
      */
     public function deleteBySubmissionId($submissionId)
     {
@@ -250,7 +250,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Updates a submission comment
      *
-     * @param SubmissionComment object
+     * @param SubmissionComment $submissionComment object
      */
     public function updateObject($submissionComment)
     {

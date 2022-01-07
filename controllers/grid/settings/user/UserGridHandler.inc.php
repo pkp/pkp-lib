@@ -33,7 +33,7 @@ use PKP\security\Role;
 
 class UserGridHandler extends GridHandler
 {
-    /** integer user id for the user to remove */
+    /** @var int user id for the user to remove */
     public $_oldUserId;
 
     /**
@@ -176,7 +176,7 @@ class UserGridHandler extends GridHandler
     /**
      * @copydoc GridHandler::loadData()
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return array Grid data.
      */
@@ -292,8 +292,8 @@ class UserGridHandler extends GridHandler
     /**
      * Add a new user.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function addUser($args, $request)
     {
@@ -304,8 +304,8 @@ class UserGridHandler extends GridHandler
     /**
      * Edit an existing user.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -333,8 +333,8 @@ class UserGridHandler extends GridHandler
     /**
      * Update an existing user.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -381,8 +381,8 @@ class UserGridHandler extends GridHandler
     /**
      * Update a newly created user's roles
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -416,8 +416,8 @@ class UserGridHandler extends GridHandler
     /**
      * Edit enable/disable user form
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -451,8 +451,8 @@ class UserGridHandler extends GridHandler
     /**
      * Enable/Disable an existing user
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -491,8 +491,8 @@ class UserGridHandler extends GridHandler
     /**
      * Remove all user group assignments for a context for a given user.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -528,8 +528,8 @@ class UserGridHandler extends GridHandler
     /**
      * Displays a modal to edit an email message to the user.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -563,8 +563,8 @@ class UserGridHandler extends GridHandler
     /**
      * Send the user email and close the modal.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -602,8 +602,8 @@ class UserGridHandler extends GridHandler
     /**
      * Allow user account merging, including attributed submissions etc.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

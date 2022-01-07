@@ -33,9 +33,9 @@ class AjaxAction extends LinkActionRequest
     /**
      * Constructor
      *
-     * @param $remoteAction string The target URL.
-     * @param $requestType string One of the AJAX_REQUEST_TYPE_* constants.
-     * @param $requestData array Any request data (e.g. POST params) to be sent.
+     * @param string $remoteAction The target URL.
+     * @param string $requestType One of the AJAX_REQUEST_TYPE_* constants.
+     * @param array $requestData Any request data (e.g. POST params) to be sent.
      */
     public function __construct($remoteAction, $requestType = self::AJAX_REQUEST_TYPE_POST, $requestData = [])
     {

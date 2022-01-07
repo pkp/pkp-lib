@@ -47,8 +47,8 @@ class PageHandler extends Handler
     /**
      * Display the tasks component
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -62,8 +62,8 @@ class PageHandler extends Handler
     /**
      * Get the compiled CSS
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function css($args, $request)
     {

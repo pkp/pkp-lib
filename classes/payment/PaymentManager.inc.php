@@ -30,7 +30,7 @@ abstract class PaymentManager
     /**
      * Constructor
      *
-     * @param $context Context
+     * @param Context $context
      */
     public function __construct($context)
     {
@@ -40,8 +40,8 @@ abstract class PaymentManager
     /**
      * Queue a payment for receipt.
      *
-     * @param $queuedPayment object
-     * @param $expiryDate date optional
+     * @param object $queuedPayment
+     * @param date $expiryDate optional
      *
      * @return mixed Queued payment ID for new payment, or false if fails
      */
@@ -86,7 +86,7 @@ abstract class PaymentManager
     /**
      * Get the payment form for the configured payment plugin and specified payment.
      *
-     * @param $queuedPayment QueuedPayment
+     * @param QueuedPayment $queuedPayment
      *
      * @return Form
      */
@@ -102,7 +102,7 @@ abstract class PaymentManager
     /**
      * Call the payment plugin's settings display method
      *
-     * @return boolean
+     * @return bool
      */
     public function displayConfigurationForm()
     {
@@ -116,7 +116,7 @@ abstract class PaymentManager
     /**
      * Fetch a queued payment
      *
-     * @param $queuedPaymentId int
+     * @param int $queuedPaymentId
      *
      * @return QueuedPayment
      */
@@ -130,10 +130,10 @@ abstract class PaymentManager
     /**
      * Fulfill a queued payment
      *
-     * @param $request PKPRequest
-     * @param $queuedPayment QueuedPayment
+     * @param PKPRequest $request
+     * @param QueuedPayment $queuedPayment
      *
-     * @return boolean success/failure
+     * @return bool success/failure
      */
     abstract public function fulfillQueuedPayment($request, $queuedPayment);
 }

@@ -26,9 +26,9 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Retrieve a submission query by ID.
      *
-     * @param $queryId int Query ID
-     * @param $assocType int Optional ASSOC_TYPE_...
-     * @param $assocId int Optional assoc ID per assocType
+     * @param int $queryId Query ID
+     * @param int $assocType Optional ASSOC_TYPE_...
+     * @param int $assocId Optional assoc ID per assocType
      *
      * @return Query
      */
@@ -53,10 +53,10 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Retrieve all queries by association
      *
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int Assoc ID
-     * @param $stageId int Optional stage ID
-     * @param $userId int Optional user ID; when set, show only assigned queries
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId Assoc ID
+     * @param int $stageId Optional stage ID
+     * @param int $userId Optional user ID; when set, show only assigned queries
      *
      * @return array Query
      */
@@ -98,7 +98,7 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Internal function to return a submission query object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return Query
      */
@@ -129,7 +129,7 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Insert a new Query.
      *
-     * @param $query Query
+     * @param Query $query
      *
      * @return int New query ID
      */
@@ -153,8 +153,8 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Adds a participant to a query.
      *
-     * @param $queryId int Query ID
-     * @param $userId int User ID
+     * @param int $queryId Query ID
+     * @param int $userId User ID
      */
     public function insertParticipant($queryId, $userId)
     {
@@ -170,8 +170,8 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Removes a participant from a query.
      *
-     * @param $queryId int Query ID
-     * @param $userId int User ID
+     * @param int $queryId Query ID
+     * @param int $userId User ID
      */
     public function removeParticipant($queryId, $userId)
     {
@@ -184,7 +184,7 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Removes all participants from a query.
      *
-     * @param $queryId int Query ID
+     * @param int $queryId Query ID
      */
     public function removeAllParticipants($queryId)
     {
@@ -197,8 +197,8 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Retrieve all participant user IDs for a query.
      *
-     * @param $queryId int Query ID
-     * @param $userId int User ID to restrict results to
+     * @param int $queryId Query ID
+     * @param int $userId User ID to restrict results to
      *
      * @return array
      */
@@ -225,7 +225,7 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Update an existing Query.
      *
-     * @param $query Query
+     * @param Query $query
      */
     public function updateObject($query)
     {
@@ -251,7 +251,7 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Delete a submission query.
      *
-     * @param $query Query
+     * @param Query $query
      */
     public function deleteObject($query)
     {
@@ -261,9 +261,9 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Delete a submission query by ID.
      *
-     * @param $queryId int Query ID
-     * @param $assocType int Optional ASSOC_TYPE_...
-     * @param $assocId int Optional assoc ID per assocType
+     * @param int $queryId Query ID
+     * @param int $assocType Optional ASSOC_TYPE_...
+     * @param int $assocId Optional assoc ID per assocType
      */
     public function deleteById($queryId, $assocType = null, $assocId = null)
     {
@@ -295,8 +295,8 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Sequentially renumber queries in their sequence order.
      *
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int Assoc ID per assocType
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId Assoc ID per assocType
      */
     public function resequence($assocType, $assocId)
     {
@@ -324,8 +324,8 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Delete queries by assoc info.
      *
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int Assoc ID per assocType
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId Assoc ID per assocType
      */
     public function deleteByAssoc($assocType, $assocId)
     {

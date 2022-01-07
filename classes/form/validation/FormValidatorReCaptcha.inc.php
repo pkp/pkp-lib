@@ -31,10 +31,10 @@ class FormValidatorReCaptcha extends FormValidator
     /**
      * Constructor.
      *
-     * @param $form object
-     * @param $userIp string IP address of user request
-     * @param $message string Key of message to display on mismatch
-     * @param $hostname ?string Hostname to expect in validation response
+     * @param object $form
+     * @param string $userIp IP address of user request
+     * @param string $message Key of message to display on mismatch
+     * @param string|null $hostname Hostname to expect in validation response
      */
     public function __construct(Form $form, string $userIp, string $message, ?string $hostname = null)
     {
@@ -50,7 +50,7 @@ class FormValidatorReCaptcha extends FormValidator
      * @see FormValidator::isValid()
      * Determine whether or not the form meets this ReCaptcha constraint.
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid(): bool
     {
@@ -67,9 +67,9 @@ class FormValidatorReCaptcha extends FormValidator
     /**
      * Validates the reCaptcha response
      *
-     * @param ?string $response The reCaptcha response
-     * @param ?string $ip The user IP address (defaults to null)
-     * @param ?string $hostname The application hostname (defaults to null)
+     * @param string|null $response The reCaptcha response
+     * @param string|null $ip The user IP address (defaults to null)
+     * @param string|null $hostname The application hostname (defaults to null)
      *
      * @throws Exception Throws in case the validation fails
      */

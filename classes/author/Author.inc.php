@@ -28,8 +28,8 @@ class Author extends Identity
      * Get a piece of data for this object, localized to the current
      * locale if possible.
      *
-     * @param $key string
-     * @param $preferredLocale string
+     * @param string $key
+     * @param string $preferredLocale
      */
     public function &getLocalizedData($key, $preferredLocale = null)
     {
@@ -129,7 +129,7 @@ class Author extends Identity
     /**
      * Set ID of submission.
      *
-     * @param $submissionId int
+     * @param int $submissionId
      */
     public function setSubmissionId($submissionId)
     {
@@ -149,7 +149,7 @@ class Author extends Identity
     /**
      * Set submission locale.
      *
-     * @param $submissionLocale string
+     * @param string $submissionLocale
      */
     public function setSubmissionLocale($submissionLocale)
     {
@@ -159,7 +159,7 @@ class Author extends Identity
     /**
      * Set the user group id
      *
-     * @param $userGroupId int
+     * @param int $userGroupId
      */
     public function setUserGroupId($userGroupId)
     {
@@ -179,7 +179,7 @@ class Author extends Identity
     /**
      * Set whether or not to include in browse lists.
      *
-     * @param $include boolean
+     * @param bool $include
      */
     public function setIncludeInBrowse($include)
     {
@@ -189,7 +189,7 @@ class Author extends Identity
     /**
      * Get whether or not to include in browse lists.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIncludeInBrowse()
     {
@@ -201,7 +201,7 @@ class Author extends Identity
      * should be included in the list of submission contributor names).
      * This is fetched from the user group for performance reasons.
      *
-     * @return boolean
+     * @return bool
      */
     public function getShowTitle()
     {
@@ -220,7 +220,7 @@ class Author extends Identity
     /**
      * Get primary contact.
      *
-     * @return boolean
+     * @return bool
      */
     public function getPrimaryContact()
     {
@@ -230,7 +230,7 @@ class Author extends Identity
     /**
      * Set primary contact.
      *
-     * @param $primaryContact boolean
+     * @param bool $primaryContact
      */
     public function setPrimaryContact($primaryContact)
     {
@@ -250,7 +250,7 @@ class Author extends Identity
     /**
      * Set sequence of author in submissions' author list.
      *
-     * @param $sequence float
+     * @param float $sequence
      */
     public function setSequence($sequence)
     {

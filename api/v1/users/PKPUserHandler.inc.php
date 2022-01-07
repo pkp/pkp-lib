@@ -69,9 +69,9 @@ class PKPUserHandler extends APIHandler
     /**
      * Get a collection of users
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
-     * @param $args array arguments
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
+     * @param array $args arguments
      *
      * @return Response
      */
@@ -145,9 +145,9 @@ class PKPUserHandler extends APIHandler
     /**
      * Get a single user
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
-     * @param $args array arguments
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
+     * @param array $args arguments
      *
      * @return Response
      */
@@ -171,9 +171,9 @@ class PKPUserHandler extends APIHandler
     /**
      * Get a collection of reviewers
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
-     * @param $args array arguments
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
+     * @param array $args arguments
      *
      * @return Response
      */

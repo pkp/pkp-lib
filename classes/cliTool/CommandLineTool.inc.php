@@ -134,7 +134,7 @@ class CommandLineTool
     /**
      * Sets the user for the CLI Tool
      *
-     * @param $user User The user to set as the execution user of this CLI command
+     * @param User $user The user to set as the execution user of this CLI command
      */
     public function setUser($user)
     {

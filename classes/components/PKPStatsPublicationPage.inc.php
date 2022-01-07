@@ -31,10 +31,10 @@ class PKPStatsPublicationPage extends PKPStatsComponent
     /** @var array List of items to display stats for */
     public $items = [];
 
-    /** @var integer The maximum number of items that stats can be shown for */
+    /** @var int The maximum number of items that stats can be shown for */
     public $itemsMax = 0;
 
-    /** @var integer How many items to show per page */
+    /** @var int How many items to show per page */
     public $count = 30;
 
     /** @var string Order items by this property */

@@ -17,17 +17,17 @@ namespace PKP\controllers\grid;
 
 class DateGridCellProvider extends GridCellProvider
 {
-    /** @var The actual data provider to wrap */
+    /** @var DataProvider The actual data provider to wrap */
     public $_dataProvider;
 
-    /** @var The format to use; see strftime */
+    /** @var string The format to use; see strftime */
     public $_format;
 
     /**
      * Constructor
      *
-     * @param $dataProvider DataProvider The object to wrap
-     * @param $format string See strftime
+     * @param DataProvider $dataProvider The object to wrap
+     * @param string $format See strftime
      */
     public function __construct($dataProvider, $format)
     {
@@ -43,8 +43,8 @@ class DateGridCellProvider extends GridCellProvider
      * Fetch a value from the provided DataProvider (in constructor)
      * and format it as a date.
      *
-     * @param $row \PKP\controllers\grid\GridRow
-     * @param $column GridColumn
+     * @param \PKP\controllers\grid\GridRow $row
+     * @param GridColumn $column
      *
      * @return array
      */

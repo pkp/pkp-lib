@@ -22,12 +22,12 @@ class ReviewStageAccessPolicy extends ContextPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request arguments
-     * @param $roleAssignments array
-     * @param $submissionParameterName string
-     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-     * @param $permitDeclined bool Whether to permit reviewers to fetch declined review assignments.
+     * @param PKPRequest $request
+     * @param array $args request arguments
+     * @param array $roleAssignments
+     * @param string $submissionParameterName
+     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param bool $permitDeclined Whether to permit reviewers to fetch declined review assignments.
      */
     public function __construct($request, &$args, $roleAssignments, $submissionParameterName, $stageId, $permitDeclined = false)
     {

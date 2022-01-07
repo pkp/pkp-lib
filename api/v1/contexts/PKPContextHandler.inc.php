@@ -99,9 +99,9 @@ class PKPContextHandler extends APIHandler
     /**
      * Get a collection of contexts
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
-     * @param $args array arguments
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
+     * @param array $args arguments
      *
      * @return Response
      */
@@ -172,8 +172,8 @@ class PKPContextHandler extends APIHandler
     /**
      * Get a single context
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -218,8 +218,8 @@ class PKPContextHandler extends APIHandler
     /**
      * Get the theme and any theme options for a context
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -279,8 +279,8 @@ class PKPContextHandler extends APIHandler
     /**
      * Add a context
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -331,8 +331,8 @@ class PKPContextHandler extends APIHandler
     /**
      * Edit a context
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -392,8 +392,8 @@ class PKPContextHandler extends APIHandler
     /**
      * Edit a context's theme and theme options
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -492,8 +492,8 @@ class PKPContextHandler extends APIHandler
     /**
      * Delete a context
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response

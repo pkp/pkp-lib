@@ -28,8 +28,8 @@ class PKPSitemapHandler extends Handler
      * Generate an XML sitemap for webcrawlers
      * Creates a sitemap index if in site context, else creates a sitemap
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function index($args, $request)
     {
@@ -52,7 +52,7 @@ class PKPSitemapHandler extends Handler
     /**
      * Construct a sitemap index listing each context's individual sitemap
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return DOMDocument
      */
@@ -79,7 +79,7 @@ class PKPSitemapHandler extends Handler
     /**
     * Construct the sitemap
     *
-    * @param $request Request
+    * @param Request $request
     *
     * @return DOMDocument
     */
@@ -141,11 +141,11 @@ class PKPSitemapHandler extends Handler
     /**
      * Create a url entry with children
      *
-     * @param $doc DOMDocument Reference to the XML document object
-     * @param $loc string URL of page (required)
-     * @param $lastmod string Last modification date of page (optional)
-     * @param $changefreq Frequency of page modifications (optional)
-     * @param $priority string Subjective priority assessment of page (optional)
+     * @param DOMDocument $doc Reference to the XML document object
+     * @param string $loc URL of page (required)
+     * @param string $lastmod Last modification date of page (optional)
+     * @param string $changefreq Frequency of page modifications (optional)
+     * @param string $priority Subjective priority assessment of page (optional)
      *
      * @return DOMNode
      */

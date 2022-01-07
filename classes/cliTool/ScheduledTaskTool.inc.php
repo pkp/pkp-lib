@@ -34,7 +34,7 @@ class ScheduledTaskTool extends \PKP\cliTool\CommandLineTool
     /**
      * Constructor.
      *
-     * @param $argv array command-line arguments
+     * @param array $argv command-line arguments
      * 		If specified, the first parameter should be the path to
      *		a tasks XML descriptor file (other than the default)
      */
@@ -76,7 +76,7 @@ class ScheduledTaskTool extends \PKP\cliTool\CommandLineTool
     /**
      * Parse and execute the scheduled tasks in the specified file.
      *
-     * @param $file string
+     * @param string $file
      */
     public function parseTasks($file)
     {
@@ -108,8 +108,8 @@ class ScheduledTaskTool extends \PKP\cliTool\CommandLineTool
     /**
      * Execute the specified task.
      *
-     * @param $className string the class name to execute
-     * @param $args array the array of arguments to pass to the class constructors
+     * @param string $className the class name to execute
+     * @param array $args the array of arguments to pass to the class constructors
      */
     public function executeTask($className, $args)
     {

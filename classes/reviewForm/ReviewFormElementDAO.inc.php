@@ -27,8 +27,8 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Retrieve a review form element by ID.
      *
-     * @param $reviewFormElementId int Review form element ID
-     * @param $reviewFormId int optional
+     * @param int $reviewFormElementId Review form element ID
+     * @param int $reviewFormId optional
      *
      * @return ReviewFormElement
      */
@@ -62,7 +62,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Internal function to return a ReviewFormElement object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return ReviewFormElement
      */
@@ -96,7 +96,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Update the localized fields for this table
      *
-     * @param $reviewFormElement object
+     * @param object $reviewFormElement
      */
     public function updateLocaleFields($reviewFormElement)
     {
@@ -108,7 +108,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Insert a new review form element.
      *
-     * @param $reviewFormElement ReviewFormElement
+     * @param ReviewFormElement $reviewFormElement
      *
      * @return int Review form element ID
      */
@@ -136,7 +136,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Update an existing review form element.
      *
-     * @param $reviewFormElement ReviewFormElement
+     * @param ReviewFormElement $reviewFormElement
      */
     public function updateObject($reviewFormElement)
     {
@@ -164,7 +164,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Delete a review form element.
      *
-     * @param $reviewFormElement reviewFormElement
+     * @param reviewFormElement $reviewFormElement
      */
     public function deleteObject($reviewFormElement)
     {
@@ -174,7 +174,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Delete a review form element by ID.
      *
-     * @param $reviewFormElementId int
+     * @param int $reviewFormElementId
      */
     public function deleteById($reviewFormElementId)
     {
@@ -189,7 +189,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
      * Delete review form elements by review form ID
      * to be called only when deleting a review form.
      *
-     * @param $reviewFormId int
+     * @param int $reviewFormId
      */
     public function deleteByReviewFormId($reviewFormId)
     {
@@ -202,8 +202,8 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Delete a review form element setting
      *
-     * @param $reviewFormElementId int
-     * @param $locale string
+     * @param int $reviewFormElementId
+     * @param string $locale
      */
     public function deleteSetting($reviewFormElementId, $name, $locale = null)
     {
@@ -223,9 +223,9 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Retrieve all elements for a review form.
      *
-     * @param $reviewFormId int
-     * @param $rangeInfo object RangeInfo object (optional)
-     * @param $included boolean True for only included comments; false for non-included; null for both
+     * @param int $reviewFormId
+     * @param RangeInfo $rangeInfo (optional)
+     * @param bool $included True for only included comments; false for non-included; null for both
      *
      * @return DAOResultFactory containing ReviewFormElements ordered by sequence
      */
@@ -248,7 +248,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Retrieve ids of all required elements for a review form.
      *
-     * @param $reviewFormId int
+     * @param int $reviewFormId
      * return array
      */
     public function getRequiredReviewFormElementIds($reviewFormId)
@@ -268,10 +268,10 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Check if a review form element exists with the specified ID.
      *
-     * @param $reviewFormElementId int
-     * @param $reviewFormId int optional
+     * @param int $reviewFormElementId
+     * @param int $reviewFormId optional
      *
-     * @return boolean
+     * @return bool
      */
     public function reviewFormElementExists($reviewFormElementId, $reviewFormId = null)
     {
@@ -294,7 +294,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     /**
      * Sequentially renumber a review form elements in their sequence order.
      *
-     * @param $reviewFormId int
+     * @param int $reviewFormId
      */
     public function resequenceReviewFormElements($reviewFormId)
     {

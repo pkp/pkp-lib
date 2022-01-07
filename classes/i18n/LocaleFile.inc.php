@@ -31,8 +31,8 @@ class LocaleFile
     /**
      * Constructor.
      *
-     * @param $locale string Key for this locale file
-     * @param $filename string Filename to this locale file
+     * @param string $locale Key for this locale file
+     * @param string $filename Filename to this locale file
      */
     public function __construct($locale, $filename)
     {
@@ -87,9 +87,9 @@ class LocaleFile
      * Substitution works by replacing tokens like "{$foo}" with the value of
      * the parameter named "foo" (if supplied).
      *
-     * @param $key string
-     * @param $params array named substitution parameters
-     * @param $locale string the locale to use
+     * @param string $key
+     * @param array $params named substitution parameters
+     * @param string $locale the locale to use
      *
      * @return string
      */
@@ -130,8 +130,8 @@ class LocaleFile
     /**
      * Static method: Load a locale array from a file. Not cached!
      *
-     * @param $filename string Filename to locale .po file to load
-     * @param array
+     * @param string $filename Filename to locale .po file to load
+     * @return array
      */
     public static function &load($filename)
     {
@@ -146,7 +146,7 @@ class LocaleFile
     /**
      * Check if a locale is valid.
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {
@@ -157,7 +157,7 @@ class LocaleFile
      * Test a locale file against the given reference locale file and
      * return an array of errorType => array(errors).
      *
-     * @param $referenceLocaleFile object
+     * @param object $referenceLocaleFile
      *
      * @return array
      */

@@ -539,9 +539,9 @@ abstract class Repository
      *  file ID if a new file has been uploaded.
      * @param string $settingName The name of the setting to save, typically used
      *  in the filename.
-     * @param integer $userId ID of the user who owns the temporary file
+     * @param int $userId ID of the user who owns the temporary file
      * @param string $localeKey Optional. Pass if the setting is multilingual
-     * @param boolean $isImage Optional. For image files which include alt text in value
+     * @param bool $isImage Optional. For image files which include alt text in value
      *
      * @return string|array|bool New param value or false on failure
      */

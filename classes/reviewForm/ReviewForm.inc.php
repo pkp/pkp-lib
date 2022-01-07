@@ -63,7 +63,7 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Set the number of complete reviews for this review form.
      *
-     * @param $completeCount int
+     * @param int $completeCount
      */
     public function setCompleteCount($completeCount)
     {
@@ -83,7 +83,7 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Set the number of incomplete reviews for this review form.
      *
-     * @param $incompleteCount int
+     * @param int $incompleteCount
      */
     public function setIncompleteCount($incompleteCount)
     {
@@ -103,7 +103,7 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Set the associated type.
      *
-     * @param $assocType int
+     * @param int $assocType
      */
     public function setAssocType($assocType)
     {
@@ -123,7 +123,7 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Set the Id of the associated type.
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -143,7 +143,7 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Set sequence of review form.
      *
-     * @param $sequence float
+     * @param float $sequence
      */
     public function setSequence($sequence)
     {
@@ -163,7 +163,7 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Set active flag
      *
-     * @param $active int
+     * @param int $active
      */
     public function setActive($active)
     {
@@ -173,7 +173,7 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Get title.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -185,8 +185,8 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Set title.
      *
-     * @param $title string
-     * @param $locale string
+     * @param string $title
+     * @param string $locale
      */
     public function setTitle($title, $locale)
     {
@@ -196,7 +196,7 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Get description.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -208,8 +208,8 @@ class ReviewForm extends \PKP\core\DataObject
     /**
      * Set description.
      *
-     * @param $description string
-     * @param $locale string
+     * @param string $description
+     * @param string $locale
      */
     public function setDescription($description, $locale)
     {

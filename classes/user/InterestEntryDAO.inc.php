@@ -46,9 +46,9 @@ class InterestEntryDAO extends ControlledVocabEntryDAO
      * Retrieve an iterator of controlled vocabulary entries matching a
      * particular controlled vocabulary ID.
      *
-     * @param $controlledVocabId int
-     * @param $rangeInfo RangeInfo optional range information for result
-     * @param $filter string Optional filter to match to beginnings of results
+     * @param int $controlledVocabId
+     * @param RangeInfo $rangeInfo optional range information for result
+     * @param string $filter Optional filter to match to beginnings of results
      *
      * @return object DAOResultFactory containing matching CVE objects
      */
@@ -79,7 +79,7 @@ class InterestEntryDAO extends ControlledVocabEntryDAO
     /**
      * Retrieve controlled vocab entries matching a list of vocab entry IDs
      *
-     * @param $entryIds array
+     * @param array $entryIds
      *
      * @return DAOResultFactory
      */

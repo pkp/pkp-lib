@@ -34,9 +34,9 @@ class ValidatorFactory
      * necessary dependencies and instantiates Laravel's validation factory, then
      * calls the `make` method on that factory.
      *
-     * @param $props array The properties to validate
-     * @param $rules array The validation rules
-     * @param $messages array Error messages
+     * @param array $props The properties to validate
+     * @param array $rules The validation rules
+     * @param array $messages Error messages
      *
      * @return Illuminate\Validation\Validator
      */
@@ -145,7 +145,7 @@ class ValidatorFactory
      * Compile translated error messages for each of the validation rules
      * we support.
      *
-     * @param $messages array List of error messages to override the defaults.
+     * @param array $messages List of error messages to override the defaults.
      *
      * @return array
      */
@@ -248,7 +248,7 @@ class ValidatorFactory
      * Convert variables in translated strings from {$variable} syntax to
      * Laravel's :variable syntax
      *
-     * @param $message string
+     * @param string $message
      *
      * @return string
      */
@@ -269,12 +269,12 @@ class ValidatorFactory
      * Required props that are also multilingual will only be required in the
      * primary locale.
      *
-     * @param $validator Illuminate\Validation\Validator
-     * @param $object DataObject The object being validated or null if adding an object
-     * @param $requiredProps array List of prop names
-     * @param $multilingualProps array List of prop names
-     * @param $allowedLocales array List of locale codes
-     * @param $primaryLocale string Primary locale code
+     * @param Illuminate\Validation\Validator $validator
+     * @param DataObject $object The object being validated or null if adding an object
+     * @param array $requiredProps List of prop names
+     * @param array $multilingualProps List of prop names
+     * @param array $allowedLocales List of locale codes
+     * @param string $primaryLocale Primary locale code
      */
     public static function required($validator, $object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale)
     {
@@ -320,7 +320,7 @@ class ValidatorFactory
     /**
      * Checks whether the given value is an empty string
      *
-     * @param $value string
+     * @param string $value
      */
     private static function isEmpty($value)
     {
@@ -333,9 +333,9 @@ class ValidatorFactory
      * A wrapper method that calls $validator->after to check for data from
      * locales that are not allowed
      *
-     * @param $validator Illuminate\Validation\Validator
-     * @param $multilingualProps array List of prop names
-     * @param $allowedLocales array List of locale codes
+     * @param Illuminate\Validation\Validator $validator
+     * @param array $multilingualProps List of prop names
+     * @param array $allowedLocales List of locale codes
      */
     public static function allowedLocales($validator, $multilingualProps, $allowedLocales)
     {
@@ -363,14 +363,14 @@ class ValidatorFactory
      * A wrapper method that validates the temporaryFileId of new file uploads
      * when an object is edited
      *
-     * @param $validator Illuminate\Validation\Validator
-     * @param $uploadProps array List of prop names that may include a
+     * @param Illuminate\Validation\Validator $validator
+     * @param array $uploadProps List of prop names that may include a
      *  a temporaryFileId
-     * @param $multilingualUploadProps array List of $uploadProps which are
+     * @param array $multilingualUploadProps List of $uploadProps which are
      *  multiligual
-     * @param $props array Key/value list of props
-     * @param $allowedLocales array List of locale codes
-     * @param $userId int The user ID which owns the temporary files
+     * @param array $props Key/value list of props
+     * @param array $allowedLocales List of locale codes
+     * @param int $userId The user ID which owns the temporary files
      */
     public static function temporaryFilesExist($validator, $uploadProps, $multilingualUploadProps, $props, $allowedLocales, $userId)
     {

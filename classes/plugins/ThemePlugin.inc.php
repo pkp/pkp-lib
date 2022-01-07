@@ -110,7 +110,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Fire the init() method when a theme is registered
      *
-     * @param $themes array List of all loaded themes
+     * @param array $themes List of all loaded themes
      */
     public function themeRegistered($themes)
     {
@@ -152,7 +152,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * in a given context. Use self::getEnabled() if you want to know if the
      * theme is available for use on the site.
      *
-     * @return boolean
+     * @return bool
      */
     public function isActive()
     {
@@ -177,11 +177,11 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * Style paths with a .less extension will be compiled and redirected to
      * the compiled file.
      *
-     * @param $name string A name for this stylesheet
-     * @param $style string The stylesheet. Should be a path relative to the
+     * @param string $name A name for this stylesheet
+     * @param string $style The stylesheet. Should be a path relative to the
      *   theme directory or, if the `inline` argument is included, style data to
      *   be output.
-     * @param $args array Optional arguments hash. Supported args:
+     * @param array $args Optional arguments hash. Supported args:
      *   'context': Whether to load this on the `frontend` or `backend`.
      *      default: `frontend`
      *   'priority': Controls order in which styles are printed
@@ -225,8 +225,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Modify the params of an existing stylesheet
      *
-     * @param $name string The name of the stylesheet to modify
-     * @param $args array Parameters to modify.
+     * @param string $name The name of the stylesheet to modify
+     * @param array $args Parameters to modify.
      *
      * @see self::addStyle()
      */
@@ -254,7 +254,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Remove a registered stylesheet
      *
-     * @param $name string The name of the stylesheet to remove
+     * @param string $name The name of the stylesheet to remove
      *
      * @return bool Whether or not the stylesheet was found and removed.
      */
@@ -271,7 +271,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Get a style from this theme or any parent theme
      *
-     * @param $name string The name of the style to retrieve
+     * @param string $name The name of the style to retrieve
      *
      * @return array|null Reference to the style or null if not found
      */
@@ -296,11 +296,11 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Add a script to load with this theme
      *
-     * @param $name string A name for this script
-     * @param $script string The script to be included. Should be path relative
+     * @param string $name A name for this script
+     * @param string $script The script to be included. Should be path relative
      *   to the theme or, if the `inline` argument is included, script data to
      *   be output.
-     * @param $args array Optional arguments hash. Supported args:
+     * @param array $args Optional arguments hash. Supported args:
      *   `context` string Whether to load this on the `frontend` or `backend`.
      *      default: frontend
      *   `priority` int Controls order in which scripts are printed
@@ -324,8 +324,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Modify the params of an existing script
      *
-     * @param $name string The name of the script to modify
-     * @param $args array Parameters to modify.
+     * @param string $name The name of the script to modify
+     * @param array $args Parameters to modify.
      *
      * @see self::addScript()
      */
@@ -347,7 +347,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Remove a registered script
      *
-     * @param $name string The name of the script to remove
+     * @param string $name The name of the script to remove
      *
      * @return bool Whether or not the stylesheet was found and removed.
      */
@@ -364,7 +364,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Get a script from this theme or any parent theme
      *
-     * @param $name string The name of the script to retrieve
+     * @param string $name The name of the script to retrieve
      *
      * @return array|null Reference to the script or null if not found
      */
@@ -392,9 +392,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * Appearance form when this theme is activated. Common options are
      * colour and typography selectors.
      *
-     * @param $name string Unique name for this setting
-     * @param $type string One of the Field* class names
-     * @param $args array Optional parameters defining this setting. Some setting
+     * @param string $name Unique name for this setting
+     * @param string $type One of the Field* class names
+     * @param array $args Optional parameters defining this setting. Some setting
      *   types may accept or require additional arguments.
      *  `label` string Locale key for a label for this field.
      *  `description` string Locale key for a description for this field.
@@ -456,7 +456,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Get the value of an option or default if the option is not set
      *
-     * @param $name string The name of the option value to retrieve
+     * @param string $name The name of the option value to retrieve
      *
      * @return mixed The value of the option. Will return a default if set in
      *  the option config. False if no option exists. Null if no value or default
@@ -496,7 +496,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * This retrives option settings for any option attached to this theme or
      * any parent theme.
      *
-     * @param $name The name of the option config to retrieve
+     * @param string $name The name of the option config to retrieve
      *
      * @return false|array The config array for this option. Or false if no
      *  config is found.
@@ -537,8 +537,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *  so changes can be made directly (via reference) and args don't need to be
      *  manually merged
      *
-     * @param $name The name of the option config to retrieve
-     * @param $args The new configuration settings for this option
+     * @param string $name The name of the option config to retrieve
+     * @param array $args The new configuration settings for this option
      *
      * @return bool Whether the option was found and the config was updated.
      */
@@ -555,7 +555,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Remove an option
      *
-     * @param $name The name of the option to remove
+     * @param string $name The name of the option to remove
      *
      * @return bool Whether the option was found and removed
      */
@@ -575,7 +575,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * This retrieves a single array containing option values for this theme
      * and any parent themes.
      *
-     * @param $contextId int
+     * @param int $contextId
      *
      * @return array
      */
@@ -621,11 +621,11 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * If this is a child theme, you must call $this->parent->validateOptions() to
      * perform any validation defined on the parent theme.
      *
-     * @param $options array Key/value list of options to validate
-     * @param $themePluginPath string The theme these options are for
-     * @param $contextId int The context these theme options are for, or
+     * @param array $options Key/value list of options to validate
+     * @param string $themePluginPath The theme these options are for
+     * @param int $contextId The context these theme options are for, or
      *  CONTEXT_ID_NONE for the site-wide settings.
-     * @param $request Request
+     * @param Request $request
      *
      * @return array List of errors with option name as the key and the value as
      *  an array of error messages. Example:
@@ -643,9 +643,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Sanitize and save a theme option
      *
-     * @param $name string A unique id for the option to save
-     * @param $value mixed The new value to save
-     * @param $contextId int Optional context id. Defaults to the current
+     * @param string $name A unique id for the option to save
+     * @param mixed $value The new value to save
+     * @param int $contextId Optional context id. Defaults to the current
      *  context
      */
     public function saveOption($name, $value, $contextId = null)
@@ -676,7 +676,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Register a navigation menu area for this theme
      *
-     * @param $menuAreas string|array One or more menu area names
+     * @param string|array $menuAreas One or more menu area names
      */
     public function addMenuArea($menuAreas)
     {
@@ -690,7 +690,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Remove a registered navigation menu area
      *
-     * @param $menuArea string The menu area to remove
+     * @param string $menuArea The menu area to remove
      *
      * @return bool Whether or not the menuArea was found and removed.
      */
@@ -708,7 +708,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Get all menu areas registered by this theme and any parents
      *
-     * @param $existingAreas array Any existing menu areas from child themes
+     * @param array $existingAreas Any existing menu areas from child themes
      *
      * @return array All menua reas
      */
@@ -722,7 +722,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Set a parent theme for this theme
      *
-     * @param $parent string Key in the plugin registry for the parent theme
+     * @param string $parent Key in the plugin registry for the parent theme
      */
     public function setParent($parent)
     {
@@ -827,7 +827,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * also be set to the @baseUrl variable before LESS files are compiloed so
      * that images and fonts can be located.
      *
-     * @param $path string An optional path to append to the base
+     * @param string $path An optional path to append to the base
      *
      * @return string
      */
@@ -841,7 +841,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Get the base path to be used for file references
      *
-     * @param $path string An optional path to append to the base
+     * @param string $path An optional path to append to the base
      *
      * @return string
      */

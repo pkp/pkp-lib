@@ -48,8 +48,8 @@ class AboutContextHandler extends Handler
     /**
      * Display about page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function index($args, $request)
     {
@@ -61,8 +61,8 @@ class AboutContextHandler extends Handler
     /**
      * Display editorialTeam page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function editorialTeam($args, $request)
     {
@@ -74,8 +74,8 @@ class AboutContextHandler extends Handler
     /**
      * Display submissions page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function submissions($args, $request)
     {
@@ -114,8 +114,8 @@ class AboutContextHandler extends Handler
     /**
      * Display contact page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function contact($args, $request)
     {

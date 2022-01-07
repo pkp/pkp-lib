@@ -28,8 +28,8 @@ class EventAction extends LinkActionRequest
     /**
      * Constructor
      *
-     * @param $targetSelector string Selector for target to receive event.
-     * @param $eventName string Name of Javascript event to trigger.
+     * @param string $targetSelector Selector for target to receive event.
+     * @param string $eventName Name of Javascript event to trigger.
      */
     public function __construct($targetSelector, $eventName, $options = [])
     {

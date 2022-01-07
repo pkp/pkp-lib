@@ -60,14 +60,14 @@ class FilterDAO extends \PKP\db\DAO
      * Instantiates a new filter from configuration data and then
      * installs it.
      *
-     * @param $filterClassName string
-     * @param $filterGroupSymbolic string
-     * @param $settings array key-value pairs that can be directly written
+     * @param string $filterClassName
+     * @param string $filterGroupSymbolic
+     * @param array $settings key-value pairs that can be directly written
      *  via \PKP\core\DataObject::setData().
-     * @param $asTemplate boolean
-     * @param $contextId integer the context the filter should be installed into
-     * @param $subFilters array sub-filters (only allowed when the filter is a CompositeFilter)
-     * @param $persist boolean whether to actually persist the filter
+     * @param bool $asTemplate
+     * @param int $contextId the context the filter should be installed into
+     * @param array $subFilters sub-filters (only allowed when the filter is a CompositeFilter)
+     * @param bool $persist whether to actually persist the filter
      *
      * @return PersistableFilter|boolean the new filter if installation successful, otherwise 'false'.
      */
@@ -118,10 +118,10 @@ class FilterDAO extends \PKP\db\DAO
     /**
      * Insert a new filter instance (transformation).
      *
-     * @param $filter PersistableFilter The configured filter instance to be persisted
-     * @param $contextId integer
+     * @param PersistableFilter $filter The configured filter instance to be persisted
+     * @param int $contextId
      *
-     * @return integer the new filter id
+     * @return int the new filter id
      */
     public function insertObject($filter, $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE)
     {
@@ -158,7 +158,7 @@ class FilterDAO extends \PKP\db\DAO
     /**
      * Retrieve a configured filter instance (transformation)
      *
-     * @param $filter PersistableFilter
+     * @param PersistableFilter $filter
      *
      * @return PersistableFilter
      */
@@ -170,8 +170,8 @@ class FilterDAO extends \PKP\db\DAO
     /**
      * Retrieve a configured filter instance (transformation) by id.
      *
-     * @param $filterId integer
-     * @param $allowSubfilter boolean
+     * @param int $filterId
+     * @param bool $allowSubfilter
      *
      * @return PersistableFilter
      */
@@ -191,11 +191,11 @@ class FilterDAO extends \PKP\db\DAO
      * Retrieve a result set with all filter instances
      * (transformations) that are based on the given class.
      *
-     * @param $className string
-     * @param $contextId integer
-     * @param $getTemplates boolean set true if you want filter templates
+     * @param string $className
+     * @param int $contextId
+     * @param bool $getTemplates set true if you want filter templates
      *  rather than actual transformations
-     * @param $allowSubfilters boolean
+     * @param bool $allowSubfilters
      *
      * @return DAOResultFactory
      */
@@ -218,12 +218,12 @@ class FilterDAO extends \PKP\db\DAO
      * (transformations) within a given group that are
      * based on the given class.
      *
-     * @param $groupSymbolic string
-     * @param $className string
-     * @param $contextId integer
-     * @param $getTemplates boolean set true if you want filter templates
+     * @param string $groupSymbolic
+     * @param string $className
+     * @param int $contextId
+     * @param bool $getTemplates set true if you want filter templates
      *  rather than actual transformations
-     * @param $allowSubfilters boolean
+     * @param bool $allowSubfilters
      *
      * @return DAOResultFactory
      */
@@ -244,12 +244,12 @@ class FilterDAO extends \PKP\db\DAO
     /**
      * Retrieve filters based on the supported input/output type.
      *
-     * @param $inputTypeDescription a type description that has to match the input type
-     * @param $outputTypeDescription a type description that has to match the output type
+     * @param string $inputTypeDescription a type description that has to match the input type
+     * @param string $outputTypeDescription a type description that has to match the output type
      *  NB: input and output type description can contain wildcards.
-     * @param $data mixed the data to be matched by the filter. If no data is given then
+     * @param mixed $data the data to be matched by the filter. If no data is given then
      *  all filters will be matched.
-     * @param $dataIsInput boolean true if the given data object is to be checked as
+     * @param bool $dataIsInput true if the given data object is to be checked as
      *  input type, false to check against the output type.
      *
      * @return array a list of matched filters.
@@ -315,12 +315,12 @@ class FilterDAO extends \PKP\db\DAO
      * Only filters supported by the current run-time environment
      * will be returned when $checkRuntimeEnvironment is set to 'true'.
      *
-     * @param $groupSymbolic string
-     * @param $contextId integer returns filters from context 0 and
+     * @param string $groupSymbolic
+     * @param int $contextId returns filters from context 0 and
      *  the given filters of all contexts if set to null
-     * @param $getTemplates boolean set true if you want filter templates
+     * @param bool $getTemplates set true if you want filter templates
      *  rather than actual transformations
-     * @param $checkRuntimeEnvironment boolean whether to remove filters
+     * @param bool $checkRuntimeEnvironment whether to remove filters
      *  from the result set that do not match the current run-time environment.
      *
      * @return array filter instances (transformations) in the given group
@@ -355,7 +355,7 @@ class FilterDAO extends \PKP\db\DAO
     /**
      * Update an existing filter instance (transformation).
      *
-     * @param $filter PersistableFilter
+     * @param PersistableFilter $filter
      */
     public function updateObject($filter)
     {
@@ -400,9 +400,9 @@ class FilterDAO extends \PKP\db\DAO
     /**
      * Delete a filter instance (transformation).
      *
-     * @param $filter PersistableFilter
+     * @param PersistableFilter $filter
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObject($filter)
     {
@@ -412,9 +412,9 @@ class FilterDAO extends \PKP\db\DAO
     /**
      * Delete a filter instance (transformation) by id.
      *
-     * @param $filterId int
+     * @param int $filterId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObjectById($filterId)
     {
@@ -495,8 +495,8 @@ class FilterDAO extends \PKP\db\DAO
     /**
      * Construct a new configured filter instance (transformation).
      *
-     * @param $filterClassName string a fully qualified class name
-     * @param $filterGroupId integer
+     * @param string $filterClassName a fully qualified class name
+     * @param int $filterGroupId
      *
      * @return PersistableFilter
      */
@@ -520,7 +520,7 @@ class FilterDAO extends \PKP\db\DAO
      * Internal function to return a filter instance (transformation)
      * object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return PersistableFilter
      */
@@ -564,7 +564,7 @@ class FilterDAO extends \PKP\db\DAO
      * Populate the sub-filters (if any) for the
      * given parent filter.
      *
-     * @param $parentFilter PersistableFilter
+     * @param PersistableFilter $parentFilter
      */
     public function _populateSubFilters($parentFilter)
     {
@@ -594,7 +594,7 @@ class FilterDAO extends \PKP\db\DAO
      * Recursively insert sub-filters of
      * the given parent filter.
      *
-     * @param $parentFilter Filter
+     * @param Filter $parentFilter
      */
     public function _insertSubFilters($parentFilter)
     {
@@ -616,7 +616,7 @@ class FilterDAO extends \PKP\db\DAO
      * Recursively delete all sub-filters for
      * the given parent filter.
      *
-     * @param $parentFilterId integer
+     * @param int $parentFilterId
      */
     public function _deleteSubFiltersByParentFilterId($parentFilterId)
     {

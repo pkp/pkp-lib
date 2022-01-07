@@ -29,15 +29,15 @@ class UserDetailsForm extends UserForm
     /** @var User */
     public $user;
 
-    /** @var An optional author to base this user on */
+    /** @var Author An optional author to base this user on */
     public $author;
 
     /**
      * Constructor.
      *
-     * @param $request PKPRequest
-     * @param $userId int optional
-     * @param $author Author optional
+     * @param PKPRequest $request
+     * @param int $userId optional
+     * @param Author $author optional
      */
     public function __construct($request, $userId = null, $author = null)
     {

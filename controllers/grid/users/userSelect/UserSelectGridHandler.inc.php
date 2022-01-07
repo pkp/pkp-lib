@@ -25,7 +25,7 @@ import('lib.pkp.controllers.grid.users.userSelect.UserSelectGridCellProvider');
 
 class UserSelectGridHandler extends GridHandler
 {
-    /** @var array (user group ID => user group name) **/
+    /** @var array (user group ID => user group name) */
     public $_userGroupOptions;
 
     /**
@@ -207,7 +207,7 @@ class UserSelectGridHandler extends GridHandler
     /**
      * Determine whether a filter form should be collapsible.
      *
-     * @return boolean
+     * @return bool
      */
     protected function isFilterFormCollapsible()
     {

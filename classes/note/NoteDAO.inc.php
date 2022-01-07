@@ -39,7 +39,7 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Retrieve Note by note id
      *
-     * @param $noteId int Note ID
+     * @param int $noteId Note ID
      *
      * @return Note|null object
      */
@@ -56,8 +56,8 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Retrieve Notes by user id
      *
-     * @param $userId int User ID
-     * @param $rangeInfo DBResultRange Optional
+     * @param int $userId User ID
+     * @param DBResultRange $rangeInfo Optional
      *
      * @return object DAOResultFactory containing matching Note objects
      */
@@ -75,11 +75,11 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Retrieve Notes by assoc id/type
      *
-     * @param $assocId int ASSOC_TYPE_...
-     * @param $assocType int Assoc ID (per $assocType)
-     * @param $userId int Optional user ID
-     * @param $orderBy int Optional sorting field constant: self::NOTE_ORDER_...
-     * @param $sortDirection int Optional sorting order constant: SORT_DIRECTION_...
+     * @param int $assocId ASSOC_TYPE_...
+     * @param int $assocType Assoc ID (per $assocType)
+     * @param int $userId Optional user ID
+     * @param int $orderBy Optional sorting field constant: self::NOTE_ORDER_...
+     * @param int $sortDirection Optional sorting order constant: SORT_DIRECTION_...
      *
      * @return object DAOResultFactory containing matching Note objects
      */
@@ -125,9 +125,9 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Retrieve Notes by assoc id/type
      *
-     * @param $assocId int
-     * @param $assocType int
-     * @param $userId int
+     * @param int $assocId
+     * @param int $assocType
+     * @param int $userId
      *
      * @return object DAOResultFactory containing matching Note objects
      */
@@ -152,9 +152,9 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Determine whether or not unread notes exist for a given association
      *
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int Foreign key, depending on ASSOC_TYPE
-     * @param $userId int User ID
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId Foreign key, depending on ASSOC_TYPE
+     * @param int $userId User ID
      */
     public function unreadNotesExistByAssoc($assocType, $assocId, $userId)
     {
@@ -181,7 +181,7 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Creates and returns an note object from a row
      *
-     * @param $row array
+     * @param array $row
      *
      * @return Note object
      */
@@ -205,7 +205,7 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Inserts a new note into notes table
      *
-     * @param Note object
+     * @param Note $note object
      *
      * @return int Note Id
      */
@@ -239,7 +239,7 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Update a note in the notes table
      *
-     * @param Note object
+     * @param Note $note object
      *
      * @return int Note Id
      */
@@ -273,7 +273,7 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Delete a note by note object.
      *
-     * @param $note Note
+     * @param Note $note
      */
     public function deleteObject($note)
     {
@@ -283,8 +283,8 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Delete Note by note id
      *
-     * @param $noteId int
-     * @param $userId int optional
+     * @param int $noteId
+     * @param int $userId optional
      */
     public function deleteById($noteId, $userId = null)
     {
@@ -303,8 +303,8 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Delete notes by association
      *
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int Foreign key, depending on $assocType
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId Foreign key, depending on $assocType
      */
     public function deleteByAssoc($assocType, $assocId)
     {

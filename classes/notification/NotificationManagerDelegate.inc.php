@@ -28,7 +28,7 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
     /**
      * Constructor.
      *
-     * @param $notificationType int NOTIFICATION_TYPE_...
+     * @param int $notificationType NOTIFICATION_TYPE_...
      */
     public function __construct($notificationType)
     {
@@ -48,12 +48,12 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
     /**
      * Define operations to update notifications.
      *
-     * @param $request PKPRequest Request object
-     * @param $userIds array List of user IDs to notify
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int ID corresponding to $assocType
+     * @param PKPRequest $request Request object
+     * @param array $userIds List of user IDs to notify
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId ID corresponding to $assocType
      *
-     * @return boolean True iff success
+     * @return bool True iff success
      */
     public function updateNotification($request, $userIds, $assocType, $assocId)
     {
@@ -86,7 +86,7 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
      * all information for all notification types you're handling (via
      * the getNotification... methods).
      *
-     * @return boolean
+     * @return bool
      */
     protected function multipleTypesUpdate()
     {

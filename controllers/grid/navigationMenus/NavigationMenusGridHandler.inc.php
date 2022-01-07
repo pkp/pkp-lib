@@ -169,8 +169,8 @@ class NavigationMenusGridHandler extends GridHandler
     /**
      * Display form to add NavigationMenus.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string
      */
@@ -182,8 +182,8 @@ class NavigationMenusGridHandler extends GridHandler
     /**
      * Display form to edit NavigationMenus.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -205,8 +205,8 @@ class NavigationMenusGridHandler extends GridHandler
     /**
      * Save an edited/inserted NavigationMenus.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -250,8 +250,8 @@ class NavigationMenusGridHandler extends GridHandler
     /**
      * Delete a NavigationMenu.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

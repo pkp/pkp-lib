@@ -72,30 +72,30 @@ class MetadataProperty
     /** @var array allowed property types */
     public $_allowedTypes;
 
-    /** @var boolean flag that defines whether the property can be translated */
+    /** @var bool flag that defines whether the property can be translated */
     public $_translated;
 
-    /** @var integer property cardinality */
+    /** @var int property cardinality */
     public $_cardinality;
 
     /** @var string validation message */
     public $_validationMessage;
 
-    /** @var boolean */
+    /** @var bool */
     public $_mandatory;
 
     /**
      * Constructor
      *
-     * @param $name string the unique name of the property within a meta-data schema (can be a property URI)
-     * @param $assocTypes array an array of integers that define the application entities that can
+     * @param string $name the unique name of the property within a meta-data schema (can be a property URI)
+     * @param array $assocTypes an array of integers that define the application entities that can
      *  be described with this property.
-     * @param $allowedTypes mixed must be a scalar or an array with the supported types, default: METADATA_PROPERTY_TYPE_STRING
-     * @param $translated boolean whether the property may have various language versions, default: false
-     * @param $cardinality integer must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
-     * @param $displayName string
-     * @param $validationMessage string A string that can be displayed in case a user tries to set an invalid value for this property.
-     * @param $mandatory boolean Is this a mandatory property within the schema?
+     * @param mixed $allowedTypes must be a scalar or an array with the supported types, default: METADATA_PROPERTY_TYPE_STRING
+     * @param bool $translated whether the property may have various language versions, default: false
+     * @param int $cardinality must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
+     * @param string $displayName
+     * @param string $validationMessage A string that can be displayed in case a user tries to set an invalid value for this property.
+     * @param bool $mandatory Is this a mandatory property within the schema?
      */
     public function __construct(
         $name,
@@ -274,7 +274,7 @@ class MetadataProperty
     /**
      * Get the allowed type
      *
-     * @return integer
+     * @return int
      */
     public function getAllowedTypes()
     {
@@ -284,7 +284,7 @@ class MetadataProperty
     /**
      * Is this property translated?
      *
-     * @return boolean
+     * @return bool
      */
     public function getTranslated()
     {
@@ -294,7 +294,7 @@ class MetadataProperty
     /**
      * Get the cardinality
      *
-     * @return integer
+     * @return int
      */
     public function getCardinality()
     {
@@ -314,7 +314,7 @@ class MetadataProperty
     /**
      * Is this property mandatory?
      *
-     * @return boolean
+     * @return bool
      */
     public function getMandatory()
     {
@@ -333,8 +333,8 @@ class MetadataProperty
      * validation result. If the given value fits none of the allowed
      * types, then we'll return 'false'.
      *
-     * @param $value mixed the input to be validated
-     * @param $locale string the locale to be used for validation
+     * @param mixed $value the input to be validated
+     * @param string $locale the locale to be used for validation
      *
      * @return array|boolean an array with a single entry of the format
      *  "type => additional type parameter" against which the value

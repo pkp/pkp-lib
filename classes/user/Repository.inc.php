@@ -140,9 +140,9 @@ class Repository
     /**
      * Can the current user view and edit the gossip field for a user
      *
-     * @param $userId int The user who's gossip field should be accessed
+     * @param int $userId The user who's gossip field should be accessed
      *
-     * @return boolean
+     * @return bool
      */
     public function canCurrentUserGossip($userId)
     {
@@ -187,7 +187,7 @@ class Repository
      * @param array $userAccessibleStages User's assignments to the workflow stages. ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES
      * @param array $userRoles User's roles in the context
      *
-     * @return Boolean
+     * @return bool
      */
     public function canUserAccessStage($stageId, $workflowType, $userAccessibleStages, $userRoles)
     {
@@ -290,8 +290,8 @@ class Repository
     /**
      * Merge user accounts and delete the old user account.
      *
-     * @param $oldUserId int The user ID to remove
-     * @param $newUserId int The user ID to receive all "assets" (i.e. submissions) from old user
+     * @param int $oldUserId The user ID to remove
+     * @param int $newUserId The user ID to receive all "assets" (i.e. submissions) from old user
      */
     public function mergeUsers($oldUserId, $newUserId)
     {

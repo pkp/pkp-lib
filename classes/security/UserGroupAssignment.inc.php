@@ -21,7 +21,7 @@ use PKP\db\DAORegistry;
 
 class UserGroupAssignment extends \PKP\core\DataObject
 {
-    /** @var the UserGroup object associated with this assignment **/
+    /** @var UserGroup the UserGroup object associated with this assignment */
     public $userGroup;
 
     //
@@ -63,7 +63,7 @@ class UserGroupAssignment extends \PKP\core\DataObject
     /**
      * Set user ID associated with role.
      *
-     * @param $userId int
+     * @param int $userId
      */
     public function setUserId($userId)
     {

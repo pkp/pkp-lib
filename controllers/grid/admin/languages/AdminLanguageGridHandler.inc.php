@@ -187,8 +187,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     /**
      * Open a form to select locales for installation.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -203,8 +203,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     /**
      * Save the install language form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -231,8 +231,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     /**
      * Uninstall a locale.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -278,8 +278,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     /**
      * Enable an existing locale.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -306,8 +306,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     /**
      * Disable an existing locale.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -344,8 +344,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     /**
      * Set primary locale.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -386,9 +386,9 @@ class AdminLanguageGridHandler extends LanguageGridHandler
     /**
      * Update the locale support state (enabled or disabled).
      *
-     * @param $request Request
-     * @param $rowId string The locale row id.
-     * @param $enable boolean Enable locale flag.
+     * @param Request $request
+     * @param string $rowId The locale row id.
+     * @param bool $enable Enable locale flag.
      */
     protected function _updateLocaleSupportState($request, $rowId, $enable)
     {
@@ -425,7 +425,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
      * Helper function to update locale settings in all
      * installed contexts, based on site locale settings.
      *
-     * @param $request object
+     * @param object $request
      */
     protected function _updateContextLocaleSettings($request)
     {
@@ -460,9 +460,9 @@ class AdminLanguageGridHandler extends LanguageGridHandler
      * This grid can also present management functions
      * if the conditions above are true.
      *
-     * @param $request Request
+     * @param Request $request
      *
-     * @return boolean
+     * @return bool
      */
     protected function _canManage($request)
     {

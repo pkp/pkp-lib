@@ -28,10 +28,10 @@ use PKP\security\Role;
 
 class LibraryFileGridHandler extends CategoryGridHandler
 {
-    /** the context for this grid */
+    /** @var Context The context for this grid */
     public $_context;
 
-    /** whether or not the grid is editable **/
+    /** @var bool Whether or not the grid is editable */
     public $_canEdit;
 
     /**
@@ -65,7 +65,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
     /**
      * Can the user edit/add files in this grid?
      *
-     * @return boolean
+     * @return bool
      */
     public function canEdit()
     {
@@ -75,7 +75,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
     /**
      * Set whether or not the user can edit or add files.
      *
-     * @param $canEdit boolean
+     * @param bool $canEdit
      */
     public function setCanEdit($canEdit)
     {
@@ -86,9 +86,12 @@ class LibraryFileGridHandler extends CategoryGridHandler
     // Overridden template methods
     //
 
-    /*
+    /**
      * Configure the grid
+     *
      * @see CategoryGridHandler::initialize
+     *
+     * @param null|mixed $args
      */
     public function initialize($request, $args = null)
     {
@@ -193,8 +196,8 @@ class LibraryFileGridHandler extends CategoryGridHandler
     /**
      * An action to add a new file
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -213,8 +216,8 @@ class LibraryFileGridHandler extends CategoryGridHandler
     /**
      * Save a new library file.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -239,8 +242,8 @@ class LibraryFileGridHandler extends CategoryGridHandler
     /**
      * An action to add a new file
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -262,8 +265,8 @@ class LibraryFileGridHandler extends CategoryGridHandler
     /**
      * Save changes to an existing library file.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -291,8 +294,8 @@ class LibraryFileGridHandler extends CategoryGridHandler
     /**
      * Delete a file
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -315,8 +318,8 @@ class LibraryFileGridHandler extends CategoryGridHandler
     /**
      * Upload a new library file.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -343,7 +346,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
      * Returns a specific instance of the new form for this grid.
      *  Must be implemented by subclasses.
      *
-     * @param $context Context
+     * @param Context $context
      */
     public function _getNewFileForm($context)
     {
@@ -354,8 +357,8 @@ class LibraryFileGridHandler extends CategoryGridHandler
      * Returns a specific instance of the edit form for this grid.
      *  Must be implemented by subclasses.
      *
-     * @param $context Press
-     * @param $fileId int
+     * @param Press $context
+     * @param int $fileId
      */
     public function _getEditFileForm($context, $fileId)
     {

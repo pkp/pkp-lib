@@ -19,11 +19,11 @@ class FileLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $id string Link action ID
-     * @param $actionRequest LinkActionRequest
-     * @param $title string optional
-     * @param $image string optional
-     * @param $tooltip string optional
+     * @param string $id Link action ID
+     * @param LinkActionRequest $actionRequest
+     * @param string $title optional
+     * @param string $image optional
+     * @param string $tooltip optional
      */
     public function __construct($id, $actionRequest, $title = null, $image = null, $tooltip = null)
     {
@@ -37,8 +37,8 @@ class FileLinkAction extends LinkAction
     /**
      * Return the action arguments to address a file.
      *
-     * @param $submissionFile SubmissionFile
-     * @param $stageId int (optional)
+     * @param SubmissionFile $submissionFile
+     * @param int $stageId (optional)
      *
      * @return array
      */

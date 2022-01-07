@@ -21,13 +21,13 @@ class ReviewNotesLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $reviewAssignment \PKP\submission\reviewAssignment\ReviewAssignment The review assignment
+     * @param Request $request
+     * @param \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment The review assignment
      * to show information about.
-     * @param $submission Submission The reviewed submission.
-     * @param $user User The user.
-     * @param $handler string name of the gridhandler.
-     * @param $isUnread bool Has a review been read
+     * @param Submission $submission The reviewed submission.
+     * @param User $user The user.
+     * @param string $handler name of the gridhandler.
+     * @param bool $isUnread Has a review been read
      */
     public function __construct($request, $reviewAssignment, $submission, $user, $handler, $isUnread = null)
     {

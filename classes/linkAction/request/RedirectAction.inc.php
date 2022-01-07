@@ -28,9 +28,9 @@ class RedirectAction extends LinkActionRequest
     /**
      * Constructor
      *
-     * @param $url string Target URL
-     * @param $name string Name of window to direct (defaults to current window)
-     * @param $specs string Optional set of window specs (see window.open JS reference)
+     * @param string $url Target URL
+     * @param string $name Name of window to direct (defaults to current window)
+     * @param string $specs Optional set of window specs (see window.open JS reference)
      */
     public function __construct($url, $name = '_self', $specs = '')
     {

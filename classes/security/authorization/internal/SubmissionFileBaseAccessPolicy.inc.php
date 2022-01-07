@@ -29,8 +29,8 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $submissionFileId int If passed, this policy will try to
+     * @param PKPRequest $request
+     * @param int $submissionFileId If passed, this policy will try to
      * get the submission file from this data.
      */
     public function __construct($request, $submissionFileId = null)
@@ -66,7 +66,7 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy
     /**
      * Get the requested submission file.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return SubmissionFile
      */

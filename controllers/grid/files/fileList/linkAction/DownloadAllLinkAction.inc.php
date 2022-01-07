@@ -24,8 +24,8 @@ class DownloadAllLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $actionArgs array
+     * @param Request $request
+     * @param array $actionArgs
      */
     public function __construct($request, $actionArgs)
     {

@@ -36,9 +36,9 @@ class ReviewerReviewForm extends Form
     /**
      * Constructor.
      *
-     * @param $reviewerSubmission ReviewerSubmission
-     * @param $step integer
-     * @param $request PKPRequest
+     * @param ReviewerSubmission $reviewerSubmission
+     * @param int $step
+     * @param PKPRequest $request
      */
     public function __construct($request, $reviewerSubmission, $reviewAssignment, $step)
     {
@@ -78,7 +78,7 @@ class ReviewerReviewForm extends Form
     /**
      * Get the review step.
      *
-     * @return integer
+     * @return int
      */
     public function getStep()
     {
@@ -114,7 +114,7 @@ class ReviewerReviewForm extends Form
      * value if it is not already set to a higher value. Then
      * update the given reviewer submission.
      *
-     * @param $reviewerSubmission ReviewerSubmission
+     * @param ReviewerSubmission $reviewerSubmission
      */
     public function updateReviewStepAndSaveSubmission($reviewerSubmission)
     {

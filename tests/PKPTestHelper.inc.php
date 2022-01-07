@@ -24,8 +24,8 @@ abstract class PKPTestHelper
     /**
      * Backup the given tables.
      *
-     * @param $tables array
-     * @param $test PHPUnit_Framework_Assert
+     * @param array $tables
+     * @param PHPUnit_Framework_Assert $test
      */
     public static function backupTables($tables, $test)
     {
@@ -63,8 +63,8 @@ abstract class PKPTestHelper
     /**
      * Restore the given tables.
      *
-     * @param $tables array
-     * @param $test PHPUnit_Framework_Assert
+     * @param array $tables
+     * @param PHPUnit_Framework_Assert $test
      */
     public static function restoreTables($tables, $test)
     {
@@ -150,7 +150,7 @@ abstract class PKPTestHelper
      * If the xdebug extension is not installed then
      * this method does nothing.
      *
-     * @param $scream boolean
+     * @param bool $scream
      */
     public static function xdebugScream($scream)
     {

@@ -64,7 +64,7 @@ class QueryNotesGridHandler extends GridHandler
     /**
      * Get the stage id.
      *
-     * @return integer
+     * @return int
      */
     public function getStageId()
     {
@@ -178,8 +178,8 @@ class QueryNotesGridHandler extends GridHandler
     /**
      * Present the form to add a new note.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function addNote($args, $request)
     {
@@ -192,8 +192,8 @@ class QueryNotesGridHandler extends GridHandler
     /**
      * Insert a new note.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function insertNote($args, $request)
     {
@@ -211,9 +211,9 @@ class QueryNotesGridHandler extends GridHandler
     /**
      * Determine whether the current user can manage (delete) a note.
      *
-     * @param $note Note optional
+     * @param Note $note optional
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanManage($note)
     {
@@ -232,8 +232,8 @@ class QueryNotesGridHandler extends GridHandler
     /**
      * Delete a query note.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

@@ -30,7 +30,7 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
     /**
      * Constructor
      *
-     * @param $typeName string Allowed primitive types are
+     * @param string $typeName Allowed primitive types are
      *  'integer', 'string', 'float' and 'boolean'.
      */
     public function __construct($typeName)

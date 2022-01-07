@@ -48,7 +48,6 @@ class GenericSequencerFilter extends CompositeFilter
     /**
      * @see Filter::process()
      *
-     * @param $input mixed
      */
     public function &process(&$input)
     {

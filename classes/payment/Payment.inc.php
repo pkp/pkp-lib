@@ -30,7 +30,7 @@ class Payment
     /** @var int Context ID */
     public $contextId;
 
-    /** @var numeric amount of payment in $currencyCode units */
+    /** @var float amount of payment in $currencyCode units */
     public $amount;
 
     /** @var string ISO 4217 alpha currency code */
@@ -48,10 +48,10 @@ class Payment
     /**
      * Constructor
      *
-     * @param $amount number
-     * @param $currencyCode string
-     * @param $userId int
-     * @param $assocId int optional
+     * @param float $amount
+     * @param string $currencyCode
+     * @param int $userId
+     * @param int $assocId optional
      */
     public function __construct($amount = null, $currencyCode = null, $userId = null, $assocId = null)
     {
@@ -74,7 +74,7 @@ class Payment
     /**
      * Set the id of payment
      *
-     * @param $paymentId int
+     * @param int $paymentId
      *
      * @return int new payment id
      */
@@ -86,9 +86,9 @@ class Payment
     /**
      * Set the payment amount
      *
-     * @param $amount numeric
+     * @param float $amount
      *
-     * @return numeric new amount
+     * @return float new amount
      */
     public function setAmount($amount)
     {
@@ -98,7 +98,7 @@ class Payment
     /**
      * Get the payment amount
      *
-     * @return numeric
+     * @return float
      */
     public function getAmount()
     {
@@ -108,7 +108,7 @@ class Payment
     /**
      * Set the currency code for the transaction (ISO 4217)
      *
-     * @param $currencyCode string
+     * @param string $currencyCode
      *
      * @return string new currency code
      */
@@ -140,7 +140,7 @@ class Payment
     /**
      * Set the context ID for the payment.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function setContextId($contextId)
     {
@@ -150,7 +150,7 @@ class Payment
     /**
      * Set the type for this payment (PAYMENT_TYPE_...)
      *
-     * @param $type int PAYMENT_TYPE_...
+     * @param int $type PAYMENT_TYPE_...
      *
      * @return int New payment type
      */
@@ -172,7 +172,7 @@ class Payment
     /**
      * Set the user ID of the customer.
      *
-     * @param $userId int
+     * @param int $userId
      *
      * @return int New user ID
      */
@@ -194,7 +194,7 @@ class Payment
     /**
      * Set the association ID for the payment.
      *
-     * @param $assocId int
+     * @param int $assocId
      *
      * @return int New association ID
      */

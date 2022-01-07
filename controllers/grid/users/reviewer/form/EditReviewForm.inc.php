@@ -35,7 +35,7 @@ class EditReviewForm extends Form
     /**
      * Constructor.
      *
-     * @param $reviewAssignment ReviewAssignment
+     * @param ReviewAssignment $reviewAssignment
      */
     public function __construct($reviewAssignment)
     {

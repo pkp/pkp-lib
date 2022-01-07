@@ -25,7 +25,7 @@ class UserStageAssignmentDAO extends DAO
     /**
      * Delete a stage assignment by Id.
      *
-     * @param  $assignmentId
+     * @param int $assignmentId
      *
      * @return bool
      */
@@ -37,10 +37,10 @@ class UserStageAssignmentDAO extends DAO
     /**
      * Retrieve a set of users of a user group not assigned to a given submission stage and matching the specified settings.
      *
-     * @param $submissionId int
-     * @param $stageId int
-     * @param $userGroupId int
-     * @param $name string|null Partial string match with user name
+     * @param int $submissionId
+     * @param int $stageId
+     * @param int $userGroupId
+     * @param string|null $name Partial string match with user name
      * @param null|mixed $rangeInfo
      *
      * @return object DAOResultFactory

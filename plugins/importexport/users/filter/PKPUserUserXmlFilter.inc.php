@@ -22,7 +22,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -49,7 +49,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
     /**
      * @see Filter::process()
      *
-     * @param $users array Array of users
+     * @param array $users Array of users
      *
      * @return DOMDocument
      */
@@ -81,8 +81,8 @@ class PKPUserUserXmlFilter extends NativeExportFilter
     /**
      * Create and return a user node.
      *
-     * @param $doc DOMDocument
-     * @param $user User
+     * @param DOMDocument $doc
+     * @param User $user
      *
      * @return DOMElement
      */

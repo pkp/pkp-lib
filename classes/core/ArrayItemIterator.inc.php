@@ -29,15 +29,15 @@ class ArrayItemIterator extends ItemIterator
     /** @var int The total number of items. */
     public $count;
 
-    /** Whether or not the iterator was empty from the start */
+    /** @var bool Whether or not the iterator was empty from the start */
     public $wasEmpty;
 
     /**
      * Constructor.
      *
-     * @param $theArray array The array of items to iterate through
-     * @param $page int the current page number
-     * @param $itemsPerPage int Number of items to display per page
+     * @param array $theArray The array of items to iterate through
+     * @param int $page the current page number
+     * @param int $itemsPerPage Number of items to display per page
      */
     public function __construct(&$theArray, $page = -1, $itemsPerPage = -1)
     {
@@ -59,8 +59,8 @@ class ArrayItemIterator extends ItemIterator
     /**
      * Static method: Generate an iterator from an array and rangeInfo object.
      *
-     * @param $theArray array
-     * @param $theRange object
+     * @param array $theArray
+     * @param object $theRange
      */
     public function &fromRangeInfo(&$theArray, &$theRange)
     {
@@ -105,7 +105,7 @@ class ArrayItemIterator extends ItemIterator
     /**
      * Determine whether or not this iterator represents the first page
      *
-     * @return boolean
+     * @return bool
      */
     public function atFirstPage()
     {
@@ -115,7 +115,7 @@ class ArrayItemIterator extends ItemIterator
     /**
      * Determine whether or not this iterator represents the last page
      *
-     * @return boolean
+     * @return bool
      */
     public function atLastPage()
     {
@@ -155,7 +155,7 @@ class ArrayItemIterator extends ItemIterator
     /**
      * Return a boolean indicating whether or not we've reached the end of results
      *
-     * @return boolean
+     * @return bool
      */
     public function eof()
     {
@@ -165,7 +165,7 @@ class ArrayItemIterator extends ItemIterator
     /**
      * Return a boolean indicating whether or not this iterator was empty from the beginning
      *
-     * @return boolean
+     * @return bool
      */
     public function wasEmpty()
     {

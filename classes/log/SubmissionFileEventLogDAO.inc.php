@@ -34,7 +34,7 @@ class SubmissionFileEventLogDAO extends EventLogDAO
     /**
      * Get event log entries by submission file ID.
      *
-     * @param $submissionFileId int
+     * @param int $submissionFileId
      *
      * @return DAOResultFactory
      */

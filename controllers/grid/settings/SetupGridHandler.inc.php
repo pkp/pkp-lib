@@ -48,7 +48,7 @@ class SetupGridHandler extends GridHandler
     /**
      * @copydoc PKPHandler::authorize()
      *
-     * @param $contextRequired boolean
+     * @param bool $contextRequired
      */
     public function authorize($request, &$args, $roleAssignments, $contextRequired = true)
     {
@@ -61,8 +61,8 @@ class SetupGridHandler extends GridHandler
     /**
      * Handle file uploads for cover/image art for things like Series and Categories.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function uploadImage($args, $request)
     {

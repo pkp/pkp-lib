@@ -30,7 +30,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -76,7 +76,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     /**
      * Handle a submission file element
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      *
      * @return SubmissionFile|null Null if skipping this file
      */
@@ -273,7 +273,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     /**
      * Handle a revision element
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      *
      * @return int|null The new file id if successful
      */
@@ -371,8 +371,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     /**
      * Parse an identifier node and set up the representation object accordingly
      *
-     * @param $element DOMElement
-     * @param $submissionFile SubmissionFile
+     * @param DOMElement $element
+     * @param SubmissionFile $submissionFile
      */
     public function parseIdentifier($element, $submissionFile)
     {
@@ -400,7 +400,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     /**
      * Instantiate a submission file.
      *
-     * @param $tagName string
+     * @param string $tagName
      *
      * @return SubmissionFile
      */

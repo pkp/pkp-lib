@@ -30,11 +30,11 @@ class PKPPublicationLicenseForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $locales array Supported locales
-     * @param $publication Publication The publication to change settings for
-     * @param $context Context The publication's context
-     * @param $userGroups array User groups in this context
+     * @param string $action URL to submit the form to
+     * @param array $locales Supported locales
+     * @param Publication $publication The publication to change settings for
+     * @param Context $context The publication's context
+     * @param array $userGroups User groups in this context
      */
     public function __construct($action, $locales, $publication, $context, $userGroups)
     {

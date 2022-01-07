@@ -33,7 +33,7 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
     /**
      * Constructor.
      *
-     * @param $argv array command-line arguments
+     * @param array $argv command-line arguments
      */
     public function __construct($argv = [])
     {
@@ -163,8 +163,8 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
     /**
      * Perform version check.
      *
-     * @param $versionInfo array latest version info
-     * @param $displayInfo boolean just display info, don't perform check
+     * @param array $versionInfo latest version info
+     * @param bool $displayInfo just display info, don't perform check
      */
     public function checkVersion($versionInfo, $displayInfo = false)
     {
@@ -217,7 +217,7 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
     /**
      * Prompt user for yes/no input (default no).
      *
-     * @param $prompt string
+     * @param string $prompt
      */
     public function promptContinue($prompt = 'Continue?')
     {
@@ -229,7 +229,7 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
     /**
      * Log install message to stdout.
      *
-     * @param $message string
+     * @param string $message
      */
     public function log($message)
     {

@@ -119,8 +119,8 @@ abstract class PKPTestCase extends TestCase
     /**
      * Set a non-default test configuration
      *
-     * @param $config string the id of the configuration to use
-     * @param $configPath string (optional) where to find the config file, default: 'config'
+     * @param string $config the id of the configuration to use
+     * @param string $configPath (optional) where to find the config file, default: 'config'
      */
     protected function setTestConfiguration($config, $configPath = 'config')
     {
@@ -148,8 +148,8 @@ abstract class PKPTestCase extends TestCase
      * And make sure that you merge any additional mocked
      * registry keys with the ones returned from this class.
      *
-     * @param $path string
-     * @param $userId int
+     * @param string $path
+     * @param int $userId
      *
      * @return Request
      */
@@ -191,7 +191,7 @@ abstract class PKPTestCase extends TestCase
      * Resolves the configuration id to a configuration
      * file
      *
-     * @param $config string
+     * @param string $config
      *
      * @return string the resolved configuration file name
      */

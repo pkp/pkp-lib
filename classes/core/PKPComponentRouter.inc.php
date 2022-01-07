@@ -89,9 +89,9 @@ class PKPComponentRouter extends PKPRouter
     /**
      * Determines whether this router can route the given request.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
-     * @return boolean true, if the router supports this request, otherwise false
+     * @return bool true, if the router supports this request, otherwise false
      */
     public function supports($request)
     {
@@ -109,7 +109,7 @@ class PKPComponentRouter extends PKPRouter
      * NB: This can be a component that not actually exists
      * in the code base.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return string the requested component or an empty string
      *  if none can be found.
@@ -150,7 +150,7 @@ class PKPComponentRouter extends PKPRouter
      * NB: This can be an operation that not actually
      * exists in the requested component.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return string the requested operation or an empty string
      *  if none can be found.
@@ -178,7 +178,7 @@ class PKPComponentRouter extends PKPRouter
      * If no such RPC service endpoint can be constructed then the method
      * returns null.
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      *
      * @return callable an array with the handler instance
      *  and the handler operation to be called by call_user_func().
@@ -430,7 +430,7 @@ class PKPComponentRouter extends PKPRouter
      * If no such RPC service endpoint parts can be retrieved
      * then the method returns null.
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      *
      * @return array a string array with the RPC service endpoint
      *  parts as values.
@@ -466,7 +466,7 @@ class PKPComponentRouter extends PKPRouter
      * endpoint parts from the request. See the classdoc for the
      * URL patterns supported here.
      *
-     * @param $request PKPRequest the request to be routed
+     * @param PKPRequest $request the request to be routed
      *
      * @return array an array of (non-validated) service endpoint
      *  parts or null if the request is not an RPC request.
@@ -522,7 +522,7 @@ class PKPComponentRouter extends PKPRouter
      * we try to convert them to a file/method name. This also
      * converts all parts to lower case.
      *
-     * @param $rpcServiceEndpointParts array
+     * @param array $rpcServiceEndpointParts
      *
      * @return array the validated service endpoint parts or null if validation
      *  does not succeed.

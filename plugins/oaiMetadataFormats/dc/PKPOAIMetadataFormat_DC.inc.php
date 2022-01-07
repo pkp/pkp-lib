@@ -55,8 +55,8 @@ class PKPOAIMetadataFormat_DC extends OAIMetadataFormat
     /**
      * Format XML for single DC element.
      *
-     * @param $propertyName string
-     * @param $multilingual boolean optional
+     * @param string $propertyName
+     * @param bool $multilingual optional
      */
     public function formatElement($propertyName, $values, $multilingual = false)
     {

@@ -33,7 +33,7 @@ class DataObjectGridCellProvider extends GridCellProvider
     /**
      * Set the locale
      *
-     * @param $locale string
+     * @param string $locale
      */
     public function setLocale($locale)
     {
@@ -64,8 +64,8 @@ class DataObjectGridCellProvider extends GridCellProvider
      *
      * @see GridCellProvider::getTemplateVarsFromRowColumn()
      *
-     * @param $row \PKP\controllers\grid\GridRow
-     * @param $column GridColumn
+     * @param \PKP\controllers\grid\GridRow $row
+     * @param GridColumn $column
      *
      * @return array
      */

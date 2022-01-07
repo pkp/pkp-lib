@@ -23,7 +23,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -69,7 +69,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
     /**
      * Handle an author element
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      *
      * @return \PKP\author\Author
      */
@@ -173,8 +173,8 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
     /**
      * Parse an identifier node
      *
-     * @param $element DOMElement
-     * @param $author \PKP\author\Author
+     * @param DOMElement $element
+     * @param \PKP\author\Author $author
      */
     public function parseIdentifier($element, $author)
     {

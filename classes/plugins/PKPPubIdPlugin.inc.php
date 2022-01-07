@@ -125,7 +125,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Get the public identifier.
      *
-     * @param $pubObject object
+     * @param object $pubObject
      * 	Submission, Representation, SubmissionFile + OJS Issue
      *
      * @return string
@@ -135,9 +135,9 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Construct the public identifier from its prefix and suffix.
      *
-     * @param $pubIdPrefix string
-     * @param $pubIdSuffix string
-     * @param $contextId integer
+     * @param string $pubIdPrefix
+     * @param string $pubIdSuffix
+     * @param int $contextId
      *
      * @return string
      */
@@ -168,8 +168,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Get the whole resolving URL.
      *
-     * @param $contextId integer
-     * @param $pubId string
+     * @param int $contextId
+     * @param string $pubId
      *
      * @return string resolving URL
      */
@@ -187,8 +187,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Add JavaScript files to be loaded in the metadata file.
      *
-     * @param $request PKPRequest
-     * @param $templateMgr PKPTemplateManager
+     * @param PKPRequest $request
+     * @param PKPTemplateManager $templateMgr
      */
     public function addJavaScript($request, $templateMgr)
     {
@@ -206,7 +206,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Get the settings form.
      *
-     * @param $contextId integer
+     * @param int $contextId
      *
      * @return object Settings form
      */
@@ -280,10 +280,10 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Is this object type enabled in plugin settings
      *
-     * @param $pubObjectType object
-     * @param $contextId integer
+     * @param object $pubObjectType
+     * @param int $contextId
      *
-     * @return boolean
+     * @return bool
      */
     abstract public function isObjectTypeEnabled($pubObjectType, $contextId);
 
@@ -297,13 +297,13 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Verify form data.
      *
-     * @param $fieldName string The form field to be checked.
-     * @param $fieldValue string The value of the form field.
-     * @param $pubObject object
-     * @param $contextId integer
-     * @param $errorMsg string Return validation error messages here.
+     * @param string $fieldName The form field to be checked.
+     * @param string $fieldValue The value of the form field.
+     * @param object $pubObject
+     * @param int $contextId
+     * @param string $errorMsg Return validation error messages here.
      *
-     * @return boolean
+     * @return bool
      */
     public function verifyData($fieldName, $fieldValue, $pubObject, $contextId, &$errorMsg)
     {
@@ -331,9 +331,9 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Check whether the given pubId is valid.
      *
-     * @param $pubId string
+     * @param string $pubId
      *
-     * @return boolean
+     * @return bool
      */
     public function validatePubId($pubId)
     {
@@ -359,10 +359,10 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Can a pub id be assigned to the object.
      *
-     * @param $pubObject object
+     * @param object $pubObject
      * 	Submission, Representation, SubmissionFile + OJS Issue
      *
-     * @return boolean
+     * @return bool
      * 	false, if the pub id contains an unresolved pattern i.e. '%' or
      * 	if the custom suffix is empty i.e. the pub id null.
      */
@@ -392,8 +392,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      *
      * @see PKPPubIdPlugin::getAdditionalFieldNames()
      *
-     * @param $hookName string `Schema::get::publication`
-     * @param $params array
+     * @param string $hookName `Schema::get::publication`
+     * @param array $params
      */
     public function addToSchema($hookName, $params)
     {
@@ -415,8 +415,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      *
      * @see PKPPubIdPlugin::addToSchema()
      *
-     * @param $hookName string
-     * @param $params array
+     * @param string $hookName
+     * @param array $params
      */
     public function getAdditionalFieldNames($hookName, $params)
     {
@@ -430,7 +430,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Return the object type.
      *
-     * @param $pubObject object
+     * @param object $pubObject
      *
      * @return string?
      */
@@ -455,8 +455,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Set and store a public identifier.
      *
-     * @param $pubObject object
-     * @param $pubId string
+     * @param object $pubObject
+     * @param string $pubId
      */
     public function setStoredPubId(&$pubObject, $pubId)
     {
@@ -475,12 +475,12 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      * Checks to see if a pubId has already been assigned to any object
      * in the context.
      *
-     * @param $pubId string
-     * @param $pubObjectType string Class name of the pub object being checked
-     * @param $excludeId integer This object id will not be checked for duplicates
-     * @param $contextId integer
+     * @param string $pubId
+     * @param string $pubObjectType Class name of the pub object being checked
+     * @param int $excludeId This object id will not be checked for duplicates
+     * @param int $contextId
      *
-     * @return boolean
+     * @return bool
      */
     public function checkDuplicate($pubId, $pubObjectType, $excludeId, $contextId)
     {
@@ -504,7 +504,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Get the context object.
      *
-     * @param $contextId integer
+     * @param int $contextId
      *
      * @return object Context
      */

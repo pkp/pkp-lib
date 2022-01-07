@@ -32,7 +32,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Set the role ID
      *
-     * @param $roleId int ROLE_ID_...
+     * @param int $roleId ROLE_ID_...
      */
     public function setRoleId($roleId)
     {
@@ -71,7 +71,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Set the context ID
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function setContextId($contextId)
     {
@@ -81,7 +81,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Get the default flag
      *
-     * @return boolean
+     * @return bool
      */
     public function getDefault()
     {
@@ -91,7 +91,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Set the default flag
      *
-     * @param $isDefault boolean
+     * @param bool $isDefault
      */
     public function setDefault($isDefault)
     {
@@ -102,7 +102,7 @@ class UserGroup extends \PKP\core\DataObject
      * Get the "show title" flag (whether or not the title of the role
      * should be included in the list of submission contributor names)
      *
-     * @return boolean
+     * @return bool
      */
     public function getShowTitle()
     {
@@ -112,7 +112,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Set the "show title" flag
      *
-     * @param $showTitle boolean
+     * @param bool $showTitle
      */
     public function setShowTitle($showTitle)
     {
@@ -125,7 +125,7 @@ class UserGroup extends \PKP\core\DataObject
      * reviewers, or whether it should be prohibited, in the case of
      * internal reviewers).
      *
-     * @return boolean True IFF user self-registration is permitted
+     * @return bool True IFF user self-registration is permitted
      */
     public function getPermitSelfRegistration()
     {
@@ -135,7 +135,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Set the "permit self-registration" flag
      *
-     * @param $permitSelfRegistration boolean
+     * @param bool $permitSelfRegistration
      */
     public function setPermitSelfRegistration($permitSelfRegistration)
     {
@@ -146,7 +146,7 @@ class UserGroup extends \PKP\core\DataObject
      * Get the recommendOnly option (whether or not the manager or the sub-editor role
      * can only recommend or also make decisions in the submission review)
      *
-     * @return boolean
+     * @return bool
      */
     public function getRecommendOnly()
     {
@@ -157,7 +157,7 @@ class UserGroup extends \PKP\core\DataObject
      * Set the recommendOnly option (whether or not the manager or the sub-editor role
      * can only recommend or also make decisions in the submission review)
      *
-     * @param $recommendOnly boolean
+     * @param bool $recommendOnly
      */
     public function setRecommendOnly($recommendOnly)
     {
@@ -177,7 +177,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Get localized user group name, or array of localized names if $locale is null
      *
-     * @param $locale string|null
+     * @param string|null $locale
      *
      * @return string|array|null localized name or array of localized names or null
      */
@@ -189,8 +189,8 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Set user group name
      *
-     * @param $name string
-     * @param $locale string
+     * @param string $name
+     * @param string $locale
      */
     public function setName($name, $locale)
     {
@@ -210,7 +210,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Get localized user group abbreviation, or array of localized abbreviations if $locale is null
      *
-     * @param $locale string|null
+     * @param string|null $locale
      *
      * @return string|array|null localized abbreviation or array of localized abbreviations or null
      */
@@ -222,8 +222,8 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Set user group abbreviation
      *
-     * @param $abbrev string
-     * @param $locale string
+     * @param string $abbrev
+     * @param string $locale
      */
     public function setAbbrev($abbrev, $locale)
     {
@@ -233,7 +233,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Getter for permitMetadataEdit attribute.
      *
-     * @return boolean
+     * @return bool
      */
     public function getPermitMetadataEdit()
     {
@@ -243,7 +243,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Setter for permitMetadataEdit attribute.
      *
-     * @param $permitMetadataEdit boolean
+     * @param bool $permitMetadataEdit
      */
     public function setPermitMetadataEdit($permitMetadataEdit)
     {

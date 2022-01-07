@@ -23,10 +23,10 @@ class LibraryFileGridRow extends GridRow
     /** @var int LIBRARY_FILE_TYPE_... */
     public $_fileType;
 
-    /** is the grid row read only **/
+    /** @var bool is the grid row read only */
     public $_canEdit;
 
-    /** the submission associated with submission library files **/
+    /** @var Submission the submission associated with submission library files */
     public $_submission;
 
     /**

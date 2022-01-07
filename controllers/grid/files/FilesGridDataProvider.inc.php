@@ -17,10 +17,10 @@ use PKP\controllers\grid\GridDataProvider;
 
 class FilesGridDataProvider extends GridDataProvider
 {
-    /** @var integer */
+    /** @var int */
     public $_uploaderRoles;
 
-    /** @var boolean */
+    /** @var bool */
     public $_viewableOnly = false;
 
 
@@ -30,7 +30,7 @@ class FilesGridDataProvider extends GridDataProvider
     /**
      * Set the uploader roles.
      *
-     * @param $roleAssignments array The grid's
+     * @param array $roleAssignments The grid's
      *  role assignment from which the uploader roles
      *  will be extracted.
      */
@@ -53,7 +53,7 @@ class FilesGridDataProvider extends GridDataProvider
     /**
      * Load only viewable files flag.
      *
-     * @param $viewableOnly boolean
+     * @param bool $viewableOnly
      */
     public function setViewableOnly($viewableOnly)
     {
@@ -69,7 +69,7 @@ class FilesGridDataProvider extends GridDataProvider
      *
      * NB: Must be overridden by subclasses (if implemented).
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return AddFileLinkAction
      */
@@ -83,7 +83,7 @@ class FilesGridDataProvider extends GridDataProvider
      *
      * NB: Must be overridden by subclasses (if implemented).
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return SelectFilesLinkAction
      */

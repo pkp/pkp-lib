@@ -433,7 +433,7 @@ class PKPNavigationMenuService
     /**
      * Get a tree of NavigationMenuItems assigned to this menu
      *
-     * @param $navigationMenu NavigationMenu
+     * @param NavigationMenu $navigationMenu
      *
      */
     public function getMenuTree(&$navigationMenu)
@@ -516,7 +516,7 @@ class PKPNavigationMenuService
     /**
      * Transform an item title if the title includes a {$variable}
      *
-     * @param $templateMgr TemplateManager
+     * @param TemplateManager $templateMgr
      */
     public function transformNavMenuItemTitle($templateMgr, &$navigationMenuItem)
     {
@@ -542,7 +542,7 @@ class PKPNavigationMenuService
     /**
      * Populate the navigationMenuItem and the children properties of the NMIAssignment object
      *
-     * @param $nmiAssignment NavigationMenuItemAssignment The NMIAssignment object passed by reference
+     * @param NavigationMenuItemAssignment $nmiAssignment The NMIAssignment object passed by reference
      */
     public function populateNMIAssignmentContainedObjects(&$nmiAssignment)
     {
@@ -564,12 +564,12 @@ class PKPNavigationMenuService
     /**
      * Returns whether a NM's NMI has a child of a certain NMIType
      *
-     * @param $navigationMenu NavigationMenu The NM to be searched
-     * @param $navigationMenuItem NavigationMenuItem The NMI to check its children for NMIType
-     * @param $nmiType string The NMIType
-     * @param $isDisplayed boolean optional. If true the function checks if the found NMI of type $nmiType is displayed.
+     * @param NavigationMenu $navigationMenu The NM to be searched
+     * @param NavigationMenuItem $navigationMenuItem The NMI to check its children for NMIType
+     * @param string $nmiType The NMIType
+     * @param bool $isDisplayed optional. If true the function checks if the found NMI of type $nmiType is displayed.
      *
-     * @return boolean Returns true if a NMI of type $nmiType has been found as child of the given $navigationMenuItem.
+     * @return bool Returns true if a NMI of type $nmiType has been found as child of the given $navigationMenuItem.
      */
     private function _hasNMTreeNMIAssignmentWithChildOfNMIType($navigationMenu, $navigationMenuItem, $nmiType, $isDisplayed = true)
     {
@@ -595,7 +595,7 @@ class PKPNavigationMenuService
     /**
      * Sets the title of a navigation menu item, depending on its title or locale-key
      *
-     * @param $nmi NavigationMenuItem The NMI to set its title
+     * @param NavigationMenuItem $nmi The NMI to set its title
      */
     public function setNMITitleLocalized($nmi)
     {
@@ -614,7 +614,7 @@ class PKPNavigationMenuService
     /**
      * Sets the title of a navigation menu item, depending on its title or locale-key
      *
-     * @param $nmi NavigationMenuItem The NMI to set its title
+     * @param NavigationMenuItem $nmi The NMI to set its title
      */
     public function setAllNMILocalisedTitles($nmi)
     {
@@ -643,7 +643,7 @@ class PKPNavigationMenuService
      * Callback to be registered from PKPTemplateManager for the LoadHandler hook.
      * Used by the Custom NMI to point their URL target to [context]/[path]
      *
-     * @return boolean true if the callback has handled the request.
+     * @return bool true if the callback has handled the request.
      */
     public function _callbackHandleCustomNavigationMenuItems($hookName, $args)
     {

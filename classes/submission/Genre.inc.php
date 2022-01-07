@@ -38,7 +38,7 @@ class Genre extends \PKP\core\DataObject
     /**
      * Set ID of context.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function setContextId($contextId)
     {
@@ -58,7 +58,7 @@ class Genre extends \PKP\core\DataObject
     /**
      * Set sequence of genre.
      *
-     * @param $sequence float
+     * @param float $sequence
      */
     public function setSequence($sequence)
     {
@@ -78,7 +78,7 @@ class Genre extends \PKP\core\DataObject
     /**
      * Set key of genre.
      *
-     * @param $key string
+     * @param string $key
      */
     public function setKey($key)
     {
@@ -88,7 +88,7 @@ class Genre extends \PKP\core\DataObject
     /**
      * Get enabled status of genre.
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
@@ -98,7 +98,7 @@ class Genre extends \PKP\core\DataObject
     /**
      * Set enabled status of genre.
      *
-     * @param $enabled boolean
+     * @param bool $enabled
      */
     public function setEnabled($enabled)
     {
@@ -108,8 +108,8 @@ class Genre extends \PKP\core\DataObject
     /**
      * Set the name of the genre
      *
-     * @param $name string
-     * @param $locale string
+     * @param string $name
+     * @param string $locale
      */
     public function setName($name, $locale)
     {
@@ -119,7 +119,7 @@ class Genre extends \PKP\core\DataObject
     /**
      * Get the name of the genre
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -151,7 +151,7 @@ class Genre extends \PKP\core\DataObject
     /**
      * Set context file category (e.g. artwork or document)
      *
-     * @param $category int GENRE_CATEGORY_...
+     * @param int $category GENRE_CATEGORY_...
      */
     public function setCategory($category)
     {
@@ -171,7 +171,7 @@ class Genre extends \PKP\core\DataObject
     /**
      * Set dependent flag
      *
-     * @param $dependent bool
+     * @param bool $dependent
      */
     public function setDependent($dependent)
     {
@@ -191,7 +191,7 @@ class Genre extends \PKP\core\DataObject
     /**
      * Set supplementary flag
      *
-     * @param $supplementary bool
+     * @param bool $supplementary
      */
     public function setSupplementary($supplementary)
     {

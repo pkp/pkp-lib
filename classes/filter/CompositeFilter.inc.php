@@ -20,14 +20,14 @@ class CompositeFilter extends PersistableFilter
     /** @var array An ordered array of sub-filters */
     public $_filters = [];
 
-    /** @var integer the max sequence number that has been attributed so far */
+    /** @var int the max sequence number that has been attributed so far */
     public $_maxSeq = 0;
 
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
-     * @param $displayName string
+     * @param FilterGroup $filterGroup
+     * @param string $displayName
      */
     public function __construct(&$filterGroup, $displayName = null)
     {
@@ -44,9 +44,9 @@ class CompositeFilter extends PersistableFilter
      * NB: A filter that is using the sequence number of
      * another filter will not be added.
      *
-     * @param $filter Filter
+     * @param Filter $filter
      *
-     * @return integer the filter's sequence number, null
+     * @return int the filter's sequence number, null
      *  if the sequence number of the filter had already been
      *  set before by a different filter and the filter has
      *  not been added.
@@ -81,7 +81,7 @@ class CompositeFilter extends PersistableFilter
      * Identify a filter by sequence
      * number.
      *
-     * @param $seq integer
+     * @param int $seq
      *
      * @return Filter
      */
@@ -106,7 +106,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * Set the settings mappings
      *
-     * @param $settingsMapping array
+     * @param array $settingsMapping
      *  A settings mapping is of the form:
      *  array(
      *    $settingName => array($targetSetting1, $targetSetting2, ...),
@@ -364,7 +364,7 @@ class CompositeFilter extends PersistableFilter
      * they are identical and return only the first
      * one.
      *
-     * @param $settingName string
+     * @param string $settingName
      *
      * @return $compositeSettingName string
      */
@@ -386,7 +386,7 @@ class CompositeFilter extends PersistableFilter
      * then we assume that those settings are identical
      * and will return only the first one.
      *
-     * @param $settingName string a mapped sub-filter setting
+     * @param string $settingName a mapped sub-filter setting
      *
      * @return FilterSetting
      */
@@ -402,7 +402,7 @@ class CompositeFilter extends PersistableFilter
      * Split a composite setting name and identify the
      * corresponding sub-filter and setting name.
      *
-     * @param $compositeSettingName string
+     * @param string $compositeSettingName
      *
      * @return array the first entry will be the sub-filter
      *  and the second entry the setting name.

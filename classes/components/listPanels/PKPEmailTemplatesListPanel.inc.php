@@ -23,13 +23,13 @@ class PKPEmailTemplatesListPanel extends ListPanel
     /** @var string URL to the API endpoint where items can be retrieved */
     public $apiUrl = '';
 
-    /** @param array Form for adding or editing an email template */
+    /** @var array Form for adding or editing an email template */
     public $form = [];
 
     /** @var array Query parameters to pass if this list executes GET requests  */
     public $getParams = [];
 
-    /** @var boolean Whether or not this component should be lazy-loaded */
+    /** @var bool Whether or not this component should be lazy-loaded */
     public $lazyLoad = [];
 
     /** @var int Max number of items available to display in this list panel  */
@@ -38,10 +38,10 @@ class PKPEmailTemplatesListPanel extends ListPanel
     /**
      * Initialize the form with config parameters
      *
-     * @param $id string
-     * @param $title string
-     * @param $supportedLocales array
-     * @param $args array Configuration params
+     * @param string $id
+     * @param string $title
+     * @param array $supportedLocales
+     * @param array $args Configuration params
      */
     public function __construct($id, $title, $supportedLocales, $args = [])
     {

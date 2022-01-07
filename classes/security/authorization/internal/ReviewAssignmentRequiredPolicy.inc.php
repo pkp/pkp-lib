@@ -22,19 +22,19 @@ use PKP\security\authorization\DataObjectRequiredPolicy;
 
 class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
 {
-    /** @var Allowed review methods */
+    /** @var array Allowed review methods */
     public $_reviewMethods = [];
 
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
-     * @param $parameterName string the request parameter we
+     * @param PKPRequest $request
+     * @param array $args request parameters
+     * @param string $parameterName the request parameter we
      *  expect the submission id in.
-     * @param $operations array|string either a single operation or a list of operations that
+     * @param array|string $operations either a single operation or a list of operations that
      *  this policy is targeting.
-     * @param $reviewMethods array limit the policy to specific review methods
+     * @param array $reviewMethods limit the policy to specific review methods
      */
     public function __construct($request, &$args, $parameterName = 'reviewAssignmentId', $operations = null, $reviewMethods = null)
     {

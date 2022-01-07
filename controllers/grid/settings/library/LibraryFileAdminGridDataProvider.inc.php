@@ -18,10 +18,10 @@ use PKP\security\authorization\ContextAccessPolicy;
 
 class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider
 {
-    /** the context for this library **/
+    /** @var Context the context for this library */
     public $_context;
 
-    /** whether or not this grid is editable **/
+    /** @var bool Whether or not this grid is editable */
     public $_canEdit;
 
     /**
@@ -69,7 +69,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider
     /**
      * get whether or not this grid is editable (has actions).
      *
-     * @return boolean $canEdit
+     * @return bool $canEdit
      */
     public function canEdit()
     {

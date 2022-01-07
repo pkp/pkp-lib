@@ -78,8 +78,8 @@ class FileInformationCenterHandler extends InformationCenterHandler
     /**
      * Display the main information center modal.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function viewInformationCenter($args, $request)
     {
@@ -95,8 +95,8 @@ class FileInformationCenterHandler extends InformationCenterHandler
     /**
      * Display the notes tab.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -118,8 +118,8 @@ class FileInformationCenterHandler extends InformationCenterHandler
     /**
      * Display the list of existing notes from prior files.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -146,8 +146,8 @@ class FileInformationCenterHandler extends InformationCenterHandler
     /**
      * Save a note.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -183,8 +183,8 @@ class FileInformationCenterHandler extends InformationCenterHandler
     /**
      * Fetch the contents of the event log.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -240,7 +240,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
     /**
      * Set up the template
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function setupTemplate($request)
     {

@@ -22,9 +22,9 @@ class PKPPubIdPluginHelper
     /**
      * Validate the additional form fields from public identifier plugins.
      *
-     * @param $contextId integer
-     * @param $form object PKPPublicIdentifiersForm
-     * @param $pubObject object
+     * @param int $contextId
+     * @param object $form PKPPublicIdentifiersForm
+     * @param object $pubObject
      * 	Submission, Representation, SubmissionFile + OJS Issue
      */
     public function validate($contextId, $form, $pubObject)
@@ -47,9 +47,9 @@ class PKPPubIdPluginHelper
     /**
      * Set form link actions.
      *
-     * @param $contextId integer
-     * @param $form object PKPPublicIdentifiersForm
-     * @param $pubObject object
+     * @param int $contextId
+     * @param object $form PKPPublicIdentifiersForm
+     * @param object $pubObject
      * 	Submission, Representation, SubmissionFile + OJS Issue
      */
     public function setLinkActions($contextId, $form, $pubObject)
@@ -69,9 +69,9 @@ class PKPPubIdPluginHelper
     /**
      * Add pub id plugins JavaScripts.
      *
-     * @param $contextId integer
-     * @param $request PKPRequest
-     * @param $templateMgr PKPTemplateManager
+     * @param int $contextId
+     * @param PKPRequest $request
+     * @param PKPTemplateManager $templateMgr
      */
     public function addJavaScripts($contextId, $request, $templateMgr)
     {
@@ -86,9 +86,9 @@ class PKPPubIdPluginHelper
     /**
      * Init the additional form fields from public identifier plugins.
      *
-     * @param $contextId integer
-     * @param $form object PKPPublicIdentifiersForm|CatalogEntryFormatMetadataForm
-     * @param $pubObject object
+     * @param int $contextId
+     * @param object $form PKPPublicIdentifiersForm|CatalogEntryFormatMetadataForm
+     * @param object $pubObject
      * 	Submission, Representation, SubmissionFile + OJS Issue
      */
     public function init($contextId, $form, $pubObject)
@@ -109,8 +109,8 @@ class PKPPubIdPluginHelper
     /**
      * Read the additional input data from public identifier plugins.
      *
-     * @param $contextId integer
-     * @param $form object PKPPublicIdentifiersForm
+     * @param int $contextId
+     * @param object $form PKPPublicIdentifiersForm
      */
     public function readInputData($contextId, $form)
     {
@@ -126,7 +126,7 @@ class PKPPubIdPluginHelper
     /**
      * Read the the public identifiers' assign form field data.
      *
-     * @param $form object Form containing the assign check box
+     * @param object $form Form containing the assign check box
      * 	PKPAssignPublicIdentifiersForm
      * 	OJS IssueEntryPublicationMetadataForm
      */
@@ -145,9 +145,9 @@ class PKPPubIdPluginHelper
     /**
      * Set the additional data from public identifier plugins.
      *
-     * @param $contextId integer
-     * @param $form object PKPPublicIdentifiersForm
-     * @param $pubObject object
+     * @param int $contextId
+     * @param object $form PKPPublicIdentifiersForm
+     * @param object $pubObject
      * 	Submission, Representation, SubmissionFile + OJS Issue
      */
     public function execute($contextId, $form, $pubObject)
@@ -176,10 +176,10 @@ class PKPPubIdPluginHelper
     /**
      * Assign public identifier.
      *
-     * @param $contextId integer
-     * @param $form object
-     * @param $pubObject object
-     * @param $save boolean Whether the pub id shall be saved here
+     * @param int $contextId
+     * @param object $form
+     * @param object $pubObject
+     * @param bool $save Whether the pub id shall be saved here
      * 	Submission, Representation, SubmissionFile + OJS Issue
      */
     public function assignPubId($contextId, $form, $pubObject, $save = false)
@@ -202,9 +202,9 @@ class PKPPubIdPluginHelper
     /**
      * Clear a pubId from a pubObject.
      *
-     * @param $contextId integer
-     * @param $pubIdPlugInClassName string
-     * @param $pubObject object
+     * @param int $contextId
+     * @param string $pubIdPlugInClassName
+     * @param object $pubObject
      * 	Submission, Representation, SubmissionFile + OJS Issue
      */
     public function clearPubId($contextId, $pubIdPlugInClassName, $pubObject)

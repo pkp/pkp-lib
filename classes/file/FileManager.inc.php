@@ -55,9 +55,9 @@ class FileManager
     /**
      * Return true if an uploaded file exists.
      *
-     * @param $fileName string the name of the file used in the POST form
+     * @param string $fileName the name of the file used in the POST form
      *
-     * @return boolean
+     * @return bool
      */
     public function uploadedFileExists($fileName)
     {
@@ -71,9 +71,9 @@ class FileManager
     /**
      * Return true iff an error occurred when trying to upload a file.
      *
-     * @param $fileName string the name of the file used in the POST form
+     * @param string $fileName the name of the file used in the POST form
      *
-     * @return boolean
+     * @return bool
      */
     public function uploadError($fileName)
     {
@@ -85,9 +85,9 @@ class FileManager
      *
      * @see http://php.net/manual/en/features.file-upload.errors.php
      *
-     * @param $fileName string the name of the file used in the POST form
+     * @param string $fileName the name of the file used in the POST form
      *
-     * @return integer
+     * @return int
      */
     public function getUploadErrorCode($fileName)
     {
@@ -108,7 +108,7 @@ class FileManager
     /**
      * Return the (temporary) path to an uploaded file.
      *
-     * @param $fileName string the name of the file used in the POST form
+     * @param string $fileName the name of the file used in the POST form
      *
      * @return string (boolean false if no such file)
      */
@@ -123,7 +123,7 @@ class FileManager
     /**
      * Return the user-specific (not temporary) filename of an uploaded file.
      *
-     * @param $fileName string the name of the file used in the POST form
+     * @param string $fileName the name of the file used in the POST form
      *
      * @return string (boolean false if no such file)
      */
@@ -138,7 +138,7 @@ class FileManager
     /**
      * Return the type of an uploaded file.
      *
-     * @param $fileName string the name of the file used in the POST form
+     * @param string $fileName the name of the file used in the POST form
      *
      * @return string
      */
@@ -164,9 +164,9 @@ class FileManager
     /**
      * Upload a file.
      *
-     * @param $fileName string the name of the file used in the POST form
+     * @param string $fileName the name of the file used in the POST form
      *
-     * @return boolean returns true if successful
+     * @return bool returns true if successful
      */
     public function uploadFile($fileName, $destFileName)
     {
@@ -187,10 +187,10 @@ class FileManager
     /**
      * Write a file.
      *
-     * @param $dest string the path where the file is to be saved
-     * @param $contents string the contents to write to the file
+     * @param string $dest the path where the file is to be saved
+     * @param string $contents the contents to write to the file
      *
-     * @return boolean returns true if successful
+     * @return bool returns true if successful
      */
     public function writeFile($dest, &$contents)
     {
@@ -217,10 +217,10 @@ class FileManager
     /**
      * Copy a file.
      *
-     * @param $source string the source URL for the file
-     * @param $dest string the path where the file is to be saved
+     * @param string $source the source URL for the file
+     * @param string $dest the path where the file is to be saved
      *
-     * @return boolean returns true if successful
+     * @return bool returns true if successful
      */
     public function copyFile($source, $dest)
     {
@@ -239,10 +239,10 @@ class FileManager
      * Copy a directory.
      * Adapted from code by gimmicklessgpt at gmail dot com, at http://php.net/manual/en/function.copy.php
      *
-     * @param $source string the path to the source directory
-     * @param $dest string the path where the directory is to be saved
+     * @param string $source the path to the source directory
+     * @param string $dest the path where the directory is to be saved
      *
-     * @return boolean returns true if successful
+     * @return bool returns true if successful
      */
     public function copyDir($source, $dest)
     {
@@ -279,8 +279,8 @@ class FileManager
     /**
      * Read a file's contents.
      *
-     * @param $filePath string the location of the file to be read
-     * @param $output boolean output the file's contents instead of returning a string
+     * @param string $filePath the location of the file to be read
+     * @param bool $output output the file's contents instead of returning a string
      *
      * @return string|boolean
      */
@@ -313,12 +313,12 @@ class FileManager
      * Download a file.
      * Outputs HTTP headers and file content for download
      *
-     * @param $filePath string the location of the file to be sent
-     * @param $mediaType string the MIME type of the file, optional
-     * @param $inline boolean print file as inline instead of attachment, optional
-     * @param $fileName string Optional filename to use on the client side
+     * @param string $filePath the location of the file to be sent
+     * @param string $mediaType the MIME type of the file, optional
+     * @param bool $inline print file as inline instead of attachment, optional
+     * @param string $fileName Optional filename to use on the client side
      *
-     * @return boolean
+     * @return bool
      */
     public function downloadByPath($filePath, $mediaType = null, $inline = false, $fileName = null)
     {
@@ -358,9 +358,9 @@ class FileManager
     /**
      * Delete a file.
      *
-     * @param $filePath string the location of the file to be deleted
+     * @param string $filePath the location of the file to be deleted
      *
-     * @return boolean returns true if successful
+     * @return bool returns true if successful
      */
     public function deleteByPath($filePath)
     {
@@ -377,10 +377,10 @@ class FileManager
     /**
      * Create a new directory.
      *
-     * @param $dirPath string the full path of the directory to be created
-     * @param $perms string the permissions level of the directory (optional)
+     * @param string $dirPath the full path of the directory to be created
+     * @param string $perms the permissions level of the directory (optional)
      *
-     * @return boolean returns true if successful
+     * @return bool returns true if successful
      */
     public function mkdir($dirPath, $perms = null)
     {
@@ -397,9 +397,9 @@ class FileManager
     /**
      * Remove a directory.
      *
-     * @param $dirPath string the full path of the directory to be delete
+     * @param string $dirPath the full path of the directory to be delete
      *
-     * @return boolean returns true if successful
+     * @return bool returns true if successful
      */
     public function rmdir($dirPath)
     {
@@ -409,9 +409,9 @@ class FileManager
     /**
      * Delete all contents including directory (equivalent to "rm -r")
      *
-     * @param $file string the full path of the directory to be removed
+     * @param string $file the full path of the directory to be removed
      *
-     * @return boolean true iff success, otherwise false
+     * @return bool true iff success, otherwise false
      */
     public function rmtree($file)
     {
@@ -441,10 +441,10 @@ class FileManager
     /**
      * Create a new directory, including all intermediate directories if required (equivalent to "mkdir -p")
      *
-     * @param $dirPath string the full path of the directory to be created
-     * @param $perms string the permissions level of the directory (optional)
+     * @param string $dirPath the full path of the directory to be created
+     * @param string $perms the permissions level of the directory (optional)
      *
-     * @return boolean returns true if successful
+     * @return bool returns true if successful
      */
     public function mkdirtree($dirPath, $perms = null)
     {
@@ -465,8 +465,8 @@ class FileManager
     /**
      * Check if a file path is valid;
      *
-     * @param $filePath string the file/directory to check
-     * @param $type string (file|dir) the type of path
+     * @param string $filePath the file/directory to check
+     * @param string $type (file|dir) the type of path
      */
     public function fileExists($filePath, $type = 'file')
     {
@@ -483,7 +483,7 @@ class FileManager
     /**
      * Returns a file type, based on generic categories defined above
      *
-     * @param $type String
+     * @param string $type
      *
      * @return string (Enuemrated DOCUMENT_TYPEs)
      */
@@ -525,7 +525,7 @@ class FileManager
      * Returns file extension associated with the given document type,
      * or false if the type does not belong to a recognized document type.
      *
-     * @param $type string
+     * @param string $type
      */
     public function getDocumentExtension($type)
     {
@@ -549,7 +549,7 @@ class FileManager
      * Returns file extension associated with the given image type,
      * or false if the type does not belong to a recognized image type.
      *
-     * @param $type string
+     * @param string $type
      */
     public function getImageExtension($type)
     {
@@ -600,7 +600,7 @@ class FileManager
     /**
      * Parse file extension from file name.
      *
-     * @param string a valid file name
+     * @param string $fileName a valid file name
      *
      * @return string extension
      */
@@ -630,7 +630,7 @@ class FileManager
     /**
      * Return pretty file size string (in B, KB, MB, or GB units).
      *
-     * @param $size int file size in bytes
+     * @param int $size file size in bytes
      *
      * @return string
      */
@@ -646,10 +646,10 @@ class FileManager
     /**
      * Set file/directory mode based on the 'umask' config setting.
      *
-     * @param $path string
-     * @param $mask int
+     * @param string $path
+     * @param int $mask
      *
-     * @return boolean
+     * @return bool
      */
     public function setMode($path, $mask)
     {
@@ -663,7 +663,7 @@ class FileManager
     /**
      * Parse the file extension from a filename/path.
      *
-     * @param $fileName string
+     * @param string $fileName
      *
      * @return string
      */
@@ -690,7 +690,7 @@ class FileManager
     /**
      * Decompress passed gziped file.
      *
-     * @param $filePath string
+     * @param string $filePath
      *
      * @return string The file path that was created.
      */
@@ -702,7 +702,7 @@ class FileManager
     /**
      * Compress passed file.
      *
-     * @param $filePath string The file to be compressed.
+     * @param string $filePath The file to be compressed.
      *
      * @return string The file path that was created.
      */
@@ -718,8 +718,8 @@ class FileManager
     /**
      * Execute gzip to compress or extract files.
      *
-     * @param $filePath string file to be compressed or uncompressed.
-     * @param $decompress boolean optional Set true if the passed file
+     * @param string $filePath file to be compressed or uncompressed.
+     * @param bool $decompress optional Set true if the passed file
      * needs to be decompressed.
      *
      * @return string The file path that was created with the operation

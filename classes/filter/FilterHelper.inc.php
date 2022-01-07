@@ -26,7 +26,7 @@ class FilterHelper
      * element.
      * @endverbatim
      *
-     * @param $filterGroupsNode XMLNode
+     * @param XMLNode $filterGroupsNode
      */
     public function installFilterGroups($filterGroupsNode)
     {
@@ -66,8 +66,8 @@ class FilterHelper
      * which represents a <filter> element.
      * @endverbatim
      *
-     * @param $filterNode XMLNode
-     * @param $persist boolean whether to install the filter
+     * @param XMLNode $filterNode
+     * @param bool $persist whether to install the filter
      *
      * @return PersistableFilter the installed filter.
      */
@@ -144,11 +144,11 @@ class FilterHelper
      * Recursively compares two filters (filter A and filter B)
      * based on their settings and sub-filters.
      *
-     * @param $filterA PersistableFilter
-     * @param $filterBSettings array an array of key/value pairs
-     * @param $filterBSubfilters array an array of filters
+     * @param PersistableFilter $filterA
+     * @param array $filterBSettings an array of key/value pairs
+     * @param array $filterBSubfilters an array of filters
      *
-     * @return boolean true if the two transformations are identical, false otherwise
+     * @return bool true if the two transformations are identical, false otherwise
      */
     public function compareFilters(&$filterA, $filterBSettings, &$filterBSubfilters)
     {
@@ -201,7 +201,7 @@ class FilterHelper
      * from the children of a <filter> element.
      * @endverbatim
      *
-     * @param $settingNode XMLNode
+     * @param XMLNode $settingNode
      *
      * @return $setting array a key-value pair.
      */
@@ -255,7 +255,7 @@ class FilterHelper
     /**
      * Recursively read an array from an XML element list.
      *
-     * @param $arrayNode XMLNode
+     * @param XMLNode $arrayNode
      *
      * @return array
      */

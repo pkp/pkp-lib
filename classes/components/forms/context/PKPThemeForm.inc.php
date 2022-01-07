@@ -41,9 +41,9 @@ class PKPThemeForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $locales array Supported locales
-     * @param $context Context|null Journal/Press to change settings for, or null
+     * @param string $action URL to submit the form to
+     * @param array $locales Supported locales
+     * @param Context|null $context Journal/Press to change settings for, or null
      *  to change settings for the Site
      */
     public function __construct($action, $locales, $context = null)
@@ -100,9 +100,9 @@ class PKPThemeForm extends FormComponent
      * Add a form field that should only appear when a particular theme is
      * selected
      *
-     * @param $theme string The theme's base plugin path
-     * @param $field Field
-     * @param $position array [
+     * @param string $theme The theme's base plugin path
+     * @param Field $field
+     * @param array $position [
      *  @option string One of `before` or `after`
      *  @option string The field to position it before or after
      * ]

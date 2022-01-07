@@ -36,7 +36,7 @@ class UserGroupAssignmentDAO extends \PKP\db\DAO
     /**
      * Internal function to return a UserGroupAssignment object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return Role
      */
@@ -53,7 +53,7 @@ class UserGroupAssignmentDAO extends \PKP\db\DAO
      * Delete all user group assignments for a given userId
      *
      * @param int $userId
-     * @param $userGroupId int optional
+     * @param int $userGroupId optional
      */
     public function deleteByUserId($userId, $userGroupId = null)
     {
@@ -111,9 +111,9 @@ class UserGroupAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve user group assignments for a user
      *
-     * @param $userId int
-     * @param $contextId int
-     * @param $roleId int
+     * @param int $userId
+     * @param int $contextId
+     * @param int $roleId
      *
      * @return Iterator UserGroup
      */
@@ -158,7 +158,7 @@ class UserGroupAssignmentDAO extends \PKP\db\DAO
     /**
      * Remove an assignment
      *
-     * @param $userGroupAssignment
+     * @param UserGroupAssignment $userGroupAssignment
      */
     public function deleteAssignment($userGroupAssignment)
     {

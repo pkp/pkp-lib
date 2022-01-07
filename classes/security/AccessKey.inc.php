@@ -40,7 +40,7 @@ class AccessKey extends \PKP\core\DataObject
     /**
      * Set context.
      *
-     * @param $context string
+     * @param string $context
      */
     public function setContext($context)
     {
@@ -60,7 +60,7 @@ class AccessKey extends \PKP\core\DataObject
     /**
      * Set key hash.
      *
-     * @param $keyHash string
+     * @param string $keyHash
      */
     public function setKeyHash($keyHash)
     {
@@ -80,7 +80,7 @@ class AccessKey extends \PKP\core\DataObject
     /**
      * Set user ID.
      *
-     * @param $userId int
+     * @param int $userId
      */
     public function setUserId($userId)
     {
@@ -100,7 +100,7 @@ class AccessKey extends \PKP\core\DataObject
     /**
      * Set associated ID.
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -120,7 +120,7 @@ class AccessKey extends \PKP\core\DataObject
     /**
      * Set expiry date.
      *
-     * @param $expiryDate string
+     * @param string $expiryDate
      */
     public function setExpiryDate($expiryDate)
     {

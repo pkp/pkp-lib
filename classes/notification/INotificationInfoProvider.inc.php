@@ -27,8 +27,8 @@ interface INotificationInfoProvider
     /**
      * Get a URL for the notification.
      *
-     * @param $request PKPRequest
-     * @param $notification Notification
+     * @param PKPRequest $request
+     * @param Notification $notification
      *
      * @return string
      */
@@ -38,8 +38,8 @@ interface INotificationInfoProvider
      * Get the notification message. Only return translated locale
      * key strings.
      *
-     * @param $request PKPRequest
-     * @param $notification Notification
+     * @param PKPRequest $request
+     * @param Notification $notification
      *
      * @return string
      */
@@ -50,8 +50,8 @@ interface INotificationInfoProvider
      * more than text, like presenting link actions inside fetched
      * template files.
      *
-     * @param $request PKPRequest
-     * @param $notification Notification
+     * @param PKPRequest $request
+     * @param Notification $notification
      *
      * @return string
      */
@@ -60,7 +60,7 @@ interface INotificationInfoProvider
     /**
      * Get the notification title.
      *
-     * @param $notification Notification
+     * @param Notification $notification
      *
      * @return string
      */
@@ -69,7 +69,7 @@ interface INotificationInfoProvider
     /**
      * Get the notification style class.
      *
-     * @param $notification Notification
+     * @param Notification $notification
      *
      * @return string
      */
@@ -78,7 +78,7 @@ interface INotificationInfoProvider
     /**
      * Get the notification icon class.
      *
-     * @param $notification Notification
+     * @param Notification $notification
      *
      * @return string
      */
@@ -88,11 +88,11 @@ interface INotificationInfoProvider
      * Whether any notification with the passed notification type
      * is visible to all users or not.
      *
-     * @param $notificationType int
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int
+     * @param int $notificationType
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId
      *
-     * @return boolean
+     * @return bool
      */
     public function isVisibleToAllUsers($notificationType, $assocType, $assocId);
 }

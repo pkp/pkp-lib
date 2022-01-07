@@ -19,7 +19,7 @@ class AddTabAction extends EventAction
     /**
      * Constructor
      *
-     * @param $targetSelector string Selector for target to receive event.
+     * @param string $targetSelector Selector for target to receive event.
      */
     public function __construct($targetSelector, $url, $title)
     {

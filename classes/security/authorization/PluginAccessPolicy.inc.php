@@ -26,10 +26,10 @@ class PluginAccessPolicy extends PolicySet
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request arguments
-     * @param $roleAssignments array
-     * @param $accessMode int
+     * @param PKPRequest $request
+     * @param array $args request arguments
+     * @param array $roleAssignments
+     * @param int $accessMode
      */
     public function __construct($request, &$args, $roleAssignments, $accessMode = self::ACCESS_MODE_ADMIN)
     {

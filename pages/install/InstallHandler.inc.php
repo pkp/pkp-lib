@@ -28,8 +28,8 @@ class InstallHandler extends Handler
      * If no context is selected, list all.
      * Otherwise, display the index page for the selected context.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function index($args, $request)
     {
@@ -56,7 +56,7 @@ class InstallHandler extends Handler
     /**
      * Redirect to index if system has already been installed.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      * @param null|mixed $requiredContexts
      */
     public function validate($requiredContexts = null, $request = null)
@@ -69,8 +69,8 @@ class InstallHandler extends Handler
     /**
      * Execute installer.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function install($args, $request)
     {
@@ -99,8 +99,8 @@ class InstallHandler extends Handler
     /**
      * Display upgrade form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function upgrade($args, $request)
     {
@@ -124,8 +124,8 @@ class InstallHandler extends Handler
     /**
      * Execute upgrade.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function installUpgrade($args, $request)
     {
@@ -149,7 +149,7 @@ class InstallHandler extends Handler
     /**
      * Set up the installer template.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function setupTemplate($request)
     {

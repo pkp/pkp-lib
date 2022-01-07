@@ -73,7 +73,7 @@ if (isset($_SERVER['PKP_MOCK_ENV'])) {
  *  function so that they cannot be executed in the wrong
  *  test environment.
  *
- *  @param $mockEnv string
+ *  @param string $mockEnv
  */
 function require_mock_env($mockEnv)
 {
@@ -135,7 +135,7 @@ function import($class)
  * A function to transform a mock environment name
  * in a list of additional include directories.
  *
- * @param $mockEnv string
+ * @param string $mockEnv
  *
  * @return string A mock environment directory to check when
  * importing class files.

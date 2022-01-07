@@ -21,7 +21,7 @@ use PKP\security\Role;
 
 class DocumentLibraryHandler extends Handler
 {
-    /** The submission **/
+    /** @var Submission */
     public $_submission;
 
     /**
@@ -80,8 +80,8 @@ class DocumentLibraryHandler extends Handler
     /**
      * Display a list of the review form elements within a review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

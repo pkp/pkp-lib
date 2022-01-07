@@ -48,7 +48,7 @@ abstract class SchemaDAO extends DAO
     /**
      * Retrieve an object by ID
      *
-     * @param $objectId int
+     * @param int $objectId
      *
      * @return \PKP\core\DataObject?
      */
@@ -130,7 +130,7 @@ abstract class SchemaDAO extends DAO
      *
      * To delete a value for a locale key, a null value must be passed.
      *
-     * @param $object \PKP\core\DataObject The object to insert into the database
+     * @param \PKP\core\DataObject $object The object to insert into the database
      */
     public function updateObject($object)
     {
@@ -201,7 +201,7 @@ abstract class SchemaDAO extends DAO
      *
      * A wrapper function for SchemaDAO::deleteObjectById().
      *
-     * @param $object \PKP\core\DataObject The object to insert into the database
+     * @param \PKP\core\DataObject $object The object to insert into the database
      */
     public function deleteObject($object)
     {
@@ -211,7 +211,7 @@ abstract class SchemaDAO extends DAO
     /**
      * Delete an object by its ID
      *
-     * @param $objectId int
+     * @param int $objectId
      */
     public function deleteById($objectId)
     {
@@ -228,7 +228,7 @@ abstract class SchemaDAO extends DAO
     /**
      * Return a \PKP\core\DataObject from a result row
      *
-     * @param $primaryRow array The result row from the primary table lookup
+     * @param array $primaryRow The result row from the primary table lookup
      *
      * @return DataObject
      */
@@ -283,7 +283,7 @@ abstract class SchemaDAO extends DAO
     /**
      * A helper function to compile the key/value set for the primary table
      *
-     * @param DataObject
+     * @param DataObject $object
      *
      * @return array
      */

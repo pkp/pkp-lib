@@ -33,9 +33,9 @@ class RoleDAO extends DAO
     /**
      * Validation check to see if a user belongs to any group that has a given role
      *
-     * @param $contextId int
-     * @param $userId int
-     * @param $roleId int|array ROLE_ID_...
+     * @param int $contextId
+     * @param int $userId
+     * @param int|array $roleId ROLE_ID_...
      *
      * @return bool True iff at least one such role exists
      */
@@ -54,8 +54,8 @@ class RoleDAO extends DAO
     /**
      * Return an array of row objects corresponding to the roles a given use has
      *
-     * @param $userId
-     * @param $contextId
+     * @param int $userId
+     * @param int $contextId
      *
      * @return array of Roles
      */
@@ -86,7 +86,7 @@ class RoleDAO extends DAO
      * Return an array of objects corresponding to the roles a given user has,
      * grouped by context id.
      *
-     * @param $userId int
+     * @param int $userId
      *
      * @return array
      */
@@ -109,7 +109,7 @@ class RoleDAO extends DAO
     /**
      * Get role forbidden stages.
      *
-     * @param $roleId int Specific role ID to fetch stages for, if any
+     * @param int $roleId Specific role ID to fetch stages for, if any
      *
      * @return array With $roleId, array(WORKFLOW_STAGE_ID_...); without,
      *  array(ROLE_ID_... => array(WORKFLOW_STAGE_ID_...))

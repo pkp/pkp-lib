@@ -35,10 +35,10 @@ class PKPPublicationIdentifiersForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $locales array Supported locales
-     * @param $publication Publication The publication to change settings for
-     * @param $submissionContext Context The journal/press this publication exists in
+     * @param string $action URL to submit the form to
+     * @param array $locales Supported locales
+     * @param Publication $publication The publication to change settings for
+     * @param Context $submissionContext The journal/press this publication exists in
      */
     public function __construct($action, $locales, $publication, $submissionContext)
     {

@@ -215,7 +215,7 @@ class PKPStatsService
      *
      * @param array $record
      *
-     * @return integer
+     * @return int
      */
     public function sumMetric($total, $record)
     {
@@ -279,9 +279,9 @@ class PKPStatsService
      * Get all time segments (months or days) between the start and end date
      * with empty values.
      *
-     * @param $startDate string
-     * @param $endDate string
-     * @param $timelineInterval string STATISTICS_DIMENSION_MONTH or STATISTICS_DIMENSION_DAY
+     * @param string $startDate
+     * @param string $endDate
+     * @param string $timelineInterval STATISTICS_DIMENSION_MONTH or STATISTICS_DIMENSION_DAY
      *
      * @return array of time segments in ASC order
      */

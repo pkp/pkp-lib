@@ -21,9 +21,9 @@ abstract class RepresentationDAO extends \PKP\db\DAO
     /**
      * Retrieves a representation by ID.
      *
-     * @param $representationId int Representation ID.
-     * @param $publicationId int Optional publication ID.
-     * @param $contextId int Optional context ID.
+     * @param int $representationId Representation ID.
+     * @param int $publicationId Optional publication ID.
+     * @param int $contextId Optional context ID.
      *
      * @return DAOResultFactory
      */
@@ -32,8 +32,8 @@ abstract class RepresentationDAO extends \PKP\db\DAO
     /**
     * Retrieves an iterator of representations for a publication
     *
-    * @param $publicationId int
-    * @param $contextId int
+    * @param int $publicationId
+    * @param int $contextId
     *
     * @return DAOResultFactory
     */

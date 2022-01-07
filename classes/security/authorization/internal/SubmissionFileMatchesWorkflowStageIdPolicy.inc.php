@@ -26,8 +26,8 @@ class SubmissionFileMatchesWorkflowStageIdPolicy extends SubmissionFileBaseAcces
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $stageId int Workflow stage ID (WORKFLOW_STAGE_ID_...)
+     * @param PKPRequest $request
+     * @param int $stageId Workflow stage ID (WORKFLOW_STAGE_ID_...)
      * @param null|mixed $submissionFileId
      */
     public function __construct($request, $submissionFileId = null, $stageId = null)

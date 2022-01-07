@@ -24,7 +24,7 @@ use PKP\linkAction\request\NullAction;
 
 class OrderItemsFeature extends GridFeature
 {
-    /** @var boolean */
+    /** @var bool */
     public $_overrideRowTemplate;
 
     /** @var string */
@@ -33,11 +33,11 @@ class OrderItemsFeature extends GridFeature
     /**
      * Constructor.
      *
-     * @param $overrideRowTemplate boolean This feature uses row
+     * @param bool $overrideRowTemplate This feature uses row
      * actions and it will force the usage of the gridRow.tpl.
      * If you want to use a different grid row template file, set this flag to
      * false and make sure to use a template file that adds row actions.
-     * @param $nonOrderableItemMessage string optional A translated message to be used
+     * @param string $nonOrderableItemMessage optional A translated message to be used
      * when user tries to move a non orderable grid item.
      */
     public function __construct($overrideRowTemplate, $nonOrderableItemMessage = null)
@@ -63,9 +63,9 @@ class OrderItemsFeature extends GridFeature
     /**
      * Get override row template flag.
      *
-     * @param $gridRow GridRow
+     * @param GridRow $gridRow
      *
-     * @return boolean
+     * @return bool
      */
     public function getOverrideRowTemplate(&$gridRow)
     {
@@ -81,7 +81,7 @@ class OrderItemsFeature extends GridFeature
     /**
      * Set non orderable item message.
      *
-     * @param $nonOrderableItemMessage string Message already translated.
+     * @param string $nonOrderableItemMessage Message already translated.
      */
     public function setNonOrderableItemMessage($nonOrderableItemMessage)
     {
@@ -177,7 +177,7 @@ class OrderItemsFeature extends GridFeature
     /**
      * Add grid row order action.
      *
-     * @param $row GridRow
+     * @param GridRow $row
      */
     public function addRowOrderAction($row)
     {
@@ -204,7 +204,7 @@ class OrderItemsFeature extends GridFeature
      * a grid level order action. Default is
      * true, override it if needed.
      *
-     * @return boolean
+     * @return bool
      */
     public function isOrderActionNecessary()
     {

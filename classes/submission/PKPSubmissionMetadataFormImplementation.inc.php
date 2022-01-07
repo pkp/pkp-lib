@@ -31,7 +31,7 @@ class PKPSubmissionMetadataFormImplementation
     /**
      * Constructor.
      *
-     * @param $parentForm Form A form that can use this form.
+     * @param Form $parentForm A form that can use this form.
      */
     public function __construct($parentForm = null)
     {
@@ -42,9 +42,9 @@ class PKPSubmissionMetadataFormImplementation
     /**
      * Determine whether or not abstracts are required.
      *
-     * @param $submission Submission
+     * @param Submission $submission
      *
-     * @return boolean
+     * @return bool
      */
     public function _getAbstractsRequired($submission)
     {
@@ -54,7 +54,7 @@ class PKPSubmissionMetadataFormImplementation
     /**
      * Add checks to form.
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     public function addChecks($submission)
     {
@@ -107,7 +107,7 @@ class PKPSubmissionMetadataFormImplementation
     /**
      * Initialize form data from current submission.
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     public function initData($submission)
     {
@@ -182,8 +182,8 @@ class PKPSubmissionMetadataFormImplementation
     /**
      * Save changes to submission.
      *
-     * @param $submission Submission
-     * @param $request PKPRequest
+     * @param Submission $submission
+     * @param PKPRequest $request
      *
      * @return Submission
      */

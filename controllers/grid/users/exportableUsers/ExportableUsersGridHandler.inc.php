@@ -183,7 +183,7 @@ class ExportableUsersGridHandler extends GridHandler
     /**
      * @copydoc GridHandler::loadData()
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return array Grid data.
      */

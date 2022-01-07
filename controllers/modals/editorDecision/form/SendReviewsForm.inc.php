@@ -29,10 +29,10 @@ class SendReviewsForm extends EditorDecisionWithEmailForm
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $decision int
-     * @param $stageId int
-     * @param $reviewRound ReviewRound
+     * @param Submission $submission
+     * @param int $decision
+     * @param int $stageId
+     * @param ReviewRound $reviewRound
      */
     public function __construct($submission, $decision, $stageId, $reviewRound = null)
     {

@@ -25,7 +25,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -74,7 +74,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Handle a singular element import.
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      */
     public function handleElement($node)
     {
@@ -116,8 +116,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Populate the submission object from the node
      *
-     * @param $submission Submission
-     * @param $node DOMElement
+     * @param Submission $submission
+     * @param DOMElement $node
      *
      * @return Submission
      */
@@ -135,8 +135,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Handle an element whose parent is the submission element.
      *
-     * @param $n DOMElement
-     * @param $submission Submission
+     * @param DOMElement $n
+     * @param Submission $submission
      */
     public function handleChildElement($n, $submission)
     {
@@ -162,8 +162,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Parse an identifier node and set up the submission object accordingly
      *
-     * @param $element DOMElement
-     * @param $submission Submission
+     * @param DOMElement $element
+     * @param Submission $submission
      */
     public function parseIdentifier($element, $submission)
     {
@@ -180,8 +180,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Parse a submission file and add it to the submission.
      *
-     * @param $n DOMElement
-     * @param $submission Submission
+     * @param DOMElement $n
+     * @param Submission $submission
      */
     public function parseSubmissionFile($n, $submission)
     {
@@ -196,7 +196,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * @see Filter::process()
      *
-     * @param $document DOMDocument|string
+     * @param DOMDocument|string $document
      *
      * @return array Array of imported documents
      */
@@ -220,8 +220,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Parse a submission publication and add it to the submission.
      *
-     * @param $n DOMElement
-     * @param $submission Submission
+     * @param DOMElement $n
+     * @param Submission $submission
      */
     public function parsePublication($n, $submission)
     {
@@ -240,7 +240,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     /**
      * Get the import filter for a given element.
      *
-     * @param $elementName string Name of XML element
+     * @param string $elementName Name of XML element
      *
      * @return Filter
      */

@@ -20,8 +20,8 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
     /**
      * Get the payment form for this plugin.
      *
-     * @param $context Context
-     * @param $queuedPayment QueuedPayment
+     * @param Context $context
+     * @param QueuedPayment $queuedPayment
      *
      * @return Form
      */
@@ -30,9 +30,9 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
     /**
      * Check whether this plugin is fully configured and ready for use.
      *
-     * @param $context Context
+     * @param Context $context
      *
-     * @return boolean
+     * @return bool
      */
     public function isConfigured($context)
     {
@@ -42,9 +42,9 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
     /**
      * Save settings for this payment method
      *
-     * @param $params array Params that have already been
-     * @param $slimRequest Request Slim request object
-     * @param $request Request
+     * @param array $params Params that have already been
+     * @param Request $slimRequest Slim request object
+     * @param Request $request
      *
      * @return array List of errors
      */

@@ -44,9 +44,9 @@ class PKPStatsHandler extends Handler
     /**
      * @see PKPHandler::authorize()
      *
-     * @param $request PKPRequest
-     * @param $args array
-     * @param $roleAssignments array
+     * @param PKPRequest $request
+     * @param array $args
+     * @param array $roleAssignments
      */
     public function authorize($request, &$args, $roleAssignments)
     {
@@ -221,8 +221,8 @@ class PKPStatsHandler extends Handler
     /**
      * Display published submissions statistics page
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      */
     public function publications($args, $request)
     {
@@ -383,7 +383,7 @@ class PKPStatsHandler extends Handler
     /**
      * Set up the basic template for reports.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     public function setupTemplate($request)
     {
@@ -394,8 +394,8 @@ class PKPStatsHandler extends Handler
     /**
      * Route to other Reports operations
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function reports($args, $request)
     {
@@ -421,8 +421,8 @@ class PKPStatsHandler extends Handler
     /**
      * Display report possibilities (report plugins)
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function displayReports($args, $request)
     {
@@ -449,8 +449,8 @@ class PKPStatsHandler extends Handler
      * Delegates to plugins operations
      * related to report generation.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function report($args, $request)
     {
@@ -470,8 +470,8 @@ class PKPStatsHandler extends Handler
     /**
      * Display page to generate custom reports.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function reportGenerator($args, $request)
     {
@@ -501,8 +501,8 @@ class PKPStatsHandler extends Handler
      * Generate statistics reports from passed
      * request arguments.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function generateReport($args, $request)
     {
@@ -674,8 +674,8 @@ class PKPStatsHandler extends Handler
      * Get the row value based on the column key (usually assoc types)
      * and the current record.
      *
-     * @param $key string|int
-     * @param $record array
+     * @param string|int $key
+     * @param array $record
      *
      * @return string
      */
@@ -688,8 +688,8 @@ class PKPStatsHandler extends Handler
      * Get data object title based on passed
      * assoc type and id.
      *
-     * @param $assocId int
-     * @param $assocType int
+     * @param int $assocId
+     * @param int $assocType
      *
      * @return string
      */

@@ -33,8 +33,8 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $permitDeclined bool True if declined or cancelled reviews are acceptable.
+     * @param PKPRequest $request
+     * @param bool $permitDeclined True if declined or cancelled reviews are acceptable.
      */
     public function __construct($request, $permitDeclined = false)
     {

@@ -20,11 +20,11 @@ class SelectReviewFilesLinkAction extends SelectFilesLinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $reviewRound ReviewRound The review round from which to
+     * @param Request $request
+     * @param ReviewRound $reviewRound The review round from which to
      *  select review files.
-     * @param $actionLabel string The localized label of the link action.
-     * @param $modalTitle string the (optional) title to be used for the modal.
+     * @param string $actionLabel The localized label of the link action.
+     * @param string $modalTitle the (optional) title to be used for the modal.
      */
     public function __construct($request, $reviewRound, $actionLabel, $modalTitle = null)
     {

@@ -40,7 +40,7 @@ class DBDataXMLParser
     /**
      * Parse an XML data file into SQL statements.
      *
-     * @param $file string path to the XML file to parse
+     * @param string $file path to the XML file to parse
      *
      * @return array the array of SQL statements parsed
      */
@@ -161,9 +161,9 @@ class DBDataXMLParser
     /**
      * Execute the parsed SQL statements.
      *
-     * @param $continueOnError boolean continue to execute remaining statements if a failure occurs
+     * @param bool $continueOnError continue to execute remaining statements if a failure occurs
      *
-     * @return boolean success
+     * @return bool success
      */
     public function executeData($continueOnError = false)
     {
@@ -193,7 +193,7 @@ class DBDataXMLParser
     /**
      * Quote a string to be appear as a value in an SQL INSERT statement.
      *
-     * @param $str string
+     * @param string $str
      *
      * @return string
      */
@@ -209,7 +209,7 @@ class DBDataXMLParser
     /**
      * retrieve a field name and value from a field node
      *
-     * @param $fieldNode XMLNode
+     * @param XMLNode $fieldNode
      *
      * @return array an array with two entries: the field
      *  name and the field value

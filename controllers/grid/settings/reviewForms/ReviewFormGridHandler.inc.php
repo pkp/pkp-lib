@@ -219,8 +219,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Preview a review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -244,8 +244,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Add a new review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -260,8 +260,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Edit an existing review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -288,8 +288,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Edit an existing review form's basics (title, description)
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -308,8 +308,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Display a list of the review form elements within a review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -334,8 +334,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Update an existing review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON message
      */
@@ -372,8 +372,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Copy a review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -418,8 +418,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Activate a review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -454,8 +454,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Deactivate a review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -490,8 +490,8 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * Delete a review form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

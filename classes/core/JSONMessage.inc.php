@@ -36,10 +36,10 @@ class JSONMessage
     /**
      * Constructor.
      *
-     * @param $status boolean The status of an event (e.g. false if form validation fails).
-     * @param $content Mixed The message to be delivered back to the calling script.
-     * @param $elementId string The DOM element to be replaced.
-     * @param $additionalAttributes array Additional data to be returned.
+     * @param bool $status The status of an event (e.g. false if form validation fails).
+     * @param Mixed $content The message to be delivered back to the calling script.
+     * @param string $elementId The DOM element to be replaced.
+     * @param array $additionalAttributes Additional data to be returned.
      */
     public function __construct($status = true, $content = '', $elementId = '0', $additionalAttributes = null)
     {
@@ -65,7 +65,7 @@ class JSONMessage
     /**
      * Set the status string
      *
-     * @param $status string
+     * @param string $status
      */
     public function setStatus($status)
     {
@@ -84,7 +84,6 @@ class JSONMessage
     /**
      * Set the content data
      *
-     * @param $content mixed
      */
     public function setContent($content)
     {
@@ -104,7 +103,7 @@ class JSONMessage
     /**
      * Set the elementId string
      *
-     * @param $elementId string
+     * @param string $elementId
      */
     public function setElementId($elementId)
     {
@@ -115,8 +114,7 @@ class JSONMessage
     /**
      * Set the event to trigger with this JSON message
      *
-     * @param $eventName string
-     * @param $eventData mixed
+     * @param string $eventName
      */
     public function setEvent($eventName, $eventData = null)
     {
@@ -140,8 +138,8 @@ class JSONMessage
      * triggered directly on the handler. They are intended for broadcasting
      * updates from one handler to other handlers.
      *
-     * @param $eventName string
-     * @param $eventData array Global event data must be an assoc array
+     * @param string $eventName
+     * @param array $eventData Global event data must be an assoc array
      */
     public function setGlobalEvent($eventName, $eventData = [])
     {
@@ -173,7 +171,7 @@ class JSONMessage
     /**
      * Set the additionalAttributes array
      *
-     * @param $additionalAttributes array
+     * @param array $additionalAttributes
      */
     public function setAdditionalAttributes($additionalAttributes)
     {

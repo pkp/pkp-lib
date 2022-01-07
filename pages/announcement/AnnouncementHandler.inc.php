@@ -41,8 +41,8 @@ class AnnouncementHandler extends Handler
     /**
      * Show public announcements page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string
      */
@@ -75,8 +75,8 @@ class AnnouncementHandler extends Handler
     /**
      * View announcement details.
      *
-     * @param $args array first parameter is the ID of the announcement to display
-     * @param $request PKPRequest
+     * @param array $args first parameter is the ID of the announcement to display
+     * @param PKPRequest $request
      */
     public function view($args, $request)
     {

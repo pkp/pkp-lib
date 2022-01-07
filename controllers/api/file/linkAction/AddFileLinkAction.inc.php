@@ -22,25 +22,25 @@ class AddFileLinkAction extends BaseAddFileLinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $submissionId integer The submission the file should be
+     * @param Request $request
+     * @param int $submissionId The submission the file should be
      *  uploaded to.
-     * @param $stageId integer The workflow stage in which the file
+     * @param int $stageId The workflow stage in which the file
      *  uploader is being instantiated (one of the WORKFLOW_STAGE_ID_*
      *  constants).
-     * @param $uploaderRoles array The ids of all roles allowed to upload
+     * @param array $uploaderRoles The ids of all roles allowed to upload
      *  in the context of this action.
-     * @param $fileStage integer The file stage the file should be
+     * @param int $fileStage The file stage the file should be
      *  uploaded to (one of the SubmissionFile::SUBMISSION_FILE_* constants).
-     * @param $assocType integer The type of the element the file should
+     * @param int $assocType The type of the element the file should
      *  be associated with (one fo the ASSOC_TYPE_* constants).
-     * @param $assocId integer The id of the element the file should be
+     * @param int $assocId The id of the element the file should be
      *  associated with.
-     * @param $reviewRoundId int The current review round ID (if any)
-     * @param $revisedFileId int Revised file ID, if any
-     * @param $dependentFilesOnly bool whether to only include dependent
+     * @param int $reviewRoundId The current review round ID (if any)
+     * @param int $revisedFileId Revised file ID, if any
+     * @param bool $dependentFilesOnly whether to only include dependent
      *  files in the Genres dropdown.
-     * @param $queryId int The query id. Use when the assoc details point
+     * @param int $queryId The query id. Use when the assoc details point
      *  to a note
      */
     public function __construct(
@@ -98,7 +98,7 @@ class AddFileLinkAction extends BaseAddFileLinkAction
      * Static method to return text labels
      * for upload to different file stages.
      *
-     * @param $fileStage integer One of the
+     * @param int $fileStage One of the
      *  SubmissionFile::SUBMISSION_FILE_* constants.
      *
      * @return array

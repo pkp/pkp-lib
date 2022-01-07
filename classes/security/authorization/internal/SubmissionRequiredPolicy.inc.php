@@ -26,9 +26,9 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
-     * @param $submissionParameterName string the request parameter we expect
+     * @param PKPRequest $request
+     * @param array $args request parameters
+     * @param string $submissionParameterName the request parameter we expect
      *  the submission id in.
      * @param null|mixed $operations
      */

@@ -24,19 +24,19 @@ class DataObject
     /** @var array Array of object data */
     public $_data = [];
 
-    /** @var boolean whether this objects loads meta-data adapters from the database */
+    /** @var bool whether this objects loads meta-data adapters from the database */
     public $_hasLoadableAdapters = false;
 
     /** @var array an array of meta-data extraction adapters (one per supported schema) */
     public $_metadataExtractionAdapters = [];
 
-    /** @var boolean whether extraction adapters have already been loaded from the database */
+    /** @var bool whether extraction adapters have already been loaded from the database */
     public $_extractionAdaptersLoaded = false;
 
     /** @var array an array of meta-data injection adapters (one per supported schema) */
     public $_metadataInjectionAdapters = [];
 
-    /** @var boolean whether injection adapters have already been loaded from the database */
+    /** @var bool whether injection adapters have already been loaded from the database */
     public $_injectionAdaptersLoaded = false;
 
     /**
@@ -54,8 +54,8 @@ class DataObject
      * Get a piece of data for this object, localized to the current
      * locale if possible.
      *
-     * @param $key string
-     * @param $preferredLocale string
+     * @param string $key
+     * @param string $preferredLocale
      */
     public function getLocalizedData($key, $preferredLocale = null)
     {
@@ -86,8 +86,8 @@ class DataObject
     /**
      * Get the value of a data variable.
      *
-     * @param $key string
-     * @param $locale string (optional)
+     * @param string $key
+     * @param string $locale (optional)
      */
     public function &getData($key, $locale = null)
     {
@@ -108,15 +108,15 @@ class DataObject
     /**
      * Set the value of a new or existing data variable.
      *
-     * @param $key string
-     * @param $value mixed can be either a single value or
+     * @param string $key
+     * @param mixed $value can be either a single value or
      *  an array of of localized values in the form:
      *   array(
      *     'fr_FR' => 'en français',
      *     'en_US' => 'in English',
      *     ...
      *   )
-     * @param $locale string (optional) non-null for a single
+     * @param string $locale (optional) non-null for a single
      *  localized value. Null for a non-localized value or
      *  when setting all locales at once (see comment for
      *  $value parameter)
@@ -149,8 +149,8 @@ class DataObject
     /**
      * Unset an element of the data object.
      *
-     * @param $key string
-     * @param $locale string (optional) non-null for a single
+     * @param string $key
+     * @param string $locale (optional) non-null for a single
      *  localized value. Null for a non-localized value or
      *  when unsetting all locales at once.
      */
@@ -166,10 +166,10 @@ class DataObject
     /**
      * Check whether a value exists for a given data variable.
      *
-     * @param $key string
-     * @param $locale string (optional)
+     * @param string $key
+     * @param string $locale (optional)
      *
-     * @return boolean
+     * @return bool
      */
     public function hasData($key, $locale = null)
     {
@@ -194,7 +194,7 @@ class DataObject
     /**
      * Set all data variables at once.
      *
-     * @param $data array
+     * @param array $data
      */
     public function setAllData($data)
     {
@@ -214,7 +214,7 @@ class DataObject
     /**
      * Set ID of object.
      *
-     * @param $id int
+     * @param int $id
      */
     public function setId($id)
     {
@@ -238,7 +238,7 @@ class DataObject
      * Note: Data in the target object will be overwritten. We do not
      * clone the target object before we upcast.
      *
-     * @param $targetObject \PKP\core\DataObject The object to cast to.
+     * @param \PKP\core\DataObject $targetObject The object to cast to.
      *
      * @return \PKP\core\DataObject The upcast target object.
      */
@@ -258,7 +258,7 @@ class DataObject
     /**
      * Set whether the object has loadable meta-data adapters
      *
-     * @param $hasLoadableAdapters boolean
+     * @param bool $hasLoadableAdapters
      */
     public function setHasLoadableAdapters($hasLoadableAdapters)
     {
@@ -268,7 +268,7 @@ class DataObject
     /**
      * Get whether the object has loadable meta-data adapters
      *
-     * @return boolean
+     * @return bool
      */
     public function getHasLoadableAdapters()
     {
@@ -280,7 +280,7 @@ class DataObject
      * by this application entity. Only one adapter per schema
      * can be added.
      *
-     * @param $metadataAdapter MetadataDataObjectAdapter
+     * @param MetadataDataObjectAdapter $metadataAdapter
      */
     public function addSupportedMetadataAdapter($metadataAdapter)
     {
@@ -313,9 +313,9 @@ class DataObject
      * Remove all adapters for the given meta-data schema
      * (if it exists).
      *
-     * @param $metadataSchemaName string fully qualified class name
+     * @param string $metadataSchemaName fully qualified class name
      *
-     * @return boolean true if an adapter was removed, otherwise false.
+     * @return bool true if an adapter was removed, otherwise false.
      */
     public function removeSupportedMetadataAdapter($metadataSchemaName)
     {
@@ -395,7 +395,7 @@ class DataObject
      * Retrieve the names of meta-data
      * properties of this data object.
      *
-     * @param $translated boolean if true, return localized field
+     * @param bool $translated if true, return localized field
      *  names, otherwise return additional field names.
      */
     public function getMetadataFieldNames($translated = true)
@@ -418,7 +418,7 @@ class DataObject
      * properties that need to be persisted
      * (i.e. that have data).
      *
-     * @param $translated boolean if true, return localized field
+     * @param bool $translated if true, return localized field
      *  names, otherwise return additional field names.
      *
      * @return array an array of field names
@@ -464,9 +464,9 @@ class DataObject
      * Inject a meta-data description into this
      * data object.
      *
-     * @param $metadataDescription MetadataDescription
+     * @param MetadataDescription $metadataDescription
      *
-     * @return boolean true on success, otherwise false
+     * @return bool true on success, otherwise false
      */
     public function injectMetadata($metadataDescription)
     {
@@ -494,7 +494,7 @@ class DataObject
      * Extract a meta-data description from this
      * data object.
      *
-     * @param $metadataSchema MetadataSchema
+     * @param MetadataSchema $metadataSchema
      *
      * @return $metadataDescription MetadataDescription
      */

@@ -52,9 +52,9 @@ class ManagementHandler extends Handler
     /**
      * @see PKPHandler::authorize()
      *
-     * @param $request PKPRequest
-     * @param $args array
-     * @param $roleAssignments array
+     * @param PKPRequest $request
+     * @param array $args
+     * @param array $roleAssignments
      */
     public function authorize($request, &$args, $roleAssignments)
     {
@@ -65,8 +65,8 @@ class ManagementHandler extends Handler
     /**
      * Route requests to the appropriate operation.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function settings($args, $request)
     {
@@ -101,8 +101,8 @@ class ManagementHandler extends Handler
     /**
      * Display settings for a journal/press
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function context($args, $request)
     {
@@ -161,8 +161,8 @@ class ManagementHandler extends Handler
     /**
      * Display website settings
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function website($args, $request)
     {
@@ -224,8 +224,8 @@ class ManagementHandler extends Handler
     /**
      * Display workflow settings
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function workflow($args, $request)
     {
@@ -291,8 +291,8 @@ class ManagementHandler extends Handler
     /**
      * Display distribution settings
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function distribution($args, $request)
     {
@@ -334,8 +334,8 @@ class ManagementHandler extends Handler
     /**
      * Display list of announcements and announcement types
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function announcements($args, $request)
     {
@@ -392,8 +392,8 @@ class ManagementHandler extends Handler
     /**
      * Display Access and Security page.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function access($args, $request)
     {

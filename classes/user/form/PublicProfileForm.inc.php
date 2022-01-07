@@ -29,7 +29,7 @@ class PublicProfileForm extends BaseProfileForm
     /**
      * Constructor.
      *
-     * @param $user User
+     * @param User $user
      */
     public function __construct($user)
     {
@@ -71,7 +71,7 @@ class PublicProfileForm extends BaseProfileForm
     /**
      * Upload a profile image.
      *
-     * @return boolean True iff success.
+     * @return bool True iff success.
      */
     public function uploadProfileImage()
     {
@@ -117,7 +117,7 @@ class PublicProfileForm extends BaseProfileForm
     /**
      * Delete a profile image.
      *
-     * @return boolean True iff success.
+     * @return bool True iff success.
      */
     public function deleteProfileImage()
     {

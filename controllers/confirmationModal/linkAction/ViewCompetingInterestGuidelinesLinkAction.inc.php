@@ -21,7 +21,7 @@ class ViewCompetingInterestGuidelinesLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
+     * @param Request $request
      */
     public function __construct($request)
     {

@@ -27,7 +27,7 @@ class LibraryFileHandler extends Handler
     /**
      * Constructor.
      *
-     * @param $callingHandler Handler
+     * @param Handler $callingHandler
      */
     public function __construct($callingHandler)
     {
@@ -41,8 +41,8 @@ class LibraryFileHandler extends Handler
     /**
      * Download a library public file.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function downloadPublic($args, $request)
     {
@@ -65,8 +65,8 @@ class LibraryFileHandler extends Handler
     /**
      * Download a library file.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function downloadLibraryFile($args, $request)
     {

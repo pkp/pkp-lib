@@ -31,8 +31,8 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Retrieve Notification by notification id
      *
-     * @param $notificationId int
-     * @param $userId int optional
+     * @param int $notificationId
+     * @param int $userId optional
      *
      * @return object Notification
      */
@@ -59,10 +59,10 @@ class NotificationDAO extends \PKP\db\DAO
      * Note that this method will not return fully-fledged notification objects.  Use
      *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
      *
-     * @param $userId int
-     * @param $level int
-     * @param $type int
-     * @param $contextId int
+     * @param int $userId
+     * @param int $level
+     * @param int $type
+     * @param int $contextId
      *
      * @return object DAOResultFactory containing matching Notification objects
      */
@@ -80,11 +80,11 @@ class NotificationDAO extends \PKP\db\DAO
      * Note that this method will not return fully-fledged notification objects.  Use
      *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
      *
-     * @param $assocType int ASSOC_TYPE_...
-     * @param $assocId int
-     * @param $userId int User ID (optional)
-     * @param $type int
-     * @param $contextId int Context (journal/press/etc.) ID (optional)
+     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocId
+     * @param int $userId User ID (optional)
+     * @param int $type
+     * @param int $contextId Context (journal/press/etc.) ID (optional)
      *
      * @return object DAOResultFactory containing matching Notification objects
      */
@@ -116,10 +116,10 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Retrieve Notifications by notification id
      *
-     * @param $notificationId int
-     * @param $dateRead date
+     * @param int $notificationId
+     * @param date $dateRead
      *
-     * @return boolean
+     * @return bool
      */
     public function setDateRead($notificationId, $dateRead)
     {
@@ -149,7 +149,7 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Inserts a new notification into notifications table
      *
-     * @param $notification object
+     * @param object $notification
      *
      * @return int Notification Id
      */
@@ -180,12 +180,12 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Inserts or update a notification into notifications table.
      *
-     * @param $level int
-     * @param $type int
-     * @param $assocType int
-     * @param $assocId int
-     * @param $userId int (optional)
-     * @param $contextId int (optional)
+     * @param int $level
+     * @param int $type
+     * @param int $assocType
+     * @param int $assocId
+     * @param int $userId (optional)
+     * @param int $contextId (optional)
      *
      * @return mixed Notification or null
      */
@@ -230,10 +230,10 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Delete Notification by notification id
      *
-     * @param $notificationId int
-     * @param $userId int
+     * @param int $notificationId
+     * @param int $userId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteById($notificationId, $userId = null)
     {
@@ -257,9 +257,9 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Delete Notification
      *
-     * @param $notification Notification
+     * @param Notification $notification
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObject($notification)
     {
@@ -269,13 +269,13 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Delete notification(s) by association
      *
-     * @param $assocType int
-     * @param $assocId int
-     * @param $userId int optional
-     * @param $type int optional
-     * @param $contextId int optional
+     * @param int $assocType
+     * @param int $assocId
+     * @param int $userId optional
+     * @param int $type optional
+     * @param int $contextId optional
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null)
     {
@@ -298,10 +298,10 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Get the number of unread messages for a user
      *
-     * @param $read boolean Whether to check for read (true) or unread (false) notifications
-     * @param $contextId int
-     * @param $userId int
-     * @param $level int
+     * @param bool $read Whether to check for read (true) or unread (false) notifications
+     * @param int $contextId
+     * @param int $userId
+     * @param int $level
      *
      * @return int
      */
@@ -325,8 +325,8 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Transfer the notifications for a user.
      *
-     * @param $oldUserId int
-     * @param $newUserId int
+     * @param int $oldUserId
+     * @param int $newUserId
      */
     public function transferNotifications($oldUserId, $newUserId)
     {
@@ -339,7 +339,7 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Creates and returns an notification object from a row
      *
-     * @param $row array
+     * @param array $row
      *
      * @return Notification object
      */

@@ -23,10 +23,10 @@ class EmailFilterSetting extends FilterSetting
     /**
      * Constructor
      *
-     * @param $name string
-     * @param $displayName string
-     * @param $validationMessage string
-     * @param $required boolean
+     * @param string $name
+     * @param string $displayName
+     * @param string $validationMessage
+     * @param bool $required
      */
     public function __construct($name, $displayName, $validationMessage, $required = FormValidator::FORM_VALIDATOR_REQUIRED_VALUE)
     {

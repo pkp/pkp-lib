@@ -151,8 +151,8 @@ class PKPEmailTemplateHandler extends APIHandler
     /**
      * Get a single email template
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -173,8 +173,8 @@ class PKPEmailTemplateHandler extends APIHandler
     /**
      * Add an email template
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -208,8 +208,8 @@ class PKPEmailTemplateHandler extends APIHandler
     /**
      * Edit an email template
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -264,8 +264,8 @@ class PKPEmailTemplateHandler extends APIHandler
     /**
      * Delete an email template
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response
@@ -291,8 +291,8 @@ class PKPEmailTemplateHandler extends APIHandler
     /**
      * Restore defaults in the email template settings
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
      * @param array $args arguments
      *
      * @return Response

@@ -49,8 +49,8 @@ class ProfileTabHandler extends Handler
     /**
      * Display form to edit user's identity.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -65,8 +65,8 @@ class ProfileTabHandler extends Handler
     /**
      * Validate and save changes to user's identity info.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -88,8 +88,8 @@ class ProfileTabHandler extends Handler
     /**
      * Display form to edit user's contact information.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -104,8 +104,8 @@ class ProfileTabHandler extends Handler
     /**
      * Validate and save changes to user's contact info.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -127,8 +127,8 @@ class ProfileTabHandler extends Handler
     /**
      * Display form to edit user's roles information.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -143,8 +143,8 @@ class ProfileTabHandler extends Handler
     /**
      * Validate and save changes to user's roles info.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -166,8 +166,8 @@ class ProfileTabHandler extends Handler
     /**
      * Display form to edit user's publicProfile information.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -182,8 +182,8 @@ class ProfileTabHandler extends Handler
     /**
      * Upload a public profile image.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -201,8 +201,8 @@ class ProfileTabHandler extends Handler
     /**
      * Remove a public profile image.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function deleteProfileImage($args, $request)
     {
@@ -214,8 +214,8 @@ class ProfileTabHandler extends Handler
     /**
      * Validate and save changes to user's publicProfile info.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -237,8 +237,8 @@ class ProfileTabHandler extends Handler
     /**
      * Display form to edit user's API key settings.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -253,8 +253,8 @@ class ProfileTabHandler extends Handler
     /**
      * Validate and save changes to user's API key settings.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -276,8 +276,8 @@ class ProfileTabHandler extends Handler
     /**
      * Display form to change user's password.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -292,8 +292,8 @@ class ProfileTabHandler extends Handler
     /**
      * Save user's new password.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -315,8 +315,8 @@ class ProfileTabHandler extends Handler
     /**
      * Fetch notifications tab content.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */
@@ -332,8 +332,8 @@ class ProfileTabHandler extends Handler
     /**
      * Save user notification settings.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON-formatted response
      */

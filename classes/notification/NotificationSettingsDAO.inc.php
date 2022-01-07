@@ -24,7 +24,7 @@ class NotificationSettingsDAO extends \PKP\db\DAO
     /**
      * Update a notification's metadata
      *
-     * @param $notificationId int
+     * @param int $notificationId
      *
      * @return $params array
      */
@@ -53,11 +53,11 @@ class NotificationSettingsDAO extends \PKP\db\DAO
     /**
      * Store a notification's metadata
      *
-     * @param $notificationId int
-     * @param $name string
-     * @param $value string
-     * @param $isLocalized boolean optional
-     * @param $type string optional
+     * @param int $notificationId
+     * @param string $name
+     * @param string $value
+     * @param bool $isLocalized optional
+     * @param string $type optional
      */
     public function updateNotificationSetting($notificationId, $name, $value, $isLocalized = false, $type = null)
     {
@@ -102,7 +102,7 @@ class NotificationSettingsDAO extends \PKP\db\DAO
     /**
      * Delete all settings for a notification
      *
-     * @param $notificationId
+     * @param int $notificationId
      */
     public function deleteSettingsByNotificationId($notificationId)
     {

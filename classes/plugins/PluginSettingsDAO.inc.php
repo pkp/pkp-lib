@@ -25,8 +25,8 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Get the cache for plugin settings.
      *
-     * @param $contextId int Context ID
-     * @param $pluginName string Plugin symbolic name
+     * @param int $contextId Context ID
+     * @param string $pluginName Plugin symbolic name
      *
      * @return Cache
      */
@@ -54,9 +54,9 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Retrieve a plugin setting value.
      *
-     * @param $contextId int Context ID
-     * @param $pluginName string Plugin symbolic name
-     * @param $name Setting name
+     * @param int $contextId Context ID
+     * @param string $pluginName Plugin symbolic name
+     * @param string $name Setting name
      */
     public function getSetting($contextId, $pluginName, $name)
     {
@@ -71,11 +71,11 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Does the plugin setting exist.
      *
-     * @param $contextId int Context ID
-     * @param $pluginName string Plugin symbolic name
-     * @param $name Setting name
+     * @param int $contextId Context ID
+     * @param string $pluginName Plugin symbolic name
+     * @param string $name Setting name
      *
-     * @return boolean
+     * @return bool
      */
     public function settingExists($contextId, $pluginName, $name)
     {
@@ -91,8 +91,8 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Callback for a cache miss.
      *
-     * @param $cache Cache object
-     * @param $id string Identifier to look up in cache
+     * @param object $cache Cache object
+     * @param string $id Identifier to look up in cache
      */
     public function _cacheMiss($cache, $id)
     {
@@ -110,8 +110,8 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Retrieve and cache all settings for a plugin.
      *
-     * @param $contextId int Context ID
-     * @param $pluginName string Plugin symbolic name
+     * @param int $contextId Context ID
+     * @param string $pluginName Plugin symbolic name
      *
      * @return array
      */
@@ -139,11 +139,11 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Add/update a plugin setting.
      *
-     * @param $contextId int Context ID
-     * @param $pluginName string Symbolic plugin name
-     * @param $name string Setting name
-     * @param $value mixed Setting value
-     * @param $type string data type of the setting. If omitted, type will be guessed
+     * @param int $contextId Context ID
+     * @param string $pluginName Symbolic plugin name
+     * @param string $name Setting name
+     * @param mixed $value Setting value
+     * @param string $type data type of the setting. If omitted, type will be guessed
      *
      * @return int Return value from ADODB's replace() function.
      */
@@ -173,9 +173,9 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Delete a plugin setting.
      *
-     * @param $contextId int
-     * @param $pluginName int
-     * @param $name string
+     * @param int $contextId
+     * @param int $pluginName
+     * @param string $name
      */
     public function deleteSetting($contextId, $pluginName, $name)
     {
@@ -194,8 +194,8 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Delete all settings for a plugin.
      *
-     * @param $contextId int
-     * @param $pluginName string
+     * @param int $contextId
+     * @param string $pluginName
      */
     public function deleteSettingsByPlugin($contextId, $pluginName)
     {
@@ -214,7 +214,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Delete all settings for a context.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function deleteByContextId($contextId)
     {
@@ -227,8 +227,8 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Used internally by installSettings to perform variable and translation replacements.
      *
-     * @param $rawInput string contains text including variable and/or translate replacements.
-     * @param $paramArray array contains variables for replacement
+     * @param string $rawInput contains text including variable and/or translate replacements.
+     * @param array $paramArray contains variables for replacement
      *
      * @return string
      */
@@ -247,8 +247,8 @@ class PluginSettingsDAO extends \PKP\db\DAO
      * Used internally by installSettings to recursively build nested arrays.
      * Deals with translation and variable replacement calls.
      *
-     * @param $node object XMLNode <array> tag
-     * @param $paramArray array Parameters to be replaced in key/value contents
+     * @param object $node XMLNode <array> tag
+     * @param array $paramArray Parameters to be replaced in key/value contents
      */
     public function _buildObject($node, $paramArray = [])
     {
@@ -274,9 +274,9 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Install plugin settings from an XML file.
      *
-     * @param $pluginName name of plugin for settings to apply to
-     * @param $filename string Name of XML file to parse and install
-     * @param $paramArray array Optional parameters for variable replacement in settings
+     * @param string $pluginName name of plugin for settings to apply to
+     * @param string $filename Name of XML file to parse and install
+     * @param array $paramArray Optional parameters for variable replacement in settings
      */
     public function installSettings($contextId, $pluginName, $filename, $paramArray = [])
     {
@@ -321,7 +321,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
  * Used internally by plugin setting installation code to perform translation
  * function.
  *
- * @param $matches array
+ * @param array $matches
  *
  * @return string
  */

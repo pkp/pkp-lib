@@ -33,28 +33,28 @@ use PKP\submissionFile\SubmissionFile;
 
 class FileUploadWizardHandler extends Handler
 {
-    /** @var integer */
+    /** @var int */
     public $_fileStage;
 
     /** @var array */
     public $_uploaderRoles;
 
-    /** @var boolean */
+    /** @var bool */
     public $_revisionOnly;
 
     /** @var int */
     public $_reviewRound;
 
-    /** @var integer */
+    /** @var int */
     public $_revisedFileId;
 
-    /** @var integer */
+    /** @var int */
     public $_assocType;
 
-    /** @var integer */
+    /** @var int */
     public $_assocId;
 
-    /** @var integer */
+    /** @var int */
     public $_queryId;
 
 
@@ -245,7 +245,7 @@ class FileUploadWizardHandler extends Handler
     /**
      * Get the authorized workflow stage.
      *
-     * @return integer One of the WORKFLOW_STAGE_ID_* constants.
+     * @return int One of the WORKFLOW_STAGE_ID_* constants.
      */
     public function getStageId()
     {
@@ -257,7 +257,7 @@ class FileUploadWizardHandler extends Handler
      * we upload files to. One of the SubmissionFile::SUBMISSION_FILE_*
      * constants.
      *
-     * @return integer
+     * @return int
      */
     public function getFileStage()
     {
@@ -277,7 +277,7 @@ class FileUploadWizardHandler extends Handler
     /**
      * Does this uploader only allow revisions and no new files?
      *
-     * @return boolean
+     * @return bool
      */
     public function getRevisionOnly()
     {
@@ -297,7 +297,7 @@ class FileUploadWizardHandler extends Handler
     /**
      * Get the id of the file to be revised (if any).
      *
-     * @return integer
+     * @return int
      */
     public function getRevisedFileId()
     {
@@ -307,7 +307,7 @@ class FileUploadWizardHandler extends Handler
     /**
      * Get the assoc type (if any)
      *
-     * @return integer
+     * @return int
      */
     public function getAssocType()
     {
@@ -317,7 +317,7 @@ class FileUploadWizardHandler extends Handler
     /**
      * Get the assoc id (if any)
      *
-     * @return integer
+     * @return int
      */
     public function getAssocId()
     {
@@ -330,8 +330,8 @@ class FileUploadWizardHandler extends Handler
     /**
      * Displays the file upload wizard.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -359,8 +359,8 @@ class FileUploadWizardHandler extends Handler
     /**
      * Render the file upload form in its initial state.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -391,8 +391,8 @@ class FileUploadWizardHandler extends Handler
     /**
      * Upload a file and render the modified upload wizard.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -438,8 +438,8 @@ class FileUploadWizardHandler extends Handler
      * Edit the metadata of the latest revision of
      * the requested submission file.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -455,8 +455,8 @@ class FileUploadWizardHandler extends Handler
     /**
      * Display the final tab of the modal
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -488,8 +488,8 @@ class FileUploadWizardHandler extends Handler
      * names from the revision detection pile (e.g. "Chapter 1" and
      * "Chapter 2")
      *
-     * @param $a string
-     * @param $b string
+     * @param string $a
+     * @param string $b
      */
     public function _onlyNumbersDiffer($a, $b)
     {

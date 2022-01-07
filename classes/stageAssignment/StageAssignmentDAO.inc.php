@@ -27,7 +27,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve an assignment by  its ID
      *
-     * @param $stageAssignmentId int
+     * @param int $stageAssignmentId
      *
      * @return StageAssignment
      */
@@ -45,10 +45,10 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve StageAssignments by submission and stage IDs.
      *
-     * @param $submissionId int
-     * @param $stageId int (optional)
-     * @param $userGroupId int (optional)
-     * @param $userId int (optional)
+     * @param int $submissionId
+     * @param int $stageId (optional)
+     * @param int $userGroupId (optional)
+     * @param int $userId (optional)
      *
      * @return DAOResultFactory StageAssignment
      */
@@ -60,10 +60,10 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve StageAssignments by submission and role IDs.
      *
-     * @param $submissionId int Submission ID
-     * @param $roleId int ROLE_ID_...
-     * @param $stageId int (optional)
-     * @param $userId int (optional)
+     * @param int $submissionId Submission ID
+     * @param int $roleId ROLE_ID_...
+     * @param int $stageId (optional)
+     * @param int $userId (optional)
      *
      * @return DAOResultFactory StageAssignment
      */
@@ -75,7 +75,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Get by user ID
      *
-     * @param $userId int
+     * @param int $userId
      *
      * @return StageAssignment
      */
@@ -88,9 +88,9 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve StageAssignments by submission and user IDs
      *
-     * @param $submissionId int Submission ID
-     * @param $userId int User ID
-     * @param $stageId int optional WORKFLOW_STAGE_ID_...
+     * @param int $submissionId Submission ID
+     * @param int $userId User ID
+     * @param int $stageId optional WORKFLOW_STAGE_ID_...
      *
      * @return DAOResultFactory StageAssignment
      */
@@ -102,8 +102,8 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Get editor stage assignments.
      *
-     * @param $submissionId int
-     * @param $stageId int
+     * @param int $submissionId
+     * @param int $stageId
      *
      * @return array StageAssignment
      */
@@ -119,8 +119,8 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * This test is used to determine what grid to place a submission into,
      * and to know if the review stage can be started.
      *
-     * @param $submissionId (int) The id of the submission being tested.
-     * @param $stageId (int) The id of the stage being tested.
+     * @param int $submissionId The id of the submission being tested.
+     * @param int $stageId The id of the stage being tested.
      *
      * @return bool
      */
@@ -147,8 +147,8 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Retrieve all assignments by UserGroupId and ContextId
      *
-     * @param $userGroupId int
-     * @param $contextId int
+     * @param int $userGroupId
+     * @param int $contextId
      *
      * @return DAOResultFactory
      */
@@ -167,11 +167,11 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Fetch a stageAssignment by symbolic info, building it if needed.
      *
-     * @param $submissionId int
-     * @param $userGroupId int
-     * @param $userId int
-     * @param $recommendOnly boolean
-     * @param $canChangeMetadata boolean
+     * @param int $submissionId
+     * @param int $userGroupId
+     * @param int $userId
+     * @param bool $recommendOnly
+     * @param bool $canChangeMetadata
      *
      * @return StageAssignment
      */
@@ -218,7 +218,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Internal function to return an StageAssignment object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return StageAssignment
      */
@@ -241,7 +241,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Insert a new StageAssignment.
      *
-     * @param $stageAssignment StageAssignment
+     * @param StageAssignment $stageAssignment
      */
     public function insertObject($stageAssignment)
     {
@@ -266,7 +266,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Update a new StageAssignment.
      *
-     * @param $stageAssignment StageAssignment
+     * @param StageAssignment $stageAssignment
      */
     public function updateObject($stageAssignment)
     {
@@ -296,7 +296,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete a StageAssignment.
      *
-     * @param $stageAssignment StageAssignment
+     * @param StageAssignment $stageAssignment
      */
     public function deleteObject($stageAssignment)
     {
@@ -310,9 +310,9 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete a stageAssignment by matching on all fields.
      *
-     * @param $submissionId int Submission ID
-     * @param $userGroupId int User group ID
-     * @param $userId int User ID
+     * @param int $submissionId Submission ID
+     * @param int $userGroupId User group ID
+     * @param int $userId User ID
      */
     public function deleteByAll($submissionId, $userGroupId, $userId)
     {
@@ -341,12 +341,12 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * serves two purposes: returns a single assignment or returns a factory,
      * depending on the calling context.
      *
-     * @param $submissionId int
-     * @param $stageId int optional
-     * @param $userGroupId int optional
-     * @param $userId int optional
-     * @param $roleId int optional ROLE_ID_...
-     * @param $single bool specify if only one stage assignment (default is a ResultFactory)
+     * @param int $submissionId
+     * @param int $stageId optional
+     * @param int $userGroupId optional
+     * @param int $userId optional
+     * @param int $roleId optional ROLE_ID_...
+     * @param bool $single specify if only one stage assignment (default is a ResultFactory)
      *
      * @return StageAssignment|ResultFactory Mixed, depending on $single
      */

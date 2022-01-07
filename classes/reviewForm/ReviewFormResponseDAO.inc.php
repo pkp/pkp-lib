@@ -25,8 +25,8 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Retrieve a review form response.
      *
-     * @param $reviewId int
-     * @param $reviewFormElementId int
+     * @param int $reviewId
+     * @param int $reviewFormElementId
      *
      * @return ReviewFormResponse
      */
@@ -53,7 +53,7 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Internal function to return a ReviewFormResponse object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return ReviewFormResponse
      */
@@ -75,7 +75,7 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Insert a new review form response.
      *
-     * @param $reviewFormResponse ReviewFormResponse
+     * @param ReviewFormResponse $reviewFormResponse
      */
     public function insertObject($reviewFormResponse)
     {
@@ -96,7 +96,7 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Update an existing review form response.
      *
-     * @param $reviewFormResponse ReviewFormResponse
+     * @param ReviewFormResponse $reviewFormResponse
      */
     public function updateObject($reviewFormResponse)
     {
@@ -119,7 +119,7 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Delete a review form response.
      *
-     * @param $reviewFormResponse ReviewFormResponse
+     * @param ReviewFormResponse $reviewFormResponse
      */
     public function deleteObject($reviewFormResponse)
     {
@@ -129,8 +129,8 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Delete a review form response by ID.
      *
-     * @param $reviewId int
-     * @param $reviewFormElementId int
+     * @param int $reviewId
+     * @param int $reviewFormElementId
      */
     public function deleteById($reviewId, $reviewFormElementId)
     {
@@ -143,7 +143,7 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Delete review form responses by review ID
      *
-     * @param $reviewId int
+     * @param int $reviewId
      */
     public function deleteByReviewId($reviewId)
     {
@@ -153,7 +153,7 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Delete group membership by user ID
      *
-     * @param $reviewFormElementId int
+     * @param int $reviewFormElementId
      */
     public function deleteByReviewFormElementId($reviewFormElementId)
     {
@@ -163,7 +163,7 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Retrieve all review form responses for a review in an associative array.
      *
-     * @param $reviewId int
+     * @param int $reviewId
      *
      * @return array review_form_element_id => array(review form response for this element)
      */
@@ -181,10 +181,10 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
     /**
      * Check if a review form response for the review.
      *
-     * @param $reviewId int
-     * @param $reviewFormElementId int optional
+     * @param int $reviewId
+     * @param int $reviewFormElementId optional
      *
-     * @return boolean
+     * @return bool
      */
     public function reviewFormResponseExists($reviewId, $reviewFormElementId = null)
     {

@@ -43,9 +43,9 @@ class CacheManager
     /**
      * Get a file cache.
      *
-     * @param $context string
-     * @param $cacheId string
-     * @param $fallback callback
+     * @param string $context
+     * @param string $cacheId
+     * @param callable $fallback
      *
      * @return object FileCache
      */
@@ -76,10 +76,10 @@ class CacheManager
     /**
      * Get a cache.
      *
-     * @param $context string
-     * @param $cacheId string
-     * @param $fallback callback
-     * @param $type string Type of cache: CACHE_TYPE_...
+     * @param string $context
+     * @param string $cacheId
+     * @param callable $fallback
+     * @param string $type Type of cache: CACHE_TYPE_...
      *
      * @return object Cache
      */
@@ -141,8 +141,8 @@ class CacheManager
      * Flush an entire context, if specified, or
      * the whole cache.
      *
-     * @param $context string The context to flush, if only one is to be flushed
-     * @param $type string The type of cache to flush
+     * @param string $context The context to flush, if only one is to be flushed
+     * @param string $type The type of cache to flush
      */
     public function flush($context = null, $type = CACHE_TYPE_FILE)
     {

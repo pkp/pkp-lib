@@ -47,7 +47,7 @@ class TemporaryFile extends PKPFile
     /**
      * Set ID of associated user.
      *
-     * @param $userId int
+     * @param int $userId
      */
     public function setUserId($userId)
     {

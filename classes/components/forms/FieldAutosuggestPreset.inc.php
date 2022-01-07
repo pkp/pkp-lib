@@ -19,7 +19,7 @@ class FieldAutosuggestPreset extends FieldBaseAutosuggest
     /** @copydoc Field::$component */
     public $component = 'field-autosuggest-preset';
 
-    /** @param array Key/value list of suggestions for this field */
+    /** @var array Key/value list of suggestions for this field */
     public $options = [];
 
     /**

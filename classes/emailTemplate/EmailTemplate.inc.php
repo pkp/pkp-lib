@@ -40,7 +40,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -72,7 +72,7 @@ class EmailTemplate extends \PKP\core\DataObject
     /**
      * Set sender role ID.
      *
-     * @param $fromRoleId int
+     * @param int $fromRoleId
      *
      * @deprecated 3.2
      */
@@ -96,7 +96,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @param $toRoleId int
+     * @param int $toRoleId
      */
     public function setToRoleId($toRoleId)
     {
@@ -120,7 +120,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @param $emailId int
+     * @param int $emailId
      */
     public function setEmailId($emailId)
     {
@@ -144,7 +144,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @param $key string
+     * @param string $key
      */
     public function setEmailKey($key)
     {
@@ -156,7 +156,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
@@ -168,7 +168,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @param $enabled boolean
+     * @param bool $enabled
      */
     public function setEnabled($enabled)
     {
@@ -180,7 +180,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @return boolean
+     * @return bool
      */
     public function getCanDisable()
     {
@@ -192,7 +192,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @param $canDisable boolean
+     * @param bool $canDisable
      */
     public function setCanDisable($canDisable)
     {
@@ -216,7 +216,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @param $subject string
+     * @param string $subject
      */
     public function setSubject($subject)
     {
@@ -240,7 +240,7 @@ class EmailTemplate extends \PKP\core\DataObject
      *
      * @deprecated 3.2
      *
-     * @param $body string
+     * @param string $body
      */
     public function setBody($body)
     {

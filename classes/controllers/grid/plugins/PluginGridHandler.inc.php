@@ -49,7 +49,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Constructor
      *
-     * @param $roles array
+     * @param array $roles
      */
     public function __construct($roles)
     {
@@ -279,8 +279,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Manage a plugin.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -293,8 +293,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Enable a plugin.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -316,8 +316,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Disable a plugin.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -339,8 +339,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Show upload plugin form to upload a new plugin.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string
      */
@@ -352,8 +352,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Show upload plugin form to update an existing plugin.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string
      */
@@ -365,8 +365,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Upload a plugin file.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -390,8 +390,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Save upload plugin file form.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -416,8 +416,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Delete plugin.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -466,8 +466,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
     /**
      * Fetch upload plugin form.
      *
-     * @param $function string
-     * @param $request PKPRequest Request object
+     * @param string $function
+     * @param PKPRequest $request Request object
      *
      * @return JSONMessage JSON object
      */

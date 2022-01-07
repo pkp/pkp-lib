@@ -29,7 +29,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Get the localized name of the plugin
      *
-     * @param $preferredLocale string
+     * @param string $preferredLocale
      *
      * @return string
      */
@@ -41,8 +41,8 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the name of the plugin
      *
-     * @param $name string
-     * @param $locale string optional
+     * @param string $name
+     * @param string $locale optional
      */
     public function setName($name, $locale = null)
     {
@@ -52,7 +52,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Get the name of the plugin
      *
-     * @param $locale string optional
+     * @param string $locale optional
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the homepage for this plugin
      *
-     * @param $homepage string
+     * @param string $homepage
      */
     public function setHomepage($homepage)
     {
@@ -94,7 +94,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the product (symbolic name) for this plugin
      *
-     * @param $product string
+     * @param string $product
      */
     public function setProduct($product)
     {
@@ -114,7 +114,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the category for this plugin
      *
-     * @param $category string
+     * @param string $category
      */
     public function setCategory($category)
     {
@@ -124,7 +124,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Get the newest compatible version of this plugin
      *
-     * @param $pad boolean True iff returned version numbers should be
+     * @param bool $pad True iff returned version numbers should be
      *  padded to 4 terms, e.g. 1.0.0.0 instead of just 1.0
      *
      * @return string
@@ -145,7 +145,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the version for this plugin
      *
-     * @param $version string
+     * @param string $version
      */
     public function setVersion($version)
     {
@@ -165,7 +165,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the release date for this plugin
      *
-     * @param $date int
+     * @param int $date
      */
     public function setDate($date)
     {
@@ -185,7 +185,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the contact name for this plugin
      *
-     * @param $contactName string
+     * @param string $contactName
      */
     public function setContactName($contactName)
     {
@@ -205,7 +205,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the contact institution name for this plugin
      *
-     * @param $contactInstitutionName string
+     * @param string $contactInstitutionName
      */
     public function setContactInstitutionName($contactInstitutionName)
     {
@@ -225,7 +225,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the contact email for this plugin
      *
-     * @param $contactEmail string
+     * @param string $contactEmail
      */
     public function setContactEmail($contactEmail)
     {
@@ -235,7 +235,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Get plugin summary.
      *
-     * @param $locale string optional
+     * @param string $locale optional
      *
      * @return string
      */
@@ -247,8 +247,8 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set plugin summary.
      *
-     * @param $summary string
-     * @param $locale string optional
+     * @param string $summary
+     * @param string $locale optional
      */
     public function setSummary($summary, $locale = null)
     {
@@ -258,7 +258,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Get plugin description.
      *
-     * @param $locale string optional
+     * @param string $locale optional
      *
      * @return string
      */
@@ -270,8 +270,8 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set plugin description.
      *
-     * @param $description string
-     * @param $locale string optional
+     * @param string $description
+     * @param string $locale optional
      */
     public function setDescription($description, $locale = null)
     {
@@ -281,7 +281,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Get plugin installation instructions.
      *
-     * @param $locale string optional
+     * @param string $locale optional
      *
      * @return string
      */
@@ -293,8 +293,8 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set plugin installation instructions.
      *
-     * @param $installation string
-     * @param $locale string optional
+     * @param string $installation
+     * @param string $locale optional
      */
     public function setInstallationInstructions($installation, $locale = null)
     {
@@ -304,7 +304,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Get release description.
      *
-     * @param $locale string optional
+     * @param string $locale optional
      *
      * @return string
      */
@@ -316,8 +316,8 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set plugin release description.
      *
-     * @param $releaseDescription string
-     * @param $locale string optional
+     * @param string $releaseDescription
+     * @param string $locale optional
      */
     public function setReleaseDescription($releaseDescription, $locale = null)
     {
@@ -337,7 +337,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set plugin release MD5.
      *
-     * @param $releaseMD5 string
+     * @param string $releaseMD5
      */
     public function setReleaseMD5($releaseMD5)
     {
@@ -357,7 +357,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the certifications for this plugin release
      *
-     * @param $certifications array
+     * @param array $certifications
      */
     public function setReleaseCertifications($certifications)
     {

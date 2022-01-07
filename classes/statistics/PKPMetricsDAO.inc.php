@@ -36,12 +36,12 @@ class PKPMetricsDAO extends \PKP\db\DAO
      * @see <https://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
      * for a full specification of the input and output format of this method.
      *
-     * @param $metricType string|array metrics selection
-     * @param $columns string|array column (aggregation level) selection
-     * @param $filters array report-level filter selection
-     * @param $orderBy array order criteria
-     * @param $range null|DBResultRange paging specification
-     * @param $nonAdditive boolean (optional) Whether the metric type dimension
+     * @param string|array $metricType metrics selection
+     * @param string|array $columns column (aggregation level) selection
+     * @param array $filters report-level filter selection
+     * @param array $orderBy order criteria
+     * @param null|DBResultRange $range paging specification
+     * @param bool $nonAdditive (optional) Whether the metric type dimension
      * will be additive or not. This must be used with care, different metric types
      * should not be additive because they may diverge in ways of counting usage events.
      *
@@ -246,9 +246,9 @@ class PKPMetricsDAO extends \PKP\db\DAO
      * with records filtered by the passed
      * arguments.
      *
-     * @param $assocType int
-     * @param $assocId int
-     * @param $metricType string
+     * @param int $assocType
+     * @param int $assocId
+     * @param string $metricType
      *
      * @return array
      */
@@ -267,9 +267,9 @@ class PKPMetricsDAO extends \PKP\db\DAO
      * Check for the presence of any record
      * that has the passed metric type.
      *
-     * @param $metricType string
+     * @param string $metricType
      *
-     * @return boolean
+     * @return bool
      */
     public function hasRecord($metricType)
     {
@@ -280,7 +280,7 @@ class PKPMetricsDAO extends \PKP\db\DAO
     /**
      * Purge a load batch.
      *
-     * @param $loadId string
+     * @param string $loadId
      */
     public function purgeLoadBatch($loadId)
     {
@@ -291,8 +291,8 @@ class PKPMetricsDAO extends \PKP\db\DAO
      * Purge all records associated with the passed metric type
      * until the passed date.
      *
-     * @param $metricType string
-     * @param $toDate string
+     * @param string $metricType
+     * @param string $toDate
      */
     public function purgeRecords($metricType, $toDate)
     {
@@ -302,7 +302,7 @@ class PKPMetricsDAO extends \PKP\db\DAO
     /**
      * Insert an entry into metrics table.
      *
-     * @param $record array
+     * @param array $record
      */
     public function insertRecord($record)
     {
@@ -388,9 +388,9 @@ class PKPMetricsDAO extends \PKP\db\DAO
     /**
      * Foreign key lookup for the published object dimension.
      *
-     * @param $assocType int
-     * @param $assocId int
-     * @param $representationId int, optional
+     * @param int $assocType
+     * @param int $assocId
+     * @param int $representationId optional
      *
      * @return array Values must be foreign keys relative to the
      * context, pkp section, associated object (type and id), submission
@@ -488,8 +488,8 @@ class PKPMetricsDAO extends \PKP\db\DAO
      * Default implementation returns null, subclasses
      * have to implement it.
      *
-     * @param $submissionId Submission id.
-     * @param $contextId The submission context id.
+     * @param int $submissionId Submission id.
+     * @param int $contextId The submission context id.
      *
      * @return array Assoc type and id of the object.
      */

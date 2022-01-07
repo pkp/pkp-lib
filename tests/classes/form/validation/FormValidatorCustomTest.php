@@ -67,10 +67,10 @@ class FormValidatorCustomTest extends PKPTestCase
      * easily manipulate its return value. The value passed in
      * to this method is saved internally for later inspection.
      *
-     * @param $value string
-     * @param $additionalArgument boolean
+     * @param string $value
+     * @param bool $additionalArgument
      *
-     * @return boolean the value passed in to $additionalArgument
+     * @return bool the value passed in to $additionalArgument
      */
     public function userValidationFunction($value, $additionalArgument)
     {

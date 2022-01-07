@@ -21,9 +21,9 @@ class EmailLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $modalTitle string Title of the modal
-     * @param $actionArgs array The action arguments.
+     * @param Request $request
+     * @param string $modalTitle Title of the modal
+     * @param array $actionArgs The action arguments.
      */
     public function __construct($request, $modalTitle, $actionArgs)
     {

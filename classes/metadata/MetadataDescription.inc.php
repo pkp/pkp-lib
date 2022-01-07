@@ -130,7 +130,7 @@ class MetadataDescription extends \PKP\core\DataObject
     public $_displayName;
 
     /**
-     * @var integer sequence id used when saving several descriptions
+     * @var int sequence id used when saving several descriptions
      *  of the same subject.
      */
     public $_seq;
@@ -197,7 +197,7 @@ class MetadataDescription extends \PKP\core\DataObject
     /**
      * Set the association id (described resource identifier)
      *
-     * @param $assocId int
+     * @param int $assocId
      */
     public function setAssocId($assocId)
     {
@@ -222,7 +222,7 @@ class MetadataDescription extends \PKP\core\DataObject
     /**
      * Set the (optional) display name
      *
-     * @param $displayName string
+     * @param string $displayName
      */
     public function setDisplayName($displayName)
     {
@@ -242,7 +242,7 @@ class MetadataDescription extends \PKP\core\DataObject
     /**
      * Set the sequence id
      *
-     * @param $seq integer
+     * @param int $seq
      */
     public function setSequence($seq)
     {
@@ -252,7 +252,7 @@ class MetadataDescription extends \PKP\core\DataObject
     /**
      * Get the sequence id
      *
-     * @return integer
+     * @return int
      */
     public function getSequence()
     {
@@ -265,12 +265,12 @@ class MetadataDescription extends \PKP\core\DataObject
      * method will also check the validity of the value for the
      * given property before adding the statement.
      *
-     * @param $propertyName string The name of the property
-     * @param $value mixed The value to be assigned to the property
-     * @param $locale string
-     * @param $replace boolean whether to replace an existing statement
+     * @param string $propertyName The name of the property
+     * @param mixed $value The value to be assigned to the property
+     * @param string $locale
+     * @param bool $replace whether to replace an existing statement
      *
-     * @return boolean true if a valid statement was added, otherwise false
+     * @return bool true if a valid statement was added, otherwise false
      */
     public function addStatement($propertyName, $value, $locale = null, $replace = false)
     {
@@ -336,10 +336,10 @@ class MetadataDescription extends \PKP\core\DataObject
      * If the property is translated and the locale is null then
      * the statements for all locales will be removed.
      *
-     * @param $propertyName string
-     * @param $locale string
+     * @param string $propertyName
+     * @param string $locale
      *
-     * @return boolean true if the statement was found and removed, otherwise false
+     * @return bool true if the statement was found and removed, otherwise false
      */
     public function removeStatement($propertyName, $locale = null)
     {
@@ -372,8 +372,8 @@ class MetadataDescription extends \PKP\core\DataObject
     /**
      * Get a specific statement
      *
-     * @param $propertyName string
-     * @param $locale string
+     * @param string $propertyName
+     * @param string $locale
      *
      * @return mixed a scalar property value or an array of property values
      *  if the cardinality of the property is 'many'.
@@ -401,7 +401,7 @@ class MetadataDescription extends \PKP\core\DataObject
     /**
      * Returns all translations of a translated property
      *
-     * @param $propertyName string
+     * @param string $propertyName
      *
      * @return array all translations of a given property; if the
      *  property has cardinality "many" then this returns a two-dimensional
@@ -425,10 +425,10 @@ class MetadataDescription extends \PKP\core\DataObject
      * * Translated properties with a cardinality of 'many' must be
      *   passed in as sub-sub-arrays with the locale as the first key.
      *
-     * @param $statements array statements
-     * @param $replace integer one of the allowed replace levels.
+     * @param array $statements statements
+     * @param int $replace one of the allowed replace levels.
      *
-     * @return boolean true if all statements could be added, false otherwise
+     * @return bool true if all statements could be added, false otherwise
      */
     public function setStatements(&$statements, $replace = self::METADATA_DESCRIPTION_REPLACE_PROPERTIES)
     {
@@ -519,7 +519,7 @@ class MetadataDescription extends \PKP\core\DataObject
      * Convenience method that returns a property from
      * the underlying meta-data schema.
      *
-     * @param $propertyName string
+     * @param string $propertyName
      *
      * @return MetadataProperty
      */
@@ -533,7 +533,7 @@ class MetadataDescription extends \PKP\core\DataObject
      * Convenience method that returns a property id
      * the underlying meta-data schema.
      *
-     * @param $propertyName string
+     * @param string $propertyName
      *
      * @return string
      */
@@ -559,7 +559,7 @@ class MetadataDescription extends \PKP\core\DataObject
      * Convenience method that returns the names of properties with a
      * given data type of the underlying meta-data schema.
      *
-     * @param $propertyType string
+     * @param string $propertyType
      *
      * @return array an array of string values representing valid property names
      */
@@ -584,9 +584,9 @@ class MetadataDescription extends \PKP\core\DataObject
      * Convenience method that checks the existence
      * of a property in the underlying meta-data schema.
      *
-     * @param $propertyName string
+     * @param string $propertyName
      *
-     * @return boolean
+     * @return bool
      */
     public function hasProperty($propertyName)
     {
@@ -597,9 +597,9 @@ class MetadataDescription extends \PKP\core\DataObject
     /**
      * Check the existence of a statement for the given property.
      *
-     * @param $propertyName string
+     * @param string $propertyName
      *
-     * @return boolean
+     * @return bool
      */
     public function hasStatement($propertyName)
     {
@@ -611,9 +611,9 @@ class MetadataDescription extends \PKP\core\DataObject
      * Convenience method that checks whether a given property
      * is translated.
      *
-     * @param $propertyName string
+     * @param string $propertyName
      *
-     * @return boolean
+     * @return bool
      */
     public function isTranslatedProperty($propertyName)
     {

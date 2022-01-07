@@ -32,8 +32,8 @@ class NavigationMenuForm extends Form
     /**
      * Constructor
      *
-     * @param $contextId int Context ID
-     * @param $navigationMenuId int NavigationMenu Id
+     * @param int $contextId Context ID
+     * @param int $navigationMenuId NavigationMenu Id
      */
     public function __construct($contextId, $navigationMenuId = null)
     {

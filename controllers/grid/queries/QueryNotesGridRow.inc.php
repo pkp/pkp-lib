@@ -19,7 +19,7 @@ use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 class QueryNotesGridRow extends GridRow
 {
-    /** @var array **/
+    /** @var array */
     public $_actionArgs;
 
     /** @var Query */
@@ -31,9 +31,9 @@ class QueryNotesGridRow extends GridRow
     /**
      * Constructor
      *
-     * @param $actionArgs array Action arguments
-     * @param $query Query
-     * @param $queryNotesGrid The notes grid containing this row
+     * @param array $actionArgs Action arguments
+     * @param Query $query
+     * @param QueryNotesGridHandler $queryNotesGrid The notes grid containing this row
      */
     public function __construct($actionArgs, $query, $queryNotesGrid)
     {

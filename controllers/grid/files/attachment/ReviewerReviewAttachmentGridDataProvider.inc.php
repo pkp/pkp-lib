@@ -21,7 +21,7 @@ import('lib.pkp.controllers.grid.files.SubmissionFilesGridDataProvider');
 
 class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataProvider
 {
-    /** @var integer */
+    /** @var int */
     public $_reviewId;
 
     /**
@@ -126,7 +126,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
     /**
      * Get the review id.
      *
-     * @return integer
+     * @return int
      */
     public function _getReviewId()
     {

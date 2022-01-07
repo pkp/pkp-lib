@@ -28,7 +28,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Set parent OAI object.
      *
-     * @param JournalOAI
+     * @param JournalOAI $oai
      */
     public function setOAI($oai)
     {
@@ -52,7 +52,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Retrieve a resumption token.
      *
-     * @param $tokenId string OAI resumption token
+     * @param string $tokenId OAI resumption token
      *
      * @return OAIResumptionToken
      */
@@ -66,7 +66,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Insert an OAI resumption token, generating a new ID.
      *
-     * @param $token OAIResumptionToken
+     * @param OAIResumptionToken $token
      *
      * @return OAIResumptionToken
      */
@@ -97,12 +97,12 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Check if a data object ID specifies a data object.
      *
-     * @param $dataObjectId int
-     * @param $setIds array optional Objects ids that specify an OAI set,
+     * @param int $dataObjectId
+     * @param array $setIds optional Objects ids that specify an OAI set,
      * in hierarchical order. If passed, will check for the data object id
      * only inside the specified set.
      *
-     * @return boolean
+     * @return bool
      */
     public function recordExists($dataObjectId, $setIds = [])
     {
@@ -112,8 +112,8 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Return OAI record for specified data object.
      *
-     * @param $dataObjectId int
-     * @param $setIds array optional Objects ids that specify an OAI set,
+     * @param int $dataObjectId
+     * @param array $setIds optional Objects ids that specify an OAI set,
      * in hierarchical order. If passed, will check for the data object id
      * only inside the specified set.
      *
@@ -129,15 +129,15 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Return set of OAI records matching specified parameters.
      *
-     * @param $setIds array Objects ids that specify an OAI set,
+     * @param array $setIds Objects ids that specify an OAI set,
      * in hierarchical order. The returned records will be part
      * of this set.
-     * @param $from int timestamp
-     * @param $until int timestamp
-     * @param $set string setSpec
-     * @param $offset int
-     * @param $limit int
-     * @param $total int
+     * @param int $from timestamp
+     * @param int $until timestamp
+     * @param string $set setSpec
+     * @param int $offset
+     * @param int $limit
+     * @param int $total
      *
      * @return array OAIRecord
      */
@@ -157,15 +157,15 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Return set of OAI identifiers matching specified parameters.
      *
-     * @param $setIds array Objects ids that specify an OAI set,
+     * @param array $setIds Objects ids that specify an OAI set,
      * in hierarchical order. The returned records will be part
      * of this set.
-     * @param $from int timestamp
-     * @param $until int timestamp
-     * @param $set string setSpec
-     * @param $offset int
-     * @param $limit int
-     * @param $total int
+     * @param int $from timestamp
+     * @param int $until timestamp
+     * @param string $set setSpec
+     * @param int $offset
+     * @param int $limit
+     * @param int $total
      *
      * @return array OAIIdentifier
      */
@@ -185,7 +185,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Return the *nix timestamp of the earliest published submission.
      *
-     * @param $setIds array optional Objects ids that specify an OAI set,
+     * @param array $setIds optional Objects ids that specify an OAI set,
      * in hierarchical order. If empty, all records from
      * all sets will be included.
      *
@@ -208,7 +208,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Return OAIRecord object from database row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return OAIRecord
      */
@@ -225,7 +225,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Return OAIIdentifier object from database row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return OAIIdentifier
      */
@@ -242,10 +242,10 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Common operations for OAIRecord and OAIIdentifier object data set.
      *
-     * @param $record OAIRecord/OAIIdentifier
-     * @param $row array
+     * @param OAIRecord|OAIIdentifier $record
+     * @param array $row
      *
-     * @return OAIRecord/OAIIdentifier
+     * @return OAIRecord|OAIIdentifier
      */
     public function _doCommonOAIFromRowOperations($record, $row)
     {
@@ -266,13 +266,13 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Get a OAI records record set.
      *
-     * @param $setIds array Objects ids that specify an OAI set,
+     * @param array $setIds Objects ids that specify an OAI set,
      * in hierarchical order.
-     * @param $from int/string *nix timestamp or ISO datetime string
-     * @param $until int/string *nix timestamp or ISO datetime string
-     * @param $set string
-     * @param $submissionId int optional
-     * @param $orderBy string UNFILTERED
+     * @param int|string $from *nix timestamp or ISO datetime string
+     * @param int|string $until *nix timestamp or ISO datetime string
+     * @param string $set
+     * @param int $submissionId optional
+     * @param string $orderBy UNFILTERED
      *
      * @return \Illuminate\Database\Query\Builder
      */

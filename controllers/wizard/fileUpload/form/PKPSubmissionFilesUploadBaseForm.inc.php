@@ -27,7 +27,7 @@ use PKP\submissionFile\SubmissionFile;
 
 class PKPSubmissionFilesUploadBaseForm extends Form
 {
-    /** @var integer */
+    /** @var int */
     public $_stageId;
 
     /** @var ReviewRound */
@@ -39,17 +39,17 @@ class PKPSubmissionFilesUploadBaseForm extends Form
     /**
      * Constructor.
      *
-     * @param $request Request
-     * @param $template string
-     * @param $submissionId integer
-     * @param $stageId integer One of the WORKFLOW_STAGE_ID_* constants.
-     * @param $fileStage integer
-     * @param $revisionOnly boolean
-     * @param $reviewRound ReviewRound
-     * @param $revisedFileId integer
-     * @param $assocType integer
-     * @param $assocId integer
-     * @param $queryId integer
+     * @param Request $request
+     * @param string $template
+     * @param int $submissionId
+     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param int $fileStage
+     * @param bool $revisionOnly
+     * @param ReviewRound $reviewRound
+     * @param int $revisedFileId
+     * @param int $assocType
+     * @param int $assocId
+     * @param int $queryId
      */
     public function __construct(
         $request,
@@ -114,7 +114,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
     /**
      * Get the workflow stage id.
      *
-     * @return integer
+     * @return int
      */
     public function getStageId()
     {
@@ -144,7 +144,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
     /**
      * Get the associated type
      *
-     * @return integer
+     * @return int
      */
     public function getAssocType()
     {
@@ -154,7 +154,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
     /**
      * Get the associated id.
      *
-     * @return integer
+     * @return int
      */
     public function getAssocId()
     {
@@ -237,8 +237,8 @@ class PKPSubmissionFilesUploadBaseForm extends Form
     /**
      * Get the submission files possible to select/consider for revision by the given user.
      *
-     * @param $user User
-     * @param $uploadedFile uploaded SubmissionFile
+     * @param User $user
+     * @param SubmissionFile $uploadedFile uploaded file
      *
      * @return array a list of SubmissionFile instances.
      */

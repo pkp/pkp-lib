@@ -26,7 +26,7 @@ class ItemSelectionGridColumn extends GridColumn
     /**
      * Constructor
      *
-     * @param $selectName string The name of the form parameter
+     * @param string $selectName The name of the form parameter
      *  to which the selected files will be posted.
      */
     public function __construct($selectName)

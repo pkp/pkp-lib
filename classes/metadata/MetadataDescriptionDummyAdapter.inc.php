@@ -23,7 +23,7 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter
     /**
      * Constructor
      *
-     * @param $metadataDescription MetadataDescription
+     * @param MetadataDescription $metadataDescription
      * @param null|mixed $mode
      */
     public function __construct(&$metadataDescription, $mode = null)
@@ -55,8 +55,8 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter
     /**
      * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
      *
-     * @param $sourceMetadataDescription MetadataDescription
-     * @param $targetMetadataDescription MetadataDescription
+     * @param MetadataDescription $sourceMetadataDescription
+     * @param MetadataDescription $targetMetadataDescription
      *
      * @return MetadataDescription
      */
@@ -71,7 +71,7 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter
     /**
      * @see MetadataDataObjectAdapter::extractMetadataFromDataObject()
      *
-     * @param $sourceMetadataDescription MetadataDescription
+     * @param MetadataDescription $sourceMetadataDescription
      *
      * @return MetadataDescription
      */
@@ -88,7 +88,7 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter
      * prefix. This is ok as meta-data descriptions always
      * only have meta-data from one namespace.
      *
-     * @param $translated boolean if true, return localized field
+     * @param bool $translated if true, return localized field
      *  names, otherwise return additional field names.
      *
      * @return array an array of field names to be persisted.

@@ -52,13 +52,13 @@ class TypeDescription
     /** @var string the unparsed type name */
     public $_typeName;
 
-    /** @var integer the cardinality of the type */
+    /** @var int the cardinality of the type */
     public $_cardinality;
 
     /**
      * Constructor
      *
-     * @param $typeName string A plain text type name to be parsed
+     * @param string $typeName A plain text type name to be parsed
      *  by this type description class.
      *
      *  Type names can be any string. This base class provides a basic
@@ -124,9 +124,8 @@ class TypeDescription
      * Checks whether the given object complies
      * with the type description.
      *
-     * @param $object mixed
      *
-     * @return boolean
+     * @return bool
      */
     public function isCompatible($object)
     {
@@ -184,9 +183,9 @@ class TypeDescription
     /**
      * Parse a type name
      *
-     * @param $typeName string
+     * @param string $typeName
      *
-     * @return boolean true if success, otherwise false
+     * @return bool true if success, otherwise false
      */
     public function parseTypeName($typeName)
     {
@@ -197,9 +196,8 @@ class TypeDescription
     /**
      * Validates an object against the internal type description.
      *
-     * @param $object mixed
      *
-     * @return boolean
+     * @return bool
      */
     public function checkType(&$object)
     {
@@ -216,7 +214,7 @@ class TypeDescription
      * then delegate to the subclass to do the type-specific
      * parsing.
      *
-     * @param $typeName string
+     * @param string $typeName
      */
     public function _parseTypeNameInternally($typeName)
     {

@@ -21,13 +21,13 @@ use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 class AuthorGridRow extends GridRow
 {
-    /** @var Submission **/
+    /** @var Submission */
     public $_submission;
 
-    /** @var Publication **/
+    /** @var Publication */
     public $_publication;
 
-    /** @var boolean */
+    /** @var bool */
     public $_readOnly;
 
     /** @var int */
@@ -158,7 +158,7 @@ class AuthorGridRow extends GridRow
      *
      * @param PKPRequest $request
      *
-     * @return boolean
+     * @return bool
      */
     public function allowedToCreateUser($request)
     {
@@ -168,7 +168,7 @@ class AuthorGridRow extends GridRow
     /**
      * Determine if this grid row should be read only.
      *
-     * @return boolean
+     * @return bool
      */
     public function isReadOnly()
     {

@@ -20,9 +20,9 @@ class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
     /**
      * Retrieve an submission tombstone setting value.
      *
-     * @param $tombstoneId int
-     * @param $name
-     * @param $locale string optional
+     * @param int $tombstoneId
+     * @param string $name
+     * @param string $locale optional
      */
     public function getSetting($tombstoneId, $name, $locale = null)
     {
@@ -51,11 +51,10 @@ class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
     /**
      * Add/update an submission tombstone setting.
      *
-     * @param $tombstoneId int
-     * @param $name string
-     * @param $value mixed
-     * @param $type string data type of the setting. If omitted, type will be guessed
-     * @param $isLocalized boolean
+     * @param int $tombstoneId
+     * @param string $name
+     * @param string $type data type of the setting. If omitted, type will be guessed
+     * @param bool $isLocalized
      */
     public function updateSetting($tombstoneId, $name, $value, $type = null, $isLocalized = false)
     {
@@ -96,9 +95,9 @@ class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
     /**
      * Delete an submission tombstone setting.
      *
-     * @param $tombstoneId int
-     * @param $name string
-     * @param $locale string optional
+     * @param int $tombstoneId
+     * @param string $name
+     * @param string $locale optional
      *
      * @return int Affected row count
      */
@@ -116,7 +115,7 @@ class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
     /**
      * Delete all settings for an submission tombstone.
      *
-     * @param $tombstoneId int
+     * @param int $tombstoneId
      *
      * @return int Affected row count
      */

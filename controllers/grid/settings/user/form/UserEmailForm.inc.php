@@ -22,13 +22,13 @@ use PKP\notification\PKPNotification;
 
 class UserEmailForm extends Form
 {
-    /** @var the user id of user to send email to */
+    /** @var int The user id of user to send email to */
     public $userId;
 
     /**
      * Constructor.
      *
-     * @param $userId int User ID to contact.
+     * @param int $userId User ID to contact.
      */
     public function __construct($userId)
     {

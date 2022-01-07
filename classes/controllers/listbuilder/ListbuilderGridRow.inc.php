@@ -21,13 +21,13 @@ use PKP\linkAction\request\NullAction;
 
 class ListbuilderGridRow extends GridRow
 {
-    /** @var boolean */
+    /** @var bool */
     public $_hasDeleteItemLink;
 
     /**
      * Constructor
      *
-     * @param $hasDeleteItemLink boolean
+     * @param bool $hasDeleteItemLink
      */
     public function __construct($hasDeleteItemLink = true)
     {
@@ -39,7 +39,7 @@ class ListbuilderGridRow extends GridRow
     /**
      * Add a delete item link action or not.
      *
-     * @param $hasDeleteItemLink boolean
+     * @param bool $hasDeleteItemLink
      */
     public function setHasDeleteItemLink($hasDeleteItemLink)
     {

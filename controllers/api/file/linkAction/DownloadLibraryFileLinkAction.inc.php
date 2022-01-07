@@ -20,8 +20,8 @@ class DownloadLibraryFileLinkAction extends LinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $libraryFile LibraryFile the library file to
+     * @param Request $request
+     * @param LibraryFile $libraryFile the library file to
      *  link to.
      */
     public function __construct($request, $libraryFile)
@@ -59,7 +59,7 @@ class DownloadLibraryFileLinkAction extends LinkAction
     /**
      * Return the action arguments to address a file.
      *
-     * @param $libraryFile LibraryFile
+     * @param LibraryFile $libraryFile
      *
      * @return array
      */

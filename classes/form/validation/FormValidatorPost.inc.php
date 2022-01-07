@@ -22,8 +22,8 @@ class FormValidatorPost extends FormValidator
     /**
      * Constructor.
      *
-     * @param $form Form
-     * @param $message string the locale key to use (optional)
+     * @param Form $form
+     * @param string $message the locale key to use (optional)
      */
     public function __construct(&$form, $message = 'form.postRequired')
     {
@@ -38,7 +38,7 @@ class FormValidatorPost extends FormValidator
      * Check if form was posted.
      * overrides FormValidator::isValid()
      *
-     * @return boolean
+     * @return bool
      */
     public function isValid()
     {

@@ -27,7 +27,7 @@ class QueryTitleGridColumn extends GridColumn
     /**
      * Constructor
      *
-     * @param $actionArgs array Action args for link actions
+     * @param array $actionArgs Action args for link actions
      */
     public function __construct($actionArgs)
     {

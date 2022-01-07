@@ -19,7 +19,7 @@ class PKPNativeImportExportCLIToolKit
     /**
      * Echo a CLI Error Message
      *
-     * @param $errorMessage string
+     * @param string $errorMessage
      */
     public function echoCLIError($errorMessage)
     {
@@ -31,8 +31,8 @@ class PKPNativeImportExportCLIToolKit
     /**
      * Echo export results
      *
-     * @param $deployment PKPNativeImportExportDeployment
-     * @param $xmlFile string
+     * @param PKPNativeImportExportDeployment $deployment
+     * @param string $xmlFile
      */
     public function getCLIExportResult($deployment, $xmlFile)
     {
@@ -52,7 +52,7 @@ class PKPNativeImportExportCLIToolKit
     /**
      * Echo import results
      *
-     * @param $deployment PKPNativeImportExportDeployment
+     * @param PKPNativeImportExportDeployment $deployment
      */
     public function getCLIImportResult($deployment)
     {
@@ -80,7 +80,7 @@ class PKPNativeImportExportCLIToolKit
     /**
      * Echo import/export possible warnings and errors
      *
-     * @param $deployment PKPNativeImportExportDeployment
+     * @param PKPNativeImportExportDeployment $deployment
      */
     public function getCLIProblems($deployment)
     {
@@ -106,8 +106,8 @@ class PKPNativeImportExportCLIToolKit
     /**
      * Echo import/export possible warnings and errors
      *
-     * @param $relatedIssues array
-     * @param $title string
+     * @param array $relatedIssues
+     * @param string $title
      */
     public function displayCLIIssues($relatedIssues, $title)
     {

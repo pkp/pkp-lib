@@ -30,7 +30,7 @@ class RecommendationForm extends Form
     /** @var Submission The submission associated with the editor recommendation */
     public $_submission;
 
-    /** @var integer The stage ID where the recommendation is being made */
+    /** @var int The stage ID where the recommendation is being made */
     public $_stageId;
 
     /** @var ReviewRound */
@@ -39,9 +39,9 @@ class RecommendationForm extends Form
     /**
      * Constructor.
      *
-     * @param $submission Submission
-     * @param $stageId integer
-     * @param $reviewRound ReviewRound
+     * @param Submission $submission
+     * @param int $stageId
+     * @param ReviewRound $reviewRound
      */
     public function __construct($submission, $stageId, $reviewRound)
     {

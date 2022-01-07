@@ -67,10 +67,10 @@ class PKPReviewerGridHandler extends GridHandler
     /** @var Submission */
     public $_submission;
 
-    /** @var integer */
+    /** @var int */
     public $_stageId;
 
-    /** @var boolean Is the current user assigned as an author to this submission */
+    /** @var bool Is the current user assigned as an author to this submission */
     public $_isCurrentUserAssignedAuthor;
 
 
@@ -175,7 +175,7 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Get the review stage id.
      *
-     * @return integer
+     * @return int
      */
     public function getStageId()
     {
@@ -337,8 +337,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Add a reviewer.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -350,8 +350,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Load the contents of the reviewer form
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -365,8 +365,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Create a new user as reviewer.
      *
-     * @param $args Array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return string Serialized JSON object
      */
@@ -378,8 +378,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Enroll an existing user as reviewer.
      *
-     * @param $args Array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return string Serialized JSON object
      */
@@ -391,8 +391,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Edit a reviewer
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -417,8 +417,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Manage reviewer access to files
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -434,8 +434,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Save a change to reviewer access to files
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -456,8 +456,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Get a list of all non-reviewer users in the system to populate the reviewer role assignment autocomplete.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -485,8 +485,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Unassign a reviewer
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -506,8 +506,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Reinstate a reviewer
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -527,7 +527,7 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Save the reviewer reinstatement
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -562,7 +562,7 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Save the reviewer unassignment
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -597,8 +597,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * An action triggered by a confirmation modal to allow an editor to unconsider a review.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -636,8 +636,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Mark the review as read and trigger a rewrite of the row.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -708,8 +708,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Displays a modal to allow the editor to enter a message to send to the reviewer as a thank you.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -731,8 +731,8 @@ class PKPReviewerGridHandler extends GridHandler
      * Open a modal to read the reviewer's review and
      * download any files they may have uploaded
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -788,8 +788,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Send the acknowledgement email, if desired, and trigger a row refresh action.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -820,8 +820,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Displays a modal to allow the editor to enter a message to send to the reviewer as a reminder
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return string Serialized JSON object
      */
@@ -842,8 +842,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Send the reviewer reminder and close the modal
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -870,8 +870,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Displays a modal to send an email message to the user.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -904,8 +904,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Displays a modal containing history for the review assignment.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -932,8 +932,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Displays a modal containing the gossip values for a reviewer
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -972,8 +972,8 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Fetches an email template's message body and returns it via AJAX.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -1008,10 +1008,10 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Return a fetched reviewer form data in string.
      *
-     * @param $args Array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
-     * @return String
+     * @return string
      */
     public function _fetchReviewerForm($args, $request)
     {
@@ -1032,9 +1032,9 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Get the name of ReviewerForm class for the current selection type.
      *
-     * @param $selectionType String (const)
+     * @param string $selectionType (const)
      *
-     * @return FormClassName String
+     * @return string Form class name
      */
     public function _getReviewerFormClassName($selectionType)
     {

@@ -32,28 +32,28 @@ class FilesGridCapabilities
     public const FILE_GRID_MANAGE = 0x00000010;
     public const FILE_GRID_EDIT = 0x00000020;
 
-    /** @var boolean */
+    /** @var bool */
     public $_canAdd;
 
-    /** @var boolean */
+    /** @var bool */
     public $_canViewNotes;
 
-    /** @var boolean */
+    /** @var bool */
     public $_canDownloadAll;
 
-    /** @var boolean */
+    /** @var bool */
     public $_canDelete;
 
-    /** @var boolean */
+    /** @var bool */
     public $_canManage;
 
-    /** @var boolean */
+    /** @var bool */
     public $_canEdit;
 
     /**
      * Constructor
      *
-     * @param $capabilities integer A bit map with zero or more
+     * @param int $capabilities A bit map with zero or more
      *  FILE_GRID_* capabilities set.
      */
     public function __construct($capabilities = 0)
@@ -73,7 +73,7 @@ class FilesGridCapabilities
     /**
      * Does this grid allow the addition of files or revisions?
      *
-     * @return boolean
+     * @return bool
      */
     public function canAdd()
     {
@@ -83,7 +83,7 @@ class FilesGridCapabilities
     /**
      * Set whether or not the grid allows the addition of files or revisions.
      *
-     * @param $canAdd boolean
+     * @param bool $canAdd
      */
     public function setCanAdd($canAdd)
     {
@@ -93,7 +93,7 @@ class FilesGridCapabilities
     /**
      * Does this grid allow viewing of notes?
      *
-     * @return boolean
+     * @return bool
      */
     public function canViewNotes()
     {
@@ -103,7 +103,7 @@ class FilesGridCapabilities
     /**
      * Set whether this grid allows viewing of notes or not.
      *
-     * @return boolean
+     * @return bool
      */
     public function setCanViewNotes($canViewNotes)
     {
@@ -113,7 +113,7 @@ class FilesGridCapabilities
     /**
      * Can the user download all files as an archive?
      *
-     * @return boolean
+     * @return bool
      */
     public function canDownloadAll()
     {
@@ -123,7 +123,7 @@ class FilesGridCapabilities
     /**
      * Set whether user can download all files as an archive or not.
      *
-     * @return boolean
+     * @return bool
      */
     public function setCanDownloadAll($canDownloadAll)
     {
@@ -133,7 +133,7 @@ class FilesGridCapabilities
     /**
      * Can the user delete files from this grid?
      *
-     * @return boolean
+     * @return bool
      */
     public function canDelete()
     {
@@ -143,7 +143,7 @@ class FilesGridCapabilities
     /**
      * Set whether or not the user can delete files from this grid.
      *
-     * @param $canDelete boolean
+     * @param bool $canDelete
      */
     public function setCanDelete($canDelete)
     {
@@ -153,7 +153,7 @@ class FilesGridCapabilities
     /**
      * Whether the grid allows file management (select existing files to add to grid)
      *
-     * @return boolean
+     * @return bool
      */
     public function canManage()
     {
@@ -163,7 +163,7 @@ class FilesGridCapabilities
     /**
      * Set whether the grid allows file management (select existing files to add to grid)
      *
-     * @return boolean
+     * @return bool
      */
     public function setCanManage($canManage)
     {
@@ -173,7 +173,7 @@ class FilesGridCapabilities
     /**
      * Whether the grid allows file metadata editing
      *
-     * @return boolean
+     * @return bool
      */
     public function canEdit()
     {
@@ -183,7 +183,7 @@ class FilesGridCapabilities
     /**
      * Set whether the grid allows file metadata editing
      *
-     * @return boolean
+     * @return bool
      */
     public function setCanEdit($canEdit)
     {
@@ -193,9 +193,9 @@ class FilesGridCapabilities
     /**
      * Get the download all link action.
      *
-     * @param $request PKPRequest
-     * @param $files array The files to be downloaded.
-     * @param $linkParams array The link action request
+     * @param PKPRequest $request
+     * @param array $files The files to be downloaded.
+     * @param array $linkParams The link action request
      * parameters.
      *
      * @return LinkAction

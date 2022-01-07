@@ -20,7 +20,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -47,7 +47,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
     /**
      * @see Filter::process()
      *
-     * @param $representation Representation
+     * @param Representation $representation
      *
      * @return DOMDocument
      */
@@ -72,8 +72,8 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
     /**
      * Create and return a representation node.
      *
-     * @param $doc DOMDocument
-     * @param $representation Representation
+     * @param DOMDocument $doc
+     * @param Representation $representation
      *
      * @return DOMElement
      */
@@ -116,9 +116,9 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
     /**
      * Create and add identifier nodes to a representation node.
      *
-     * @param $doc DOMDocument
-     * @param $representationNode DOMElement
-     * @param $representation Representation
+     * @param DOMDocument $doc
+     * @param DOMElement $representationNode
+     * @param Representation $representation
      */
     public function addIdentifiers($doc, $representationNode, $representation)
     {
@@ -146,10 +146,10 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
     /**
      * Add a single pub ID element for a given plugin to the representation.
      *
-     * @param $doc DOMDocument
-     * @param $representationNode DOMElement
-     * @param $representation Representation
-     * @param $pubIdPlugin PubIdPlugin
+     * @param DOMDocument $doc
+     * @param DOMElement $representationNode
+     * @param Representation $representation
+     * @param PubIdPlugin $pubIdPlugin
      *
      * @return DOMElement|null
      */
@@ -172,7 +172,7 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
     /**
      * Get the submission files associated with this representation
      *
-     * @param $representation Representation
+     * @param Representation $representation
      *
      * @return array
      */

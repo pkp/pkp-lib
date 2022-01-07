@@ -25,10 +25,10 @@ class FormValidatorUrl extends FormValidator
     /**
      * Constructor.
      *
-     * @param $form Form the associated form
-     * @param $field string the name of the associated field
-     * @param $type string the type of check, either "required" or "optional"
-     * @param $message string the error message for validation failures (i18n key)
+     * @param Form $form the associated form
+     * @param string $field the name of the associated field
+     * @param string $type the type of check, either "required" or "optional"
+     * @param string $message the error message for validation failures (i18n key)
      */
     public function __construct(&$form, $field, $type, $message)
     {

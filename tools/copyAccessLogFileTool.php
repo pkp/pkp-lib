@@ -33,7 +33,7 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
     /**
      * Constructor.
      *
-     * @param $argv array command-line arguments
+     * @param array $argv command-line arguments
      */
     public function __construct($argv = [])
     {
@@ -159,7 +159,7 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
      * Copy the passed file, filtering entries
      * related to this installation.
      *
-     * @param $filePath string
+     * @param string $filePath
      */
     public function _copyFile($filePath)
     {

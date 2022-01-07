@@ -32,8 +32,8 @@ class UserFormHelper
     /**
      * Assign role selection content to the template manager.
      *
-     * @param $templateMgr PKPTemplateManager
-     * @param $request PKPRequest
+     * @param PKPTemplateManager $templateMgr
+     * @param PKPRequest $request
      */
     public function assignRoleContent($templateMgr, $request)
     {
@@ -73,8 +73,8 @@ class UserFormHelper
     /**
      * Save role elements of an executed user form.
      *
-     * @param $form Form The form from which to fetch elements
-     * @param $user User The current user
+     * @param Form $form The form from which to fetch elements
+     * @param User $user The current user
      */
     public function saveRoleContent($form, $user)
     {

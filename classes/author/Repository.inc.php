@@ -204,9 +204,9 @@ class Repository
     /**
      * Update author names when publication locale changes.
      *
-     * @param $publicationId int
-     * @param $oldLocale string
-     * @param $newLocale string
+     * @param int $publicationId
+     * @param string $oldLocale
+     * @param string $newLocale
      */
     public function changePublicationLocale($publicationId, $oldLocale, $newLocale)
     {

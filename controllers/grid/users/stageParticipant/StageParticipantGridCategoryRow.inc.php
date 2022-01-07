@@ -19,7 +19,7 @@ use PKP\controllers\grid\GridCategoryRow;
 
 class StageParticipantGridCategoryRow extends GridCategoryRow
 {
-    /** @var Submission **/
+    /** @var Submission */
     public $_submission;
 
     /** @var int */

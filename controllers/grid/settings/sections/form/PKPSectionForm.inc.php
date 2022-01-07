@@ -20,7 +20,7 @@ use PKP\security\Role;
 
 class PKPSectionForm extends Form
 {
-    /** the id for the section being edited **/
+    /** @var int the id for the section being edited */
     public $_sectionId;
 
     /** @var int The current user ID */
@@ -35,9 +35,9 @@ class PKPSectionForm extends Form
     /**
      * Constructor.
      *
-     * @param $request PKPRequest
-     * @param $template string Template path
-     * @param $sectionId int optional
+     * @param PKPRequest $request
+     * @param string $template Template path
+     * @param int $sectionId optional
      */
     public function __construct($request, $template, $sectionId = null)
     {
@@ -76,7 +76,7 @@ class PKPSectionForm extends Form
     /**
      * Set the section ID for this section.
      *
-     * @param $sectionId int
+     * @param int $sectionId
      */
     public function setSectionId($sectionId)
     {

@@ -18,22 +18,22 @@ use PKP\mail\SubmissionMailTemplate;
 
 abstract class ReviewerNotifyActionForm extends Form
 {
-    /** The review assignment to alter */
+    /** @var ReviewAssignment The review assignment to alter */
     public $_reviewAssignment;
 
-    /** The submission associated with the review assignment **/
+    /** @var Submission The submission associated with the review assignment */
     public $_submission;
 
-    /** The review round associated with the review assignment **/
+    /** @var ReviewRound The review round associated with the review assignment */
     public $_reviewRound;
 
     /**
      * Constructor
      *
-     * @param $reviewAssignment ReviewAssignment
-     * @param $reviewRound ReviewRound
-     * @param $submission Submission
-     * @param $template string
+     * @param ReviewAssignment $reviewAssignment
+     * @param ReviewRound $reviewRound
+     * @param Submission $submission
+     * @param string $template
      */
     public function __construct($reviewAssignment, $reviewRound, $submission, $template)
     {
@@ -145,7 +145,7 @@ abstract class ReviewerNotifyActionForm extends Form
     /**
      * Set the submission
      *
-     * @param $submission Submission
+     * @param Submission $submission
      */
     public function setSubmission($submission)
     {

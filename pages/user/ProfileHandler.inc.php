@@ -50,8 +50,8 @@ class ProfileHandler extends UserHandler
     /**
      * Display user profile tabset.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function profile($args, $request)
     {

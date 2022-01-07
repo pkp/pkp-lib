@@ -27,8 +27,8 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
     /**
      * Build/fetch and return a controlled vocabulary for languages.
      *
-     * @param $publicationId int
-     * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
+     * @param int $publicationId
+     * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
      *
      * @return ControlledVocab
      */
@@ -51,9 +51,9 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
     /**
      * Get Languages for a submission.
      *
-     * @param $publicationId int
-     * @param $locales array
-     * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
+     * @param int $publicationId
+     * @param array $locales
+     * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
      *
      * @return array
      */
@@ -98,10 +98,10 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
     /**
      * Add an array of languages
      *
-     * @param $languages array
-     * @param $publicationId int
-     * @param $deleteFirst boolean
-     * @param $assocType int DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
+     * @param array $languages
+     * @param int $publicationId
+     * @param bool $deleteFirst
+     * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
      *
      * @return int
      */

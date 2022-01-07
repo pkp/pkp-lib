@@ -368,7 +368,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * i.e. the various parameters that are needed to represent the
      * (e.g. array('journal') or array('conference', 'schedConf'))
      *
-     * @return Array
+     * @return array
      */
     abstract public function getContextList();
 
@@ -385,8 +385,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * from the database and caches the result for further
      * access.
      *
-     * @param $category string
-     * @param $mainContextId integer Optional ID of the top-level context
+     * @param string $category
+     * @param int $mainContextId Optional ID of the top-level context
      * (e.g. Journal, Conference, Press) to query for enabled products
      *
      * @return array
@@ -527,7 +527,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * Return the fully-qualified (e.g. page.name.ClassNameDAO) name of the
      * given DAO.
      *
-     * @param $name string
+     * @param string $name
      *
      * @return string
      */
@@ -614,13 +614,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * @see <https://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
      * for a full specification of the input and output format of this method.
      *
-     * @param $metricType null|string|array metrics selection
+     * @param null|string|array $metricType metrics selection
      *   NB: If you want to use the default metric on journal level then you must
      *   set $metricType = null and add an explicit filter on a single journal ID.
      *   Otherwise the default site-level metric will be used.
-     * @param $columns string|array column (aggregation level) selection
-     * @param $orderBy array order criteria
-     * @param $range null|DBResultRange paging specification
+     * @param string|array $columns column (aggregation level) selection
+     * @param array $orderBy order criteria
+     * @param null|DBResultRange $range paging specification
      *
      * @return null|array The selected data as a simple tabular result set or
      *   null if the given parameter combination is not supported.
@@ -710,8 +710,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * Return metric in the primary metric type
      * for the passed associated object.
      *
-     * @param $assocType int
-     * @param $assocId int
+     * @param int $assocType
+     * @param int $assocId
      *
      * @return int
      */
@@ -760,8 +760,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * Get the Creative Commons license badge associated with a given
      * license URL.
      *
-     * @param $ccLicenseURL URL to creative commons license
-     * @param $locale string Optional locale to return badge in
+     * @param string $ccLicenseURL URL to creative commons license
+     * @param string $locale Optional locale to return badge in
      *
      * @return string HTML code for CC license
      */
@@ -797,7 +797,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Get a mapping of role keys and i18n key names.
      *
-     * @param boolean $contextOnly If false, also returns site-level roles (Site admin)
+     * @param bool $contextOnly If false, also returns site-level roles (Site admin)
      * @param array|null $roleIds Only return role names of these IDs
      *
      * @return array

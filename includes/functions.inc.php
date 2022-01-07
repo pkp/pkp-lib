@@ -18,7 +18,7 @@
  * Emulate a Java-style import statement.
  * Simply includes the associated PHP file (using require_once so multiple calls to include the same file have no effect).
  *
- * @param $class string the complete name of the class to be imported (e.g. 'lib.pkp.classes.core.Core')
+ * @param string $class the complete name of the class to be imported (e.g. 'lib.pkp.classes.core.Core')
  */
 if (!function_exists('import')) {
     function import($class)
@@ -135,9 +135,9 @@ function fatalError($reason)
 /**
  * Check to see if the server meets a minimum version requirement for PHP.
  *
- * @param $version Name of version (see version_compare documentation)
+ * @param string $version Name of version (see version_compare documentation)
  *
- * @return boolean
+ * @return bool
  */
 function checkPhpVersion($version)
 {
@@ -160,14 +160,14 @@ function checkPhpVersion($version)
  * to be forward compatible with this potential use
  * case.
  *
- * @param $fullyQualifiedClassName string
- * @param $expectedTypes string|array the class
+ * @param string $fullyQualifiedClassName
+ * @param string|array $expectedTypes the class
  * 	must conform to at least one of the given types.
- * @param $expectedPackages string|array the class
+ * @param string|array $expectedPackages the class
  *  must be part of at least one of the given packages.
- * @param $expectedMethods string|array names of methods
+ * @param string|array $expectedMethods names of methods
  *  that must all be present for the requested class.
- * @param $constructorArg mixed constructor argument
+ * @param mixed $constructorArg constructor argument
  *
  * @return object|boolean the instantiated object or false
  *  if the class instantiation didn't result in the expected
@@ -262,7 +262,7 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 /**
  * Remove empty elements from an array
  *
- * @param $array array
+ * @param array $array
  *
  * @return array
  */
@@ -280,7 +280,7 @@ function arrayClean($array)
 /**
  * Recursively strip HTML from a (multidimensional) array.
  *
- * @param $values array
+ * @param array $values
  *
  * @return array the cleansed array
  */
@@ -300,7 +300,7 @@ function stripAssocArray($values)
  * Perform a code-safe strtolower, i.e. one that doesn't behave differently
  * based on different locales. (tr_TR, I'm looking at you.)
  *
- * @param $str string Input string
+ * @param string $str Input string
  *
  * @return string
  */
@@ -313,7 +313,7 @@ function strtolower_codesafe($str)
  * Perform a code-safe strtoupper, i.e. one that doesn't behave differently
  * based on different locales. (tr_TR, I'm looking at you.)
  *
- * @param $str string Input string
+ * @param string $str Input string
  *
  * @return string
  */
@@ -326,7 +326,7 @@ function strtoupper_codesafe($str)
  * Perform a code-safe lcfirst, i.e. one that doesn't behave differently
  * based on different locales. (tr_TR, I'm looking at you.)
  *
- * @param $str string Input string
+ * @param string $str Input string
  *
  * @return string
  */
@@ -339,7 +339,7 @@ function lcfirst_codesafe($str)
  * Perform a code-safe ucfirst, i.e. one that doesn't behave differently
  * based on different locales. (tr_TR, I'm looking at you.)
  *
- * @param $str string Input string
+ * @param string $str Input string
  *
  * @return string
  */
@@ -403,9 +403,9 @@ function customAutoload($rootPath, $prefix, $class)
  *
  * @see PKPLocale::translate()
  *
- * @param $key string
- * @param $params array named substitution parameters
- * @param $locale string the locale to use
+ * @param string $key
+ * @param array $params named substitution parameters
+ * @param string $locale the locale to use
  *
  * @return string
  */

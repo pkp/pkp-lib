@@ -45,7 +45,7 @@ class Representation extends \PKP\core\DataObject
     /**
      * Set sequence of format in format listings for the submission.
      *
-     * @param $seq float
+     * @param float $seq
      */
     public function setSequence($seq)
     {
@@ -65,7 +65,7 @@ class Representation extends \PKP\core\DataObject
     /**
      * Get the format name (if applicable).
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -77,8 +77,8 @@ class Representation extends \PKP\core\DataObject
     /**
      * Set name.
      *
-     * @param $name string
-     * @param $locale
+     * @param string $name
+     * @param string $locale
      */
     public function setName($name, $locale = null)
     {
@@ -88,7 +88,7 @@ class Representation extends \PKP\core\DataObject
     /**
      * Determines if a representation is approved or not.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsApproved()
     {
@@ -98,7 +98,7 @@ class Representation extends \PKP\core\DataObject
     /**
      * Sets whether a representation is approved or not.
      *
-     * @param boolean $isApproved
+     * @param bool $isApproved
      */
     public function setIsApproved($isApproved)
     {
@@ -108,7 +108,7 @@ class Representation extends \PKP\core\DataObject
     /**
      * Get stored public ID of the submission.
      *
-     * @param $pubIdType string One of the NLM pub-id-type values or
+     * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      *
@@ -122,10 +122,10 @@ class Representation extends \PKP\core\DataObject
     /**
      * Set the stored public ID of the submission.
      *
-     * @param $pubIdType string One of the NLM pub-id-type values or
+     * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-     * @param $pubId string
+     * @param string $pubId
      */
     public function setStoredPubId($pubIdType, $pubId)
     {
@@ -147,7 +147,7 @@ class Representation extends \PKP\core\DataObject
     /**
      * Set the remote URL for retrieving this representation.
      *
-     * @param $remoteURL string
+     * @param string $remoteURL
      *
      * @deprecated 3.2.0.0
      */

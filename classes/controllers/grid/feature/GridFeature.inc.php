@@ -30,7 +30,7 @@ class GridFeature
     /**
      * Constructor.
      *
-     * @param $id string Feature id.
+     * @param string $id Feature id.
      */
     public function __construct($id)
     {
@@ -54,7 +54,7 @@ class GridFeature
     /**
      * Set feature id.
      *
-     * @param $id string
+     * @param string $id
      */
     public function setId($id)
     {
@@ -74,7 +74,7 @@ class GridFeature
     /**
      * Add feature js class options.
      *
-     * @param $options array $optionId => $optionValue
+     * @param array $options $optionId => $optionValue
      */
     public function addOptions($options)
     {
@@ -90,8 +90,8 @@ class GridFeature
      * Set feature js class options. Extend this method to
      * define more feature js class options.
      *
-     * @param $request PKPRequest
-     * @param $grid GridHandler
+     * @param PKPRequest $request
+     * @param GridHandler $grid
      */
     public function setOptions($request, $grid)
     {
@@ -109,8 +109,8 @@ class GridFeature
      * into the grid. Use this only for ui elements
      * that grid will not fetch itself.
      *
-     * @param $request PKPRequest
-     * @param $grid GridHandler The grid that this
+     * @param PKPRequest $request
+     * @param GridHandler $grid The grid that this
      * feature is attached to.
      *
      * @return array It is expected that the array
@@ -142,7 +142,7 @@ class GridFeature
      * extends the getRequestArgs method, this hook will only
      * be called if the extending method call its parent.
      *
-     * @param $args array
+     * @param array $args
      * 'grid' => GridHandler
      * 'requestArgs' => array
      */
@@ -155,7 +155,7 @@ class GridFeature
      * Hook called every time the grid range info is
      * retrieved.
      *
-     * @param $args array
+     * @param array $args
      * 'request' => PKPRequest
      * 'grid' => GridHandler
      * 'rangeInfo' => DBResultRange
@@ -168,7 +168,7 @@ class GridFeature
     /**
     * Hook called when grid data is retrieved.
     *
-    * @param $args array
+    * @param array $args
     * 'request' => PKPRequest
     * 'grid' => GridHandler
     * 'gridData' => mixed (array or ItemIterator)
@@ -182,7 +182,7 @@ class GridFeature
     /**
      * Hook called before grid data is setted.
      *
-     * @param $args array
+     * @param array $args
      * 'grid' => GridHandler
      * 'data' => mixed (array or ItemIterator)
      */
@@ -194,7 +194,7 @@ class GridFeature
     /**
      * Hook called every time grid initialize a row object.
      *
-     * @param $args array
+     * @param array $args
      * 'grid' => GridHandler,
      * 'row' => GridRow
      */
@@ -206,7 +206,7 @@ class GridFeature
     /**
      * Hook called on grid category row initialization.
      *
-     * @param $args array 'request' => PKPRequest
+     * @param array $args 'request' => PKPRequest
      * 'grid' => CategoryGridHandler
      * 'categoryId' => int
      * 'row' => GridCategoryRow
@@ -219,7 +219,7 @@ class GridFeature
     /**
      * Hook called on grid's initialization.
      *
-     * @param $args array Contains the grid handler referenced object
+     * @param array $args Contains the grid handler referenced object
      * in 'grid' array index.
      */
     public function gridInitialize($args)
@@ -230,7 +230,7 @@ class GridFeature
     /**
      * Hook called on grid's data loading.
      *
-     * @param $args array
+     * @param array $args
      * 'request' => PKPRequest,
      * 'grid' => GridHandler,
      * 'gridData' => array
@@ -243,7 +243,7 @@ class GridFeature
     /**
      * Hook called on grid fetching.
      *
-     * @param $args array 'grid' => GridHandler
+     * @param array $args 'grid' => GridHandler
      */
     public function fetchGrid($args)
     {
@@ -256,7 +256,7 @@ class GridFeature
     /**
      * Hook called after a group of rows is fetched.
      *
-     * @param $args array
+     * @param array $args
      * 'request' => PKPRequest
      * 'grid' => GridHandler
      * 'jsonMessage' => JSONMessage
@@ -269,7 +269,7 @@ class GridFeature
     /**
      * Hook called after a row is fetched.
      *
-     * @param $args array
+     * @param array $args
      * 'request' => PKPRequest
      * 'grid' => GridHandler
      * 'row' => mixed GridRow or null
@@ -284,7 +284,7 @@ class GridFeature
      * Hook called when save grid items sequence
      * is requested.
      *
-     * @param $args array 'request' => PKPRequest,
+     * @param array $args 'request' => PKPRequest,
      * 'grid' => GridHandler
      */
     public function saveSequence($args)

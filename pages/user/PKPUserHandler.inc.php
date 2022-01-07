@@ -33,7 +33,7 @@ class PKPUserHandler extends Handler
     /**
      * Change the locale for the current user.
      *
-     * @param $args array first parameter is the new locale
+     * @param array $args first parameter is the new locale
      */
     public function setLocale($args, $request)
     {
@@ -65,8 +65,8 @@ class PKPUserHandler extends Handler
     /**
      * Get interests for reviewer interests autocomplete.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -81,8 +81,8 @@ class PKPUserHandler extends Handler
     /**
      * Display an authorization denied message.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function authorizationDenied($args, $request)
     {

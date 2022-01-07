@@ -19,10 +19,10 @@ class WizardModal extends AjaxModal
     /**
      * Constructor
      *
-     * @param $url string The URL of the AJAX resource to load into the wizard modal.
-     * @param $title string (optional) The localized modal title.
-     * @param $titleIcon string (optional) The icon to be used in the modal title bar.
-     * @param $canClose boolean (optional) Whether the modal will have a close button.
+     * @param string $url The URL of the AJAX resource to load into the wizard modal.
+     * @param string $title (optional) The localized modal title.
+     * @param string $titleIcon (optional) The icon to be used in the modal title bar.
+     * @param bool $canClose (optional) Whether the modal will have a close button.
      */
     public function __construct($url, $title = null, $titleIcon = null, $canClose = true)
     {

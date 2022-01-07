@@ -24,9 +24,9 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Insert a new filter group.
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      *
-     * @return integer the new filter group id
+     * @return int the new filter group id
      */
     public function insertObject(&$filterGroup)
     {
@@ -49,7 +49,7 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Retrieve a filter group
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      *
      * @return FilterGroup
      */
@@ -61,7 +61,7 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Retrieve a configured filter group by id.
      *
-     * @param $filterGroupId integer
+     * @param int $filterGroupId
      *
      * @return FilterGroup
      */
@@ -79,7 +79,7 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Retrieve a configured filter group by its symbolic representation.
      *
-     * @param $filterGroupSymbolic string
+     * @param string $filterGroupSymbolic
      *
      * @return FilterGroup
      */
@@ -98,7 +98,7 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Update an existing filter group.
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function updateObject(&$filterGroup)
     {
@@ -124,9 +124,9 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Delete a filter group (only works if there are not more filters in this group).
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObject($filterGroup)
     {
@@ -153,9 +153,9 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Delete a filter group by id.
      *
-     * @param $filterGroupId int
+     * @param int $filterGroupId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObjectById($filterGroupId)
     {
@@ -170,9 +170,9 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Delete a filter group by symbolic name.
      *
-     * @param $filterGroupSymbolic string
+     * @param string $filterGroupSymbolic
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObjectBySymbolic($filterGroupSymbolic)
     {
@@ -215,7 +215,7 @@ class FilterGroupDAO extends \PKP\db\DAO
      * Internal function to return a filter group
      * object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return FilterGroup
      */

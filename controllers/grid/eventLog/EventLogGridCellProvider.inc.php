@@ -22,13 +22,13 @@ use PKP\submissionFile\SubmissionFile;
 
 class EventLogGridCellProvider extends DataObjectGridCellProvider
 {
-    /** @var boolean Is the current user assigned as an author to this submission */
+    /** @var bool Is the current user assigned as an author to this submission */
     public $_isCurrentUserAssignedAuthor;
 
     /**
      * Constructor
      *
-     * @param boolean $isCurrentUserAssignedAuthor Is the current user assigned
+     * @param bool $isCurrentUserAssignedAuthor Is the current user assigned
      *  as an author to this submission?
      */
     public function __construct($isCurrentUserAssignedAuthor)
@@ -44,8 +44,8 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
      * Extracts variables for a given column from a data element
      * so that they may be assigned to template before rendering.
      *
-     * @param $row \PKP\controllers\grid\GridRow
-     * @param $column GridColumn
+     * @param \PKP\controllers\grid\GridRow $row
+     * @param GridColumn $column
      *
      * @return array
      */

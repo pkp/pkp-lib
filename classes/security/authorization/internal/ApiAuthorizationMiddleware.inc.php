@@ -39,7 +39,7 @@ class ApiAuthorizationMiddleware
      *
      * @param SlimRequest $slimRequest
      *
-     * @return boolean|string
+     * @return bool|string
      */
     protected function _authorize($slimRequest)
     {
@@ -78,7 +78,7 @@ class ApiAuthorizationMiddleware
      * @param SlimResponse $response response
      * @param callable $next Next middleware
      *
-     * @return boolean|string|unknown
+     * @return bool|string|unknown
      */
     public function __invoke($request, $response, $next)
     {

@@ -19,13 +19,13 @@ use PKP\form\Form;
 
 class GenreForm extends Form
 {
-    /** the id for the genre being edited **/
+    /** @var int the id for the genre being edited */
     public $_genreId;
 
     /**
      * Set the genre id
      *
-     * @param $genreId int
+     * @param int $genreId
      */
     public function setGenreId($genreId)
     {
@@ -71,7 +71,7 @@ class GenreForm extends Form
     /**
      * Initialize form data from current settings.
      *
-     * @param $args array
+     * @param array $args
      */
     public function initData($args = [])
     {
@@ -136,7 +136,7 @@ class GenreForm extends Form
     /**
      * @copydoc Form::execute()
      *
-     * @return boolean
+     * @return bool
      */
     public function execute(...$functionArgs)
     {

@@ -78,7 +78,7 @@ class CategoryGridHandler extends GridHandler
     /**
      * Get the category id that this grid is currently rendering.
      *
-     * @param int
+     * @return int
      */
     public function getCurrentCategoryId()
     {
@@ -89,8 +89,8 @@ class CategoryGridHandler extends GridHandler
      * Override to return the data element sequence value
      * inside the passed category, if needed.
      *
-     * @param $categoryId int The data element category id.
-     * @param $gridDataElement mixed The element to return the
+     * @param int $categoryId The data element category id.
+     * @param mixed $gridDataElement The element to return the
      * sequence.
      *
      * @return int
@@ -104,10 +104,10 @@ class CategoryGridHandler extends GridHandler
      * Override to set the data element new sequence inside
      * the passed category, if needed.
      *
-     * @param $categoryId int The data element category id.
-     * @param $gridDataElement mixed The element to set the
+     * @param int $categoryId The data element category id.
+     * @param mixed $gridDataElement The element to set the
      * new sequence.
-     * @param $newSequence int The new sequence value.
+     * @param int $newSequence The new sequence value.
      */
     public function setDataElementInCategorySequence($categoryId, &$gridDataElement, $newSequence)
     {
@@ -118,8 +118,7 @@ class CategoryGridHandler extends GridHandler
      * Override to define whether the data element inside the passed
      * category is selected or not.
      *
-     * @param $categoryId int
-     * @param $gridDataElement mixed
+     * @param int $categoryId
      */
     public function isDataElementInCategorySelected($categoryId, &$gridDataElement)
     {
@@ -129,8 +128,8 @@ class CategoryGridHandler extends GridHandler
     /**
      * Get the grid category data.
      *
-     * @param $request PKPRequest
-     * @param $categoryElement mixed The category element.
+     * @param PKPRequest $request
+     * @param mixed $categoryElement The category element.
      *
      * @return array
      */
@@ -161,11 +160,11 @@ class CategoryGridHandler extends GridHandler
     /**
      * Check whether the passed category has grid rows.
      *
-     * @param $categoryElement mixed The category data element
+     * @param mixed $categoryElement The category data element
      * that will be checked.
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
-     * @return boolean
+     * @return bool
      */
     public function hasGridDataElementsInCategory($categoryElement, $request)
     {
@@ -177,8 +176,7 @@ class CategoryGridHandler extends GridHandler
     /**
      * Get the number of elements inside the passed category element.
      *
-     * @param $categoryElement mixed
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return int
      */
@@ -192,8 +190,8 @@ class CategoryGridHandler extends GridHandler
     /**
      * Set the grid category data.
      *
-     * @param $categoryElementId string The category element id.
-     * @param $data mixed an array or ItemIterator with category elements data.
+     * @param string $categoryElementId The category element id.
+     * @param mixed $data an array or ItemIterator with category elements data.
      */
     public function setGridCategoryDataElements($request, $categoryElementId, $data)
     {
@@ -224,8 +222,8 @@ class CategoryGridHandler extends GridHandler
     /**
      * Render a category with all the rows inside of it.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return string the serialized row JSON message or a flag
      *  that indicates that the row has not been found.
@@ -385,8 +383,8 @@ class CategoryGridHandler extends GridHandler
      * Raises a fatal error if such an element cannot be
      * found.
      *
-     * @param $request PKPRequest
-     * @param $args array
+     * @param PKPRequest $request
+     * @param array $args
      *
      * @return GridRow the requested grid row, already
      *  configured with id and data or null if the row
@@ -446,9 +444,7 @@ class CategoryGridHandler extends GridHandler
     /**
      * Implement this method to load category data into the grid.
      *
-     * @param $request PKPRequest
-     * @param $categoryDataElement mixed
-     * @param $filter mixed
+     * @param PKPRequest $request
      *
      * @return array
      */
@@ -471,9 +467,8 @@ class CategoryGridHandler extends GridHandler
     /**
      * Instantiate a new row.
      *
-     * @param $request Request
-     * @param $elementId string
-     * @param $element mixed
+     * @param Request $request
+     * @param string $elementId
      *
      * @return GridRow
      */
@@ -501,7 +496,7 @@ class CategoryGridHandler extends GridHandler
     /**
      * Render all the categories internally
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      */
     private function _renderCategoriesInternally($request)
     {
@@ -525,10 +520,10 @@ class CategoryGridHandler extends GridHandler
     /**
      * Render a category row and its data.
      *
-     * @param $request PKPRequest
-     * @param $categoryRow GridCategoryRow
+     * @param PKPRequest $request
+     * @param GridCategoryRow $categoryRow
      *
-     * @return String HTML for all the rows (including category)
+     * @return string HTML for all the rows (including category)
      */
     private function _renderCategoryInternally($request, $categoryRow)
     {

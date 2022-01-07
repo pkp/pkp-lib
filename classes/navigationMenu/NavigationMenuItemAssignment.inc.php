@@ -43,7 +43,7 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
     /**
      * Set menuId for this navigation menu item assignment.
      *
-     * @param $menuId int
+     * @param int $menuId
      */
     public function setMenuId($menuId)
     {
@@ -63,7 +63,7 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
     /**
      * Set menuItemId for this navigation menu item assignment.
      *
-     * @param $menuItemId int
+     * @param int $menuItemId
      */
     public function setMenuItemId($menuItemId)
     {
@@ -83,7 +83,7 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
     /**
      * Set parent menu item ID
      *
-     * @param $parentId int
+     * @param int $parentId
      */
     public function setParentId($parentId)
     {
@@ -103,7 +103,7 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
     /**
      * Set seq for this navigation menu item.
      *
-     * @param $seq int
+     * @param int $seq
      */
     public function setSequence($seq)
     {
@@ -144,7 +144,7 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
     /**
      * Get the title of the object.
      *
-     * @param $locale string
+     * @param string $locale
      *
      * @return string
      */
@@ -156,8 +156,8 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
     /**
      * Set the title of the object.
      *
-     * @param $title string
-     * @param $locale string
+     * @param string $title
+     * @param string $locale
      */
     public function setTitle($title, $locale)
     {

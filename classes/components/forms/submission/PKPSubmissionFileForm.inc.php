@@ -30,8 +30,8 @@ class PKPSubmissionFileForm extends FormComponent
     /**
      * Constructor
      *
-     * @param $action string URL to submit the form to
-     * @param $genres array List of genres to use as options
+     * @param string $action URL to submit the form to
+     * @param array $genres List of genres to use as options
      */
     public function __construct($action, $genres)
     {

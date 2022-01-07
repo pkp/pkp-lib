@@ -32,8 +32,8 @@ class ReviewFormElementForm extends Form
     /**
      * Constructor.
      *
-     * @param $reviewFormId int
-     * @param $reviewFormElementId int
+     * @param int $reviewFormId
+     * @param int $reviewFormElementId
      */
     public function __construct($reviewFormId, $reviewFormElementId = null)
     {

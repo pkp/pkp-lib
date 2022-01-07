@@ -27,12 +27,12 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
-     * @param $parameterName string the request parameter we expect
+     * @param PKPRequest $request
+     * @param array $args request parameters
+     * @param string $parameterName the request parameter we expect
      *  the submission id in.
-     * @param $operations array Optional list of operations for which this check takes effect. If specified, operations outside this set will not be checked against this policy.
-     * @param $reviewRoundId int Optionally pass the review round id directly. If passed, the $parameterName will be ignored.
+     * @param array $operations Optional list of operations for which this check takes effect. If specified, operations outside this set will not be checked against this policy.
+     * @param int $reviewRoundId Optionally pass the review round id directly. If passed, the $parameterName will be ignored.
      */
     public function __construct($request, &$args, $parameterName = 'reviewRoundId', $operations = null, $reviewRoundId = null)
     {

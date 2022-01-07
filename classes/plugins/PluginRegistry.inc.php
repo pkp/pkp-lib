@@ -35,7 +35,7 @@ class PluginRegistry
      * category is not specified, all plugins in an associative array of
      * arrays by category.
      *
-     * @param $category String the name of the category to retrieve
+     * @param string $category the name of the category to retrieve
      *
      * @return array
      */
@@ -73,16 +73,16 @@ class PluginRegistry
     /**
      * Register a plugin with the registry in the given category.
      *
-     * @param $category String the name of the category to extend
-     * @param $plugin The instantiated plugin to add
-     * @param $path The path the plugin was found in
-     * @param $mainContextId integer To identify enabled plug-ins
+     * @param string $category the name of the category to extend
+     * @param Plugin $plugin The instantiated plugin to add
+     * @param string $path The path the plugin was found in
+     * @param int $mainContextId To identify enabled plug-ins
      *  we need a context. This context is usually taken from the
      *  request but sometimes there is no context in the request
      *  (e.g. when executing CLI commands). Then the main context
      *  can be given as an explicit ID.
      *
-     * @return boolean True IFF the plugin was registered successfully
+     * @return bool True IFF the plugin was registered successfully
      */
     public static function register($category, $plugin, $path, $mainContextId = null)
     {
@@ -101,8 +101,8 @@ class PluginRegistry
     /**
      * Get a plugin by name.
      *
-     * @param $category String category name
-     * @param $name String plugin name
+     * @param string $category category name
+     * @param string $name plugin name
      *
      * @return Plugin?
      */
@@ -115,11 +115,11 @@ class PluginRegistry
     /**
      * Load all plugins for a given category.
      *
-     * @param $category string The name of the category to load
-     * @param $enabledOnly boolean if true load only enabled
+     * @param string $category The name of the category to load
+     * @param bool $enabledOnly if true load only enabled
      *  plug-ins (db-installation required), otherwise look on
      *  disk and load all available plug-ins (no db required).
-     * @param $mainContextId integer To identify enabled plug-ins
+     * @param int $mainContextId To identify enabled plug-ins
      *  we need a context. This context is usually taken from the
      *  request but sometimes there is no context in the request
      *  (e.g. when executing CLI commands). Then the main context
@@ -196,9 +196,9 @@ class PluginRegistry
      * Similar to loadCategory, except that it only loads a single plugin
      * within a category rather than loading all.
      *
-     * @param $category string
-     * @param $pathName string
-     * @param $mainContextId integer To identify enabled plug-ins
+     * @param string $category
+     * @param string $pathName
+     * @param int $mainContextId To identify enabled plug-ins
      *  we need a context. This context is usually taken from the
      *  request but sometimes there is no context in the request
      *  (e.g. when executing CLI commands). Then the main context
@@ -243,7 +243,7 @@ class PluginRegistry
     /**
      * Load all plugins in the system and return them in a single array.
      *
-     * @param $enabledOnly boolean load only enabled plug-ins
+     * @param bool $enabledOnly load only enabled plug-ins
      *
      * @return array Set of all plugins
      */
@@ -268,10 +268,10 @@ class PluginRegistry
      *
      * This method can be called statically.
      *
-     * @param $category string
-     * @param $categoryDir string
-     * @param $file string
-     * @param $classToCheck string set null to maintain pre-2.3.x backwards compatibility
+     * @param string $category
+     * @param string $categoryDir
+     * @param string $file
+     * @param string $classToCheck set null to maintain pre-2.3.x backwards compatibility
      *
      * @return Plugin?
      */

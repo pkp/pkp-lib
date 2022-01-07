@@ -91,8 +91,8 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Redirect to the new submission wizard by default.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      */
     public function index($args, $request)
     {
@@ -102,8 +102,8 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Display the tab set for the submission wizard.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function wizard($args, $request)
     {
@@ -131,8 +131,8 @@ abstract class PKPSubmissionHandler extends Handler
      * Display a step for the submission wizard.
      * Displays submission index page if a valid step is not specified.
      *
-     * @param $args array
-     * @param $request Request
+     * @param array $args
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -173,8 +173,8 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Save a submission step.
      *
-     * @param $args array first parameter is the step being saved
-     * @param $request Request
+     * @param array $args first parameter is the step being saved
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -226,7 +226,7 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Setup common template variables.
      *
-     * @param $request Request
+     * @param Request $request
      */
     public function setupTemplate($request)
     {

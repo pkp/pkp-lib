@@ -25,9 +25,9 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Insert a new citation.
      *
-     * @param $citation Citation
+     * @param Citation $citation
      *
-     * @return integer the new citation id
+     * @return int the new citation id
      */
     public function insertObject($citation)
     {
@@ -61,7 +61,7 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Retrieve a citation by id.
      *
-     * @param $citationId integer
+     * @param int $citationId
      *
      * @return Citation
      */
@@ -78,8 +78,8 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Import citations from a raw citation list of the particular publication.
      *
-     * @param $publicationId int
-     * @param $rawCitationList string
+     * @param int $publicationId
+     * @param string $rawCitationList
      */
     public function importCitations($publicationId, $rawCitationList)
     {
@@ -119,7 +119,7 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Retrieve an array of citations matching a particular publication id.
      *
-     * @param $publicationId int
+     * @param int $publicationId
      * @param null|mixed $rangeInfo
      *
      * @return DAOResultFactory containing matching Citations
@@ -140,7 +140,7 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Update an existing citation.
      *
-     * @param $citation Citation
+     * @param Citation $citation
      */
     public function updateObject($citation)
     {
@@ -163,9 +163,9 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Delete a citation.
      *
-     * @param $citation Citation
+     * @param Citation $citation
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteObject($citation)
     {
@@ -175,9 +175,9 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Delete a citation by id.
      *
-     * @param $citationId int
+     * @param int $citationId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteById($citationId)
     {
@@ -188,9 +188,9 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Delete all citations matching a particular publication id.
      *
-     * @param $publicationId int
+     * @param int $publicationId
      *
-     * @return boolean
+     * @return bool
      */
     public function deleteByPublicationId($publicationId)
     {
@@ -232,7 +232,7 @@ class CitationDAO extends \PKP\db\DAO
      * Internal function to return a citation object from a
      * row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return Citation
      */
@@ -252,7 +252,7 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Update the citation meta-data
      *
-     * @param $citation Citation
+     * @param Citation $citation
      */
     public function _updateObjectMetadata($citation)
     {

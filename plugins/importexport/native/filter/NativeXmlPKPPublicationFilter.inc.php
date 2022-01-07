@@ -23,7 +23,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -70,7 +70,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Handle a singular element import.
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      */
     public function handleElement($node)
     {
@@ -117,8 +117,8 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Populate the entity object from the node
      *
-     * @param $publication PKPPublication
-     * @param $node DOMElement
+     * @param PKPPublication $publication
+     * @param DOMElement $node
      *
      * @return Publication
      */
@@ -134,8 +134,8 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Handle an element whose parent is the publication element.
      *
-     * @param $n DOMElement
-     * @param $publication PKPPublication
+     * @param DOMElement $n
+     * @param PKPPublication $publication
      */
     public function handleChildElement($n, $publication)
     {
@@ -198,8 +198,8 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Parse an identifier node and set up the publication object accordingly
      *
-     * @param $element DOMElement
-     * @param $publication PKPPublication
+     * @param DOMElement $element
+     * @param PKPPublication $publication
      */
     public function parseIdentifier($element, $publication)
     {
@@ -234,8 +234,8 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Parse an authors element
      *
-     * @param $node DOMElement
-     * @param $publication PKPPublication
+     * @param DOMElement $node
+     * @param PKPPublication $publication
      */
     public function parseAuthors($node, $publication)
     {
@@ -250,8 +250,8 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Parse an author and add it to the submission.
      *
-     * @param $n DOMElement
-     * @param $publication Publication
+     * @param DOMElement $n
+     * @param Publication $publication
      */
     public function parseAuthor($n, $publication)
     {
@@ -261,8 +261,8 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Parse a publication citation and add it to the publication.
      *
-     * @param $n DOMElement
-     * @param $publication PKPPublication
+     * @param DOMElement $n
+     * @param PKPPublication $publication
      */
     public function parseCitations($n, $publication)
     {
@@ -332,7 +332,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Get the import filter for a given element.
      *
-     * @param $elementName string Name of XML element
+     * @param string $elementName Name of XML element
      *
      * @return Filter
      */

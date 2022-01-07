@@ -57,9 +57,9 @@ class APIRouter extends PKPRouter
     /**
      * Determines whether this router can route the given request.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
-     * @return boolean true, if the router supports this request, otherwise false
+     * @return bool true, if the router supports this request, otherwise false
      */
     public function supports($request)
     {
@@ -132,7 +132,7 @@ class APIRouter extends PKPRouter
     /**
      * Get the requested operation
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return string
      */

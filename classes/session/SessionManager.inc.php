@@ -21,10 +21,10 @@ use PKP\db\DAORegistry;
 
 class SessionManager
 {
-    /** @var object The DAO for accessing Session objects */
+    /** @var SessionDao The DAO for accessing Session objects */
     public $sessionDao;
 
-    /** @var object The Session associated with the current request */
+    /** @var Session The Session associated with the current request */
     public $userSession;
 
     /**
@@ -32,8 +32,8 @@ class SessionManager
      * Initialize session configuration and set PHP session handlers.
      * Attempts to rejoin a user's session if it exists, or create a new session otherwise.
      *
-     * @param $sessionDao SessionDAO
-     * @param $request PKPRequest
+     * @param SessionDAO $sessionDao
+     * @param PKPRequest $request
      */
     public function __construct($sessionDao, $request)
     {
@@ -155,7 +155,7 @@ class SessionManager
      * Open a session.
      * Does nothing; only here to satisfy PHP session handler requirements.
      *
-     * @return boolean
+     * @return bool
      */
     public function open()
     {
@@ -166,7 +166,7 @@ class SessionManager
      * Close a session.
      * Does nothing; only here to satisfy PHP session handler requirements.
      *
-     * @return boolean
+     * @return bool
      */
     public function close()
     {
@@ -176,9 +176,9 @@ class SessionManager
     /**
      * Read session data from database.
      *
-     * @param $sessionId string
+     * @param string $sessionId
      *
-     * @return boolean
+     * @return bool
      */
     public function read($sessionId)
     {
@@ -194,10 +194,10 @@ class SessionManager
     /**
      * Save session data to database.
      *
-     * @param $sessionId string
-     * @param $data array
+     * @param string $sessionId
+     * @param array $data
      *
-     * @return boolean
+     * @return bool
      */
     public function write($sessionId, $data)
     {
@@ -211,9 +211,9 @@ class SessionManager
     /**
      * Destroy (delete) a session.
      *
-     * @param $sessionId string
+     * @param string $sessionId
      *
-     * @return boolean
+     * @return bool
      */
     public function destroy($sessionId)
     {
@@ -225,9 +225,9 @@ class SessionManager
      * Garbage collect unused session data.
      * TODO: Use $maxlifetime instead of assuming 24 hours?
      *
-     * @param $maxlifetime int the number of seconds after which data will be seen as "garbage" and cleaned up
+     * @param int $maxlifetime the number of seconds after which data will be seen as "garbage" and cleaned up
      *
-     * @return boolean
+     * @return bool
      */
     public function gc($maxlifetime)
     {
@@ -237,10 +237,10 @@ class SessionManager
     /**
      * Resubmit the session cookie.
      *
-     * @param $sessionId string new session ID (or false to keep current ID)
-     * @param $expireTime int new expiration time in seconds (0 = current session)
+     * @param string $sessionId new session ID (or false to keep current ID)
+     * @param int $expireTime new expiration time in seconds (0 = current session)
      *
-     * @return boolean
+     * @return bool
      */
     public function updateSessionCookie($sessionId = false, $expireTime = 0)
     {
@@ -272,7 +272,7 @@ class SessionManager
      * by changing the user's session ID after they have logged in (in case the
      * original session ID had been pre-populated).
      *
-     * @return boolean
+     * @return bool
      */
     public function regenerateSessionId()
     {
@@ -294,9 +294,9 @@ class SessionManager
     /**
      * Change the lifetime of the current session cookie.
      *
-     * @param $expireTime int new expiration time in seconds (0 = current session)
+     * @param int $expireTime new expiration time in seconds (0 = current session)
      *
-     * @return boolean
+     * @return bool
      */
     public function updateSessionLifetime($expireTime = 0)
     {

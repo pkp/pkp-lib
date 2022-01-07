@@ -20,7 +20,7 @@ class NativeXmlUserGroupFilter extends NativeImportFilter
     /**
      * Constructor
      *
-     * @param $filterGroup FilterGroup
+     * @param FilterGroup $filterGroup
      */
     public function __construct($filterGroup)
     {
@@ -66,7 +66,7 @@ class NativeXmlUserGroupFilter extends NativeImportFilter
     /**
      * Handle a user_group element
      *
-     * @param $node DOMElement
+     * @param DOMElement $node
      *
      * @return array Array of UserGroup objects
      */

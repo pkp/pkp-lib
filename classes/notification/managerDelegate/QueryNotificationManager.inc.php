@@ -78,7 +78,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
     /**
      * Get the submission for a query.
      *
-     * @param $query Query
+     * @param Query $query
      *
      * @return Submission
      */

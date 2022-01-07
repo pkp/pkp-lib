@@ -72,7 +72,7 @@ class ReviewRound extends \PKP\core\DataObject
     /**
      * set submission id
      *
-     * @param $submissionId int
+     * @param int $submissionId
      */
     public function setSubmissionId($submissionId)
     {
@@ -92,7 +92,7 @@ class ReviewRound extends \PKP\core\DataObject
     /**
      * Set review stage id
      *
-     * @param $stageId int
+     * @param int $stageId
      */
     public function setStageId($stageId)
     {
@@ -130,7 +130,7 @@ class ReviewRound extends \PKP\core\DataObject
     /**
      * Set current round status
      *
-     * @param $status int
+     * @param int $status
      */
     public function setStatus($status)
     {
@@ -274,7 +274,7 @@ class ReviewRound extends \PKP\core\DataObject
     /**
      * Get locale key associated with current status
      *
-     * @param $isAuthor boolean True iff the status is to be shown to the author (slightly tweaked phrasing)
+     * @param bool $isAuthor True iff the status is to be shown to the author (slightly tweaked phrasing)
      *
      * @return int
      */

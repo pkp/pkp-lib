@@ -24,7 +24,7 @@ class SubmissionFilesMetadataForm extends Form
     /** @var SubmissionFile */
     public $_submissionFile;
 
-    /** @var integer */
+    /** @var int */
     public $_stageId;
 
     /** @var ReviewRound */
@@ -33,10 +33,10 @@ class SubmissionFilesMetadataForm extends Form
     /**
      * Constructor.
      *
-     * @param $submissionFile SubmissionFile
-     * @param $stageId int One of the WORKFLOW_STAGE_ID_* constants.
-     * @param $reviewRound ReviewRound (optional) Current review round, if any.
-     * @param $template string Path and filename to template file (optional).
+     * @param SubmissionFile $submissionFile
+     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param ReviewRound $reviewRound (optional) Current review round, if any.
+     * @param string $template Path and filename to template file (optional).
      */
     public function __construct($submissionFile, $stageId, $reviewRound = null, $template = null)
     {
@@ -79,7 +79,7 @@ class SubmissionFilesMetadataForm extends Form
     /**
      * Get the workflow stage id.
      *
-     * @return integer
+     * @return int
      */
     public function getStageId()
     {
@@ -99,7 +99,7 @@ class SubmissionFilesMetadataForm extends Form
     /**
      * Set the "show buttons" flag
      *
-     * @param $showButtons boolean
+     * @param bool $showButtons
      */
     public function setShowButtons($showButtons)
     {
@@ -109,7 +109,7 @@ class SubmissionFilesMetadataForm extends Form
     /**
      * Get the "show buttons" flag
      *
-     * @return boolean
+     * @return bool
      */
     public function getShowButtons()
     {

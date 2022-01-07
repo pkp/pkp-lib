@@ -29,7 +29,7 @@ class MailTemplate extends Mail
     /** @var object The context this message relates to */
     public $context;
 
-    /** @var boolean whether to include the context's signature */
+    /** @var bool whether to include the context's signature */
     public $includeSignature;
 
     /** @var string Key of the email template we are using */
@@ -38,16 +38,16 @@ class MailTemplate extends Mail
     /** @var string locale of this template */
     public $locale;
 
-    /** @var boolean email template is enabled */
+    /** @var bool email template is enabled */
     public $enabled;
 
     /** @var array List of errors to display to the user */
     public $errorMessages;
 
-    /** @var boolean whether or not to bcc the sender */
+    /** @var bool whether or not to bcc the sender */
     public $bccSender;
 
-    /** @var boolean Whether or not email fields are disabled */
+    /** @var bool Whether or not email fields are disabled */
     public $addressFieldsEnabled;
 
     /** @var array The list of parameters to be assigned to the template. */
@@ -56,9 +56,9 @@ class MailTemplate extends Mail
     /**
      * Constructor.
      *
-     * @param $emailKey string unique identifier for the template
-     * @param $locale string locale of the template
-     * @param $includeSignature boolean optional
+     * @param string $emailKey unique identifier for the template
+     * @param string $locale locale of the template
+     * @param bool $includeSignature optional
      * @param null|mixed $context
      */
     public function __construct($emailKey = null, $locale = null, $context = null, $includeSignature = true)
@@ -127,7 +127,7 @@ class MailTemplate extends Mail
      * fields, callers should manually clearAllRecipients and add/set
      * recipients just prior to sending.
      *
-     * @param $addressFieldsEnabled boolean
+     * @param bool $addressFieldsEnabled
      */
     public function setAddressFieldsEnabled($addressFieldsEnabled)
     {
@@ -137,7 +137,7 @@ class MailTemplate extends Mail
     /**
      * Get the enabled/disabled state of address fields on the email form.
      *
-     * @return boolean
+     * @return bool
      */
     public function getAddressFieldsEnabled()
     {
@@ -147,7 +147,7 @@ class MailTemplate extends Mail
     /**
      * Check whether or not there were errors in the user input for this form.
      *
-     * @return boolean true iff one or more error messages are stored.
+     * @return bool true iff one or more error messages are stored.
      */
     public function hasErrors()
     {
@@ -157,7 +157,7 @@ class MailTemplate extends Mail
     /**
      * Assigns values to e-mail parameters.
      *
-     * @param $params array Associative array of variables to supply to the email template
+     * @param array $params Associative array of variables to supply to the email template
      */
     public function assignParams($params = [])
     {
@@ -202,7 +202,7 @@ class MailTemplate extends Mail
     /**
      * Returns true if the email template is enabled; false otherwise.
      *
-     * @return boolean
+     * @return bool
      */
     public function isEnabled()
     {
@@ -212,7 +212,7 @@ class MailTemplate extends Mail
     /**
      * Send the email.
      *
-     * @return boolean false if there was a problem sending the email
+     * @return bool false if there was a problem sending the email
      */
     public function send()
     {
@@ -270,9 +270,9 @@ class MailTemplate extends Mail
      * Assigns user-specific values to email parameters, sends
      * the email, then clears those values.
      *
-     * @param $params array Associative array of variables to supply to the email template
+     * @param array $params Associative array of variables to supply to the email template
      *
-     * @return boolean false if there was a problem sending the email
+     * @return bool false if there was a problem sending the email
      */
     public function sendWithParams($params)
     {
@@ -293,7 +293,7 @@ class MailTemplate extends Mail
     /**
      * Clears the recipient, cc, and bcc lists.
      *
-     * @param $clearHeaders boolean if true, also clear headers
+     * @param bool $clearHeaders if true, also clear headers
      */
     public function clearRecipients($clearHeaders = true)
     {
@@ -308,9 +308,9 @@ class MailTemplate extends Mail
     /**
      * Finds and changes appropriately URL valued template parameter keys.
      *
-     * @param $targetString string The string that contains the original {$key}s template variables
-     * @param $key string The key we are looking for, and has an URL as its $value
-     * @param $value string The value of the $key
+     * @param string $targetString The string that contains the original {$key}s template variables
+     * @param string $key The key we are looking for, and has an URL as its $value
+     * @param string $value The value of the $key
      *
      * @return string the $targetString replaced appropriately
      */

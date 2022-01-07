@@ -131,8 +131,8 @@ class PluginGalleryGridHandler extends GridHandler
     /**
      * @see GridHandler::loadData()
      *
-     * @param $request PKPRequest Request object
-     * @param $filter array Filter parameters
+     * @param PKPRequest $request Request object
+     * @param array $filter Filter parameters
      *
      * @return array Grid data.
      */
@@ -191,8 +191,8 @@ class PluginGalleryGridHandler extends GridHandler
     /**
      * View a plugin's details
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -259,8 +259,8 @@ class PluginGalleryGridHandler extends GridHandler
     /**
      * Upgrade a plugin
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function upgradePlugin($args, $request)
     {
@@ -270,9 +270,9 @@ class PluginGalleryGridHandler extends GridHandler
     /**
      * Install or upgrade a plugin
      *
-     * @param $args array
-     * @param $request PKPRequest
-     * @param $isUpgrade boolean
+     * @param array $args
+     * @param PKPRequest $request
+     * @param bool $isUpgrade
      */
     public function installPlugin($args, $request, $isUpgrade = false)
     {
@@ -342,7 +342,7 @@ class PluginGalleryGridHandler extends GridHandler
     /**
      * Get the specified plugin.
      *
-     * @param $request PKPRequest
+     * @param PKPRequest $request
      *
      * @return GalleryPlugin
      */

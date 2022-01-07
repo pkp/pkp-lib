@@ -30,11 +30,11 @@ interface EntityWriteInterface
      *
      * This does NOT authenticate the current user to perform the action.
      *
-     * @param $action string The type of action required (add/edit). One of the
+     * @param string $action The type of action required (add/edit). One of the
      *  VALIDATE_ACTION_... constants.
-     * @param $props array The data to validate
-     * @param $allowedLocales array Which locales are allowed for this entity
-     * @param $primaryLocale string
+     * @param array $props The data to validate
+     * @param array $allowedLocales Which locales are allowed for this entity
+     * @param string $primaryLocale
      *
      * @return array List of error messages. The array keys are property names
      */
@@ -46,8 +46,8 @@ interface EntityWriteInterface
      * This does not check if the user is authorized to add the object, or
      * validate or sanitize this object.
      *
-     * @param $object object
-     * @param $request Request
+     * @param object $object
+     * @param Request $request
      *
      * @return object
      */
@@ -59,9 +59,9 @@ interface EntityWriteInterface
      * This does not check if the user is authorized to edit the object, or
      * validate or sanitize the new object values.
      *
-     * @param $object object
-     * @param $params Array Key/value array of new data
-     * @param $request Request
+     * @param object $object
+     * @param array $params Key/value array of new data
+     * @param Request $request
      *
      * @return object
      */
@@ -73,9 +73,9 @@ interface EntityWriteInterface
      * This does not check if the user is authorized to delete the object or if
      * the object exists.
      *
-     * @param $object object
+     * @param object $object
      *
-     * @return boolean
+     * @return bool
      */
     public function delete($object);
 }

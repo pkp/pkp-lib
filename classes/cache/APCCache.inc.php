@@ -26,9 +26,9 @@ class APCCache extends GenericCache
     /**
      * Instantiate a cache.
      *
-     * @param $context string
-     * @param $cacheId mixed
-     * @param $fallback array PKP-style callback
+     * @param string $context
+     * @param mixed $cacheId
+     * @param array $fallback PKP-style callback
      */
     public function __construct($context, $cacheId, $fallback)
     {
@@ -52,7 +52,7 @@ class APCCache extends GenericCache
     /**
      * Get an object from the cache.
      *
-     * @param $id mixed
+     * @param mixed $id
      */
     public function getCache($id)
     {
@@ -71,8 +71,8 @@ class APCCache extends GenericCache
      * Set an object in the cache. This function should be overridden
      * by subclasses.
      *
-     * @param $id mixed
-     * @param $value mixed
+     * @param mixed $id
+     * @param mixed $value
      */
     public function setCache($id, $value)
     {
@@ -96,7 +96,7 @@ class APCCache extends GenericCache
      * Set the entire contents of the cache.
      * WARNING: THIS DOES NOT FLUSH THE CACHE FIRST!
      *
-     * @param $contents array Complete cache contents.
+     * @param array $contents Complete cache contents.
      */
     public function setEntireCache($contents)
     {

@@ -21,9 +21,9 @@ class EditFileLinkAction extends FileLinkAction
     /**
      * Constructor
      *
-     * @param $request Request
-     * @param $submissionFile SubmissionFile the submission file to edit.
-     * @param $stageId int Stage ID
+     * @param Request $request
+     * @param SubmissionFile $submissionFile the submission file to edit.
+     * @param int $stageId Stage ID
      */
     public function __construct($request, $submissionFile, $stageId)
     {

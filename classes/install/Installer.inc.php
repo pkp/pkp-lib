@@ -55,7 +55,7 @@ class Installer
     /** @var string descriptor path (relative to INSTALLER_DATA_DIR) */
     public $descriptor;
 
-    /** @var boolean indicates if a plugin is being installed (thus modifying the descriptor path) */
+    /** @var bool indicates if a plugin is being installed (thus modifying the descriptor path) */
     public $isPlugin;
 
     /** @var array installation parameters */
@@ -88,7 +88,7 @@ class Installer
     /** @var string contents of the updated config file */
     public $configContents;
 
-    /** @var boolean indicating if config file was written or not */
+    /** @var bool indicating if config file was written or not */
     public $wroteConfig;
 
     /** @var int error code (null | INSTALLER_ERROR_GENERAL | INSTALLER_ERROR_DB) */
@@ -106,9 +106,9 @@ class Installer
     /**
      * Constructor.
      *
-     * @param $descriptor string descriptor path
-     * @param $params array installer parameters
-     * @param $isPlugin boolean true iff a plugin is being installed
+     * @param string $descriptor descriptor path
+     * @param array $params installer parameters
+     * @param bool $isPlugin true iff a plugin is being installed
      */
     public function __construct($descriptor, $params = [], $isPlugin = false)
     {
@@ -148,7 +148,7 @@ class Installer
     /**
      * Pre-installation.
      *
-     * @return boolean
+     * @return bool
      */
     public function preInstall()
     {
@@ -180,7 +180,7 @@ class Installer
     /**
      * Installation.
      *
-     * @return boolean
+     * @return bool
      */
     public function execute()
     {
@@ -211,7 +211,7 @@ class Installer
     /**
      * Post-installation.
      *
-     * @return boolean
+     * @return bool
      */
     public function postInstall()
     {
@@ -225,7 +225,7 @@ class Installer
     /**
      * Record message to installation log.
      *
-     * @param $message string
+     * @param string $message
      */
     public function log($message)
     {
@@ -242,7 +242,7 @@ class Installer
     /**
      * Parse the installation descriptor XML file.
      *
-     * @return boolean
+     * @return bool
      */
     public function parseInstaller()
     {
@@ -276,7 +276,7 @@ class Installer
     /**
      * Execute the installer actions.
      *
-     * @return boolean
+     * @return bool
      */
     public function executeInstaller()
     {
@@ -296,7 +296,7 @@ class Installer
     /**
      * Update the version number.
      *
-     * @return boolean
+     * @return bool
      */
     public function updateVersion()
     {
@@ -321,7 +321,7 @@ class Installer
     /**
      * Parse children nodes in the install descriptor.
      *
-     * @param $installTree XMLNode
+     * @param XMLNode $installTree
      */
     public function parseInstallNodes($installTree)
     {
@@ -348,7 +348,7 @@ class Installer
     /**
      * Add an installer action from the descriptor.
      *
-     * @param $node XMLNode
+     * @param XMLNode $node
      */
     public function addInstallAction($node)
     {
@@ -381,9 +381,9 @@ class Installer
     /**
      * Execute a single installer action.
      *
-     * @param $action array
+     * @param array $action
      *
-     * @return boolean
+     * @return bool
      */
     public function executeAction($action)
     {
@@ -513,9 +513,8 @@ class Installer
     /**
      * Execute an SQL statement.
      *
-     * @param $sql mixed
      *
-     * @return boolean
+     * @return bool
      */
     public function executeSQL($sql)
     {
@@ -540,9 +539,9 @@ class Installer
     /**
      * Update the specified configuration parameters.
      *
-     * @param $configParams arrays
+     * @param arrays $configParams
      *
-     * @return boolean
+     * @return bool
      */
     public function updateConfig($configParams)
     {
@@ -570,7 +569,7 @@ class Installer
     /**
      * Get the value of an installation parameter.
      *
-     * @param $name
+     * @param string $name
      */
     public function getParam($name)
     {
@@ -630,7 +629,7 @@ class Installer
     /**
      * Check if installer was able to write out new config file.
      *
-     * @return boolean
+     * @return bool
      */
     public function wroteConfig()
     {
@@ -681,8 +680,8 @@ class Installer
     /**
      * Set the error type and messgae.
      *
-     * @param $type int
-     * @param $msg string Text message (INSTALLER_ERROR_DB) or locale key (otherwise)
+     * @param int $type
+     * @param string $msg Text message (INSTALLER_ERROR_DB) or locale key (otherwise)
      */
     public function setError($type, $msg)
     {
@@ -693,7 +692,7 @@ class Installer
     /**
      * Set the logger for this installer.
      *
-     * @param $logger Logger
+     * @param Logger $logger
      */
     public function setLogger($logger)
     {
@@ -704,7 +703,7 @@ class Installer
      * Clear the data cache files (needed because of direct tinkering
      * with settings tables)
      *
-     * @return boolean
+     * @return bool
      */
     public function clearDataCache()
     {
@@ -717,7 +716,7 @@ class Installer
     /**
      * Set the current version for this installer.
      *
-     * @param $version Version
+     * @param Version $version
      */
     public function setCurrentVersion($version)
     {
@@ -727,8 +726,8 @@ class Installer
     /**
      * For upgrade: install email templates and data
      *
-     * @param $installer object
-     * @param $attr array Attributes: array containing
+     * @param object $installer
+     * @param array $attr Attributes: array containing
      *  'key' => 'EMAIL_KEY_HERE',
      *  'locales' => 'en_US,fr_CA,...'
      */
@@ -751,9 +750,9 @@ class Installer
     /**
      * Install the given filter configuration file.
      *
-     * @param $filterConfigFile string
+     * @param string $filterConfigFile
      *
-     * @return boolean true when successful, otherwise false
+     * @return bool true when successful, otherwise false
      */
     public function installFilterConfig($filterConfigFile)
     {
@@ -794,10 +793,10 @@ class Installer
      * Check to see whether a column exists.
      * Used in installer XML in conditional checks on <data> nodes.
      *
-     * @param $tableName string
-     * @param $columnName string
+     * @param string $tableName
+     * @param string $columnName
      *
-     * @return boolean
+     * @return bool
      */
     public function columnExists($tableName, $columnName)
     {
@@ -815,9 +814,9 @@ class Installer
      * Check to see whether a table exists.
      * Used in installer XML in conditional checks on <data> nodes.
      *
-     * @param $tableName string
+     * @param string $tableName
      *
-     * @return boolean
+     * @return bool
      */
     public function tableExists($tableName)
     {
@@ -829,7 +828,7 @@ class Installer
      * Insert or update plugin data in versions
      * and plugin_settings tables.
      *
-     * @return boolean
+     * @return bool
      */
     public function addPluginVersions()
     {
@@ -872,10 +871,10 @@ class Installer
     /**
      * Fail the upgrade.
      *
-     * @param $installer Installer
-     * @param $attr array Attributes
+     * @param Installer $installer
+     * @param array $attr Attributes
      *
-     * @return boolean
+     * @return bool
      */
     public function abort($installer, $attr)
     {
@@ -886,7 +885,7 @@ class Installer
     /**
      * For 3.1.0 upgrade.  DefaultMenus Defaults
      *
-     * @return boolean Success/failure
+     * @return bool Success/failure
      */
     public function installDefaultNavigationMenus()
     {
@@ -906,7 +905,7 @@ class Installer
     /**
      * Check that the environment meets minimum PHP requirements.
      *
-     * @return boolean Success/failure
+     * @return bool Success/failure
      */
     public function checkPhpVersion()
     {
@@ -918,7 +917,7 @@ class Installer
         return false;
     }
 
-    /*
+    /**
      * Migrate site locale settings to a serialized array in the database
      */
     public function migrateSiteLocales()
@@ -944,7 +943,7 @@ class Installer
     /**
      * Migrate active sidebar blocks from plugin_settings to journal_settings
      *
-     * @return boolean
+     * @return bool
      */
     public function migrateSidebarBlocks()
     {
@@ -1138,7 +1137,7 @@ class Installer
      * Fix library files, which were mistakenly named server-side using source filenames.
      * See https://github.com/pkp/pkp-lib/issues/5471
      *
-     * @return boolean
+     * @return bool
      */
     public function fixLibraryFiles()
     {

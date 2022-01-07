@@ -34,7 +34,7 @@ class SearchFileParser
     /**
      * Constructor.
      *
-     * @param $filePath string
+     * @param string $filePath
      */
     public function __construct($filePath)
     {
@@ -54,7 +54,7 @@ class SearchFileParser
     /**
      * Change the file path.
      *
-     * @param $filePath string
+     * @param string $filePath
      */
     public function setFilePath($filePath)
     {
@@ -64,7 +64,7 @@ class SearchFileParser
     /**
      * Open the file.
      *
-     * @return boolean
+     * @return bool
      */
     public function open()
     {
@@ -124,8 +124,8 @@ class SearchFileParser
     /**
      * Create a text parser for a file.
      *
-     * @param $type string
-     * @param $path string
+     * @param string $type
+     * @param string $path
      *
      * @return SearchFileParser
      */

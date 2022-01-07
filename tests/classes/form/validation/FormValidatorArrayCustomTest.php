@@ -258,10 +258,10 @@ class FormValidatorArrayCustomTest extends PKPTestCase
      * easily manipulate its return value. The values passed in
      * to this method are saved internally for later inspection.
      *
-     * @param $value string
-     * @param $additionalArgument boolean
+     * @param string $value
+     * @param bool $additionalArgument
      *
-     * @return boolean the value passed in to $additionalArgument
+     * @return bool the value passed in to $additionalArgument
      */
     public function userFunctionForSubfields($value, $additionalArgument)
     {
@@ -277,11 +277,11 @@ class FormValidatorArrayCustomTest extends PKPTestCase
      * passed in to this method are saved internally for later
      * inspection.
      *
-     * @param $value string
-     * @param $key string
-     * @param $additionalArgument boolean
+     * @param string $value
+     * @param string $key
+     * @param bool $additionalArgument
      *
-     * @return boolean the value passed in to $additionalArgument
+     * @return bool the value passed in to $additionalArgument
      */
     public function userFunctionForLocaleFields($value, $key, $additionalArgument)
     {

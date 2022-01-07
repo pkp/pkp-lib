@@ -30,7 +30,7 @@ use PKP\workflow\WorkflowStageDAO;
 
 class UserGroupGridHandler extends GridHandler
 {
-    /** @var integer Context id. */
+    /** @var int Context id. */
     private $_contextId;
 
     /** @var UserGroup User group object handled by some grid operations. */
@@ -269,8 +269,8 @@ class UserGroupGridHandler extends GridHandler
     /**
      * Handle the add user group operation.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function addUserGroup($args, $request)
     {
@@ -280,7 +280,7 @@ class UserGroupGridHandler extends GridHandler
     /**
      * Handle the edit user group operation.
      *
-     * @param $args array
+     * @param array $args
      *
      * @return JSONMessage JSON object
      */
@@ -296,8 +296,8 @@ class UserGroupGridHandler extends GridHandler
     /**
      * Update user group data on database and grid.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -321,8 +321,8 @@ class UserGroupGridHandler extends GridHandler
     /**
      * Remove user group.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -383,8 +383,8 @@ class UserGroupGridHandler extends GridHandler
     /**
      * Assign stage to user group.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function assignStage($args, $request)
     {
@@ -394,8 +394,8 @@ class UserGroupGridHandler extends GridHandler
     /**
     * Unassign stage to user group.
     *
-    * @param $args array
-    * @param $request PKPRequest
+    * @param array $args
+    * @param PKPRequest $request
     */
     public function unassignStage($args, $request)
     {
@@ -409,8 +409,8 @@ class UserGroupGridHandler extends GridHandler
     /**
      * Toggle user group stage assignment.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -457,7 +457,7 @@ class UserGroupGridHandler extends GridHandler
     /**
      * Get a UserGroupForm instance.
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return UserGroupForm
      */

@@ -36,8 +36,8 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
     /**
      * Constructor.
      *
-     * @param $context Context
-     * @param $submission Submission
+     * @param Context $context
+     * @param Submission $submission
      */
     public function __construct($context, $submission)
     {

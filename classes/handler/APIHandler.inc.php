@@ -305,8 +305,8 @@ class APIHandler extends PKPHandler
      *
      * Empty strings will be converted to null.
      *
-     * @param $schema string One of the SCHEMA_... constants
-     * @param $params array Key/value parameters to be validated
+     * @param string $schema One of the SCHEMA_... constants
+     * @param array $params Key/value parameters to be validated
      *
      * @return array Converted parameters
      */
@@ -346,8 +346,7 @@ class APIHandler extends PKPHandler
      *
      * @see self::convertStringsToTypes
      *
-     * @param $value
-     * @param $type One of boolean, integer or number
+     * @param string $type One of boolean, integer or number
      */
     private function _convertStringsToSchema($value, $type, $schema)
     {
@@ -425,7 +424,7 @@ class APIHandler extends PKPHandler
      * @param string $dateStartParam Where the find the start date in the array of params
      * @param string $dateEndParam Where to find the end date in the array of params
      *
-     * @return boolean|string True if they validate, or a string which
+     * @return bool|string True if they validate, or a string which
      *   contains the locale key of an error message.
      */
     protected function _validateStatDates($params, $dateStartParam = 'dateStart', $dateEndParam = 'dateEnd')

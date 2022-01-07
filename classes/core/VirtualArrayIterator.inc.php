@@ -30,16 +30,16 @@ class VirtualArrayIterator extends ItemIterator
     /** @var int The total number of items. */
     public $count;
 
-    /** @var boolean Whether or not the iterator was empty from the start */
+    /** @var bool Whether or not the iterator was empty from the start */
     public $wasEmpty;
 
     /**
      * Constructor.
      *
-     * @param $theArray array The array of items to iterate through
-     * @param $totalItems int The total number of items in the virtual "larger" array
-     * @param $page int the current page number
-     * @param $itemsPerPage int Number of items to display per page
+     * @param array $theArray The array of items to iterate through
+     * @param int $totalItems The total number of items in the virtual "larger" array
+     * @param int $page the current page number
+     * @param int $itemsPerPage Number of items to display per page
      */
     public function __construct($theArray, $totalItems, $page = -1, $itemsPerPage = -1)
     {
@@ -62,8 +62,8 @@ class VirtualArrayIterator extends ItemIterator
      * Extracts the appropriate page items from the whole array and
      * calls the constructor.
      *
-     * @param $wholeArray array The whole array of items
-     * @param $rangeInfo int The number of items per page
+     * @param array $wholeArray The whole array of items
+     * @param int $rangeInfo The number of items per page
      *
      * @return object VirtualArrayIterator
      */
@@ -108,7 +108,7 @@ class VirtualArrayIterator extends ItemIterator
     /**
      * Check whether or not this iterator is for the first page of a sequence
      *
-     * @return boolean
+     * @return bool
      */
     public function atFirstPage()
     {
@@ -118,7 +118,7 @@ class VirtualArrayIterator extends ItemIterator
     /**
      * Check whether or not this iterator is for the last page of a sequence
      *
-     * @return boolean
+     * @return bool
      */
     public function atLastPage()
     {
@@ -160,7 +160,7 @@ class VirtualArrayIterator extends ItemIterator
      * Note: This implementation requires that next() be called before every eof() will
      * function properly (except the first call).
      *
-     * @return boolean
+     * @return bool
      */
     public function eof()
     {
@@ -170,7 +170,7 @@ class VirtualArrayIterator extends ItemIterator
     /**
      * Return a boolean indicating whether or not this iterator was empty from the beginning
      *
-     * @return boolean
+     * @return bool
      */
     public function wasEmpty()
     {
@@ -196,9 +196,9 @@ class VirtualArrayIterator extends ItemIterator
      *
      * @see http://ca3.php.net/manual/en/function.array-slice.php
      *
-     * @param $array Array
-     * @param $offset int
-     * @param $len int
+     * @param array $array
+     * @param int $offset
+     * @param int $len
      */
     public function array_slice_key($array, $offset, $len = -1)
     {

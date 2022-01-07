@@ -40,10 +40,10 @@ abstract class Field
     /** @var string Which group should this field be placed in? */
     public $groupId;
 
-    /** @var boolean Is this field required? */
+    /** @var bool Is this field required? */
     public $isRequired = false;
 
-    /** @var boolean Is this field multilingual? */
+    /** @var bool Is this field multilingual? */
     public $isMultilingual = false;
 
     /** @var mixed The value of this field. If multilingual, expects a key/value array: ['en_US', => 'English value', 'fr_CA' => 'French value'] */
@@ -68,8 +68,8 @@ abstract class Field
     /**
      * Initialize the form field
      *
-     * @param $name string
-     * @param $args array [
+     * @param string $name
+     * @param array $args [
      *  @option label string|object
      *  @option groupId string
      *  @option isRequired boolean
@@ -139,7 +139,7 @@ abstract class Field
      *
      * Check that no required fields are missing
      *
-     * @return boolean
+     * @return bool
      */
     public function validate()
     {

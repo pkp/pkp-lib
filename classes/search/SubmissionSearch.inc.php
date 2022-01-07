@@ -54,7 +54,7 @@ abstract class SubmissionSearch
      * Parses a search query string.
      * Supports +/-, AND/OR, parens
      *
-     * @param $query
+     * @param string $query
      *
      * @return array of the form ('+' => <required>, '' => <optional>, '-' => excluded)
      */
@@ -234,16 +234,16 @@ abstract class SubmissionSearch
      * $keywords[SUBMISSION_SEARCH_...] = array(...);
      * $keywords[null] = array('Matches', 'All', 'Fields');
      *
-     * @param $request Request
-     * @param $context object The context to search
-     * @param $keywords array List of keywords
-     * @param $error string a reference to a variable that will
+     * @param Request $request
+     * @param object $context The context to search
+     * @param array $keywords List of keywords
+     * @param string $error a reference to a variable that will
      *  contain an error message if the search service produces
      *  an error.
-     * @param $publishedFrom object Search-from date
-     * @param $publishedTo object Search-to date
-     * @param $rangeInfo Information on the range of results to return
-     * @param $exclude array An array of article IDs to exclude from the result.
+     * @param object $publishedFrom Search-from date
+     * @param object $publishedTo Search-to date
+     * @param object $rangeInfo Information on the range of results to return
+     * @param array $exclude An array of article IDs to exclude from the result.
      *
      * @return VirtualArrayIterator An iterator with one entry per retrieved
      *  article containing the article, published submission, issue, context, etc.
@@ -333,7 +333,7 @@ abstract class SubmissionSearch
      * Return the currently selected result
      * set ordering option (default: descending relevance).
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return array An array with the order field as the
      * first entry and the order direction as the second
@@ -368,8 +368,8 @@ abstract class SubmissionSearch
      * Note that this function is also called externally to fetch
      * results for the title index, and possibly elsewhere.
      *
-     * @param $results array
-     * @param $user User optional (if availability information is desired)
+     * @param array $results
+     * @param User $user optional (if availability information is desired)
      *
      * @return array
      */
@@ -378,7 +378,7 @@ abstract class SubmissionSearch
     /**
      * Return the available options for result set ordering.
      *
-     * @param $request Request
+     * @param Request $request
      *
      * @return array
      */
@@ -393,7 +393,7 @@ abstract class SubmissionSearch
     /**
      * Return the default order direction.
      *
-     * @param $orderBy string
+     * @param string $orderBy
      *
      * @return string
      */

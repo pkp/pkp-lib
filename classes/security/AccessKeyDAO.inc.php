@@ -25,7 +25,7 @@ class AccessKeyDAO extends \PKP\db\DAO
     /**
      * Retrieve an accessKey by ID.
      *
-     * @param $accessKeyId int
+     * @param int $accessKeyId
      *
      * @return AccessKey
      */
@@ -45,8 +45,8 @@ class AccessKeyDAO extends \PKP\db\DAO
     /**
      * Retrieve a accessKey object user ID.
      *
-     * @param $context string
-     * @param $userId int
+     * @param string $context
+     * @param int $userId
      *
      * @return AccessKey
      */
@@ -66,10 +66,10 @@ class AccessKeyDAO extends \PKP\db\DAO
     /**
      * Retrieve a accessKey object by key.
      *
-     * @param $context string
-     * @param $userId int
-     * @param $keyHash string
-     * @param $assocId int
+     * @param string $context
+     * @param int $userId
+     * @param string $keyHash
+     * @param int $assocId
      *
      * @return AccessKey
      */
@@ -103,7 +103,7 @@ class AccessKeyDAO extends \PKP\db\DAO
     /**
      * Internal function to return an AccessKey object from a row.
      *
-     * @param $row array
+     * @param array $row
      *
      * @return AccessKey
      */
@@ -125,7 +125,7 @@ class AccessKeyDAO extends \PKP\db\DAO
     /**
      * Insert a new accessKey.
      *
-     * @param $accessKey AccessKey
+     * @param AccessKey $accessKey
      */
     public function insertObject($accessKey)
     {
@@ -152,7 +152,7 @@ class AccessKeyDAO extends \PKP\db\DAO
     /**
      * Update an existing accessKey.
      *
-     * @param $accessKey AccessKey
+     * @param AccessKey $accessKey
      */
     public function updateObject($accessKey)
     {
@@ -181,7 +181,7 @@ class AccessKeyDAO extends \PKP\db\DAO
     /**
      * Delete an accessKey.
      *
-     * @param $accessKey AccessKey
+     * @param AccessKey $accessKey
      */
     public function deleteObject($accessKey)
     {
@@ -191,7 +191,7 @@ class AccessKeyDAO extends \PKP\db\DAO
     /**
      * Delete an accessKey by ID.
      *
-     * @param $accessKeyId int
+     * @param int $accessKeyId
      */
     public function deleteAccessKeyById($accessKeyId)
     {
@@ -201,8 +201,8 @@ class AccessKeyDAO extends \PKP\db\DAO
     /**
      * Transfer access keys to another user ID.
      *
-     * @param $oldUserId int
-     * @param $newUserId int
+     * @param int $oldUserId
+     * @param int $newUserId
      */
     public function transferAccessKeys($oldUserId, $newUserId)
     {

@@ -70,7 +70,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
      * Get the name of this plugin. The name must be unique within
      * its category.
      *
-     * @return String name of plugin
+     * @return string name of plugin
      */
     public function getName()
     {
@@ -233,10 +233,10 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
     /**
      * Get the XML for a set of submissions.
      *
-     * @param $submissionIds array Array of submission IDs
-     * @param $context Context
-     * @param $user User|null
-     * @param $opts array
+     * @param array $submissionIds Array of submission IDs
+     * @param Context $context
+     * @param User|null $user
+     * @param array $opts
      *
      * @return string XML contents representing the supplied submission IDs.
      */

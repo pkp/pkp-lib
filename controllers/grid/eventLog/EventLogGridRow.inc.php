@@ -26,17 +26,17 @@ import('lib.pkp.controllers.grid.eventLog.linkAction.EmailLinkAction');
 
 class EventLogGridRow extends GridRow
 {
-    /** @var Submission **/
+    /** @var Submission */
     public $_submission;
 
-    /** @var boolean Is the current user assigned as an author to this submission */
+    /** @var bool Is the current user assigned as an author to this submission */
     public $_isCurrentUserAssignedAuthor;
 
     /**
      * Constructor
      *
-     * @param $submission Submission
-     * @param $isCurrentUserAssignedAuthor boolean Is the current user assigned
+     * @param Submission $submission
+     * @param bool $isCurrentUserAssignedAuthor Is the current user assigned
      *  as an author to this submission?
      */
     public function __construct($submission, $isCurrentUserAssignedAuthor)

@@ -24,7 +24,7 @@ class SubmissionSearchDAO extends \PKP\db\DAO
     /**
      * Add a word to the keyword list (if it doesn't already exist).
      *
-     * @param $keyword string
+     * @param string $keyword
      *
      * @return int the keyword ID
      */
@@ -61,9 +61,9 @@ class SubmissionSearchDAO extends \PKP\db\DAO
     /**
      * Delete all keywords for a submission.
      *
-     * @param $submissionId int
-     * @param $type int optional
-     * @param $assocId int optional
+     * @param int $submissionId
+     * @param int $type optional
+     * @param int $assocId optional
      */
     public function deleteSubmissionKeywords($submissionId, $type = null, $assocId = null)
     {
@@ -90,9 +90,9 @@ class SubmissionSearchDAO extends \PKP\db\DAO
     /**
      * Add a submission object to the index (if already exists, indexed keywords are cleared).
      *
-     * @param $submissionId int
-     * @param $type int
-     * @param $assocId int
+     * @param int $submissionId
+     * @param int $type
+     * @param int $assocId
      *
      * @return int the object ID
      */

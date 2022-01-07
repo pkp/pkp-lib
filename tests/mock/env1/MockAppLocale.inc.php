@@ -27,7 +27,7 @@ class AppLocale extends PKPLocale
     public static $supportedLocales = ['en_US' => 'English/America'];
     public static $translations = [];
 
-    /*
+    /**
      * method required during setup of
      * the PKP application framework
      */
@@ -36,7 +36,7 @@ class AppLocale extends PKPLocale
         // do nothing
     }
 
-    /*
+    /**
      * method required during setup of
      * the PKP application framework
      * @return string test locale
@@ -46,7 +46,7 @@ class AppLocale extends PKPLocale
         return 'en_US';
     }
 
-    /*
+    /**
      * method required during setup of
      * the PKP application framework
      */
@@ -77,9 +77,9 @@ class AppLocale extends PKPLocale
     /**
      * Mocked method
      *
-     * @param $key string
-     * @param $params array named substitution parameters
-     * @param $locale string the locale to use
+     * @param string $key
+     * @param array $params named substitution parameters
+     * @param string $locale the locale to use
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class AppLocale extends PKPLocale
      * Setter to configure a custom
      * primary locale for testing.
      *
-     * @param $primaryLocale string
+     * @param string $primaryLocale
      */
     public static function setPrimaryLocale($primaryLocale)
     {
@@ -116,7 +116,7 @@ class AppLocale extends PKPLocale
      * Setter to configure a custom
      * primary locale for testing.
      *
-     * @param $supportedLocales array
+     * @param array $supportedLocales
      *  example array(
      *   'en_US' => 'English',
      *   'de_DE' => 'German'
@@ -150,7 +150,7 @@ class AppLocale extends PKPLocale
     /**
      * Set translation keys to be faked.
      *
-     * @param $translations array
+     * @param array $translations
      */
     public static function setTranslations($translations)
     {

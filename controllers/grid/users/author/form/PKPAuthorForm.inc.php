@@ -25,10 +25,10 @@ use Sokil\IsoCodes\IsoCodesFactory;
 
 class PKPAuthorForm extends Form
 {
-    /** The publication associated with the contributor being edited **/
+    /** @var Publication publication associated with the contributor being edited */
     public $_publication;
 
-    /** Author the author being edited **/
+    /** @var Author the author being edited */
     public $_author;
 
     /**
@@ -79,7 +79,7 @@ class PKPAuthorForm extends Form
     /**
      * Set the author
      *
-     * @param @author Author
+     * @param Author $author
      */
     public function setAuthor($author)
     {
@@ -99,7 +99,7 @@ class PKPAuthorForm extends Form
     /**
      * Set the Publication
      *
-     * @param Publication
+     * @param Publication $publication
      */
     public function setPublication($publication)
     {

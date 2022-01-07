@@ -24,7 +24,7 @@ use PKP\security\Role;
 
 class SubmissionInformationCenterHandler extends InformationCenterHandler
 {
-    /** @var boolean Is the current user assigned to an editorial role for this submission */
+    /** @var bool Is the current user assigned to an editorial role for this submission */
     public $_isCurrentUserAssignedEditor;
 
     /**
@@ -75,8 +75,8 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
     /**
      * Display the notes tab.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */
@@ -97,8 +97,8 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
     /**
      * Save a note.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      */
     public function saveNote($args, $request)
     {
@@ -132,8 +132,8 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
     /**
      * Fetch the contents of the event log.
      *
-     * @param $args array
-     * @param $request PKPRequest
+     * @param array $args
+     * @param PKPRequest $request
      *
      * @return JSONMessage JSON object
      */

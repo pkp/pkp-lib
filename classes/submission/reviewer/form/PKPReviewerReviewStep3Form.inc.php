@@ -38,8 +38,8 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
     /**
      * Constructor.
      *
-     * @param $reviewerSubmission ReviewerSubmission
-     * @param $reviewAssignment ReviewAssignment
+     * @param ReviewerSubmission $reviewerSubmission
+     * @param ReviewAssignment $reviewAssignment
      */
     public function __construct($request, $reviewerSubmission, $reviewAssignment)
     {
@@ -245,7 +245,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
     /**
      * Save the given answers to the review form
      *
-     * @param $reviewAssignment ReviewAssignment
+     * @param ReviewAssignment $reviewAssignment
      */
     public function saveReviewForm($reviewAssignment)
     {

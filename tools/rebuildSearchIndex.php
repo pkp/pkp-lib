@@ -49,7 +49,7 @@ class rebuildSearchIndex extends CommandLineTool
             $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
             $server = $serverDao->getByPath($serverPath);
             if (!$server) {
-                die(__('search.cli.rebuildIndex.unknownServer', ['serverPath' => $serverPath]) . "\n");
+                exit(__('search.cli.rebuildIndex.unknownServer', ['serverPath' => $serverPath]) . "\n");
             }
         }
 

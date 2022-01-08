@@ -14,6 +14,16 @@
 		$('#reviewStep1Form').pkpHandler(
 			'$.pkp.controllers.form.AjaxFormHandler'
 		);
+		$('#noCompetingInterests').click(function() {ldelim}
+			$('#reviewerCompetingInterestsContainer').hide(100);
+		{rdelim});
+		$('#hasCompetingInterests').click(function() {ldelim}
+			$('#reviewerCompetingInterestsContainer').show(100);
+		{rdelim});
+		if ({if $reviewerCompetingInterests}0{else}1{/if}) {ldelim}
+			$('#reviewerCompetingInterestsContainer').hide();
+			console.log('HIDING');
+		{rdelim}
 	{rdelim});
 </script>
 
@@ -70,7 +80,7 @@
 			{fbvElement type="radio" value="hasCompetingInterests" id="hasCompetingInterests" name="competingInterestOption" checked=!!$reviewerCompetingInterests label="reviewer.submission.hasCompetingInterests" disabled=$reviewIsClosed}
 		{/fbvFormSection}
 
-		{fbvFormSection}
+		{fbvFormSection id="reviewerCompetingInterestsContainer"}
 			{fbvElement type="textarea" name="reviewerCompetingInterests" id="reviewerCompetingInterests" value=$reviewerCompetingInterests size=$fbvStyles.size.MEDIUM disabled=$reviewIsClosed rich=true}
 		{/fbvFormSection}
 	{/if}

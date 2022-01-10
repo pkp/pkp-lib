@@ -20,42 +20,42 @@ namespace PKP\Domains\Jobs\Traits;
 trait Worker
 {
     /**
-     * Job's worker delay configuration
+     * Job's worker delay configuration, as the number of seconds before a released job will be available.
      *
      * @var int
      */
     protected $delay = 0;
 
     /**
-     * Job's worker allowed memory configuration
+     * Job's worker allowed memory configuration, as the maximum amount of RAM (in megabytes) the worker may consume.
      *
      * @var int
      */
     protected $allowedMemory = 128;
 
     /**
-     * Job's worker timeout configuration
+     * Job's worker timeout configuration, as the maximum number of seconds a child worker may run.
      *
      * @var int
      */
     protected $timeout = 30;
 
     /**
-     * Job's worker sleep configuration
+     * Job's worker sleep configuration, as the number of seconds to wait in between polling the queue.
      *
      * @var int
      */
     protected $sleep = 3;
 
     /**
-     * Job's worker force configuration
+     * Job's worker force configuration, indicates if the worker should run even in Laravel's maintenance mode.
      *
      * @var bool
      */
     protected $forceFlag = false;
 
     /**
-     * Job's worker stopWhenEmpty configuration
+     * Job's worker stopWhenEmpty configuration, indicates if the worker should stop when queue is empty.
      *
      * @var bool
      */

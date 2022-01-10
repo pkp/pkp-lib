@@ -20,13 +20,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 use PKP\config\Config;
+use PKP\install\DowngradeNotSupportedException;
 
 class I6759_RenameVariables extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
 
         // pkp/pkp-lib#6759 rename tables
@@ -42,9 +43,9 @@ class I6759_RenameVariables extends \PKP\migration\Migration
     /**
      * Reverse the downgrades
      */
-    public function down()
+    public function down(): void
     {
-        throw new PKP\install\DowngradeNotSupportedException();
+        throw new DowngradeNotSupportedException();
     }
 
 

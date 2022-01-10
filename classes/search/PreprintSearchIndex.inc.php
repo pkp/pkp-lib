@@ -281,7 +281,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
             // Check that no server was given as we do
             // not support server-specific re-indexing.
             if (is_a($server, 'Server')) {
-                die(__('search.cli.rebuildIndex.indexingByServerNotSupported') . "\n");
+                exit(__('search.cli.rebuildIndex.indexingByServerNotSupported') . "\n");
             }
 
             // Clear index

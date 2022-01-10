@@ -13,6 +13,7 @@
 namespace APP\migration\upgrade\v3_4_0;
 
 use Illuminate\Support\Facades\DB;
+use PKP\install\DowngradeNotSupportedException;
 use PKP\oai\OAIUtils;
 
 class I4235_OAISetSpec extends \PKP\migration\Migration
@@ -40,6 +41,6 @@ class I4235_OAISetSpec extends \PKP\migration\Migration
      */
     public function down(): void
     {
-        // The old format is not recoverable since some characters might have been stripped
+        throw new DowngradeNotSupportedException('The old format is not recoverable since some characters might have been stripped');
     }
 }

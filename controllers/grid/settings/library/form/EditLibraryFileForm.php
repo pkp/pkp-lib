@@ -20,6 +20,7 @@ use PKP\context\LibraryFile;
 use PKP\context\LibraryFileDAO;
 use PKP\controllers\grid\files\form\LibraryFileForm;
 use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileManager;
 
 class EditLibraryFileForm extends LibraryFileForm
 {
@@ -88,7 +89,6 @@ class EditLibraryFileForm extends LibraryFileForm
             // Convert the temporary file to a library file and store
             $this->libraryFile = $libraryFileManager->replaceFromTemporaryFile($temporaryFile, $this->getData('fileType'), $this->libraryFile);
             // Clean up the temporary file
-            import('lib.pkp.classes.file.TemporaryFileManager');
             $temporaryFileManager = new TemporaryFileManager();
             $temporaryFileManager->deleteById($this->getData('temporaryFileId'), $userId);
         }

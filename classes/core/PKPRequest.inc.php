@@ -113,7 +113,7 @@ class PKPRequest
         }
 
         header("Location: ${url}");
-        exit();
+        exit;
     }
 
     /**

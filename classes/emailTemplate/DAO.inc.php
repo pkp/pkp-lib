@@ -14,13 +14,11 @@
 namespace PKP\emailTemplate;
 
 use Exception;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\db\XMLDAO;
 use PKP\facades\Repo;
-use stdClass;
 
 class DAO extends EntityDAO
 {
@@ -54,7 +52,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): EmailTemplate
     {
-        return App::make(EmailTemplate::class);
+        return app(EmailTemplate::class);
     }
 
     /**
@@ -166,7 +164,7 @@ class DAO extends EntityDAO
      * Retrieve template together with data from the email_template_default_data
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $row): EmailTemplate
+    public function fromRow(object $row): EmailTemplate
     {
 	    /** @var EmailTemplate $emailTemplate */
         $emailTemplate = parent::fromRow($row);

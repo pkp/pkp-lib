@@ -16,7 +16,7 @@
 
 use APP\core\Services;
 
-define('APP_ROOT', dirname(dirname(dirname(dirname(__FILE__)))));
+define('APP_ROOT', dirname(__FILE__, 4));
 require(APP_ROOT . '/tools/bootstrap.inc.php');
 
 class buildSwagger extends \PKP\cliTool\CommandLineTool
@@ -53,7 +53,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
     {
         if (empty($this->outputFile)) {
             $this->usage();
-            exit();
+            exit;
         } elseif ((file_exists($this->outputFile) && !is_writable($this->outputFile)) ||
                 (!is_writeable(dirname($this->outputFile)))) {
             echo "You do not have permission to write to this file.\n";

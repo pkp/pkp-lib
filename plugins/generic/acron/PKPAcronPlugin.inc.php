@@ -243,10 +243,7 @@ class PKPAcronPlugin extends GenericPlugin
      */
     public function shutdownFunction()
     {
-        // After PHP 4.1.0, the execution of this callback is part of the request,
-        // so users will have no response until it finishes executing it. We avoid
-        // that by sending headers to the browser that makes them believe the script
-        // is over.
+        // Release requests from waiting the processing.
         header('Connection: close');
         // This header is needed so avoid using any kind of compression. If zlib is
         // enabled, for example, the buffer will not output until the end of the

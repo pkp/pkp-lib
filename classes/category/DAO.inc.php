@@ -14,11 +14,9 @@
 namespace PKP\category;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
-use stdClass;
 
 class DAO extends EntityDAO
 {
@@ -48,7 +46,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): Category
     {
-        return App::make(Category::class);
+        return app(Category::class);
     }
 
     /**
@@ -96,7 +94,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $row): Category
+    public function fromRow(object $row): Category
     {
         return parent::fromRow($row);
     }

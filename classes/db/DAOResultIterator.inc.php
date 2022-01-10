@@ -56,7 +56,6 @@ class DAOResultIterator implements \Iterator, \Countable
             return null;
         }
         return $this->_i;
-        return $this->_current->getId();
     }
 
     /**
@@ -69,7 +68,7 @@ class DAOResultIterator implements \Iterator, \Countable
     }
 
     /**
-     * Rewind the DAOResultFactory to the begining. WARNING that this
+     * Rewind the DAOResultFactory to the beginning. WARNING that this
      * operation is not arbitrarily supported -- it can only be called
      * before the first call to `next()`.
      */

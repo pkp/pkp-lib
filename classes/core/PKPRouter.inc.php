@@ -654,22 +654,12 @@ class PKPRouter
      */
     public function _urlFromParts($baseUrl, $pathInfoArray = [], $queryParametersArray = [], $anchor = '', $escape = false)
     {
-        // parse_url does not support protocol relative URLs;
-        // work around it here (https://bugs.php.net/bug.php?id=66274)
-        if (strpos($baseUrl, '//') === 0) {
-            $baseUrl = 'http:' . $baseUrl;
-            $protocolRelativeWorkaround = true;
-        } else {
-            $protocolRelativeWorkaround = false;
-        }
-
         // Parse the base url
         $baseUrlParts = parse_url($baseUrl);
-        assert(isset($baseUrlParts['scheme']) && isset($baseUrlParts['host']) && !isset($baseUrlParts['fragment']));
+        assert(isset($baseUrlParts['host']) && !isset($baseUrlParts['fragment']));
 
         // Reconstruct the base url without path and query
-        // (supporting the work-around for protocol relative URLs)
-        $baseUrl = $protocolRelativeWorkaround ? '//' : ($baseUrlParts['scheme'] . '://');
+        $baseUrl = (isset($baseUrlParts['scheme']) ? $baseUrlParts['scheme'] . ':' : '') . '//';
         if (isset($baseUrlParts['user'])) {
             $baseUrl .= $baseUrlParts['user'];
             if (isset($baseUrlParts['pass'])) {
@@ -683,14 +673,12 @@ class PKPRouter
         }
         $baseUrl .= '/';
 
-        // Add path info from the base URL
-        // to the path info array (if any).
+        // Add path info from the base URL to the path info array (if any).
         if (isset($baseUrlParts['path'])) {
             $pathInfoArray = array_merge(explode('/', trim($baseUrlParts['path'], '/')), $pathInfoArray);
         }
 
-        // Add query parameters from the base URL
-        // to the query parameter array (if any).
+        // Add query parameters from the base URL to the query parameter array (if any).
         if (isset($baseUrlParts['query'])) {
             $queryParametersArray = array_merge(explode('&', $baseUrlParts['query']), $queryParametersArray);
         }
@@ -699,9 +687,9 @@ class PKPRouter
         $pathInfo = implode('/', $pathInfoArray);
 
         // Expand query parameters
-        $amp = ($escape ? '&amp;' : '&');
+        $amp = $escape ? '&amp;' : '&';
         $queryParameters = implode($amp, $queryParametersArray);
-        $queryParameters = (empty($queryParameters) ? '' : '?' . $queryParameters);
+        $queryParameters = empty($queryParameters) ? '' : '?' . $queryParameters;
 
         // Assemble and return the final URL
         return $baseUrl . $pathInfo . $queryParameters . $anchor;

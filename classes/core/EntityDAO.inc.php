@@ -16,7 +16,6 @@ namespace PKP\core;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAO;
 use PKP\services\PKPSchemaService;
-use stdClass;
 
 abstract class EntityDAO
 {
@@ -98,7 +97,7 @@ abstract class EntityDAO
     /**
      * Convert a row from the database query into a DataObject
      */
-    public function fromRow(stdClass $row): DataObject
+    public function fromRow(object $row): DataObject
     {
         $schema = $this->schemaService->get($this->schema);
 

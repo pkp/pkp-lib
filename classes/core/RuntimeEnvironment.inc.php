@@ -92,10 +92,10 @@ class RuntimeEnvironment
     public function isCompatible()
     {
         // Check PHP version
-        if (!is_null($this->_phpVersionMin) && !checkPhpVersion($this->_phpVersionMin)) {
+        if (!is_null($this->_phpVersionMin) && version_compare(PHP_VERSION, $this->_phpVersionMin) < 0) {
             return false;
         }
-        if (!is_null($this->_phpVersionMax) && version_compare(PHP_VERSION, $this->_phpVersionMax) === 1) {
+        if (!is_null($this->_phpVersionMax) && version_compare(PHP_VERSION, $this->_phpVersionMax) > 0) {
             return false;
         }
 

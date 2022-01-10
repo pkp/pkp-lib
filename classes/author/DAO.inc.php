@@ -20,12 +20,10 @@ namespace PKP\author;
 use APP\author\Author;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
-use stdClass;
 use PKP\facades\Repo;
 
 class DAO extends EntityDAO
@@ -66,7 +64,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): Author
     {
-        return App::make(Author::class);
+        return app(Author::class);
     }
 
     /**
@@ -127,7 +125,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $row): Author
+    public function fromRow(object $row): Author
     {
         $author = parent::fromRow($row);
 

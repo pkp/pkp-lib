@@ -211,7 +211,7 @@ class DAO extends \PKP\core\EntityDAO
      * @copydoc EntityDAO::fromRow
      *
      */
-    public function fromRow(\stdClass $row, bool $includeReviewerData = false): DataObject
+    public function fromRow(object $row, bool $includeReviewerData = false): DataObject
     {
         $user = parent::fromRow($row);
         if ($includeReviewerData) {

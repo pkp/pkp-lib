@@ -84,7 +84,7 @@ class PageHandler extends Handler
                     $styles = $templateManager->compileLess($name, 'styles/index.less');
                     if (!$templateManager->cacheLess($cachedFile, $styles)) {
                         echo $styles;
-                        die;
+                        exit;
                     }
                 }
                 break;
@@ -101,7 +101,7 @@ class PageHandler extends Handler
                     }
                     header('Content-Length: ' . strlen($result));
                     echo $result;
-                    die;
+                    exit;
                 } else {
                     $cachedFile = $templateManager->getCachedLessFilePath($name);
                     if (!file_exists($cachedFile)) {
@@ -145,14 +145,14 @@ class PageHandler extends Handler
 
                         // Give up if there are still no styles
                         if (!$styles) {
-                            die;
+                            exit;
                         }
 
                         // Try to save the styles to a cached file. If we can't,
                         // just print them out
                         if (!$templateManager->cacheLess($cachedFile, $styles)) {
                             echo $styles;
-                            die;
+                            exit;
                         }
                     }
                 }
@@ -163,6 +163,6 @@ class PageHandler extends Handler
         header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($cachedFile)) . ' GMT');
         header('Content-Length: ' . filesize($cachedFile));
         readfile($cachedFile);
-        die;
+        exit;
     }
 }

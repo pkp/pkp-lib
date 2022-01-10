@@ -13,7 +13,7 @@
  * @brief Remove a locale key from all locale files.
  */
 
-require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
 
 class RemoveLocaleKey extends \PKP\cliTool\CommandLineTool
 {
@@ -62,7 +62,7 @@ class RemoveLocaleKey extends \PKP\cliTool\CommandLineTool
     public function execute()
     {
         $localeKeyLine = 'msgid "' . $this->localeKey . '"';
-        $rootDir = dirname(dirname(dirname(dirname(__FILE__))));
+        $rootDir = dirname(__FILE__, 4);
 
         foreach ($this->dirs as $dir) {
             $locales = scandir($rootDir . '/' . $dir);

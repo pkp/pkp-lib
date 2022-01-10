@@ -265,7 +265,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
     protected function loadData($request, $filter)
     {
         $categories = PluginRegistry::getCategories();
-        if (is_array($filter) && isset($filter['category']) && array_search($filter['category'], $categories) !== false) {
+        if (is_array($filter) && isset($filter['category']) && in_array($filter['category'], $categories)) {
             return [$filter['category'] => $filter['category']];
         } else {
             return array_combine($categories, $categories);

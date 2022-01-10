@@ -16,8 +16,6 @@
  */
 
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 use PKP\core\DataObject;
@@ -139,7 +137,7 @@ class EntityDAOTest extends PKPTestCase
      */
     public function testCRUD()
     {
-        $testEntityDao = App::make(TestEntityDAO::class);
+        $testEntityDao = app(TestEntityDAO::class);
 
         // Create a data object for storage
         $testEntity = new DataObject();
@@ -181,7 +179,7 @@ class EntityDAOTest extends PKPTestCase
 
     public function testNullablePrimaryColumn()
     {
-        $testEntityDao = App::make(TestEntityDAO::class);
+        $testEntityDao = app(TestEntityDAO::class);
 
         // Create a data object for storage
         $testEntity = new DataObject();
@@ -204,7 +202,7 @@ class EntityDAOTest extends PKPTestCase
 
     public function testNotNullablePrimaryColumn()
     {
-        $testEntityDao = App::make(TestEntityDAO::class);
+        $testEntityDao = app(TestEntityDAO::class);
 
         // Create a data object for storage
         $testEntity = new DataObject();

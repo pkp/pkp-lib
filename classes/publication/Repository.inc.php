@@ -24,7 +24,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -35,7 +34,6 @@ use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
-use stdClass;
 
 abstract class Repository
 {
@@ -101,7 +99,7 @@ abstract class Repository
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {
-        return App::make(Collector::class);
+        return app(Collector::class);
     }
 
     /**
@@ -126,7 +124,7 @@ abstract class Repository
     }
 
     /** @copydoc DAO:: getDateBoundaries()*/
-    public function getDateBoundaries(Collector $query): stdClass
+    public function getDateBoundaries(Collector $query): object
     {
         return $this->dao->getDateBoundaries($query);
     }

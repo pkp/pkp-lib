@@ -15,7 +15,7 @@
 
 use PKP\facades\Repo;
 
-require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
 
 
 class installEmailTemplates extends CommandLineTool
@@ -40,7 +40,7 @@ class installEmailTemplates extends CommandLineTool
 
         if ($this->_emailKey === null || $this->_locales === null) {
             $this->usage();
-            exit();
+            exit;
         }
     }
 

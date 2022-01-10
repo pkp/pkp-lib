@@ -13,7 +13,7 @@
  * @brief Get the value of application constants.
  */
 
-require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
 
 class constants extends \PKP\cliTool\CommandLineTool
 {
@@ -28,7 +28,7 @@ class constants extends \PKP\cliTool\CommandLineTool
 
         if (isset($argv[1]) && in_array($argv[1], ['--help', '-h'])) {
             $this->usage();
-            die;
+            exit;
         }
 
         if (isset($argv[1])) {

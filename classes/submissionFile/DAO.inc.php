@@ -21,7 +21,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 
@@ -30,8 +29,6 @@ use PKP\db\DAORegistry;
 use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\services\PKPSchemaService;
 use PKP\submission\reviewRound\ReviewRound;
-
-use stdClass;
 
 class DAO extends EntityDAO implements PKPPubIdPluginDAO
 {
@@ -68,7 +65,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      */
     public function newDataObject(): SubmissionFile
     {
-        return App::make(SubmissionFile::class);
+        return app(SubmissionFile::class);
     }
 
     /**
@@ -125,7 +122,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $primaryRow): SubmissionFile
+    public function fromRow(object $primaryRow): SubmissionFile
     {
         $submissionFile = parent::fromRow($primaryRow);
         $submissionFile->setData('locale', $primaryRow->locale);

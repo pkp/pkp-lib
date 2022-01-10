@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/facade/Repo.inc.php
+ * @file classes/facades/Repo.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -34,26 +34,26 @@ class Repo
 {
     public static function announcement(): AnnouncementRepository
     {
-        return app()->make(AnnouncementRepository::class);
+        return app(AnnouncementRepository::class);
     }
 
     public static function author(): AuthorRepository
     {
-        return app()->make(AuthorRepository::class);
+        return app(AuthorRepository::class);
     }
 
     public static function emailTemplate(): EmailTemplateRepository
     {
-        return app()->make(EmailTemplateRepository::class);
+        return app(EmailTemplateRepository::class);
     }
 
     public static function category(): CategoryRepository
     {
-        return app()->make(CategoryRepository::class);
+        return app(CategoryRepository::class);
     }
 
     public static function submissionFile(): SubmissionFileRepository
     {
-        return app()->make(SubmissionFileRepository::class);
+        return app(SubmissionFileRepository::class);
     }
 }

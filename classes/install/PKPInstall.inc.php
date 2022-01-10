@@ -47,6 +47,9 @@ use PKP\site\Version;
 
 class PKPInstall extends Installer
 {
+    /** @var int Minimum password length */
+    public const MIN_PASSWORD_LENGTH = 6;
+
     /**
      * Constructor.
      *
@@ -269,7 +272,7 @@ class PKPInstall extends Installer
         $siteDao = DAORegistry::getDAO('SiteDAO');
         $site = $siteDao->newDataObject();
         $site->setRedirect(0);
-        $site->setMinPasswordLength(INSTALLER_DEFAULT_MIN_PASSWORD_LENGTH);
+        $site->setMinPasswordLength(static::MIN_PASSWORD_LENGTH);
         $site->setPrimaryLocale($siteLocale);
         $site->setInstalledLocales($this->installedLocales);
         $site->setSupportedLocales($this->installedLocales);

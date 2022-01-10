@@ -71,7 +71,6 @@ class DataObject
         // Fallback: Get the first available piece of data.
         $data = & $this->getData($key, null);
         if (!empty($data)) {
-            // WARNING: Collapsing the following into a single line causes PHP 5.0.5 to die.
             $locales = array_keys($data);
             $firstLocale = array_shift($locales);
             return $data[$firstLocale];
@@ -95,11 +94,8 @@ class DataObject
             if (array_key_exists($key, $this->_data)) {
                 return $this->_data[$key];
             }
-        } else {
-            // see http://bugs.php.net/bug.php?id=29848
-            if (array_key_exists($key, $this->_data) && is_array($this->_data[$key]) && array_key_exists($locale, $this->_data[$key])) {
-                return $this->_data[$key][$locale];
-            }
+        } else if (array_key_exists($locale, (array) ($this->_data[$key] ?? []))) {
+            return $this->_data[$key][$locale];
         }
         $nullVar = null;
         return $nullVar;
@@ -124,24 +120,23 @@ class DataObject
     public function setData($key, $value, $locale = null)
     {
         if (is_null($locale)) {
-            // This is either a non-localized value or we're
-            // passing in all locales at once.
+            // This is either a non-localized value or we're passing in all locales at once.
             $this->_data[$key] = $value;
-        } else {
-            // Set a single localized value.
-            if (is_null($value)) {
-                // see http://bugs.php.net/bug.php?id=29848
-                if (array_key_exists($key, $this->_data)) {
-                    if (is_array($this->_data[$key]) && array_key_exists($locale, $this->_data[$key])) {
-                        unset($this->_data[$key][$locale]);
-                    }
-                    // Was this the last entry for the data variable?
-                    if (empty($this->_data[$key])) {
-                        unset($this->_data[$key]);
-                    }
-                }
-            } else {
-                $this->_data[$key][$locale] = $value;
+            return;
+        }
+        // Set a single localized value.
+        if (!is_null($value)) {
+            $this->_data[$key][$locale] = $value;
+            return;
+        }
+        // If the value is null, remove the entry.
+        if (array_key_exists($key, $this->_data)) {
+            if (array_key_exists($locale, (array) $this->_data[$key])) {
+                unset($this->_data[$key][$locale]);
+            }
+            // Was this the last entry for the data variable?
+            if (empty($this->_data[$key])) {
+                unset($this->_data[$key]);
             }
         }
     }
@@ -173,12 +168,7 @@ class DataObject
      */
     public function hasData($key, $locale = null)
     {
-        if (is_null($locale)) {
-            return array_key_exists($key, $this->_data);
-        } else {
-            // see http://bugs.php.net/bug.php?id=29848
-            return array_key_exists($key, $this->_data) && is_array($this->_data[$key]) && array_key_exists($locale, $this->_data[$key]);
-        }
+        return is_null($locale) ? array_key_exists($key, $this->_data) : array_key_exists($locale, (array) ($this->_data[$key] ?? []));
     }
 
     /**

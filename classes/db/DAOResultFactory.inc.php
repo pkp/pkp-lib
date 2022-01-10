@@ -81,13 +81,12 @@ class DAOResultFactory extends ItemIterator
         $this->params = $params;
         $this->rangeInfo = $rangeInfo;
 
-        // Determine if the fromRow method expects to receive
-        // an array or a stdClass. EntityDAOs expect stdClass.
-        // DAOs that extend PKP\db\DAO expect an array.
+        // Determine if the "fromRow" method expects to receive an array or a stdClass.
+        // EntityDAOs expect an object. DAOs that extend PKP\db\DAO expect an array.
         $reflector = new ReflectionClass(get_class($this->dao));
-        if (method_exists($this->dao, $this->functionName)) {
+        if ($reflector->hasMethod($this->functionName)) {
             $params = $reflector->getMethod($this->functionName)->getParameters();
-            if (!empty($params) && $params[0]->hasType() && $params[0]->getType()->getName() === 'stdClass') {
+            if (!empty($params) && $params[0]->hasType() && $params[0]->getType()->getName() === 'object') {
                 $this->expectsArray = false;
             }
         }

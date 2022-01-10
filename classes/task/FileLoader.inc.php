@@ -392,27 +392,6 @@ abstract class FileLoader extends ScheduledTask
     {
         $this->moveFile($this->_processingPath, $this->_stagePath, $this->_claimedFilename);
     }
-
-    /**
-     * Send the passed message to the administrator by email.
-     *
-     * @param string $message
-     */
-    private function _notify($message, $messageType)
-    {
-        // Instantiate the email to the admin.
-        $mail = new Mail();
-
-        // Recipient
-        $mail->addRecipient($this->_adminEmail, $this->_adminName);
-
-        // The message
-        $mail->setSubject(__('admin.fileLoader.emailSubject', ['processId' => $this->getProcessId()]) .
-            ' - ' . __($messageType));
-        $mail->setBody($message);
-
-        $mail->send();
-    }
 }
 
 if (!PKP_STRICT_MODE) {

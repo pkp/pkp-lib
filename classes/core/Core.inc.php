@@ -269,7 +269,7 @@ class Core
      * @return string|bool The url without base url,
      * false if it was not possible to remove it.
      */
-    public function removeBaseUrl($url)
+    public static function removeBaseUrl($url)
     {
         [$baseUrl, $contextPath] = Core::_getBaseUrlAndPath($url);
 
@@ -327,7 +327,7 @@ class Core
      *
      * @return array With two elements, base url and context path.
      */
-    protected function _getBaseUrlAndPath($url)
+    protected static function _getBaseUrlAndPath($url)
     {
         $baseUrl = false;
         $contextPath = false;
@@ -405,7 +405,7 @@ class Core
      *
      * @return bool
      */
-    protected function _checkBaseUrl($baseUrl, $url)
+    protected static function _checkBaseUrl($baseUrl, $url)
     {
         // Check if both base url and url have host
         // component or not.

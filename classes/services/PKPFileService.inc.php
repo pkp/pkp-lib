@@ -169,7 +169,7 @@ class PKPFileService
         header('Pragma: public');
 
         fpassthru($this->fs->readStream($path));
-        exit();
+        exit;
     }
 
     /**

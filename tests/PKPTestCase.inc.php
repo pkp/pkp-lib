@@ -15,8 +15,6 @@
  * @ingroup tests
  *
  * @brief Class that implements functionality common to all PKP unit test cases.
- *
- * NB: PHPUnit 3.x requires PHP 5.2 or later so we can use PHP5 constructs.
  */
 
 // Include PHPUnit

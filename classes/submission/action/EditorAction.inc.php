@@ -198,7 +198,7 @@ class EditorAction
                         PKPNotification::NOTIFICATION_TYPE_ERROR,
                         ['contents' => __('email.compose.error')]
                     );
-                    trigger_error($e->getMessage(), E_USER_WARNING);
+                    trigger_error('Failed to send email: ' . $e->getMessage(), E_USER_WARNING);
                 }
             }
         }
@@ -314,8 +314,8 @@ class EditorAction
 
         // Additional template variable
         $mailable->addData([
-            'reviewerName' => $mailable->viewData['userFullName'],
-            'reviewerUserName' => $mailable->viewData['username'],
+            'reviewerName' => $mailable->viewData['userFullName'] ?? null,
+            'reviewerUserName' => $mailable->viewData['username'] ?? null,
         ]);
 
         return $mailable;

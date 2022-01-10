@@ -43,7 +43,7 @@ class ArrayItemIterator extends ItemIterator
     {
         parent::__construct();
         if ($page >= 1 && $itemsPerPage >= 1) {
-            $this->theArray = $this->array_slice_key($theArray, ($page - 1) * $itemsPerPage, $itemsPerPage);
+            $this->theArray = array_slice($theArray, ($page - 1) * $itemsPerPage, $itemsPerPage, true);
             $this->page = $page;
         } else {
             $this->theArray = & $theArray;
@@ -188,31 +188,6 @@ class ArrayItemIterator extends ItemIterator
     public function toAssociativeArray()
     {
         return $this->theArray;
-    }
-
-    /**
-     * A version of array_slice that takes keys into account.
-     * Thanks to pies at sputnik dot pl.
-     * This is made redundant by PHP 5.0.2's updated
-     * array_slice, but we can't assume everyone has that.
-     * FIXME: Reconcile this against the dupe in VirtualArrayIterator.
-     *
-     * @see http://ca3.php.net/manual/en/function.array-slice.php
-     */
-    public function array_slice_key($array, $offset, $len = -1)
-    {
-        if (!is_array($array)) {
-            return false;
-        }
-
-        $return = [];
-        $length = $len >= 0 ? $len : count($array);
-        $keys = array_slice(array_keys($array), $offset, $length);
-        foreach ($keys as $key) {
-            $return[$key] = $array[$key];
-        }
-
-        return $return;
     }
 }
 

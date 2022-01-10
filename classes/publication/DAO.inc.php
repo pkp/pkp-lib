@@ -17,7 +17,6 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\citation\CitationDAO;
@@ -28,7 +27,6 @@ use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
-use stdClass;
 
 class DAO extends EntityDAO
 {
@@ -89,7 +87,7 @@ class DAO extends EntityDAO
      */
     public function newDataObject(): Publication
     {
-        return App::make(Publication::class);
+        return app(Publication::class);
     }
 
     /**
@@ -141,9 +139,9 @@ class DAO extends EntityDAO
      * Get the publication dates of the first and last publications
      * matching the passed query
      *
-     * @return stdClass self::$min_date_published, self::$max_date_published
+     * @return object self::$min_date_published, self::$max_date_published
      */
-    public function getDateBoundaries(Collector $query): stdClass
+    public function getDateBoundaries(Collector $query): object
     {
         return $query
             ->getQueryBuilder()
@@ -179,7 +177,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(stdClass $row): Publication
+    public function fromRow(object $row): Publication
     {
         $publication = parent::fromRow($row);
 

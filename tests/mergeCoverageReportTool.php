@@ -14,8 +14,8 @@
  * @see tools/runAllTests.sh
  */
 
-define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(__FILE__)))) . '/index.php');
-require_once(dirname(dirname(__FILE__)) . '/classes/cliTool/CliTool.inc.php');
+define('INDEX_FILE_LOCATION', dirname(__FILE__, 4) . '/index.php');
+require_once(dirname(__FILE__, 2) . '/classes/cliTool/CliTool.inc.php');
 
 class MergeCoverageReportTool extends \PKP\cliTool\CommandLineTool
 {

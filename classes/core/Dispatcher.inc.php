@@ -141,7 +141,7 @@ class Dispatcher
             $this->_requestCallbackHack = & $request;
             if (Config::getVar('cache', 'web_cache')) {
                 if ($this->_displayCached($router, $request)) {
-                    exit();
+                    exit;
                 } // Success
                 ob_start([$this, '_cacheContent']);
             }
@@ -244,7 +244,7 @@ class Dispatcher
         $ifModifiedSince = $request->getIfModifiedSince();
         if ($ifModifiedSince !== null && $ifModifiedSince >= filemtime($filename)) {
             header('HTTP/1.1 304 Not Modified');
-            exit();
+            exit;
         }
 
         $fp = fopen($filename, 'r');

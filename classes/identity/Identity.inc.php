@@ -22,6 +22,7 @@ namespace PKP\identity;
 
 use APP\core\Application;
 use APP\i18n\AppLocale;
+use Sokil\IsoCodes\IsoCodesFactory;
 
 class Identity extends \PKP\core\DataObject
 {
@@ -319,7 +320,7 @@ class Identity extends \PKP\core\DataObject
         if (!$countryCode) {
             return null;
         }
-        $isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+        $isoCodes = app(IsoCodesFactory::class);
         $country = $isoCodes->getCountries()->getByAlpha2($countryCode);
         return $country ? $country->getLocalName() : null;
     }

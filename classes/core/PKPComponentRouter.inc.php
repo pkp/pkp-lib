@@ -61,8 +61,6 @@ define('COMPONENT_ROUTER_PARTS_MAXDEPTH', 9);
 define('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-use APP\core\Request;
-
 use APP\i18n\AppLocale;
 use Exception;
 
@@ -129,12 +127,12 @@ class PKPComponentRouter extends PKPRouter
             array_pop($rpcServiceEndpointParts);
 
             // Construct the fully qualified component class name from the rest of it.
-            $handlerClassName = PKPString::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_UP) . 'Handler';
+            $handlerClassName = PKPString::camelize(array_pop($rpcServiceEndpointParts), PKPString::CAMEL_CASE_HEAD_UP) . 'Handler';
 
             // camelize remaining endpoint parts
             $camelizedRpcServiceEndpointParts = [];
             foreach ($rpcServiceEndpointParts as $part) {
-                $camelizedRpcServiceEndpointParts[] = PKPString::camelize($part, CAMEL_CASE_HEAD_DOWN);
+                $camelizedRpcServiceEndpointParts[] = PKPString::camelize($part, PKPString::CAMEL_CASE_HEAD_DOWN);
             }
             $handlerPackage = implode('.', $camelizedRpcServiceEndpointParts);
 
@@ -167,7 +165,7 @@ class PKPComponentRouter extends PKPRouter
             }
 
             // Pop off the operation part
-            $this->_op = PKPString::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_DOWN);
+            $this->_op = PKPString::camelize(array_pop($rpcServiceEndpointParts), PKPString::CAMEL_CASE_HEAD_DOWN);
         }
 
         return $this->_op;

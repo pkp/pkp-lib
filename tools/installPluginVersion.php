@@ -15,7 +15,7 @@
 
 define('RUNNING_UPGRADE', 1);
 
-require(dirname(dirname(dirname(dirname(__FILE__)))) . '/tools/bootstrap.inc.php');
+require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
 
 use APP\install\Upgrade;
 use PKP\site\Version;

@@ -10,16 +10,12 @@
 
 // This script may not be executed remotely.
 if (isset($_SERVER['SERVER_NAME'])) {
-    die('This script can only be executed from the command-line.');
+    exit('This script can only be executed from the command-line.');
 }
 
 
-// Configure the index file location, assume that pkp-lib is
-// included within a PKP application.
-// FIXME: This doesn't work if lib/pkp is symlinked.
-// realpath($_['SCRIPT_FILENAME'].'/../../index.php') could work
-// but see http://bugs.php.net/bug.php?id=50366
-define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(__FILE__)))) . '/index.php');
+// Configure the index file location, assume that pkp-lib is included within a PKP application.
+define('INDEX_FILE_LOCATION', dirname(__FILE__, 4) . '/index.php');
 chdir(dirname(INDEX_FILE_LOCATION));
 
 // Configure PKP error handling for tests
@@ -82,7 +78,7 @@ function require_mock_env($mockEnv)
         // in the same test batch as this would require re-defining
         // already defined classes.
         debug_print_backtrace();
-        die(
+        exit(
             'You are trying to run a test in the wrong mock environment ('
             . PHPUNIT_CURRENT_MOCK_ENV . ' rather than ' . $mockEnv . ')!'
         );
@@ -108,7 +104,7 @@ function import($class)
             $mockEnvArray = explode(';', PHPUNIT_ADDITIONAL_INCLUDE_DIRS);
             foreach ($mockEnvArray as $mockEnv) {
                 if (!is_dir($mockEnv)) {
-                    die('Invalid mock environment directory ' . $mockEnv . '!');
+                    exit('Invalid mock environment directory ' . $mockEnv . '!');
                 }
             }
         } else {

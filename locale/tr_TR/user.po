@@ -1,9 +1,10 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2020-11-27 10:51+0000\n"
+"PO-Revision-Date: 2022-01-10 09:39+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "tr_TR/>\n"
@@ -462,8 +463,8 @@ msgstr "Belirli bir ad gerekli."
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Nasıl belirtmeyi tercih edersiniz? İsterseniz buraya selamlar, ikinci adlar "
-"ve son ekler eklenebilir."
+"Yazarın yayınlanmış çalışmada belirtilmesi gerektiğinden lütfen tam adı "
+"belirtin. Örnek: Dr. Alan P. Mwandenga"
 
 msgid "user.preferredPublicName"
 msgstr "Tercih Edilen Genel Ad"

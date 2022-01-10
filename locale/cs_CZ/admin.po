@@ -1,9 +1,10 @@
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-04-30 07:17+0000\n"
+"PO-Revision-Date: 2022-01-11 15:46+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "cs_CZ/>\n"
@@ -332,3 +333,6 @@ msgstr "Omezit hromadné e-maily"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Hromadné e-maily"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Upozornění na redakční zprávu"

@@ -386,12 +386,12 @@ class Collector implements CollectorInterface
             return $this;
         }
         $query->whereExists(
-            fn (Builder $subQuery) => $subQuery->from('stage_assignments', 'sa')
+            fn (Builder $query) => $query->from('stage_assignments', 'sa')
                 ->join('user_group_stage AS ugs', 'sa.user_group_id', '=', 'ugs.user_group_id')
                 ->whereColumn('sa.user_id', '=', 'u.user_id')
-                ->when(isset($this->assignedTo['submissionId']), fn () => $subQuery->where('sa.submission_id', '=', $this->assignedTo['submissionId']))
-                ->when(isset($this->assignedTo['stageId']), fn () => $subQuery->where('ugs.stage_id', '=', $this->assignedTo['stageId']))
-                ->when(isset($this->assignedTo['userGroupId']), fn () => $subQuery->where('sa.user_group_id', '=', $this->assignedTo['userGroupId']))
+                ->when(isset($this->assignedTo['submissionId']), fn ($query) => $query->where('sa.submission_id', '=', $this->assignedTo['submissionId']))
+                ->when(isset($this->assignedTo['stageId']), fn ($query) => $query->where('ugs.stage_id', '=', $this->assignedTo['stageId']))
+                ->when(isset($this->assignedTo['userGroupId']), fn ($query) => $query->where('sa.user_group_id', '=', $this->assignedTo['userGroupId']))
         );
         return $this;
     }
@@ -405,18 +405,18 @@ class Collector implements CollectorInterface
             return $this;
         }
         $query->whereExists(
-            fn (Builder $subQuery) => $subQuery->from('user_user_groups', 'uug')
+            fn (Builder $query) => $query->from('user_user_groups', 'uug')
                 ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
                 ->whereColumn('uug.user_id', '=', 'u.user_id')
-                ->when($this->userGroupIds !== null, fn () => $subQuery->whereIn('uug.user_group_id', $this->userGroupIds))
+                ->when($this->userGroupIds !== null, fn ($query) => $query->whereIn('uug.user_group_id', $this->userGroupIds))
                 ->when(
                     $this->workflowStageIds !== null,
-                    fn () => $subQuery
+                    fn ($query) => $query
                         ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
                         ->whereIn('ugs.stage_id', $this->workflowStageIds)
                 )
-                ->when($this->roleIds !== null, fn () => $subQuery->whereIn('ug.role_id', $this->roleIds))
-                ->when($this->contextIds !== null, fn () => $subQuery->whereIn('ug.context_id', $this->contextIds))
+                ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
+                ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds))
         );
         return $this;
     }
@@ -428,7 +428,7 @@ class Collector implements CollectorInterface
     {
         foreach ($this->settings ?? [] as $name => $value) {
             $query->whereExists(
-                fn (Builder $subQuery) => $subQuery->from('user_settings', 'us')
+                fn (Builder $query) => $query->from('user_settings', 'us')
                     ->whereColumn('us.user_id', '=', 'u.user_id')
                     ->where('us.setting_name', '=', $name)
                     ->where('us.setting_value', '=', $value)
@@ -446,7 +446,7 @@ class Collector implements CollectorInterface
             return $this;
         }
         $query->whereExists(
-            fn (Builder $subQuery) => $subQuery->from('user_user_groups', 'uug')
+            fn (Builder $query) => $query->from('user_user_groups', 'uug')
                 ->join('user_group_stage AS ugs', 'ugs.user_group_id', '=', 'uug.user_group_id')
                 ->leftJoin(
                     'stage_assignments AS sa',
@@ -470,7 +470,7 @@ class Collector implements CollectorInterface
         $subEditorFilters = [Application::ASSOC_TYPE_SECTION => $this->assignedSectionIds, Application::ASSOC_TYPE_CATEGORY => $this->assignedCategoryIds];
         foreach (array_filter($subEditorFilters, fn (?array $assocIds) => !empty($assocIds)) as $assocType => $assocIds) {
             $query->whereExists(
-                fn (Builder $subQuery) => $subQuery->from('subeditor_submission_group', 'ssg')
+                fn (Builder $query) => $query->from('subeditor_submission_group', 'ssg')
                     ->whereColumn('ssg.user_id', '=', 'u.user_id')
                     ->where('ssg.assoc_type', '=', $assocType)
                     ->whereIn('ssg.assoc_id', $assocIds)
@@ -493,7 +493,7 @@ class Collector implements CollectorInterface
             : "DATE_PART('day', ${dateA} - ${dateB})";
 
         $query->leftJoinSub(
-            fn (Builder $subQuery) => $subQuery->from('review_assignments', 'ra')
+            fn (Builder $query) => $query->from('review_assignments', 'ra')
                 ->groupBy('ra.reviewer_id')
                 ->select('ra.reviewer_id')
                 ->selectRaw('MAX(ra.date_assigned) AS last_assigned')
@@ -553,13 +553,13 @@ class Collector implements CollectorInterface
                 fn ($query) => $query->whereRaw('LOWER(u.username) LIKE LOWER(?)', [$word])
                     ->orWhereRaw('LOWER(u.email) LIKE LOWER(?)', [$word])
                     ->orWhereExists(
-                        fn (Builder $subQuery) => $subQuery->from('user_settings', 'us')
+                        fn (Builder $query) => $query->from('user_settings', 'us')
                             ->whereColumn('us.user_id', '=', 'u.user_id')
                             ->whereIn('us.setting_name', $settings)
                             ->whereRaw('LOWER(us.setting_value) LIKE LOWER(?)', [$word])
                     )
                     ->orWhereExists(
-                        fn (Builder $subQuery) => $subQuery->from('user_interests', 'ui')
+                        fn (Builder $query) => $query->from('user_interests', 'ui')
                             ->join('controlled_vocab_entry_settings AS cves', 'ui.controlled_vocab_entry_id', '=', 'cves.controlled_vocab_entry_id')
                             ->whereColumn('ui.user_id', '=', 'u.user_id')
                             ->whereRaw('LOWER(cves.setting_value) LIKE LOWER(?)', [$word])

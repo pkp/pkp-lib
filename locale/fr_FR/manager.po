@@ -1,10 +1,11 @@
+# Martin Brändle <martin.braendle@uzh.ch>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2021-02-01 13:53+0000\n"
-"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"PO-Revision-Date: 2022-01-11 13:18+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -703,8 +704,8 @@ msgstr ""
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
-"Envoyer un rappel si le rapporteur ou la rapporteuse n'a pas fait sa "
-"recommandation dans le délai (en jours) suivant la date d'échéance."
+"Envoyer un rappel si un(e) évaluateur(trice) n'a pas soumis de "
+"recommandation dans le délai indiqué (en jours)."
 
 msgid "manager.setup.dependentGenre"
 msgstr "Genres dépendants"
@@ -2323,3 +2324,170 @@ msgstr "ERREUR :"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Le chemin pour la revue, \"{$contextPath}\", n'existe pas."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Ce courriel est automatiquement envoyé à un nouvel utilisateur lors de son "
+"inscription sur le site lorsque les paramètres exigent la validation de "
+"l'adresse de courriel."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Valider le courriel (site)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Ce courriel est envoyé lorsqu'un éditeur désassigne un réviseur."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Evaluateur( trice) plus attribué(e)"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Cet e-mail est envoyé lorsqu'un évaluateur qui n'était pas assigné est "
+"réintégré par un éditeur."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Evaluateur(trice) réintégré(e)"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr ""
+"Cet e-mail est envoyé lorsqu'un évaluateur est affecté à une soumission."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Evaluateur(trice) attribué(e)"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Ce courriel est automatiquement envoyé aux participants de la discussion "
+"lorsqu'un nouveau message est ajouté à la discussion."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Nouveau message de discussion"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "L'URL de la soumission dans le backend éditorial"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Les noms complets des auteurs"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Noms des auteurs sous la forme d'une chaîne de caractères raccourcie"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Le résumé de la soumission"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Le numéro d'identification unique de la soumission"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Le titre de la soumission"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"Les rédacteurs affectés à cette soumission qui peuvent prendre une décision"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "L'adresse de courriel du principal contact du site Web"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Le nom complet du contact principal du site"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "La signature de l'expéditeur du courriel"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "L'adresse de courriel de l'expéditeur/de l'expéditrice"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Le nom complet de l'expéditeur/de l'expéditrice"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "L'URL de la mission d'examen"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Date à laquelle l'évaluateur doit terminer l'évaluation"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+"Date à laquelle la personne chargée de l'évaluation doit accepter ou refuser "
+"l'attribution"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Le nom d'utilisateur du/de la destinataire ou de tous les destinataires"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Le nom complet du/de la destinataire ou de tous les destinataires"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "L'URL d'une page où l'utilisateur peut récupérer un mot de passe perdu"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Le processus n'a pas réussi à analyser les publications"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Le processus n'a pas réussi à analyser les auteurs"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Mauvaise configuration du filtre [{$filterName}] : {$filterCount} "
+"occurrences. Il ne devrait y en avoir qu'une seule."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Éléments génériques"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Télécharger le fichier exporté avec le bouton ci-dessous."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Exportation complétée avec succès."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Télécharger le fichier exporté"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportation des résultats des soumissions"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr ""
+"Le processus a échoué. Veuillez consulter les erreurs ou avertissements ci-"
+"dessous."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Groupe d'utilisateurs-trices manquant pour le nom d'usager {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id : {$id}"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Le paramètre de langue n'a pas pu être sauvegardé. Au moins une langue doit "
+"être activée pour chaque option"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Une ou plusieurs de ces adresses de courriel ne sont pas valables."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Une copie de l'e-mail de confirmation de soumission sera envoyée à chacune "
+"des adresses e-mail saisies ici. Séparez les adresses e-mail multiples par "
+"une virgule. Exemple : one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Informer tout le monde"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Non"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Oui, envoyer une copie à {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Avertir le contact principal"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notifications"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Autres modèles"

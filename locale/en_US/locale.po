@@ -32,6 +32,9 @@ msgstr "Unassigned"
 msgid "common.queue.long.active"
 msgstr "Active"
 
+msgid "doi.manager.settings.publications"
+msgstr "Preprints"
+
 msgid "section.section"
 msgstr "Section"
 

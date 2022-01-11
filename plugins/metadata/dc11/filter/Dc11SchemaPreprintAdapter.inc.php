@@ -18,8 +18,8 @@
  *  a Submission object.
  */
 
-use PKP\metadata\MetadataDataObjectAdapter;
 use APP\facades\Repo;
+use PKP\metadata\MetadataDataObjectAdapter;
 
 class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 {

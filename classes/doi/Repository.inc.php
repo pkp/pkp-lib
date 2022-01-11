@@ -1,0 +1,137 @@
+<?php
+
+namespace APP\doi;
+
+use APP\core\Application;
+use APP\core\Request;
+use APP\core\Services;
+use APP\facades\Repo;
+use APP\plugins\PubIdPlugin;
+use APP\preprint\PreprintGalley;
+use APP\publication\Publication;
+use APP\server\ServerDAO;
+use APP\submission\Submission;
+use PKP\context\Context;
+use PKP\core\DataObject;
+use PKP\services\PKPSchemaService;
+use PKP\submission\Representation;
+
+class Repository extends \PKP\doi\Repository
+{
+    public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
+    {
+        parent::__construct($dao, $request, $schemaService);
+    }
+
+    /**
+     * Create a DOI for the given publication
+     */
+    public function mintPublicationDoi(Publication $publication, Submission $submission, Context $context): ?int
+    {
+        $doiSuffix = $this->generateSuffixPattern($publication, $context, $context->getData(Context::SETTING_CUSTOM_DOI_SUFFIX_TYPE), $submission);
+
+        return $this->mintAndStoreDoi($context, $doiSuffix);
+    }
+
+    /**
+     * Create a DOI for the given galley
+     */
+    public function mintGalleyDoi(PreprintGalley $galley, Publication $publication, Submission $submission, Context $context): ?int
+    {
+        $doiSuffix = $this->generateSuffixPattern($galley, $context, $context->getData(Context::SETTING_CUSTOM_DOI_SUFFIX_TYPE), $submission, $galley);
+
+        return $this->mintAndStoreDoi($context, $doiSuffix);
+    }
+
+    /**
+     * Generate a suffix using a provided pattern type
+     *
+     * @param string $patternType Repo::doi()::CUSTOM_SUFFIX_* constants
+     *
+     */
+    protected function generateSuffixPattern(
+        DataObject $object,
+        Context $context,
+        string $patternType,
+        ?Submission $submission = null,
+        ?Representation $representation = null
+    ): string {
+        $doiSuffix = '';
+        switch ($patternType) {
+            case self::SUFFIX_DEFAULT_PATTERN:
+                $doiSuffix = PubIdPlugin::generateDefaultPattern($context, $submission, $representation);
+                break;
+            case self::SUFFIX_CUSTOM_PATTERN:
+                $pubIdSuffixPattern = $this->getPubIdSuffixPattern($object, $context);
+                $publication = $submission !== null ? Repo::publication()->get($submission->getData('currentPublicationId')) : null;
+                $doiSuffix = PubIdPlugin::generateCustomPattern($context, $pubIdSuffixPattern, $object, $submission, $publication, $representation);
+                break;
+            case self::CUSTOM_SUFFIX_MANUAL:
+                break;
+        }
+
+        return $doiSuffix;
+    }
+
+    /**
+     * Get app-specific DOI type constants to check when scheduling deposit for submissions
+     */
+    protected function getValidSubmissionDoiTypes(): array
+    {
+        return [
+            self::TYPE_PUBLICATION,
+            self::TYPE_REPRESENTATION
+        ];
+    }
+
+    /**
+     * Gets all DOIs associated with an issue
+     * NB: Assumes only enabled DOI types are allowed
+     *
+     */
+    public function getDoisForSubmission(int $submissionId): array
+    {
+        $doiIds = [];
+
+        $submission = Repo::submission()->get($submissionId);
+        /** @var Publication[] $publications */
+        $publications = [$submission->getCurrentPublication()];
+
+        /** @var ServerDAO $contextDao */
+        $contextDao = Application::getContextDAO();
+        $context = $contextDao->getById($submission->getData('contextId'));
+
+        foreach ($publications as $publication) {
+            $publicationDoiId = $publication->getData('doiId');
+            if (!empty($publicationDoiId) && $context->isDoiTypeEnabled(self::TYPE_PUBLICATION)) {
+                $doiIds[] = $publicationDoiId;
+            }
+
+            // Galleys
+            /** @var PreprintGalley[] $galleys */
+            $galleys = Services::get('galley')->getMany(['publicationIds' => $publication->getId()]);
+            foreach ($galleys as $galley) {
+                $galleyDoiId = $galley->getData('doiId');
+                if (!empty($galleyDoiId) && $context->isDoiTypeEnabled(self::TYPE_REPRESENTATION)) {
+                    $doiIds[] = $galleyDoiId;
+                }
+            }
+        }
+
+        return $doiIds;
+    }
+
+    /**
+     *  Gets legacy, user-generated suffix pattern associated with object type and context
+     *
+     * @return mixed|null
+     */
+    private function getPubIdSuffixPattern(DataObject $object, Context $context)
+    {
+        if ($object instanceof Representation) {
+            return $context->getData(Repo::doi()::LEGACY_CUSTOM_REPRESENTATION_PATTERN);
+        } else {
+            return $context->getData(Repo::doi()::LEGACY_CUSTOM_PUBLICATION_PATTERN);
+        }
+    }
+}

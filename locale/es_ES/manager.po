@@ -445,3 +445,197 @@ msgid "manager.sections.confirmDeactivateSection.error"
 msgstr ""
 "Al menos una sección debe estar activa. Visite la configuración del workflow "
 "para desactivar todos los envíos a este servidor."
+
+msgid "doi.editor.preview.objects"
+msgstr "Articulo"
+
+msgid "doi.editor.preview.galleys"
+msgstr "Galera: {$galleyLabel}"
+
+msgid "doi.editor.preview.publication.none"
+msgstr "No se ha asignado un DOI a esta publicación."
+
+msgid "doi.editor.preview.publication"
+msgstr "El DOI para esta publicación será {$doi}."
+
+msgid "doi.editor.missingPrefix"
+msgstr "El DOI debe comenzar con {$doiPrefix}."
+
+msgid "doi.editor.assignDoi.assigned"
+msgstr "El DOI {$pubId} ha sido asignado."
+
+msgid "doi.editor.assignDoi.pattern"
+msgstr ""
+"El DOI {$pubId} no se puede asignar porque contiene un patrón no resuelto."
+
+msgid "doi.editor.assignDoi.emptySuffix"
+msgstr "El DOI no se puede asignar porque falta el sufijo personalizado."
+
+msgid "doi.editor.assignDoi"
+msgstr "Asigne el DOI {$pubId} a este {$pubObjectType}"
+
+msgid "doi.editor.clearObjectsDoi.confirm"
+msgstr "¿Está seguro de que desea eliminar el DOI existente?"
+
+msgid "doi.editor.clearObjectsDoi"
+msgstr "Borre"
+
+msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+"El sufijo DOI dado ya está en uso para otro elemento postado. Ingrese un "
+"sufijo DOI único para cada artículo."
+
+msgid "doi.editor.assigned"
+msgstr "El DOI se asigna a este {$pubObjectType}."
+
+msgid "doi.editor.canBeAssigned"
+msgstr ""
+"Lo que ve es una vista previa del DOI. Seleccione la casilla de verificación "
+"y guarde el formulario para asignar el DOI."
+
+msgid "doi.editor.patternNotResolved"
+msgstr "El DOI no se puede asignar porque contiene un patrón no resuelto."
+
+msgid "doi.editor.missingParts"
+msgstr ""
+"No puede generar un DOI porque faltan datos en una o más partes del patrón "
+"de DOI."
+
+msgid "doi.editor.customSuffixMissing"
+msgstr "El DOI no se puede asignar porque falta el sufijo personalizado."
+
+msgid "doi.editor.doiObjectTypeRepresentation"
+msgstr "galera"
+
+msgid "doi.editor.doiObjectTypeSubmission"
+msgstr "preprint"
+
+msgid "doi.editor.doi.assignDoi"
+msgstr "Asignar"
+
+msgid "doi.editor.doi.description"
+msgstr "El DOI debe comenzar con {$prefix}."
+
+msgid "doi.editor.doi"
+msgstr "DOI"
+
+msgid "doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+"¿Está seguro de que desea asignar DOI a todos los objetos postados a los que "
+"no se les ha asignado DOI?"
+
+msgid "doi.manager.settings.doiAssignServerWide.description"
+msgstr ""
+"Asigne DOI a todos los objetos postados del servidor a los que no se les han "
+"asignado DOI. Esta acción no se puede usar con la configuración de sufijo "
+"individual. Si ha modificado la configuración de DOI anterior, guarde los "
+"cambios antes de iniciar esta acción. La asignación de DOI puede llevar "
+"mucho tiempo, dependiendo de la cantidad de objetos postados en el servidor."
+
+msgid "doi.manager.settings.doiAssignServerWide"
+msgstr "Asignar DOI"
+
+msgid "doi.manager.settings.doiReassign.confirm"
+msgstr "¿Está seguro de que desea eliminar todos los DOI existentes?"
+
+msgid "doi.manager.settings.doiReassign.description"
+msgstr ""
+"Si cambia la configuración de su DOI, los DOI que ya han sido asignados no "
+"se verán afectados. Una vez que se guarda la configuración de DOI, use este "
+"botón para borrar todos los DOI existentes para que la nueva configuración "
+"surta efecto con los objetos existentes."
+
+msgid "doi.manager.settings.doiReassign"
+msgstr "Reasignar DOI"
+
+msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
+msgstr "Ingrese el patrón de sufijo DOI para galeradas."
+
+msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
+msgstr "Ingrese el patrón de sufijo DOI para los preprints."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Ingrese un sufijo DOI individual para cada elemento postado. Encontrará un "
+"campo de entrada DOI adicional en la página de metadatos de cada elemento."
+
+msgid "doi.manager.settings.doiSuffixDefault.description"
+msgstr "%j.%a para preprints <br />%j.%a.g%g para galeras."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Use patrones predeterminados."
+
+msgid "doi.manager.settings.doiSuffixPattern.representations"
+msgstr "para galeradas"
+
+msgid "doi.manager.settings.doiSuffixPattern.submissions"
+msgstr "para preprints"
+
+msgid "doi.manager.settings.doiSuffixPattern.example"
+msgstr ""
+"Por ejemplo, %j.%a podría crear un DOI como 10.1234/server_initials.12345"
+
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+"Use el patrón ingresado a continuación para generar sufijos DOI. Use %j para "
+"las iniciales del servidor %a para la ID de preprint de OPS, %g para la ID "
+"de la galera de OPS, %f para la ID de archivo de OPS y %x para el \""
+"Identificador Personalizado\"."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Un sufijo DOI puede tomar cualquier forma, pero debe ser único entre todos "
+"los objetos de publicación con el mismo prefijo DOI asignado:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Sufijo DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "El prefijo DOI es obligatorio y debe tener el formato 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"El prefijo DOI es asignado por las agencias de registro (por ejemplo, <a "
+"href=\"http://www.crossref.org\" target=\"_new\"> Crossref</a>) y tiene el "
+"formato 10.xxxx (por ejemplo, 10.1234):"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Prefijo DOI"
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr "Galeradas"
+
+msgid "doi.manager.settings.enablePublicationDoi"
+msgstr "Preprints"
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+"Seleccione los objetos de publicación que tendrán asignados Identificadores "
+"de Objetos Digitales (DOI):"
+
+msgid "doi.manager.settings.doiObjectsRequired"
+msgstr "Elija los objetos a los que se deben asignar los DOI."
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Contenido del servidor"
+
+msgid "doi.manager.settings.description"
+msgstr "Configure el complemento DOI para poder administrar y usar DOI en OPS:"
+
+msgid "doi.readerDisplayName"
+msgstr "DOI"
+
+msgid "doi.description"
+msgstr ""
+"Este complemento permite la asignación de identificadores de objetos "
+"digitales a preprints y galeradas en OPS."
+
+msgid "doi.displayName"
+msgstr "DOI"
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr ""
+"Asignar automáticamente DOI a los siguientes objetos cuando sean creados:"
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Asignación automática"

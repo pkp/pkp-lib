@@ -17,6 +17,15 @@
 				"nullable"
 			]
 		},
+		"enabledDoiTypes": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"validation": [
+					"in:publication,representation"
+				]
+			}
+		},
 		"enablePublisherId": {
 			"type": "array",
 			"items": {

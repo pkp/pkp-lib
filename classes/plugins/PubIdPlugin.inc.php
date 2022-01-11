@@ -18,12 +18,18 @@ namespace APP\plugins;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use APP\publication\Publication;
 use APP\submission\Submission;
 
+use PKP\context\Context;
+use PKP\core\DataObject;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 
 use PKP\plugins\PKPPubIdPlugin;
+use PKP\submission\Representation;
+use PKP\submissionFile\SubmissionFile;
 
 abstract class PubIdPlugin extends PKPPubIdPlugin
 {
@@ -42,49 +48,57 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
                 if (!$request->checkCSRF()) {
                     return new JSONMessage(false);
                 }
-                $suffixFieldName = $this->getSuffixFieldName();
-                $suffixGenerationStrategy = $this->getSetting($context->getId(), $suffixFieldName);
-                if ($suffixGenerationStrategy != 'customId') {
-                    $submissionEnabled = $this->isObjectTypeEnabled('Publication', $context->getId());
-                    $representationEnabled = $this->isObjectTypeEnabled('Representation', $context->getId());
-                    if ($submissionEnabled || $representationEnabled) {
-                        $representationDao = Application::getRepresentationDAO();
-                        $submissions = Repo::submission()->getMany(
-                            Repo::submission()
-                                ->getCollector()
-                                ->filterByContextIds([$context->getId()])
-                                ->filterByStatus([Submission::STATUS_PUBLISHED])
-                        );
-                        foreach ($submissions as $submission) {
-                            $publications = $submission->getData('publications');
-                            if ($submissionEnabled) {
-                                foreach ($publications as $publication) {
-                                    $publicationPubId = $publication->getStoredPubId($this->getPubIdType());
-                                    if (empty($publicationPubId)) {
-                                        $publicationPubId = $this->getPubId($publication);
-                                        Repo::publication()->dao->changePubId($publication->getId(), $this->getPubIdType(), $publicationPubId);
-                                    }
-                                }
+                return $this->assignPubIds($request, $context);
+            default:
+                return parent::manage($args, $request);
+        }
+    }
+
+    /**
+     * Handles pubId assignment for any submission, galley, or issue pubIds
+     */
+    protected function assignPubIds(PKPRequest $request, Context $context): JSONMessage
+    {
+        $suffixFieldName = $this->getSuffixFieldName();
+        $suffixGenerationStrategy = $this->getSetting($context->getId(), $suffixFieldName);
+        if ($suffixGenerationStrategy != 'customId') {
+            $submissionEnabled = $this->isObjectTypeEnabled('Publication', $context->getId());
+            $representationEnabled = $this->isObjectTypeEnabled('Representation', $context->getId());
+            if ($submissionEnabled || $representationEnabled) {
+                $representationDao = Application::getRepresentationDAO();
+                $submissions = Repo::submission()->getMany(
+                    Repo::submission()
+                        ->getCollector()
+                        ->filterByContextIds([$context->getId()])
+                        ->filterByStatus([Submission::STATUS_PUBLISHED])
+                );
+                foreach ($submissions as $submission) {
+                    $publications = $submission->getData('publications');
+                    if ($submissionEnabled) {
+                        foreach ($publications as $publication) {
+                            $publicationPubId = $publication->getStoredPubId($this->getPubIdType());
+                            if (empty($publicationPubId)) {
+                                $publicationPubId = $this->getPubId($publication);
+                                Repo::publication()->dao->changePubId($publication->getId(), $this->getPubIdType(), $publicationPubId);
                             }
-                            if ($representationEnabled) {
-                                foreach ($publications as $publication) {
-                                    $representations = $representationDao->getByPublicationId($publication->getId(), $context->getId());
-                                    while ($representation = $representations->next()) {
-                                        $representationPubId = $representation->getStoredPubId($this->getPubIdType());
-                                        if (empty($representationPubId)) {
-                                            $representationPubId = $this->getPubId($representation);
-                                            $representationDao->changePubId($representation->getId(), $this->getPubIdType(), $representationPubId);
-                                        }
-                                    }
+                        }
+                    }
+                    if ($representationEnabled) {
+                        foreach ($publications as $publication) {
+                            $representations = $representationDao->getByPublicationId($publication->getId(), $context->getId());
+                            while ($representation = $representations->next()) {
+                                $representationPubId = $representation->getStoredPubId($this->getPubIdType());
+                                if (empty($representationPubId)) {
+                                    $representationPubId = $this->getPubId($representation);
+                                    $representationDao->changePubId($representation->getId(), $this->getPubIdType(), $representationPubId);
                                 }
                             }
                         }
                     }
                 }
-                return new JSONMessage(true);
-            default:
-                return parent::manage($args, $request);
+            }
         }
+        return new JSONMessage(true);
     }
 
     //
@@ -159,59 +173,81 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
                 $suffixPatternsFieldNames = $this->getSuffixPatternsFieldNames();
                 $pubIdSuffix = $this->getSetting($contextId, $suffixPatternsFieldNames[$pubObjectType]);
 
-                // %j - server initials, remove special characters and uncapitalize
-                $pubIdSuffix = PKPString::regexp_replace('/%j/', PKPString::regexp_replace('/[^A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
-
-                // %x - custom identifier
-                if ($pubObject->getStoredPubId('publisher-id')) {
-                    $pubIdSuffix = PKPString::regexp_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $pubIdSuffix);
-                }
-
-                if ($submission) {
-                    // %a - preprint id
-                    $pubIdSuffix = PKPString::regexp_replace('/%a/', $submission->getId(), $pubIdSuffix);
-                }
-
-                if ($publication) {
-                    // %b - publication id
-                    $pubIdSuffix = PKPString::regexp_replace('/%b/', $publication->getId(), $pubIdSuffix);
-                }
-
-                if ($representation) {
-                    // %g - galley id
-                    $pubIdSuffix = PKPString::regexp_replace('/%g/', $representation->getId(), $pubIdSuffix);
-                }
-
-                if ($submissionFile) {
-                    // %f - file id
-                    $pubIdSuffix = PKPString::regexp_replace('/%f/', $submissionFile->getId(), $pubIdSuffix);
-                }
+                $pubIdSuffix = $this::generateCustomPattern($context, $pubIdSuffix, $pubObject, $submission, $publication ?? null, $representation, $submissionFile);
 
                 break;
 
             default:
-                $pubIdSuffix = PKPString::regexp_replace('/[^A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale())));
-
-                if ($submission) {
-                    $pubIdSuffix .= '.' . $submission->getId();
-                }
-
-                if ($representation) {
-                    $pubIdSuffix .= '.g' . $representation->getId();
-                }
-
-                if ($submissionFile) {
-                    $pubIdSuffix .= '.f' . $submissionFile->getId();
-                }
+                $pubIdSuffix = $this::generateDefaultPattern($context, $submission, $representation, $submissionFile);
         }
         if (empty($pubIdSuffix)) {
             return null;
         }
 
-        // Costruct the pub id from prefix and suffix.
+        // Construct the pub id from prefix and suffix.
         $pubId = $this->constructPubId($pubIdPrefix, $pubIdSuffix, $contextId);
 
         return $pubId;
+    }
+
+    /**
+     * Generate the default, semantic-based pub-id pattern suffix
+     *
+     */
+    public static function generateDefaultPattern(Context $context, ?Submission $submission = null, ?Representation $representation = null, ?SubmissionFile $submissionFile = null): string
+    {
+        $pubIdSuffix = PKPString::regexp_replace('/[^A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale())));
+
+        if ($submission) {
+            $pubIdSuffix .= '.' . $submission->getId();
+        }
+
+        if ($representation) {
+            $pubIdSuffix .= '.g' . $representation->getId();
+        }
+
+        if ($submissionFile) {
+            $pubIdSuffix .= '.f' . $submissionFile->getId();
+        }
+
+        return $pubIdSuffix;
+    }
+
+    /**
+     * Generate the custom, user-defined pub-id pattern suffix
+     *
+     */
+    public static function generateCustomPattern(Context $context, string $pubIdSuffix, DataObject $pubObject, ?Submission $submission = null, ?Publication $publication = null, ?Representation $representation = null, ?SubmissionFile $submissionFile = null): string
+    {
+        // %j - server initials, remove special characters and uncapitalize
+        $pubIdSuffix = PKPString::regexp_replace('/%j/', PKPString::regexp_replace('/[^A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
+
+        // %x - custom identifier
+        if ($pubObject->getStoredPubId('publisher-id')) {
+            $pubIdSuffix = PKPString::regexp_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $pubIdSuffix);
+        }
+
+        if ($submission) {
+            // %a - preprint id
+            $pubIdSuffix = PKPString::regexp_replace('/%a/', $submission->getId(), $pubIdSuffix);
+        }
+
+        if ($publication) {
+            // %b - publication id
+            $pubIdSuffix = PKPString::regexp_replace('/%b/', $publication->getId(), $pubIdSuffix);
+        }
+
+        if ($representation) {
+            // %g - galley id
+            $pubIdSuffix = PKPString::regexp_replace('/%g/', $representation->getId(), $pubIdSuffix);
+        }
+
+        if ($submissionFile) {
+            // %f - file id
+            $pubIdSuffix = PKPString::regexp_replace('/%f/', $submissionFile->getId(), $pubIdSuffix);
+        }
+
+        return $pubIdSuffix;
     }
 
     /**

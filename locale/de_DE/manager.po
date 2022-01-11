@@ -574,3 +574,211 @@ msgstr ""
 
 msgid "mailable.validateEmailContext.name"
 msgstr "E-Mail überprüfen (Serverregistrierung)"
+
+msgid "doi.manager.settings.doiAssignServerWide"
+msgstr "DOIs zuweisen"
+
+msgid "doi.manager.settings.doiReassign.confirm"
+msgstr "Sind Sie sicher, dass Sie alle bestehenden DOIs löschen möchten?"
+
+msgid "doi.manager.settings.doiReassign.description"
+msgstr ""
+"Wenn Sie Ihre DOI-Konfiguration ändern, sind bereits zugewiesene DOIs davon "
+"nicht betroffen. Sobald die DOI-Konfiguration gespeichert ist, verwenden Sie "
+"diese Schaltfläche, um alle vorhandenen DOIs zu löschen, damit die neuen "
+"Einstellungen für die vorhandenen Objekte wirksam werden."
+
+msgid "doi.manager.settings.doiReassign"
+msgstr "DOIs neu zuweisen"
+
+msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
+msgstr "Bitte geben Sie das DOI-Suffixmuster für Gesamtfahnen ein."
+
+msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
+msgstr "Bitte geben Sie das DOI-Suffixmuster für Preprints ein."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Geben Sie ein individuelles DOI-Suffix für jeden veröffentlichten Artikel "
+"ein. Ein zusätzliches DOI-Eingabefeld finden Sie auf der Metadatenseite "
+"eines jeden Artikels."
+
+msgid "doi.manager.settings.doiSuffixDefault.description"
+msgstr "%j.%a für Preprints<br />%j.%a.g%g für Gesamtfahnen."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Verwenden Sie Standardmuster."
+
+msgid "doi.manager.settings.doiSuffixPattern.representations"
+msgstr "für Gesamtfahnen"
+
+msgid "doi.manager.settings.doiSuffixPattern.submissions"
+msgstr "für Preprints"
+
+msgid "doi.manager.settings.doiSuffixPattern.example"
+msgstr ""
+"Zum Beispiel könnte %j.%a einen DOI wie 10.1234/server_initials.12345 "
+"erzeugen"
+
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+"Verwenden Sie das unten eingegebene Muster, um DOI-Suffixe zu erzeugen. "
+"Verwenden Sie %j für die Serverinitialen, %a für die OPS Preprint ID, %g für "
+"die OPS Galley ID, %f für die OPS File ID und %x für \"Custom Identifier\"."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Ein DOI-Suffix kann eine beliebige Form haben, muss aber unter allen "
+"Veröffentlichungsobjekten mit demselben DOI-Präfix eindeutig sein:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-Suffix"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr ""
+"Der DOI-Präfix ist obligatorisch und muss in der Form 10.xxxx angegeben "
+"werden."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Das DOI-Präfix wird von den Registrierungsstellen vergeben (z. B. <a href=\""
+"http://www.crossref.org\" target=\"_new\">Crossref</a>) und hat das Format "
+"10.xxxx (z. B. 10.1234):"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI-Präfix"
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr ""
+"Automatische Zuweisung von DOI für die folgenden Objekte bei der Erstellung:"
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Automatische Zuweisung"
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr "Gesamtfahnen"
+
+msgid "doi.manager.settings.enablePublicationDoi"
+msgstr "Preprints"
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+"Bitte wählen Sie die Publikationsobjekte aus, denen Digital Object "
+"Identifier (DOI) zugewiesen werden sollen:"
+
+msgid "doi.manager.settings.doiObjectsRequired"
+msgstr "Bitte wählen Sie die Objekte aus, denen DOIs zugewiesen werden sollen."
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Server Inhalt"
+
+msgid "doi.manager.settings.description"
+msgstr ""
+"Bitte konfigurieren Sie das DOI-Plugin, damit Sie DOIs in OPS verwalten und "
+"verwenden können:"
+
+msgid "doi.readerDisplayName"
+msgstr "DOI"
+
+msgid "doi.description"
+msgstr ""
+"Dieses Plugin ermöglicht die Zuweisung von Digital Object Identifiers zu "
+"Preprints und Gesamtfahnen im OPS."
+
+msgid "doi.displayName"
+msgstr "DOI"
+
+msgid "doi.editor.preview.objects"
+msgstr "Eintrag"
+
+msgid "doi.editor.preview.galleys"
+msgstr "Gesamtfahne: {$galleyLabel}"
+
+msgid "doi.editor.preview.publication.none"
+msgstr "Für diese Veröffentlichung wurde kein DOI vergeben."
+
+msgid "doi.editor.preview.publication"
+msgstr "Der DOI für diese Veröffentlichung lautet {$doi}."
+
+msgid "doi.editor.missingPrefix"
+msgstr "Der DOI muss mit {$doiPrefix} beginnen."
+
+msgid "doi.editor.assignDoi.assigned"
+msgstr "Der DOI {$pubId} ist zugewiesen worden."
+
+msgid "doi.editor.assignDoi.pattern"
+msgstr ""
+"Der DOI {$pubId} kann nicht zugewiesen werden, da er ein nicht aufgelöstes "
+"Muster enthält."
+
+msgid "doi.editor.assignDoi.emptySuffix"
+msgstr ""
+"Der DOI kann nicht zugewiesen werden, weil das benutzerdefinierte Suffix "
+"fehlt."
+
+msgid "doi.editor.assignDoi"
+msgstr "Weisen Sie die DOI {$pubId} diesem {$pubObjectType} zu"
+
+msgid "doi.editor.clearObjectsDoi.confirm"
+msgstr "Sind Sie sicher, dass Sie die bestehende DOI löschen möchten?"
+
+msgid "doi.editor.clearObjectsDoi"
+msgstr "Löschen"
+
+msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+"Das angegebene DOI-Suffix ist bereits für einen anderen veröffentlichten "
+"Artikel in Gebrauch. Bitte geben Sie für jeden Artikel ein eindeutiges DOI-"
+"Suffix ein."
+
+msgid "doi.editor.assigned"
+msgstr "Der DOI wird diesem {$pubObjectType} zugewiesen."
+
+msgid "doi.editor.canBeAssigned"
+msgstr ""
+"Sie sehen eine Vorschau des DOI. Aktivieren Sie das Kontrollkästchen und "
+"speichern Sie das Formular, um den DOI zuzuweisen."
+
+msgid "doi.editor.patternNotResolved"
+msgstr ""
+"Der DOI kann nicht zugewiesen werden, da er ein nicht aufgelöstes Muster "
+"enthält."
+
+msgid "doi.editor.missingParts"
+msgstr ""
+"Sie können keinen DOI erzeugen, weil ein oder mehrere Teile des DOI-Musters "
+"fehlen."
+
+msgid "doi.editor.customSuffixMissing"
+msgstr ""
+"Der DOI kann nicht zugewiesen werden, weil das benutzerdefinierte Suffix "
+"fehlt."
+
+msgid "doi.editor.doiObjectTypeRepresentation"
+msgstr "Gesamtfahne"
+
+msgid "doi.editor.doiObjectTypeSubmission"
+msgstr "Preprint"
+
+msgid "doi.editor.doi.assignDoi"
+msgstr "zuweisen"
+
+msgid "doi.editor.doi.description"
+msgstr "Der DOI muss mit {$prefix} beginnen."
+
+msgid "doi.editor.doi"
+msgstr "DOI"
+
+msgid "doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+"Sind Sie sicher, dass Sie allen veröffentlichten Objekten, denen keine DOIs "
+"zugewiesen wurden, DOIs zuweisen möchten?"
+
+msgid "doi.manager.settings.doiAssignServerWide.description"
+msgstr ""
+"Weisen Sie allen veröffentlichten Serverobjekten, denen noch keine DOIs "
+"zugewiesen wurden, DOIs zu. Diese Aktion kann nicht mit der individuellen "
+"Suffix-Konfiguration verwendet werden. Wenn Sie die obige DOI-Konfiguration "
+"geändert haben, speichern Sie bitte Ihre Änderungen, bevor Sie diese Aktion "
+"starten. Die Zuweisung von DOIs kann je nach der Anzahl der veröffentlichten "
+"Objekte auf dem Server lange dauern."

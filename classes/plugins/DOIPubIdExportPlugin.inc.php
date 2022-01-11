@@ -17,8 +17,10 @@ namespace APP\plugins;
 
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\core\PKPString;
 
+use PKP\doi\Doi;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
 
@@ -48,10 +50,10 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
                 $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true);
                 if (isset($pubIdPlugins['doipubidplugin'])) {
                     $doiPlugin = $pubIdPlugins['doipubidplugin'];
-                    $doiPrefix = $doiPlugin->getSetting($context->getId(), $doiPlugin->getPrefixFieldName());
+                    $doiPrefix = $context->getData(Context::SETTING_DOI_PREFIX);
                     $templateMgr->assign([
-                        'exportPreprints' => $doiPlugin->getSetting($context->getId(), 'enablePublicationDoi'),
-                        'exportRepresentations' => $doiPlugin->getSetting($context->getId(), 'enableRepresentationDoi'),
+                        'exportPreprints' => $context->isDoiTypeEnabled(Repo::doi()::TYPE_PUBLICATION),
+                        'exportRepresentations' => $context->isDoiTypeEnabled(Repo::doi()::TYPE_REPRESENTATION),
                     ]);
                 }
                 if (empty($doiPrefix)) {
@@ -91,8 +93,11 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     public function markRegistered($context, $objects)
     {
         foreach ($objects as $object) {
-            $object->setData($this->getDepositStatusSettingName(), EXPORT_STATUS_MARKEDREGISTERED);
-            $this->saveRegisteredDoi($context, $object);
+            $doiId = $object->getData('doiId');
+
+            if ($doiId != null) {
+                Repo::doi()->markRegistered($doiId);
+            }
         }
     }
 
@@ -132,52 +137,6 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     }
 
     /**
-     * Retrieve all unregistered preprints.
-     *
-     * @param Context $context
-     *
-     * @return array
-     */
-    public function getUnregisteredPreprints($context)
-    {
-        // Retrieve all published submissions that have not yet been registered.
-        $preprints = Repo::submission()->dao->getExportable(
-            $context->getId(),
-            $this->getPubIdType(),
-            null,
-            null,
-            $this->getPluginSettingsPrefix() . '::' . DOI_EXPORT_REGISTERED_DOI,
-            null,
-            null
-        );
-        return $preprints->toArray();
-    }
-
-    /**
-     * Retrieve all unregistered galleys.
-     *
-     * @param Context $context
-     *
-     * @return array
-     */
-    public function getUnregisteredGalleys($context)
-    {
-        // Retrieve all galleys that have not yet been registered.
-        $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $galleyDao */
-        $galleys = $galleyDao->getExportable(
-            $context ? $context->getId() : null,
-            $this->getPubIdType(),
-            null,
-            null,
-            null,
-            $this->getPluginSettingsPrefix() . '::' . DOI_EXPORT_REGISTERED_DOI,
-            null,
-            null
-        );
-        return $galleys->toArray();
-    }
-
-    /**
      * Get published submissions with a DOI assigned from submission IDs.
      *
      * @param array $submissionIds
@@ -191,7 +150,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
             return Repo::submission()->get($submissionId);
         }, $submissionIds);
         return array_filter($submissions, function ($submission) {
-            return $submission->getData('status') === PKPSubmission::STATUS_PUBLISHED && !!$submission->getStoredPubId('doi');
+            return $submission->getData('status') === PKPSubmission::STATUS_PUBLISHED;
         });
     }
 

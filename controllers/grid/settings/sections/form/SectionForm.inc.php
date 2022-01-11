@@ -15,8 +15,8 @@
 
 import('lib.pkp.controllers.grid.settings.sections.form.PKPSectionForm');
 
-use APP\template\TemplateManager;
 use APP\facades\Repo;
+use APP\template\TemplateManager;
 use PKP\security\Role;
 
 class SectionForm extends PKPSectionForm
@@ -73,7 +73,8 @@ class SectionForm extends PKPSectionForm
                 'policy' => $section->getPolicy(null), // Localized
                 'wordCount' => $section->getAbstractWordCount(),
                 'path' => $section->getData('path'),
-                'assignedSubeditors' => Repo::user()->getIds(Repo::user()->getCollector()
+                'assignedSubeditors' => Repo::user()->getIds(
+                    Repo::user()->getCollector()
                     ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
                     ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
                     ->assignedToSectionIds([(int) $this->getSectionId()])

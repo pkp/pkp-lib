@@ -41,6 +41,12 @@ msgstr "You do not have permission to delete this server."
 msgid "api.contexts.404.contextNotFound"
 msgstr "The server you requested was not found."
 
+msgid "api.dois.400.contextsNotMatched"
+msgstr "The DOI you requested is not part of this server."
+
+msgid "api.dois.400.noRegistrationAgencyConfigured"
+msgstr "No DOI registration agency has been configured for this server."
+
 msgid "api.emails.403.disabled"
 msgstr "The email notification feature has not been enabled for this server."
 

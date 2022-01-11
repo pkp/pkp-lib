@@ -14,11 +14,12 @@
 namespace APP\submission;
 
 use Illuminate\Database\Query\Builder;
+use PKP\doi\Doi;
 
 class Collector extends \PKP\submission\Collector
 {
-    /** @var array|int */
-    public $sectionIds = null;
+    /**  */
+    public ?array $sectionIds = null;
 
     public function __construct(DAO $dao)
     {
@@ -48,5 +49,30 @@ class Collector extends \PKP\submission\Collector
         }
 
         return $q;
+    }
+
+    /**
+     * Add APP-specific filtering methods for submission sub objects DOI statuses
+     *
+     */
+    protected function addDoiStatusFilterToQuery(Builder $q)
+    {
+        $q->whereIn('s.current_publication_id', function (Builder $q) {
+            $q->select('current_p.publication_id')
+                ->from('publications as current_p')
+                ->leftJoin('publication_galleys as current_g', 'current_g.publication_id', '=', 'current_p.publication_id')
+                ->leftJoin('dois as pd', 'pd.doi_id', '=', 'current_p.doi_id')
+                ->leftJoin('dois as gd', 'gd.doi_id', '=', 'current_g.doi_id')
+                ->whereIn('pd.status', $this->doiStatuses)
+                ->orWhereIn('gd.status', $this->doiStatuses);
+
+            $q->when(
+                (in_array(Doi::STATUS_UNREGISTERED, $this->doiStatuses) && !$this->strictDoiStatusFilter),
+                function (Builder $q) {
+                    $q->orWhereNull('pd.status')
+                        ->orWhereNull('gd.status');
+                }
+            );
+        });
     }
 }

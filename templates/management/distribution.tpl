@@ -28,6 +28,22 @@
 				@set="set"
 			/>
 		</tab>
+		<tab id="dois" label="{translate key="manager.dois.title"}">
+			<tabs :is-side-tabs="true" :track-history="true">
+				<tab id="doisSetup" label="{translate key="manager.setup.dois.setup"}">
+					<pkp-form
+							v-bind="components.{PKP\components\forms\context\PKPDoiSetupSettingsForm::FORM_DOI_SETUP_SETTINGS}"
+							@set="set"
+					/>
+				</tab>
+				<tab id="doisRegistration" label="{translate key="manager.setup.dois.registration"}">
+					<pkp-form
+							v-bind="components.{PKP\components\forms\context\PKPDoiRegistrationSettingsForm::FORM_DOI_REGISTRATION_SETTINGS}"
+							@set="set"
+					/>
+				</tab>
+			</tabs>
+		</tab>
 		<tab id="indexing" label="{translate key="manager.setup.searchEngineIndexing"}">
 			{help file="settings/distribution-settings" section="indexing" class="pkp_help_tab"}
 			<pkp-form

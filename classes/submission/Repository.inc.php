@@ -13,9 +13,13 @@
 
 namespace APP\submission;
 
+use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\preprint\PreprintGalleyDAO;
 use APP\preprint\PreprintTombstoneManager;
+use APP\server\ServerDAO;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 
 class Repository extends \PKP\submission\Repository
@@ -43,6 +47,46 @@ class Repository extends \PKP\submission\Repository
             }
             $preprintTombstoneManager = new PreprintTombstoneManager();
             $preprintTombstoneManager->insertPreprintTombstone($submission, $context);
+        }
+    }
+
+    /**
+     * Creates and assigns DOIs to all sub-objects if:
+     * 1) the suffix pattern can currently be created, and
+     * 2) it does not already exist.
+     *
+     */
+    public function createDois(Submission $submission): void
+    {
+        /** @var ServerDAO $contextDao */
+        $contextDao = Application::getContextDAO();
+        /** @var Context $context */
+        $context = $contextDao->getById($submission->getData('contextId'));
+
+        // Preprint
+        $publication = $submission->getCurrentPublication();
+        if ($context->isDoiTypeEnabled(Repo::doi()::TYPE_PUBLICATION) && empty($publication->getData('doiId'))) {
+            $doiId = Repo::doi()->mintPublicationDoi($publication, $submission, $context);
+            if ($doiId !== null) {
+                Repo::publication()->edit($publication, ['doiId' => $doiId]);
+            }
+        }
+
+        // Preprint Galleys
+        if ($context->isDoiTypeEnabled(Repo::doi()::TYPE_REPRESENTATION)) {
+            // For each galley
+            $galleys = Services::get('galley')->getMany(['publicationIds' => $publication->getId()]);
+            /** @var PreprintGalleyDAO $galleyDao */
+            $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO');
+            foreach ($galleys as $galley) {
+                if (empty($galley->getData('doiId'))) {
+                    $doiId = Repo::doi()->mintGalleyDoi($galley, $publication, $submission, $context);
+                    if ($doiId !== null) {
+                        $galley->setData('doiId', $doiId);
+                        $galleyDao->updateObject($galley);
+                    }
+                }
+            }
         }
     }
 }

@@ -43,10 +43,10 @@ class LanguageDAO extends DAO {
 	 * @return array of Languages
 	 */
 	public function getLanguages() {
-		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory(\Sokil\IsoCodes\IsoCodesFactory::OPTIMISATION_IO);
+		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
 		return array_values(array_map(function($language) {
 			return $this->_fromIsoCodeFactoryObject($language);
-		}, array_filter(iterator_to_array($isoCodes->getLanguages()), function($language) {
+		}, array_filter(iterator_to_array($isoCodes->getLanguages(\Sokil\IsoCodes\IsoCodesFactory::OPTIMISATION_IO)), function($language) {
 			return $language->getAlpha2() && $language->getType() == 'L' && $language->getScope() == 'I';
 		})));
 	}

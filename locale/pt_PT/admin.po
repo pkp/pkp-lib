@@ -1,9 +1,10 @@
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2021-01-21 12:53+0000\n"
+"PO-Revision-Date: 2022-01-11 15:46+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_PT/>\n"
@@ -331,3 +332,6 @@ msgstr "Restringir E-mails em massa"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "E-mails em massa"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Notificação de Relatório Editorial"

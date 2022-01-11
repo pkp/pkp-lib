@@ -280,6 +280,7 @@ class Collector implements CollectorInterface
 
     /**
      * Filter by exact match of user settings (the locale is ignored)
+     *
      * @param array|null $settings The key must be a valid setting_name while the value will match the setting_value
      */
     public function filterBySettings(?array $settings): self
@@ -349,16 +350,16 @@ class Collector implements CollectorInterface
         $query = DB::table('users', 'u')
             ->select('u.*')
             // Filters by registration date
-            ->when($this->registeredBefore !== null, fn(Builder $query) => $query->where('u.date_registered', '<', Carbon::rawParse($this->registeredBefore)->addDay()->toDateString()))
-            ->when($this->registeredAfter !== null, fn(Builder $query) => $query->where('u.date_registered', '>=', $this->registeredAfter))
+            ->when($this->registeredBefore !== null, fn (Builder $query) => $query->where('u.date_registered', '<', Carbon::rawParse($this->registeredBefore)->addDay()->toDateString()))
+            ->when($this->registeredAfter !== null, fn (Builder $query) => $query->where('u.date_registered', '>=', $this->registeredAfter))
             // Filters by user ID
-            ->when($this->userIds !== null, fn(Builder $query) => $query->whereIn('u.user_id', $this->userIds))
-            ->when($this->excludeUserIds !== null, fn(Builder $query) => $query->whereNotIn('u.user_id', $this->excludeUserIds))
+            ->when($this->userIds !== null, fn (Builder $query) => $query->whereIn('u.user_id', $this->userIds))
+            ->when($this->excludeUserIds !== null, fn (Builder $query) => $query->whereNotIn('u.user_id', $this->excludeUserIds))
             // User enabled/disabled state
-            ->when($this->status !== self::STATUS_ALL, fn(Builder $query) => $query->where('u.disabled', '=', $this->status === self::STATUS_DISABLED))
+            ->when($this->status !== self::STATUS_ALL, fn (Builder $query) => $query->where('u.disabled', '=', $this->status === self::STATUS_DISABLED))
             // Adds limit and offset for pagination
-            ->when($this->count !== null, fn(Builder $query) => $query->limit($this->count))
-            ->when($this->offset !== null, fn(Builder $query) => $query->offset($this->offset));
+            ->when($this->count !== null, fn (Builder $query) => $query->limit($this->count))
+            ->when($this->offset !== null, fn (Builder $query) => $query->offset($this->offset));
 
         $this
             ->buildReviewerStatistics($query)
@@ -385,12 +386,12 @@ class Collector implements CollectorInterface
             return $this;
         }
         $query->whereExists(
-            fn(Builder $subQuery) => $subQuery->from('stage_assignments', 'sa')
+            fn (Builder $subQuery) => $subQuery->from('stage_assignments', 'sa')
                 ->join('user_group_stage AS ugs', 'sa.user_group_id', '=', 'ugs.user_group_id')
                 ->whereColumn('sa.user_id', '=', 'u.user_id')
-                ->when(isset($this->assignedTo['submissionId']), fn() => $subQuery->where('sa.submission_id', '=', $this->assignedTo['submissionId']))
-                ->when(isset($this->assignedTo['stageId']), fn() => $subQuery->where('ugs.stage_id', '=', $this->assignedTo['stageId']))
-                ->when(isset($this->assignedTo['userGroupId']), fn() => $subQuery->where('sa.user_group_id', '=', $this->assignedTo['userGroupId']))
+                ->when(isset($this->assignedTo['submissionId']), fn () => $subQuery->where('sa.submission_id', '=', $this->assignedTo['submissionId']))
+                ->when(isset($this->assignedTo['stageId']), fn () => $subQuery->where('ugs.stage_id', '=', $this->assignedTo['stageId']))
+                ->when(isset($this->assignedTo['userGroupId']), fn () => $subQuery->where('sa.user_group_id', '=', $this->assignedTo['userGroupId']))
         );
         return $this;
     }
@@ -404,17 +405,18 @@ class Collector implements CollectorInterface
             return $this;
         }
         $query->whereExists(
-            fn(Builder $subQuery) => $subQuery->from('user_user_groups', 'uug')
+            fn (Builder $subQuery) => $subQuery->from('user_user_groups', 'uug')
                 ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
                 ->whereColumn('uug.user_id', '=', 'u.user_id')
-                ->when($this->userGroupIds !== null, fn() => $subQuery->whereIn('uug.user_group_id', $this->userGroupIds))
+                ->when($this->userGroupIds !== null, fn () => $subQuery->whereIn('uug.user_group_id', $this->userGroupIds))
                 ->when(
-                    $this->workflowStageIds !== null, fn() => $subQuery
+                    $this->workflowStageIds !== null,
+                    fn () => $subQuery
                         ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
                         ->whereIn('ugs.stage_id', $this->workflowStageIds)
                 )
-                ->when($this->roleIds !== null, fn() => $subQuery->whereIn('ug.role_id', $this->roleIds))
-                ->when($this->contextIds !== null, fn() => $subQuery->whereIn('ug.context_id', $this->contextIds))
+                ->when($this->roleIds !== null, fn () => $subQuery->whereIn('ug.role_id', $this->roleIds))
+                ->when($this->contextIds !== null, fn () => $subQuery->whereIn('ug.context_id', $this->contextIds))
         );
         return $this;
     }
@@ -426,7 +428,7 @@ class Collector implements CollectorInterface
     {
         foreach ($this->settings ?? [] as $name => $value) {
             $query->whereExists(
-                fn(Builder $subQuery) => $subQuery->from('user_settings', 'us')
+                fn (Builder $subQuery) => $subQuery->from('user_settings', 'us')
                     ->whereColumn('us.user_id', '=', 'u.user_id')
                     ->where('us.setting_name', '=', $name)
                     ->where('us.setting_value', '=', $value)
@@ -444,11 +446,11 @@ class Collector implements CollectorInterface
             return $this;
         }
         $query->whereExists(
-            fn(Builder $subQuery) => $subQuery->from('user_user_groups', 'uug')
+            fn (Builder $subQuery) => $subQuery->from('user_user_groups', 'uug')
                 ->join('user_group_stage AS ugs', 'ugs.user_group_id', '=', 'uug.user_group_id')
                 ->leftJoin(
                     'stage_assignments AS sa',
-                    fn(JoinClause $join) => $join->on('sa.user_id', '=', 'uug.user_id')
+                    fn (JoinClause $join) => $join->on('sa.user_id', '=', 'uug.user_id')
                         ->on('sa.user_group_id', '=', 'uug.user_group_id')
                         ->where('sa.submission_id', '=', $this->excludeSubmissionStage['submission_id'])
                 )
@@ -466,9 +468,9 @@ class Collector implements CollectorInterface
     protected function buildSubEditorFilter(Builder $query): self
     {
         $subEditorFilters = [Application::ASSOC_TYPE_SECTION => $this->assignedSectionIds, Application::ASSOC_TYPE_CATEGORY => $this->assignedCategoryIds];
-        foreach (array_filter($subEditorFilters, fn(?array $assocIds) => !empty($assocIds)) as $assocType => $assocIds) {
+        foreach (array_filter($subEditorFilters, fn (?array $assocIds) => !empty($assocIds)) as $assocType => $assocIds) {
             $query->whereExists(
-                fn(Builder $subQuery) => $subQuery->from('subeditor_submission_group', 'ssg')
+                fn (Builder $subQuery) => $subQuery->from('subeditor_submission_group', 'ssg')
                     ->whereColumn('ssg.user_id', '=', 'u.user_id')
                     ->where('ssg.assoc_type', '=', $assocType)
                     ->whereIn('ssg.assoc_id', $assocIds)
@@ -486,12 +488,12 @@ class Collector implements CollectorInterface
             return $this;
         }
 
-        $dateDiff = fn(string $dateA, string $dateB): string => DB::connection() instanceof MySqlConnection
+        $dateDiff = fn (string $dateA, string $dateB): string => DB::connection() instanceof MySqlConnection
             ? "DATEDIFF(${dateA}, ${dateB})"
             : "DATE_PART('day', ${dateA} - ${dateB})";
 
         $query->leftJoinSub(
-            fn(Builder $subQuery) => $subQuery->from('review_assignments', 'ra')
+            fn (Builder $subQuery) => $subQuery->from('review_assignments', 'ra')
                 ->groupBy('ra.reviewer_id')
                 ->select('ra.reviewer_id')
                 ->selectRaw('MAX(ra.date_assigned) AS last_assigned')
@@ -501,30 +503,35 @@ class Collector implements CollectorInterface
                 ->selectRaw('SUM(ra.cancelled) AS cancelled_count')
                 ->selectRaw('AVG(' . $dateDiff('ra.date_completed', 'ra.date_notified') . ') AS average_time')
                 ->selectRaw('AVG(ra.quality) AS reviewer_rating'),
-            'ra_stats', 'u.user_id', '=', 'ra_stats.reviewer_id'
+            'ra_stats',
+            'u.user_id',
+            '=',
+            'ra_stats.reviewer_id'
         )
             // Select all statistics columns
             ->addSelect('ra_stats.*')
             // Reviewer rating
-            ->when($this->reviewerRating !== null, fn(Builder $query) => $query->where('ra_stats.reviewer_rating', '>=', $this->reviewerRating))
+            ->when($this->reviewerRating !== null, fn (Builder $query) => $query->where('ra_stats.reviewer_rating', '>=', $this->reviewerRating))
             // Completed reviews
-            ->when($this->reviewsCompleted !== null, fn(Builder $query) => $query->where('ra_stats.complete_count', '>=', $this->reviewsCompleted))
+            ->when($this->reviewsCompleted !== null, fn (Builder $query) => $query->where('ra_stats.complete_count', '>=', $this->reviewsCompleted))
             // Minimum active reviews
-            ->when(($minReviews = $this->reviewsActive[0] ?? null) !== null, fn(Builder $query) => $query->where('ra_stats.incomplete_count', '>=', $minReviews))
+            ->when(($minReviews = $this->reviewsActive[0] ?? null) !== null, fn (Builder $query) => $query->where('ra_stats.incomplete_count', '>=', $minReviews))
             // Maximum active reviews
-            ->when(($maxReviews = $this->reviewsActive[1] ?? null) !== null, fn(Builder $query) => $query->where('ra_stats.incomplete_count', '<=', $maxReviews))
+            ->when(($maxReviews = $this->reviewsActive[1] ?? null) !== null, fn (Builder $query) => $query->where('ra_stats.incomplete_count', '<=', $maxReviews))
             // Minimum days since last review assignment
             ->when(
-                ($minDays = $this->daysSinceLastAssignment[0] ?? null) !== null, fn(Builder $query) => $query
+                ($minDays = $this->daysSinceLastAssignment[0] ?? null) !== null,
+                fn (Builder $query) => $query
                     ->where('ra_stats.last_assigned', '<=', Carbon::now()->subDays($minDays)->toDateString())
             )
             // Maximum days since last review assignment
             ->when(
-                ($maxDays = $this->daysSinceLastAssignment[1] ?? null) !== null, fn(Builder $query) => $query
+                ($maxDays = $this->daysSinceLastAssignment[1] ?? null) !== null,
+                fn (Builder $query) => $query
                     ->where('ra_stats.last_assigned', '>=', Carbon::now()->subDays($maxDays + 1)->toDateString()) // Add one to include upper bound
             )
             // Average days to complete review
-            ->when($this->averageCompletion !== null, fn(Builder $query) => $query->where('ra_stats.average_time', '<=', $this->averageCompletion));
+            ->when($this->averageCompletion !== null, fn (Builder $query) => $query->where('ra_stats.average_time', '<=', $this->averageCompletion));
 
         return $this;
     }
@@ -540,19 +547,19 @@ class Collector implements CollectorInterface
         // Settings where the search will be performed
         $settings = [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName', 'affiliation', 'biography', 'orcid'];
         // Break words by whitespace, trims and escapes "%" and "_"
-        $words = array_map(fn(string $word) => '%' . addcslashes($word, '%_') . '%', PKPString::regexp_split('/\s+/', $searchPhrase));
+        $words = array_map(fn (string $word) => '%' . addcslashes($word, '%_') . '%', PKPString::regexp_split('/\s+/', $searchPhrase));
         foreach ($words as $word) {
             $query->where(
-                fn() => $query->whereRaw('LOWER(u.username) LIKE LOWER(?)', [$word])
+                fn ($query) => $query->whereRaw('LOWER(u.username) LIKE LOWER(?)', [$word])
                     ->orWhereRaw('LOWER(u.email) LIKE LOWER(?)', [$word])
                     ->orWhereExists(
-                        fn(Builder $subQuery) => $subQuery->from('user_settings', 'us')
+                        fn (Builder $subQuery) => $subQuery->from('user_settings', 'us')
                             ->whereColumn('us.user_id', '=', 'u.user_id')
                             ->whereIn('us.setting_name', $settings)
                             ->whereRaw('LOWER(us.setting_value) LIKE LOWER(?)', [$word])
                     )
                     ->orWhereExists(
-                        fn(Builder $subQuery) => $subQuery->from('user_interests', 'ui')
+                        fn (Builder $subQuery) => $subQuery->from('user_interests', 'ui')
                             ->join('controlled_vocab_entry_settings AS cves', 'ui.controlled_vocab_entry_id', '=', 'cves.controlled_vocab_entry_id')
                             ->whereColumn('ui.user_id', '=', 'u.user_id')
                             ->whereRaw('LOWER(cves.setting_value) LIKE LOWER(?)', [$word])
@@ -584,7 +591,7 @@ class Collector implements CollectorInterface
             $sortedSettings = array_values($this->orderBy === self::ORDERBY_GIVENNAME ? $nameSettings : array_reverse($nameSettings));
             $query->orderBy(
                 function (Builder $query) use ($sortedSettings, $locales): void {
-                    $query->fromSub(fn(Builder $query) => $query->from(null)->selectRaw(0), 'placeholder');
+                    $query->fromSub(fn (Builder $query) => $query->from(null)->selectRaw(0), 'placeholder');
                     $aliasesBySetting = [];
                     foreach ($sortedSettings as $i => $setting) {
                         $aliases = [];
@@ -592,7 +599,7 @@ class Collector implements CollectorInterface
                             $aliases[] = $alias = "us_${i}_${j}";
                             $query->leftJoin(
                                 "user_settings AS ${alias}",
-                                fn(JoinClause $join) => $join
+                                fn (JoinClause $join) => $join
                                     ->on("${alias}.user_id", '=', 'u.user_id')
                                     ->where("${alias}.setting_name", '=', $setting)
                                     ->where("${alias}.locale", '=', $locale)
@@ -602,7 +609,7 @@ class Collector implements CollectorInterface
                     }
                     // Build a possibly long CONCAT(COALESCE(given_localeA, given_localeB, [...]), COALESCE(family_localeA, family_localeB, [...])
                     $coalescedSettings = array_map(
-                        fn(array $aliases) => 'COALESCE(' . implode(', ', array_map(fn(string $alias) => "${alias}.setting_value", $aliases)) . ", '')",
+                        fn (array $aliases) => 'COALESCE(' . implode(', ', array_map(fn (string $alias) => "${alias}.setting_value", $aliases)) . ", '')",
                         $aliasesBySetting
                     );
                     $query->selectRaw('CONCAT(' . implode(', ', $coalescedSettings) . ')');

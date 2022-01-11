@@ -1,11 +1,12 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2021-12-22 12:24+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2022-01-11 16:08+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -421,7 +422,7 @@ msgid "user.register.form.privacyConsent"
 msgstr "Sim, concordo que os meus dados sejam recolhidos e armazenados de acordo com os <a href=\"{$privacyUrl}\" target=\"_blank\"> termos de privacidade</a>."
 
 msgid "user.register.form.emailConsent"
-msgstr "Sim, quero ser notificado de novas publicações e outros anúncios."
+msgstr "Sim, quero ser notificado de novas publicações e outras notícias."
 
 msgid "user.privacyLink"
 msgstr "Os seus dados estão armazenados de acordo com os nossos  <a href=\"{$privacyUrl}\" target=\"_blank\">termos de privacidade</a>."

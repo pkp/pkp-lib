@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2020-12-10 15:07+0000\n"
+"PO-Revision-Date: 2022-01-11 15:46+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl_PL/>\n"
@@ -974,7 +975,7 @@ msgid "submission.submit.fileAdded"
 msgstr "Plik dodany"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Uwzględnić tego współautora w spisie?"
+msgstr "Uwzględnij tego współautora w przypadku wyświetlania listy publikacji."
 
 msgid "submission.submit.newFile"
 msgstr "Dodaj kolejny plik"
@@ -1702,7 +1703,7 @@ msgid "submission.list.currentStage"
 msgstr "Obecnie na etapie {$stage}."
 
 msgid "submission.list.assignEditor"
-msgstr "Przypisany redaktor"
+msgstr "Przypisz redaktora"
 
 msgid "grid.category.categories"
 msgstr "Kategorie"
@@ -2107,3 +2108,9 @@ msgstr "Zgłoszenie przywrócone do kolejki."
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Przywróć"
+
+msgid "category.category"
+msgstr "Kategorie"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Widoczność na listach publikacji"

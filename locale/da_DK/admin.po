@@ -1,10 +1,11 @@
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2021-01-21 12:53+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"PO-Revision-Date: 2022-01-11 07:22+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -346,3 +347,6 @@ msgstr "Begræns masse-e-mails"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Masse-emails"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Notifikation om redaktionel rapport"

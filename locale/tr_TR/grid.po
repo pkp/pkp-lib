@@ -1,9 +1,10 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2020-06-20 11:39+0000\n"
+"PO-Revision-Date: 2022-01-10 09:39+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "tr_TR/>\n"
@@ -676,3 +677,37 @@ msgstr "Kullanıcıları Göster/Seç"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Bu kullanıcı grubunu kaldır"
+
+msgid "grid.action.saveOrdering"
+msgstr "Sıralamayı Kaydet"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Tam"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Yayın Listeleri"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Kısaltılmış"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Görünüm"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Biçim"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Bu makaleye katkıda bulunanlar bu dergide aşağıdaki formatlarda "
+"tanımlanacaktır."
+
+msgid "contributor.listPanel.preview"
+msgstr "Önizle"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Birincil Kişi Olarak Belirle"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"{$name} isimli kişiyi kaldırmak istediğinizden emin misiniz? Bu işlem geri "
+"alınamaz."

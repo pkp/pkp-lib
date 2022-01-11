@@ -1,11 +1,12 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-11-16 03:30+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"PO-Revision-Date: 2022-01-06 09:25+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -2405,3 +2406,6 @@ msgstr ""
 
 msgid "mailable.mailDiscussionMessage.name"
 msgstr "Ny besked under drøftelser"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "E-mail på webstedets primære kontaktperson"

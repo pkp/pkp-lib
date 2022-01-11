@@ -1,9 +1,10 @@
+# rl <biuro@fimagis.pl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:02+00:00\n"
-"PO-Revision-Date: 2020-12-10 15:07+0000\n"
+"PO-Revision-Date: 2022-01-11 15:46+0000\n"
 "Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "pl_PL/>\n"
@@ -469,3 +470,11 @@ msgstr "Historia aktywności"
 
 msgid "editor.submission.revertDeclineDescription"
 msgstr "Czy na pewno chcesz zmienić decyzje i nie odrzucać tego zgłoszenia?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Wybrany uczestnik nie jest przypisany do tego etapu."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Nie można utworzyć dyskusji z wybranymi uczestnikami, ponieważ wpłynęłoby to "
+"na anonimowość procesu recenzji."

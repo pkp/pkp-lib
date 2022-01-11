@@ -1,10 +1,10 @@
-# Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2021-11-16 18:16+0000\n"
+"PO-Revision-Date: 2022-01-06 09:25+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2310,3 +2310,6 @@ msgid "mailable.mailDiscussionMessage.description"
 msgstr ""
 "Este e-mail é enviado automaticamente a participantes da discussão quando "
 "uma nova mensagem é adicionada à discussão."
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "O e-mail do contacto principal do site"

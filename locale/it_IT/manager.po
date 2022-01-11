@@ -1,11 +1,12 @@
 # Alfredo Cosco <alfredo.cosco@gmail.com>, 2021.
+# Martin Brändle <martin.braendle@uzh.ch>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2021-08-23 21:01+0000\n"
-"Last-Translator: Alfredo Cosco <alfredo.cosco@gmail.com>\n"
+"PO-Revision-Date: 2022-01-11 15:10+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "it_IT/>\n"
 "Language: it_IT\n"
@@ -683,8 +684,8 @@ msgstr ""
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
-"Invia un promemoria se il revisore non invia un parere entro (n) giorni dopo "
-"la scadenza."
+"Invia un promemoria se un revisore non ha presentato una raccomandazione "
+"entro il tempo specificato (in giorni)."
 
 msgid "manager.setup.reviewOptions.reviewTime"
 msgstr "Tempo per la revisione"
@@ -2000,7 +2001,6 @@ msgstr "Utenti registrati"
 msgid "manager.setup.theme.notFound"
 msgstr "Il tema selezionato non è installato o abilitato."
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Visualizzare il link a <button type=\"button\">Come effettuare una revisione "
@@ -2148,3 +2148,244 @@ msgstr ""
 
 msgid "manager.setup.genres.label"
 msgstr "Tipo di file"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Questa e-mail viene inviata automaticamente a un nuovo utente quando si "
+"registra al sito quando le impostazioni richiedono la convalida "
+"dell'indirizzo e-mail."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Convalidare l'e-mail (sito)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Questa e-mail viene inviata quando un redattore disassegna un revisore."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Revisore non assegnato"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Questa email viene inviata quando un revisore che non era stato assegnato "
+"viene reintegrato da un editore."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Revisore reintegrato"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr ""
+"Questa email viene inviata quando un revisore viene assegnato a una "
+"sottomissione."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Revisore assegnato"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Questa e-mail viene inviata automaticamente ai partecipanti alla discussione "
+"quando un nuovo messaggio viene aggiunto alla discussione."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Nuovo contributo alla discussione"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "L'URL della sottomissione nel backend editoriale"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "I nomi completi degli autori"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Nomi di autori in forma di stringa abbreviata"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "L'abstract della sottomissione"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Il numero identificativo unico della sottomissione"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Il titolo della sottomissione"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"I redattori assegnati a questa sottomissione che possono prendere una "
+"decisione"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "L'email del contatto principale del sito web"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Il nome completo del contatto principale del sito web"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "La firma email del mittente"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "L'indirizzo email del mittente"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Il nome completo del mittente"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "L'URL del compito di revisione"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Data in cui la revisione dovrebbe essere completata"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Data in cui il revisore dovrebbe accettare o rifiutare l'incarico"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Il nome utente del destinatario o di tutti i destinatari"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Il nome completo del destinatario o di tutti i destinatari"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "L'URL di una pagina dove l'utente può recuperare una password persa"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Processo non riuscito ad analizzare le pubblicazioni"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Processo non riuscito ad analizzare gli autori"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Configurazione filtro errata [{$filterName}]: {$filterCount} occorrenze. "
+"Dovrebbe essere solo una."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Elementi generici"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Scarica il file esportato dal pulsante qui sotto."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "L'esportazione è stata completata con successo."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Scarica il file esportato"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Esportazione dei risultati della sottomissione"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Il processo è fallito. Controlla qui sotto gli errori/avvisi."
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Il file di sottomissione {$id} è stato saltato perché è allegato a un record "
+"che non sarà importato, come un incarico di revisione o una discussione."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Gruppo utente mancante per il nome dell'autore {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Seleziona il tipo di metadati che questi file possono ricevere. Documento "
+"dovrebbe essere selezionato per i file principali della pubblicazione, come "
+"il PDF scaricabile, in modo che questi file ereditino i loro metadati dalla "
+"pubblicazione. Altrimenti, scegli Contenuto Supplementare per la maggior "
+"parte dei tipi di file. Artwork è appropriato per i file che richiedono "
+"crediti, didascalie e metadati di licenza distinti."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Non è stato possibile salvare l'impostazione della lingua. Almeno una lingua "
+"deve essere abilitata per ogni opzione"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Sei sicuro di voler attivare questa sezione?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Sei sicuro di voler disattivare questa sezione?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Disattivate questa sezione e non permettete che vi siano nuovi invii."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "personalizzato"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Data e ora (corto)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Data e ora"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Ora"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Data (corto)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Data"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Seleziona il formato preferito per la data e l'ora. Un formato "
+"personalizzato può essere inserito con caratteri speciali <a "
+"href='http://php.net/manual/en/function.strftime.php#refsect1-function"
+".strftime-parameters'>formato</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formati di data e ora"
+
+msgid "manager.setup.dateTime"
+msgstr "Data e ora"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Invia un'altra email"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "L'e-mail è stata inviata con successo a tutti i destinatari."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Invio dell'e-mail. Si prega di non navigare via fino al completamento "
+"dell'invio."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Stai per inviare un'email a {$total} utenti. Sei sicuro di voler inviare "
+"questa email?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Inviare e-mail"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Invia una copia di questa e-mail a me a {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Seleziona gli utenti che devono ricevere la notifica via e-mail."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Notifica"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Uno o più di questi indirizzi e-mail non sono validi."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Una copia dell'e-mail di conferma della presentazione sarà inviata a uno "
+"qualsiasi degli indirizzi e-mail inseriti qui. Separa indirizzi email "
+"multipli con una virgola. Esempio: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Avvisare tutti"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "No"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Sì, invia una copia a {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notificare il contatto principale"

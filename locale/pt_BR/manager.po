@@ -1,12 +1,13 @@
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2021-12-24 03:18+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2022-01-11 15:46+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -26,13 +27,13 @@ msgid "manager.website.imageFileRequired"
 msgstr "Um arquivo de imagem é requerido. Certifique-se de que escolheu e enviou um arquivo."
 
 msgid "manager.announcements"
-msgstr "Anúncios"
+msgstr "Notícias"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Deseja realmente excluir permanentemente o anúncio {$title}?"
+msgstr "Deseja realmente excluir permanentemente a notícia {$title}?"
 
 msgid "manager.announcements.create"
-msgstr "Criar novo anúncio"
+msgstr "Criar nova notícia"
 
 msgid "manager.announcements.createTitle"
 msgstr "Criar"
@@ -98,7 +99,7 @@ msgid "manager.announcements.form.typeIdValid"
 msgstr "Escolha um tipo válido de notícia."
 
 msgid "manager.announcements.noneCreated"
-msgstr "Não há anúncios criados."
+msgstr "Não há notícias criadas."
 
 msgid "manager.announcements.title"
 msgstr "Título"

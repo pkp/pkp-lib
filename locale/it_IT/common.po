@@ -1,11 +1,12 @@
 # Alfredo Cosco <alfredo.cosco@gmail.com>, 2021.
+# Martin Brändle <martin.braendle@uzh.ch>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2021-08-23 21:01+0000\n"
-"Last-Translator: Alfredo Cosco <alfredo.cosco@gmail.com>\n"
+"PO-Revision-Date: 2022-01-11 16:51+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "it_IT/>\n"
 "Language: it_IT\n"
@@ -1363,7 +1364,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Metadati della sottomissione salvati."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Invia la mail di notifica a tutti gli utenti registrati"
+msgstr "Invia un'e-mail di notifica a tutti gli utenti registrati."
 
 msgid "search.advancedFilters"
 msgstr "Filtri avanzati"
@@ -1452,27 +1453,39 @@ msgstr "Tasks"
 #, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"\n"
-"\t\t<p> Per garantire l'integrità della blind peer-review per le proposte a "
-"questa pubblicazione, viene fatto ogni sforzo per impedire che le identità "
-"degli autori e dei revisori siano note l'una all'altra. Ciò implica che gli "
-"autori, gli editor e i revisori (che caricano documenti come parte della "
-"loro revisione) controllino se i seguenti accorgimenti siano stati presi "
-"riguardo al testo e alle proprietà del file: </p>\n"
-"<ul> <li> Gli autori del documento devono cancellare i propri nomi dal "
-"testo, nei riferimenti e note a piè di pagina, al posto del nome "
-"dell'autore, del titolo dell'articolo, ecc. </li>\n"
-"<li> Con i documenti di Microsoft Office, l'identificazione dell'autore "
-"dovrebbe anche essere rimossa dalle proprietà per il file (vedi sotto File "
-"in Word), facendo clic su quanto segue: da File nel menu principale di "
-"Microsoft: File & gt; Salva come & gt; Strumenti (o Opzioni con un Mac) & gt;"
-" Sicurezza & gt; Rimuovi le informazioni personali dalle proprietà del file "
-"su save & gt; Salva. </li>\n"
-"<li> Con i PDF, i nomi degli autori dovrebbero anche essere rimossi dalle "
-"Proprietà del documento che si trovano sotto File nel menu principale di "
-"Adobe Acrobat. </li>\n"
-"</ul>\n"
-"\t"
+"<p>Per assicurare l'integrità della revisione anonima, ogni sforzo dovrebbe "
+"essere fatto per evitare che le identità degli autori e dei revisori siano "
+"note l'una all'altra. Questo implica che gli autori, i redattori e i "
+"revisori (che caricano i documenti come parte della loro revisione) "
+"controllino se sono stati fatti i seguenti passi per quanto riguarda il "
+"testo e le proprietà del file:</p>\n"
+"<ul><li>Gli autori del documento hanno cancellato i loro nomi dal testo, con "
+"\"Autore\" e anno usati nei riferimenti e nelle note a piè di pagina, invece "
+"del nome degli autori, titolo dell'articolo, ecc.</li>\n"
+"<li>Gli autori del documento hanno rimosso le informazioni personali dalle "
+"proprietà del file facendo i seguenti passi:\n"
+"<ul><li>Microsoft Word per Windows:\n"
+"<li>Seleziona Info</li>\n"
+"<li>Cliccare su Check for Issues</li>\n"
+"<li>Clicca su Ispeziona documento</li>\n"
+"<li>Nella finestra di dialogo dell'Ispettore del documento, seleziona le "
+"caselle di controllo per scegliere il tipo di contenuto nascosto che vuoi "
+"ispezionare.</li>\n"
+"<li>Fare clic su Rimuovi tutto</li>\n"
+"<li>Clicca su Chiudi</li>\n"
+"<li>Salvare il documento</li></ul>\n"
+"<li>Microsoft Word per MacOS:\n"
+"<ul><li>Vai a Strumenti</li>\n"
+"<li>Fare clic su Proteggi documento</li>\n"
+"<li>Seleziona Rimuovi le informazioni personali per questo file al "
+"salvataggio</li>\n"
+"<li>Fare clic su OK e salvare il file</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Vai al File</li>\n"
+"<li>Selezionare le proprietà</li>\n"
+"<li>Rimuovi qualsiasi nome nel campo autore</li>\n"
+"<li>Clicca su OK</li>\n"
+"<li>Salvare il documento/li></ul></li></ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Schedulazione revisione"
@@ -1959,3 +1972,112 @@ msgstr "Modifica {$name}"
 
 msgid "common.inactive"
 msgstr "Non attivo"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML non può essere importato"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Cercando di eseguire una trasformazione che non è supportata nel tuo "
+"ambiente di installazione."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Il filtro ({$displayName}) supporta l'input {$inputTypeName} - {$typeofInput}"
+" dato"
+
+msgid "validator.country"
+msgstr "Questo non è un paese valido."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Questo può contenere solo lettere, numeri, trattini, underscore e punti."
+
+msgid "validation.invalidOption"
+msgstr "Questa non è un'opzione valida."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Cancella l'iscrizione"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Si è verificato un errore inaspettato e non siamo stati in grado di "
+"annullare l'iscrizione alle notifiche all'indirizzo email {$email}.  Puoi "
+"cancellarti da tutte le notifiche email nel tuo <a href=\""
+"{$profileNotificationUrl}\">profilo utente</a> o chiederci direttamente "
+"aiuto."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Cancellazione riuscita. Non riceverai più notifiche all'indirizzo email "
+"{$email}. Puoi riattivare le notifiche via email in qualsiasi momento "
+"attraverso il tuo <a href=\"{$profileNotificationUrl}\">profilo utente</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Puoi riattivare le notifiche via email in qualsiasi momento attraverso il "
+"tuo <a href=\"{$profileNotificationUrl}\">profilo utente</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Seleziona le email che non vuoi più ricevere a {$email} da {$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Non abbiamo potuto cancellarla"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Sei stato cancellato"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opzioni di privacy"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Non hai accesso a questo compito di revisione."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Non hai accesso a questo messaggio di discussione."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discussione non valida."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Giro di revisione non valido."
+
+msgid "user.email"
+msgstr "Indirizzo e-mail"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Come assicurare che tutti i file siano resi anonimi"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Trovati {$count} elementi."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Ho trovato un elemento."
+
+msgid "navigation.skip.description"
+msgstr "Salta ai links del contenuto"
+
+msgid "navigation.backTo"
+msgstr "⟵ Indietro a {$page}"
+
+msgid "form.saved"
+msgstr "Salvato"
+
+msgid "common.viewWithName"
+msgstr "Visualizza {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[Utente inesistente]"
+
+msgid "common.addFile"
+msgstr "Aggiungi file"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "Seleziona {$name}"
+
+msgid "common.override"
+msgstr "Sovrascrivere"

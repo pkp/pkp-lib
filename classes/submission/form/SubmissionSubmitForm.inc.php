@@ -45,7 +45,12 @@ class SubmissionSubmitForm extends Form
      */
     public function __construct($context, $submission, $step)
     {
-        parent::__construct(sprintf('submission/form/step%d.tpl', $step));
+        parent::__construct(
+            sprintf('submission/form/step%d.tpl', $step),
+            true,
+            $submission ? $submission->getLocale() : null,
+            $context->getSupportedSubmissionLocaleNames()
+        );
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
         $this->step = (int) $step;

@@ -1,10 +1,11 @@
+# Martin Brändle <martin.braendle@uzh.ch>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2021-03-12 18:08+0000\n"
-"Last-Translator: Piero Grandesso <piero.grandesso2@unibo.it>\n"
+"PO-Revision-Date: 2022-01-12 09:34+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/it_IT/>\n"
 "Language: it_IT\n"
@@ -1013,7 +1014,9 @@ msgid "submission.submit.fileAdded"
 msgstr "File aggiunto"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Includi questo contributore alle liste di scorrimento ?"
+msgstr ""
+"Includere questo collaboratore quando si identificano gli autori nelle liste "
+"di pubblicazioni."
 
 msgid "submission.submit.newFile"
 msgstr "Aggiungi un altro file"
@@ -1933,3 +1936,79 @@ msgstr ""
 "e si adopererà per garantire il completamento delle revisioni. Non è "
 "necessario eseguire alcuna azione in questo momento. Riceverai una notifica "
 "quando sarà stata presa una decisione."
+
+msgid "publication.version.confirm"
+msgstr "Sei sicuro di voler creare una nuova versione?"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Il percorso dell'URL non può essere un numero."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Il percorso URL è già stato utilizzato e non può essere usato di nuovo."
+
+msgid "publication.urlPath.description"
+msgstr "Un percorso opzionale da usare nell'URL al posto dell'ID."
+
+msgid "publication.urlPath"
+msgstr "Percorso URL"
+
+msgid "category.category"
+msgstr "Categorie"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Giorni dall'ultima attività"
+
+msgid "submission.list.activity"
+msgstr "Attività"
+
+msgid "submission.copyrightOther"
+msgstr "Dichiarazione di copyright"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Dichiarazione di copyright personalizzata"
+
+msgid "notification.type.revertDecline"
+msgstr "La decisione di rifiutare questa sottomissione è stata annullata."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Sottomissione rifiutata riattivata."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "È stato avviato un nuovo ciclo di revisioni."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"I metadati del file \"{$originalFileName}\" sono stati modificati da "
+"{$username}."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Invertire il declino"
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nuovo ciclo di revisione"
+
+msgid "submission.upload.percentComplete"
+msgstr "Caricamento {$percent}% completato"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Carica tutti i file di cui la redazione avrà bisogno per valutare la tua "
+"sottomissione."
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Liste di pubblicazioni"
+
+msgid "submission.publisherId.enable"
+msgstr "Abilita per {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"L'ID dell'editore può essere usato per registrare l'ID da un database "
+"esterno. Per esempio, gli articoli esportati per il deposito su PubMed "
+"possono includere l'ID dell'editore. Questo non dovrebbe essere usato per i "
+"DOI."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Un record dell'uploader del file viene salvato quando il file viene creato e "
+"non può essere cambiato."

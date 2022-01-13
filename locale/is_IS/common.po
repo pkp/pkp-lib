@@ -1,8 +1,280 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-01-14 01:38+0000\n"
+"Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
+"Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/is_IS/>\n"
 "Language: is_IS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "common.designation"
+msgstr "Útnefning"
+
+msgid "common.deleteSelection"
+msgstr "Eyða vali"
+
+msgid "common.deleting"
+msgstr "Í eyðingu"
+
+msgid "common.delete"
+msgstr "Eyða"
+
+msgid "common.declined"
+msgstr "Hafnað"
+
+msgid "common.default"
+msgstr "Sjálfgefið"
+
+msgid "common.deactivate"
+msgstr "Afvirkja"
+
+msgid "common.day"
+msgstr "Dagur"
+
+msgid "common.dateHijri"
+msgstr "Hijri dagatal"
+
+msgid "common.dateUploaded"
+msgstr "Dags. upphals"
+
+msgid "common.dateSubmitted"
+msgstr "Dags. innsendingar"
+
+msgid "common.dateRequested"
+msgstr "Dagsetning beiðni"
+
+msgid "common.dateModified"
+msgstr "Breytingardagseting"
+
+msgid "common.date"
+msgstr "Dagsetning"
+
+msgid "common.dateDecided"
+msgstr "Dags. ákvörðunar"
+
+msgid "common.dateCompleted"
+msgstr "Dags. lokið"
+
+msgid "common.create"
+msgstr "Stofna"
+
+msgid "common.country"
+msgstr "Land"
+
+msgid "common.copy"
+msgstr "Afrita"
+
+msgid "common.continue"
+msgstr "Halda áfram"
+
+msgid "common.contents"
+msgstr "Innihald"
+
+msgid "common.content"
+msgstr "Innihald"
+
+msgid "common.confirmed.date"
+msgstr "Staðfest: {$dateConfirmed}"
+
+msgid "common.confirm"
+msgstr "Staðfesta"
+
+msgid "common.completed.date"
+msgstr "Lokið: {$dateCompleted}"
+
+msgid "common.completed"
+msgstr "Lokið"
+
+msgid "common.complete"
+msgstr "Ljúka"
+
+msgid "common.closeWindow"
+msgstr "Loka glugga"
+
+msgid "common.closePanel"
+msgstr "Loka svæði"
+
+msgid "common.close"
+msgstr "Loka"
+
+msgid "common.chooseOne"
+msgstr "Veldu eitt"
+
+msgid "common.changesSaved"
+msgstr "Breytingar hafa verið vistaðar."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Þú verður að klára fullgildingar prófið sem er notað til að koma í veg fyrir "
+"rusl innsendingar."
+
+msgid "common.notice"
+msgstr "Ábending"
+
+msgid "common.error"
+msgstr "Villa"
+
+msgid "common.warning"
+msgstr "Viðvörun"
+
+msgid "common.cancelled"
+msgstr "Hætt við"
+
+msgid "common.cancel"
+msgstr "Hætta við"
+
+msgid "common.between"
+msgstr "á milli"
+
+msgid "common.back"
+msgstr "Til baka"
+
+msgid "common.available"
+msgstr "Tiltækt"
+
+msgid "common.assigned.date"
+msgstr "Úthlutað: {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "Úthlutað"
+
+msgid "common.assign"
+msgstr "Úthluta"
+
+msgid "common.applyAction"
+msgstr "Nota aðgerðin"
+
+msgid "common.and"
+msgstr "og"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Lýstu þessari mynd fyrir þá sem skoða síðuna eingöngu sem texta eða með "
+"aðstoðartækni. Dæmi: „Ritstjórinn okkar að halda ræðu á ráðstefnu.“"
+
+msgid "common.altText"
+msgstr "Vara texti"
+
+msgid "common.alreadyAssigned"
+msgstr "Úthlutað"
+
+msgid "common.alphaList"
+msgstr "A B C D Ð E É F G H I Í J K L M N O Ó P Q R S T U Ú V W X Y Ý Z Þ Æ Ö"
+
+msgid "common.all"
+msgstr "Allt"
+
+msgid "common.name"
+msgstr "Nafn"
+
+msgid "common.addSelf"
+msgstr "Bæta við sjálf(ur)"
+
+msgid "common.add"
+msgstr "Bæta við"
+
+msgid "common.inactive"
+msgstr "Óvirkt"
+
+msgid "common.active"
+msgstr "Virkt"
+
+msgid "common.activate"
+msgstr "Virkja"
+
+msgid "common.action"
+msgstr "Aðgerð"
+
+msgid "common.acknowledged"
+msgstr "Staðfest"
+
+msgid "common.accepted"
+msgstr "Samþykkt"
+
+msgid "common.abstract"
+msgstr "Útdráttur"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Ert þú vissum að þú viljir eyða þessu? Það er ekki hægt að afturkalla "
+"skipunina."
+
+msgid "common.grid"
+msgstr "Rúður/tafla"
+
+msgid "common.list"
+msgstr "Listi"
+
+msgid "common.tasks"
+msgstr "Verkefni"
+
+msgid "common.navigation.sidebar"
+msgstr "Valmynd"
+
+msgid "common.allDownloads"
+msgstr "Allt niðurhal"
+
+msgid "announcement.view"
+msgstr "Skoða tilkynningu"
+
+msgid "announcement.postedOn"
+msgstr "Sent þann {$postDate}"
+
+msgid "announcement.posted"
+msgstr "Sent"
+
+msgid "announcement.noneExist"
+msgstr "Engar tilkynningar hafa verið birtar."
+
+msgid "announcement.moreAnnouncements"
+msgstr "Fleiri tilkynningar..."
+
+msgid "announcement.announcementsHome"
+msgstr "Tilkynningar"
+
+msgid "announcement.announcements"
+msgstr "Tilkynningar"
+
+msgid "about.siteMap"
+msgstr "Veftré"
+
+msgid "about.policies"
+msgstr "Stefnur"
+
+msgid "about.people"
+msgstr "Fólk"
+
+msgid "about.other"
+msgstr "Annað"
+
+msgid "about.contact.supportContact"
+msgstr "Tæknileg aðstoð"
+
+msgid "about.contact.principalContact"
+msgstr "Aðal tengiliður"
+
+msgid "about.contact.phone"
+msgstr "Sími"
+
+msgid "about.contact.email"
+msgstr "Netfang"
+
+msgid "about.contact"
+msgstr "Hafa samband"
+
+msgid "about.aboutSite"
+msgstr "Um vefsíðuna"
+
+msgid "about.guidelines"
+msgstr "Leiðbeiningar"
+
+msgid "about.description"
+msgstr "Lýsing"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"

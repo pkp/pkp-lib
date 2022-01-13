@@ -383,26 +383,19 @@ abstract class PKPSubmission extends DataObject {
 	/**
 	 * Return string of author names, separated by the specified token
 	 * @param $preferred boolean If the preferred public name should be used, if exist
-	 * @param $familyOnly boolean return list of family names only (default false)
+	 * @param $familyOnly boolean return list of family names only (default false; INOPERATIVE)
+	 * @param $onlyIncludeInBrowse boolean whether to limit to include_in_browse authors.
 	 * @return string
 	 * @deprecated 3.2.0.0
 	 */
 
-	function getAuthorString($preferred = true, $familyOnly = false) {
+	function getAuthorString(bool $preferred = true, bool $familyOnly = false, bool $onlyIncludeInBrowse = false) {
 		$publication = $this->getCurrentPublication();
 		if (!$publication) {
 			return '';
 		}
 
-		$userGroupIds = array_map(function($author) {
-			return $author->getData('userGroupId');
-		}, $this->getAuthors());
-		$userGroups = array_map(function($userGroupId) {
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-			return $userGroupDao->getbyId($userGroupId);
-		}, array_unique($userGroupIds));
-
-		return $publication->getAuthorString($userGroups);
+		return $publication->getAuthorString(null, $preferred, $onlyIncludeInBrowse);
 	}
 
 	/**

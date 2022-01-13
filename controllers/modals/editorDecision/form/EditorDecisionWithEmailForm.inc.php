@@ -70,7 +70,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 
 		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
 		$email->assignParams([
-			'authorName' => $submission->getAuthorString(),
+			'authorName' => $submission->getCurrentPublication()->getAuthorString(),
 			'submissionUrl' => $submissionUrl,
 		]);
 		$email->replaceParams();
@@ -84,7 +84,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$data = [
 			'submissionId' => $submission->getId(),
 			'decision' => $this->getDecision(),
-			'authorName' => $submission->getAuthorString(),
+			'authorName' => $submission->getCurrentPublication()->getAuthorString(),
 			'personalMessage' => $email->getBody(),
 			'actionLabel' => $actionLabels[$this->getDecision()],
 			'bccReviewers' => []
@@ -319,7 +319,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$email->assignParams([
 				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 				'contextName' => $context->getLocalizedName(),
-				'authorName' => $submission->getAuthorString(),
+				'authorName' => $submission->getCurrentPublication()->getAuthorString(),
 				'editorialContactSignature' => $user->getContactSignature(),
 			]);
 			if (!$email->send($request)) {
@@ -345,7 +345,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			'contextName' => $request->getContext()->getLocalizedName(),
 			'editorialContactSignature' => strip_tags($user->getContactSignature(), "<br>"),
 			'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
-			'authorName' => strip_tags($submission->getAuthorString()),
+			'authorName' => strip_tags($submission->getCurrentPublication()->getAuthorString()),
 		];
 	}
 

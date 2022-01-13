@@ -130,14 +130,26 @@ class PKPPublication extends DataObject {
 	 *
 	 * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)
 	 *
-	 * @param array $userGroups List of UserGroup objects
+	 * @param array|null $userGroups List of UserGroup objects, or null to include all
+	 * @param bool $preferred If the preferred public name should be used, if exists
+	 * @param bool $onlyIncludeInBrowse True iff only browse list authors should be included
 	 * @return string
 	 */
-	public function getAuthorString($userGroups) {
+	public function getAuthorString($userGroups = null, bool $preferred = true, bool $onlyIncludeInBrowse = false) {
 		$authors = $this->getData('authors');
+		if ($onlyIncludeInBrowse) $authors = array_filter($authors, function($author) {
+			return $author->getData('includeInBrowse');
+		});
 
-		if (empty($authors)) {
-			return '';
+		if ($userGroups === null) {
+			// If a user group list was not specified, fetch all relevant user groups for the author set.
+			$userGroupIds = array_map(function($author) {
+				return $author->getData('userGroupId');
+			}, $authors);
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			$userGroups = array_map(function($userGroupId) use ($userGroupDao) {
+				return $userGroupDao->getById($userGroupId);
+			}, array_unique($userGroupIds));
 		}
 
 		$str = '';
@@ -158,7 +170,7 @@ class PKPPublication extends DataObject {
 					$str .= __('common.commaListSeparator');
 				}
 			}
-			$str .= $author->getFullName();
+			$str .= $author->getFullName($preferred);
 			$lastUserGroupId = $author->getUserGroupId();
 		}
 

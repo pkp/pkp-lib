@@ -24,17 +24,6 @@ use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPolicy
 {
-    /**
-     * @copydoc SubmissionFileBaseAccessPolicy
-     *
-     * @param null|mixed $submissionFileId
-     */
-    public function __construct($request, $submissionFileId = null)
-    {
-        parent::__construct($request, $submissionFileId);
-    }
-
-
     //
     // Implement template methods from AuthorizationPolicy
     //

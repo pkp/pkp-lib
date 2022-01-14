@@ -28,18 +28,6 @@ class PKPContributorsListPanel extends ListPanel
     public $canEditPublication = false;
 
     /**
-     * Initialize the form with config parameters
-     *
-     * @param string $id
-     * @param string $title
-     * @param array $args Configuration params
-     */
-    public function __construct($id, $title, $args = [])
-    {
-        parent::__construct($id, $title, $args);
-    }
-
-    /**
      * @copydoc ListPanel::getConfig()
      */
     public function getConfig()

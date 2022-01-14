@@ -75,12 +75,4 @@ class PreviewReviewForm extends Form
             $this->setData('reviewFormElements', $reviewFormElements);
         }
     }
-
-    /**
-     * Assign form data to user-submitted data.
-     */
-    public function readInputData()
-    {
-        parent::readInputData();
-    }
 }

@@ -27,17 +27,6 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
     /** @var array arguments to be passed to the validator constructor */
     public $_validatorArgs;
 
-    /**
-     * Constructor
-     *
-     * @param string $typeName Allowed primitive types are
-     *  'integer', 'string', 'float' and 'boolean'.
-     */
-    public function __construct($typeName)
-    {
-        parent::__construct($typeName);
-    }
-
 
     //
     // Setters and Getters

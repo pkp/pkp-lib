@@ -19,17 +19,6 @@ namespace PKP\filter;
 
 class GenericSequencerFilter extends CompositeFilter
 {
-    /**
-     * Constructor
-     *
-     * @param null|mixed $displayName
-     */
-    public function __construct(&$filterGroup, $displayName = null)
-    {
-        parent::__construct($filterGroup, $displayName);
-    }
-
-
     //
     // Implementing abstract template methods from PersistableFilter
     //

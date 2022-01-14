@@ -40,15 +40,6 @@ class PKPEventServiceProvider extends EventServiceProvider
     protected $subscribe = [];
 
     /**
-     * @return void;
-     * @brief boot the service after registration
-     */
-    public function register()
-    {
-        parent::register();
-    }
-
-    /**
      * Get the discovered events and listeners for the application
      *
      * @return array

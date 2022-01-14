@@ -28,11 +28,6 @@ class Schema extends \PKP\core\maps\Schema
 
     public string $schema = PKPSchemaService::SCHEMA_USER;
 
-    public function __construct(Request $request, Context $context, PKPSchemaService $schemaService)
-    {
-        parent::__construct($request, $context, $schemaService);
-    }
-
     /**
      * Map a publication
      *

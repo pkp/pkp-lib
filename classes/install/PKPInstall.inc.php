@@ -51,20 +51,6 @@ class PKPInstall extends Installer
     public const MIN_PASSWORD_LENGTH = 6;
 
     /**
-     * Constructor.
-     *
-     * @see install.form.InstallForm for the expected parameters
-     *
-     * @param string $xmlDescriptor descriptor path
-     * @param array $params installer parameters
-     * @param bool $isPlugin true iff a plugin is being installed
-     */
-    public function __construct($xmlDescriptor, $params, $isPlugin)
-    {
-        parent::__construct($xmlDescriptor, $params, $isPlugin);
-    }
-
-    /**
      * Returns true iff this is an upgrade process.
      */
     public function isUpgrade()

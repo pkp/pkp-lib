@@ -22,16 +22,6 @@ use PKP\submission\reviewRound\ReviewRound;
 class InitiateReviewForm extends EditorDecisionForm
 {
     /**
-     * Constructor.
-     *
-     * @param Submission $submission
-     */
-    public function __construct($submission, $decision, $stageId, $template)
-    {
-        parent::__construct($submission, $decision, $stageId, $template);
-    }
-
-    /**
      * Get the stage ID constant for the submission to be moved to.
      *
      * @return int WORKFLOW_STAGE_ID_...

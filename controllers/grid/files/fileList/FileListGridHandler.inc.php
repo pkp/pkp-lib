@@ -22,20 +22,6 @@ import('lib.pkp.controllers.grid.files.SubmissionFilesGridHandler');
 
 class FileListGridHandler extends SubmissionFilesGridHandler
 {
-    /**
-     * Constructor
-     *
-     * @param GridDataProvider $dataProvider
-     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
-     * @param int $capabilities A bit map with zero or more
-     *  FILE_GRID_* capabilities set.
-     */
-    public function __construct($dataProvider, $stageId, $capabilities = 0)
-    {
-        parent::__construct($dataProvider, $stageId, $capabilities);
-    }
-
-
     //
     // Extended methods from SubmissionFilesGridHandler.
     //

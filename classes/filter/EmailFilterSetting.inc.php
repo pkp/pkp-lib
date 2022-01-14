@@ -20,19 +20,6 @@ use PKP\form\validation\FormValidator;
 
 class EmailFilterSetting extends FilterSetting
 {
-    /**
-     * Constructor
-     *
-     * @param string $name
-     * @param string $displayName
-     * @param string $validationMessage
-     * @param bool $required
-     */
-    public function __construct($name, $displayName, $validationMessage, $required = FormValidator::FORM_VALIDATOR_REQUIRED_VALUE)
-    {
-        parent::__construct($name, $displayName, $validationMessage, $required);
-    }
-
     //
     // Implement abstract template methods from FilterSetting
     //

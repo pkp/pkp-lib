@@ -17,16 +17,4 @@ use PKP\controllers\grid\GridRow;
 
 class AuthorReviewerGridRow extends GridRow
 {
-    //
-    // Overridden methods from GridRow
-    //
-    /**
-     * @copydoc GridRow::initialize()
-     *
-     * @param null|mixed $template
-     */
-    public function initialize($request, $template = null)
-    {
-        parent::initialize($request, $template);
-    }
 }

@@ -20,14 +20,6 @@ namespace PKP\cache;
 class XCacheCache extends GenericCache
 {
     /**
-     * Instantiate a cache.
-     */
-    public function __construct($context, $cacheId, $fallback)
-    {
-        parent::__construct($context, $cacheId, $fallback);
-    }
-
-    /**
      * Flush the cache.
      */
     public function flush()

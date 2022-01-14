@@ -32,14 +32,6 @@ class FieldUploadImage extends FieldUpload
     public $thumbnailDescription = '';
 
     /**
-     * @copydoc Field::__construct()
-     */
-    public function __construct($name, $args = [])
-    {
-        parent::__construct($name, $args);
-    }
-
-    /**
      * @copydoc Field::getConfig()
      */
     public function getConfig()

@@ -162,13 +162,10 @@ class PKPPublication extends \PKP\core\DataObject
 
         if ($userGroups === null) {
             // If a user group list was not specified, fetch all relevant user groups for the author set.
-            $userGroupIds = array_map(function ($author) {
-                return $author->getData('userGroupId');
-            }, $authors);
+            $userGroupIds = $authors->map(fn ($author) => $author->getData('userGroupId'));
+
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-            $userGroups = array_map(function ($userGroupId) use ($userGroupDao) {
-                return $userGroupDao->getById($userGroupId);
-            }, array_unique($userGroupIds));
+            $userGroups = $userGroupIds->unique()->map(fn ($userGroupId) => $userGroupDao->getById($userGroupId));
         }
 
         $str = '';

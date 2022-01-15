@@ -55,9 +55,11 @@ class Job extends BaseRepository implements JobRepositoryInterface
 
     public function deleteAll(): bool
     {
-        return $this->model
+        $rows = $this->model
             ->newQuery()
             ->delete();
+
+        return (bool) $rows;
     }
 
     public function total(): int

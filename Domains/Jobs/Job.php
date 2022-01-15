@@ -170,6 +170,16 @@ class Job extends Model
         return $query->where('queue', $this->getQueue($queue));
     }
 
+    public function scopeNonEmptyQueue(Builder $query): Builder
+    {
+        return $query->whereNotNull('queue');
+    }
+
+    public function scopeNonReserved(Builder $query): Builder
+    {
+        return $query->whereNull('reserved_at');
+    }
+
     /**
      * Retrieve available jobs
      */

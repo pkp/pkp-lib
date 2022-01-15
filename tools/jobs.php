@@ -30,6 +30,7 @@ use Illuminate\Queue\SerializesModels;
 use PKP\cliTool\CommandLineTool;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
+use Symfony\Component\Console\Exception\LogicException;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Helper\TableCell;
 use Symfony\Component\Console\Helper\TableCellStyle;
@@ -70,7 +71,7 @@ class commandInterface
 class commandJobs extends CommandLineTool
 {
     protected const AVAILABLE_OPTIONS = [
-        'list' => 'List all queued jobs',
+        'list' => 'List all queued jobs. If you want to paginate results, use the parameters --page= and --perPage=',
         'purge' => 'Purge a specific queued job. If you would like to purge all, pass the parameter --all',
         'test' => 'Add a test job into the default queue',
         'total' => 'Display the queued jobs quantity',
@@ -106,7 +107,7 @@ class commandJobs extends CommandLineTool
 
         if (!isset($this->getParameterList()[0])) {
             throw new CommandNotFoundException(
-                sprintf('Option could not be empty! Check the usage method.', $this->option),
+                'Option could not be empty! Check the usage method.',
                 array_keys(self::AVAILABLE_OPTIONS)
             );
         }
@@ -136,7 +137,20 @@ class commandJobs extends CommandLineTool
      */
     public function setParameterList(array $items): self
     {
-        $this->parameterList = $items;
+        $parameters = [];
+
+        foreach ($items as $param) {
+            if (strpos($param, '=')) {
+                [$key, $value] = explode('=', ltrim($param, '-'));
+                $parameters[$key] = $value;
+
+                continue;
+            }
+
+            $parameters[] = $param;
+        }
+
+        $this->parameterList = $parameters;
 
         return $this;
     }
@@ -148,6 +162,15 @@ class commandJobs extends CommandLineTool
     public function getParameterList(): ?array
     {
         return $this->parameterList;
+    }
+
+    protected function getParameterValue(string $parameter, string $default = null): ?string
+    {
+        if (!isset($this->getParameterList()[$parameter])) {
+            return $default;
+        }
+
+        return $this->getParameterList()[$parameter];
     }
 
     /**
@@ -201,42 +224,16 @@ class commandJobs extends CommandLineTool
      */
     protected function list(): void
     {
-        $total = Repo::job()->getCount(
-            Repo::job()->getCollector()
-        );
+        $perPage = $this->getParameterValue('perPage', '10');
+        $page = $this->getParameterValue('page', '1');
 
-        $collector = Repo::job()->getCollector();
+        $this->total();
 
-        if ($total > 10) {
-            $collector->limit(10);
-            $this->getCommandInterface()
-                ->getOutput()
-                ->warning('We have ' . $total . ' queued jobs. We will show only the latest 10 queued jobs below.');
-        }
-
-        $jobsCollection = Repo::job()->getMany($collector);
-
-        $parsedItems = [];
-
-        $dateFormatShort = '%Y-%m-%d %T %Z';
-
-        foreach ($jobsCollection as $currentItem) {
-            $availableAt = $currentItem->getData('available_at') ? strftime($dateFormatShort, $currentItem->getData('available_at')) : '-';
-            $createdAt = $currentItem->getData('created_at') ? strftime($dateFormatShort, $currentItem->getData('created_at')) : '-';
-            $reservedAt = $currentItem->getData('reserved_at') ? strftime($dateFormatShort, $currentItem->getData('reserved_at')) : '-';
-
-            if ($currentItem->getData('available_at')) {
-                $parsedJob = json_decode($currentItem->getData('payload'), true);
-            }
-            $parsedItems[] = [
-                'id' => $currentItem->getData('id'),
-                'displayName' => $parsedJob['displayName'],
-                'attempts' => $currentItem->getData('attempts'),
-                'reserved_at' => $reservedAt,
-                'reserved_at' => $availableAt,
-                'created_at' => $createdAt,
-            ];
-        }
+        $data = Repo::job()
+            ->setOutputFormat(Repo::job()::OUTPUT_CLI)
+            ->perPage((int) $perPage)
+            ->setPage((int) $page)
+            ->showQueuedJobs();
 
         $this->getCommandInterface()
             ->table(
@@ -260,7 +257,40 @@ class commandJobs extends CommandLineTool
                         'Created At'
                     ]
                 ],
-                $parsedItems,
+                $data->all(),
+            );
+
+        $pagination = [
+            'pagination' => [
+                0 => $data->currentPage(),
+                1 => ($data->currentPage() - 1) > 0 ? $data->currentPage() - 1 : 1,
+                2 => $data->currentPage(),
+            ],
+        ];
+
+        if ($data->hasMorePages()) {
+            $pagination['pagination'][2] = $data->currentPage() + 1;
+        }
+
+        $this->getCommandInterface()
+            ->table(
+                [
+                    [
+                        new TableCell(
+                            'Pagination',
+                            [
+                                'colspan' => 3,
+                                'style' => new TableCellStyle(['align' => 'center'])
+                            ]
+                        )
+                    ],
+                    [
+                        'Current',
+                        'Previous',
+                        'Next',
+                    ]
+                ],
+                $pagination
             );
     }
 
@@ -279,15 +309,13 @@ class commandJobs extends CommandLineTool
             return;
         }
 
-        $job = Repo::job()->get((int) $this->getParameterList()[1]);
+        $deleted = Repo::job()->delete((int) $this->getParameterList()[1]);
 
-        if (!$job) {
+        if (!$deleted) {
             throw new CommandInvalidArgumentException('Invalid job ID');
         }
 
-        Repo::job()->delete($job);
-
-        $this->getCommandInterface()->getOutput()->success('Job was purged!');
+        $this->getCommandInterface()->getOutput()->success('Job was deleted!');
     }
 
     /**
@@ -295,13 +323,13 @@ class commandJobs extends CommandLineTool
      */
     protected function purgeAllJobs(): void
     {
-        Repo::job()
-            ->deleteMany(
-                Repo::job()
-                    ->getCollector()
-            );
+        $deleted = Repo::job()->deleteAll();
 
-        $this->getCommandInterface()->getOutput()->success('Purged all jobs!');
+        if (!$deleted) {
+            throw new LogicException('Was impossible to delete all jobs.');
+        }
+
+        $this->getCommandInterface()->getOutput()->success('Deleted all jobs!');
     }
 
     /**
@@ -337,9 +365,8 @@ class commandJobs extends CommandLineTool
      */
     protected function total(): void
     {
-        $total = Repo::job()->getCount(
-            Repo::job()->getCollector()
-        );
+        $total = Repo::job()
+            ->total();
 
         $this->getCommandInterface()
             ->getOutput()

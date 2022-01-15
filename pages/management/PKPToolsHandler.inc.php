@@ -18,12 +18,14 @@ import('lib.pkp.pages.management.ManagementHandler');
 
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
-use APP\core\Application;
 use APP\facades\Repo;
+use APP\i18n\AppLocale;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\components\PKPStatsJobsTable;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
+use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 
 class PKPToolsHandler extends ManagementHandler
@@ -156,7 +158,8 @@ class PKPToolsHandler extends ManagementHandler
         Repo::submission()->resetPermissions($context->getId());
 
         $user = $request->getUser();
-        NotificationManager::createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.setup.resetPermissions.success')]);
+        $notificationManager = new NotificationManager();
+        $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.setup.resetPermissions.success')]);
 
         // This is an ugly hack to force the PageHandler to return JSON, so this
         // method can communicate properly with the AjaxFormHandler. Returning a
@@ -198,43 +201,20 @@ class PKPToolsHandler extends ManagementHandler
      */
     protected function buildQueuedJobsTable(): array
     {
-        $dateFormatShort = Application::get()
-            ->getRequest()
-            ->getContext()
-            ->getLocalizedDateTimeFormatShort();
+        $total = Repo::job()
+            ->total();
 
-        $collector = Repo::job()->getCollector()
-            ->filterWithEmptyQueue(false)
-            ->filterWithReserved(false);
-
-        $totalQueuedJobs = Repo::job()->getCount(
-            Repo::job()->getCollector()
-        );
-
-        if ($totalQueuedJobs > 10) {
-            $collector->limit(10);
-        }
-
-        $queuedJobsItems = Repo::job()->getMany($collector);
-
-        $parsedItems = [];
-
-        foreach ($queuedJobsItems as $currentItem) {
-            // Parsing job contents
-            $parsedJob = json_decode($currentItem->getData('payload'), true);
-            $parsedItems[] = [
-                'id' => $currentItem->getData('id'),
-                'displayName' => $parsedJob['displayName'],
-                'attempts' => $currentItem->getData('attempts'),
-                'created_at' => __('manager.jobs.createdAt', ['createdAt' => strftime($dateFormatShort, $currentItem->getData('created_at'))]),
-            ];
-        }
+        $queuedJobsItems = Repo::job()
+            ->setOutputFormat(Repo::job()::OUTPUT_HTTP)
+            ->perPage(10)
+            ->setPage(1)
+            ->showQueuedJobs();
 
         $queuedJobs = new PKPStatsJobsTable(
             'queuedJobsTable',
             [
                 'label' => __('manager.jobs.viewQueuedJobs'),
-                'description' => __('manager.jobs.totalCount', ['total' => $totalQueuedJobs]),
+                'description' => __('manager.jobs.totalCount', ['total' => $total]),
                 'tableColumns' => [
                     [
                         'name' => 'id',
@@ -257,12 +237,12 @@ class PKPToolsHandler extends ManagementHandler
                         'value' => 'created_at',
                     ]
                 ],
-                'tableRows' => $parsedItems,
+                'tableRows' => $queuedJobsItems->all(),
             ]
         );
 
         return [
-            'total' => $totalQueuedJobs,
+            'total' => $total,
             'data' => $queuedJobs
         ];
     }

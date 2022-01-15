@@ -27,8 +27,8 @@ namespace PKP\facades;
 use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
+use PKP\Domains\Jobs\Repositories\Job as JobRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
-use PKP\jobs\Repository as JobRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 
 class Repo
@@ -60,6 +60,6 @@ class Repo
 
     public static function job(): JobRepository
     {
-        return app()->make(JobRepository::class);
+        return app(JobRepository::class);
     }
 }

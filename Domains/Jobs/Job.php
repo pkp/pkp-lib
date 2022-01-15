@@ -118,8 +118,6 @@ class Job extends Model
 
     /**
      * Set the default queue
-     *
-     * @param string|mixed $value
      */
     public function setDefaultQueue(?string $value): self
     {
@@ -192,6 +190,7 @@ class Job extends Model
 
     /**
      * Increment the Job attempts
+     *
      */
     public function incrementAttempts(): void
     {

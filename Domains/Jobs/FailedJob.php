@@ -74,9 +74,6 @@ class FailedJob extends Model
 
     /**
      * Add a local scope to handle jobs associated in a queue
-     *
-     * @param string|null $queue
-     *
      */
     public function scopeQueuedAt(
         Builder $query,
@@ -87,8 +84,6 @@ class FailedJob extends Model
 
     /**
      * Get queue's size
-     *
-     *
      */
     public function size(string $queue): int
     {

@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\SubmissionMetadataFormImplementation;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\submission\SubmissionAgencyDAO;
 use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
@@ -77,8 +78,8 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
         ];
         foreach ($metadataFields as $field) {
             $templateMgr->assign([
-                $field . 'Enabled' => $context->getData($field) === METADATA_REQUEST || $context->getData($field) === METADATA_REQUIRE,
-                $field . 'Required' => $context->getData($field) === METADATA_REQUIRE,
+                $field . 'Enabled' => $context->getData($field) === Context::METADATA_REQUEST || $context->getData($field) === Context::METADATA_REQUIRE,
+                $field . 'Required' => $context->getData($field) === Context::METADATA_REQUIRE,
                 $field . 'SourceUrl' => isset($controlledVocabMap[$field]) ? str_replace('__vocab__', $controlledVocabMap[$field], $urlTemplate) : null
             ]);
         }

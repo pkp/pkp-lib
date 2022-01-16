@@ -45,6 +45,7 @@ use PKP\file\TemporaryFileManager;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\variables\DecisionEmailVariable;
+use PKP\emailTemplate\EmailTemplate;
 use PKP\mail\variables\QueuedPaymentEmailVariable;
 use PKP\mail\variables\RecipientEmailVariable;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
@@ -215,6 +216,23 @@ class Mailable extends IlluminateMailable
     public function build(): self
     {
         return $this;
+    }
+
+    /**
+     * Retrieve associated email template or by a template key for editable emails
+     * @throws Exception
+     */
+    public function getTemplate(int $contextId, string $templateKey = null): EmailTemplate
+    {
+        if ($templateKey) {
+            return Repo::emailTemplate()->getByKey($contextId, $templateKey);
+        }
+
+        if (static::EMAIL_KEY != null) {
+            return Repo::emailTemplate()->getByKey($contextId, static::EMAIL_KEY);
+        }
+
+        throw new Exception('Associated email template key should be defined as a constant or passed as a second parameter');
     }
 
     /**

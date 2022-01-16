@@ -118,8 +118,10 @@ class SubmissionEmailVariable extends Variable
      */
     protected function getSubmissionUrl(): string
     {
-        $request = PKPApplication::get()->getRequest();
-        return $request->getDispatcher()->url(
+        $application = PKPApplication::get();
+        $request = $application->getRequest();
+        $dispatcher = $application->getDispatcher();
+        return $dispatcher->url(
             $request,
             PKPApplication::ROUTE_PAGE,
             null,

@@ -15,7 +15,11 @@
 
 namespace PKP\mail\variables;
 
+use APP\core\Application;
+use PKP\context\Context;
+use APP\facades\Repo;
 use PKP\core\PKPApplication;
+use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentEmailVariable extends Variable
@@ -24,12 +28,16 @@ class ReviewAssignmentEmailVariable extends Variable
     public const RESPONSE_DUE_DATE = 'responseDueDate';
     public const SUBMISSION_REVIEW_URL = 'submissionReviewUrl';
 
-    /** @var ReviewAssignment $reviewAssignment */
-    protected $reviewAssignment;
+    protected ReviewAssignment $reviewAssignment;
+    protected PKPSubmission $submission;
+    protected Context $context;
 
     public function __construct(ReviewAssignment $reviewAssignment)
     {
         $this->reviewAssignment = $reviewAssignment;
+        $this->submission = Repo::submission()->get($this->reviewAssignment->getSubmissionId());
+        $contextDao = Application::getContextDAO();;
+        $this->context = $contextDao->getById($this->submission->getData('contextId'));
     }
 
     /**
@@ -52,20 +60,30 @@ class ReviewAssignmentEmailVariable extends Variable
     {
         return
         [
-            self::REVIEW_DUE_DATE => $this->getReviewDueDate(),
-            self::RESPONSE_DUE_DATE => $this->getResponseDueDate(),
+            self::REVIEW_DUE_DATE => $this->getReviewDueDate($locale),
+            self::RESPONSE_DUE_DATE => $this->getResponseDueDate($locale),
             self::SUBMISSION_REVIEW_URL => $this->getSubmissionUrl(),
         ];
     }
 
-    protected function getReviewDueDate(): string
+    protected function getReviewDueDate($locale): string
     {
-        return $this->reviewAssignment->getDateDue();
+        $reviewDueDate = strtotime($this->reviewAssignment->getDateDue());
+        if ($reviewDueDate === -1 || $reviewDueDate === false) {
+            // Default to something human-readable if no date specified
+            return '_____';
+        }
+        return strftime($this->context->getLocalizedDateFormatShort($locale), $reviewDueDate);
     }
 
-    protected function getResponseDueDate(): string
+    protected function getResponseDueDate($locale): string
     {
-        return $this->reviewAssignment->getDateResponseDue();
+        $responseDueDate = strtotime($this->reviewAssignment->getDateResponseDue());
+        if ($responseDueDate === -1 || $responseDueDate === false) {
+            // Default to something human-readable if no date specified
+            return '_____';
+        }
+        return strftime($this->context->getLocalizedDateFormatShort($locale), $responseDueDate);
     }
 
     /**
@@ -73,8 +91,9 @@ class ReviewAssignmentEmailVariable extends Variable
      */
     protected function getSubmissionUrl(): string
     {
-        $request = PKPApplication::get()->getRequest();
-        $dispatcher = $request->getDispatcher();
+        $application = PKPApplication::get();
+        $request = $application->getRequest();
+        $dispatcher = $application->getDispatcher();
         return $dispatcher->url(
             $request,
             PKPApplication::ROUTE_PAGE,

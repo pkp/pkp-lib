@@ -16,6 +16,7 @@
 namespace PKP\mail\variables;
 
 use PKP\context\Context;
+use PKP\core\Dispatcher;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 
@@ -34,10 +35,14 @@ class ContextEmailVariable extends Variable
 
     protected PKPRequest $request;
 
+    protected Dispatcher $dispatcher;
+
     public function __construct(Context $context)
     {
         $this->context = $context;
-        $this->request = PKPApplication::get()->getRequest();
+        $application = PKPApplication::get();
+        $this->request = $application->getRequest();
+        $this->dispatcher = $application->getDispatcher();
     }
 
     /**
@@ -74,7 +79,7 @@ class ContextEmailVariable extends Variable
 
     protected function getContextUrl(): string
     {
-        return $this->request->getDispatcher()->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'));
+        return $this->dispatcher->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'));
     }
 
     protected function getPrincipalContactSignature(string $locale): string
@@ -89,7 +94,7 @@ class ContextEmailVariable extends Variable
      */
     protected function getPasswordLostUrl(): string
     {
-        return $this->request->getDispatcher()->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'), 'login', 'lostPassword');
+        return $this->dispatcher->url($this->request, PKPApplication::ROUTE_PAGE, $this->context->getData('urlPath'), 'login', 'lostPassword');
     }
 
     /**

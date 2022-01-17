@@ -17,7 +17,6 @@ namespace APP\search;
 
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
-use APP\search\PreprintSearch;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;

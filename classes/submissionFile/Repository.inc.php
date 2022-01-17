@@ -16,7 +16,7 @@ namespace APP\submissionFile;
 use APP\core\Application;
 use APP\core\Request;
 use PKP\db\DAORegistry;
-use PKP\search\SubmissionSearch;
+use PKP\observers\events\SubmissionFileDeleted;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\Repository as BaseRepository;
@@ -56,8 +56,7 @@ class Repository extends BaseRepository
                 $galleyDao->updateObject($galley);
             }
 
-            $preprintSearchIndex = Application::getSubmissionSearchIndex();
-            $preprintSearchIndex->deleteTextIndex($submissionFile->getData('submissionId'), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile->getId());
+            event(new SubmissionFileDeleted($submissionFile));
         }
     }
 

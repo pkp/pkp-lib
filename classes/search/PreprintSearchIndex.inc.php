@@ -227,14 +227,6 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     }
 
     /**
-     * @copydoc SubmissionSearchIndex::deleteSubmission()
-     */
-    public function deleteSubmission(int $monographId)
-    {
-        $this->preprintDeleted($monographId);
-    }
-
-    /**
      * @copydoc SubmissionSearchIndex::submissionChangesFinished()
      */
     public function submissionChangesFinished()

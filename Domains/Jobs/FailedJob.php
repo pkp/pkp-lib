@@ -92,7 +92,7 @@ class FailedJob extends Model
      */
     public function size(string $queue): int
     {
-        return $this->queuedat($this->getQueue($queue))
+        return $this->queuedAt($queue)
             ->count();
     }
 }

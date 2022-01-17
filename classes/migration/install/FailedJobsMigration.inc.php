@@ -25,6 +25,7 @@ class FailedJobsMigration extends Migration
     public function up()
     {
         // Schema matches https://github.com/illuminate/queue/blob/7.x/Console/stubs/failed_jobs.stub
+        // This migration file is used during upgrades. If this schema changes, the upgrade scripts should be reviewed manually before a merging.
         Schema::create('failed_jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('connection');

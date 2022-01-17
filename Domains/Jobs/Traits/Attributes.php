@@ -28,7 +28,6 @@ trait Attributes
     /**
      * Return the job's display name value
      *
-     * @return mixed
      */
     public function getDisplayNameAttribute(): ?string
     {
@@ -42,7 +41,6 @@ trait Attributes
     /**
      * Return the job's max tries value
      *
-     * @return mixed
      */
     public function getMaxTriesAttribute(): ?string
     {
@@ -56,7 +54,6 @@ trait Attributes
     /**
      * Return the job's delay value
      *
-     * @return mixed
      */
     public function getDelayAttribute(): ?string
     {
@@ -70,7 +67,6 @@ trait Attributes
     /**
      * Return the job's timeout value
      *
-     * @return mixed
      */
     public function getTimeoutAttribute(): ?string
     {
@@ -84,7 +80,6 @@ trait Attributes
     /**
      * Return the job's timeout at value
      *
-     * @return mixed
      */
     public function getTimeoutAtAttribute(): ?string
     {
@@ -100,7 +95,6 @@ trait Attributes
     /**
      * Return the job's command name value
      *
-     * @return mixed
      */
     public function getCommandNameAttribute(): ?string
     {

@@ -56,7 +56,7 @@ class RemoveSubmissionFromSearchIndexJob extends BaseJob
         }
 
         $submissionSearchIndex = Application::getSubmissionSearchIndex();
-        $submissionSearchIndex->deleteSubmission($submission->getId());
+        $submissionSearchIndex->deleteTextIndex($submission->getId());
         $submissionSearchIndex->submissionChangesFinished();
     }
 }

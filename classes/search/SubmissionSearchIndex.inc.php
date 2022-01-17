@@ -117,10 +117,16 @@ abstract class SubmissionSearchIndex
     abstract public function clearSubmissionFiles($submission);
 
     /**
-     * Delete a Submission
+     * Delete a submission's search indexing
      *
+     * @param int $type optional
+     * @param int $assocId optional
      */
-    abstract public function deleteSubmission(int $submissionId);
+    abstract public function deleteTextIndex(
+        int $submissionId,
+        $type = null,
+        $assocId = null
+    );
 }
 
 if (!PKP_STRICT_MODE) {

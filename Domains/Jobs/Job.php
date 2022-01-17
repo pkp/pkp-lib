@@ -120,7 +120,6 @@ class Job extends Model
      * Set the default queue
      *
      * @param string|mixed $value
-     *
      */
     public function setDefaultQueue(?string $value): self
     {
@@ -131,8 +130,6 @@ class Job extends Model
 
     /**
      * Get Queue name, in case of nullable value, will be the default one
-     *
-     *
      */
     public function getQueue(?string $queue): string
     {
@@ -141,8 +138,6 @@ class Job extends Model
 
     /**
      * Set the Job's max attempts
-     *
-     *
      */
     public function setMaxAttempts(int $maxAttempts): self
     {
@@ -153,7 +148,6 @@ class Job extends Model
 
     /**
      * Get the Job's max attempts
-     *
      */
     public function getMaxAttempts(): int
     {
@@ -162,8 +156,6 @@ class Job extends Model
 
     /**
      * Add a local scope for not exceeded attempts
-     *
-     *
      */
     public function scopeNotExceededAttempts(Builder $query): Builder
     {
@@ -172,8 +164,6 @@ class Job extends Model
 
     /**
      * Add a local scope to handle jobs associated in a queue
-     *
-     *
      */
     public function scopeQueuedAt(
         Builder $query,
@@ -184,8 +174,6 @@ class Job extends Model
 
     /**
      * Retrieve available jobs
-     *
-     *
      */
     public function scopeIsAvailable(Builder $query): Builder
     {
@@ -195,18 +183,15 @@ class Job extends Model
 
     /**
      * Get queue's size
-     *
-     *
      */
     public function size(?string $queue = null): int
     {
-        return $this->queuedat($this->getQueue($queue))
+        return $this->queuedAt($this->getQueue($queue))
             ->count();
     }
 
     /**
      * Increment the Job attempts
-     *
      */
     public function incrementAttempts(): void
     {
@@ -215,7 +200,6 @@ class Job extends Model
 
     /**
      * Mark a job as reserved to avoid being run by another process
-     *
      */
     public function markJobAsReserved(): void
     {
@@ -227,9 +211,6 @@ class Job extends Model
 
     /**
      * Set the reserved_at attribute
-     *
-     *
-     * @return this
      */
     public function setReservedAtAttribute(int $value): self
     {
@@ -239,7 +220,7 @@ class Job extends Model
             return $this;
         }
 
-        $this->attributes['reserved_at'] = (int) $value;
+        $this->attributes['reserved_at'] = $value;
 
         return $this;
     }

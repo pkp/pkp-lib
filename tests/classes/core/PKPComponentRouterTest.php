@@ -260,6 +260,8 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         // Simulate context DAOs
         $this->_setUpMockDAOs('context1', 'context2');
 
+        $this->expectOutputRegex('/"status":false/');
+
         // Route the request. This should call NotificationsGridHandler::fetchGrid()
         // with a reference to the request object as the first argument.
         $this->router->route($this->request);

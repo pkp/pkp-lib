@@ -16,10 +16,13 @@
 namespace PKP\core;
 
 use Illuminate\Events\EventServiceProvider;
+
 use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Support\Facades\Event;
+
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
+
 use SplFileInfo;
 
 class PKPEventServiceProvider extends EventServiceProvider

@@ -169,3 +169,4 @@ error_reporting(E_ALL & ~E_STRICT & ~E_DEPRECATED);
 
 // Show errors in the UI
 ini_set('display_errors', true);
+ini_set('display_startup_errors', '1');

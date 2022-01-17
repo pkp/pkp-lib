@@ -19,13 +19,19 @@ use APP\core\AppServiceProvider;
 
 use Exception;
 use Illuminate\Config\Repository;
+
 use Illuminate\Container\Container;
+use Illuminate\Contracts\Console\Kernel as KernelContract;
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Log\LogServiceProvider;
+use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\PKPLocale;
 use Sokil\IsoCodes\IsoCodesFactory;
 use Sokil\IsoCodes\TranslationDriver\GettextExtensionDriver;
+
 use Throwable;
 
 class PKPContainer extends Container
@@ -56,8 +62,8 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
-        $this->singleton(\Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
-            return new class() implements \Illuminate\Contracts\Debug\ExceptionHandler {
+        $this->singleton(ExceptionHandler::class, function () {
+            return new class() implements ExceptionHandler {
                 public function shouldReport(Throwable $e)
                 {
                     return true;
@@ -79,6 +85,10 @@ class PKPContainer extends Container
                 }
             };
         });
+        $this->singleton(
+            KernelContract::class,
+            Kernel::class
+        );
 
         // This singleton is necessary to keep user selected language across the application
         $this->singleton(IsoCodesFactory::class, function () {
@@ -86,6 +96,17 @@ class PKPContainer extends Container
             $driver->setLocale(PKPLocale::getLocale());
             return new IsoCodesFactory(null, $driver);
         });
+
+        $this->singleton(
+            'queue.failer',
+            function ($app) {
+                return new DatabaseFailedJobProvider(
+                    $app['db'],
+                    config('queue.failed.database'),
+                    config('queue.failed.table')
+                );
+            }
+        );
 
         Facade::setFacadeApplication($this);
     }
@@ -103,6 +124,7 @@ class PKPContainer extends Container
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new \Illuminate\Queue\QueueServiceProvider($this));
+        $this->register(new PKPQueueProvider());
         $this->register(new MailServiceProvider($this));
         $this->register(new AppServiceProvider($this));
     }
@@ -151,11 +173,10 @@ class PKPContainer extends Container
         $items = [];
 
         // Database connection
-        $driver = strtolower(Config::getVar('database', 'driver'));
-        if (substr($driver, 0, 8) === 'postgres') {
+        $driver = 'mysql';
+
+        if (substr(strtolower(Config::getVar('database', 'driver')), 0, 8) === 'postgres') {
             $driver = 'pgsql';
-        } else {
-            $driver = 'mysql';
         }
 
         $items['database']['default'] = $driver;
@@ -179,6 +200,12 @@ class PKPContainer extends Container
             'table' => 'jobs',
             'queue' => 'default',
             'retry_after' => 90,
+            'after_commit' => true,
+        ];
+        $items['queue']['failed'] = [
+            'driver' => 'database',
+            'database' => $driver,
+            'table' => 'failed_jobs',
         ];
 
         // Logging

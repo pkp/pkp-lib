@@ -17,13 +17,13 @@ namespace PKP\observers\events;
 
 use Illuminate\Mail\Events\MessageSending as IlluminateMessageSending;
 use PKP\site\Site;
-use Swift_Message;
+use Symfony\Component\Mime\Email as SymfonyEmail;
 
 class MessageSendingSite extends IlluminateMessageSending
 {
     public Site $site;
 
-    public function __construct(Site $site, Swift_Message $message, array $data = [])
+    public function __construct(Site $site, SymfonyEmail $message, array $data = [])
     {
         parent::__construct($message, $data);
         $this->site = $site;

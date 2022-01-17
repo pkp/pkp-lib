@@ -19,7 +19,7 @@ use PKP\mail\Mailer;
 use Illuminate\Mail\MailManager;
 use Illuminate\Mail\MailServiceProvider as IlluminateMailService;
 use InvalidArgumentException;
-use Swift_SendmailTransport;
+use Symfony\Component\Mailer\Transport\SendmailTransport;
 
 class MailServiceProvider extends IlluminateMailService
 {
@@ -57,7 +57,7 @@ class MailServiceProvider extends IlluminateMailService
                     // Override Illuminate mailer construction to remove unsupported view
                     $mailer = new Mailer(
                         $name,
-                        $this->createSwiftMailer($config),
+                        $this->createSymfonyTransport($config),
                         $this->app['events']
                     );
 
@@ -68,11 +68,11 @@ class MailServiceProvider extends IlluminateMailService
                     return $mailer;
                 }
 
-                // Override Swift sendmail transport construction to allow default path
-                protected function createSendmailTransport(array $config) : Swift_SendmailTransport
+                // Override sendmail transport construction to allow default path
+                protected function createSendmailTransport(array $config) : SendmailTransport
                 {
                     $path = $config['path'] ?? $this->app['config']->get('mail.sendmail');
-                    return $path ? new Swift_SendmailTransport($path) : new Swift_SendmailTransport();
+                    return $path ? new SendmailTransport($path) : new SendmailTransport();
                 }
             };
         });

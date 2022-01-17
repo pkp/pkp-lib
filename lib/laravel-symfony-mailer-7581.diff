@@ -1,0 +1,1825 @@
+diff --git a/composer.json b/composer.json
+index dea51b9ab..8ff92a186 100644
+--- a/composer.json
++++ b/composer.json
+@@ -15,7 +15,7 @@
+         }
+     ],
+     "require": {
+-        "php": "^7.2.5|^8.0",
++        "php": "^7.4|^8.0",
+         "ext-json": "*",
+         "ext-mbstring": "*",
+         "ext-openssl": "*",
+@@ -30,7 +30,7 @@
+         "psr/container": "^1.0",
+         "psr/simple-cache": "^1.0",
+         "ramsey/uuid": "^3.7|^4.0",
+-        "swiftmailer/swiftmailer": "^6.0",
++        "symfony/mailer": "^5.4",
+         "symfony/console": "^5.0",
+         "symfony/error-handler": "^5.0",
+         "symfony/finder": "^5.0",
+diff --git a/src/Illuminate/Contracts/Mail/Mailer.php b/src/Illuminate/Contracts/Mail/Mailer.php
+index 255b6789d..38f9e3b56 100644
+--- a/src/Illuminate/Contracts/Mail/Mailer.php
++++ b/src/Illuminate/Contracts/Mail/Mailer.php
+@@ -38,11 +38,4 @@ interface Mailer
+      * @return void
+      */
+     public function send($view, array $data = [], $callback = null);
+-
+-    /**
+-     * Get the array of failed recipients.
+-     *
+-     * @return array
+-     */
+-    public function failures();
+ }
+diff --git a/src/Illuminate/Mail/Events/MessageSending.php b/src/Illuminate/Mail/Events/MessageSending.php
+index bf5bccfdf..31435fb6e 100644
+--- a/src/Illuminate/Mail/Events/MessageSending.php
++++ b/src/Illuminate/Mail/Events/MessageSending.php
+@@ -2,12 +2,14 @@
+ 
+ namespace Illuminate\Mail\Events;
+ 
++use Symfony\Component\Mime\Email;
++
+ class MessageSending
+ {
+     /**
+-     * The Swift message instance.
++     * The Symfony Email instance.
+      *
+-     * @var \Swift_Message
++     * @var \Symfony\Component\Mime\Email
+      */
+     public $message;
+ 
+@@ -21,11 +23,11 @@ class MessageSending
+     /**
+      * Create a new event instance.
+      *
+-     * @param  \Swift_Message  $message
++     * @param  \Symfony\Component\Mime\Email  $message
+      * @param  array  $data
+      * @return void
+      */
+-    public function __construct($message, $data = [])
++    public function __construct(Email $message, array $data = [])
+     {
+         $this->data = $data;
+         $this->message = $message;
+diff --git a/src/Illuminate/Mail/Events/MessageSent.php b/src/Illuminate/Mail/Events/MessageSent.php
+index 64aef9431..a95148fcc 100644
+--- a/src/Illuminate/Mail/Events/MessageSent.php
++++ b/src/Illuminate/Mail/Events/MessageSent.php
+@@ -2,14 +2,14 @@
+ 
+ namespace Illuminate\Mail\Events;
+ 
+-use Swift_Attachment;
++use Symfony\Component\Mime\Email;
+ 
+ class MessageSent
+ {
+     /**
+-     * The Swift message instance.
++     * The Symfony Email instance.
+      *
+-     * @var \Swift_Message
++     * @var \Symfony\Component\Mime\Email
+      */
+     public $message;
+ 
+@@ -23,11 +23,11 @@ class MessageSent
+     /**
+      * Create a new event instance.
+      *
+-     * @param  \Swift_Message  $message
++     * @param  \Symfony\Component\Mime\Email  $message
+      * @param  array  $data
+      * @return void
+      */
+-    public function __construct($message, $data = [])
++    public function __construct(Email $message, array $data = [])
+     {
+         $this->data = $data;
+         $this->message = $message;
+@@ -40,9 +40,7 @@ class MessageSent
+      */
+     public function __serialize()
+     {
+-        $hasAttachments = collect($this->message->getChildren())
+-                                ->whereInstanceOf(Swift_Attachment::class)
+-                                ->isNotEmpty();
++        $hasAttachments = collect($this->message->getAttachments())->isNotEmpty();
+ 
+         return $hasAttachments ? [
+             'message' => base64_encode(serialize($this->message)),
+diff --git a/src/Illuminate/Mail/MailManager.php b/src/Illuminate/Mail/MailManager.php
+index 4c70e9a12..5b5467383 100644
+--- a/src/Illuminate/Mail/MailManager.php
++++ b/src/Illuminate/Mail/MailManager.php
+@@ -2,25 +2,24 @@
+ 
+ namespace Illuminate\Mail;
+ 
+-use Aws\Ses\SesClient;
+ use Closure;
+-use GuzzleHttp\Client as HttpClient;
+ use Illuminate\Contracts\Mail\Factory as FactoryContract;
+ use Illuminate\Log\LogManager;
+ use Illuminate\Mail\Transport\ArrayTransport;
+ use Illuminate\Mail\Transport\LogTransport;
+-use Illuminate\Mail\Transport\MailgunTransport;
+-use Illuminate\Mail\Transport\SesTransport;
+ use Illuminate\Support\Arr;
+ use Illuminate\Support\Str;
+ use InvalidArgumentException;
+-use Postmark\ThrowExceptionOnFailurePlugin;
+-use Postmark\Transport as PostmarkTransport;
+ use Psr\Log\LoggerInterface;
+-use Swift_DependencyContainer;
+-use Swift_Mailer;
+-use Swift_SendmailTransport as SendmailTransport;
+-use Swift_SmtpTransport as SmtpTransport;
++use Symfony\Component\Mailer\Bridge\Amazon\Transport\SesTransportFactory;
++use Symfony\Component\Mailer\Bridge\Mailgun\Transport\MailgunTransportFactory;
++use Symfony\Component\Mailer\Bridge\Postmark\Transport\PostmarkTransportFactory;
++use Symfony\Component\Mailer\Transport\Dsn;
++use Symfony\Component\Mailer\Transport\FailoverTransport;
++use Symfony\Component\Mailer\Transport\SendmailTransport;
++use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
++use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransportFactory;
++use Symfony\Component\Mailer\Transport\Smtp\Stream\SocketStream;
+ 
+ /**
+  * @mixin \Illuminate\Mail\Mailer
+@@ -63,7 +62,7 @@ class MailManager implements FactoryContract
+      * Get a mailer instance by name.
+      *
+      * @param  string|null  $name
+-     * @return \Illuminate\Mail\Mailer
++     * @return \Illuminate\Contracts\Mail\Mailer
+      */
+     public function mailer($name = null)
+     {
+@@ -116,7 +115,7 @@ class MailManager implements FactoryContract
+         $mailer = new Mailer(
+             $name,
+             $this->app['view'],
+-            $this->createSwiftMailer($config),
++            $this->createSymfonyTransport($config),
+             $this->app['events']
+         );
+ 
+@@ -134,30 +133,15 @@ class MailManager implements FactoryContract
+         return $mailer;
+     }
+ 
+-    /**
+-     * Create the SwiftMailer instance for the given configuration.
+-     *
+-     * @param  array  $config
+-     * @return \Swift_Mailer
+-     */
+-    protected function createSwiftMailer(array $config)
+-    {
+-        if ($config['domain'] ?? false) {
+-            Swift_DependencyContainer::getInstance()
+-                ->register('mime.idgenerator.idright')
+-                ->asValue($config['domain']);
+-        }
+-
+-        return new Swift_Mailer($this->createTransport($config));
+-    }
+-
+     /**
+      * Create a new transport instance.
+      *
+      * @param  array  $config
+-     * @return \Swift_Transport
++     * @return \Symfony\Component\Mailer\Transport\TransportInterface
++     *
++     * @throws \InvalidArgumentException
+      */
+-    public function createTransport(array $config)
++    public function createSymfonyTransport(array $config)
+     {
+         // Here we will check if the "transport" key exists and if it doesn't we will
+         // assume an application is still using the legacy mail configuration file
+@@ -168,7 +152,7 @@ class MailManager implements FactoryContract
+             return call_user_func($this->customCreators[$transport], $config);
+         }
+ 
+-        if (trim($transport) === '' || ! method_exists($this, $method = 'create'.ucfirst($transport).'Transport')) {
++        if (trim($transport ?? '') === '' || ! method_exists($this, $method = 'create'.ucfirst($transport).'Transport')) {
+             throw new InvalidArgumentException("Unsupported mail transport [{$transport}].");
+         }
+ 
+@@ -176,33 +160,23 @@ class MailManager implements FactoryContract
+     }
+ 
+     /**
+-     * Create an instance of the SMTP Swift Transport driver.
++     * Create an instance of the Symfony SMTP Transport driver.
+      *
+      * @param  array  $config
+-     * @return \Swift_SmtpTransport
++     * @return \Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport
+      */
+     protected function createSmtpTransport(array $config)
+     {
+-        // The Swift SMTP transport instance will allow us to use any SMTP backend
+-        // for delivering mail such as Sendgrid, Amazon SES, or a custom server
+-        // a developer has available. We will just pass this configured host.
+-        $transport = new SmtpTransport(
+-            $config['host'],
+-            $config['port']
+-        );
+-
+-        if (! empty($config['encryption'])) {
+-            $transport->setEncryption($config['encryption']);
+-        }
++        $factory = new EsmtpTransportFactory;
+ 
+-        // Once we have the transport we will check for the presence of a username
+-        // and password. If we have it we will set the credentials on the Swift
+-        // transporter instance so that we'll properly authenticate delivery.
+-        if (isset($config['username'])) {
+-            $transport->setUsername($config['username']);
+-
+-            $transport->setPassword($config['password']);
+-        }
++        $transport = $factory->create(new Dsn(
++            ! empty($config['encryption']) && $config['encryption'] === 'tls' ? 'smtps' : '',
++            $config['host'],
++            $config['username'] ?? null,
++            $config['password'] ?? null,
++            $config['port'] ?? null,
++            $config
++        ));
+ 
+         return $this->configureSmtpTransport($transport, $config);
+     }
+@@ -210,40 +184,32 @@ class MailManager implements FactoryContract
+     /**
+      * Configure the additional SMTP driver options.
+      *
+-     * @param  \Swift_SmtpTransport  $transport
++     * @param  \Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport  $transport
+      * @param  array  $config
+-     * @return \Swift_SmtpTransport
++     * @return \Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport
+      */
+-    protected function configureSmtpTransport($transport, array $config)
++    protected function configureSmtpTransport(EsmtpTransport $transport, array $config)
+     {
+-        if (isset($config['stream'])) {
+-            $transport->setStreamOptions($config['stream']);
+-        }
+-
+-        if (isset($config['source_ip'])) {
+-            $transport->setSourceIp($config['source_ip']);
+-        }
+-
+-        if (isset($config['local_domain'])) {
+-            $transport->setLocalDomain($config['local_domain']);
+-        }
++        $stream = $transport->getStream();
+ 
+-        if (isset($config['timeout'])) {
+-            $transport->setTimeout($config['timeout']);
+-        }
++        if ($stream instanceof SocketStream) {
++            if (isset($config['source_ip'])) {
++                $stream->setSourceIp($config['source_ip']);
++            }
+ 
+-        if (isset($config['auth_mode'])) {
+-            $transport->setAuthMode($config['auth_mode']);
++            if (isset($config['timeout'])) {
++                $stream->setTimeout($config['timeout']);
++            }
+         }
+ 
+         return $transport;
+     }
+ 
+     /**
+-     * Create an instance of the Sendmail Swift Transport driver.
++     * Create an instance of the Symfony Sendmail Transport driver.
+      *
+      * @param  array  $config
+-     * @return \Swift_SendmailTransport
++     * @return \Symfony\Component\Mailer\Transport\SendmailTransport
+      */
+     protected function createSendmailTransport(array $config)
+     {
+@@ -253,46 +219,41 @@ class MailManager implements FactoryContract
+     }
+ 
+     /**
+-     * Create an instance of the Amazon SES Swift Transport driver.
++     * Create an instance of the Symfony Amazon SES Transport driver.
+      *
+      * @param  array  $config
+-     * @return \Illuminate\Mail\Transport\SesTransport
++     * @return \Symfony\Component\Mailer\Bridge\Amazon\Transport\SesApiAsyncAwsTransport
+      */
+     protected function createSesTransport(array $config)
+     {
+-        if (! isset($config['secret'])) {
+-            $config = array_merge($this->app['config']->get('services.ses', []), [
+-                'version' => 'latest', 'service' => 'email',
+-            ]);
+-        }
++        $config = array_merge(
++            $this->app['config']->get('services.ses', []),
++            ['version' => 'latest', 'service' => 'email'],
++            $config
++        );
+ 
+         $config = Arr::except($config, ['transport']);
+ 
+-        return new SesTransport(
+-            new SesClient($this->addSesCredentials($config)),
+-            $config['options'] ?? []
+-        );
+-    }
++        $factory = new SesTransportFactory();
+ 
+-    /**
+-     * Add the SES credentials to the configuration array.
+-     *
+-     * @param  array  $config
+-     * @return array
+-     */
+-    protected function addSesCredentials(array $config)
+-    {
+-        if (! empty($config['key']) && ! empty($config['secret'])) {
+-            $config['credentials'] = Arr::only($config, ['key', 'secret', 'token']);
++        if (! isset($config['session_token']) && isset($config['token'])) {
++            $config['session_token'] = $config['token'];
+         }
+ 
+-        return $config;
++        return $factory->create(new Dsn(
++            'ses+api',
++            'default',
++            $config['key'],
++            $config['secret'],
++            $config['port'] ?? null,
++            $config
++        ));
+     }
+ 
+     /**
+-     * Create an instance of the Mail Swift Transport driver.
++     * Create an instance of the Symfony Mail Transport driver.
+      *
+-     * @return \Swift_SendmailTransport
++     * @return \Symfony\Component\Mailer\Transport\SendmailTransport
+      */
+     protected function createMailTransport()
+     {
+@@ -300,42 +261,81 @@ class MailManager implements FactoryContract
+     }
+ 
+     /**
+-     * Create an instance of the Mailgun Swift Transport driver.
++     * Create an instance of the Symfony Mailgun Transport driver.
+      *
+      * @param  array  $config
+-     * @return \Illuminate\Mail\Transport\MailgunTransport
++     * @return \Symfony\Component\Mailer\Bridge\Mailgun\Transport\MailgunApiTransport
+      */
+     protected function createMailgunTransport(array $config)
+     {
++        $factory = new MailgunTransportFactory();
++
+         if (! isset($config['secret'])) {
+             $config = $this->app['config']->get('services.mailgun', []);
+         }
+ 
+-        return new MailgunTransport(
+-            $this->guzzle($config),
++        return $factory->create(new Dsn(
++            'mailgun+api',
++            $config['endpoint'] ?? 'default',
+             $config['secret'],
+-            $config['domain'],
+-            $config['endpoint'] ?? null
+-        );
++            $config['domain']
++        ));
+     }
+ 
+     /**
+-     * Create an instance of the Postmark Swift Transport driver.
++     * Create an instance of the Symfony Postmark Transport driver.
+      *
+      * @param  array  $config
+-     * @return \Swift_Transport
++     * @return \Symfony\Component\Mailer\Bridge\Postmark\Transport\PostmarkApiTransport
+      */
+     protected function createPostmarkTransport(array $config)
+     {
+-        return tap(new PostmarkTransport(
+-            $config['token'] ?? $this->app['config']->get('services.postmark.token')
+-        ), function ($transport) {
+-            $transport->registerPlugin(new ThrowExceptionOnFailurePlugin());
+-        });
++        $factory = new PostmarkTransportFactory();
++
++        $options = isset($config['message_stream_id'])
++                    ? ['message_stream' => $config['message_stream_id']]
++                    : [];
++
++        return $factory->create(new Dsn(
++            'postmark+api',
++            'default',
++            $config['token'] ?? $this->app['config']->get('services.postmark.token'),
++            null,
++            null,
++            $options
++        ));
+     }
+ 
+     /**
+-     * Create an instance of the Log Swift Transport driver.
++     * Create an instance of the Symfony Failover Transport driver.
++     *
++     * @param  array  $config
++     * @return \Symfony\Component\Mailer\Transport\FailoverTransport
++     */
++    protected function createFailoverTransport(array $config)
++    {
++        $transports = [];
++
++        foreach ($config['mailers'] as $name) {
++            $config = $this->getConfig($name);
++
++            if (is_null($config)) {
++                throw new InvalidArgumentException("Mailer [{$name}] is not defined.");
++            }
++
++            // Now, we will check if the "driver" key exists and if it does we will set
++            // the transport configuration parameter in order to offer compatibility
++            // with any Laravel <= 6.x application style mail configuration files.
++            $transports[] = $this->app['config']['mail.driver']
++                ? $this->createSymfonyTransport(array_merge($config, ['transport' => $name]))
++                : $this->createSymfonyTransport($config);
++        }
++
++        return new FailoverTransport($transports);
++    }
++
++    /**
++     * Create an instance of the Log Transport driver.
+      *
+      * @param  array  $config
+      * @return \Illuminate\Mail\Transport\LogTransport
+@@ -354,7 +354,7 @@ class MailManager implements FactoryContract
+     }
+ 
+     /**
+-     * Create an instance of the Array Swift Transport Driver.
++     * Create an instance of the Array Transport Driver.
+      *
+      * @return \Illuminate\Mail\Transport\ArrayTransport
+      */
+@@ -363,21 +363,6 @@ class MailManager implements FactoryContract
+         return new ArrayTransport;
+     }
+ 
+-    /**
+-     * Get a fresh Guzzle HTTP client instance.
+-     *
+-     * @param  array  $config
+-     * @return \GuzzleHttp\Client
+-     */
+-    protected function guzzle(array $config)
+-    {
+-        return new HttpClient(Arr::add(
+-            $config['guzzle'] ?? [],
+-            'connect_timeout',
+-            60
+-        ));
+-    }
+-
+     /**
+      * Set a global address on the mailer by type.
+      *
+@@ -440,6 +425,19 @@ class MailManager implements FactoryContract
+         $this->app['config']['mail.default'] = $name;
+     }
+ 
++    /**
++     * Disconnect the given mailer and remove from local cache.
++     *
++     * @param  string|null  $name
++     * @return void
++     */
++    public function purge($name = null)
++    {
++        $name = $name ?: $this->getDefaultDriver();
++
++        unset($this->mailers[$name]);
++    }
++
+     /**
+      * Register a custom transport creator Closure.
+      *
+@@ -454,6 +452,41 @@ class MailManager implements FactoryContract
+         return $this;
+     }
+ 
++    /**
++     * Get the application instance used by the manager.
++     *
++     * @return \Illuminate\Contracts\Foundation\Application
++     */
++    public function getApplication()
++    {
++        return $this->app;
++    }
++
++    /**
++     * Set the application instance used by the manager.
++     *
++     * @param  \Illuminate\Contracts\Foundation\Application  $app
++     * @return $this
++     */
++    public function setApplication($app)
++    {
++        $this->app = $app;
++
++        return $this;
++    }
++
++    /**
++     * Forget all of the resolved mailer instances.
++     *
++     * @return $this
++     */
++    public function forgetMailers()
++    {
++        $this->mailers = [];
++
++        return $this;
++    }
++
+     /**
+      * Dynamically call the default driver instance.
+      *
+diff --git a/src/Illuminate/Mail/Mailable.php b/src/Illuminate/Mail/Mailable.php
+index 6876ba487..83d9a98cc 100644
+--- a/src/Illuminate/Mail/Mailable.php
++++ b/src/Illuminate/Mail/Mailable.php
+@@ -157,7 +157,7 @@ class Mailable implements MailableContract, Renderable
+      * Send the message using the given mailer.
+      *
+      * @param  \Illuminate\Contracts\Mail\Factory|\Illuminate\Contracts\Mail\Mailer  $mailer
+-     * @return void
++     * @return \Illuminate\Mail\SentMessage|null
+      */
+     public function send($mailer)
+     {
+@@ -436,7 +436,7 @@ class Mailable implements MailableContract, Renderable
+     protected function runCallbacks($message)
+     {
+         foreach ($this->callbacks as $callback) {
+-            $callback($message->getSwiftMessage());
++            $callback($message->getSymfonyMessage());
+         }
+ 
+         return $this;
+@@ -858,12 +858,12 @@ class Mailable implements MailableContract, Renderable
+     }
+ 
+     /**
+-     * Register a callback to be called with the Swift message instance.
++     * Register a callback to be called with the Symfony message instance.
+      *
+      * @param  callable  $callback
+      * @return $this
+      */
+-    public function withSwiftMessage($callback)
++    public function withSymfonyMessage($callback)
+     {
+         $this->callbacks[] = $callback;
+ 
+diff --git a/src/Illuminate/Mail/Mailer.php b/src/Illuminate/Mail/Mailer.php
+index 668d68baa..7ca202c3a 100755
+--- a/src/Illuminate/Mail/Mailer.php
++++ b/src/Illuminate/Mail/Mailer.php
+@@ -15,7 +15,9 @@ use Illuminate\Mail\Events\MessageSent;
+ use Illuminate\Support\HtmlString;
+ use Illuminate\Support\Traits\Macroable;
+ use InvalidArgumentException;
+-use Swift_Mailer;
++use Symfony\Component\Mailer\Envelope;
++use Symfony\Component\Mailer\Transport\TransportInterface;
++use Symfony\Component\Mime\Email;
+ 
+ class Mailer implements MailerContract, MailQueueContract
+ {
+@@ -36,11 +38,11 @@ class Mailer implements MailerContract, MailQueueContract
+     protected $views;
+ 
+     /**
+-     * The Swift Mailer instance.
++     * The Symfony Transport instance.
+      *
+-     * @var \Swift_Mailer
++     * @var \Symfony\Component\Mailer\Transport\TransportInterface
+      */
+-    protected $swift;
++    protected $transport;
+ 
+     /**
+      * The event dispatcher instance.
+@@ -84,28 +86,21 @@ class Mailer implements MailerContract, MailQueueContract
+      */
+     protected $queue;
+ 
+-    /**
+-     * Array of failed recipients.
+-     *
+-     * @var array
+-     */
+-    protected $failedRecipients = [];
+-
+     /**
+      * Create a new Mailer instance.
+      *
+      * @param  string  $name
+      * @param  \Illuminate\Contracts\View\Factory  $views
+-     * @param  \Swift_Mailer  $swift
++     * @param  \Symfony\Component\Mailer\Transport\TransportInterface  $transport
+      * @param  \Illuminate\Contracts\Events\Dispatcher|null  $events
+      * @return void
+      */
+-    public function __construct(string $name, Factory $views, Swift_Mailer $swift, Dispatcher $events = null)
++    public function __construct(string $name, Factory $views, TransportInterface $transport, Dispatcher $events = null)
+     {
+         $this->name = $name;
+         $this->views = $views;
+-        $this->swift = $swift;
+         $this->events = $events;
++        $this->transport = $transport;
+     }
+ 
+     /**
+@@ -193,7 +188,7 @@ class Mailer implements MailerContract, MailQueueContract
+      *
+      * @param  string  $html
+      * @param  mixed  $callback
+-     * @return void
++     * @return \Illuminate\Mail\SentMessage|null
+      */
+     public function html($html, $callback)
+     {
+@@ -205,7 +200,7 @@ class Mailer implements MailerContract, MailQueueContract
+      *
+      * @param  string  $text
+      * @param  mixed  $callback
+-     * @return void
++     * @return \Illuminate\Mail\SentMessage|null
+      */
+     public function raw($text, $callback)
+     {
+@@ -218,7 +213,7 @@ class Mailer implements MailerContract, MailQueueContract
+      * @param  string  $view
+      * @param  array  $data
+      * @param  mixed  $callback
+-     * @return void
++     * @return \Illuminate\Mail\SentMessage|null
+      */
+     public function plain($view, array $data, $callback)
+     {
+@@ -250,7 +245,7 @@ class Mailer implements MailerContract, MailQueueContract
+      * @param  \Illuminate\Contracts\Mail\Mailable|string|array  $view
+      * @param  array  $data
+      * @param  \Closure|string|null  $callback
+-     * @return void
++     * @return \Illuminate\Mail\SentMessage|null
+      */
+     public function send($view, array $data = [], $callback = null)
+     {
+@@ -268,7 +263,9 @@ class Mailer implements MailerContract, MailQueueContract
+         // Once we have retrieved the view content for the e-mail we will set the body
+         // of this message using the HTML type, which will provide a simple wrapper
+         // to creating view based emails that are able to receive arrays of data.
+-        $callback($message);
++        if (! is_null($callback)) {
++            $callback($message);
++        }
+ 
+         $this->addContent($message, $view, $plain, $raw, $data);
+ 
+@@ -282,12 +279,14 @@ class Mailer implements MailerContract, MailQueueContract
+         // Next we will determine if the message should be sent. We give the developer
+         // one final chance to stop this message and then we will send it to all of
+         // its recipients. We will then fire the sent event for the sent message.
+-        $swiftMessage = $message->getSwiftMessage();
++        $symfonyMessage = $message->getSymfonyMessage();
+ 
+-        if ($this->shouldSendMessage($swiftMessage, $data)) {
+-            $this->sendSwiftMessage($swiftMessage);
++        if ($this->shouldSendMessage($symfonyMessage, $data)) {
++            $sentMessage = $this->sendSymfonyMessage($symfonyMessage);
+ 
+             $this->dispatchSentEvent($message, $data);
++
++            return $sentMessage === null ? null : new SentMessage($sentMessage);
+         }
+     }
+ 
+@@ -295,7 +294,7 @@ class Mailer implements MailerContract, MailQueueContract
+      * Send the given mailable.
+      *
+      * @param  \Illuminate\Contracts\Mail\Mailable  $mailable
+-     * @return mixed
++     * @return \Illuminate\Mail\SentMessage|null
+      */
+     protected function sendMailable(MailableContract $mailable)
+     {
+@@ -352,19 +351,15 @@ class Mailer implements MailerContract, MailQueueContract
+     protected function addContent($message, $view, $plain, $raw, $data)
+     {
+         if (isset($view)) {
+-            $message->setBody($this->renderView($view, $data) ?: ' ', 'text/html');
++            $message->html($this->renderView($view, $data) ?: ' ');
+         }
+ 
+         if (isset($plain)) {
+-            $method = isset($view) ? 'addPart' : 'setBody';
+-
+-            $message->$method($this->renderView($plain, $data) ?: ' ', 'text/plain');
++            $message->text($this->renderView($plain, $data) ?: ' ');
+         }
+ 
+         if (isset($raw)) {
+-            $method = (isset($view) || isset($plain)) ? 'addPart' : 'setBody';
+-
+-            $message->$method($raw, 'text/plain');
++            $message->text($raw);
+         }
+     }
+ 
+@@ -484,7 +479,7 @@ class Mailer implements MailerContract, MailQueueContract
+      */
+     protected function createMessage()
+     {
+-        $message = new Message($this->swift->createMessage('message'));
++        $message = new Message(new Email());
+ 
+         // If a global from address has been specified we will set it on every message
+         // instance so the developer does not have to repeat themselves every time
+@@ -508,26 +503,24 @@ class Mailer implements MailerContract, MailQueueContract
+     }
+ 
+     /**
+-     * Send a Swift Message instance.
++     * Send a Symfony Email instance.
+      *
+-     * @param  \Swift_Message  $message
+-     * @return int|null
++     * @param  \Symfony\Component\Mime\Email  $message
++     * @return \Symfony\Component\Mailer\SentMessage|null
+      */
+-    protected function sendSwiftMessage($message)
++    protected function sendSymfonyMessage(Email $message)
+     {
+-        $this->failedRecipients = [];
+-
+         try {
+-            return $this->swift->send($message, $this->failedRecipients);
++            return $this->transport->send($message, Envelope::create($message));
+         } finally {
+-            $this->forceReconnection();
++            //
+         }
+     }
+ 
+     /**
+-     * Determines if the message can be sent.
++     * Determines if the email can be sent.
+      *
+-     * @param  \Swift_Message  $message
++     * @param  \Symfony\Component\Mime\Email  $message
+      * @param  array  $data
+      * @return bool
+      */
+@@ -553,41 +546,19 @@ class Mailer implements MailerContract, MailQueueContract
+     {
+         if ($this->events) {
+             $this->events->dispatch(
+-                new MessageSent($message->getSwiftMessage(), $data)
++                new MessageSent($message->getSymfonyMessage(), $data)
+             );
+         }
+     }
+ 
+     /**
+-     * Force the transport to re-connect.
+-     *
+-     * This will prevent errors in daemon queue situations.
+-     *
+-     * @return void
+-     */
+-    protected function forceReconnection()
+-    {
+-        $this->getSwiftMailer()->getTransport()->stop();
+-    }
+-
+-    /**
+-     * Get the array of failed recipients.
+-     *
+-     * @return array
+-     */
+-    public function failures()
+-    {
+-        return $this->failedRecipients;
+-    }
+-
+-    /**
+-     * Get the Swift Mailer instance.
++     * Get the Symfony Transport instance.
+      *
+-     * @return \Swift_Mailer
++     * @return \Symfony\Component\Mailer\Transport\TransportInterface
+      */
+-    public function getSwiftMailer()
++    public function getSymfonyTransport()
+     {
+-        return $this->swift;
++        return $this->transport;
+     }
+ 
+     /**
+@@ -601,14 +572,14 @@ class Mailer implements MailerContract, MailQueueContract
+     }
+ 
+     /**
+-     * Set the Swift Mailer instance.
++     * Set the Symfony Transport instance.
+      *
+-     * @param  \Swift_Mailer  $swift
++     * @param  \Symfony\Component\Mailer\Transport\TransportInterface  $transport
+      * @return void
+      */
+-    public function setSwiftMailer($swift)
++    public function setSymfonyTransport(TransportInterface $transport)
+     {
+-        $this->swift = $swift;
++        $this->transport = $transport;
+     }
+ 
+     /**
+diff --git a/src/Illuminate/Mail/Message.php b/src/Illuminate/Mail/Message.php
+index d701fba9f..747e809b7 100755
+--- a/src/Illuminate/Mail/Message.php
++++ b/src/Illuminate/Mail/Message.php
+@@ -2,23 +2,24 @@
+ 
+ namespace Illuminate\Mail;
+ 
++use Illuminate\Support\Str;
+ use Illuminate\Support\Traits\ForwardsCalls;
+-use Swift_Attachment;
+-use Swift_Image;
++use Symfony\Component\Mime\Address;
++use Symfony\Component\Mime\Email;
+ 
+ /**
+- * @mixin \Swift_Message
++ * @mixin \Symfony\Component\Mime\Email
+  */
+ class Message
+ {
+     use ForwardsCalls;
+ 
+     /**
+-     * The Swift Message instance.
++     * The Symfony Email instance.
+      *
+-     * @var \Swift_Message
++     * @var \Symfony\Component\Mime\Email
+      */
+-    protected $swift;
++    protected $message;
+ 
+     /**
+      * CIDs of files embedded in the message.
+@@ -30,12 +31,12 @@ class Message
+     /**
+      * Create a new message instance.
+      *
+-     * @param  \Swift_Message  $swift
++     * @param  \Symfony\Component\Mime\Email  $message
+      * @return void
+      */
+-    public function __construct($swift)
++    public function __construct(Email $message)
+     {
+-        $this->swift = $swift;
++        $this->message = $message;
+     }
+ 
+     /**
+@@ -47,7 +48,9 @@ class Message
+      */
+     public function from($address, $name = null)
+     {
+-        $this->swift->setFrom($address, $name);
++        is_array($address)
++            ? $this->message->from(...$address)
++            : $this->message->from(new Address($address, (string) $name));
+ 
+         return $this;
+     }
+@@ -61,7 +64,9 @@ class Message
+      */
+     public function sender($address, $name = null)
+     {
+-        $this->swift->setSender($address, $name);
++        is_array($address)
++            ? $this->message->sender(...$address)
++            : $this->message->sender(new Address($address, (string) $name));
+ 
+         return $this;
+     }
+@@ -74,7 +79,7 @@ class Message
+      */
+     public function returnPath($address)
+     {
+-        $this->swift->setReturnPath($address);
++        $this->message->returnPath($address);
+ 
+         return $this;
+     }
+@@ -90,7 +95,9 @@ class Message
+     public function to($address, $name = null, $override = false)
+     {
+         if ($override) {
+-            $this->swift->setTo($address, $name);
++            is_array($address)
++                ? $this->message->to(...$address)
++                : $this->message->to(new Address($address, (string) $name));
+ 
+             return $this;
+         }
+@@ -109,7 +116,9 @@ class Message
+     public function cc($address, $name = null, $override = false)
+     {
+         if ($override) {
+-            $this->swift->setCc($address, $name);
++            is_array($address)
++                ? $this->message->cc(...$address)
++                : $this->message->cc(new Address($address, (string) $name));
+ 
+             return $this;
+         }
+@@ -128,7 +137,9 @@ class Message
+     public function bcc($address, $name = null, $override = false)
+     {
+         if ($override) {
+-            $this->swift->setBcc($address, $name);
++            is_array($address)
++                ? $this->message->bcc(...$address)
++                : $this->message->bcc(new Address($address, (string) $name));
+ 
+             return $this;
+         }
+@@ -159,9 +170,19 @@ class Message
+     protected function addAddresses($address, $name, $type)
+     {
+         if (is_array($address)) {
+-            $this->swift->{"set{$type}"}($address, $name);
++            $type = lcfirst($type);
++
++            $addresses = collect($address)->map(function ($address) {
++                if (is_array($address)) {
++                    return new Address($address['email'] ?? $address['address'], $address['name'] ?? null);
++                }
++
++                return $address;
++            })->all();
++
++            $this->message->{"{$type}"}(...$addresses);
+         } else {
+-            $this->swift->{"add{$type}"}($address, $name);
++            $this->message->{"add{$type}"}(new Address($address, (string) $name));
+         }
+ 
+         return $this;
+@@ -175,7 +196,7 @@ class Message
+      */
+     public function subject($subject)
+     {
+-        $this->swift->setSubject($subject);
++        $this->message->subject($subject);
+ 
+         return $this;
+     }
+@@ -188,7 +209,7 @@ class Message
+      */
+     public function priority($level)
+     {
+-        $this->swift->setPriority($level);
++        $this->message->priority($level);
+ 
+         return $this;
+     }
+@@ -202,20 +223,9 @@ class Message
+      */
+     public function attach($file, array $options = [])
+     {
+-        $attachment = $this->createAttachmentFromPath($file);
+-
+-        return $this->prepAttachment($attachment, $options);
+-    }
++        $this->message->attachFromPath($file, $options['as'] ?? null, $options['mime'] ?? null);
+ 
+-    /**
+-     * Create a Swift Attachment instance.
+-     *
+-     * @param  string  $file
+-     * @return \Swift_Mime_Attachment
+-     */
+-    protected function createAttachmentFromPath($file)
+-    {
+-        return Swift_Attachment::fromPath($file);
++        return $this;
+     }
+ 
+     /**
+@@ -228,21 +238,9 @@ class Message
+      */
+     public function attachData($data, $name, array $options = [])
+     {
+-        $attachment = $this->createAttachmentFromData($data, $name);
++        $this->message->attach($data, $name, $options['mime'] ?? null);
+ 
+-        return $this->prepAttachment($attachment, $options);
+-    }
+-
+-    /**
+-     * Create a Swift Attachment instance from data.
+-     *
+-     * @param  string  $data
+-     * @param  string  $name
+-     * @return \Swift_Attachment
+-     */
+-    protected function createAttachmentFromData($data, $name)
+-    {
+-        return new Swift_Attachment($data, $name);
++        return $this;
+     }
+ 
+     /**
+@@ -253,13 +251,11 @@ class Message
+      */
+     public function embed($file)
+     {
+-        if (isset($this->embeddedFiles[$file])) {
+-            return $this->embeddedFiles[$file];
+-        }
++        $cid = Str::random(10);
+ 
+-        return $this->embeddedFiles[$file] = $this->swift->embed(
+-            Swift_Image::fromPath($file)
+-        );
++        $this->message->embedFromPath($file, $cid);
++
++        return "cid:$cid";
+     }
+ 
+     /**
+@@ -272,51 +268,23 @@ class Message
+      */
+     public function embedData($data, $name, $contentType = null)
+     {
+-        $image = new Swift_Image($data, $name, $contentType);
+-
+-        return $this->swift->embed($image);
+-    }
+-
+-    /**
+-     * Prepare and attach the given attachment.
+-     *
+-     * @param  \Swift_Attachment  $attachment
+-     * @param  array  $options
+-     * @return $this
+-     */
+-    protected function prepAttachment($attachment, $options = [])
+-    {
+-        // First we will check for a MIME type on the message, which instructs the
+-        // mail client on what type of attachment the file is so that it may be
+-        // downloaded correctly by the user. The MIME option is not required.
+-        if (isset($options['mime'])) {
+-            $attachment->setContentType($options['mime']);
+-        }
++        $this->message->embed($data, $name, $contentType);
+ 
+-        // If an alternative name was given as an option, we will set that on this
+-        // attachment so that it will be downloaded with the desired names from
+-        // the developer, otherwise the default file names will get assigned.
+-        if (isset($options['as'])) {
+-            $attachment->setFilename($options['as']);
+-        }
+-
+-        $this->swift->attach($attachment);
+-
+-        return $this;
++        return "cid:$name";
+     }
+ 
+     /**
+-     * Get the underlying Swift Message instance.
++     * Get the underlying Symfony Email instance.
+      *
+-     * @return \Swift_Message
++     * @return \Symfony\Component\Mime\Email
+      */
+-    public function getSwiftMessage()
++    public function getSymfonyMessage()
+     {
+-        return $this->swift;
++        return $this->message;
+     }
+ 
+     /**
+-     * Dynamically pass missing methods to the Swift instance.
++     * Dynamically pass missing methods to the Symfony instance.
+      *
+      * @param  string  $method
+      * @param  array  $parameters
+@@ -324,6 +292,6 @@ class Message
+      */
+     public function __call($method, $parameters)
+     {
+-        return $this->forwardCallTo($this->swift, $method, $parameters);
++        return $this->forwardCallTo($this->message, $method, $parameters);
+     }
+ }
+diff --git a/src/Illuminate/Mail/SentMessage.php b/src/Illuminate/Mail/SentMessage.php
+new file mode 100644
+index 000000000..cce42dbd0
+--- /dev/null
++++ b/src/Illuminate/Mail/SentMessage.php
+@@ -0,0 +1,54 @@
++<?php
++
++namespace Illuminate\Mail;
++
++use Illuminate\Support\Traits\ForwardsCalls;
++use Symfony\Component\Mailer\SentMessage as SymfonySentMessage;
++
++/**
++ * @mixin \Symfony\Component\Mailer\SentMessage
++ */
++class SentMessage
++{
++    use ForwardsCalls;
++
++    /**
++     * The Symfony SentMessage instance.
++     *
++     * @var \Symfony\Component\Mailer\SentMessage
++     */
++    protected $sentMessage;
++
++    /**
++     * Create a new SentMessage instance.
++     *
++     * @param  \Symfony\Component\Mailer\SentMessage  $sentMessage
++     * @return void
++     */
++    public function __construct(SymfonySentMessage $sentMessage)
++    {
++        $this->sentMessage = $sentMessage;
++    }
++
++    /**
++     * Get the underlying Symfony Email instance.
++     *
++     * @return \Symfony\Component\Mailer\SentMessage
++     */
++    public function getSymfonySentMessage()
++    {
++        return $this->sentMessage;
++    }
++
++    /**
++     * Dynamically pass missing methods to the Symfony instance.
++     *
++     * @param  string  $method
++     * @param  array  $parameters
++     * @return mixed
++     */
++    public function __call($method, $parameters)
++    {
++        return $this->forwardCallTo($this->sentMessage, $method, $parameters);
++    }
++}
+diff --git a/src/Illuminate/Mail/Transport/ArrayTransport.php b/src/Illuminate/Mail/Transport/ArrayTransport.php
+index fbedec956..dc26ed69d 100644
+--- a/src/Illuminate/Mail/Transport/ArrayTransport.php
++++ b/src/Illuminate/Mail/Transport/ArrayTransport.php
+@@ -3,12 +3,15 @@
+ namespace Illuminate\Mail\Transport;
+ 
+ use Illuminate\Support\Collection;
+-use Swift_Mime_SimpleMessage;
++use Symfony\Component\Mailer\Envelope;
++use Symfony\Component\Mailer\SentMessage;
++use Symfony\Component\Mailer\Transport\TransportInterface;
++use Symfony\Component\Mime\RawMessage;
+ 
+-class ArrayTransport extends Transport
++class ArrayTransport implements TransportInterface
+ {
+     /**
+-     * The collection of Swift Messages.
++     * The collection of Symfony Messages.
+      *
+      * @var \Illuminate\Support\Collection
+      */
+@@ -27,13 +30,9 @@ class ArrayTransport extends Transport
+     /**
+      * {@inheritdoc}
+      */
+-    public function send(Swift_Mime_SimpleMessage $message, &$failedRecipients = null)
++    public function send(RawMessage $message, Envelope $envelope = null): ?SentMessage
+     {
+-        $this->beforeSendPerformed($message);
+-
+-        $this->messages[] = $message;
+-
+-        return $this->numberOfRecipients($message);
++        return $this->messages[] = new SentMessage($message, $envelope ?? Envelope::create($message));
+     }
+ 
+     /**
+@@ -55,4 +54,14 @@ class ArrayTransport extends Transport
+     {
+         return $this->messages = new Collection;
+     }
++
++    /**
++     * Get the string representation of the transport.
++     *
++     * @return string
++     */
++    public function __toString(): string
++    {
++        return 'array';
++    }
+ }
+diff --git a/src/Illuminate/Mail/Transport/LogTransport.php b/src/Illuminate/Mail/Transport/LogTransport.php
+index 43a2faa20..d9ec8ac09 100644
+--- a/src/Illuminate/Mail/Transport/LogTransport.php
++++ b/src/Illuminate/Mail/Transport/LogTransport.php
+@@ -3,10 +3,12 @@
+ namespace Illuminate\Mail\Transport;
+ 
+ use Psr\Log\LoggerInterface;
+-use Swift_Mime_SimpleMessage;
+-use Swift_Mime_SimpleMimeEntity;
++use Symfony\Component\Mailer\Envelope;
++use Symfony\Component\Mailer\SentMessage;
++use Symfony\Component\Mailer\Transport\TransportInterface;
++use Symfony\Component\Mime\RawMessage;
+ 
+-class LogTransport extends Transport
++class LogTransport implements TransportInterface
+ {
+     /**
+      * The Logger instance.
+@@ -29,41 +31,30 @@ class LogTransport extends Transport
+     /**
+      * {@inheritdoc}
+      */
+-    public function send(Swift_Mime_SimpleMessage $message, &$failedRecipients = null)
++    public function send(RawMessage $message, Envelope $envelope = null): ?SentMessage
+     {
+-        $this->beforeSendPerformed($message);
++        $this->logger->debug($message->toString());
+ 
+-        $this->logger->debug($this->getMimeEntityString($message));
+-
+-        $this->sendPerformed($message);
+-
+-        return $this->numberOfRecipients($message);
++        return new SentMessage($message, $envelope ?? Envelope::create($message));
+     }
+ 
+     /**
+-     * Get a loggable string out of a Swiftmailer entity.
++     * Get the logger for the LogTransport instance.
+      *
+-     * @param  \Swift_Mime_SimpleMimeEntity  $entity
+-     * @return string
++     * @return \Psr\Log\LoggerInterface
+      */
+-    protected function getMimeEntityString(Swift_Mime_SimpleMimeEntity $entity)
++    public function logger()
+     {
+-        $string = (string) $entity->getHeaders().PHP_EOL.$entity->getBody();
+-
+-        foreach ($entity->getChildren() as $children) {
+-            $string .= PHP_EOL.PHP_EOL.$this->getMimeEntityString($children);
+-        }
+-
+-        return $string;
++        return $this->logger;
+     }
+ 
+     /**
+-     * Get the logger for the LogTransport instance.
++     * Get the string representation of the transport.
+      *
+-     * @return \Psr\Log\LoggerInterface
++     * @return string
+      */
+-    public function logger()
++    public function __toString(): string
+     {
+-        return $this->logger;
++        return 'log';
+     }
+ }
+diff --git a/src/Illuminate/Mail/Transport/MailgunTransport.php b/src/Illuminate/Mail/Transport/MailgunTransport.php
+deleted file mode 100644
+index 195c00032..000000000
+--- a/src/Illuminate/Mail/Transport/MailgunTransport.php
++++ /dev/null
+@@ -1,215 +0,0 @@
+-<?php
+-
+-namespace Illuminate\Mail\Transport;
+-
+-use GuzzleHttp\ClientInterface;
+-use Swift_Mime_SimpleMessage;
+-
+-class MailgunTransport extends Transport
+-{
+-    /**
+-     * Guzzle client instance.
+-     *
+-     * @var \GuzzleHttp\ClientInterface
+-     */
+-    protected $client;
+-
+-    /**
+-     * The Mailgun API key.
+-     *
+-     * @var string
+-     */
+-    protected $key;
+-
+-    /**
+-     * The Mailgun email domain.
+-     *
+-     * @var string
+-     */
+-    protected $domain;
+-
+-    /**
+-     * The Mailgun API endpoint.
+-     *
+-     * @var string
+-     */
+-    protected $endpoint;
+-
+-    /**
+-     * Create a new Mailgun transport instance.
+-     *
+-     * @param  \GuzzleHttp\ClientInterface  $client
+-     * @param  string  $key
+-     * @param  string  $domain
+-     * @param  string|null  $endpoint
+-     * @return void
+-     */
+-    public function __construct(ClientInterface $client, $key, $domain, $endpoint = null)
+-    {
+-        $this->key = $key;
+-        $this->client = $client;
+-        $this->endpoint = $endpoint ?? 'api.mailgun.net';
+-
+-        $this->setDomain($domain);
+-    }
+-
+-    /**
+-     * {@inheritdoc}
+-     */
+-    public function send(Swift_Mime_SimpleMessage $message, &$failedRecipients = null)
+-    {
+-        $this->beforeSendPerformed($message);
+-
+-        $to = $this->getTo($message);
+-
+-        $bcc = $message->getBcc();
+-
+-        $message->setBcc([]);
+-
+-        $response = $this->client->request(
+-            'POST',
+-            "https://{$this->endpoint}/v3/{$this->domain}/messages.mime",
+-            $this->payload($message, $to)
+-        );
+-
+-        $message->getHeaders()->addTextHeader(
+-            'X-Mailgun-Message-ID', $this->getMessageId($response)
+-        );
+-
+-        $message->setBcc($bcc);
+-
+-        $this->sendPerformed($message);
+-
+-        return $this->numberOfRecipients($message);
+-    }
+-
+-    /**
+-     * Get the HTTP payload for sending the Mailgun message.
+-     *
+-     * @param  \Swift_Mime_SimpleMessage  $message
+-     * @param  string  $to
+-     * @return array
+-     */
+-    protected function payload(Swift_Mime_SimpleMessage $message, $to)
+-    {
+-        return [
+-            'auth' => [
+-                'api',
+-                $this->key,
+-            ],
+-            'multipart' => [
+-                [
+-                    'name' => 'to',
+-                    'contents' => $to,
+-                ],
+-                [
+-                    'name' => 'message',
+-                    'contents' => $message->toString(),
+-                    'filename' => 'message.mime',
+-                ],
+-            ],
+-        ];
+-    }
+-
+-    /**
+-     * Get the "to" payload field for the API request.
+-     *
+-     * @param  \Swift_Mime_SimpleMessage  $message
+-     * @return string
+-     */
+-    protected function getTo(Swift_Mime_SimpleMessage $message)
+-    {
+-        return collect($this->allContacts($message))->map(function ($display, $address) {
+-            return $display ? $display." <{$address}>" : $address;
+-        })->values()->implode(',');
+-    }
+-
+-    /**
+-     * Get all of the contacts for the message.
+-     *
+-     * @param  \Swift_Mime_SimpleMessage  $message
+-     * @return array
+-     */
+-    protected function allContacts(Swift_Mime_SimpleMessage $message)
+-    {
+-        return array_merge(
+-            (array) $message->getTo(), (array) $message->getCc(), (array) $message->getBcc()
+-        );
+-    }
+-
+-    /**
+-     * Get the message ID from the response.
+-     *
+-     * @param  \Psr\Http\Message\ResponseInterface  $response
+-     * @return string
+-     */
+-    protected function getMessageId($response)
+-    {
+-        return object_get(
+-            json_decode($response->getBody()->getContents()), 'id'
+-        );
+-    }
+-
+-    /**
+-     * Get the API key being used by the transport.
+-     *
+-     * @return string
+-     */
+-    public function getKey()
+-    {
+-        return $this->key;
+-    }
+-
+-    /**
+-     * Set the API key being used by the transport.
+-     *
+-     * @param  string  $key
+-     * @return string
+-     */
+-    public function setKey($key)
+-    {
+-        return $this->key = $key;
+-    }
+-
+-    /**
+-     * Get the domain being used by the transport.
+-     *
+-     * @return string
+-     */
+-    public function getDomain()
+-    {
+-        return $this->domain;
+-    }
+-
+-    /**
+-     * Set the domain being used by the transport.
+-     *
+-     * @param  string  $domain
+-     * @return string
+-     */
+-    public function setDomain($domain)
+-    {
+-        return $this->domain = $domain;
+-    }
+-
+-    /**
+-     * Get the API endpoint being used by the transport.
+-     *
+-     * @return string
+-     */
+-    public function getEndpoint()
+-    {
+-        return $this->endpoint;
+-    }
+-
+-    /**
+-     * Set the API endpoint being used by the transport.
+-     *
+-     * @param  string  $endpoint
+-     * @return string
+-     */
+-    public function setEndpoint($endpoint)
+-    {
+-        return $this->endpoint = $endpoint;
+-    }
+-}
+diff --git a/src/Illuminate/Mail/Transport/SesTransport.php b/src/Illuminate/Mail/Transport/SesTransport.php
+deleted file mode 100644
+index 0dc8584a4..000000000
+--- a/src/Illuminate/Mail/Transport/SesTransport.php
++++ /dev/null
+@@ -1,92 +0,0 @@
+-<?php
+-
+-namespace Illuminate\Mail\Transport;
+-
+-use Aws\Ses\SesClient;
+-use Swift_Mime_SimpleMessage;
+-
+-class SesTransport extends Transport
+-{
+-    /**
+-     * The Amazon SES instance.
+-     *
+-     * @var \Aws\Ses\SesClient
+-     */
+-    protected $ses;
+-
+-    /**
+-     * The Amazon SES transmission options.
+-     *
+-     * @var array
+-     */
+-    protected $options = [];
+-
+-    /**
+-     * Create a new SES transport instance.
+-     *
+-     * @param  \Aws\Ses\SesClient  $ses
+-     * @param  array  $options
+-     * @return void
+-     */
+-    public function __construct(SesClient $ses, $options = [])
+-    {
+-        $this->ses = $ses;
+-        $this->options = $options;
+-    }
+-
+-    /**
+-     * {@inheritdoc}
+-     */
+-    public function send(Swift_Mime_SimpleMessage $message, &$failedRecipients = null)
+-    {
+-        $this->beforeSendPerformed($message);
+-
+-        $result = $this->ses->sendRawEmail(
+-            array_merge(
+-                $this->options, [
+-                    'Source' => key($message->getSender() ?: $message->getFrom()),
+-                    'RawMessage' => [
+-                        'Data' => $message->toString(),
+-                    ],
+-                ]
+-            )
+-        );
+-
+-        $message->getHeaders()->addTextHeader('X-SES-Message-ID', $result->get('MessageId'));
+-
+-        $this->sendPerformed($message);
+-
+-        return $this->numberOfRecipients($message);
+-    }
+-
+-    /**
+-     * Get the Amazon SES client for the SesTransport instance.
+-     *
+-     * @return \Aws\Ses\SesClient
+-     */
+-    public function ses()
+-    {
+-        return $this->ses;
+-    }
+-
+-    /**
+-     * Get the transmission options being used by the transport.
+-     *
+-     * @return array
+-     */
+-    public function getOptions()
+-    {
+-        return $this->options;
+-    }
+-
+-    /**
+-     * Set the transmission options being used by the transport.
+-     *
+-     * @param  array  $options
+-     * @return array
+-     */
+-    public function setOptions(array $options)
+-    {
+-        return $this->options = $options;
+-    }
+-}
+diff --git a/src/Illuminate/Mail/Transport/Transport.php b/src/Illuminate/Mail/Transport/Transport.php
+deleted file mode 100644
+index b26bff3ff..000000000
+--- a/src/Illuminate/Mail/Transport/Transport.php
++++ /dev/null
+@@ -1,108 +0,0 @@
+-<?php
+-
+-namespace Illuminate\Mail\Transport;
+-
+-use Swift_Events_EventListener;
+-use Swift_Events_SendEvent;
+-use Swift_Mime_SimpleMessage;
+-use Swift_Transport;
+-
+-abstract class Transport implements Swift_Transport
+-{
+-    /**
+-     * The plug-ins registered with the transport.
+-     *
+-     * @var array
+-     */
+-    public $plugins = [];
+-
+-    /**
+-     * {@inheritdoc}
+-     */
+-    public function isStarted()
+-    {
+-        return true;
+-    }
+-
+-    /**
+-     * {@inheritdoc}
+-     */
+-    public function start()
+-    {
+-        return true;
+-    }
+-
+-    /**
+-     * {@inheritdoc}
+-     */
+-    public function stop()
+-    {
+-        return true;
+-    }
+-
+-    /**
+-     * {@inheritdoc}
+-     */
+-    public function ping()
+-    {
+-        return true;
+-    }
+-
+-    /**
+-     * Register a plug-in with the transport.
+-     *
+-     * @param  \Swift_Events_EventListener  $plugin
+-     * @return void
+-     */
+-    public function registerPlugin(Swift_Events_EventListener $plugin)
+-    {
+-        array_push($this->plugins, $plugin);
+-    }
+-
+-    /**
+-     * Iterate through registered plugins and execute plugins' methods.
+-     *
+-     * @param  \Swift_Mime_SimpleMessage  $message
+-     * @return void
+-     */
+-    protected function beforeSendPerformed(Swift_Mime_SimpleMessage $message)
+-    {
+-        $event = new Swift_Events_SendEvent($this, $message);
+-
+-        foreach ($this->plugins as $plugin) {
+-            if (method_exists($plugin, 'beforeSendPerformed')) {
+-                $plugin->beforeSendPerformed($event);
+-            }
+-        }
+-    }
+-
+-    /**
+-     * Iterate through registered plugins and execute plugins' methods.
+-     *
+-     * @param  \Swift_Mime_SimpleMessage  $message
+-     * @return void
+-     */
+-    protected function sendPerformed(Swift_Mime_SimpleMessage $message)
+-    {
+-        $event = new Swift_Events_SendEvent($this, $message);
+-
+-        foreach ($this->plugins as $plugin) {
+-            if (method_exists($plugin, 'sendPerformed')) {
+-                $plugin->sendPerformed($event);
+-            }
+-        }
+-    }
+-
+-    /**
+-     * Get the number of recipients.
+-     *
+-     * @param  \Swift_Mime_SimpleMessage  $message
+-     * @return int
+-     */
+-    protected function numberOfRecipients(Swift_Mime_SimpleMessage $message)
+-    {
+-        return count(array_merge(
+-            (array) $message->getTo(), (array) $message->getCc(), (array) $message->getBcc()
+-        ));
+-    }
+-}
+diff --git a/src/Illuminate/Mail/composer.json b/src/Illuminate/Mail/composer.json
+index 0eb541fac..1ebe97315 100755
+--- a/src/Illuminate/Mail/composer.json
++++ b/src/Illuminate/Mail/composer.json
+@@ -14,14 +14,14 @@
+         }
+     ],
+     "require": {
+-        "php": "^7.2.5|^8.0",
++        "php": "^7.4|^8.0",
+         "ext-json": "*",
+         "illuminate/container": "^7.0",
+         "illuminate/contracts": "^7.0",
+         "illuminate/support": "^7.0",
+         "league/commonmark": "^1.3",
+         "psr/log": "^1.0",
+-        "swiftmailer/swiftmailer": "^6.0",
++        "symfony/mailer": "^5.4",
+         "tijsverkoyen/css-to-inline-styles": "^2.2.2"
+     },
+     "autoload": {
+@@ -35,9 +35,10 @@
+         }
+     },
+     "suggest": {
+-        "aws/aws-sdk-php": "Required to use the SES mail driver (^3.155).",
+-        "guzzlehttp/guzzle": "Required to use the Mailgun mail driver (^6.3.1|^7.0.1).",
+-        "wildbit/swiftmailer-postmark": "Required to use Postmark mail driver (^3.0)."
++        "symfony/amazon-mailer": "Required to enable support for the SES mail transport (^5.4).",
++        "symfony/http-client": "Required to use the Symfony API mail transports (^5.4).",
++        "symfony/mailgun-mailer": "Required to enable support for the Mailgun mail transport (^5.4).",
++        "symfony/postmark-mailer": "Required to enable support for the Postmark mail transport (^5.4)."
+     },
+     "config": {
+         "sort-packages": true

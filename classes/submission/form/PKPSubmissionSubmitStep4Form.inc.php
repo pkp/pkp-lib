@@ -19,7 +19,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
-use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\Core;
 
 use PKP\db\DAORegistry;
@@ -148,7 +147,7 @@ class PKPSubmissionSubmitStep4Form extends SubmissionSubmitForm
         // Update assignment notifications
         $notificationManager->updateNotification(
             $request,
-            (new EditorDecisionActionsManager())->getStageNotifications(),
+            $notificationManager->getDecisionStageNotifications(),
             null,
             ASSOC_TYPE_SUBMISSION,
             $this->submission->getId()

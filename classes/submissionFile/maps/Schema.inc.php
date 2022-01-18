@@ -14,28 +14,42 @@
 namespace PKP\submissionFile\maps;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
+use PKP\context\Context;
 use PKP\core\maps\Schema as BaseSchema;
 use PKP\services\PKPSchemaService;
+use PKP\submission\Genre;
 use PKP\submissionFile\SubmissionFile;
 
 class Schema extends BaseSchema
 {
-    /** @var Enumerable */
+    /**  */
     public Enumerable $collection;
 
-    /** @var string */
+    /**  */
     public string $schema = PKPSchemaService::SCHEMA_SUBMISSION_FILE;
+
+    /** @var Genre[] File genres in this context */
+    public array $genres;
+
+    public function __construct(Request $request, Context $context, PKPSchemaService $schemaService)
+    {
+        parent::__construct($request, $context, $schemaService);
+    }
 
     /**
      * Map a submission file
      *
      * Includes all properties in the submission file schema.
+     *
+     * @param Genre[] $genres
      */
-    public function map(SubmissionFile $item): array
+    public function map(SubmissionFile $item, array $genres): array
     {
+        $this->genres = $genres;
         return $this->mapByProperties($this->getProps(), $item);
     }
 
@@ -43,9 +57,12 @@ class Schema extends BaseSchema
      * Summarize a submission file
      *
      * Includes properties with the apiSummary flag in the submission file schema.
+     *
+     * @param Genre[] $genres
      */
-    public function summarize(SubmissionFile $item): array
+    public function summarize(SubmissionFile $item, array $genres): array
     {
+        $this->genres = $genres;
         return $this->mapByProperties($this->getSummaryProps(), $item);
     }
 
@@ -53,12 +70,14 @@ class Schema extends BaseSchema
      * Map a collection of submission files
      *
      * @see self::map
+     *
+     * @param Genre[] $genres
      */
-    public function mapMany(Enumerable $collection): Enumerable
+    public function mapMany(Enumerable $collection, array $genres): Enumerable
     {
         $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->map($item);
+        return $collection->map(function ($item) use ($genres) {
+            return $this->map($item, $genres);
         });
     }
 
@@ -66,12 +85,14 @@ class Schema extends BaseSchema
      * Summarize a collection of submission files
      *
      * @see self::summarize
+     *
+     * @param Genre[] $genres
      */
-    public function summarizeMany(Enumerable $collection): Enumerable
+    public function summarizeMany(Enumerable $collection, array $genres): Enumerable
     {
         $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->summarize($item);
+        return $collection->map(function ($item) use ($genres) {
+            return $this->summarize($item, $genres);
         });
     }
 
@@ -101,7 +122,7 @@ class Schema extends BaseSchema
 
                 $dependentFiles = Repo::submissionFile()->getMany($collector);
 
-                $output[$prop] = $this->summarizeMany($dependentFiles)->values();
+                $output[$prop] = $this->summarizeMany($dependentFiles, $this->genres)->values();
 
                 continue;
             }
@@ -109,6 +130,27 @@ class Schema extends BaseSchema
             if ($prop === 'documentType') {
                 $output[$prop] = Services::get('file')->getDocumentType($item->getData('mimetype'));
 
+                continue;
+            }
+
+            if ($prop === 'genreIsPrimary') {
+                $output[$prop] = false;
+                foreach ($this->genres as $genre) {
+                    if ($genre->getId() === $item->getData('genreId')) {
+                        $output[$prop] = !$genre->getSupplementary() && !$genre->getDependent();
+                        break;
+                    }
+                }
+                continue;
+            }
+
+            if ($prop === 'genreName') {
+                foreach ($this->genres as $genre) {
+                    if ($genre->getId() === $item->getData('genreId')) {
+                        $output[$prop] = $genre->getData('name');
+                        break;
+                    }
+                }
                 continue;
             }
 

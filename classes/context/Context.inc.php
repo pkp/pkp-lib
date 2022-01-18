@@ -314,14 +314,13 @@ abstract class Context extends \PKP\core\DataObject
      *
      * @return array
      */
-    public function getSupportedFormLocales()
+    public function getSupportedFormLocales(): ?array
     {
         return $this->getData('supportedFormLocales');
     }
 
     /**
      * Return associative array of all locales supported by forms on the site.
-     * These locales are used to provide a language toggle on the main site pages.
      *
      * @return array
      */
@@ -345,8 +344,7 @@ abstract class Context extends \PKP\core\DataObject
 
     /**
      * Return associative array of all locales supported by submissions on the
-     * site. These locales are used to provide a language toggle on the main
-     * site pages.
+     * context.
      *
      * @return array
      */

@@ -17,12 +17,20 @@ namespace PKP\components\forms;
 
 use Exception;
 use PKP\facades\Locale;
+use PKP\plugins\HookRegistry;
 
 define('FIELD_POSITION_BEFORE', 'before');
 define('FIELD_POSITION_AFTER', 'after');
 
 class FormComponent
 {
+    /**
+     * @var string An $action value that will emit an event
+     *  when the form is submitted, instead of sending a
+     *  HTTP request
+     */
+    public const ACTION_EMIT = 'emit';
+
     /** @var string A unique ID for this form */
     public $id = '';
 
@@ -40,6 +48,9 @@ class FormComponent
 
     /** @var array List of groups in this form. */
     public $groups = [];
+
+    /** @var array List of hiddden fields in this form. */
+    public $hiddenFields = [];
 
     /** @var array List of pages in this form. */
     public $pages = [];
@@ -247,6 +258,14 @@ class FormComponent
     }
 
     /**
+     * Add a hidden field to this form
+     */
+    public function addHiddenField(string $name, $value)
+    {
+        $this->hiddenFields[$name] = $value;
+    }
+
+    /**
      * Retrieve the configuration data to be used when initializing this
      * handler on the frontend
      *
@@ -254,11 +273,11 @@ class FormComponent
      */
     public function getConfig()
     {
-        if (empty($this->id) || empty($this->method) || empty($this->action)) {
+        if (empty($this->id) || empty($this->action) || ($this->action !== self::ACTION_EMIT && empty($this->method))) {
             throw new Exception('FormComponent::getConfig() was called but one or more required property is missing: id, method, action.');
         }
 
-        \HookRegistry::call('Form::config::before', $this);
+        HookRegistry::call('Form::config::before', $this);
 
         // Add a default page/group if none exist
         if (!$this->groups) {
@@ -290,6 +309,7 @@ class FormComponent
             'action' => $this->action,
             'fields' => $fieldsConfig,
             'groups' => $this->groups,
+            'hiddenFields' => (object) $this->hiddenFields,
             'pages' => $this->pages,
             'primaryLocale' => Locale::getPrimaryLocale(),
             'visibleLocales' => $visibleLocales,

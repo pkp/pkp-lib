@@ -41,6 +41,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
 use PKP\session\SessionManager;
@@ -49,6 +50,8 @@ use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\security\Validation;
+use PKP\submission\Genre;
+use PKP\submission\GenreDAO;
 use Smarty;
 use Smarty_Internal_Template;
 
@@ -850,6 +853,29 @@ class PKPTemplateManager extends Smarty
             'validator.required'
         ]);
 
+        // Set up the document type icons
+        $documentTypeIcons = [
+            FileManager::DOCUMENT_TYPE_DEFAULT => 'file-o',
+            FileManager::DOCUMENT_TYPE_AUDIO => 'file-audio-o',
+            FileManager::DOCUMENT_TYPE_EPUB => 'file-text-o',
+            FileManager::DOCUMENT_TYPE_EXCEL => 'file-excel-o',
+            FileManager::DOCUMENT_TYPE_HTML => 'file-code-o',
+            FileManager::DOCUMENT_TYPE_IMAGE => 'file-image-o',
+            FileManager::DOCUMENT_TYPE_PDF => 'file-pdf-o',
+            FileManager::DOCUMENT_TYPE_WORD => 'file-word-o',
+            FileManager::DOCUMENT_TYPE_VIDEO => 'file-video-o',
+            FileManager::DOCUMENT_TYPE_ZIP => 'file-archive-o',
+        ];
+        $this->addJavaScript(
+            'documentTypeIcons',
+            'pkp.documentTypeIcons = ' . json_encode($documentTypeIcons) . ';',
+            [
+                'priority' => self::STYLE_SEQUENCE_LAST,
+                'contexts' => 'backend',
+                'inline' => true,
+            ]
+        );
+
         // Register the jQuery script
         $min = Config::getVar('general', 'enable_minified') ? '.min' : '';
         $this->addJavaScript(
@@ -906,6 +932,9 @@ class PKPTemplateManager extends Smarty
         // Set up required state properties
         $this->setState([
             'menu' => [],
+            'tinyMCE' => [
+                'skinUrl' => $request->getBaseUrl() . '/lib/ui-library/public/styles/tinymce',
+            ],
         ]);
 
         /**

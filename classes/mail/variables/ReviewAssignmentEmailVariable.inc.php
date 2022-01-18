@@ -20,9 +20,9 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentEmailVariable extends Variable
 {
-    const REVIEW_DUE_DATE = 'reviewDueDate';
-    const RESPONSE_DUE_DATE = 'responseDueDate';
-    const SUBMISSION_REVIEW_URL = 'submissionReviewUrl';
+    public const REVIEW_DUE_DATE = 'reviewDueDate';
+    public const RESPONSE_DUE_DATE = 'responseDueDate';
+    public const SUBMISSION_REVIEW_URL = 'submissionReviewUrl';
 
     /** @var ReviewAssignment $reviewAssignment */
     protected $reviewAssignment;
@@ -33,9 +33,9 @@ class ReviewAssignmentEmailVariable extends Variable
     }
 
     /**
-     * @copydoc Variable::description()
+     * @copydoc Variable::descriptions()
      */
-    protected static function description(): array
+    public static function descriptions(): array
     {
         return
         [
@@ -58,12 +58,12 @@ class ReviewAssignmentEmailVariable extends Variable
         ];
     }
 
-    protected function getReviewDueDate() : string
+    protected function getReviewDueDate(): string
     {
         return $this->reviewAssignment->getDateDue();
     }
 
-    protected function getResponseDueDate() : string
+    protected function getResponseDueDate(): string
     {
         return $this->reviewAssignment->getDateResponseDue();
     }
@@ -71,7 +71,7 @@ class ReviewAssignmentEmailVariable extends Variable
     /**
      * URL of the submission for the assigned reviewer
      */
-    protected function getSubmissionUrl() : string
+    protected function getSubmissionUrl(): string
     {
         $request = PKPApplication::get()->getRequest();
         $dispatcher = $request->getDispatcher();

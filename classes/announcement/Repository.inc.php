@@ -129,7 +129,7 @@ class Repository
         $errors = [];
 
         if ($validator->fails()) {
-            $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get($this->dao->schema), $allowedLocales);
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
         HookRegistry::call('Announcement::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);

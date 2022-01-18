@@ -19,7 +19,6 @@
 			{ldelim}
 				{assign var=roundIndex value=$lastReviewRoundNumber-1}
 				selected: {$roundIndex},
-				disabled: [{$lastReviewRoundNumber}]
 			{rdelim}
 		);
 	{rdelim});
@@ -33,9 +32,14 @@
 					<a href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.workflow.ReviewRoundTabHandler" op=$reviewRoundOp submissionId=$submission->getId() stageId=$reviewRound->getStageId() reviewRoundId=$reviewRound->getId()}">{translate key="submission.round" round=$reviewRound->getRound()}</a>
 				</li>
 			{/foreach}
-			{if $newRoundAction}
+			{if $newRoundUrl}
 				<li>
-					{include file="linkAction/linkAction.tpl" image="add_item" action=$newRoundAction contextId="newRoundTabContainer"}
+					<a href="{$newRoundUrl}" id="newReviewRoundButton">{translate key="editor.submission.newRound"}</a>
+					<script type="text/javascript">
+						$('#newReviewRoundButton').click(function() {
+							window.location($(this).attr('href'));
+						});
+					</script>
 				</li>
 			{/if}
 		</ul>

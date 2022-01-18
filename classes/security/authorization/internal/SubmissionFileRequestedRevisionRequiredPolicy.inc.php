@@ -16,10 +16,12 @@
 
 namespace PKP\security\authorization\internal;
 
-use APP\workflow\EditorDecisionActionsManager;
+use APP\decision\Decision;
+use APP\facades\Repo;
 
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAccessPolicy
@@ -49,7 +51,14 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         if (!$reviewRound instanceof ReviewRound) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
-        if (!(new EditorDecisionActionsManager())->getEditorTakenActionInReviewRound($request->getContext(), $reviewRound, [EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS])) {
+        $countRevisionDecisions = Repo::decision()->getCount(
+            Repo::decision()
+                ->getCollector()
+                ->filterBySubmissionIds([$submissionFile->getData('submissionId)')])
+                ->filterByReviewRoundIds([$reviewRound->getId()])
+                ->filterByDecisionTypes([Decision::PENDING_REVISIONS])
+        );
+        if (!$countRevisionDecisions) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
@@ -67,14 +76,19 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
 
         // Make sure that the last review round editor decision is request revisions.
-        $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-        $reviewRoundDecisions = $editDecisionDao->getEditorDecisions($submissionFile->getData('submissionId'), $reviewRound->getStageId(), $reviewRound->getRound());
-        if (empty($reviewRoundDecisions)) {
+        $reviewRoundDecisions = Repo::decision()->getMany(
+            Repo::decision()
+                ->getCollector()
+                ->filterBySubmissionIds([$submissionFile->getData('submissionId')])
+                ->filterByStageIds([$reviewRound->getStageId()])
+                ->filterByReviewRoundIds([$reviewRound->getId()])
+        );
+        if ($reviewRoundDecisions->isEmpty()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $lastEditorDecision = array_pop($reviewRoundDecisions);
-        if ($lastEditorDecision['decision'] != EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS) {
+        $lastEditorDecision = $reviewRoundDecisions->last();
+        if ($lastEditorDecision->getData('decision') != Decision::PENDING_REVISIONS) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

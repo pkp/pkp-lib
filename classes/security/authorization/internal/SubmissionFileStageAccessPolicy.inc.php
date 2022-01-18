@@ -16,8 +16,8 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\decision\Decision;
 use APP\facades\Repo;
-use APP\workflow\EditorDecisionActionsManager;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
@@ -103,18 +103,21 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $reviewStage);
                 if ($reviewRound) {
-                    $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-                    $decisions = $editDecisionDao->getEditorDecisions($submission->getId(), $reviewRound->getStageId(), $reviewRound->getRound());
-                    if (!empty($decisions)) {
-                        foreach ($decisions as $decision) {
-                            if ($decision['decision'] == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT
-                                    || $decision['decision'] == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS
-                                    || $decision['decision'] == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND
-                                    || $decision['decision'] == EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_RESUBMIT) {
-                                $assignedFileStages[] = $this->_fileStage;
-                                break;
-                            }
-                        }
+                    $countDecisions = Repo::decision()->getCount(
+                        Repo::decision()
+                            ->getCollector()
+                            ->filterBySubmissionIds([$submission->getId()])
+                            ->filterByStageIds([$reviewRound->getStageId()])
+                            ->filterByReviewRoundIds([$reviewRound->getId()])
+                            ->filterByDecisionTypes([
+                                Decision::ACCEPT,
+                                Decision::PENDING_REVISIONS,
+                                Decision::NEW_ROUND,
+                                Decision::RESUBMIT
+                            ])
+                    );
+                    if ($countDecisions) {
+                        $assignedFileStages[] = $this->_fileStage;
                     }
                 }
             }

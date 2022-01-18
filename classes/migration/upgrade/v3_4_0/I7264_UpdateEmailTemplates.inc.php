@@ -13,8 +13,8 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 
 abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
 {
@@ -80,10 +80,10 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
 
         // Revert renaming email template keys
         foreach ([
-             DB::table('email_templates'),
-             DB::table('email_templates_default'),
-             DB::table('email_templates_default_data')
-         ] as $tableContainingKeys) {
+            DB::table('email_templates'),
+            DB::table('email_templates_default'),
+            DB::table('email_templates_default_data')
+        ] as $tableContainingKeys) {
             $tableContainingKeys->where('email_key', 'USER_VALIDATE_CONTEXT')
                 ->update(['email_key' => 'USER_VALIDATE']);
 
@@ -98,7 +98,6 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
 
             $tableContainingKeys->where('email_key', 'USER_VALIDATE_SITE')->delete();
         }
-
     }
 
     /**
@@ -206,6 +205,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'contextName' => 'contextName',
                 'authorUsername' => 'recipientUsername',
                 'editorContactSignature' => 'signature',
+                'submissionUrl' => 'authorSubmissionUrl',
             ],
             'SUBMISSION_ACK_NOT_USER' => [
                 'contextName' => 'contextName',
@@ -315,26 +315,33 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
             'EDITOR_DECISION_ACCEPT' => [
                 'authorName' => 'authors',
                 'contextName' => 'contextName',
+                'submissionUrl' => 'authorSubmissionUrl',
             ],
             'EDITOR_DECISION_SEND_TO_EXTERNAL' => [
                 'authorName' => 'authors',
+                'submissionUrl' => 'authorSubmissionUrl',
             ],
             'EDITOR_DECISION_SEND_TO_PRODUCTION' => [
                 'authorName' => 'authors',
+                'submissionUrl' => 'authorSubmissionUrl',
             ],
             'EDITOR_DECISION_REVISIONS' => [
                 'authorName' => 'authors',
+                'submissionUrl' => 'authorSubmissionUrl',
             ],
             'EDITOR_DECISION_RESUBMIT' => [
                 'authorName' => 'authors',
                 'contextName' => 'contextName',
+                'submissionUrl' => 'authorSubmissionUrl',
             ],
             'EDITOR_DECISION_DECLINE' => [
                 'authorName' => 'authors',
                 'contextName' => 'contextName',
+                'submissionUrl' => 'authorSubmissionUrl',
             ],
             'EDITOR_DECISION_INITIAL_DECLINE' => [
                 'authorName' => 'authors',
+                'submissionUrl' => 'authorSubmissionUrl',
             ],
             'EDITOR_RECOMMENDATION' => [
                 'contextName' => 'contextName',

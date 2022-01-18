@@ -20,26 +20,27 @@ use PKP\user\User;
 
 class RecipientEmailVariable extends Variable
 {
-    const RECIPIENT_FULL_NAME = 'recipientName';
-    const RECIPIENT_USERNAME = 'recipientUsername';
+    public const RECIPIENT_FULL_NAME = 'recipientName';
+    public const RECIPIENT_USERNAME = 'recipientUsername';
 
-    protected array $recipients;
+    /** @var iterable<User> */
+    protected iterable $recipients;
 
-    public function __construct(array $recipient)
+    public function __construct(iterable $recipients)
     {
-        foreach ($recipient as $user)
-        {
-            if (!is_a($user, User::class))
-                throw new InvalidArgumentException('recipient array values should be an instances or ancestors of ' . User::class . ', ' . get_class($user) . ' is given');
+        foreach ($recipients as $recipient) {
+            if (!is_a($recipient, User::class)) {
+                throw new InvalidArgumentException('recipient array values should be an instances or ancestors of ' . User::class . ', ' . get_class($recipient) . ' is given');
+            }
         }
 
-        $this->recipients = $recipient;
+        $this->recipients = $recipients;
     }
 
     /**
-     * @copydoc Variable::description()
+     * @copydoc Variable::descriptions()
      */
-    protected static function description(): array
+    public static function descriptions(): array
     {
         return
         [
@@ -62,14 +63,17 @@ class RecipientEmailVariable extends Variable
 
     /**
      * Array containing full names of recipients in all supported locales separated by a comma
+     *
      * @return array [localeKey => fullName]
      */
     protected function getRecipientsFullName(string $locale): string
     {
-        $fullNames = array_map(function(User $user) use ($locale) {
-            return $user->getFullName(true, false, $locale);
-        }, $this->recipients);
-        return join(__('common.commaListSeparator'), $fullNames);
+        $names = [];
+        foreach ($this->recipients as $recipient) {
+            $names[] = $recipient->getFullName(true, false, $locale);
+        }
+
+        return join(__('common.listSeparator'), $names);
     }
 
     /**
@@ -77,9 +81,10 @@ class RecipientEmailVariable extends Variable
      */
     protected function getRecipientsUserName(): string
     {
-        $userNames = array_map(function (User $user) {
-            return $user->getData('username');
-        }, $this->recipients);
-        return join(__('common.commaListSeparator'), $userNames);
+        $userNames = [];
+        foreach ($this->recipients as $recipient) {
+            $userNames[] = $recipient->getData('userName');
+        }
+        return join(__('common.listSeparator'), $userNames);
     }
 }

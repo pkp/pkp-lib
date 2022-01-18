@@ -15,22 +15,23 @@
 
 namespace PKP\observers\listeners;
 
+use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
-use PKP\security\AccessKeyManager;
-use PKP\observers\events\UserRegisteredContext;
-use PKP\observers\events\UserRegisteredSite;
 use PKP\mail\mailables\ValidateEmailContext as ContextMailable;
 use PKP\mail\mailables\ValidateEmailSite as SiteMailable;
+use PKP\observers\events\UserRegisteredContext;
+use PKP\observers\events\UserRegisteredSite;
+use PKP\security\AccessKeyManager;
 
 class ValidateRegisteredEmail
 {
     /**
      * Maps methods with correspondent events to listen
      */
-    public function subscribe(Dispatcher $events) : void
+    public function subscribe(Dispatcher $events): void
     {
         $events->listen(
             UserRegisteredContext::class,
@@ -46,26 +47,28 @@ class ValidateRegisteredEmail
     /**
      * @param \PKP\observers\events\UserRegisteredContext
      */
-    public function handleContextRegistration(UserRegisteredContext $event) : void
+    public function handleContextRegistration(UserRegisteredContext $event): void
     {
         $this->manageEmail($event);
     }
 
     /**
-     * @param \PKP\observers\events\UserRegisteredSite $event
      */
-    public function handleSiteRegistration(UserRegisteredSite $event) : void
+    public function handleSiteRegistration(UserRegisteredSite $event): void
     {
         $this->manageEmail($event);
     }
 
     /**
      * Sends mail depending on a source - context or site registration
+     *
      * @param UserRegisteredContext|UserRegisteredSite $event
      */
-    protected function manageEmail($event) : void
+    protected function manageEmail($event): void
     {
-        if (!$this->emailValidationRequired()) return;
+        if (!$this->emailValidationRequired()) {
+            return;
+        }
 
         $accessKeyManager = new AccessKeyManager();
         $accessKey = $accessKeyManager->createKey(
@@ -82,7 +85,7 @@ class ValidateRegisteredEmail
             $mailable->addData([
                 'activateUrl' => PKPApplication::get()->getRequest()->url($event->context->getData('urlPath'), 'user', 'activateUser', [$event->recipient->getData('username'), $accessKey]),
             ]);
-            $registerTemplate = $mailable->getTemplate($event->context->getId());
+            $registerTemplate = Repo::emailTemplate()->getByKey($event->context->getId(), $mailable::getEmailTemplateKey());
         } else {
             $mailable = new SiteMailable($event->site);
             $mailable->from($event->site->getLocalizedContactEmail(), $event->site->getLocalizedContactName());
@@ -91,7 +94,7 @@ class ValidateRegisteredEmail
                 'siteName' => $event->site->getLocalizedTitle(),
                 'signature' => $mailable->viewData['siteContactName'],
             ]);
-            $registerTemplate = $mailable->getTemplate(PKPApplication::CONTEXT_SITE);
+            $registerTemplate = Repo::emailTemplate()->getByKey(PKPApplication::CONTEXT_SITE, $mailable::getEmailTemplateKey());
         }
 
         // Send mail
@@ -103,7 +106,7 @@ class ValidateRegisteredEmail
         Mail::send($mailable);
     }
 
-    protected function emailValidationRequired() : bool
+    protected function emailValidationRequired(): bool
     {
         return (bool) Config::getVar('email', 'require_validation');
     }

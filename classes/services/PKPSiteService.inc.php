@@ -158,7 +158,7 @@ class PKPSiteService implements EntityPropertyInterface
         });
 
         if ($validator->fails()) {
-            $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_SITE), $allowedLocales);
+            $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
         \HookRegistry::call('Site::validate', [&$errors, $props, $allowedLocales, $primaryLocale]);

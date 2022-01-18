@@ -12,6 +12,7 @@
  * @brief Handle API requests to upload a file and receive a temporary file ID.
  */
 
+use APP\core\Services;
 use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
@@ -115,7 +116,12 @@ class PKPTemporaryFilesHandler extends APIHandler
             return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');
         }
 
-        return $this->getResponse($response->withJson(['id' => $uploadedFile->getId()]));
+        return $this->getResponse($response->withJson([
+            'id' => $uploadedFile->getId(),
+            'name' => $uploadedFile->getData('originalFileName'),
+            'mimetype' => $uploadedFile->getData('filetype'),
+            'documentType' => Services::get('file')->getDocumentType($uploadedFile->getData('filetype')),
+        ]));
     }
 
     /**

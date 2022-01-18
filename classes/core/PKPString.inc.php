@@ -503,18 +503,6 @@ class PKPString
     }
 
     /**
-     * Get a letter $steps places after 'A'
-     *
-     * @param int $steps
-     *
-     * @return string Letter
-     */
-    public static function enumerateAlphabetically($steps)
-    {
-        return chr(ord('A') + $steps);
-    }
-
-    /**
      * Create a new UUID (version 4)
      *
      * @return string

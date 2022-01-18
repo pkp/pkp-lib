@@ -282,7 +282,7 @@ abstract class Repository
         });
 
         if ($validator->fails()) {
-            $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get(PKPSchemaService::SCHEMA_SUBMISSION), $allowedLocales);
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
         HookRegistry::call('Submission::validate', [&$errors, $submission, $props, $allowedLocales, $primaryLocale]);
@@ -369,7 +369,7 @@ abstract class Repository
 
         $this->edit($submission, ['currentPublicationId' => $publicationId]);
 
-        HookRegistry::call('Submission::add', [&$submission]);
+        HookRegistry::call('Submission::add', [$submission]);
 
         return $submission->getId();
     }
@@ -381,7 +381,7 @@ abstract class Repository
         $newSubmission->stampLastActivity();
         $newSubmission->stampModified();
 
-        HookRegistry::call('Submission::edit', [&$newSubmission, $submission, $params]);
+        HookRegistry::call('Submission::edit', [$newSubmission, $submission, $params]);
 
         $this->dao->update($newSubmission);
     }
@@ -393,7 +393,7 @@ abstract class Repository
 
         $this->dao->delete($submission);
 
-        HookRegistry::call('Submission::delete', [&$submission]);
+        HookRegistry::call('Submission::delete', [$submission]);
     }
 
     /**
@@ -409,71 +409,42 @@ abstract class Repository
     }
 
     /**
-     * Update a submission's status and current publication id
+     * Update a submission's status
      *
-     * Sets the appropriate status on the submission and updates the
-     * current publication id, based on all of the submission's
+     * Changes a submission's status. Or, if no new status is provided,
+     * sets the appropriate status based on all of the submission's
      * publications.
      *
-     * Used to update the submission status when publications are
-     * published or deleted, or any other actions which may effect
-     * the status of the submission.
+     * This method performs any actions necessary when a submission's
+     * status changes, such as changing the current publication ID
+     * and creating or deleting tombstones.
      */
-    public function updateStatus(Submission $submission)
+    public function updateStatus(Submission $submission, ?int $newStatus = null)
     {
-        $status = $newStatus = $submission->getData('status');
-        $currentPublicationId = $newCurrentPublicationId = $submission->getData('currentPublicationId');
-        $publications = $submission->getData('publications'); /** @var LazyCollection $publications */
+        $status = $submission->getData('status');
+        if ($newStatus === null) {
+            $newStatus = $status;
+        }
 
-        // If there are no publications, we are probably in the process of deleting a submission.
-        // To be safe, reset the status and currentPublicationId anyway.
-        if (!$publications->count()) {
-            $newStatus = $status == Submission::STATUS_DECLINED
-                ? Submission::STATUS_DECLINED
-                : Submission::STATUS_QUEUED;
-            $newCurrentPublicationId = null;
-        } else {
-
-            // Get the new current publication after status changes or deletions
-            // Use the latest published publication or, failing that, the latest publication
-            $newCurrentPublicationId = $publications->reduce(function ($a, $b) {
-                return $b->getData('status') === PKPSubmission::STATUS_PUBLISHED && $b->getId() > $a ? $b->getId() : $a;
-            }, 0);
-            if (!$newCurrentPublicationId) {
-                $newCurrentPublicationId = $publications->reduce(function ($a, $b) {
-                    return $a > $b->getId() ? $a : $b->getId();
-                }, 0);
-            }
-
-            // Declined submissions should remain declined even if their
-            // publications change
-            if ($status !== PKPSubmission::STATUS_DECLINED) {
-                $newStatus = PKPSubmission::STATUS_QUEUED;
-                foreach ($publications as $publication) {
-                    if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-                        $newStatus = PKPSubmission::STATUS_PUBLISHED;
-                        break;
-                    }
-                    if ($publication->getData('status') === PKPSubmission::STATUS_SCHEDULED) {
-                        $newStatus = PKPSubmission::STATUS_SCHEDULED;
-                        continue;
-                    }
-                }
-            }
+        if ($newStatus === null) {
+            $newStatus = $this->getStatusByPublications($submission);
         }
 
         HookRegistry::call('Submission::updateStatus', [&$newStatus, $status, $submission]);
 
-        $updateParams = [];
         if ($status !== $newStatus) {
-            $updateParams['status'] = $newStatus;
+            $submission->setData('status', $newStatus);
         }
+
+        $currentPublicationId = $newCurrentPublicationId = $submission->getData('currentPublicationId');
+        $newCurrentPublicationId = $this->getCurrentPublicationIdByPublications($submission);
         if ($currentPublicationId !== $newCurrentPublicationId) {
-            $updateParams['currentPublicationId'] = $newCurrentPublicationId;
+            $submission->setData('currentPublicationId', $newCurrentPublicationId);
         }
-        if (!empty($updateParams)) {
-            $this->edit($submission, $updateParams);
-        }
+
+        // Use the DAO instead of the Repository to prevent
+        // calling this method over and over again.
+        $this->dao->update($submission);
     }
 
     /**
@@ -560,5 +531,68 @@ abstract class Repository
             }
         }
         return false;
+    }
+
+    /**
+     * Get the appropriate status of a submission based on the
+     * statuses of its publications
+     */
+    protected function getStatusByPublications(Submission $submission): int
+    {
+        $publications = $submission->getData('publications'); /** @var LazyCollection $publications */
+
+        // Declined submissions should remain declined regardless of their publications' statuses
+        if ($submission->getData('status') === Submission::STATUS_DECLINED) {
+            return Submission::STATUS_DECLINED;
+        }
+
+        // If there are no publications, we are probably in the process of deleting a submission.
+        // To be safe, reset the status anyway.
+        if (!$publications->count()) {
+            return Submission::STATUS_DECLINED
+                ? Submission::STATUS_DECLINED
+                : Submission::STATUS_QUEUED;
+        }
+
+        $newStatus = Submission::STATUS_QUEUED;
+        foreach ($publications as $publication) {
+            if ($publication->getData('status') === Submission::STATUS_PUBLISHED) {
+                $newStatus = Submission::STATUS_PUBLISHED;
+                break;
+            }
+            if ($publication->getData('status') === Submission::STATUS_SCHEDULED) {
+                $newStatus = Submission::STATUS_SCHEDULED;
+                continue;
+            }
+        }
+
+        return $newStatus;
+    }
+
+    /**
+     * Get the appropriate currentPublicationId for a submission based on the
+     * statues of its publications
+     */
+    protected function getCurrentPublicationIdByPublications(Submission $submission): ?int
+    {
+        $publications = $submission->getData('publications'); /** @var LazyCollection $publications */
+
+        if (!$publications->count()) {
+            return null;
+        }
+
+        // Use the latest published publication
+        $newCurrentPublicationId = $publications->reduce(function ($a, $b) {
+            return $b->getData('status') === Submission::STATUS_PUBLISHED && $b->getId() > $a ? $b->getId() : $a;
+        }, 0);
+
+        // If there is no published publication, use the latest publication
+        if (!$newCurrentPublicationId) {
+            $newCurrentPublicationId = $publications->reduce(function ($a, $b) {
+                return $a > $b->getId() ? $a : $b->getId();
+            }, 0);
+        }
+
+        return $newCurrentPublicationId ?? $submission->getData('currentPublicationId');
     }
 }

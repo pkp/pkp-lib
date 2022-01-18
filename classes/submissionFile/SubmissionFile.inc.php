@@ -17,12 +17,10 @@ namespace PKP\submissionFile;
 
 use APP\facades\Repo;
 use PKP\facades\Locale;
-use PKP\core\PKPApplication;
-
-// Define the file stage identifiers.
 
 class SubmissionFile extends \PKP\core\DataObject
 {
+    // Define the file stage identifiers.
     public const SUBMISSION_FILE_SUBMISSION = 2;
     public const SUBMISSION_FILE_NOTE = 3;
     public const SUBMISSION_FILE_REVIEW_FILE = 4;
@@ -37,6 +35,16 @@ class SubmissionFile extends \PKP\core\DataObject
     public const SUBMISSION_FILE_QUERY = 18;
     public const SUBMISSION_FILE_INTERNAL_REVIEW_FILE = 19;
     public const SUBMISSION_FILE_INTERNAL_REVIEW_REVISION = 20;
+
+    public const INTERNAL_REVIEW_STAGES = [
+        SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+        SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+    ];
+
+    public const EXTERNAL_REVIEW_STAGES = [
+        SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+        SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+    ];
 
     /**
      * Get a piece of data for this object, localized to the current

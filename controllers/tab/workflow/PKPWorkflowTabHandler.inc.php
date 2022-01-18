@@ -16,11 +16,11 @@
 use APP\handler\Handler;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
-use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
-use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\AjaxModal;
+use PKP\core\PKPApplication;
+use PKP\decision\types\NewExternalReviewRound;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -71,7 +71,8 @@ abstract class PKPWorkflowTabHandler extends Handler
         $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
         $templateMgr->assign('stageId', $stageId);
 
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        /** @var Submission $submission */
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         $templateMgr->assign('submission', $submission);
 
         switch ($stageId) {
@@ -92,10 +93,7 @@ abstract class PKPWorkflowTabHandler extends Handler
                 // as the current review round tab index, if we have review rounds.
                 if ($lastReviewRound) {
                     $lastReviewRoundNumber = $lastReviewRound->getRound();
-                    $lastReviewRoundId = $lastReviewRound->getId();
                     $templateMgr->assign('lastReviewRoundNumber', $lastReviewRoundNumber);
-                } else {
-                    $lastReviewRoundId = null;
                 }
 
                 // Add the round information to the template.
@@ -103,32 +101,13 @@ abstract class PKPWorkflowTabHandler extends Handler
                 $templateMgr->assign('reviewRoundOp', $this->_identifyReviewRoundOp($stageId));
 
                 if ($submission->getStageId() == $selectedStageId && count($reviewRoundsArray) > 0) {
-                    $dispatcher = $request->getDispatcher();
-
-                    $newRoundAction = new LinkAction(
-                        'newRound',
-                        new AjaxModal(
-                            $dispatcher->url(
-                                $request,
-                                PKPApplication::ROUTE_COMPONENT,
-                                null,
-                                'modals.editorDecision.EditorDecisionHandler',
-                                'newReviewRound',
-                                null,
-                                [
-                                    'submissionId' => $submission->getId(),
-                                    'decision' => EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_NEW_ROUND,
-                                    'stageId' => $selectedStageId,
-                                    'reviewRoundId' => $lastReviewRoundId
-                                ]
-                            ),
-                            __('editor.submission.newRound'),
-                            'modal_add_item'
-                        ),
-                        __('editor.submission.newRound'),
-                        'add_item_small'
+                    if ($stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
+                        $newReviewRoundType = new NewExternalReviewRound();
+                    }
+                    $templateMgr->assign(
+                        'newRoundUrl',
+                        $newReviewRoundType->getUrl($request, $request->getContext(), $submission, $lastReviewRound->getId())
                     );
-                    $templateMgr->assign('newRoundAction', $newRoundAction);
                 }
 
                 // Render the view.

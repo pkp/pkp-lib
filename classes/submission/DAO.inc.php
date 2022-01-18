@@ -268,8 +268,7 @@ class DAO extends EntityDAO
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao->deleteBySubmissionId($id);
 
-        $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-        $editDecisionDao->deleteDecisionsBySubmissionId($id);
+        Repo::decision()->deleteBySubmissionId($id);
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignmentDao->deleteBySubmissionId($id);

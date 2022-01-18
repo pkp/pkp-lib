@@ -411,7 +411,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         }
 
         if ($validator->fails()) {
-            $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_CONTEXT), $allowedLocales);
+            $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
         HookRegistry::call('Context::validate', [&$errors, $action, $props, $allowedLocales, $primaryLocale]);

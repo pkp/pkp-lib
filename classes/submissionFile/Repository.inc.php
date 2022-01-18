@@ -40,17 +40,13 @@ use PKP\validation\ValidatorFactory;
 
 class Repository
 {
-    /** @var DAO $dao */
-    public $dao;
+    public DAO $dao;
+    public string $schemaMap = Schema::class;
+    protected Request $request;
+    protected PKPSchemaService $schemaService;
 
-    /** @var string $schemaMap The name of the class to map this entity to its schemaa */
-    public $schemaMap = Schema::class;
-
-    /** @var Request $request */
-    protected $request;
-
-    /** @var PKPSchemaService $schemaService */
-    protected $schemaService;
+    /** @var array<int> $reviewFileStages The file stages that are part of a review workflow stage */
+    public array $reviewFileStages = [];
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
     {
@@ -484,6 +480,27 @@ class Repository
                 'name' => $submissionFile->getLocalizedData('name'),
             ]
         );
+    }
+
+    /**
+     * Copy a submission file to another stage
+     *
+     * @return int ID of the new submission file
+     */
+    public function copy(SubmissionFile $submissionFile, int $toFileStage, ?int $reviewRoundId = null): int
+    {
+        $newSubmissionFile = clone $submissionFile;
+        $newSubmissionFile->setData('fileStage', $toFileStage);
+        $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
+        $newSubmissionFile->setData('assocType', null);
+        $newSubmissionFile->setData('assocId', null);
+
+        if ($reviewRoundId) {
+            $newSubmissionFile->setData('assocType', Application::ASSOC_TYPE_REVIEW_ROUND);
+            $newSubmissionFile->setData('assocId', $reviewRoundId);
+        }
+
+        return Repo::submissionFile()->add($newSubmissionFile);
     }
 
     /** @copydoc DAO::delete() */

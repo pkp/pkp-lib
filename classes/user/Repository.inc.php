@@ -316,8 +316,7 @@ class Repository
             $noteDao->updateObject($note);
         }
 
-        $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-        $editDecisionDao->transferEditorDecisions($oldUserId, $newUserId);
+        Repo::decision()->dao->reassignDecisions($oldUserId, $newUserId);
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         foreach ($reviewAssignmentDao->getByUserId($oldUserId) as $reviewAssignment) {

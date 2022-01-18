@@ -1,0 +1,78 @@
+{
+	"title": "Editorial Decision",
+	"description": "An editorial decision such as accept, decline or request revisions.",
+	"required": [
+		"dateDecided",
+		"decision",
+		"editorId",
+		"stageId",
+		"submissionId"
+	],
+	"properties": {
+		"_href": {
+			"type": "string",
+			"description": "The URL to this decision in the REST API.",
+			"format": "uri",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"actions": {
+			"type": "array",
+			"description": "A list of actions to be taken with this decision, such as sending an email. Each decision supports different actions with different properties. See the examples for support decision actions.",
+			"writeOnly": true,
+			"items": {
+				"type": "object"
+			}
+		},
+		"dateDecided": {
+			"type": "string",
+			"description": "The date the decision was taken.",
+			"apiSummary": true,
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"decision": {
+			"type": "integer",
+			"description": "The decision that was made. One of the `SUBMISSION_EDITOR_DECISION_` constants.",
+			"apiSummary": true
+		},
+		"editorId": {
+			"type": "integer",
+			"description": "The user id of the editor who took the decision.",
+			"apiSummary": true
+		},
+		"id": {
+			"type": "integer",
+			"apiSummary": true,
+            "readOnly": true
+		},
+		"reviewRoundId": {
+			"type": "integer",
+			"description": "The unique id of the review round when this decision was taken. This is a globally unique id. It does not represent whether the decision was taken in the first or second round of reviews for a submission. See `round` below.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"round": {
+			"type": "integer",
+			"description": "The sequential review round when this decision was taken. For example, the first, second or third round of review for this submission.",
+			"apiSummary": true
+		},
+		"stageId": {
+			"type": "integer",
+			"description": "The workflow stage when this decision was taken. One of the `WORKFLOW_STAGE_ID_` constants.",
+			"apiSummary": true,
+			"validation": [
+				"min:1",
+				"max:5"
+			]
+		},
+		"submissionId": {
+			"type": "integer",
+			"description": "The decision applies to this submission.",
+			"apiSummary": true
+		}
+	}
+}

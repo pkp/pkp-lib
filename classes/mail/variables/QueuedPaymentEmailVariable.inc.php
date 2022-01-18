@@ -15,15 +15,15 @@
 
 namespace PKP\mail\variables;
 
-use Application;
+use APP\core\Application;
 use PKP\core\PKPServices;
 use PKP\payment\QueuedPayment;
 
 class QueuedPaymentEmailVariable extends Variable
 {
-    const ITEM_NAME = 'itemName';
-    const ITEM_COST = 'itemCost';
-    const ITEM_CURRENCY_CODE = 'itemCurrencyCode';
+    public const ITEM_NAME = 'itemName';
+    public const ITEM_COST = 'itemCost';
+    public const ITEM_CURRENCY_CODE = 'itemCurrencyCode';
 
     protected QueuedPayment $queuedPayment;
 
@@ -33,9 +33,9 @@ class QueuedPaymentEmailVariable extends Variable
     }
 
     /**
-     * @copydoc Validation::description()
+     * @copydoc Validation::descriptions()
      */
-    protected static function description() : array
+    public static function descriptions(): array
     {
         return
         [
@@ -53,12 +53,12 @@ class QueuedPaymentEmailVariable extends Variable
         return
         [
             self::ITEM_NAME => $this->getItemName(),
-            self::ITEM_COST => $this->getItemCost(),
-            self::ITEM_CURRENCY_CODE => $this->getItemCurrencyCode(),
+            self::ITEM_COST => (string) $this->getItemCost(),
+            self::ITEM_CURRENCY_CODE => (string) $this->getItemCurrencyCode(),
         ];
     }
 
-    protected function getItemName() : string
+    protected function getItemName(): string
     {
         $context = PKPServices::get('context')->get($this->queuedPayment->getContextId());
         $paymentManager = Application::getPaymentManager($context);
@@ -73,7 +73,7 @@ class QueuedPaymentEmailVariable extends Variable
         return $this->queuedPayment->getAmount();
     }
 
-    protected function getItemCurrencyCode() : ?string
+    protected function getItemCurrencyCode(): ?string
     {
         return $this->queuedPayment->getCurrencyCode();
     }

@@ -16,11 +16,12 @@
 // Import the base Handler.
 import('pages.authorDashboard.AuthorDashboardHandler');
 
+use APP\core\Application;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
-use APP\workflow\EditorDecisionActionsManager;
 
 use PKP\core\JSONMessage;
+use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
@@ -78,9 +79,9 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
-        $reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         if ($stageId !== WORKFLOW_STAGE_ID_INTERNAL_REVIEW && $stageId !== WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
             fatalError('Invalid Stage Id');
         }
@@ -91,7 +92,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
             'submission' => $submission,
             'reviewRoundNotificationRequestOptions' => [
                 Notification::NOTIFICATION_LEVEL_NORMAL => [
-                    PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
+                    PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
                 Notification::NOTIFICATION_LEVEL_TRIVIAL => []
             ],
         ]);
@@ -102,15 +103,16 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
             $templateMgr->assign('showReviewerGrid', true);
         }
 
-        // Editor has taken an action and sent an email; Display the email
-        if ((new EditorDecisionActionsManager())->getEditorTakenActionInReviewRound($request->getContext(), $reviewRound)) {
-            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-            $user = $request->getUser();
-            $templateMgr->assign([
-                'submissionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId()),
-                'showReviewAttachments' => true,
-            ]);
-        }
+        // Display notification emails to the author related to editorial decisions
+        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+        $templateMgr->assign([
+            'submissionEmails' => $submissionEmailLogDao->getByEventType(
+                $submission->getId(),
+                SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
+                $request->getUser()->getId()
+            ),
+            'showReviewAttachments' => true,
+        ]);
 
         return $templateMgr->fetchJson('authorDashboard/reviewRoundInfo.tpl');
     }

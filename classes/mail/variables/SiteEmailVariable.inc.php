@@ -19,9 +19,9 @@ use PKP\site\Site;
 
 class SiteEmailVariable extends Variable
 {
-    const SITE_TITLE = 'siteTitle';
-    const SITE_CONTACT = 'siteContactName';
-    const SITE_EMAIL = 'siteContactEmail';
+    public const SITE_TITLE = 'siteTitle';
+    public const SITE_CONTACT = 'siteContactName';
+    public const SITE_EMAIL = 'siteContactEmail';
 
     protected Site $site;
 
@@ -31,9 +31,9 @@ class SiteEmailVariable extends Variable
     }
 
     /**
-     * @copydoc Variable::description()
+     * @copydoc Variable::descriptions()
      */
-    protected static function description(): array
+    public static function descriptions(): array
     {
         return
         [
@@ -48,7 +48,7 @@ class SiteEmailVariable extends Variable
      */
     public function values(string $locale): array
     {
-       return
+        return
        [
            self::SITE_TITLE => $this->site->getLocalizedData('title', $locale),
            self::SITE_CONTACT => $this->site->getLocalizedData('contactName', $locale),

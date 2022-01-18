@@ -1,6 +1,6 @@
 <?php
 /**
- * @file api/v1/contexts/PKPEmailTemplateHandler.inc.php
+ * @file api/v1/emailTemplates/PKPEmailTemplateHandler.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -14,12 +14,12 @@
 
 use PKP\facades\Repo;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\plugins\HookRegistry;
 use Slim\Http\Request as SlimRequest;
 use Slim\Http\Response;
 
@@ -37,12 +37,12 @@ class PKPEmailTemplateHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'getMany'],
-                    'roles' => $roles,
+                    'roles' => array_merge($roles, [Role::ROLE_ID_SUB_EDITOR, ROLE::ROLE_ID_ASSISTANT]),
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{key}',
                     'handler' => [$this, 'get'],
-                    'roles' => $roles,
+                    'roles' => array_merge($roles, [Role::ROLE_ID_SUB_EDITOR, ROLE::ROLE_ID_ASSISTANT]),
                 ],
             ],
             'POST' => [

@@ -27,23 +27,33 @@
 
 namespace PKP\mail;
 
+use APP\core\Services;
+use APP\decision\Decision;
+use APP\facades\Repo;
+use APP\mail\variables\ContextEmailVariable;
 use BadMethodCallException;
 use Exception;
 use Illuminate\Mail\Mailable as IlluminateMailable;
 use InvalidArgumentException;
+use PKP\config\Config;
 use PKP\context\Context;
-use APP\mail\variables\ContextEmailVariable;
 use PKP\facades\Locale;
+use PKP\context\LibraryFile;
+use PKP\context\LibraryFileDAO;
+use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileManager;
+use PKP\mail\traits\Recipient;
+use PKP\mail\traits\Sender;
+use PKP\mail\variables\DecisionEmailVariable;
 use PKP\mail\variables\QueuedPaymentEmailVariable;
 use PKP\mail\variables\RecipientEmailVariable;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\mail\variables\SenderEmailVariable;
 use PKP\mail\variables\SiteEmailVariable;
-use PKP\mail\variables\StageAssignmentEmailVariable;
 use PKP\mail\variables\SubmissionEmailVariable;
+use PKP\mail\variables\Variable;
 use PKP\payment\QueuedPayment;
 use PKP\site\Site;
-use PKP\stageAssignment\StageAssignment;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use ReflectionClass;
@@ -52,11 +62,7 @@ use ReflectionParameter;
 
 class Mailable extends IlluminateMailable
 {
-
-    /**
-     * Name of the variable representing a message object assigned to email templates by Illuminate Mailer by default
-     * @var string
-     */
+    /** Used internally by Illuminate Mailer. Do not touch. */
     public const DATA_KEY_MESSAGE = 'message';
 
     public const GROUP_OTHER = 'other';
@@ -65,29 +71,27 @@ class Mailable extends IlluminateMailable
     public const GROUP_COPYEDITING = 'copyediting';
     public const GROUP_PRODUCTION = 'production';
 
-    /**
-     * The email variables handled by this mailable
-     *
-     * @param array<Variable>
-     */
-    protected array $variables = [];
+    public const ATTACHMENT_TEMPORARY_FILE = 'temporaryFileId';
+    public const ATTACHMENT_SUBMISSION_FILE = 'submissionFileId';
+    public const ATTACHMENT_LIBRARY_FILE = 'libraryFileId';
 
-    /**
-     * One or more groups this mailable should be included in
-     *
-     * Mailables are assigned to one or more groups so that they
-     * can be organized when shown in the UI.
-     */
-    protected static array $groupIds = [self::GROUP_OTHER];
-
-    // Locale key, name of the Mailable displayed in the UI
+    /** @var string|null Locale key for the name of this Mailable */
     protected static ?string $name = null;
 
-    // Locale key, description of the Mailable displayed in the UI
+    /** @var string|null Locale key for the description of this Mailable */
     protected static ?string $description = null;
 
-    // Whether Mailable supports additional templates, besides the default
+    /** @var string|null Key of the default email template key to use with this Mailable */
+    protected static ?string $emailTemplateKey = null;
+
+    /** @var bool Whether users can assign extra email templates to this Mailable */
     protected static bool $supportsTemplates = false;
+
+    /** @var int[] Mailables are organized into one or more self::GROUP_ */
+    protected static array $groupIds = [self::GROUP_OTHER];
+
+    /** @var Variable[] The email variables supported by this mailable */
+    protected array $variables = [];
 
     public function __construct(array $variables = [])
     {
@@ -97,9 +101,51 @@ class Mailable extends IlluminateMailable
     }
 
     /**
+     * Get the name of this Mailable
+     */
+    public static function getName(): string
+    {
+        return static::$name ? __(static::$name) : '';
+    }
+
+    /**
+     * Get the description of this Mailable
+     */
+    public static function getDescription(): string
+    {
+        return static::$description ? __(static::$description) : '';
+    }
+
+    /**
+     * Get the description of this Mailable
+     */
+    public static function getEmailTemplateKey(): string
+    {
+        return static::$emailTemplateKey ? static::$emailTemplateKey : '';
+    }
+
+    /**
+     * Get whether or not this Mailable supports extra email templates
+     */
+    public function getSupportsTemplates(): bool
+    {
+        return $this->supportsTemplates;
+    }
+
+    /**
+     * Get the groups this Mailable is in
+     *
+     * @return string[]
+     */
+    public static function getGroupIds(): array
+    {
+        return static::$groupIds;
+    }
+
+    /**
      * Add data for this email
      */
-    public function addData(array $data) : self
+    public function addData(array $data): self
     {
         $this->viewData = array_merge($this->viewData, $data);
         return $this;
@@ -132,6 +178,7 @@ class Mailable extends IlluminateMailable
 
     /**
      * @param string $localeKey
+     *
      * @throws BadMethodCallException
      */
     public function locale($localeKey)
@@ -142,45 +189,42 @@ class Mailable extends IlluminateMailable
 
     /**
      * Use instead of the \Illuminate\Mail\Mailable::view() to compile template message's body
+     *
      * @param string $view HTML string with template variables
      */
-    public function body(string $view) : self
+    public function body(string $view): self
     {
         return parent::view($view, []);
     }
 
     /**
      * Doesn't support Illuminate markdown
+     *
      * @throws BadMethodCallException
      */
-    public function markdown($view, array $data = []) : self
+    public function markdown($view, array $data = []): self
     {
         throw new BadMethodCallException('Markdown isn\'t supported');
     }
 
     /**
-     * @return array [self::GROUP_...] workflow stages associated with a mailable
-     */
-    public static function getGroupIds() : array
-    {
-        return static::$groupIds;
-    }
-
-    /**
      * Method's implementation is required for Mailable to be sent according to Laravel docs
+     *
      * @see \Illuminate\Mail\Mailable::send(), https://laravel.com/docs/7.x/mail#writing-mailables
      */
-    public function build() : self
+    public function build(): self
     {
         return $this;
     }
 
     /**
      * Allow data to be passed to the subject
+     *
      * @param \Illuminate\Mail\Message $message
+     *
      * @throws Exception
      */
-    protected function buildSubject($message) : self
+    protected function buildSubject($message): self
     {
         if (!$this->subject) {
             throw new Exception('Subject isn\'t specified in ' . static::class);
@@ -195,25 +239,26 @@ class Mailable extends IlluminateMailable
     /**
      * Returns variables map associated with a specific object,
      * variables names should be unique
+     *
      * @return string[]
      */
-    protected static function templateVariablesMap() : array
+    protected static function templateVariablesMap(): array
     {
         return
             [
-                Site::class => SiteEmailVariable::class,
                 Context::class => ContextEmailVariable::class,
+                Decision::class => DecisionEmailVariable::class,
                 PKPSubmission::class => SubmissionEmailVariable::class,
                 ReviewAssignment::class => ReviewAssignmentEmailVariable::class,
-                StageAssignment::class => StageAssignmentEmailVariable::class,
                 QueuedPayment::class => QueuedPaymentEmailVariable::class,
+                Site::class => SiteEmailVariable::class,
             ];
     }
 
     /**
      * Scans arguments to retrieve variables which can be assigned to the template of the email
      */
-    protected function setupVariables(array $variables) : void
+    protected function setupVariables(array $variables): void
     {
         $map = static::templateVariablesMap();
         foreach ($variables as $variable) {
@@ -234,7 +279,7 @@ class Mailable extends IlluminateMailable
      *
      * @return array ['variableName' => description]
      */
-    public static function getDataDescriptions() : array
+    public static function getDataDescriptions(): array
     {
         $args = static::getParamsClass(static::getConstructor());
         $map = static::templateVariablesMap();
@@ -260,13 +305,13 @@ class Mailable extends IlluminateMailable
             if (array_key_exists(Recipient::class, $traits)) {
                 $descriptions = array_merge(
                     $descriptions,
-                    RecipientEmailVariable::getDescription(),
+                    RecipientEmailVariable::descriptions(),
                 );
             }
             if (array_key_exists(Sender::class, $traits)) {
                 $descriptions = array_merge(
                     $descriptions,
-                    SenderEmailVariable::getDescription(),
+                    SenderEmailVariable::descriptions(),
                 );
             }
         }
@@ -281,7 +326,7 @@ class Mailable extends IlluminateMailable
             // No special treatment for others
             $descriptions = array_merge(
                 $descriptions,
-                $map[$class]::getDescription()
+                $map[$class]::descriptions()
             );
         }
 
@@ -291,7 +336,7 @@ class Mailable extends IlluminateMailable
     /**
      * @see self::getTemplateVarsDescription
      */
-    protected static function getConstructor() : ReflectionMethod
+    protected static function getConstructor(): ReflectionMethod
     {
         $constructor = (new ReflectionClass(static::class))->getConstructor();
         if (!$constructor) {
@@ -303,9 +348,10 @@ class Mailable extends IlluminateMailable
 
     /**
      * Retrieves arguments of the specified methods
+     *
      * @see self::getTemplateVarsDescription
      */
-    protected static function getParamsClass(ReflectionMethod $method) : array
+    protected static function getParamsClass(ReflectionMethod $method): array
     {
         $params = $method->getParameters();
         if (empty($params)) {
@@ -319,5 +365,55 @@ class Mailable extends IlluminateMailable
             }
         }
         return $params;
+    }
+
+    /**
+     * Attach a temporary file
+     */
+    public function attachTemporaryFile(string $id, string $name, int $uploaderId): self
+    {
+        $temporaryFileManager = new TemporaryFileManager();
+        $file = $temporaryFileManager->getFile($id, $uploaderId);
+        if (!$file) {
+            throw new Exception('Tried to attach temporary file ' . $id . ' that does not exist.');
+        }
+        $this->attach($file->getFilePath(), ['as' => $name]);
+        return $this;
+    }
+
+    /**
+     * Attach a submission file
+     */
+    public function attachSubmissionFile(int $id, string $name): self
+    {
+        $submissionFile = Repo::submissionFile()->get($id);
+        if (!$submissionFile) {
+            throw new Exception('Tried to attach submission file ' . $id . ' that does not exist.');
+        }
+        $file = Services::get('file')->get($submissionFile->getData('fileId'));
+        $this->attach(
+            Config::getVar('files', 'files_dir') . '/' . $file->path,
+            [
+                'as' => $name,
+                'mime' => $file->mimetype,
+            ]
+        );
+        return $this;
+    }
+
+    /**
+     * Attach a library file
+     */
+    public function attachLibraryFile(int $id, string $name): self
+    {
+        /** @var LibraryFileDAO $libraryFileDao */
+        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+        /** @var LibraryFile $file */
+        $file = $libraryFileDao->getById($id);
+        if (!$file) {
+            throw new Exception('Tried to attach library file ' . $id . ' that does not exist.');
+        }
+        $this->attach($file->getFilePath(), ['as' => $name]);
+        return $this;
     }
 }

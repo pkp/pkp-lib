@@ -126,6 +126,17 @@
 			"type": "integer",
 			"apiSummary": true
 		},
+		"genreIsPrimary": {
+			"type": "boolean",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"genreName": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"readOnly": true
+		},
 		"language": {
 			"type": "string",
 			"apiSummary": true,

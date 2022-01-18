@@ -20,9 +20,9 @@ use PKP\user\User;
 
 class SenderEmailVariable extends Variable
 {
-    const SENDER_NAME = 'senderName';
-    const SENDER_EMAIL = 'senderEmail';
-    const SENDER_CONTACT_SIGNATURE = 'signature';
+    public const SENDER_NAME = 'senderName';
+    public const SENDER_EMAIL = 'senderEmail';
+    public const SENDER_CONTACT_SIGNATURE = 'signature';
 
     protected User $sender;
 
@@ -32,9 +32,9 @@ class SenderEmailVariable extends Variable
     }
 
     /**
-     * @copydoc Variable::description()
+     * @copydoc Variable::descriptions()
      */
-    protected static function description(): array
+    public static function descriptions(): array
     {
         return
         [
@@ -65,6 +65,6 @@ class SenderEmailVariable extends Variable
         $signature = $this->sender->getSignature($locale);
         return $signature
             ? PKPString::stripUnsafeHtml($signature)
-            : '';
+            : '<p>' . $this->sender->getFullName(true, false, $locale) . '</p>';
     }
 }

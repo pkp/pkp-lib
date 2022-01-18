@@ -144,7 +144,7 @@ class Repository
 
         $errors = [];
         if ($validator->fails()) {
-            $errors = $schemaService->formatValidationErrors($validator->errors(), $schemaService->get(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
+            $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
         HookRegistry::call('Author::validate', [$errors, $author, $props, $allowedLocales, $primaryLocale]);
@@ -252,10 +252,10 @@ class Repository
     /**
     * Reorders the authors of a publication according to the given order of the authors in the provided author array
     */
-    public function setAuthorsOrder(int $publicationId, array $authors) {
+    public function setAuthorsOrder(int $publicationId, array $authors)
+    {
         $seq = 0;
         foreach ($authors as $author) {
-
             $author->setData('seq', $seq);
 
             $this->dao->update($author);

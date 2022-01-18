@@ -575,6 +575,9 @@ msgstr "Are you sure you want to delete this event log entry?"
 msgid "submission.event.deleteLogEntry"
 msgstr "Delete Log Entry"
 
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr "An email about the decision was sent to {$recipientCount} reviewer(s) with the subject {$subject}."
+
 msgid "submission.event.submissionSubmitted"
 msgstr "Initial submission completed."
 
@@ -1334,26 +1337,203 @@ msgstr "Are you sure you want the authors of this submission to be able to edit 
 msgid "editor.submission.decision"
 msgstr "Decision"
 
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Notify Authors"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Notify Reviewers"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr "Send an email to the reviewers to thank them for their review and let them know that a decision was taken."
+
 msgid "editor.submission.decision.accept"
 msgstr "Accept Submission"
 
-msgid "editor.submission.decision.requestRevisions"
-msgstr "Request Revisions"
+msgid "editor.submission.decision.accept.description"
+msgstr "This submission will be accepted for publication and sent for copyediting."
 
-msgid "editor.submission.decision.resubmit"
-msgstr "Resubmit for Review"
+msgid "editor.submission.decision.accept.log"
+msgstr "{$editorName} accepted this submission and sent it to the copyediting stage."
 
-msgid "editor.submission.decision.newRound"
-msgstr "New review round"
+msgid "editor.submission.decision.accept.completed"
+msgstr "Submission Accepted"
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr "The submission, {$title}, has been accepted for publication and sent to the copyediting stage."
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission has been accepted for publication."
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "Back to Submission"
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "Sent Back to Submission"
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr "The submission, {$title}, was sent back to the submission stage."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission is being sent back to the submission stage. Explain why this decision was made and inform the author of what further work will be undertaken before moving the submission forward."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr "Revert the decision to accept this submission and send it back to the submission stage."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr "{$editorName} reverted the decision to accept this submission and sent it back to the submission stage."
 
 msgid "editor.submission.decision.decline"
 msgstr "Decline Submission"
 
+msgid "editor.submission.decision.decline.description"
+msgstr "This submission will be declined for publication. The peer review stage will be closed and the submission will be archived."
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} declined this submission."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Submission Declined"
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "The submission, {$title}, has been declined and sent to the archives."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission has been declined."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr "This submission will be declined for publication. No further review will be conducted and the submission will be archived."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "New Review Round"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Open another round of review for this submission."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} created a new round of review for this submission."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Review Round Created"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "A new round of review has been created for the submission, {$title}."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission has been sent for a new round of review."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Select files that should be sent to the copyediting stage."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Select files that should be sent for review."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Request Revisions"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr "The author must provide revisions before this submission will be accepted for publication."
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} requested revisions for this submission."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Revisions Requested"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr "Revisions for the submission, {$title}, have been requested."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that revisions will be required before this submission will be accepted for publication. Include all of the details that the author will need in order to revise their submission. Where appropriate, remember to anonymise any reviewer comments."
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Resubmit for Review"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr "The author must provide revisions that will be sent for another round of review before this submission will be accepted for publication."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr "{$editorName} requested revisions for this submission that should be sent for another round of review."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Revisions Requested"
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr "Revisions for the submission, {$title}, have been requested. A decision to send the revisions for another round of reviews was recorded."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that revisions will be need to be completed and sent for another round of review. Include all of the details that the author will need in order to revise their submission. Where appropriate, remember to anonymise any reviewer comments."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Send for Review"
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "This submission is ready to be sent for peer review."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} sent this submission to the review stage."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Sent for Review"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "The submission, {$title}, has been sent to the review stage."
+
+msgid "editor.submission.decision.newRound"
+msgstr "New review round"
+
 msgid "editor.submission.decision.sendToProduction"
 msgstr "Send To Production"
 
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr "Send this submission to the production stage to be prepared for publication."
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} sent this submission to the production stage."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Sent to Production"
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "The submission, {$title}, was sent to the production stage."
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that this submission has been sent to the production stage."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Back to Copyediting"
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Send this submission back to the copyediting stage."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} sent this submission back to the copyediting stage."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Sent Back to Copyediting"
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "The submission, {$title}, was sent back to the copyediting stage."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that this submission has been sent back to the copyediting stage. Explain why this decision was made and inform the author of what further editing will be required before this submission is ready for production."
+
 msgid "editor.submission.decision.skipReview"
 msgstr "Accept and Skip Review"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr "Accept this submission for publication and skip the review stage. This decision will send the submission to the copyediting stage."
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr "{$editorName} skipped the review stage and sent this submission to the copyediting stage."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Skipped Review"
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr "The submission, {$title}, skipped the review stage and has been sent to the copyediting stage."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that this submission has been accepted for publication and sent to the copyediting stage without review."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Send to Internal Review"
@@ -1370,8 +1550,71 @@ msgstr "This file proof will no longer be publicly available for download or pur
 msgid "editor.submission.decision.revertDecline"
 msgstr "Revert Decline"
 
+msgid "editor.submission.decision.revertDecline.description"
+msgstr "Revert a previous decision to decline this submission and return it to the active editorial process."
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} reversed the decision to decline this submission."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Submission Reactivated"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "The submission, {$title}, is now an active submission in the review stage."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that a previous decision to decline this submission has been reverted. Explain why the decision was reverted and let them know whether the submission is expected to undergo further review."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "The submission, {$title}, is now active in the submission stage."
+
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Assign an editor to enable the editorial decisions for this stage."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr "Send a message to the deciding editors to let them know the recommendation. Explain why this recommendation was made in response to the recommendations and comments submitted by reviewers."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Recommend Accept"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr "Recommend that this submission be accepted for publication and sent for copyediting."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr "{$editorName} recommended that this submission be accepted and sent for copyediting."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Recommendation Submitted"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr "Your recommendation has been recorded and the deciding editor(s) have been notified."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Recommend Revisions"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr "Recommend that revisions be requested from the author before this submission is accepted for publication."
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} recommended that revisions be requested."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Recommend Resubmit for Review"
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr "Recommend that the author is asked to submit revisions for another round of review."
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr "{$editorName} recommended that revisions be requested and that these revisions be sent for another round of review."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Recommend Decline"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Recommend that the submission be declined for publication."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} recommended that this submission be declined."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Make Recommendation"
@@ -1385,6 +1628,9 @@ msgstr "Recommendation: {$recommendation}"
 msgid "editor.submission.allRecommendations.display"
 msgstr "Recommendations: {$recommendations}"
 
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr "You can not make a recommendation until an editor is assigned with permission to record a decision."
+
 msgid "editor.submission.recommendation"
 msgstr "Recommendation"
 
@@ -1393,15 +1639,6 @@ msgstr "Recommend an editorial decision for this submission."
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "Recorded Recommendations"
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Next: Select Files for {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Select the files you would like to forward to the {$stageName} stage."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Previous: Author Notification"
 
 msgid "submission.currentStage"
 msgstr "Current stage"

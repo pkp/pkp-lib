@@ -18,7 +18,9 @@
 namespace PKP\notification;
 
 use APP\core\Application;
+use APP\decision\Decision;
 use APP\facades\Repo;
+use APP\notification\Notification;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -419,6 +421,50 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 'emailSettingName' => 'emailNotificationEditorialReport',
                 'settingKey' => 'notification.type.editorialReport']
         ];
+    }
+
+    /**
+     * Get the stage-level notification type constants for editorial decisions
+     *
+     * @return int[]
+     */
+    public function getDecisionStageNotifications(): array
+    {
+        return [
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW,
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING,
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION
+        ];
+    }
+
+    /**
+     * Get the notification type for each editor decision
+     *
+     * @return int One of the Notification::NOTIFICATION_TYPE_ constants
+     */
+    public function getNotificationTypeByEditorDecision(Decision $decision): ?int
+    {
+        switch ($decision->getData('decision')) {
+            case Decision::ACCEPT:
+                return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT;
+            case Decision::EXTERNAL_REVIEW:
+                return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW;
+            case Decision::PENDING_REVISIONS:
+                return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS;
+            case Decision::RESUBMIT:
+                return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT;
+            case Decision::NEW_ROUND:
+                return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND;
+            case Decision::DECLINE:
+            case Decision::INITIAL_DECLINE:
+                return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE;
+            case Decision::REVERT_DECLINE:
+                return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE;
+            case Decision::SEND_TO_PRODUCTION:
+                return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION;
+        }
+        return null;
     }
 
     //

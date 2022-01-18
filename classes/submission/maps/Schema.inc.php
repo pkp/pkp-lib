@@ -14,17 +14,17 @@
 namespace PKP\submission\maps;
 
 use APP\core\Application;
-use APP\core\Request;
 use APP\facades\Repo;
 use APP\submission\Submission;
 
 use Illuminate\Support\Enumerable;
 
-use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
+use PKP\security\UserGroup;
 use PKP\services\PKPSchemaService;
+use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 
@@ -36,7 +36,7 @@ class Schema extends \PKP\core\maps\Schema
     /** @copydoc \PKP\core\maps\Schema::$schema */
     public string $schema = PKPSchemaService::SCHEMA_SUBMISSION;
 
-    /** @var array The user groups for this context. */
+    /** @var UserGroup[] The user groups for this context. */
     public array $userGroups;
 
     /**
@@ -77,10 +77,14 @@ class Schema extends \PKP\core\maps\Schema
      * Map a submission
      *
      * Includes all properties in the submission schema.
+     *
+     * @param UserGroup[] $userGroups The user groups in this context
+     * @param Genre[] $genres The file genres in this context
      */
-    public function map(Submission $item, array $userGroups): array
+    public function map(Submission $item, array $userGroups, array $genres): array
     {
         $this->userGroups = $userGroups;
+        $this->genres = $genres;
         return $this->mapByProperties($this->getProps(), $item);
     }
 
@@ -88,10 +92,14 @@ class Schema extends \PKP\core\maps\Schema
      * Summarize a submission
      *
      * Includes properties with the apiSummary flag in the submission schema.
+     *
+     * @param UserGroup[] $userGroups The user groups in this context
+     * @param Genres[] $genres The file genres in this context
      */
-    public function summarize(Submission $item, array $userGroups): array
+    public function summarize(Submission $item, array $userGroups, array $genres): array
     {
         $this->userGroups = $userGroups;
+        $this->genres = $genres;
         return $this->mapByProperties($this->getSummaryProps(), $item);
     }
 
@@ -99,13 +107,17 @@ class Schema extends \PKP\core\maps\Schema
      * Map a collection of Submissions
      *
      * @see self::map
+     *
+     * @param UserGroup[] $userGroups The user groups in this context
+     * @param Genres[] $genres The file genres in this context
      */
-    public function mapMany(Enumerable $collection, array $userGroups): Enumerable
+    public function mapMany(Enumerable $collection, array $userGroups, array $genres): Enumerable
     {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
+        $this->genres = $genres;
         return $collection->map(function ($item) {
-            return $this->map($item, $this->userGroups);
+            return $this->map($item, $this->userGroups, $this->genres);
         });
     }
 
@@ -113,22 +125,30 @@ class Schema extends \PKP\core\maps\Schema
      * Summarize a collection of Submissions
      *
      * @see self::summarize
+     *
+     * @param UserGroup[] $userGroups The user groups in this context
+     * @param Genres[] $genres The file genres in this context
      */
-    public function summarizeMany(Enumerable $collection, array $userGroups): Enumerable
+    public function summarizeMany(Enumerable $collection, array $userGroups, array $genres): Enumerable
     {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
+        $this->genres = $genres;
         return $collection->map(function ($item) {
-            return $this->summarize($item, $this->userGroups);
+            return $this->summarize($item, $this->userGroups, $this->genres);
         });
     }
 
     /**
      * Map a submission with extra properties for the submissions list
+     *
+     * @param UserGroup[] $userGroups The user groups in this context
+     * @param Genres[] $genres The file genres in this context
      */
-    public function mapToSubmissionsList(Submission $item, array $userGroups): array
+    public function mapToSubmissionsList(Submission $item, array $userGroups, array $genres): array
     {
         $this->userGroups = $userGroups;
+        $this->genres = $genres;
         return $this->mapByProperties($this->getSubmissionsListProps(), $item);
     }
 
@@ -136,13 +156,17 @@ class Schema extends \PKP\core\maps\Schema
      * Map a collection of submissions with extra properties for the submissions list
      *
      * @see self::map
+     *
+     * @param UserGroup[] $userGroups The user groups in this context
+     * @param Genres[] $genres The file genres in this context
      */
-    public function mapManyToSubmissionsList(Enumerable $collection, array $userGroups): Enumerable
+    public function mapManyToSubmissionsList(Enumerable $collection, array $userGroups, array $genres): Enumerable
     {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
+        $this->genres = $genres;
         return $collection->map(function ($item) {
-            return $this->mapToSubmissionsList($item, $this->userGroups);
+            return $this->mapToSubmissionsList($item, $this->userGroups, $this->genres);
         });
     }
 
@@ -203,7 +227,7 @@ class Schema extends \PKP\core\maps\Schema
                     );
                     break;
                 case 'publications':
-                    $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups)
+                    $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups, $this->genres)
                         ->summarizeMany($submission->getData('publications'), $anonymize);
                     break;
                 case 'reviewAssignments':

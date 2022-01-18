@@ -44,6 +44,42 @@ msgstr "Submission accepted for review."
 msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Change decision"
 
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "You do not have permission to record this decision on this submission."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr "The editor was not recognized and may not have permission to record a decision on this submission."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "You can not send an email to the following recipients: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "This review round could not be found."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr "A review round was provided but this decision is not taken during a review stage."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "This review round is not part of this submission."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr "The submission is not at the appropriate stage of the workflow to take this decision."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr "You must be assigned to this submission in order to record an editorial decision."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "A review round id must be provided in order to take this decision."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr "A recommendation can not be made unless an editor is assigned to this stage who can take a final decision."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr "A decision could not be taken on this submission. The submission id is missing or does not match the requested submission."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "This decision could not be found. Please provide a recognized decision type."
+
 msgid "editor.review.notInitiated"
 msgstr "The review process has not yet been initiated."
 
@@ -160,6 +196,12 @@ msgstr "Revisions will not be subject to a new round of peer reviews."
 
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Revisions will be subject to a new round of peer reviews."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Revisions should not be subject to a new round of peer reviews."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Revisions should be subject to a new round of peer reviews."
 
 msgid "editor.review.dateAccepted"
 msgstr "Review Acceptance Date"
@@ -469,3 +511,27 @@ msgstr "Biography"
 
 msgid "reviewer.list.empty"
 msgstr "No reviewers found"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Cancel Decision"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Are you sure you want to cancel this decision?"
+
+msgid "editor.decision.completeSteps"
+msgstr "Complete the following steps to take this decision"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Don't skip this email"
+
+msgid "editor.decision.emailSkipped"
+msgstr "This step has been skipped and no email will be sent."
+
+msgid "editor.decision.recordDecision"
+msgstr "Record Decision"
+
+msgid "editor.decision.skipEmail"
+msgstr "Skip this email"
+
+msgid "editor.decision.stepError"
+msgstr "There was a problem with the {$stepName} step."

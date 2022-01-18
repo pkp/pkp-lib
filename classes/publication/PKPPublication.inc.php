@@ -219,9 +219,9 @@ class PKPPublication extends \PKP\core\DataObject
 
         $firstAuthor = $authors->first();
 
-        $str = $firstAuthor->getLocalizedFamilyName();
+        $str = $firstAuthor->getLocalizedData('familyName', $defaultLocale);
         if (!$str) {
-            $str = $firstAuthor->getLocalizedGivenName();
+            $str = $firstAuthor->getLocalizedData('givenName', $defaultLocale);
         }
 
         if ($authors->count() > 1) {

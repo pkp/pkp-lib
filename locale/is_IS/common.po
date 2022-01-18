@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-15 16:25+0000\n"
+"PO-Revision-Date: 2022-01-19 08:07+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/is_IS/>\n"
@@ -983,3 +983,500 @@ msgstr "Hlaða upp ritrýniskrá"
 
 msgid "debug.notes.missingLocaleKey"
 msgstr "Það vantar tungumál \"{$key}\"."
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "villa"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "lokið"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Hreinsa atriðaskrá"
+
+msgid "search.searchAgain"
+msgstr "Leita aftur"
+
+msgid "search.advancedSearchLess"
+msgstr "Fela frekari leitarmöguleika."
+
+msgid "search.advancedSearchMore"
+msgstr "Fleiri leitarmöguleikar"
+
+msgid "search.abstract"
+msgstr "Útdráttur"
+
+msgid "search.author"
+msgstr "Eftir höfundi"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Senda tölvupóst um þetta á alla skráða notendur."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Lýsigögn innsendingar vistuð."
+
+msgid "notification.reminderSent"
+msgstr "Nýja lykilorðið þitt hefur verið sent á uppgefið netfang."
+
+msgid "notification.reminderError"
+msgstr ""
+"Það kom upp villa við að senda lykilorðið þitt, vinsamlega athugaðu hvort þú "
+"hafir skráð netfang rétt."
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Veldu þá kerfisatburði sem þú vilt fá tilkynningu um.  Afmerking atriða "
+"kemur í veg fyrir að tilkynningar um atburðinn komi upp í kerfinu og að þú "
+"fáir tölvupóst. Merktir atburðir munu sjást í kerfinu og þú hefur val um  "
+"hvort þú vilt fá sömu tilkynningu í tölvupósti eða ekki."
+
+msgid "notification.settings"
+msgstr "Stillingar á tilkynningu"
+
+msgid "notification.sentNotification"
+msgstr "Tilkynning send."
+
+msgid "notification.notifications"
+msgstr "Tilkynningar"
+
+msgid "notification.notification"
+msgstr "Tilkynning"
+
+msgid "notification.removedSubmission"
+msgstr "Fjarlægð innsending."
+
+msgid "notification.removedFile"
+msgstr "Fjarlægð skrá."
+
+msgid "notification.removedNote"
+msgstr "Minnispunkti eytt."
+
+msgid "notification.addedNote"
+msgstr "Minnispunktur birtur."
+
+msgid "notification.noneExist"
+msgstr "Þú átt engar tilkynningar núna."
+
+msgid "notification.email"
+msgstr "Ekki senda mér tölvupóst fyrir þessa tegund af tilkynningum."
+
+msgid "notification.confirmSuccess"
+msgstr "Þér tókst að gerast áskrifandi."
+
+msgid "notification.confirmError"
+msgstr "Það kom upp villa við að staðfesta áskriftina þína."
+
+msgid "notification.editedAuthor"
+msgstr "Höfundi breytt."
+
+msgid "notification.addedAuthor"
+msgstr "Höfundi bætt við."
+
+msgid "notification.removedAnnouncement"
+msgstr "Tilkynning fjarlægð."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Tegund tilkynningar fjarlægð."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Tegund tilkynningar breytt."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Tegund tilkynningar bætt við."
+
+msgid "notification.allow"
+msgstr "Virkja þessa tegund af skilaboðum."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Búið að uppfæra ritrýniskrá(r)."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Þakkar póstur sendur til ritrýnis."
+
+msgid "notification.reviewAcknowledged"
+msgstr "Ritrýni merkt sem samþykkt. Tölvupóstur ekki sendur."
+
+msgid "notification.addedQuery"
+msgstr "Umræðu bætt við"
+
+msgid "notification.removedAuditor"
+msgstr "Endurskoðandi fjarlægður."
+
+msgid "notification.addedAuditor"
+msgstr "Endurskoðanda bætt við."
+
+msgid "navigation.viewFrontend"
+msgstr "Skoða síðu"
+
+msgid "navigation.userManagement"
+msgstr "Stýring notenda"
+
+msgid "navigation.user"
+msgstr "Notandi"
+
+msgid "navigation.userHome"
+msgstr "Heim fyrir notanda"
+
+msgid "navigation.system"
+msgstr "Kerfi"
+
+msgid "navigation.submissions"
+msgstr "Innsendingar"
+
+msgid "navigation.stepNumber"
+msgstr "Skref {$step}"
+
+msgid "navigation.skip.footer"
+msgstr "Hoppa yfir í  síðufót"
+
+msgid "navigation.skip.nav"
+msgstr "Hoppa yfir í stiklu valmynd"
+
+msgid "navigation.skip.main"
+msgstr "Hoppa yfir í megin innihald"
+
+msgid "navigation.skip.announcements"
+msgstr "Hoppa yfir í tilkynningar"
+
+msgid "navigation.sitemap"
+msgstr "Veftré"
+
+msgid "navigation.setup"
+msgstr "Uppsetning"
+
+msgid "navigation.settings"
+msgstr "Stillingar"
+
+msgid "navigation.search"
+msgstr "Leita"
+
+msgid "navigation.register"
+msgstr "Skrá sig"
+
+msgid "navigation.publicMenu"
+msgstr "Almenn valmynd"
+
+msgid "navigation.previousStep"
+msgstr "Fyrra skref"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextStep"
+msgstr "Næsta skref"
+
+msgid "navigation.login"
+msgstr "Innskráning"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} af {$total} atriðum"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} af {$total} atriðum"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Upplýsingar fyrir lesendur"
+
+msgid "navigation.infoForReaders"
+msgstr "Fyrir lesendur"
+
+msgid "navigation.home"
+msgstr "Heim"
+
+msgid "navigation.data"
+msgstr "Gögn"
+
+msgid "navigation.dashboard"
+msgstr "Lesborð"
+
+msgid "navigation.browseByTitle"
+msgstr "Eftir Titli"
+
+msgid "navigation.browseByAuthor"
+msgstr "Eftir höfundi"
+
+msgid "navigation.backTo"
+msgstr "⟵ til baka til {$page}"
+
+msgid "navigation.browse"
+msgstr "Vafra"
+
+msgid "navigation.tools.statistics"
+msgstr "Tölfræði"
+
+msgid "navigation.tools.importExport"
+msgstr "Flytja inn/Flytja út"
+
+msgid "navigation.tools"
+msgstr "Tæki"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Þú ert hér:"
+
+msgid "navigation.archives"
+msgstr "Safn"
+
+msgid "navigation.admin"
+msgstr "Stjórnun"
+
+msgid "navigation.about"
+msgstr "Um"
+
+msgid "navigation.access"
+msgstr "Notendur & hlutverk"
+
+msgid "locale.supported"
+msgstr "Studd tungumál"
+
+msgid "locale.primary"
+msgstr "Aðal tungumál"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Ekki er hægt að breyta þessum þátttakanda"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Þátttakandi"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Leyfa þessar manneskju að breyta útgáfunni, svo sem titli, útdrætti, "
+"lýsigögnum og öðrum atriðum útgáfunnar. Þú gætir viljað afturkalla þessi "
+"réttindi ef innsending hefur farið í loka skoðun og er tilbúin til birtingar."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Leyfi"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Þessi þátttakandi má aðeins leggja til ritstjórnar ákvörðun og þarfnast "
+"ritstjóra með réttindi til að skrá ritstjórnar ákvörðun."
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Vinsamlega gættu þess að þú hafir fyllt út skilaboðasvæðið og bætt "
+"einhverjum öðrum en þér við umræðuna."
+
+msgid "stageParticipants.notify.message"
+msgstr "Skilaboð"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Veldu fyrirfram skilgreind skilaboð sem á að nota, eða fylltu út eyðublaðið "
+"hér fyrir neðan."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Hefja umræðu á milli þín og {$userFullName}."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Hefja umræðu"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Tilkynning send til notenda."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Tilkynning send til notenda."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Nýr minnispunktur birtur."
+
+msgid "informationCenter.history.noItems"
+msgstr "Það eru engir atburðir skráðir."
+
+msgid "informationCenter.pastHistory"
+msgstr "Fyrri ritrýni"
+
+msgid "informationCenter.currentHistory"
+msgstr "Núverandi ritrýni"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Ertu viss um að þú viljir eyða þessum minnispunkti?"
+
+msgid "informationCenter.pastNotes"
+msgstr "Minnispunktar fyrri ritrýni"
+
+msgid "informationCenter.noNotes"
+msgstr "Það eru engar athugasemdir til að sýna."
+
+msgid "informationCenter.addNote"
+msgstr "Bæta við minnispunkt"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Ritstjórnar saga"
+
+msgid "informationCenter.informationCenter"
+msgstr "Upplýsinga miðstöð"
+
+msgid "icon.view.alt"
+msgstr "Skoða"
+
+msgid "icon.unchecked.alt"
+msgstr "Ómerkt"
+
+msgid "icon.mail.alt"
+msgstr "Póstur"
+
+msgid "icon.letter.alt"
+msgstr "Bréf"
+
+msgid "icon.info.alt"
+msgstr "Upplýsingar"
+
+msgid "icon.font_small.alt"
+msgstr "Lítið"
+
+msgid "icon.font_medium.alt"
+msgstr "Meðal"
+
+msgid "icon.font_large.alt"
+msgstr "Stór"
+
+msgid "icon.folder.alt"
+msgstr "Mappa"
+
+msgid "icon.edit.alt"
+msgstr "Breyta"
+
+msgid "icon.delete.alt"
+msgstr "Eyða"
+
+msgid "icon.comment.alt"
+msgstr "Athugasemd"
+
+msgid "icon.checked.alt"
+msgstr "Merkt"
+
+msgid "help.upALevel"
+msgstr "Up um þrep"
+
+msgid "help.next"
+msgstr "Næst"
+
+msgid "help.previous"
+msgstr "Fyrri"
+
+msgid "help.toc"
+msgstr "Efnisyfrlit"
+
+msgid "help.help"
+msgstr "Hjálp"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} tungumálum lokið"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} á {$localeName}"
+
+msgid "form.invalidImage"
+msgstr ""
+"Ógildri mynd var hlaðið upp.  Leyfðar tegunder eru: .png, .gif, eða .jpg."
+
+msgid "form.submit"
+msgstr "Senda"
+
+msgid "form.send"
+msgstr "Senda"
+
+msgid "form.saveToUpload"
+msgstr "Notaðu \"Vista\" til að hlaða upp skrá."
+
+msgid "form.saved"
+msgstr "Vistað"
+
+msgid "form.resubmit"
+msgstr "Senda aftur"
+
+msgid "form.requireId"
+msgstr "Þú verður að slá inn gilt kenni."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Þú verður að klára þetta svæði á {$language}."
+
+msgid "form.required"
+msgstr "(* Skilyrt)"
+
+msgid "form.fileRequired"
+msgstr "Þú verður að hlaða upp skrá."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Ekki var hægt að senda inn eyðublaðið. Mögulega er búið að aftengja þig.  "
+"Vinsamlega endurhalddu síðunni og reyndu aftur."
+
+msgid "form.postRequired"
+msgstr "Eyðublaðið var ekki sent inn almennilega."
+
+msgid "form.startsWith"
+msgstr "byrjar á"
+
+msgid "form.is"
+msgstr "er"
+
+msgid "form.contains"
+msgstr "inniheldur"
+
+msgid "form.formLanguage"
+msgstr "Tungumál eyðublaðs"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Til að setja inn upplýsingarnar fyrir neðan á viðbótar tungumáli, þarf fyrst "
+"að velja tungumál."
+
+msgid "form.errorsOccurred"
+msgstr "Villur komu upp við vinnslu þessa eyðublaðs"
+
+msgid "form.errors"
+msgstr ""
+"Eyðublaðið var ekki vistað vegna þess að  {$count} villa/villur komu upp. "
+"Vinsamlega lagfræðu og reyndu aftur."
+
+msgid "form.errorMany"
+msgstr "Vinsamlega lagfærðu {$count} villur."
+
+msgid "form.errorOne"
+msgstr "Vinsamlega lagfærðu eina villu."
+
+msgid "form.errorGoTo"
+msgstr "Hoppa á næstu villu"
+
+msgid "form.errorA11y"
+msgstr "Farðu til {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Þú getur ekki hlaðið upp fleiri skrám."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Fjarlægja skrá"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Ert þú viss um að þú viljir hætta við upphalið?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Hætt við upphal"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Hætta við að hlaða upp"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Þjóninn svaraði með kóða: {{statusCode}} .Vinsamlega hafðu samband við "
+"tæknilega aðstoð ef þetta vandamál heldur áfram."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Ekki er hægt að hlaða um skrám af þessari tegund."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Skráin er of stór ({{filesize}}mb). Það er ekki hægt að hlaða upp skrám sem "
+"eru stærri en {{maxFilesize}}mb."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Vinsamlega notaðu varaleiðina hér fyrir neðan til að hlaða upp skrám."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Þessi vafri styður ekki við \"draga og sleppa\" til að hlaða upp skrám."

@@ -2361,6 +2361,9 @@ msgstr "The full name of the website's primary contact"
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "The email of the website's primary contact"
 
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "The website's email signature for automated emails"
+
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr "The editors assigned to this submission who can make a decision"
 

@@ -38,8 +38,6 @@ class SubmissionEmailVariable extends Variable
 
     protected Publication $currentPublication;
 
-    /**
-     */
     public function __construct(Submission $submission)
     {
         $this->submission = $submission;

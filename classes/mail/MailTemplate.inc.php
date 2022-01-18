@@ -171,7 +171,7 @@ class MailTemplate extends Mail
             // Add context-specific variables
             $dispatcher = $application->getDispatcher();
             $params = array_merge([
-                'signature' => $this->context->getData('contactName'),
+                ContextEmailVariable::CONTEXT_SIGNATURE => $this->context->getData('contactName'),
                 ContextEmailVariable::CONTEXT_NAME => $this->context->getLocalizedName(),
                 ContextEmailVariable::CONTEXT_URL => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $this->context->getPath()),
                 'mailingAddress' => htmlspecialchars(nl2br($this->context->getData('mailingAddress'))),

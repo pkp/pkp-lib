@@ -17,6 +17,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Support\Collection;
@@ -116,8 +117,14 @@ abstract class Repository
      *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate(?SubmissionFile $object, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate(
+        ?SubmissionFile $object,
+        array $props,
+        array $allowedLocales,
+        string $primaryLocale
+    ): array
     {
+
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),
@@ -393,7 +400,7 @@ abstract class Repository
                 // Get uploader name
                 $mail->assignParams([
                     'authorName' => $uploader->getFullName(),
-                    'editorialContactSignature' => $context->getData('contactName'),
+                    ContextEmailVariable::CONTEXT_SIGNATURE => $context->getData('contactName'),
                     'submissionUrl' => $this->request->getDispatcher()->url(
                         $this->request,
                         PKPApplication::ROUTE_PAGE,

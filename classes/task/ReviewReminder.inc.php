@@ -91,10 +91,7 @@ class ReviewReminder extends ScheduledTask
         }
 
         $oldVariables = [
-            'signature' => $mailable->viewData['principalContactSignature'],
-            'editorialContactSignature' => $mailable->viewData['principalContactSignature'],
             'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-            'reviewAssignmentUrl' => $mailable->viewData['submissionReviewUrl'],
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')),
         ];

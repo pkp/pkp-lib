@@ -79,6 +79,10 @@ class commandJobs extends CommandLineTool
         'usage' => 'Display the command help',
     ];
 
+    protected const CURRENT_PAGE = 'current';
+    protected const PREVIOUS_PAGE = 'previous';
+    protected const NEXT_PAGE = 'next';
+
     /**
      * @var null|string Which option will be call?
      */
@@ -262,14 +266,14 @@ class commandJobs extends CommandLineTool
 
         $pagination = [
             'pagination' => [
-                0 => $data->currentPage(),
-                1 => ($data->currentPage() - 1) > 0 ? $data->currentPage() - 1 : 1,
-                2 => $data->currentPage(),
+                self::CURRENT_PAGE => $data->currentPage(),
+                self::PREVIOUS_PAGE => ($data->currentPage() - 1) > 0 ? $data->currentPage() - 1 : 1,
+                self::NEXT_PAGE => $data->currentPage(),
             ],
         ];
 
         if ($data->hasMorePages()) {
-            $pagination['pagination'][2] = $data->currentPage() + 1;
+            $pagination['pagination'][self::NEXT_PAGE] = $data->currentPage() + 1;
         }
 
         $this->getCommandInterface()

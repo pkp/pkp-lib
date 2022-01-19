@@ -55,6 +55,7 @@ class NotificationDAO extends DAO {
 		$result = Capsule::table('notifications')
 			->where('user_id', '=', (int) $userId)
 			->where('level', '=', (int) $level)
+			->orderBy('date_created', 'desc')
 			->get();
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}

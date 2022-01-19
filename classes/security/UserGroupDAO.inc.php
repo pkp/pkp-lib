@@ -463,14 +463,12 @@ class UserGroupDAO extends DAO
     /**
      * Retrieves a keyed Collection (key = user_group_id, value = count) with the amount of active users for each user group
      */
-    public function getUserCountByContextId(int $contextId = null): Collection
+    public function getUserCountByContextId(?int $contextId = null): Collection
     {
         return DB::table('user_groups', 'ug')
             ->join('user_user_groups AS uug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->join('users AS u', 'u.user_id', '=', 'uug.user_id')
-            ->when($contextId, function (Builder $query) use ($contextId): void {
-                $query->where('ug.context_id', '=', $contextId);
-            })
+            ->when($contextId !== null, fn (Builder $query) => $query->where('ug.context_id', '=', $contextId))
             ->where('u.disabled', '=', 0)
             ->groupBy('ug.user_group_id')
             ->select('ug.user_group_id')
@@ -970,14 +968,9 @@ class UserGroupDAO extends DAO
 
         $searchSql = '';
         $search = trim($search);
-        if (!empty($search)) {
+        if (strlen($search)) {
             if (!isset($searchTypeMap[$searchType])) {
-                $terms = array_map(
-                    function (string $term): string {
-                        return "%$term%";
-                    },
-                    PKPString::regexp_split('/\s+/', $search)
-                );
+                $terms = array_map(fn (string $term) => '%' . addcslashes($term, '%_') . '%', PKPString::regexp_split('/\s+/', $search));
                 $filters = [];
 
                 switch (get_class(DB::connection())) {

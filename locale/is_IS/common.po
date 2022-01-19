@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-19 15:00+0000\n"
+"PO-Revision-Date: 2022-01-20 11:44+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/is_IS/>\n"
@@ -997,7 +997,7 @@ msgid "search.searchAgain"
 msgstr "Leita aftur"
 
 msgid "search.advancedSearchLess"
-msgstr "Fela frekari leitarmöguleika."
+msgstr "Fela frekari leitarmöguleika"
 
 msgid "search.advancedSearchMore"
 msgstr "Fleiri leitarmöguleikar"
@@ -1579,3 +1579,425 @@ msgstr "Yfirgrip"
 
 msgid "search.cli.rebuildIndex.result"
 msgstr "{$numIndexed} greinar skráðar í atriðaskrá"
+
+msgid "validator.url"
+msgstr "Þetta er ekki gild vefslóð."
+
+msgid "validator.unique"
+msgstr "The {$attribute} er þegar í notkun."
+
+msgid "validator.timezone"
+msgstr "þetta er ekki gilt tímabelti."
+
+msgid "validator.string"
+msgstr "Þetta er ekki gildur strengur."
+
+msgid "validator.size.array"
+msgstr "Þetta verður að innihalda {$size} atriði."
+
+msgid "validator.size.string"
+msgstr "Þetta verður að vera {$size} stafir."
+
+msgid "validator.size.file"
+msgstr "þetta verður að vera {$size} kilobytes."
+
+msgid "validator.size.numeric"
+msgstr "Þetta verður að vera {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} og {$other} verða að passa saman."
+
+msgid "validator.required_without_all"
+msgstr "þetta svæði er áskilið þegar ekkert af {$values} eru til staðar."
+
+msgid "validator.required_without"
+msgstr "Þetta svæði er áskilið þegar {$values} er ekki til staðar."
+
+msgid "validator.required_with_all"
+msgstr "Þetta svæði er áskilið þegar {$values} er til staðar."
+
+msgid "validator.required_with"
+msgstr "Þetta svæði er áskilið þegar {$values} er til staðar."
+
+msgid "validator.required_unless"
+msgstr "Þetta svæði er áskilið nema {$other} sé í {$values}."
+
+msgid "validator.required_if"
+msgstr "Þetta svæði er áskilið þegar {$other} er {$value}."
+
+msgid "validator.required"
+msgstr "Þetta svæði er áskilið."
+
+msgid "validator.regex"
+msgstr "Þetta er ekki formatterað rétt."
+
+msgid "validator.present"
+msgstr "{$attribute} svæðið þarf að vera til staðar."
+
+msgid "validator.orcid"
+msgstr "Þetta er ekki gilt ORCID."
+
+msgid "validator.numeric"
+msgstr "Þetta er ekki gilt númer."
+
+msgid "validator.not_in"
+msgstr "Valinn {$attribute} er ógildur."
+
+msgid "validator.min.array"
+msgstr "Þetta þarf að hafa a.m.k.t {$min} atriði."
+
+msgid "validator.min.string"
+msgstr "Þetta þarf að vera a.m.k. {$min} stafir."
+
+msgid "validator.min.file"
+msgstr "Þetta þarf að vera a.m.k. {$min} kilobytes."
+
+msgid "validator.min.numeric"
+msgstr "Þetta þarf að vera a.m.k. {$min}."
+
+msgid "validator.mimes"
+msgstr "Þetta þarf að vera skrá af tegundinni {$values}."
+
+msgid "validator.max.array"
+msgstr "Þetta má ekki vera meira en {$max} atriði."
+
+msgid "validator.max.string"
+msgstr "Þetta má ekki vera meira en {$max} stafir."
+
+msgid "validator.max.file"
+msgstr "Þetta má ekki vera hærra en {$max} kilobytes."
+
+msgid "validator.max.numeric"
+msgstr "Þetta má ekki vera hærra en {$max}."
+
+msgid "validator.localeKey"
+msgstr ""
+"Tungumál þarf að tilgreina með því að nota \"locale code\". T.d. en_US, "
+"is_IS, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Þetta svæði er fyrir mörg tungumál.  þú þarft að tilgreina innihald á hverju "
+"leyfðu tungumáli fyrir sig."
+
+msgid "validator.locale"
+msgstr "Þetta tungumál er ekki leyft."
+
+msgid "validator.json"
+msgstr "Þetta er ekki gidlur JSON strengur."
+
+msgid "validator.issn"
+msgstr "Þetta er ekki gilt ISSN."
+
+msgid "validator.ip"
+msgstr "þetta er ekki gilt IP-númer."
+
+msgid "validator.integer"
+msgstr "Þetta er ekki gild heiltala."
+
+msgid "validator.in"
+msgstr "Valinn {$attribute} er ógildur."
+
+msgid "validator.image"
+msgstr "Þetta verður að vera mynd."
+
+msgid "validator.filled"
+msgstr "Þetta er áskilið svæði."
+
+msgid "validator.exists"
+msgstr "Valinn {$attribute} er ógildur."
+
+msgid "validator.email"
+msgstr "Þetta er ekki gilt netfang."
+
+msgid "validator.digits_between"
+msgstr "þetta verður að vera á milli {$min} og {$max} tölustafa."
+
+msgid "validator.digits"
+msgstr "Lengdin verður að vera {$digits} tölustir."
+
+msgid "validator.different"
+msgstr "{$attribute} og {$other} mega ekki vera eins."
+
+msgid "validator.date_format"
+msgstr "Þetta passar ekki við gerð/snið {$format}."
+
+msgid "validator.date"
+msgstr "Þetta er ekki gild dagsetning."
+
+msgid "validator.currency"
+msgstr "Þetta er ekki gildur gjaldmiðill."
+
+msgid "validator.country"
+msgstr "Þetta er ekki gilt land."
+
+msgid "validator.confirmed"
+msgstr "Staðfestingin fyrir þetta svæði passar ekki."
+
+msgid "validator.boolean"
+msgstr "Þetta svæði verður að vera satt eða rangt."
+
+msgid "validator.between.array"
+msgstr "Þetta þarf að vera á milli {$min} og {$max} atriða."
+
+msgid "validator.between.string"
+msgstr "Þetta þarf að vera á milli {$min} og {$max} stafa."
+
+msgid "validator.between.file"
+msgstr "Þetta þarf að vera á milli {$min} og {$max} kilobytes."
+
+msgid "validator.between.numeric"
+msgstr "Þetta þarf að vera á milli {$min} og {$max}."
+
+msgid "validator.before"
+msgstr "Þessi dagsetning verður að vera fyrir {$date}."
+
+msgid "validator.array"
+msgstr "Þetta er ekki gilt fylki."
+
+msgid "validator.alpha_num"
+msgstr "Þetta má bara innihalda bókstafi og tölustafi."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Þetta má bara innihalda bókstafi, tölustafi, bandstrik, undirstrik og punkta."
+
+msgid "validator.alpha_dash"
+msgstr "Þetta má bara innihalda bókstafi, tölustafi, bandstrik og undirstrik."
+
+msgid "validator.alpha"
+msgstr "Þetta má bara innihalda bókstafi."
+
+msgid "validator.after"
+msgstr "Þessi dagsetning verður að vera eftir {$date}."
+
+msgid "validator.active_url"
+msgstr "Þetta er ekki gild vefslóð."
+
+msgid "validator.accepted"
+msgstr "Vinsamlega samþykktu þetta atriði.."
+
+msgid "validation.invalidOption"
+msgstr "Þetta er ekki gildur valkostur."
+
+msgid "list.viewLess"
+msgstr "Fela frekari upplýsingar um {$name}"
+
+msgid "list.viewMore"
+msgstr "Sýna frekari upplýsingar um {$name}"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Hætta við áskrift"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Það kom upp óvænt villa og við gátum ekki afskráð netfangið {$email}. Þú "
+"getur getur hætt við áskrift á tilkynningum í tölvupósti  í  þínum <a href=\""
+"{$profileNotificationUrl}\">stillingar notanda</a> eða leitað til okkar "
+"eftir aðstoð."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Netfangið {$email} hefur verið afskráð.  Við munum ekki senda þér þessa "
+"tölvupósta lengur.  Þú getur gerst áskrifandi aftur að tilkynningum í "
+"tölvupósti í þínum stillingum: <a href=\"{$profileNotificationUrl}\">"
+"Stillingar notanda</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Þú getur gerst áskrifandi aftur að tilkynningum í tölvupósti frá "
+"notendastillingunum þínum:  <a href=\"{$profileNotificationUrl}\">Stillingar "
+"notanda</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Veldu þá tölvupósta sem þú vilt ekki lengur fá senda á {$email} frá "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Við gátum ekki afskráð þig"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Þú hefur verið afskráður"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Þetta er vinsamleg áminning til þín um að skoða ástand tímaritsins í "
+"ritstjórnarskýrslunni."
+
+msgid "notification.type.editorialReport"
+msgstr "Tölfræðiskýrsla - samantekt."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Umferð {$round} Staða"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Bíður efitr yfirförnu handriti."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Úthlutaðu ritstjóra handrits með því að smella á  tengilinn \"Úthluta\" á "
+"listanum yfir þátttakendur."
+
+msgid "notification.type.queryAdded"
+msgstr "Umræðu bætt við."
+
+msgid "notification.type.queryActivity"
+msgstr "Umræðu aðgerð."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Persónuverndar skilyrði"
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Innskráður notandi er ekki höfundur umbeðinnar innsendingar. Vinsamlega "
+"staðfestu að þú sért innskráð(ur) sem réttur notandi."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Þú hefur ekki næg re´ttindi til að skoða innsendinguna.  Vinsamlega breyttu "
+"stillingunum þínum til að tryggja að þú fáir viðeigandi hlutverk undir \""
+"Skráning sem\"."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Þú hefur ekki aðgang að þessari ritrýni úthlutun."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Þú hefur ekki aðgang að þessu umræðu skilaboði."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Ógild umræða."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ógild ritrýni umferð."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Ógild framsetning."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Ógild innsending."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Ógild útgáfa."
+
+msgid "user.authorization.submissionFile"
+msgstr "Notandinn hefur ekki aðgang til að skoða þessa innsendingar skrá."
+
+msgid "user.email"
+msgstr "Netfang"
+
+msgid "notification.signedFile"
+msgstr "Skrá skoðuð."
+
+msgid "notification.type.reviewerComment"
+msgstr "Ritrýnir hefur skrifað athugasemd við \"{$title}\"."
+
+msgid "notification.type.metadataModified"
+msgstr "Lýsigögn hafa verið uppfærð fyrir \"{$title}\"."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Endurskoðun send til {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Endurskoðun til skoðunar á stigi {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Búið er að hlaða upp lagfærðri skrá til ritstjórnarlegrar skoðunnar á stigi: "
+"{$stage}."
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+"Allir ritrýnar hafa svarað og það þarf að taka ákvörðun á  stigi: {$stage}."
+
+msgid "notification.type.auditorRequest"
+msgstr "Beiðni um yfirferð á  \"{$file}\""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Ritrýni úthlutun uppfærð."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Ritrýni í gangi."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Ný tilkynning."
+
+msgid "notification.editStageParticipant"
+msgstr "Úthlutun stigs hefur verið breytt."
+
+msgid "notification.addedStageParticipant"
+msgstr "Notanda bætt við sem þátttakanda á þessu stigi."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Ritrýnir settur aftur inn."
+
+msgid "notification.cancelledReviewer"
+msgstr "Ritrýnir hætti við."
+
+msgid "notification.removedReviewer"
+msgstr "Ritrýnir fjarlægður."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName}var úthlutað til að ritrýna þessa innsendingu og  fékk ekki "
+"senda tilkynningu í tölvupósti."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} var úthlutað til að ritrýna þessa innsendingu og fékk "
+"tilkynningu í tölvupósti."
+
+msgid "navigation.goBack"
+msgstr "Til baka"
+
+msgid "submission.task.responseDueDate"
+msgstr "Lokadagsetning svars"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Lokadagsetning ritrýni"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Lokadagsetning svars"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Beiðni ritstjóra"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Tímaáætlun ritrýni"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Til að tryggja áreiðanleika nafnlausrar ritrýni, skal leitast við af "
+"fremsta megni að koma í veg fyrir að höfundur eða ritrýnir beri kennsl hvor "
+"á annan. Það felur í sér að höfundar, ritstjórar og ritrýnar (sem hlaða inn "
+"skjölum sem hluta af ritrýni sinni) athugi hvort að efitrfarandi atriða hafi "
+"verð gætt í tengslum við textann og eiginleika skráa:</p>\n"
+"<ul><li>Höfundur skjals skal eyða nafni sínu úr texta og nota orðið \""
+"Höfundur\"  og ár notað í tilvísunum og undirmálsgreinum í stað nafns "
+"höfundar, titil greina, o.s.frv.</li>\n"
+"<li>Höfundur skjals fjarlægi persónulegar upplýsingar úr skráar eiginleikum "
+"með því að gera eftirfarandi - ath lýsingin miðast við viðmót á ensku:\n"
+"<ul><li>Microsoft Word for Windows:\n"
+"<ul><li>Go to File</li>\n"
+"<li>Select Info</li>\n"
+"<li>Click on Check for Issues</li>\n"
+"<li>Click on Inspect Document</li>\n"
+"<li>In the Document Inspector dialog box, select the check boxes to choose "
+"the type of hidden content that you want inspected.</li>\n"
+"<li>Click Remove All</li>\n"
+"<li>Click Close</li>\n"
+"<li>Save the document</li></ul>\n"
+"<li>Microsoft Word for MacOS:\n"
+"<ul><li>Go to Tools</li>\n"
+"<li>Click Protect Document</li>\n"
+"<li>Select Remove personal information for this file on save</li>\n"
+"<li>Click OK and save the file</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Go to File</li>\n"
+"<li>Select Properties</li>\n"
+"<li>Remove any name in the author field</li>\n"
+"<li>Click OK</li>\n"
+"<li>Save the document</li></ul></li></ul>\n"

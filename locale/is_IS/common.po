@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-19 08:07+0000\n"
+"PO-Revision-Date: 2022-01-19 15:00+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/is_IS/>\n"
@@ -1480,3 +1480,102 @@ msgstr "Vinsamlega notaðu varaleiðina hér fyrir neðan til að hlaða upp skr
 
 msgid "form.dropzone.dictFallbackMessage"
 msgstr "Þessi vafri styður ekki við \"draga og sleppa\" til að hlaða upp skrám."
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Hvernig tryggja skal að allar skrár séu nafnlausar"
+
+msgid "dashboard.myQueue"
+msgstr "Röðin mín"
+
+msgid "dashboard.tasks"
+msgstr "Verk"
+
+msgid "grid.action.markRead"
+msgstr "Merkja lesið"
+
+msgid "grid.action.markNew"
+msgstr "Merkja nýtt"
+
+msgid "grid.action.deleteNotification"
+msgstr "Eyða verki"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Lesa gildandi ritrýnistefnu"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Hvernig tryggja skal nafnleysi allra skráa"
+
+msgid "context.path"
+msgstr "Slóð"
+
+msgid "grid.action.downloadFile"
+msgstr "Hlaða niður þessari skrá"
+
+msgid "search.typeMethodApproach"
+msgstr "Tegund (aðferð/nálgun)"
+
+msgid "search.title"
+msgstr "Titill"
+
+msgid "search.titleIndex"
+msgstr "Skoða titlalista"
+
+msgid "search.subject"
+msgstr "Lykilorð"
+
+msgid "search.searchResults.foundPlural"
+msgstr "Fann {$count} atriði."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Fann eitt atriði."
+
+msgid "search.searchResults"
+msgstr "Niðurstöður leitar"
+
+msgid "search.SearchFor"
+msgstr "Leita að"
+
+msgid "search.operator.or"
+msgstr "eða"
+
+msgid "search.operator.not"
+msgstr "ekki"
+
+msgid "search.operator.and"
+msgstr "og"
+
+msgid "search.noResults"
+msgstr "Engin niðurstaða"
+
+msgid "search.matchAll"
+msgstr "Passa við alla flokka"
+
+msgid "search.indexTermsLong"
+msgstr "öll skilyrða svæði atriðasrkár"
+
+msgid "search.indexTerms"
+msgstr "Atriðskrá - skilyrði"
+
+msgid "search.fullText"
+msgstr "Allur texti"
+
+msgid "search.discipline"
+msgstr "Fagsvið"
+
+msgid "search.deleteFilter"
+msgstr "Eyða"
+
+msgid "search.dateTo"
+msgstr "Gefið út fyrir"
+
+msgid "search.dateFrom"
+msgstr "Gefið út eftir"
+
+msgid "search.date"
+msgstr "Útgáfu dagur"
+
+msgid "search.coverage"
+msgstr "Yfirgrip"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} greinar skráðar í atriðaskrá"

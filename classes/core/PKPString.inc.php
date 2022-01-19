@@ -381,14 +381,18 @@ class PKPString
             'html:text/xml' => 'text/html',
             'css:text/x-c' => 'text/css',
             'css:text/plain' => 'text/css',
+            'csv:text/plain' => 'text/csv',
             'xlsx:application/zip' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             'xltx:application/zip' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
             'potx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.template',
             'ppsx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
             'pptx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
             'sldx:application/zip' => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
+            'docm:application/vnd.openxmlformats-officedocument.wordprocessingml.document' => 'application/vnd.ms-word.document.macroEnabled.12',
             'docx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             'dotx:application/zip' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+            'wma:video/x-ms-asf' => 'audio/x-ms-wma',
+            'wmv:video/x-ms-asf' => 'video/x-ms-wmv',
         ];
     }
 

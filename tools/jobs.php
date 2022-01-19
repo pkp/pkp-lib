@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace PKP\tools;
 
 use APP\facades\Repo;
+use APP\i18n\AppLocale;
 use Exception;
 
 use Illuminate\Bus\Queueable;
@@ -71,12 +72,12 @@ class commandInterface
 class commandJobs extends CommandLineTool
 {
     protected const AVAILABLE_OPTIONS = [
-        'list' => 'List all queued jobs. If you want to paginate results, use the parameters --page= and --perPage=',
-        'purge' => 'Purge a specific queued job. If you would like to purge all, pass the parameter --all',
-        'test' => 'Add a test job into the default queue',
-        'total' => 'Display the queued jobs quantity',
-        'help' => 'Display the command usage',
-        'usage' => 'Display the command help',
+        'list' => 'admin.cli.tool.jobs.available.options.list.description',
+        'purge' => 'admin.cli.tool.jobs.available.options.purge.description',
+        'test' => 'admin.cli.tool.jobs.available.options.test.description',
+        'total' => 'admin.cli.tool.jobs.available.options.total.description',
+        'help' => 'admin.cli.tool.jobs.available.options.help.description',
+        'usage' => 'admin.cli.tool.jobs.available.options.usage.description',
     ];
 
     protected const CURRENT_PAGE = 'current';
@@ -105,13 +106,15 @@ class commandJobs extends CommandLineTool
     {
         parent::__construct($argv);
 
+        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
+
         array_shift($argv);
 
         $this->setParameterList($argv);
 
         if (!isset($this->getParameterList()[0])) {
             throw new CommandNotFoundException(
-                'Option could not be empty! Check the usage method.',
+                __('admin.cli.tool.jobs.empty.option'),
                 array_keys(self::AVAILABLE_OPTIONS)
             );
         }
@@ -182,9 +185,9 @@ class commandJobs extends CommandLineTool
      */
     public function usage()
     {
-        $this->getCommandInterface()->line('<comment>Usage:</comment>');
-        $this->getCommandInterface()->line('command [arguments]' . PHP_EOL);
-        $this->getCommandInterface()->line('<comment>Available commands for the "jobs" namespace:</comment>');
+        $this->getCommandInterface()->line('<comment>' . __('admin.cli.tool.usage.title') . '</comment>');
+        $this->getCommandInterface()->line(__('admin.cli.tool.usage.parameters') . PHP_EOL);
+        $this->getCommandInterface()->line('<comment>' . __('admin.cli.tool.available.commands', ['namespace' => 'jobs']) . '</comment>');
 
         $width = $this->getColumnWidth(array_keys(self::AVAILABLE_OPTIONS));
 
@@ -195,7 +198,7 @@ class commandJobs extends CommandLineTool
                     '  <info>%s</info>%s%s',
                     $commandName,
                     str_repeat(' ', $spacingWidth),
-                    $description
+                    __($description)
                 )
             );
         }
@@ -244,7 +247,7 @@ class commandJobs extends CommandLineTool
                 [
                     [
                         new TableCell(
-                            'Queued Jobs',
+                            __('admin.cli.tool.jobs.queued.jobs.title'),
                             [
                                 'colspan' => 7,
                                 'style' => new TableCellStyle(['align' => 'center'])
@@ -252,13 +255,13 @@ class commandJobs extends CommandLineTool
                         )
                     ],
                     [
-                        'ID',
-                        'Queue',
-                        'Job Display Name',
-                        'Attempts',
-                        'Reserved At',
-                        'Available At',
-                        'Created At'
+                        __('admin.cli.tool.jobs.queued.jobs.fields.id'),
+                        __('admin.cli.tool.jobs.queued.jobs.fields.queue'),
+                        __('admin.cli.tool.jobs.queued.jobs.fields.job.display.name'),
+                        __('admin.cli.tool.jobs.queued.jobs.fields.attempts'),
+                        __('admin.cli.tool.jobs.queued.jobs.fields.reserved.at'),
+                        __('admin.cli.tool.jobs.queued.jobs.fields.available.at'),
+                        __('admin.cli.tool.jobs.queued.jobs.fields.created.at')
                     ]
                 ],
                 $data->all(),
@@ -281,7 +284,7 @@ class commandJobs extends CommandLineTool
                 [
                     [
                         new TableCell(
-                            'Pagination',
+                            __('admin.cli.tool.jobs.pagination'),
                             [
                                 'colspan' => 3,
                                 'style' => new TableCellStyle(['align' => 'center'])
@@ -289,9 +292,9 @@ class commandJobs extends CommandLineTool
                         )
                     ],
                     [
-                        'Current',
-                        'Previous',
-                        'Next',
+                        __('admin.cli.tool.jobs.pagination.current'),
+                        __('admin.cli.tool.jobs.pagination.previous'),
+                        __('admin.cli.tool.jobs.pagination.next'),
                     ]
                 ],
                 $pagination
@@ -304,7 +307,7 @@ class commandJobs extends CommandLineTool
     protected function purge(): void
     {
         if (!isset($this->getParameterList()[1])) {
-            throw new CommandInvalidArgumentException('You should pass at least a Job ID or `--all` to use this command');
+            throw new CommandInvalidArgumentException(__('admin.cli.tool.jobs.purge.without.id'));
         }
 
         if ($this->getParameterList()[1] == '--all') {
@@ -316,10 +319,10 @@ class commandJobs extends CommandLineTool
         $deleted = Repo::job()->delete((int) $this->getParameterList()[1]);
 
         if (!$deleted) {
-            throw new CommandInvalidArgumentException('Invalid job ID');
+            throw new CommandInvalidArgumentException(__('admin.cli.tool.jobs.purge.invalid.id'));
         }
 
-        $this->getCommandInterface()->getOutput()->success('Job was deleted!');
+        $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.purge.successful'));
     }
 
     /**
@@ -330,10 +333,10 @@ class commandJobs extends CommandLineTool
         $deleted = Repo::job()->deleteAll();
 
         if (!$deleted) {
-            throw new LogicException('Was impossible to delete all jobs.');
+            throw new LogicException(__('admin.cli.tool.jobs.purge.impossible.to.purge.all'));
         }
 
-        $this->getCommandInterface()->getOutput()->success('Deleted all jobs!');
+        $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.purge.successful.all'));
     }
 
     /**
@@ -374,7 +377,7 @@ class commandJobs extends CommandLineTool
 
         $this->getCommandInterface()
             ->getOutput()
-            ->warning('We have ' . $total . ' queued jobs.');
+            ->warning(__('admin.cli.tool.jobs.total.jobs', ['total' => $total]));
     }
 
     /**
@@ -384,7 +387,7 @@ class commandJobs extends CommandLineTool
     {
         if (!isset(self::AVAILABLE_OPTIONS[$this->option])) {
             throw new CommandNotFoundException(
-                sprintf('Option "%s" does not exist.', $this->option),
+                __('admin.cli.tool.jobs.option.doesnt.exists', ['option' => $this->option]),
                 array_keys(self::AVAILABLE_OPTIONS)
             );
         }
@@ -408,9 +411,9 @@ try {
     if ($e instanceof CommandNotFoundException) {
         $alternatives = $e->getAlternatives();
 
-        $message = 'Did you mean this?';
+        $message = __('admin.cli.tool.jobs.mean.this');
         if (count($alternatives) > 1) {
-            $message = 'Did you mean one of those?';
+            $message = __('admin.cli.tool.jobs.mean.those');
         }
 
         $message = $message . PHP_EOL . implode(PHP_EOL, $alternatives);

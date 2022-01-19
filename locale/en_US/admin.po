@@ -326,3 +326,96 @@ msgstr "Error: can't execute \"{$utilPath}\".  Check your {$utilVar} setting in 
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "There are no locales available for download."
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Usage:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "command [arguments]"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Available commands for the `{$namespace}` namespace:"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr "List all queued jobs. If you want to paginate results, use the parameters --page= and --perPage="
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr "Purge a specific queued job. If you would like to purge all, pass the parameter --all"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Add a test job into the default queue"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Display the queued jobs quantity"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Display the Jobs command usage"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Display the Jobs usage parameters"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Option could not be empty! Check the usage method."
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Queued Jobs"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Queue"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Job Display Name"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Attempts"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Reserved At"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Available At"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Created At"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Pagination"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Current"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Previous"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Next"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr "You should pass at least a Job ID or `--all` to use this command"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Invalid job ID"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Job was deleted!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Was impossible to delete all jobs."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Deleted all jobs!"
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "We have {$total} queued jobs"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Option {$option} does not exist."
+
+msgid "admin.cli.tool.jobs.mean.this"
+msgstr "Did you mean this?"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Did you mean one of those?"

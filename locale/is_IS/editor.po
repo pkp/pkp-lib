@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-20 15:51+0000\n"
+"PO-Revision-Date: 2022-01-21 16:25+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/is_IS/>\n"
@@ -173,7 +173,7 @@ msgid "editor.review.enrollReviewer"
 msgstr "Skráðu notanda sem er til sem ritrýni"
 
 msgid "editor.review.userGroupSelect"
-msgstr "Skráðu notandan með þessum hóp ritrýna."
+msgstr "Skráðu notandan með þessum hóp ritrýna"
 
 msgid "editor.review.errorReinstatingReviewer"
 msgstr ""
@@ -273,7 +273,7 @@ msgid "editor.review.reviewsAdded"
 msgstr "Ritrýni bætt við meginmál skilaboða."
 
 msgid "editor.review.dateAccepted"
-msgstr "Ritrýni samþykkt dags."
+msgstr "Ritrýni samþykkt dags"
 
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Endurskoðun kallar á nýja umferð ritrýni."
@@ -429,3 +429,83 @@ msgstr "Aðgerðaskrá"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Ertu viss um að þú viljir endanlega eyða þessari innsendingu?"
+
+msgid "reviewer.list.empty"
+msgstr "Engir ritrýnar fundust"
+
+msgid "reviewer.list.biography"
+msgstr "Æviágrip"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Ritrýni áhugasvið"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Opna"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Þessi ritrýnir er læstur vegna þess að honum hefur verið úthlutað hlutverk "
+"sem leyfir honum að skoða hver er höfundur.  Því er ekki hægt að tryggja "
+"nafnlausa ritrýni. Viltu samt opna þennan ritrýni?"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr ""
+"Það er nú þegar búið að úthluta til þessa ritrýnis ritrýni fyrir þessa "
+"innsendingu."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Aldrei úthlutað"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Meðalfjöldi daga við að ljúka ritrýni"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dagar síðan síðustu ritrýni var úthlutað"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Í gær"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Fyrir {$days} dögum/degi síðan"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Mat ritrýnis: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Ritrýni beiðnir - hætt við"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Ritrýni beiðnum hafnað"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Ritrýni lokið"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Útlhutuð ritrýni í vinnslu"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} virk"
+
+msgid "reviewer.list.filterRating"
+msgstr "Metið amk"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Ekki er leyfilegt að nota munstrið {$pattern} sem almennt auðkenni."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Almenna auðkennið  '{$publicIdentifier}' má ekki vera númer."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Ertu viss um að þú viljir snúa við ákvörðuninni um að hafna þessar "
+"innsendingu?"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Afturkalla samþykki fyrir þessa prófun til að gefa til kynna að "
+"prófarkalestri sé ólokið og skráin ekki tilbúin til birtingar."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Samþykkja þessa prófun til að gefa til kynna að prófarkalestri sé lokið og "
+"skráin tilbúin til birtingar."

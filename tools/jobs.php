@@ -306,12 +306,19 @@ class commandJobs extends CommandLineTool
      */
     protected function purge(): void
     {
-        if (!isset($this->getParameterList()[1])) {
+        if (!isset($this->getParameterList()['queue']) && !isset($this->getParameterList()[1])) {
             throw new CommandInvalidArgumentException(__('admin.cli.tool.jobs.purge.without.id'));
         }
 
         if ($this->getParameterList()[1] == '--all') {
             $this->purgeAllJobs();
+
+            return;
+        }
+
+        $queue = $this->getParameterValue('queue');
+        if ($queue) {
+            $this->purgeAllJobsFromQueue($queue);
 
             return;
         }
@@ -331,6 +338,20 @@ class commandJobs extends CommandLineTool
     protected function purgeAllJobs(): void
     {
         $deleted = Repo::job()->deleteAll();
+
+        if (!$deleted) {
+            throw new LogicException(__('admin.cli.tool.jobs.purge.impossible.to.purge.all'));
+        }
+
+        $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.purge.successful.all'));
+    }
+
+    /**
+     * Purged all queued jobs from a queue
+     */
+    protected function purgeAllJobsFromQueue(string $queue): void
+    {
+        $deleted = Repo::job()->deleteFromQueue($queue);
 
         if (!$deleted) {
             throw new LogicException(__('admin.cli.tool.jobs.purge.impossible.to.purge.all'));

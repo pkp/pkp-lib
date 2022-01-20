@@ -24,7 +24,8 @@
 namespace PKP\xslt;
 
 use DOMDocument;
-
+use GuzzleHttp\Client as GuzzleClient;
+use PKP\config\Config;
 use PKP\filter\TypeDescription;
 
 class XMLTypeDescription extends TypeDescription
@@ -137,7 +138,7 @@ class XMLTypeDescription extends TypeDescription
 
             case self::XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA:
                 libxml_use_internal_errors(true);
-                if (!$xmlDom->schemaValidate($this->_validationSource)) {
+                if (!$xmlDom->schemaValidate($this->retrieveValidationSourceContent())) {
                     $errors = libxml_get_errors();
                     return false;
                 }
@@ -145,7 +146,7 @@ class XMLTypeDescription extends TypeDescription
                 break;
 
             case self::XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG:
-                if (!$xmlDom->relaxNGValidate($this->_validationSource)) {
+                if (!$xmlDom->relaxNGValidate($this->retrieveValidationSourceContent())) {
                     return false;
                 }
                 break;
@@ -155,6 +156,32 @@ class XMLTypeDescription extends TypeDescription
         }
 
         return true;
+    }
+
+    protected function retrieveValidationSourceContent(): string
+    {
+        if (!filter_var($this->_validationSource, FILTER_VALIDATE_URL)) {
+            return (string) $this->_validationSource;
+        }
+
+        $params = [];
+
+        if ($httpProxy = Config::getVar('proxy', 'http_proxy')) {
+            $params['proxy']['http'] = $httpProxy;
+        }
+
+        if ($httpsProxy = Config::getVar('proxy', 'https_proxy')) {
+            $params['proxy']['https'] = $httpsProxy;
+        }
+
+        $client = new GuzzleClient();
+        $res = $client->request(
+            'GET',
+            $this->_validationSource,
+            $params
+        );
+
+        return (string) $res->getBody();
     }
 }
 

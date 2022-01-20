@@ -1990,9 +1990,3 @@ msgstr "Trying to run a transformation that is not supported in your installatio
 
 msgid "filter.import.error.couldNotImportNode"
 msgstr "Could not import XML Node"
-
-msgid "navigation.tools.jobs"
-msgstr "Jobs"
-
-msgid "navigation.tools.queuedJobs"
-msgstr "Queued Jobs"

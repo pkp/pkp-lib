@@ -2181,11 +2181,17 @@ msgstr "There's a total of <strong>{$total}</strong> job(s) on the queue"
 msgid "manager.jobs.viewQueuedJobs"
 msgstr "View queued jobs"
 
+msgid "navigation.tools.jobs"
+msgstr "Jobs"
+
 msgid "manager.jobs.list.id"
 msgstr "ID"
 
 msgid "manager.jobs.list.displayName"
 msgstr "Job"
+
+msgid "manager.jobs.list.queueName"
+msgstr "Queue"
 
 msgid "manager.jobs.list.attempts"
 msgstr "Attempts"

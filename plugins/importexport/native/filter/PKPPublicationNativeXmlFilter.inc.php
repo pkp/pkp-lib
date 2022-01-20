@@ -81,10 +81,19 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		if ($primaryContactId = $entity->getData('primaryContactId')) $entityNode->setAttribute('primary_contact_id', $primaryContactId);
 		$entityNode->setAttribute('url_path', $entity->getData('urlPath'));
 
-		$isPublished = $entity->getData('status') === STATUS_PUBLISHED;
-		$isPublished ? $entityNode->setAttribute('seq', (int) $entity->getData('seq')) : $entityNode->setAttribute('seq', '0');
+		if ($entity->getData('status') === STATUS_PUBLISHED) {
+			$entityNode->setAttribute('seq', (int) $entity->getData('seq'));
+		} else {
+			$entityNode->setAttribute('seq', '0');
+		}
 
-		$entityLanguages = $entity->getData('languages');
+		if ($entity->getData('accessStatus')) {
+			$entityNode->setAttribute('access_status', $entity->getData('accessStatus'));
+		} else {
+			$entityNode->setAttribute('access_status', '0');
+		}
+
+		$entityLanguages = $entity->getData('language');
 		if ($entityLanguages) {
 			$entityNode->setAttribute('language', $entityLanguages);
 		}
@@ -94,7 +103,12 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 		}
 
 		$this->addMetadata($doc, $entityNode, $entity);
-		$this->addAuthors($doc, $entityNode, $entity);
+
+		$authors = $entity->getData('authors');
+		if ($authors && count($authors) > 0) {
+			$this->addAuthors($doc, $entityNode, $entity);
+		}
+
 		$this->addRepresentations($doc, $entityNode, $entity);
 
 		$citationsListNode = $this->createCitationsNode($doc, $deployment, $entity);
@@ -224,17 +238,19 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	 * @param $entity PKPPublication
 	 */
 	function addAuthors($doc, $entityNode, $entity) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
-		$nativeExportFilters = $filterDao->getObjectsByGroup('author=>native-xml');
-		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-		$exportFilter = array_shift($nativeExportFilters);
-		$exportFilter->setDeployment($this->getDeployment());
+		$currentFilter = PKPImportExportFilter::getFilter('author=>native-xml', $this->getDeployment());
 
 		$authors = $entity->getData('authors');
-		$authorsDoc = $exportFilter->execute($authors);
-		if ($authorsDoc->documentElement instanceof DOMElement) {
+		$authorsDoc = $currentFilter->execute($authors);
+
+		if ($authorsDoc && $authorsDoc->documentElement instanceof DOMElement) {
 			$clone = $doc->importNode($authorsDoc->documentElement, true);
 			$entityNode->appendChild($clone);
+		} else {
+			$deployment = $this->getDeployment();
+			$deployment->addError(ASSOC_TYPE_PUBLICATION, $entity->getId(), __('plugins.importexport.author.exportFailed'));
+
+			throw new Exception(__('plugins.importexport.author.exportFailed'));
 		}
 	}
 
@@ -245,16 +261,12 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter {
 	 * @param $entity Publication
 	 */
 	function addRepresentations($doc, $entityNode, $entity) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
-		$nativeExportFilters = $filterDao->getObjectsByGroup($this->getRepresentationExportFilterGroupName());
-		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-		$exportFilter = array_shift($nativeExportFilters);
-		$exportFilter->setDeployment($this->getDeployment());
+		$currentFilter = PKPImportExportFilter::getFilter($this->getRepresentationExportFilterGroupName(), $this->getDeployment());
 
 		$representationDao = Application::getRepresentationDAO();
 		$representations = $representationDao->getByPublicationId($entity->getId());
 		while ($representation = $representations->next()) {
-			$representationDoc = $exportFilter->execute($representation);
+			$representationDoc = $currentFilter->execute($representation);
 			$clone = $doc->importNode($representationDoc->documentElement, true);
 			$entityNode->appendChild($clone);
 		}

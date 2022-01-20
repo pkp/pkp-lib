@@ -88,7 +88,8 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter {
 			}
 		}
 		if (!$author->getUserGroupId()) {
-			$deployment->addError(ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.common.error.unknownUserGroup', array('param' => $userGroupName)));
+			$deployment->addError(ASSOC_TYPE_AUTHOR, $publication->getId(), __('plugins.importexport.common.error.unknownUserGroup', array('param' => $userGroupName)));
+			throw new Exception(__('plugins.importexport.author.exportFailed'));
 		}
 
 		// Handle metadata in subelements

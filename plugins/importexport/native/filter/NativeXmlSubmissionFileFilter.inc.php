@@ -12,7 +12,6 @@
  *
  * @brief Base class that converts a Native XML document to a submission file
  */
-use Illuminate\Database\Capsule\Manager as Capsule;
 
 import('lib.pkp.plugins.importexport.native.filter.NativeImportFilter');
 
@@ -87,7 +86,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 				}
 			}
 			if (!isset($genresByContextId[$context->getId()][$genreName])) {
-				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', array('param' => $genreName)));
+				$deployment->addError(ASSOC_TYPE_SUBMISSION_FILE, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', array('param' => $genreName)));
 				$errorOccured = true;
 			} else {
 				$genre = $genresByContextId[$context->getId()][$genreName];
@@ -154,6 +153,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 		for ($childNode = $node->firstChild; $childNode !== null; $childNode=$childNode->nextSibling) {
 			if (is_a($childNode, 'DOMElement')) {
 				switch ($childNode->tagName) {
+					case 'id':
+						$this->parseIdentifier($childNode, $submissionFile);
+						break;
 					case 'creator':
 					case 'description':
 					case 'name':
@@ -161,7 +163,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 					case 'source':
 					case 'sponsor':
 					case 'subject':
-						list($locale, $value) = $this->parseLocalizedContent($childNode);
+						[$locale, $value] = $this->parseLocalizedContent($childNode);
 						$submissionFile->setData($childNode->tagName, $value, $locale);
 						break;
 					case 'submission_file_ref':
@@ -222,7 +224,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$submissionFile = Services::get('submissionFile')->edit($submissionFile, ['fileId' => $currentFileId], $request);
 		}
 
-		$deployment->setSubmissionFileDBId($node->getAttribute('id'), $submissionFile->getId());
+		$deployment->setSubmissionFileDBId($submissionFileId, $submissionFile->getId());
 
 		return $submissionFile;
 	}

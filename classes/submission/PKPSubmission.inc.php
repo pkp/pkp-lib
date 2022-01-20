@@ -1216,11 +1216,21 @@ abstract class PKPSubmission extends DataObject {
 	}
 
 	/**
-         * Get views of the submission.
-         * @return int
-         */
-        function getViews() {
-                $application = Application::getApplication();
-                return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
-        }
+	 * Get views of the submission.
+	 * @return int
+	 */
+	function getViews() {
+		$application = Application::getApplication();
+		return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION, $this->getId());
+	}
+
+	/**
+	 * Display the object in Import/Export results
+	 *
+	 * @return string A string that Identifies the object
+	 */
+	function getUIDisplayString()
+	{
+		return __('plugins.importexport.submission.cli.display', ['submissionId' => $this->getId(), 'submissionTitle' => $this->getLocalizedTitle()]);
+	}
 }

@@ -115,6 +115,10 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		if ($uploaderUser) {
 			$submissionFileNode->setAttribute('uploader', $uploaderUser->getUsername());
 		}
+
+		// Add pub-id plugins
+		$this->addIdentifiers($doc, $submissionFileNode, $submissionFile);
+
 		$this->createLocalizedNodes($doc, $submissionFileNode, 'creator', $submissionFile->getData('creator'));
 		$this->createLocalizedNodes($doc, $submissionFileNode, 'description', $submissionFile->getData('description'));
 		$this->createLocalizedNodes($doc, $submissionFileNode, 'name', $submissionFile->getData('name'));
@@ -129,9 +133,6 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 			$fileRefNode->setAttribute('id', $submissionFile->getData('assocId'));
 			$submissionFileNode->appendChild($fileRefNode);
 		}
-
-		// Add pub-id plugins
-		$this->addIdentifiers($doc, $submissionFileNode, $submissionFile);
 
 		// Create the revision nodes
 		$revisions = DAORegistry::getDAO('SubmissionFileDAO')->getRevisions($submissionFile->getId());

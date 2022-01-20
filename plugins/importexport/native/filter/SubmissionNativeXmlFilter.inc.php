@@ -126,7 +126,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 * @param $submission Submission
 	 */
 	function addFiles($doc, $submissionNode, $submission) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 		$submissionFilesIterator = Services::get('submissionFile')->getMany([
 			'submissionIds' => [$submission->getId()],
 			'includeDependentFiles' => true,
@@ -140,13 +139,9 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 				continue;
 			}
 
-			$nativeExportFilters = $filterDao->getObjectsByGroup(get_class($submissionFile) . '=>native-xml');
-			assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-			$exportFilter = array_shift($nativeExportFilters);
-			$exportFilter->setDeployment($this->getDeployment());
+			$currentFilter = PKPImportExportFilter::getFilter(get_class($submissionFile) . '=>native-xml', $this->getDeployment(), $this->opts);
+			$submissionFileDoc = $currentFilter->execute($submissionFile, true);
 
-			$exportFilter->setOpts($this->opts);
-			$submissionFileDoc = $exportFilter->execute($submissionFile, true);
 			$clone = $doc->importNode($submissionFileDoc->documentElement, true);
 			$submissionNode->appendChild($clone);
 		}
@@ -159,18 +154,20 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 	 * @param $submission Submission
 	 */
 	function addPublications($doc, $submissionNode, $submission) {
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /** @var $filterDao FilterDAO */
-		$nativeExportFilters = $filterDao->getObjectsByGroup('publication=>native-xml');
-		assert(count($nativeExportFilters)==1); // Assert only a single serialization filter
-		$exportFilter = array_shift($nativeExportFilters);
-		$exportFilter->setDeployment($this->getDeployment());
+		$currentFilter = PKPImportExportFilter::getFilter('publication=>native-xml', $this->getDeployment());
 
 		$publications = (array) $submission->getData('publications');
 		foreach ($publications as $publication) {
-			$publicationDoc = $exportFilter->execute($publication);
-			if ($publicationDoc->documentElement instanceof DOMElement) {
+			$publicationDoc = $currentFilter->execute($publication);
+
+			if ($publicationDoc && $publicationDoc->documentElement instanceof DOMElement) {
 				$clone = $doc->importNode($publicationDoc->documentElement, true);
 				$submissionNode->appendChild($clone);
+			} else {
+				$deployment = $this->getDeployment();
+				$deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.publication.exportFailed'));
+
+				throw new Exception(__('plugins.importexport.publication.exportFailed'));
 			}
 		}
 	}

@@ -84,6 +84,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 
 		$submission = Services::get('submission')->add($submission, Application::get()->getRequest());
 		$deployment->setSubmission($submission);
+		$deployment->addProcessedObjectId(ASSOC_TYPE_SUBMISSION, $submission->getId());
 
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) {
 			if (is_a($n, 'DOMElement')) {
@@ -92,6 +93,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		}
 
 		$submission = Services::get('submission')->get($submission->getId());
+
+		$deployment->addImportedRootEntity(ASSOC_TYPE_SUBMISSION, $submission);
 
 		return $submission;
 	}
@@ -163,10 +166,33 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$importFilter = $this->getImportFilter($n->tagName);
 		assert(isset($importFilter)); // There should be a filter
 
-		$importFilter->setDeployment($this->getDeployment());
 		$submissionFileDoc = new DOMDocument();
 		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
 		return $importFilter->execute($submissionFileDoc);
+	}
+
+	/**
+	 * @see Filter::process()
+	 *
+	 * @param $document DOMDocument|string
+	 *
+	 * @return array Array of imported documents
+	 */
+	public function &process(&$document)
+	{
+		$importedObjects = & parent::process($document);
+
+		// Index imported content
+		$submissionSearchIndex = Application::getSubmissionSearchIndex();
+		foreach ($importedObjects as $submission) {
+			assert(is_a($submission, 'Submission'));
+			$submissionSearchIndex->submissionMetadataChanged($submission);
+			$submissionSearchIndex->submissionFilesChanged($submission);
+		}
+
+		$submissionSearchIndex->submissionChangesFinished();
+
+		return $importedObjects;
 	}
 
 	/**
@@ -178,7 +204,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 		$importFilter = $this->getImportFilter($n->tagName);
 		assert(isset($importFilter)); // There should be a filter
 
-		$importFilter->setDeployment($this->getDeployment());
 		$submissionFileDoc = new DOMDocument();
 		$submissionFileDoc->appendChild($submissionFileDoc->importNode($n, true));
 		return $importFilter->execute($submissionFileDoc);

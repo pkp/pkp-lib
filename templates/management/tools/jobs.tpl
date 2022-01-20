@@ -17,7 +17,7 @@
 				<pkp-table
 						:columns="columns"
 						:rows="rows"
-						:description="compiledDescription"
+						:description="description"
 						:label="label"
 				/>
 		</div>

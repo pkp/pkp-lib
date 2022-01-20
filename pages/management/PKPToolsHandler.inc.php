@@ -199,7 +199,7 @@ class PKPToolsHandler extends ManagementHandler
 
         return [
             'label' => __('manager.jobs.viewQueuedJobs'),
-            'description' => __('manager.jobs.totalCount'),
+            'description' => __('manager.jobs.totalCount', ['total' => $total]),
             'columns' => [
                 [
                     'name' => 'id',
@@ -210,6 +210,11 @@ class PKPToolsHandler extends ManagementHandler
                     'name' => 'title',
                     'label' => __('manager.jobs.list.displayName'),
                     'value' => 'displayName',
+                ],
+                [
+                    'name' => 'queue',
+                    'label' => __('manager.jobs.list.queueName'),
+                    'value' => 'queue',
                 ],
                 [
                     'name' => 'attempts',

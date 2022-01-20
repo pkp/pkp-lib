@@ -18,8 +18,11 @@
         cy.get('a:contains("Jobs")').click();
         cy.waitJQuery();
 
-        cy.contains('There\'s a total of 2 job(s) on the queue').should('be.visible');
+        cy.get('.pkpTable')
+          .find('span:contains("queuedTestJob")')
+          .should('have.length', 2)
+          .should('be.visible');
 
-        cy.exec('php lib/pkp/tools/jobs.php purge --all');
+        cy.exec('php lib/pkp/tools/jobs.php purge --queue=queuedTestJob');
     });
 })

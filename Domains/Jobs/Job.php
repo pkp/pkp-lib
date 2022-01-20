@@ -200,7 +200,6 @@ class Job extends Model
 
     /**
      * Increment the Job attempts
-     *
      */
     public function incrementAttempts(): void
     {

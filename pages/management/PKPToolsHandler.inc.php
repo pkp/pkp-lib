@@ -22,7 +22,7 @@ use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use PKP\components\PKPStatsJobsTable;
+use Illuminate\Support\Facades\Queue;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
 use PKP\plugins\PluginRegistry;
@@ -174,32 +174,20 @@ class PKPToolsHandler extends ManagementHandler
 
         $templateMgr = TemplateManager::getManager($request);
 
-        $queuedJobs = $this->buildQueuedJobsTable();
-
-        $totalQueuedJobs = $queuedJobs['total'];
-        $queuedData = $queuedJobs['data'];
-
-        $state = [
-            'components' => [
-                $queuedData->id => $queuedData->getConfig(),
-            ]
-        ];
-
-        $templateMgr->setState($state);
+        $templateMgr->setState($this->getJobsTableState());
 
         $templateMgr->assign([
             'pageComponent' => 'JobsPage',
             'pageTitle' => __('navigation.tools.jobs'),
-            'totalQueuedJobs' => $totalQueuedJobs
         ]);
 
         $templateMgr->display('management/tools/jobs.tpl');
     }
 
     /**
-     * Build the Queued Jobs Table
+     * Build the state data for the queued jobs table
      */
-    protected function buildQueuedJobsTable(): array
+    protected function getJobsTableState(): array
     {
         $total = Repo::job()
             ->total();
@@ -210,40 +198,33 @@ class PKPToolsHandler extends ManagementHandler
             ->setPage(1)
             ->showQueuedJobs();
 
-        $queuedJobs = new PKPStatsJobsTable(
-            'queuedJobsTable',
-            [
-                'label' => __('manager.jobs.viewQueuedJobs'),
-                'description' => __('manager.jobs.totalCount', ['total' => $total]),
-                'tableColumns' => [
-                    [
-                        'name' => 'id',
-                        'label' => __('manager.jobs.list.id'),
-                        'value' => 'id',
-                    ],
-                    [
-                        'name' => 'title',
-                        'label' => __('manager.jobs.list.displayName'),
-                        'value' => 'displayName',
-                    ],
-                    [
-                        'name' => 'attempts',
-                        'label' => __('manager.jobs.list.attempts'),
-                        'value' => 'attempts',
-                    ],
-                    [
-                        'name' => 'created_at',
-                        'label' => __('manager.jobs.list.createdAt'),
-                        'value' => 'created_at',
-                    ]
-                ],
-                'tableRows' => $queuedJobsItems->all(),
-            ]
-        );
-
         return [
+            'label' => __('manager.jobs.viewQueuedJobs'),
+            'description' => __('manager.jobs.totalCount'),
+            'columns' => [
+                [
+                    'name' => 'id',
+                    'label' => __('manager.jobs.list.id'),
+                    'value' => 'id',
+                ],
+                [
+                    'name' => 'title',
+                    'label' => __('manager.jobs.list.displayName'),
+                    'value' => 'displayName',
+                ],
+                [
+                    'name' => 'attempts',
+                    'label' => __('manager.jobs.list.attempts'),
+                    'value' => 'attempts',
+                ],
+                [
+                    'name' => 'created_at',
+                    'label' => __('manager.jobs.list.createdAt'),
+                    'value' => 'created_at',
+                ]
+            ],
+            'rows' => $queuedJobsItems->all(),
             'total' => $total,
-            'data' => $queuedJobs
         ];
     }
 }

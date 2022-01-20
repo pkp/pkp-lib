@@ -14,6 +14,8 @@
  *  usernav, and CSS.
  */
 
+namespace PKP\controllers\page;
+
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 
@@ -165,4 +167,9 @@ class PageHandler extends Handler
         readfile($cachedFile);
         exit;
     }
+}
+
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\controllers\page\PageHandler', '\PageHandler');
 }

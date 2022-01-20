@@ -23,8 +23,16 @@
 if (!function_exists('import')) {
     function import($class)
     {
-        $filePath = str_replace('.', '/', $class) . '.inc.php';
-        require_once BASE_SYS_DIR . '/' . $filePath;
+        $filePathPart = BASE_SYS_DIR . '/' . str_replace('.', '/', $class);
+        $filePath = $filePathPart . '.php';
+        if (file_exists($filePath)) {
+            // Load .php suffix
+            require_once($filePath);
+        } else {
+            // Fallback: Try .inc.php suffix
+            // This behaviour is DEPRECATED as of 3.4.0.
+            require_once($filePathPart . '.inc.php');
+        }
     }
 }
 

@@ -22,7 +22,6 @@ use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use Illuminate\Support\Facades\Queue;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
 use PKP\plugins\PluginRegistry;

@@ -14,11 +14,11 @@
 		{translate key="navigation.tools.jobs"}
 	</h1>
 	<div class="app__contentPanel">
-        <pkp-table
-            :columns="columns"
-            :rows="rows"
-            :description="compiledDescription"
-            :label="label"
-        />
-    </div>
+				<pkp-table
+						:columns="columns"
+						:rows="rows"
+						:description="compiledDescription"
+						:label="label"
+				/>
+		</div>
 {/block}

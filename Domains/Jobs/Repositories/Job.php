@@ -70,6 +70,15 @@ class Job extends BaseRepository implements JobRepositoryInterface
             ->count();
     }
 
+    public function deleteFromQueue(string $queue): bool
+    {
+        $rows = $this->model
+            ->queuedAt($queue)
+            ->delete();
+
+        return (bool) $rows;
+    }
+
     public function setOutputFormat(string $format): self
     {
         $this->outputFormat = $format;

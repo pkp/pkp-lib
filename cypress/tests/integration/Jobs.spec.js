@@ -9,12 +9,13 @@
 
  describe('Jobs tests', function() {
     it('Check if Jobs page is alive and with contents', function() {
-        cy.login('dbarnes', null, 'publicknowledge');
+        cy.login('admin', 'admin', 'publicknowledge');
 
         // Add two test jobs on queue
         cy.exec('php lib/pkp/tools/jobs.php test');
         cy.exec('php lib/pkp/tools/jobs.php test');
 
+        cy.get('a:contains("Administration")').click();
         cy.get('a:contains("Jobs")').click();
         cy.waitJQuery();
 

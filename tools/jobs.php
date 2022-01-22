@@ -29,6 +29,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use PKP\cliTool\CommandLineTool;
+use PKP\Domains\Jobs\Job;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
 use Symfony\Component\Console\Exception\LogicException;
@@ -374,7 +375,7 @@ class commandJobs extends CommandLineTool
             public function __construct()
             {
                 $this->connection = config('queue.default');
-                $this->queue = 'queuedTestJob';
+                $this->queue = Job::TESTING_QUEUE;
             }
 
             public function handle(): void

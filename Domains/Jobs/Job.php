@@ -33,6 +33,8 @@ class Job extends Model
 
     protected const DEFAULT_MAX_ATTEMPTS = 3;
 
+    public const TESTING_QUEUE = 'queuedTestJob';
+
     /**
      * Default queue
      *
@@ -173,6 +175,11 @@ class Job extends Model
     public function scopeNonEmptyQueue(Builder $query): Builder
     {
         return $query->whereNotNull('queue');
+    }
+
+    public function scopeNotQueue(Builder $query, string $queue): Builder
+    {
+        return $query->where('queue', '!=', $queue);
     }
 
     public function scopeNonReserved(Builder $query): Builder

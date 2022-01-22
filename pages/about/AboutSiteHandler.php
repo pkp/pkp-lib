@@ -13,9 +13,15 @@
  * @brief Handle requests for site-wide about functions.
  */
 
-use APP\handler\Handler;
+namespace PKP\pages\about;
 
+use APP\core\Application;
+use APP\handler\Handler;
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
+use PKP\config\Config;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 
 class AboutSiteHandler extends Handler
 {
@@ -32,7 +38,7 @@ class AboutSiteHandler extends Handler
      * Display aboutThisPublishingSystem page.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function aboutThisPublishingSystem($args, $request)
     {
@@ -58,7 +64,7 @@ class AboutSiteHandler extends Handler
      * Display privacy policy page.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function privacy($args, $request)
     {

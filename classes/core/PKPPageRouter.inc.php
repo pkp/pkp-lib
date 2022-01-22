@@ -245,9 +245,15 @@ class PKPPageRouter extends PKPRouter
         $handler = null;
         if (!HookRegistry::call('LoadHandler', [&$page, &$op, &$sourceFile, &$handler])) {
             if (file_exists($sourceFile)) {
-                require('./' . $sourceFile);
+                $result = require('./' . $sourceFile);
+                if (is_object($result)) {
+                    $handler = $result;
+                }
             } elseif (file_exists(PKP_LIB_PATH . DIRECTORY_SEPARATOR . $sourceFile)) {
-                require('.' . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . $sourceFile);
+                $result = require('.' . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . $sourceFile);
+                if (is_object($result)) {
+                    $handler = $result;
+                }
             } elseif (empty($page)) {
                 require(ROUTER_DEFAULT_PAGE);
             } else {
@@ -273,6 +279,7 @@ class PKPPageRouter extends PKPRouter
         if ($handler) {
             $methods = get_class_methods($handler);
         } elseif (defined('HANDLER_CLASS')) {
+            // The use of HANDLER_CLASS is DEPRECATED with 3.4.0 pkp/pkp-lib#6019
             $methods = get_class_methods(HANDLER_CLASS);
         }
         if (!in_array($op, $methods)) {
@@ -282,6 +289,7 @@ class PKPPageRouter extends PKPRouter
 
         // Instantiate the handler class
         if (!$handler) {
+            // The use of HANDLER_CLASS is DEPRECATED with 3.4.0 pkp/pkp-lib#6019
             $handlerClass = HANDLER_CLASS;
             $handler = new $handlerClass($request);
         }

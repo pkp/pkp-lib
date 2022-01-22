@@ -13,9 +13,12 @@
  * @brief Handle requests for context-level about functions.
  */
 
-use APP\handler\Handler;
-use APP\template\TemplateManager;
+namespace PKP\pages\about;
 
+use APP\core\Application;
+use APP\handler\Handler;
+use APP\i18n\AppLocale;
+use APP\template\TemplateManager;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 
@@ -49,7 +52,7 @@ class AboutContextHandler extends Handler
      * Display about page.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function index($args, $request)
     {
@@ -62,7 +65,7 @@ class AboutContextHandler extends Handler
      * Display editorialTeam page.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function editorialTeam($args, $request)
     {
@@ -75,7 +78,7 @@ class AboutContextHandler extends Handler
      * Display submissions page.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function submissions($args, $request)
     {
@@ -115,7 +118,7 @@ class AboutContextHandler extends Handler
      * Display contact page.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function contact($args, $request)
     {

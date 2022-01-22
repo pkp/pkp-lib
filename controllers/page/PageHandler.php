@@ -18,8 +18,8 @@ namespace PKP\controllers\page;
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-
 use PKP\plugins\HookRegistry;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 
 class PageHandler extends Handler

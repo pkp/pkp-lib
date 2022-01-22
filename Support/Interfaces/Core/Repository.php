@@ -17,28 +17,30 @@ declare(strict_types=1);
 
 namespace PKP\Support\Interfaces\Core;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 interface Repository
 {
     /**
+     * Expose the model query builder
+     *
+     */
+    public function newQuery(): Builder;
+
+    /**
      * Get non-deleted rows of the models from the database.
-     *
-     *
      */
     public function all(array $columns = ['*']): Collection;
 
     /**
      * Get all rows (with deleted ones) of the models from the database.
-     *
-     *
      */
     public function withTrashed(array $columns = ['*']): Collection;
 
     /**
      * Find a model by id.
-     *
      *
      * @return Model
      */
@@ -47,22 +49,17 @@ interface Repository
     /**
      * Create a model.
      *
-     *
      * @return Model
      */
     public function create(array $payload): ?Model;
 
     /**
      * Update existing model.
-     *
-     *
      */
     public function update(int $modelId, array $payload): bool;
 
     /**
      * Delete model by id.
-     *
-     *
      */
     public function delete(int $modelId): bool;
 }

@@ -55,6 +55,11 @@
 					<button class="-linkButton" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs"}</button>
 				</form>
 			</li>
+			<li>
+				<a href="{url op="jobs"}">
+					{translate key="navigation.tools.jobs"}
+				</a>
+			</li>
 			{call_hook name="Templates::Admin::Index::AdminFunctions"}
 		</ul>
 	</div>

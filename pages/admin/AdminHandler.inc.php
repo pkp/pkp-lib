@@ -13,13 +13,18 @@
  * @brief Handle requests for site administration functions.
  */
 
+use APP\core\Application;
 use APP\core\Services;
-
+use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
+use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
-
+use PKP\cache\CacheManager;
+use PKP\config\Config;
+use PKP\core\JSONMessage;
+use PKP\db\DAORegistry;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
@@ -29,6 +34,8 @@ class AdminHandler extends Handler
 {
     /** @copydoc PKPHandler::_isBackendPage */
     public $_isBackendPage = true;
+
+    public const JOBS_PER_PAGE = 50;
 
     /**
      * Constructor
@@ -51,6 +58,7 @@ class AdminHandler extends Handler
                 'clearDataCache',
                 'downloadScheduledTaskLogFile',
                 'clearScheduledTaskLogFiles',
+                'jobs',
             ]
         );
     }
@@ -169,9 +177,9 @@ class AdminHandler extends Handler
         $site = $request->getSite();
         $dispatcher = $request->getDispatcher();
 
-        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'site');
-        $themeApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'site/theme');
-        $temporaryFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'temporaryFiles');
+        $apiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site');
+        $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site/theme');
+        $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'temporaryFiles');
 
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
@@ -281,8 +289,8 @@ class AdminHandler extends Handler
             $request->getDispatcher()->handle404();
         }
 
-        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-        $themeApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
+        $apiUrl = $dispatcher->url($request, Application::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+        $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
         $sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
 
         $supportedFormLocales = $context->getSupportedFormLocales();
@@ -322,14 +330,14 @@ class AdminHandler extends Handler
         ];
         $breadcrumbs[] = [
             'id' => 'wizard',
-            'name' => __('manager.settings.wizard'),
+            'name' => __('admin.settings.wizard'),
         ];
 
         $templateMgr->assign([
             'breadcrumbs' => $breadcrumbs,
             'bulkEmailsEnabled' => $bulkEmailsEnabled,
             'editContext' => $context,
-            'pageTitle' => __('manager.settings.wizard'),
+            'pageTitle' => __('admin.settings.wizard'),
         ]);
 
         $templateMgr->display('admin/contextSettings.tpl');
@@ -471,5 +479,82 @@ class AdminHandler extends Handler
         ScheduledTaskHelper::clearExecutionLogs();
 
         $request->redirect(null, 'admin');
+    }
+
+    public function jobs($args, $request)
+    {
+        $this->setupTemplate($request, true);
+
+        $templateMgr = TemplateManager::getManager($request);
+
+        $page = (int) ($request->getUserVar('page') ?? 1);
+
+        $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
+        $breadcrumbs[] = [
+            'id' => 'jobs',
+            'name' => __('navigation.tools.jobs'),
+        ];
+
+        $templateMgr->setState($this->getJobsTableState($page));
+
+        $templateMgr->assign([
+            'pageComponent' => 'JobsPage',
+            'breadcrumbs' => $breadcrumbs,
+            'pageTitle' => __('navigation.tools.jobs'),
+        ]);
+
+        $templateMgr->display('admin/jobs.tpl');
+    }
+
+    /**
+     * Build the state data for the queued jobs table
+     */
+    protected function getJobsTableState(int $page = 1): array
+    {
+        $total = Repo::job()
+            ->total();
+
+        $queuedJobsItems = Repo::job()
+            ->setOutputFormat(Repo::job()::OUTPUT_HTTP)
+            ->perPage(self::JOBS_PER_PAGE)
+            ->setPage($page)
+            ->showQueuedJobs();
+
+        return [
+            'label' => __('admin.jobs.viewQueuedJobs'),
+            'description' => __('admin.jobs.totalCount', ['total' => $total]),
+            'columns' => [
+                [
+                    'name' => 'id',
+                    'label' => __('admin.jobs.list.id'),
+                    'value' => 'id',
+                ],
+                [
+                    'name' => 'title',
+                    'label' => __('admin.jobs.list.displayName'),
+                    'value' => 'displayName',
+                ],
+                [
+                    'name' => 'queue',
+                    'label' => __('admin.jobs.list.queueName'),
+                    'value' => 'queue',
+                ],
+                [
+                    'name' => 'attempts',
+                    'label' => __('admin.jobs.list.attempts'),
+                    'value' => 'attempts',
+                ],
+                [
+                    'name' => 'created_at',
+                    'label' => __('admin.jobs.list.createdAt'),
+                    'value' => 'created_at',
+                ]
+            ],
+            'rows' => $queuedJobsItems->all(),
+            'total' => $total,
+            'lastPage' => $queuedJobsItems->lastPage(),
+            'currentPage' => $queuedJobsItems->currentPage(),
+            'isLoadingItems' => false,
+        ];
     }
 }

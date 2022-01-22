@@ -18,10 +18,12 @@ declare(strict_types=1);
 namespace PKP\Support\Interfaces\Core;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Database\Eloquent\Model;
 
 use IteratorAggregate;
 
 interface Resourceable extends Arrayable
 {
     public static function collection(IteratorAggregate $resource): Arrayable;
+    public function getResource(): Model;
 }

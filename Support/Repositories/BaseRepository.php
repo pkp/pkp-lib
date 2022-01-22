@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace PKP\Support\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,6 +37,11 @@ abstract class BaseRepository implements Repository
     public function __construct(Model $model)
     {
         $this->model = $model;
+    }
+
+    public function newQuery(): Builder
+    {
+        return $this->model->newQuery();
     }
 
     public function all(array $columns = ['*']): Collection

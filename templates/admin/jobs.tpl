@@ -1,5 +1,5 @@
 {**
- * templates/management/tools/jobs.tpl
+ * templates/admin/jobs.tpl
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2003-2022 John Willinsky

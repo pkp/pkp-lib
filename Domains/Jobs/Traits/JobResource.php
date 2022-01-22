@@ -23,22 +23,44 @@ trait JobResource
 {
     protected $dateFormat = 'Y-m-d G:i:s T Z';
 
-    protected function formatDate(Carbon $date): string
+    public function getCreatedAt(): string
     {
-        return $date->format($this->dateFormat);
-    }
-
-    protected function localizedFormatDate(Carbon $date): string
-    {
-        return $date->formatLocalized($this->dateFormat);
-    }
-
-    protected function getJobName(): ?string
-    {
-        if (!isset($this->resource->payload)) {
+        if (!isset($this->getResource()->created_at)) {
             return '-';
         }
 
-        return $this->resource->payload['displayName'] ?? '-';
+        return $this->formatDate($this->getResource()->created_at);
+    }
+
+    public function getReservedAt(): string
+    {
+        if (!isset($this->getResource()->reserved_at)) {
+            return '-';
+        }
+
+        return $this->formatDate($this->getResource()->reserved_at);
+    }
+
+    public function getAvailableAt(): string
+    {
+        if (!isset($this->getResource()->available_at)) {
+            return '-';
+        }
+
+        return $this->formatDate($this->getResource()->available_at);
+    }
+
+    public function getJobName(): ?string
+    {
+        if (!isset($this->getResource()->payload)) {
+            return '-';
+        }
+
+        return $this->getResource()->payload['displayName'] ?? '-';
+    }
+
+    protected function formatDate(Carbon $date): string
+    {
+        return $date->format($this->dateFormat);
     }
 }

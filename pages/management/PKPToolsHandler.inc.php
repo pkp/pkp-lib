@@ -40,7 +40,7 @@ class PKPToolsHandler extends ManagementHandler
         parent::__construct();
         $this->addRoleAssignment(
             Role::ROLE_ID_MANAGER,
-            ['tools', 'importexport', 'permissions', 'jobs']
+            ['tools', 'importexport', 'permissions']
         );
     }
 
@@ -74,9 +74,6 @@ class PKPToolsHandler extends ManagementHandler
             case 'resetPermissions':
                 $this->resetPermissions($args, $request);
                 break;
-            case 'jobs':
-                $this->jobs($args, $request);
-            break;
             default: assert(false);
         }
     }
@@ -165,70 +162,5 @@ class PKPToolsHandler extends ManagementHandler
         // JSONMessage, or JSONMessage::toString(), doesn't seem to do it.
         echo json_encode(true);
         exit;
-    }
-
-    public function jobs($args, $request)
-    {
-        $this->setupTemplate($request, true);
-
-        $templateMgr = TemplateManager::getManager($request);
-
-        $templateMgr->setState($this->getJobsTableState());
-
-        $templateMgr->assign([
-            'pageComponent' => 'JobsPage',
-            'pageTitle' => __('navigation.tools.jobs'),
-        ]);
-
-        $templateMgr->display('management/tools/jobs.tpl');
-    }
-
-    /**
-     * Build the state data for the queued jobs table
-     */
-    protected function getJobsTableState(): array
-    {
-        $total = Repo::job()
-            ->total();
-
-        $queuedJobsItems = Repo::job()
-            ->setOutputFormat(Repo::job()::OUTPUT_HTTP)
-            ->perPage(10)
-            ->setPage(1)
-            ->showQueuedJobs();
-
-        return [
-            'label' => __('manager.jobs.viewQueuedJobs'),
-            'description' => __('manager.jobs.totalCount', ['total' => $total]),
-            'columns' => [
-                [
-                    'name' => 'id',
-                    'label' => __('manager.jobs.list.id'),
-                    'value' => 'id',
-                ],
-                [
-                    'name' => 'title',
-                    'label' => __('manager.jobs.list.displayName'),
-                    'value' => 'displayName',
-                ],
-                [
-                    'name' => 'queue',
-                    'label' => __('manager.jobs.list.queueName'),
-                    'value' => 'queue',
-                ],
-                [
-                    'name' => 'attempts',
-                    'label' => __('manager.jobs.list.attempts'),
-                    'value' => 'attempts',
-                ],
-                [
-                    'name' => 'created_at',
-                    'label' => __('manager.jobs.list.createdAt'),
-                    'value' => 'created_at',
-                ]
-            ],
-            'rows' => $queuedJobsItems->all(),
-            'total' => $total,
-        ];
     }
 }

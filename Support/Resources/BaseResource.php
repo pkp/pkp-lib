@@ -49,5 +49,10 @@ abstract class BaseResource implements Resourceable
         return collect($data);
     }
 
+    public function getResource(): Model
+    {
+        return $this->resource;
+    }
+
     abstract public function toArray();
 }

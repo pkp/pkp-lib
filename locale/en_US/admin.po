@@ -419,3 +419,30 @@ msgstr "Did you mean this?"
 
 msgid "admin.cli.tool.jobs.mean.those"
 msgstr "Did you mean one of those?"
+
+msgid "admin.jobs.totalCount"
+msgstr "There's a total of <strong>{$total}</strong> job(s) on the queue"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "View queued jobs"
+
+msgid "navigation.tools.jobs"
+msgstr "Jobs"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Job"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Queue"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Attempts"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Created At"
+
+msgid "admin.jobs.createdAt"
+msgstr "Created at {$createdAt}"

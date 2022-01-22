@@ -17,25 +17,12 @@ declare(strict_types=1);
 
 namespace PKP\Domains\Jobs\Resources;
 
-use APP\core\Application;
-
-use Illuminate\Database\Eloquent\Model;
 use PKP\Domains\Jobs\Traits\JobResource as TraitsJobResource;
 use PKP\Support\Resources\BaseResource;
 
 class HttpJobResource extends BaseResource
 {
     use TraitsJobResource;
-
-    public function __construct(Model $resource)
-    {
-        parent::__construct($resource);
-
-        $this->dateFormat = Application::get()
-            ->getRequest()
-            ->getContext()
-            ->getLocalizedDateTimeFormatShort();
-    }
 
     /**
      * Transform the resource into an array.
@@ -44,11 +31,11 @@ class HttpJobResource extends BaseResource
     public function toArray(): array
     {
         return [
-            'id' => $this->resource->id,
-            'queue' => $this->resource->queue,
+            'id' => $this->getResource()->id,
+            'queue' => $this->getResource()->queue,
             'displayName' => $this->getJobName(),
-            'attempts' => $this->resource->attempts,
-            'created_at' => __('manager.jobs.createdAt', ['createdAt' => (isset($this->resource->created_at) ? $this->localizedFormatDate($this->resource->created_at) : '-')]),
+            'attempts' => $this->getResource()->attempts,
+            'created_at' => __('admin.jobs.createdAt', ['createdAt' => $this->getCreatedAt()]),
         ];
     }
 }

@@ -30,18 +30,14 @@ class CLIJobResource extends BaseResource
      */
     public function toArray(): array
     {
-        $availableAt = isset($this->resource->available_at) ? $this->formatDate($this->resource->available_at) : '-';
-        $createdAt = isset($this->resource->created_at) ? $this->formatDate($this->resource->created_at) : '-';
-        $reservedAt = isset($this->resource->reserved_at) ? $this->formatDate($this->resource->reserved_at) : '-';
-
         return [
-            'id' => $this->resource->id,
-            'queue' => $this->resource->queue,
+            'id' => $this->getResource()->id,
+            'queue' => $this->getResource()->queue,
             'displayName' => $this->getJobName(),
-            'attempts' => $this->resource->attempts,
-            'reserved_at' => $reservedAt,
-            'available_at' => $availableAt,
-            'created_at' => $createdAt,
+            'attempts' => $this->getResource()->attempts,
+            'reserved_at' => $this->getReservedAt(),
+            'available_at' => $this->getAvailableAt(),
+            'created_at' => $this->getCreatedAt(),
         ];
     }
 }

@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-23 13:31+0000\n"
+"PO-Revision-Date: 2022-01-24 15:25+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "is_IS/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "grid.action.addContributor"
-msgstr "Bæta við veitanda"
+msgstr "Bæta við framlagsaðila"
 
 msgid "grid.contributor.title"
 msgstr "Uppruni stuðnings"
@@ -408,10 +408,316 @@ msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Gátlista atriði"
 
 msgid "grid.submissionChecklist.title"
-msgstr "Handrita gátlisti"
+msgstr "Gátlisti handrita"
 
 msgid "grid.libraryFiles.submission.title"
 msgstr "Handrita safn"
 
 msgid "grid.action.fileUnconsider"
 msgstr "Búið að prófarkalesa og laga.  Þú gætir viljað sleppa þessu verki"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Veldu tegund..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Engar valmyndir"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Engin atriði á valmynd"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Bæta við atriði"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Bæta við valmynd"
+
+msgid "grid.submission.itemTitle"
+msgstr "Höfundur; Titill"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Hlutverkið {$userGroupName} aftengt frá þrepi {$stageName}."
+
+msgid "grid.userGroup.removed"
+msgstr "Hlutverkið {$userGroupName} fjarlægt."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Hlutverkið {$userGroupName} tengt við þrep {$stageName}."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Ekki hægt að fjarlægja hlutverkið {$userGroupName}. Núna er(u) {$usersCount} "
+"notandi/notendur með það úthlutað."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr ""
+"Hlutverkið {$userGroupName} er sjálfgefið og ekki hægt að fjarlægja það."
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Með aðgangsheimild stillta á"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Lista hlutverk úthlutað til"
+
+msgid "grid.userGroup.allStages"
+msgstr "Öll verkflæðis þrep"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "aftengja þrep"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Úthluta þrepi"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Leyfisskilmálar"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Tengiliður (ef ekki höfundur/útgefandi)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Eigandi höfundaréttar"
+
+msgid "grid.artworkFile.credit"
+msgstr "Kredit"
+
+msgid "grid.artworkFile.caption"
+msgstr "Skýringartexti"
+
+msgid "grid.plugin.disable"
+msgstr "Ertu viss um að þú viljir afvirkja þetta viðbótarforrit/tengiforrit?"
+
+msgid "grid.plugin.allCategories"
+msgstr "Allari flokkar"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Núverandi listi"
+
+msgid "grid.preparedEmails.title"
+msgstr "Tilbúin tölvupósts sniðmát"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Ertu viss um að þú viljir sameina notendareikning með notendanafninu \""
+"{$oldUsername}\" við reikning með notendanafninu \"{$newUsername}\"?  "
+"Notendareikningur  \"{$oldUsername}\" verður ekki til á eftir. Þessa aðgerð "
+"er ekki hægt að afturkalla."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Allir skráðir notendur"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Sameina við þennan notanda"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Sameina notanda"
+
+msgid "grid.user.mergeUsers"
+msgstr "Sameina notendur"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Skrá inn sem þessi notandi? Allar aðgerðir sem þú framkvæmir verða eignaðar "
+"þessum notanda."
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Vinsamlega veldu notanda"
+
+msgid "grid.user.selectUser"
+msgstr "Velja notanda"
+
+msgid "grid.user.addRole"
+msgstr "Bæta við hlutverki"
+
+msgid "grid.user.addRoles"
+msgstr "Bæta við hlutverkum"
+
+msgid "grid.user.step2"
+msgstr "Skref #2: Setja notendahlutverk á {$userFullName}"
+
+msgid "grid.user.step1"
+msgstr "Skref #1: Skrá inn upplýsingar um notanda"
+
+msgid "grid.user.userNoRoles"
+msgstr "Þessi notandi hefur engin hlutverk."
+
+msgid "grid.user.userRoles"
+msgstr "Notenda hlutverk"
+
+msgid "grid.user.userDetails"
+msgstr "Upplýsingar um notanda"
+
+msgid "grid.user.lessDetails"
+msgstr "Minni upplýsingar um notanda"
+
+msgid "grid.user.moreDetails"
+msgstr "Meiri upplýsingar um notanda"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Fara fram á að notendur breyti lykilorði við næstu innskráningu."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Notandi verður að breyta lykilorði við næstu innskráningu."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Breyta lykilorði"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Bjóða notanda velkominn með tölvupósti."
+
+msgid "grid.user.notifyUser"
+msgstr "Tilkynna notanda"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Búa til slembi lykilorð fyrir þennan notanda."
+
+msgid "grid.user.generatePassword"
+msgstr "Búa til lykilorð"
+
+msgid "grid.user.mustProvideName"
+msgstr "Vinsamlega skráðu fyrst a.m.k. eftirnafn notandans."
+
+msgid "grid.user.authSource"
+msgstr "Uppruni sannvottunnar"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Þú hefur ekki heimild til að sýsla með þennan notanda. Til að geta unnið með "
+"notendur þarftu annað hvort að vera vefstjóri eða með réttindi til sýsla með "
+"allt það sem notandinn er skráður í."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Villa kom upp við að senda tölvupóstinn. Vinsamlega skoðaðu að uppsetningin "
+"á póstþjóninum virki og/eða hafðu samband við þinn kerfisstjóra."
+
+msgid "grid.user.error"
+msgstr "Villa kom upp við umsýslu á þessum notanda. Vinsamlega reyndu aftur."
+
+msgid "grid.user.enableReason"
+msgstr "Ástæða þess að notandi er gerður virkur"
+
+msgid "grid.user.disableReason"
+msgstr "Ástæða þess að notandi er afvirkjaður"
+
+msgid "grid.user.disable"
+msgstr "Afvirkja"
+
+msgid "grid.user.enable"
+msgstr "Virkja"
+
+msgid "grid.user.email"
+msgstr "Netfang"
+
+msgid "grid.user.edit"
+msgstr "Breyta notanda"
+
+msgid "grid.user.enroll"
+msgstr "Skrá notanda"
+
+msgid "grid.user.add"
+msgstr "Bæta við notanda"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Allar aðgangsheimildir"
+
+msgid "grid.user.allRoles"
+msgstr "Öll hlutverk"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Núverandi skráningar"
+
+msgid "grid.user.currentUsers"
+msgstr "Núverandi notendur"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Þrepa úthlutun"
+
+msgid "grid.roles.add"
+msgstr "Stofna nýtt hlutverk"
+
+msgid "grid.roles.currentRoles"
+msgstr "Núverandi hlutverk"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Fullt"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Útgáfulistar"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Stytt"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Sýna"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Form"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Framlagsaðilar til þessarar útgáfu verða skilgreindir í þessu tímariti á "
+"eftirfarandi formi."
+
+msgid "contributor.listPanel.preview"
+msgstr "Forskoða"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Á vafra listum"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Skrá aðal tengilið"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Aðal tengiliður"
+
+msgid "author.users.contributor.role"
+msgstr "Hlutverk"
+
+msgid "author.users.contributor.email"
+msgstr "Netfang"
+
+msgid "author.users.contributor.name"
+msgstr "Nafn"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Framleiðslu-sniðmátasafn"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Framleiðslusafn"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Ritrýnisafn"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Ritstjórnarsafn"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Skrár"
+
+msgid "grid.noFiles"
+msgstr "Engar skrár"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Svarmöguleikar"
+
+msgid "grid.reviewForm.title"
+msgstr "Ritrýni eyðublöð"
+
+msgid "grid.action.newVersion"
+msgstr "Stofna nýja útgáfu"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Ertu viss um að þú viljir fjarlægja {$name} sem framlagsaðila? Það er ekki "
+"hægt að afturkalla þessa aðgerð."
+
+msgid "grid.action.deleteContributor"
+msgstr "Eyða framlagsaðila"
+
+msgid "grid.action.editContributor"
+msgstr "Breyta framlagsaðila"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Taka með ókláruð handirt sem ekki voru send inn af höfundi."
+
+msgid "grid.artworkFile.placement"
+msgstr "Staðsetning í handriti"

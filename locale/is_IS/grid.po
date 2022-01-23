@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-23 12:03+0000\n"
+"PO-Revision-Date: 2022-01-23 13:31+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "is_IS/>\n"
@@ -111,7 +111,7 @@ msgid "grid.action.logInAs"
 msgstr "Skrá sig inn sem"
 
 msgid "grid.action.bookInfo"
-msgstr "Upplýsingar um innsendingu"
+msgstr "Upplýsingar um handrit"
 
 msgid "grid.action.enable"
 msgstr "Virkja"
@@ -403,3 +403,15 @@ msgstr "Stillingar"
 
 msgid "grid.noItems"
 msgstr "Engin atriði"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Gátlista atriði"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Handrita gátlisti"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Handrita safn"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Búið að prófarkalesa og laga.  Þú gætir viljað sleppa þessu verki"

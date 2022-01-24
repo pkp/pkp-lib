@@ -41,7 +41,7 @@ class ScreeningForm extends FormComponent
         $rules = [];
         \HookRegistry::call('Settings::Workflow::listScreeningPlugins', [&$rules]);
         if (!empty($rules)) {
-            $screeningPluginRules .= "<table class=\"pkpTable\">\n";
+            $screeningPluginRules = "<table class=\"pkpTable\">\n";
             foreach ($rules as $rule) {
                 $screeningPluginRules .= '<tr><td>' . $rule . "</td></tr>\n";
             }

@@ -15,6 +15,7 @@
 
 use PKP\facades\Locale;
 use PKP\plugins\BlockPlugin;
+use PKP\session\SessionManager;
 
 class LanguageToggleBlockPlugin extends BlockPlugin
 {
@@ -65,7 +66,7 @@ class LanguageToggleBlockPlugin extends BlockPlugin
     public function getContents($templateMgr, $request = null)
     {
         $templateMgr->assign('isPostRequest', $request->isPost());
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             $journal = $request->getJournal();
             if (isset($journal)) {
                 $locales = $journal->getSupportedLocaleNames();

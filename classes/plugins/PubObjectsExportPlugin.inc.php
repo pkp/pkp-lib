@@ -20,7 +20,6 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
@@ -79,7 +78,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             return false;
         }
 
-        if (!Config::getVar('general', 'installed')) {
+        if (!Application::isInstalled()) {
             return false;
         }
 

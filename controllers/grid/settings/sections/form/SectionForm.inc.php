@@ -15,8 +15,10 @@
 
 import('lib.pkp.controllers.grid.settings.sections.form.PKPSectionForm');
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
 use PKP\security\Role;
 
 class SectionForm extends PKPSectionForm
@@ -29,7 +31,6 @@ class SectionForm extends PKPSectionForm
      */
     public function __construct($request, $sectionId = null)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_SUBMISSION);
         parent::__construct(
             $request,
             'controllers/grid/settings/sections/form/sectionForm.tpl',
@@ -75,9 +76,9 @@ class SectionForm extends PKPSectionForm
                 'path' => $section->getData('path'),
                 'assignedSubeditors' => Repo::user()->getIds(
                     Repo::user()->getCollector()
-                    ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-                    ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
-                    ->assignedToSectionIds([(int) $this->getSectionId()])
+                        ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                        ->filterByRoleIds([Role::ROLE_ID_SUB_EDITOR])
+                        ->assignedToSectionIds([(int) $this->getSectionId()])
                 )->toArray(),
             ]);
         } else {

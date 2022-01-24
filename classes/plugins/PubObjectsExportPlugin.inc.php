@@ -18,19 +18,20 @@ namespace APP\plugins;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
+use PKP\db\SchemaDAO;
 use PKP\file\FileManager;
 
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\ImportExportPlugin;
+use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
 
 // The statuses.
@@ -82,7 +83,6 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             return false;
         }
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
         $this->addLocaleData();
 
         HookRegistry::register('AcronPlugin::parseCronTab', [$this, 'callbackParseCronTab']);
@@ -605,8 +605,6 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      */
     public function executeCLI($scriptName, &$args)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-
         $command = array_shift($args);
         if (!in_array($command, ['export', 'register'])) {
             $this->usage($scriptName);
@@ -677,7 +675,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Execute the CLI command
      *
-     * @param The $scriptName name of the command-line script (displayed as usage info)
+     * @param string $scriptName The name of the command-line script (displayed as usage info)
      * @param string $command (export or register)
      * @param Context $context
      * @param string $outputFile Path to the file where the exported XML should be saved

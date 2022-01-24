@@ -65,7 +65,6 @@ class NativeImportExportDeployment extends PKPNativeImportExportDeployment
     protected function getObjectTypes()
     {
         $objectTypes = parent::getObjectTypes();
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
         $objectTypes = $objectTypes + [
             ASSOC_TYPE_SERVER => __('context.context'),
             ASSOC_TYPE_SECTION => __('section.section'),

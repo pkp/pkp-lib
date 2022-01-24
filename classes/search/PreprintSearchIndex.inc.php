@@ -16,7 +16,6 @@
 namespace APP\search;
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
@@ -275,8 +274,6 @@ class PreprintSearchIndex extends SubmissionSearchIndex
         // If no search plug-in is activated then fall back to the
         // default database search implementation.
         if ($hookResult === false || is_null($hookResult)) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
-
             // Check that no server was given as we do
             // not support server-specific re-indexing.
             if (is_a($server, 'Server')) {

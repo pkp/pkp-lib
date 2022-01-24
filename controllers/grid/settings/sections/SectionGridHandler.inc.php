@@ -16,11 +16,12 @@
 import('lib.pkp.controllers.grid.settings.SetupGridHandler');
 import('controllers.grid.settings.sections.SectionGridRow');
 
-use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
+use PKP\db\DAO;
+use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 
@@ -53,14 +54,6 @@ class SectionGridHandler extends SetupGridHandler
     {
         parent::initialize($request, $args);
         $server = $request->getServer();
-
-        // FIXME are these all required?
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_MANAGER,
-            LOCALE_COMPONENT_PKP_COMMON,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_APP_COMMON
-        );
 
         // Set the grid title.
         $this->setTitle('section.sections');

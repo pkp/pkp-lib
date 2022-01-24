@@ -13,6 +13,8 @@
  * @brief Handle preprint galley grid requests.
  */
 
+use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -20,8 +22,11 @@ use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\db\DAO;
+use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -119,14 +124,6 @@ class PreprintGalleyGridHandler extends GridHandler
     {
         parent::initialize($request, $args);
         $this->setTitle('submission.layout.galleys');
-
-        // Load pkp-lib translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_EDITOR
-        );
 
         import('controllers.grid.preprintGalleys.PreprintGalleyGridCellProvider');
         $cellProvider = new PreprintGalleyGridCellProvider($this->getSubmission(), $this->getPublication(), $this->canEdit());

@@ -13,6 +13,9 @@
  * @brief Default theme
  */
 
+use APP\core\Application;
+use APP\file\PublicFileManager;
+use PKP\config\Config;
 use PKP\plugins\ThemePlugin;
 
 class DefaultThemePlugin extends ThemePlugin
@@ -35,8 +38,6 @@ class DefaultThemePlugin extends ThemePlugin
      */
     public function init()
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
-
         // Register theme options
         $this->addOption('typography', 'FieldOptions', [
             'type' => 'radio',

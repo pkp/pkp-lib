@@ -402,15 +402,4 @@ class PreprintHandler extends Handler
         }
         return true;
     }
-
-    /**
-     * Set up the template. (Load required locale components.)
-     *
-     * @param PKPRequest $request
-     */
-    public function setupTemplate($request)
-    {
-        parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_READER, LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
-    }
 }

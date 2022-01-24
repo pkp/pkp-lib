@@ -18,10 +18,10 @@
 namespace APP\author;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\facades\Locale;
 use PKP\identity\Identity;
 
 use PKP\submission\PKPSubmission;
@@ -47,7 +47,7 @@ class DAO extends \PKP\author\DAO
      */
     public function getAuthorsAlphabetizedByServer($serverId = null, $initial = null, $rangeInfo = null, $includeEmail = false)
     {
-        $locale = AppLocale::getLocale();
+        $locale = Locale::getLocale();
         $params = [
             Identity::IDENTITY_SETTING_GIVENNAME, $locale,
             Identity::IDENTITY_SETTING_GIVENNAME,

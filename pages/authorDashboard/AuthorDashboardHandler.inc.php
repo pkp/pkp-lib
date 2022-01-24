@@ -16,8 +16,12 @@
 // Import base class
 import('lib.pkp.pages.authorDashboard.PKPAuthorDashboardHandler');
 
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
+use PKP\facades\Locale;
+use PKP\workflow\WorkflowStageDAO;
 
 class AuthorDashboardHandler extends PKPAuthorDashboardHandler
 {
@@ -39,7 +43,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
         }
 
         $supportedFormLocales = $submissionContext->getSupportedFormLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedFormLocales);

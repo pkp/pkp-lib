@@ -17,7 +17,8 @@
 import('lib.pkp.pages.management.ManagementHandler');
 
 use APP\template\TemplateManager;
-
+use PKP\core\PKPApplication;
+use PKP\facades\Locale;
 use PKP\security\Role;
 
 class SettingsHandler extends ManagementHandler
@@ -59,7 +60,7 @@ class SettingsHandler extends ManagementHandler
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedFormLocales);
@@ -90,7 +91,7 @@ class SettingsHandler extends ManagementHandler
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 
         $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = AppLocale::getAllLocales();
+        $localeNames = Locale::getAllLocales();
         $locales = array_map(function ($localeKey) use ($localeNames) {
             return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
         }, $supportedFormLocales);

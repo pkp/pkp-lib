@@ -17,7 +17,6 @@ namespace APP\services;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-
 use PKP\core\PKPApplication;
 use PKP\plugins\HookRegistry;
 use PKP\security\Validation;

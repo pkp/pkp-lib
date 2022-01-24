@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-24 15:25+0000\n"
+"PO-Revision-Date: 2022-01-24 23:01+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/is_IS/>\n"
@@ -17,3 +17,528 @@ msgstr "Ásýnd"
 
 msgid "manager.website.information"
 msgstr "Upplýsingar"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Leita að notendum eftir nafni"
+
+msgid "manager.readingTools"
+msgstr "Lestrartól"
+
+msgid "manager.plugins"
+msgstr "Kerfis viðbætur"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"Þetta viðbótarforrit nær yfir alla vefsíðuna.  Engöngu vefstjóri getur "
+"sýslað með þessa viðbót."
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Umsýsla tengi- og viðbóarforrita"
+
+msgid "manager.plugins.enable"
+msgstr "Virkja"
+
+msgid "manager.plugins.disable"
+msgstr "Afvirkja"
+
+msgid "manager.plugins.action"
+msgstr "Aðgerð:"
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Krefja notanda um að breyta um lykilorð við næstu innskráningu."
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Það tókst að stofna notanda."
+
+msgid "manager.people.unenroll"
+msgstr "Afskrá"
+
+msgid "manager.people.syncUsers"
+msgstr "Samstilla notenda skráningar"
+
+msgid "manager.people.signInAsUser"
+msgstr "Skrá inn sem notandi"
+
+msgid "manager.people.signInAs"
+msgstr "Skrá inn sem"
+
+msgid "manager.people.signedInAs"
+msgstr "Þú ert innskráð(ur) sem {$username}"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Vista og stofna næsta"
+
+msgid "manager.people.remove"
+msgstr "Fjarlægja"
+
+msgid "manager.people"
+msgstr "Fólk"
+
+msgid "manager.people.noneEnrolled"
+msgstr "Engir skráðir notendur."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Engir notendur sem passa."
+
+msgid "manager.people.mustProvideName"
+msgstr "Vinsamlega skráðu fyrst a.m.k. eftirnafn notandanns."
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"Vinsamlega veldu hlutverk efst á síðunni áður en þú smellir á \"Skrá "
+"notanda\"."
+
+msgid "manager.people.mergeUsers"
+msgstr "Tvinna saman notendur"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"Ertu viss um að þú viljir tvinna saman {$oldAccountCount} notenda reikning(a)"
+" við notendanafnið \"{$newUsername}\"?  Valinn/valdir {$oldAccountCount} "
+"notendareikningar  verða ekki til á eftir. Þessa aðgerð er ekki hægt að "
+"afturkalla."
+
+msgid "manager.people.mergeUser"
+msgstr "Tvinna saman notendur"
+
+msgid "manager.people.invalidUser"
+msgstr "Afsakaðu, umbeðinn notandi er ekki til."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Skrá notanda sem"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Hægt er að setja hlutverk á, eða taka af, notendum hvenær sem er."
+
+msgid "manager.people.enrollSync"
+msgstr "Samstilla skráningar"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Samstilla hlutverk"
+
+msgid "manager.people.enrollSelected"
+msgstr "Skrá valda notendur"
+
+msgid "manager.people.enrollment"
+msgstr "Skráning"
+
+msgid "manager.people.enroll"
+msgstr "Skrá notanda"
+
+msgid "manager.people.enable"
+msgstr "Virkja"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Veldu þá notendur sem þú vilt senda tölvupóst á með því að merkja í kassann "
+"við hvert nafn"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Veldur tungumál"
+
+msgid "manager.people.emailUsers"
+msgstr "Senda notendum tölvupóst"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Senda tölvupóst á notendur skráða sem"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Senda tölvupóst á valda notendur"
+
+msgid "manager.people.editUser"
+msgstr "Breyta notanda"
+
+msgid "manager.people.editProfile"
+msgstr "Breyta forstillingum"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Með ekkert hlutverk"
+
+msgid "manager.people.disable"
+msgstr "Afvirkja"
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Senda notanda velkominn tölvupóst með notendanafni og lykilorði."
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Búa til slembi lykilorð."
+
+msgid "manager.people.createUser"
+msgstr "Stofna nýjan notanda"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Afskrá þennan notanda?"
+
+msgid "manager.people.authSource"
+msgstr "Uppruni heimildar"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Það verður að slá inn notanda sem er til."
+
+msgid "manager.payment.timestamp"
+msgstr "Tímastimpill"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Veldu öll tungumál sem vefsíðan á að styðja við á tungumála valmyndinni sem "
+"birtist á hverri síðu. Valmyndin birtist bara ef fleira en eitt tungumál er "
+"valið."
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Þetta kerfi leyfir að sérstakar mikilvægar upplýsingar séu settar inn á "
+"viðbótar tungumálum.  Til að nota þenna möguleika, veldu viðbótar tungumál "
+"og veldu valkost af listanum."
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Endurhlaða sjálfgefnum gildum"
+
+msgid "manager.language.forms"
+msgstr "Eyðublöð"
+
+msgid "manager.language.submissions"
+msgstr "Senda inn grein"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.importExport"
+msgstr "Flytja inn/flytja út gögn"
+
+msgid "manager.groups.title"
+msgstr "Titill"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Engir notendur fundust."
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Þessi hópur hefur enga meðlimi."
+
+msgid "manager.groups.membership"
+msgstr "Aðild"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Ertu viss um að þú viljir eyða aðild hópsins?"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Bæta við meðlim"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Titill fyrir hópinn er áskilinn."
+
+msgid "manager.groups.editTitle"
+msgstr "Breyta titli"
+
+msgid "manager.groups.createTitle"
+msgstr "Stofna titill"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Ertu viss um að þú viljir eyða þessum hóp?"
+
+msgid "manager.files.uploadFile"
+msgstr "Hlaða upp skrá"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Upphlaðnar skrár"
+
+msgid "manager.files.parentDir"
+msgstr "Yfir skráasvæði"
+
+msgid "manager.files.indexOfDir"
+msgstr "Atriðaskrá fyrir {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "Engar skrár fundust á þessu skráasvæði."
+
+msgid "manager.files.createDir"
+msgstr "Stofna skráasvæði"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Eyða þessari skrá eða skráasvæði?  ATH skráasvæði þarf að vera tómt svo hægt "
+"sé að eyða því."
+
+msgid "manager.filesBrowser"
+msgstr "Skráa vafri"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Velja notendur til að flytja út í Excel/CSV skrá."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Flytja út í Excel/CSV"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Efni: {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Sent til"
+
+msgid "manager.emails.sentFrom"
+msgstr "Sent frá"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Endurstilla í sjálfgefið"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Ef þú endurstillir þetta sniðmát, munu öll skilaboðagögn vera endurstillt í "
+"upprunalegt horf, og allar breytingar tapast.  Viltu staðfesta þessa aðgerð?"
+
+msgid "manager.emails.resetComplete"
+msgstr "Það tókst að endurstilla sniðmát tölvupóstsins."
+
+msgid "manager.emails.reset"
+msgstr "Endurstilla"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Upprunalegu tölvupóst sniðmátin hafa verið endurheimt."
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Ef þú endurstillir öll sniðmát, munu allar breytingar á tölvupóst "
+"sniðmátunum tapast.  Viltu staðfesta þessa aðgerð?"
+
+msgid "manager.emails.resetAll"
+msgstr "Endurstilla allt"
+
+msgid "manager.emails"
+msgstr "Tilbúnir tölvupóstar"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Efni tölvupósts er áskilið."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Meginmál er áskilið fyrir tölvupóstinn."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"Einkvæmur tölvupósts lykill sem inniheldur engin stafabil eða sérstafi er "
+"áskilinn fyri tölvupóstinn."
+
+msgid "manager.emails.enable.message"
+msgstr "Þú ert við það að virja þennan tölvupóst.  Viltu staðfesta aðgerðina?"
+
+msgid "manager.emails.enable"
+msgstr "Virkja"
+
+msgid "manager.emails.enabled"
+msgstr "Virkja tölvupóst sniðmát"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Lykillinn sem þú slóst inn er nú þegar í notkun."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Þú verður að gefa upp kenni samhengis þegar þú bætir við sniðmáti fyrir "
+"tölvupóst."
+
+msgid "manager.emails.otherTemplates"
+msgstr "Önnur sniðmát"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Tölvupóstur - sniðmát"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Tölvupóstur - sniðmát"
+
+msgid "manager.emails.emailKeyExists"
+msgstr ""
+"Tölvupóstur með þessum lykli er til. Tölvupóstslyklar verða að vera "
+"einkvæmir."
+
+msgid "manager.emails.emailKey.description"
+msgstr "Tölvupóstslykill má bara innihalda bókstafi, númer og undirstrik."
+
+msgid "manager.emails.emailKey"
+msgstr "Tölvupósts lykill"
+
+msgid "manager.emails.editTestExample"
+msgstr "Breyta tölvupósti - dæmi um prófun"
+
+msgid "manager.emails.editEmail"
+msgstr "Breyta tölvupósti"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Þú ert við það að afvirkja þetta sniðmát.  Ef það eru aðrir ferlar í kerfinu "
+"sem nota þetta sniðmát, þá geta þeir ekki gert það lengur.  Viltu staðfesta "
+"þessa aðgerð?"
+
+msgid "manager.emails.disable"
+msgstr "Afvirkja"
+
+msgid "manager.emails.details"
+msgstr "Sniðmát - nánar"
+
+msgid "manager.emails.data"
+msgstr "Sniðmát -  Skilaboð"
+
+msgid "manager.emails.customTemplate"
+msgstr "Sérsniðið sniðmát"
+
+msgid "manager.emails.createEmail"
+msgstr "Stofna tölvupóst"
+
+msgid "manager.emails.addEmail"
+msgstr "Bæta við sniðmáti"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"Ertu viss um að þú villjir endurstilla þetta tölvupóst sniðmát í upphaflegt "
+"form?"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Ert þú viss um að þú viljir eyða þessu tölvupósts sniðmáti?"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Búið að uppfæra upplýsingar í áminningu um ritrýni."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Leiðbeiningar fyrir ritrýna"
+
+msgid "manager.publication.emails"
+msgstr "Tölvupóstar"
+
+msgid "manager.publication.productionStage"
+msgstr "Framleiðsla"
+
+msgid "manager.publication.editorialStage"
+msgstr "Ritstjórnar"
+
+msgid "manager.publication.reviewStage"
+msgstr "Ritrýni"
+
+msgid "manager.publication.submissionStage"
+msgstr "Innsending handrita"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Tilkynningategund"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Engar tilkynningategundir hafa verið stofnaðar."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Nafn á tilkynningategund er áskilið."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nafn"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Tilkynningategund með þessu heiti er til nú þegar."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Vista og stofna næsta"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Breyta"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Breyta tilkynningategund"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Stofna"
+
+msgid "manager.announcementTypes.create"
+msgstr "Stofna tilkynningategund"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Viðvörun! Öllum tilkynningum af þessari tilkynningategund verður eytt. Ertu "
+"viss um að þú viljir halda áfram og eyða þessari tilkynningategund?"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Vinsamlega veldu gilda tilkynningategund."
+
+msgid "manager.announcementTypes"
+msgstr "Tilkynningategund"
+
+msgid "manager.announcements.type"
+msgstr "Tegund"
+
+msgid "manager.announcements.title"
+msgstr "Titill"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Engar tilkynningar hafa verið búnar til."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tegund"
+
+msgid "manager.announcements.form.title"
+msgstr "Titill"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Titill tilkynningar er áskilinn."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Vista og stofna næsta"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Stutt lýsing"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Stutt lýsing á tilkynningu er áskilin."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Stutt lýsing sem birtist með titli tilkynningar."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Lýsing á tilkynningu er áskilin."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Heildartexti tilkynningarinnar."
+
+msgid "manager.announcements.form.description"
+msgstr "Tilkynning"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Vinsamlega veldu mánuð og/eða dag til viðbótar við gildisloka-ár."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Vinsamlega veldu gilda dagsetningu sem gildisloka dagsetningu."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Vinsamlega veldu ár og/eða dag í viðbót við gildisloka-mánuð."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Notendur sjá tilkynninguna til þessa dags. Skyldu eftir autt ef tilkynningin "
+"á að birtast ótímabundið."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Gildisloka dagsetning"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Vinsamlega veldu ár og/eða mánuð í viðbót við gildisloka-daginn."
+
+msgid "manager.announcements.editTitle"
+msgstr "Breyta"
+
+msgid "manager.announcements.edit"
+msgstr "Breyta tilkynningu"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Eyða tilkynningu"
+
+msgid "manager.announcements.datePublish"
+msgstr "Útgefið"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Gildislok"
+
+msgid "manager.announcements.createTitle"
+msgstr "Stofna"
+
+msgid "manager.announcements.create"
+msgstr "Stofna nýja tilkynningu"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Ertu viss um að þú viljir eyða endanlega þessari tilkynningu: {$title}?"
+
+msgid "manager.announcements"
+msgstr "Tilkynningar"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Mynda skrá er áskilin. Vinsamlega gakktu úr skugga um að þú hafir valið og "
+"hlaðið upp skrá."

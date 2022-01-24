@@ -56,14 +56,10 @@ class SettingsHandler extends ManagementHandler
         $context = $request->getContext();
         $dispatcher = $request->getDispatcher();
 
-        $contextApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 
-        $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-        }, $supportedFormLocales);
+        $locales = $context->getSupportedFormLocaleNames();
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $screeningForm = new \APP\components\forms\context\ScreeningForm($apiUrl, $locales, $context);
 
@@ -90,11 +86,8 @@ class SettingsHandler extends ManagementHandler
 
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
 
-        $supportedFormLocales = $context->getSupportedFormLocales();
-        $localeNames = Locale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-        }, $supportedFormLocales);
+        $locales = $context->getSupportedFormLocaleNames();
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $accessForm = new \APP\components\forms\context\AccessForm($apiUrl, $locales, $context);
 

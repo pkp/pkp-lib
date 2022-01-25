@@ -20,16 +20,6 @@ use PKP\cliTool\InstallTool;
 class OPSInstallTool extends InstallTool
 {
     /**
-     * Constructor.
-     *
-     * @param array $argv command-line arguments
-     */
-    public function __construct($argv = [])
-    {
-        parent::__construct($argv);
-    }
-
-    /**
      * Read installation parameters from stdin.
      * FIXME: May want to implement an abstract "CLIForm" class handling input/validation.
      * FIXME: Use readline if available?

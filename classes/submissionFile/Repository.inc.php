@@ -27,14 +27,6 @@ class Repository extends BaseRepository
     /** @var DAO $dao */
     public $dao;
 
-    public function __construct(
-        DAO $dao,
-        Request $request,
-        PKPSchemaService $schemaService
-    ) {
-        parent::__construct($dao, $request, $schemaService);
-    }
-
     /** @copydoc DAO::delete() */
     public function delete(SubmissionFile $submissionFile): void
     {

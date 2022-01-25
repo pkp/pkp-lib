@@ -14,11 +14,18 @@
 		{translate key="navigation.tools.jobs"}
 	</h1>
 	<div class="app__contentPanel">
-				<pkp-table
-						:columns="columns"
-						:rows="rows"
-						:description="description"
-						:label="label"
-				/>
-		</div>
+		<pkp-table
+			:columns="columns"
+			:rows="rows"
+			:description="description"
+			:label="label"
+		></pkp-table>
+
+		<pagination
+			:current-page="currentPage"
+			:last-page="lastPage"
+			:isLoading="isLoadingItems"
+			@set-page="handlePagination(page)"
+		/>
+	</div>
 {/block}

@@ -35,7 +35,7 @@ class AdminHandler extends Handler
     /** @copydoc PKPHandler::_isBackendPage */
     public $_isBackendPage = true;
 
-    public const JOBS_PER_PAGE = 50;
+    public const JOBS_PER_PAGE = 10;
 
     /**
      * Constructor

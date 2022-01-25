@@ -46,14 +46,6 @@ class FieldRichTextarea extends Field
     public $wordLimit = 0;
 
     /**
-     * @copydoc Field::__construct()
-     */
-    public function __construct($name, $args = [])
-    {
-        parent::__construct($name, $args);
-    }
-
-    /**
      * @copydoc Field::getConfig()
      */
     public function getConfig()

@@ -36,16 +36,6 @@ class MetadataTypeDescription extends ClassTypeDescription
     public $_assocType;
 
 
-    /**
-     * Constructor
-     *
-     * @param string $typeName a fully qualified class name.
-     */
-    public function __construct($typeName)
-    {
-        parent::__construct($typeName);
-    }
-
     //
     // Setters and Getters
     //

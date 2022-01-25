@@ -19,17 +19,6 @@ class PrimitiveTypeDescription extends TypeDescription
     /** @var string a PHP primitive type, e.g. 'string' */
     public $_primitiveType;
 
-    /**
-     * Constructor
-     *
-     * @param string $typeName Allowed primitive types are
-     *  'integer', 'string', 'float' and 'boolean'.
-     */
-    public function __construct($typeName)
-    {
-        parent::__construct($typeName);
-    }
-
 
     //
     // Setters and Getters

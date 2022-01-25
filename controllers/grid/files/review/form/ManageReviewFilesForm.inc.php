@@ -97,7 +97,7 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm
      *
      * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
      */
-    public function execute($stageSubmissionFiles, $fileStage = null)
+    public function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs)
     {
         parent::execute(
             $stageSubmissionFiles,

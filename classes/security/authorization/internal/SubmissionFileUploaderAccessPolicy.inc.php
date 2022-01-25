@@ -20,18 +20,6 @@ use PKP\security\authorization\AuthorizationPolicy;
 
 class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy
 {
-    /**
-     * Constructor
-     *
-     * @param PKPRequest $request
-     * @param null|mixed $submissionFileId
-     */
-    public function __construct($request, $submissionFileId = null)
-    {
-        parent::__construct($request, $submissionFileId);
-    }
-
-
     //
     // Implement template methods from AuthorizationPolicy
     //

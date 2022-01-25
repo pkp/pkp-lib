@@ -24,18 +24,6 @@ use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAccessPolicy
 {
-    /**
-     * Constructor
-     *
-     * @param PKPRequest $request
-     * @param null|mixed $submissionFileId
-     */
-    public function __construct($request, $submissionFileId = null)
-    {
-        parent::__construct($request, $submissionFileId);
-    }
-
-
     //
     // Implement template methods from AuthorizationPolicy
     // Note:  This class is subclassed in each Application, so that Policies have the opportunity to add

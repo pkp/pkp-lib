@@ -20,20 +20,6 @@ import('lib.pkp.controllers.grid.files.fileList.FileListGridHandler');
 
 class SelectableFileListGridHandler extends FileListGridHandler
 {
-    /**
-     * Constructor
-     *
-     * @param GridDataProvider $dataProvider
-     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
-     * @param int $capabilities A bit map with zero or more
-     *  FILE_GRID_* capabilities set.
-     */
-    public function __construct($dataProvider, $stageId, $capabilities = 0)
-    {
-        parent::__construct($dataProvider, $stageId, $capabilities);
-    }
-
-
     //
     // Overriden methods from GridHandler.
     //

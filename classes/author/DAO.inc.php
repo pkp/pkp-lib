@@ -51,15 +51,6 @@ class DAO extends EntityDAO
     ];
 
     /**
-     * Constructor
-     */
-    public function __construct(
-        PKPSchemaService $schemaService
-    ) {
-        parent::__construct($schemaService);
-    }
-
-    /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): Author
@@ -157,14 +148,6 @@ class DAO extends EntityDAO
     public function delete(Author $author)
     {
         parent::_delete($author);
-    }
-
-    /**
-     * @copydoc EntityDAO::deleteById()
-     */
-    public function deleteById(int $authorId)
-    {
-        parent::deleteById($authorId);
     }
 
     /**

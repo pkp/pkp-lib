@@ -164,7 +164,11 @@ class XMLTypeDescription extends TypeDescription
             return (string) $this->_validationSource;
         }
 
-        $params = [];
+        // Fixing memory leaking. @see https://github.com/guzzle/guzzle/issues/2555
+        $params = [
+            'stream' => true,
+            'version' => '1.0',
+        ];
 
         if ($httpProxy = Config::getVar('proxy', 'http_proxy')) {
             $params['proxy']['http'] = $httpProxy;

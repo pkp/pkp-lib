@@ -19,16 +19,6 @@ import('controllers.grid.submissions.ExportPublishedSubmissionsListGridCellProvi
 class PubIdExportSubmissionsListGridCellProvider extends ExportPublishedSubmissionsListGridCellProvider
 {
     /**
-     * Constructor
-     *
-     * @param null|mixed $authorizedRoles
-     */
-    public function __construct($plugin, $authorizedRoles = null)
-    {
-        parent::__construct($plugin, $authorizedRoles);
-    }
-
-    /**
      * @copydoc ExportPublishedSubmissionsListGridCellProvider::getTemplateVarsFromRowColumn()
      */
     public function getTemplateVarsFromRowColumn($row, $column)

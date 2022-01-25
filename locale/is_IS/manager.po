@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-24 23:01+0000\n"
+"PO-Revision-Date: 2022-01-25 13:03+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/is_IS/>\n"
@@ -542,3 +542,61 @@ msgid "manager.website.imageFileRequired"
 msgstr ""
 "Mynda skrá er áskilin. Vinsamlega gakktu úr skugga um að þú hafir valið og "
 "hlaðið upp skrá."
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Safna upp tölfræði eftir:"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Kerfið býr til skýrslur yfir upplýsingar tengdar notkuninni á vefnum og "
+"innsendingum yfir tiltekið tímabil. Skýrslurnar eru á CSV fromi sem kallar á "
+"töflureikni eins og t.d. Excel til að skoða gögnin."
+
+msgid "manager.statistics.reports"
+msgstr "Skýrslur"
+
+msgid "manager.statistics.region"
+msgstr "Svæði"
+
+msgid "manager.statistics.city"
+msgstr "Staður"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tHluturinn {$contextObjectName} er stilltur til að skrá meira en einn "
+"notkunarmælikvarða. Tölfræði um notkun verður birt í fleiru en einu "
+"samhengi. \n"
+"\t\tÞað eru tilfelli þar sem ein tölfræði notkun verður að vera notuð. T.d. "
+"til að sýna sorteraðan lista af algengustu innsendingum til að raða "
+"leitarniðurstöðum. Vinsamlega veldur einn af mælikvörðunum sem búið er að "
+"stilla sem sjálfgefinn.\n"
+"\t"
+
+msgid "manager.statistics"
+msgstr "Tölfræði & AMP; Skýrslur"
+
+msgid "manager.roles"
+msgstr "Hlutverk"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Notaðu formið fyrir neðan til að setja hámarksgildi fyrir skilyrðin sem þú "
+"óskar að leita eftir. Formið forsýnir útreiknað meðaltal þessara svæða."
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Ritrýni áhugasvið"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Leita eftir nafni"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Leita í ritrýnum eftir nafni"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Breyta"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Þú getur ekki eytt þessum fulltrúa því viðkomandi er tengdur á markasð "
+"lýsigögn fyrir eitt eða fleiri útgáfu from fyrir þetta handrit."

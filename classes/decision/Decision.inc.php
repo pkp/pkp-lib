@@ -7,8 +7,8 @@
 /**
  * @file classes/decision/Decision.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Decision
@@ -43,28 +43,22 @@ class Decision extends DataObject
     /**
      * Get the decision type for this decision
      */
-    public function getType(): Type
+    public function getDecisionType(): DecisionType
     {
-        foreach (Repo::decision()->getTypes() as $type) {
-            if ($type->getDecision() === $this->getData('decision')) {
-                return $type;
-            }
+        $decisionType = Repo::decision()->getDecisionType($this->getData('decision'));
+        if (!$decisionType) {
+            throw new Exception('Decision exists with an unknown type. Decision: ' . $this->getData('decisions'));
         }
-        throw new Exception('Decision exists with an unknown type. Decision: ' . $this->getData('decisions'));
+        return $decisionType;
     }
 }
 
 if (!PKP_STRICT_MODE) {
     define('SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE', Decision::INITIAL_DECLINE);
-    define('SUBMISSION_EDITOR_DECISION_SKIP_REVIEW', Decision::SKIP_REVIEW);
     define('SUBMISSION_EDITOR_RECOMMEND_ACCEPT', Decision::RECOMMEND_ACCEPT);
     define('SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS', Decision::RECOMMEND_PENDING_REVISIONS);
     define('SUBMISSION_EDITOR_RECOMMEND_RESUBMIT', Decision::RECOMMEND_RESUBMIT);
     define('SUBMISSION_EDITOR_RECOMMEND_DECLINE', Decision::RECOMMEND_DECLINE);
     define('SUBMISSION_EDITOR_DECISION_REVERT_DECLINE', Decision::REVERT_DECLINE);
-    define('SUBMISSION_EDITOR_DECISION_REVERT_INITIAL_DECLINE', Decision::REVERT_INITIAL_DECLINE);
-    define('SUBMISSION_EDITOR_DECISION_BACK_TO_COPYEDITING', Decision::BACK_TO_COPYEDITING);
-    define('SUBMISSION_EDITOR_DECISION_BACK_TO_REVIEW', Decision::BACK_TO_REVIEW);
-    define('SUBMISSION_EDITOR_DECISION_BACK_TO_SUBMISSION_FROM_COPYEDITING', Decision::BACK_TO_SUBMISSION_FROM_COPYEDITING);
     define('SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION', Decision::SEND_TO_PRODUCTION);
 }

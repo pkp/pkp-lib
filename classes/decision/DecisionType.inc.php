@@ -1,9 +1,9 @@
 <?php
 /**
- * @file classes/decision/Type.inc.php
+ * @file classes/decision/DecisionType.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -36,7 +36,7 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
-abstract class Type
+abstract class DecisionType
 {
     public const ACTION_NOTIFY_AUTHORS = 'notifyAuthors';
     public const ACTION_NOTIFY_REVIEWERS = 'notifyReviewers';
@@ -211,13 +211,13 @@ abstract class Type
     }
 
     /**
-     * Get the workflow for this decision type
+     * Get the workflow steps for this decision type
      *
      * Returns null if this decision type does not use a workflow.
      * In such cases the decision can be recorded but does not make
      * use of the built-in UI for making the decision
      */
-    public function getWorkflow(Submission $submission, Context $context, User $editor, ?ReviewRound $reviewRound): ?Workflow
+    public function getSteps(Submission $submission, Context $context, User $editor, ?ReviewRound $reviewRound): ?Steps
     {
         return null;
     }

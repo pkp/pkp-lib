@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file pages/workflow/PKPDecisionHandler.inc.php
+ * @file pages/decision/DecisionHandler.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2003-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPDecisionHandler
+ * @class DecisionHandler
  * @ingroup pages_decision
  *
  * @brief Handle requests to take an editorial decision.
@@ -23,7 +23,7 @@ use APP\template\TemplateManager;
 use PKP\context\Context;
 use PKP\core\Dispatcher;
 use PKP\db\DAORegistry;
-use PKP\decision\Type;
+use PKP\decision\DecisionType;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
@@ -34,12 +34,12 @@ use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use Stringy\Stringy;
 
-class PKPDecisionHandler extends Handler
+class DecisionHandler extends Handler
 {
     /** @copydoc PKPHandler::_isBackendPage */
     public $_isBackendPage = true;
 
-    protected Type $decisionType;
+    protected DecisionType $decisionType;
     protected Submission $submission;
     protected ?ReviewRound $reviewRound = null;
 
@@ -117,7 +117,7 @@ class PKPDecisionHandler extends Handler
             }
         }
 
-        $workflow = $this->decisionType->getWorkflow(
+        $steps = $this->decisionType->getSteps(
             $this->submission,
             $context,
             $request->getUser(),
@@ -142,8 +142,9 @@ class PKPDecisionHandler extends Handler
             'fileGenres' => $this->getFileGenres($context),
             'keepWorkingLabel' => __('common.keepWorking'),
             'reviewRoundId' => $this->reviewRound ? $this->reviewRound->getId() : null,
-            'stepErrorMessage' => __('editor.decision.stepError'),
             'stageId' => $this->submission->getStageId(),
+            'stepErrorMessage' => __('editor.decision.stepError'),
+            'steps' => $steps->getState(),
             'submissionUrl' => $dispatcher->url(
                 $request,
                 Application::ROUTE_PAGE,
@@ -159,7 +160,6 @@ class PKPDecisionHandler extends Handler
                 'submissions/' . $this->submission->getId()
             ),
             'viewSubmissionLabel' => __('submission.list.viewSubmission'),
-            'workflow' => $workflow->getState(),
         ]);
 
         $templateMgr->assign([

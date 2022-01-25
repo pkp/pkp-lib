@@ -3,8 +3,8 @@
 /**
  * @file classes/mail/variables/DecisionEmailVariable.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DecisionEmailVariable
@@ -17,7 +17,7 @@ namespace PKP\mail\variables;
 
 use APP\decision\Decision;
 use APP\facades\Repo;
-use PKP\decision\Type;
+use PKP\decision\DecisionType;
 use PKP\workflow\WorkflowStageDAO;
 
 class DecisionEmailVariable extends Variable
@@ -28,12 +28,12 @@ class DecisionEmailVariable extends Variable
     public const ROUND = 'decisionReviewRound';
 
     protected Decision $decision;
-    protected Type $type;
+    protected DecisionType $decisionType;
 
     public function __construct(Decision $decision)
     {
         $this->decision = $decision;
-        $this->type = Repo::decision()->getType($decision->getData('decision'));
+        $this->decisionType = Repo::decision()->getDecisionType($decision->getData('decision'));
     }
 
     /**
@@ -57,8 +57,8 @@ class DecisionEmailVariable extends Variable
     {
         return
         [
-            self::DECISION => $this->type->getLabel($locale),
-            self::DESCRIPTION => $this->type->getDescription($locale),
+            self::DECISION => $this->decisionType->getLabel($locale),
+            self::DESCRIPTION => $this->decisionType->getDescription($locale),
             self::STAGE => $this->getStageName($locale),
             self::ROUND => (string) $this->decision->getData('round'),
         ];

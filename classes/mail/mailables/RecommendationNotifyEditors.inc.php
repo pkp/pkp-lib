@@ -3,8 +3,8 @@
 /**
  * @file classes/mail/mailables/RecommendationNotifyEditors.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RecommendationNotifyEditors
@@ -16,7 +16,9 @@
 namespace PKP\mail\mailables;
 
 use APP\decision\Decision;
+use APP\facades\Repo;
 use APP\submission\Submission;
+use Exception;
 use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
@@ -28,6 +30,8 @@ class RecommendationNotifyEditors extends Mailable
     use Recipient;
     use ReviewerComments;
     use Sender;
+
+    public const RECOMMENDATION_VARIABLE = 'recommendation';
 
     protected static ?string $name = 'mailable.decision.recommendation.notifyEditors.name';
     protected static ?string $description = 'mailable.decision.recommendation.notifyEditors.description';
@@ -41,12 +45,25 @@ class RecommendationNotifyEditors extends Mailable
     public function __construct(Context $context, Submission $submission, Decision $decision, array $reviewAssignments)
     {
         parent::__construct(array_slice(func_get_args(), 0, -1));
+        $this->setupRecommendationVariable($decision);
         $this->setupReviewerCommentsVariable($reviewAssignments, $submission);
     }
 
     public static function getDataDescriptions(): array
     {
         $variables = parent::getDataDescriptions();
+        $variables[static::RECOMMENDATION_VARIABLE] = __('emailTemplate.variable.recommendation');
         return self::addReviewerCommentsDescription($variables);
+    }
+
+    protected function setupRecommendationVariable(Decision $decision)
+    {
+        $decisionType = Repo::decision()->getDecisionType($decision->getData('decision'));
+        if (!$decisionType || !method_exists($decisionType, 'getRecommendationLabel')) {
+            throw new Exception('Tried to get the recommendation from a decision that does not exist');
+        }
+        $this->addData([
+            static::RECOMMENDATION_VARIABLE => $decisionType->getRecommendationLabel(),
+        ]);
     }
 }

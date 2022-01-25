@@ -1,18 +1,18 @@
 {**
- * templates/management/workflow.tpl
+ * templates/management/record.tpl
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2003-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief The workflow settings page.
+ * @brief A step-by-step UI to record an editorial decision
  *}
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
 	<div class="app__page--decision">
 		<h1 class="app__pageHeading">
-			<template v-if="workflow.length > 1">
+			<template v-if="steps.length > 1">
 				{translate key="semicolon" label=$decisionType->getLabel()}
 				{{ currentStep.name }}
 			</template>
@@ -38,7 +38,7 @@
 		</notification>
 
 		<steps
-			v-if="workflow.length"
+			v-if="steps.length"
 			:current="currentStep.id"
 			:initialized-steps="initializedSteps"
 			label="{translate key="editor.decision.completeSteps"}"
@@ -47,7 +47,7 @@
 			@step:open="openStep"
 		>
 			<step
-				v-for="step in workflow"
+				v-for="step in steps"
 				:key="step.id"
 				:id="step.id"
 				:label="step.name"
@@ -77,7 +77,7 @@
 					{capture assign="ccLabel"}{translate key="email.cc"}{/capture}
 					{capture assign="subjectLabel"}{translate key="email.subject"}{/capture}
 					{capture assign="switchTolabel"}{translate key="common.switchTo"}{/capture}
-					{capture assign="toLabel"}{translate key="email.to"}{/capture}
+					{capture assign="recipientsLabel"}{translate key="email.to"}{/capture}
 					<composer
 						v-else
 						v-bind="step"
@@ -92,11 +92,11 @@
 						find-template-label="{translate key="common.findTemplate"}"
 						load-template-label="{translate key="common.loadTemplate"}"
 						more-search-results-label="{translate key="common.numberedMore"}"
+						recipients-label="{translate key="semicolon" label=$recipientsLabel}"
 						remove-item-label="{translate key="common.removeItem"}"
 						searching-label="{translate key="common.searching"}"
 						subject-label="{translate key="semicolon" label=$subjectLabel}"
-						switch-to-label="{translate key="semicolon" label=$switchTolabel}"
-						to-label="{translate key="semicolon" label=$toLabel}"
+						switch-language-label="{translate key="semicolon" label=$switchTolabel}"
 						@set="updateStep"
 					>
 						<template slot="description">
@@ -122,8 +122,7 @@
 									<select-submission-file-list-item
 										:document-type="item.documentType"
 										download-label="{translate key="common.download"}"
-										:genre-is-primary="item.genreIsPrimary"
-										:genre-name="item.genreName"
+										:genre="item.genre"
 										:file-id="item.id"
 										:name="localize(item.name)"
 										:url="item.url"
@@ -142,7 +141,7 @@
 			</step>
 		</steps>
 
-		<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !workflow.length{rdelim}">
+		<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !steps.length{rdelim}">
 			<spinner v-if="isSubmitting"></spinner>
 			<pkp-button
 				:disabled="isSubmitting"
@@ -152,7 +151,7 @@
 				{translate key="common.cancel"}
 			</pkp-button>
 			<pkp-button
-				v-if="!isOnFirstStep && workflow.length > 1"
+				v-if="!isOnFirstStep && steps.length > 1"
 				:disabled="isSubmitting"
 				@click="previousStep"
 			>

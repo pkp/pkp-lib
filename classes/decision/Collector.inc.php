@@ -2,11 +2,11 @@
 /**
  * @file classes/decision/Collector.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class announcement
+ * @class decision
  *
  * @brief A helper class to configure a Query Builder to get a collection of editor decisions
  */
@@ -36,9 +36,9 @@ class Collector implements CollectorInterface
     /**
      * Filter decisions by these decision types
      *
-     * @param int[] $decisionTypes One of the Decision::* constants
+     * @param int[]|null $decisionTypes One of the Decision::* constants
      */
-    public function filterByDecisionTypes(array $decisionTypes): self
+    public function filterByDecisionTypes(?array $decisionTypes): self
     {
         $this->decisionTypes = $decisionTypes;
         return $this;
@@ -47,9 +47,9 @@ class Collector implements CollectorInterface
     /**
      * Filter decisions taken by one or more editors]
      *
-     * @param int[] $editorIds
+     * @param int[]|null $editorIds
      */
-    public function filterByEditorIds(array $editorIds): self
+    public function filterByEditorIds(?array $editorIds): self
     {
         $this->editorIds = $editorIds;
         return $this;
@@ -58,10 +58,10 @@ class Collector implements CollectorInterface
     /**
      * Filter decisions taken in one or more reviewRoundIds
      *
-     * @param int[] $reviewRoundIds The review round number, such as first or
+     * @param int[]|null $reviewRoundIds The review round number, such as first or
      *   second round of reviews. NOT the unique review round id.
      */
-    public function filterByReviewRoundIds(array $reviewRoundIds): self
+    public function filterByReviewRoundIds(?array $reviewRoundIds): self
     {
         $this->reviewRoundIds = $reviewRoundIds;
         return $this;
@@ -70,10 +70,10 @@ class Collector implements CollectorInterface
     /**
      * Filter decisions taken in one or more rounds
      *
-     * @param int[] $rounds The review round number, such as first or
+     * @param int[]|null $rounds The review round number, such as first or
      *   second round of reviews. NOT the unique review round id.
      */
-    public function filterByRounds(array $rounds): self
+    public function filterByRounds(?array $rounds): self
     {
         $this->rounds = $rounds;
         return $this;
@@ -82,9 +82,9 @@ class Collector implements CollectorInterface
     /**
      * Filter decisions taken in one or more workflow stages
      *
-     * @param int[] $stageIds One or more WORKFLOW_STAGE_ID_ constants
+     * @param int[]|null $stageIds One or more WORKFLOW_STAGE_ID_ constants
      */
-    public function filterByStageIds(array $stageIds): self
+    public function filterByStageIds(?array $stageIds): self
     {
         $this->stageIds = $stageIds;
         return $this;
@@ -93,9 +93,9 @@ class Collector implements CollectorInterface
     /**
      * Filter decisions taken for one or more submission ids
      *
-     * @param int[] $submissionIds
+     * @param int[]|null $submissionIds
      */
-    public function filterBySubmissionIds(array $submissionIds): self
+    public function filterBySubmissionIds(?array $submissionIds): self
     {
         $this->submissionIds = $submissionIds;
         return $this;
@@ -106,7 +106,7 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $qb = DB::table($this->dao->table . ' as ed')
+        $qb = DB::table($this->dao->table)
             ->when(!is_null($this->decisionTypes), function ($q) {
                 $q->whereIn('decision', $this->decisionTypes);
             })

@@ -99,13 +99,13 @@ class Schema extends BaseSchema
     /**
      * Map schema properties of a submission file to an assoc array
      */
-    protected function mapByProperties(array $props, SubmissionFile $item): array
+    protected function mapByProperties(array $props, SubmissionFile $submissionFile): array
     {
         $output = [];
         foreach ($props as $prop) {
             if ($prop === '_href') {
                 $output[$prop] = $this->getApiUrl(
-                    'submissions/' . $item->getData('submissionId') . '/files/' . $item->getId(),
+                    'submissions/' . $submissionFile->getData('submissionId') . '/files/' . $submissionFile->getId(),
                     $this->context->getData('urlPath')
                 );
 
@@ -115,8 +115,8 @@ class Schema extends BaseSchema
             if ($prop === 'dependentFiles') {
                 $collector = Repo::submissionFile()
                     ->getCollector()
-                    ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$item->getId()])
-                    ->filterBySubmissionIds([$item->getData('submissionId')])
+                    ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$submissionFile->getId()])
+                    ->filterBySubmissionIds([$submissionFile->getData('submissionId')])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
                     ->includeDependentFiles();
 
@@ -128,39 +128,22 @@ class Schema extends BaseSchema
             }
 
             if ($prop === 'documentType') {
-                $output[$prop] = Services::get('file')->getDocumentType($item->getData('mimetype'));
+                $output[$prop] = Services::get('file')->getDocumentType($submissionFile->getData('mimetype'));
 
                 continue;
             }
 
-            if ($prop === 'genreIsPrimary') {
-                $output[$prop] = false;
-                foreach ($this->genres as $genre) {
-                    if ($genre->getId() === $item->getData('genreId')) {
-                        $output[$prop] = !$genre->getSupplementary() && !$genre->getDependent();
-                        break;
-                    }
-                }
-                continue;
-            }
-
-            if ($prop === 'genreName') {
-                foreach ($this->genres as $genre) {
-                    if ($genre->getId() === $item->getData('genreId')) {
-                        $output[$prop] = $genre->getData('name');
-                        break;
-                    }
-                }
-                continue;
+            if ($prop === 'genre') {
+                $output[$prop] = $this->mapGenre($submissionFile);
             }
 
             if ($prop === 'revisions') {
                 $files = [];
 
-                $revisions = Repo::submissionFile()->getRevisions($item->getId());
+                $revisions = Repo::submissionFile()->getRevisions($submissionFile->getId());
 
                 foreach ($revisions as $revision) {
-                    if ($revision->fileId === $item->getData('fileId')) {
+                    if ($revision->fileId === $submissionFile->getData('fileId')) {
                         continue;
                     }
 
@@ -178,9 +161,9 @@ class Schema extends BaseSchema
                             null,
                             [
                                 'fileId' => $revision->fileId,
-                                'submissionFileId' => $item->getId(),
-                                'submissionId' => $item->getData('submissionId'),
-                                'stageId' => Repo::submissionFile()->getWorkflowStageId($item),
+                                'submissionFileId' => $submissionFile->getId(),
+                                'submissionId' => $submissionFile->getData('submissionId'),
+                                'stageId' => Repo::submissionFile()->getWorkflowStageId($submissionFile),
                             ]
                         ),
                     ];
@@ -200,16 +183,16 @@ class Schema extends BaseSchema
                     'downloadFile',
                     null,
                     [
-                        'submissionFileId' => $item->getId(),
-                        'submissionId' => $item->getData('submissionId'),
-                        'stageId' => Repo::submissionFile()->getWorkflowStageId($item),
+                        'submissionFileId' => $submissionFile->getId(),
+                        'submissionId' => $submissionFile->getData('submissionId'),
+                        'stageId' => Repo::submissionFile()->getWorkflowStageId($submissionFile),
                     ]
                 );
 
                 continue;
             }
 
-            $output[$prop] = $item->getData($prop);
+            $output[$prop] = $submissionFile->getData($prop);
         }
 
         $output = $this->schemaService->addMissingMultilingualValues(
@@ -220,6 +203,20 @@ class Schema extends BaseSchema
 
         ksort($output);
 
-        return $this->withExtensions($output, $item);
+        return $this->withExtensions($output, $submissionFile);
+    }
+
+    protected function mapGenre(SubmissionFile $submissionFile): ?array
+    {
+        foreach ($this->genres as $genre) {
+            if ($genre->getId() === $submissionFile->getData('genreId')) {
+                return [
+                    'id' => $genre->getId(),
+                    'dependent' => $genre->getDependent(),
+                    'name' => $genre->getLocalizedName(),
+                    'supplementary' => $genre->getSupplementary(),
+                ];
+            }
+        }
     }
 }

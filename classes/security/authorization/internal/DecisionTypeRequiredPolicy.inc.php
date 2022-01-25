@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/DecisionTypeRequiredPolicy.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DecisionTypeRequiredPolicy
@@ -17,7 +17,6 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
-use PKP\decision\Type;
 use PKP\security\authorization\AuthorizationPolicy;
 
 use PKP\security\authorization\DataObjectRequiredPolicy;
@@ -51,16 +50,14 @@ class DecisionTypeRequiredPolicy extends DataObjectRequiredPolicy
      */
     public function dataObjectEffect()
     {
-        /** @var Type|null $type */
-        $type = Repo::decision()->getTypes()->first(function ($type) {
-            return $type->getDecision() === $this->decision;
-        });
+        /** @var Type|null $decisionType */
+        $decisionType = Repo::decision()->getDecisionType($this->decision);
 
-        if (!$type) {
+        if (!$decisionType) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE, $type);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE, $decisionType);
 
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }

@@ -13,14 +13,12 @@
  * @brief Handle requests for the submssion workflow.
  */
 
-use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\i18n\AppLocale;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
-use PKP\decision\Type;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
@@ -827,20 +825,13 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Get a label for a recommendation decision type
      */
-    protected function getRecommendationLabel(int $decisionType): string
+    protected function getRecommendationLabel(int $decision): string
     {
-        switch ($decisionType) {
-            case Decision::RECOMMEND_PENDING_REVISIONS:
-                return 'editor.submission.decision.requestRevisions';
-            case Decision::RECOMMEND_RESUBMIT:
-                return 'editor.submission.decision.resubmit';
-            case Decision::RECOMMEND_ACCEPT:
-                return 'editor.submission.decision.accept';
-            case Decision::RECOMMEND_DECLINE:
-                return 'editor.submission.decision.decline';
+        $decisionType = Repo::decision()->getDecisionType($decision);
+        if (!$decisionType || !method_exists($decisionType, 'getRecommendationLabel')) {
+            throw new Exception('Could not find label for unknown recommendation type.');
         }
-
-        throw new Exception('Could not find label for unknown recommendation type.');
+        return $decisionType->getRecommendationLabel();
     }
 
 

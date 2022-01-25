@@ -2,8 +2,8 @@
 /**
  * @file classes/decision/types/NewExternalReviewRound.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -19,12 +19,12 @@ use APP\submission\Submission;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\decision\DecisionType;
+use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\decision\steps\PromoteFiles;
-use PKP\decision\Type;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\Workflow;
 use PKP\mail\mailables\DecisionNewReviewRoundNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
@@ -32,7 +32,7 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
-class NewExternalReviewRound extends Type
+class NewExternalReviewRound extends DecisionType
 {
     use InExternalReviewRound;
     use NotifyAuthors;
@@ -91,7 +91,11 @@ class NewExternalReviewRound extends Type
 
         parent::validate($props, $submission, $context, $validator, $reviewRoundId);
 
-        foreach ($props['actions'] as $index => $action) {
+        if (!isset($props['actions'])) {
+            return;
+        }
+
+        foreach ((array) $props['actions'] as $index => $action) {
             $actionErrorKey = 'actions.' . $index;
             switch ($action['id']) {
                 case $this->ACTION_NOTIFY_AUTHORS:
@@ -126,17 +130,17 @@ class NewExternalReviewRound extends Type
         }
     }
 
-    public function getWorkflow(Submission $submission, Context $context, User $editor, ?ReviewRound $reviewRound): Workflow
+    public function getSteps(Submission $submission, Context $context, User $editor, ?ReviewRound $reviewRound): Steps
     {
-        $workflow = new Workflow($this, $submission, $context, $reviewRound);
+        $steps = new Steps($this, $submission, $context, $reviewRound);
 
         $fakeDecision = $this->getFakeDecision($submission, $editor, $reviewRound);
         $fileAttachers = $this->getFileAttachers($submission, $context, $reviewRound);
 
-        $authors = $workflow->getStageParticipants(Role::ROLE_ID_AUTHOR);
+        $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {
             $mailable = new DecisionNewReviewRoundNotifyAuthor($context, $submission, $fakeDecision);
-            $workflow->addStep(new Email(
+            $steps->addStep(new Email(
                 $this->ACTION_NOTIFY_AUTHORS,
                 __('editor.submission.decision.notifyAuthors'),
                 __('editor.submission.decision.newReviewRound.notifyAuthorsDescription'),
@@ -149,7 +153,7 @@ class NewExternalReviewRound extends Type
             ));
         }
 
-        $workflow->addStep((new PromoteFiles(
+        $steps->addStep((new PromoteFiles(
             'promoteFilesToReviewRound',
             __('editor.submission.selectFiles'),
             __('editor.submission.decision.promoteFiles.review'),
@@ -165,6 +169,6 @@ class NewExternalReviewRound extends Type
                 ->filterByReviewRoundIds([$reviewRound->getId()])
         ));
 
-        return $workflow;
+        return $steps;
     }
 }

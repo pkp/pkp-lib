@@ -2,8 +2,8 @@
 /**
  * @file classes/decision/Repository.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -121,7 +121,7 @@ abstract class Repository
      *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate(array $props, Type $type, Submission $submission, Context $context): array
+    public function validate(array $props, DecisionType $decisionType, Submission $submission, Context $context): array
     {
         AppLocale::requireComponents(
             LOCALE_COMPONENT_PKP_EDITOR,
@@ -129,7 +129,7 @@ abstract class Repository
         );
 
         // Return early if no valid decision type exists
-        if (!isset($props['decision']) || $props['decision'] !== $type->getDecision()) {
+        if (!isset($props['decision']) || $props['decision'] !== $decisionType->getDecision()) {
             return ['decision' => [__('editor.submission.workflowDecision.typeInvalid')]];
         }
 
@@ -153,11 +153,11 @@ abstract class Repository
             []
         );
 
-        $validator->after(function ($validator) use ($props, $type, $submission, $context) {
+        $validator->after(function ($validator) use ($props, $decisionType, $submission, $context) {
 
             // The decision stage id must match the decision type's stage id
             // and the submission's current workflow stage
-            if ($props['stageId'] !== $type->getStageId()
+            if ($props['stageId'] !== $decisionType->getStageId()
                     || $props['stageId'] !== $submission->getData('stageId')) {
                 $validator->errors()->add('decision', __('editor.submission.workflowDecision.invalidStage'));
             }
@@ -172,10 +172,10 @@ abstract class Repository
 
             // A recommendation can not be made if the submission does not
             // have at least one assigned editor who can make a decision
-            if ($this->isRecommendation($type->getDecision())) {
+            if ($this->isRecommendation($decisionType->getDecision())) {
                 /** @var StageAssignmentDAO $stageAssignmentDao  */
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-                $assignedEditorIds = $stageAssignmentDao->getDecidingEditorIds($submission->getId(), $type->getStageId());
+                $assignedEditorIds = $stageAssignmentDao->getDecidingEditorIds($submission->getId(), $decisionType->getStageId());
                 if (!$assignedEditorIds) {
                     $validator->errors()->add('decision', __('editor.submission.workflowDecision.requiredDecidingEditor'));
                 }
@@ -185,7 +185,7 @@ abstract class Repository
             if (isset($props['reviewRoundId'])) {
 
                 // The decision must be taken during a review stage
-                if (!$type->isInReview() && !$validator->errors()->get('reviewRoundId')) {
+                if (!$decisionType->isInReview() && !$validator->errors()->get('reviewRoundId')) {
                     $validator->errors()->add('reviewRoundId', __('editor.submission.workflowDecision.invalidReviewRoundStage'));
                 }
 
@@ -199,12 +199,12 @@ abstract class Repository
                         $validator->errors()->add('reviewRoundId', __('editor.submission.workflowDecision.invalidReviewRoundSubmission'));
                     }
                 }
-            } elseif ($type->isInReview()) {
+            } elseif ($decisionType->isInReview()) {
                 $validator->errors()->add('reviewRoundId', __('editor.submission.workflowDecision.requiredReviewRound'));
             }
 
             // Allow the decision type to add validation checks
-            $type->validate($props, $submission, $context, $validator, isset($reviewRound) ? $reviewRound->getId() : null);
+            $decisionType->validate($props, $submission, $context, $validator, isset($reviewRound) ? $reviewRound->getId() : null);
         });
 
         $errors = [];
@@ -237,7 +237,7 @@ abstract class Repository
 
         $decision = $this->get($id);
 
-        $type = $decision->getType();
+        $decisionType = $decision->getDecisionType();
         $submission = Repo::submission()->get($decision->getData('submissionId'));
         $editor = Repo::user()->get($decision->getData('editorId'));
         $decision = $this->get($decision->getId());
@@ -251,25 +251,25 @@ abstract class Repository
         SubmissionLog::logEvent(
             $this->request,
             $submission,
-            $this->isRecommendation($type->getDecision())
+            $this->isRecommendation($decisionType->getDecision())
                 ? PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_RECOMMENDATION
                 : PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_DECISION,
-            $type->getLog(),
+            $decisionType->getLog(),
             [
                 'editorId' => $editor->getId(),
                 'editorName' => $editor->getFullName(),
                 'submissionId' => $decision->getData('submissionId'),
-                'decision' => $type->getDecision(),
+                'decision' => $decisionType->getDecision(),
             ]
         );
 
         // Allow the decision type to perform additional actions
-        $type->callback($decision, $submission, $editor, $context, $actions);
+        $decisionType->callback($decision, $submission, $editor, $context, $actions);
 
         try {
             event(new DecisionAdded(
                 $decision,
-                $type,
+                $decisionType,
                 $submission,
                 $editor,
                 $context,
@@ -280,7 +280,7 @@ abstract class Repository
             error_log($e->getTraceAsString());
         }
 
-        $this->updateNotifications($decision, $type, $submission);
+        $this->updateNotifications($decision, $decisionType, $submission);
 
         return $id;
     }
@@ -302,10 +302,10 @@ abstract class Repository
     /**
      * Get a decision type by the DECISION::* constant
      */
-    public function getType(int $decision): ?Type
+    public function getDecisionType(int $decision): ?DecisionType
     {
-        return $this->getTypes()->first(function (Type $type) use ($decision) {
-            return $type->getDecision() === $decision;
+        return $this->getDecisionTypes()->first(function (DecisionType $decisionType) use ($decision) {
+            return $decisionType->getDecision() === $decision;
         });
     }
 
@@ -387,9 +387,9 @@ abstract class Repository
     /**
      * Get a list of all the decision types available
      *
-     * @return Collection<Type>
+     * @return Collection<DecisionType>
      */
-    abstract public function getTypes(): Collection;
+    abstract public function getDecisionTypes(): Collection;
 
     /**
      * Is the given decision a recommendation?
@@ -414,7 +414,7 @@ abstract class Repository
     /**
      * Update notifications controlled by the NotificationManager
      */
-    protected function updateNotifications(Decision $decision, Type $type, Submission $submission)
+    protected function updateNotifications(Decision $decision, DecisionType $decisionType, Submission $submission)
     {
         $notificationMgr = new NotificationManager();
 
@@ -427,7 +427,7 @@ abstract class Repository
         $authorIds = [];
         /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $result = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR, $type->getStageId());
+        $result = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR, $decisionType->getStageId());
         /** @var StageAssignment $stageAssignment */
         while ($stageAssignment = $result->next()) {
             $authorIds[] = (int) $stageAssignment->getUserId();

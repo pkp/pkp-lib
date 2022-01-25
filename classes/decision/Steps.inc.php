@@ -1,14 +1,14 @@
 <?php
 /**
- * @file classes/decision/workflow.inc.php
+ * @file classes/decision/Steps.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
  *
- * @brief A base class to define workflow steps for a particular decision type
+ * @brief A base class to define a step-by-step workflow to record a decision type
  */
 
 namespace PKP\decision;
@@ -22,15 +22,15 @@ use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\user\User;
 
-class Workflow
+class Steps
 {
-    public Type $decisionType;
+    public DecisionType $decisionType;
     public Submission $submission;
     public Context $context;
     public ?ReviewRound $reviewRound;
     public array $steps = [];
 
-    public function __construct(Type $decisionType, Submission $submission, Context $context, ?ReviewRound $reviewRound = null)
+    public function __construct(DecisionType $decisionType, Submission $submission, Context $context, ?ReviewRound $reviewRound = null)
     {
         $this->decisionType = $decisionType;
         $this->submission = $submission;

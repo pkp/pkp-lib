@@ -2,8 +2,8 @@
 /**
  * @file classes/decision/types/traits/NotifyAuthors.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -32,13 +32,13 @@ trait NotifyAuthors
 {
     protected string $ACTION_NOTIFY_AUTHORS = 'notifyAuthors';
 
-    /** @copydoc Type::getStageId() */
+    /** @copydoc DecisionType::getStageId() */
     abstract public function getStageId(): int;
 
-    /** @copydoc Type::addEmailDataToMailable() */
+    /** @copydoc DecisionType::addEmailDataToMailable() */
     abstract protected function addEmailDataToMailable(Mailable $mailable, User $user, EmailData $email): Mailable;
 
-    /** @copydoc Type::getAssignedAuthorIds() */
+    /** @copydoc DecisionType::getAssignedAuthorIds() */
     abstract protected function getAssignedAuthorIds(Submission $submission): array;
 
     /**

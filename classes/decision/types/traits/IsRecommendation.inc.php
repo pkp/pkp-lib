@@ -2,8 +2,8 @@
 /**
  * @file classes/decision/types/traits/IsRecommendation.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -24,8 +24,8 @@ use Exception;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\decision\Steps;
 use PKP\decision\steps\Email;
-use PKP\decision\Workflow;
 use PKP\file\TemporaryFileManager;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
@@ -41,11 +41,18 @@ trait IsRecommendation
     protected string $ACTION_DISCUSSION = 'discussion';
 
     /**
+     * Get a short label describing this recommendation
+     *
+     * eg - Accept Submission
+     */
+    abstract public function getRecommendationLabel(): string;
+
+    /**
      * Validate the action to create a discussion with this recommendation
      */
     public function validate(array $props, Submission $submission, Context $context, Validator $validator, ?int $reviewRoundId = null)
     {
-        foreach ($props['actions'] as $index => $action) {
+        foreach ((array) $props['actions'] as $index => $action) {
             switch ($action['id']) {
                 case $this->ACTION_DISCUSSION:
                     $errors = $this->validateEmailAction($action, $submission, $this->getAllowedAttachmentFileStages());
@@ -77,17 +84,17 @@ trait IsRecommendation
         }
     }
 
-    public function getWorkflow(Submission $submission, Context $context, User $editor, ?ReviewRound $reviewRound): Workflow
+    public function getSteps(Submission $submission, Context $context, User $editor, ?ReviewRound $reviewRound): Steps
     {
-        $workflow = new Workflow($this, $submission, $context, $reviewRound);
+        $steps = new Steps($this, $submission, $context, $reviewRound);
 
         $fakeDecision = $this->getFakeDecision($submission, $editor);
         $fileAttachers = $this->getFileAttachers($submission, $context, $reviewRound);
-        $editors = $workflow->getDecidingEditors();
+        $editors = $steps->getDecidingEditors();
         $reviewAssignments = $this->getCompletedReviewAssignments($submission->getId(), $reviewRound->getId());
         $mailable = new RecommendationNotifyEditors($context, $submission, $fakeDecision, $reviewAssignments);
 
-        $workflow->addStep((new Email(
+        $steps->addStep((new Email(
             $this->ACTION_DISCUSSION,
             __('editor.submissionReview.recordRecommendation.notifyEditors'),
             __('editor.submission.recommend.notifyEditors.description'),
@@ -99,7 +106,7 @@ trait IsRecommendation
             $fileAttachers
         ))->canSkip(false));
 
-        return $workflow;
+        return $steps;
     }
 
     /**

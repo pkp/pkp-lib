@@ -24,7 +24,7 @@ use APP\submission\Collector;
 use APP\submission\Submission;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\decision\Type;
+use PKP\decision\DecisionType;
 use PKP\handler\APIHandler;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
@@ -1293,7 +1293,7 @@ class PKPSubmissionHandler extends APIHandler
         AppLocale::requireComponents([LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_EDITOR]);
         $request = $this->getRequest(); /** @var Request $request */
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
-        $type = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE); /** @var Type $type */
+        $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE); /** @var DecisionType $decisionType */
 
         if ($submission->getData('status') === Submission::STATUS_PUBLISHED) {
             return $response->withStatus(403)->withJsonError('api.decisions.403.alreadyPublished');
@@ -1303,9 +1303,9 @@ class PKPSubmissionHandler extends APIHandler
         $params['submissionId'] = $submission->getId();
         $params['dateDecided'] = Core::getCurrentDate();
         $params['editorId'] = $request->getUser()->getId();
-        $params['stageId'] = $type->getStageId();
+        $params['stageId'] = $decisionType->getStageId();
 
-        $errors = Repo::decision()->validate($params, $type, $submission, $request->getContext());
+        $errors = Repo::decision()->validate($params, $decisionType, $submission, $request->getContext());
 
         if (!empty($errors)) {
             return $response->withStatus(400)->withJson($errors);

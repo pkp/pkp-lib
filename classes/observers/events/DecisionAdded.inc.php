@@ -3,8 +3,8 @@
 /**
  * @file classes/observers/events/DecisionAdded.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DecisionAdded
@@ -19,7 +19,7 @@ use APP\decision\Decision;
 use APP\submission\Submission;
 use Illuminate\Foundation\Events\Dispatchable;
 use PKP\context\Context;
-use PKP\decision\Type;
+use PKP\decision\DecisionType;
 use PKP\user\User;
 
 class DecisionAdded
@@ -30,7 +30,7 @@ class DecisionAdded
     public Decision $decision;
 
     /** The type of decision that was recorded */
-    public Type $decisionType;
+    public DecisionType $decisionType;
 
     /** The journal, press or preprint server this decision was recorded in */
     public Context $context;
@@ -53,7 +53,7 @@ class DecisionAdded
      */
     public array $action;
 
-    public function __construct(Decision $decision, Type $decisionType, Submission $submission, User $editor, Context $context, array $actions)
+    public function __construct(Decision $decision, DecisionType $decisionType, Submission $submission, User $editor, Context $context, array $actions)
     {
         $this->actions = $actions;
         $this->context = $context;

@@ -2,8 +2,8 @@
 /**
  * @file classes/decision/steps/Email.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -26,7 +26,7 @@ class Email extends Step
 {
     /** @var array<BaseAttacher> */
     public array $attachers;
-    public bool $canChangeTo = false;
+    public bool $canChangeRecipients = false;
     public bool $canSkip = true;
     public array $locales;
     public Mailable $mailable;
@@ -51,9 +51,9 @@ class Email extends Step
     /**
      * Can the editor change the recipients of this email
      */
-    public function canChangeTo(bool $value): self
+    public function canChangeRecipients(bool $value): self
     {
-        $this->canChangeTo = $value;
+        $this->canChangeRecipients = $value;
         return $this;
     }
 
@@ -70,11 +70,11 @@ class Email extends Step
     {
         $config = parent::getState();
         $config->attachers = $this->getAttachers();
-        $config->canChangeTo = $this->canChangeTo;
+        $config->canChangeRecipients = $this->canChangeRecipients;
         $config->canSkip = $this->canSkip;
         $config->emailTemplates = $this->getEmailTemplates();
         $config->initialTemplateKey = $this->mailable::getEmailTemplateKey();
-        $config->toOptions = $this->getToOptions();
+        $config->recipientOptions = $this->getRecipientOptions();
 
         $config->variables = [];
         $config->locales = [];
@@ -90,16 +90,16 @@ class Email extends Step
         return $config;
     }
 
-    protected function getToOptions(): array
+    protected function getRecipientOptions(): array
     {
-        $toOptions = [];
+        $recipientOptions = [];
         foreach ($this->recipients as $user) {
-            $toOptions[] = [
+            $recipientOptions[] = [
                 'value' => $user->getId(),
                 'label' => $user->getFullName(),
             ];
         }
-        return $toOptions;
+        return $recipientOptions;
     }
 
     protected function getEmailTemplates(): array

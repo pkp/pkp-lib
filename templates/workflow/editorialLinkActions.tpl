@@ -11,7 +11,7 @@
 {if count($decisions) || count($recommendations)}
 	{if array_intersect(array(\PKP\security\Role::ROLE_ID_MANAGER, \PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 		<script>
-			// Initialie JS handler.
+			// Initialize JS handler.
 			$(function() {ldelim}
 				$('#editorialActions').pkpHandler(
 					'$.pkp.controllers.EditorialActionsHandler',

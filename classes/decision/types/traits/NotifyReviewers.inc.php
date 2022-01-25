@@ -2,8 +2,8 @@
 /**
  * @file classes/decision/types/traits/NotifyReviewers.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -33,16 +33,16 @@ trait NotifyReviewers
 {
     protected string $ACTION_NOTIFY_REVIEWERS = 'notifyReviewers';
 
-    /** @copydoc Type::addEmailDataToMailable() */
+    /** @copydoc DecisionType::addEmailDataToMailable() */
     abstract protected function addEmailDataToMailable(Mailable $mailable, User $user, EmailData $email): Mailable;
 
-    /** @copydoc Type::getAssignedAuthorIds() */
+    /** @copydoc DecisionType::getAssignedAuthorIds() */
     abstract protected function getAssignedAuthorIds(Submission $submission): array;
 
     /** @copydoc InExternalReviewRound::getCompletedReviewerIds() */
     abstract protected function getCompletedReviewerIds(Submission $submission, int $reviewRoundId): array;
 
-    /** @copydoc Type::setRecipientError() */
+    /** @copydoc DecisionType::setRecipientError() */
     abstract protected function setRecipientError(string $actionErrorKey, array $invalidRecipientIds, Validator $validator);
 
     /**

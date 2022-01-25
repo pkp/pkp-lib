@@ -2,8 +2,8 @@
 /**
  * @file classes/decision/types/SkipReview.inc.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -19,20 +19,20 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
+use PKP\decision\DecisionType;
+use PKP\decision\Steps;
 use PKP\decision\steps\Email;
 use PKP\decision\steps\PromoteFiles;
-use PKP\decision\Type;
 use PKP\decision\types\traits\InSubmissionStage;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\RequestPayment;
-use PKP\decision\Workflow;
 use PKP\mail\mailables\DecisionSkipReviewNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
-class SkipReview extends Type
+class SkipReview extends DecisionType
 {
     use InSubmissionStage;
     use RequestPayment;
@@ -92,7 +92,11 @@ class SkipReview extends Type
     {
         parent::validate($props, $submission, $context, $validator, $reviewRoundId);
 
-        foreach ($props['actions'] as $index => $action) {
+        if (!isset($props['actions'])) {
+            return;
+        }
+
+        foreach ((array) $props['actions'] as $index => $action) {
             $actionErrorKey = 'actions.' . $index;
             switch ($action['id']) {
                 case self::ACTION_PAYMENT:
@@ -127,9 +131,9 @@ class SkipReview extends Type
         }
     }
 
-    public function getWorkflow(Submission $submission, Context $context, User $editor, ?ReviewRound $reviewRound): Workflow
+    public function getSteps(Submission $submission, Context $context, User $editor, ?ReviewRound $reviewRound): Steps
     {
-        $workflow = new Workflow($this, $submission, $context);
+        $steps = new Steps($this, $submission, $context);
 
         $fakeDecision = $this->getFakeDecision($submission, $editor);
         $fileAttachers = $this->getFileAttachers($submission, $context);
@@ -137,13 +141,13 @@ class SkipReview extends Type
         // Request payment if configured
         $paymentManager = Application::getPaymentManager($context);
         if ($paymentManager->publicationEnabled()) {
-            $workflow->addStep($this->getPaymentForm($context));
+            $steps->addStep($this->getPaymentForm($context));
         }
 
-        $authors = $workflow->getStageParticipants(Role::ROLE_ID_AUTHOR);
+        $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {
             $mailable = new DecisionSkipReviewNotifyAuthor($context, $submission, $fakeDecision);
-            $workflow->addStep(new Email(
+            $steps->addStep(new Email(
                 $this->ACTION_NOTIFY_AUTHORS,
                 __('editor.submission.decision.notifyAuthors'),
                 __('editor.submission.decision.skipReview.notifyAuthorsDescription'),
@@ -156,7 +160,7 @@ class SkipReview extends Type
             ));
         }
 
-        $workflow->addStep((new PromoteFiles(
+        $steps->addStep((new PromoteFiles(
             'promoteFilesToReview',
             __('editor.submission.selectFiles'),
             __('editor.submission.decision.promoteFiles.copyediting'),
@@ -171,6 +175,6 @@ class SkipReview extends Type
                 ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
         ));
 
-        return $workflow;
+        return $steps;
     }
 }

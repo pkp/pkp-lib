@@ -2325,6 +2325,9 @@ msgstr "Date when the review should be completed"
 msgid "emailTemplate.variable.recipient.submissionReviewUrl"
 msgstr "The URL to the review assignment"
 
+msgid "emailTemplate.variable.recommendation"
+msgstr "The recommended decision, such as Accept Submission"
+
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "The full name of the sender"
 

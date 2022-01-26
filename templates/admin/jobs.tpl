@@ -24,8 +24,8 @@
 		<pagination
 			:current-page="currentPage"
 			:last-page="lastPage"
-			:isLoading="isLoadingItems"
-			@set-page="handlePagination(page)"
+			:is-loading="isLoadingItems"
+			@set-page="handlePagination"
 		/>
 	</div>
 {/block}

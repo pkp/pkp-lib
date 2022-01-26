@@ -49,12 +49,14 @@ class SubmissionMailTemplate extends MailTemplate {
 	function assignParams($paramArray = array()) {
 		$submission = $this->submission;
 		$request = Application::get()->getRequest();
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroups = $userGroupDao->getByContextId($submission->getContextId())->toArray();
 		parent::assignParams(array_merge(
 			array(
 				'submissionTitle' => strip_tags($submission->getLocalizedFullTitle()),
 				'submissionId' => $submission->getId(),
 				'submissionAbstract' => PKPString::stripUnsafeHtml($submission->getLocalizedAbstract()),
-				'authorString' => strip_tags($submission->getCurrentPublication()->getAuthorString()),
+				'authorString' => strip_tags($submission->getCurrentPublication()->getAuthorString($userGroups)),
 			),
 			$paramArray
 		));

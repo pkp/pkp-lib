@@ -433,12 +433,7 @@ try {
     if ($e instanceof CommandNotFoundException) {
         $alternatives = $e->getAlternatives();
 
-        $message = __('admin.cli.tool.jobs.mean.this');
-        if (count($alternatives) > 1) {
-            $message = __('admin.cli.tool.jobs.mean.those');
-        }
-
-        $message = $message . PHP_EOL . implode(PHP_EOL, $alternatives);
+        $message = __('admin.cli.tool.jobs.mean.those') . PHP_EOL . implode(PHP_EOL, $alternatives);
 
         $output->errorBlock([$e->getMessage(), $message]);
 

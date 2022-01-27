@@ -414,11 +414,8 @@ msgstr "We have {$total} queued jobs"
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
 msgstr "Option {$option} does not exist."
 
-msgid "admin.cli.tool.jobs.mean.this"
-msgstr "Did you mean this?"
-
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr "Did you mean one of those?"
+msgstr "Did you mean one of the following?"
 
 msgid "admin.jobs.totalCount"
 msgstr "There's a total of <strong>{$total}</strong> job(s) on the queue"

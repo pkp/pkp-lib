@@ -60,6 +60,19 @@
 			"description": "Whether to retain daily usage stats or consolidate monthly stats. Daily stats can quickly result in millions of database rows for large installs with lots of submissions.",
 			"default": false
 		},
+		"isSiteSushiPlatform": {
+			"type": "boolean",
+			"description": "Whether or not to designate the site as the platform in COUNTER SUSHI statistics. Set this to true when all of the contexts (journals, presses or servers) of this site are published, owned or operated by the same provider.",
+			"default": false
+		},
+		"sushiPlatformID": {
+			"type": "string",
+			"description": "The platform ID for COUNTER SUSHI statistics. Required when isSiteSushiPlatform is true.",
+			"validation": [
+				"regex:#^[a-zA-Z0-9._/]{1,17}$#",
+				"nullable"
+			]
+		},
 		"installedLocales": {
 			"type": "array",
 			"items": {

@@ -15,8 +15,8 @@
 
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
 use PKP\security\Role;
-use Sokil\IsoCodes\IsoCodesFactory;
 
 import('lib.pkp.pages.submission.PKPSubmissionHandler');
 
@@ -30,7 +30,7 @@ class SubmissionHandler extends PKPSubmissionHandler
         parent::__construct();
         $this->addRoleAssignment(
             [Role::ROLE_ID_AUTHOR, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER],
-            ['index', 'wizard', 'step', 'saveStep', 'fetchChoices']
+            ['index', 'wizard', 'step', 'saveStep']
         );
     }
 
@@ -47,7 +47,7 @@ class SubmissionHandler extends PKPSubmissionHandler
         if ($step == $this->getStepCount()) {
             $templateMgr = TemplateManager::getManager($request);
             $context = $request->getContext();
-            $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+            $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION);
 
             // OPS: Check if author can publish
             // OPS: Author can publish, see if other criteria exists and create an array of errors
@@ -71,37 +71,6 @@ class SubmissionHandler extends PKPSubmissionHandler
             }
         }
         return parent::step($args, $request);
-    }
-
-    /**
-     * Retrieves a JSON list of available choices for a tagit metadata input field.
-     *
-     * @param array $args
-     * @param Request $request
-     */
-    public function fetchChoices($args, $request)
-    {
-        $term = $request->getUserVar('term');
-        $locale = $request->getUserVar('locale');
-        if (!$locale) {
-            $locale = AppLocale::getLocale();
-        }
-        switch ($request->getUserVar('list')) {
-            case 'languages':
-                $isoCodes = app(IsoCodesFactory::class);
-                $matches = [];
-                foreach ($isoCodes->getLanguages(IsoCodesFactory::OPTIMISATION_IO) as $language) {
-                    if (!$language->getAlpha2() || $language->getType() != 'L' || $language->getScope() != 'I') {
-                        continue;
-                    }
-                    if (stristr($language->getLocalName(), $term)) {
-                        $matches[$language->getAlpha3()] = $language->getLocalName();
-                    }
-                };
-                header('Content-Type: text/json');
-                echo json_encode($matches);
-        }
-        assert(false);
     }
 
 

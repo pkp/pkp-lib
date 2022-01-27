@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d60d7815e9102324a4aa81ce4c0f2afa",
+    "content-hash": "3ca4c43e6ea5481c31a557d374f9d531",
     "packages": [
         {
             "name": "adodb/adodb-php",
-            "version": "v5.20.18",
+            "version": "v5.20.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ADOdb/ADOdb.git",
-                "reference": "0363eca78eed8bd02d1456072c729da302655241"
+                "reference": "6c38e6c614802acd3151444a71191912edcec965"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ADOdb/ADOdb/zipball/0363eca78eed8bd02d1456072c729da302655241",
-                "reference": "0363eca78eed8bd02d1456072c729da302655241",
+                "url": "https://api.github.com/repos/ADOdb/ADOdb/zipball/6c38e6c614802acd3151444a71191912edcec965",
+                "reference": "6c38e6c614802acd3151444a71191912edcec965",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                 "issues": "https://github.com/ADOdb/ADOdb/issues",
                 "source": "https://github.com/ADOdb/ADOdb"
             },
-            "time": "2020-06-28T17:52:20+00:00"
+            "time": "2022-01-22T22:38:02+00:00"
         },
         {
             "name": "brick/math",

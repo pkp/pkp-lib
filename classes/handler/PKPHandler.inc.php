@@ -24,6 +24,7 @@ use PKP\core\Dispatcher;
 use PKP\core\PKPString;
 use PKP\core\Registry;
 use PKP\db\DBResultRange;
+use PKP\security\authorization\AllowedHostsPolicy;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\HttpsPolicy;
@@ -324,6 +325,9 @@ class PKPHandler
         if ($this->requireSSL()) {
             $this->addPolicy(new HttpsPolicy($request), true);
         }
+
+        // Ensure the allowed hosts setting, when provided, is respected.
+        $this->addPolicy(new AllowedHostsPolicy($request), true);
 
         if (!defined('SESSION_DISABLE_INIT')) {
             // Add user roles in authorized context.

@@ -50,22 +50,22 @@
 		{/if}
 		{if $subjectsEnabled}
 			{fbvFormSection description="submission.submit.metadataForm.tip" label="common.subjects" required=$subjectsRequired}
-				{fbvElement type="keyword" id="subjects" multilingual=true current=$subjects disabled=$readOnly required=$subjectsRequired}
+				{fbvElement type="keyword" id="subjects" multilingual=true current=$subjects disabled=$readOnly required=$subjectsRequired sourceUrl=$subjectsSourceUrl}
 			{/fbvFormSection}
 		{/if}
 		{if $disciplinesEnabled}
 			{fbvFormSection description="submission.submit.metadataForm.tip" label="search.discipline" required=$disciplinesRequired}
-				{fbvElement type="keyword" id="disciplines" multilingual=true current=$disciplines disabled=$readOnly required=$disciplinesRequired}
+				{fbvElement type="keyword" id="disciplines" multilingual=true current=$disciplines disabled=$readOnly required=$disciplinesRequired sourceUrl=$disciplinesSourceUrl}
 			{/fbvFormSection}
 		{/if}
 		{if $keywordsEnabled}
 			{fbvFormSection description="submission.submit.metadataForm.tip" label="common.keywords" required=$keywordsRequired}
-				{fbvElement type="keyword" id="keywords" multilingual=true current=$keywords disabled=$readOnly required=$keywordsRequired}
+				{fbvElement type="keyword" id="keywords" multilingual=true current=$keywords disabled=$readOnly required=$keywordsRequired sourceUrl=$keywordsSourceUrl}
 			{/fbvFormSection}
 		{/if}
 		{if $agenciesEnabled}
 			{fbvFormSection description="submission.submit.metadataForm.tip" label="submission.supportingAgencies" required=$agenciesRequired}
-				{fbvElement type="keyword" id="agencies" multilingual=true current=$agencies disabled=$readOnly required=$agenciesRequired}
+				{fbvElement type="keyword" id="agencies" multilingual=true current=$agencies disabled=$readOnly required=$agenciesRequired sourceUrl=$agenciesSourceUrl}
 			{/fbvFormSection}
 		{/if}
 		{if $citationsEnabled}

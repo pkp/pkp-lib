@@ -14,6 +14,8 @@
  *
  */
 
+use Stringy\Stringy;
+
 import('lib.pkp.classes.handler.APIHandler');
 import('classes.core.Services');
 
@@ -64,8 +66,9 @@ class PKPVocabHandler extends APIHandler {
 
 		$requestParams = $slimRequest->getQueryParams();
 
-		$vocab = !empty($requestParams['vocab']) ? $requestParams['vocab'] : '';
-		$locale = !empty($requestParams['locale']) ? $requestParams['locale'] : AppLocale::getLocale();
+		$vocab = $requestParams['vocab'] ?? '';
+		$locale = $requestParams['locale'] ?? AppLocale::getLocale();
+		$term = $requestParams['term'] ?? null;
 
 		if (!in_array($locale, $context->getData('supportedSubmissionLocales'))) {
 			return $response->withStatus(400)->withJsonError('api.vocabs.400.localeNotSupported', ['locale' => $locale]);
@@ -80,29 +83,31 @@ class PKPVocabHandler extends APIHandler {
 
 		switch ($vocab) {
 			case CONTROLLED_VOCAB_SUBMISSION_KEYWORD:
-				$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /* @var $submissionKeywordEntryDao SubmissionKeywordEntryDAO */
-				$entries = $submissionKeywordEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
+				$submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /** @var SubmissionKeywordEntryDAO $submissionKeywordEntryDao */
+				$entries = $submissionKeywordEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_SUBJECT:
-				$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /* @var $submissionSubjectEntryDao SubmissionSubjectEntryDAO */
-				$entries = $submissionSubjectEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
+				$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /** @var SubmissionSubjectEntryDAO $submissionSubjectEntryDao */
+				$entries = $submissionSubjectEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE:
-				$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /* @var $submissionDisciplineEntryDao SubmissionDisciplineEntryDAO */
-				$entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
+				$submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /** @var SubmissionDisciplineEntryDAO $submissionDisciplineEntryDao */
+				$entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
 				break;
 			case CONTROLLED_VOCAB_SUBMISSION_LANGUAGE:
 				$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
+				$words = array_filter(PKPString::regexp_split('/\s+/', $term), 'strlen');
 				$languageNames = [];
 				foreach ($isoCodes->getLanguages(\Sokil\IsoCodes\IsoCodesFactory::OPTIMISATION_IO) as $language) {
-					if (!$language->getAlpha2() || $language->getType() != 'L' || $language->getScope() != 'I') continue;
-					$languageNames[] = $language->getLocalName();
+					if ($language->getAlpha2() && $language->getType() === 'L' && $language->getScope() === 'I' && Stringy::create($language->getLocalName())->containsAny($words, false)) {
+						$languageNames[] = $language->getLocalName();
+					}
 				}
 				asort($languageNames);
 				return $response->withJson($languageNames, 200);
 			case CONTROLLED_VOCAB_SUBMISSION_AGENCY:
 				$submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /* @var $submissionAgencyEntryDao SubmissionAgencyEntryDAO */
-				$entries = $submissionAgencyEntryDao->getByContextId($vocab, $context->getId(), $locale)->toArray();
+				$entries = $submissionAgencyEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
 				break;
 			default:
 				$entries = [];

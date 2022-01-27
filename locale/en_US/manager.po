@@ -707,6 +707,21 @@ msgstr "Select this option if you would like to manage institutions and collect 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Enable institution management and usage statistics"
 
+msgid "manager.settings.statistics.sushiPlatform"
+msgstr "Platform for COUNTER SUSHI Statistics"
+
+msgid "manager.settings.statistics.sushiPlatform.description"
+msgstr "This software provides usage statistics according to the COUNTER SUSHI protocol. This protocol requests that a platform is specified. By default, the journal will be designated as the platform for all statistics. However, if all of the journals on this site are published, owned or operated by the same provider, you may wish to designate the site as the platform."
+
+msgid "manager.settings.statistics.sushiPlatform.siteSushiPlatform"
+msgstr "Use the site as the platform for all journals."
+
+msgid "manager.settings.statistics.sushiPlatform.siteSushiPlatformID"
+msgstr "Platform ID"
+
+msgid "manager.settings.statistics.sushiPlatform.siteSushiPlatformID.description"
+msgstr "The platform ID MUST only contain ASCII letters (a–z, A–Z), digits (0–9), underscores (_), dots (.) and forward slashes (/), and the length MUST NOT exceed 17 characters. Note that the platform ID is used in various columns and therefore should be as short as possible, but still recognizable. The platform ID usually should be based on the name, a well-known unique abbreviation or the domain of the publisher or platform. A short standard identifier like GRID or ROR (without the https://) also could be used."
+
 msgid "manager.statistics"
 msgstr "Stats &amp; Reports"
 

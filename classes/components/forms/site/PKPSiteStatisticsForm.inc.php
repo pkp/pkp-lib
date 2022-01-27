@@ -119,6 +119,30 @@ class PKPSiteStatisticsForm extends FormComponent
                 ],
                 'default' => false,
                 'value' => $site->getData('usageStatsKeepDaily'),
+            ]))
+            ->addGroup([
+                'id' => 'sushi',
+            ])
+            ->addField(new FieldOptions('siteSushiPlatform', [
+                'label' => __('manager.settings.statistics.sushiPlatform'),
+                'description' => __('manager.settings.statistics.sushiPlatform.description'),
+                'groupId' => 'sushi',
+                'options' => [
+                    [
+                        'value' => true,
+                        'label' => __('manager.settings.statistics.sushiPlatform.siteSushiPlatform'),
+                    ],
+                ],
+                'default' => false,
+                'value' => $site->getData('siteSushiPlatform'),
+            ]))
+            ->addField(new FieldText('siteSushiPlatformID', [
+                'label' => __('manager.settings.statistics.sushiPlatform.siteSushiPlatformID'),
+                'description' => __('manager.settings.statistics.sushiPlatform.siteSushiPlatformID.description'),
+                'groupId' => 'sushi',
+                'value' => $site->getData('siteSushiPlatformID'),
+                'isRequired' => true,
+                'showWhen' => 'siteSushiPlatform',
             ]));
     }
 }

@@ -63,6 +63,18 @@
 			"description": "Additionally to summarizing the COUNTER and Geo usage stats monthly, keep the daily records in the database.",
 			"default": false
 		},
+		"siteSushiPlatform": {
+			"type": "boolean",
+			"description": "Designate the site as the COUNTER SUSHI platform.",
+			"default": false
+		},
+		"siteSushiPlatformID": {
+			"type": "string",
+			"description": "The COUNTER SUSHI platform ID as namespace.",
+			"validation": [
+				"regex:#^[a-zA-Z0-9._/]{1,17}$#"
+			]
+		},
 		"installedLocales": {
 			"type": "array",
 			"items": {

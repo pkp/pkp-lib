@@ -56,17 +56,17 @@ abstract class BaseRepository implements Repository
             ->withTrashed();
     }
 
-    public function find(int $modelId): ?Model
+    public function get(int $modelId): ?Model
     {
         return $this->model->find($modelId);
     }
 
-    public function create(array $attributes = []): ?Model
+    public function add(array $attributes = []): ?Model
     {
         return $this->model->create($attributes);
     }
 
-    public function update(
+    public function edit(
         int $modelId,
         array $data
     ): bool {

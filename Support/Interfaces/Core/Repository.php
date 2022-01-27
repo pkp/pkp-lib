@@ -42,21 +42,19 @@ interface Repository
     /**
      * Find a model by id.
      *
-     * @return Model
      */
-    public function find(int $modelId): ?Model;
+    public function get(int $modelId): ?Model;
 
     /**
      * Create a model.
      *
-     * @return Model
      */
-    public function create(array $payload): ?Model;
+    public function add(array $payload): ?Model;
 
     /**
      * Update existing model.
      */
-    public function update(int $modelId, array $payload): bool;
+    public function edit(int $modelId, array $payload): bool;
 
     /**
      * Delete model by id.

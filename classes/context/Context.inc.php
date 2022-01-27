@@ -21,15 +21,17 @@ use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\statistics\PKPStatisticsHelper;
 
-// Constant used to distinguish whether metadata is enabled and whether it
-// should be requested or required during submission
-define('METADATA_DISABLE', 0);
-define('METADATA_ENABLE', 'enable');
-define('METADATA_REQUEST', 'request');
-define('METADATA_REQUIRE', 'require');
-
 abstract class Context extends \PKP\core\DataObject
 {
+    // Constants used to distinguish whether metadata is enabled and whether it should be requested or required during submission
+    public const METADATA_DISABLE = 0;
+
+    public const METADATA_ENABLE = 'enable';
+
+    public const METADATA_REQUEST = 'request';
+
+    public const METADATA_REQUIRE = 'require';
+
     /**
      * Get the localized name of the context
      *
@@ -627,4 +629,12 @@ abstract class Context extends \PKP\core\DataObject
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\context\Context', '\Context');
+    foreach ([
+        'METADATA_DISABLE',
+        'METADATA_ENABLE',
+        'METADATA_REQUEST',
+        'METADATA_REQUIRE',
+    ] as $constantName) {
+        define($constantName, constant('\Context::' . $constantName));
+    }
 }

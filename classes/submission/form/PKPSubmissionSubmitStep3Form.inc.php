@@ -18,12 +18,18 @@ namespace PKP\submission\form;
 use APP\core\Application;
 
 use APP\facades\Repo;
+use APP\submission\SubmissionMetadataFormImplementation;
 use APP\template\TemplateManager;
+use PKP\context\Context;
+use PKP\submission\SubmissionAgencyDAO;
+use PKP\submission\SubmissionDisciplineDAO;
+use PKP\submission\SubmissionKeywordDAO;
+use PKP\submission\SubmissionLanguageDAO;
+use PKP\submission\SubmissionSubjectDAO;
 
 class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
 {
-    /** @var SubmissionMetadataFormImplementation */
-    public $_metadataFormImplem;
+    public SubmissionMetadataFormImplementation $metadataForm;
 
     /**
      * Constructor.
@@ -37,8 +43,8 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
         parent::__construct($context, $submission, 3);
 
         $this->setDefaultFormLocale($submission->getLocale());
-        $this->_metadataFormImplem = $metadataFormImplementation;
-        $this->_metadataFormImplem->addChecks($submission);
+        $this->metadataForm = $metadataFormImplementation;
+        $this->metadataForm->addChecks($submission);
     }
 
     /**
@@ -46,7 +52,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
      */
     public function initData()
     {
-        $this->_metadataFormImplem->initData($this->submission);
+        $this->metadataForm->initData($this->submission);
         return parent::initData();
     }
 
@@ -62,10 +68,19 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
 
         // Tell the form what fields are enabled (and which of those are required)
         $metadataFields = Application::getMetadataFields();
+        $urlTemplate = $request->getDispatcher()->url($request, Application::ROUTE_API, $context->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
+        $controlledVocabMap = [
+            'languages' => SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE,
+            'subjects' => SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+            'disciplines' => SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+            'keywords' => SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            'agencies' => SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY
+        ];
         foreach ($metadataFields as $field) {
             $templateMgr->assign([
-                $field . 'Enabled' => $context->getData($field) === METADATA_REQUEST || $context->getData($field) === METADATA_REQUIRE,
-                $field . 'Required' => $context->getData($field) === METADATA_REQUIRE,
+                $field . 'Enabled' => $context->getData($field) === Context::METADATA_REQUEST || $context->getData($field) === Context::METADATA_REQUIRE,
+                $field . 'Required' => $context->getData($field) === Context::METADATA_REQUIRE,
+                $field . 'SourceUrl' => isset($controlledVocabMap[$field]) ? str_replace('__vocab__', $controlledVocabMap[$field], $urlTemplate) : null
             ]);
         }
 
@@ -79,7 +94,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
      */
     public function readInputData()
     {
-        $this->_metadataFormImplem->readInputData();
+        $this->metadataForm->readInputData();
     }
 
     /**
@@ -89,7 +104,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
      */
     public function getLocaleFieldNames()
     {
-        return $this->_metadataFormImplem->getLocaleFieldNames();
+        return $this->metadataForm->getLocaleFieldNames();
     }
 
     /**
@@ -100,7 +115,7 @@ class PKPSubmissionSubmitStep3Form extends SubmissionSubmitForm
     public function execute(...$functionArgs)
     {
         // Execute submission metadata related operations.
-        $this->_metadataFormImplem->execute($this->submission, Application::get()->getRequest());
+        $this->metadataForm->execute($this->submission, Application::get()->getRequest());
 
         // Get an updated version of the submission.
         $this->submission = Repo::submission()->get($this->submissionId);

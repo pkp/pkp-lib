@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -1048,18 +1049,18 @@ class Installer
                         $metadataSetting . 'Required',
                     ]
                 );
-                $value = METADATA_DISABLE;
+                $value = Context::METADATA_DISABLE;
                 foreach ($result as $row) {
                     if ($row->setting_name === $metadataSetting . 'Required' && $row->setting_value) {
-                        $value = METADATA_REQUIRE;
-                    } elseif ($row->setting_name === $metadataSetting . 'EnabledSubmission' && $row->setting_value && $value !== METADATA_REQUIRE) {
-                        $value = METADATA_REQUEST;
-                    } elseif ($row->setting_name === $metadataSetting . 'EnabledWorkflow' && $row->setting_value && $value !== METADATA_REQUEST && $value !== METADATA_REQUIRE) {
-                        $value = METADATA_ENABLE;
+                        $value = Context::METADATA_REQUIRE;
+                    } elseif ($row->setting_name === $metadataSetting . 'EnabledSubmission' && $row->setting_value && $value !== Context::METADATA_REQUIRE) {
+                        $value = Context::METADATA_REQUEST;
+                    } elseif ($row->setting_name === $metadataSetting . 'EnabledWorkflow' && $row->setting_value && $value !== Context::METADATA_REQUEST && $value !== Context::METADATA_REQUIRE) {
+                        $value = Context::METADATA_ENABLE;
                     }
                 }
 
-                if ($value !== METADATA_DISABLE) {
+                if ($value !== Context::METADATA_DISABLE) {
                     $contextDao->update(
                         'INSERT INTO ' . $contextDao->settingsTableName . ' (
                             ' . $contextDao->primaryKeyColumn . ',

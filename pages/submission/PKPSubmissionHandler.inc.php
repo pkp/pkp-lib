@@ -205,7 +205,7 @@ abstract class PKPSubmissionHandler extends Handler
                 // Provide entered tagit fields values
                 $tagitKeywords = $submitForm->getData('keywords');
                 if (is_array($tagitKeywords)) {
-                    $tagitFieldNames = $submitForm->_metadataFormImplem->getTagitFieldNames();
+                    $tagitFieldNames = $submitForm->metadataForm->getTagitFieldNames();
                     $locales = array_keys($submitForm->supportedLocales);
                     $formTagitData = [];
                     foreach ($tagitFieldNames as $tagitFieldName) {

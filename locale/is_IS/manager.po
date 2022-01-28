@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-25 21:03+0000\n"
+"PO-Revision-Date: 2022-01-28 22:45+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/is_IS/>\n"
@@ -728,3 +728,863 @@ msgstr ""
 "Atriði með skáskrift og merkt með * eru fyrir gögn sem eru valkvæð fyrir "
 "núverandi aðferð við að safna tölfræði í kerfinu (tegund mælikvarða).  Þú "
 "gæir haft gögnin eða ekki, eftir því hvernig tölfræði viðbótin er sett upp."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Ekkert / Opið ritrýni eyðublað"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Ritrýni eyðublöðin sem eru búin til hér, eru lögð fram fyrir ritrýna til að "
+"fylla út. Í stað sjálfgefna eyðublaðsins sem inniheldur tvö opin texta box. "
+"Það fyrra fyrir höfund og ritstjóra og það síðara fyrir ritstjóra.  Ritrýni "
+"eyðublöðin geta verið fyrir tiltekna kafla í tímaritinu, og ritstjórar hafa "
+"val um hvaða eyðublað á að nota þegar þeir úthluta ritrýni. Í öllum "
+"tilfellum hafa ritstjórar val um að taka ritrýnina með í samskiptum við "
+"höfundinn."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Í ritrýni"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Það þarf að vera titill á ritrýni eyðublaðinu."
+
+msgid "manager.reviewForms.edit"
+msgstr "Ritrýni eyðublað"
+
+msgid "manager.reviewForms.description"
+msgstr "Lýsing og leiðbeiningar"
+
+msgid "manager.reviewForms.create"
+msgstr "Búa til ritrýni eyðublað"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Ertu viss um að þú viljir eyða þessu ritrýni eyðublaði?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Lokið"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Ert þú viss um að þú viljir búa til afrit af þessu ritrýni eyðublaði?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Ertu viss um að þú viljir afvirkja þetta ritrýni eyðublað?  Það verður ekki "
+"lengur tiltækt í úthlutun til ritrýna."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Ertu viss um að þú viljir virkja þetta ritrýni eyðublað? Þegar búið er að "
+"úthluta því í ritrýni verður ekki hægt að afvirkja það."
+
+msgid "manager.reviewForms"
+msgstr "Ritrýni eyðublöð"
+
+msgid "manager.distribution.title"
+msgstr "Stillingar á dreifingu"
+
+msgid "manager.distribution"
+msgstr "Dreifing"
+
+msgid "manager.workflow.title"
+msgstr "Stillingar verkflæðis"
+
+msgid "manager.workflow"
+msgstr "Verkflæði"
+
+msgid "manager.website.title"
+msgstr "Stillingar vefsíðu"
+
+msgid "manager.website"
+msgstr "Vefsiða"
+
+msgid "manager.users.roleRequired"
+msgstr "Þú þarf að velja a.m.k. eitt hlutverk til að tengja á þennan notanda."
+
+msgid "manager.settings.wizard"
+msgstr "Stillinga álfur"
+
+#, fuzzy
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Select the type of metadata that these files may receive. Document should be "
+"selected for the main publication files, such as the downloadable PDF, so "
+"that these files inherit their metadata from the publication. Otherwise, "
+"choose Supplementary Content for most file types. Artwork is appropriate for "
+"files which require distinct credit, caption and licensing metadata."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Lýsigögn skráar"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Lykillinn má bara innihalda bókstafi, tölustafi, undirstrik og bandstrik og "
+"þarf að byrja og enda á bókstaf eða tölustaf."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Lykillinn er til."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Valkvætt stutt táknrænt kenni fyrir þessa grein."
+
+msgid "manager.setup.genres.key"
+msgstr "Lykill"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Þetta eru viðbótarskrár, svo sem gagnasett og rannsóknargögn og verða sýnd "
+"aðgreind frá megin útgáfu skrám."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Þetta eru tengdar skrár, svo sem myndir sýndar í HTML skrá og verður ekki "
+"birt með útgefnu efni."
+
+msgid "manager.setup.genres.label"
+msgstr "Skráartegund"
+
+msgid "grid.action.restoreGenres"
+msgstr "Endurheimta íhluti í upphaflegar stillingar"
+
+msgid "grid.action.deleteGenre"
+msgstr "Eyða þessum íhlut"
+
+msgid "grid.action.editGenre"
+msgstr "Breyta þessum íhlut"
+
+msgid "grid.action.addGenre"
+msgstr "Bæta við íhlut"
+
+#, fuzzy
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Select Library Files to attach"
+
+#, fuzzy
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>This library file can be accessible for download, if \"Public Access\" is "
+"enabled, at: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Annað"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Skýrslur"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Heimildir"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Markaðssetning"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Samningar"
+
+#, fuzzy
+msgid "settings.libraryFiles.typeRequired"
+msgstr "A file type is required for this library file."
+
+#, fuzzy
+msgid "settings.libraryFiles.nameRequired"
+msgstr "A name is required for this library file."
+
+#, fuzzy
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"A library file is required. Please ensure that you have chosen and uploaded "
+"a file."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Leyfa breytingar á lýsigögnum handrits."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Þú þarft að skilgreina þrep til að tengja við / úthluta á."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Þú þarft að skilgreina aðgangsheimild fyrir hlutverk."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Þú þarft að skilgreina einkvæma skammstöfun fyrir hlutverk."
+
+msgid "settings.roles.uniqueName"
+msgstr "Þú þarft að skilgreina einkvæmt heiti fyrir hlutverk."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Þú þarft að skilgreina skamstöfun fyrir hlutverk."
+
+msgid "settings.roles.nameRequired"
+msgstr "Þú þarft að skilgreina heiti hlutverks."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Þú ert við það að fjarlægja þetta hlutverk úr þessu samhengi. Þessi aðgerð "
+"mun líka eða tengdum stillingum og skráningum notenda á þetta hlutverk.  "
+"Viltu halda áfram?"
+
+msgid "settings.roles.from"
+msgstr "Aðgangsheimild"
+
+msgid "settings.roles.roleDetails"
+msgstr "Hlutverk - nánar"
+
+msgid "settings.roles.stages"
+msgstr "Þrep"
+
+msgid "settings.roles.assignedStages"
+msgstr "Úthlutuð þrep"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Skammstöfun"
+
+msgid "settings.roles.roleName"
+msgstr "Heiti hlutverks"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Þetta hlutverk má bara leggja til ritrýni ákvörðun og kallar á aðkomu "
+"ritstjóra með heimild til að skrá loka ákvörðun."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Leyfa notendum að skrá sig sjálfir"
+
+msgid "settings.roles.showTitles"
+msgstr "Sýna fyrirsögn hlutverks á lista yfir framlagsaðila"
+
+msgid "settings.roles.roleOptions"
+msgstr "Hlutverk - valmöguleikar"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Gjaldmiðill"
+
+msgid "manager.paymentMethod.method"
+msgstr "Greiðsluaðferð"
+
+msgid "manager.paymentMethod.none"
+msgstr "Engin greiðsluaðferð valin"
+
+msgid "manager.paymentMethod.title"
+msgstr "Greiðsluaðferðir"
+
+msgid "manager.paymentMethod"
+msgstr "Greiðslur"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Add custom HTML tags, also known as meta tags, that you would like to be "
+"inserted in the head of every page. Consult a technical advisor before "
+"adding tags here."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Custom Tags"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Sláðu inn almennum leyfisskilmálum sem þú vilt birta samhliða útgefnu efni."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Leyfisskilmálar"
+
+msgid "manager.distribution.license.other"
+msgstr "Vefslóð á önnur leyfi"
+
+msgid "manager.distribution.license"
+msgstr "Leyfi"
+
+msgid "notification.editedUser"
+msgstr "Notanda breytt."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Ekki hægt að vista tungumála stillingar. Það þarf að virkja a.m.k. eitt "
+"tungumál fyrir hvern valmöguleika"
+
+msgid "notification.localeSettingsSaved"
+msgstr "Tungumála stillingar vistaðar."
+
+msgid "notification.localeReloaded"
+msgstr "Tungumál {$locale} endurhlaðið fyrir {$contextName}."
+
+msgid "notification.localeUninstalled"
+msgstr "Tungumál {$locale} tekið út."
+
+msgid "notification.localeInstalled"
+msgstr "Öll valin tungumál uppsett og virkjuð."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} er skilgreint sem upphafs tungumál."
+
+msgid "notification.localeDisabled"
+msgstr "Tungumál óvirkt."
+
+msgid "notification.localeEnabled"
+msgstr "Tungumál virkt."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml fannst ekki á viðbóta svæðinu"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml á viðbóta svæðinu inniheldur ógild gögn."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Veldu viðbóta skránna"
+
+msgid "manager.plugins.uploadError"
+msgstr "Villa við að hlaða upp skrá"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Það tókst að uppfæra í útgáfu {$versionString}"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Uppfærsla mistókst. {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Þetta form gerir þér kleyft að uppfæra viðbót.  Vinsamlega gakktu úr skugga "
+"um að viðbótin sé pressuð sem .tar.gz skrá."
+
+msgid "manager.plugins.upgrade"
+msgstr "Uppfæra viðbót"
+
+msgid "manager.plugins.settings"
+msgstr "Stillingar"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Viðbótin er nú þegar til, en er nýrra en uppset útgáfa. Vinsamlega uppfærðu "
+"í staðinn"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Viðbót ekki til. Vinsamlega notaðu uppsetningu í staðinn"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"version.xml í upphlöðnu viðbótinni inniheldur nafn á viðbót sem passar ekki "
+"við nafnið á uppfærðu viðbótinni."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Upphlaðin viðbót passar ekki við flokkunina á uppfærðu viðbótinni."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Safnið fyrir upphlaðnar viðbætur inniheldur ekki möppu sem svarar til "
+"nafnsins á viðbótinni."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Það tókst að setja upp útgáfu {$versionNumber}"
+
+msgid "manager.plugins.installFailed"
+msgstr "Uppsetning mistókst. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Ekki tiltækt"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Uppfært í nýjustu útgáfu"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Hægt að uppfæra"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Nýrri en tiltæk útgáfa"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Viðbót nú þegar uppsett og í nýjustu útgáfu."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Viðbótin er  nú þegar uppsett en það er hægt að uppfæra hana í nýrri útgáfu."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Viðbótin er nú þegar uppsett og er nýrri en útgáfan í galleríinu."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Sem stendur er ekki til nein samhæfð útgáfa af þessari viðbót."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Það er ekki búið að setja upp þessa viðbót."
+
+msgid "manager.plugins.description"
+msgstr ""
+"Þessi síða leyfir stjórnanda að skoða og mögulega stilla uppsettar viðbætur. "
+"Viðbætur eru skipt í flokka eftir virkni. Flokkarnir eru listaðir fyirr "
+"neðan, og í hverjum flokki má sjá vikrar viðbætur."
+
+msgid "plugins.categories.importexport"
+msgstr "Viðbótarforrit fyrir inn-/út-flutning"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Status"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Samantekt"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Forsíða"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} gefin út þ. {$date}"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Viðhaldið af"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Þessi viðbót kemur frá einum af þróunnar samstarfsaðilum okkar."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Samstarfsaðili/meðeigandi"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Þessi viðbót hefur verið skoðuð og samþykkt af PKP teyminu."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Ritrýnt"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Þessi viðbót er þróuð og viðhaldið af PKP teyminu."
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Opinbert"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Nýjasta samhæfða útgáfa"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Uppsetning"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Yfirlit"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Viðbóta smiðja"
+
+msgid "manager.plugins.installed"
+msgstr "Uppsettar viðbætur"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Vinsamlega athugaðu hvort að skrá var valin til að hlaða upp."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Þetta form gerir þér kleyft að hlaða upp og setja upp nýtt viðbótarforrit.  "
+"Vinsamlega gaktu úr skugga um að vibótin sé þjöppum sem .tar.gz skrá."
+
+msgid "manager.plugins.upload"
+msgstr "Hlaða inn nýju viðbótarforriti"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Vinsamlega veldu skrá fyrst"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Viðbótarforritið \"{$pluginName}\" er ekki til"
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Það tókst að eyða viðbótinni: \"{$pluginName}\""
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Ekki var hægt að eyða þessari viðbót: \"{$pluginName}\". Þetta gæti verið "
+"vandamál með leyfi. Vinsamlega gaktu úr skugga um að vefþjóninn geti skrifað "
+"á skráarsvæði fyrir viðbótarforritin (þ.m.t. í undirmöppur), en ekki gleyma "
+"að læsa á það aftur á eftir."
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Með því að smella á eyða, þá eyðir þú þessari viðbót úr skráakerfi þjónsins."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Ertu viss um að þú viljir eyða þessari viðbót úr kerfinu?"
+
+msgid "grid.action.installPlugin"
+msgstr "Setja inn eða uppfæra þessa viðbót"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Ertu viss um að þú viljir uppfæra þessa viðbót?"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Ertu viss um að þú viljir sejta inn þessa viðbót?"
+
+msgid "manager.plugins.delete"
+msgstr "Eyða viðbótarforriti"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Ekki tókst að afrita viðbótarforrit. Þetta gæti verið vandamál með leyfi. "
+"Vinsamlega gaktu úr skugga um að vefþjóninn geti skrifað á skráarsvæði fyrir "
+"viðbótarforritin (þ.m.t. í undirmöppur), en ekki gleyma að læsa á það aftur "
+"á eftir."
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Þessar viðbætur setja upp stuðning við opinber auðkenni."
+
+msgid "plugins.categories.pubIds"
+msgstr "Viðbótarforrit fyrir opinber auðkenni"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Viðbætur fyrir formatt lýsigagna eru notuð í OAI samskiptum."
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Viðbætur fyrir OAI formatt lýsiganga"
+
+msgid "plugins.categories.themes"
+msgstr "Viðbótarforrit fyrir þema"
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+"Viðbætur fyrir þema er hægt að nota til að breyta ásýnd og útliti kerfisins."
+
+msgid "plugins.categories.reports"
+msgstr "Viðbótarforrit fyrir skýrslur"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Viðbætur fyrir greiðsluaðferðir setja inn stuðning við ýmsar greiðslu "
+"aðferðir á vefnum."
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Viðbætur fyrir skýrslur eru notaðar til að setja upp ýmsar tegundir af "
+"skýrslum og til að taka út gögn."
+
+msgid "plugins.categories.paymethod"
+msgstr "Viðbótarforrit fyrir greiðslur"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Reyndir vefforritarar geta hlaðið upp CSS skrá til að stilla útlits vefsins "
+"meira."
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Viðbætur fyrir innflutning/ útfluting má nota til að færa gögn til og frá "
+"öðrum kerfum."
+
+msgid "plugins.categories.generic"
+msgstr "Almennar viðbætur"
+
+msgid "plugins.categories.gateways"
+msgstr "Viðbótarforrit fyrir gátt"
+
+msgid "plugins.categories.gateways.description"
+msgstr ""
+"Viðbótarforrit fyrir gátt opna á sendingu gagna í rauntíma yfir í ytri kerfi."
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Viðbótarforrit fyrir stiklur eru einingar á notendaviðmót, eins og t.d. "
+"ýmsar hliðar stikur."
+
+msgid "plugins.categories.blocks"
+msgstr "Viðbótarforrit fyrir stiklur(Block)"
+
+msgid "plugins.categories.auth"
+msgstr "Viðbótarforrit fyrir aðgangsheimildir"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Viðbótarforrit fyrir lýsigögn setja upp viðbótar staðla fyrir lýsigögn."
+
+msgid "plugins.categories.metadata"
+msgstr "Viðbótarforrit fyrir lýsigögn"
+
+msgid "manager.users"
+msgstr "Notendur"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Skráðir notendur"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} nýtt)"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Aðgangs valmöguleikar síðu"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Ertu viss um að þú viljir virkja þennan kafla?"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Leiðbeiningar sem mælt er með fela í sér bókfræðilega staðla, "
+"uppsetningarstaðla ásamt dæmi um tilvísanir sem nota á í handritum."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Ert þú viss um að þú viljir afvirkja þennan hluta?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Afvirkja þennan hluta og ekki leyfa nýjar innsendingar á þetta."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Þemað sem þú valdir er ekki uppsett eða virkt."
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Hægt er að setja inn ný þema undir flipanum \"Viðbótarforrit\" efst á "
+"þessari síðu."
+
+msgid "manager.setup.theme"
+msgstr "Þema"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Tengiliður sem getur aðstoðað ritstjóra, höfunda og ritrýna með vandamál við "
+"að senda inn handirt, ristjórn, ritrýni eða útgáfu efnis."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Tæknileg aðstoð"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Dæmi: Faglegar tengingar, háskóladeildir, samstarf o.s.frv. Stuðningaðilar "
+"eru birtir almenningi."
+
+msgid "manager.setup.sponsors.note"
+msgstr "Tengingar stuðningsaðila og lýsing á stefnu"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Gefðu tengil á  <button type=\"button\">Hvernig tryggja skal nafnleysi "
+"skráa</button>  við upphleðslu"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Sjálfgefinn ritrýni hamur"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Senda áminningu í tölvupósti ef ritrýnir hefur ekki sent ráðleggingar/"
+"ritrýni innan svona margra daga eftir lokadag ritrýni."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Áminning um ritrýni"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Senda áminningu í tölvupósti ef ritrýnir hefur ekki bruggðist við beiðni um "
+"ritrýni svona mörgum dögum eftir lokafrest."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Áminning um svar"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Hægt er að breyta sjálfgefnum gildum fyrir hverja ritrýni í "
+"ritstjórnarferlinu."
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Aldrei að áminna"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Vikur gefnar til að klára ritrýni"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Fjöldi vikna til að samþykkja eða hafna beiðni um ritrýni."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Sjálfgefin lokadagsetning"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Sjálfgefin dagsetning á lokafresti svars"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Þessi yfirlýsing birtist þegar notendur skrá sig, höfundar senda inn greinar "
+"og á aðgengilegum persónuverndar síðum.  Á sumum stöðum eru lagalega kröfur "
+"um að þú upplýsir hvernig meðferð persónu upplýsinga er háttað í þessari "
+"persónverndarstefnu."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Sérsnið"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Dags. & Tími (stutt)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Dags. & Tími"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Tími"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Dags. (stutt)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Dags."
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Veldu snið á dagsetningu og tíma. Hægt er að slá inn sérsnið með þeð því að "
+"nota  <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>format "
+"characters</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Snið dagsetningar og tíma"
+
+msgid "manager.setup.dateTime"
+msgstr "Dags & tími"
+
+msgid "manager.setup.privacyStatement"
+msgstr "Perónuvernd"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Sláðu inn tengiliða upplýsingar.  Gjarnan aðal ritstjóra, ritstjórn eða "
+"stjórnendastöður sem hægt er að birta á vefsíðunni."
+
+msgid "manager.setup.principalContact"
+msgstr "Aðaltengiliður"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Gefðu yfirlit yfir ritrýnistefnuna og ferla fyrir lesendur og höfund.  Þessi "
+"lýsing inniheldur oft fjölda ritrýna sem eru notaðir við hvert handirt, "
+"skilyrðin sem ritrýnar eru beðnir um að dæma handrit eftir, tímarammin sem "
+"gefinn er til að klára ritrýni og þau grundvallaratriði sem liggja að baki "
+"vali á ritrýnum."
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Bættu við mynd, texta eða HTML kóða sem þú vilt að birtist neðst á "
+"vefsíðunni."
+
+msgid "manager.setup.pageFooter"
+msgstr "Síðufótur"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Óglit skráarsnið á mynd fyrir merki í haus síðu, eða það tókst ekki að hlaða "
+"mynd upp. Leyfð skráarsnið eru .gif, .jpg eða .png."
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Ef þið veitið frjálsan aðgang að öllu útgefnu efni, þá getur þú slegið inn "
+"ykkar stefnu um opinn aðgang."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Stefna um opinn aðgang"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Senda annan tölvupóst"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Það tókst að senda tölvupóst á alla viðtakendur."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Er að senda tölvupóstinn.  Vinsamlega vertu kyrr á þessari síðu þar til "
+"sendingunni er lokið."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Þú ert við það að senda tölvupóst á {$total} notendur. Ertu viss um að þú "
+"viljir senda þennan tövlupóst?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Senda tölvupóst"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Senda afrit af þessum tölvupósti á mig á netfang: {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Veldu þá notendur sem eiga að fá tilkynningu í tölvupósti."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Tilkynna"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Höfundar fá sjálfkrafa tölvupóst með staðfestingu á móttöku handrits. Þú "
+"getur sent afrit af tölvupóstinum á eftirfarandi:"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Eitt eða fleiri af þessum netföngum eru ekki gild."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Afrit af staðfestingu í tölvupósti á móttöku handrits verður sent á netföng "
+"sett inn hér.  Aðgreindu fleiri en eitt netfang með kommu.  Dæmi eitt@"
+"dæmi.is, tvö@dæmi.is"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Tilkynna einhverjum"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nei"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Já, senda afrit til {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Tilkynna aðal tengilið"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Tilkynningar"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Senda afrit á þetta netfang"
+
+msgid "manager.setup.notifications"
+msgstr "Tilkynning um innsendingu frá höfundi"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"Skráin sem þú hlóðst upp finnst ekki. Vinsamlega reyndu að hlaða henni aftur "
+"upp."
+
+msgid "manager.setup.logo"
+msgstr "Merki"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Skráning og eftirlit"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"{$name} blokkin finnst ekki. Vinsamlega skoðaðu hvort viðbótin sé uppsett og "
+"virk."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Hliðarstika"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Lýsing"
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Ógilt skráarsnið á mynd fyrir haus heimasíðu, eða það tókst ekki að hlaða "
+"upp. Leyfð skráarsnið eru .gif, .jpg eða .png."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Ógilt skráarsnið á heimasíðumynd eða það tókst ekki að hlaða upp.  Leyfð "
+"skráarsnið eru .gif, .jpg eða .png."
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Hlaða upp mynd til að sýna  með áberandi hætti á heimasíðunni."
+
+msgid "manager.setup.homepageImage"
+msgstr "Heimasíðu mynd"
+
+msgid "manager.setup.favicon"
+msgstr "Veftáknmynd"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Það kom upp villa við að eyða þessu atriði."
+
+msgid "manager.setup.competingInterests"
+msgstr "Hagsmunaárekstrar"
+
+msgid "manager.setup.checklist"
+msgstr "Gátlisti"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Afvirka innsendingar"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Fyrir höfunda"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Biðja höfunda um að samþykkja eftirfarandi upplýsingar um höfundarétt sem "
+"hluta af innsendingar ferlinu."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Upplýsingar um höfundarétt"

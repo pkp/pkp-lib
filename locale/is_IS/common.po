@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-23 13:31+0000\n"
+"PO-Revision-Date: 2022-01-28 22:45+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/is_IS/>\n"
@@ -201,7 +201,7 @@ msgstr "Útdráttur"
 
 msgid "common.confirmDelete"
 msgstr ""
-"Ert þú vissum að þú viljir eyða þessu? Það er ekki hægt að afturkalla "
+"Ert þú viss um að þú viljir eyða þessu? Það er ekki hægt að afturkalla "
 "skipunina."
 
 msgid "common.grid"
@@ -330,7 +330,7 @@ msgid "common.metric"
 msgstr "Mál"
 
 msgid "common.plugins"
-msgstr "Tengiforrit/viðbætur"
+msgstr "Viðbótarforrit"
 
 msgid "common.loading"
 msgstr "Hleð"
@@ -447,7 +447,7 @@ msgid "common.subject"
 msgstr "Efni"
 
 msgid "common.status"
-msgstr "Staða"
+msgstr "Status"
 
 msgid "common.source"
 msgstr "Uppruni"
@@ -1150,7 +1150,7 @@ msgid "navigation.search"
 msgstr "Leita"
 
 msgid "navigation.register"
-msgstr "Skrá sig"
+msgstr "Nýskráning"
 
 msgid "navigation.publicMenu"
 msgstr "Almenn valmynd"
@@ -1832,7 +1832,7 @@ msgid "notification.type.editorialReport"
 msgstr "Tölfræðiskýrsla - samantekt."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Umferð {$round} Staða"
+msgstr "Umferð {$round} Status"
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Bíður efitr yfirförnu handriti."

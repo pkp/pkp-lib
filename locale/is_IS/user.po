@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
+"PO-Revision-Date: 2022-01-28 22:45+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "is_IS/>\n"
@@ -30,7 +30,10 @@ msgid "user.affiliation.description"
 msgstr "(Stofnunin þín, t.d. Háskólin á Akureyri)"
 
 msgid "user.affiliation"
-msgstr "Tengsl"
+msgstr "Stofnun/Tengsl"
 
 msgid "user.accountInformation"
 msgstr "Notandareikningur"
+
+msgid "user.authorization.loginRequired"
+msgstr "Innskráningar krafist."

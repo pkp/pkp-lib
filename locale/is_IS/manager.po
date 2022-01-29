@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-28 22:45+0000\n"
+"PO-Revision-Date: 2022-01-29 19:02+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/is_IS/>\n"
@@ -803,14 +803,13 @@ msgstr "Þú þarf að velja a.m.k. eitt hlutverk til að tengja á þennan nota
 msgid "manager.settings.wizard"
 msgstr "Stillinga álfur"
 
-#, fuzzy
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
-"Select the type of metadata that these files may receive. Document should be "
-"selected for the main publication files, such as the downloadable PDF, so "
-"that these files inherit their metadata from the publication. Otherwise, "
-"choose Supplementary Content for most file types. Artwork is appropriate for "
-"files which require distinct credit, caption and licensing metadata."
+"Veldu tegund lýsigagna sem þessar skrár mega taka á móti.  Það þarf að velja "
+"skjal sem megin útgáfuskrá, svo sem niðurhalanlegt PDF, þannig að þessar "
+"skrár erfi lýsigögnin frá útgáfunni.  Að öðruleiti skaltu velja viðbótar "
+"innihald fyrir flestar skráartegundir.  Listaverk er viðeigandi fyrir skrár "
+"sem kalla á sérstaka viðurkenninu, fyrirsögn og lýsigögn fyrir leyfi."
 
 msgid "manager.setup.genres.metatadata"
 msgstr "Lýsigögn skráar"
@@ -854,15 +853,13 @@ msgstr "Breyta þessum íhlut"
 msgid "grid.action.addGenre"
 msgstr "Bæta við íhlut"
 
-#, fuzzy
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Select Library Files to attach"
+msgstr "Veldu safn skrár (Library Files) til að hengja við"
 
-#, fuzzy
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
-"<p>This library file can be accessible for download, if \"Public Access\" is "
-"enabled, at: <blockquote>{$downloadUrl}</blockquote></p>"
+"<p>Þessi safnskrá (library file) getur verið aðgengileg fyrir niðurhal, ef \""
+"Public Access\" er virkjað, á: <blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.category.other"
 msgstr "Annað"
@@ -879,19 +876,16 @@ msgstr "Markaðssetning"
 msgid "settings.libraryFiles.category.contracts"
 msgstr "Samningar"
 
-#, fuzzy
 msgid "settings.libraryFiles.typeRequired"
-msgstr "A file type is required for this library file."
+msgstr "Það þarf að vera skráartegund á þessari safn skrá (Library file)."
 
-#, fuzzy
 msgid "settings.libraryFiles.nameRequired"
-msgstr "A name is required for this library file."
+msgstr "Það þarf að vera nafn á þessari safn skrá (Library file)."
 
-#, fuzzy
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
-"A library file is required. Please ensure that you have chosen and uploaded "
-"a file."
+"Safnskráar (Library file) er krafist. Vinsamlega tryggðu að þú hafir valið "
+"og hlaðið upp skrá."
 
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Leyfa breytingar á lýsigögnum handrits."
@@ -1588,3 +1582,902 @@ msgstr ""
 
 msgid "manager.setup.copyrightNotice"
 msgstr "Upplýsingar um höfundarétt"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Atriðategund er krafist fyrir atriðið á eyðublaðinu."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Þessi tövlupóstur er sendur sjálfkrafa til nýrra notenda þegar þeir skrá sig "
+"þegar stillingar kalla á að netfang sé staðfest."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Staðfestingar tölvupóstur (Síða)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Þessi tölvupóstur er sendur þegar ritstjóri aftengir ritrýni."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Ritrýnir aftengdur"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Þessi tölvupóstur er sendur þegar ritrýnir, sem var aftengdur, er settur "
+"aftur inn af ritstjóra."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Ritrýnir settur aftur inn"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Þessi tölvupóstur er sendur þegar ritrýni er úthlutað handriti."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Úthlutaður ritrýnir"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Þessi tölvupóstur er sjálfkrafa sendur á þátttakendur í umræðu þegar "
+"skilboðum er bætt við umræðuna."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Ný umræðu skilaboð"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "Vefslóðin á innsendinguna í bakenda ritstjórnar"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Fullt nafn höfunda"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Nöfn höfundar  formað í styttum streng"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Útdráttur handrits"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Einkvæmt kenni innsendingar"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Titill handrits"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Úthlutaðir ritstjórar á þetta handrit sem geta tekið ákvörðun"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Netfang aðaltengiliðs vefsíðurnnar"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Fullt nafn á aðaltengilið vefsíðunnar"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Tölvupósts undirskrift sendanda"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Netfang sendanda"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Fullt nafn sendanda"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "Vefslóð á ritrýni verkefnið"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Dagsetning þegar ritrýni á að vera lokið"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Dagsetning þegar ritrýnir á að samþykkja eða hafna verkefninu"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Notendanafn viðtakanda eða allra viðtakenda"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Fullt nafn viðtakanda eða allra viðtakenda"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "Vefslóð á síðu þar sem notandi getur endurheimt tínt lykilorð"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Ferlinu tókst ekki að þátta útgáfur"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Ferlinu tókst ekki að þátta höfunda"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Tilgreind slóð á tímaritið, \"{$contextPath}\", er ekki til."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "VILLA:"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Röng stilling á síu [{$filterName}]: kemur fyrir í {$filterCount} skipti. "
+"Ætti bara að vera einu sinni."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Almenn atriði"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Hlaða niður export skrá með hnappinum fyrir neðan."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Það tókst að exporta."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Hlaða niður Export skrá"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Export niðurstöður innsendinga"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Ferlið mistókst. Athugaði villur/viðvaranir hér fyrir neðan."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Hafnað eftir ritrýni - hlutfall"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Hafnað við innsendingu - hlutfall"
+
+msgid "stats.name.declineRate"
+msgstr "Höfnunar hlutfall"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Samþykktar hlutfall"
+
+msgid "stats.name.daysToReject"
+msgstr "Dagar til höfnunar"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dagar til samþykktar"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dagar til fyrstu ritstjórnarákvörðunnar"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Handrit birt"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Handriti hafnað (Eftir ritrýni)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Handritið hafnað (Við innsendingu)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Handritum hafnað"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Samþykkt handrit"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Mótekin handrit"
+
+msgid "stats.userStatistics"
+msgstr "Notendatölfræði"
+
+msgid "stats.trends"
+msgstr "Leitni"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Samtals á tímabili"
+
+msgid "stats.total"
+msgstr "Samtals"
+
+msgid "stats.submissionsActive"
+msgstr "Virkar innsendingar"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Leita eftir titli, höfundi og kenni"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Mánaðarlega"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Skráar-kíkk"
+
+msgid "stats.editorialActivity"
+msgstr "Ritstjórnarleg aðgerð"
+
+msgid "stats.descriptionForStat"
+msgstr "Lýsing á {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Fjöldi daga sem það tekur fyrir flest handrit að fá fyrstu ritstjórnarlegu "
+"ákvörðun eins og t.d.  \"hafnað við innsendingu\"  eða \"sent í ritrýni\""
+".<br><br>Þessar tölur gefa til kynna að 80% af innsendum handritum fá "
+"ákvörðun innan gefins dagafjölda.<br><br>Þessi tölfræði leitast við að lýsa "
+"hvenær meirihluti höfunda sem sendir inn handrit getur vænst ákvörðunnar."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Hlutfall fyrir valið tímabil er reiknað fyrir handrit sem vor send inn á "
+"þessu tímabili og búið er að taka lokaákvörðun um. <br><br>Dæmi:  Tilfelli "
+"þar sem tíu handirt voru send inn á tímabilinu. Fjögur hafa verið samþykkt, "
+"fjórum var hafnað og tvö bíða enn lokaákvörðunnar.<br><br>"
+"Samþykktarhlutfallið er 50% (4 af 8 handritum) vegna þess að þau tvö handrit "
+"sem ekki hefur verið tekin lokákvörðun um eru ekki talin með."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Þar til {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Til"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Frá upphafi árs til dagsins í dag"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Síðan {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Síðasta ár"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Síðustu tvö ár"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Síðustu 90 dagar"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Síðustu 30 dagar"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Síðustu 12 mánuðir"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Upphafsdagur má ekki vera fyrir {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Lokadagur má ekki vera eftir {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Upphafsdagur verður að vera á undan lokadegi."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Snið dagsetningar er ekki gilt. Sláðu inn dagsetningu á sniðinu AAAA-MM-DD."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Sláðu inn dagsetningu á forminu AAAA-MM-DD. Dæmi: Ef þú vilt dagsetninguna "
+"15. janúar 2019 sláðu inn 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Frá"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Ein af dagsetningunum sem var slegin inn er ekki til."
+
+msgid "stats.dateRange.customRange"
+msgstr "Sérsniðið röð/svið"
+
+msgid "stats.dateRange.change"
+msgstr "Breyta tímabili"
+
+msgid "stats.dateRange.apply"
+msgstr "Sækja um"
+
+msgid "stats.dateRange.allDates"
+msgstr "Allar dagsetningar"
+
+msgid "stats.dateRange"
+msgstr "Tímabil"
+
+msgid "stats.daily"
+msgstr "Daglega"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/ár)"
+
+msgid "stats.allUsers"
+msgstr "Allir notendur"
+
+msgid "grid.category.categoryDetails"
+msgstr "Upplýsingar um flokk"
+
+msgid "grid.category.nameRequired"
+msgstr "Vinsamlega sláðu inn nafn flokks."
+
+msgid "grid.category.removeText"
+msgstr "Ertu viss um að þú viljir fjarlægja þennan flokk?"
+
+msgid "grid.category.parentCategory"
+msgstr "Yfir flokkur"
+
+msgid "grid.category.description"
+msgstr "Lýsing"
+
+msgid "grid.category.pathExists"
+msgstr "Slóðin fyrir flokkinn er til fyrir. Vinsamlega sláðu inn einkvæma slóð."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Slóðin fyrir flokkinn má bara innihalda bókstafi og númer."
+
+msgid "grid.category.urlWillBe"
+msgstr "Vefslóðin fyrir flokkinn verður: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Slóð"
+
+msgid "grid.category.name"
+msgstr "Nafn"
+
+msgid "grid.category.edit"
+msgstr "Breyta flokk"
+
+msgid "grid.category.add"
+msgstr "Bæta við flokk"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Þessi tengill er bara sýndur ef þú hefur skráð eitthvað í persónuvernd undir "
+"Stillingar>Verkflæði>Innsendingar."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Tengill á síðuna um persónuvernd."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Tengill á leitarsíðuna."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Þessi tengill er bara sýndur ef gesturinn er innskráður, greiðslur eru "
+"gerðar virkar undir Stillingar > Dreifing>Greiðslur og áskriftar er krafist "
+"undir Stillingar >Dreifing >Aðgengi."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"þessi tengill er bara sýndur ef greiðslur eru gerðar virkar undir Stillingar "
+"> Dreifing > Greiðslur."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Vinsamlega veldu tegund valmyndar."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Þessi tengill er bara sýndur ef þú hefur skráð eitthvað í upplýsingar um "
+"tengilið undir Stillingar > Tengiliður."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Tengill á síðu sem sýnir upplýsingar um tengilið."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Þessi tengill er bara sýndur þegar gesturinn er ekki innskráður."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Þessi tengill er bara sýndur þegar gestur hefur skáð sig inn."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Tengill sem skráir notanda út."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Þessi tenglill er bara sýnilegur stjórnendum."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Tengill á stjórntæki vefsíðustjóra."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Tengill á stillingar notanda."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Tengill á ritstjóralesborð."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Tengill á notendaskráningar síðuna."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Tengill á innskráningarsíðu."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Þessi tengill verður bara sýndur ef búið er að virkja tilkynningar undir "
+"Stillingar > Vefsíða."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Tengill á síðu sem sýnir tilkynningar."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Tengill á útgefið efni."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Tengill á nýjasta tölublaðið."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Tengill á síðu sem sýnir leiðbeiningar um innsendingu handrita."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Þessi tengill er bara sýndur ef það er búið að skrá eitthvað í \"Editorial "
+"Team\" undir Stillingar>Tímarit."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Tengill á síðu sem sýnir \"Masthead\" innihaldið í Stillingar > Tímarit."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Þessi tengill er bara sýndur ef það er búið að skrá eitthvað í  \"Um "
+"tímaritið\" undir Stillingar > Tímarit."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Tengill á síðu sem sýnir innihaldið á \"Um tímritið\" í Stillingar > Tímarit"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Tengil á hvaða vefslóð sem er eða aðra vefsíðu, t.d. eins og "
+"https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Ytri vefslóð"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Stofna sérsniðna síðu fyrir vefinn og tengil á hana frá valmynd."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Sérsniðin síða"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Veldur tegund valmyndar, eða sérsniðið til að gera þína eigin"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Tegund valmyndar"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"þegar valkostur á valmynd opnar undirvalmynd, er ekki hægt að elta tengilinn "
+"á öllum tækjum. Dæmi:  Ef þú vilt að \"Upplýsingar\" sem valkostur opni "
+"undirvalmynd með \"Tengiliður\" og \"Ritstjórn\", er mögulegt að ekki sé "
+"hægt að fanga tengilinn fyrir \"Upplýsingar\" á öllum tækjum.   Til að leysa "
+"þetta er búinn til viðbótar valkostur fyrir \"Um tímaritið\" sem birtist í "
+"undirvalmyndinni."
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Læra meira um hvenær valkostir á þessari valmynd eru sýndir eða faldir."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Það verður að gefa upp vefslóð"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "Vefslóð"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Valmynd er nú þegar tengd við þetta svæði."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Veldu valmynda-/stikusvæð"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Virkt þema fyrir valmynda og stikusvæði"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Ótengdir valkostir á valmynd"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Tengdir valkostir á valmynd"
+
+msgid "manager.navigationMenuItems"
+msgstr "Valkostir á valmynd"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Titill er áskilinn"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Þessi titill er þegar til fyrir aðra valmynd."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Þessi slóð er þegar til fyrir annað val á valmynd."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Slóðin má bara innihalda bókstafi  og/eða tölustafi ásamt '.', '/', '-', og "
+"'_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Innihald"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Þessi síða verður aðgengileg á: <blockquote>{$pagesPath}</blockquote>"
+"...þar sem %PATH% er slóðin uppgefin hér fyrir ofan. <strong>ATH:</strong> "
+"Engar tvær síður geta haft sömu slóð. Með því að nota slóð sem er innbyggð í "
+"kerfið ertu mögulega að tapa aðgengi að mikilvægri virkni.</p>"
+
+msgid "manager.navigationMenus"
+msgstr "Leiðakerfi"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Slóð"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Titill"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Notandanafnið \"{$username}\" og netfangið \"{$email}\" passa ekki við "
+"þenann notanda og sama notanda sem er til."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Lykilorð notanda  \"{$username}\" var ekki hægt að lesa inn eins og það er.  "
+"Nýtt lykilorð verður sent á netfang notanans.  Notandinn var lesinn inn."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Notandi \"{$username}\" er með einfalt lykilorð sem er ekki gilt. Notandinn "
+"var ekki lesinn inn."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Notandinn var ekki lesinn inn.  Notandi \"{$username}\" hefur ekki lykilorð. "
+"Athugaðu innflutings XML-sniðið."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Import/export villur:"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Innsendingarskrá {$id} var sleppt vegna þess að hún tengist færslu sem "
+"verður ekki lesin inn, svo sem úthlutun ritrýni eða umræðu."
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Það var ekki hægt að flytja inn innsendingarskrána"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Endurskoðun \"{$revisionId}\" fyrir innsenda skrá \"{$fileId}\" myndi búa "
+"til tvær eins skrár"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Uppgefin srkáarstærð \"{$expected}\" og raunstærð \"{$actual}\" passa ekki "
+"saman"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Ekki tókst að búa til tímabundna skrá {$dest} útfrá {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Óþekktur upphlaðari {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Höfundur {$authorName} er ekki með fornafn á innsendingartungumáli, "
+"{$localeName}. Ekki er hægt að lesa inn handritið án þessara upplýsinga."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Notendahóp vantar fyrir nafn höfunds {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Óþekktur notendahópur {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Innihaldið er ekki kóðað sem {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Óþekkt kóðun {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Óþekkt grein/tegund {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Óþekkt atriði {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Kenni: {$id}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Villur sem komu upp:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Viðvaranir sem komu upp:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Prófunarvillur:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr "Krefja höfund um heimildir áður en viðkonandi samþykkir innsendinguna."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Biðja höfund um heimildir á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Ekki biðja höfund um heimildir á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Virkja lýsigögn heimilda"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Safna heimildum handrits í aðgreint svæði. Þetta gæti þurfti til að uppfylla "
+"kröfur þjónustuaðila fyrir tilvísanir eins og t.d. Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Krefja höfund um að upplýsa um alla stuðnings stofnanir/aðila áður en "
+"viðkomandi samþykkir innsendingu."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Biðja höfund um að upplýsa um alla stuðnings stofnanir/aðila á meðan á "
+"innsendingu stendur."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Ekki biðja höfund um stuðningsstofnanir á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Virkja lýsigögn fyrir stuðningstofnanir"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Stuðnings stofnanir geta gefið til kynna hvaðan rannsókarfé kemur, eða annar "
+"stofnanastuðingur sem hefur auðveldað rannsóknina."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Krefja höfund um að tilgreina fræðigrein áður en viðkomandi samþykkir "
+"innsendingu."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Biðja höfund um að tilgreina fræðigrein á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Ekki biðja höfund um fræðigrein á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Virkja lýsigögn fræðigreinar"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Fræðigreinar/fræðasvið eru tegund af námi eða þekkingarsvið eins og þeim er "
+"lýst af háskóladeildum og fræðasamfélaginu."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Krefja höfund um að tilgreina tegund áður en viðkomandi samþykkir "
+"innsendingu."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Biðja höfund um að tilgreina tegund við innsendingu."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Ekki biðja höfund um tegund á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Virkja lýsigögn tegundar"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Eðli eða grein megin innihalds innsendingar. Tegundin er venjulega \"Texti\""
+", eng getur líka verið  \"Gagnasett\", \"Mynd\" eða eitthvað af  <a target=\""
+"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/"
+"#section-7-dcmi-type-vocabulary\">Dublin Core types</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Krefja höfund um efni handrits áður en viðkomandi samþykkir innsendinguna."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Biðja höfund um efni á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Ekki biðja höfund um efni á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Virkja lýsigögn efnis"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Efni eru lykilorð, lykil frasar eða flokkunar kótar sem lýsa viðfangsefni "
+"handritsins."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Krefja höfund um vefslóð auðlindar áður en viðkomandi samþykkir innsendingu."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Biðja höfund um vefslóð auðlindar á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Biðja höfud ekki um vefslóð auðlindar á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Virkja lýsigögn auðlindar"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Auðlindin getur verið Kenni, eins og DOI númer annars verks  eða auðlindar "
+"hvaðan innsendingin er fengin."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Krefja höfund um að upplýsa um öll fyrir aðgangs rétindi áður en viðkomandi "
+"samþykkir innsendingu."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Biðja höfund um að upplýsa um öll fyrri aðgangs réttindi á meðan á "
+"innsendingu stendur."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Ekki biðja höfundum um upplýsingar um réttindi á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Virkja lýsigögn fyrir réttindi"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Hvaða réttindi sem er á handritinu, sem gæti falið í sér hugverka rétt, "
+"höfundarétt og ýmis eignaréttindi."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Krefjast að höfundur gefi upp tungumál handrits áður en viðkomandi samþykkir "
+"innsendinguna."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Biðja höfund um að tilgreina tungumál handrits á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Ekki biðja höfund um um tungumál handrits á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Virkja tungumál lýsigagna"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Tungumál kefur til kynna aðal tungumá verks með því að nota tungumála kóða(\""
+"en\"), mögulega með lengri landakóða (\"en_US\")."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Krefjast þess að höfundur leggi til lykilorð áður en viðkomandi samþykkir "
+"innsendingu."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Biðja höfund um að leggja til lykilorð á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Biðja ekki um lykilorð frá höfundi á meðan á innsendingu stendur."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Virkja lykilorða lýsigögn"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Dæmigerð lykilorð eru eins til þriggja orða frasar sem eru notaðir til að "
+"gefa til kynna megin umfjöllunarefni handrits."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Krefjast að höfundur leggi til lýsigögn fyrir yfirgrip áður en viðkomandi "
+"samþykkir innsendingu."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Biðja höfund um að leggja til lýsigögn fyrir yfirgrip á meðan á innsendingu "
+"stendur."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Biðja ekki um lýsigögn fyrir yfirgrip frá höfundi á meðan á innsendingu "
+"stendur."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Virkja yfirgrips lýsigögn"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Dæmigert yfirgrip gefur til kynna svæðisbundna staðsetningu (staðarheiti eða "
+"landfræðileg hnit),  afmarkað tímabil (heiti tímabils, dagsetingu eða "
+"dagsetningarbil) eða lögsögu (svo sem tiltekin stjórnsýsu eining)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Yfirgrip"
+
+msgid "manager.setup.metadata.submission"
+msgstr "Innsendingar eyðublað"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "Vefslóð á vefsíðu sem lýsir leyfinu, ef hún er til."
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Biðja um yfirlýsingu um hagsmunaárekstra á meðan á ritrýni stendur."
+
+msgid "grid.action.createReviewForm"
+msgstr "Stofna nýtt ritrýni eyðublað"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Sýnilegt (fyrir höfunda)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Textabox með einni línu"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Lengt textabox"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Textabox með einu orði"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Taka með í skilaboð til höfundar"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Ritrýnir verður að klára atriði"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Útvarps hnappar (Þú getur bara valið einn)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Lýsing"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Atriði"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Val"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Engin atriði á eyðublað hafa verið stofnuð."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Það þarf að vera spurning fyrir atriðið á eyðublaðinu."
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Atriðategund"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Breyta eyðublaðs atriði"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Fellival"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Stofna nýtt atriði"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Afrit til:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Staðfestu eyðingu á birtu atriði eyðublaðs..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Veldu atriðategund"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Gátreitir (Þú getur valið einn eða fleiri)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Bæta við vali"
+
+msgid "manager.reviewFormElements"
+msgstr "Atriði eyðublaðs"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Breyta atriða tegund eyðublaðs..."
+
+msgid "manager.reviewForms.title"
+msgstr "Titill"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Ritrýni eyðublöð - gögn"
+
+msgid "manager.reviewForms.preview"
+msgstr "Forskoða eyðublað"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Engin ritrýni eyðublöð hafa verið notuð."
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Engin ritrýni eyðublöð hafa verið búin til."

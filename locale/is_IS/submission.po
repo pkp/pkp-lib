@@ -1,8 +1,794 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-01-30 19:00+0000\n"
+"Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
+"Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/is_IS/>\n"
 "Language: is_IS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Ertu viss um að þú viljir eyða þessu lokaprófarkasvæði?"
+
+msgid "submission.layout.addGalley"
+msgstr "Bæta við loka prófakasvæði fyrir umbrot"
+
+msgid "submission.lastModified"
+msgstr "Síðast breytt"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Tilkynna"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Sjá atburði frá fyrri útgáfum"
+
+msgid "submission.informationCenter.history"
+msgstr "Saga"
+
+msgid "submission.informationCenter.notes"
+msgstr "Minnispunktar"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Lýsigögn"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Upplýsingar um innsendingu"
+
+msgid "submission.publisherId.enable"
+msgstr "Virja fyrir {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Kenni útgefanda er hægt að nota til að skrá kenni frá ytri gagnagrunni.  Til "
+"dæmis, atriði flutt út í geymslu hjá PubMed geta falið í sér kenni "
+"útgefanda. Það á ekki að nota þetta fyrir DOI númer."
+
+msgid "submission.publisherId"
+msgstr "Kenni útgefanda"
+
+msgid "submission.identifiers"
+msgstr "Auðkenni"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Þetta er úrelt útgáfa, birt þann {$datePublished}. Lestu <a href=\""
+"{$urlRecentVersion}\">nýjustu útgáfuna</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Útgáfur"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Uppfært þann {$dateUpdated}"
+
+msgid "submission.initiated"
+msgstr "Hafið"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Hlaða niður tilvísun"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Fleiri tilvísanakerfi"
+
+msgid "submission.howToCite"
+msgstr "Hvernig skal vitna í"
+
+msgid "submission.history.viewLog"
+msgstr "Skoða skrá(log)"
+
+msgid "submission.history.submissionNotes"
+msgstr "Minnispunktar innsendinga"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Atburðaskrá"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Tölvupóst skrá"
+
+msgid "submission.history.recentLogEntries"
+msgstr "Nýlegar færslur"
+
+msgid "submission.history.noLogEntries"
+msgstr "Engar færslur í skrá(log)."
+
+msgid "submission.history"
+msgstr "Saga"
+
+msgid "submission.history.clearLog"
+msgstr "Hreinsa skrá(log)"
+
+msgid "submission.galley"
+msgstr "Lokaprófarkir"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Færsla, sem ekki er hægt að breyta, um þann sem hleður upp skrá er vistuð "
+"þegar skráin er stofnuð."
+
+msgid "submission.files.downloadAll"
+msgstr "Hlaða niður öllum skrám"
+
+msgid "submission.files"
+msgstr "Skrár"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Höfundar mega ekki breyta lýsigögnum þegar innsending er á þrepi {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Höfundar mega núna breyta lýsigögnum þegar innsending er á þrepi {stage}."
+
+msgid "submission.event.viewEmail"
+msgstr "Skoða tölvupóst"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Tölvupóstur var sendur:"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Úrbótaskrá ritrýnis uppfærð"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Ritrýni send aftur inn"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Ritrýni úthlutun sett aftur af stað"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Ritrýni ráðleggingaskrá"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Ritrýni úthlutun hafin"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Ritrýniskrá uppfærð"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Ritrýnir ekki lengur tengdur þessari innsendingu"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Mat ritrýnis skilað"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Handriti úthlutað á ritrýni"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Skiladegi ritrýni breytt"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Úthlutun ritrýni hafnað"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Úthlutun ritrýni samþykkt"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Úthlutun ritrýni samþykkt af staðgengli"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Innsendingarskrá uppfærð"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Lýsigögn innsendingar uppfærð"
+
+msgid "submission.event.fileRevised"
+msgstr "Endurskoðun \"{$name}\" var hlaðið inn fyrir skrá {$submissionFileId}."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Upphafs innsendingu lokið."
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Eyða færslu úr skrá"
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+"Ertu viss um að þú viljir hreinsa atburðaskránna fyrir þessa innsendingu?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Ertu viss um að þú viljir eyða þessari færslu úr atburðaskránni?"
+
+msgid "submission.event.backToEventLog"
+msgstr "Til baka í atburðaskrá"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) fjarlægður sem {$userGroupName}."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) fékk þessari innsendingu úthlutað sem {$userGroupName}."
+
+msgid "submission.emailLog"
+msgstr "Skrá yfir tölvupósta"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Eyða skráarfærslu"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr ""
+"Ertu viss um að þú viljir eyða þessari færslu úr skránni yfir tölvupósta?"
+
+msgid "submission.email.confirmClearLog"
+msgstr ""
+"Ert þú viss um að þú viljir hreinsa skránna yfir tölvupósta fyrir þessa "
+"innsendingu?"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Til baka í skrá yfir tölvupósta"
+
+msgid "submission.editorial"
+msgstr "Yfirfara handrit (Copyediting)"
+
+msgid "submission.editMetadata"
+msgstr "Breyta lýsigögnum"
+
+msgid "submission.editing"
+msgstr "Ritvinna"
+
+msgid "submission.due"
+msgstr "Skiladagur"
+
+msgid "submission.dueDate"
+msgstr "Lokadagur"
+
+msgid "submission.downloads"
+msgstr "Niðurhal"
+
+msgid "submission.done"
+msgstr "Lokið"
+
+msgid "submission.coverage"
+msgstr "Umfangs upplýsingar"
+
+msgid "submission.queryNoteFiles"
+msgstr "Umræðu skrár"
+
+msgid "submission.copyediting"
+msgstr "Í yfirferð (copyediting)"
+
+msgid "submission.copyedited"
+msgstr "Yfirfarið handrit"
+
+msgid "submission.contributors"
+msgstr "Listi yfir meðhöfunda og aðra framlagsveitendur"
+
+msgid "submission.complete"
+msgstr "Lokið"
+
+msgid "submission.comments.subject"
+msgstr "Efni"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Senda ritrýni ákvörðun ritstjóra"
+
+msgid "submission.comments.review"
+msgstr "Ritrýni"
+
+msgid "submission.comments.noReviews"
+msgstr "Engin ritrýni"
+
+msgid "submission.comments.noComments"
+msgstr "Engar athugasemdir"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Ritrýnir {$reviewerLetter}:"
+
+msgid "submission.comments.addReviews"
+msgstr "Bæta ritrýni við tölvupóst"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Flytja inn ritrýni"
+
+msgid "submission.comments.editComment"
+msgstr "Breyta athugasemd"
+
+msgid "submission.comments.corrections"
+msgstr "Lagfæringar"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Ertu viss um að þú viljir eyða þessari athugasemd?"
+
+msgid "submission.comments.comments"
+msgstr "Athugasemdir"
+
+msgid "submission.comments.addComment"
+msgstr "Bæta við athugasemd"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Draga út og vista heimildir"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Eftirfarandi heimildir hafa verið dregnar út og verða tengdar við lýsigögn "
+"handritsins."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations"
+msgstr "Útdregnar heimildir"
+
+msgid "submission.citations.description"
+msgstr ""
+"Skráðu hverja heimild í nýja línu svo að hægt sé að taka þær út og skrá "
+"hverja fyrir sig."
+
+msgid "submission.citations"
+msgstr "Heimildaskrá"
+
+msgid "submission.changeFile"
+msgstr "Breyta skrá"
+
+msgid "submission.changeComments"
+msgstr "Breyta í"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Tilbaka í að breyta innsendingu"
+
+msgid "submission.attachedFile"
+msgstr "Tengdar skrár"
+
+msgid "submission.ask"
+msgstr "Spyrja"
+
+msgid "submission.acknowledge"
+msgstr "Staðfesta"
+
+msgid "submission.accepted"
+msgstr "Samþykkt"
+
+msgid "submission.abstractViews"
+msgstr "Áhorf útdráttar"
+
+msgid "submission.agencies"
+msgstr "Umboð"
+
+msgid "submission.additionalFiles"
+msgstr "Viðbótar skrár"
+
+msgid "submission.addFile"
+msgstr "Hlaða upp skrá"
+
+msgid "submission.mySubmissions"
+msgstr "Mín höfundaverk"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} fyrir {$title}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} o.fl."
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "Æfiágrip höfundar"
+
+msgid "submission.authorBiography"
+msgstr "Æfiágrip höfundar"
+
+msgid "submission.authors"
+msgstr "Höfundar"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Geymdar innsendingar"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Mínar úthlutanir"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Óúthlutað"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Útdráttur"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Vertu viss um að þú setjir gilda nafnategund.  Gildi sem stutt er við eru \""
+"Persónulegt\", \"Fyrirtæki\" og \"Ráðstefna\"."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Tegund nafns"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Vinsamlega sláðu inn gilt heiti hlutar."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Heiti hlutar"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Vinsamlega sláðu inn gilt hlutanúmer."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Hlutanúmer"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Vinsamlega sláðu inn gildian undirtitil."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Undirtitill"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Vinsamlega sláðu inn gildann titill."
+
+msgid "metadata.property.displayName.title"
+msgstr "Titill"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Vinsamlega sláðu bara inn upphafsstafi titilsins sem á að horfa framhjá "
+"þegar verið er að sortera titilinn."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Horft framhjá hluta titils við sorteringu"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Gakktu úr skugga um að þú setjir gilda tegund titils.  Gildi sem er stutt "
+"við eru  \"skamstöfun\", \"þýtt\", \"annar texti \" og \"samræmt\"."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Titill tegundar"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Vinsamlega gakktu úr skugga um að þú setjir altaf tegund útgáfu.  Gildi sem "
+"nú er studd eru bækur(fyrir bækur eða bókarkafla) og tímarit (fyrir greinar "
+"í tímarit). Að öðrum kosti munu tílvísanir ekki vera sýndar rétt."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Tegund útgáfu"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Vinsamlega sláðu inn gilda textaskýringu."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Textaskýring"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Vinsamlega sláðu inn gilda athugasemd."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Athugasemd"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Vinsamlega sláðu gildan tengil sem valkost á útgáfuna."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Tengill á útgáfuna"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Vinsamlega sláðu inn gilt PMID."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Vinsamlega sláðu inn gilt SICI."
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Vinsamlega sláðu inn gillt CODEN."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Vinsamlega sláðu inn gilt sérsniðið útgáfu kenni."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Sérsniðið útgáfu kenni"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Vinsamlega sláðu inn gilt DOI númer."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Vinsamlega sláðu inn gilt eISSN númer."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Vinsamlega sláðu inn gilt prent ISSN númer."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Prent ISSN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Vinsamlega sláðu inn gilt ISBN númer (9 eða 13 stafa)."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Vinsamlega sláðu inn nafn útgefanda."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Nafn útgefanda"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Vinsamlega sláðu inn útgáfustað."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Útgáfustaður"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Vinsamlega sláðu inn heildar blaðsíðufjölda (þarf að vera númer)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Fjöldi blaðsíðna"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr ""
+"Vinsamlega sláðu inn leyfilegt síðunúmer fyrir öftustu síðu.  (þarf að vera "
+"númer)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Aftasta síða"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Sláðu inn leyfilegt síðunúmer á fyrstu síðu (þarf að vera númer)."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Fyrsta síða"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "vinsamlega sláðu inn leyfilega stofnun."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Stofnun"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Vinsamlega sláðu inn stuðningsaðila ráðstefnu."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Stuðningsaðilar ráðstefnu"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Vinsamlega sláðu inn gilt heiti á ráðstefnu."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Heiti ráðstefnu"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Vinsamlega sláðu inn leyfilegan ráðstefnustað."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Ráðstefnustaður"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Vinsamlega sláðu inn leyfilegan ráðstefnudag (snið: AAAA-MM-DD)."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Ráðstefnudagur"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Vinsamlega sláðu inn gilt fylgirit."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Fylgirit"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Vinsamlega sláðu inn gilda ritröð"
+
+msgid "metadata.property.displayName.series"
+msgstr "Ritröð"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Vinsamlega sláðu inn gilda útgáfu."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Útgáfa"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Vinsamlega sláðu inn gilt kaflaheiti."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Kaflaheiti"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Vinsamlega sláðu inn leyfilegt auðkenni fyrir árstíð."
+
+msgid "metadata.property.displayName.season"
+msgstr "Árstíð"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Vinsamlega sláðu inn gilt bindi."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Bindi"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Sláðu inn gilt tölublað."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Tölublað"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Vinsamlega sláðu inn leyfilegan aðgangsdag (snið: AAAA-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Aðgangs dagur"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Vinsamlega sláðu inn leyfilegan útgáfudag. (snið: AAAA-MM-DD)."
+
+msgid "metadata.property.displayName.date"
+msgstr "Útgáfudagur"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Vinsamlega sláðu inn leyfilegan titil útgáfu."
+
+msgid "metadata.property.displayName.source"
+msgstr "Titill útgáfu"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Vinsamlega skráðu inn leyfilegan titil á grein/handriti."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Titill greinar/handrits"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Best er að slá inn ritstjóra á eftirfarandi formi:  Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Best er að slá inn höfunda á eftirfarandi formi:  Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Ritstjórar"
+
+msgid "metadata.property.displayName.author"
+msgstr "Höfundar"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Innri villa.  Óleyfilegu gildi var póstað fyrir stillingar á valkvæðum "
+"síum.  Vinsamlega tilkynntu þetta sem hugbúnaðarvillu."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Ekki nota sem sjálfgefið (er samt aðgengilegt fyrir ritstjóra)"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Vinsamlega veldu eina af uppgefnum tilvísana einingum."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Tilvísana eining"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Vinsamlega skráðu inn gildann WorldCat API lykil ef þú ert með slíkann."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API Lykill"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr ""
+"Vinsamlega sláðu inn gilt skráningar netfang fyrir PubMed ef þú ert með "
+"slíkt."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed skráningar netfang"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Vinsamlega sláðu inn ISBNdb API lykil. Ef þú ert ekki enn komin(n) með lykil "
+"getur þú beðið um hann ókeypis frá ISBNdb verkefninu."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API Lykill"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Vinsamlega sláðu inn gilt CrossRef skráningar netfang.  Þú getur skráð "
+"netfangið þitt ókeypis á vefsíðu CrossRef."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "CrossRef skráningar netfang"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Skoðað þessa innsendingu"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Útvíkkuð lýsigögn"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Farið til baka á lesborð"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Búið til nýja innsendingu"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Núna getur þú:"
+
+msgid "submission.submit.whatNext"
+msgstr "Hvað gerist næst?"
+
+msgid "submission.submit.removeConfirm"
+msgstr "Ertu viss um að þú viljir fjarlægja þessa skrá?"
+
+msgid "submission.submit.genre.error"
+msgstr "Vinsamleg veldu hvernig skrá er um að ræða fyrir hvert upphal."
+
+msgid "submission.submit.genre.description"
+msgstr "Veldu valkost sem lýsir best þessari skrá."
+
+msgid "submission.submit.genre.label"
+msgstr "Hvernig skrá er þetta?"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Já, ég samþykki að efna skilmála um höfundarétt."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Staðfesta höfundarétt"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Takk fyrir þann áhuga sem þú sýnir á birtingu í  {$contextName}."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Innsendingu lokið"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Þú verður að staðfesta að þú uppfyllir atriðin á minnislistanum áður en þú "
+"heldur áfram."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Minnislisti höfunda"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Sendu inn í einhverju af eftirfarandi hlutverkum, ef þú vilt sjálf(ur) geta "
+"breytt og gefið út þessa innsendingu: {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Já, ég vil láta vera í sambandi við mig vegna þessarar innsendingar."
+
+msgid "submission.submit.contactConsent"
+msgstr "Tengiliður samskipta"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Veldu hlutverk sem lýsir best þínu framlagi til þessarar innsendingar."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Senda inn sem"
+
+msgid "submission.confirm.message"
+msgstr ""
+"Handritinu þínu hefur verið hlaðið inn og er tilbúið til innsendingar.  Þú "
+"getur farið til baka til að skoða og laga þær upplýsingar sem þú hefur gefið "
+"upp áður en þú heldur áfram.  Þegar þú ert tilbúin(n), smelltu á \"Klára "
+"innsendingu\"."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Einn eða fleiri ritrýnar eru á eftir áætlun. Ritstjórateymið hefur verið "
+"upplýst og mun bregðast við til að tryggja að ritrýni sé kláruð.  Þú þarft "
+"ekki að gera neitt sem stendur. Þú færð skilaboð þegar ákvörðun hefur verið "
+"tekin."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Nýrri ritrýni hefur verið skilað og er í athugun hjá ritstjóra."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Útvegaðu forsniðinn lista af heimildum fyrir verk sem vísað er til í þessu "
+"handriti.  Vinsamlega aðgreindu hverja heimild með auðri línu."
+
+msgid "author.publicationNotFound"
+msgstr "Útgefið verk fyrir þennan höfund fannst ekki."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Það er ekki hægt að breyta höfundum þessa verks þar sem búið er að gefa það "
+"út."

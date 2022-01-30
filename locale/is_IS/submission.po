@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-30 19:26+0000\n"
+"PO-Revision-Date: 2022-01-31 16:27+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/is_IS/>\n"
@@ -18,7 +18,6 @@ msgstr "SICI"
 msgid "submission.layout.confirmDeleteGalley"
 msgstr "Ertu viss um að þú viljir eyða þessu galley?"
 
-#, fuzzy
 msgid "submission.layout.addGalley"
 msgstr "Bæta við Galley  fyrir umbrot"
 
@@ -799,3 +798,1192 @@ msgstr "Eyða þessu stílsniði."
 
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Ertu viss um að þú viljir fjarlægja þessa mynd frá lokaprófarkasvæðinu?"
+
+msgid "submission.list.reviewDue"
+msgstr "Skiladagur ritrýni: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Ritrýni úthlutun"
+
+msgid "submission.list.responseDue"
+msgstr "Skiladagur svars: {$date}"
+
+msgid "submission.list.empty"
+msgstr "Engar innsendingar fundust."
+
+msgid "submission.list.infoCenter"
+msgstr "Aðerðaskrá & minnispunktar"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Þú verður að tengja a.m.k. einn þátttakanda við þessa innsendingu áður en þú "
+"getur hafið umræðu."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Þér hefur verið bætt við umræðu sem kallast \"{$queryTitle}\" varðandi "
+"innsendingu \"{$submissionTitle}\"."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Það er eitthvað nýtt í umræðu sem kallast \"{$queryTitle}\" varðand "
+"innsendingu \"{$submissionTitle}\"."
+
+msgid "submission.query.new"
+msgstr "{$creatorName} hóf umræðu: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} svaraði {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Bæta nýju svari við umræðuna"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Ef þú yfirgefur þessa umræðu færð þú ekki lengur tilkynningar um ný "
+"skilaboð. Viltu yfirgefa þessa umræðu?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Yfirgefa umræðu"
+
+msgid "submission.query.addNote"
+msgstr "Bæta við skilaboðum"
+
+msgid "submission.query.closed"
+msgstr "Lokað"
+
+msgid "submission.query.lastReply"
+msgstr "Síðasta svar"
+
+msgid "submission.query.from"
+msgstr "Frá"
+
+msgid "submission.query.replies"
+msgstr "Svör"
+
+msgid "submission.query.messages"
+msgstr "Skilaboð"
+
+msgid "submission.query.subject"
+msgstr "Efni"
+
+msgid "submission.queries.editorial"
+msgstr "Textatækniyfirferð - Umræður"
+
+msgid "submission.queries.review"
+msgstr "Ritrýni umræður"
+
+msgid "submission.queries.submission"
+msgstr "Ritrýni umræður"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir leyfinu <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">("
+"Creative Commons Attribution-ShareAlike 3.0 Unported License)</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir leyfinu <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">(Creative "
+"Commons Attribution 3.0 Unported License)</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir leyfinu <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">("
+"Creative Commons Attribution-NoDerivatives 3.0 Unported License)</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir "
+"leyfinu <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-sa/3.0/\">(Creative Commons Attribution-NonCommercial-ShareAlike 3.0 "
+"Unported License)</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir leyfinu <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">("
+"Creative Commons Attribution-NonCommercial 3.0 Unported License)</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir "
+"leyfinu <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-nd/3.0/\">(Creative Commons Attribution-NonCommercial-NoDerivatives "
+"3.0 Unported License)</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir leyfinu <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">("
+"Creative Commons Attribution-ShareAlike 4.0 International License)</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
+"88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir leyfinu <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">(Creative "
+"Commons Attribution 4.0 International License)</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>Greinar í tímaritnu eru gefnar út undir leyfinu <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">("
+"Creative Commons Attribution-NoDerivatives 4.0 International "
+"License)</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Greinar í tímaritnu eru gefnar út undir "
+"leyfinu<a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-sa/4.0/\">(Creative Commons Attribution-NonCommercial-ShareAlike 4.0 "
+"International License)</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
+"0/88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir leyfinu <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">("
+"Creative Commons Attribution-NonCommercial 4.0 International "
+"License)</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons Leyfi\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Greinar í tímaritinu eru gefnar út undir "
+"leyfinu  <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-nd/4.0/\">(Creative Commons Attribution-NonCommercial-NoDerivatives "
+"4.0 International License)</a>.</p>"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Úthluta ritstjóra til að gera mögulegt að taka ritstjórnar ákvörðun á þessu "
+"þrepi."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Snúa við höfnun"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Þessi prófarkaskrá verður ekki lengur aðgengileg öllum fyrir niðurhal eða "
+"kaup.  Viltu afturkalla samþykki?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Samþykktar prófarkir"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Síðu prófarkaskráin þarf að vera merkt sem samþykkt til að vera aðgengileg. "
+"Viltu samþykkja hana?"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Senda í innri ritrýni"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Samþykkja og hoppa yfir ritrýni"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Senda í framleiðslu"
+
+msgid "editor.submission.decision.decline"
+msgstr "Hafna innsendingu"
+
+msgid "editor.submission.decision.newRound"
+msgstr "Ný ritrýni umferð"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Endursenda í ritrýni"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Biðja um ritrýni"
+
+msgid "editor.submission.decision.accept"
+msgstr "Samþykkja innsendingu"
+
+msgid "editor.submission.decision"
+msgstr "Ákvörðun"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Ertu viss um að þú viljir að höfundar þessarar innsendingar geti breytt "
+"lýsigögnum innsendingar á þessu þrepi?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Ertu viss um að þú viljir að höfundar þessarar innsendingar geti ekki breytt "
+"lýsigögnum á þessu þrepi?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Leyfa breytingar á lýsigögnum"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Synja um breytingar á lýsigögnum"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Þátttakandinn sem þú valdir hefur verið úthlutað nafnlausri ritrýni.  Ef þú "
+"úthlutar þessum þátttakanda, hefur viðkomandi aðgang til að sjá hver er "
+"höfundur.  Við hvetjum þig til að úthluta ekki þessum þáttakanda nema þú "
+"getir tryggt heilindi ritrýniferlisins."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Þú verður að velja notanda í tilgreindan notendahóp."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Þú verður að velja notenda hóp."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Þú ert við það að fjarlægja þennan þátttakanda frá  <strong>öllum</strong> "
+"þrepum."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Fjarlægja þátttakanda"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Notendur eru tengdir við þrep verkferlisins í gegnum notendahóp.  Notanda "
+"úthlutað á þetta þrep mun sjálfkrafa vera úthlutað á önnur þrep sem "
+"notendahópurin þeirra er tengdur við."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Breyta úthlutun"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Tengja þátttakanda"
+
+msgid "editor.submission.participant"
+msgstr "Þátttakandi"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Enginn tengdur"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Þátttakendur"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Allar ráðleggingar eru komnar og það þarf að taka ákvörðun."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Nýjar ráðleggingar frá ritstjórn hafa verið sendar inn."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Bíður ráðlegginga frá ritstjóra."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Ritrýni komin fram yfir skiladag."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Allir ritrýnar hafa svarað og það þarf að taka ákvörðun."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Engin ritrýni hefur verið send inn."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Bíður svara frá ritrýnum."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Bíður úthlutunar til ritrýna."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Innsendingu hafnað."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Innsending samþykkt."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Senda í ytri ritrýni."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Búið er að endursenda innsendinguna fyrir nýja ritrýni umferð."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Það þarf að senda innsendinguna aftur inn fyrir aðra ritrýni umferð."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Ritrýni hefur verið send inn."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Búið er að biðja um ritrýni."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Það eru engin handrit fyrir þig að ritrýna eins og er."
+
+msgid "submission.upload.proof"
+msgstr "Hlaða inn skrá sem er tilbúin fyrir útgáfu"
+
+msgid "submission.upload.productionReady"
+msgstr "Hlaða inn skrá sem er tilbúin í framleiðslu"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Eftir ritrýni á úthlutuðu handriti, skráðu athugasemdir í skránna fyrir "
+"neðan, og/eða hladdu upp afriti af skránni með umsögn (eða aðra skrá)."
+
+msgid "submission.upload.uploadFiles"
+msgstr "Hlaða upp skrám"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Hlaða upp yfirfarinni skrá"
+
+msgid "submission.upload.finalDraft"
+msgstr "Hlaða upp skrá"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Skjalaflokkur innsendingar"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Hlaða inn safnskrá"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Ef þú ert að hlaða upp breyttu bindi, ættir þú að hlaða upp hverjum kafla "
+"sér, í hlutverki þínu sem ritstjóri bindis."
+
+msgid "submission.upload.userGroup"
+msgstr "Hlaða upp þessari skrá í hlutverki mínu sem...."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"Ef þú ert að hlaða upp endurskoðun á skrá sem til er,  gefðu þá til kynna "
+"hvaða skrá."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Vinsamlega veldu skránna sem þú vilt endurskoða."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Þetta er ekki endurskoðun á skrá sem til er"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Nafn á skrá sem var hlaðið upp líkist nafni á skrá sem búið er að hlaða upp, "
+"\"{$revisedFileName}.\" Á þessi skrá að koma í staðinn fyrir \""
+"{$revisedFileName}\"? Ef svo er, veldu þá skránna fyrir neðan.  Ef ekki, "
+"veldu þá \"Þetta er ekki endurskoðun á skrá sem til er\" áður en þú heldur "
+"áfram."
+
+msgid "submission.upload.possibleRevision"
+msgstr "Mögulega tvöföldun eða endurskoðað"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Vantar notendahóp eða hann ógildur!"
+
+msgid "submission.upload.noGenre"
+msgstr "Vantar hlut  eða hann ógildur!"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Þú verður að slá inn nafn á þessa skrá"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Staðfesta"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Fara yfir allt"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Hlaða upp insendingarsrká"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Hlaða upp skrá"
+
+msgid "submission.status.published"
+msgstr "Útgefið"
+
+msgid "submission.status.declined"
+msgstr "Hafnað"
+
+msgid "submission.status.unassigned"
+msgstr "Óúthlutað"
+
+msgid "submission.status.submission"
+msgstr "Bíður ákvörðunar ritstjóra"
+
+msgid "submission.status.review"
+msgstr "Í ritrýni"
+
+msgid "submission.status.production"
+msgstr "Í prófarkalestri"
+
+msgid "submission.status.editorial"
+msgstr "Í yfirferð hjá textatækni"
+
+msgid "workflow.stage"
+msgstr "Þrep"
+
+msgid "workflow.stage.any"
+msgstr "Hvaða þrep sem er"
+
+msgid "workflow.review.internalReview"
+msgstr "Innri ritrýni"
+
+msgid "submission.form.replaceExisting"
+msgstr "Skipta út skrá?"
+
+msgid "submission.form.name"
+msgstr "Gefðu skránni nafn (t.d. Handrit; Tafla 1)"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Settu inn heimildir."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Settu inn réttindi."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Settu inn uppruna."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Settu inn tegund."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Settu inn upplýsingar um umfang."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Settu inn lykilorð."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Settu inn fræðasvið."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Settu inn efni."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Settu inn tungumál."
+
+msgid "submission.submit.addAuthor"
+msgstr "Bæta við framlagsaðila"
+
+msgid "submission.submit.contributorRole"
+msgstr "Hlutverk framlagsaðila"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Aðal tengiliður fyrir samskipti við ritstjórn."
+
+msgid "submission.date.yyyymmdd"
+msgstr "AAAA-MM-DD"
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.nameRequired"
+msgstr "Það þarf nafn á þetta atriði."
+
+msgid "submission.fileDetails"
+msgstr "Nánar um skrá"
+
+msgid "submission.artworkFileDetails"
+msgstr "Listaverk nánar um skrá"
+
+msgid "submission.loadMessage"
+msgstr "Vinsamlega dokaðu á meðan verið er að hlaða skránni upp á þjóninn."
+
+msgid "submission.uploadSuccessful"
+msgstr "Skránni hefur verið hlaðið upp."
+
+msgid "submission.views"
+msgstr "Áhorf"
+
+msgid "submission.viewMetadata"
+msgstr "Skoða lýsigögn"
+
+msgid "submission.createRemote"
+msgstr "Búa til fjar"
+
+msgid "submission.uploadFileTo"
+msgstr "Hlaða upp skrá á"
+
+msgid "submission.underway"
+msgstr "Á leiðinni"
+
+msgid "submission.type.tip"
+msgstr ""
+"Tegund innsendingar er venjulega eitt af eftirfarandi 'mynd', 'texti', eða "
+"aðrar or aðrar margmilunar tegundir, þar á meðal 'hugbúnaður' eða "
+"'gagnvirkt'.  Vinsamlega veldu það sem best á við fyrir þína innsendingu.  "
+"Dæmi má finna á  <a target=\"_blank\"href=\"http://dublincore.org/documents/"
+"2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/"
+"2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.titleAndAbstract"
+msgstr "Titill og útdráttur"
+
+msgid "submission.indexingInformation"
+msgstr "Upplýsingar um lyklun"
+
+msgid "submission.currentAgencies"
+msgstr "Umboðsaðili"
+
+msgid "submission.supportingAgencies"
+msgstr "Stuðnings umboðsaðilar"
+
+msgid "submission.summary"
+msgstr "Samantekt"
+
+msgid "submission.upload.query"
+msgstr "Hladd upp umræðuskrá"
+
+msgid "submission.upload.dependent"
+msgstr "Hladdu upp tengdum skrám"
+
+msgid "submission.upload.percentComplete"
+msgstr "Upphleðslu {$percent}% lokið"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Hladdu upp öllum skrám sem ritstjórnar teymið þarfnast til að leggja mat á "
+"handritið þitt."
+
+msgid "submission.manageDependentFiles"
+msgstr "Stýra tengdum skrám"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Tengdar skrár"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Innsendingarskrár"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Tekið er á móti handritum á fleiri en einu tungumáli.  Veldu frum tungumál "
+"fyrir innsendinguna af fellivalinu fyrir ofan."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Tungumál innsendingar"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Bæta við upplýsingum um innsendinguna þína.  Ýttu á \"enter\" eftir hvert "
+"hugtak."
+
+msgid "submission.submit.metadataForm"
+msgstr "Viðbótar fíniseringar"
+
+msgid "submission.submit.newFile"
+msgstr "Bæta við annarri skrá"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Listi yfir útgefið efni"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Haffa þennan aðila með á lista yfir höfunda á útgefnu efni."
+
+msgid "submission.submit.fileAdded"
+msgstr "Skrá bætt við"
+
+msgid "submission.submit.fileInformation"
+msgstr "Skráarupplýsingar"
+
+msgid "submission.saveMetadata"
+msgstr "Vista lýsigögn"
+
+msgid "submission.submit.selectFile"
+msgstr "Velja skrá"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Ljúka innsendingu"
+
+msgid "submission.submitter"
+msgstr "Sendandi"
+
+msgid "submission.submissionReview"
+msgstr "Ritrýni innsendingar"
+
+msgid "submission.submissionManuscript"
+msgstr "Handrit innsendingar"
+
+msgid "submission.submissionHistory"
+msgstr "Innsendingarsaga"
+
+msgid "submission.start"
+msgstr "Byrja"
+
+msgid "submission.submissionTitle"
+msgstr "Titill innsendingar:"
+
+msgid "submission.submission"
+msgstr "Innsending"
+
+msgid "submissions.submitted"
+msgstr "Innsent"
+
+msgid "submissions.submit"
+msgstr "Senda inn"
+
+msgid "submission.source.tip"
+msgstr ""
+"Á þessi innsending rætur að rekja til annarrar auðindar?  Ef svo, þá getur "
+"þú skráð vefslóð eða lýsingu á þeirri auðlind."
+
+msgid "submission.source"
+msgstr "Uppruni"
+
+msgid "submissions.ruling"
+msgstr "Ráðandi / Niðurstaða"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Engum ritstjóra hefur verið úthlutað á þessa innsendingu."
+
+msgid "submissions.queued"
+msgstr "Í Röð"
+
+msgid "submissions.queuedEditing"
+msgstr "Í ritstýringu"
+
+msgid "submissions.noSubmissions"
+msgstr "Engin innsending"
+
+msgid "submissions.incomplete"
+msgstr "Ólokið"
+
+msgid "submissions.declined"
+msgstr "Hafnað"
+
+msgid "submissions.completed"
+msgstr "Lokið"
+
+msgid "submissions.archived"
+msgstr "Vistað"
+
+msgid "submissions.active"
+msgstr "Virkt"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Ef þú óskar, þá getur þú slegið inn stutta yfirlýsingu um aðgengis réttindi "
+"í eða yfir þessari innsendingu."
+
+msgid "submission.rights"
+msgstr "Réttindi"
+
+msgid "submission.reviewVersion"
+msgstr "Ritrýni útgáfa"
+
+msgid "submission.reviewed"
+msgstr "Ritrýnt"
+
+msgid "submission.review"
+msgstr "Ritrýni"
+
+msgid "submission.reviewMetadata"
+msgstr "Rýna lýsigögn"
+
+msgid "submission.restrictions"
+msgstr "Takmarkanir"
+
+msgid "submission.response"
+msgstr "Svar"
+
+msgid "submission.request"
+msgstr "Biðja um"
+
+msgid "submission.rejected"
+msgstr "Hafnað"
+
+msgid "submission.recommendation"
+msgstr "Ráðleggingar: {$recommendation}"
+
+msgid "submission.production"
+msgstr "Framleiðsla"
+
+msgid "submission.peerReview"
+msgstr "Jafningja&nbsp;ritrýni"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Tilvitnanir"
+
+msgid "submission.page.summary"
+msgstr "#{$id} samantekt"
+
+msgid "submission.page.review"
+msgstr "#{$id} ritrýni"
+
+msgid "submission.page.history"
+msgstr "#{$id} saga"
+
+msgid "submission.page.editing"
+msgstr "#{$id} ritstýring"
+
+msgid "submission.originalFile"
+msgstr "Upphafleg skrá"
+
+msgid "submission.notes.viewNotes"
+msgstr "Skoða minnispunkta"
+
+msgid "submission.notes.updateNote"
+msgstr "Uppfæra minnispunkt"
+
+msgid "submission.notes"
+msgstr "Minnispunktar innsendingar"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Fjarlægja upphlaðnar skrár"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Engir minnispunktar fyrir innsendingu"
+
+msgid "submission.notes.expandNotes"
+msgstr "Opna minnispunkta"
+
+msgid "submission.notes.editNote"
+msgstr "Breyta minnispunkti"
+
+msgid "submission.notes.deleteNote"
+msgstr "Eyða minnispunkti"
+
+msgid "submission.notes.createNewNote"
+msgstr "Búa til nýjan minnispunkt"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Fjarlgæja þennan minnispunkt innsendingar?"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Fjarlægja alla minnispunkta innsendingar?"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Fella saman minnispunkta"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Hreinsa alla minnispunkta"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Minnispunktar"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Til baka í minnispunkta innsendingar"
+
+msgid "submission.notes.attachedFile"
+msgstr "Viðhengi"
+
+msgid "submission.notes.addNewNote"
+msgstr "Bæta við nýjum minnispunkti"
+
+msgid "submission.noReviewAssignments"
+msgstr "Engar ritrýni úthlutanir"
+
+msgid "submission.metadata"
+msgstr "Lýsigögn innsendingar"
+
+msgid "submission.layout.viewProof"
+msgstr "Skoða próförk"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Skoða insendingar galley"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Engu stílsniði hefur verið bætt við þetta galley."
+
+msgid "submission.layout.newGalley"
+msgstr "Stofna nýtt Galley"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Umbrot útgáfa"
+
+msgid "submission.layout"
+msgstr "Umbrot/Útlit"
+
+msgid "submission.layout.layoutFile"
+msgstr "Umbrotsskrá"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Upphafs Galley búið til"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stíll"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stílsniðsskrá"
+
+msgid "submission.layout.galleys"
+msgstr "Galleys /Lokaprófarkir"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Engar myndir"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Vinsamlega sláðu inn gilda ytri vefslóð (hafðu með http://)."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Ytri vefslóð"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Galley tungumál er áskilið."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Galley tungumál er áskilið."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Galley kennimerki er áskilið."
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Týpískt notað til að skilgreina skráarsnið (t.d. PDF, HTML o.s.frv.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Galley kennimerki"
+
+msgid "submission.layout.galleyImages"
+msgstr "Myndir"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML Galley skrár"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Galley snið"
+
+msgid "submission.layout.editGalley"
+msgstr "Breyta Galley fyrir umbrot"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.licenseURL"
+msgstr "Leyfi - vefslóð"
+
+msgid "submission.licenseURLValid"
+msgstr "Vinsamlega sláðu inn gilda ytri vefslóð (hafðu með http://)."
+
+#, fuzzy
+msgid "submission.copyrightStatement"
+msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "Höfundaréttur ár"
+
+msgid "submission.copyrightOther"
+msgstr "Yfirlýsing um höfundarétt"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Sérsniðin yfirlýsing um höfundarétt"
+
+msgid "submission.copyrightHolder"
+msgstr "Höfundaréttur"
+
+msgid "submission.copyright"
+msgstr "Höfundaréttur"
+
+msgid "submission.license"
+msgstr "Leyfi"
+
+msgid "submission.attachPermissions"
+msgstr "Tengja eftirfarandi heimildir á innsendinguna:"
+
+msgid "submission.permissions"
+msgstr "Heimildir"
+
+msgid "grid.action.editMetadata"
+msgstr "Breyta lýsigögnum"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Stofna nýtt atriði fyrir ritrýni eyðublað"
+
+msgid "submission.reviewFormResponse"
+msgstr "Ritrýni eyðublað - svör"
+
+msgid "submission.reviewForm"
+msgstr "Ritrýni eyðublað"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Úthluta þarf framleiðsu ritstjóra áður en hægt er að hefja ritstjórnarferli. "
+"Vinsamlega bættu við framleiðslu ritstjóra af þátttakendalistanum."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Úthluta þarf framleiðsu ritstjóra áður en hægt er að hefja framleiðsluferli. "
+"Vinsamlega bættu við framleiðslu ritstjóra af þátttakendalistanum."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Framleiðsluferli hafið."
+
+msgid "grid.action.itemWorkflow"
+msgstr "Fara í verkferli þessarar innsendingar"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Stuðnings umboðsaðili"
+
+msgid "submission.supplementary.publisher"
+msgstr "Útgefandi"
+
+msgid "submission.supplementary.subject"
+msgstr "Efni"
+
+msgid "submission.supplementary.creator"
+msgstr "Skrá búin til af/eigandi"
+
+msgid "submission.supplementary"
+msgstr "Viðbótar innihald"
+
+msgid "submission.art"
+msgstr "Listaverk"
+
+msgid "submission.document"
+msgstr "Skjal"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Þessari ritrýni er lokið og búið er að þakka ritrýninum fyrir sitt framlag."
+
+msgid "submission.review.status.complete"
+msgstr "Þessari ritrýni er lokið."
+
+msgid "submission.review.status.received"
+msgstr "Ritrýnir hefur sent inn ritrýni sína."
+
+msgid "submission.review.status.accepted"
+msgstr "Þessi ritrýni hefur verið samþykkt."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Ritrýnir er kominn fram yfir skiladag ritrýni."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Ritrýnir er kominn fram yfir skiladag viðbragða."
+
+msgid "submission.review.status.declined"
+msgstr "Ritrýnir hafnaði þessari beiðni um ritrýni."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Beðið eftir viðbrögðum frá ritrýni."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} hefur lokið ritrýni fyrir umferð {$round} fyrir innsendingu "
+"{$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Ristjórinn {$userName} hefur staðfest ritrýni fyrir umferð {$round} fyrir "
+"innsendingu {$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"Umferð {$round} ritrýnt af {$reviewerName} fyrir innsendingu {$submissionId} "
+"hefur verið sett aftur af stað."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} hefur merkt ritrýni umferð {$round} fyrir innsendingu "
+"{$submissionId} sem óathugaða."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"Umferð {$round} ritrýnd af {$reviewerName} fyrir innsendingu {$submissionId} "
+"hefur verið hreinsuð."
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} hefur verið úthlutað til að ritrýna innsendingu "
+"{$submissionId} fyrir ritrýni umferð {$round}."
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Hladdu upp endurskoðaðri skrá"
+
+msgid "submission.productionReady"
+msgstr "Bók aðgengileg"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Veldu ritrýniskrár til að deila með höfundi/höfundum"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Viðhengi ritrýnis"
+
+msgid "notification.type.revertDecline"
+msgstr "Ákvörðuninni um að hafna þessari innsendingu var snúið við."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Ný útgáfa af innsendingu var búin til"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Það verður að úthluta ritstjóra áður en hægt er að hefja ritrýni.  "
+"Vinsamlega bættu við ritstjóra af þátttakendalistanum."
+
+msgid "notification.uploadedResponse"
+msgstr "Svörum hlaðið upp."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Höfnuð innsending endurvirkjuð."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Innsendingu hafnað."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Ný umferð af ritrýni hefur verið sett af stað."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Senda aftur í ritrýni."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Þarfnast ritrýni."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Ytra ritrýniferli hafið."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Innsending samþykkt."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Síðasta ákvörðun ritstjóra."
+
+msgid "notification.type.indexRequest"
+msgstr "Þú hefur berið beðinn um að lykla \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Þú hefur verið beðinn um að rýna umbrot fyrir \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Þú hefur verið beðinn um að rýna yfirfarna skrá fyrir \"{$title}\"."
+
+msgid "notification.type.editorAssign"
+msgstr "Þér hefur verið úthlutað sem ritstjóra á innsendingu \"{$title}\"."
+
+msgid "submission.documents"
+msgstr "Innsendingarskjöl"
+
+msgid "submission.stageNotInitiated"
+msgstr "Þrep ekki hafið."
+
+msgid "submission.description"
+msgstr "Lýsing"
+
+msgid "submission.overview"
+msgstr "Yfirlit yfir innsendingu"
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$name}\" ({$username}) hefur samþykkt próförk fyrir \"{$formatName}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) hefur kvittað fyrir \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$name}\" ({$username}) hefur lokið endurskoðun og hlaðið upp \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username}) var fjarlægð(ur) sem endurskoðandi fyrir skrá \""
+"{$file}.\""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) var bætt við sem endurskoðanda fyrir skrá \""
+"{$file}.\""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"Síðasta endurskoðun fyrir skrá \"{$title}\" var fjarlægð af {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"Endurskoðaðri skrá \"{$originalFileName}\" var eytt fyrir innsendingu "
+"{$submissionId} af {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"Endurskoðuð skrá \"{$originalFileName}\" var hlaðið upp fyrir innsendingu "
+"{$submissionId} af {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"Skrá \"{$originalFileName}\" var eytt fyrir innsendingu {$submissionId} af "
+"{$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Skrá \"{$originalFileName}\" var hlaðið upp til innsendingar  {$submissionId}"
+" af {$username}."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"Lýsigögnum fyrir skránna \"{$originalFileName}\" var breytt af {$username}."
+
+msgid "editor.submission.addAuditorError"
+msgstr "Það kom upp villa við að skrá höfundinn. Vinsamlega reyndu aftur."
+
+msgid "submission.finalDraft"
+msgstr "Drög"
+
+msgid "submission.submit.currentFile"
+msgstr "Núverandi skrá"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Ritrýni skrár"
+
+msgid "submission.actionNeeded"
+msgstr "Þarfnast aðgerðar"
+
+msgid "submission.noActionRequired"
+msgstr "Engra aðgerða er þörf"
+
+msgid "submission.currentStage"
+msgstr "Núverandi þrep"
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Fyrra: Skilaboð höfundar"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr ""
+"Veldu þær skrár sem þú vilt sem þú vilt senda áfram á þrep: {$stageName}."
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Næst: Veldu skrár fyrir {$stageName}"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Skráðar ráðleggingar"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Mæla með ritstjórnarákvörðun fyrir þessa innsendingu."
+
+msgid "editor.submission.recommendation"
+msgstr "Ráðleggingar"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Ráðleggingar: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Ráðleggingar: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Breyta ráðleggingum"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Gefa ráðleggingar"

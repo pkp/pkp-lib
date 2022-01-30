@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-30 19:06+0000\n"
+"PO-Revision-Date: 2022-01-30 19:26+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/is_IS/>\n"
@@ -16,10 +16,11 @@ msgid "metadata.property.displayName.sici"
 msgstr "SICI"
 
 msgid "submission.layout.confirmDeleteGalley"
-msgstr "Ertu viss um að þú viljir eyða þessu lokaprófarkasvæði?"
+msgstr "Ertu viss um að þú viljir eyða þessu galley?"
 
+#, fuzzy
 msgid "submission.layout.addGalley"
-msgstr "Bæta við loka prófakasvæði fyrir umbrot"
+msgstr "Bæta við Galley  fyrir umbrot"
 
 msgid "submission.lastModified"
 msgstr "Síðast breytt"
@@ -579,7 +580,7 @@ msgid "metadata.property.displayName.supplement"
 msgstr "Fylgirit"
 
 msgid "metadata.property.validationMessage.series"
-msgstr "Vinsamlega sláðu inn gilda ritröð"
+msgstr "Vinsamlega sláðu inn gilda ritröð."
 
 msgid "metadata.property.displayName.series"
 msgstr "Ritröð"
@@ -792,3 +793,9 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Það er ekki hægt að breyta höfundum þessa verks þar sem búið er að gefa það "
 "út."
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Eyða þessu stílsniði."
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Ertu viss um að þú viljir fjarlægja þessa mynd frá lokaprófarkasvæðinu?"

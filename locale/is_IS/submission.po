@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-31 16:27+0000\n"
+"PO-Revision-Date: 2022-01-31 16:54+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/is_IS/>\n"
@@ -1340,9 +1340,9 @@ msgstr ""
 "Tegund innsendingar er venjulega eitt af eftirfarandi 'mynd', 'texti', eða "
 "aðrar or aðrar margmilunar tegundir, þar á meðal 'hugbúnaður' eða "
 "'gagnvirkt'.  Vinsamlega veldu það sem best á við fyrir þína innsendingu.  "
-"Dæmi má finna á  <a target=\"_blank\"href=\"http://dublincore.org/documents/"
-"2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/"
-"2001/04/12/usageguide/generic.shtml#type</a>"
+"Dæmi má finna á   <a target=\"_blank\" href=\"http://dublincore.org/"
+"documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/"
+"documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.titleAndAbstract"
 msgstr "Titill og útdráttur"
@@ -1681,7 +1681,6 @@ msgstr "Leyfi - vefslóð"
 msgid "submission.licenseURLValid"
 msgstr "Vinsamlega sláðu inn gilda ytri vefslóð (hafðu með http://)."
 
-#, fuzzy
 msgid "submission.copyrightStatement"
 msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
 
@@ -1987,3 +1986,146 @@ msgstr "Breyta ráðleggingum"
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Gefa ráðleggingar"
+
+msgid "publication.wordCount"
+msgstr "Orðafjöldi: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Útdrátturinn er of langur. Hann ætti að vera {$limit} orð eða styttri.  "
+"Núverandi lengd er {$count} orð."
+
+msgid "publication.version.confirm"
+msgstr "Ertu viss um að þú viljir búa til nýja útgáfu?"
+
+msgid "publication.version.all"
+msgstr "Allar útgáfur"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Vefslóðin getur ekki verið númer."
+
+msgid "publication.urlPath.duplicate"
+msgstr ""
+"Vefslóðin hefur verið notuð nú þegar og ekki er hægt að nota hana aftur."
+
+msgid "publication.urlPath.description"
+msgstr "Valkvæð slóð að nota í vefslóðinni í stað kennis."
+
+msgid "publication.urlPath"
+msgstr "Vefslóð"
+
+msgid "publication.unschedule"
+msgstr "Taka úr áætlun"
+
+msgid "publication.titleAbstract"
+msgstr "Titill og Útdráttur"
+
+msgid "publication.status.unpublished"
+msgstr "Óbirt"
+
+msgid "publication.status.scheduled"
+msgstr "Áætlað"
+
+msgid "publication.publicationLicense"
+msgstr "Leyfi & skýringar"
+
+msgid "publication.event.versionCreated"
+msgstr "Ný útgáfa var stofnuð."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Dagsetningin þarf að vera á sniði AAAA-MM-DD, eins og 2019-01-24."
+
+msgid "publication.createVersion"
+msgstr "Búa til nýja útgáfu"
+
+msgid "publication.contributors"
+msgstr "Framlagsgefendur"
+
+msgid "catalog.category.subcategories"
+msgstr "Undirflokkar"
+
+msgid "catalog.category.noItems"
+msgstr "Ekkert hefur enn verið gefið út í þessum flokki."
+
+msgid "submission.currentCoverImage"
+msgstr "Núverandi mynd"
+
+msgid "submission.submit.placement.categories"
+msgstr "Flokkar"
+
+msgid "category.coverImage"
+msgstr "Forsíðumynd"
+
+msgid "category.category"
+msgstr "Flokkar"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Útgáfudagur (nýjast fyrst)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Útgáfudagur (elsti fyrst)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Titlar (Ö-A)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Titlar (A-Ö)"
+
+msgid "grid.category.categories"
+msgstr "Flokkar"
+
+msgid "submission.list.assignEditor"
+msgstr "Úthluta ritstjóra"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dagar síðan síðasta aðgerð"
+
+msgid "submission.list.activity"
+msgstr "Aðgerð"
+
+msgid "submission.list.currentStage"
+msgstr "Núna á {$stage} þrepi."
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Þessari innsendingu þarf að ljúka áður en ritstjóri skoðar hana."
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Þér hefur verið úthlutað sem ritstjóra fyrir þessa innsendingu. Viltu fara í "
+"<a href=\"{$urlEditorialWorkflow}\">Verkferli ritstjórnar</a>?"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Þér hefur verið úthlutað mörgum hlutverkum fyrir þessa insendingu. Viltu "
+"fara í  <a href=\"{$urlAuthorWorkflow}\">Verkferli höfundar</a>  eða <a href="
+"\"{$urlEditorialWorkflow}\">Verkferli ritstjórnar</a>?"
+
+msgid "submission.list.discussions"
+msgstr "Opnar umræður"
+
+msgid "submission.list.filesPrepared"
+msgstr "Undirbúnar skrár"
+
+msgid "submission.list.galleysCreated"
+msgstr "Framleiðslu galley stofnað"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Yfirfarnar skrár sendar inn"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Endurskoðun send inn"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Úthlutaðri ritrýni lokið"
+
+msgid "submission.list.viewSubmission"
+msgstr "Skoða innsendingu"
+
+msgid "submission.list.confirmDelete"
+msgstr "Eyða innsendingu?"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Hætt við ritrýni"
+
+msgid "submission.list.reviewComplete"
+msgstr "Ritrýni send inn"

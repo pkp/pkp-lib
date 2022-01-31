@@ -17,6 +17,7 @@
 
 namespace APP\server;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use PKP\cache\CacheManager;
@@ -334,7 +335,7 @@ class SectionDAO extends PKPSectionDAO
     public function deleteById($sectionId, $contextId = null)
     {
         // No preprints should exist in this section
-        $collector = Repo::submission()->getCollector()->filterBySectionIds([(int) $sectionId]);
+        $collector = Repo::submission()->getCollector()->filterBySectionIds([(int) $sectionId])->filterByContextIds([Application::CONTEXT_ID_ALL]);
         $count = Repo::submission()->getCount($collector);
         if ($count) {
             throw new Exception('Tried to delete a section that has one or more submissions assigned to it.');
@@ -464,6 +465,21 @@ class SectionDAO extends PKPSectionDAO
             $returner[] = $row->section_id;
         }
         return $returner;
+    }
+
+    /**
+     * Check if the section is empty.
+     * @param $sectionId int Section ID
+     * @param $contextId int Context ID
+     * @return boolean
+     */
+    function sectionEmpty($sectionId, $contextId) {
+        $result = $this->retrieve(
+            'SELECT p.publication_id FROM publications p JOIN submissions s ON (s.submission_id = p.submission_id) WHERE p.section_id = ? AND s.context_id = ?',
+            [(int) $sectionId, (int) $contextId]
+        );
+        $row = $result->current();
+        return $row ? false : true;
     }
 
     /**

@@ -270,10 +270,8 @@ class SectionGridHandler extends SetupGridHandler
             return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
         }
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        $checkSubmissions = Repo::submission()->dao->deprecatedDao->retrieve('SELECT p.publication_id FROM publications p JOIN submissions s ON (s.submission_id = p.submission_id) WHERE p.section_id = ? AND s.context_id = ?', [(int) $request->getUserVar('sectionId'), (int) $server->getId()]);
-
-        if ($checkSubmissions->numRows() > 0) {
+        $sectionEmpty = $sectionDao->sectionEmpty($request->getUserVar('sectionId'), $server->getId());
+        if (!$sectionEmpty) {
             return new JSONMessage(false, __('manager.sections.alertDelete'));
         }
 
@@ -289,10 +287,6 @@ class SectionGridHandler extends SetupGridHandler
         if ($activeSectionsCount < 1) {
             return new JSONMessage(false, __('manager.sections.confirmDeactivateSection.error'));
             return false;
-        }
-
-        if ($checkSubmissions->numRows() > 0) {
-            return new JSONMessage(false, __('manager.sections.alertDelete'));
         }
 
         $sectionDao->deleteObject($section);

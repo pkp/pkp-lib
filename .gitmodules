@@ -19,9 +19,6 @@
 [submodule "lib/ui-library"]
 	path = lib/ui-library
 	url = https://github.com/pkp/ui-library
-[submodule "plugins/reports/counter/classes/COUNTER"]
-	path = plugins/reports/counter/classes/COUNTER
-	url = https://github.com/pkp/COUNTER.git
 [submodule "plugins/generic/pdfJsViewer"]
 	path = plugins/generic/pdfJsViewer
 	url = http://github.com/pkp/pdfJsViewer.git

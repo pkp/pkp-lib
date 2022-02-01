@@ -1,8 +1,46 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Aram Mirzoyan <mirzoyan.aram@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-02-01 20:24+0000\n"
+"Last-Translator: Aram Mirzoyan <mirzoyan.aram@gmail.com>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/hy_AM/>\n"
 "Language: hy_AM\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Ներկայացնել որպես"
+
+msgid "submission.confirm.message"
+msgstr ""
+"Ձեր նյութը վերբեռնվել է և պատրաստ է ուղարկվելու համար: Նախքան շարունակելը "
+"Դուք կարող եք վերադառնալ՝ վերանայելու և կարգավորելու Ձեր մուտքագրած ցանկացած "
+"տեղեկություն։ Երբ պատրաստ լինեք, սեղմեք «Ավարտել ներկայացումը»:"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Մեկ կամ մի քանի գրախոսներ բաց են թողել ներկայացման վերջնաժամկետը։ Խմբագրական "
+"թիմը ծանուցվել է և միջոցներ կձեռնարկի, որպեսզի գրախոսություններն ափոփվեն: "
+"Այս փուլում Դուք որևէ գործողություն կատարելու կարիք չունեք։ Որոշում "
+"կայացնելուց հետո Դուք ծանուցում կստանաք:"
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Նոր գրախոսություններ են ներկայացվել և դիտարկվում են խմբագրի կողմից։"
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Մուտքագրեք այս նյութի ստեղծման ժամանակ օգտագործված աշխատանքների հղումների "
+"ձևաչափված ցանկը: Խնդրում ենք բաժանել հղումները միմյանցից դատարկ տողով:"
+
+msgid "author.publicationNotFound"
+msgstr "Այս հրապարակման համար հեղինակ գտնել չի հաջողվում։"
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Այս հրապարակման հեղինակները չեն կարող խմբագրվել, քանի որ այն արդեն "
+"հրատարակվել է:"

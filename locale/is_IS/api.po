@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
+"PO-Revision-Date: 2022-02-01 20:24+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "is_IS/>\n"
@@ -212,7 +212,7 @@ msgstr "Þú hefur ekki aðgang að umbeðinni auðlind."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr ""
-"Það er ekki hægt að breyta tímasetningunn á því þegar þetta var stofnað."
+"Það er ekki hægt að breyta tímasetningunni á því þegar þetta var stofnað."
 
 msgid "api.400.tokenCouldNotBeDecoded"
 msgstr ""

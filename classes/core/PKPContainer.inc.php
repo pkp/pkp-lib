@@ -22,7 +22,6 @@ use Illuminate\Config\Repository;
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
-use Illuminate\Contracts\Container\Container as ContainerContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Log\LogServiceProvider;
@@ -66,7 +65,6 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
-        $this->instance(ContainerContract::class, $this);
         $this->singleton(ExceptionHandler::class, function () {
             return new class() implements ExceptionHandler {
                 public function shouldReport(Throwable $e)

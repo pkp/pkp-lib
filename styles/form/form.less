@@ -402,6 +402,10 @@ a[id^="publicIdentifiersForm-clearObjectsPubIds-button"] {
 	max-width: 100%;
 	background: @bg;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+	&:empty {
+		display: none;
+	}
 }
 
 .ui-datepicker-prev,

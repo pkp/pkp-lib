@@ -24,7 +24,6 @@
 namespace PKP\xslt;
 
 use DOMDocument;
-use PKP\config\Config;
 use PKP\filter\TypeDescription;
 
 class XMLTypeDescription extends TypeDescription
@@ -126,8 +125,6 @@ class XMLTypeDescription extends TypeDescription
             $xmlDom = & $object;
         }
 
-        $this->settingProxyForXMLParsing();
-
         switch ($this->_validationStrategy) {
             // We have to suppress validation errors, otherwise the script
             // will stop when validation errors occur.
@@ -157,44 +154,6 @@ class XMLTypeDescription extends TypeDescription
         }
 
         return true;
-    }
-
-    /**
-     * Setting a proxy for XML parsing when configuration [proxy] is filled
-     */
-    protected function settingProxyForXMLParsing(): void
-    {
-        $proxyUri = null;
-
-        if ($httpProxy = Config::getVar('proxy', 'http_proxy')) {
-            $proxyUri = $httpProxy;
-        }
-
-        if ($httpsProxy = Config::getVar('proxy', 'https_proxy')) {
-            $proxyUri = $httpsProxy;
-        }
-
-        if (!$proxyUri) {
-            return;
-        }
-
-        /**
-         * `Connection close` here its to avoid slowness. More info at https://www.php.net/manual/en/context.http.php#114867
-         * `request_fulluri` its related to avoid proxy errors. More info at https://www.php.net/manual/en/context.http.php#110449
-         */
-        $opts = [
-            'http' => [
-                'protocol_version' => 1.1,
-                'header' => [
-                    'Connection: close',
-                ],
-                'proxy' => $proxyUri,
-                'request_fulluri' => true,
-            ],
-        ];
-
-        $context = stream_context_create($opts);
-        libxml_set_streams_context($context);
     }
 }
 

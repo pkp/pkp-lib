@@ -13,6 +13,7 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -92,10 +93,22 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
         }
 
         // Here we should be free of duplicates, so it's safe to remove the columns without creating duplicated entries.
+        try {
+            Schema::table('user_settings', fn (Blueprint $table) => $table->dropUnique('user_settings_pkey'));
+        }
+        catch (Exception $e) {
+            error_log('Failed to drop unique index "user_settings_pkey" from table "user_settings", another attempt will be done.');
+            try {
+                Schema::table('user_settings', fn (Blueprint $table) => $table->dropIndex('user_settings_pkey'));
+            }
+            catch (Exception $e) {
+                error_log('Second attempt to remove the index has failed, perhaps it doesn\'t exist.');
+            }
+        }
+
         Schema::table(
             'user_settings',
             function (Blueprint $table): void {
-                $table->dropIndex('user_settings_pkey');
                 $table->dropColumn('assoc_id', 'assoc_type');
                 // Restore the primary/unique index, using the previous field order
                 $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_pkey');

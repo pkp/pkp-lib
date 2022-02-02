@@ -5,8 +5,8 @@ declare(strict_types=1);
 /**
  * @file Domains/Jobs/Job.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Job
@@ -32,6 +32,8 @@ class Job extends Model
     use Worker;
 
     protected const DEFAULT_MAX_ATTEMPTS = 3;
+
+    public const TESTING_QUEUE = 'queuedTestJob';
 
     /**
      * Default queue
@@ -118,8 +120,6 @@ class Job extends Model
 
     /**
      * Set the default queue
-     *
-     * @param string|mixed $value
      */
     public function setDefaultQueue(?string $value): self
     {
@@ -170,6 +170,21 @@ class Job extends Model
         ?string $queue = null
     ): Builder {
         return $query->where('queue', $this->getQueue($queue));
+    }
+
+    public function scopeNonEmptyQueue(Builder $query): Builder
+    {
+        return $query->whereNotNull('queue');
+    }
+
+    public function scopeNotQueue(Builder $query, string $queue): Builder
+    {
+        return $query->where('queue', '!=', $queue);
+    }
+
+    public function scopeNonReserved(Builder $query): Builder
+    {
+        return $query->whereNull('reserved_at');
     }
 
     /**

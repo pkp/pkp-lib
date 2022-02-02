@@ -5,8 +5,8 @@ declare(strict_types=1);
 /**
  * @file Domains/Jobs/FailedJob.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FailedJob
@@ -74,9 +74,6 @@ class FailedJob extends Model
 
     /**
      * Add a local scope to handle jobs associated in a queue
-     *
-     * @param string|null $queue
-     *
      */
     public function scopeQueuedAt(
         Builder $query,
@@ -87,8 +84,6 @@ class FailedJob extends Model
 
     /**
      * Get queue's size
-     *
-     *
      */
     public function size(string $queue): int
     {

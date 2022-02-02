@@ -28,6 +28,7 @@ use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
+use PKP\Domains\Jobs\Providers\JobServiceProvider;
 use PKP\i18n\PKPLocale;
 use Sokil\IsoCodes\IsoCodesFactory;
 use Sokil\IsoCodes\TranslationDriver\GettextExtensionDriver;
@@ -127,6 +128,7 @@ class PKPContainer extends Container
         $this->register(new PKPQueueProvider());
         $this->register(new MailServiceProvider($this));
         $this->register(new AppServiceProvider($this));
+        $this->register(new JobServiceProvider($this));
     }
 
     /**

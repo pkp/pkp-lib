@@ -19,7 +19,14 @@ use APP\template\TemplateManager;
 
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
+use PKP\submission\reviewer\form\ReviewerReviewForm;
 use PKP\submission\reviewer\ReviewerAction;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\core\PKPApplication;
+use APP\submission\reviewer\ReviewerSubmissionDAO;
+use PKP\core\PKPRequest;
+use APP\i18n\AppLocale;
+use Illuminate\Support\Facades\Mail;
 
 class PKPReviewerHandler extends Handler
 {
@@ -28,13 +35,10 @@ class PKPReviewerHandler extends Handler
 
     /**
      * Display the submission review page.
-     *
-     * @param array $args
-     * @param PKPRequest $request
      */
-    public function submission($args, $request)
+    public function submission(array $args, PKPRequest $request): void
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
+        $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
         $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
         $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
         assert(is_a($reviewerSubmission, 'ReviewerSubmission'));
@@ -63,15 +67,10 @@ class PKPReviewerHandler extends Handler
 
     /**
      * Display a step tab contents in the submission review page.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
      */
-    public function step($args, $request)
+    public function step(array $args, PKPRequest $request): JSONMessage
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
+        $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
         $reviewId = (int) $reviewAssignment->getId();
         assert(!empty($reviewId));
 
@@ -108,20 +107,15 @@ class PKPReviewerHandler extends Handler
 
     /**
      * Save a review step.
-     *
-     * @param array $args first parameter is the step being saved
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
      */
-    public function saveStep($args, $request)
+    public function saveStep(array $args, PKPRequest $request): JSONMessage
     {
         $step = (int)$request->getUserVar('step');
         if ($step < 1 || $step > 3) {
             fatalError('Invalid step!');
         }
 
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
         if ($reviewAssignment->getDateCompleted()) {
             fatalError('Review already completed!');
         }
@@ -157,15 +151,10 @@ class PKPReviewerHandler extends Handler
 
     /**
      * Show a form for the reviewer to enter regrets into.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
      */
-    public function showDeclineReview($args, $request)
+    public function showDeclineReview(array $args, PKPRequest $request): JSONMessage
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
 
         $reviewerSubmissionDao = DAORegistry::getDAO('ReviewerSubmissionDAO'); /** @var ReviewerSubmissionDAO $reviewerSubmissionDao */
         $reviewerSubmission = $reviewerSubmissionDao->getReviewerSubmission($reviewAssignment->getId());
@@ -178,31 +167,29 @@ class PKPReviewerHandler extends Handler
 
         // Provide the email body to the template
         $reviewerAction = new ReviewerAction();
-        $email = $reviewerAction->getResponseEmail($reviewerSubmission, $reviewAssignment, $request, 1);
-        $templateMgr->assign('declineMessageBody', $email->getBody());
+        $mailable = $reviewerAction->getResponseEmail($reviewerSubmission, $reviewAssignment, true, null);
+        $messageBody = Mail::compileParams($mailable->view, $mailable->getData(PKPLocale::getLocale()));
+
+        $templateMgr->assign('declineMessageBody', $messageBody);
 
         return $templateMgr->fetchJson('reviewer/review/modal/regretMessage.tpl');
     }
 
     /**
      * Save the reviewer regrets form and decline the review.
-     *
-     * @param array $args
-     * @param PKPRequest $request
      */
-    public function saveDeclineReview($args, $request)
+    public function saveDeclineReview(array $args, PKPRequest $request): JSONMessage
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
         if ($reviewAssignment->getDateCompleted()) {
             fatalError('Review already completed!');
         }
 
-        $reviewId = (int) $reviewAssignment->getId();
         $declineReviewMessage = $request->getUserVar('declineReviewMessage');
 
         // Decline the review
         $reviewerAction = new ReviewerAction();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION);
         $reviewerAction->confirmReview($request, $reviewAssignment, $submission, 1, $declineReviewMessage);
 
         $dispatcher = $request->getDispatcher();
@@ -211,13 +198,13 @@ class PKPReviewerHandler extends Handler
 
     /**
      * Get a review form for the current step.
-     *
-     * @param int $step current step
-     * @param PKPRequest $request
-     * @param ReviewerSubmission $reviewerSubmission
-     * @param \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment
      */
-    public function getReviewForm($step, $request, $reviewerSubmission, $reviewAssignment)
+    public function getReviewForm(
+        int $step, // current step
+        PKPRequest $request,
+        ReviewerSubmission $reviewerSubmission,
+        ReviewAssignment $reviewAssignment
+    ): ReviewerReviewForm
     {
         switch ($step) {
             case 1:
@@ -232,9 +219,9 @@ class PKPReviewerHandler extends Handler
     //
     // Private helper methods
     //
-    public function _retrieveStep()
+    public function _retrieveStep(): int
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
         $reviewId = (int) $reviewAssignment->getId();
         assert(!empty($reviewId));
         return $reviewId;

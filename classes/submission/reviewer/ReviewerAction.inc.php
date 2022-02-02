@@ -15,19 +15,33 @@
 
 namespace PKP\submission\reviewer;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
+use Illuminate\Support\Facades\Mail;
+use PKP\context\Context;
 use PKP\core\Core;
-use PKP\core\PKPString;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
-use PKP\mail\SubmissionMailTemplate;
+use PKP\mail\Mailable;
+use PKP\mail\mailables\ReviewConfirm;
+use PKP\mail\mailables\ReviewDecline;
 use PKP\notification\PKPNotification;
 
 use PKP\plugins\HookRegistry;
 use PKP\security\Role;
+use PKP\security\UserGroupDAO;
+use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\user\User;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class ReviewerAction
 {
@@ -43,14 +57,15 @@ class ReviewerAction
     //
     /**
      * Records whether or not the reviewer accepts the review assignment.
-     *
-     * @param PKPRequest $request
-     * @param ReviewAssignment $reviewAssignment
-     * @param Submission $submission
-     * @param bool $decline
-     * @param string $emailText optional
+     * @return bool|void
      */
-    public function confirmReview($request, $reviewAssignment, $submission, $decline, $emailText = null)
+    public function confirmReview(
+        PKPRequest $request,
+        ReviewAssignment $reviewAssignment,
+        Submission $submission,
+        bool $decline,
+        ?string $emailText = null
+    )
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
@@ -61,18 +76,28 @@ class ReviewerAction
         // Only confirm the review for the reviewer if
         // he has not previously done so.
         if ($reviewAssignment->getDateConfirmed() == null) {
-            $email = $this->getResponseEmail($submission, $reviewAssignment, $request, $decline);
-            // Must explicitly set sender because we may be here on an access
-            // key, in which case the user is not technically logged in
-            $email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
-            HookRegistry::call('ReviewerAction::confirmReview', [$request, &$submission, &$email, $decline]);
-            $email->setEventType($decline ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_CONFIRM);
-            if ($emailText) {
-                $email->setBody($emailText);
-            }
-            if (!$email->send($request)) {
+            $mailable = $this->getResponseEmail($submission, $reviewAssignment, $decline, $emailText);
+            HookRegistry::call('ReviewerAction::confirmReview', [$request, $submission, $mailable, $decline]);
+
+            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
+            $sender = $mailable->getSenderUser();
+            $logDao->logMailable(
+                $decline ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_CONFIRM,
+                $mailable,
+                $submission,
+                $sender->getId() ? $sender : null
+            );
+
+            try {
+                Mail::send($mailable);
+            } catch (TransportException $e) {
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification(
+                    $request->getUser()->getId(),
+                    PKPNotification::NOTIFICATION_TYPE_ERROR,
+                    ['contents' => __('email.compose.error')]
+                );
+                trigger_error($e->getMessage(), E_USER_WARNING);
             }
 
             $reviewAssignment->setDateReminded(null);
@@ -100,52 +125,57 @@ class ReviewerAction
 
     /**
      * Get the reviewer response email template.
+     * @return ReviewConfirm|ReviewDecline
      */
-    public function getResponseEmail($submission, $reviewAssignment, $request, $decline)
+    public function getResponseEmail(
+        PKPSubmission $submission,
+        ReviewAssignment $reviewAssignment,
+        bool $decline,
+        ?string $emailText
+    ): Mailable
     {
-        $email = new SubmissionMailTemplate($submission, $decline ? 'REVIEW_DECLINE' : 'REVIEW_CONFIRM');
+        $context = Application::getContextDAO()->getById($submission->getData('contextId')); /** @var Context $context */
+
+        $mailable = $decline ?
+            new ReviewDecline($submission, $reviewAssignment, $context) :
+            new ReviewConfirm($submission, $reviewAssignment, $context);
 
         // Get reviewer
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+        $mailable->sender($reviewer);
+        $mailable->replyTo($reviewer->getEmail(), $reviewer->getFullName());
 
         // Get editorial contact name
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $reviewAssignment->getStageId());
-        $recipient = null;
-        $context = $request->getContext();
+        $recipients = [];
         while ($stageAssignment = $stageAssignments->next()) {
             $userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
             if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
                 continue;
             }
 
-            $recipient = Repo::user()->get($stageAssignment->getUserId());
-            $email->addRecipient($recipient->getEmail(), $recipient->getFullName());
-        }
-        if (!$recipient) {
-            $email->addRecipient($context->getData('contactEmail'), $context->getData('contactName'));
+            $recipients[] = Repo::user()->get($stageAssignment->getUserId());
         }
 
-        // Get due date
-        $reviewDueDate = strtotime($reviewAssignment->getDateDue());
-        $dateFormatShort = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort());
-        if ($reviewDueDate == -1) {
-            $reviewDueDate = $dateFormatShort;
-        } // Default to something human-readable if no date specified
-        else {
-            $reviewDueDate = date($dateFormatShort, $reviewDueDate);
+        // Create dummy user if no one assigned
+        if (empty($recipients)) {
+            $contextUser = new User();
+            $supportedLocales = $context->getSupportedFormLocales();
+            $contextUser->setData('givenName', array_fill_keys($supportedLocales, $context->getData('contactName')));
+            $contextUser->setData('email', $context->getData('contactEmail'));
+            $recipients[] = $contextUser;
         }
 
-        $email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());
+        $mailable->recipients($recipients);
 
-        $email->assignParams([
-            'reviewerName' => $reviewer->getFullName(),
-            'reviewDueDate' => $reviewDueDate
-        ]);
-        $email->replaceParams();
+        // Set email body and subject
+        $template = $mailable->getTemplate($context->getId());
+        $emailText ? $mailable->body($emailText) : $mailable->body($template->getLocalizedData('body'));
+        $mailable->subject($template->getLocalizedData('subject'));
 
-        return $email;
+        return $mailable;
     }
 }
 

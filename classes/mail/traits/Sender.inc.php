@@ -23,6 +23,11 @@ use PKP\user\User;
 trait Sender
 {
     /**
+     * User that sends mailable
+     */
+    protected User $senderUser;
+
+    /**
      * @copydoc Illuminate\Mail\Mailable::setAddress()
      *
      * @param null|mixed $name
@@ -46,6 +51,12 @@ trait Sender
     {
         $this->setAddress($sender->getEmail(), $sender->getFullName($defaultLocale), 'from');
         $this->variables[] = new SenderEmailVariable($sender);
+        $this->senderUser = $sender;
         return $this;
+    }
+
+    public function getSenderUser(): User
+    {
+        return $this->senderUser;
     }
 }

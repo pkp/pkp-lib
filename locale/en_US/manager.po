@@ -2302,7 +2302,7 @@ msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "The URL to a page where the user can recover a lost password"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "The URL to view all of a user's assigned submissions.
+msgstr "The URL to view all of a user's assigned submissions."
 
 msgid "emailTemplate.variable.decision.name"
 msgstr "The name of the decision that was taken."
@@ -2538,3 +2538,14 @@ msgstr "Recommendation Made"
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr "This message notifies a senior Editor or Section Editor that an editorial recommendation has been made regarding one of their assigned submissions. This message is used when an editor is only allowed to recommend an editorial decision and requires an authorized editor to record editorial decisions. This option can be selected when assigning participants to a submission."
 
+msgid "mailable.reviewConfirm.name"
+msgstr "Review Confirm"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "This email is automatically sent when a reviewer accepts review request"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Review Decline"
+
+msgid "mailable.reviewDecline.description"
+msgstr "This email is sent by a reviewer when declining a review request"

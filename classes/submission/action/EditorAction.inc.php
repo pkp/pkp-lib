@@ -40,7 +40,7 @@ use PKP\security\AccessKeyManager;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\user\User;
-use Swift_TransportException;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class EditorAction
 {
@@ -122,7 +122,7 @@ class EditorAction
 
                 try {
                     Mail::send($mailable);
-                } catch (Swift_TransportException $e) {
+                } catch (TransportException $e) {
                     $notificationMgr = new PKPNotificationManager();
                     $notificationMgr->createTrivialNotification(
                         $request->getUser()->getId(),

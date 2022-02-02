@@ -48,13 +48,11 @@ use PKP\security\Role;
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
 
 use PKP\user\User;
-use ReinstateReviewerForm;
 use ReviewerGridCellProvider;
 
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
 use ReviewerGridRow;
-use Swift_TransportException;
-use UnassignReviewerForm;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPReviewerGridHandler extends GridHandler
 {
@@ -1125,7 +1123,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         try {
             Mail::send($mailable);
-        } catch (Swift_TransportException $e) {
+        } catch (TransportException $e) {
             $notificationMgr = new PKPNotificationManager();
             $notificationMgr->createTrivialNotification(
                 $sender->getId(),

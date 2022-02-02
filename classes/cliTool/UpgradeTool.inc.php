@@ -190,10 +190,8 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
             if ($compare2 < 0) {
                 printf("Database version is older than code version\n");
                 printf("Run \"{$this->scriptName} upgrade\" to update\n");
-                exit(8);
             } elseif ($compare2 > 0) {
                 printf("Database version is newer than code version!\n");
-                exit(9);
             } elseif ($compare1 == 0) {
                 printf("Your system is up-to-date\n");
             } elseif ($compare1 < 0) {
@@ -201,7 +199,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
                 $displayInfo = true;
             } else {
                 printf("Current version is newer than latest!\n");
-                exit(10);
             }
         }
 

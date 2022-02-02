@@ -310,7 +310,9 @@ class PKPContainer extends Container
             ],
         ];
 
+        $context = stream_context_create($opts);
         stream_context_set_default($opts);
+        libxml_set_streams_context($context);
     }
 }
 

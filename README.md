@@ -2,6 +2,8 @@
 
 > Open Preprint Systems (OPS) has been developed by the Public Knowledge Project. For general information about OPS and other open research systems, visit the [PKP web site][pkp].
 
+[![Build Status](https://app.travis-ci.com/pkp/ops.svg?branch=main)](https://app.travis-ci.com/pkp/ops)
+
 ## Using Git development source
 
 Checkout submodules and copy default configuration :

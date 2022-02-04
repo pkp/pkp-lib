@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-02-03 08:42+0000\n"
-"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
+"PO-Revision-Date: 2022-02-04 09:43+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -354,3 +354,60 @@ msgstr "Notifikation om redaktionel rapport"
 
 msgid "admin.cli.tool.usage.title"
 msgstr "Anvendelse:"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Forsøg"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Kø"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Opgave"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs"
+msgstr "Opgaver"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Vis opgaver i kø"
+
+msgid "admin.jobs.totalCount"
+msgstr "Der er totalt <strong>{$total}</strong> opgave(r) i kø"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Mente du én af følgende?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Valgmuligheden {$option} eksisterer ikke."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Vi har {$total} opgaver i kø"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Slettede alle opgaver!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Det var umuligt at slette alle opgaver."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Opgaven blev slettet!"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Næste"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Foregående"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Nuværende"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Forsøg"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Kø"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"

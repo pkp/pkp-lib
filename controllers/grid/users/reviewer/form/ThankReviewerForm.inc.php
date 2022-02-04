@@ -16,9 +16,13 @@
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\form\Form;
+use PKP\mail\mailables\ReviewAcknowledgement;
 use PKP\mail\SubmissionMailTemplate;
-
+use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Mailer\Exception\TransportException;
 use PKP\notification\PKPNotification;
+use PKP\context\ContextDAO;
+use PKP\i18n\PKPLocale;
 
 class ThankReviewerForm extends Form
 {
@@ -61,31 +65,23 @@ class ThankReviewerForm extends Form
     {
         $request = Application::get()->getRequest();
         $user = $request->getUser();
-        $context = $request->getContext();
-
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = Repo::user()->get($reviewerId);
-
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
+        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        $context = $contextDao->getById($submission->getData('contextId'));
 
-        $email = new SubmissionMailTemplate($submission, 'REVIEW_ACK');
-
-        $dispatcher = $request->getDispatcher();
-        $email->assignParams([
-            'recipientName' => $reviewer->getFullName(),
-            'recipientUsername' => $reviewer->getUsername(),
-            'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-            'reviewAssignmentUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'reviewer', 'submission', null, ['submissionId' => $reviewAssignment->getSubmissionId()])
-        ]);
-        $email->replaceParams();
+        $mailable = new ReviewAcknowledgement($context, $submission, $reviewAssignment);
+        $mailable->sender($user)->recipients([$reviewer]);
+        $template = $mailable->getTemplate($context->getId());
 
         $this->setData('submissionId', $submission->getId());
         $this->setData('stageId', $reviewAssignment->getStageId());
         $this->setData('reviewAssignmentId', $reviewAssignment->getId());
         $this->setData('reviewAssignment', $reviewAssignment);
         $this->setData('reviewerName', $reviewer->getFullName() . ' <' . $reviewer->getEmail() . '>');
-        $this->setData('message', $email->getBody());
+        $this->setData('message', Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(PKPLocale::getLocale())));
     }
 
     /**
@@ -103,31 +99,34 @@ class ThankReviewerForm extends Form
      */
     public function execute(...$functionArgs)
     {
+        $request = Application::get()->getRequest();
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = Repo::user()->get($reviewerId);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
+        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        $context = $contextDao->getById($submission->getData('contextId'));
+        $user = $request->getUser();
 
-        $email = new SubmissionMailTemplate($submission, 'REVIEW_ACK', null, null, null, false);
+        // Create mailable and populate with data
+        $mailable = new ReviewAcknowledgement($context, $submission, $reviewAssignment);
+        $mailable->sender($user)->recipients([$reviewer]);
+        $template = $mailable->getTemplate($context->getId());
+        $mailable->body($this->getData('message'))->subject($template->getLocalizedData('subject'));
 
-        $email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
-        $email->setBody($this->getData('message'));
-
+        HookRegistry::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);
         if (!$this->getData('skipEmail')) {
-            HookRegistry::call('ThankReviewerForm::thankReviewer', [&$submission, &$reviewAssignment, &$email]);
-            $request = Application::get()->getRequest();
-            $dispatcher = $request->getDispatcher();
-            $context = $request->getContext();
-            $user = $request->getUser();
-            $email->assignParams([
-                'recipientName' => $reviewer->getFullName(),
-                'journalUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
-                'signature' => $user->getContactSignature(),
-                'senderName' => $user->getFullname(),
-            ]);
-            if (!$email->send($request)) {
+            $mailable->setData(PKPLocale::getLocale());
+            try {
+                Mail::send($mailable);
+            } catch (TransportException $e) {
                 $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
+                $notificationMgr->createTrivialNotification(
+                    $request->getUser()->getId(),
+                    PKPNotification::NOTIFICATION_TYPE_ERROR,
+                    ['contents' => __('email.compose.error')]
+                );
+                trigger_error($e->getMessage(), E_USER_WARNING);
             }
         }
 
@@ -135,7 +134,7 @@ class ThankReviewerForm extends Form
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
         $reviewAssignment->stampModified();
-        $reviewAssignment->setUnconsidered(REVIEW_ASSIGNMENT_NOT_UNCONSIDERED);
+        $reviewAssignment->setUnconsidered(ReviewAssignment::REVIEW_ASSIGNMENT_NOT_UNCONSIDERED);
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
         parent::execute(...$functionArgs);

@@ -32,8 +32,6 @@ class I6093_AddForeignKeys extends \PKP\migration\Migration
 
             // Rename assoc_id to context_id and introduce foreign key constraint
             $table->renameColumn('assoc_id', 'context_id');
-            $contextDao = \APP\core\Application::getContextDAO();
-            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
 
             // Introduce new index
             $table->index(['context_id'], 'announcement_types_context_id');
@@ -60,9 +58,6 @@ class I6093_AddForeignKeys extends \PKP\migration\Migration
         });
         DB::table('categories')->where('parent_id', '=', 0)->update(['parent_id' => null]);
         Schema::table('categories', function (Blueprint $table) {
-            $contextDao = \APP\core\Application::getContextDAO();
-            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName);
-
             $table->foreign('parent_id')->references('category_id')->on('categories');
         });
         Schema::table('publication_categories', function (Blueprint $table) {

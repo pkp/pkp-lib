@@ -33,6 +33,7 @@ use PKP\security\authorization\QueryAccessPolicy;
 
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
+use PKP\core\PKPApplication;
 
 class QueriesGridHandler extends GridHandler
 {
@@ -73,7 +74,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function getSubmission()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        return $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION);
     }
 
     /**
@@ -83,7 +84,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function getQuery()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        return $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_QUERY);
     }
 
     /**
@@ -103,7 +104,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function getAssocType()
     {
-        return ASSOC_TYPE_SUBMISSION;
+        return PKPApplication::ASSOC_TYPE_SUBMISSION;
     }
 
     /**
@@ -369,7 +370,7 @@ class QueriesGridHandler extends GridHandler
         $queryDao->deleteObject($query);
 
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(ASSOC_TYPE_QUERY, $query->getId());
+        $notificationDao->deleteByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->getId());
 
         if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
             $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
@@ -385,7 +386,7 @@ class QueriesGridHandler extends GridHandler
                     PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                 ],
                 null,
-                ASSOC_TYPE_SUBMISSION,
+                PKPApplication::ASSOC_TYPE_SUBMISSION,
                 $this->getAssocId()
             );
         }
@@ -620,7 +621,7 @@ class QueriesGridHandler extends GridHandler
                         PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                     ],
                     null,
-                    ASSOC_TYPE_SUBMISSION,
+                    PKPApplication::ASSOC_TYPE_SUBMISSION,
                     $this->getAssocId()
                 );
             }
@@ -651,7 +652,7 @@ class QueriesGridHandler extends GridHandler
                     $userId,
                     PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
                     $request->getContext()->getId(),
-                    ASSOC_TYPE_QUERY,
+                    PKPApplication::ASSOC_TYPE_QUERY,
                     $query->getId(),
                     Notification::NOTIFICATION_LEVEL_TASK,
                     null,
@@ -670,7 +671,7 @@ class QueriesGridHandler extends GridHandler
 
                 $mailable->addData([
                     'notificationContents' => $notificationMgr->getNotificationContents($request, $notification),
-                    'url' => $notificationMgr->getNotificationUrl($request, $notification),
+                    'notificationUrl' => $notificationMgr->getNotificationUrl($request, $notification),
                     'unsubscribeLink' =>
                         '<br /><a href=\'' .
                         $notificationMgr->getUnsubscribeNotificationUrl($request, $notification) .
@@ -736,7 +737,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function _getCurrentUserCanLeave($queryId)
     {
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_USER_ROLES);
         if (!in_array(Role::ROLE_ID_MANAGER, $userRoles)) {
             return false;
         }

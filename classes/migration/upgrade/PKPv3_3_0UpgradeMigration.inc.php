@@ -21,10 +21,27 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\db\XMLDAO;
 use PKP\file\FileManager;
-use PKP\submissionFile\SubmissionFile;
 
 abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
 {
+    private const ASSOC_TYPE_REVIEW_ROUND = 0x000020B; //PKPApplication::ASSOC_TYPE_REVIEW_ROUND
+    private const ASSOC_TYPE_REVIEW_RESPONSE = 0x0000204; //PKPApplication::ASSOC_TYPE_REVIEW_RESPONSE
+
+    private const SUBMISSION_FILE_FAIR_COPY = 7; //SubmissionFile::SUBMISSION_FILE_FAIR_COPY
+    private const SUBMISSION_FILE_EDITOR = 8; //SubmissionFile::SUBMISSION_FILE_EDITOR
+    private const SUBMISSION_FILE_SUBMISSION = 2; //SubmissionFile::SUBMISSION_FILE_SUBMISSION
+    private const SUBMISSION_FILE_NOTE = 3; //SubmissionFile::SUBMISSION_FILE_NOTE
+    private const SUBMISSION_FILE_REVIEW_FILE = 4; //SubmissionFile::SUBMISSION_FILE_REVIEW_FILE
+    private const SUBMISSION_FILE_REVIEW_ATTACHMENT = 5; //SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT
+    private const SUBMISSION_FILE_REVIEW_REVISION = 15; //SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION
+    private const SUBMISSION_FILE_FINAL = 6; //SubmissionFile::SUBMISSION_FILE_FINAL
+    private const SUBMISSION_FILE_COPYEDIT = 9; //SubmissionFile::SUBMISSION_FILE_COPYEDIT
+    private const SUBMISSION_FILE_DEPENDENT = 17; //SubmissionFile::SUBMISSION_FILE_DEPENDENT
+    private const SUBMISSION_FILE_PROOF = 10; //SubmissionFile::SUBMISSION_FILE_PROOF
+    private const SUBMISSION_FILE_PRODUCTION_READY = 11; //SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY
+    private const SUBMISSION_FILE_ATTACHMENT = 13; //SubmissionFile::SUBMISSION_FILE_ATTACHMENT
+    private const SUBMISSION_FILE_QUERY = 18; //SubmissionFile::SUBMISSION_FILE_QUERY
+
     abstract protected function getSubmissionPath(): string;
     abstract protected function getContextPath(): string;
     abstract protected function getContextTable(): string;
@@ -152,7 +169,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         // Remove item views related to submission files and notes,
         // and convert the assoc_id to an integer
         DB::table('item_views')
-            ->where('assoc_type', '!=', ASSOC_TYPE_REVIEW_RESPONSE)
+            ->where('assoc_type', '!=', self::ASSOC_TYPE_REVIEW_RESPONSE)
             ->delete();
         // PostgreSQL requires an explicit type cast
         if (DB::connection() instanceof PostgresConnection) {
@@ -492,9 +509,9 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             // Run this before migration to internal review file stages
             DB::table('submission_files')
                 ->where('file_id', '=', $row->file_id)
-                ->whereIn('file_stage', [SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
+                ->whereIn('file_stage', [self::SUBMISSION_FILE_REVIEW_FILE, self::SUBMISSION_FILE_REVIEW_REVISION])
                 ->update([
-                    'assoc_type' => ASSOC_TYPE_REVIEW_ROUND,
+                    'assoc_type' => self::ASSOC_TYPE_REVIEW_ROUND,
                     'assoc_id' => $row->review_round_id,
                 ]);
         }
@@ -510,7 +527,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         // Update file name of dependent files, see: pkp/pkp-lib#6801
         DB::table('submission_files')
             ->select('file_id', 'original_file_name')
-            ->where('file_stage', '=', SubmissionFile::SUBMISSION_FILE_DEPENDENT)
+            ->where('file_stage', '=', self::SUBMISSION_FILE_DEPENDENT)
             ->chunkById(1000, function ($dependentFiles) {
                 foreach ($dependentFiles as $dependentFile) {
                     DB::table('submission_file_settings')
@@ -621,20 +638,20 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
     private function _fileStageToPath($fileStage)
     {
         static $fileStagePathMap = [
-            SubmissionFile::SUBMISSION_FILE_SUBMISSION => 'submission',
-            SubmissionFile::SUBMISSION_FILE_NOTE => 'note',
-            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE => 'submission/review',
-            SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT => 'submission/review/attachment',
-            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION => 'submission/review/revision',
-            SubmissionFile::SUBMISSION_FILE_FINAL => 'submission/final',
-            7 /* SUBMISSION_FILE_FAIR_COPY */ => 'submission/fairCopy',
-            8 /* SUBMISSION_FILE_EDITOR */ => 'submission/editor',
-            SubmissionFile::SUBMISSION_FILE_COPYEDIT => 'submission/copyedit',
-            SubmissionFile::SUBMISSION_FILE_DEPENDENT => 'submission/proof',
-            SubmissionFile::SUBMISSION_FILE_PROOF => 'submission/proof',
-            SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
-            SubmissionFile::SUBMISSION_FILE_ATTACHMENT => 'attachment',
-            SubmissionFile::SUBMISSION_FILE_QUERY => 'submission/query',
+            self::SUBMISSION_FILE_SUBMISSION => 'submission',
+            self::SUBMISSION_FILE_NOTE => 'note',
+            self::SUBMISSION_FILE_REVIEW_FILE => 'submission/review',
+            self::SUBMISSION_FILE_REVIEW_ATTACHMENT => 'submission/review/attachment',
+            self::SUBMISSION_FILE_REVIEW_REVISION => 'submission/review/revision',
+            self::SUBMISSION_FILE_FINAL => 'submission/final',
+            self::SUBMISSION_FILE_FAIR_COPY => 'submission/fairCopy',
+            self::SUBMISSION_FILE_EDITOR => 'submission/editor',
+            self::SUBMISSION_FILE_COPYEDIT => 'submission/copyedit',
+            self::SUBMISSION_FILE_DEPENDENT => 'submission/proof',
+            self::SUBMISSION_FILE_PROOF => 'submission/proof',
+            self::SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
+            self::SUBMISSION_FILE_ATTACHMENT => 'attachment',
+            self::SUBMISSION_FILE_QUERY => 'submission/query'
         ];
 
         if (!isset($fileStagePathMap[$fileStage])) {

@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-01 20:24+0000\n"
+"PO-Revision-Date: 2022-02-06 16:25+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "is_IS/>\n"
@@ -170,7 +170,7 @@ msgid "api.files.400.uploadFailed"
 msgstr "Ekki var hægt að hlaða upp einni, eða fleiri skrám."
 
 msgid "api.files.400.noUpload"
-msgstr "Fann ekki neina skrá til að hlaða upp."
+msgstr "Ekki fannst skrá til að hlaða upp."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Sniðmátið fyrir tölvupóst sem þú baðst um finnst ekki."
@@ -191,7 +191,7 @@ msgid "api.emails.400.missingBody"
 msgstr "Þú verður að hafa með netfang til að senda til."
 
 msgid "api.contexts.400.localesNotSupported"
-msgstr "The following locales are not supported: {$locales}."
+msgstr "Ekki er stutt við eftirfarandi tungumál: {$locales}."
 
 msgid "api.announcements.404.announcementNotFound"
 msgstr "Tilkynningin sem þú baðst um finnst ekki."

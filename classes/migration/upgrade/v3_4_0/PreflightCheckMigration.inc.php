@@ -13,12 +13,16 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use APP\core\Application;
 use Illuminate\Support\Facades\DB;
 
 use PKP\db\DAORegistry;
 
-class PreflightCheckMigration extends \PKP\migration\Migration
+abstract class PreflightCheckMigration extends \PKP\migration\Migration
 {
+    abstract protected function getContextTable(): string;
+    abstract protected function getContextKeyField(): string;
+
     /**
      * Run the migrations.
      */
@@ -27,8 +31,7 @@ class PreflightCheckMigration extends \PKP\migration\Migration
         try {
             // pkp/pkp-lib#6903 Prepare to add foreign key relationships
             // Clean orphaned assoc_type/assoc_id data in announcement_types
-            $contextDao = \APP\core\Application::getContextDAO();
-            $orphanedIds = DB::table('announcement_types AS at')->leftJoin($contextDao->tableName . ' AS c', 'at.assoc_id', '=', 'c.' . $contextDao->primaryKeyColumn)->whereNull('c.' . $contextDao->primaryKeyColumn)->orWhere('at.assoc_type', '<>', \Application::get()->getContextAssocType())->distinct()->pluck('at.type_id');
+            $orphanedIds = DB::table('announcement_types AS at')->leftJoin($this->getContextTable() . ' AS c', 'at.assoc_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->orWhere('at.assoc_type', '<>', Application::get()->getContextAssocType())->distinct()->pluck('at.type_id');
             foreach ($orphanedIds as $typeId) {
                 $this->_installer->log("Removing orphaned announcement type ID ${typeId} with no matching context ID.");
                 DB::table('announcement_types')->where('type_id', '=', $typeId)->delete();
@@ -74,7 +77,7 @@ class PreflightCheckMigration extends \PKP\migration\Migration
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
             }
-            throw ($e);
+            throw $e;
         }
     }
 

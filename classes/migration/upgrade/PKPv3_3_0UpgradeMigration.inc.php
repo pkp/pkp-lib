@@ -236,10 +236,12 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 $table->smallInteger('is_inactive')->default(0);
             });
         }
-        Schema::table('review_forms', function (Blueprint $table) {
-            $table->bigInteger('assoc_type')->nullable(false)->change();
-            $table->bigInteger('assoc_id')->nullable(false)->change();
-        });
+        if (Schema::hasTable('review_forms')) {
+            Schema::table('review_forms', function (Blueprint $table) {
+                $table->bigInteger('assoc_type')->nullable(false)->change();
+                $table->bigInteger('assoc_id')->nullable(false)->change();
+            });
+        }
 
         // pkp/pkp-lib#6807 Make sure all submission last modification dates are set
         DB::statement('UPDATE submissions SET last_modified = NOW() WHERE last_modified IS NULL');
@@ -768,9 +770,11 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         }
 
         // Finally, convert values of other tables dependent from DAO::convertToDB
-        DB::table('review_form_responses')->where('response_type', 'object')->get()->each(function ($row) {
-            $this->_toJSON($row, 'review_form_responses', ['review_id'], 'response_value');
-        });
+        if (Schema::hasTable('review_form_responses')) {
+            DB::table('review_form_responses')->where('response_type', 'object')->get()->each(function ($row) {
+                $this->_toJSON($row, 'review_form_responses', ['review_id'], 'response_value');
+            });
+        }
 
         DB::table('site')->get()->each(function ($row) {
             $localeToConvert = function ($localeType) use ($row) {

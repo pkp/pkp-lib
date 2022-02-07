@@ -1,8 +1,340 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-02-08 03:37+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
+"Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"kk_KZ/>\n"
 "Language: kk_KZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "common.discipline"
+msgstr "Тәртіп"
+
+msgid "common.disabled"
+msgstr "Өшірілген"
+
+msgid "common.disable"
+msgstr "Өшіру"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} пиксель"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; @  {$dpi} DPI/PPI"
+
+msgid "common.description"
+msgstr "Сипаттама"
+
+msgid "common.designation"
+msgstr "Белгілеу"
+
+msgid "common.deleteSelection"
+msgstr "Таңдалғанды өшіру"
+
+msgid "common.deleting"
+msgstr "Жою жүріп жатыр"
+
+msgid "common.delete"
+msgstr "Өшіру"
+
+msgid "common.declined"
+msgstr "Қабылданбады"
+
+msgid "common.default"
+msgstr "Әдепкі"
+
+msgid "common.deactivate"
+msgstr "Өшіру"
+
+msgid "common.day"
+msgstr "Күн"
+
+msgid "common.dateHijri"
+msgstr "Хижри күнтізбесі"
+
+msgid "common.dateUploaded"
+msgstr "Жүктеп салынған күн"
+
+msgid "common.dateSubmitted"
+msgstr "Жіберілген күні"
+
+msgid "common.dateRequested"
+msgstr "Сұралған күн"
+
+msgid "common.dateModified"
+msgstr "Өзгертілген күні"
+
+msgid "common.date"
+msgstr "Күн"
+
+msgid "common.dateDecided"
+msgstr "Шешім қабылдау күні"
+
+msgid "common.dateCompleted"
+msgstr "Аяқталған күні"
+
+msgid "common.create"
+msgstr "Құру"
+
+msgid "common.country"
+msgstr "Ел"
+
+msgid "common.copy"
+msgstr "Көшіру"
+
+msgid "common.continue"
+msgstr "Жалғастыру"
+
+msgid "common.contents"
+msgstr "Мазмұндар"
+
+msgid "common.content"
+msgstr "Мазмұны"
+
+msgid "common.confirmed.date"
+msgstr "Расталған: {$dateConfirmed}"
+
+msgid "common.confirm"
+msgstr "Растау"
+
+msgid "common.completed.date"
+msgstr "Аяқталды: {$dateCompleted}"
+
+msgid "common.completed"
+msgstr "Аяқталды"
+
+msgid "common.complete"
+msgstr "Аяқтау"
+
+msgid "common.closeWindow"
+msgstr "Терезені жабу"
+
+msgid "common.closePanel"
+msgstr "Панельді жабу"
+
+msgid "common.close"
+msgstr "Жабу"
+
+msgid "common.chooseOne"
+msgstr "Біреуін таңдаңыз"
+
+msgid "common.changesSaved"
+msgstr "Өзгерістеріңіз сақталды."
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tБұл жұмыс <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a> "
+"бойынша лицензияланған.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tБұл жұмыс <a rel=\"license\" target=\"_blank\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0  License</a> бойынша лицензияланған.\n"
+"\t"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Спамның алдын алу үшін қолданылатын тексеруден өтуіңіз керек."
+
+msgid "common.notice"
+msgstr "Хабарлама"
+
+msgid "common.error"
+msgstr "Қате"
+
+msgid "common.warning"
+msgstr "Ескерту"
+
+msgid "common.cancelled"
+msgstr "Тоқтатылды"
+
+msgid "common.cancel"
+msgstr "Болдырмау"
+
+msgid "common.between"
+msgstr "арасында"
+
+msgid "common.back"
+msgstr "Артқа"
+
+msgid "common.available"
+msgstr "Қол жетімді"
+
+msgid "common.assigned.date"
+msgstr "Тағайындалды: {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "Тағайындалды"
+
+msgid "common.assign"
+msgstr "Тағайындау"
+
+msgid "common.applyAction"
+msgstr "Қолдану"
+
+msgid "common.and"
+msgstr "және"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Бұл суретті сайтты мәтіндік шолғышта немесе арнайы құрылғыларды пайдаланып "
+"көретін қолданушылар үшін сипаттаңыз. Мысалы: \"PKP конференциясында "
+"сөйлеген редакторымыз\"."
+
+msgid "common.altText"
+msgstr "Балама мәтін"
+
+msgid "common.alreadyAssigned"
+msgstr "Тағайындалды"
+
+msgid "common.alphaList"
+msgstr ""
+"А Ә Б В Г Ғ Д Е Ё Ж З И Й К Қ Л М Н Ң О Ө П Р С Т У Ұ Ү Ф Х Һ Ц Ч Ш Щ Ь Ы І "
+"Ъ Э Ю Я"
+
+msgid "common.all"
+msgstr "Барлық"
+
+msgid "common.name"
+msgstr "Аты"
+
+msgid "common.addSelf"
+msgstr "Өзімді қосу"
+
+msgid "common.add"
+msgstr "Қосу"
+
+msgid "common.inactive"
+msgstr "Белсенді емес"
+
+msgid "common.active"
+msgstr "Белсенді"
+
+msgid "common.activate"
+msgstr "Іске қосу"
+
+msgid "common.action"
+msgstr "Әрекет"
+
+msgid "common.acknowledged"
+msgstr "Мойындалды"
+
+msgid "common.accepted"
+msgstr "Қабылданды"
+
+msgid "common.abstract"
+msgstr "Аннотация"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Бұл элементті шынымен жойғыңыз келе ме? Бұл әрекетті қайтару мүмкін емес."
+
+msgid "common.grid"
+msgstr "Кесте"
+
+msgid "common.list"
+msgstr "Тізім"
+
+msgid "common.tasks"
+msgstr "Міндеттері"
+
+msgid "common.navigation.user"
+msgstr "Пайдаланушының навигациясы"
+
+msgid "common.navigation.siteContext"
+msgstr "Сайттың мәтіндік навигациясы"
+
+msgid "common.navigation.site"
+msgstr "Сайт навигациясы"
+
+msgid "common.navigation.sidebar"
+msgstr "Бүйірлік тақта"
+
+msgid "common.allDownloads"
+msgstr "Барлық жүктеулер"
+
+msgid "announcement.view"
+msgstr "Хабарландыруды көрсету"
+
+msgid "announcement.postedOn"
+msgstr "{$postDate} жарияланды"
+
+msgid "announcement.posted"
+msgstr "Жарияланды"
+
+msgid "announcement.noneExist"
+msgstr "Бірде-бір хабарландыру жарияланған жоқ."
+
+msgid "announcement.moreAnnouncements"
+msgstr "Басқа хабарландырулар..."
+
+msgid "announcement.announcementsHome"
+msgstr "Хабарландырулар"
+
+msgid "announcement.announcements"
+msgstr "Хабарландырулар"
+
+msgid "about.siteMap"
+msgstr "Сайт картасы"
+
+msgid "about.policies"
+msgstr "Саясаттар"
+
+msgid "about.people"
+msgstr "Адамдар"
+
+msgid "about.other"
+msgstr "Басқа"
+
+msgid "about.contact.supportContact"
+msgstr "Техникалық қолдау өкілі"
+
+msgid "about.contact.principalContact"
+msgstr "Редакция өкілі"
+
+msgid "about.contact.phone"
+msgstr "Телефон"
+
+msgid "about.contact.email"
+msgstr "Email"
+
+msgid "about.contact"
+msgstr "Байланыс"
+
+msgid "about.aboutSite"
+msgstr "Сайт туралы"
+
+msgid "about.guidelines"
+msgstr "Нұсқаулықтар"
+
+msgid "about.description"
+msgstr "Сипаттама"
+
+msgid "common.currentStyleSheet"
+msgstr "Ағымдағы стиль кестесі"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"

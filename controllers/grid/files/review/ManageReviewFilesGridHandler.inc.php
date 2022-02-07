@@ -20,6 +20,7 @@ use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
+use APP\notification\NotificationManager;
 
 class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler
 {

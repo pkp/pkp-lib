@@ -1,8 +1,9 @@
 # Madi <nmdbzk@gmail.com>, 2021.
+# Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-08-23 21:01+0000\n"
-"Last-Translator: Madi <nmdbzk@gmail.com>\n"
+"PO-Revision-Date: 2022-02-07 05:22+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -91,3 +92,112 @@ msgstr "Мән орнату"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Атау енгізу"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Барлық жоспарланған тапсырманы орындау журналдарын шынымен жойғыңыз келе ме?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"{$softwareName} орнатуыңыз бұл тапсырманы автоматты түрде орындап, аяқтады "
+"және журнал файлын мына жерден жүктеп алуға болады: {$url}"
+
+msgid "admin.settings.siteTitle"
+msgstr "Сайт атауы"
+
+msgid "admin.settings.siteLogo"
+msgstr "Сайт логотипі"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Сайт стилі кестесі"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Сайт стилі кестесінің пішімі қате. Рұқсат етілген формат — .css."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Сайт тілі"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Бұл параметрді тек әкімшіге өзгертуге рұқсат етіледі."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Рөлдерді өшіру"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Жаппай хат таратуды шектеу"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Құпия сөздің минималды ұзындығы (таңбалар)"
+
+msgid "admin.settings.introduction"
+msgstr "Кіріспе"
+
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tСіздің қондырғыңыз бірнеше пайдалану көрсеткіштерін жазуға арналған. "
+"Пайдалану статистикасы бірнеше контексте көрсетіледі.\n"
+"\t\tКейбір жағдайларда Бірыңғай пайдалану статистикасын қолдану қажет, "
+"мысалы, жиі қолданылатын материалдардың реттелген тізімін көрсету немесе \n"
+"\t\tіздеу нәтижелерін саралау үшін. Әдепкі параметрлердің біреуін таңдаңыз.\n"
+"\t"
+
+msgid "admin.settings.contactName"
+msgstr "Негізгі контактінің аты-жөні"
+
+msgid "admin.settings.contactEmail"
+msgstr "Негізгі контактінің электрондық поштасы"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Жаппай хат тарату"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Тапсырма оқиғалар журналы үшін жазбалар жасамады."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Тапсырманы орындау процесі тоқтатылды."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Тапсырманы орындау процесі басталды."
+
+msgid "admin.scheduledTask"
+msgstr "Жоспарланған тапсырма"
+
+msgid "admin.phpInfo"
+msgstr "PHP туралы қосымша ақпарат"
+
+msgid "admin.languages.uninstall"
+msgstr "Тілді жою"
+
+msgid "admin.languages.reload"
+msgstr "Тіл стандартын қайта жүктеу"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Орнату үшін қосымша тілдер жоқ."
+
+msgid "admin.languages.languageSettings"
+msgstr "Тіл параметрлері"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Жаңа Локализацияларды Орнату"
+
+msgid "admin.languages.installLocales"
+msgstr "Орнату"
+
+msgid "admin.languages.installLocale"
+msgstr "Орнату тілі"
+
+msgid "admin.languages.availableLocales"
+msgstr "Қолжетімді тіл"
+
+msgid "admin.languages.installLanguages"
+msgstr "Локализацияны басқару"
+
+msgid "admin.languages.installedLocales"
+msgstr "Орнатылған Тіл"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Сіз бұл тілді қайта жүктегіңіз келетініне сенімдісіз бе? Бұл теңшелген "
+"электрондық пошта шаблондары сияқты белгілі бір аймаққа байланысты барлық "
+"деректерді жояды."

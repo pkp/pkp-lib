@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-02-05 03:53+0000\n"
+"PO-Revision-Date: 2022-02-08 03:37+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_PT/>\n"
@@ -385,3 +385,77 @@ msgstr "comando [argumentos]"
 
 msgid "admin.cli.tool.usage.title"
 msgstr "Uso:"
+
+msgid "admin.jobs.createdAt"
+msgstr "Criado em {$createdAt}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Criado em"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Tentativas"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Lista"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Tarefa"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs"
+msgstr "Tarefas"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Ver tarefas em espera"
+
+msgid "admin.jobs.totalCount"
+msgstr "Existe um total de <strong>{$total}</strong> tarefa(s) em espera"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Quis dizer algum dos seguintes?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "A opção {$option} não existe."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Existem {$total} tarefas em espera"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Todas as tarefas eliminadas!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Foi impossível eliminar todas as tarefas."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "A tarefa foi eliminada!"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Job ID inválido"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Deve passar pelo menos pelo Job ID '--all' ou '--queue=' para usar este "
+"comando"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Seguinte"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Anterior"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Atual"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Paginação"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Criado em"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Disponível em"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Reservado a"

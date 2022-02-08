@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
+"PO-Revision-Date: 2022-02-09 00:14+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
@@ -344,3 +344,127 @@ msgstr "E-mails em Massa"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Notificação de relatório editorial"
+
+msgid "admin.jobs.createdAt"
+msgstr "Criado em {$createdAt}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Criado em"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Tentativas"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Fila"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Tarefa"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs"
+msgstr "Tarefas"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Ver tarefas em espera"
+
+msgid "admin.jobs.totalCount"
+msgstr "Existe um total de <strong>{$total}</strong> tarefa(s) em espera"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Quis dizer algum dos seguintes?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "A opção {$option} não existe."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Existem {$total} tarefas em espera"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Todas as tarefas eliminadas!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Foi impossível eliminar todas as tarefas."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "A Tarefa foi excluída!"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "ID da Tarefa inválida"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Deve passar pelo menos um ID da Tarefa, '--all' ou '--queue=' para usar este "
+"comando"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Próxima"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Anterior"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Atual"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Paginação"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Criado em"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Disponível em"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Reservado em"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Tentativas"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Nome de exibição da Tarefa"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Fila"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Tarefas em lista de espera"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "A opção não pode estar vazia! Verifique o método de uso."
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Exibir os parâmetros de uso de Tarefas"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Adicionar uma tarefa de teste à fila padrão"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Disponibilizar o comando de uso Tarefas"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Exibir a quantidade de tarefas em fila"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Limpe uma tarefa específica na fila com base em seu ID. Se você quiser "
+"limpar tudo, passe o parâmetro --all. Se você deseja limpar tudo de uma fila "
+"específica, passe o parâmetro --queue="
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Lista todos as tarefas em fila. Se você deseja paginar os resultados, use os "
+"parâmetros --page= e --perPage="
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Comandos disponíveis para o `{$namespace}` namespace:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "comando [argumentos]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Uso:"

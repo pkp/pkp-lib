@@ -28,6 +28,7 @@ use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
+use PKP\core\Proxies\Proxy;
 use PKP\Domains\Jobs\Providers\JobServiceProvider;
 use PKP\i18n\PKPLocale;
 use Sokil\IsoCodes\IsoCodesFactory;
@@ -281,17 +282,17 @@ class PKPContainer extends Container
      */
     protected function settingProxyForStreamContext(): void
     {
-        $proxyUri = null;
+        $proxy = new Proxy();
 
         if ($httpProxy = Config::getVar('proxy', 'http_proxy')) {
-            $proxyUri = $httpProxy;
+            $proxy->parseFQDN($httpProxy);
         }
 
         if ($httpsProxy = Config::getVar('proxy', 'https_proxy')) {
-            $proxyUri = $httpsProxy;
+            $proxy->parseFQDN($httpsProxy);
         }
 
-        if (!$proxyUri) {
+        if ($proxy->isEmpty()) {
             return;
         }
 
@@ -305,10 +306,14 @@ class PKPContainer extends Container
                 'header' => [
                     'Connection: close',
                 ],
-                'proxy' => $proxyUri,
+                'proxy' => $proxy->getProxy(),
                 'request_fulluri' => true,
             ],
         ];
+
+        if ($proxy->getAuth()) {
+            $opts['http']['header'][] = 'Proxy-Authorization: Basic ' . $proxy->getAuth();
+        }
 
         $context = stream_context_create($opts);
         stream_context_set_default($opts);

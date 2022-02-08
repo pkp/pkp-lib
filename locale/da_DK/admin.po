@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-02-05 03:53+0000\n"
-"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
+"PO-Revision-Date: 2022-02-08 13:21+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -240,7 +240,7 @@ msgid "admin.error.executingUtil"
 msgstr "Fejl: Kan ikke eksekvere \"{$utilPath}\".  Tjek {$utilVar} indstillinger i config.inc.php."
 
 msgid "admin.languages.noLocalesToDownload"
-msgstr "Ingen sprog er tilgængelige for download."
+msgstr "Ingen sprog er tilgængelige til download."
 
 msgid "admin.scheduledTask"
 msgstr "Planlagt opgave"
@@ -264,7 +264,7 @@ msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Påmindelse om abonnementsophør"
 
 msgid "admin.systemInfo.settingName"
-msgstr "Indsættelse af navn"
+msgstr "Navn på indstilling"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "Indsættelse af værdi"
@@ -415,44 +415,36 @@ msgstr "ID"
 msgid "admin.cli.tool.usage.parameters"
 msgstr "Kommando [arguments]"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Opgaver i Kø"
+msgstr "Opgaver i kø"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.empty.option"
 msgstr "Muligheden kan ikke være tom! Kontroller anvendelsen."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr "Vis Opgavens brugs parametre"
+msgstr "Vis brugsparametre for opgaver"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "Vis brugen af Opgave kommandoen"
+msgstr "Vis brugen af opgavekommandoen"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Vis antal Opgaver i køen"
+msgstr "Vis antal opgaver i køen"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr "Tilføj en test opgave til default køen"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
 "Slet en specifik opgave i køen baseret på dets ID .Hvis du vil slette dem "
 "alle, brug parameteret --all. Hvis du vil slette alle opgaver i en specifik "
-"kø brug parameteret,  --queue="
+"kø, brug parameteret  --queue="
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
-"Liste over alle Opgaver i køen. Hvis du vil sideopdele resultatet så brug "
-"parameterne --page= and --perPage="
+"Liste over alle opgaver i køen. Hvis du vil sideopdele resultatet, så brug "
+"parametrene --page= and --perPage="
 
-#, fuzzy
 msgid "admin.cli.tool.available.commands"
 msgstr "Tilgængelige kommandoer for `{$namespace}` namespace:"
 
@@ -464,15 +456,13 @@ msgstr "Skabt af {$createdAt}"
 msgid "admin.jobs.list.createdAt"
 msgstr "Skabt af"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr "Ugyldig Opgave ID"
+msgstr "Ugyldigt opgave ID"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
-"Du skal mindst angive Opgave ID, '--all' eller '--queue=' for at bruge denne "
-"commando"
+"Du skal som minimum angive opgave ID, '--all' eller '--queue=' for at bruge "
+"denne kommando"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Sidetal"
@@ -480,14 +470,11 @@ msgstr "Sidetal"
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr "Skabt af"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
 msgstr "Tilgængelig hos"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
 msgstr "Reserveret til"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Opgavens visnings navn"
+msgstr "Opgavens visningsnavn"

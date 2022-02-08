@@ -193,8 +193,9 @@ class Repository extends \PKP\publication\Repository
                 }
 
                 // Use primary author details in email
+                $primaryAuthor = $submission->getPrimaryAuthor();
                 $mail->assignParams([
-                    'authorPrimary' => $submission->getPrimaryAuthor()->getFullName(),
+                    'authorPrimary' => $primaryAuthor ? $primaryAuthor->getFullName() : '',
                     'editorialContactSignature' => $context->getData('contactName'),
                     'submissionUrl' => $dispatcher->url($this->request, Application::ROUTE_PAGE, $context->getData('urlPath'), 'preprint', 'view', $submission->getBestId(), null, null, true),
                 ]);
@@ -237,7 +238,6 @@ class Repository extends \PKP\publication\Repository
      *
      * @param string $submissionId
      *
-     * @return bool
      *
      */
     public function canCurrentUserPublish(int $submissionId): bool

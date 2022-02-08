@@ -15,6 +15,7 @@
  */
 
 use APP\facades\Repo;
+use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
@@ -241,7 +242,7 @@ class ReviewerForm extends Form
             $user = $request->getUser();
             $dispatcher = $request->getDispatcher();
             $template->assignParams([
-                'journalUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
+                ContextEmailVariable::CONTEXT_URL => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
                 'signature' => $user->getContactSignature(Locale::getLocale()),
                 'senderName' => $user->getFullname(),
                 'passwordLostUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),

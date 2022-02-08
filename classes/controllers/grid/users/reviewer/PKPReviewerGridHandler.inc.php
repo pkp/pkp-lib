@@ -29,6 +29,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
 use PKP\db\DAORegistry;
+use PKP\i18n\PKPLocale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
@@ -36,7 +37,7 @@ use PKP\emailtemplate\EmailTemplate;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\MailReviewerReinstated;
 use PKP\mail\mailables\MailReviewerUnassigned;
-use PKP\mail\SubmissionMailTemplate;
+use PKP\mail\Sender;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
@@ -47,6 +48,7 @@ use PKP\security\Role;
 // FIXME: Add namespacing
 import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
 
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\user\User;
 use ReviewerGridCellProvider;
 
@@ -961,30 +963,32 @@ class PKPReviewerGridHandler extends GridHandler
      * @param array $args
      * @param PKPRequest $request
      *
-     * @return JSONMessage JSON object
+     * @return void|JSONMessage JSON object
      */
     public function fetchTemplateBody($args, $request)
     {
-        $template = new SubmissionMailTemplate($this->getSubmission(), $request->getUserVar('template'));
+        $context = $request->getContext();
+        $mailable = new class([$context, $this->getSubmission()]) extends Mailable
+        {
+            use Sender;
+        };
+        $template = $mailable->getTemplate($context->getId(), $request->getUserVar('template'));
+
         if (!$template) {
             return;
         }
 
         $user = $request->getUser();
-        $dispatcher = $request->getDispatcher();
-        $context = $request->getContext();
-
-        $template->assignParams([
-            'contextUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
-            'editorialContactSignature' => $user->getContactSignature(),
-            'signatureFullName' => $user->getFullname(),
-            'passwordResetUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
+        $mailable->sender($user);
+        $mailable->setData(PKPLocale::getLocale());
+        $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
         ]);
-        $template->replaceParams();
 
-        return new JSONMessage(true, $template->getBody());
+        $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData);
+
+        return new JSONMessage(true, $body);
     }
 
 

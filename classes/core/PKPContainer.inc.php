@@ -28,9 +28,9 @@ use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
-use PKP\core\Proxies\Proxy;
 use PKP\Domains\Jobs\Providers\JobServiceProvider;
 use PKP\i18n\PKPLocale;
+use PKP\Support\ProxyParser;
 use Sokil\IsoCodes\IsoCodesFactory;
 use Sokil\IsoCodes\TranslationDriver\GettextExtensionDriver;
 
@@ -282,7 +282,7 @@ class PKPContainer extends Container
      */
     protected function settingProxyForStreamContext(): void
     {
-        $proxy = new Proxy();
+        $proxy = new ProxyParser();
 
         if ($httpProxy = Config::getVar('proxy', 'http_proxy')) {
             $proxy->parseFQDN($httpProxy);

@@ -17,14 +17,14 @@
 
 import('lib.pkp.tests.PKPTestCase');
 
-use PKP\core\Proxies\Proxy;
+use PKP\Support\ProxyParser;
 
 class ProxyParserTest extends PKPTestCase
 {
     public function testParsingForHTTP()
     {
         $fqdn = 'http://username:password@192.168.1.1:8080';
-        $proxy = new Proxy();
+        $proxy = new ProxyParser();
         $proxy->parseFQDN($fqdn);
 
         $this->assertEquals(
@@ -41,7 +41,7 @@ class ProxyParserTest extends PKPTestCase
     public function testParsingForHTTPS()
     {
         $fqdn = 'https://username:password@192.168.1.1:8080';
-        $proxy = new Proxy();
+        $proxy = new ProxyParser();
         $proxy->parseFQDN($fqdn);
 
         $this->assertEquals(
@@ -58,7 +58,7 @@ class ProxyParserTest extends PKPTestCase
     public function testNonCommonProxyOption()
     {
         $fqdn = 'udp://username:password@176.0.0.1:8040';
-        $proxy = new Proxy();
+        $proxy = new ProxyParser();
         $proxy->parseFQDN($fqdn);
 
         $this->assertEquals(
@@ -69,7 +69,7 @@ class ProxyParserTest extends PKPTestCase
 
     public function testEmptyProxyOption()
     {
-        $proxy = new Proxy();
+        $proxy = new ProxyParser();
         $proxy->parseFQDN('');
 
         $this->assertEquals(

@@ -28,6 +28,9 @@ class PKPTitleAbstractForm extends FormComponent
     /** @copydoc FormComponent::$method */
     public $method = 'PUT';
 
+    /** @var Publication */
+    public $publication;
+
     /**
      * Constructor
      *
@@ -39,6 +42,7 @@ class PKPTitleAbstractForm extends FormComponent
     {
         $this->action = $action;
         $this->locales = $locales;
+        $this->publication = $publication;
 
         $this->addField(new FieldText('prefix', [
             'label' => __('common.prefix'),

@@ -19,8 +19,8 @@ namespace PKP\publication;
 
 use APP\i18n\AppLocale;
 use PKP\core\Core;
-
 use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 
 class PKPPublication extends \PKP\core\DataObject
 {
@@ -144,23 +144,28 @@ class PKPPublication extends \PKP\core\DataObject
      *
      * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)
      *
-     * @param array $userGroups List of UserGroup objects
-     * @param bool $includeInBrowseOnly true if only the includeInBrowse Authors will be contained
+     * @param array|null $userGroups List of UserGroup objects, or null to use all relevant
+     * @param bool $preferred If the preferred public name should be used, if exists
+     * @param bool $onlyIncludeInBrowse true if only the includeInBrowse Authors will be contained
      *
      * @return string
      */
-    public function getAuthorString($userGroups, $includeInBrowseOnly = false)
+    public function getAuthorString($userGroups = null, bool $preferred = true, $onlyIncludeInBrowse = false)
     {
         $authors = $this->getData('authors');
 
-        if (empty($authors)) {
-            return '';
-        }
-
-        if ($includeInBrowseOnly) {
+        if ($onlyIncludeInBrowse) {
             $authors = $authors->filter(function ($author, $key) {
                 return $author->getData('includeInBrowse');
             });
+        }
+
+        if ($userGroups === null) {
+            // If a user group list was not specified, fetch all relevant user groups for the author set.
+            $userGroupIds = $authors->map(fn ($author) => $author->getData('userGroupId'));
+
+            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+            $userGroups = $userGroupIds->unique()->map(fn ($userGroupId) => $userGroupDao->getById($userGroupId));
         }
 
         $str = '';
@@ -181,7 +186,7 @@ class PKPPublication extends \PKP\core\DataObject
                     $str .= __('common.commaListSeparator');
                 }
             }
-            $str .= $author->getFullName();
+            $str .= $author->getFullName($preferred);
             $lastUserGroupId = $author->getUserGroupId();
         }
 

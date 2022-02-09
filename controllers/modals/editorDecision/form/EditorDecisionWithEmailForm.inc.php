@@ -86,7 +86,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
 
         $submissionUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
         $email->assignParams([
-            'authors' => $submission->getAuthorString(),
+            'authors' => $submission->getCurrentPublication()->getAuthorString(),
             'submissionUrl' => $submissionUrl,
         ]);
         $email->replaceParams();
@@ -100,7 +100,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
         $data = [
             'submissionId' => $submission->getId(),
             'decision' => $this->getDecision(),
-            'authors' => $submission->getAuthorString(),
+            'authors' => $submission->getCurrentPublication()->getAuthorString(),
             'personalMessage' => $email->getBody(),
             'actionLabel' => $actionLabels[$this->getDecision()],
             'bccReviewers' => []
@@ -345,7 +345,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
             $email->assignParams([
                 'submissionUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
                 'journalName' => $context->getLocalizedName(),
-                'authors' => $submission->getAuthorString(),
+                'authors' => $submission->getCurrentPublication()->getAuthorString(),
                 'signature' => $user->getContactSignature(),
             ]);
             if (!$email->send($request)) {
@@ -373,7 +373,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm
             'journalName' => $request->getContext()->getLocalizedName(),
             'signature' => strip_tags($user->getContactSignature(), '<br>'),
             'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
-            'authors' => strip_tags($submission->getAuthorString()),
+            'authors' => strip_tags($submission->getCurrentPublication()->getAuthorString()),
         ];
     }
 

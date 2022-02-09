@@ -30,7 +30,6 @@ use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
-use PKP\db\DAORegistry;
 use PKP\mail\Mail;
 
 abstract class PKPSubmission extends \PKP\core\DataObject
@@ -447,34 +446,6 @@ abstract class PKPSubmission extends \PKP\core\DataObject
         if ($publication) {
             $publication->setData('hideAuthor', $hideAuthor);
         }
-    }
-
-    /**
-     * Return string of author names, separated by the specified token
-     *
-     * @param bool $preferred If the preferred public name should be used, if exist
-     * @param bool $familyOnly return list of family names only (default false)
-     *
-     * @return string
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getAuthorString($preferred = true, $familyOnly = false)
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return '';
-        }
-
-        $userGroupIds = array_map(function ($author) {
-            return $author->getData('userGroupId');
-        }, Repo::author()->getSubmissionAuthors($this)->toArray());
-        $userGroups = array_map(function ($userGroupId) {
-            $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
-            return $userGroupDao->getbyId($userGroupId);
-        }, array_unique($userGroupIds));
-
-        return $publication->getAuthorString($userGroups);
     }
 
     /**

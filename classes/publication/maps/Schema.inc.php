@@ -26,10 +26,10 @@ use PKP\services\PKPSchemaService;
 
 class Schema extends \PKP\core\maps\Schema
 {
-    /** @var Enumerable */
+    /**  */
     public Enumerable $collection;
 
-    /** @var string */
+    /**  */
     public string $schema = PKPSchemaService::SCHEMA_PUBLICATION;
 
     /** @var Submission */
@@ -122,7 +122,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups);
                     break;
                 case 'authorsStringIncludeInBrowse':
-                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups, true);
+                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups, true, true);
                     break;
                 case 'authorsStringShort':
                     $output[$prop] = $this->anonymize ? '' : $publication->getShortAuthorString();

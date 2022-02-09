@@ -72,7 +72,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
         $_GET = ['somevar' => 'someval'];
         $_SERVER = [
-            'PATH_INFO' => '/context1/context2/somepage',
+            'PATH_INFO' => '/context1/somepage',
             'SCRIPT_NAME' => '/index.php',
         ];
         self::assertFalse($this->router->isCacheable($this->request));
@@ -92,7 +92,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
         $_GET = [];
         $_SERVER = [
-            'PATH_INFO' => '/context1/context2/cacheable',
+            'PATH_INFO' => '/context1/cacheable',
             'SCRIPT_NAME' => '/index.php',
         ];
 
@@ -115,7 +115,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
 
         $_GET = [
             'firstContext' => 'something',
-            'secondContext' => 'something',
             'page' => 'something',
             'op' => 'something',
             'path' => 'something'
@@ -155,10 +154,10 @@ class PKPPageRouterTest extends PKPRouterTestCase
     {
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
         $_SERVER = [
-            'PATH_INFO' => '/context1/context2/index',
+            'PATH_INFO' => '/context1/index',
             'SCRIPT_NAME' => '/index.php',
         ];
-        $expectedId = '/context1/context2/index-en_US';
+        $expectedId = '/context1/index-en_US';
         self::assertEquals(Core::getBaseDir() . '/cache/wc-' . md5($expectedId) . '.html', $this->router->getCacheFilename($this->request));
     }
 
@@ -170,10 +169,9 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
         $_GET = [
             'firstContext' => 'something',
-            'secondContext' => 'something',
             'page' => 'index'
         ];
-        $expectedId = 'something-something-index---en_US';
+        $expectedId = 'something-index---en_US';
         self::assertEquals(Core::getBaseDir() . '/cache/wc-' . md5($expectedId) . '.html', $this->router->getCacheFilename($this->request));
     }
 
@@ -185,7 +183,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
         $_SERVER = [
-            'PATH_INFO' => '/context1/context2/some#page',
+            'PATH_INFO' => '/context1/some#page',
             'SCRIPT_NAME' => '/index.php',
         ];
         self::assertEquals('somepage', $this->router->getRequestedPage($this->request));
@@ -210,7 +208,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
         $_SERVER = [
-            'PATH_INFO' => '/context1/context2',
+            'PATH_INFO' => '/context1',
             'SCRIPT_NAME' => '/index.php',
         ];
         self::assertEquals('', $this->router->getRequestedPage($this->request));
@@ -235,7 +233,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
         $_SERVER = [
-            'PATH_INFO' => '/context1/context2/somepage/some#op',
+            'PATH_INFO' => '/context1/somepage/some#op',
             'SCRIPT_NAME' => '/index.php',
         ];
         self::assertEquals('someop', $this->router->getRequestedOp($this->request));
@@ -260,7 +258,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
         $_SERVER = [
-            'PATH_INFO' => '/context1/context2/somepage',
+            'PATH_INFO' => '/context1/somepage',
             'SCRIPT_NAME' => '/index.php',
         ];
         self::assertEquals('index', $this->router->getRequestedOp($this->request));
@@ -287,44 +285,44 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $_SERVER = [
             'SERVER_NAME' => 'mydomain.org',
             'SCRIPT_NAME' => '/index.php',
-            'PATH_INFO' => '/current-context1/current-context2/current-page/current-op'
+            'PATH_INFO' => '/current-context1/current-page/current-op'
         ];
 
         // Simulate context DAOs
         $this->_setUpMockDAOs();
 
         $result = $this->router->url($this->request);
-        self::assertEquals('http://mydomain.org/index.php/current-context1/current-context2/current-page/current-op', $result);
+        self::assertEquals('http://mydomain.org/index.php/current-context1/current-page/current-op', $result);
 
         $result = $this->router->url($this->request, 'new-context1');
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1', $result);
 
-        $result = $this->router->url($this->request, ['new-context1', 'new?context2']);
-        self::assertEquals('http://mydomain.org/index.php/new-context1/new%3Fcontext2', $result);
+        $result = $this->router->url($this->request, ['new?context1']);
+        self::assertEquals('http://mydomain.org/index.php/new%3Fcontext1', $result);
 
         $result = $this->router->url($this->request, [], 'new-page');
-        self::assertEquals('http://mydomain.org/index.php/current-context1/current-context2/new-page', $result);
+        self::assertEquals('http://mydomain.org/index.php/current-context1/new-page', $result);
 
         $result = $this->router->url($this->request, [], null, 'new-op');
-        self::assertEquals('http://mydomain.org/index.php/current-context1/current-context2/current-page/new-op', $result);
+        self::assertEquals('http://mydomain.org/index.php/current-context1/current-page/new-op', $result);
 
         $result = $this->router->url($this->request, 'new-context1', 'new-page');
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/new-page', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1/new-page', $result);
 
         $result = $this->router->url($this->request, 'new-context1', 'new-page', 'new-op');
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/new-page/new-op', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1/new-page/new-op', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, 'new-op');
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/index/new-op', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1/index/new-op', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, 'add?path');
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/index/index/add%3Fpath', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1/index/index/add%3Fpath', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, ['add-path1', 'add?path2']);
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/index/index/add-path1/add%3Fpath2', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1/index/index/add-path1/add%3Fpath2', $result);
 
-        $result = $this->router->url($this->request, ['firstContext' => null, 'secondContext' => null], null, 'new-op', 'add-path');
-        self::assertEquals('http://mydomain.org/index.php/current-context1/current-context2/current-page/new-op/add-path', $result);
+        $result = $this->router->url($this->request, ['firstContext' => null], null, 'new-op', 'add-path');
+        self::assertEquals('http://mydomain.org/index.php/current-context1/current-page/new-op/add-path', $result);
 
         $result = $this->router->url(
             $this->request,
@@ -337,19 +335,19 @@ class PKPPageRouterTest extends PKPRouterTestCase
                 'key2' => ['val2-1', 'val2?2']
             ]
         );
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2?key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1?key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some?anchor');
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2#someanchor', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1#someanchor', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some/anchor');
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2#some/anchor', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1#some/anchor', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, 'new-op', 'add-path', ['key' => 'val'], 'some-anchor');
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2/index/new-op/add-path?key=val#some-anchor', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1/index/new-op/add-path?key=val#some-anchor', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, null, ['key1' => 'val1', 'key2' => 'val2'], null, true);
-        self::assertEquals('http://mydomain.org/index.php/new-context1/current-context2?key1=val1&amp;key2=val2', $result);
+        self::assertEquals('http://mydomain.org/index.php/new-context1?key1=val1&amp;key2=val2', $result);
     }
 
     /**
@@ -364,11 +362,11 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $_SERVER = [
             'SERVER_NAME' => 'mydomain.org',
             'SCRIPT_NAME' => '/index.php',
-            'PATH_INFO' => '/overridden-context/current-context2/current-page/current-op'
+            'PATH_INFO' => '/overridden-context/current-page/current-op'
         ];
         $this->_setUpMockDAOs('overridden-context');
         $result = $this->router->url($this->request);
-        self::assertEquals('http://some-domain/xyz-context/current-context2/current-page/current-op', $result);
+        self::assertEquals('http://some-domain/xyz-context/current-page/current-op', $result);
     }
 
     /**
@@ -385,30 +383,11 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $_SERVER = [
             'SERVER_NAME' => 'mydomain.org',
             'SCRIPT_NAME' => '/index.php',
-            'PATH_INFO' => '/current-context1/current-context2/current-page/current-op'
+            'PATH_INFO' => '/current-context1/current-page/current-op'
         ];
-        $this->_setUpMockDAOs('current-context1', 'current-context2', true);
+        $this->_setUpMockDAOs('current-context1', true);
         $result = $this->router->url($this->request, 'overridden-context', 'new-page');
-        self::assertEquals('http://some-domain/xyz-context/current-context2/new-page', $result);
-    }
-
-    /**
-     * @covers PKPPageRouter::url
-     */
-    public function testUrlWithPathinfoAndSecondContextObjectIsNull()
-    {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
-        $_SERVER = [
-            'SERVER_NAME' => 'mydomain.org',
-            'SCRIPT_NAME' => '/index.php',
-            'PATH_INFO' => '/current-context1/current-context2/current-page/current-op'
-        ];
-
-        // Simulate context DAOs
-        $this->_setUpMockDAOs('current-context1', 'current-context2', false, true);
-
-        $result = $this->router->url($this->request);
-        self::assertEquals('http://mydomain.org/index.php/current-context1/index/current-page/current-op', $result);
+        self::assertEquals('http://some-domain/xyz-context/new-page', $result);
     }
 
     /**
@@ -423,7 +402,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         ];
         $_GET = [
             'firstContext' => 'current-context1',
-            'secondContext' => 'current-context2',
             'page' => 'current-page',
             'op' => 'current-op'
         ];
@@ -432,34 +410,34 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $this->_setUpMockDAOs();
 
         $result = $this->router->url($this->request);
-        self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&secondContext=current-context2&page=current-page&op=current-op', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&page=current-page&op=current-op', $result);
 
         $result = $this->router->url($this->request, 'new-context1');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1', $result);
 
-        $result = $this->router->url($this->request, ['new-context1', 'new-context2']);
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=new-context2', $result);
+        $result = $this->router->url($this->request, ['new-context1']);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1', $result);
 
         $result = $this->router->url($this->request, [], 'new-page');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&secondContext=current-context2&page=new-page', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&page=new-page', $result);
 
         $result = $this->router->url($this->request, [], null, 'new-op');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&secondContext=current-context2&page=current-page&op=new-op', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&page=current-page&op=new-op', $result);
 
         $result = $this->router->url($this->request, 'new-context1', 'new-page');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&page=new-page', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=new-page', $result);
 
         $result = $this->router->url($this->request, 'new-context1', 'new-page', 'new-op');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&page=new-page&op=new-op', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=new-page&op=new-op', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, 'new-op');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&page=index&op=new-op', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=index&op=new-op', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, 'add?path');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&page=index&op=index&path[]=add%3Fpath', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=index&op=index&path[]=add%3Fpath', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, ['add-path1', 'add?path2']);
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&page=index&op=index&path[]=add-path1&path[]=add%3Fpath2', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=index&op=index&path[]=add-path1&path[]=add%3Fpath2', $result);
 
         $result = $this->router->url(
             $this->request,
@@ -472,19 +450,19 @@ class PKPPageRouterTest extends PKPRouterTestCase
                 'key2' => ['val2-1', 'val2?2']
             ]
         );
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some?anchor');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2#someanchor', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1#someanchor', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some/anchor');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2#some/anchor', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1#some/anchor', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, 'new-op', 'add-path', ['key' => 'val'], 'some-anchor');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&secondContext=current-context2&page=index&op=new-op&path[]=add-path&key=val#some-anchor', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=index&op=new-op&path[]=add-path&key=val#some-anchor', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, null, ['key1' => 'val1', 'key2' => 'val2'], null, true);
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&amp;secondContext=current-context2&amp;key1=val1&amp;key2=val2', $result);
+        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&amp;key1=val1&amp;key2=val2', $result);
     }
 
     /**
@@ -500,7 +478,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         ];
         $_GET = [
             'firstContext' => 'overridden-context',
-            'secondContext' => 'current-context2',
             'page' => 'current-page',
             'op' => 'current-op'
         ];
@@ -511,32 +488,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         // NB: This also tests whether unusual URL elements like user, password and port
         // will be handled correctly.
         $result = $this->router->url($this->request);
-        self::assertEquals('http://some-user:some-pass@some-domain:8080/?firstContext=xyz-context&secondContext=current-context2&page=current-page&op=current-op', $result);
-    }
-
-    /**
-     * @covers PKPPageRouter::url
-     */
-    public function testUrlWithoutPathinfoAndSecondContextObjectIsNull()
-    {
-        $this->setTestConfiguration('request2', 'classes/core/config'); // restful URLs enabled
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-        $_SERVER = [
-            'SERVER_NAME' => 'mydomain.org',
-            'SCRIPT_NAME' => '/index.php',
-        ];
-        $_GET = [
-            'firstContext' => 'current-context1',
-            'secondContext' => 'current-context2',
-            'page' => 'current-page',
-            'op' => 'current-op'
-        ];
-
-        // Simulate context DAOs
-        $this->_setUpMockDAOs('current-context1', 'current-context2', false, true);
-
-        // NB: This also tests whether restful URLs work correctly.
-        $result = $this->router->url($this->request);
-        self::assertEquals('http://mydomain.org/?firstContext=current-context1&secondContext=index&page=current-page&op=current-op', $result);
+        self::assertEquals('http://some-user:some-pass@some-domain:8080/?firstContext=xyz-context&page=current-page&op=current-op', $result);
     }
 }

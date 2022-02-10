@@ -121,6 +121,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 ],
                 'selectorName' => 'reviewerId',
                 'warnOnAssignment' => $warnOnAssignment,
+                'submission' => $this->getSubmission(),
             ]
         );
         $selectReviewerListPanel->set([

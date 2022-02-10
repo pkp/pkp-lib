@@ -1,7 +1,8 @@
+# Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-04 01:41+0000\n"
-"Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
+"PO-Revision-Date: 2022-01-13 14:25+0000\n"
+"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -146,7 +147,7 @@ msgid "editor.review.importantDates"
 msgstr "Կարևոր ամսաթիվ"
 
 msgid "editor.review.personalMessageToReviewer"
-msgstr "Նամակ, որը պետք է ուղարկվի գրախոսության:"
+msgstr "Նամակ, որը պետք է ուղարկվի գրախոսության"
 
 msgid "editor.review.anonymousReviewer"
 msgstr "Անանուն գրախոսող"
@@ -164,13 +165,13 @@ msgid "editor.submissionReview.open"
 msgstr "Բացել"
 
 msgid "editor.submissionReview.skipEmail"
-msgstr "էլ. փոստով ծանուցում չուղարկել:"
+msgstr "էլ. փոստով ծանուցում չուղարկել"
 
 msgid "editor.submissionReview.sendEmail.editors"
 msgstr "Ուղարկել ծանուցում  էլ. փոստով խմբագրին(ներին): {$editorNames}"
 
 msgid "editor.submissionReview.sendEmail"
-msgstr "էլ. փոստով ծանուցում ուղարկել հեղինակին՝ {$authorName}:"
+msgstr "էլ. փոստով ծանուցում ուղարկել հեղինակին՝ {$authorName}"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Գրախոսության տեսակ"
@@ -209,7 +210,7 @@ msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "Դուք պետք է ընտրեք օգտագործող նշանակելու համար:"
 
 msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "Աուդիտորին չուղարկել նամակ:"
+msgstr "Աուդիտորին չուղարկել նամակ"
 
 msgid "editor.submission.fileAuditor.form.messageRequired"
 msgstr "Դուք պետք է ներառեք նաև անձնական նամակ:"
@@ -233,16 +234,16 @@ msgid "editor.submission.workflowDecision.submission.underReview"
 msgstr "Հոդվածն ընդունված է գրախոսման:"
 
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Ուղարկել  թողարկման"
+msgstr "Ուղարկել  հրապարակման։"
 
 msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Հոդվածը հրապարակված է:"
 
 msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Հայտն ընդունված է"
+msgstr "Հայտն ընդունված է։"
 
 msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Հայտը մերժված է"
+msgstr "Ներկայացված նյութը մերժված է։"
 
 msgid "editor.submission.workflowDecision.submission"
 msgstr "Որոշումը գրանցված է"
@@ -320,7 +321,7 @@ msgid "editor.article.confirmChangeReviewForm"
 msgstr ""
 "Զգուշացում: Գրախոսության ձևաչափի փոփոխությունը կազդի գրախոսողների "
 "պատասխանների վրա, որոնք օգտագործել են այս ձևը: Դուք վաստա՞հ եք, որ ցանկանում "
-"եք շարունակել:"
+"եք շարունակել?"
 
 msgid "editor.article.selectReviewForm"
 msgstr "Ընտրել գրախոսության ձևաչափ"
@@ -329,7 +330,7 @@ msgid "editor.article.reviewForms"
 msgstr "Գրախոսության ձև"
 
 msgid "editor.submission.createNewRound"
-msgstr "Ստեղծել գրախոսության նոր փուլ:"
+msgstr "Ստեղծել գրախոսության նոր փուլ"
 
 msgid "editor.submission.newRoundDescription"
 msgstr ""
@@ -343,7 +344,7 @@ msgid "editor.submissionReview.recordRecommendation.createDiscussion"
 msgstr "Ստեղծել գրախոսական որոշում խորհրդատվության մասին:"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Խմբագիրներին նամակ չուղարկել"
+msgstr "Խմբագիրներին նամակ չուղարկել:"
 
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
 msgstr "Տեղեկացնել խմբագիրներին"
@@ -389,12 +390,12 @@ msgstr "Նշանակել աուդիտոր"
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
 msgstr ""
 "Եթե չհաստատեք ֆայլի պատճենահանումը հնարավոր չի լինի դա ուղարկել թողարկման: "
-"Դուք ցանկանու՞մ  եք  մերժել ֆայլը:"
+"Դուք ցանկանու՞մ  եք  մերժել ֆայլը?"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
 msgstr ""
 "Պատճենված ֆայլը պետք է հաստատվի նախքան թողարկման փուլը: Դուք ցանկանու՞մ եք "
-"հաստատել ֆայլը:"
+"հաստատել ֆայլը՞։"
 
 msgid "editor.submission.proof.reminder"
 msgstr "Ապացույցի հիշեցում"
@@ -405,7 +406,7 @@ msgstr ""
 "կներկայացվի:"
 
 msgid "editor.review.userGroupSelect"
-msgstr "Ավելացնել օգտագործող այս գրախոսողների խմբին:"
+msgstr "Ավելացնել օգտագործող այս գրախոսողների խմբին"
 
 msgid "editor.review.errorReinstatingReviewer"
 msgstr "Գրախոսողին վերականգնելու հետ կապված սխալ կա: Խնդրում ենք փորձել կրկին:"
@@ -506,7 +507,8 @@ msgstr ""
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
-"<em>Use <em>+Add Reviewer</em> to invite readers to review the submission "
-"files. The notebook icon indicates that a review has been submitted, which "
-"is then checked <em>Acknowledged</em> after it has been consulted. When "
-"reviews are overdue, a red envelope icon appears for reminding reviewers."
+"Օգտագործեք <em> + Ավելացնել գրախոս ողին </em>՝ հրավիրելու ընթերցողներին "
+"վերանայել ներկայացվող նյութերը: Նոթատետրի պատկերակը ցույց է տալիս, որ "
+"ներկայացվել է վերանայում, որն այնուհետև ստուգվում է <em> Հաստատված է </em> "
+"այն խորհրդակցելուց հետո: Երբ վերանայումները ժամկետանց են, կարմիր ծրարի "
+"պատկերակ է հայտնվում գրախոսներին հիշեցնելու համար:"

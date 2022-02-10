@@ -1,12 +1,13 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
+# Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2021-10-21 09:07+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2022-01-27 05:25+0000\n"
+"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -210,7 +211,9 @@ msgid "user.preferredPublicName"
 msgstr "Bevorzugter Öffentlicher Name"
 
 msgid "user.preferredPublicName.description"
-msgstr "Wie möchten Sie angesprochen werden? Titel, weitere Vornamen und Namenszusätze können hier angegeben werden, wenn Sie es wünschen."
+msgstr ""
+"Bitte geben Sie den vollständigen Namen so an, wie der Autor auf dem "
+"veröffentlichten Werk angegeben werden soll. Beispiel: Dr. Alan P. Mwandenga"
 
 msgid "user.profile.changePasswordInstructions"
 msgstr "Sie ändern das Passwort Ihres Kontos, indem Sie nachfolgend Ihr aktuelles und Ihr neues Passwort eintragen."

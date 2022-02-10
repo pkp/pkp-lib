@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-01-11 15:46+0000\n"
+"PO-Revision-Date: 2022-02-03 08:42+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "cs_CZ/>\n"
@@ -336,3 +336,127 @@ msgstr "Hromadné e-maily"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Upozornění na redakční zprávu"
+
+msgid "admin.jobs.createdAt"
+msgstr "Vytvořeno v {$createdAt}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Vytvořeno v"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Pokusy"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Fronta"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Úloha"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs"
+msgstr "Úlohy"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Zobrazení úloh ve frontě"
+
+msgid "admin.jobs.totalCount"
+msgstr "Ve frontě je celkem <strong>{$total}</strong> úloh"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Měli jste na mysli jednu z následujících možností?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Možnost {$option} neexistuje."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Ve frontě máme {$total} úloh"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Všechny úlohy byly smazány!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Nebylo možné odstranit všechny úlohy."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Úloha byla smazána!"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Neplatné ID úlohy"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Chcete-li použít tento příkaz, měli byste zadat alespoň Job ID, '--all' nebo "
+"'--queue='"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Následující"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Předchozí"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Aktuální"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Stránkování"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Vytvořeno v"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Dostupné na"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Rezervováno na"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Pokusy"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Zobrazení názvu úlohy"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Fronta"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Fronta Jobs"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Možnost nemůže být prázdná! Zkontrolujte způsob použití."
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Zobrazení parametrů použití Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Zobrazení použití příkazu Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Zobrazení množství úloh ve frontě"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Přidání testovací úlohy do výchozí fronty"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Vyčistit konkrétní úlohu ve frontě na základě jejího ID. Pokud chcete "
+"vyčistit všechny, předejte parametr --all. Pokud chcete vyčistit všechny z "
+"konkrétní fronty, předejte parametr --queue="
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Vypsat všechny úlohy ve frontě. Pokud chcete výsledky stránkovat, použijte "
+"parametry --page= a --perPage="
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Dostupné příkazy pro obor názvů `{$namespace}`:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "příkaz [argumenty]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Využití:"

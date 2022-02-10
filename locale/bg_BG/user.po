@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-28 15:18+0000\n"
+"PO-Revision-Date: 2022-01-20 11:44+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg_BG/>\n"
@@ -207,8 +207,8 @@ msgstr ""
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Как предпочитате да се обръщат към вас? Тук можете да добавите титли, бащини "
-"имена и/или суфикси, ако желаете."
+"Моля, посочете пълното име, тъй като авторът трябва да бъде идентифициран "
+"върху публикуваното произведение. Пример: д-р Алън П. Мванденга"
 
 msgid "user.preferredPublicName"
 msgstr "Предпочитано публично име"

@@ -1,9 +1,10 @@
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2021-03-11 10:55+0000\n"
+"PO-Revision-Date: 2022-02-10 00:38+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sv_SE/>\n"
@@ -329,3 +330,9 @@ msgstr ""
 "Är du säker på att du vill ändra webbplatsens förvalda språk? Användares "
 "namn måste finnas i webbplatsens förvalda språk, de kommer kopieras från det "
 "nuvarande förvalda språket i de fall de saknas."
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Användning:"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Avisering om redaktionsrapport"

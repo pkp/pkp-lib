@@ -1,11 +1,12 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-01-06 09:25+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2022-01-13 14:25+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -1422,10 +1423,12 @@ msgid "manager.navigationMenus.archives.description"
 msgstr "Ligação para o arquivo de edições."
 
 msgid "manager.navigationMenus.announcements.description"
-msgstr "Ligação à página com os anúncios."
+msgstr "Link para a página com as notícias."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
-msgstr "Esta ligação só será apresentada se tiver ativado anúncios em Configurações > Website."
+msgstr ""
+"Este link só será exibido se tiver ativado as notícias em Configurações > "
+"Website."
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Ligação à página de autenticação."

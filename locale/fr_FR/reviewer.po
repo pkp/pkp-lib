@@ -1,11 +1,11 @@
+# Martin Brändle <martin.braendle@uzh.ch>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2020-12-15 09:58+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2022-01-12 09:42+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -112,3 +112,11 @@ msgstr "L'utilisateur courant n'est pas assigné comme rapporteur pour le docume
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Sauvegarder pour plus tard"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Envoyer aux évaluateurs"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Envoyez une copie de ce courriel de notification par BCC aux évaluateurs "
+"suivants."

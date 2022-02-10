@@ -1,0 +1,43 @@
+# Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-01-13 14:25+0000\n"
+"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
+"Language-Team: hy (generated) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/hy/>\n"
+"Language: hy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.website.information"
+msgstr "Տեղեկատվություն"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Ջնջել հայտարարությունը"
+
+msgid "manager.announcements.datePublish"
+msgstr "Հրատարակված է"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Ժամկետ"
+
+msgid "manager.announcements.createTitle"
+msgstr "Ստեղծել"
+
+msgid "manager.announcements.create"
+msgstr "Ստեղծել նոր հայտարարություն"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Վստա՞հ եք, որ ցանկանում եք ընդմիշտ ջնջել հայտարարությունը {$title}՞"
+
+msgid "manager.announcements"
+msgstr "Հայտարարություններ"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Պահանջվում է պատկերի ֆայլ: Համոզվեք, որ ընտրել և վերբեռնել եք ֆայլը:"
+
+msgid "manager.website.appearance"
+msgstr "Արտաքին տեսք"

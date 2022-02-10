@@ -1,7 +1,8 @@
+# Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-06 09:24+0000\n"
-"Last-Translator: Liana Arustamyan <lianaarustamyan33@gmail.com>\n"
+"PO-Revision-Date: 2022-01-13 14:25+0000\n"
+"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -12,10 +13,10 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "api.403.unauthorized"
-msgstr "Դուք նույնականացված չեք այս աղբյուրին հասանելիության համար"
+msgstr "Դուք նույնականացված չեք այս աղբյուրին հասանելիության համար։"
 
 msgid "api.400.paramNotSupported"
-msgstr "Այս {$param} պարամետրը չի դիտարկվում"
+msgstr "Այս {$param} պարամետրը չի դիտարկվում։"
 
 msgid "api.vocabs.400.vocabNotSupported"
 msgstr "{$vocab} բառապաշարը չի երաշխավորվում:"

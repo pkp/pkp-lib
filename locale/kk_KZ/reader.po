@@ -1,0 +1,81 @@
+# Beibarys <beibarys_sultan@mail.ru>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-02-08 03:37+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
+"Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
+"kk_KZ/>\n"
+"Language: kk_KZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "reader.fullText"
+msgstr "Толық мәтін:"
+
+msgid "comments.viewAllComments"
+msgstr "Барлық пікірлерді көру"
+
+msgid "comments.title"
+msgstr "Тақырыбы"
+
+msgid "comments.replies"
+msgstr "Жауаптар"
+
+msgid "comments.readMore"
+msgstr "Әрі қарай оқу"
+
+msgid "comments.readerComments"
+msgstr "Оқырмандардың пікірлері"
+
+msgid "comments.postReply"
+msgstr "Жауапты жариялау"
+
+msgid "comments.postAnonymously"
+msgstr "Бұл пікірді жасырын түрде жариялау"
+
+msgid "comments.oneReply"
+msgstr "(1 жауап)"
+
+msgid "comments.nReplies"
+msgstr "({$num} Жауаптар)"
+
+msgid "comments.noComments"
+msgstr "Оқырмандардың жарияланған пікірлері жоқ."
+
+msgid "comments.name"
+msgstr "Комментатордың аты"
+
+msgid "comments.inResponseTo"
+msgstr "Жауап ретінде <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.enterComment"
+msgstr "Пікір енгізу"
+
+msgid "comments.emailReply"
+msgstr "Электрондық пошта арқылы жауап беру"
+
+msgid "comments.email"
+msgstr "Пікір қалдырушының электрондық поштасы"
+
+msgid "comments.delete"
+msgstr "Осы пікірді жою"
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"Бұл пікірді жою оған берілген барлық жауаптарды жояды. Сіз мұны шынымен "
+"орындағыңыз келе ме?"
+
+msgid "comments.titleRequired"
+msgstr "Түсініктеменің тақырыбы міндетті түрде болуы керек."
+
+msgid "comments.body"
+msgstr "Пікір мәтіні"
+
+msgid "comments.anonymous"
+msgstr "Анонимді пайдаланушы"

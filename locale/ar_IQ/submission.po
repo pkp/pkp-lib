@@ -1,10 +1,10 @@
-# M. Ali <vorteem@gmail.com>, 2021.
+# M. Ali <vorteem@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2021-12-04 03:31+0000\n"
+"PO-Revision-Date: 2022-01-27 05:26+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar_IQ/>\n"
@@ -992,7 +992,7 @@ msgid "submission.submit.fileAdded"
 msgstr "الملف أُضيف"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "أتريد تضمين هذا المساهم في قوائم العرض؟"
+msgstr "تضمين هذا المساهم عند التعريف بالمؤلفين في قوائم النشر."
 
 msgid "submission.submit.newFile"
 msgstr "أضف ملفاً آخر"
@@ -1920,3 +1920,6 @@ msgstr "التراجع عن الرفض"
 
 msgid "category.category"
 msgstr "الفئات"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "قوائم النشر"

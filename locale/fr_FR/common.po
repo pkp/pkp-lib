@@ -1,10 +1,11 @@
+# Martin Brändle <martin.braendle@uzh.ch>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2021-02-01 13:53+0000\n"
-"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"PO-Revision-Date: 2022-01-11 16:19+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -2113,3 +2114,62 @@ msgstr "Modifier {$name}"
 
 msgid "common.inactive"
 msgstr "Inactif"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Le XML n'a pas pu être importé"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Cette transformation n'est pas supportée dans l'environnement de votre "
+"installation."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Le filtre ({$displayName}) prend en charge l'entrée {$inputTypeName} - "
+"{$typeofInput} donnée"
+
+msgid "validator.country"
+msgstr "Ce n'est pas un pays valide."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Cela ne peut contenir que des lettres, des chiffres, des tirets, des traits "
+"de soulignement et des points."
+
+msgid "validation.invalidOption"
+msgstr "Ce n'est pas une option valable."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Se désabonner"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Une erreur imprévue nous a empêché de désabonner l'adresse {$email}. Vous "
+"pouvez vous désabonner de toute notification par courriel en allant dans "
+"votre <a href=\"{$profileNotificationUrl}\">profil</a> ou en communiquant "
+"directement avec nous afin d'obtenir de l'assistance."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"L'adresse {$email} a été désabonnée. Nous ne vous enverrons plus ces "
+"courriels. Vous pouvez vous réabonner aux notifications par courriel en tout "
+"temps en allant dans votre <a href=\"{$profileNotificationUrl}\">profil</a>."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Vous pouvez vous réabonner aux notifications par courriel en tout temps en "
+"allant dans votre <a href=\"{$profileNotificationUrl}\">profil</a>."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Veuillez choisir les courriels que vous ne désirez plus recevoir à {$email} "
+"de {$contextName}."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Nous n'avons pas pu vous désabonner"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Vous avez été désabonné(e)"
+
+msgid "common.insert"
+msgstr "Insérer"

@@ -1,11 +1,12 @@
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-01-11 07:22+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2022-02-09 00:14+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -239,7 +240,7 @@ msgid "admin.error.executingUtil"
 msgstr "Fejl: Kan ikke eksekvere \"{$utilPath}\".  Tjek {$utilVar} indstillinger i config.inc.php."
 
 msgid "admin.languages.noLocalesToDownload"
-msgstr "Ingen sprog er tilgængelige for download."
+msgstr "Ingen sprog er tilgængelige til download."
 
 msgid "admin.scheduledTask"
 msgstr "Planlagt opgave"
@@ -263,7 +264,7 @@ msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Påmindelse om abonnementsophør"
 
 msgid "admin.systemInfo.settingName"
-msgstr "Indsættelse af navn"
+msgstr "Navn på indstilling"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "Indsættelse af værdi"
@@ -350,3 +351,129 @@ msgstr "Masse-emails"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Notifikation om redaktionel rapport"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Anvendelse:"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Forsøg"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Kø"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Opgave"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs"
+msgstr "Opgaver"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Vis opgaver i kø"
+
+msgid "admin.jobs.totalCount"
+msgstr "Der er totalt <strong>{$total}</strong> opgave(r) i kø"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Mente du én af følgende?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Valgmuligheden {$option} eksisterer ikke."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Vi har {$total} opgaver i kø"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Slettede alle opgaver!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Det var umuligt at slette alle opgaver."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Opgaven blev slettet!"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Næste"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Foregående"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Nuværende"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Forsøg"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Kø"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "Kommando [arguments]"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Opgaver i kø"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Muligheden kan ikke være tom! Kontroller anvendelsen."
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Vis brugsparametre for opgaver"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Vis brugen af opgavekommandoen"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Vis antal opgaver i køen"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Tilføj en test opgave til default køen"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Slet en specifik opgave i køen baseret på dets ID .Hvis du vil slette dem "
+"alle, brug parameteret --all. Hvis du vil slette alle opgaver i en specifik "
+"kø, brug parameteret  --queue="
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Liste over alle opgaver i køen. Hvis du vil sideopdele resultatet, så brug "
+"parametrene --page= and --perPage="
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Tilgængelige kommandoer for `{$namespace}` namespace:"
+
+#, fuzzy
+msgid "admin.jobs.createdAt"
+msgstr "Skabt den {$createdAt}"
+
+#, fuzzy
+msgid "admin.jobs.list.createdAt"
+msgstr "Skabt den"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Ugyldigt opgave ID"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Du skal som minimum angive opgave ID, '--all' eller '--queue=' for at bruge "
+"denne kommando"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Sidetal"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Skabt af"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Tilgængelig hos"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Reserveret til"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Opgavens visningsnavn"

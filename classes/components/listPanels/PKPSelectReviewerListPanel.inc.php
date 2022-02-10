@@ -24,10 +24,10 @@ class PKPSelectReviewerListPanel extends ListPanel
     /** @var int Number of items to show at one time */
     public $count = 30;
 
-    /** @var array List of user IDs already assigned as a reviewer to this submission */
+    /** @var array List of user IDs already assigned as a reviewer to this submission and to this review round */
     public $currentlyAssigned = [];
 
-    /** @var array Query parameters to pass if this list executes GET requests  */
+        /** @var array Query parameters to pass if this list executes GET requests  */
     public $getParams = [];
 
     /** @var int Count of total items available for list */
@@ -38,6 +38,9 @@ class PKPSelectReviewerListPanel extends ListPanel
 
     /** @var array List of user IDs which may not be suitable for anonymous review because of existing access to author details */
     public $warnOnAssignment = [];
+
+    /** @var Submission The submission associated with the review assignment */
+    public $submission;
 
     /**
      * @copydoc ListPanel::set()
@@ -108,6 +111,12 @@ class PKPSelectReviewerListPanel extends ListPanel
                 'max' => 75,
                 'valueLabel' => __('common.lessThan'),
             ],
+            [
+                'param' => 'showOnlyReviewersFromPreviousRoundsSubmissionId',
+                'value' => $this->submission->getId(),
+                'filterType' => 'pkp-filter',
+                'title' => __('reviewer.list.showOnlyReviewersFromPreviousRounds'),
+        ],
         ];
 
         if (!empty($this->getParams)) {

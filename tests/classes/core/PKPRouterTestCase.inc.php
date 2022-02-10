@@ -18,6 +18,7 @@
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.plugins.HookRegistry'); // This imports a mock HookRegistry implementation.
 
+use APP\core\Request;
 use PKP\core\PKPRouter;
 
 /**
@@ -346,7 +347,7 @@ class PKPRouterTestCase extends PKPTestCase
         $this->router->setDispatcher($dispatcher);
 
         // Mock request
-        $this->request = $this->getMockBuilder(PKPRequest::class)
+        $this->request = $this->getMockBuilder(Request::class)
             ->setMethods(['isPathInfoEnabled'])
             ->getMock();
         $this->request->setRouter($this->router);

@@ -11,9 +11,10 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration\upgrade\v3_4_0;
+namespace APP\migration\upgrade\v3_4_0;
 
 use APP\core\Application;
+use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 
@@ -55,8 +56,14 @@ class I6759_RenameVariables extends \PKP\migration\Migration
     private function _updateTablesWithReference()
     {
         Schema::rename('journals', 'servers');
+
+        try {
+            Schema::table('servers', fn (Blueprint $table) => $table->dropUnique('journals_path'));
+        } catch (Exception $e) {
+            Schema::table('servers', fn (Blueprint $table) => $table->dropIndex('journals_path'));
+        }
+
         Schema::table('servers', function (Blueprint $table) {
-            $table->dropIndex('journals_path');
             $table->renameColumn('journal_id', 'server_id');
             $table->float('seq', 8, 2)->comment('Used to order lists of servers')->change();
             $table->smallInteger('enabled')->default(1)->comment('Controls whether or not the server is considered "live" and will appear on the website. (Note that disabled servers may still be accessible, but only if the user knows the URL.)')->change();
@@ -64,9 +71,13 @@ class I6759_RenameVariables extends \PKP\migration\Migration
         });
 
         Schema::rename('journal_settings', 'server_settings');
+        try {
+            Schema::table('server_settings', fn (Blueprint $table) => $table->dropUnique('journal_settings_pkey'));
+        } catch (Exception $e) {
+            Schema::table('server_settings', fn (Blueprint $table) => $table->dropIndex('journal_settings_pkey'));
+        }
         Schema::table('server_settings', function (Blueprint $table) {
             $table->dropIndex('journal_settings_journal_id');
-            $table->dropIndex('journal_settings_pkey');
             $table->renameColumn('journal_id', 'server_id');
             $table->index(['server_id'], 'server_settings_server_id');
             $table->unique(['server_id', 'locale', 'setting_name'], 'server_settings_pkey');

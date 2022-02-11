@@ -25,14 +25,14 @@
 		<!-- Submissions with stage_id=WORKFLOW_STAGE_ID_SUBMISSION should be changed to stage_id=WORKFLOW_STAGE_ID_PRODUCTION, which is the only stage in OPS -->
 		<code function="changeSubmissionStageToProduction" />
 		<code function="installEmailTemplate" key="POSTED_ACK" locales="en_US" />
-		<migration class="PKP\migration\upgrade\PKPv3_3_0UpgradeMigration" />
 		<migration class="APP\migration\upgrade\OPSv3_3_0UpgradeMigration" />
 		<note file="docs/release-notes/README-3.3.0" />
 	</upgrade>
 
 	<upgrade minversion="3.1.0.0" maxversion="3.3.9.9">
-		<migration class="PKP\migration\upgrade\v3_4_0\PreflightCheckMigration" fallback="3.3.9.9" />
-		<migration class="PKP\migration\upgrade\v3_4_0\I6093_AddForeignKeys" />
+		<migration class="APP\migration\upgrade\v3_4_0\PreflightCheckMigration" fallback="3.3.9.9" />
+		<migration class="PKP\migration\install\ReviewFormsMigration" />
+		<migration class="APP\migration\upgrade\v3_4_0\I6093_AddForeignKeys" />
 		<migration class="PKP\migration\install\FailedJobsMigration" />
 		<migration class="PKP\migration\upgrade\v3_4_0\UpgradeMigration" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I4904_UsageStatsTemporaryRecords" />

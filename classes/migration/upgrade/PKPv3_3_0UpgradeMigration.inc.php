@@ -13,22 +13,43 @@
 
 namespace PKP\migration\upgrade;
 
-use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Schema\Blueprint;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use PKP\config\Config;
-use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
-
 use PKP\file\FileManager;
-use PKP\submissionFile\SubmissionFile;
 
-class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
+abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
 {
+    private const ASSOC_TYPE_REVIEW_ROUND = 0x000020B; //PKPApplication::ASSOC_TYPE_REVIEW_ROUND
+    private const ASSOC_TYPE_REVIEW_RESPONSE = 0x0000204; //PKPApplication::ASSOC_TYPE_REVIEW_RESPONSE
+
+    private const SUBMISSION_FILE_FAIR_COPY = 7; //SubmissionFile::SUBMISSION_FILE_FAIR_COPY
+    private const SUBMISSION_FILE_EDITOR = 8; //SubmissionFile::SUBMISSION_FILE_EDITOR
+    private const SUBMISSION_FILE_SUBMISSION = 2; //SubmissionFile::SUBMISSION_FILE_SUBMISSION
+    private const SUBMISSION_FILE_NOTE = 3; //SubmissionFile::SUBMISSION_FILE_NOTE
+    private const SUBMISSION_FILE_REVIEW_FILE = 4; //SubmissionFile::SUBMISSION_FILE_REVIEW_FILE
+    private const SUBMISSION_FILE_REVIEW_ATTACHMENT = 5; //SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT
+    private const SUBMISSION_FILE_REVIEW_REVISION = 15; //SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION
+    private const SUBMISSION_FILE_FINAL = 6; //SubmissionFile::SUBMISSION_FILE_FINAL
+    private const SUBMISSION_FILE_COPYEDIT = 9; //SubmissionFile::SUBMISSION_FILE_COPYEDIT
+    private const SUBMISSION_FILE_DEPENDENT = 17; //SubmissionFile::SUBMISSION_FILE_DEPENDENT
+    private const SUBMISSION_FILE_PROOF = 10; //SubmissionFile::SUBMISSION_FILE_PROOF
+    private const SUBMISSION_FILE_PRODUCTION_READY = 11; //SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY
+    private const SUBMISSION_FILE_ATTACHMENT = 13; //SubmissionFile::SUBMISSION_FILE_ATTACHMENT
+    private const SUBMISSION_FILE_QUERY = 18; //SubmissionFile::SUBMISSION_FILE_QUERY
+
+    abstract protected function getSubmissionPath(): string;
+    abstract protected function getContextPath(): string;
+    abstract protected function getContextTable(): string;
+    abstract protected function getContextKeyField(): string;
+    abstract protected function getContextSettingsTable(): string;
+    abstract protected function getSectionTable(): string;
+    abstract protected function getSerializedSettings(): array;
+
     /**
      * Run the migrations.
      */
@@ -55,12 +76,6 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             Schema::table('authors', function (Blueprint $table) {
                 // pkp/pkp-lib#2493 Remove obsolete columns
                 $table->dropColumn('submission_id');
-            });
-        }
-        if (Schema::hasColumn('author_settings', 'setting_type')) {
-            Schema::table('author_settings', function (Blueprint $table) {
-                // pkp/pkp-lib#2493 Remove obsolete columns
-                $table->dropColumn('setting_type');
             });
         }
         Schema::table('announcements', function (Blueprint $table) {
@@ -146,7 +161,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         });
 
         // pkp/pkp-lib#6057 Submission files refactor
-        $this->_migrateSubmissionFiles();
+        $this->migrateSubmissionFiles();
 
         $this->_fixCapitalCustomBlockTitles();
         $this->_createCustomBlockTitles();
@@ -154,10 +169,10 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         // Remove item views related to submission files and notes,
         // and convert the assoc_id to an integer
         DB::table('item_views')
-            ->where('assoc_type', '!=', ASSOC_TYPE_REVIEW_RESPONSE)
+            ->where('assoc_type', '!=', self::ASSOC_TYPE_REVIEW_RESPONSE)
             ->delete();
         // PostgreSQL requires an explicit type cast
-        if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
+        if (DB::connection() instanceof PostgresConnection) {
             DB::statement('ALTER TABLE item_views ALTER COLUMN assoc_id TYPE BIGINT USING (assoc_id::INTEGER)');
         } else {
             Schema::table('item_views', function (Blueprint $table) {
@@ -188,14 +203,11 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             'clockssLicense',
             'lockssLicense',
         ];
-        $contextDao = Application::getContextDAO();
-        $tableName = $contextDao->tableName;
-        $settingsTableName = $contextDao->settingsTableName;
-        $primaryKeyColumn = $contextDao->primaryKeyColumn;
-        $rows = DB::table($settingsTableName . ' as js')
-            ->join($tableName . ' as j', 'j.' . $primaryKeyColumn, '=', 'js.' . $primaryKeyColumn)
+
+        $rows = DB::table($this->getContextSettingsTable() . ' as js')
+            ->join($this->getContextSettingsTable() . ' as j', 'j.' . $this->getContextKeyField(), '=', 'js.' . $this->getContextKeyField())
             ->where('js.setting_name', '=', 'supportedFormLocales')
-            ->select(['js.' . $primaryKeyColumn . ' as id', 'js.setting_value as locales'])
+            ->select(['js.' . $this->getContextKeyField() . ' as id', 'js.setting_value as locales'])
             ->get();
         foreach ($rows as $row) {
             // account for some locale settings stored as assoc arrays
@@ -208,11 +220,39 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 $locales = json_decode($locales, true);
             }
             $locales = array_values($locales);
-            DB::table($settingsTableName)
-                ->where($primaryKeyColumn, '=', $row->id)
+            DB::table($this->getContextSettingsTable())
+                ->where($this->getContextKeyField(), '=', $row->id)
                 ->whereIn('setting_name', $settingsWithDefaults)
                 ->whereNotIn('locale', $locales)
                 ->delete();
+        }
+
+        Schema::table($this->getContextSettingsTable(), function (Blueprint $table) {
+            // pkp/pkp-lib#6096 DB field type TEXT is cutting off long content
+            $table->mediumText('setting_value')->nullable()->change();
+        });
+        if (!Schema::hasColumn($this->getSectionTable(), 'is_inactive')) {
+            Schema::table($this->getSectionTable(), function (Blueprint $table) {
+                $table->smallInteger('is_inactive')->default(0);
+            });
+        }
+        if (Schema::hasTable('review_forms')) {
+            Schema::table('review_forms', function (Blueprint $table) {
+                $table->bigInteger('assoc_type')->nullable(false)->change();
+                $table->bigInteger('assoc_id')->nullable(false)->change();
+            });
+        }
+
+        // pkp/pkp-lib#6807 Make sure all submission last modification dates are set
+        DB::statement('UPDATE submissions SET last_modified = NOW() WHERE last_modified IS NULL');
+
+        $this->_settingsAsJSON();
+
+        if (Schema::hasColumn('author_settings', 'setting_type')) {
+            Schema::table('author_settings', function (Blueprint $table) {
+                // pkp/pkp-lib#2493 Remove obsolete columns
+                $table->dropColumn('setting_type');
+            });
         }
     }
 
@@ -244,13 +284,18 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
      */
     private function _makeRemoteUrlLocalizable()
     {
-        $contextService = Services::get('context');
-        $contextIds = $contextService->getIds();
-        foreach ($contextIds as $contextId) {
-            $context = $contextService->get($contextId);
-            $locales = $context->getData('supportedLocales');
+        $contexts = DB::table($this->getContextTable() . ' AS c')
+            ->join($this->getContextSettingsTable() . ' AS s', 's.' . $this->getContextKeyField(), '=', 'c.' . $this->getContextKeyField())
+            ->where('s.setting_name', '=' , 'supportedLocales')
+            ->select(['c.' . $this->getContextKeyField() . ' AS id' , 's.setting_value AS supported_locales'])
+            ->get();
+        
+        foreach ($contexts as $context) {
+            if (($locales = @unserialize($context->supported_locales)) === false) {
+                continue;
+            }
 
-            $navigationItems = DB::table('navigation_menu_items')->where('context_id', $contextId)->pluck('url', 'navigation_menu_item_id')->filter()->all();
+            $navigationItems = DB::table('navigation_menu_items')->where('context_id', $context->id)->pluck('url', 'navigation_menu_item_id')->filter()->all();
             foreach ($navigationItems as $navigation_menu_item_id => $url) {
                 foreach ($locales as $locale) {
                     DB::table('navigation_menu_item_settings')->insert([
@@ -264,19 +309,22 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             }
         }
 
-        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-        $site = $siteDao->getSite();
-        $supportedLocales = $site->getSupportedLocales();
-        $navigationItems = DB::table('navigation_menu_items')->where('context_id', '0')->pluck('url', 'navigation_menu_item_id')->filter()->all();
-        foreach ($navigationItems as $navigation_menu_item_id => $url) {
-            foreach ($supportedLocales as $locale) {
-                DB::table('navigation_menu_item_settings')->insert([
-                    'navigation_menu_item_id' => $navigation_menu_item_id,
-                    'locale' => $locale,
-                    'setting_name' => 'remoteUrl',
-                    'setting_value' => $url,
-                    'setting_type' => 'string'
-                ]);
+        $site = DB::table('site')
+            ->select('supported_locales')
+            ->first();
+        $supportedLocales = @unserialize($site->supported_locales);
+        if ($supportedLocales !== false) {
+            $navigationItems = DB::table('navigation_menu_items')->where('context_id', '0')->pluck('url', 'navigation_menu_item_id')->filter()->all();
+            foreach ($navigationItems as $navigation_menu_item_id => $url) {
+                foreach ($supportedLocales as $locale) {
+                    DB::table('navigation_menu_item_settings')->insert([
+                        'navigation_menu_item_id' => $navigation_menu_item_id,
+                        'locale' => $locale,
+                        'setting_name' => 'remoteUrl',
+                        'setting_value' => $url,
+                        'setting_type' => 'string'
+                    ]);
+                }
             }
         }
 
@@ -296,7 +344,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
      *
      * @see pkp/pkp-lib#6057
      */
-    private function _migrateSubmissionFiles()
+    protected function migrateSubmissionFiles()
     {
         // pkp/pkp-lib#6616 Delete submission_files entries that correspond to nonexistent submissions
         $orphanedIds = DB::table('submission_files AS sf')->leftJoin('submissions AS s', 'sf.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('sf.submission_id', 'sf.file_id');
@@ -306,9 +354,10 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         }
 
         // Add partial index (DBMS-specific)
-        switch (DB::getDriverName()) {
-            case 'mysql': DB::unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'); break;
-            case 'pgsql': DB::unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')"); break;
+        if (DB::connection() instanceof PostgresConnection) {
+            DB::unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')");
+        } else {
+            DB::unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))');
         }
 
         // Create a new table to track files in file storage
@@ -368,10 +417,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             );
             $path = sprintf(
                 '%s/%s/%s',
-                Repo::submissionFile()->getSubmissionDir(
-                    $row->context_id,
-                    $row->submission_id
-                ),
+                $this->getContextPath() . '/' . $row->context_id . '/' . $this->getSubmissionPath() . '/' . $row->submission_id,
                 $this->_fileStageToPath($row->file_stage),
                 $filename
             );
@@ -465,9 +511,9 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             // Run this before migration to internal review file stages
             DB::table('submission_files')
                 ->where('file_id', '=', $row->file_id)
-                ->whereIn('file_stage', [SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
+                ->whereIn('file_stage', [self::SUBMISSION_FILE_REVIEW_FILE, self::SUBMISSION_FILE_REVIEW_REVISION])
                 ->update([
-                    'assoc_type' => ASSOC_TYPE_REVIEW_ROUND,
+                    'assoc_type' => self::ASSOC_TYPE_REVIEW_ROUND,
                     'assoc_id' => $row->review_round_id,
                 ]);
         }
@@ -483,7 +529,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         // Update file name of dependent files, see: pkp/pkp-lib#6801
         DB::table('submission_files')
             ->select('file_id', 'original_file_name')
-            ->where('file_stage', '=', SubmissionFile::SUBMISSION_FILE_DEPENDENT)
+            ->where('file_stage', '=', self::SUBMISSION_FILE_DEPENDENT)
             ->chunkById(1000, function ($dependentFiles) {
                 foreach ($dependentFiles as $dependentFile) {
                     DB::table('submission_file_settings')
@@ -576,7 +622,7 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
 
         // Postgres leaves the old file_id autoincrement sequence around, so
         // we delete it and apply a new sequence.
-        if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
+        if (DB::connection() instanceof PostgresConnection) {
             DB::statement('DROP SEQUENCE submission_files_file_id_seq CASCADE');
             Schema::table('submission_files', function (Blueprint $table) {
                 $table->bigIncrements('submission_file_id')->change();
@@ -594,27 +640,27 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
     private function _fileStageToPath($fileStage)
     {
         static $fileStagePathMap = [
-            SubmissionFile::SUBMISSION_FILE_SUBMISSION => 'submission',
-            SubmissionFile::SUBMISSION_FILE_NOTE => 'note',
-            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE => 'submission/review',
-            SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT => 'submission/review/attachment',
-            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION => 'submission/review/revision',
-            SubmissionFile::SUBMISSION_FILE_FINAL => 'submission/final',
-            7 /* SUBMISSION_FILE_FAIR_COPY */ => 'submission/fairCopy',
-            8 /* SUBMISSION_FILE_EDITOR */ => 'submission/editor',
-            SubmissionFile::SUBMISSION_FILE_COPYEDIT => 'submission/copyedit',
-            SubmissionFile::SUBMISSION_FILE_DEPENDENT => 'submission/proof',
-            SubmissionFile::SUBMISSION_FILE_PROOF => 'submission/proof',
-            SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
-            SubmissionFile::SUBMISSION_FILE_ATTACHMENT => 'attachment',
-            SubmissionFile::SUBMISSION_FILE_QUERY => 'submission/query',
+            self::SUBMISSION_FILE_SUBMISSION => 'submission',
+            self::SUBMISSION_FILE_NOTE => 'note',
+            self::SUBMISSION_FILE_REVIEW_FILE => 'submission/review',
+            self::SUBMISSION_FILE_REVIEW_ATTACHMENT => 'submission/review/attachment',
+            self::SUBMISSION_FILE_REVIEW_REVISION => 'submission/review/revision',
+            self::SUBMISSION_FILE_FINAL => 'submission/final',
+            self::SUBMISSION_FILE_FAIR_COPY => 'submission/fairCopy',
+            self::SUBMISSION_FILE_EDITOR => 'submission/editor',
+            self::SUBMISSION_FILE_COPYEDIT => 'submission/copyedit',
+            self::SUBMISSION_FILE_DEPENDENT => 'submission/proof',
+            self::SUBMISSION_FILE_PROOF => 'submission/proof',
+            self::SUBMISSION_FILE_PRODUCTION_READY => 'submission/productionReady',
+            self::SUBMISSION_FILE_ATTACHMENT => 'attachment',
+            self::SUBMISSION_FILE_QUERY => 'submission/query'
         ];
 
         if (!isset($fileStagePathMap[$fileStage])) {
             error_log('A file assigned to the file stage ' . $fileStage . ' could not be migrated.');
         }
 
-        return $fileStagePathMap[$fileStage];
+        return $fileStagePathMap[$fileStage] ?? null;
     }
 
     /**
@@ -663,8 +709,6 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
      */
     private function _createCustomBlockTitles()
     {
-        $contextDao = \Application::get()->getContextDAO();
-
         $rows = DB::table('plugin_settings')
             ->where('plugin_name', 'customblockmanagerplugin')
             ->where('setting_name', 'blocks')
@@ -672,8 +716,8 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
 
         $newRows = [];
         foreach ($rows as $row) {
-            $locale = DB::table($contextDao->tableName)
-                ->where($contextDao->primaryKeyColumn, $row->context_id)
+            $locale = DB::table($this->getContextTable())
+                ->where($this->getContextKeyField(), $row->context_id)
                 ->first()
                 ->primary_locale;
             $blocks = unserialize($row->setting_value);
@@ -690,5 +734,123 @@ class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         if (!DB::table('plugin_settings')->insert($newRows)) {
             error_log('Failed to create title for custom blocks. This can be fixed manually by editing each custom block and adding a title.');
         }
+    }
+
+    /**
+     * @brief reset serialized arrays and convert array and objects to JSON for serialization, see pkp/pkp-lib#5772
+     */
+    private function _settingsAsJSON()
+    {
+        $serializedSettings = $this->getSerializedSettings();
+        $processedTables = [];
+        foreach ($serializedSettings as $tableName => $settings) {
+            $processedTables[] = $tableName;
+            foreach ($settings as $setting) {
+                DB::table($tableName)->where('setting_name', $setting)->get()->each(function ($row) use ($tableName) {
+                    $this->_toJSON($row, $tableName, ['setting_name', 'locale'], 'setting_value');
+                });
+            }
+        }
+
+        // Convert settings where only setting_type column is available
+        $tables = DB::getDoctrineSchemaManager()->listTableNames();
+        foreach ($tables as $tableName) {
+            if (substr($tableName, -9) !== '_settings' || in_array($tableName, $processedTables)) {
+                continue;
+            }
+            if ($tableName === 'plugin_settings') {
+                DB::table($tableName)->where('setting_type', 'object')->get()->each(function ($row) use ($tableName) {
+                    $this->_toJSON($row, $tableName, ['plugin_name', 'context_id', 'setting_name'], 'setting_value');
+                });
+            } elseif (Schema::hasColumn($tableName, 'setting_type')) {
+                DB::table($tableName)->where('setting_type', 'object')->get()->each(function ($row) use ($tableName) {
+                    $this->_toJSON($row, $tableName, ['setting_name', 'locale'], 'setting_value');
+                });
+            }
+        }
+
+        // Finally, convert values of other tables dependent from DAO::convertToDB
+        if (Schema::hasTable('review_form_responses')) {
+            DB::table('review_form_responses')->where('response_type', 'object')->get()->each(function ($row) {
+                $this->_toJSON($row, 'review_form_responses', ['review_id'], 'response_value');
+            });
+        }
+
+        DB::table('site')->get()->each(function ($row) {
+            $localeToConvert = function ($localeType) use ($row) {
+                $serializedValue = $row->{$localeType};
+                $oldLocaleValue = @unserialize($serializedValue);
+                if ($oldLocaleValue === false) {
+                    return;
+                }
+
+                if (is_array($oldLocaleValue) && $this->_isNumerical($oldLocaleValue)) {
+                    $oldLocaleValue = array_values($oldLocaleValue);
+                }
+
+                $newLocaleValue = json_encode($oldLocaleValue, JSON_UNESCAPED_UNICODE);
+                DB::table('site')->take(1)->update([$localeType => $newLocaleValue]);
+            };
+
+            $localeToConvert('installed_locales');
+            $localeToConvert('supported_locales');
+        });
+    }
+
+    /**
+     * @param object $row row representation
+     * @param string $tableName name of a settings table
+     * @param array $searchBy additional parameters to the where clause that should be combined with AND operator
+     * @param string $valueToConvert column name for values to convert to JSON
+     */
+    private function _toJSON($row, $tableName, $searchBy, $valueToConvert)
+    {
+        // Check if value can be unserialized
+        $serializedOldValue = $row->{$valueToConvert};
+        $oldValue = @unserialize($serializedOldValue);
+        if ($oldValue === false) {
+            return;
+        }
+
+        // Reset arrays to avoid keys being mixed up
+        if (is_array($oldValue) && $this->_isNumerical($oldValue)) {
+            $oldValue = array_values($oldValue);
+        }
+        $newValue = json_encode($oldValue, JSON_UNESCAPED_UNICODE); // don't convert utf-8 characters to unicode escaped code
+
+        $id = array_key_first((array)$row); // get first/primary key column
+
+        // Remove empty filters
+        $searchBy = array_filter($searchBy, function ($item) use ($row) {
+            if (empty($row->{$item})) {
+                return false;
+            }
+            return true;
+        });
+
+        $queryBuilder = DB::table($tableName)->where($id, $row->{$id});
+        foreach ($searchBy as $key => $column) {
+            $queryBuilder = $queryBuilder->where($column, $row->{$column});
+        }
+        $queryBuilder->update([$valueToConvert => $newValue]);
+    }
+
+    /**
+     * @param array $array to check
+     *
+     * @return bool
+     * @brief checks unserialized array; returns true if array keys are integers
+     * otherwise if keys are mixed and sequence starts from any positive integer it will be serialized as JSON object instead of an array
+     * See pkp/pkp-lib#5690 for more details
+     */
+    private function _isNumerical($array)
+    {
+        foreach ($array as $item => $value) {
+            if (!is_integer($item)) {
+                return false;
+            } // is an associative array;
+        }
+
+        return true;
     }
 }

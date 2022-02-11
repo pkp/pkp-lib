@@ -541,7 +541,7 @@ class Collector implements CollectorInterface
      */
     protected function buildSearchFilter(Builder $query): self
     {
-        if (!strlen($searchPhrase = trim($this->searchPhrase))) {
+        if ($this->searchPhrase === null || !strlen($searchPhrase = trim($this->searchPhrase))) {
             return $this;
         }
         // Settings where the search will be performed

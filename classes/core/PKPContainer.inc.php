@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\Domains\Jobs\Providers\JobServiceProvider;
 use PKP\i18n\PKPLocale;
+use PKP\Support\ProxyParser;
 use Sokil\IsoCodes\IsoCodesFactory;
 use Sokil\IsoCodes\TranslationDriver\GettextExtensionDriver;
 
@@ -49,6 +50,7 @@ class PKPContainer extends Container
     public function __construct()
     {
         $this->basePath = BASE_SYS_DIR;
+        $this->settingProxyForStreamContext();
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
     }
@@ -273,6 +275,49 @@ class PKPContainer extends Container
         }
 
         return $default;
+    }
+
+    /**
+     * Setting a proxy on the stream_context_set_default when configuration [proxy] is filled
+     */
+    protected function settingProxyForStreamContext(): void
+    {
+        $proxy = new ProxyParser();
+
+        if ($httpProxy = Config::getVar('proxy', 'http_proxy')) {
+            $proxy->parseFQDN($httpProxy);
+        }
+
+        if ($httpsProxy = Config::getVar('proxy', 'https_proxy')) {
+            $proxy->parseFQDN($httpsProxy);
+        }
+
+        if ($proxy->isEmpty()) {
+            return;
+        }
+
+        /**
+         * `Connection close` here its to avoid slowness. More info at https://www.php.net/manual/en/context.http.php#114867
+         * `request_fulluri` its related to avoid proxy errors. More info at https://www.php.net/manual/en/context.http.php#110449
+         */
+        $opts = [
+            'http' => [
+                'protocol_version' => 1.1,
+                'header' => [
+                    'Connection: close',
+                ],
+                'proxy' => $proxy->getProxy(),
+                'request_fulluri' => true,
+            ],
+        ];
+
+        if ($proxy->getAuth()) {
+            $opts['http']['header'][] = 'Proxy-Authorization: Basic ' . $proxy->getAuth();
+        }
+
+        $context = stream_context_create($opts);
+        stream_context_set_default($opts);
+        libxml_set_streams_context($context);
     }
 }
 

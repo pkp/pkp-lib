@@ -24,7 +24,6 @@
 namespace PKP\xslt;
 
 use DOMDocument;
-
 use PKP\filter\TypeDescription;
 
 class XMLTypeDescription extends TypeDescription

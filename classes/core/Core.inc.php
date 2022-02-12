@@ -227,7 +227,7 @@ class Core {
 	 * @return string|bool The url without base url,
 	 * false if it was not possible to remove it.
 	 */
-	function removeBaseUrl($url) {
+	static function removeBaseUrl($url) {
 		list($baseUrl, $contextPath) = Core::_getBaseUrlAndPath($url);
 
 		if (!$baseUrl) return false;

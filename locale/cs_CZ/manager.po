@@ -2282,7 +2282,7 @@ msgstr "Emailová adresa odesilatele"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Celé jméno odesilatele"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Adresa URL zadání recenze"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

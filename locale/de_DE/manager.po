@@ -2253,7 +2253,7 @@ msgstr "Die E-Mail-Adresse der Absenderin/des Absenders"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Der volle Name der Absenderin/des Absenders"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Die URL zu der zugeordneten Begutachtung"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

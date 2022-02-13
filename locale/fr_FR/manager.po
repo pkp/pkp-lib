@@ -2403,7 +2403,7 @@ msgstr "L'adresse de courriel de l'expéditeur/de l'expéditrice"
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Le nom complet de l'expéditeur/de l'expéditrice"
 
-msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "L'URL de la mission d'examen"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"

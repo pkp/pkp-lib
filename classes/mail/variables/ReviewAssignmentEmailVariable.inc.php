@@ -26,7 +26,7 @@ class ReviewAssignmentEmailVariable extends Variable
 {
     public const REVIEW_DUE_DATE = 'reviewDueDate';
     public const RESPONSE_DUE_DATE = 'responseDueDate';
-    public const SUBMISSION_REVIEW_URL = 'submissionReviewUrl';
+    public const REVIEW_ASSIGNMENT_URL = 'reviewAssignmentUrl';
 
     protected ReviewAssignment $reviewAssignment;
     protected PKPSubmission $submission;
@@ -49,7 +49,7 @@ class ReviewAssignmentEmailVariable extends Variable
         [
             self::REVIEW_DUE_DATE => __('emailTemplate.variable.recipient.reviewDueDate'),
             self::RESPONSE_DUE_DATE => __('emailTemplate.variable.recipient.responseDueDate'),
-            self::SUBMISSION_REVIEW_URL => __('emailTemplate.variable.recipient.submissionReviewUrl'),
+            self::REVIEW_ASSIGNMENT_URL => __('eemailTemplate.variable.recipient.reviewAssignmentUrl'),
         ];
     }
 
@@ -62,7 +62,7 @@ class ReviewAssignmentEmailVariable extends Variable
         [
             self::REVIEW_DUE_DATE => $this->getReviewDueDate($locale),
             self::RESPONSE_DUE_DATE => $this->getResponseDueDate($locale),
-            self::SUBMISSION_REVIEW_URL => $this->getSubmissionUrl(),
+            self::REVIEW_ASSIGNMENT_URL => $this->getSubmissionUrl(),
         ];
     }
 

@@ -18,29 +18,29 @@ use Illuminate\Support\Facades\Facade;
 use PKP\i18n\interfaces\LocaleInterface;
 
 /**
- * @method static mixed get(string $key, array $replace = [], $locale = null)
- * @method static string choice(string $key, int $number, array $replace = [], string $locale = null)
- * @method static string getLocale()
- * @method static void setLocale(string $locale)
- * @method static string getPrimaryLocale()
- * @method static void registerPath(string $path, int $priority = 0)
- * @method static void registerLoader(callable $fileLoader, int $priority = 0)
- * @method static bool isLocaleValid(string $locale)
- * @method static \PKP\i18n\LocaleMetadata getMetadata(string $locale)
- * @method static \PKP\i18n\LocaleMetadata[] getLocales()
- * @method static void installLocale(string $locale)
- * @method static void uninstallLocale(string $locale)
- * @method static bool isSupported(string $locale)
- * @method static array getSupportedFormLocales()
- * @method static array getSupportedLocales()
- * @method static void setMissingKeyHandler(callable $handler)
- * @method static callable getMissingKeyHandler()
- * @method static \PKP\i18n\translation\LocaleBundle getBundle(?string $locale = null, bool $useCache = true)
- * @method static string getDefaultLocale()
- * @method static \Sokil\IsoCodes\Database\Countries getCountries(?string $locale = null)
- * @method static \Sokil\IsoCodes\Database\Currencies getCurrencies(?string $locale = null)
- * @method static \Sokil\IsoCodes\Database\LanguagesInterface getLanguages(?string $locale = null)
- * @method static \Sokil\IsoCodes\Database\Scripts getScripts(?string $locale = null)
+ * @method static mixed get(string $key, array $replace = [], $locale = null) Get the translation for a given key.
+ * @method static string choice(string $key, int $number, array $replace = [], string $locale = null) Get a translation according to an integer value.
+ * @method static string getLocale() Get the default locale being used.
+ * @method static void setLocale(string $locale) Set the default locale.
+ * @method static string getPrimaryLocale() Deprecated on 3.4.0, use Context::getPrimaryLocale()
+ * @method static void registerPath(string $path, int $priority = 0) Register a locale folder
+ * @method static void registerLoader(callable $fileLoader, int $priority = 0) Register a locale file loader
+ * @method static bool isLocaleValid(string $locale) Check if the supplied locale is valid.
+ * @method static \PKP\i18n\LocaleMetadata getMetadata(string $locale) Retrieves the metadata of a locale
+ * @method static \PKP\i18n\LocaleMetadata[] getLocales() Retrieves a list of available locales with their metadata
+ * @method static void installLocale(string $locale) Install support for a new locale.
+ * @method static void uninstallLocale(string $locale) Uninstall support for an existing locale.
+ * @method static bool isSupported(string $locale) Retrieves whether the given locale is in the list of supported locales
+ * @method static array getSupportedFormLocales() Deprecated on 3.4.0, use Context::getSupportedFormLocales()
+ * @method static array getSupportedLocales() Deprecated 3.4.0, use Context::getSupportedLocales()
+ * @method static void setMissingKeyHandler(callable $handler) Sets the handler to format missing locale keys
+ * @method static callable getMissingKeyHandler() Retrieves the handler to format missing locale keys
+ * @method static \PKP\i18n\translation\LocaleBundle getBundle(?string $locale = null, bool $useCache = true) Retrieves a locale bundle to translate texts.
+ * @method static string getDefaultLocale() Retrieves the default locale
+ * @method static \Sokil\IsoCodes\Database\Countries getCountries(?string $locale = null) Retrieve the countries
+ * @method static \Sokil\IsoCodes\Database\Currencies getCurrencies(?string $locale = null) Retrieve the currencies
+ * @method static \Sokil\IsoCodes\Database\LanguagesInterface getLanguages(?string $locale = null) Retrieve the languages
+ * @method static \Sokil\IsoCodes\Database\Scripts getScripts(?string $locale = null) Retrieve the scripts
  */
 
 class Locale extends Facade

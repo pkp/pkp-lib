@@ -38,6 +38,7 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
 
     /**
      * Attempts to retrieve the primary locale for the current context, if not available, then for the site.
+     * @deprecated 3.4.0 Use Context::getPrimaryLocale()
      */
     public function getPrimaryLocale(): string;
 
@@ -94,12 +95,14 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
 
     /**
      * Get all supported form locales for the current context (if not available, then from the site).
+     * @deprecated 3.4.0 Use Context::getSupportedFormLocales()
      * @return string[]
      */
     public function getSupportedFormLocales(): array;
 
     /**
      * Get all supported locales for the current context (if not available, then from the site).
+     * @deprecated 3.4.0 Use Context::getSupportedLocales()
      * @return string[]
      */
     public function getSupportedLocales(): array;

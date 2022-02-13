@@ -29,7 +29,7 @@ class PKPQueueProvider
     {
         $disableRun = Config::getVar('queues', 'disable_jobs_run_at_shutdown', false);
 
-        if ($disableRun || !Application::isReady()) {
+        if ($disableRun || Application::isUnderMaintenance()) {
             return;
         }
 

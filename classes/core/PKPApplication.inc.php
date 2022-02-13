@@ -983,11 +983,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     }
 
     /**
-     * Retrieves whether the application is ready (installed and not being upgraded)
+     * Retrieves whether the application is under maintenance (not installed or being upgraded)
      */
-    public static function isReady(): bool
+    public static function isUnderMaintenance(): bool
     {
-        return static::isInstalled() && !static::isUpgrading();
+        return !static::isInstalled() || static::isUpgrading();
     }
 
     /**

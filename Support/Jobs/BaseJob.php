@@ -57,7 +57,7 @@ abstract class BaseJob implements ShouldQueue
 
     protected function defaultConnection(): string
     {
-        if (!Application::isReady()) {
+        if (Application::isUnderMaintenance()) {
             return 'sync';
         }
 

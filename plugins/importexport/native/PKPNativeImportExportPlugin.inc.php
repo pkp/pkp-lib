@@ -57,7 +57,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
     public function register($category, $path, $mainContextId = null)
     {
         $success = parent::register($category, $path, $mainContextId);
-        if (!Application::isReady()) {
+        if (Application::isUnderMaintenance()) {
             return $success;
         }
         if ($success && $this->getEnabled()) {

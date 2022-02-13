@@ -119,18 +119,9 @@ class LocaleBundle
             array_walk($this->paths, fn (int $_, string $path) => $translator->addTranslations(LocaleFile::loadArray($path, $isSupported)));
             return $translator;
         };
-        return $this->translator ??= $isSupported
-            ? Cache::remember($this->_getCacheKey(), DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME), $loader)
-            : $loader();
-    }
-
-    /**
-     * Retrieves a cache key based on the path and modification date of all locale files
-     */
-    private function _getCacheKey(): string
-    {
-        $key = array_reduce(array_keys($this->paths), fn(string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
-        return __METHOD__ . static::MAX_CACHE_LIFETIME . ".${key}";
+        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(array_keys($this->paths), fn(string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
+        $expiration = DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
+        return $this->translator ??= $isSupported ? Cache::remember($key, $expiration, $loader) : $loader();
     }
 
     /**

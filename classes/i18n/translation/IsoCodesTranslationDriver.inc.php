@@ -66,9 +66,9 @@ class IsoCodesTranslationDriver implements TranslationDriverInterface
             if (file_exists($path)) {
                 // Check if it's installed before caching the ISO codes (huge dataset), just to avoid a slow installation page
                 $loader = fn () => Translator::createFromTranslationsArray(LocaleFile::loadArray($path, Application::isInstalled()));
-                $this->translator = Application::isInstalled()
-                    ? Cache::remember($this->_getCacheKey($path), DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME), $loader)
-                    : $loader();
+                $key = __METHOD__ . static::MAX_CACHE_LIFETIME . $path . filemtime($path);
+                $expiration = DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
+                $this->translator = Application::isInstalled() ? Cache::remember($key, $expiration, $loader) : $loader();
                 break;
             }
         }
@@ -88,13 +88,5 @@ class IsoCodesTranslationDriver implements TranslationDriverInterface
     public function translate(string $isoNumber, string $message): string
     {
         return ($this->translator ? $this->translator->getSingular($message) : $message) ?: $message;
-    }
-
-    /**
-     * Retrieves the cache key
-     */
-    private static function _getCacheKey(string $path): string
-    {
-        return __METHOD__ . static::MAX_CACHE_LIFETIME . '.' . sha1($path . filemtime($path));
     }
 }

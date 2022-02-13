@@ -213,22 +213,20 @@ class Locale implements LocaleInterface
      */
     public function getLocales(): array
     {
-        return $this->locales ??= Cache::remember(
-            __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(array_keys($this->paths), fn(string $hash, string $path): string => sha1($hash . $path), ''),
-            DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME),
-            function () {
-                $locales = [];
-                foreach (array_keys($this->paths) as $folder) {
-                    foreach (new DirectoryIterator($folder) as $cursor) {
-                        if ($cursor->isDir() && $this->isLocaleValid($cursor->getBasename())) {
-                            $locales[$cursor->getBasename()] ??= LocaleMetadata::create($cursor->getBasename());
-                        }
+        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(array_keys($this->paths), fn(string $hash, string $path): string => sha1($hash . $path), '');
+        $expiration = DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
+        return $this->locales ??= Cache::remember($key, $expiration, function () {
+            $locales = [];
+            foreach (array_keys($this->paths) as $folder) {
+                foreach (new DirectoryIterator($folder) as $cursor) {
+                    if ($cursor->isDir() && $this->isLocaleValid($cursor->getBasename())) {
+                        $locales[$cursor->getBasename()] ??= LocaleMetadata::create($cursor->getBasename());
                     }
                 }
-                ksort($locales);
-                return $locales;
             }
-        );
+            ksort($locales);
+            return $locales;
+        });
     }
 
     /**

@@ -65,16 +65,7 @@ abstract class LocaleFile
     public static function loadArray(string $path, bool $useCache = false): array
     {
         $loader = fn() => (new ArrayGenerator())->generateArray(static::loadTranslations($path));
-        return $useCache
-            ? Cache::remember(static::_getCacheKey($path), DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME), $loader)
-            : $loader();
-    }
-
-    /**
-     * Retrieves the cache key
-     */
-    private static function _getCacheKey(string $path): string
-    {
-        return __METHOD__ . static::MAX_CACHE_LIFETIME . '.' . sha1($path . filemtime($path));
+        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . $path . filemtime($path);
+        return $useCache ? Cache::remember($key, DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME), $loader) : $loader();
     }
 }

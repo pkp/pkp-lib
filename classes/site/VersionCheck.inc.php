@@ -18,7 +18,7 @@
 namespace PKP\site;
 
 use APP\core\Application;
-use DateTime;
+use DateInterval;
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
@@ -29,6 +29,9 @@ use SimpleXMLElement;
 
 class VersionCheck
 {
+    /** Max lifetime for the version cache */
+    protected const MAX_CACHE_LIFETIME = '1 year';
+
     public const VERSION_CODE_PATH = 'dbscripts/xml/version.xml';
 
     /**
@@ -83,9 +86,10 @@ class VersionCheck
      */
     public static function parseVersionXML(string $path): ?array
     {
-        $key = __METHOD__ . $path;
-        $cache = Cache::get($key);
-        if (!is_array($cache) || FileManager::isVirtualPath($path) || filemtime($path) > ($cache['createdAt'] ?? new DateTime())->getTimestamp()) {
+        $isVirtual = FileManager::isVirtualPath($path);
+        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . $path . ($isVirtual ? '' : filemtime($path));
+        $expiration = $isVirtual ? 0 : DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
+        $version = Cache::remember($key, $expiration, function () use ($path) {
             $xml = new SimpleXMLElement(FileManager::getStream($path));
             $version = [];
             foreach (['application', 'class', 'type', 'release', 'tag', 'date', 'info', 'package', 'lazy-load', 'sitewide'] as $name) {
@@ -101,15 +105,10 @@ class VersionCheck
                     $version['patch'][$patch['from']] = (string) $patch;
                 }
             }
-            $cache = [
-                'createdAt' => new DateTime(),
-                'data' => $version
-            ];
-            Cache::put($key, $cache);
-        }
-        $version = $cache['data'];
+            return $version;
+        });
 
-        // Built outside of the cache to avoid serializing the Version (which would need a __set_state implementation)
+        // Built outside of the cache section to avoid serializing the Version (which would need a __set_state implementation)
         if (isset($version['release']) && isset($version['application'])) {
             $version['version'] = Version::fromString(
                 $version['release'] ?? '',

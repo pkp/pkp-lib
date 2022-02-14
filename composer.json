@@ -5,7 +5,7 @@
 		"components/jquery": "^3.5",
 		"wikimedia/less.php": "3.*",
 		"phpmailer/phpmailer": "6.*",
-		"smarty/smarty": "3.*",
+		"smarty/smarty": "4.*",
 		"ezyang/htmlpurifier": "4.*",
 		"moxiecode/plupload": "2.*",
 		"tinymce/tinymce": "^5.7",
@@ -47,7 +47,8 @@
 	"extra": {
 		"patches": {
 			"adodb/adodb-php": {
-				"Apply PKP ADODB patches": "lib/adodb.diff"
+				"Apply PKP ADODB patches": "lib/adodb.diff",
+				"Apply PKP ADODB patches": "lib/adodb-php8.1.diff"
 			},
 			"laravel/framework": {
 				"Inhibit __ Laravel helper": "lib/laravel-helper-4017.diff",

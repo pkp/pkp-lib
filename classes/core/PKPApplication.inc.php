@@ -135,7 +135,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public function __construct()
     {
         // Seed random number generator
-        mt_srand(((float) microtime()) * 1000000);
+        mt_srand(intval(((float) microtime()) * 1000000));
 
         if (!defined('PKP_STRICT_MODE')) {
             define('PKP_STRICT_MODE', (bool) Config::getVar('general', 'strict'));

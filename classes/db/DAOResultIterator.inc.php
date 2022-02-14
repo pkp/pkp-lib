@@ -38,7 +38,7 @@ class DAOResultIterator implements \Iterator, \Countable
     /**
      * @copydoc Iterator::current
      */
-    public function current()
+    public function current(): mixed
     {
         return $this->_current;
     }
@@ -50,7 +50,7 @@ class DAOResultIterator implements \Iterator, \Countable
      *
      * @return int|null
      */
-    public function key()
+    public function key(): mixed
     {
         if (!$this->_current) {
             return null;

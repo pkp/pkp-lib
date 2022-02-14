@@ -9,7 +9,7 @@
  *}
 
 
-<div {if $FBV_id}id="{$FBV_id|escape}" {/if}class="section {$FBV_class|escape} {$FBV_layoutInfo|escape}">
+<div {if $FBV_id}id="{$FBV_id|escape}" {/if}class="section {$FBV_class|default:""|escape} {$FBV_layoutInfo|default:""|escape}">
 	{if $FBV_label}
 		{if $FBV_translate}{capture assign="FBV_labelTranslated"}{translate key=$FBV_label|escape}{/capture}
 		{else}{assign var="FBV_labelTranslated" value=$FBV_Label}{/if}

@@ -41,8 +41,8 @@ use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\StreamOutput;
 use Throwable;
 
-define('APP_ROOT', dirname(dirname(dirname(dirname(__FILE__)))));
-require(APP_ROOT . '/tools/bootstrap.inc.php');
+define('APP_ROOT', dirname(__FILE__, 4));
+require_once APP_ROOT . '/tools/bootstrap.inc.php';
 
 class commandInterface
 {

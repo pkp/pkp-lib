@@ -79,7 +79,7 @@
 					{fbvElement type="text" password=true id="adminPassword" value=$adminPassword maxlength="32" size=$fbvStyles.size.MEDIUM}
 				{/fbvFormSection}
 				{fbvFormSection label="user.repeatPassword"}
-					{fbvElement type="text" password=true id="adminPassword2" value=$adminPassword2|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+					{fbvElement type="text" password=true id="adminPassword2" value=$adminPassword2|default:""|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
 				{/fbvFormSection}
 				{fbvFormSection label="user.email"}
 					{fbvElement type="text" id="adminEmail" value=$adminEmail maxlength="90" size=$fbvStyles.size.MEDIUM}

@@ -112,7 +112,7 @@ class LocaleFile
                 if (!empty($params)) {
                     // Substitute custom parameters
                     foreach ($params as $key => $value) {
-                        $message = str_replace("{\$${key}}", $value, $message);
+                        $message = str_replace("{\$${key}}", (string) $value, $message);
                     }
                 }
 
@@ -131,6 +131,7 @@ class LocaleFile
      * Static method: Load a locale array from a file. Not cached!
      *
      * @param string $filename Filename to locale .po file to load
+     *
      * @return array
      */
     public static function &load($filename)

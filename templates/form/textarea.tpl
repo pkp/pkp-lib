@@ -33,7 +33,7 @@
 				{if $FBV_variablesType} data-variablesType="{$FBV_variablesType|@json_encode|escape:"url"}"{/if}
 				{if $FBV_required} required aria-required="true"{/if}
 				{if $FBV_rich && $localeDirection === "rtl"} dir="rtl"{/if}
-				name="{$FBV_name|escape}[{$formLocale|escape}]">{$FBV_value[$formLocale]|escape}
+				name="{$FBV_name|escape}[{$formLocale|escape}]">{$FBV_value[$formLocale]|default:""|escape}
 			</textarea>
 		{/strip}
 
@@ -54,7 +54,7 @@
 					{if $FBV_variablesType} data-variablesType="{$FBV_variablesType|@json_encode|escape:"url"}"{/if}
 					{if $FBV_required} required aria-required="true"{/if}
 					{if $FBV_rich && $localeDirection === "rtl"} dir="rtl"{/if}
-					name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
+					name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|default:""|escape}
 				</textarea>
 				{/strip}
 			{/if}{/foreach}
@@ -78,7 +78,7 @@
 			name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
 			rows="{$FBV_rows|escape}"
 			cols="{$FBV_cols|escape}"
-			id="{$FBV_id|escape}{$uniqId}">{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}</textarea>
+			id="{$FBV_id|escape}{$uniqId}">{if $FBV_multilingual}{$FBV_value[$formLocale]|default:""|escape}{else}{$FBV_value|default:""|escape}{/if}</textarea>
 	{/if}
 		<span>{$FBV_label_content}</span>
 {/if}

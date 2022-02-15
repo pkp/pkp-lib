@@ -1,7 +1,7 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-08 03:37+0000\n"
+"PO-Revision-Date: 2022-02-15 10:25+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -338,3 +338,170 @@ msgstr "Ағымдағы стиль кестесі"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
+
+msgid "common.month"
+msgstr "Ай"
+
+msgid "common.modify"
+msgstr "Өзгерту"
+
+msgid "common.minute"
+msgstr "Минут(тар)"
+
+msgid "common.billingAddress"
+msgstr "Төлем мекенжайы (әртүрлі болса)"
+
+msgid "common.mailingAddress"
+msgstr "Пошта адресі"
+
+msgid "common.manage"
+msgstr "Басқару"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.lessThanOnly"
+msgstr "Одан азырақ"
+
+msgid "common.lessThan"
+msgstr "{$value} немесе одан аз"
+
+msgid "common.less"
+msgstr "Аздау"
+
+msgid "common.lastActivity"
+msgstr "{$date} күні жазылған соңғы әрекет."
+
+msgid "common.languages"
+msgstr "Тілдер"
+
+msgid "common.language"
+msgstr "Тіл"
+
+msgid "common.keywords"
+msgstr "Кілт сөздер"
+
+msgid "common.itemsPerPage"
+msgstr "Беттегі элементтер"
+
+msgid "common.insert"
+msgstr "Кірістіру"
+
+msgid "common.inProgress"
+msgstr "Орындалуда"
+
+msgid "common.initiate"
+msgstr "Бастау"
+
+msgid "common.import"
+msgstr "Импорттау"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.hour"
+msgstr "Сағат"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Негізгі бет тақырыбы логотипі"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Басты бет"
+
+msgid "common.height"
+msgstr "Биіктігі"
+
+msgid "common.go"
+msgstr "Алға"
+
+msgid "common.until"
+msgstr "Дейін"
+
+msgid "common.from"
+msgstr "бастап"
+
+msgid "common.filterRemove"
+msgstr "Сүзгіні тазалау: {$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "Сүзгі қосу: {$filterTitle}"
+
+msgid "common.filter"
+msgstr "Сүзгілер"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Жүйелік файлды жүктеп салу құралы жүктелуде. Егер ол көрсетілмесе, оны іске "
+"қосуды сіздің браузеріңіз қолдамайды. Мәселені шешу үшін сервер әкімшісіне "
+"хабарласыңыз."
+
+msgid "common.fileType"
+msgstr "Файл түрі"
+
+msgid "common.fileSize"
+msgstr "Файл өлшемі"
+
+msgid "common.fileName"
+msgstr "Файл атауы"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file"
+msgstr "Файл"
+
+msgid "common.false"
+msgstr "Жалған"
+
+msgid "common.fullscreenOff"
+msgstr "Толық экранды режимнен шығу"
+
+msgid "common.fullscreen"
+msgstr "Толық экранды режим"
+
+msgid "common.finish"
+msgstr "Аяқтау"
+
+msgid "common.export"
+msgstr "Экспорттау"
+
+msgid "common.event"
+msgstr "Оқиға"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Бұл бетте фреймдер қажет. Фреймсіз нұсқа көру үшін <a href=\"{$url}\">осы "
+"жерді басыңыз</a>."
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Белгісіз дерекқорға қосылу қатесі орын алды."
+
+msgid "common.error.databaseError"
+msgstr "Дерекқор қатесі орын алды: {$error}"
+
+msgid "common.enabled"
+msgstr "Қосылған"
+
+msgid "common.enable"
+msgstr "Қосу"
+
+msgid "common.editItem"
+msgstr "Өңдеу {$name}"
+
+msgid "common.edit"
+msgstr "Өңдеу"
+
+msgid "common.downloadPdf"
+msgstr "PDF файлын жүктеп алу"
+
+msgid "common.download"
+msgstr "Жүктеп алу"
+
+msgid "common.done"
+msgstr "Дайын"

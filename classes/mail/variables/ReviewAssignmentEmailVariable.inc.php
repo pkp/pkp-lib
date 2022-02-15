@@ -49,7 +49,7 @@ class ReviewAssignmentEmailVariable extends Variable
         [
             self::REVIEW_DUE_DATE => __('emailTemplate.variable.recipient.reviewDueDate'),
             self::RESPONSE_DUE_DATE => __('emailTemplate.variable.recipient.responseDueDate'),
-            self::REVIEW_ASSIGNMENT_URL => __('eemailTemplate.variable.recipient.reviewAssignmentUrl'),
+            self::REVIEW_ASSIGNMENT_URL => __('emailTemplate.variable.recipient.reviewAssignmentUrl'),
         ];
     }
 

@@ -37,7 +37,7 @@
 	{/fbvFormSection}
 	{fbvFormSection}
 		{capture assign=autocompleteUrl}{url op="getUsersNotAssignedAsReviewers" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
-		{fbvElement type="autocomplete" disableSync="true" required="true" autocompleteUrl=$autocompleteUrl id="userId" label="manager.reviewerSearch.searchByName.short" value=$userNameString}
+		{fbvElement type="autocomplete" disableSync="true" required="true" autocompleteUrl=$autocompleteUrl id="userId" label="manager.reviewerSearch.searchByName.short"}
 	{/fbvFormSection}
 
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}

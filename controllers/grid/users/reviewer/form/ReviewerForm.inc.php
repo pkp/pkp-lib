@@ -15,7 +15,6 @@
  */
 
 use APP\facades\Repo;
-use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
@@ -23,11 +22,14 @@ use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
-use PKP\mail\SubmissionMailTemplate;
+use PKP\mail\mailables\MailReviewerAssigned;
+use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
 use PKP\submission\action\EditorAction;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use Illuminate\Support\Facades\Mail;
 
 class ReviewerForm extends Form
 {
@@ -165,64 +167,37 @@ class ReviewerForm extends Form
     public function initData()
     {
         $request = Application::get()->getRequest();
-        $reviewerId = (int) $request->getUserVar('reviewerId');
         $context = $request->getContext();
         $reviewRound = $this->getReviewRound();
         $submission = $this->getSubmission();
 
-        // The reviewer id has been set
-        if (!empty($reviewerId)) {
-            if ($this->_isValidReviewer($context, $submission, $reviewRound, $reviewerId)) {
-                $reviewer = Repo::user()->get($reviewerId);
-                $this->setData('userNameString', sprintf('%s (%s)', $reviewer->getFullname(), $reviewer->getUsername()));
-            }
+        // Set default review method.
+        $reviewMethod = $context->getData('defaultReviewMode');
+        if (!$reviewMethod) {
+            $reviewMethod = ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
         }
 
-        // Get review assignment related data;
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->getReviewAssignment($reviewRound->getId(), $reviewerId, $reviewRound->getRound());
-
-        // Get the review method (open, anonymous, or double-anonymous)
-        if (isset($reviewAssignment) && $reviewAssignment->getReviewMethod() != false) {
-            $reviewMethod = $reviewAssignment->getReviewMethod();
-            $reviewFormId = $reviewAssignment->getReviewFormId();
+        // If there is a section/series and it has a default
+        // review form designated, use it.
+        $sectionDao = Application::getSectionDAO();
+        $section = $sectionDao->getById($submission->getSectionId(), $context->getId());
+        if ($section) {
+            $reviewFormId = $section->getReviewFormId();
         } else {
-            // Set default review method.
-            $reviewMethod = $context->getData('defaultReviewMode');
-            if (!$reviewMethod) {
-                $reviewMethod = SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
-            }
-
-            // If there is a section/series and it has a default
-            // review form designated, use it.
-            $sectionDao = Application::getSectionDAO();
-            $section = $sectionDao->getById($submission->getSectionId(), $context->getId());
-            if ($section) {
-                $reviewFormId = $section->getReviewFormId();
-            } else {
-                $reviewFormId = null;
-            }
+            $reviewFormId = null;
         }
 
-        // Get the response/review due dates or else set defaults
-        if (isset($reviewAssignment) && $reviewAssignment->getDueDate() != null) {
-            $reviewDueDate = strtotime($reviewAssignment->getDueDate());
-        } else {
-            $numWeeks = (int) $context->getData('numWeeksPerReview');
-            if ($numWeeks <= 0) {
-                $numWeeks = 4;
-            }
-            $reviewDueDate = strtotime('+' . $numWeeks . ' week');
+        $numWeeks = (int) $context->getData('numWeeksPerReview');
+        if ($numWeeks <= 0) {
+            $numWeeks = 4;
         }
-        if (isset($reviewAssignment) && $reviewAssignment->getResponseDueDate() != null) {
-            $responseDueDate = strtotime($reviewAssignment->getResponseDueDate());
-        } else {
-            $numWeeks = (int) $context->getData('numWeeksPerResponse');
-            if ($numWeeks <= 0) {
-                $numWeeks = 3;
-            }
-            $responseDueDate = strtotime('+' . $numWeeks . ' week');
+        $reviewDueDate = strtotime('+' . $numWeeks . ' week');
+
+        $numWeeks = (int) $context->getData('numWeeksPerResponse');
+        if ($numWeeks <= 0) {
+            $numWeeks = 3;
         }
+        $responseDueDate = strtotime('+' . $numWeeks . ' week');
 
         // Get the currently selected reviewer selection type to show the correct tab if we're re-displaying the form
         $selectionType = (int) $request->getUserVar('selectionType');
@@ -233,25 +208,27 @@ class ReviewerForm extends Form
         $this->setData('reviewMethod', $reviewMethod);
         $this->setData('reviewFormId', $reviewFormId);
         $this->setData('reviewRoundId', $reviewRound->getId());
-        $this->setData('reviewerId', $reviewerId);
 
         $context = $request->getContext();
         $templateKey = $this->_getMailTemplateKey($context);
-        $template = new SubmissionMailTemplate($submission, $templateKey, null, null, false);
-        if ($template) {
-            $user = $request->getUser();
-            $dispatcher = $request->getDispatcher();
-            $template->assignParams([
-                ContextEmailVariable::CONTEXT_URL => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
-                'signature' => $user->getContactSignature(Locale::getLocale()),
-                'senderName' => $user->getFullname(),
-                'passwordLostUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
-                'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-                'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
-            ]);
-            $template->replaceParams();
-        }
-        $this->setData('personalMessage', $template->getBody());
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignment = $reviewAssignmentDao->newDataObject();
+        $reviewAssignment->setSubmissionId($this->getSubmissionId());
+
+        $mailable = new MailReviewerAssigned($context, $submission, $reviewAssignment);
+        $template = $mailable->getTemplate($context->getId(), $templateKey);
+        $mailable->sender($request->getUser());
+        $mailable->addData([
+            'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
+            'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
+        ]);
+        $mailable->setData(Locale::getLocale());
+
+        // Remove template variables that haven't been set yet during form initialization
+        unset($mailable->viewData[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
+        unset($mailable->viewData[ReviewAssignmentEmailVariable::RESPONSE_DUE_DATE]);
+
+        $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData));
         $this->setData('responseDueDate', $responseDueDate);
         $this->setData('reviewDueDate', $reviewDueDate);
         $this->setData('selectionType', $selectionType);

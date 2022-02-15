@@ -22,7 +22,7 @@
 {* The form that will create the review assignment.  A reviewer ID must be loaded in here via the grid above. *}
 <form class="pkp_form" id="advancedSearchReviewerForm" method="post" action="{url op="updateReviewer"}" >
 	{csrf}
-	{fbvElement type="hidden" id="reviewerId" value=$reviewerId}
+	{fbvElement type="hidden" id="reviewerId"}
 
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}
 

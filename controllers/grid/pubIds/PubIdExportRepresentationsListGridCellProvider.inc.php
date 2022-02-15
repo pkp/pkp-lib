@@ -14,7 +14,6 @@
  */
 
 use APP\facades\Repo;
-use APP\core\Services;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;

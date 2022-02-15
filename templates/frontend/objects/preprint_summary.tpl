@@ -64,7 +64,7 @@
 			{if $pubId}
 				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentServer->getId(), $pubId)|escape}
 				<div class="doi">
-						{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
+						{capture assign=translatedDOI}{translate key="doi.readerDisplayName"}{/capture}
 						{translate key="semicolon" label=$translatedDOI}
 					<span class="value">
 						<a href="{$doiUrl}">

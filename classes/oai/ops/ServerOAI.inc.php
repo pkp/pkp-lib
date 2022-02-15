@@ -19,13 +19,12 @@
 
 namespace APP\oai\ops;
 
-use APP\oai\ops\OAIDAO;
 use APP\core\Application;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
 use PKP\oai\OAI;
 use PKP\oai\OAIRepository;
 use PKP\oai\OAIResumptionToken;
+use PKP\plugins\HookRegistry;
 
 class ServerOAI extends OAI
 {

@@ -142,27 +142,22 @@
 				</section>
 			{/if}
 
-			{* DOI (requires plugin) *}
-			{foreach from=$pubIdPlugins item=pubIdPlugin}
-				{if $pubIdPlugin->getPubIdType() != 'doi'}
-					{continue}
-				{/if}
-				{assign var=pubId value=$publication->getStoredPubId($pubIdPlugin->getPubIdType())}
-				{if $pubId}
-					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentServer->getId(), $pubId)|escape}
-					<section class="item doi">
-						<h2 class="label">
-							{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
-							{translate key="semicolon" label=$translatedDOI}
-						</h2>
-						<span class="value">
-							<a href="{$doiUrl}">
-								{$doiUrl}
-							</a>
-						</span>
-					</section>
-				{/if}
-			{/foreach}
+			{* DOI *}
+			{assign var=doiObject value=$currentPublication->getData('doiObject')}
+			{if $doiObject}
+				{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
+				<section class="item doi">
+					<h2 class="label">
+						{capture assign=translatedDOI}{translate key="doi.readerDisplayName"}{/capture}
+						{translate key="semicolon" label=$translatedDOI}
+					</h2>
+					<span class="value">
+ 						<a href="{$doiUrl}">
+ 							{$doiUrl}
+ 						</a>
+ 					</span>
+				</section>
+			{/if}
 
 			{* Keywords *}
 			{if !empty($publication->getLocalizedData('keywords'))}

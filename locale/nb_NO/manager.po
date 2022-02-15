@@ -1,2 +1,66 @@
 msgid ""
 msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+"Bruk mønsteret under for å generere DOI suffikser. Bruk %j for "
+"tjenerinitialer %a for OPS preprint ID, %g for OPS oppsett ID, %f for OPS "
+"fil-ID og %x for \"Brukerdefinert identifikator\"."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Et DOI-suffiks kan ha en hvilken som helst form, men må være unikt der alle "
+"publiseringsobjekter er tildelt det samme DOI-prefikset:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-suffiks"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI-prefikset er obligatorisk, og må være i formatet 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"DOI-prefikset tildeles av registreringsbyråer (som <a href=\""
+"http://www.crossref.org\" target=\"_new\">CrossRef</a>), og er i formatet "
+"10.xxxx (f.eks. 10.1234):"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI-prefiks"
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr ""
+"Automatisk tildeling av DOI for følgende objekter når de blir opprettet:"
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Automatisk tildeling"
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr "Oppsett"
+
+msgid "doi.manager.settings.enablePublicationDoi"
+msgstr "Preprint"
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+"Velg publiseringsobjekter som skal ha tildelt Digital Object Identifiers "
+"(DOI):"
+
+msgid "doi.manager.settings.doiObjectsRequired"
+msgstr "Velg objektene DOI-er skal tilordnes til."
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Tjenerinnhold"
+
+msgid "doi.manager.settings.description"
+msgstr ""
+"Konfigurer DOI-programtillegg for å kunne administrere og bruke DOI-er i OPS:"
+
+msgid "doi.readerDisplayName"
+msgstr "DOI"
+
+msgid "doi.description"
+msgstr ""
+"Dette programtillegget tilordner digitale objektidentifikatorer (DOI) til "
+"preprints og oppsett i OPS."
+
+msgid "doi.displayName"
+msgstr "DOI"

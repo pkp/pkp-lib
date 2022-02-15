@@ -136,6 +136,7 @@ class Repository extends \PKP\publication\Repository
         }
 
         // Version DOI if the pattern includes the publication id
+        // FIXME: Move DOI versioning logic out of pubIdPlugin
         $context = $this->request->getContext();
         $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
         $doiPubIdPlugin = $pubIdPlugins['doipubidplugin'] ?? null;
@@ -275,5 +276,16 @@ class Repository extends \PKP\publication\Repository
         $overrides = parent::getErrorMessageOverrides();
         $overrides['relationStatus'] = __('validation.invalidOption');
         return $overrides;
+    }
+
+    /**
+     * Create all DOIs associated with the publication
+     *
+     * @return mixed
+     */
+    protected function createDois(Publication $newPublication): void
+    {
+        $submission = Repo::submission()->get($newPublication->getData('submissionId'));
+        Repo::submission()->createDois($submission);
     }
 }

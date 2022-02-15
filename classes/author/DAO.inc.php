@@ -21,8 +21,8 @@ use APP\core\Application;
 use APP\i18n\AppLocale;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\identity\Identity;
 use PKP\db\DAOResultFactory;
+use PKP\identity\Identity;
 
 use PKP\submission\PKPSubmission;
 

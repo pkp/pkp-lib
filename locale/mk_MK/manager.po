@@ -561,3 +561,199 @@ msgstr "Серверска библиотека со отпечатоци"
 
 msgid "grid.category.path"
 msgstr "Патека"
+
+msgid "doi.editor.preview.objects"
+msgstr "Предмет"
+
+msgid "doi.editor.preview.galleys"
+msgstr "Отисоци на труд: {$galleyLabel}"
+
+msgid "doi.editor.preview.publication.none"
+msgstr "ДОИ не е доделен на оваа публикација."
+
+msgid "doi.editor.preview.publication"
+msgstr "ДОИ за оваа публикација ќе биде {$doi}."
+
+msgid "doi.editor.missingPrefix"
+msgstr "ДОИ мора да започне со {$doiPrefix}."
+
+msgid "doi.editor.assignDoi.assigned"
+msgstr "Назначен е ДОИ {$pubId}."
+
+msgid "doi.editor.assignDoi.pattern"
+msgstr "ДОИ {$pubId} не може да се додели бидејќи содржи нерешена шема."
+
+msgid "doi.editor.assignDoi.emptySuffix"
+msgstr "DOI не може да се додели бидејќи недостасува прилагодената наставка."
+
+msgid "doi.editor.assignDoi"
+msgstr "Доделете го ДОИ {$pubId} на овој {$pubObjectType}"
+
+msgid "doi.editor.clearObjectsDoi.confirm"
+msgstr "Дали сте сигурни дека сакате да го избришете постојниот ДОИ?"
+
+msgid "doi.editor.clearObjectsDoi"
+msgstr "Исчисти"
+
+msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+"Дадената наставка ДОИ веќе се користи за друга објавена ставка. Внесете "
+"уникатен додаток ДОИ за секоја ставка."
+
+msgid "doi.editor.assigned"
+msgstr "ДОИ е доделен на овој {$pubObjectType}."
+
+msgid "doi.editor.canBeAssigned"
+msgstr ""
+"Она што го гледате е преглед на DOI. Изберете го полето за избор и зачувајте "
+"го образецот за да го доделите DOI."
+
+msgid "doi.editor.patternNotResolved"
+msgstr "ДОИ не може да се додели затоа што содржи нерешена шема."
+
+msgid "doi.editor.missingParts"
+msgstr ""
+"Не можете да генерирате DOI бидејќи на еден или повеќе делови од моделот DOI "
+"недостасуваат податоци."
+
+msgid "doi.editor.customSuffixMissing"
+msgstr "DOI не може да се додели бидејќи недостасува прилагодената наставка."
+
+msgid "doi.editor.doiObjectTypeRepresentation"
+msgstr "отисок на труд"
+
+msgid "doi.editor.doiObjectTypeSubmission"
+msgstr "предпечаток"
+
+msgid "doi.editor.doi.assignDoi"
+msgstr "Додели"
+
+msgid "doi.editor.doi.description"
+msgstr "ДОИ мора да започне со {$prefix}."
+
+msgid "doi.editor.doi"
+msgstr "ДОИ"
+
+msgid "doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+"Дали сте сигурни дека сакате да доделите ДОИ на сите објавени објекти на кои "
+"не им се доделени ДОИ?"
+
+msgid "doi.manager.settings.doiAssignServerWide.description"
+msgstr ""
+"Доделете ДОИ на сите објавени објекти на серверот на кои не им се доделени "
+"ДОИ. Ова дејство не може да се користи со индивидуална конфигурација на "
+"наставки. Ако ја измените конфигурацијата DOI погоре, зачувајте ги промените "
+"пред да започнете со оваа акција. Доделувањето ДОИ може да трае долго, во "
+"зависност од бројот на објавени објекти во серверот."
+
+msgid "doi.manager.settings.doiAssignServerWide"
+msgstr "Доделете ДОИ"
+
+msgid "doi.manager.settings.doiReassign.confirm"
+msgstr "Дали сте сигурни дека сакате да ги избришете сите постојни ДОИ?"
+
+msgid "doi.manager.settings.doiReassign.description"
+msgstr ""
+"Ако ја промените конфигурацијата DOI, ДОИ што веќе се доделени нема да бидат "
+"засегнати. Откако ќе се зачува конфигурацијата DOI, користете го ова копче "
+"за да ги исчистите сите постојни DOI, така што новите поставки ќе стапат на "
+"сила со постојните објекти."
+
+msgid "doi.manager.settings.doiReassign"
+msgstr "Поставете повторно ДОИ"
+
+msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
+msgstr "Внесете ја шемата наставка на DOI за отисоците на труд."
+
+msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
+msgstr "Внесете ја шемата за наставки ДОИ за отпечатоци."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Внесете индивидуален додаток на ДОИ за секоја објавена ставка. Ќе најдете "
+"дополнително поле за внесување DOI на страницата со мета-податоци на секоја "
+"ставка."
+
+msgid "doi.manager.settings.doiSuffixDefault.description"
+msgstr "%j.%a за претходни отпечатоци <br />%j.%a.g%g за отисоци на труд."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Користете стандардни обрасци."
+
+msgid "doi.manager.settings.doiSuffixPattern.representations"
+msgstr "за отисоци на труд"
+
+msgid "doi.manager.settings.doiSuffixPattern.submissions"
+msgstr "за отпечатоци"
+
+msgid "doi.manager.settings.doiSuffixPattern.example"
+msgstr ""
+"На пример,  %j.%a може да создаде ДОИ како што е 10.1234/"
+"server_initials.12345"
+
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+"Користете ја шемата внесена подолу за да генерирате наставки DOI. Користете %"
+"j за почетни иницијали на серверот %a за ИД-от за отпечаток на ОПС, %g за "
+"отисок на труд за ОПС, %f за ИД-датотека за ОПС и %x за \"Прилагоден "
+"идентификатор\"."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Додаток на ДОИ може да има каква било форма, но мора да биде единствен меѓу "
+"сите објавувачки објекти со ист доделен префикс ДОИ:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Додаток на ДОИ"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Префиксот DOI е задолжителен и мора да биде во форма 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Префиксот DOI е доделен од агенциите за регистрација (на пр. <a href=\""
+"http://www.crossref.org\" target=\"_new\">Crossref</a>) и е во формат "
+"10.xxxx (на пример, 10.1234):"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Префикс на ДОИ"
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr "Автоматски доделете ДОИ за следниве објекти кога се креираат:"
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Автоматско доделување"
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr "Отисоци на труд"
+
+msgid "doi.manager.settings.enablePublicationDoi"
+msgstr "Отпечатоци"
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+"Изберете ги објектите за објавување на кои ќе им бидат доделени "
+"идентификатори на дигитални објекти (ДОИ):"
+
+msgid "doi.manager.settings.doiObjectsRequired"
+msgstr "Ве молиме, изберете ги предметите на кои треба да се доделат ДОИ."
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Содржина на сервер"
+
+msgid "doi.manager.settings.description"
+msgstr ""
+"Конфигурирајте го приклучокот DOI за да може да управувате и да користите "
+"DOI во OPS:"
+
+msgid "doi.readerDisplayName"
+msgstr "ДОИ"
+
+msgid "doi.description"
+msgstr ""
+"Овој приклучок овозможува доделување на дигитални идентификатори на предмети "
+"за отпечатоци и отисоците на труд во OPS."
+
+msgid "doi.displayName"
+msgstr "ДОИ"

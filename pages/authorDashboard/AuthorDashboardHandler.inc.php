@@ -16,7 +16,6 @@
 // Import base class
 import('lib.pkp.pages.authorDashboard.PKPAuthorDashboardHandler');
 
-use APP\submission\Submission;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 

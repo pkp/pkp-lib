@@ -16,11 +16,13 @@
 namespace APP\plugins;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
@@ -174,27 +176,38 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                 break;
             case 'exportSubmissions':
             case 'exportRepresentations':
-                $selectedSubmissions = (array) $request->getUserVar('selectedSubmissions');
-                $selectedRepresentations = (array) $request->getUserVar('selectedRepresentations');
-                $tab = (string) $request->getUserVar('tab');
-                $noValidation = $request->getUserVar('validation') ? false : true;
-
-                if (empty($selectedSubmissions) && empty($selectedRepresentations)) {
-                    fatalError(__('plugins.importexport.common.error.noObjectsSelected'));
-                }
-                if (!empty($selectedSubmissions)) {
-                    $objects = $this->getPublishedSubmissions($selectedSubmissions, $context);
-                    $filter = $this->getSubmissionFilter();
-                    $objectsFileNamePart = 'preprints';
-                } elseif (!empty($selectedRepresentations)) {
-                    $objects = $this->getPreprintGalleys($selectedRepresentations);
-                    $filter = $this->getRepresentationFilter();
-                    $objectsFileNamePart = 'galleys';
-                }
-
-                // Execute export action
-                $this->executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation);
+                $this->prepareAndExportPubObjects($request, $context, $args);
         }
+    }
+
+    /**
+     */
+    public function prepareAndExportPubObjects(Request $request, Context $context, array $args = [])
+    {
+        $selectedSubmissions = (array) $request->getUserVar('selectedSubmissions');
+        $selectedRepresentations = (array) $request->getUserVar('selectedRepresentations');
+        $tab = (string) $request->getUserVar('tab');
+        $noValidation = $request->getUserVar('validation') ? false : true;
+
+        if (!empty($args['submissionIds'])) {
+            $selectedSubmissions = (array) $args['submissionIds'];
+        }
+
+        if (empty($selectedSubmissions) && empty($selectedRepresentations)) {
+            fatalError(__('plugins.importexport.common.error.noObjectsSelected'));
+        }
+        if (!empty($selectedSubmissions)) {
+            $objects = $this->getPublishedSubmissions($selectedSubmissions, $context);
+            $filter = $this->getSubmissionFilter();
+            $objectsFileNamePart = 'preprints';
+        } elseif (!empty($selectedRepresentations)) {
+            $objects = $this->getPreprintGalleys($selectedRepresentations);
+            $filter = $this->getRepresentationFilter();
+            $objectsFileNamePart = 'galleys';
+        }
+
+        // Execute export action
+        $this->executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation);
     }
 
     /**
@@ -207,11 +220,11 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * @param string $objectsFileNamePart Export file name part for this kind of objects
      * @param bool $noValidation If set to true no XML validation will be done
      */
-    public function executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation = null)
+    public function executeExportAction($request, $objects, $filter, $tab, $objectsFileNamePart, $noValidation = null, $shouldRedirect = true)
     {
         $context = $request->getContext();
         $path = ['plugin', $this->getName()];
-        if ($request->getUserVar(EXPORT_ACTION_EXPORT)) {
+        if ($this->_checkForExportAction(EXPORT_ACTION_EXPORT)) {
             assert($filter != null);
             // Get the XML
             $exportXml = $this->exportXML($objects, $filter, $context, $noValidation);
@@ -220,7 +233,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             $fileManager->writeFile($exportFileName, $exportXml);
             $fileManager->downloadByPath($exportFileName);
             $fileManager->deleteByPath($exportFileName);
-        } elseif ($request->getUserVar(EXPORT_ACTION_DEPOSIT)) {
+        } elseif ($this->_checkForExportAction(EXPORT_ACTION_DEPOSIT)) {
             assert($filter != null);
             // Get the XML
             $exportXml = $this->exportXML($objects, $filter, $context, $noValidation);
@@ -254,11 +267,15 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             // Remove all temporary files.
             $fileManager->deleteByPath($exportFileName);
             // redirect back to the right tab
-            $request->redirect(null, null, null, $path, null, $tab);
-        } elseif ($request->getUserVar(EXPORT_ACTION_MARKREGISTERED)) {
+            if ($shouldRedirect) {
+                $request->redirect(null, null, null, $path, null, $tab);
+            }
+        } elseif ($this->_checkForExportAction(EXPORT_ACTION_MARKREGISTERED)) {
             $this->markRegistered($context, $objects);
             // redirect back to the right tab
-            $request->redirect(null, null, null, $path, null, $tab);
+            if ($shouldRedirect) {
+                $request->redirect(null, null, null, $path, null, $tab);
+            }
         } else {
             $dispatcher = $request->getDispatcher();
             $dispatcher->handle404();
@@ -391,10 +408,11 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * @param string $filter
      * @param Context $context
      * @param bool $noValidation If set to true no XML validation will be done
+     * @param $outputErrors null|mixed Error messages can be added here to handle error display external to displayXMLValidationErrors()
      *
      * @return string XML document.
      */
-    public function exportXML($objects, $filter, $context, $noValidation = null)
+    public function exportXML($objects, $filter, $context, $noValidation = null, &$outputErrors = null)
     {
         $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
         $exportFilters = $filterDao->getObjectsByGroup($filter);
@@ -412,7 +430,11 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             return $a->level == LIBXML_ERR_ERROR || $a->level == LIBXML_ERR_FATAL;
         });
         if (!empty($errors)) {
-            $this->displayXMLValidationErrors($errors, $xml);
+            if ($outputErrors === null) {
+                $this->displayXMLValidationErrors($errors, $xml);
+            } else {
+                $outputErrors = $errors;
+            }
         }
         return $xml;
     }
@@ -508,7 +530,14 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     public function callbackParseCronTab($hookName, $args)
     {
         $taskFilesPath = & $args[0];
-        $taskFilesPath[] = $this->getPluginPath() . DIRECTORY_SEPARATOR . 'scheduledTasks.xml';
+
+        $scheduledTasksPath = $this->getPluginPath() . DIRECTORY_SEPARATOR . 'scheduledTasks.xml';
+
+        if (!file_exists($scheduledTasksPath)) {
+            return false;
+        }
+
+        $taskFilesPath[] = $scheduledTasksPath;
         return false;
     }
 
@@ -795,6 +824,24 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             Application::getRepresentationDAO(),
             Repo::submissionFile()->dao,
         ];
+    }
+
+    /**
+     * Checks for export action type as set user var and as action passed from API call
+     *
+     * @param $exportAction string Action to check for
+     *
+     */
+    protected function _checkForExportAction(string $exportAction): bool
+    {
+        $request = $this->getRequest();
+        if ($request->getUserVar($exportAction)) {
+            return true;
+        } elseif ($request->getUserVar('action') == $exportAction) {
+            return true;
+        }
+
+        return false;
     }
 }
 

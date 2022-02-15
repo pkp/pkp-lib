@@ -17,6 +17,7 @@
 
 namespace APP\preprint;
 
+use APP\facades\Repo;
 use PKP\db\DAOResultFactory;
 use PKP\db\SchemaDAO;
 use PKP\identity\Identity;
@@ -49,6 +50,7 @@ class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO
         'seq' => 'seq',
         'urlPath' => 'url_path',
         'urlRemote' => 'remote_url',
+        'doiId' => 'doi_id'
     ];
 
     /**
@@ -59,6 +61,15 @@ class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO
     public function newDataObject()
     {
         return new PreprintGalley();
+    }
+
+    public function _fromRow($primaryRow)
+    {
+        $galley = parent::_fromRow($primaryRow);
+
+        $this->setDoiObject($galley);
+
+        return $galley;
     }
 
     /**
@@ -82,7 +93,6 @@ class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO
      * Find galleys by querying galley settings.
      *
      * @param string $settingName
-     * @param mixed $settingValue
      * @param int $publicationId optional
      * @param int $serverId optional
      *
@@ -361,6 +371,17 @@ class PreprintGalleyDAO extends SchemaDAO implements PKPPubIdPluginDAO
         );
 
         return new DAOResultFactory($result, $this, '_fromRow');
+    }
+
+    /**
+     * Set the DOI object
+     *
+     */
+    private function setDoiObject(PreprintGalley $galley)
+    {
+        if (!empty($galley->getData('doiId'))) {
+            $galley->setData('doiObject', Repo::doi()->get($galley->getData('doiId')));
+        }
     }
 }
 

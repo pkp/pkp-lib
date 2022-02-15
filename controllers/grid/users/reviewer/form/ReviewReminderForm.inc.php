@@ -18,16 +18,11 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 
 use PKP\form\Form;
-use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewRemind;
-use PKP\mail\mailables\ReviewRemindOneclick;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
-use PKP\security\AccessKeyManager;
-use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\i18n\PKPLocale;
-use PKP\security\Validation;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -80,7 +75,7 @@ class ReviewReminderForm extends Form
         $reviewer = Repo::user()->get($reviewerId);
 
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-        $mailable = $this->getMailable($context, $submission, $reviewAssignment);
+        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
         $template = $mailable->getTemplate($context->getId());
         $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(PKPLocale::getLocale()));
@@ -135,49 +130,12 @@ class ReviewReminderForm extends Form
         $user = $request->getUser();
         $context = $request->getContext();
 
-        // Create ReviewRemind/ReviewRemindOneclick email and populate with data
-        $mailable = $this->getMailable($context, $submission, $reviewAssignment);
+        // Create ReviewRemind email and populate with data
+        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
         $template = $mailable->getTemplate($context->getId());
         $mailable->subject($template->getLocalizedData('subject'))->body($this->getData('message'));
         $mailable->setData(PKPLocale::getLocale());
-
-        // Override reviewAssignmentUrl template variable if one-click reviewer access is enabled
-        if ($context->getData('reviewerAccessKeysEnabled')) {
-            $accessKeyManager = new AccessKeyManager();
-            $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
-            $accessKey = $accessKeyManager->createKey($context->getId(), $reviewerId, $reviewAssignment->getId(), $expiryDays);
-            $reviewUrlArgs = [
-                'submissionId' => $reviewAssignment->getSubmissionId(),
-                'reviewId' => $reviewAssignment->getId(),
-                'key' => $accessKey,
-            ];
-            $mailable->addData([
-                ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL =>
-                    $dispatcher->url(
-                        $request,
-                        PKPApplication::ROUTE_PAGE,
-                        null,
-                        'reviewer',
-                        'submission',
-                        null,
-                        $reviewUrlArgs
-                    ),
-            ]);
-        }
-
-        // Old Review Remind templates contain additional variable not supplied by _Variable classes
-        $mailable->addData([
-            'passwordResetUrl' =>
-                $dispatcher->url(
-                    $request,
-                    PKPApplication::ROUTE_PAGE,
-                    null,
-                    'login',
-                    'resetPassword',
-                    $reviewer->getUsername(),
-                    ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]),
-        ]);
 
         // Finally, send email and handle Symfony transport exceptions
         try {
@@ -199,22 +157,5 @@ class ReviewReminderForm extends Form
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
         parent::execute(...$functionArgs);
-    }
-
-    /**
-     * Get the Mailable depending on if reviewer one click access is
-     * enabled or not.
-     *
-     * @return ReviewRemind|ReviewRemindOneclick
-     */
-    protected function getMailable(
-        Context $context,
-        PKPSubmission $submission,
-        ReviewAssignment $reviewAssignment
-    ): Mailable
-    {
-        return $context->getData('reviewerAccessKeysEnabled') ?
-            new ReviewRemindOneclick($context, $submission, $reviewAssignment) :
-            new ReviewRemind($context, $submission, $reviewAssignment);
     }
 }

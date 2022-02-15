@@ -24,7 +24,7 @@ class I7592_RemoveUnusedEmailTemplates extends \PKP\migration\Migration
 
     public function up(): void
     {
-        $emailKeys = ['REVIEW_REMIND_AUTO_ONECLICK', 'REVIEW_RESPONSE_OVERDUE_AUTO_ONECLICK'];
+        $emailKeys = ['REVIEW_REMIND_AUTO_ONECLICK', 'REVIEW_RESPONSE_OVERDUE_AUTO_ONECLICK', 'REVIEW_REMIND_ONECLICK'];
 
         $this->templatesDefault = DB::table('email_templates_default')
             ->whereIn('email_key', $emailKeys)

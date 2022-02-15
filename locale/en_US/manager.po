@@ -2556,8 +2556,8 @@ msgstr "Review Remind"
 msgid "mailable.reviewRemind.description"
 msgstr "This email is sent by an Editor to remind a reviewer that their review is due"
 
-msgid "mailable.reviewRemindOneclick.name"
-msgstr "Review Remind Oneclick"
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Review Remind Auto"
 
-msgid "mailable.reviewRemindOneclick.description"
-msgstr "This email is sent by an Editor to remind a reviewer that their review is due if one-click reviewer access is enabled"
+msgid "mailable.reviewRemindAuto.description"
+msgstr "This email is automatically sent when a reviewer has not completed their review by the due date."

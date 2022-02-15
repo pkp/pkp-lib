@@ -48,7 +48,7 @@
 		"patches": {
 			"adodb/adodb-php": {
 				"Apply PKP ADODB patches": "lib/adodb.diff",
-				"Apply PKP ADODB patches": "lib/adodb-php8.1.diff"
+				"Apply PKP ADODB PHP8.1 patches": "lib/adodb-php8.1.diff"
 			},
 			"laravel/framework": {
 				"Inhibit __ Laravel helper": "lib/laravel-helper-4017.diff",

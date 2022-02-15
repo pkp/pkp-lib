@@ -25,7 +25,7 @@ class ConfigTest extends PKPTestCase
      */
     public function testGetDefaultConfigFileName()
     {
-        $expectedResult = Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.inc.php';
+        $expectedResult = Core::getBaseDir() . '/config.inc.php';
         self::assertEquals($expectedResult, Config::getConfigFileName());
     }
 

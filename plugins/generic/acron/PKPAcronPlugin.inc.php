@@ -97,7 +97,7 @@ class PKPAcronPlugin extends GenericPlugin
      */
     public function getInstallSitePluginSettingsFile()
     {
-        return PKP_LIB_PATH . DIRECTORY_SEPARATOR . $this->getPluginPath() . '/settings.xml';
+        return PKP_LIB_PATH . "/{$this->getPluginPath()}/settings.xml";
     }
 
     /**

@@ -79,7 +79,7 @@ abstract class FileLoader extends ScheduledTask
         AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
 
         // Canonicalize the base path.
-        $basePath = rtrim($args[0], DIRECTORY_SEPARATOR);
+        $basePath = rtrim($args[0], '/');
         $basePathFolder = basename($basePath);
         // We assume that the parent folder of the base path
         // does already exist and can be canonicalized.
@@ -87,16 +87,16 @@ abstract class FileLoader extends ScheduledTask
         if ($basePathParent === false) {
             $basePath = null;
         } else {
-            $basePath = $basePathParent . DIRECTORY_SEPARATOR . $basePathFolder;
+            $basePath = "$basePathParent/$basePathFolder";
         }
         $this->_basePath = $basePath;
 
         // Configure paths.
         if (!is_null($basePath)) {
-            $this->_stagePath = $basePath . DIRECTORY_SEPARATOR . FILE_LOADER_PATH_STAGING;
-            $this->_archivePath = $basePath . DIRECTORY_SEPARATOR . FILE_LOADER_PATH_ARCHIVE;
-            $this->_rejectPath = $basePath . DIRECTORY_SEPARATOR . FILE_LOADER_PATH_REJECT;
-            $this->_processingPath = $basePath . DIRECTORY_SEPARATOR . FILE_LOADER_PATH_PROCESSING;
+            $this->_stagePath = "$basePath/" . FILE_LOADER_PATH_STAGING;
+            $this->_archivePath = "$basePath/" . FILE_LOADER_PATH_ARCHIVE;
+            $this->_rejectPath = "$basePath/" . FILE_LOADER_PATH_REJECT;
+            $this->_processingPath = "$basePath/" . FILE_LOADER_PATH_PROCESSING;
         }
 
         // Set admin email and name.
@@ -300,8 +300,8 @@ abstract class FileLoader extends ScheduledTask
      */
     protected function moveFile($sourceDir, $destDir, $filename)
     {
-        $currentFilePath = $sourceDir . DIRECTORY_SEPARATOR . $filename;
-        $destinationPath = $destDir . DIRECTORY_SEPARATOR . $filename;
+        $currentFilePath = "$sourceDir/$filename";
+        $destinationPath = "$destDir/$filename";
 
         if (!rename($currentFilePath, $destinationPath)) {
             $message = __('admin.fileLoader.moveFileFailed', ['filename' => $filename,
@@ -377,7 +377,7 @@ abstract class FileLoader extends ScheduledTask
         if ($this->getCompressArchives()) {
             try {
                 $fileMgr = new FileManager();
-                $filePath = $this->_archivePath . DIRECTORY_SEPARATOR . $this->_claimedFilename;
+                $filePath = "{$this->_archivePath}/{$this->_claimedFilename}";
                 $fileMgr->compressFile($filePath);
             } catch (Exception $e) {
                 $this->addExecutionLogEntry($e->getMessage(), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);

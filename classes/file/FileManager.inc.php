@@ -254,12 +254,12 @@ class FileManager
                     continue;
                 }
 
-                $Entry = $source . DIRECTORY_SEPARATOR . $entry;
+                $Entry = "$source/$entry";
                 if (is_dir($Entry)) {
-                    $this->copyDir($Entry, $dest . DIRECTORY_SEPARATOR . $entry);
+                    $this->copyDir($Entry, "$dest/$entry");
                     continue;
                 }
-                $this->copyFile($Entry, $dest . DIRECTORY_SEPARATOR . $entry);
+                $this->copyFile($Entry, "$dest/$entry");
             }
 
             $destDir->close();

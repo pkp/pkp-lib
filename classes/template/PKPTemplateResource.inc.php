@@ -78,7 +78,7 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
     {
         $filePath = null;
         foreach ($this->_templateDir as $path) {
-            $filePath = $path . DIRECTORY_SEPARATOR . $template;
+            $filePath = "$path/$template";
             if (file_exists($filePath)) {
                 break;
             }

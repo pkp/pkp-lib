@@ -209,7 +209,7 @@ class PKPComponentRouter extends PKPRouter
 
                 // Construct the component handler file name and test its existence.
                 $component = 'controllers.' . $component;
-                $componentFileNamePart = str_replace('.', DIRECTORY_SEPARATOR, $component);
+                $componentFileNamePart = str_replace('.', '/', $component);
                 switch (true) {
                     case file_exists("${componentFileNamePart}.php"):
                         break;
@@ -218,11 +218,11 @@ class PKPComponentRouter extends PKPRouter
                         // This behaviour is DEPRECATED as of 3.4.0.
                         break;
 
-                    case file_exists(PKP_LIB_PATH . DIRECTORY_SEPARATOR . "${componentFileNamePart}.php"):
+                    case file_exists(PKP_LIB_PATH . "/${componentFileNamePart}.php"):
                         $component = 'lib.pkp.' . $component;
                         break;
 
-                    case file_exists(PKP_LIB_PATH . DIRECTORY_SEPARATOR . "${componentFileNamePart}.inc.php"):
+                    case file_exists(PKP_LIB_PATH . "/${componentFileNamePart}.inc.php"):
                         // This behaviour is DEPRECATED as of 3.4.0.
                         $component = 'lib.pkp.' . $component;
                         break;

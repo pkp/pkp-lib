@@ -55,8 +55,8 @@ abstract class ScheduledTask
         // Check the scheduled task execution log folder.
         $fileMgr = new PrivateFileManager();
 
-        $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
-        $this->_executionLogFile = $scheduledTaskFilesPath . DIRECTORY_SEPARATOR . str_replace(' ', '', $this->getName()) .
+        $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . '/' . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
+        $this->_executionLogFile = "$scheduledTaskFilesPath/" . str_replace(' ', '', $this->getName()) .
             '-' . $this->getProcessId() . '-' . date('Ymd') . '.log';
         if (!$fileMgr->fileExists($scheduledTaskFilesPath, 'dir')) {
             $success = $fileMgr->mkdirtree($scheduledTaskFilesPath);

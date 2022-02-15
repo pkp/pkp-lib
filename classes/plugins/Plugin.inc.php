@@ -354,7 +354,7 @@ abstract class Plugin
     {
         $pluginPath = $this->getPluginPath();
         if ($inCore) {
-            $pluginPath = PKP_LIB_PATH . DIRECTORY_SEPARATOR . $pluginPath;
+            $pluginPath = PKP_LIB_PATH . "/$pluginPath";
         }
         $plugin = basename($pluginPath);
         $category = basename(dirname($pluginPath));
@@ -381,7 +381,7 @@ abstract class Plugin
      */
     public function getTemplatePath($inCore = false)
     {
-        $templatePath = ($inCore ? PKP_LIB_PATH . DIRECTORY_SEPARATOR : '') . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'templates';
+        $templatePath = ($inCore ? PKP_LIB_PATH . '/' : '') . "{$this->getPluginPath()}/templates";
         if (is_dir($templatePath)) {
             return $templatePath;
         }
@@ -429,7 +429,7 @@ abstract class Plugin
         }
 
         // If there's a lib/pkp/ prefix on the template, test without it.
-        $libPkpPrefix = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR;
+        $libPkpPrefix = 'lib/pkp/';
         if (strpos($checkFilePath, $libPkpPrefix) === 0) {
             $checkFilePath = substr($filePath, strlen($libPkpPrefix));
         }

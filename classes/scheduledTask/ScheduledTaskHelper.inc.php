@@ -207,7 +207,7 @@ class ScheduledTaskHelper
     {
         $fileMgr = new PrivateFileManager();
 
-        $fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . self::SCHEDULED_TASK_EXECUTION_LOG_DIR);
+        $fileMgr->rmtree("{$fileMgr->getBasePath()}/" . self::SCHEDULED_TASK_EXECUTION_LOG_DIR);
     }
 
     /**
@@ -219,7 +219,7 @@ class ScheduledTaskHelper
     {
         $fileMgr = new PrivateFileManager();
 
-        $fileMgr->downloadByPath($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . self::SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);
+        $fileMgr->downloadByPath("{$fileMgr->getBasePath()}/" . self::SCHEDULED_TASK_EXECUTION_LOG_DIR . "/$file");
     }
 
 

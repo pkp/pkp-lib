@@ -249,8 +249,8 @@ class PKPPageRouter extends PKPRouter
                 if (is_object($result)) {
                     $handler = $result;
                 }
-            } elseif (file_exists(PKP_LIB_PATH . DIRECTORY_SEPARATOR . $sourceFile)) {
-                $result = require('.' . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . $sourceFile);
+            } elseif (file_exists(PKP_LIB_PATH . "/$sourceFile")) {
+                $result = require('./' . PKP_LIB_PATH . "/$sourceFile");
                 if (is_object($result)) {
                     $handler = $result;
                 }

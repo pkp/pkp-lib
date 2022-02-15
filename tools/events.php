@@ -167,7 +167,7 @@ class commandEvents extends CommandLineTool
         $eventServiceProvider->getEvents();
 
         $filePath = $cacheManager->getFileCachePath();
-        $files = glob($filePath . DIRECTORY_SEPARATOR . 'fc-event*.php');
+        $files = glob("$filePath/fc-event*.php");
         foreach ($files as $file) {
             if (!file_exists($file)) {
                 $this->getOutput()->error('Cached file was not created');

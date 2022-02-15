@@ -42,7 +42,7 @@ class FileCache extends GenericCache
     {
         parent::__construct($context, $cacheId, $fallback);
 
-        $this->filename = $path . DIRECTORY_SEPARATOR . "fc-${context}-" . str_replace('/', '.', $cacheId) . '.php';
+        $this->filename = "$path/fc-${context}-" . str_replace('/', '.', $cacheId) . '.php';
 
         // Load the cache data if it exists.
         if (($fp = @fopen($this->filename, 'r')) !== false) {

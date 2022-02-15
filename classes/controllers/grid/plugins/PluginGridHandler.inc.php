@@ -439,8 +439,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
 
         if ($installedPlugin) {
             $pluginName = ['pluginName' => $plugin->getDisplayName()];
-            $pluginDest = Core::getBaseDir() . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . $category . DIRECTORY_SEPARATOR . $productName;
-            $pluginLibDest = Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . $category . DIRECTORY_SEPARATOR . $productName;
+            $pluginDest = Core::getBaseDir() . "/plugins/$category/$productName";
+            $pluginLibDest = Core::getBaseDir() . '/' . PKP_LIB_PATH . "/plugins/$category/$productName";
 
             // make sure plugin type is valid and then delete the files
             if (in_array($category, PluginRegistry::getCategories())) {

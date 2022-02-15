@@ -292,6 +292,14 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
                     }
                 }
             }
+
+            // Handle DOIs separately
+            if ($context->areDoisEnabled()) {
+                $pubId = $pubObject->getStoredPubId('doi');
+                if ($pubId) {
+                    $identifiers['doi'] = $pubId;
+                }
+            }
         }
 
         // Service URI.

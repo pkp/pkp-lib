@@ -123,10 +123,14 @@ abstract class Repository
             : null;
     }
 
-    /** @copydoc DAO::getByPubId() */
-    public function getByPubId(string $pubIdType, string $pubId, $contextId = null): ?Submission
+    /**
+     * Gets a submission by its current publication's DOI
+     *
+     *
+     */
+    public function getByDoi(string $doi, int $contextId): ?Submission
     {
-        return $this->dao->getByPubId($pubIdType, $pubId, $contextId);
+        return $this->dao->getByDoi($doi, $contextId);
     }
 
     /** @copydoc DAO::getIdsBySetting() */
@@ -520,6 +524,15 @@ abstract class Repository
     {
         return $this->getSortOption(Collector::ORDERBY_DATE_PUBLISHED, Collector::ORDER_DIR_DESC);
     }
+
+    /**
+     * Creates and assigns DOIs to all sub-objects if:
+     * 1) the suffix pattern can currently be created, and
+     * 2) it does not already exist.
+     *
+     * @param Submission $submission
+     */
+    abstract public function createDois(Submission $submission): void;
 
     /**
      * Compile the sort orderBy and orderDirection into an option

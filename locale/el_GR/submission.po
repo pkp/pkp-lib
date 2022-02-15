@@ -459,10 +459,10 @@ msgid "author.submit.submissionCitations"
 msgstr "Παροχή μια λίστας αναφορών για εργασίες που αναφέρονται (cited) σε αυτή την υποβολή."
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Email Εγγραφής στο CrossRef"
+msgstr "Email Εγγραφής στο Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Παρακαλούμε εισάγετε ένα έγκυρο email εγγραφής στο CrossRef. Μπορείτε να εγγραφείτε δωρεάν στον ιστότοπο του CrossRef."
+msgstr "Παρακαλούμε εισάγετε ένα έγκυρο email εγγραφής στο Crossref. Μπορείτε να εγγραφείτε δωρεάν στον ιστότοπο του Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API κλειδί"

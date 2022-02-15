@@ -76,10 +76,10 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Ytterligare metadata"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "E-postadress för CrossRef-registrering"
+msgstr "E-postadress för Crossref-registrering"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Skriv in en giltig e-postadress för CrossRef-registrering. Du kan utan kostnad registrera din e-postadress fpå CrossRefs webbplats."
+msgstr "Skriv in en giltig e-postadress för Crossref-registrering. Du kan utan kostnad registrera din e-postadress fpå Crossrefs webbplats."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "API-nyckel för ISBNdb"

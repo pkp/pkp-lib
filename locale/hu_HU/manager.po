@@ -722,8 +722,8 @@ msgstr ""
 
 msgid "manager.setup.filter.lookup.grid.description.crossRef"
 msgstr ""
-"<p>Ez a kapcsolat a CrossRef idézettség adatbázisból használja a CrossRef <a href=\"http://www.crossref.org/02publishers/openurl_info.html\" target=\"_blank\">OpenURL lekérdező interfész</a> szolgáltatást.</p>\n"
-"\t<p>Ennek a keresőnek a használatához szükséges egy CrossRef rendszer fiók, vagy regisztrálni kell egy érvényes email címmel a <a href=\"http://www.crossref.org/requestaccount/\" target=\"_blank\">itt</a>.</p>"
+"<p>Ez a kapcsolat a Crossref idézettség adatbázisból használja a Crossref <a href=\"http://www.crossref.org/02publishers/openurl_info.html\" target=\"_blank\">OpenURL lekérdező interfész</a> szolgáltatást.</p>\n"
+"\t<p>Ennek a keresőnek a használatához szükséges egy Crossref rendszer fiók, vagy regisztrálni kell egy érvényes email címmel a <a href=\"http://www.crossref.org/requestaccount/\" target=\"_blank\">itt</a>.</p>"
 
 msgid "manager.setup.filter.lookup.grid.description.pubMed"
 msgstr ""

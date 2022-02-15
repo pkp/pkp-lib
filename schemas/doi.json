@@ -1,0 +1,43 @@
+{
+  "title": "DOI",
+  "description": "The Digital Object Identifier (DOI) is a persistent ID assigned to published items.",
+  "required": [
+	"contextId",
+	"doi"
+  ],
+  "properties": {
+	"contextId": {
+	  "type": "integer",
+	  "description": "Context id for DOI",
+	  "apiSummary": true
+	},
+	"doi": {
+	  "type": "string",
+	  "description": "Persistent identifier",
+	  "apiSummary": true,
+			"validation": [
+				"regex:/^\\d+(.\\d+)+\\//"
+			]
+	},
+	"id": {
+	  "type": "integer",
+	  "apiSummary": true,
+	  "readOnly": true
+	},
+		"resolvingUrl": {
+			"type": "string",
+			"description": "DOI URL that resolves to the indicated item",
+			"apiSummary": true,
+			"readOnly": true
+		},
+	"status": {
+	  "type": "integer",
+	  "description": "Persistent identifier status",
+	  "apiSummary": true,
+	  "default": 1,
+	  "validation": [
+		"in:1,2,3,4,5"
+	  ]
+	}
+  }
+}

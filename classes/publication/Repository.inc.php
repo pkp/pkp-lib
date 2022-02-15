@@ -396,6 +396,8 @@ abstract class Repository
      * This method performs all actions needed when publishing an item, such
      * as setting metadata, logging events, updating the search index, etc.
      *
+     * @throws \Exception
+     *
      * @see self::setStatusOnPublish()
      */
     public function publish(Publication $publication)
@@ -450,6 +452,9 @@ abstract class Repository
         $newPublication = Repo::publication()->get($newPublication->getId());
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
+        // Create DOIs
+        Repo::submission()->createDois($submission);
+
         // Update a submission's status based on the status of its publications
         if ($newPublication->getData('status') !== $publication->getData('status')) {
             Repo::submission()->updateStatus($submission);
@@ -471,6 +476,11 @@ abstract class Repository
             $msg
         );
 
+        // Mark DOIs stale (if applicable).
+        if ($newPublication->getData('status') === Submission::STATUS_PUBLISHED) {
+            $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
+            Repo::doi()->markStale($staleDoiIds);
+        }
         HookRegistry::call(
             'Publication::publish',
             [
@@ -532,6 +542,12 @@ abstract class Repository
 
         if (count($submission->getData('publications')) > 1) {
             $msg = 'publication.event.versionUnpublished';
+        }
+
+        // Mark DOIs stable (if applicable).
+        if ($submission->getData('status') !== Submission::STATUS_PUBLISHED) {
+            $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
+            Repo::doi()->markStale($staleDoiIds);
         }
 
         SubmissionLog::logEvent(
@@ -671,4 +687,9 @@ abstract class Repository
             'urlPath.regex' => __('validator.alpha_dash_period'),
         ];
     }
+
+    /**
+     * Create all DOIs associated with the publication.
+     */
+    abstract protected function createDois(Publication $newPublication): void;
 }

@@ -122,6 +122,9 @@ msgstr "Task process stopped."
 msgid "admin.scheduledTask.noLog"
 msgstr "Task produced no log."
 
+msgid "admin.scheduledTask.depositDois"
+msgstr "Deposit DOIs with configured registration agency"
+
 msgid "admin.scheduledTask.downloadLog"
 msgstr "Your {$softwareName} installation automatically executed and finished this task and you can download the log file here: {$url}"
 

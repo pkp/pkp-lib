@@ -159,8 +159,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
         // Add pub IDs by plugin
         $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
         foreach ($pubIdPlugins as $pubIdPlugin) {
-            $this->addPubIdentifier($doc, $entityNode, $entity, $pubIdPlugin);
+            $this->addPubIdentifier($doc, $entityNode, $entity, $pubIdPlugin->getPubIdType());
         }
+        // Also add DOI
+        $this->addPubIdentifier($doc, $entityNode, $entity, 'doi');
     }
 
     /**
@@ -173,13 +175,13 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      *
      * @return DOMElement|null
      */
-    public function addPubIdentifier($doc, $entityNode, $entity, $pubIdPlugin)
+    public function addPubIdentifier($doc, $entityNode, $entity, $pubIdType)
     {
-        $pubId = $entity->getStoredPubId($pubIdPlugin->getPubIdType());
+        $pubId = $entity->getStoredPubId($pubIdType);
         if ($pubId) {
             $deployment = $this->getDeployment();
             $entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'id', htmlspecialchars($pubId, ENT_COMPAT, 'UTF-8')));
-            $node->setAttribute('type', $pubIdPlugin->getPubIdType());
+            $node->setAttribute('type', $pubIdType);
             $node->setAttribute('advice', 'update');
             return $node;
         }

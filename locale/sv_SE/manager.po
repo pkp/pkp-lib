@@ -1,10 +1,10 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2021-10-08 17:06+0000\n"
+"PO-Revision-Date: 2022-02-15 15:07+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
@@ -2203,7 +2203,7 @@ msgid "emailTemplate.variable.submission.authorsFull"
 msgstr "Författarnas fullständiga namn"
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr "Författarnamn i form av en förkortad sträng"
+msgstr "Författarnas fullständiga namn"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Bidragets abstract"
@@ -2246,3 +2246,182 @@ msgstr "Mottagarens eller mottagarnas fullständiga namn"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL till en sida där användaren kan återställa sitt lösenord"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Använd standardmönster."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Ett DOI-suffix utformas hur som helst, men måste vara unikt för objekt med "
+"samma DOI-prefix:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-suffix"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} kommer tilldelas DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Objekt med DOI:er"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI-prefix"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Aldrig"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Vid publicering"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Vid vilken punkt i publiceringsprocessen ska DOI tilldelas?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatisk generering av DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI-prefix krävs och måste vara i formatet 10.xxxx..."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Detta tilldelas av en organisation som står för ett DOI-register, t.ex. <a "
+"href=\"https://www.crossref.org\" target=\"_new\">Crossref</a> eller <a href="
+"\"https://datacite.org/\" target=\"new\">DataCite</a>. Exempel: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Anger om DOI:er deponeras automatiskt till den inställda organisationen."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Aktivera automatisk deponering"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Automatisk deponering"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI-prefix"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Aktivera DOI:er"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registrering"
+
+msgid "manager.setup.dois.setup"
+msgstr "Konfiguration"
+
+msgid "manager.setup.dois"
+msgstr "DOI:er"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr "Följande fel har rapporterats av {$registrationAgency}:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr "Följande fel har rapporterats av {$registrationAgency}:"
+
+msgid "manager.dois.title"
+msgstr "DOI:er"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Objekt har skickats in för deponering"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Objekt har tilldelats DOI:er"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Objekt har markerats som registrerade"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Objekt har exporterats"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Vissa DOI:er kunde inte uppdateras."
+
+msgid "manager.dois.status.error"
+msgstr "Fel"
+
+msgid "manager.dois.status.registered"
+msgstr "Registrerad"
+
+msgid "manager.dois.status.submitted"
+msgstr "Inskickad"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Oregistrerad"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Deponera DOI(:er)"
+
+msgid "manger.dois.update.success"
+msgstr "DOI:er har uppdaterats"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Meddelande om avklarad registrering"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Visa post"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Felmeddelande för registrering"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Visa fel"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Detta objekt kan inte deponeras förrän det har publicerats."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Metadata för detta objekt har inte skickats till {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metadata för detta objekt har skickats in till {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Publiceringsstatus"
+
+msgid "manager.dois.depositStatus"
+msgstr "Deponera status"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Du kommer schemalägga alla utestående metadataposter som ska deponeras hos "
+"{$registrationAgency}. Varje objekts enskilda status kommer uppdateras när "
+"svar ges. Är du säker på att du vill schemalägga deponeringar för samtliga "
+"dessa objekt?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Deponera alla DOI:er"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Du kommer tilldela nya DOI:er till {$count} objekt, om dessa inte redan har "
+"tilldelats en DOI. Är du säker på att du vill tilldela DOI:er till dessa "
+"objekt?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Tilldela DOI:er"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Du kommer exportera metadata för {$count} objekt till {$registrationAgency}. "
+"Är du säker på att du vill exportera de här posterna?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Exportera DOI:er"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr "Du kommer markera {$count} objekt som registerade. Är du säker på det?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Markera DOI:er som registrerade"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Du kommer skicka metadata för {$count} objekt till {$registrationAgency}. Är "
+"du säker på att du vill deponera de här posterna?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Deponera DOI:er"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Deponera alla"

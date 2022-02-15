@@ -159,7 +159,7 @@ class Job extends Model
      */
     public function scopeNotExceededAttempts(Builder $query): Builder
     {
-        return $query->where('attempts', '<', $this->getMaxAttempts());
+        return $query->where('attempts', '<=', $this->getMaxAttempts());
     }
 
     /**

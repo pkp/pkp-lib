@@ -460,7 +460,7 @@ class FormBuilderVocabulary
                     $smarty->assign('FBV_' . $key, $value); break;
                 case 'required':
                     if ($value) {
-                        $textInputParams .= 'required="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '"';
+                        $textInputParams .= 'required="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
                     }
                 break;
                 default:

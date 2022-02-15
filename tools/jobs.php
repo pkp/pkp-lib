@@ -311,7 +311,7 @@ class commandJobs extends CommandLineTool
             throw new CommandInvalidArgumentException(__('admin.cli.tool.jobs.purge.without.id'));
         }
 
-        if ($this->getParameterList()[1] == '--all') {
+        if (($this->getParameterList()[1] ?? null) === '--all') {
             $this->purgeAllJobs();
 
             return;

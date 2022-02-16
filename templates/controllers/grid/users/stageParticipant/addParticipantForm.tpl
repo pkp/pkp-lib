@@ -39,7 +39,7 @@
 		<input type="hidden" name="stageId" value="{$stageId|escape}" />
 		<input type="hidden" name="userGroupId" value="{$userGroupId|escape}" />
 		<input type="hidden" name="userIdSelected" value="{$userIdSelected|escape}" />
-		<input type="hidden" name="assignmentId" value="{$assignmentId|escape}" />
+		<input type="hidden" name="assignmentId" value="{$assignmentId|default:""|escape}" />
 
 		{if $assignmentId}
 			<input type="hidden" name="userId" value="{$userIdSelected|escape}" />

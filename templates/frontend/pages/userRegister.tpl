@@ -91,7 +91,7 @@
 								<span class="label">
 									{translate key="user.interests"}
 								</span>
-								<input type="text" name="interests" id="interests" value="{$interests|escape}">
+								<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}">
 							</label>
 						</div>
 					</div>
@@ -110,7 +110,7 @@
 						<span class="label">
 							{translate key="user.register.noContextReviewerInterests"}
 						</span>
-						<input type="text" name="interests" id="interests" value="{$interests|escape}">
+						<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}">
 					</label>
 				</div>
 			</div>

@@ -25,14 +25,14 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="decision" value="{$decision|escape}" />
-	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
+	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|default:""|escape}" />
 
 	<div id="promoteForm-step1">
 		{if array_key_exists('help', $decisionData)}
 			<p>{translate key=$decisionData.help}</p>
 		{/if}
 
-		{capture assign="sendEmailLabel"}{translate key="editor.submissionReview.sendEmail" authorName=$authorName|escape}{/capture}
+		{capture assign="sendEmailLabel"}{translate key="editor.submissionReview.sendEmail" authorName=$authorName|default:""|escape}{/capture}
 		{if $skipEmail}
 			{assign var="skipEmailSkip" value=true}
 		{else}

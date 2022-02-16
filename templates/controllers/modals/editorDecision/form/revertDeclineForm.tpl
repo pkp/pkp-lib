@@ -21,7 +21,7 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="decision" value="{$decision|escape}" />
-	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
+	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|default:""|escape}" />
 
 	<p>{translate key="editor.submission.revertDeclineDescription"}</p>
 

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-02-16 01:31+0000\n"
+"PO-Revision-Date: 2022-02-17 05:35+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2355,3 +2355,219 @@ msgstr "O e-mail do contato principal do site"
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "Depositar tudo"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Nenhum"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"Os DOIs podem ser automaticamente criados e depositados em uma agência de "
+"registro. Para usar esse recurso, localize e instale um plug-in da agência "
+"de registro apropriada."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Nenhuma agência de registro ativada"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Por favor, selecione a agência de registro que você gostaria de usar ao "
+"depositar DOIs."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Agência de Registro"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"Padrão personalizado e definido pelo usuário anteriormente disponível. Não "
+"está mais em uso."
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Insira um sufixo DOI individual para cada item publicado. Você encontrará "
+"campos de entrada de DOI na página de Gerenciamento de DOI."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Use o  padrão."
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Um sufixo DOI pode assumir qualquer formato, mas deve ser único entre todos "
+"os objetos de publicação com o mesmo prefixo DOI atribuído:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Sufixo DOI"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} terá(ão) um DOI atribuído"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Itens com DOIs"
+
+msgid "manager.setup.doiPrefix"
+msgstr "Prefixo DOI"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nunca"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Após a publicação"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Em que ponto do processo de publicação devem ser criados os DOIs?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Criação automática de DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "O prefixo DOI é obrigatório e deve estar no formato 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Isso é atribuído por uma agência de registro do DOI, como <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> ou <a href=\"https://"
+"datacite.org /\" target=\"new\">DataCite</a>. Exemplo: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Se os DOIs devem ser depositados automaticamente na agência de registro "
+"configurada."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Ativar depósito automático"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Depósito automático"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Prefixo DOI"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Ativar DOIs"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registro"
+
+msgid "manager.setup.dois.setup"
+msgstr "Configuração"
+
+msgid "manager.setup.dois"
+msgstr "DOIs"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"A seguinte mensagem foi retornada por {$registrationAgency} e contém "
+"detalhes sobre o registro:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"O seguinte erro foi retornado por {$registrationAgency} e contém detalhes "
+"sobre a causa do erro:"
+
+msgid "manager.dois.title"
+msgstr "DOIs"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Itens enviados com sucesso para depósito"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Itens atribuídos com sucesso a novos DOIs"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Itens marcados registrados com sucesso"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Itens exportados com sucesso"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Alguns DOI(s) falharam ao atualizar."
+
+msgid "manager.dois.status.stale"
+msgstr "Obsoleto"
+
+msgid "manager.dois.status.error"
+msgstr "Erro"
+
+msgid "manager.dois.status.registered"
+msgstr "Registrado"
+
+msgid "manager.dois.status.submitted"
+msgstr "Submetido"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Não registrado"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Depositar DOI(s)"
+
+msgid "manger.dois.update.success"
+msgstr "DOIs atualizados com sucesso"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Mensagem de registro bem-sucedido"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Visualizar registro"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Mensagem de erro de registro"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Visualizar erro"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Este item não pode ser depositado até que seja publicado."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Os metadados deste item não foram enviados para {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Os metadados deste item foram enviados para {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Status da publicação"
+
+msgid "manager.dois.depositStatus"
+msgstr "Status do Depósito"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Está prestes a agendar todos os registros de metadados DOI pendentes para "
+"serem depositados em {$registrationAgency}. O status individual de cada item "
+"será atualizado quando uma resposta for recebida. Deseja realmente agendar "
+"depósitos para todos esses itens?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Deposite todos os DOIs"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Está prestes a atribuir novos DOIs a {$count} item(ns) para qualquer item "
+"elegível que ainda não tenha um DOI atribuído. Deseja realmente atribuir "
+"DOIs a estes itens?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Atribuir DOIs"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Está prestes a exportar registros de metadados DOI para {$count} item(ns) "
+"para {$registrationAgency}. Deseja realmente exportar estes registos?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Exportar DOIs"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Está prestes a marcar registros de metadados DOI para {$count} item(ns) como "
+"registrados. Deseja realmente marcar estes registos como registados?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Marcar DOIs registrados"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Está prestes a enviar registros de metadados DOI para {$count} item(ns) para "
+"{$registrationAgency}. Deseja realmente depositar estes registos?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Depositar DOIs"

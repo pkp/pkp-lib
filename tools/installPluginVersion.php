@@ -17,6 +17,7 @@ define('RUNNING_UPGRADE', 1);
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.inc.php');
 
+use APP\core\Application;
 use APP\install\Upgrade;
 use PKP\site\Version;
 
@@ -62,7 +63,7 @@ class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
         $pluginVersion = $versionInfo['version'];
 
         $productType = $pluginVersion->getProductType();
-        if (!preg_match('/^plugins\.(.+)$/', $productType, $matches) || !in_array($matches[1], Application::getPluginCategories())) {
+        if (!preg_match('/^plugins\.(.+)$/', $productType, $matches) || !in_array($matches[1], Application::get()->getPluginCategories())) {
             error_log("Invalid type \"${productType}\".");
             return false;
         }

@@ -15,6 +15,7 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -340,7 +341,7 @@ class PKPRequest
         }
 
         // Filter out disable_path_info reserved parameters
-        foreach (array_merge(Application::getContextList(), ['path', 'page', 'op']) as $varName) {
+        foreach (array_merge(Application::get()->getContextList(), ['path', 'page', 'op']) as $varName) {
             if (isset($queryArray[$varName])) {
                 unset($queryArray[$varName]);
             }

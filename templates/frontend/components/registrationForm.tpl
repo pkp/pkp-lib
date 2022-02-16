@@ -29,7 +29,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="givenName" autocomplete="given-name" id="givenName" value="{$givenName|escape}" maxlength="255" required aria-required="true">
+				<input type="text" name="givenName" autocomplete="given-name" id="givenName" value="{$givenName|default:""|escape}" maxlength="255" required aria-required="true">
 			</label>
 		</div>
 		<div class="family_name">
@@ -37,7 +37,7 @@
 				<span class="label">
 					{translate key="user.familyName"}
 				</span>
-				<input type="text" name="familyName" autocomplete="family-name" id="familyName" value="{$familyName|escape}" maxlength="255">
+				<input type="text" name="familyName" autocomplete="family-name" id="familyName" value="{$familyName|default:""|escape}" maxlength="255">
 			</label>
 		</div>
 		<div class="affiliation">
@@ -49,7 +49,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required aria-required="true">
+				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|default:""|escape}" required aria-required="true">
 			</label>
 		</div>
 		<div class="country">
@@ -84,7 +84,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="email" name="email" id="email" value="{$email|escape}" maxlength="90" required aria-required="true" autocomplete="email">
+				<input type="email" name="email" id="email" value="{$email|default:""|escape}" maxlength="90" required aria-required="true" autocomplete="email">
 			</label>
 		</div>
 		<div class="username">
@@ -96,7 +96,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true" autocomplete="username">
+				<input type="text" name="username" id="username" value="{$username|default:""|escape}" maxlength="32" required aria-required="true" autocomplete="username">
 			</label>
 		</div>
 		<div class="password">

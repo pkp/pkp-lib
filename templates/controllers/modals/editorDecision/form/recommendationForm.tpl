@@ -21,7 +21,7 @@
 	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
-	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
+	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|default:""|escape}" />
 
 	{if !empty($editorRecommendations)}
 		{fbvFormSection label="editor.submission.recordedRecommendations"}

@@ -33,7 +33,7 @@
 	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
-	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
+	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|default:""|escape}" />
 
 	{* Set the decision or allow the decision to be selected *}
 	{if $decision != $smarty.const.SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS && $decision != $smarty.const.SUBMISSION_EDITOR_DECISION_RESUBMIT}

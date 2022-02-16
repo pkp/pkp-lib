@@ -21,7 +21,7 @@
 	{csrf}
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
-	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
+	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|default:""|escape}" />
 	<input type="hidden" name="decision" value="{$smarty.const.SUBMISSION_EDITOR_DECISION_NEW_ROUND}" />
 
 	<!-- Revision files grid (Displays only revisions at first, and hides all other files which can then be displayed with filter button -->

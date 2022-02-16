@@ -1,13 +1,13 @@
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2022-02-16 01:31+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2352,3 +2352,6 @@ msgstr "Nova mensagem de discussão"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "O e-mail do contato principal do site"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Depositar tudo"

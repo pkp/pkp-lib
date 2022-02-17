@@ -19,17 +19,10 @@ namespace PKP\tools;
 
 use APP\facades\Repo;
 use APP\i18n\AppLocale;
-use Exception;
-
-use Illuminate\Bus\Queueable;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
 use PKP\cliTool\CommandLineTool;
-use PKP\Domains\Jobs\Job;
+use PKP\Support\Jobs\Entities\TestJob;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
 use Symfony\Component\Console\Exception\LogicException;
@@ -366,25 +359,7 @@ class commandJobs extends CommandLineTool
      */
     protected function test(): void
     {
-        $job = new class() implements ShouldQueue {
-            use Dispatchable;
-            use InteractsWithQueue;
-            use Queueable;
-            use SerializesModels;
-
-            public function __construct()
-            {
-                $this->connection = config('queue.default');
-                $this->queue = Job::TESTING_QUEUE;
-            }
-
-            public function handle(): void
-            {
-                throw new Exception('cli.test.job');
-            }
-        };
-
-        dispatch($job);
+        dispatch(new TestJob());
 
         $this->getCommandInterface()->getOutput()->success('Dispatched job!');
     }

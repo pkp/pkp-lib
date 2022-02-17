@@ -249,7 +249,7 @@ class PKPContainer extends Container
      */
     public function basePath($path = '')
     {
-        return $this->basePath . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+        return $this->basePath . ($path ? "/$path" : $path);
     }
 
     /**

@@ -59,7 +59,7 @@ class PluginHelper
         }
 
         // Create random dirname to avoid symlink attacks.
-        $pluginExtractDir = dirname($filePath) . DIRECTORY_SEPARATOR . $pluginShortName . substr(md5(mt_rand()), 0, 10);
+        $pluginExtractDir = dirname($filePath) . "/$pluginShortName" . substr(md5(mt_rand()), 0, 10);
         if (!mkdir($pluginExtractDir)) {
             throw new Exception('Could not create directory ' . $pluginExtractDir);
         }

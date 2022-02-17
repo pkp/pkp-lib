@@ -188,12 +188,13 @@ class ScheduledTaskHelper
             return __('admin.scheduledTask.noLog');
         }
 
-        $request = Application::get()->getRequest();
+        $application = Application::get();
+        $request = $application->getRequest();
         $router = $request->getRouter();
         $downloadLogUrl = $router->url($request, 'index', 'admin', 'downloadScheduledTaskLogFile', null, ['file' => basename($executionLogFile)]);
         return __('admin.scheduledTask.downloadLog', [
             'url' => $downloadLogUrl,
-            'softwareName' => __(Application::getNameKey()),
+            'softwareName' => __($application->getNameKey()),
         ]);
     }
 
@@ -207,7 +208,7 @@ class ScheduledTaskHelper
     {
         $fileMgr = new PrivateFileManager();
 
-        $fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . self::SCHEDULED_TASK_EXECUTION_LOG_DIR);
+        $fileMgr->rmtree("{$fileMgr->getBasePath()}/" . self::SCHEDULED_TASK_EXECUTION_LOG_DIR);
     }
 
     /**
@@ -219,7 +220,7 @@ class ScheduledTaskHelper
     {
         $fileMgr = new PrivateFileManager();
 
-        $fileMgr->downloadByPath($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . self::SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);
+        $fileMgr->downloadByPath("{$fileMgr->getBasePath()}/" . self::SCHEDULED_TASK_EXECUTION_LOG_DIR . "/$file");
     }
 
 

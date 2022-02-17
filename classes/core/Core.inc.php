@@ -20,8 +20,8 @@
 
 namespace PKP\core;
 
-define('PKP_LIB_PATH', 'lib' . DIRECTORY_SEPARATOR . 'pkp');
-define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . PKP_LIB_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'counterBots' . DIRECTORY_SEPARATOR . 'generated' . DIRECTORY_SEPARATOR . 'COUNTER_Robots_list.txt');
+define('PKP_LIB_PATH', 'lib/pkp');
+define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . '/' . PKP_LIB_PATH . "/lib/counterBots/generated/COUNTER_Robots_list.txt");
 
 use APP\core\Application;
 use Illuminate\Support\Str;
@@ -564,8 +564,8 @@ class Core
      */
     public static function classFromFile(SplFileInfo $file): string
     {
-        $pathFromBase = trim(Str::replaceFirst(base_path(), '', $file->getRealPath()), DIRECTORY_SEPARATOR);
-        $libPath = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR;
+        $pathFromBase = trim(Str::replaceFirst(base_path(), '', $file->getRealPath()), '/');
+        $libPath = 'lib/pkp/';
         $namespace = Str::startsWith($pathFromBase, $libPath) ? 'PKP\\' : 'APP\\';
 
         $path = $pathFromBase;
@@ -573,7 +573,7 @@ class Core
             $path = Str::replaceFirst($libPath, '', $path);
         }
         if (Str::startsWith($path, 'classes')) {
-            $path = Str::replaceFirst('classes' . DIRECTORY_SEPARATOR, '', $path);
+            $path = Str::replaceFirst('classes/', '', $path);
         }
         return $namespace . str_replace('/', '\\', Str::replaceLast('.inc.php', '', $path));
     }

@@ -834,8 +834,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
     public function _getBaseUrl($path = '')
     {
         $request = Application::get()->getRequest();
-        $path = empty($path) ? '' : DIRECTORY_SEPARATOR . $path;
-        return $request->getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . $path;
+        $path = empty($path) ? '' : "/$path";
+        return "{$request->getBaseUrl()}/{$this->getPluginPath()}$path";
     }
 
     /**
@@ -847,8 +847,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function _getBaseDir($path = '')
     {
-        $path = empty($path) ? '' : DIRECTORY_SEPARATOR . $path;
-        return Core::getBaseDir() . DIRECTORY_SEPARATOR . $this->getPluginPath() . $path;
+        $path = empty($path) ? '' : "/$path";
+        return Core::getBaseDir() . "/{$this->getPluginPath()}$path";
     }
 
     /**

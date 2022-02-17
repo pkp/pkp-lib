@@ -250,7 +250,7 @@ class Installer
         // Read installation descriptor file
         $this->log(sprintf('load: %s', $this->descriptor));
         $xmlParser = new PKPXMLParser();
-        $installPath = $this->isPlugin ? $this->descriptor : self::INSTALLER_DATA_DIR . DIRECTORY_SEPARATOR . $this->descriptor;
+        $installPath = $this->isPlugin ? $this->descriptor : self::INSTALLER_DATA_DIR . "/{$this->descriptor}";
         $installTree = $xmlParser->parse($installPath);
         if (!$installTree) {
             // Error reading installation file

@@ -17,8 +17,22 @@ declare(strict_types=1);
 
 namespace PKP\Domains\Jobs\Interfaces;
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use PKP\Support\Interfaces\Core\Repository;
 
 interface JobRepositoryInterface extends Repository
 {
+    public function deleteAll(): bool;
+
+    public function showQueuedJobs(): LengthAwarePaginator;
+
+    public function total(): int;
+
+    public function deleteFromQueue(string $queue): bool;
+
+    public function setOutputFormat(string $format): self;
+
+    public function setPage(int $page): self;
+
+    public function perPage(int $perPage): self;
 }

@@ -113,14 +113,14 @@ class PKPTemplateManager extends Smarty
         $baseDir = Core::getBaseDir();
         $cachePath = CacheManager::getFileCachePath();
 
-        $this->compile_dir = $cachePath . DIRECTORY_SEPARATOR . 't_compile';
-        $this->config_dir = $cachePath . DIRECTORY_SEPARATOR . 't_config';
-        $this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
+        $this->compile_dir = "$cachePath/t_compile";
+        $this->config_dir = "$cachePath/t_config";
+        $this->cache_dir = "$cachePath/t_cache";
 
         $this->_cacheability = self::CACHEABILITY_NO_STORE; // Safe default
 
         // Register the template resources.
-        $this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'templates'));
+        $this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib/pkp/templates'));
         $this->registerResource('app', new PKPTemplateResource(['templates', $coreTemplateDir]));
         $this->default_resource_type = 'app';
 
@@ -477,7 +477,7 @@ class PKPTemplateManager extends Smarty
         $cacheDirectory = CacheManager::getFileCachePath();
         $context = $this->_request->getContext();
         $contextId = $context instanceof \PKP\context\Context ? $context->getId() : 0;
-        return $cacheDirectory . DIRECTORY_SEPARATOR . $contextId . '-' . $name . '.css';
+        return "$cacheDirectory/$contextId-$name.css";
     }
 
     /**
@@ -1283,7 +1283,7 @@ class PKPTemplateManager extends Smarty
     {
         $cacheDirectory = CacheManager::getFileCachePath();
         $files = scandir($cacheDirectory);
-        array_map('unlink', glob(CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . '*.' . self::CSS_FILENAME_SUFFIX));
+        array_map('unlink', glob(CacheManager::getFileCachePath() . '/*.' . self::CSS_FILENAME_SUFFIX));
     }
 
     /**

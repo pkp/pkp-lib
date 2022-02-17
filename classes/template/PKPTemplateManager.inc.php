@@ -263,7 +263,7 @@ class PKPTemplateManager extends Smarty
                 if ($currentContext) {
                     $customHeaders = $currentContext->getLocalizedData('customHeaders');
                     if (!empty($customHeaders)) {
-                        $this->addHeader('customHeaders', $customHeaders);
+                        $this->addHeader('customHeaders', '<meta name="keywords" content="' . $customHeaders) . '">';
                     }
                 }
             }

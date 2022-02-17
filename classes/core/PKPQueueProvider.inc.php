@@ -24,14 +24,8 @@ use PKP\Domains\Jobs\Job as PKPJobModel;
 
 class PKPQueueProvider
 {
-    public function runJobsAtShutdown(): void
+    public function runQueuedJob(): void
     {
-        $disableRun = Config::getVar('queues', 'disable_jobs_run_at_shutdown', false);
-
-        if ($disableRun || defined('RUNNING_UPGRADE')) {
-            return;
-        }
-
         $job = PKPJobModel
             ::isAvailable()
                 ->notExceededAttempts()
@@ -60,6 +54,17 @@ class PKPQueueProvider
             $job->queue,
             $options
         );
+    }
+
+    public function runJobsAtShutdown(): void
+    {
+        $disableRun = Config::getVar('queues', 'disable_jobs_run_at_shutdown', false);
+
+        if ($disableRun || defined('RUNNING_UPGRADE')) {
+            return;
+        }
+
+        $this->runQueuedJob();
     }
 
     public function register()

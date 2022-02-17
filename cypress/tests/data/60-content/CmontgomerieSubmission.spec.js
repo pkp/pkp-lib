@@ -47,5 +47,44 @@ describe('Data suite tests', function() {
 		cy.get('div.pkpPublication button:contains("Post"):visible').click();
 		cy.get('div:contains("All requirements have been met. Are you sure you want to post this?")');
 		cy.get('[id^="publish"] button:contains("Post")').click();
+		cy.logout();
+
+		// Unpost 1st version
+		cy.findSubmissionAsEditor('dbarnes', null, 'Montgomerie');
+		cy.get('#publication-button').click();
+		cy.get('div.pkpPublication button:contains("Unpost"):visible').click();
+		cy.get('div:contains("Are you sure you don\'t want this to be posted?")');
+		cy.get('.modal button').contains('Unpost').click();
+
+		// Edit metadata in 1st version
+		cy.get('#metadata-button').click();
+		cy.get('#metadata-keywords-control-en_US').type('employees{enter}', {delay: 0});
+		cy.wait(500);
+		cy.get('#metadata-keywords-control-en_US').type('{enter}', {delay: 0});
+		cy.get('#metadata button').contains('Save').click();
+		cy.get('#metadata [role="status"]').contains('Saved');
+		cy.get('#metadata-keywords-selected-en_US').contains('employees');
+		cy.wait(1500);
+
+		// Publish 1st version again
+		cy.get('div.pkpPublication button:contains("Post"):visible').click();
+		cy.get('div:contains("All requirements have been met. Are you sure you want to post this?")');
+		cy.get('[id^="publish"] button:contains("Post")').click();
+
+		// Create 2nd version and change copyright holder
+		cy.get('div.pkpPublication button:contains("Create New Version"):visible').click();
+		cy.get('div:contains("Are you sure you want to create a new version?")');
+		cy.get('.modal button').contains('Yes').click();
+		cy.get('#license-button').click();
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en_US"').clear()
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en_US"').type('Craig Montgomerie', {delay: 0});
+		cy.get('#license button').contains('Save').click();
+		cy.get('#license [role="status"]').contains('Saved');
+		cy.wait(1500);
+
+		// Publish 2nd version
+		cy.get('#publication button').contains('Post').click();
+		cy.contains('All requirements have been met.');
+		cy.get('.pkpWorkflow__publishModal button').contains('Post').click();
 	});
 })

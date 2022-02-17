@@ -9,8 +9,8 @@
 
 describe('DOI tests', function() {
 	const submissionId = 19;
-	const publicationId = 19;
-	const galleyId = 19;
+	const publicationId = 20;
+	const galleyId = 20;
 
 	it('Check DOI Configuration', function() {
 		cy.login('dbarnes', null, 'publicknowledge');
@@ -57,7 +57,7 @@ describe('DOI tests', function() {
 
 		cy.get(`#list-item-submission-${submissionId} button.expander`).click();
 		cy.get(`input#${submissionId}-preprint-${publicationId}`).should('have.value', '10.1234/jpkpkp.19');
-		cy.get(`input#${submissionId}-galley-${galleyId}`).should('have.value', '10.1234/jpkpkp.19.g19');
+		cy.get(`input#${submissionId}-galley-${galleyId}`).should('have.value', '10.1234/jpkpkp.19.g20');
 	});
 
 	it('Check Publication/Galley DOI visible', function() {

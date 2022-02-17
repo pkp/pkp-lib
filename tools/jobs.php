@@ -44,6 +44,25 @@ use Throwable;
 define('APP_ROOT', dirname(__FILE__, 4));
 require_once APP_ROOT . '/tools/bootstrap.inc.php';
 
+class TestJob implements ShouldQueue
+{
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
+
+    public function __construct()
+    {
+        $this->connection = config('queue.default');
+        $this->queue = Job::TESTING_QUEUE;
+    }
+
+    public function handle(): void
+    {
+        throw new Exception('cli.test.job');
+    }
+}
+
 class commandInterface
 {
     use InteractsWithIO;
@@ -366,23 +385,7 @@ class commandJobs extends CommandLineTool
      */
     protected function test(): void
     {
-        $job = new class() implements ShouldQueue {
-            use Dispatchable;
-            use InteractsWithQueue;
-            use Queueable;
-            use SerializesModels;
-
-            public function __construct()
-            {
-                $this->connection = config('queue.default');
-                $this->queue = Job::TESTING_QUEUE;
-            }
-
-            public function handle(): void
-            {
-                throw new Exception('cli.test.job');
-            }
-        };
+        $job = new TestJob();
 
         dispatch($job);
 

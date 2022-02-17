@@ -1,11 +1,12 @@
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-02-17 05:35+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2022-02-17 07:33+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -260,3 +261,6 @@ msgstr "En fejl opstod, og DOI objektet kunne ikke skabes."
 
 msgid "api.dois.404.doiNotFound"
 msgstr "Den DOI, du efterspurgte, blev ikke fundet."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Du kan ikke redigere et emnes DOI som ikke findes i denne kontekst"

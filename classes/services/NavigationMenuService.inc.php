@@ -16,9 +16,7 @@
 namespace APP\services;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
-
 use PKP\core\PKPApplication;
 use PKP\plugins\HookRegistry;
 use PKP\security\Validation;
@@ -46,8 +44,6 @@ class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
     public function getMenuItemTypesCallback($hookName, $args)
     {
         $types = & $args[0];
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_APP_EDITOR);
 
         $opsTypes = [
             self::NMI_TYPE_ARCHIVES => [

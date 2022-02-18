@@ -16,8 +16,6 @@
 
 namespace APP\statistics;
 
-use APP\i18n\AppLocale;
-
 use PKP\statistics\PKPStatisticsHelper;
 
 class StatisticsHelper extends PKPStatisticsHelper
@@ -45,7 +43,6 @@ class StatisticsHelper extends PKPStatisticsHelper
     protected function getReportObjectTypesArray()
     {
         $objectTypes = parent::getReportObjectTypesArray();
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
         $objectTypes = $objectTypes + [
             ASSOC_TYPE_SERVER => __('context.context'),
             ASSOC_TYPE_SECTION => __('section.section'),

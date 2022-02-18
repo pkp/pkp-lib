@@ -19,6 +19,9 @@ use APP\handler\Handler;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use PKP\config\Config;
+use PKP\db\DAORegistry;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
 
 class PreprintsHandler extends Handler
@@ -86,11 +89,5 @@ class PreprintsHandler extends Handler
         ]);
 
         $templateMgr->display('frontend/pages/preprints.tpl');
-    }
-
-    public function setupTemplate($request)
-    {
-        parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_READER, LOCALE_COMPONENT_APP_EDITOR);
     }
 }

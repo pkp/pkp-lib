@@ -23,9 +23,9 @@
 
 namespace APP\server;
 
-use APP\i18n\AppLocale;
 use PKP\context\Context;
 use PKP\core\DAORegistry;
+use PKP\facades\Locale;
 use PKP\plugins\PluginRegistry;
 
 use PKP\statistics\PKPStatisticsHelper;
@@ -47,7 +47,7 @@ class Server extends Context
         $titleArray = $this->getData('name');
         $title = null;
 
-        foreach ([AppLocale::getLocale(), AppLocale::getPrimaryLocale()] as $locale) {
+        foreach ([Locale::getLocale(), Locale::getPrimaryLocale()] as $locale) {
             if (isset($titleArray[$locale])) {
                 return $titleArray[$locale];
             }
@@ -65,7 +65,7 @@ class Server extends Context
     public function getLocalizedPageHeaderLogo()
     {
         $logoArray = $this->getData('pageHeaderLogoImage');
-        foreach ([AppLocale::getLocale(), AppLocale::getPrimaryLocale()] as $locale) {
+        foreach ([Locale::getLocale(), Locale::getPrimaryLocale()] as $locale) {
             if (isset($logoArray[$locale])) {
                 return $logoArray[$locale];
             }

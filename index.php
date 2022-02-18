@@ -60,9 +60,11 @@
  * dispatcher to delegate to the appropriate request handler.
  */
 
+use APP\core\Application;
+
 // Initialize global environment
 define('INDEX_FILE_LOCATION', __FILE__);
-$application = require('./lib/pkp/includes/bootstrap.inc.php');
+require_once './lib/pkp/includes/bootstrap.inc.php';
 
 // Serve the request
-$application->execute();
+Application::get()->execute();

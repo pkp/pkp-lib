@@ -18,8 +18,13 @@
  *  a Submission object.
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleConversion;
 use PKP\metadata\MetadataDataObjectAdapter;
+use PKP\plugins\PluginRegistry;
 
 class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 {
@@ -61,8 +66,6 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
     {
         assert($submission instanceof \APP\submission\Submission);
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_SUBMISSION);
-
         // Retrieve data that belongs to the submission.
         // FIXME: Retrieve this data from the respective entity DAOs rather than
         // from the OAIDAO once we've migrated all OAI providers to the
@@ -88,7 +91,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         // Subject
         $submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
         $submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
-        $supportedLocales = array_keys(AppLocale::getSupportedFormLocales());
+        $supportedLocales = array_keys(Locale::getSupportedFormLocales());
         $subjects = array_merge_recursive(
             (array) $submissionKeywordDao->getKeywords($submission->getCurrentPublication()->getId(), $supportedLocales),
             (array) $submissionSubjectDao->getSubjects($submission->getCurrentPublication()->getId(), $supportedLocales)
@@ -151,7 +154,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
             $galleyLocale = $galley->getLocale();
             if (!is_null($galleyLocale) && !in_array($galleyLocale, $locales)) {
                 $locales[] = $galleyLocale;
-                $dc11Description->addStatement('dc:language', AppLocale::getIso3FromLocale($galleyLocale));
+                $dc11Description->addStatement('dc:language', LocaleConversion::getIso3FromLocale($galleyLocale));
             }
         }
         $submissionLanguage = $submission->getLanguage();

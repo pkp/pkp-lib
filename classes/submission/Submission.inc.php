@@ -34,7 +34,7 @@ define('PREPRINT_ACCESS_OPEN', 1);
 use APP\core\Application;
 use APP\core\Services;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use PKP\plugins\HookRegistry;
 use PKP\submission\PKPSubmission;
 
@@ -278,7 +278,7 @@ class Submission extends PKPSubmission
     {
         $allGalleys = $this->getData('galleys');
         $galleys = [];
-        foreach ([AppLocale::getLocale(), AppLocale::getPrimaryLocale()] as $tryLocale) {
+        foreach ([Locale::getLocale(), Locale::getPrimaryLocale()] as $tryLocale) {
             foreach (array_keys($allGalleys) as $key) {
                 if ($allGalleys[$key]->getLocale() == $tryLocale) {
                     $galleys[] = $allGalleys[$key];

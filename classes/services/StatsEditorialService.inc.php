@@ -15,8 +15,8 @@
 
 namespace APP\services;
 
-use APP\i18n\AppLocale;
-use APP\workflow\EditorDecisionActionsHandler;
+use APP\workflow\EditorDecisionActionsManager;
+use PKP\plugins\HookRegistry;
 
 class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
 {
@@ -27,12 +27,10 @@ class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
      */
     public function getOverview($args = [])
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
-
         $received = $this->countSubmissionsReceived($args);
-        $accepted = $this->countByDecisions(EditorDecisionActionsHandler::SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
-        $declinedDesk = $this->countByDecisions(EditorDecisionActionsHandler::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
-        $declinedReview = $this->countByDecisions(EditorDecisionActionsHandler::SUBMISSION_EDITOR_DECISION_DECLINE, $args);
+        $accepted = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
+        $declinedDesk = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
+        $declinedReview = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE, $args);
         $declined = $declinedDesk + $declinedReview;
 
         $overview = [
@@ -58,7 +56,7 @@ class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
             ],
         ];
 
-        \HookRegistry::call('EditorialStats::overview', [&$overview, $args]);
+        HookRegistry::call('EditorialStats::overview', [&$overview, $args]);
 
         return $overview;
     }

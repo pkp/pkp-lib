@@ -21,6 +21,7 @@ use APP\core\Application;
 use APP\file\PublicFileManager;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\session\SessionManager;
 use PKP\template\PKPTemplateManager;
 
 class TemplateManager extends PKPTemplateManager
@@ -34,7 +35,7 @@ class TemplateManager extends PKPTemplateManager
     {
         parent::initialize($request);
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             /**
              * Kludge to make sure no code that tries to connect to
              * the database is executed (e.g., when loading

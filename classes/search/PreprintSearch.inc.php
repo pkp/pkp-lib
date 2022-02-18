@@ -20,8 +20,8 @@ namespace APP\search;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\plugins\HookRegistry;
 
 use PKP\search\SubmissionSearch;
@@ -318,7 +318,7 @@ class PreprintSearch extends SubmissionSearch
             if ($preprint->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
                 // Retrieve keywords (if any).
                 $submissionSubjectDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-                $allSearchTerms = array_filter($submissionSubjectDao->getKeywords($preprint->getId(), [AppLocale::getLocale(), $preprint->getLocale(), AppLocale::getPrimaryLocale()]));
+                $allSearchTerms = array_filter($submissionSubjectDao->getKeywords($preprint->getId(), [Locale::getLocale(), $preprint->getLocale(), Locale::getPrimaryLocale()]));
                 foreach ($allSearchTerms as $locale => $localeSearchTerms) {
                     $searchTerms += $localeSearchTerms;
                 }

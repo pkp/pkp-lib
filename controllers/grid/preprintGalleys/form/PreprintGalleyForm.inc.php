@@ -15,6 +15,7 @@
  * @brief Preprint galley editing form.
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 
@@ -44,8 +45,6 @@ class PreprintGalleyForm extends Form
         $this->_submission = $submission;
         $this->_publication = $publication;
         $this->_preprintGalley = $preprintGalley;
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_SUBMISSION);
 
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'label', 'required', 'editor.submissions.galleyLabelRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorRegExp($this, 'urlPath', 'optional', 'validator.alpha_dash_period', '/^[a-zA-Z0-9]+([\\.\\-_][a-zA-Z0-9]+)*$/'));

@@ -13,7 +13,11 @@
  * @brief Default theme
  */
 
+use APP\core\Application;
+use APP\file\PublicFileManager;
+use PKP\config\Config;
 use PKP\plugins\ThemePlugin;
+use PKP\session\SessionManager;
 
 class DefaultThemePlugin extends ThemePlugin
 {
@@ -22,7 +26,7 @@ class DefaultThemePlugin extends ThemePlugin
      */
     public function isActive()
     {
-        if (defined('SESSION_DISABLE_INIT')) {
+        if (SessionManager::isDisabled()) {
             return true;
         }
         return parent::isActive();
@@ -35,8 +39,6 @@ class DefaultThemePlugin extends ThemePlugin
      */
     public function init()
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
-
         // Register theme options
         $this->addOption('typography', 'FieldOptions', [
             'type' => 'radio',

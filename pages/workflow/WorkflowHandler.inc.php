@@ -13,9 +13,13 @@
  * @brief Handle requests for the submssion workflow.
  */
 
+use APP\core\Services;
 use APP\file\PublicFileManager;
 
 use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\security\Role;
 
 import('lib.pkp.pages.workflow.PKPWorkflowHandler');
@@ -60,11 +64,8 @@ class WorkflowHandler extends PKPWorkflowHandler
             $submissionContext = Services::get('context')->get($submission->getContextId());
         }
 
-        $supportedSubmissionLocales = $submissionContext->getSupportedSubmissionLocales();
-        $localeNames = AppLocale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-        }, $supportedSubmissionLocales);
+        $locales = $submissionContext->getSupportedSubmissionLocaleNames();
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $latestPublication = $submission->getLatestPublication();
 

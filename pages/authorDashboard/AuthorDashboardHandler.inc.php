@@ -16,8 +16,12 @@
 // Import base class
 import('lib.pkp.pages.authorDashboard.PKPAuthorDashboardHandler');
 
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\core\PKPApplication;
+use PKP\facades\Locale;
+use PKP\workflow\WorkflowStageDAO;
 
 class AuthorDashboardHandler extends PKPAuthorDashboardHandler
 {
@@ -38,11 +42,8 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
             $submissionContext = Services::get('context')->get($submission->getContextId());
         }
 
-        $supportedFormLocales = $submissionContext->getSupportedFormLocales();
-        $localeNames = AppLocale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-        }, $supportedFormLocales);
+        $locales = $submissionContext->getSupportedFormLocaleNames();
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $latestPublication = $submission->getLatestPublication();
         $relatePublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId()) . '/relate';

@@ -11,7 +11,7 @@
 
 Open Preprint Systems (OPS) has been developed by the Public Knowledge Project.
 For general information about OPS and other open research systems, visit the
-PKP web site at <http://pkp.sfu.ca/>.
+PKP web site at <https://pkp.sfu.ca/>.
 
 
 ## License
@@ -28,7 +28,7 @@ improvements or bug fixes to the software.
 
 Recommended server requirements:
 
-* PHP >= 8.0
+* PHP >= 8.0 (with php-mbstring, php-xml and php-intl support [1])
 * MySQL >= 4.1 or PostgreSQL >= 9.5
 * Apache >= 1.3.2x or >= 2.0.4x or Microsoft IIS 6
 * Operating system: Any OS that supports the above software, including
@@ -105,28 +105,27 @@ To install OPS:
 		 server configuration questions.
 
 
+## Upgrading
+
+See [docs/UPGRADE.md](UPGRADE.md) for information on upgrading from previous OJS releases.
+
+
 ## Localization
 
-To add support for other languages, the following sets of PO files must be
+To add support for other languages, the following sets of .po files must be
 localized and placed in an appropriately named directory (using ISO locale 
 codes, e.g. `fr_FR`, is recommended):
 
 * `locale/en_US`
 * `lib/pkp/locale/en_US`
 * `docs/manual/en`
-* `registry/locale/en_US`
 * `plugins/[plugin category]/[plugin name]/locale`, where applicable
 
 The only critical files that need translation for the system to function
-properly are found in `locale/en_US`, `lib/pkp/locale/en_US`, and
-`registry/locale/en_US`.
+properly are found in `locale/en_US`, `lib/pkp/locale/en_US`.
 
-New locales must also be added to the file `registry/locales.xml`, after which
-they can be installed in the system through the site administration web
-interface.
-	
 Translations can be contributed back to PKP for distribution with future
-releases of OPS.
+releases of OPS at https://translate.pkp.sfu.ca/projects/.
 
 
 ## Scheduled Tasks
@@ -167,17 +166,22 @@ interpreter installed on your server.
 
 ## Third-party Libraries
 
+* In non debian stacks, additional libraries and php modules could be required and need to be
+	manually installed. For a detailed list, check the docker release of your version:
+	[1]: https://github.com/pkp/docker-ojs/blob/main/versions/3_3_0-8/alpine/apache/php73/Dockerfile#L27
+
 * See [lib/pkp/lib/libraries.txt](../lib/pkp/lib/libraries.txt) for a list of third-party libraries
 	used by OPS.
 
-* OPS supports the legacy GeoLiteCite database to approximate geolocation
+* OPS supports the legacy GeoLite City database to approximate geolocation
 	information for usage statistics. If you would like to use this optional
-	functionality, you can download the database from MaxMind at:
-	http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+	functionality, you can download the database from here:
+	https://download.cnet.com/MaxMind-GeoLite-City-Database/3000-10254_4-10506960.html
 	You will need to decompress the file and place "GeoLiteCity.dat" into
 	the `plugins/generic/usageStats` directory. A separate license agreement
 	is required for this use of this database. For details, see:
-	https://dev.maxmind.com/geoip/legacy/geolite/
+	https://support.maxmind.com/geolite-legacy-discontinuation-notice/
+
 
 ## Contact/Support
 

@@ -1,8 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
+"PO-Revision-Date: 2022-02-18 23:01+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
 "Language: hy_AM\n"
@@ -2115,3 +2116,9 @@ msgstr "Սա կարող է պարունակել միայն տառեր, թվեր,
 
 msgid "common.insert"
 msgstr "Մուտքագրել"
+
+msgid "list.collapseAll"
+msgstr "Փլուզել բոլորը"
+
+msgid "list.expandAll"
+msgstr "Ընդլայնել բոլորը"

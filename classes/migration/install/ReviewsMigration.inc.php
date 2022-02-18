@@ -78,7 +78,11 @@ class ReviewsMigration extends \PKP\migration\Migration
 
             $table->smallInteger('unconsidered')->nullable();
 
-            $table->unique(['review_round_id', 'reviewer_id'], 'review_assignment_reviewer_round_unique');
+            // Normally reviewer can't be assigned twice on the same review round.
+            // HOWEVER, if two reviewer user accounts are subsequently merged, both will keep
+            // separate review assignments but the reviewer_id will become the same!
+            // (https://github.com/pkp/pkp-lib/issues/7678)
+            $table->index(['review_round_id', 'reviewer_id'], 'review_assignment_reviewer_round');
             $table->index(['submission_id'], 'review_assignments_submission_id');
             $table->index(['reviewer_id'], 'review_assignments_reviewer_id');
             $table->index(['review_form_id'], 'review_assignments_form_id');

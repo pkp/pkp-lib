@@ -58,8 +58,12 @@ class UpgradeMigration extends \PKP\migration\Migration
             $table->foreign('reviewer_id')->references('user_id')->on('users');
             $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds');
             $table->foreign('review_form_id')->references('review_form_id')->on('review_forms');
-            // No reviewer can be assigned twice on the same review round.
-            $table->unique(['review_round_id', 'reviewer_id'], 'review_assignment_reviewer_round_unique');
+
+            // Normally reviewer can't be assigned twice on the same review round.
+            // HOWEVER, if two reviewer user accounts are subsequently merged, both will keep
+            // separate review assignments but the reviewer_id will become the same!
+            // (https://github.com/pkp/pkp-lib/issues/7678)
+            $table->index(['review_round_id', 'reviewer_id'], 'review_assignment_reviewer_round');
         });
 
         // pkp/pkp-lib#6685: Drop old tombstones table in OJS and OPS
@@ -90,7 +94,7 @@ class UpgradeMigration extends \PKP\migration\Migration
             $table->dropForeign(['review_form_id']);
         });
         Schema::table('review_assignments', function (Blueprint $table) {
-            $table->dropUnique('review_assignment_reviewer_round_unique');
+            $table->dropIndex('review_assignment_reviewer_round');
         });
         Schema::table('users', function (Blueprint $table) {
             $table->dateTime('date_last_login')->nullable(false)->default(null)->change();

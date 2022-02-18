@@ -17,7 +17,6 @@
 namespace PKP\workflow;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 
 class WorkflowStageDAO extends \PKP\db\DAO
 {
@@ -43,10 +42,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
             WORKFLOW_STAGE_ID_EDITING => self::WORKFLOW_STAGE_PATH_EDITING,
             WORKFLOW_STAGE_ID_PRODUCTION => self::WORKFLOW_STAGE_PATH_PRODUCTION
         ];
-        if (isset($stageMapping[$stageId])) {
-            return $stageMapping[$stageId];
-        }
-        return null;
+        return $stageMapping[$stageId] ?? null;
     }
 
     /**
@@ -65,10 +61,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
             self::WORKFLOW_STAGE_PATH_EDITING => WORKFLOW_STAGE_ID_EDITING,
             self::WORKFLOW_STAGE_PATH_PRODUCTION => WORKFLOW_STAGE_ID_PRODUCTION
         ];
-        if (isset($stageMapping[$stagePath])) {
-            return $stageMapping[$stagePath];
-        }
-        return null;
+        return $stageMapping[$stagePath] ?? null;
     }
 
     /**
@@ -93,8 +86,6 @@ class WorkflowStageDAO extends \PKP\db\DAO
      */
     public static function getWorkflowStageTranslationKeys()
     {
-        $applicationStages = Application::get()->getApplicationStages();
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
         static $stageMapping = [
             WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',
             WORKFLOW_STAGE_ID_INTERNAL_REVIEW => 'workflow.review.internalReview',
@@ -102,7 +93,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
             WORKFLOW_STAGE_ID_EDITING => 'submission.editorial',
             WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production'
         ];
-
+        $applicationStages = Application::get()->getApplicationStages();
         return array_intersect_key($stageMapping, array_flip($applicationStages));
     }
 

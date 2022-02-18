@@ -31,7 +31,7 @@ class SelectFilesLinkAction extends LinkAction
     {
         // Create an ajax action request that'll contain
         // the file selection grid.
-        $modalTitle = $modalTitle ?? $actionLabel;
+        $modalTitle ??= $actionLabel;
         $router = $request->getRouter();
         $ajaxModal = new AjaxModal(
             $router->url($request, null, null, 'selectFiles', null, $actionArgs),

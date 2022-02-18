@@ -14,14 +14,15 @@
  */
 
 use APP\author\Author;
-
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
 
 use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
-use Sokil\IsoCodes\IsoCodesFactory;
 
 class PKPAuthorForm extends Form
 {
@@ -151,9 +152,8 @@ class PKPAuthorForm extends Form
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $authorUserGroups = $userGroupDao->getByRoleId($request->getContext()->getId(), Role::ROLE_ID_AUTHOR);
         $publication = $this->getPublication();
-        $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
-        foreach ($isoCodes->getCountries() as $country) {
+        foreach (Locale::getCountries() as $country) {
             $countries[$country->getAlpha2()] = $country->getLocalName();
         }
         asort($countries);

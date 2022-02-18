@@ -176,7 +176,6 @@ class PluginHelper
     protected function _getConnectionParams()
     {
         return [
-            'clientCharset' => Config::getVar('i18n', 'client_charset'),
             'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
             'databaseDriver' => Config::getVar('database', 'driver'),
             'databaseHost' => Config::getVar('database', 'host'),

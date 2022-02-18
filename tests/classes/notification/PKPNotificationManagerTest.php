@@ -18,12 +18,18 @@
 
 import('lib.pkp.tests.PKPTestCase');
 
+use APP\core\Application;
 use APP\notification\Notification;
 use Illuminate\Support\Facades\App;
+use PKP\core\PKPRequest;
+use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\mail\MailTemplate;
+use PKP\notification\NotificationDAO;
+use PKP\notification\NotificationSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
+use PKP\site\Site;
 use PKP\user\User;
 
 define('NOTIFICATION_ID', 1);
@@ -309,7 +315,7 @@ class PKPNotificationManagerTest extends PKPTestCase
 
         // Stub site.
         $siteStub = $this->getMockBuilder(Site::class)
-            ->setMethods(['getLocalizedContactName', 'getLocalizedTitle', 'getLocalizedContactEmail'])
+            ->setMethods(['getLocalizedContactName', 'getLocalizedTitle', 'getLocalizedContactEmail', 'getPrimaryLocale'])
             ->getMock();
 
         $siteStub->expects($this->any())
@@ -321,7 +327,9 @@ class PKPNotificationManagerTest extends PKPTestCase
         $siteStub->expects($this->any())
             ->method('getLocalizedContactEmail')
             ->will($this->returnValue($siteEmail));
-
+        $siteStub->expects($this->any())
+            ->method('getPrimaryLocale')
+            ->will($this->returnValue('en_US'));
         // Inject site stub into our request stub.
         $requestStub->expects($this->any())
             ->method('getSite')

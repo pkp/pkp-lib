@@ -17,7 +17,6 @@ namespace PKP\mail\variables;
 
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
-use PKP\i18n\PKPLocale;
 use PKP\stageAssignment\StageAssignment;
 use PKP\stageAssignment\StageAssignmentDAO;
 

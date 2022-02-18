@@ -14,7 +14,6 @@
 namespace PKP\announcement;
 
 use APP\core\Request;
-use APP\i18n\AppLocale;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
@@ -106,11 +105,6 @@ class Repository
      */
     public function validate(?Announcement $object, array $props, array $allowedLocales, string $primaryLocale): array
     {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
-        );
-
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),

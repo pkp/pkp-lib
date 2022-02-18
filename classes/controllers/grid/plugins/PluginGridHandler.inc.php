@@ -15,7 +15,6 @@
 
 namespace PKP\controllers\grid\plugins;
 
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
@@ -78,9 +77,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-
-        // Load language components
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_APP_MANAGER);
 
         // Basic grid configuration
         $this->setTitle('common.plugins');

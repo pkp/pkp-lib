@@ -15,7 +15,6 @@
 
 namespace PKP\task;
 
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
@@ -73,10 +72,6 @@ abstract class FileLoader extends ScheduledTask
     public function __construct($args)
     {
         parent::__construct($args);
-
-        // Set an initial process id and load translations (required
-        // for email notifications).
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
 
         // Canonicalize the base path.
         $basePath = rtrim($args[0], '/');

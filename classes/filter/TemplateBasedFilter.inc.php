@@ -17,7 +17,7 @@
 namespace PKP\filter;
 
 use APP\template\TemplateManager;
-
+use PKP\facades\Locale;
 class TemplateBasedFilter extends PersistableFilter
 {
     //
@@ -71,7 +71,7 @@ class TemplateBasedFilter extends PersistableFilter
     public function &process(&$input)
     {
         // Initialize view
-        $locale = AppLocale::getLocale();
+        $locale = Locale::getLocale();
         $request = Application::get()->getRequest();
         $templateMgr = TemplateManager::getManager($request);
 

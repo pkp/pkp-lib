@@ -25,6 +25,12 @@ namespace PKP\cliTool;
 
 use APP\core\Application;
 use APP\core\PageRouter;
+use APP\facades\Repo;
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
+use PKP\plugins\PluginRegistry;
+use PKP\security\Role;
+use PKP\session\SessionManager;
 
 /** Initialization code */
 define('PWD', getcwd());
@@ -32,16 +38,8 @@ chdir(dirname(INDEX_FILE_LOCATION)); /* Change to base directory */
 if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
-define('SESSION_DISABLE_INIT', 1);
-require('./lib/pkp/includes/bootstrap.inc.php');
-
-use APP\facades\Repo;
-use APP\i18n\AppLocale;
-use PKP\core\Registry;
-
-use PKP\db\DAORegistry;
-use PKP\plugins\PluginRegistry;
-use PKP\security\Role;
+require_once './lib/pkp/includes/bootstrap.inc.php';
+SessionManager::disable();
 
 class CommandLineTool
 {
@@ -69,7 +67,6 @@ class CommandLineTool
         $request->setRouter($router);
 
         // Initialize the locale and load generic plugins.
-        AppLocale::initialize($request);
         PluginRegistry::loadCategory('generic');
 
         $this->argv = isset($argv) && is_array($argv) ? $argv : [];

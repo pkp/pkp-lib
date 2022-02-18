@@ -27,7 +27,7 @@ namespace PKP\submission;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -168,15 +168,12 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function &getStatusMap()
     {
-        static $statusMap;
-        if (!isset($statusMap)) {
-            $statusMap = [
-                self::STATUS_QUEUED => 'submissions.queued',
-                self::STATUS_PUBLISHED => 'submission.status.published',
-                self::STATUS_DECLINED => 'submission.status.declined',
-                self::STATUS_SCHEDULED => 'submission.status.scheduled',
-            ];
-        }
+        static $statusMap = [
+            self::STATUS_QUEUED => 'submissions.queued',
+            self::STATUS_PUBLISHED => 'submission.status.published',
+            self::STATUS_DECLINED => 'submission.status.declined',
+            self::STATUS_SCHEDULED => 'submission.status.scheduled',
+        ];
         return $statusMap;
     }
 
@@ -284,8 +281,8 @@ abstract class PKPSubmission extends \PKP\core\DataObject
             return $this->getData($key, $preferredLocale);
         }
         // 2. User's current locale
-        if (!empty($this->getData($key, AppLocale::getLocale()))) {
-            return $this->getData($key, AppLocale::getLocale());
+        if (!empty($this->getData($key, Locale::getLocale()))) {
+            return $this->getData($key, Locale::getLocale());
         }
         // 3. Submission's primary locale
         if (!empty($this->getData($key, $this->getData('locale')))) {

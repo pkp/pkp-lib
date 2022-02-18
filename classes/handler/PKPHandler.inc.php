@@ -17,7 +17,6 @@
 namespace PKP\handler;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\Dispatcher;
@@ -29,7 +28,7 @@ use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\HttpsPolicy;
 use PKP\security\authorization\RestrictedSiteAccessPolicy;
-
+use PKP\session\SessionManager;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -328,8 +327,7 @@ class PKPHandler
 
         // Ensure the allowed hosts setting, when provided, is respected.
         $this->addPolicy(new AllowedHostsPolicy($request), true);
-
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             // Add user roles in authorized context.
             $user = $request->getUser();
             if ($user instanceof \PKP\user\User || $request->getRouter() instanceof \PKP\core\APIRouter) {
@@ -455,7 +453,7 @@ class PKPHandler
         $context = $request->getContext();
         $pageNum = $request->getUserVar(self::getPageParamName($rangeName));
         if (empty($pageNum)) {
-            $session = & $request->getSession();
+            $session = $request->getSession();
             $pageNum = 1; // Default to page 1
             if ($session && $contextData !== null) {
                 // See if we can get a page number from a prior request
@@ -472,7 +470,7 @@ class PKPHandler
                 }
             }
         } else {
-            $session = & $request->getSession();
+            $session = $request->getSession();
             if ($session && $contextData !== null) {
                 // Store the page number
                 $contextHash = self::hashPageContext($request, $contextData);
@@ -522,17 +520,7 @@ class PKPHandler
         }
         assert($request instanceof \PKP\core\PKPRequest);
 
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_COMMON,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_APP_COMMON
-        );
-
         $userRoles = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        if (array_intersect([Role::ROLE_ID_MANAGER], $userRoles)) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        }
-
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('userRoles', $userRoles);
 

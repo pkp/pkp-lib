@@ -38,9 +38,8 @@ class UpgradeForm extends MaintenanceForm
     {
         parent::execute(...$functionParams);
 
-        define('RUNNING_UPGRADE', 1);
+        Application::upgrade();
         $templateMgr = TemplateManager::getManager($this->_request);
-        Application::get()->initializeLaravelContainer();
         $installer = new Upgrade($this->_data);
 
         // FIXME Use logger?

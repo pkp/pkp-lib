@@ -17,8 +17,6 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
-
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 
@@ -45,7 +43,6 @@ class StageRolePolicy extends AuthorizationPolicy
      */
     public function __construct($roleIds, $stageId = null, $allowRecommendOnly = true)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
         parent::__construct('user.authorization.accessibleWorkflowStage');
         $this->_roleIds = $roleIds;
         $this->_stageId = $stageId;

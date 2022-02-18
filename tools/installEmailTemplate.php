@@ -63,9 +63,6 @@ class installEmailTemplates extends CommandLineTool
     {
         // Load the necessary locale data
         $locales = explode(',', $this->_locales);
-        foreach ($locales as $locale) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
-        }
 
         // Install to the database
         Repo::emailTemplate()->dao->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $locales, $this->_emailKey);

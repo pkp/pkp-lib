@@ -22,9 +22,7 @@
 
 namespace PKP\site;
 
-use APP\i18n\AppLocale;
-
-use PKP\core\Registry;
+use PKP\facades\Locale;
 
 class Site extends \PKP\core\DataObject
 {
@@ -34,22 +32,15 @@ class Site extends \PKP\core\DataObject
      *
      * @return array
      */
-    public function &getSupportedLocaleNames()
+    public function getSupportedLocaleNames()
     {
-        $supportedLocales = & Registry::get('siteSupportedLocales', true, null);
-
-        if ($supportedLocales === null) {
-            $supportedLocales = [];
-            $localeNames = & AppLocale::getAllLocales();
-
-            $locales = $this->getSupportedLocales();
-            foreach ($locales as $localeKey) {
-                $supportedLocales[$localeKey] = $localeNames[$localeKey];
-            }
-
-            asort($supportedLocales);
+        static $supportedLocales;
+        if (isset($supportedLocales)) {
+            return $supportedLocales;
         }
-
+        $supportedLocales = array_fill_keys($this->getSupportedLocales(), '');
+        array_walk($supportedLocales, fn (&$item, string $locale) => $item = Locale::getMetadata($locale)->getDisplayName());
+        asort($supportedLocales);
         return $supportedLocales;
     }
 
@@ -87,14 +78,14 @@ class Site extends \PKP\core\DataObject
         if ($this->getLocalizedData('pageHeaderTitleImage')) {
             return $this->getLocalizedData('pageHeaderTitleImage');
         }
-        if ($this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale())) {
-            return $this->getData('pageHeaderTitleImage', AppLocale::getPrimaryLocale());
+        if ($this->getData('pageHeaderTitleImage', Locale::getPrimaryLocale())) {
+            return $this->getData('pageHeaderTitleImage', Locale::getPrimaryLocale());
         }
         if ($this->getLocalizedData('title')) {
             return $this->getLocalizedData('title');
         }
-        if ($this->getData('title', AppLocale::getPrimaryLocale())) {
-            return $this->getData('title', AppLocale::getPrimaryLocale());
+        if ($this->getData('title', Locale::getPrimaryLocale())) {
+            return $this->getData('title', Locale::getPrimaryLocale());
         }
         return '';
     }
@@ -190,8 +181,7 @@ class Site extends \PKP\core\DataObject
      */
     public function getInstalledLocales()
     {
-        $locales = $this->getData('installedLocales');
-        return $locales ?? [];
+        return $this->getData('installedLocales') ?? [];
     }
 
     /**
@@ -211,8 +201,7 @@ class Site extends \PKP\core\DataObject
      */
     public function getSupportedLocales()
     {
-        $locales = $this->getData('supportedLocales');
-        return $locales ?? [];
+        return $this->getData('supportedLocales') ?? [];
     }
 
     /**

@@ -19,7 +19,7 @@ define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
@@ -79,10 +79,10 @@ class PKPPageRouter extends PKPRouter
      */
     public function isCacheable($request, $testOnly = false)
     {
-        if (defined('SESSION_DISABLE_INIT') && !$testOnly) {
+        if (SessionManager::isDisabled() && !$testOnly) {
             return false;
         }
-        if (!Config::getVar('general', 'installed')) {
+        if (Application::isUnderMaintenance()) {
             return false;
         }
         if (!empty($_POST) || Validation::isLoggedIn()) {
@@ -179,14 +179,14 @@ class PKPPageRouter extends PKPRouter
         if (!isset($this->_cacheFilename)) {
             if ($request->isPathInfoEnabled()) {
                 $id = $_SERVER['PATH_INFO'] ?? 'index';
-                $id .= '-' . AppLocale::getLocale();
+                $id .= '-' . Locale::getLocale();
             } else {
                 $id = '';
                 $application = $this->getApplication();
                 foreach ($application->getContextList() as $contextName) {
                     $id .= $request->getUserVar($contextName) . '-';
                 }
-                $id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . AppLocale::getLocale();
+                $id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . Locale::getLocale();
             }
             $path = Core::getBaseDir();
             $this->_cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';
@@ -205,7 +205,7 @@ class PKPPageRouter extends PKPRouter
 
         // If the application has not yet been installed we only
         // allow installer pages to be displayed.
-        if (!Config::getVar('general', 'installed')) {
+        if (!Application::isInstalled()) {
             if (!in_array($page, $this->getInstallationPages())) {
                 // A non-installation page was called although
                 // the system is not yet installed. Redirect to
@@ -226,7 +226,7 @@ class PKPPageRouter extends PKPRouter
 
         // Redirect requests from logged-out users to a context which is not
         // publicly enabled
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             $user = $request->getUser();
             $currentContext = $request->getContext();
             if ($currentContext && !$currentContext->getEnabled() && !$user instanceof \PKP\user\User) {
@@ -262,7 +262,7 @@ class PKPPageRouter extends PKPRouter
             }
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             // Initialize session
             SessionManager::getManager();
         }

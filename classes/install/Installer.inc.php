@@ -18,7 +18,7 @@ namespace PKP\install;
 use adoSchema;
 use APP\core\Application;
 use APP\file\LibraryFileManager;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -161,11 +161,11 @@ class Installer
         }
 
         if (!isset($this->locale)) {
-            $this->locale = AppLocale::getLocale();
+            $this->locale = Locale::getLocale();
         }
 
         if (!isset($this->installedLocales)) {
-            $this->installedLocales = array_keys(AppLocale::getAllLocales());
+            $this->installedLocales = array_keys(Locale::getLocales());
         }
 
         if (!isset($this->dataXMLParser)) {
@@ -735,9 +735,6 @@ class Installer
     public function installEmailTemplate($installer, $attr)
     {
         $locales = explode(',', $attr['locales']);
-        foreach ($locales as $locale) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
-        }
         // FIXME pkp/pkp-lib#6284 Remove after drop of support for upgrades from 3.2.0
         if (!Schema::hasColumn('email_templates_default', 'stage_id')) {
             Schema::table('email_templates_default', function (Blueprint $table) {

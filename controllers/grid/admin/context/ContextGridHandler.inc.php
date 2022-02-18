@@ -72,15 +72,6 @@ class ContextGridHandler extends GridHandler
     {
         parent::initialize($request, $args);
 
-        // Load user-related translations.
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_APP_MANAGER,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_PKP_ADMIN,
-            LOCALE_COMPONENT_APP_ADMIN
-        );
-
         $this->setTitle('context.contexts');
 
         // Grid actions.
@@ -235,16 +226,13 @@ class ContextGridHandler extends GridHandler
         $dispatcher = $request->getDispatcher();
         if ($context) {
             $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
-            $supportedLocales = $context->getSupportedFormLocales();
+            $locales = $context->getSupportedFormLocaleNames();
         } else {
             $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, CONTEXT_ID_ALL, 'contexts');
-            $supportedLocales = $request->getSite()->getSupportedLocales();
+            $locales = $request->getSite()->getSupportedLocaleNames();
         }
 
-        $localeNames = AppLocale::getAllLocales();
-        $locales = array_map(function ($localeKey) use ($localeNames) {
-            return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
-        }, $supportedLocales);
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
         $contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
         $contextFormConfig = $contextForm->getConfig();

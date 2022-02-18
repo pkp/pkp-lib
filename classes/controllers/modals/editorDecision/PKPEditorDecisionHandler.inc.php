@@ -16,7 +16,6 @@
 namespace PKP\controllers\modals\editorDecision;
 
 use APP\handler\Handler;
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\workflow\EditorDecisionActionsManager;
 use PKP\core\JSONMessage;
@@ -66,20 +65,6 @@ class PKPEditorDecisionHandler extends Handler
         }
 
         return true;
-    }
-
-    /**
-     * @copydoc PKPHandler::initialize()
-     */
-    public function initialize($request)
-    {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_COMMON,
-            LOCALE_COMPONENT_APP_EDITOR,
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_PKP_SUBMISSION
-        );
     }
 
 
@@ -293,7 +278,6 @@ class PKPEditorDecisionHandler extends Handler
 
         $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
         $reviewIndexes = $reviewAssignmentDao->getReviewIndexesForRound($submission->getId(), $reviewRound->getId());
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
         $body = '';
         $textSeparator = '------------------------------------------------------';

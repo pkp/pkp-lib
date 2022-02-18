@@ -18,9 +18,14 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
+use PKP\security\Validation;
+use PKP\session\Session;
 use PKP\session\SessionManager;
+use PKP\site\Site;
+use PKP\user\User;
 
 class PKPRequest
 {
@@ -561,63 +566,44 @@ class PKPRequest
 
     /**
      * Get site data.
-     *
-     * @return Site
      */
-    public function &getSite()
+    public function getSite(): ?Site
     {
         $site = & Registry::get('site', true, null);
-        if ($site === null) {
-            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-            $site = $siteDao->getSite();
-            // PHP bug? This is needed for some reason or extra queries results.
-            Registry::set('site', $site);
-        }
-
-        return $site;
+        return $site ??= DAORegistry::getDAO('SiteDAO')->getSite();
     }
 
     /**
      * Get the user session associated with the current request.
-     *
-     * @return Session
      */
-    public function &getSession()
+    public function getSession(): Session
     {
         $session = & Registry::get('session', true, null);
-
-        if ($session === null) {
-            $sessionManager = SessionManager::getManager();
-            $session = $sessionManager->getUserSession();
-        }
-
-        return $session;
+        return $session ??= SessionManager::getManager()->getUserSession();
     }
 
     /**
      * Get the user associated with the current request.
-     *
-     * @return User
      */
-    public function &getUser()
+    public function getUser(): ?User
     {
         $user = & Registry::get('user', true, null);
-
-        $router = $this->getRouter();
-        if (!is_null($handler = $router->getHandler()) && !is_null($token = $handler->getApiToken())) {
-            if ($user === null) {
-                $user = Repo::user()->getByApiKey($token);
-            }
-            if (is_null($user) || !$user->getData('apiKeyEnabled')) {
-                $user = null;
-            }
+        if ($user) {
             return $user;
         }
 
-        if ($user === null) {
-            $sessionManager = SessionManager::getManager();
-            $session = $sessionManager->getUserSession();
-            $user = $session->getUser();
+        // Attempt to load user from API token
+        if (($handler = $this->getRouter()->getHandler())
+            && ($token = $handler->getApiToken())
+            && ($apiUser = Repo::user()->getByApiKey($token))
+            && $apiUser->getData('apiKeyEnabled')
+        ) {
+            return $user = $apiUser;
+        }
+
+        // Attempts to retrieve a logged user
+        if (Validation::isLoggedIn()) {
+            $user = SessionManager::getManager()->getUserSession()->getUser();
         }
 
         return $user;
@@ -640,12 +626,7 @@ class PKPRequest
 
         // Get all vars (already cleaned)
         $vars = $this->getUserVars();
-
-        if (isset($vars[$key])) {
-            return $vars[$key];
-        } else {
-            return null;
-        }
+        return $vars[$key] ?? null;
     }
 
     /**
@@ -655,12 +636,7 @@ class PKPRequest
      */
     public function &getUserVars()
     {
-        if (!isset($this->_requestVars)) {
-            $this->_requestVars = array_map(function ($s) {
-                return is_string($s) ? trim($s) : $s;
-            }, array_merge($_GET, $_POST));
-        }
-
+        $this->_requestVars ??= array_map(fn($s) => is_string($s) ? trim($s) : $s, array_merge($_GET, $_POST));
         return $this->_requestVars;
     }
 
@@ -773,11 +749,9 @@ class PKPRequest
     /**
      * Get the current "context" (press/journal/etc) object.
      *
-     * @return Context
-     *
      * @see PKPPageRouter::getContext()
      */
-    public function &getContext()
+    public function &getContext(): ?Context
     {
         return $this->_delegateToRouter('getContext');
     }

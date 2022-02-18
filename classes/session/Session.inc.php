@@ -220,7 +220,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Get the domain with which the session is registered
      *
-     * @return array
+     * @return string
      */
     public function getDomain()
     {

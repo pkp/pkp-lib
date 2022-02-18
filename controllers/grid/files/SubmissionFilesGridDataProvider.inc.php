@@ -16,6 +16,7 @@ import('lib.pkp.controllers.grid.files.FilesGridDataProvider');
 
 use APP\facades\Repo;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
+use PKP\facades\Locale;
 
 class SubmissionFilesGridDataProvider extends FilesGridDataProvider
 {
@@ -155,7 +156,7 @@ class SubmissionFilesGridDataProvider extends FilesGridDataProvider
             switch ($filter['column']) {
             case 'name':
                 foreach ($revisions as $key => $submissionFile) {
-                    if (!stristr($submissionFile->getData('name', AppLocale::getLocale()), $filter['search'])) {
+                    if (!stristr($submissionFile->getData('name', Locale::getLocale()), $filter['search'])) {
                         unset($revisions[$key]);
                     }
                 }

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\db\XMLDAO;
+use PKP\facades\Locale;
 use PKP\facades\Repo;
 
 class DAO extends EntityDAO
@@ -322,11 +323,11 @@ class DAO extends EntityDAO
                         ->where('locale', $locale)
                         ->delete();
 
-                    $keyNotFoundHandler = function ($key) {
-                        return null;
-                    };
-                    $translatedSubject = __($subject, [], $locale, $keyNotFoundHandler);
-                    $translatedBody = __($body, [], $locale, $keyNotFoundHandler);
+                    $previous = Locale::getMissingKeyHandler();
+                    Locale::setMissingKeyHandler(fn (string $key): string => '');
+                    $translatedSubject = __($subject, [], $locale);
+                    $translatedBody = __($body, [], $locale);
+                    Locale::setMissingKeyHandler($previous);
                     if ($translatedSubject !== null && $translatedBody !== null) {
                         DB::table('email_templates_default_data')->insert([
                             'email_key' => $attrs['key'],
@@ -373,9 +374,7 @@ class DAO extends EntityDAO
 
             // Translate variable contents
             foreach ([&$subject, &$body, &$description] as &$var) {
-                $var = preg_replace_callback('{{translate key="([^"]+)"}}', function ($matches) use($locale) {
-                    return __($matches[1], [], $locale);
-                }, $var);
+                $var = preg_replace_callback('{{translate key="([^"]+)"}}', fn($matches) => __($matches[1], [], $locale), $var);
             }
 
             if ($emailKey && $emailKey != $emailNode->getAttribute('key')) {

@@ -17,7 +17,6 @@ namespace PKP\pages\about;
 
 use APP\core\Application;
 use APP\handler\Handler;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
@@ -25,15 +24,6 @@ use PKP\db\DAORegistry;
 
 class AboutSiteHandler extends Handler
 {
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_PKP_MANAGER);
-    }
-
     /**
      * Display aboutThisPublishingSystem page.
      *

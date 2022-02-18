@@ -17,13 +17,11 @@
 
 namespace PKP\cliTool;
 
-define('RUNNING_UPGRADE', 1);
-
 use APP\core\Application;
-
-use APP\i18n\AppLocale;
 use APP\install\Upgrade;
 use PKP\site\VersionCheck;
+
+Application::upgrade();
 
 class UpgradeTool extends \PKP\cliTool\CommandLineTool
 {
@@ -37,7 +35,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
      */
     public function __construct($argv = [])
     {
-        Application::get()->initializeLaravelContainer();
         parent::__construct($argv);
 
         if (!isset($this->argv[0]) || !in_array($this->argv[0], ['check', 'latest', 'upgrade', 'download'])) {
@@ -46,7 +43,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
         }
 
         $this->command = $this->argv[0];
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
     }
 
     /**

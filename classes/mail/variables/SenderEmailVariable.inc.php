@@ -16,7 +16,6 @@
 namespace PKP\mail\variables;
 
 use PKP\core\PKPString;
-use PKP\i18n\PKPLocale;
 use PKP\user\User;
 
 class SenderEmailVariable extends Variable

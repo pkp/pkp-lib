@@ -19,6 +19,7 @@ use APP\core\Services;
 use APP\notification\NotificationManager;
 
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
@@ -58,14 +59,13 @@ class ManageLanguageGridHandler extends LanguageGridHandler
         $site = $request->getSite();
         $context = $request->getContext();
 
-        $allLocales = AppLocale::getAllLocales();
         $supportedLocales = $site->getSupportedLocales();
         $contextPrimaryLocale = $context->getPrimaryLocale();
         $data = [];
 
         foreach ($supportedLocales as $locale) {
             $data[$locale] = [];
-            $data[$locale]['name'] = $allLocales[$locale];
+            $data[$locale]['name'] = Locale::getMetadata($locale)->getDisplayName();
             $data[$locale]['supported'] = true;
             $data[$locale]['primary'] = ($locale == $contextPrimaryLocale);
         }
@@ -85,8 +85,6 @@ class ManageLanguageGridHandler extends LanguageGridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-
         $this->addNameColumn();
         $this->addPrimaryColumn('contextPrimary');
         $this->addManagementColumns();

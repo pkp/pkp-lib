@@ -161,7 +161,6 @@ abstract class PKPWorkflowTabHandler extends Handler
     public function setupTemplate($request)
     {
         parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION, LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_EDITOR);
 
         $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
         $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);

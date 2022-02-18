@@ -17,7 +17,6 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 
-use APP\i18n\AppLocale;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy
@@ -38,7 +37,6 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy
      */
     public function __construct($stageId, $workflowType = null)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
         parent::__construct('user.authorization.accessibleWorkflowStage');
         $this->_stageId = $stageId;
         if (!is_null($workflowType)) {

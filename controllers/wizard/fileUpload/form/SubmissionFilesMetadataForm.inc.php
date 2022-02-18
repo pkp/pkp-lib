@@ -44,7 +44,6 @@ class SubmissionFilesMetadataForm extends Form
             $template = 'controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl';
         }
         parent::__construct($template);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_PKP_GRID);
 
         // Initialize the object.
         $this->_submissionFile = $submissionFile;

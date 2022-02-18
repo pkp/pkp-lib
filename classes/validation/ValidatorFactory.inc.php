@@ -14,16 +14,16 @@
 
 namespace PKP\validation;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use Illuminate\Container\Container;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Arr;
 use Illuminate\Translation\FileLoader;
 use Illuminate\Translation\Translator;
 
 use Illuminate\Validation\Factory;
 use PKP\file\TemporaryFileManager;
-
-use Sokil\IsoCodes\IsoCodesFactory;
+use PKP\i18n\LocaleMetadata;
 
 class ValidatorFactory
 {
@@ -124,15 +124,13 @@ class ValidatorFactory
 
         // Add custom validation rule for currency
         $validation->extend('currency', function ($attribute, $value, $parameters, $validator) {
-            $isoCodes = app(IsoCodesFactory::class);
-            $currency = $isoCodes->getCurrencies()->getByLetterCode((string) $value);
+            $currency = Locale::getCurrencies()->getByLetterCode((string) $value);
             return isset($currency);
         });
 
         // Add custom validation rule for country
         $validation->extend('country', function ($attribute, $value, $parameters, $validator) {
-            $isoCodes = app(IsoCodesFactory::class);
-            $country = $isoCodes->getCountries()->getByAlpha2((string) $value);
+            $country = Locale::getCountries()->getByAlpha2((string) $value);
             return isset($country);
         });
 
@@ -151,81 +149,78 @@ class ValidatorFactory
      */
     public static function getMessages($messages = [])
     {
-        static $defaultMessages = [];
-
-        if (empty($defaultMessages)) {
-            $defaultMessages = [
-                'accepted' => __('validator.accepted'),
-                'active_url' => __('validator.active_url'),
-                'after' => __('validator.after'),
-                'alpha' => __('validator.alpha'),
-                'alpha_dash' => __('validator.alpha_dash'),
-                'alpha_num' => __('validator.alpha_num'),
-                'array' => __('validator.array'),
-                'before' => __('validator.before'),
-                'between' => [
-                    'numeric' => __('validator.between.numeric'),
-                    'file' => __('validator.between.file'),
-                    'string' => __('validator.between.string'),
-                    'array' => __('validator.between.array'),
-                ],
-                'boolean' => __('validator.boolean'),
-                'confirmed' => __('validator.confirmed'),
-                'country' => __('validator.country'),
-                'currency' => __('validator.currency'),
-                'date' => __('validator.date'),
-                'date_format' => __('validator.date_format'),
-                'different' => __('validator.different'),
-                'digits' => __('validator.digits'),
-                'digits_between' => __('validator.digits_between'),
-                'email' => __('validator.email'),
-                'email_or_localhost' => __('validator.email'),
-                'exists' => __('validator.exists'),
-                'filled' => __('validator.filled'),
-                'image' => __('validator.image'),
-                'in' => __('validator.in'),
-                'integer' => __('validator.integer'),
-                'ip' => __('validator.ip'),
-                'issn' => __('validator.issn'),
-                'json' => __('validator.json'),
-                'max' => [
-                    'numeric' => __('validator.max.numeric'),
-                    'file' => __('validator.max.file'),
-                    'string' => __('validator.max.string'),
-                    'array' => __('validator.max.array'),
-                ],
-                'mimes' => __('validator.mimes'),
-                'min' => [
-                    'numeric' => __('validator.min.numeric'),
-                    'file' => __('validator.min.file'),
-                    'string' => __('validator.min.string'),
-                    'array' => __('validator.min.array'),
-                ],
-                'not_in' => __('validator.not_in'),
-                'numeric' => __('validator.numeric'),
-                'orcid' => __('user.orcid.orcidInvalid'),
-                'present' => __('validator.present'),
-                'regex' => __('validator.regex'),
-                'required' => __('validator.required'),
-                'required_if' => __('validator.required_if'),
-                'required_unless' => __('validator.required_unless'),
-                'required_with' => __('validator.required_with'),
-                'required_with_all' => __('validator.required_with_all'),
-                'required_without' => __('validator.required_without'),
-                'required_without_all' => __('validator.required_without_all'),
-                'same' => __('validator.same'),
-                'size' => [
-                    'numeric' => __('validator.size.numeric'),
-                    'file' => __('validator.size.file'),
-                    'string' => __('validator.size.string'),
-                    'array' => __('validator.size.array'),
-                ],
-                'string' => __('validator.string'),
-                'timezone' => __('validator.timezone'),
-                'unique' => __('validator.unique'),
-                'url' => __('validator.url'),
-            ];
-        }
+        static $defaultMessages;
+        $defaultMessages ??= [
+            'accepted' => __('validator.accepted'),
+            'active_url' => __('validator.active_url'),
+            'after' => __('validator.after'),
+            'alpha' => __('validator.alpha'),
+            'alpha_dash' => __('validator.alpha_dash'),
+            'alpha_num' => __('validator.alpha_num'),
+            'array' => __('validator.array'),
+            'before' => __('validator.before'),
+            'between' => [
+                'numeric' => __('validator.between.numeric'),
+                'file' => __('validator.between.file'),
+                'string' => __('validator.between.string'),
+                'array' => __('validator.between.array'),
+            ],
+            'boolean' => __('validator.boolean'),
+            'confirmed' => __('validator.confirmed'),
+            'country' => __('validator.country'),
+            'currency' => __('validator.currency'),
+            'date' => __('validator.date'),
+            'date_format' => __('validator.date_format'),
+            'different' => __('validator.different'),
+            'digits' => __('validator.digits'),
+            'digits_between' => __('validator.digits_between'),
+            'email' => __('validator.email'),
+            'email_or_localhost' => __('validator.email'),
+            'exists' => __('validator.exists'),
+            'filled' => __('validator.filled'),
+            'image' => __('validator.image'),
+            'in' => __('validator.in'),
+            'integer' => __('validator.integer'),
+            'ip' => __('validator.ip'),
+            'issn' => __('validator.issn'),
+            'json' => __('validator.json'),
+            'max' => [
+                'numeric' => __('validator.max.numeric'),
+                'file' => __('validator.max.file'),
+                'string' => __('validator.max.string'),
+                'array' => __('validator.max.array'),
+            ],
+            'mimes' => __('validator.mimes'),
+            'min' => [
+                'numeric' => __('validator.min.numeric'),
+                'file' => __('validator.min.file'),
+                'string' => __('validator.min.string'),
+                'array' => __('validator.min.array'),
+            ],
+            'not_in' => __('validator.not_in'),
+            'numeric' => __('validator.numeric'),
+            'orcid' => __('user.orcid.orcidInvalid'),
+            'present' => __('validator.present'),
+            'regex' => __('validator.regex'),
+            'required' => __('validator.required'),
+            'required_if' => __('validator.required_if'),
+            'required_unless' => __('validator.required_unless'),
+            'required_with' => __('validator.required_with'),
+            'required_with_all' => __('validator.required_with_all'),
+            'required_without' => __('validator.required_without'),
+            'required_without_all' => __('validator.required_without_all'),
+            'same' => __('validator.same'),
+            'size' => [
+                'numeric' => __('validator.size.numeric'),
+                'file' => __('validator.size.file'),
+                'string' => __('validator.size.string'),
+                'array' => __('validator.size.array'),
+            ],
+            'string' => __('validator.string'),
+            'timezone' => __('validator.timezone'),
+            'unique' => __('validator.unique'),
+            'url' => __('validator.url'),
+        ];
 
         $messages = array_merge($defaultMessages, $messages);
 
@@ -279,14 +274,8 @@ class ValidatorFactory
     public static function required($validator, $object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale)
     {
         $validator->after(function ($validator) use ($object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale) {
-            $allLocales = AppLocale::getAllLocales();
-            $primaryLocaleName = $primaryLocale;
-            foreach ($allLocales as $locale => $name) {
-                if ($locale === $primaryLocale) {
-                    $primaryLocaleName = $name;
-                }
-            }
-
+            $locale = Arr::first(Locale::getLocales(), fn(LocaleMetadata $locale) => $locale->locale === $primaryLocale);
+            $primaryLocaleName = $locale ? $locale->getDisplayName() : $primaryLocale;
             $props = $validator->getData();
 
             foreach ($requiredProps as $requiredProp) {

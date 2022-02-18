@@ -28,15 +28,6 @@ use PKP\user\form\RegistrationForm;
 class RegistrationHandler extends UserHandler
 {
     /**
-     * @see PKPHandler::initialize()
-     */
-    public function initialize($request)
-    {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
-        parent::initialize($request);
-    }
-
-    /**
      * Display registration form for new users, validate and execute that form,
      * or display a registration success page if the user is logged in.
      *
@@ -156,7 +147,6 @@ class RegistrationHandler extends UserHandler
     {
         $username = array_shift($args);
         $accessKeyCode = array_shift($args);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
         $user = Repo::user()->getByUsername($username);
         if (!$user) {
             $request->redirect(null, 'login');

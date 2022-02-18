@@ -14,7 +14,7 @@
 namespace PKP\submission;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\submission\Collector as AppCollector;
 use Exception;
 use Illuminate\Database\Query\Builder;
@@ -251,7 +251,7 @@ abstract class Collector implements CollectorInterface
                 $q->orderBy('po.seq', $this->orderDirection);
                 break;
             case self::ORDERBY_TITLE:
-                $locale = AppLocale::getLocale();
+                $locale = Locale::getLocale();
                 $q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
                     ->leftJoin('publication_settings as publication_tlps', function (JoinClause $join) use ($locale) {
                         $join->on('publication_tlp.publication_id', '=', 'publication_tlps.publication_id')

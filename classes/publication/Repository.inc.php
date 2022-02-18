@@ -18,7 +18,6 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
-use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\publication\DAO;
 use APP\publication\Publication;
@@ -147,11 +146,6 @@ abstract class Repository
     public function validate(?Publication $publication, array $props, array $allowedLocales, string $primaryLocale): array
     {
         $errors = [];
-
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_APP_SUBMISSION
-        );
 
         $validator = ValidatorFactory::make(
             $props,

@@ -121,15 +121,6 @@ class AuthorGridHandler extends GridHandler
 
         $this->setTitle('submission.contributors');
 
-        // Load pkp-lib translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_APP_DEFAULT,
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_DEFAULT
-        );
-
         if ($this->getSubmission()->getData('submissionProgress') || $this->canAdminister($request->getUser())) {
             $this->setReadOnly(false);
             // Grid actions

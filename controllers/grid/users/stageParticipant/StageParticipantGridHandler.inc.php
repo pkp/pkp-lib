@@ -118,15 +118,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         parent::initialize($request, $args);
 
-        // Load submission-specific translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_EDITOR,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_APP_DEFAULT,
-            LOCALE_COMPONENT_PKP_DEFAULT,
-            LOCALE_COMPONENT_PKP_SUBMISSION
-        );
-
         // Columns
         import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCellProvider');
         $cellProvider = new StageParticipantGridCellProvider();

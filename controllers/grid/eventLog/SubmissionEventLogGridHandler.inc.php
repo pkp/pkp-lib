@@ -122,14 +122,6 @@ class SubmissionEventLogGridHandler extends GridHandler
 
         $this->_stageId = (int) ($args['stageId'] ?? null);
 
-        // Load submission-specific translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_APP_EDITOR,
-            LOCALE_COMPONENT_PKP_EDITOR
-        );
-
         // Columns
         $cellProvider = new EventLogGridCellProvider($this->_isCurrentUserAssignedAuthor);
         $this->addColumn(

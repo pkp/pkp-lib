@@ -19,7 +19,7 @@
 
 namespace PKP\controllers\grid;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 
 class DataObjectGridCellProvider extends GridCellProvider
 {
@@ -48,7 +48,7 @@ class DataObjectGridCellProvider extends GridCellProvider
     public function getLocale()
     {
         if (empty($this->_locale)) {
-            return AppLocale::getLocale();
+            return Locale::getLocale();
         }
         return $this->_locale;
     }

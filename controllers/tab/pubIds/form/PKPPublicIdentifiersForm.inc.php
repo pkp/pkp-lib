@@ -15,7 +15,6 @@
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -62,8 +61,6 @@ class PKPPublicIdentifiersForm extends Form
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $this->_contextId = $context->getId();
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
 
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));

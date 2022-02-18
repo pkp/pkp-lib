@@ -25,7 +25,7 @@ class InterestEntryDAO extends ControlledVocabEntryDAO
     /**
      * Construct a new data object corresponding to this DAO.
      *
-     * @return PaperTypeEntry
+     * @return InterestEntry
      */
     public function newDataObject()
     {

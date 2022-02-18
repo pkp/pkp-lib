@@ -17,7 +17,7 @@
 
 namespace PKP\author;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use PKP\db\DAORegistry;
 
 use PKP\identity\Identity;
@@ -34,7 +34,7 @@ class Author extends Identity
     public function &getLocalizedData($key, $preferredLocale = null)
     {
         if (is_null($preferredLocale)) {
-            $preferredLocale = AppLocale::getLocale();
+            $preferredLocale = Locale::getLocale();
         }
         $localePrecedence = [$preferredLocale];
         // the submission locale is the default locale
@@ -43,8 +43,8 @@ class Author extends Identity
         }
         // for settings other than givenName, familyName and affiliation (that are required)
         // consider also the application primary locale
-        if (!in_array(AppLocale::getPrimaryLocale(), $localePrecedence)) {
-            $localePrecedence[] = AppLocale::getPrimaryLocale();
+        if (!in_array(Locale::getPrimaryLocale(), $localePrecedence)) {
+            $localePrecedence[] = Locale::getPrimaryLocale();
         }
         foreach ($localePrecedence as $locale) {
             if (empty($locale)) {

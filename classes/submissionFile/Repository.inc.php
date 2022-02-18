@@ -17,7 +17,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Support\Collection;
@@ -121,17 +120,8 @@ class Repository
      *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate(
-        ?SubmissionFile $object,
-        array $props,
-        array $allowedLocales,
-        string $primaryLocale
-    ): array {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
-        );
-
+    public function validate(?SubmissionFile $object, array $props, array $allowedLocales, string $primaryLocale): array
+    {
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),

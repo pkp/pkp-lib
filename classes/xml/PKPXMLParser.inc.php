@@ -20,16 +20,14 @@
 
 namespace PKP\xml;
 
-use PKP\config\Config;
-
-use APP\core\Application;
-
-// The default character encodings
-define('XML_PARSER_SOURCE_ENCODING', Config::getVar('i18n', 'client_charset'));
-define('XML_PARSER_TARGET_ENCODING', Config::getVar('i18n', 'client_charset'));
+use PKP\file\FileManager;
 
 class PKPXMLParser {
-	/** @var object instance of XMLParserHandler */
+	public const XML_PARSER_SOURCE_ENCODING = 'utf-8';
+
+	public const XML_PARSER_TARGET_ENCODING = 'utf-8';
+
+	/** @var XMLParserHandler instance of XMLParserHandler */
 	var $handler;
 
 	/** @var array List of error strings */
@@ -87,7 +85,7 @@ class PKPXMLParser {
 		xml_set_element_handler($parser, "startElement", "endElement");
 		xml_set_character_data_handler($parser, "characterData");
 
-		if (!$stream = $this->_getStream($file)) return false;
+		if (!$stream = FileManager::getStream($file)) return false;
 
 		while (($data = $stream->read(16384)) !== '') {
 			if (!xml_parse($parser, $data, $stream->eof())) {
@@ -102,24 +100,6 @@ class PKPXMLParser {
 			$handler->destroy();
 		}
 		return $result;
-	}
-
-	/**
-	 * Get a PSR7 stream given a filename or URL.
-	 * @param string $filenameOrUrl
-	 * @return \GuzzleHttp\Psr7\Stream|null
-	 */
-	protected function _getStream($filenameOrUrl) {
-		if (filter_var($filenameOrUrl, FILTER_VALIDATE_URL)) {
-			// Remote URL.
-			$client = Application::get()->getHttpClient();
-			$response = $client->request('GET', $filenameOrUrl);
-			return \GuzzleHttp\Psr7\stream_for($response->getBody());
-		} elseif (file_exists($filenameOrUrl) && is_readable($filenameOrUrl)) {
-			$resource = fopen($filenameOrUrl, 'r');
-			return \GuzzleHttp\Psr7\stream_for($resource);
-		}
-		return null;
 	}
 
 	/**
@@ -199,7 +179,7 @@ class PKPXMLParser {
 	 * @return array|null a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
 	 */
 	function parseStruct($file, $tagsToMatch = array()) {
-		$stream = $this->_getStream($file);
+		$stream = FileManager::getStream($file);
 		$fileContents = $stream->getContents();
 		if (!$fileContents) {
 			return false;
@@ -212,8 +192,8 @@ class PKPXMLParser {
 	 * @return resource
 	 */
 	function createParser() {
-		$parser = xml_parser_create(XML_PARSER_SOURCE_ENCODING);
-		xml_parser_set_option($parser, XML_OPTION_TARGET_ENCODING, XML_PARSER_TARGET_ENCODING);
+		$parser = xml_parser_create(static::XML_PARSER_SOURCE_ENCODING);
+		xml_parser_set_option($parser, XML_OPTION_TARGET_ENCODING, static::XML_PARSER_TARGET_ENCODING);
 		xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, false);
 		return $parser;
 	}

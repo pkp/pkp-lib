@@ -29,14 +29,11 @@ namespace PKP\install;
 
 use APP\core\Application;
 use APP\core\Services;
+use PKP\facades\Locale;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
-use Illuminate\Config\Repository;
-use Illuminate\Database\DatabaseServiceProvider;
-use Illuminate\Events\EventServiceProvider;
+use Illuminate\Support\Facades\Config as FacadesConfig;
 use PKP\config\Config;
 use PKP\core\Core;
-use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\security\Role;
@@ -74,40 +71,30 @@ class PKPInstall extends Installer
         if (!isset($this->installedLocales) || !is_array($this->installedLocales)) {
             $this->installedLocales = [];
         }
-        if (!in_array($this->locale, $this->installedLocales) && AppLocale::isLocaleValid($this->locale)) {
+        if (!in_array($this->locale, $this->installedLocales) && Locale::isLocaleValid($this->locale)) {
             array_push($this->installedLocales, $this->locale);
         }
 
         // Map valid config options to Illuminate database drivers
         $driver = strtolower($this->getParam('databaseDriver'));
-        $connectionCharset = $this->getParam('connectionCharset');
         if (substr($driver, 0, 8) === 'postgres') {
             $driver = 'pgsql';
         } else {
             $driver = 'mysql';
         }
 
-        $items['database']['default'] = $driver;
-        $items['database']['connections'][$driver] = [
+        $config = FacadesConfig::get('database');
+        $config['default'] = $driver;
+        $config['connections'][$driver] = [
             'driver' => $driver,
             'host' => $this->getParam('databaseHost'),
             'database' => $this->getParam('databaseName'),
             'username' => $this->getParam('databaseUsername'),
             'password' => $this->getParam('databasePassword'),
-            'charset' => $connectionCharset == 'latin1' ? 'latin1' : 'utf8',
+            'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
         ];
-
-        try {
-            // Register database and related services in the container
-            $laravelContainer = PKPContainer::getInstance();
-            $laravelContainer->instance('config', new Repository($items));
-            $laravelContainer->register(new EventServiceProvider($laravelContainer));
-            $laravelContainer->register(new DatabaseServiceProvider($laravelContainer));
-        } catch (Exception $e) {
-            $this->setError(Installer::INSTALLER_ERROR_DB, $e->getMessage());
-            return false;
-        }
+        FacadesConfig::set('database', $config);
 
         return parent::preInstall();
     }
@@ -194,6 +181,7 @@ class PKPInstall extends Installer
                     'base_url' => $request->getBaseUrl(),
                     'enable_beacon' => $this->getParam('enableBeacon') ? 'On' : 'Off',
                     'allowed_hosts' => json_encode([$request->getServerHost(null, false)]),
+                    'time_zone' => $this->getParam('timeZone')
                 ],
                 'database' => [
                     'driver' => $this->getParam('databaseDriver'),
@@ -204,8 +192,7 @@ class PKPInstall extends Installer
                 ],
                 'i18n' => [
                     'locale' => $this->getParam('locale'),
-                    'client_charset' => $this->getParam('clientCharset'),
-                    'connection_charset' => $this->getParam('connectionCharset') == '' ? 'Off' : $this->getParam('connectionCharset'),
+                    'connection_charset' => 'utf8',
                 ],
                 'files' => [
                     'files_dir' => $this->getParam('filesDir')
@@ -238,7 +225,6 @@ class PKPInstall extends Installer
         Repo::user()->add($user);
 
         // Create an admin user group
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT);
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO');
         $adminUserGroup = $userGroupDao->newDataObject();
         $adminUserGroup->setRoleId(Role::ROLE_ID_SITE_ADMIN);
@@ -265,10 +251,6 @@ class PKPInstall extends Installer
         $site->setSupportedLocales($this->installedLocales);
         $siteDao->insertSite($site);
 
-        // Install email template list and data for each locale
-        foreach ($this->installedLocales as $locale) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_EMAIL, $locale);
-        }
         Repo::emailTemplate()->dao->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $this->installedLocales);
 
         // Install default site settings

@@ -20,7 +20,6 @@ use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
-use PKP\i18n\PKPLocale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
@@ -173,14 +172,6 @@ class QueriesGridHandler extends GridHandler
                 break;
             default: assert(false);
         }
-
-        // Load pkp-lib translations
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_USER,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_SUBMISSION
-        );
 
         // Columns
         import('lib.pkp.controllers.grid.queries.QueryTitleGridColumn');
@@ -633,7 +624,6 @@ class QueriesGridHandler extends GridHandler
             }
 
             // Send notifications
-            PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
             $currentUser = $request->getUser();
             $newParticipantIds = $queryForm->getData('users');
             $added = array_diff($newParticipantIds, $oldParticipantIds);

@@ -15,7 +15,6 @@
  */
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use PKP\core\APIResponse;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
@@ -29,8 +28,8 @@ use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
 use Slim\Http\Request;
-use Sokil\IsoCodes\IsoCodesFactory;
 use Stringy\Stringy;
+use PKP\facades\Locale;
 
 class PKPVocabHandler extends APIHandler
 {
@@ -77,7 +76,7 @@ class PKPVocabHandler extends APIHandler
         $requestParams = $slimRequest->getQueryParams();
 
         $vocab = $requestParams['vocab'] ?? '';
-        $locale = $requestParams['locale'] ?? AppLocale::getLocale();
+        $locale = $requestParams['locale'] ?? Locale::getLocale();
         $term = $requestParams['term'] ?? null;
 
         if (!in_array($locale, $context->getData('supportedSubmissionLocales'))) {
@@ -98,11 +97,9 @@ class PKPVocabHandler extends APIHandler
                 $entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
                 break;
             case SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE:
-                /** @var IsoCodesFactory */
-                $isoCodes = app(IsoCodesFactory::class);
                 $words = array_filter(PKPString::regexp_split('/\s+/', $term), 'strlen');
                 $languageNames = [];
-                foreach ($isoCodes->getLanguages(IsoCodesFactory::OPTIMISATION_IO) as $language) {
+                foreach (Locale::getLanguages() as $language) {
                     if ($language->getAlpha2() && $language->getType() === 'L' && $language->getScope() === 'I' && Stringy::create($language->getLocalName())->containsAny($words, false)) {
                         $languageNames[] = $language->getLocalName();
                     }

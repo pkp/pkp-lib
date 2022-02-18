@@ -59,8 +59,6 @@ class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler
             $capabilities->setCanDelete(false);
         }
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
-
         parent::initialize($request, $args);
     }
 }

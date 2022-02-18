@@ -20,7 +20,6 @@
 namespace PKP\plugins\importexport;
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
 
@@ -624,7 +623,6 @@ class PKPImportExportDeployment
      */
     protected function getObjectTypes()
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
         $objectTypes = [
             PKPApplication::ASSOC_TYPE_NONE => __('plugins.importexport.native.common.any'),
             PKPApplication::ASSOC_TYPE_SUBMISSION => __('submission.submission'),

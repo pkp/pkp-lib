@@ -31,7 +31,7 @@ class APIResponse extends Response
         return $this->withJson(
             [
                 'error' => $msg,
-                'errorMessage' => __($msg, $params),
+                'errorMessage' => __($msg, $params ?? []),
             ]
         );
     }

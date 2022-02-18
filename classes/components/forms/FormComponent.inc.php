@@ -16,6 +16,7 @@
 namespace PKP\components\forms;
 
 use Exception;
+use PKP\facades\Locale;
 
 define('FIELD_POSITION_BEFORE', 'before');
 define('FIELD_POSITION_AFTER', 'after');
@@ -278,9 +279,9 @@ class FormComponent
 
         $fieldsConfig = array_map([$this, 'getFieldConfig'], $this->fields);
 
-        $visibleLocales = [\AppLocale::getLocale()];
-        if (\AppLocale::getLocale() !== \AppLocale::getPrimaryLocale()) {
-            array_unshift($visibleLocales, \AppLocale::getPrimaryLocale());
+        $visibleLocales = [Locale::getLocale()];
+        if (Locale::getLocale() !== Locale::getPrimaryLocale()) {
+            array_unshift($visibleLocales, Locale::getPrimaryLocale());
         }
 
         $config = [
@@ -290,7 +291,7 @@ class FormComponent
             'fields' => $fieldsConfig,
             'groups' => $this->groups,
             'pages' => $this->pages,
-            'primaryLocale' => \AppLocale::getPrimaryLocale(),
+            'primaryLocale' => Locale::getPrimaryLocale(),
             'visibleLocales' => $visibleLocales,
             'supportedFormLocales' => array_values($this->locales), // See #5690
             'errors' => (object) [],

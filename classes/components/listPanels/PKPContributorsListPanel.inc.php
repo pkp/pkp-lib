@@ -14,8 +14,6 @@
 
 namespace PKP\components\listPanels;
 
-use APP\i18n\AppLocale;
-
 class PKPContributorsListPanel extends ListPanel
 {
     /** @param \PKP\components\forms\publication\PKPContributorForm Form for adding or editing a contributor */
@@ -32,9 +30,6 @@ class PKPContributorsListPanel extends ListPanel
      */
     public function getConfig()
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-
         $config = parent::getConfig();
 
         // Remove some props not used in this list panel

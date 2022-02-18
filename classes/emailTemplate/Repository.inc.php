@@ -14,7 +14,6 @@
 namespace PKP\emailTemplate;
 
 use APP\emailTemplate\DAO;
-use APP\i18n\AppLocale;
 use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
 use PKP\plugins\HookRegistry;
@@ -100,11 +99,6 @@ class Repository
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules(PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $allowedLocales)
-        );
-
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_APP_MANAGER
         );
 
         // Check required fields

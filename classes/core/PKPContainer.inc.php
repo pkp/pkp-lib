@@ -29,10 +29,8 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\Domains\Jobs\Providers\JobServiceProvider;
-use PKP\i18n\PKPLocale;
+use PKP\i18n\LocaleServiceProvider;
 use PKP\Support\ProxyParser;
-use Sokil\IsoCodes\IsoCodesFactory;
-use Sokil\IsoCodes\TranslationDriver\GettextExtensionDriver;
 
 use Throwable;
 
@@ -93,13 +91,6 @@ class PKPContainer extends Container
             Kernel::class
         );
 
-        // This singleton is necessary to keep user selected language across the application
-        $this->singleton(IsoCodesFactory::class, function () {
-            $driver = new GettextExtensionDriver();
-            $driver->setLocale(PKPLocale::getLocale());
-            return new IsoCodesFactory(null, $driver);
-        });
-
         $this->singleton(
             'queue.failer',
             function ($app) {
@@ -131,6 +122,10 @@ class PKPContainer extends Container
         $this->register(new MailServiceProvider($this));
         $this->register(new AppServiceProvider($this));
         $this->register(new JobServiceProvider($this));
+        $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
+        $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
+        $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
+        $this->register(new LocaleServiceProvider($this));
     }
 
     /**
@@ -153,8 +148,15 @@ class PKPContainer extends Container
         foreach ([
             'app' => [self::class, \Illuminate\Contracts\Container\Container::class, \Psr\Container\ContainerInterface::class],
             'config' => [\Illuminate\Config\Repository::class, \Illuminate\Contracts\Config\Repository::class],
+            'cache' => [\Illuminate\Cache\CacheManager::class, \Illuminate\Contracts\Cache\Factory::class],
+            'cache.store' => [\Illuminate\Cache\Repository::class, \Illuminate\Contracts\Cache\Repository::class, \Psr\SimpleCache\CacheInterface::class],
+            'cache.psr6' => [\Symfony\Component\Cache\Adapter\Psr16Adapter::class, \Symfony\Component\Cache\Adapter\AdapterInterface::class, \Psr\Cache\CacheItemPoolInterface::class],
             'db' => [\Illuminate\Database\DatabaseManager::class, \Illuminate\Database\ConnectionResolverInterface::class],
             'db.connection' => [\Illuminate\Database\Connection::class, \Illuminate\Database\ConnectionInterface::class],
+            'files' => [\Illuminate\Filesystem\Filesystem::class],
+            'filesystem' => [\Illuminate\Filesystem\FilesystemManager::class, \Illuminate\Contracts\Filesystem\Factory::class],
+            'filesystem.disk' => [\Illuminate\Contracts\Filesystem\Filesystem::class],
+            'filesystem.cloud' => [\Illuminate\Contracts\Filesystem\Cloud::class],
             'maps' => [MapContainer::class, MapContainer::class],
             'events' => [\Illuminate\Events\Dispatcher::class, \Illuminate\Contracts\Events\Dispatcher::class],
             'queue' => [\Illuminate\Queue\QueueManager::class, \Illuminate\Contracts\Queue\Factory::class, \Illuminate\Contracts\Queue\Monitor::class],
@@ -240,7 +242,19 @@ class PKPContainer extends Container
 
         $items['mail']['default'] = static::getDefaultMailer();
 
-        $this->instance('config', new Repository($items)); // create instance and bind to use globally
+        // Cache configuration
+        $items['cache'] = [
+            'default' => 'opcache',
+            'stores' => [
+                'opcache' => [
+                    'driver' => 'opcache',
+                    'path' => Core::getBaseDir() . '/cache/opcache'
+                ]
+            ]
+        ];
+
+        // Create instance and bind to use globally
+        $this->instance('config', new Repository($items));
     }
 
     /**

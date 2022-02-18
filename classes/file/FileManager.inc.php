@@ -21,12 +21,13 @@
 
 namespace PKP\file;
 
+use APP\core\Application;
 use Exception;
+use GuzzleHttp\Psr7\Stream;
+use GuzzleHttp\Psr7\Utils;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
-use PKP\i18n\PKPLocale;
-
 use PKP\plugins\HookRegistry;
 
 class FileManager
@@ -274,6 +275,30 @@ class FileManager
         }
     }
 
+    /**
+     * Retrieves whether the filename is a URL
+     */
+    public static function isVirtualPath(string $filenameOrUrl): bool
+    {
+        return !!filter_var($filenameOrUrl, FILTER_VALIDATE_URL);
+    }
+
+    /**
+     * Get a PSR7 stream given a filename or URL.
+     */
+    public static function getStream(string $filenameOrUrl): ?Stream
+    {
+        if (static::isVirtualPath($filenameOrUrl)) {
+            // Remote URL.
+            $client = Application::get()->getHttpClient();
+            $response = $client->request('GET', $filenameOrUrl);
+            return Utils::streamFor($response->getBody());
+        } elseif (file_exists($filenameOrUrl) && is_readable($filenameOrUrl)) {
+            $resource = fopen($filenameOrUrl, 'r');
+            return Utils::streamFor($resource);
+        }
+        return null;
+    }
 
     /**
      * Read a file's contents.
@@ -725,7 +750,6 @@ class FileManager
      */
     private function _executeGzip($filePath, $decompress = false)
     {
-        PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
         $gzipPath = Config::getVar('cli', 'gzip');
         if (!is_executable($gzipPath)) {
             throw new Exception(__('admin.error.executingUtil', ['utilPath' => $gzipPath, 'utilVar' => 'gzip']));

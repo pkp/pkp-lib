@@ -27,7 +27,7 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\file\PublicFileManager;
 
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
 use Exception;
@@ -43,13 +43,14 @@ use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
-
+use PKP\session\SessionManager;
 use PKP\linkAction\request\NullAction;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\security\Validation;
 use Smarty;
+use Smarty_Internal_Template;
 
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . '/lib/pkp/lib/vendor/smarty/smarty/libs/');
@@ -137,20 +138,18 @@ class PKPTemplateManager extends Smarty
         assert($request instanceof \PKP\core\PKPRequest);
         $this->_request = $request;
 
-        $locale = AppLocale::getLocale();
+        $locale = Locale::getLocale();
         $application = Application::get();
         $router = $request->getRouter();
         assert($router instanceof \PKP\core\PKPRouter);
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON, LOCALE_COMPONENT_PKP_COMMON);
         $currentContext = $request->getContext();
 
         $this->assign([
-            'defaultCharset' => Config::getVar('i18n', 'client_charset'),
+            'defaultCharset' => 'utf-8',
             'baseUrl' => $request->getBaseUrl(),
             'currentContext' => $currentContext,
             'currentLocale' => $locale,
-            'currentLocaleLangDir' => AppLocale::getLocaleDirection($locale),
+            'currentLocaleLangDir' => Locale::getMetadata($locale)->isRightToLeft() ? 'rtl' : 'ltr',
             'applicationName' => __($application->getNameKey()),
         ]);
 
@@ -176,7 +175,7 @@ class PKPTemplateManager extends Smarty
             ]);
         }
 
-        if (Config::getVar('general', 'installed') && !$currentContext) {
+        if (Application::isInstalled() && !$currentContext) {
             $site = $request->getSite();
             $this->assign([
                 'displayPageHeaderTitle' => $site->getLocalizedTitle(),
@@ -194,7 +193,7 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             $activeTheme = null;
             $contextOrSite = $currentContext ? $currentContext : $request->getSite();
             $allThemes = PluginRegistry::getPlugins('themes');
@@ -238,7 +237,7 @@ class PKPTemplateManager extends Smarty
                 if (count($contexts)) {
                     $this->addJavaScript(
                         'recaptcha',
-                        'https://www.google.com/recaptcha/api.js?hl=' . substr(AppLocale::getLocale(), 0, 2),
+                        'https://www.google.com/recaptcha/api.js?hl=' . substr(Locale::getLocale(), 0, 2),
                         [
                             'contexts' => $contexts,
                         ]
@@ -247,7 +246,7 @@ class PKPTemplateManager extends Smarty
             }
 
             // Register meta tags
-            if (Config::getVar('general', 'installed')) {
+            if (Application::isInstalled()) {
                 if (($request->getRequestedPage() == '' || $request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedData('searchDescription')) {
                     $this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedData('searchDescription') . '">');
                 }
@@ -281,13 +280,13 @@ class PKPTemplateManager extends Smarty
             // Register Navigation Menus
             $nmService = Services::get('navigationMenu');
 
-            if (Config::getVar('general', 'installed')) {
+            if (Application::isInstalled()) {
                 HookRegistry::register('LoadHandler', [$nmService, '_callbackHandleCustomNavigationMenuItems']);
             }
         }
 
         // Register custom functions
-        $this->registerPlugin('modifier', 'translate', '\APP\i18n\AppLocale::translate');
+        $this->registerPlugin('modifier', 'translate', [$this, 'smartyTranslateModifier']);
         $this->registerPlugin('modifier', 'strip_unsafe_html', '\PKP\core\PKPString::stripUnsafeHtml');
         $this->registerPlugin('modifier', 'String_substr', '\PKP\core\PKPString::substr');
         $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', '\PKP\core\PKPString::dateformatPHP2JQueryDatepicker');
@@ -352,7 +351,7 @@ class PKPTemplateManager extends Smarty
          * Kludge to make sure no code that tries to connect to the
          * database is executed (e.g., when loading installer pages).
          */
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             $this->assign([
                 'isUserLoggedIn' => Validation::isLoggedIn(),
                 'isUserLoggedInAs' => Validation::isLoggedInAs(),
@@ -374,7 +373,7 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             // Respond to the sidebar hook
             if ($currentContext) {
                 $this->assign('hasSidebar', !empty($currentContext->getData('sidebar')));
@@ -470,7 +469,7 @@ class PKPTemplateManager extends Smarty
      *
      * @param string $name Unique name for the LESS file
      *
-     * @return $path string Path to the less file or false if not found
+     * @return string Path to the less file or false if not found
      */
     public function getCachedLessFilePath($name)
     {
@@ -631,7 +630,7 @@ class PKPTemplateManager extends Smarty
     public function registerJSLibrary()
     {
         $baseUrl = $this->_request->getBaseUrl();
-        $localeChecks = [AppLocale::getLocale(), strtolower(substr(AppLocale::getLocale(), 0, 2))];
+        $localeChecks = [Locale::getLocale(), strtolower(substr(Locale::getLocale(), 0, 2))];
 
         // Common $args array used for all our core JS files
         $args = [
@@ -720,8 +719,8 @@ class PKPTemplateManager extends Smarty
         $output = '$.pkp = $.pkp || {};';
 
         $app_data = [
-            'currentLocale' => AppLocale::getLocale(),
-            'primaryLocale' => AppLocale::getPrimaryLocale(),
+            'currentLocale' => Locale::getLocale(),
+            'primaryLocale' => Locale::getPrimaryLocale(),
             'baseUrl' => $this->_request->getBaseUrl(),
             'contextPath' => isset($context) ? $context->getPath() : '',
             'apiBasePath' => '/api/v1',
@@ -731,7 +730,7 @@ class PKPTemplateManager extends Smarty
         ];
 
         // Add an array of rtl languages (right-to-left)
-        if (Config::getVar('general', 'installed') && !defined('SESSION_DISABLE_INIT')) {
+        if (Application::isInstalled() && !SessionManager::isDisabled()) {
             $allLocales = [];
             if ($context) {
                 $allLocales = array_merge(
@@ -743,9 +742,7 @@ class PKPTemplateManager extends Smarty
                 $allLocales = $this->_request->getSite()->getSupportedLocales();
             }
             $allLocales = array_unique($allLocales);
-            $rtlLocales = array_filter($allLocales, function ($locale) {
-                return AppLocale::getLocaleDirection($locale) === 'rtl';
-            });
+            $rtlLocales = array_filter($allLocales, fn(string $locale) => Locale::getMetadata($locale)->isRightToLeft());
             $app_data['rtlLocales'] = array_values($rtlLocales);
         }
 
@@ -906,17 +903,6 @@ class PKPTemplateManager extends Smarty
             ]
         );
 
-        // If there's a locale-specific stylesheet, add it.
-        if (($localeStyleSheet = AppLocale::getLocaleStyleSheet(AppLocale::getLocale())) != null) {
-            $this->addStyleSheet(
-                'pkpLibLocale',
-                $request->getBaseUrl() . '/' . $localeStyleSheet,
-                [
-                    'contexts' => ['backend'],
-                ]
-            );
-        }
-
         // Set up required state properties
         $this->setState([
             'menu' => [],
@@ -926,7 +912,7 @@ class PKPTemplateManager extends Smarty
          * Kludge to make sure no code that tries to connect to the
          * database is executed (e.g., when loading installer pages).
          */
-        if (Config::getVar('general', 'installed') && !defined('SESSION_DISABLE_INIT')) {
+        if (Application::isInstalled() && !SessionManager::isDisabled()) {
             if ($request->getUser()) {
 
                 // Get a count of unread tasks
@@ -985,7 +971,6 @@ class PKPTemplateManager extends Smarty
                             'isCurrent' => $router->getRequestedPage($request) === 'submissions',
                         ];
                     } elseif (count($userRoles) === 1 && in_array(Role::ROLE_ID_READER, $userRoles)) {
-                        AppLocale::requireComponents(LOCALE_COMPONENT_APP_AUTHOR);
                         $menu['submit'] = [
                             'name' => __('author.submit'),
                             'url' => $router->url($request, null, 'submission', 'wizard'),
@@ -1091,11 +1076,6 @@ class PKPTemplateManager extends Smarty
                     }
                 }
 
-                // Load the manager.people.signedInAs locale key
-                if (Validation::isLoggedInAs()) {
-                    AppLocale::requireComponents([LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER]);
-                }
-
                 $this->setState([
                     'menu' => $menu,
                     'tasksUrl' => $tasksUrl,
@@ -1167,9 +1147,9 @@ class PKPTemplateManager extends Smarty
      */
     public function getCompileId($resourceName)
     {
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             $context = $this->_request->getContext();
-            if ($context instanceof \PKP\core\Context) {
+            if ($context instanceof \PKP\context\Context) {
                 $resourceName .= $context->getData('themePluginPath');
             }
         }
@@ -1211,7 +1191,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Load current user data
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             $user = $this->_request->getUser();
             if ($user) {
                 $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
@@ -1255,7 +1235,7 @@ class PKPTemplateManager extends Smarty
         // case server is using Apache's AddDefaultCharset
         // directive (which can prevent browser auto-detection
         // of the proper character set).
-        header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
+        header('Content-Type: text/html; charset=utf-8');
         header('Cache-Control: ' . $this->_cacheability);
 
         // If no compile ID was assigned, get one.
@@ -1397,34 +1377,69 @@ class PKPTemplateManager extends Smarty
     //
 
     /**
-     * Smarty usage: {translate key="localization.key.name" [paramName="paramValue" ...]}
+     * Smarty usage:
+     * Simple translation
+     * {translate key="localization.key.name" [paramName="paramValue" ...]}
      *
+     * Pluralized translation
+     * {translate key="localization.key.name" count="10" [paramName="paramValue" ...]}
      * Custom Smarty function for translating localization keys.
      * Substitution works by replacing tokens like "{$foo}" with the value of the parameter named "foo" (if supplied).
+     * 
+     * The params named "key", "count", "locale" and "params" are reserved. If you need to pass one of them as a translation variable specify them using the "params":
+     * $smarty->assign('params', ['key' => "Golden key"]);
+     * {translate key="pluralized.key" locale="en_US" count="10" params=$params}
      *
      * @param array $params associative array, must contain "key" parameter for string to translate plus zero or more named parameters for substitution.
-     * 	Translation variables can be specified also as an optional
-     * 	associative array named "params".
+     * 	Translation variables can be specified also as an optional associative array named "params".
      * @param Smarty $smarty
      *
      * @return string the localized string, including any parameter substitutions
      */
-    public function smartyTranslate($params, $smarty)
+    public function smartyTranslate(array $params, Smarty_Internal_Template $smarty): string
     {
-        if (isset($params) && !empty($params)) {
-            if (!isset($params['key'])) {
-                return __('');
-            }
+        // Save reserved params before removing them
+        $key = $params['key'] ?? '';
+        $count = $params['count'] ?? null;
+        $locale = $params['locale'] ?? null;
+        $variables = $params['params'] ?? [];
+        // Remove reserved params
+        unset($params['key'], $params['count'], $params['params'], $params['locale']);
+        // Merge variables
+        $variables = $params + $variables;
+        // Decides between the simple/pluralized version
+        return $count === null ? __($key, $variables, $locale) : __p($key, $count, $variables, $locale);
+    }
 
-            $key = $params['key'];
-            unset($params['key']);
-            if (isset($params['params']) && is_array($params['params'])) {
-                $paramsArray = $params['params'];
-                unset($params['params']);
-                $params = array_merge($params, $paramsArray);
+    /**
+     * Applies a translation modifier, where the value to be transformed is used as locale key
+     * Simple translation
+     * {$foo|translate}
+     *
+     * Passing variables for the translation
+     * {$foo|translate:varFoo:valueFoo:varBar:valueBar}
+     *
+     * Pluralized translation with a different locale
+     * {$foo|translate:count:123:locale:pt_BR}
+     */
+    public function smartyTranslateModifier(): string
+    {
+        $params = func_get_args();
+        $key = array_shift($params);
+        $variables = [];
+        if (count($params)) {
+            $name = null;
+            foreach ($params as $i => $value) {
+                if ($i % 2) {
+                    $variables[$name] = $value;
+                } else {
+                    $name = $value;
+                }
             }
-            return __($key, $params);
         }
+        $count = $variables['count'] ?? null;
+        $locale = $variables['locale'] ?? null;
+        return $count === null ? __($key, $variables, $locale) : __p($key, $count, $variables, $locale);
     }
 
     /**
@@ -1515,16 +1530,16 @@ class PKPTemplateManager extends Smarty
                 $params['options'] = $newOptions;
             } else {
                 // Just translate output
-                $params['options'] = array_map('AppLocale::translate', $params['options']);
+                $params['options'] = array_map('__', $params['options']);
             }
         }
 
         if (isset($params['output'])) {
-            $params['output'] = array_map('AppLocale::translate', $params['output']);
+            $params['output'] = array_map('__', $params['output']);
         }
 
         if (isset($params['values']) && isset($params['translateValues'])) {
-            $params['values'] = array_map('AppLocale::translate', $params['values']);
+            $params['values'] = array_map('__', $params['values']);
         }
 
         require_once('lib/pkp/lib/vendor/smarty/smarty/libs/plugins/function.html_options.php');
@@ -2015,7 +2030,7 @@ class PKPTemplateManager extends Smarty
             $params['context'] = 'frontend';
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
             $appVersion = $versionDao->getCurrentVersion()->getVersionString();
         } else {
@@ -2101,9 +2116,9 @@ class PKPTemplateManager extends Smarty
             $params['context'] = 'frontend';
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!SessionManager::isDisabled()) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-            $appVersion = defined('SESSION_DISABLE_INIT') ? null : $versionDao->getCurrentVersion()->getVersionString();
+            $appVersion = SessionManager::isDisabled() ? null : $versionDao->getCurrentVersion()->getVersionString();
         } else {
             $appVersion = null;
         }
@@ -2358,10 +2373,8 @@ class PKPTemplateManager extends Smarty
      */
     public function smartyLocaleDirection($params, $smarty)
     {
-        $locale = !empty($params['locale'])
-            ? $params['locale']
-            : AppLocale::getLocale();
-        return AppLocale::getLocaleDirection($locale);
+        $locale = empty($params['locale']) ? Locale::getLocale() : $params['locale'];
+        return Locale::getMetadata($locale)->isRightToLeft() ? 'rtl' : 'ltr';
     }
 
     /**

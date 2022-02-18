@@ -19,15 +19,20 @@ namespace PKP\core;
 use APP\core\Application;
 
 use APP\core\Request;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\statistics\StatisticsHelper;
+use DateTime;
+use DateTimeZone;
 use Exception;
+use GuzzleHttp\Client;
+use Illuminate\Database\Events\QueryExecuted;
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
-
 use PKP\db\DAORegistry;
-use PKP\i18n\PKPLocale;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
+use PKP\session\SessionManager;
 use PKP\statistics\PKPStatisticsHelper;
 
 interface iPKPApplicationInfoProvider
@@ -193,29 +198,26 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
 
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
-        if (!defined('SESSION_DISABLE_INIT') && !Config::getVar('general', 'installed')) {
-            define('SESSION_DISABLE_INIT', true);
+        if (!static::isInstalled()) {
+            SessionManager::disable();
         }
 
         Registry::set('application', $this);
 
-        PKPString::init();
-
         $microTime = Core::microtime();
         Registry::set('system.debug.startTime', $microTime);
 
-        $notes = [];
-        Registry::set('system.debug.notes', $notes);
+        $this->initializeLaravelContainer();
+        PKPString::initialize();
 
-        if (Config::getVar('general', 'installed')) {
-            $this->initializeLaravelContainer();
-        }
+        // Load default locale files
+        Locale::registerPath(BASE_SYS_DIR . '/lib/pkp/locale');
     }
 
     /**
      * Initialize Laravel container and register service providers
      */
-    public function initializeLaravelContainer()
+    public function initializeLaravelContainer(): void
     {
         // Ensure multiple calls to this function don't cause trouble
         static $containerInitialized = false;
@@ -229,10 +231,45 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $laravelContainer = new PKPContainer();
         $laravelContainer->registerConfiguredProviders();
 
+        $this->initializeTimeZone();
+
         if (Config::getVar('database', 'debug')) {
-            \Illuminate\Support\Facades\DB::listen(function ($query) {
-                error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings));
-            });
+            DB::listen(fn(QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
+        }
+    }
+
+    /**
+     * Setup the internal time zone for the database and PHP.
+     */
+    protected function initializeTimeZone(): void
+    {
+        $timeZone = null;
+        // Loads the time zone from the configuration file
+        if ($setting = Config::getVar('general', 'time_zone')) {
+            try {
+                $timeZone = (new DateTimeZone($setting))->getName();
+            } catch (Exception $e) {
+                $setting = strtolower($setting);
+                foreach (DateTimeZone::listIdentifiers() as $identifier) {
+                    // Backward compatibility identification
+                    if ($setting == strtolower(preg_replace(['/^\w+\//', '/_/'], ['', ' '], $identifier))) {
+                        $timeZone = $identifier;
+                        break;
+                    }
+                }
+            }
+        }
+        // Set the default timezone
+        date_default_timezone_set($timeZone ?: ini_get('date.timezone') ?: 'UTC');
+
+        // Synchronize the database time zone
+        if (Application::isInstalled()) {
+            // Retrieve the current offset
+            $offset = (new DateTime())->format('P');
+            $statement = DB::connection() instanceof MySqlConnection
+                ? "SET time_zone = '${offset}'"
+                : "SET TIME ZONE INTERVAL '${offset}' HOUR TO MINUTE";
+            DB::statement($statement);
         }
     }
 
@@ -259,13 +296,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Return a HTTP client implementation.
      *
-     * @return \GuzzleHttp\Client
+     * @return Client
      */
     public function getHttpClient()
     {
         $application = Application::get();
         $userAgent = $application->getName() . '/';
-        if (Config::getVar('general', 'installed') && !defined('RUNNING_UPGRADE')) {
+        if (static::isInstalled() && !static::isUpgrading()) {
+            /** @var \PKP\site\VersionDAO */
             $versionDao = DAORegistry::getDAO('VersionDAO');
             $currentVersion = $versionDao->getCurrentVersion();
             $userAgent .= $currentVersion->getVersionString();
@@ -273,7 +311,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             $userAgent .= '?';
         }
 
-        return new \GuzzleHttp\Client([
+        return new Client([
             'proxy' => [
                 'http' => Config::getVar('proxy', 'http_proxy', null),
                 'https' => Config::getVar('proxy', 'https_proxy', null),
@@ -416,7 +454,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 $settingContext = array_combine($this->getContextList(), $settingContext);
             }
 
-            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
+            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
             $this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts($settingContext);
         }
 
@@ -511,7 +549,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'SubmissionKeywordEntryDAO' => 'PKP\submission\SubmissionKeywordEntryDAO',
             'SubmissionSubjectDAO' => 'PKP\submission\SubmissionSubjectDAO',
             'SubmissionSubjectEntryDAO' => 'PKP\submission\SubmissionSubjectEntryDAO',
-            'TimeZoneDAO' => 'PKP\i18n\TimeZoneDAO',
             'TemporaryFileDAO' => 'PKP\file\TemporaryFileDAO',
             'UserGroupAssignmentDAO' => 'PKP\security\UserGroupAssignmentDAO',
             'UserGroupDAO' => 'PKP\security\UserGroupDAO',
@@ -782,12 +819,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             '|http[s]?://(www\.)?creativecommons.org/licenses/by-sa/3.0[/]?|' => 'submission.license.cc.by-sa3.footer'
         ];
         if ($locale === null) {
-            $locale = AppLocale::getLocale();
+            $locale = Locale::getLocale();
         }
 
         foreach ($licenseKeyMap as $pattern => $key) {
             if (preg_match($pattern, $ccLicenseURL)) {
-                PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, $locale);
                 return __($key, [], $locale);
             }
         }
@@ -843,7 +879,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public static function getWorkflowStageName($stageId)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_SUBMISSION: return 'submission.submission';
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return 'workflow.review.internalReview';
@@ -863,7 +898,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public static function getWorkflowStageColor($stageId)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_SUBMISSION: return '#d00a0a';
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return '#e05c14';
@@ -930,6 +964,41 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'agencies',
             'citations',
         ];
+    }
+
+    /**
+     * Retrieves whether the application is installed
+     */
+    public static function isInstalled(): bool
+    {
+        return !!Config::getVar('general', 'installed');
+    }
+
+    /**
+     * Retrieves whether the application is running an upgrade
+     */
+    public static function isUpgrading(): bool
+    {
+        return defined('RUNNING_UPGRADE');
+    }
+
+    /**
+     * Retrieves whether the application is under maintenance (not installed or being upgraded)
+     */
+    public static function isUnderMaintenance(): bool
+    {
+        return !static::isInstalled() || static::isUpgrading();
+    }
+
+    /**
+     * Signals the application is undergoing an upgrade
+     */
+    public static function upgrade(): void
+    {
+        // Constant kept for backwards compatibility
+        if (!defined('RUNNING_UPGRADE')) {
+            define('RUNNING_UPGRADE', true);
+        }
     }
 }
 

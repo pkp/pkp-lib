@@ -16,7 +16,6 @@
 namespace PKP\controllers\tab\workflow;
 
 use APP\handler\Handler;
-use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
@@ -61,7 +60,6 @@ class PKPReviewRoundTabHandler extends Handler
      */
     public function setupTemplate($request)
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
         parent::setupTemplate($request);
     }
 

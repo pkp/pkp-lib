@@ -61,7 +61,6 @@ define('COMPONENT_ROUTER_PARTS_MAXDEPTH', 9);
 define('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-use APP\i18n\AppLocale;
 use Exception;
 
 use PKP\config\Config;
@@ -408,11 +407,6 @@ class PKPComponentRouter extends PKPRouter
         $authorizationMessage,
         array $messageParams = []
     ) {
-        // Translate the authorization error message.
-        if (defined('LOCALE_COMPONENT_APP_COMMON')) {
-            AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
-        }
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
         $translatedAuthorizationMessage = __($authorizationMessage, $messageParams);
 
         // Add the router name and operation if show_stacktrace is enabled.

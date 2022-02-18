@@ -14,7 +14,7 @@ describe('Dublin Core OAI tests', function() {
 
 			// Ensure we got a valid XML response
 			expect(response.status).to.eq(200);
-			expect(response.headers['content-type']).to.eq('text/xml;charset=UTF-8');
+			expect(response.headers['content-type']).to.eq('text/xml;charset=utf-8');
 
 			// Parse the XML response and assert that it's a ListRecords
 			const $xml = Cypress.$(Cypress.$.parseXML(response.body)),
@@ -46,7 +46,7 @@ describe('Dublin Core OAI tests', function() {
 			cy.request('index.php/index/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=' + encodeURI(identifier)).then(response => {
 				// Ensure we got a valid XML response
 				expect(response.status).to.eq(200);
-				expect(response.headers['content-type']).to.eq('text/xml;charset=UTF-8');
+				expect(response.headers['content-type']).to.eq('text/xml;charset=utf-8');
 
 				// Parse the XML response and assert that it's a ListRecords
 				const $xml = Cypress.$(Cypress.$.parseXML(response.body)),

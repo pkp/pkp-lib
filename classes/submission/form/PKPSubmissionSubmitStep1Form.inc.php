@@ -17,7 +17,7 @@ namespace PKP\submission\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
+use PKP\facades\Locale;
 use APP\publication\Publication;
 use APP\submission\Submission;
 
@@ -227,7 +227,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm
             // supported to use as a default.
             $keys = array_keys($supportedSubmissionLocales);
             $tryLocales = [
-                AppLocale::getLocale(), // Current UI locale
+                Locale::getLocale(), // Current UI locale
                 $this->context->getPrimaryLocale(), // Context locale
                 $supportedSubmissionLocales[array_shift($keys)] // Fallback: first one on the list
             ];

@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace PKP\core;
 
+use APP\core\Application;
 use Illuminate\Queue\WorkerOptions;
 
 use PKP\config\Config;
@@ -28,17 +29,16 @@ class PKPQueueProvider
     {
         $disableRun = Config::getVar('queues', 'disable_jobs_run_at_shutdown', false);
 
-        if ($disableRun || defined('RUNNING_UPGRADE')) {
+        if ($disableRun || Application::isUnderMaintenance()) {
             return;
         }
 
-        $job = PKPJobModel
-            ::isAvailable()
-                ->notExceededAttempts()
-                ->nonEmptyQueue()
-                ->notQueue(PKPJobModel::TESTING_QUEUE)
-                ->limit(1)
-                ->first();
+        $job = PKPJobModel::isAvailable()
+            ->notExceededAttempts()
+            ->nonEmptyQueue()
+            ->notQueue(PKPJobModel::TESTING_QUEUE)
+            ->limit(1)
+            ->first();
 
         if ($job === null) {
             return;

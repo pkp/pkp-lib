@@ -25,7 +25,6 @@ Cypress.Commands.add('install', function() {
 	cy.get('input[id^=databasePassword-]').clear().type(Cypress.env('DBPASSWORD'), {delay: 0});
 	cy.get('input[id^=databaseUsername-]').clear().type(Cypress.env('DBUSERNAME'), {delay: 0});
 	cy.get('input[id^=databaseName-]').clear().type(Cypress.env('DBNAME'), {delay: 0});
-	cy.get('select[id=connectionCharset]').select('Unicode (UTF-8)');
 
 	// Files directory
 	cy.get('input[id^=filesDir-]').clear().type(Cypress.env('FILESDIR'), {delay: 0});

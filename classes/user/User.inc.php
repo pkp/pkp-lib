@@ -19,7 +19,6 @@
 
 namespace PKP\user;
 
-use APP\i18n\AppLocale;
 use PKP\db\DAORegistry;
 
 use PKP\identity\Identity;
@@ -419,7 +418,6 @@ class User extends Identity
     public function getContactSignature()
     {
         $signature = htmlspecialchars($this->getFullName());
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
         if ($a = $this->getLocalizedAffiliation()) {
             $signature .= '<br/>' . htmlspecialchars($a);
         }

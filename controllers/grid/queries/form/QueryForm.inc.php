@@ -227,8 +227,6 @@ class QueryForm extends Form
      */
     public function fetch($request, $template = null, $display = false, $actionArgs = [])
     {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_EDITOR);
-
         $query = $this->getQuery();
         $headNote = $query->getHeadNote();
         $user = $request->getUser();

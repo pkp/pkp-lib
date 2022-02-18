@@ -463,18 +463,6 @@ class PKPSchemaService
     public function setDefaults($schemaName, $object, $supportedLocales, $primaryLocale, $localeParams = [])
     {
         $schema = $this->get($schemaName);
-
-        // Ensure the locale files are loaded for all required locales
-        foreach ($supportedLocales as $localeKey) {
-            \AppLocale::requireComponents(
-                LOCALE_COMPONENT_PKP_DEFAULT,
-                LOCALE_COMPONENT_APP_DEFAULT,
-                LOCALE_COMPONENT_PKP_COMMON,
-                LOCALE_COMPONENT_APP_COMMON,
-                $localeKey
-            );
-        }
-
         foreach ($schema->properties as $propName => $propSchema) {
             // Don't override existing values
             if (!is_null($object->getData($propName))) {
@@ -509,8 +497,6 @@ class PKPSchemaService
     public function getLocaleDefaults($schemaName, $locale, $localeParams)
     {
         $schema = $this->get($schemaName);
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_DEFAULT, LOCALE_COMPONENT_APP_DEFAULT, $locale);
-
         $defaults = [];
         foreach ($schema->properties as $propName => $propSchema) {
             if (empty($propSchema->multilingual) || empty($propSchema->defaultLocaleKey)) {
@@ -533,6 +519,7 @@ class PKPSchemaService
      */
     public function getDefault($propSchema, $localeParams = null, $localeKey = null)
     {
+        $localeParams ??= [];
         switch ($propSchema->type) {
             case 'boolean':
             case 'integer':

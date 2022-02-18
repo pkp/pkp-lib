@@ -13,9 +13,11 @@
  * @brief Handle installation requests.
  */
 
+use APP\core\Application;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 
+use PKP\facades\Locale;
 use PKP\install\form\InstallForm;
 use PKP\install\form\UpgradeForm;
 
@@ -39,7 +41,7 @@ class InstallHandler extends Handler
         $this->validate(null, $request);
         $this->setupTemplate($request);
 
-        if (($setLocale = $request->getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
+        if (($setLocale = $request->getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
             $request->setCookieVar('currentLocale', $setLocale);
         }
 
@@ -61,7 +63,7 @@ class InstallHandler extends Handler
      */
     public function validate($requiredContexts = null, $request = null)
     {
-        if (Config::getVar('general', 'installed')) {
+        if (Application::isInstalled()) {
             $request->redirect(null, 'index');
         }
     }
@@ -107,7 +109,7 @@ class InstallHandler extends Handler
         $this->validate(null, $request);
         $this->setupTemplate($request);
 
-        if (($setLocale = $request->getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
+        if (($setLocale = $request->getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
             $request->setCookieVar('currentLocale', $setLocale);
         }
 
@@ -144,16 +146,5 @@ class InstallHandler extends Handler
         } else {
             $installForm->display($request);
         }
-    }
-
-    /**
-     * Set up the installer template.
-     *
-     * @param PKPRequest $request
-     */
-    public function setupTemplate($request)
-    {
-        parent::setupTemplate($request);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
     }
 }

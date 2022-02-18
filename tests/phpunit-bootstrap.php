@@ -7,12 +7,13 @@
  * other CASE tools.
  */
 
+use PKP\cache\CacheManager;
+use PKP\session\SessionManager;
 
 // This script may not be executed remotely.
 if (isset($_SERVER['SERVER_NAME'])) {
     exit('This script can only be executed from the command-line.');
 }
-
 
 // Configure the index file location, assume that pkp-lib is included within a PKP application.
 define('INDEX_FILE_LOCATION', dirname(__FILE__, 4) . '/index.php');
@@ -21,15 +22,12 @@ chdir(dirname(INDEX_FILE_LOCATION));
 // Configure PKP error handling for tests
 define('DONT_DIE_ON_ERROR', true);
 
-// Don't support sessions
-define('SESSION_DISABLE_INIT', true);
-
 // Configure assertions for tests
-ini_set('assert.active', true);
-ini_set('assert.bail', false);
-ini_set('assert.warning', true);
-ini_set('assert.callback', null);
-ini_set('assert.quiet_eval', false);
+ini_set('assert.active', '1');
+ini_set('assert.bail', '0');
+ini_set('assert.warning', '1');
+ini_set('assert.callback', '');
+ini_set('assert.quiet_eval', '0');
 
 // NB: Our test framework provides the possibility to
 // import mock classes to replace regular classes.
@@ -163,10 +161,13 @@ require_once('./lib/pkp/includes/bootstrap.inc.php');
 // Make sure ADOdb doesn't "clean up" our /tmp folder.
 $ADODB_CACHE_DIR = CacheManager::getFileCachePath() . '/_db';
 
+// Disable the session initialization
+SessionManager::disable();
+
 // Remove the PKP error handler so that PHPUnit
 // can set its own error handler and catch errors for us.
 error_reporting(E_ALL & ~E_STRICT & ~E_DEPRECATED);
 
 // Show errors in the UI
-ini_set('display_errors', true);
+ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');

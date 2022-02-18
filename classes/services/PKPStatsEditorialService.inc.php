@@ -29,8 +29,6 @@ class PKPStatsEditorialService
      */
     public function getOverview($args = [])
     {
-        \AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
-
         $received = $this->countSubmissionsReceived($args);
         $accepted = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
         $declinedDesk = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);

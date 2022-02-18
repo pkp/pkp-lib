@@ -17,7 +17,6 @@ namespace PKP\handler;
 
 use APP\core\Application;
 use APP\core\Services;
-use APP\i18n\AppLocale;
 use PKP\config\Config;
 use PKP\core\APIResponse;
 use PKP\plugins\HookRegistry;
@@ -29,8 +28,6 @@ use PKP\statistics\PKPStatisticsHelper;
 use PKP\validation\ValidatorFactory;
 
 use Slim\App;
-
-AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API, LOCALE_COMPONENT_APP_API);
 
 class APIHandler extends PKPHandler
 {

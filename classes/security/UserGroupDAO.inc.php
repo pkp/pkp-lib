@@ -19,7 +19,6 @@ namespace PKP\security;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use DomainException;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
@@ -30,6 +29,7 @@ use PKP\core\PKPString;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
 use PKP\workflow\WorkflowStageDAO;
@@ -580,7 +580,7 @@ class UserGroupDAO extends DAO
      */
     public function getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null)
     {
-        $locale = AppLocale::getLocale();
+        $locale = Locale::getLocale();
         // The users register for the site, thus the site primary locale should be the default locale
         $site = Application::get()->getRequest()->getSite();
         $primaryLocale = $site->getPrimaryLocale();
@@ -910,7 +910,7 @@ class UserGroupDAO extends DAO
             $this->updateSetting(
                 $userGroup->getId(),
                 'name',
-                [$locale => __($nameKey, null, $locale)],
+                [$locale => __($nameKey, [], $locale)],
                 'string',
                 $locale,
                 true
@@ -920,7 +920,7 @@ class UserGroupDAO extends DAO
             $this->updateSetting(
                 $userGroup->getId(),
                 'abbrev',
-                [$locale => __($abbrevKey, null, $locale)],
+                [$locale => __($abbrevKey, [], $locale)],
                 'string',
                 $locale,
                 true

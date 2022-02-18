@@ -35,7 +35,6 @@ web_cache_hours = 1
 
 [i18n]
 locale = en_US
-client_charset = utf-8
 connection_charset = utf8
 
 [files]

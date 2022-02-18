@@ -17,7 +17,6 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -107,9 +106,6 @@ class ReviewReminder extends ScheduledTask
         } else {
             $responseDueDate = strftime($dateFormatShort, $responseDueDate);
         }
-
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_REVIEWER);
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
         $paramArray = [
             'recipientName' => $reviewer->getFullName(),
             'recipientUsername' => $reviewer->getUsername(),

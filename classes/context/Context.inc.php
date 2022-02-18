@@ -16,10 +16,10 @@
 namespace PKP\context;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
-
-use APP\plugins\IDoiRegistrationAgency;
+use Illuminate\Support\Arr;
 use PKP\config\Config;
+use PKP\facades\Locale;
+use APP\plugins\IDoiRegistrationAgency;
 use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
 use PKP\statistics\PKPStatisticsHelper;
@@ -304,13 +304,9 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getLocalizedFavicon()
     {
-        $faviconArray = $this->getData('favicon');
-        foreach ([AppLocale::getLocale(), AppLocale::getPrimaryLocale()] as $locale) {
-            if (isset($faviconArray[$locale])) {
-                return $faviconArray[$locale];
-            }
-        }
-        return null;
+        $favicons = $this->getData('favicon');
+        $locale = Arr::first([Locale::getLocale(), Locale::getPrimaryLocale()], fn (string $locale) => isset($favicons[$locale]));
+        return $favicons[$locale] ?? null;
     }
 
     /**
@@ -331,23 +327,10 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getSupportedFormLocaleNames()
     {
-        $supportedLocales = & $this->getData('supportedFormLocaleNames');
-
-        if (!isset($supportedLocales)) {
-            $supportedLocales = [];
-            $localeNames = & AppLocale::getAllLocales();
-
-            $locales = $this->getSupportedFormLocales();
-            if (!isset($locales) || !is_array($locales)) {
-                $locales = [];
-            }
-
-            foreach ($locales as $localeKey) {
-                $supportedLocales[$localeKey] = $localeNames[$localeKey];
-            }
-        }
-
-        return $supportedLocales;
+        return $this->getData('supportedFormLocaleNames') ?? array_map(
+            fn (string $locale) => Locale::getMetadata($locale)->getDisplayName(),
+            array_combine($locales = $this->getSupportedFormLocales(), $locales)
+        );
     }
 
     /**
@@ -369,23 +352,10 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getSupportedSubmissionLocaleNames()
     {
-        $supportedLocales = & $this->getData('supportedSubmissionLocaleNames');
-
-        if (!isset($supportedLocales)) {
-            $supportedLocales = [];
-            $localeNames = & AppLocale::getAllLocales();
-
-            $locales = $this->getSupportedSubmissionLocales();
-            if (!isset($locales) || !is_array($locales)) {
-                $locales = [];
-            }
-
-            foreach ($locales as $localeKey) {
-                $supportedLocales[$localeKey] = $localeNames[$localeKey];
-            }
-        }
-
-        return $supportedLocales;
+        return $this->getData('supportedSubmissionLocaleNames') ?? array_map(
+            fn (string $locale) => Locale::getMetadata($locale)->getDisplayName(),
+            array_combine($locales = $this->getSupportedSubmissionLocales(), $locales)
+        );
     }
 
     /**
@@ -406,23 +376,10 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getSupportedLocaleNames()
     {
-        $supportedLocales = & $this->getData('supportedLocaleNames');
-
-        if (!isset($supportedLocales)) {
-            $supportedLocales = [];
-            $localeNames = & AppLocale::getAllLocales();
-
-            $locales = $this->getSupportedLocales();
-            if (!isset($locales) || !is_array($locales)) {
-                $locales = [];
-            }
-
-            foreach ($locales as $localeKey) {
-                $supportedLocales[$localeKey] = $localeNames[$localeKey];
-            }
-        }
-
-        return $supportedLocales;
+        return $this->getData('supportedLocaleNames') ?? array_map(
+            fn (string $locale) => Locale::getMetadata($locale)->getDisplayName(),
+            array_combine($locales = $this->getSupportedLocales(), $locales)
+        );
     }
 
     /**
@@ -454,15 +411,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getLocalizedDateFormatShort($locale = null)
     {
-        if (is_null($locale)) {
-            $locale = AppLocale::getLocale();
-        }
-        $localizedData = $this->getData('dateFormatShort', $locale);
-        if (empty($localizedData)) {
-            $localizedData = Config::getVar('general', 'date_format_short');
-        }
-
-        return $localizedData;
+        return $this->getData('dateFormatShort', $locale ?? Locale::getLocale()) ?: Config::getVar('general', 'date_format_short');
     }
 
     /**
@@ -474,15 +423,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getLocalizedDateFormatLong($locale = null)
     {
-        if (is_null($locale)) {
-            $locale = AppLocale::getLocale();
-        }
-        $localizedData = $this->getData('dateFormatLong', $locale);
-        if (empty($localizedData)) {
-            $localizedData = Config::getVar('general', 'date_format_long');
-        }
-
-        return $localizedData;
+        return $this->getData('dateFormatLong', $locale ?? Locale::getLocale()) ?: Config::getVar('general', 'date_format_long');
     }
 
     /**
@@ -494,15 +435,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getLocalizedTimeFormat($locale = null)
     {
-        if (is_null($locale)) {
-            $locale = AppLocale::getLocale();
-        }
-        $localizedData = $this->getData('timeFormat', $locale);
-        if (empty($localizedData)) {
-            $localizedData = Config::getVar('general', 'time_format');
-        }
-
-        return $localizedData;
+        return $this->getData('timeFormat', $locale ?? Locale::getLocale()) ?: Config::getVar('general', 'time_format');
     }
 
     /**
@@ -514,15 +447,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getLocalizedDateTimeFormatShort($locale = null)
     {
-        if (is_null($locale)) {
-            $locale = AppLocale::getLocale();
-        }
-        $localizedData = $this->getData('datetimeFormatShort', $locale);
-        if (empty($localizedData)) {
-            $localizedData = Config::getVar('general', 'datetime_format_short');
-        }
-
-        return $localizedData;
+        return $this->getData('datetimeFormatShort', $locale ?? Locale::getLocale()) ?: Config::getVar('general', 'datetime_format_short');
     }
 
     /**
@@ -534,15 +459,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function getLocalizedDateTimeFormatLong($locale = null)
     {
-        if (is_null($locale)) {
-            $locale = AppLocale::getLocale();
-        }
-        $localizedData = $this->getData('datetimeFormatLong', $locale);
-        if (empty($localizedData)) {
-            $localizedData = Config::getVar('general', 'datetime_format_long');
-        }
-
-        return $localizedData;
+        return $this->getData('datetimeFormatLong', $locale ?? Locale::getLocale()) ?: Config::getVar('general', 'datetime_format_long');
     }
 
     /**

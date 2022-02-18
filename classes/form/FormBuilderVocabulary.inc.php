@@ -359,7 +359,7 @@ class FormBuilderVocabulary
                 case 'disabled':
                     $smarty->assign('FBV_' . $key, $value);
                     break;
-                default: $buttonParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                default: $buttonParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
             }
         }
 
@@ -448,7 +448,7 @@ class FormBuilderVocabulary
                     }
                     break;
                 case 'placeholder':
-                    $textInputParams .= 'placeholder="' . htmlspecialchars(__($value), ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                    $textInputParams .= 'placeholder="' . htmlspecialchars(__($value), ENT_QUOTES) . '" ';
                 break;
                 case 'disabled':
                 case 'readonly':
@@ -460,11 +460,11 @@ class FormBuilderVocabulary
                     $smarty->assign('FBV_' . $key, $value); break;
                 case 'required':
                     if ($value) {
-                        $textInputParams .= 'required="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                        $textInputParams .= 'required="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
                     }
                 break;
                 default:
-                    $textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                    $textInputParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
             }
         }
 
@@ -537,7 +537,7 @@ class FormBuilderVocabulary
                     }
                     break;
                 case 'id': break; // if we don't do this, the textarea ends up with two id attributes because FBV_id is also set.
-                default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
             }
         }
 
@@ -568,7 +568,7 @@ class FormBuilderVocabulary
                     break;
                 case 'label': break;
                 case 'type': break;
-                default: $hiddenInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                default: $hiddenInputParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
             }
         }
 
@@ -620,7 +620,7 @@ class FormBuilderVocabulary
                     break;
                 case 'subLabelTranslate': break;
                 case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
-                default: $selectParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                default: $selectParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
             }
         }
 
@@ -660,7 +660,7 @@ class FormBuilderVocabulary
                 case 'type': break;
                 case 'inline': break;
                 case 'subLabelTranslate': break;
-                default: $checkboxParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                default: $checkboxParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
             }
         }
 
@@ -693,7 +693,7 @@ class FormBuilderVocabulary
                 case 'disabled':
                     $smarty->assign('FBV_' . $key, $value);
                     break;
-                default: $checkboxParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                default: $checkboxParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
             }
         }
 
@@ -731,7 +731,7 @@ class FormBuilderVocabulary
                 case 'content':
                     $smarty->assign('FBV_' . $key, $value);
                     break;
-                default: $radioParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+                default: $radioParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
             }
         }
 
@@ -937,7 +937,7 @@ class FormBuilderVocabulary
         $returner = '';
         if (isset($params) && !empty($params)) {
             if (isset($params['key'])) {
-                $params['label'] = __($params['key'], $params);
+                $params['label'] = __($params['key'], $params ?? []);
             }
 
             $form = $this->getForm();

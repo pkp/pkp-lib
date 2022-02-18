@@ -442,7 +442,7 @@ class PKPDoiHandler extends APIHandler
         // Retrieve submissions
         $requestIds = $slimRequest->getParsedBody()['ids'] ?? [];
         if ($requestIds == null) {
-            return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
         // Assign DOIs

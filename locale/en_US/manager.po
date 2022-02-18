@@ -212,6 +212,9 @@ msgstr "DOIs successfully updated"
 msgid "manager.dois.registration.depositDois"
 msgstr "Deposit DOI(s)"
 
+msgid "manager.dois.status.needsDoi"
+msgstr "Needs DOI"
+
 msgid "manager.dois.status.unregistered"
 msgstr "Unregistered"
 

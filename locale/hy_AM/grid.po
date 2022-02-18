@@ -1,8 +1,723 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-02-18 23:01+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"hy_AM/>\n"
 "Language: hy_AM\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Ընտրեք տեսակը..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Չկան նավարկման ընտրացանկեր"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Նավարկման ընտրացանկի տարրեր չկան"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Ավելացրեք նյութ"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Ավելացրեք ընտրացանկ"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Ներառեք հեղինակի կողմից չներկայացված թերի ներկայացումները:"
+
+msgid "grid.submission.itemTitle"
+msgstr "Հեղինակ; Վերնագիր"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} դերը ապանշանակվեց {$stageName} փուլից:"
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} դերը նշանակված է {$stageName} փուլին:"
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} դերը հեռացվել է:"
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Հնարավոր չէ հեռացնել {$userGroupName} դերը: Ներկայումս {$usersCount} "
+"օգտատեր(եր)ը նշանակված են նրան:"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "{$userGroupName} դերը կանխադրված է և չի կարող հեռացվել:"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Թույլտվության մակարդակով սահմանված է"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Նշեք հանձնարարված դերերը"
+
+msgid "grid.userGroup.allStages"
+msgstr "Աշխատանքային գործընթացի բոլոր փուլերը"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Չեղարկել փուլը"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Հանձնարարել փուլ"
+
+msgid "grid.artworkFile.placement"
+msgstr "Տեղադրում ներկայացման մեջ"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Թույլտվության պայմաններ"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Կոնտակտային տվյալներ (եթե հեղինակ/հրատարակիչ չէ)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Հեղինակային իրավունքի սեփականատեր"
+
+msgid "grid.artworkFile.credit"
+msgstr "Կրեդիտ"
+
+msgid "grid.artworkFile.caption"
+msgstr "Մակագրություն"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Կատարված են սրբագրման ուղղումներ: Դուք կարող եք անտեսել այս առաջադրանքը"
+
+msgid "grid.plugin.disable"
+msgstr "Իսկապե՞ս ուզում եք անջատել այս փլագինը:"
+
+msgid "grid.plugin.allCategories"
+msgstr "Բոլոր դասերը"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Ընթացիկ ցուցակ"
+
+msgid "grid.preparedEmails.title"
+msgstr "Պատրաստված էլ․ փոստի կաղապարներ"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Համոզվա՞ծ եք, որ ցանկանում եք միավորել \"{$oldUsername}\" օգտանունով հաշիվը "
+"\"{$newUsername}\" օգտանունով հաշվին: \"{$oldUsername}\"  օգտանունով հաշիվն "
+"այնուհետև գոյություն չի ունենա: Այս գործողությունը շրջելի չէ:"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Բոլոր գրանցված օգտվողները"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Միավորվեք այս Օգտատիրոջ մեջ"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Միավորել օգտվողին"
+
+msgid "grid.user.mergeUsers"
+msgstr "Միավորել օգտվողներին"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Մուտք գործե՞լ որպես այս օգտվող: Ձեր կատարած բոլոր գործողությունները "
+"վերագրվելու են այս օգտվողին:"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Խնդրում ենք ընտրել օգտվողին"
+
+msgid "grid.user.selectUser"
+msgstr "Ընտրեք օգտվողին"
+
+msgid "grid.user.addRole"
+msgstr "Ավելացրեք դեր"
+
+msgid "grid.user.addRoles"
+msgstr "Ավելացրեք դերեր"
+
+msgid "grid.user.step2"
+msgstr "Քայլ 2. Օգտատիրոջ դերեր ավելացրեք {$userFullName} -ին"
+
+msgid "grid.user.step1"
+msgstr "Քայլ 1. Լրացրեք օգտվողի տվյալները"
+
+msgid "grid.user.userNoRoles"
+msgstr "Այս օգտվողը որևէ դեր չունի:"
+
+msgid "grid.user.userRoles"
+msgstr "Օգտագործողի դերեր"
+
+msgid "grid.user.userDetails"
+msgstr "Օգտագործողի մանրամասները"
+
+msgid "grid.user.lessDetails"
+msgstr "Օգտագործողի ավելի քիչ մանրամասներ"
+
+msgid "grid.user.moreDetails"
+msgstr "Օգտատիրոջ ավելի շատ մանրամասներ"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Օգտատիրոջից պահանջեք փոխել իր գաղտնաբառը հաջորդ անգամ մուտք գործելիս:"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Հաջորդ մուտքի ժամանակ օգտվողը պետք է փոխի գաղտնաբառը:"
+
+msgid "grid.user.mustChangePassword"
+msgstr "Փոխել գաղտնաբառը"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Օգտագործողին ողջույնի նամակ ուղարկեք:"
+
+msgid "grid.user.notifyUser"
+msgstr "Տեղեկացնել օգտվողին"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Ստեղծեք պատահական գաղտնաբառ այս օգտվողի համար:"
+
+msgid "grid.user.generatePassword"
+msgstr "Ստեղծեք գաղտնաբառ"
+
+msgid "grid.user.mustProvideName"
+msgstr "Խնդրում ենք նախ տրամադրել օգտվողի առնվազն ազգանունը:"
+
+msgid "grid.user.authSource"
+msgstr "Նույնականացման աղբյուր"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Դուք չունեք բավարար թույլտվություններ այս օգտվողին կառավարելու համար: "
+"Օգտվողին կառավարելու համար դուք կամ պետք է լինեք կայքի ադմինիստրատոր, կամ "
+"կառավարեք բոլոր համատեքստերը, որոնցում գրանցված է այս օգտվողը:"
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Այս նամակն ուղարկելիս սխալ է տեղի ունեցել: Համոզվեք, որ ձեր էլփոստի սերվերի "
+"կազմաձևումն աշխատում է և/կամ կապվեք ձեր համակարգի ադմինիստրատորի հետ:"
+
+msgid "grid.user.error"
+msgstr ""
+"Այս օգտվողի ադմինիստրացիայի ժամանակ սխալ է տեղի ունեցել: Խնդրում ենք կրկին "
+"փորձեք."
+
+msgid "grid.user.enableReason"
+msgstr "Օգտվողի ակտիվացման պատճառ"
+
+msgid "grid.user.disableReason"
+msgstr "Օգտվողի անջատման պատճառը"
+
+msgid "grid.user.disable"
+msgstr "Անջատել"
+
+msgid "grid.user.enable"
+msgstr "Միացնել"
+
+msgid "grid.user.email"
+msgstr "Էլ․ փոստ"
+
+msgid "grid.user.edit"
+msgstr "Խմբագրել օգտվողին"
+
+msgid "grid.user.enroll"
+msgstr "Գրանցել օգտվող"
+
+msgid "grid.user.add"
+msgstr "Ավելացրու օգտվող"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Թույլտվության բոլոր մակարդակները"
+
+msgid "grid.user.allRoles"
+msgstr "Բոլոր դերերը"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Ընթացիկ գրանցում"
+
+msgid "grid.user.currentUsers"
+msgstr "Ընթացիկ օգտվողներ"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Փուլի հանձնարարություն"
+
+msgid "grid.roles.add"
+msgstr "Ստեղծել նոր դեր"
+
+msgid "grid.roles.currentRoles"
+msgstr "Ընթացիկ դերեր"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Լցված"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Հրապարակումների ցուցակներ"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Համառոտ"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Արտածում"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Ձևաչափ"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Այս հրապարակման աջակիցները կբացահայտվեն այս ամսագրում հետևյալ ձևաչափերով."
+
+msgid "contributor.listPanel.preview"
+msgstr "Նախադիտում"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Զննման ցուցակներում"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Սահմանել առաջնային կոնտակտը"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Առաջնային կապ"
+
+msgid "author.users.contributor.role"
+msgstr "Դեր"
+
+msgid "author.users.contributor.email"
+msgstr "Էլ․ փոստ"
+
+msgid "author.users.contributor.name"
+msgstr "Անուն"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Ստուգացանկի կետ"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Ներկայացման ստուգաթերթ"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Թողարկում Ձևանմուշ գրադարան"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Թողարկման գրադարան"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Գրախոսիր գրադարանը"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Խմբագրական գրադարան"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Ներկայացման գրադարան"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Նիշքեր"
+
+msgid "grid.noFiles"
+msgstr "Չկան նիշքեր"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Արձագանքման ընտրանքներ"
+
+msgid "grid.reviewForm.title"
+msgstr "Գրախոսման ձևեր"
+
+msgid "grid.action.newVersion"
+msgstr "Ստեղծեք նոր տարբերակ"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Իսկապե՞ս ուզում եք հեռացնել {$name} -ին որպես աջակցող: Այս գործողությունը "
+"հնարավոր չէ հետարկել:"
+
+msgid "grid.action.deleteContributor"
+msgstr "Ջնջել աջակցողին"
+
+msgid "grid.action.editContributor"
+msgstr "Խմբագրել աջակցողին"
+
+msgid "grid.action.addContributor"
+msgstr "Ավելացրեք աջակցող"
+
+msgid "grid.contributor.title"
+msgstr "Աջակցության աղբյուրները"
+
+msgid "grid.action.deleteCategory"
+msgstr "Ջնջել դասը"
+
+msgid "grid.action.editCategory"
+msgstr "Խմբագրել դասը"
+
+msgid "grid.action.addCategory"
+msgstr "Ավելացնել դաս"
+
+msgid "grid.action.deleteSeries"
+msgstr "Ջնջել շարքը"
+
+msgid "grid.action.editSeries"
+msgstr "Խմբագրել շարքը"
+
+msgid "grid.action.addSeries"
+msgstr "Ավելացնել շարք"
+
+msgid "grid.action.editSponsor"
+msgstr "Խմբագրել հովանավորին"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Ջնջել հովանավորին"
+
+msgid "grid.action.addSponsor"
+msgstr "Ավելացնել հովանավոր"
+
+msgid "grid.sponsor.title"
+msgstr "Հովանավոր կազմակերպություններ"
+
+msgid "grid.columns.locale"
+msgstr "Տեղային"
+
+msgid "grid.columns.auditor"
+msgstr "Աուդիտոր"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.institution"
+msgstr "Հաստատություն"
+
+msgid "grid.columns.actions"
+msgstr "Գործողություններ"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Այս գրախոսությունը պատրաստ է: Այն կարդալու համար սեղմեք ձախ կողմում գտնվող "
+"նշումի պատկերակը:"
+
+msgid "grid.task.status.unfinished"
+msgstr "Առաջադրանքն անավարտ է"
+
+msgid "grid.task.status.uploaded"
+msgstr "Սյունակի վերնագիրը ցույց է տալիս, թե ով է վերբեռնել այս նիշքը"
+
+msgid "grid.task.status.new"
+msgstr "Նշվել է, երբ դիտարկվում է"
+
+msgid "grid.task.status.completed"
+msgstr "Այս առաջադրանքն ավարտված է"
+
+msgid "grid.action.users"
+msgstr "Դիտել/Ընտրել օգտվողներին"
+
+msgid "grid.action.moreItems"
+msgstr "Բեռնել ավելին"
+
+msgid "grid.action.install"
+msgstr "Տեղադրեք"
+
+msgid "grid.action.preview"
+msgstr "Նախադիտում"
+
+msgid "grid.action.copy"
+msgstr "Պատճենել"
+
+msgid "grid.action.deactivate"
+msgstr "Ապաակտիվացնել"
+
+msgid "grid.action.activate"
+msgstr "Ակտիվացնել"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Վստա՞հ եք, որ ցանկանում եք արտահանել բոլոր օգտվողներին:"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Արտահանել բոլոր օգտվողներին"
+
+msgid "grid.action.logInAs"
+msgstr "Մուտք գործեք որպես"
+
+msgid "grid.action.bookInfo"
+msgstr "Ներկայացման տեղեկություններ"
+
+msgid "grid.action.enable"
+msgstr "Միացնել"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Այս գրախոսությունն ավարտված է, բայց դուք այն կարող եք հաշվի չառնել այն"
+
+msgid "grid.action.history"
+msgstr "Ցուցադրել պատմությունը"
+
+msgid "grid.action.unassignUser"
+msgstr "Չեղարկել օգտվողի նշանակումը"
+
+msgid "grid.action.mergeUser"
+msgstr "Միավորել օգտվողին"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Ավելացնել հայտարարություն"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Ավելացնել հայտարարության տեսակը"
+
+msgid "grid.action.uploadFile"
+msgstr "Վերբեռնեք նիշք"
+
+msgid "grid.action.thankReviewer"
+msgstr "Շնորհակալական հաղորդագրություն ուղարկեք այս գրախոսին"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Դիտեք շահերի բախման ուղեցույցների քաղաքականությունը"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Դիտեք գրախոսման ուղեցույցները"
+
+msgid "grid.action.newRound"
+msgstr "Ստեղծեք նոր փուլ"
+
+msgid "grid.action.sendReminder"
+msgstr "Ուղարկեք առաջադրանքի հիշեցում այս օգտվողին"
+
+msgid "grid.action.viewMetadata"
+msgstr "Դիտեք այս ներկայացման մետատվյալները"
+
+msgid "grid.action.viewLibrary"
+msgstr "Դիտեք Փաստաթղթերի գրադարանը"
+
+msgid "grid.action.advancedSearch"
+msgstr "Ընդլայնված որոնում"
+
+msgid "grid.action.search"
+msgstr "Որոնել"
+
+msgid "grid.action.selectCreate"
+msgstr "Ստեղծեք նոր գրախոս"
+
+msgid "grid.action.enrolExisting"
+msgstr "Գրանցեք գոյություն ունեցող օգտվողին որպես գրախոս"
+
+msgid "grid.action.details"
+msgstr "Դիտեք այս նյութը"
+
+msgid "grid.action.disable"
+msgstr "Անջատել"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Հեռացրեք օգտվողների այս խումբը"
+
+msgid "grid.action.editUserGroup"
+msgstr "Խմբագրել օգտվողների այս խումբը"
+
+msgid "grid.action.addUserGroup"
+msgstr "Ավելացնել օգտվողների նոր խումբ"
+
+msgid "grid.action.notify"
+msgstr "Տեղեկացրեք այս օգտատիրոջը"
+
+msgid "grid.action.expand"
+msgstr "Ընդլայնել"
+
+msgid "grid.action.requestAccount"
+msgstr "Ավելացնել մասնակից"
+
+msgid "grid.action.expandAll"
+msgstr "Ընդլայնել բոլորը"
+
+msgid "grid.action.resetEmail"
+msgstr "Վերականգնել էլ․ փոստի այս ձևանմուշը լռելյայնի"
+
+msgid "grid.action.disableEmail"
+msgstr "Անջատեք էլ․ փոստի այս ձևանմուշը"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Խմբագրել էլ․ փոստի այս ձևանմուշը"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Ավելացնել էլ․ փոստի նոր ձևանմուշ"
+
+msgid "grid.action.resetAll"
+msgstr "Վերականգնել բոլոր տարրերը լռելյայն արժեքներին"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Ջնջել այս ստուգաթերթի տարրը"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Խմբագրել այս ստուգաթերթի տարրը"
+
+msgid "grid.action.orderItems"
+msgstr "Միացնել կարգավորման ռեժիմը"
+
+msgid "grid.action.importexport"
+msgstr "Ներմուծեք կամ արտահանեք բովանդակություն կամ կայքի տվյալներ"
+
+msgid "grid.action.settings"
+msgstr "Կարգաբերումներ"
+
+msgid "grid.action.sendToProduction"
+msgstr "Ուղարկեք այս ներկայացումը հրատարակության"
+
+msgid "grid.action.externalReview"
+msgstr "Ուղարկեք այս ներկայացումը արտաքին գրախոսության"
+
+msgid "grid.action.internalReview"
+msgstr "Ուղարկեք այս ներկայացումը ներքին գրախոսության"
+
+msgid "grid.action.decline"
+msgstr "Մերժել այս ներկայացումը"
+
+msgid "grid.action.accept"
+msgstr "Ընդունեք այս ներկայացումը"
+
+msgid "grid.action.requestRevisions"
+msgstr "Խնդրեք վերանայումներ այս ներկայացման համար"
+
+msgid "grid.action.selectFiles"
+msgstr "Ընտրեք նիշքերը կառավարելու համար"
+
+msgid "grid.action.editFile"
+msgstr "Խմբագրել նիշքը"
+
+msgid "grid.action.addFile"
+msgstr "Ավելացնել նիշք"
+
+msgid "grid.action.addReviewer"
+msgstr "Ավելացնել գրախոս"
+
+msgid "grid.action.email"
+msgstr "Ուղարկեք էլ․ նամակ"
+
+msgid "grid.action.readReview"
+msgstr "Կարդացեք այս գրախոսությունը"
+
+msgid "grid.action.downloadAll"
+msgstr "Ներբեռնեք բոլոր նիշքերը որպես արխիվ"
+
+msgid "grid.action.moveItem"
+msgstr "Տեղափոխել նյութը"
+
+msgid "grid.action.wizard"
+msgstr "Կարգավորումների հրաշագործ"
+
+msgid "grid.action.collapseAll"
+msgstr "Փլուզել բոլորը"
+
+msgid "grid.action.collapse"
+msgstr "Փլուզել"
+
+msgid "grid.action.extendAll"
+msgstr "Ընդլայնել բոլորը"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Չեղարկել կարգավորումը"
+
+msgid "grid.action.saveOrdering"
+msgstr "Պահել կարգը"
+
+msgid "grid.action.order"
+msgstr "Կարգավորել"
+
+msgid "grid.action.upgrade"
+msgstr "Թարմացնել"
+
+msgid "grid.action.addAuditor"
+msgstr "Ավելացնել աուդիտոր"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Ջնջել Հեղինակին"
+
+msgid "grid.action.editAuthor"
+msgstr "Խմբագրել Հեղինակին"
+
+msgid "grid.action.addAuthor"
+msgstr "Ավելացրեք Հեղինակ"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Վստա՞հ եք, որ ցանկանում եք վերականգնել կանխադրվածները:"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Վերականգնել Նախնականը"
+
+msgid "grid.action.moreInformation"
+msgstr "Լրացուցիչ տեղեկություններ"
+
+msgid "grid.action.setApproval"
+msgstr "Սահմանել Հաստատում"
+
+msgid "grid.action.disapprove"
+msgstr "Չեղարկել հաստատումը"
+
+msgid "grid.action.approve"
+msgstr "Հաստատել"
+
+msgid "grid.action.edit"
+msgstr "Խմբագրել"
+
+msgid "grid.action.remove"
+msgstr "Հեռացնել"
+
+msgid "grid.action.editorialHistory"
+msgstr "Խմբագրական պատմություն"
+
+msgid "grid.action.deleteSection"
+msgstr "Ջնջել բաժինը"
+
+msgid "grid.action.export"
+msgstr "Արտահանել"
+
+msgid "grid.action.editSection"
+msgstr "Խմբագրել բաժինը"
+
+msgid "grid.action.editMedia"
+msgstr "Խմբագրել մեդիան"
+
+msgid "grid.action.deleteMedia"
+msgstr "Ջնջել մեդիան"
+
+msgid "grid.action.deleteFile"
+msgstr "Ջնջել նիշքը"
+
+msgid "grid.action.delete"
+msgstr "Ջնջել"
+
+msgid "grid.action.reload"
+msgstr "Վերաբեռնել"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Հաստատեք այս պատճենահանված նիշքը՝ այն հաջորդ փուլ ուղարկելու համար"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Չեղարկել այս գրախոսի նշանակումը"
+
+msgid "grid.action.addUser"
+msgstr "Ավելացրեք օգտվող"
+
+msgid "grid.action.updateQuery"
+msgstr "Թարմացրեք քննարկումը"
+
+msgid "grid.action.deleteQuery"
+msgstr "Ջնջեք քննարկումը"
+
+msgid "grid.action.readQuery"
+msgstr "Կարդացեք քննարկումը"
+
+msgid "grid.action.addQuery"
+msgstr "Ավելացնել քննարկում"
+
+msgid "grid.action.addNote"
+msgstr "Ավելացնել նշում"
+
+msgid "grid.action.addItem"
+msgstr "Ավելացնել նյութ"
+
+msgid "grid.action.sort"
+msgstr "Տեսակավորել"
+
+msgid "grid.action.manageAccess"
+msgstr "Կառավարեք հասանելիությունը"
+
+msgid "grid.action.uninstall"
+msgstr "Ապատեղադրել"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Այս նյութը հյուրընկալված է հեռավար:"
+
+msgid "grid.noAuditors"
+msgstr "Աուդիտորներ չկան"
+
+msgid "grid.settings"
+msgstr "Կարգաբերումներ"
+
+msgid "grid.noItems"
+msgstr "Չկան նյութեր"

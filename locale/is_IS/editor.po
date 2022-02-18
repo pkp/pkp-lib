@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-23 13:31+0000\n"
+"PO-Revision-Date: 2022-02-18 23:01+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/is_IS/>\n"
@@ -156,9 +156,9 @@ msgstr ""
 
 msgid "editor.review.readConfirmation"
 msgstr ""
-"Þegar búið er að lesa þessa ritrýni, smelltu þá á \"Staðfesta\" til að gefa "
-"til kynna að ritrýniferlið megi halda áfram. Ef ritrýnir hefur sent  "
-"ritrýnina annað, þarftu að hlaða upp skránni og smella síðan á \"Staðfesta\" "
+"Þegar búið er að lesa ritrýnina, smelltu þá á \"Staðfesta\" til að halda "
+"áfram með ritrýniferlið. Hafi ritrýnirinn sent ritrýnina annað (t.d. í "
+"tölvupósti), þarftu að hlaða þeirri skrá upp og smella síðan á \"Staðfesta\" "
 "til að halda áfram."
 
 msgid "editor.review.unconsiderReviewText"
@@ -201,7 +201,7 @@ msgid "editor.review.reviewerComments"
 msgstr "Athugasemdir ritrýnis"
 
 msgid "editor.review.reviewerThanked"
-msgstr "Búið að þakka ritrýni"
+msgstr "Búið er að þakka ritrýni"
 
 msgid "editor.review.reviewSubmitted"
 msgstr "Ritrýni skilað inn"
@@ -252,28 +252,28 @@ msgid "editor.review.sendReminder"
 msgstr "Senda áminningu"
 
 msgid "editor.review.skipEmail"
-msgstr "Ekki senda tölvupóst á ritrýni."
+msgstr "Sendið ekki tölvupóst til ritrýnis."
 
 msgid "editor.review.thankReviewerError"
 msgstr "Villa við að senda þakkir til ritrýnis"
 
 msgid "editor.review.reminderError"
-msgstr "Villa við að senda áminningu á ritrýni"
+msgstr "Villa við að senda áminningu til ritrýnis"
 
 msgid "editor.review.thankReviewer"
-msgstr "Þakka ritrýni"
+msgstr "Þakkir til ritrýnis"
 
 msgid "editor.review.reminder"
 msgstr "Áminning um ritrýni"
 
 msgid "editor.review.noReviews"
-msgstr "Engin ritrýni til að lesa inn"
+msgstr "Engin ritrýni til að hlaða upp"
 
 msgid "editor.review.reviewsAdded"
 msgstr "Ritrýni bætt við meginmál skilaboða."
 
 msgid "editor.review.dateAccepted"
-msgstr "Ritrýni samþykkt dags"
+msgstr "Dags. samþykktar ritrýni"
 
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Endurskoðun kallar á nýja umferð ritrýni."
@@ -282,16 +282,16 @@ msgid "editor.review.NotifyAuthorRevisions"
 msgstr "Endurskoðun kallar ekki á nýja umferð ritrýni."
 
 msgid "editor.review.newReviewRound"
-msgstr "Krefst nýrrar nýrrar ritrýni umferðar"
+msgstr "Krefst endurtekinnar ritrýni"
 
 msgid "editor.review.uploadRevision"
-msgstr "Hlaða inn endursoðun"
+msgstr "Hlaða inn endurskoðaðri útgáfu"
 
 msgid "editor.review.importantDates"
 msgstr "Mikilvægar dagsetningar"
 
 msgid "editor.review.personalMessageToReviewer"
-msgstr "Tölvupóstur sem á að senda ritrýni"
+msgstr "Tölvupóstur til ritrýnis"
 
 msgid "editor.review.anonymousReviewer"
 msgstr "Óþekktur ritrýnir"
@@ -327,19 +327,19 @@ msgid "editor.submissionReview.reviewType"
 msgstr "Tegund ritrýni"
 
 msgid "editor.review.reinstateReviewer"
-msgstr "Setja ritrýni aftur inn"
+msgstr "Ritrýnir endurskráður"
 
 msgid "editor.review.cancelReviewer"
-msgstr "Hætta við ritrýni"
+msgstr "Skráningu ritrýnis eytt"
 
 msgid "editor.review.unassignReviewer"
-msgstr "Aftengja ritrýni"
+msgstr "Afskrá ritrýni"
 
 msgid "editor.review.enrollReviewer.short"
 msgstr "Skrá notanda sem er til"
 
 msgid "editor.review.createReviewer"
-msgstr "Búa til nýjan ritrýni"
+msgstr "Stofna nýjan ritrýni"
 
 msgid "editor.submission.backToSearch"
 msgstr "Til baka í leit"
@@ -361,11 +361,11 @@ msgstr "Bæta við ritrýni"
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
-"Notaðu <em>+Bæta við ritrýni</em> til að bjóða lesendum að ritrýna innsend "
-"handrit. Minnisbókar merkið gefur til kynna að búið sé að skila inn "
-"ritrýni,  sem þá er merkt  <em>Acknowledged</em> eftir að búið er að skoða "
-"það. Þegar rtrýni er komin fram yfir skiladag, birtist merki með rauðu "
-"umslagi til að minna ritrýna á ."
+"Notaðu <em>+Bæta við ritrýni</em> til að bjóða lesendum að ritrýna innsent "
+"handrit. Minnisbókarmerkið gefur til kynna að ritrýni hafi verið skilað "
+"inn,  og er hún þá er merkt  <em>Acknowledged</em> eftir skoðun. Þegar "
+"ritrýni er komin fram yfir skiladag, birtist merki með rauðu umslagi til "
+"áminningar fyrir ritrýna."
 
 msgid "editor.submission.revisions"
 msgstr "Endurskoðun"
@@ -383,7 +383,7 @@ msgid "editor.submission.fileAuditor.skipEmail"
 msgstr "Ekki senda tölvupóst til höfundar"
 
 msgid "editor.submission.fileAuditor.form.messageRequired"
-msgstr "Þú verður að bæta við persónulegum skilaboðum."
+msgstr "Þú þarft að skrá skilaboð frá þér persónulega."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr "Þú verður að velja a.m.k. eina skrá til að úthluta á notandann."
@@ -395,7 +395,7 @@ msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "Skilaboð til notanda"
 
 msgid "editor.review.notInitiated"
-msgstr "Ritrýni ferlið er ekki hafið."
+msgstr "Ritrýniferli er ekki hafið."
 
 msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Breyta ákvörðun"

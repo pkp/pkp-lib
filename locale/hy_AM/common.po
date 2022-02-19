@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-18 23:01+0000\n"
+"PO-Revision-Date: 2022-02-20 09:24+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy_AM/>\n"
@@ -2122,3 +2122,6 @@ msgstr "Փլուզել բոլորը"
 
 msgid "list.expandAll"
 msgstr "Ընդլայնել բոլորը"
+
+msgid "timeZone"
+msgstr "Ժամային գոտի"

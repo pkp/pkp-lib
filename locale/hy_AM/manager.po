@@ -1,11 +1,12 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-13 14:25+0000\n"
-"Last-Translator: Hovhannes Harutyunyan <hharutyunyan@gmail.com>\n"
-"Language-Team: hy (generated) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/hy/>\n"
-"Language: hy\n"
+"PO-Revision-Date: 2022-02-20 09:24+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/hy_AM/>\n"
+"Language: hy_AM\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,3 +42,30 @@ msgstr "Պահանջվում է պատկերի ֆայլ: Համոզվեք, որ 
 
 msgid "manager.website.appearance"
 msgstr "Արտաքին տեսք"
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Խնդրում ենք ընտրել հայտարարության ժամկետի ավարտի վավեր օր։"
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr ""
+"Խնդրում ենք ընտրել տարին և/կամ օրը՝ ի հավելումն գործողության ժամկետի ավարտի "
+"ամսվա:"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Հայտարարությունը կցուցադրվի ընթերցողներին մինչև այս ամսաթիվը: Թողեք դատարկ, "
+"եթե հայտարարությունը պետք է անորոշ ժամանակով ցուցադրվի:"
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Ժամկետի ավարտի ամսաթիվ"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr ""
+"Խնդրում ենք ընտրել տարին և/կամ ամիսը՝ ի հավելումն գործողության ժամկետի "
+"ավարտի օրվա:"
+
+msgid "manager.announcements.editTitle"
+msgstr "Խմբագրել"
+
+msgid "manager.announcements.edit"
+msgstr "Խմբագրել հայտարարությունը"

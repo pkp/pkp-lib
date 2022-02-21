@@ -18,7 +18,6 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
@@ -123,11 +122,6 @@ abstract class Repository
      */
     public function validate(array $props, DecisionType $decisionType, Submission $submission, Context $context): array
     {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_EDITOR
-        );
-
         // Return early if no valid decision type exists
         if (!isset($props['decision']) || $props['decision'] !== $decisionType->getDecision()) {
             return ['decision' => [__('editor.submission.workflowDecision.typeInvalid')]];
@@ -247,7 +241,6 @@ abstract class Repository
         }
 
         // Log the decision
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION, LOCALE_COMPONENT_APP_SUBMISSION);
         SubmissionLog::logEvent(
             $this->request,
             $submission,

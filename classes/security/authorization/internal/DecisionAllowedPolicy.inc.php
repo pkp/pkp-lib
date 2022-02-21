@@ -17,7 +17,6 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
@@ -34,10 +33,6 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
      */
     public function __construct(?User $user)
     {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_EDITOR
-        );
         parent::__construct('editor.submission.workflowDecision.disallowedDecision');
         $this->user = $user;
     }

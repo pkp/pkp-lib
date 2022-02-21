@@ -1290,7 +1290,6 @@ class PKPSubmissionHandler extends APIHandler
      */
     public function addDecision($slimRequest, $response, $args)
     {
-        AppLocale::requireComponents([LOCALE_COMPONENT_APP_EDITOR, LOCALE_COMPONENT_PKP_EDITOR]);
         $request = $this->getRequest(); /** @var Request $request */
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE); /** @var DecisionType $decisionType */

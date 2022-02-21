@@ -16,7 +16,6 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-use APP\i18n\AppLocale;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class DecisionStageValidPolicy extends AuthorizationPolicy
@@ -28,10 +27,6 @@ class DecisionStageValidPolicy extends AuthorizationPolicy
      */
     public function __construct()
     {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_EDITOR
-        );
         parent::__construct('editor.submission.workflowDecision.invalidStage');
     }
 

@@ -17,7 +17,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use APP\i18n\AppLocale;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\context\Context;
@@ -81,12 +80,6 @@ class DecisionHandler extends Handler
         $this->setupTemplate($request);
         $dispatcher = $request->getDispatcher();
         $context = $request->getContext();
-        AppLocale::requireComponents([
-            LOCALE_COMPONENT_PKP_SUBMISSION,
-            LOCALE_COMPONENT_APP_SUBMISSION,
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_EDITOR,
-        ]);
 
         $this->decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE);
         $this->submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);

@@ -16,7 +16,6 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use PKP\security\authorization\AuthorizationPolicy;
 
 use PKP\security\authorization\DataObjectRequiredPolicy;
@@ -34,10 +33,6 @@ class DecisionTypeRequiredPolicy extends DataObjectRequiredPolicy
      */
     public function __construct($request, &$args, int $decision)
     {
-        AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_EDITOR,
-            LOCALE_COMPONENT_APP_EDITOR
-        );
         parent::__construct($request, $args, '', 'editor.submission.workflowDecision.typeInvalid');
         $this->decision = $decision;
     }

@@ -16,6 +16,7 @@
 namespace PKP\core;
 
 use APP\core\AppServiceProvider;
+use APP\Providers\SchedulerServiceProvider as AppSchedulerServiceProvider;
 use Exception;
 
 use Illuminate\Cache\CacheManager as LaravelCacheManager;
@@ -153,6 +154,7 @@ class PKPContainer extends Container
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
+        $this->register(new AppSchedulerServiceProvider($this));
     }
 
     /**

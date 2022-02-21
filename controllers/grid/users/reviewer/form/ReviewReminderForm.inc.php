@@ -22,7 +22,7 @@ use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\i18n\PKPLocale;
+use PKP\facades\Locale;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -126,7 +126,6 @@ class ReviewReminderForm extends Form
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = Repo::user()->get($reviewerId);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-        $dispatcher = $request->getDispatcher();
         $user = $request->getUser();
         $context = $request->getContext();
 
@@ -135,7 +134,7 @@ class ReviewReminderForm extends Form
         $mailable->sender($user)->recipients([$reviewer]);
         $template = $mailable->getTemplate($context->getId());
         $mailable->subject($template->getLocalizedData('subject'))->body($this->getData('message'));
-        $mailable->setData(PKPLocale::getLocale());
+        $mailable->setData(Locale::getLocale());
 
         // Finally, send email and handle Symfony transport exceptions
         try {

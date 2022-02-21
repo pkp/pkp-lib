@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-20 09:24+0000\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -69,3 +69,1263 @@ msgstr "Խմբագրել"
 
 msgid "manager.announcements.edit"
 msgstr "Խմբագրել հայտարարությունը"
+
+msgid "plugins.categories.reports"
+msgstr "Հաշվետվությունների պլագիններ"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Հաշվետվությունների պլագիններն օգտագործվում են տարբեր տեսակի "
+"հաշվետվությունների և տվյալների քաղվածքների իրականացման համար:"
+
+msgid "plugins.categories.paymethod"
+msgstr "Վճարման պլագիններ"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Վճարման մեթոդի պլագիններն ապահովում են  աջակցություն առցանց վճարումների "
+"իրականացման տարբեր եղանակներին:"
+
+msgid "plugins.categories.importexport"
+msgstr "Ներմուծման/արտահանման պլագիններ"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Ներմուծման/արտահանման պլագինները կարող են օգտագործվել բովանդակությունը այլ "
+"համակարգեր և այլ համակարգերից տեղափոխելու համար:"
+
+msgid "plugins.categories.generic"
+msgstr "Ընդհանուր պլագիններ"
+
+msgid "plugins.categories.gateways"
+msgstr "Gateway պլագիններ"
+
+msgid "plugins.categories.gateways.description"
+msgstr "Gateway Plugins-ը կենդանի տվյալներ է տրամադրում արտաքին համակարգերին:"
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Բլոկի պլագինները դրանք միացվող UI բաղադրիչներ են, ինչպիսիք են տարբեր կողային "
+"գործիքները:"
+
+msgid "plugins.categories.blocks"
+msgstr "Բլոկի պլագիններ"
+
+msgid "plugins.categories.auth"
+msgstr "Լիազորության պլագիններ"
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+"Մետատվյալների պլագինը իրականացնում է լրացուցիչ մետատվյալների ստանդարտներ:"
+
+msgid "plugins.categories.metadata"
+msgstr "Մետատվյալների պլագիններ"
+
+msgid "manager.users"
+msgstr "Օգտվողներ"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Գրանցված օգտվողներ"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} նոր)"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Կայքի մուտքի ընտրանքներ"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Վստա՞հ եք, որ ցանկանում եք ակտիվացնել այս բաժինը:"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Վստա՞հ եք, որ ցանկանում եք անջատել այս բաժինը:"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Ապաակտիվացրեք այս բաժինը և թույլ մի տվեք, որ դրանում նոր ներկայացումներ "
+"արվեն:"
+
+msgid "manager.setup.theme.notFound"
+msgstr "Ձեր ընտրած թեման տեղադրված կամ միացված չէ:"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Նոր թեմաները կարող են տեղադրվել այս էջի վերևում գտնվող «Plugins» ներդիրից:"
+
+msgid "manager.setup.theme"
+msgstr "Թեմա"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Կոնտակտային անձ, ով կարող է օգնել խմբագիրներին, հեղինակներին և գրախոսներին "
+"նյութի ներկայացման, խմբագրման, գրախոսման կամ հրապարակման հետ կապված ցանկացած "
+"խնդիրների առնչությամբ:"
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Տեխնիկական աջակցության կապ"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Փորձառու վեբ մշակողները կարող են վերբեռնել CSS նիշք՝ վեբ կայքի արտաքին տեսքն "
+"ավելի հարմարեցնելու համար:"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Օրինակներ՝ գիտական ասոցիացիաներ, համալսարանական բաժիններ, կոոպերատիվներ և "
+"այլն: Հովանավորները ցուցադրվում են հրապարակայնորեն:"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Հովանավորի հարաբերություններ և քաղաքականության նկարագրությունը"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Ուղղեք հղումը դեպի <button type=\"button\">ինչպես երաշխավորել, որ բոլոր "
+"նիշքերը անանունացված լինեն</button> վերբեռնման ժամանակ"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Գրախոսման կանխադրված ռեժիմ"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Ուղարկեք էլ․ փոստով հիշեցում, եթե գրախոսը առաջարկություն չի ներկայացրել "
+"վերանայման ժամկետից հետո մի քանի օրվա ընթացքում:"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Գրախոսման հիշեցում"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Ուղարկեք էլ․ փոստի հիշեցում, եթե գրախոսը չի պատասխանել գրախոսման հարցումին "
+"պատասխանի վերջնաժամկետից որոշակի օրեր անց:"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Պատասխանի հիշեցում"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Լռելյայնները կարող են փոփոխվել յուրաքանչյուր գրախոսման համար խմբագրման "
+"գործընթացի ընթացքում:"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Երբեք մի հիշեցրեք"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Հատկացված շաբաթները, որոնք տրված են գրախոսության իրականացմանը"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Շաբաթների քանակը՝ գրախոսելու հարցումն ընդունելու կամ մերժելու համար:"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Կանխադրված ավարտի վերջնաժամկետ"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Կանխադրված պատասխանի վերջնաժամկետ"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Այս հայտարարությունը կհայտնվի օգտվողի գրանցման, հեղինակի ներկայացման և "
+"հանրային հասանելի Գաղտնիության էջում: Որոշ իրավասություններում ձեզնից "
+"օրենքով պահանջվում է բացահայտել, թե ինչպես եք վարում օգտատերերի տվյալները "
+"այս գաղտնիության քաղաքականության մեջ:"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Անհատականացված"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Ամսաթիվ և ժամ (կարճ)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Ամսաթիվ և ժամ"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Ժամ"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Ամսաթիվ (կարճ)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Ամսաթիվ"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Ընտրեք նախընտրելի ձևաչափը ամսաթվերի և ժամերի համար: Հատուկ ձևաչափ կարելի է "
+"մուտքագրել՝ օգտագործելով \n"
+"<a href='http://php.net/manual/en/function.strftime.php#refsect1-function"
+".strftime-parameters'>ձևաչափի նիշեր</a>:"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Ամսաթվի և ժամի ձևաչափեր"
+
+msgid "manager.setup.dateTime"
+msgstr "Ամսաթիվ և ժամ"
+
+msgid "manager.setup.privacyStatement"
+msgstr "Գաղտնիության քաղաքականությունը"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Մուտքագրեք կոնտակտային տվյալները, սովորաբար գլխավոր խմբագիրն է, կամ "
+"պատասխանատու խմբագիրը, ովքեր կարող են ցուցադրվել հանրությանը հասանելի ձեր "
+"կայքում:"
+
+msgid "manager.setup.principalContact"
+msgstr "Գլխավոր կոնտակտ"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Ուրվագծեք գործընկերներով գրախոսման քաղաքականությունը և գործընթացները "
+"ընթերցողների և հեղինակների համար: Այս նկարագրությունը հաճախ ներառում է "
+"գրախոսների թիվը, որոնք սովորաբար օգտագործվում են ներկայացումը գրախոսելիս, "
+"չափանիշները, որոնցով գրախոսներից պահանջվում է գնահատել ներկայացումները, "
+"ակնկալվող ժամանակը, որը պահանջվում է գրախոսություններ անցկացնելու համար, և "
+"այն սկզբունքները, որոնք օգտագործվում են գրախոսներ ընտրելու համար:"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Մուտքագրեք ցանկացած պատկեր, տեքստ կամ HTML կոդ, որը ցանկանում եք որ հայտնվի "
+"ձեր կայքի ներքևում:"
+
+msgid "manager.setup.pageFooter"
+msgstr "Էջի տողատակ"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Էջի վերնախորագրի լոգոյի պատկերի անվավեր ձևաչափ կամ վերբեռնումը ձախողվեց: "
+"Ընդունված ձևաչափերն են .gif, .jpg կամ .png:"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Եթե տրամադրում եք անհապաղ անվճար մուտք դեպի հրապարակված ողջ բովանդակությանը, "
+"կարող եք մուտքագրել ձեր Բաց հասանելիության քաղաքականության նկարագրությունը:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Բաց հասանելիության քաղաքականություն"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Ուղարկեք ևս մեկ էլ․ նամակ"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Էլ․ նամակը հաջողությամբ ուղարկվել է բոլոր հասցեատերերին:"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Ուղարկվում է էլ. նամակ։ Խնդրում ենք մի տեղափոխվեք այլ էջ, քանի դեռ առաքումը "
+"չի ավարտվել:"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Դուք պատրաստվում եք նամակ ուղարկել {$total} օգտվողներին: Վստա՞հ եք, որ "
+"ցանկանում եք ուղարկել այս նամակը:"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Ուղարկեք էլ․ նամակ"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Ուղարկեք այս նամակի պատճենն ինձ {$email} հասցեով:"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Ընտրեք այն օգտվողներին, ովքեր պետք է ստանան էլ․ փոստի ձեր ծանուցումը:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Ծանուցել"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Հեղինակներին ինքնաշխատ կերպով ուղարկվում է նամակ՝ հաստատող իրենց "
+"ներկայացումը: Դուք կարող եք ունենալ էլ․ փոստի այս պատճեններն ուղարկված "
+"հետևյալ հասցեով."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "էլ․ փոստի այս հասցեներից մեկը կամ մի քանիսը վավեր չեն:"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Ներկայացման հաստատման նամակի պատճենը կուղարկվի այստեղ մուտքագրված էլ. փոստի "
+"ցանկացած հասցեին: Էլ․ փոստի բազմաթիվ հասցեները բաժանեք ստորակետով: Օրինակ՝ "
+"one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Տեղեկացնել ցանկացածին"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Ոչ"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Այո, պատճենն ուղարկեք {$email} հասցեին"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Տեղեկացնել առաջնային կապին"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Ծանուցումներ"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Ուղարկեք պատճենը էլ․ փոստի այս հասցեին"
+
+msgid "manager.setup.notifications"
+msgstr "Հեղինակի ներկայացման մասին ծանուցում"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Ձեր բեռնած նիշքը չի գտնվել: Խնդրում ենք կրկին վերբեռնել այն:"
+
+msgid "manager.setup.logo"
+msgstr "Լոգոն"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Մուտքագրում և աուդիտ"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"{$name} բլոկը հնարավոր չէ գտնել: Համոզվեք, որ plugin-ը տեղադրված և միացված է:"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Կողային գոտի"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Նկարագրություններ"
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Գլխավոր էջի վերնագրի անվավեր պատկերի ձևաչափ կամ վերբեռնումը ձախողվեց: "
+"Ընդունված ձևաչափերն են .gif, .jpg կամ .png:"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Հիմնական էջի պատկերի անվավեր ձևաչափ կամ վերբեռնումը ձախողվեց: Ընդունված "
+"ձևաչափերն են .gif, .jpg կամ .png:"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Վերբեռնեք պատկերը՝ գլխավոր էջում աչքի ընկնելու համար:"
+
+msgid "manager.setup.homepageImage"
+msgstr "Գլխավոր էջի պատկեր"
+
+msgid "manager.setup.favicon"
+msgstr "Պատկերիկ"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Այս տարրը ջնջելիս սխալ տեղի ունեցավ:"
+
+msgid "manager.setup.competingInterests"
+msgstr "Մրցակցող շահեր"
+
+msgid "manager.setup.checklist"
+msgstr "Ստուգաթերթիկ"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Անջատել ներկայացումները"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Առաջարկվող ուղեցույցները ներառում են մատենագիտական և ձևաչափման ստանդարտներ, "
+"ինչպես նաև մեջբերումների ընդհանուր ձևաչափերի օրինակներ, որոնք պետք է "
+"օգտագործվեն ներկայացումներում:"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Հեղինակի համար ուղեցույցներ"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Հեղինակներից պահանջեք համաձայնել հեղինակային իրավունքի  հետևյալ ծանուցմանը` "
+"որպես ներկայացման գործընթացի մաս:"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Հեղինակային իրավունքի ծանուցում"
+
+msgid "manager.setup.advanced"
+msgstr "Ընդլայնված"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Այստեղ մուտքագրված ցանկացած բան կհայտնվի ձեր գլխավոր էջում:"
+
+msgid "manager.setup.additionalContent"
+msgstr "Լրացուցիչ բովանդակություն"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Այս մանրամասները կարող են ներառվել երրորդ կողմի արխիվային մարմիններին "
+"տրամադրվող մետատվյալներում:"
+
+msgid "manager.setup.publishing"
+msgstr "Հրապարակման մանրամասներ"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Ոչ մեկը"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI-ները կարող են ինքնաշխատ կերպով ձևավորվել և ավանդադրվել գրանցման "
+"գործակալությունում: Այս հնարավորությունն օգտագործելու համար տեղորոշեք և "
+"տեղադրեք հավելված համապատասխան գրանցման գործակալությունից:"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Գրանցման գործակալություն միացված չէ"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Խնդրում ենք ընտրել գրանցման գործակալությունը, որը կցանկանայիք օգտագործել DOI-"
+"ներ ավանդադրելիս:"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Գրանցման գործակալություն"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"Նախկինում հասանելի անհատականացված, օգտագործողի կողմից սահմանված "
+"օրինաչափություն: Այլևս չի օգտագործվում:"
+
+msgid "doi.manager.settings.doiSuffixCustomIdentifier"
+msgstr ""
+"Մուտքագրեք անհատական DOI վերջածանց յուրաքանչյուր հրապարակված նյութի համար: "
+"Դուք կգտնեք DOI մուտքագրման դաշտերը DOI կառավարման էջում:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Օգտագործեք լռելյայն կաղապարը:"
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"DOI վերջածանցը կարող է ունենալ ցանկացած ձև, բայց պետք է լինի եզակի բոլոր "
+"հրատարակչական օբյեկտների մեջ, որոնց հատկացված է նույն DOI նախածանցը։"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI վերջածանց"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} -ին նշանակվելու է DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "DOI-ներով տարրեր"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI նախածանց"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Երբեք"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Հրապարակման ժամանակ"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Հրապարակման գործընթացի ո՞ր կետում պետք է ստեղծվեն DOI-ները:"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Ինքնաշխատ DOI ստեղծում"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI նախածանցը պարտադիր է և պետք է լինի 10.xxxx ձևով:"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Սա նշանակված է DOI գրանցման գործակալության կողմից, ինչպիսիք են <a href=\""
+"https://www.crossref.org\" target=\"_new\">Crossref</a> կամ <a href=\""
+"https://datacite.org/\" target=\"new\">DataCite</a>: Օրինակ՝ 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Արդյոք DOI-ները պետք է ինքնաշխատ կերպով պահվեն կազմաձևված գրանցման "
+"գործակալությունում:"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Միացրեք ինքնաշխատ ավանդադրումը"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Ինքնաշխատ ավանդադրում"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI նախածանց"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Միացնել DOI-ները"
+
+msgid "manager.setup.dois.registration"
+msgstr "Գրանցում"
+
+msgid "manager.setup.dois.setup"
+msgstr "Կարգաբերում"
+
+msgid "manager.setup.dois"
+msgstr "DOI -ներ"
+
+msgid "manager.affiliationAndSupport"
+msgstr "Հովանավոր"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Նեղացրեք արդյունքներ ըստ երկրի, տարածաշրջանի և/կամ քաղաքի:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Ըստ աշխարհագրական դիրքի"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Կամ ընտրեք միջակայքը ըստ՝"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Ընտրեք հաշվետվության միջակայքը"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Ըստ օբյեկտի տեսակի և/կամ օբյեկտի ID-ի"
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Ըստ համատեքստի"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr ""
+"Հետևյալ url-ը կարող է օգտագործվել ընթացիկ ձևի կարգավորումներով "
+"հաշվետվություն ստեղծելու համար: Պարզապես պատճենեք այն և բացեք այն ձեր "
+"դիտակում: Դուք կարող եք նաև պահել այն որպես ձեր հատուկ հաշվետվության url "
+"գեներատոր ձեր էջանիշերում:"
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "Հաշվետվության URL"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Հաշվետվությունը ստեղծելու համար դուք պետք է ընտրեք առնվազն մեկ սյունակ:"
+
+msgid "manager.statistics.reports.cities.label"
+msgstr ""
+"Մեկ կամ մի քանի քաղաքների անուններ՝ բաժանված ստորակետերով (օրինակ՝ քաղաքի "
+"անվանումը 1, քաղաքի անվանումը 2)"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Օգտագործեք ՏՏՏՏԱԱՕՕ ձևաչափը։"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Օգտագործեք ՏՏՏՏԱԱ ձևաչափը։"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Ըստ նվազման"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Ըստ աճման"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "Ուղղություն"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "Տեսակավորել ըստ"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Ընթացիկ ամիս"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "Երեկ"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr ""
+"Սահմանեք մեկ կամ մի քանի օբյեկտի ID՝ ստորակետերով բաժանված (օրինակ՝ "
+"1,2,3,4,5):"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "Օբյեկտի id"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "Օբյեկտի տեսակը"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Օբյեկտը չի գտնվել տվյալների շտեմարանում"
+
+msgid "manager.statistics.reports.filters"
+msgstr "Զտիչներ"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr ""
+"Սահմանեք սյունակները, որոնք կօգտագործվեն հաշվետվությունը պատրաստելու համար: "
+"Այստեղ ձեր ընտրած սյունակները ոչ միայն սահմանում են, թե որ տվյալները "
+"կներկայացվեն հաշվետվություններում, այլ նաև սահմանում են վիճակագրության "
+"համախմբման մակարդակը: Օրինակ, եթե ընտրեք ID, Տեսակ և Ամիս սյունակները, "
+"հաշվետվությունը կամփոփի առարկայի մեկ ամսվա բոլոր դիտումները և կներկայացնի "
+"այդ տվյալները մեկ տողում: Եթե Ամսվա փոխարեն ընտրեք Օր, ապա յուրաքանչյուր "
+"առարկա կունենա տող յուրաքանչյուր օրվա համար:"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Սյունակներ"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Թաքցրեք հավելյալ հնարավորությունները"
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Հավելյալ հնարավորություններ"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Անհատականացված հաշվետվության գեներատոր"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "Ստեղծեք անհատականացված հաշվետվություն"
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Հաշվետվության կանխադրված ձևանմուշներ"
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr ""
+"Նյութերը որոնք շեղագիր են և նշված են * -ով ներկայացնում են տվյալներ, որոնք "
+"կամընտրական են համակարգում վիճակագրության հաշվառման ընթացիկ եղանակին ("
+"մետրրիկային տեսակը): Դուք կարող եք ունենալ այդ տվյալները, թե ոչ՝ կախված է "
+"ձեր վիճակագրության հավելվածի կազմաձևից:"
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Համախառն վիճակագրություն ըստ՝"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Համակարգը ստեղծում է հաշվետվություններ, որոնք հետևում են կայքի օգտագործման և "
+"ներկայացումների հետ կապված մանրամասներին տվյալ ժամանակահատվածում: "
+"Հաշվետվությունները ստեղծվում են CSV ձևաչափով, որը դիտելու համար պահանջվում է "
+"աղյուսակային հավելված:"
+
+msgid "manager.statistics.reports"
+msgstr "Հաշվետվություններ"
+
+msgid "manager.statistics.region"
+msgstr "Տարածաշրջան"
+
+msgid "manager.statistics.city"
+msgstr "Քաղաք"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tՁեր {$contextObjectName} -ը կազմաձևված է մեկից ավելի օգտագործման "
+"չափումներ գրանցելու համար: Օգտագործման վիճակագրությունը կցուցադրվի մի քանի "
+"համատեքստում:\n"
+"\t\tԿան դեպքեր, երբ պետք է օգտագործվի մեկ օգտագործման վիճակագրություն, "
+"օրինակ. ցուցադրելու ամենաշատ օգտագործվող հայտերի պատվիրված ցանկը կամ "
+"դասակարգելու համար\n"
+"\t\tորոնման արդյունքները. Խնդրում ենք որպես կանխադրված ընտրել կազմաձևված "
+"չափորոշիչներից մեկը:\n"
+"\t"
+
+msgid "manager.statistics"
+msgstr "Վիճակագրություն &amp; հաշվետվություններ"
+
+msgid "manager.roles"
+msgstr "Դերեր"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Օգտագործեք ստորև բերված ձևը՝ սահմանելու առավելագույն արժեքներ այն տերմինների "
+"համար, որոնք ցանկանում եք որոնել: Ձևը նախապես համալրված է այդ դաշտերի "
+"հաշվարկված միջիններով:"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Հետաքրքրությունների վերանայում"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Որոնեք անուններով"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Որոնեք գրախոսներին անուններով"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Փոխել"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Դուք չեք կարող ջնջել այս ներկայացուցչին, քանի որ դրանք նշանակված են "
+"մետատվյալների առաջընթացի համար այս ներկայացման մեկ կամ մի քանի ձևաչափերով "
+"հրապարակման  համար:"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Որոնել օգտվողին անունով"
+
+msgid "manager.readingTools"
+msgstr "Ընթերցանության գործիքներ"
+
+msgid "manager.plugins"
+msgstr "Համակարգի պլագիններ"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"Սա ամբողջ կայքի հավելում է: Միայն Կայքի ադմինիստրատորը կարող է կառավարել այս "
+"հավելվածը:"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Պլագինի կառավարում"
+
+msgid "manager.plugins.enable"
+msgstr "Միացնել"
+
+msgid "manager.plugins.disable"
+msgstr "Անջատել"
+
+msgid "manager.plugins.action"
+msgstr "Գործողություն:"
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Օգտվողից պահանջեք փոխել իր գաղտնաբառը հաջորդ անգամ մուտք գործելիս:"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Օգտվողը հաջողությամբ ստեղծվեց:"
+
+msgid "manager.people.unenroll"
+msgstr "Չներառվել"
+
+msgid "manager.people.syncUsers"
+msgstr "Համաժամացնել օգտվողի գրանցումը"
+
+msgid "manager.people.signInAsUser"
+msgstr "Մուտք գործեք որպես օգտվող"
+
+msgid "manager.people.signInAs"
+msgstr "Մուտք գործեք որպես"
+
+msgid "manager.people.signedInAs"
+msgstr "Դուք ներկայումս մուտք եք գործել որպես {$username}"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Պահպանեք և ստեղծեք մեկ ուրիշը"
+
+msgid "manager.people.remove"
+msgstr "Հեռացնել"
+
+msgid "manager.people"
+msgstr "Մարդիկ"
+
+msgid "manager.people.noneEnrolled"
+msgstr "Ներգրավված օգտվողներ չկան:"
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Համընկնող օգտվողներ չկան:"
+
+msgid "manager.people.mustProvideName"
+msgstr "Խնդրում ենք նախ տրամադրել օգտատիրոջ առնվազն ազգանունը:"
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"Խնդրում ենք ընտրել դերը էջի վերևում, նախքան «ներգրավել օգտվողին» սեղմելը:"
+
+msgid "manager.people.mergeUsers"
+msgstr "Ձուլեք օգտվողներին"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"Համոզվա՞ծ եք, որ ցանկանում եք միավորել ընտրված {$oldAccountCount} հաշիվը \""
+"{$newUsername}\" օգտանունով հաշվին: Ընտրված {$oldAccountCount} հաշիվները "
+"հետագայում չեն լինի: Այս գործողությունը շրջելի չէ:"
+
+msgid "manager.people.mergeUser"
+msgstr "Ձուլեք օգտվողին"
+
+msgid "manager.people.invalidUser"
+msgstr "Ներեցեք, հարցվող օգտվողը գոյություն չունի:"
+
+msgid "manager.people.enrollUserAs"
+msgstr "Ներգրավեք օգտվողին որպես"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Օգտագործողներին ցանկացած պահի կարող է նշանակվել կամ հեռացնել որևէ դեր:"
+
+msgid "manager.people.enrollSync"
+msgstr "Համաժամացնել գրանցումը"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Համաժամացնել դերը"
+
+msgid "manager.people.enrollSelected"
+msgstr "Ներգրավեք ընտրված օգտվողներին"
+
+msgid "manager.people.enrollment"
+msgstr "Ներգրավվածություն"
+
+msgid "manager.people.enroll"
+msgstr "Ներգրավեք օգտվող"
+
+msgid "manager.people.enable"
+msgstr "Միացնել"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Ընտրեք այն օգտատերերին, որոնց ցանկանում եք էլ․ նամակ ուղարկել նշելով նրանց "
+"անվան կողքին գտնվող վանդակները"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Ընտրեք տեղայինը"
+
+msgid "manager.people.emailUsers"
+msgstr "Էլ․ նամակներ ուղարկել օգտվողներին"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Էլ․ փոստի օգտվողները ներգրավված են որպես"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Էլ․ նամակ ուղարկեք ընտրված օգտվողներին"
+
+msgid "manager.people.editUser"
+msgstr "Խմբագրել օգտվողին"
+
+msgid "manager.people.editProfile"
+msgstr "Խմբագրել պրոֆիլը"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Առանց դերի"
+
+msgid "manager.people.disable"
+msgstr "Անջատել"
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"Օգտագործողին ուղարկեք ողջույնի նամակ, որը պարունակում է իր օգտվողի անունը և "
+"գաղտնաբառը:"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Ստեղծեք պատահական գաղտնաբառ:"
+
+msgid "manager.people.createUser"
+msgstr "Ստեղծեք նոր օգտվող"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Չեղարկե՞լ այս օգտատիրոջ գրանցումը:"
+
+msgid "manager.people.authSource"
+msgstr "Նույնականացման աղբյուր"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Պետք է մուտքագրվի գոյություն ունեցող օգտվող:"
+
+msgid "manager.payment.timestamp"
+msgstr "Օր/ժամ"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Ընտրեք բոլոր տեղայինները, կայքում աջակցելու համար լեզվի ընտրացանկի միջոցով, "
+"որը կհայտնվի յուրաքանչյուր էջում: Ցանկը կհայտնվի միայն այն դեպքում, եթե "
+"ընտրված են մեկից ավելի տեղայիններ:"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Այս համակարգը ընտրովի թույլ է տալիս որոշակի կարևոր տեղեկատվություն "
+"մուտքագրել մի քանի լրացուցիչ լեզուներով: Այս հատկությունն օգտագործելու համար "
+"ընտրեք այլընտրանքային տեղայինները և ընտրեք ստորև թվարկված տարբերակներից:"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Վերբեռնել կանխադրվածները"
+
+msgid "manager.language.forms"
+msgstr "Ձևեր"
+
+msgid "manager.language.submissions"
+msgstr "Ներկայացումներ"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.importExport"
+msgstr "Ներմուծել/արտահանել տվյալներ"
+
+msgid "manager.groups.title"
+msgstr "Վերնագիր"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Օգտվողներ չեն գտնվել։"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Այս խումբը չունի անդամներ։"
+
+msgid "manager.groups.membership"
+msgstr "Անդամակցություն"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Իսկապե՞ս ցանկանում եք ջնջել անդամակցությունը այս խմբին:"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Ավելացրու անդամ"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Պահանջվում է խմբի վերնագիր:"
+
+msgid "manager.groups.editTitle"
+msgstr "Խմբագրել վերնագիրը"
+
+msgid "manager.groups.createTitle"
+msgstr "Ստեղծել վերնագիր"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Իսկապե՞ս ցանկանում եք ջնջել այս խումբը:"
+
+msgid "manager.files.uploadFile"
+msgstr "Վերբեռնել նիշք"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Վերբեռնված նիշքեր"
+
+msgid "manager.files.parentDir"
+msgstr "Ծնող գրացուցակ"
+
+msgid "manager.files.indexOfDir"
+msgstr "{$dir} -ի ցուցիչ"
+
+msgid "manager.files.emptyDir"
+msgstr "Այս գրացուցակում նիշքեր չեն գտնվել:"
+
+msgid "manager.files.createDir"
+msgstr "Ստեղծեք գրացուցակ"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Ջնջե՞լ այս նիշքը կամ գրացուցակը: Նկատի ունեցեք, որ գրացուցակը պետք է դատարկ "
+"լինի, նախքան այն ջնջելը:"
+
+msgid "manager.filesBrowser"
+msgstr "Նիշքերի զննարկիչ"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Ընտրեք օգտվողներին, որոնք պետք է արտահանվեն Excel/CSV նիշք:"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Արտահանել Excel/CSV"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Թեմա՝ {$subject}"
+
+msgid "manager.emails.sentTo"
+msgstr "Ուղարկվել է"
+
+msgid "manager.emails.sentFrom"
+msgstr "Ուղարկված է"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Վերականգնել լռելյայնին"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Եթե զրոյացնեք այս ձևանմուշը, հաղորդագրության բոլոր տվյալները կվերակայվեն "
+"նախնական արժեքին՝ կորցնելով բոլոր փոփոխությունները: Ցանկանու՞մ եք հաստատել "
+"այս գործողությունը:"
+
+msgid "manager.emails.resetComplete"
+msgstr "Էլ․ փոստի ձևանմուշը հաջողությամբ զրոյացվել է:"
+
+msgid "manager.emails.reset"
+msgstr "Վերակայել"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Էլ․ փոստի կանխադրված ձևանմուշները վերականգնվել են:"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Եթե վերակայեք բոլոր ձևանմուշները, էլ․ փոստի ձևանմուշների բոլոր "
+"փոփոխությունները կկորչեն: Ցանկանու՞մ եք հաստատել այս գործողությունը:"
+
+msgid "manager.emails.resetAll"
+msgstr "Վերականգնել բոլորը"
+
+msgid "manager.emails"
+msgstr "Պատրաստված նամակներ"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Նամակի համար անհրաժեշտ է թեմա:"
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Էլ․ փոստի համար անհրաժեշտ է մարմին:"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"Նամակի համար պահանջվում է բացատ կամ հատուկ նիշ չպարունակող էլ․ փոստի եզակի "
+"բանալի:"
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Դուք պատրաստվում եք միացնել այս էլ․ հասցեն։ Ցանկանու՞մ եք հաստատել այս "
+"գործողությունը:"
+
+msgid "manager.emails.enable"
+msgstr "Միացնել"
+
+msgid "manager.emails.enabled"
+msgstr "Միացնել էլ․ փոստի այս ձևանմուշը"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Ձեր տրամադրած բանալին արդեն օգտագործվում է:"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Էլ․ փոստի ձևանմուշ ավելացնելիս պետք է տրամադրեք համատեքստի ID:"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Այլ ձևանմուշներ"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Էլ․ փոստի ձևանմուշներ"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Էլ․ փոստի ձևանմուշ"
+
+msgid "manager.emails.emailKeyExists"
+msgstr ""
+"Տվյալ բանալիով էլ․ փոստ արդեն գոյություն ունի: Էլ․ փոստի բանալիները պետք է "
+"եզակի լինեն:"
+
+msgid "manager.emails.emailKey.description"
+msgstr "Էլ․ փոստի բանալին կարող է պարունակել միայն տառեր, թվեր և ընդգծումներ:"
+
+msgid "manager.emails.emailKey"
+msgstr "Էլ․ փոստի բանալի"
+
+msgid "manager.emails.editTestExample"
+msgstr "Խմբագրել էլ․ փոստի փորձնական օրինակը"
+
+msgid "manager.emails.editEmail"
+msgstr "Խմբագրել էլ․ նամակը"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Դուք պատրաստվում եք անջատել էլ․ փոստի այս ձևանմուշը: Եթե այս կաղապարի "
+"օգտագործմամբ համակարգային գործընթացներ են եղել, նրանք այլևս չեն օգտագործի "
+"այն։ Ցանկանու՞մ եք հաստատել այս գործողությունը:"
+
+msgid "manager.emails.disable"
+msgstr "Անջատել"
+
+msgid "manager.emails.details"
+msgstr "Ձևանմուշի մանրամասներ"
+
+msgid "manager.emails.data"
+msgstr "Ձևանմուշի հաղորդագրության տվյալներ"
+
+msgid "manager.emails.customTemplate"
+msgstr "Անհատական ձևանմուշ"
+
+msgid "manager.emails.createEmail"
+msgstr "Ստեղծել էլ․ նամակ"
+
+msgid "manager.emails.addEmail"
+msgstr "Ավելացնել ձևանմուշ"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"Իսկապե՞ս ուզում եք վերականգնել էլփոստի այս ձևանմուշը իր կանխադրված "
+"արժեքներին:"
+
+msgid "manager.emails.confirmDelete"
+msgstr "Իսկապե՞ս ուզում եք ջնջել էլփոստի այս ձևանմուշը:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Հետևյալ հաղորդագրությունն է վերադարձվել {$registrationAgency} -ի կողմից և "
+"պարունակում է մանրամասներ գրանցման մասին."
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Հետևյալ սխալն է վերադարձվել {$registrationAgency} -ի կողմից և պարունակում է "
+"մանրամասներ սխալի պատճառի մասին։"
+
+msgid "manager.dois.title"
+msgstr "DOI-ներ"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Գրախոսման հիշեցման մանրամասները թարմացվել են:"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Գրախոսի ուղեցույց"
+
+msgid "manager.publication.emails"
+msgstr "Էլ․ նամակներ"
+
+msgid "manager.publication.productionStage"
+msgstr "Արտադրություն"
+
+msgid "manager.publication.editorialStage"
+msgstr "Խմբագրական"
+
+msgid "manager.publication.reviewStage"
+msgstr "Գրախոսություն"
+
+msgid "manager.publication.submissionStage"
+msgstr "Ներկայացում"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Նյութերը հաջողությամբ ներկայացվել են ավանդադրման համար"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Նյութերին հաջողությամբ նշանակվեցին նոր DOI-եր"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Նյութերը հաջողությամբ նշվել են որպես գրանցված"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Նյութերը հաջողությամբ արտահանվեցին"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Որոշ DOI-ներ չհաջողվեց թարմացնել:"
+
+msgid "manager.dois.status.stale"
+msgstr "Հնացած"
+
+msgid "manager.dois.status.error"
+msgstr "Սխալ"
+
+msgid "manager.dois.status.registered"
+msgstr "Գրանցված է"
+
+msgid "manager.dois.status.submitted"
+msgstr "Ներկայացված է"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Չգրանցված"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Ավանդադրեք DOI"
+
+msgid "manger.dois.update.success"
+msgstr "DOI-ն հաջողությամբ թարմացվել է"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Հաջող գրանցման հաղորդագրություն"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Դիտել գրառումը"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Գրանցման սխալի հաղորդագրություն"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Դիտել սխալը"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Այս նյութը չի կարող ի պահ հանձնվել, քանի դեռ այն չի հրապարակվել:"
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Այս տարրի մետատվյալները չեն ներկայացվել {$registrationAgency} -ին:"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Այս տարրի մետատվյալներն ուղարկվել են {$registrationAgency}:"
+
+msgid "manager.dois.publicationStatus"
+msgstr "Հրապարակման կարգավիճակ"
+
+msgid "manager.dois.depositStatus"
+msgstr "Ավանդադրման վիճակ"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Դուք պատրաստվում եք պլանավորել բոլոր չմարված DOI մետատվյալների գրառումները, "
+"որոնք պահվում են {$registrationAgency} -ում: Յուրաքանչյուր տարրի անհատական "
+"կարգավիճակը կթարմացվի, երբ պատասխան ստացվի: Համոզվա՞ծ եք, որ ցանկանում եք "
+"ավանդներ պլանավորել այս բոլոր տարրերի համար:"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Ավանդադրեք բոլոր DOI-ները"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Դուք պատրաստվում եք նոր DOI-ներ հատկացնել {$count} տարր(եր)ին ցանկացած "
+"իրավասու նյութի համար, որն արդեն նշանակված DOI չունի: Իսկապե՞ս ուզում եք DOI-"
+"ներ հատկացնել այս տարրերին:"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Նշանակել DOI-ներ"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Դուք պատրաստվում եք արտահանել DOI մետատվյալների գրառումները {$count} տարր(եր)"
+"ի համար {$registrationAgency} -ի համար: Իսկապե՞ս ուզում եք արտահանել այս "
+"գրառումները:"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Արտահանել DOI-ներ"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Դուք պատրաստվում եք նշել DOI մետատվյալների գրառումները {$count} տարր(եր)ի "
+"համար որպես գրանցված: Վստա՞հ եք, որ ցանկանում եք նշել այս գրառումները որպես "
+"գրանցված:"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Նշեք DOI-երը գրանցված"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Դուք պատրաստվում եք ուղարկել DOI մետատվյալների գրառումները {$count} տարր(եր)"
+"ի համար {$registrationAgency} -ին: Վստա՞հ եք, որ ցանկանում եք ի պահ դնել այս "
+"գրառումները:"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Ավանդադրեք DOI-ները"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Ավանդադրեք բոլորը"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Հայտարարության տեսակ"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Հայտարարության տեսակներ չեն ստեղծվել:"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Հայտարարության տեսակի անվանումը պահանջվում է:"
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Անվանում"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Այս անունով հայտարարության տեսակ արդեն գոյություն ունի:"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Պահպանեք և ստեղծեք մեկ ուրիշը"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Խմբագրեք"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Խմբագրեք հայտարարության տեսակը"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Ստեղծեք"
+
+msgid "manager.announcementTypes.create"
+msgstr "Ստեղծեք հայտարարության տեսակ"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Զգուշացում. Հայտարարության այս տեսակով բոլոր հայտարարությունները նույնպես "
+"կջնջվեն։ Իսկապե՞ս ուզում եք շարունակել և ջնջել հայտարարության  այս տեսակը:"
+
+msgid "manager.announcementTypes"
+msgstr "Հայտարարության տեսակները"
+
+msgid "manager.announcements.type"
+msgstr "Տեսակ"
+
+msgid "manager.announcements.title"
+msgstr "Վերնագիր"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Հայտարարություններ չեն ստեղծվել։"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Խնդրում ենք ընտրել հայտարարության վավեր տեսակ:"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Տեսակ"
+
+msgid "manager.announcements.form.title"
+msgstr "Վերնագիր"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Հայտարարության վերնագիրը պարտադիր է։"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Պահպանեք և ստեղծեք մեկ ուրիշը"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Կարճ նկարագրություն"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Հայտարարության կարճ նկարագրությունը պարտադիր է:"
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr ""
+"Համառոտ նկարագրություն, որը կհայտնվի հայտարարության վերնագրի հետ միասին:"
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Հայտարարության նկարագրությունը պարտադիր է:"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Հայտարարության տեքստն ամբողջությամբ."
+
+msgid "manager.announcements.form.description"
+msgstr "Հայտարարություն"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr ""
+"Խնդրում ենք ընտրել ամիս և/կամ օր՝ ի հավելումն գործողության ժամկետի ավարտի "
+"տարվա:"

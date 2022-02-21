@@ -1531,7 +1531,6 @@ msgid "dashboard.myQueue"
 msgstr "Моя черга"
 
 #, fuzzy
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Щоб переконатися в можливості подвійного сліпого рецензування для подання "

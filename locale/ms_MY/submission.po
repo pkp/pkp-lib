@@ -593,15 +593,6 @@ msgstr "Tiada tindakan diperlukan"
 msgid "submission.currentStage"
 msgstr "Peringkat semasa"
 
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Sebelumnya: Pemberitahuan Pengarang"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Pilih fail yang anda ingin majukan ke peringkat {$stageName}."
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Seterusnya: Pilih Fail untuk {$stageName}"
-
 msgid "editor.submission.recordedRecommendations"
 msgstr "Cadangan Tercatat"
 

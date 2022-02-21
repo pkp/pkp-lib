@@ -22,7 +22,7 @@ use PKP\user\User;
 
 class DecisionWritePolicy extends ContextPolicy
 {
-    public function __construct($request, $args, int $decision, User $editor)
+    public function __construct($request, $args, int $decision, ?User $editor)
     {
         parent::__construct($request);
         $this->addPolicy(new DecisionTypeRequiredPolicy($request, $args, $decision));

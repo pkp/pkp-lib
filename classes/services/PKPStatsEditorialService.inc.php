@@ -477,7 +477,7 @@ class PKPStatsEditorialService
     {
         return [
             Decision::ACCEPT,
-            Decision::SKIP_REVIEW,
+            Decision::SKIP_EXTERNAL_REVIEW,
             Decision::SEND_TO_PRODUCTION,
         ];
     }

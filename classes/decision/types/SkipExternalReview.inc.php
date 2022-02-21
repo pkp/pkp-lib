@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/decision/types/SkipReview.inc.php
+ * @file classes/decision/types/SkipExternalReview.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -13,7 +13,6 @@
 
 namespace PKP\decision\types;
 
-use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
@@ -25,22 +24,20 @@ use PKP\decision\steps\Email;
 use PKP\decision\steps\PromoteFiles;
 use PKP\decision\types\traits\InSubmissionStage;
 use PKP\decision\types\traits\NotifyAuthors;
-use PKP\decision\types\traits\RequestPayment;
-use PKP\mail\mailables\DecisionSkipReviewNotifyAuthor;
+use PKP\mail\mailables\DecisionSkipExternalReviewNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
-class SkipReview extends DecisionType
+class SkipExternalReview extends DecisionType
 {
     use InSubmissionStage;
-    use RequestPayment;
     use NotifyAuthors;
 
     public function getDecision(): int
     {
-        return Decision::SKIP_REVIEW;
+        return Decision::SKIP_EXTERNAL_REVIEW;
     }
 
     public function getStageId(): int
@@ -99,9 +96,6 @@ class SkipReview extends DecisionType
         foreach ((array) $props['actions'] as $index => $action) {
             $actionErrorKey = 'actions.' . $index;
             switch ($action['id']) {
-                case self::ACTION_PAYMENT:
-                    $this->validatePaymentAction($action, $actionErrorKey, $validator, $context);
-                    break;
                 case $this->ACTION_NOTIFY_AUTHORS:
                     $this->validateNotifyAuthorsAction($action, $actionErrorKey, $validator, $submission);
                     break;
@@ -109,18 +103,15 @@ class SkipReview extends DecisionType
         }
     }
 
-    public function callback(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
+    public function runAdditionalActions(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
     {
-        parent::callback($decision, $submission, $editor, $context, $actions);
+        parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
         foreach ($actions as $action) {
             switch ($action['id']) {
-                case self::ACTION_PAYMENT:
-                    $this->requestPayment($submission, $editor, $context);
-                    break;
                 case $this->ACTION_NOTIFY_AUTHORS:
                     $this->sendAuthorEmail(
-                        new DecisionSkipReviewNotifyAuthor($context, $submission, $decision),
+                        new DecisionSkipExternalReviewNotifyAuthor($context, $submission, $decision),
                         $this->getEmailDataFromAction($action),
                         $editor,
                         $submission,
@@ -138,15 +129,9 @@ class SkipReview extends DecisionType
         $fakeDecision = $this->getFakeDecision($submission, $editor);
         $fileAttachers = $this->getFileAttachers($submission, $context);
 
-        // Request payment if configured
-        $paymentManager = Application::getPaymentManager($context);
-        if ($paymentManager->publicationEnabled()) {
-            $steps->addStep($this->getPaymentForm($context));
-        }
-
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {
-            $mailable = new DecisionSkipReviewNotifyAuthor($context, $submission, $fakeDecision);
+            $mailable = new DecisionSkipExternalReviewNotifyAuthor($context, $submission, $fakeDecision);
             $steps->addStep(new Email(
                 $this->ACTION_NOTIFY_AUTHORS,
                 __('editor.submission.decision.notifyAuthors'),

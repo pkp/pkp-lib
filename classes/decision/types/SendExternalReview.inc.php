@@ -98,9 +98,9 @@ class SendExternalReview extends DecisionType
         }
     }
 
-    public function callback(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
+    public function runAdditionalActions(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
     {
-        parent::callback($decision, $submission, $editor, $context, $actions);
+        parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
         foreach ($actions as $action) {
             switch ($action['id']) {
@@ -140,20 +140,16 @@ class SendExternalReview extends DecisionType
             ));
         }
 
-        $steps->addStep((new PromoteFiles(
+        $promoteFilesStep = new PromoteFiles(
             'promoteFilesToReview',
             __('editor.submission.selectFiles'),
             __('editor.submission.decision.promoteFiles.externalReview'),
             SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
             $submission,
             $this->getFileGenres($context->getId())
-        ))->addFileList(
-            __('submission.submit.submissionFiles'),
-            Repo::submissionFile()
-                ->getCollector()
-                ->filterBySubmissionIds([$submission->getId()])
-                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
-        ));
+        );
+
+        $steps->addStep($this->withFilePromotionLists($submission, $promoteFilesStep));
 
         return $steps;
     }
@@ -162,12 +158,27 @@ class SendExternalReview extends DecisionType
      * Get the submission file stages that are permitted to be attached to emails
      * sent in this decision
      *
-     * @return array<int>
+     * @return int[]
      */
     protected function getAllowedAttachmentFileStages(): array
     {
         return [
             SubmissionFile::SUBMISSION_FILE_SUBMISSION,
         ];
+    }
+
+    /**
+     * Get the file promotion step with file promotion lists
+     * added to it
+     */
+    protected function withFilePromotionLists(Submission $submission, PromoteFiles $step): PromoteFiles
+    {
+        return $step->addFileList(
+            __('submission.submit.submissionFiles'),
+            Repo::submissionFile()
+                ->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
+        );
     }
 }

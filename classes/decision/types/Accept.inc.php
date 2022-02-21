@@ -13,7 +13,6 @@
 
 namespace PKP\decision\types;
 
-use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
@@ -26,7 +25,6 @@ use PKP\decision\steps\PromoteFiles;
 use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\NotifyReviewers;
-use PKP\decision\types\traits\RequestPayment;
 use PKP\mail\mailables\DecisionAcceptNotifyAuthor;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\security\Role;
@@ -39,7 +37,6 @@ class Accept extends DecisionType
     use InExternalReviewRound;
     use NotifyAuthors;
     use NotifyReviewers;
-    use RequestPayment;
 
     public function getDecision(): int
     {
@@ -102,9 +99,6 @@ class Accept extends DecisionType
         foreach ((array) $props['actions'] as $index => $action) {
             $actionErrorKey = 'actions.' . $index;
             switch ($action['id']) {
-                case $this->ACTION_PAYMENT:
-                    $this->validatePaymentAction($action, $actionErrorKey, $validator, $context);
-                    break;
                 case $this->ACTION_NOTIFY_AUTHORS:
                     $this->validateNotifyAuthorsAction($action, $actionErrorKey, $validator, $submission);
                     break;
@@ -115,15 +109,12 @@ class Accept extends DecisionType
         }
     }
 
-    public function callback(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
+    public function runAdditionalActions(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
     {
-        parent::callback($decision, $submission, $editor, $context, $actions);
+        parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
         foreach ($actions as $action) {
             switch ($action['id']) {
-                case self::ACTION_PAYMENT:
-                    $this->requestPayment($submission, $editor, $context);
-                    break;
                 case $this->ACTION_NOTIFY_AUTHORS:
                     $reviewAssignments = $this->getCompletedReviewAssignments($submission->getId(), $decision->getData('reviewRoundId'));
                     $emailData = $this->getEmailDataFromAction($action);
@@ -155,12 +146,6 @@ class Accept extends DecisionType
         $fakeDecision = $this->getFakeDecision($submission, $editor, $reviewRound);
         $fileAttachers = $this->getFileAttachers($submission, $context, $reviewRound);
         $reviewAssignments = $this->getCompletedReviewAssignments($submission->getId(), $reviewRound->getId());
-
-        // Request payment if configured
-        $paymentManager = Application::getPaymentManager($context);
-        if ($paymentManager->publicationEnabled()) {
-            $steps->addStep($this->getPaymentForm($context));
-        }
 
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {

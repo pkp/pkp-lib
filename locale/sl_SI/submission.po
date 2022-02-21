@@ -1308,15 +1308,6 @@ msgstr "Priporoči uredniško odločitev za ta prispevek."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Zabeleženo priporočilo"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Naprej: Izberi datoteke za {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Izberite datoteke, ki bi jih radi poslali v naslednjo fazo: {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Nazaj: Obvesti avtorja"
-
 msgid "submission.currentStage"
 msgstr "Trenutna faza"
 

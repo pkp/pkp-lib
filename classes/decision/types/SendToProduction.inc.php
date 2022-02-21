@@ -14,6 +14,7 @@
 namespace PKP\decision\types;
 
 use APP\decision\Decision;
+use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Validation\Validator;
 use PKP\components\fileAttachers\FileStage;
@@ -23,6 +24,7 @@ use PKP\context\Context;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
+use PKP\decision\steps\PromoteFiles;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\mail\mailables\DecisionSendToProductionNotifyAuthor;
 use PKP\security\Role;
@@ -102,9 +104,9 @@ class SendToProduction extends DecisionType
         }
     }
 
-    public function callback(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
+    public function runAdditionalActions(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
     {
-        parent::callback($decision, $submission, $editor, $context, $actions);
+        parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
         foreach ($actions as $action) {
             switch ($action['id']) {
@@ -143,6 +145,28 @@ class SendToProduction extends DecisionType
                 $fileAttachers
             ));
         }
+
+        $steps->addStep((new PromoteFiles(
+            'promoteFilesToProduction',
+            __('editor.submission.selectFiles'),
+            __('editor.submission.decision.promoteFiles.production'),
+            SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
+            $submission,
+            $this->getFileGenres($context->getId())
+        ))->addFileList(
+            __('submission.copyedited'),
+            Repo::submissionFile()
+                ->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_COPYEDIT])
+        )->addFileList(
+            __('submission.finalDraft'),
+            Repo::submissionFile()
+                ->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_FINAL]),
+            false
+        ));
 
         return $steps;
     }

@@ -454,7 +454,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS;
             case Decision::RESUBMIT:
                 return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT;
-            case Decision::NEW_ROUND:
+            case Decision::NEW_EXTERNAL_ROUND:
                 return Notification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND;
             case Decision::DECLINE:
             case Decision::INITIAL_DECLINE:

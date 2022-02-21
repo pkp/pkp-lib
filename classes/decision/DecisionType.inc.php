@@ -126,7 +126,7 @@ abstract class DecisionType
         return $request->getDispatcher()->url(
             $request,
             Application::ROUTE_PAGE,
-            $context,
+            $context->getPath(),
             'decision',
             'record',
             $submission->getId(),
@@ -161,14 +161,35 @@ abstract class DecisionType
     }
 
     /**
-     * A callback method that is fired when a decision
-     * of this type is recorded
+     * Run actions required to process a new editorial decision
+     *
+     * This callback method is fired whenever a new decision is
+     * recorded. This method changes a submission's status and
+     * stage id, as well as the review round status.
+     *
+     * Add this method to child decision types to perform additional
+     * actions when the decision is recorded, such as sending emails,
+     * creating a new review round, etc.
+     *
+     * Each decision type can support its own $actions. See the
+     * decision type class to understand which $actions are
+     * supported by that type.
+     *
+     * Typically, $actions represent a form that was completed or an
+     * email that was composed while recording the decision.
+     *
+     * However, custom decisions are not constrained to these types
+     * and may use the $actions array to configure any steps
+     * necessary to record the decision.
+     *
+     * The $actions array is a parameter in the REST API so that any
+     * actions may be sent along with the request to record a decision.
      *
      * @see Repository::add()
      *
      * @param array $actions Actions handled by the decision type
      */
-    public function callback(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
+    public function runAdditionalActions(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
     {
         if ($this->getNewStatus()) {
             Repo::submission()->updateStatus($submission, $this->getNewStatus());
@@ -289,7 +310,7 @@ abstract class DecisionType
                     'required',
                 ],
             ],
-            'to' => (object) [
+            'recipients' => (object) [
                 'type' => 'array',
                 'items' => (object) [
                     'type' => 'integer',

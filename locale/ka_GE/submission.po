@@ -431,12 +431,6 @@ msgstr "რეკომენდაციები: {$recommendations}"
 msgid "editor.submission.recommendation"
 msgstr "რეკომენდაცია"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "შემდეგი: აირჩიეთ ფაილები {$stageName}"
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "წინა: ავტორების შეტყობინება"
-
 msgid "editor.submission.addAuditorError"
 msgstr "მიმოხილვის აღდგენისას მოხდა შეცდომა. გთხოვთ კიდევ სცადეთ."
 
@@ -698,9 +692,6 @@ msgstr "გირჩევთ სარედაქციო გადაწყ�
 
 msgid "editor.submission.recordedRecommendations"
 msgstr "დაფიქსირებული რეკომენდაციები"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "შეარჩიეთ ფაილები, რომელთა გადაგზავნა გსურთ ეტაპზე {$stageName}."
 
 msgid "grid.reviewAttachments.title"
 msgstr "რეცენზენტის დანართები"

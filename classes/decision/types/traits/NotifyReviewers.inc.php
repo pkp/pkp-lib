@@ -56,12 +56,12 @@ trait NotifyReviewers
                 $validator->errors()->add($actionErrorKey . '.' . $key, $propError);
             }
         }
-        if (empty($action['to'])) {
-            $validator->errors()->add($actionErrorKey . '.to', __('validator.required'));
+        if (empty($action['recipients'])) {
+            $validator->errors()->add($actionErrorKey . '.recipients', __('validator.required'));
             return;
         }
         $reviewerIds = $this->getCompletedReviewerIds($submission, $reviewRoundId);
-        $invalidRecipients = array_diff($action['to'], $reviewerIds);
+        $invalidRecipients = array_diff($action['recipients'], $reviewerIds);
         if (count($invalidRecipients)) {
             $this->setRecipientError($actionErrorKey, $invalidRecipients, $validator);
         }
@@ -78,7 +78,7 @@ trait NotifyReviewers
         /** @var User[] $recipients */
         $recipients = array_map(function ($userId) {
             return Repo::user()->get($userId);
-        }, $email->to);
+        }, $email->recipients);
 
         foreach ($recipients as $recipient) {
             Mail::send($mailable->recipients([$recipient]));

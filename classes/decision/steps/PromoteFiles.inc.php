@@ -26,6 +26,8 @@ class PromoteFiles extends Step
     public string $type = 'promoteFiles';
     public int $to;
     public array $lists = [];
+    /** @var int[] */
+    public array $selected = [];
     public Submission $submission;
 
     /** @var Genre[] $genres File genres in this context */
@@ -46,17 +48,28 @@ class PromoteFiles extends Step
 
     /**
      * Add a list of files that can be copied to the next stage
+     *
+     * @param bool $selectedByDefault Whether the files in this list should be selected by default
      */
-    public function addFileList(string $name, Collector $collector): self
+    public function addFileList(string $name, Collector $collector, bool $selectedByDefault = true): self
     {
-        $files = Repo::submissionFile()
+        $files = Repo::submissionFile()->getMany($collector);
+
+        $fileSummaries = Repo::submissionFile()
             ->getSchemaMap()
-            ->summarizeMany(Repo::submissionFile()->getMany($collector), $this->genres);
+            ->summarizeMany($files, $this->genres);
 
         $this->lists[] = [
             'name' => $name,
-            'files' => $files->values(),
+            'files' => $fileSummaries->values(),
         ];
+
+        if ($selectedByDefault && $files->count()) {
+            $this->selected = array_merge(
+                $this->selected,
+                $files->map(fn ($file) => $file->getId())->all()
+            );
+        }
 
         return $this;
     }
@@ -65,7 +78,7 @@ class PromoteFiles extends Step
     {
         $config = parent::getState();
         $config->to = $this->to;
-        $config->selected = [];
+        $config->selected = $this->selected;
         $config->lists = $this->lists;
 
         return $config;

@@ -27,6 +27,7 @@ use PKP\decision\DecisionType;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
+use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
@@ -67,6 +68,7 @@ class DecisionHandler extends Handler
             return false;
         }
 
+        $this->addPolicy(new UserRequiredPolicy($request));
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         $this->addPolicy(new SubmissionRequiredPolicy($request, $args, 'submissionId'));
         $this->addPolicy(new DecisionWritePolicy($request, $args, (int) $request->getUserVar('decision'), $request->getUser()));

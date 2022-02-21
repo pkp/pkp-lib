@@ -13,6 +13,7 @@
 
 namespace PKP\emailTemplate;
 
+use APP\i18n\AppLocale;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;

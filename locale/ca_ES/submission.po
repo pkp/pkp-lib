@@ -1798,15 +1798,6 @@ msgstr "Se us ha demanat que reviseu les correccions de \"{$title}\"."
 msgid "notification.type.editorAssign"
 msgstr "Heu estat assignat com a editor/a de la tramesa \"{$title}\"."
 
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Anterior: notificació de l'autor/a"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Seleccioneu els arxius que voleu enviar a la fase de {$stageName}."
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Seguënt: seleccioneu arxius per a {$stageName}"
-
 msgid "editor.submission.recordedRecommendations"
 msgstr "Recomanacions enregistrades"
 

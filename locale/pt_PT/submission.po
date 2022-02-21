@@ -1604,15 +1604,6 @@ msgstr "Recomendar uma decisão editorial para esta submissão."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Recomendações Guardadas"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Próximo: Selecionar Ficheiros para {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Selecione os ficheiros que quer enviar para a etapa {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Anterior: Notificação a Autores"
-
 msgid "notification.type.editorAssign"
 msgstr "Foi encarregue como editor da submissão \"{$title}\"."
 

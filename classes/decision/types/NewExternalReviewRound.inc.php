@@ -8,7 +8,7 @@
  *
  * @class decision
  *
- * @brief A decision to accept a submission for publication.
+ * @brief A decision to open a new round of review in the external review stage
  */
 
 namespace PKP\decision\types;
@@ -39,7 +39,7 @@ class NewExternalReviewRound extends DecisionType
 
     public function getDecision(): int
     {
-        return Decision::NEW_ROUND;
+        return Decision::NEW_EXTERNAL_ROUND;
     }
 
     public function getNewStageId(): ?int
@@ -105,7 +105,7 @@ class NewExternalReviewRound extends DecisionType
         }
     }
 
-    public function callback(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
+    public function runAdditionalActions(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
     {
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
@@ -113,7 +113,7 @@ class NewExternalReviewRound extends DecisionType
         $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $this->getNewStageId());
         $this->createReviewRound($submission, $this->getStageId(), $reviewRound->getRound() + 1);
 
-        parent::callback($decision, $submission, $editor, $context, $actions);
+        parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
         foreach ($actions as $action) {
             switch ($action['id']) {

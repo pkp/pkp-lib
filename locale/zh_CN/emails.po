@@ -1,0 +1,182 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
+"PO-Revision-Date: 2020-07-02 12:03+0000\n"
+"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
+"Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
+"ojs/emails/zh_Hans/>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "投稿致谢函"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"感谢您将稿件 〈{$submissionTitle}〉 投稿至《{$contextName}》。透过我们所使用的期刊管理系统，您将能够登入期刊网站来追踪稿件的编辑进度：<br />\n"
+"<br />\n"
+"稿件网址：{$submissionUrl}<br />\n"
+"用户名称：{$recipientUsername}<br />\n"
+"<br />\n"
+"如果您有任何问题，请与我们联络。再次感谢您考虑本期刊出版您的作品。<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr "这封电子邮件，一旦启用，就会在作者完成投稿一份稿件到期刊的流程之后，会自动地寄发给作者。邮件中提供了有关追踪稿件编辑进度的信息，以及感谢作者的投稿。"
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "文章审查感谢函"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"感谢您为《{$contextName}》完成了稿件〈{$submissionTitle}〉的审查工作。我们非常感激您对我们出版文章之品质的重要贡献。"
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "这封电子邮件是由一位区段编辑发出，确认收到已完成审查工作的回条，并感谢审查人之贡献。"
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "编辑决策"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr "此邮件为总编或者栏目编辑发给投稿人告知稿件送审的提醒邮件。"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"我们已经收到您的稿件： {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"我们决定：将您的稿件送去评审<br />\n"
+"<br />\n"
+"稿件的地址：{$submissionUrl}"
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr "此邮件是总编或者栏目编辑发现给投稿人告知稿件安排出版的提醒邮件。"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"您的稿件 &quot;{$submissionTitle}&quot; 修改结束。我们将要安排出版。<br />\n"
+"<br />\n"
+"稿件地址： {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "总编决定"
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "编辑决定"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br />\n"
+"<br />\n"
+"我们的决定是："
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr "这封电子邮件是由编辑或者区段编辑发送给作者，通知他们关于他们稿件的最后决定。"
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "编辑决定"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br />\n"
+"<br />\n"
+"我们的决定是："
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr "这封电子邮件是由编辑或者区段编辑发送给作者，通知他们关于他们稿件的最后决定。"
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "编辑决定"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br />\n"
+"<br />\n"
+"我们的决定是："
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr "这封电子邮件是由编辑或者区段编辑发送给作者，通知他们关于他们稿件的最后决定。"
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr "此邮件为总编或者栏目编辑发给编辑或者栏目编辑的关于他们对于稿件的去留建议的提醒邮件。"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"关于稿件 {$contextName}, &quot;{$submissionTitle}&quot; 的建议是： {$recommendation}"
+
+msgid "emails.editorRecommendation.subject"
+msgstr "总编建议"
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "编辑要求"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}您好：<br />\n"
+"<br />\n"
+"我想请您为《{$contextName}》担任稿件〈{$submissionTitle}〉的校样编辑。您可以在网站上找到这份稿件，以及校样编辑的工作指引。<br />\n"
+"<br />\n"
+"稿件网址：{$submissionUrl}\"<br />\n"
+"用户名称：{$recipientUsername}<br />\n"
+"<br />\n"
+"如果您目前无法进行这份工作，或者对这项工作有任何的疑问，请直接回信与我联络。非常感谢您同意为这份期刊进行这份重要的工作。"
+
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr "这封电子邮件是由一位区段编辑寄发给稿件的校样编辑，请他们开始进行校样编辑的工作流程。邮件中含有关于稿件的信息以及如核取得稿件的指引."
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr "此邮件为编辑初审后拒绝稿件发给投稿人的提醒邮件"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"我们对于稿件 {$contextName}, &quot;{$submissionTitle}&quot; 形成了一个最终共识。<br />\n"
+"<br />\n"
+"我们的决定是：拒绝稿件"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "总编决定"

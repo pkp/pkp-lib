@@ -20,7 +20,7 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
-use PKP\decision\types\NewExternalReviewRound;
+use PKP\decision\DecisionType;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -101,9 +101,7 @@ abstract class PKPWorkflowTabHandler extends Handler
                 $templateMgr->assign('reviewRoundOp', $this->_identifyReviewRoundOp($stageId));
 
                 if ($submission->getStageId() == $selectedStageId && count($reviewRoundsArray) > 0) {
-                    if ($stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
-                        $newReviewRoundType = new NewExternalReviewRound();
-                    }
+                    $newReviewRoundType = $this->getNewReviewRoundDecisionType($stageId);
                     $templateMgr->assign(
                         'newRoundUrl',
                         $newReviewRoundType->getUrl($request, $request->getContext(), $submission, $lastReviewRound->getId())
@@ -198,6 +196,13 @@ abstract class PKPWorkflowTabHandler extends Handler
      * @return array
      */
     abstract protected function getProductionNotificationOptions($submissionId);
+
+    /**
+     * Get the decision type to create a new review round in this stage id
+     *
+     * @param int $stageId Must be one of the review stages, WORKFLOW_STAGE_ID_
+     */
+    abstract protected function getNewReviewRoundDecisionType(int $stageId): DecisionType;
 
     /**
      * Translate the requested operation to a stage id.

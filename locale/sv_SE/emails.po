@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:19-08:00\n"
+"PO-Revision-Date: 2021-04-14 11:04+0000\n"
+"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/ojs/emails/"
+"sv_SE/>\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Bekräftelse på mottaget bidrag"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Tack för att du har skickat in manuskriptet &quot;{$submissionTitle}&quot; till {$contextName}. I det publiceringssystem vi använder har du möjlighet att följa dess väg i den redaktionella processen genom att logga in på tidskriftens webbplats:<br />\n"
+"<br />\n"
+"Bidragets URL: {$submissionUrl}<br />\n"
+"Användarnamn: {$recipientUsername}<br />\n"
+"<br />\n"
+"Om du har några frågor, vänligen kontakta mig. Tack för att du har valt att skicka ditt bidrag till den här tidskriften.<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr "Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till författare när de skickar in sina manuskript till tidskriften. Meddelandet innehåller information om hur författaren kan följa bidraget genom redaktionella processen samt ett tack för för inskickat bidrag."
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Bekräftelse på granskning av artikel"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Tack för att du genomfört granskningen av bidraget &quot;{$submissionTitle}&quot; för {$contextName}. Vi uppskattar ditt arbete din roll i att bibehålla tidskriftens kvalitet."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "Det här e-postmeddelandet skickas från en sektionsredaktör för att bekräfta att en färdig granskning inkommit och för att tacka granskaren för utfört arbete."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Redaktörsbeslut"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Vårt beslut är att: Skicka till granskning<br />\n"
+"<br />\n"
+"Bidragets URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att hens bidrag skickas till extern granskning."
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Redaktörsbeslut"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Redigeringen av ditt bidrag &quot;{$submissionTitle}&quot; är färdig. Vi skickar det nu vidare till produktion.<br />\n"
+"<br />\n"
+"Bidragets URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att hens bidrag sänds vidare till produktion."
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Redaktörsbeslut"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Vårt beslut är att: Bearbetning krävs"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att beslutet \"Bearbetning krävs\" fattats för hens bidrag."
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Redaktörsbeslut"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Vårt beslut är att: Skicka in igen för ny granskning"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att beslutet \"Skicka in igen för ny granskning\" fattats för hens bidrag."
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Redaktörsbeslut"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Vårt beslut är att: Refusera bidrag"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr "Det här e-postmeddelandet från redaktören eller sektionsredaktören till en författare meddelar att beslutet \"Refusera bidrag\" fattats för hens bidrag."
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Redaktörsrekommendation"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"Rekommendationen angående bidraget &quot;{$submissionTitle}&quot; till {$contextName} är: {$recommendation}"
+
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr "Det här e-postmeddelandet från den rekommenderande redaktören eller sektionsredaktören till ansvariga redaktörer eller sektionsredaktörer meddelar dem en slutgiltig rekommendation för bidraget."
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Förfrågan om manusredigering"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Jag skulle vilja be dig om att genomföra manusredigering av &quot;{$submissionTitle}&quot; för {$contextName} genom att gå igenom följande steg:<br />\n"
+"1. Klicka på Bidragets URL nedan.<br />\n"
+"2. Öppna samtliga filer tillgängliga under Utkastfiler och manusredigera dem. Skriv i Manusredigeringsdiskussioner vid behov.<br />\n"
+"3. Spara manusredigerade filer och ladda upp under Manusredigerade-panelen.<br />\n"
+"4. Meddela Redaktören att samtliga filer har förberetts och att Produktionsprocessen kan påbörjas.<br />\n"
+"<br />\n"
+"{$contextName} URL: {$contextUrl}<br />\n"
+"Bidragets URL: {$submissionUrl}<br />\n"
+"Användarnamn: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr "Det här e-postmeddelandet skickas från sektionsredaktören till ett bidrags manusredaktör för att be hen att påbörja manusredigeringsprocessen. Det innehåller information om bidraget och hur man får tillgång till det."
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Redaktörsbeslut"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Vårt beslut är att: Refusera bidrag"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr ""
+"Det här e-postmeddelandet skickas till författaren om redaktören refuserar "
+"bidraget direkt, innan granskningssteget"

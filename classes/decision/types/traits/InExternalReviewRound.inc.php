@@ -35,6 +35,18 @@ trait InExternalReviewRound
         return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
     }
 
+    /** Helper method so self::getFileAttachers() can be extended for other review stages */
+    protected function getRevisionFileStage(): int
+    {
+        return SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION;
+    }
+
+    /** Helper method so self::getFileAttachers() can be extended for other review stages */
+    protected function getReviewFileStage(): int
+    {
+        return SubmissionFile::SUBMISSION_FILE_REVIEW_FILE;
+    }
+
     /**
      * Get the assigned reviewers who completed their review
      *
@@ -119,11 +131,11 @@ trait InExternalReviewRound
             __('email.addAttachment.submissionFiles.attach')
         ))
             ->withFileStage(
-                SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+                $this->getRevisionFileStage(),
                 __('editor.submission.revisions'),
                 $reviewRound
             )->withFileStage(
-                SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+                $this->getReviewFileStage(),
                 __('reviewer.submission.reviewFiles'),
                 $reviewRound
             );

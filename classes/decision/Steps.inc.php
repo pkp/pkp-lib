@@ -42,10 +42,16 @@ class Steps
 
     /**
      * Add a step to the workflow
+     *
+     * @param bool $prepend Pass true to add this step before other steps
      */
-    public function addStep(Step $step)
+    public function addStep(Step $step, bool $prepend = false)
     {
-        $this->steps[$step->id] = $step;
+        if ($prepend) {
+            array_unshift($this->steps, $step);
+        } else {
+            $this->steps[$step->id] = $step;
+        }
     }
 
     /**

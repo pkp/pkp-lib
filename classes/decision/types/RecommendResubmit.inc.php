@@ -8,7 +8,7 @@
  *
  * @class decision
  *
- * @brief A recommendation to request revisions be requested and sent for another round of review.
+ * @brief A recommendation to request revisions to be sent for another round of review.
  */
 
 namespace PKP\decision\types;

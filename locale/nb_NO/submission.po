@@ -880,15 +880,6 @@ msgstr "Må ikke behandles"
 msgid "submission.currentStage"
 msgstr "Nåværende stadie"
 
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Tidligere: Beskjed til forfatter"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Velg filene du vil sende til {$stageName}."
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Neste: Velg filer for {$stageName}"
-
 msgid "editor.submission.recordedRecommendations"
 msgstr "Registrerte anbefalinger"
 

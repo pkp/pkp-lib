@@ -1327,15 +1327,6 @@ msgstr "Eine redaktionelle Entscheidung für diese Einreichung empfehlen."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Festgehaltene Empfehlungen"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Als nächstes: Dateien für {$stageName} auswählen"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Wählen Sie die Dateien aus, die Sie für die Phase {$stageName} weiterleiten möchten."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Zuvor: Autor/innen-Benachrichtigung"
-
 msgid "submission.currentStage"
 msgstr "Aktueller Arbeitsschritt"
 

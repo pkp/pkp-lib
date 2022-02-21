@@ -1,0 +1,203 @@
+# Lucia Steele <lucia.steele@aboutscience.eu>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:19-08:00\n"
+"PO-Revision-Date: 2021-12-29 12:24+0000\n"
+"Last-Translator: Lucia Steele <lucia.steele@aboutscience.eu>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/ojs/emails/"
+"it_IT/>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Grazie per avere inviato il suo contributo a {$contextName}"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"Gentile {$recipientName},<br />\n"
+"<br />\n"
+"Grazie per aver inviato il suo contributo &quot;{$submissionTitle}&quot; "
+"alla testata  {$contextName}. Potrà il processo di revisione del suo "
+"manoscritto attraverso portale utilizzando la sua login al sito:<br />\n"
+"<br />\n"
+"URL della proposta: {$submissionUrl}<br />\n"
+"Username: {$recipientUsername}<br />\n"
+"<br />\n"
+"Per qualsiasi domanda non esiti a contattarmi.<br />\n"
+"La ringrazio per la preferenza espressa nei confronti di {$contextName}.<br "
+"/>\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Questa email, quando è abilitata, viene inviata automaticamente all'autore "
+"nel momento in cui viene completato il processo di sottomissione del "
+"manoscritto. Fornisce informazioni su come tracciare il manoscritto e "
+"ringrazia l'autore per la proposta."
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Ringraziamenti per la revisione"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"Gentile {$recipientName}:<br />\n"
+"<br />\n"
+"Grazie per aver completato la revisione del manoscritto "
+"&quot;{$submissionTitle},&quot; per {$contextName}. Apprezziamo il tuo "
+"contributo nel mantenere alta la qualità della rivista."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "Questa email viene inviata dal section editor per confermare la ricezione di una revisione completata e per ringraziare i revisori per i loro contributi."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Decisione dell'editor"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"Gentilissimo {$authors}:<br />\n"
+"<br />\n"
+"Abbiamo preso una decisione circa la tua proposta a {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"La nostra decisione: invio a un revisore esterno<br />\n"
+"<br />\n"
+"Submission URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr ""
+"Questa mail è inviata dall'Editor o dal Section Editor all'autore quando il "
+"manoscritto viene assegnato ad un revisore."
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Decisione dell'editor"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"Gentilissimo {$authors}:<br />\n"
+"<br />\n"
+"La lavorazione editoriale della sua proposta, &quot;{$submissionTitle},&quot; è completa.  Ora viene preparata per l'uscita sulla rivista.<br />\n"
+"<br />\n"
+"URL proposta: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr "Questa mail è inviata dall'editor o dall'editor di sezione all'autore quando una proposta è stata sistemata dal punto di vista editoriale."
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Decisione dell'editor"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"&lt;![CDATA[{$authors}:<br />\n"
+"<br />\n"
+"Abbiamo raggiunto una decisione sulla Sua proposta a {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"La nostra decisione: è necessaria ciclo di peer-review"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr ""
+"Questa mail è inviata dall'Editor o dal Section Editor  all'autore quando il "
+"manoscritto deve essere revisionato dopo la revisione."
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Decisione dell'editor"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Abbiamo raggiunto una decisione riguardo alla Sua submission a {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"La decisione è: mandarla di nuovo in revisione"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr "Messaggio dell'editor all'autore per informarlo della decisione conclusiva sulla proposta inviata."
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Decisione dell'editor"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Abbiamo raggiunto una decisione riguardo alla Sua submission a {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"La decisione è di non accettare la proposta"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr "Questa mail è inviata dall'editor o dall'editor di sezione all'autore per non accettare una proposta."
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Raccomandazione dell'editor"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"La raccomandazione riguardo la proposta &quot;{$submissionTitle}&quot;, giunta per  {$contextName}, è: {$recommendation}"
+
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr "Mail che l'editor invia al responsabile contenente la raccomandazione su cosa fare di una certa proposta."
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Assegnazione di copyediting"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Ti chiedo di prendere in carico il copyediting del manoscritto "
+"&quot;{$submissionTitle}&quot; inviato alla testata {$contextName}.<br />\n"
+"Il documento si trova su sito web della rivista, insieme alle istruzioni per "
+"il copyediting.<br />\n"
+"Se non puoi prendere in carico il lavoro in questo periodo o hai qualche "
+"domanda, ti prego di contattarmi.<br />\n"
+"<br />\n"
+"{$contextName} URL: {$contextUrl}<br />\n"
+"URL Manoscritto: {$submissionUrl}<br />\n"
+"Username: {$recipientUsername}<br />"
+
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr "Questa email viene mandata dal section editor al copyeditor della submission per richiedere che comincino con il processo di copyedit. Questa fornisce informazioni sulla submission e su come accedervi."
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Decisione dell'editor"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\tGentilissimo {$authors}:<br />\n"
+"<br />\n"
+"Abbiamo preso una decisione in merito al suo manoscritto dal titolo "
+"&quot;{$submissionTitle}&quot; inviato a {$contextName} .<br />\n"
+"<br />\n"
+"Ci rincresce informarla che non ci è possibile accettare il suo contributo"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr "Questa mail viene mandata all'autore se la proposta subito non viene accettata dall'editor"

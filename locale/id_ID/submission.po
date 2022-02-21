@@ -1461,15 +1461,6 @@ msgstr "Tidak perlu tindakan"
 msgid "submission.currentStage"
 msgstr "Tahap Terkini"
 
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Sebelumnya: Pemberitahuan Penulis"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Pilih file yang ingin diteruskan ke tahap {$stageName}."
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Berikutnya: Pilih File untuk {$stageName}"
-
 msgid "editor.submission.recordedRecommendations"
 msgstr "Rekomendasi Tercatat"
 

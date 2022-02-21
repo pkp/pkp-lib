@@ -1281,15 +1281,6 @@ msgstr "Proponi una decisione editoriale per questo manoscritto."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Registra le valutazioni"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Successiva: Seleziona files per {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Seleziona i files che vuoi portare avanti alla fase di  {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Precedente: Notifica all'autore"
-
 msgid "submission.currentStage"
 msgstr "Attuale fase"
 

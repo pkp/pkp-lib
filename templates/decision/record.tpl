@@ -129,6 +129,7 @@
 									>
 										<input
 											type="checkbox"
+											:name="'promoteFile' + item.id"
 											:value="item.id"
 											v-model="step.selected"
 										/>

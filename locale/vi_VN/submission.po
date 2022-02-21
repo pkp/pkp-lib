@@ -1269,15 +1269,6 @@ msgstr "Không có Yêu cầu hành động"
 msgid "submission.currentStage"
 msgstr "Giai đoạn hiện tại"
 
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Trước: Thông báo tác giả"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Chọn các tệp bạn muốn chuyển tiếp đến giai đoạn {$stageName}."
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Tiếp theo: Chọn Tệp cho {$stageName}"
-
 msgid "editor.submission.recordedRecommendations"
 msgstr "Các khuyến nghị đã được ghi"
 

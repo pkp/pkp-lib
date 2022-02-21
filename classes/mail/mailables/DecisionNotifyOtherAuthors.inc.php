@@ -30,7 +30,7 @@ class DecisionNotifyOtherAuthors extends Mailable
 
     protected static ?string $name = 'mailable.decision.notifyOtherAuthors.name';
     protected static ?string $description = 'mailable.decision.notifyOtherAuthors.description';
-    protected static ?string $emailTemplateKey = 'DECISION_NOTIFY_OTHER_AUTHORS';
+    protected static ?string $emailTemplateKey = 'EDITOR_DECISION_NOTIFY_OTHER_AUTHORS';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [
         self::GROUP_SUBMISSION,

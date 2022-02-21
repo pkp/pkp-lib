@@ -1467,15 +1467,6 @@ msgstr "یک تصمیم برای این مقاله ارسالی ثبت کنید.
 msgid "editor.submission.recordedRecommendations"
 msgstr "توصیه‌های ثبت شده"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "بعدی: فایل‌ها را از {$stageName} انتخاب کنید."
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "فایل‌های که مایلید به مرحله {$stageName} انتقال داده شوند را انتخاب کنید."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "قبلی: اطلاع‌رسانی‌هایاطلاع‌رسانی نویسنده"
-
 msgid "submission.currentStage"
 msgstr "مرحله جاری"
 

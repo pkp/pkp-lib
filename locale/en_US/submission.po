@@ -1427,6 +1427,9 @@ msgstr "Select files that should be sent to the copyediting stage."
 msgid "editor.submission.decision.promoteFiles.review"
 msgstr "Select files that should be sent for review."
 
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Select files that should be sent to the production stage."
+
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Request Revisions"
 

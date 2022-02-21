@@ -24,6 +24,7 @@ namespace PKP\template;
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\file\PublicFileManager;
 
@@ -933,7 +934,7 @@ class PKPTemplateManager extends Smarty
         $this->setState([
             'menu' => [],
             'tinyMCE' => [
-                'skinUrl' => $request->getBaseUrl() . '/lib/ui-library/public/styles/tinymce',
+                'skinUrl' => $this->getTinyMceSkinUrl($request),
             ],
         ]);
 
@@ -1398,6 +1399,14 @@ class PKPTemplateManager extends Smarty
         }
 
         return false;
+    }
+
+    /**
+     * Get the URL to the TinyMCE skin
+     */
+    public function getTinyMceSkinUrl(Request $request): string
+    {
+        return $request->getBaseUrl() . '/lib/ui-library/public/styles/tinymce';
     }
 
 

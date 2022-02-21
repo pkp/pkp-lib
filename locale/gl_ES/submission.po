@@ -422,15 +422,6 @@ msgstr "Non se precisa ningunha acción"
 msgid "submission.currentStage"
 msgstr "Fase actual"
 
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Previo: notificación do autor/a"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Selecciona os arquivos que desexas mover á fase {$stageName}."
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Seguinte: seleccione os arquivos para {$stageName}"
-
 msgid "editor.submission.recordedRecommendations"
 msgstr "Recomendacións gardadas"
 

@@ -2328,6 +2328,18 @@ msgstr "The URL to the review assignment"
 msgid "emailTemplate.variable.recommendation"
 msgstr "The recommended decision, such as Accept Submission"
 
+msgid "emailTemplate.variable.reviewType"
+msgstr "A description of the default review method, such as double anonymous or open."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr "This journal conducts double-anonymous peer review. The reviewers will not see any identifying information about you or your co-authors. Similarly, you will not know who reviewed your submission, and you will not hear from the reviewers directly."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr "This journal conducts “reviewer anonymous” peer review. Your name, and those of your coauthors, will be visible to the reviewers; however, the reviewers' identities will remain anonymous."
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr "This journal conducts open peer review. The reviewers will see your name and affiliation, as well as the names and affiliations of your co-authors. Similarly, you will see the names and affiliations of the reviewers."
+
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "The full name of the sender"
 

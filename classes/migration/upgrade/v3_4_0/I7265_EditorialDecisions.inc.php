@@ -17,7 +17,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class I7265_EditorialDecisions extends \PKP\migration\Migration
+abstract class I7265_EditorialDecisions extends \PKP\migration\Migration
 {
     /**
      * Run the migrations.
@@ -52,6 +52,10 @@ class I7265_EditorialDecisions extends \PKP\migration\Migration
                 'review_round_id' => null,
                 'round' => null
             ]);
+
+        Schema::table('edit_decisions', function (Blueprint $table) {
+            $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds');
+        });
     }
 
     /**
@@ -59,6 +63,10 @@ class I7265_EditorialDecisions extends \PKP\migration\Migration
      */
     protected function downReviewRounds()
     {
+        Schema::table('edit_decisions', function (Blueprint $table) {
+            $table->dropForeign('review_round_id');
+        });
+
         DB::table('edit_decisions')
             ->whereNull('review_round_id')
             ->orWhereNull('round')

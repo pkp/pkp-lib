@@ -422,9 +422,6 @@ abstract class Repository
     public function updateStatus(Submission $submission, ?int $newStatus = null)
     {
         $status = $submission->getData('status');
-        if ($newStatus === null) {
-            $newStatus = $status;
-        }
 
         if ($newStatus === null) {
             $newStatus = $this->getStatusByPublications($submission);

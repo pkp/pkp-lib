@@ -1310,15 +1310,6 @@ msgstr "Bu gönderi için bir editör kararı tavsiye et."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Kayıtlı Öneriler"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Sonraki: {$stageName} için dosyaları seç"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "{$stageName} aşamasına iletmek istediğiniz dosyaları seçin."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Önceki: Yazar Bildirimi"
-
 msgid "submission.currentStage"
 msgstr "Şu Anki Aşama"
 

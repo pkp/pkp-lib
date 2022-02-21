@@ -21,9 +21,9 @@ class EmailData
     /**
      * User IDs for the recipients of the email
      *
-     * @var int[] $to
+     * @var int[] $recipientss
      */
-    public array $to = [];
+    public array $recipients = [];
 
     /**
      * The body of the email

@@ -25,14 +25,14 @@ use PKP\user\User;
 
 class DecisionAllowedPolicy extends AuthorizationPolicy
 {
-    protected User $user;
+    protected ?User $user;
 
     /**
      * Constructor
      *
      * @param $request PKPRequest
      */
-    public function __construct(User $user)
+    public function __construct(?User $user)
     {
         AppLocale::requireComponents(
             LOCALE_COMPONENT_PKP_EDITOR,
@@ -47,6 +47,10 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
      */
     public function effect()
     {
+        if (!$this->user) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
+        }
+
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE);
 

@@ -112,7 +112,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                             ->filterByDecisionTypes([
                                 Decision::ACCEPT,
                                 Decision::PENDING_REVISIONS,
-                                Decision::NEW_ROUND,
+                                Decision::NEW_EXTERNAL_ROUND,
                                 Decision::RESUBMIT
                             ])
                     );

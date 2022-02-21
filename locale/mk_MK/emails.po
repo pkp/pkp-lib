@@ -1,0 +1,228 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-03-26 16:40+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ojs/emails/"
+"mk_MK/>\n"
+"Language: mk_MK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Ви благодариме за поднесувањето на вашиот ракопис, "
+"&quot;{$submissionTitle}&quot; до {$contextName}. Со помош на системот за "
+"онлајн раководење на списанитео кој што го користиме, ќе можете да го "
+"следите неговото напредување низ процесот на уредување со тоа што ќе се "
+"пријавите на веб-страницата:<br />\n"
+"<br />\n"
+"URL-адреса на поднесокот: {$submissionUrl}<br />\n"
+"Корисничко име: {$recipientUsername}<br />\n"
+"<br />\n"
+"Доколку имате било какви прашања, ве молам да ме контактирате. Ви "
+"благодариме што го земавте во предвид ова списание како место за вашата "
+"работа.<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Овој и-меил, кога овозможен, автоматски е испратен до авторот кога ќе го "
+"завршат процесот на поднесување ракопис до списанието. Им обезбедува "
+"информации за следење на поднесокот низ процесот на уредување и изразува "
+"благодарност до авторот за поднесокот."
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Признание на поднесок"
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr ""
+"Овој и-меил е испратен од Секциски уредник за да потврди дека изработената "
+"рецензија е примена и да се му заблагодари на рецензентот за неговиот "
+"придонес."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Потврда за рецензија на наслов"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Ви благодариме што ја завршивте рецензијата на поднесокот, "
+"&quot;{$submissionTitle},&quot; за {$contextName}. Го цениме вашиот придонес "
+"кон квалитетот на трудовите кои ги објавуваме."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr ""
+"Овој и-меил од Главен или Секциски уредник до Автор ги известува дека "
+"нивниот поднесок се испраќа за надворешна рецензија."
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Одлука на уредникот"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Донесовме одлука во однос на вашиот поднесок до {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашата одлука е: Испрати за корекција<br />\n"
+"<br />\n"
+"URL-адреса на поднесокот: {$submissionUrl}"
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr ""
+"Овој и-меил од Главен или Секциски уредник до Автор ги известува дека "
+"нивниот поднесок се испраќа за обработка."
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Одлука на уредникот"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Уредувањето на вашиот поднесок, &quot;{$submissionTitle},&quot; е завршено. "
+"Сега го испраќаме на обработка.<br />\n"
+"<br />\n"
+"URL-адреса на поднесокот: {$submissionUrl}"
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr ""
+"Овој и-меил од Главен или Секциски уредник до Автор ги известува за "
+"конечната одлука „потребни се исправки“ во однос на нивниот поднесок."
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Одлука на уредникот"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Донесовме одлука во врска со вашето поднесување до {$textName}, "
+"&quot;{$missionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашата одлука е: Потребни се ревизии"
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr ""
+"Овој и-меил од Главен или Секциски уредник до Автор ги известува за "
+"конечната одлука „повторно поднеси“ во однос на нивниот поднесок."
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Одлука на уредникот"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Донесовме одлука во врска со вашиот поднесок до {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашата одлука е: Поднеси повторно за рецензија"
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr ""
+"Овој и-меил од Главен или Секциски уредник до Автор ги известува за "
+"конечната одлука „одбиено“ во однос на нивниот поднесок."
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Одлука на уредникот"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Донесовме одлука во врска со вашиот поднесок до {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашата одлука е: Одбиен поднесок"
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr ""
+"Овој и-меил од Главен или Секциски уредник кој препорачува до Главен или "
+"Секциски уредник кој носи одлука ги известува за конечната препорака во "
+"однос на поднесокот."
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Препорака на уредникот"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$уредници}: <br/>\n"
+"<br/>\n"
+"Препораката во врска со поднесувањето до {$textName}, "
+"&quot;{$missionTitle}&quot; е: {$recommendation}"
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr ""
+"Овој и-меил е испратен од Секциски уредник до Уредник на поднесокот како "
+"барање да го започнат процесот на уредување. Обезбедува информации за "
+"поднесокот и како да се пристапи до истиот."
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Барање за уредување"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Би сакал да ве замолам да го превземете уредувањето на "
+"&quot;{$submissionTitle}&quot; за{$contextName} со тоа што ќе ги следите "
+"овие чекори.<br />\n"
+"1. Кликнете на URL-адресата на поднесокот подолу.<br />\n"
+"2. Отворете ги достапните датотеки под Датотеки за нацрт и извршете го "
+"вашето уредување, додека додавате Дискусии за уредување доколку се потребни.<"
+"br />\n"
+"3. Зачувајте ја уредената датотека(и), и прикачете ја на панелот Уредено.<br "
+"/>\n"
+"4. Известете го уредникот дека сите датотеки се подготвени и дека процесот "
+"на обработка може да започне.<br />\n"
+"<br />\n"
+"{$contextName} URL-адреса: {$contextUrl}<br />\n"
+"URL-адреса на поднесокот: {$submissionUrl}<br />\n"
+"Корисничко име: {$recipientUsername}"
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr ""
+"Овој и-меил е испратен до авторот доколку уредникот го одбие нивниот "
+"поднесок на почетокот, пред да биде испратен на рецензија"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"Донесовме одлука во однос на вашиот поднесок до {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашата одлука е: Одбиј го поднесок"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Одлука на уредникот"

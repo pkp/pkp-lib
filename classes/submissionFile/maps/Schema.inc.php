@@ -218,5 +218,6 @@ class Schema extends BaseSchema
                 ];
             }
         }
+        return null;
     }
 }

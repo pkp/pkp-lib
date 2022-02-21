@@ -264,7 +264,7 @@ abstract class Repository
         );
 
         // Allow the decision type to perform additional actions
-        $decisionType->callback($decision, $submission, $editor, $context, $actions);
+        $decisionType->runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
         try {
             event(new DecisionAdded(

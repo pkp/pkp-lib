@@ -1510,15 +1510,6 @@ msgstr "Doporučte redakční rozhodnutí pro tento příspěvek."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Vložená doporučení"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Dále: Vyberte soubor pro {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Vyberte soubory, které chcete předat do etapy {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Předešlé: Upozornění autora"
-
 msgid "notification.type.editorAssign"
 msgstr "Byl jste přidělen jako redaktor příspěvku \"{$title}\"."
 

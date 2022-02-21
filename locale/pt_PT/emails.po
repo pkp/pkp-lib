@@ -1,0 +1,236 @@
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
+"PO-Revision-Date: 2022-01-07 11:25+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
+"ojs/emails/pt_PT/>\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Obrigado pela sua submissão a {$contextName}"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName},<br />\n"
+"<br />\n"
+"Agradecemos a submissão do seu manuscrito &quot;{$submissionTitle}&quot; à "
+"revista {$contextName}. Através do sistema de gestão editorial online que "
+"estamos a utilizar, conseguirá acompanhar o progresso no processo editorial, "
+"bastando entrar no sistema disponível em:<br />\n"
+"<br />\n"
+"URL do Manuscrito: {$submissionUrl}<br />\n"
+"Nome de utilizador: {$recipientUsername}<br />\n"
+"<br />\n"
+"Em caso de dúvidas,  entre em contacto connosco.\n"
+"Agradecemos mais uma vez considerar a nossa revista como meio de transmitir "
+"ao público o seu trabalho científico.<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Este e-mail,  quando ativo, é enviado automaticamente ao autor quando "
+"submete um trabalho à revista. Oferece informações sobre como acompanhar o "
+"trabalho pelo processo editorial e agradece a submissão ao autor."
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Agradecimento pela revisão"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Agradecemos ter concluído a revisão da submissão "
+"&quot;{$submissionTitle}&quot; à revista {$contextName}. A sua contribuição "
+"é fundamental para a qualidade dos trabalhos publicados."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr ""
+"Este e-mail é enviado pelo Editor de Secção ao Revisor para confirmar a "
+"receção e agradecer ao revisor pela conclusão da revisão."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Decisão editorial"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Foi tomada uma decisão sobre o artigo submetido a {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"A decisão é: Enviar para Revisão<br />\n"
+"<br />\n"
+"URL da submissão: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr ""
+"Este email é enviado pelo Editor/Editor de Secção ao Autor serve para o "
+"notificar que a submissão foi enviada para uma revisão externa."
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Próximos passos para publicar a sua submissão"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"A edição da sua submissão, &quot;{$submissionTitle},&quot; está concluída.  O artigo foi enviado para a produção.<br />\n"
+"<br />\n"
+"URL da submissão : {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr ""
+"Este e-mail é enviado pelo Editor/Editor de Secção ao Autor a notificá-lo "
+"que a sua submissão foi enviada para produção."
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "A sua submissão foi revista e encorajamo-lo a inserir revisões"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Foi tomada uma decisão sobre o artigo submetido à {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"A decisão é: Revisões Requeridas"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr ""
+"Esta mensagem é enviada pelo do editor solicitando ao autor revisões durante "
+"o processo de revisão por pares."
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "A sua submissão foi revista - por favor reveja e volte a submeter"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Foi tomada uma decisão sobre o artigo enviado à revista {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"A decisão é: Submeter Novamente Para Revisão"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr ""
+"Esta mensagem enviada pelo Editor/Editor de Secção ao Autor notifica sobre a "
+"decisão editorial de rever e voltar a submeter."
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "A sua submissão foi recusada"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Foi tomada uma decisão sobre o artigo submetido à revista {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"A decisão é: Rejeitar"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr ""
+"Este e-mail notifica o autor que a sua submissão foi recusada após a revisão "
+"por pares."
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Recomendação Editorial"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"Caro {$editors}:<br />\n"
+"<br />\n"
+"Após considerar os comentários dos revisores, envio a minha recomendação "
+"relativamente à submissão {$submissionTitle}.</p><p>A minha recomendação é:<"
+"br />{$recommendation}.</p><p>Visite o <a href=\"{$submissionUrl}\">fluxo "
+"editorial</a> da submissão para agir de acordo com a recomendação.</p><p"
+">Encontro-me ao dispor para responder a qualquer "
+"pergunta.</p><p>Cumprimentos,</p><p>{$senderName}</p>"
+
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr ""
+"Este e-mail notifica o Editor ou Editor de Secção  que foi emitida uma "
+"recomendação editorial relativamente à submissão. Este modelo é usado quando "
+"um editor só tem permissões para emitir uma recomendação de decisão "
+"editorial e é necessário um Editor autorizado para registar a decisão "
+"editorial. Esta opção pode ser selecionada quando designa participantes numa "
+"submissão."
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr ""
+"A submissão {$submissionId} está pronta para edição de texto para "
+"{$contextAcronym}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName},<br />\n"
+"<br />\n"
+"Solicito a revisão do texto do manuscrito &quot;{$submissionTitle}&quot;, "
+"submetido à revista {$contextName}, conforme os seguintes passos:<br />\n"
+"1. Clique no URL da submissão, indicado mais adiante nesta mensagem.<br />\n"
+"2. Abra quaisquer ficheiros disponíveis nos Ficheiros de Rascunho e reveja o "
+"texto; pode adicionar Discussões de Edição de texto conforme for necessário.<"
+"br />\n"
+"3. Guarde o(s) ficheiro(s) revisto(s) e envie o ficheiro para o Painel de "
+"Edição de Texto.<br />\n"
+"4. Notifique o Editor que todos os ficheiros estão pronto, e o processo de "
+"Produção pode ser iniciado.<br />\n"
+"<br />\n"
+"URL da {$contextName}: {$contextUrl}<br />\n"
+"URL da Submissão: {$submissionUrl}<br />\n"
+"Nome de utilizador: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr ""
+"Este e-mail é enviado pelo Editor a solicitar a realização de uma tarefa de "
+"edição ao Editor de Texto, com informações sobre e como aceder ao documento."
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "A sua submissão foi recusada"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"Em relação à sua submissão à revista {$contextName}, "
+"&quot;{$submissionTitle}&quot; foi tomada uma decisão.<br />\n"
+"<br />\n"
+"A decisão é: Rejeitar a Submissão"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr ""
+"Este e-mail é enviado ao autor se o editor decidir rejeitar a submissão numa "
+"fase inicial, antes do processo de revisão, porque a submissão não obedece "
+"aos critérios de publicação na revista"

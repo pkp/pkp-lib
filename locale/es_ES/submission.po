@@ -1677,15 +1677,6 @@ msgstr "Recomiende una decisión editorial para este envío."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Recomendaciones registradas"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Siguiente: seleccione archivos para {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Seleccione los archivos que desea mover a la fase {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Previo: notificación del autor/a"
-
 msgid "notification.type.editorAssign"
 msgstr "Ha sido asignado como editor del envío \"{$title}\"."
 

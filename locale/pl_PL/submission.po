@@ -1545,15 +1545,6 @@ msgstr "Zarekomenduj decyzję redaktorską dla tekstu."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Zapisane rekomendacje"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Wybierz pliki do przesłania do etapu: {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Wybierz pliki do przesłania do etapu {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Wcześniej: Powiadomienia autora"
-
 msgid "grid.reviewAttachments.send.title"
 msgstr "Wybierz, które pliki recenzji udostępnić autorowi lub autorom"
 

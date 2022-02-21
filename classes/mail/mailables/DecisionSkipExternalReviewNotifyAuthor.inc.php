@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @file classes/mail/mailables/DecisionSkipReviewNotifyAuthor.inc.php
+ * @file classes/mail/mailables/DecisionSkipExternalReviewNotifyAuthor.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DecisionSkipReviewNotifyAuthor
+ * @class DecisionSkipExternalReviewNotifyAuthor
  *
- * @brief Email sent to the author(s) when a SUBMISSION_EDITOR_DECISION_SKIP_REVIEW
+ * @brief Email sent to the author(s) when a Decision::SKIP_EXTERNAL_REVIEW
  *  decision is made.
  */
 
@@ -22,7 +22,7 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 
-class DecisionSkipReviewNotifyAuthor extends Mailable
+class DecisionSkipExternalReviewNotifyAuthor extends Mailable
 {
     use Recipient;
     use Sender;

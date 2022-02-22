@@ -1,9 +1,9 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 # Barbara Bornewasser <bornewasser@mikado-ac.info>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-21 10:07+0000\n"
+"PO-Revision-Date: 2022-02-23 09:26+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/emails/de_DE/"
 ">\n"
@@ -296,3 +296,24 @@ msgstr ""
 
 msgid "emails.notification.subject"
 msgstr "Neue Benachrichtigung von {$siteTitle}"
+
+msgid "emails.userValidateSite.description"
+msgstr ""
+"Diese E-Mail wird an einen neu registrierten benutzer gesendet, um sein E"
+"-Mail-Konto zu bestätigen."
+
+msgid "emails.userValidateSite.body"
+msgstr ""
+"{$recipientName}<br />\n"
+"<br />\n"
+"Sie haben einen Account bei {$siteTitle} kreiert. Bevor Sie ihn verwenden "
+"können, müssen Sie Ihre E-Mail Adresse bestätigen. Bitte folgen Sie dafür "
+"dem unten angegebenen Link:<br />\n"
+"<br />\n"
+"{$activateUrl}<br />\n"
+"<br />\n"
+"Vielen Dank,<br />\n"
+"{$signature}"
+
+msgid "emails.userValidateSite.subject"
+msgstr "Bestätigen Sie Ihren Account"

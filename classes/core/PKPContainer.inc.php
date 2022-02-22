@@ -86,6 +86,7 @@ class PKPContainer extends Container
                 }
             };
         });
+
         $this->singleton(
             KernelContract::class,
             Kernel::class
@@ -126,6 +127,7 @@ class PKPContainer extends Container
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
+        $this->register(new RoutingServiceProvider($this));
     }
 
     /**
@@ -163,6 +165,13 @@ class PKPContainer extends Container
             'queue.connection' => [\Illuminate\Contracts\Queue\Queue::class],
             'queue.failer' => [\Illuminate\Queue\Failed\FailedJobProviderInterface::class],
             'log' => [\Illuminate\Log\LogManager::class, \Psr\Log\LoggerInterface::class],
+            'request' => [\Illuminate\Http\Request::class, \Symfony\Component\HttpFoundation\Request::class],
+            'router' => [\Illuminate\Routing\Router::class, \Illuminate\Contracts\Routing\Registrar::class, \Illuminate\Contracts\Routing\BindingRegistrar::class],
+            'url' => [\Illuminate\Routing\UrlGenerator::class, \Illuminate\Contracts\Routing\UrlGenerator::class],
+            'validator' => [\Illuminate\Validation\Factory::class, \Illuminate\Contracts\Validation\Factory::class],
+            'Request' => [\Illuminate\Support\Facades\Request::class],
+            'Response' => [\Illuminate\Support\Facades\Response::class],
+            'Route' => [\Illuminate\Support\Facades\Route::class],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);
@@ -263,7 +272,7 @@ class PKPContainer extends Container
      */
     public function basePath($path = '')
     {
-        return $this->basePath . ($path ? "/$path" : $path);
+        return $this->basePath . ($path ? "/${path}" : $path);
     }
 
     /**

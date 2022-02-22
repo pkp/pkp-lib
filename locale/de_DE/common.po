@@ -1,10 +1,10 @@
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2021-10-21 09:06+0000\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de_DE/>\n"
@@ -2067,3 +2067,12 @@ msgstr "Dies ist keine gültige Option."
 
 msgid "common.insert"
 msgstr "Einfügen"
+
+msgid "list.collapseAll"
+msgstr "Alle einklappen"
+
+msgid "list.expandAll"
+msgstr "Alle ausklappen"
+
+msgid "timeZone"
+msgstr "Zeitzone"

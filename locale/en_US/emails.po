@@ -181,7 +181,7 @@ msgstr "Editor Recommendation"
 
 msgid "emails.editorRecommendation.body"
 msgstr ""
-"<p>Dear {$editors},</p>"
+"<p>Dear {$recipientName},</p>"
 "<p>After considering the reviewers' feedback, I would like to make the following recommendation regarding the submission "
 "{$submissionTitle}.</p>"
 "<p>My recommendation is:<br />"

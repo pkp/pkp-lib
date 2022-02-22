@@ -27,6 +27,8 @@ use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
+use Monolog\Handler\NullHandler;
+use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\Domains\Jobs\Providers\JobServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
@@ -86,6 +88,7 @@ class PKPContainer extends Container
                 }
             };
         });
+
         $this->singleton(
             KernelContract::class,
             Kernel::class
@@ -101,6 +104,8 @@ class PKPContainer extends Container
                 );
             }
         );
+
+        $this->useStoragePath(CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . 'storage');
 
         Facade::setFacadeApplication($this);
     }
@@ -214,12 +219,6 @@ class PKPContainer extends Container
             'table' => 'failed_jobs',
         ];
 
-        // Logging
-        $items['logging']['channels']['errorlog'] = [
-            'driver' => 'errorlog',
-            'level' => 'debug',
-        ];
-
         // Mail Service
         $items['mail']['mailers']['sendmail'] = [
             'transport' => 'sendmail',
@@ -253,6 +252,49 @@ class PKPContainer extends Container
             ]
         ];
 
+        $items['logging'] = [
+            'default' => 'stack',
+            'channels' => [
+                'stack' => [
+                    'driver' => 'stack',
+                    'channels' => ['single'],
+                    'ignore_exceptions' => false,
+                ],
+
+                'single' => [
+                    'driver' => 'single',
+                    'path' => storage_path('logs/laravel.log'),
+                    'level' => 'debug',
+                ],
+
+                'daily' => [
+                    'driver' => 'daily',
+                    'path' => storage_path('logs/laravel.log'),
+                    'level' => 'debug',
+                    'days' => 14,
+                ],
+
+                'syslog' => [
+                    'driver' => 'syslog',
+                    'level' => 'debug',
+                ],
+
+                'errorlog' => [
+                    'driver' => 'errorlog',
+                    'level' => 'debug',
+                ],
+
+                'null' => [
+                    'driver' => 'monolog',
+                    'handler' => NullHandler::class,
+                ],
+
+                'emergency' => [
+                    'path' => storage_path('logs/laravel.log'),
+                ],
+            ],
+        ];
+
         // Create instance and bind to use globally
         $this->instance('config', new Repository($items));
     }
@@ -263,7 +305,7 @@ class PKPContainer extends Container
      */
     public function basePath($path = '')
     {
-        return $this->basePath . ($path ? "/$path" : $path);
+        return $this->basePath . ($path ? "/${path}" : $path);
     }
 
     /**
@@ -332,6 +374,34 @@ class PKPContainer extends Container
         $context = stream_context_create($opts);
         stream_context_set_default($opts);
         libxml_set_streams_context($context);
+    }
+
+    /**
+     * Get the path to the storage directory.
+     *
+     * @param string $path
+     *
+     */
+    public function storagePath($path = ''): string
+    {
+        return ($this->storagePath ?: CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . 'storage')
+                . ($path != '' ? DIRECTORY_SEPARATOR . $path : '');
+    }
+
+    /**
+     * Set the storage directory.
+     *
+     * @param string $path
+     *
+     * @return $this
+     */
+    public function useStoragePath($path): self
+    {
+        $this->storagePath = $path;
+
+        $this->instance('path.storage', $path);
+
+        return $this;
     }
 }
 

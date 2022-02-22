@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"PO-Revision-Date: 2022-02-22 11:05+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -1329,3 +1329,225 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr ""
 "Խնդրում ենք ընտրել ամիս և/կամ օր՝ ի հավելումն գործողության ժամկետի ավարտի "
 "տարվա:"
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} -ը սահմանվում է որպես հիմնական տեղային:"
+
+msgid "notification.localeDisabled"
+msgstr "Տեղայինը անջատված է։"
+
+msgid "notification.localeEnabled"
+msgstr "Տեղայինը միացված է։"
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml -ը չի գտնվել պլագին գրացուցակում"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml -ը պլագին գրացուցակում պարունակում է անվավեր տվյալներ:"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Ընտրեք պլագին նիշքը"
+
+msgid "manager.plugins.uploadError"
+msgstr "Նիշքը վերբեռնելիս սխալ առաջացավ"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Հաջողությամբ թարմացվեց {$versionString} տարբերակի"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Չհաջողվեց թարմացնել: {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Այս ձևը թույլ է տալիս թարմացնել հավելվածը: Համոզվեք, որ պլագինը սեղմված է "
+"որպես .tar.gz նիշք:"
+
+msgid "manager.plugins.upgrade"
+msgstr "Թարմացնել պլագինը"
+
+msgid "manager.plugins.settings"
+msgstr "Կարգաբերումներ"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Փլագինը արդեն գոյություն ունի, բայց ավելի նոր է, քան տեղադրված տարբերակը: "
+"Փոխարենը խնդրում ենք թարմացնել"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Պլագին գոյություն չունի: Փոխարենը խնդրում ենք տեղադրել"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Վերբեռնված փլագինի version.xml -ը պարունակում է պլագինի անուն, որը չի "
+"համապատասխանում արդիականացված փլագինի անվանը:"
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Վերբեռնված փլագինը չի համապատասխանում արդիականացված հավելվածի դասին:"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Վերբեռնված փլագինների արխիվը չի պարունակում թղթապանակ, որը համապատասխանում է "
+"հավելվածի անվանմանը:"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "{$versionNumber} տարբերակը հաջողությամբ տեղադրվեց"
+
+msgid "manager.plugins.installFailed"
+msgstr "Տեղադրումը ձախողվեց: {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Հասանելի չէ"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Արդիական է"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Կարող է արդիականացվել"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Ավելի նոր, քան հասանելի տարբերակը"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Փլագինը արդեն տեղադրված է և արդիական է:"
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Փլագինը արդեն տեղադրված է, բայց կարող է թարմացվել ավելի նոր տարբերակով:"
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Փլագինը արդեն տեղադրված է և ավելի նոր է, քան պատկերասրահում առկա տարբերակը:"
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Ներկայումս այս հավելվածի համատեղելի տարբերակը չկա:"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Փլագինը դեռ տեղադրված չէ:"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Վիճակ"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Ամփոփում"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Տնային էջ"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} թողարկվել է {$date} -ին"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Պահպանող"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Այս փլագինը տրամադրված է զարգացման մեր գործընկերներից մեկի կողմից:"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Գործընկեր"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Այս փլագինը վերանայվել և հաստատվել է Public Knowledge Project թիմի կողմից:"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Գրախոսված"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Այս փլագինը մշակվել և պահպանվում է ՀPublic Knowledge Project թիմի կողմից:"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Պաշտոնական"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Համատեղելի վերջին թողարկումը"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Տեղադրում"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Ակնարկ"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Պլագինների պատկերասրահ"
+
+msgid "manager.plugins.installed"
+msgstr "Տեղադրված պլագիններ"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Համոզվեք, որ նիշք է ընտրվել վերբեռնման համար:"
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Այս ձևը թույլ է տալիս վերբեռնել և տեղադրել նոր փլագին: Համոզվեք, որ փլագինը "
+"սեղմված է որպես .tar.gz նիշք:"
+
+msgid "manager.plugins.upload"
+msgstr "Վերբեռնեք նոր պլագին"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Խնդրում ենք նախ ընտրել նիշք"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "\"{$pluginName}\" փլագինը գոյություն չունի"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Այս էջը կառավարչին թույլ է տալիս վերանայել և ըստ հնարավորինլ կարգավորել "
+"ներկայումս տեղադրված պլագինները: Պլագինները բաժանվում են դասերի՝ ըստ իրենց "
+"գործառույթի։ Դասերը թվարկված են ստորև, և յուրաքանչյուր դասի մեջ՝ դրա ընթացիկ "
+"պլագինների շարքը:"
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "\"{$pluginName}\" հավելվածը հաջողությամբ ջնջվեց"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"\"{$pluginName}\" փլագինը չհաջողվեց ջնջել նիշքային համակարգից: Սա կարող է "
+"լինել թույլտվությունների խնդիր: Խնդրում ենք համոզվել, որ վեբ սերվերը ի "
+"վիճակի է գրել plugins գրացուցակում (ներառյալ ենթագրացուցակները), բայց մի "
+"մոռացեք այն ավելի ուշ անվտանգ դարձնել:"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Սեղմելով Ջնջել՝ դուք կջնջեք հավելվածը սերվերի նիշքային համակարգից։"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Իսկապե՞ս ցանկանում եք ջնջել այս փլագինը համակարգից:"
+
+msgid "grid.action.installPlugin"
+msgstr "Տեղադրեք կամ արդիականացրեք այս պլագինը"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Վստա՞հ եք, որ ցանկանում եք թարմացնել այս պլագինը:"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Վստա՞հ եք, որ ցանկանում եք տեղադրել այս պլագինը:"
+
+msgid "manager.plugins.delete"
+msgstr "Ջնջեք պլագինը"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Պլագինը հաջողությամբ չի պատճենվել: Սա կարող է լինել թույլտվությունների խնդիր:"
+" Խնդրում ենք համոզվել, որ վեբ սերվերը ի վիճակի է գրել պլագինների "
+"գրացուցակում (ներառյալ ենթագրացուցակներում), բայց մի մոռացեք այն ավելի ուշ "
+"կրկին անվտանգ դարձնել:"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Այս պլագիններն ապահովում են հանրային նույնացուցիչի աջակցությունը:"
+
+msgid "plugins.categories.pubIds"
+msgstr "Հանրային նույնացուցիչի պլագիններ"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr ""
+"Այս ձևաչափի պլագիններն արտահայտում են մետատվյալները OAI "
+"հաղորդակցություններում:"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI մետատվյալների ձևաչափի պլագիններ"
+
+msgid "plugins.categories.themes"
+msgstr "Թեմայի պլագիններ"
+
+msgid "plugins.categories.themes.description"
+msgstr "Թեմայի պլագինները կարող են օգտագործվել համակարգի տեսքը փոխելու համար:"

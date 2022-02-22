@@ -73,7 +73,7 @@ class RecipientEmailVariable extends Variable
             $names[] = $recipient->getFullName(true, false, $locale);
         }
 
-        return join(__('common.listSeparator'), $names);
+        return join(__('common.commaListSeparator'), $names);
     }
 
     /**
@@ -85,6 +85,6 @@ class RecipientEmailVariable extends Variable
         foreach ($this->recipients as $recipient) {
             $userNames[] = $recipient->getData('userName');
         }
-        return join(__('common.listSeparator'), $userNames);
+        return join(__('common.commaListSeparator'), $userNames);
     }
 }

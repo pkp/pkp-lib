@@ -385,6 +385,13 @@ abstract class Repository
     abstract public function getDecisionTypes(): Collection;
 
     /**
+     * Get a list of the decline decision types
+     *
+     * @return DecisionType[]
+     */
+    abstract public function getDeclineDecisionTypes(): array;
+
+    /**
      * Is the given decision a recommendation?
      */
     public function isRecommendation(int $decision): bool

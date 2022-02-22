@@ -13,6 +13,7 @@
  * @brief Handle requests for the submssion workflow.
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\i18n\AppLocale;
@@ -270,8 +271,6 @@ abstract class PKPWorkflowHandler extends Handler
         $publicationLicenseForm = new PKP\components\forms\publication\PKPPublicationLicenseForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $authorUserGroups);
         $titleAbstractForm = new PKP\components\forms\publication\PKPTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication);
         $contributorForm = new PKP\components\forms\publication\PKPContributorForm($contributorApiUrl, $locales, $submissionContext);
-        $selectRevisionDecisionForm = new PKP\components\forms\decision\SelectRevisionDecisionForm();
-        $selectRevisionRecommendationForm = new PKP\components\forms\decision\SelectRevisionRecommendationForm();
 
         $authorItems = [];
         foreach ($latestPublication->getData('authors') as $contributor) {
@@ -303,8 +302,6 @@ abstract class PKPWorkflowHandler extends Handler
             'FORM_PUBLICATION_LICENSE' => FORM_PUBLICATION_LICENSE,
             'FORM_PUBLISH' => FORM_PUBLISH,
             'FORM_TITLE_ABSTRACT' => FORM_TITLE_ABSTRACT,
-            'FORM_SELECT_REVISION_DECISION' => FORM_SELECT_REVISION_DECISION,
-            'FORM_SELECT_REVISION_RECOMMENDATION' => FORM_SELECT_REVISION_RECOMMENDATION,
         ]);
 
         // Get the submission props without the full publication details. We'll
@@ -339,8 +336,6 @@ abstract class PKPWorkflowHandler extends Handler
                 $citationsForm->id => $citationsForm->getConfig(),
                 $publicationLicenseForm->id => $publicationLicenseForm->getConfig(),
                 $titleAbstractForm->id => $titleAbstractForm->getConfig(),
-                $selectRevisionDecisionForm->id => $selectRevisionDecisionForm->getConfig(),
-                $selectRevisionRecommendationForm->id => $selectRevisionRecommendationForm->getConfig(),
             ],
             'currentPublication' => $currentPublicationProps,
             'decisionUrl' => $decisionUrl,
@@ -409,6 +404,18 @@ abstract class PKPWorkflowHandler extends Handler
             ]);
             $state['components'][FORM_PUBLICATION_IDENTIFIERS] = $identifiersForm->getConfig();
             $state['publicationFormIds'][] = FORM_PUBLICATION_IDENTIFIERS;
+        }
+
+        // Add the revision decision/recommendation forms if this app supports a review stage
+        if (count(array_intersect([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW], Application::getApplicationStages()))) {
+            $selectRevisionDecisionForm = new PKP\components\forms\decision\SelectRevisionDecisionForm();
+            $selectRevisionRecommendationForm = new PKP\components\forms\decision\SelectRevisionRecommendationForm();
+            $stage['components'][$selectRevisionDecisionForm->id] = $selectRevisionDecisionForm->getConfig();
+            $stage['components'][$selectRevisionRecommendationForm->id] = $selectRevisionRecommendationForm->getConfig();
+            $templateMgr->setConstants([
+                'FORM_SELECT_REVISION_DECISION' => FORM_SELECT_REVISION_DECISION,
+                'FORM_SELECT_REVISION_RECOMMENDATION' => FORM_SELECT_REVISION_RECOMMENDATION,
+            ]);
         }
 
         $templateMgr->setLocaleKeys([

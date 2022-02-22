@@ -1,9 +1,10 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2020-11-27 10:51+0000\n"
+"PO-Revision-Date: 2022-02-23 13:26+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/tr_TR/>\n"
@@ -45,7 +46,11 @@ msgid "installer.contentsOfConfigFile"
 msgstr "Konfigürasyon dosyasının içeriği"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong>Parentez içinde belirtilen veri tabanı sürücüleri, gerekli olan PHP uzantısını göstermez ve eğer o seçilirse yükleme muhtemelen başarısız olacaktır. </strong><br />Yukarıda belirtilen desteklenmeyen veri tabanı sürücülerinden her hangi biri yalnızca akademik amaçlar için listelenmiştir ve muhtemelen işlemeyecektir."
+msgstr ""
+"<strong>Sistem şu anda MySQL ve PostgreSQL'i desteklemektedir, aşağıdaki "
+"seçeneklerden birini seçememeniz durumunda, sunucunuzun gerekli PHP "
+"uzantılarına sahip olduğundan emin olmak için sistem yöneticinizle iletişime "
+"geçin.</strong>"
 
 msgid "installer.databaseDriver"
 msgstr "Veri tabanı sürücüsü"
@@ -198,3 +203,15 @@ msgstr "Yükseltme desteklenmiyor. Ayrıntılar için docs/UPGRADE-UNSUPPORTED d
 #, fuzzy
 msgid "installer.installMigrationError"
 msgstr "<tt>{$class}</tt>'ı taşıma sınıf hatası."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Bu sistemde desteklenecek diğer dilleri seçin. Yönetim arayüzünden herhangi "
+"bir zamanda ek diller de yüklenebilir.<br>* = Tam olarak çevrilmemiş dilleri "
+"belirtir (terimlerin > %90'ı çevrilmiştir)"
+
+msgid "installer.timezoneInstructions"
+msgstr "Bu sistem için kullanılacak saat dilimi."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Bir saat dilimi seçilmelidir."

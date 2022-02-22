@@ -693,6 +693,7 @@ class PKPStatsHandler extends Handler {
 			case 'daysToDecision': return __('stats.description.daysToDecision');
 			case 'acceptanceRate': return __('stats.description.acceptRejectRate');
 			case 'declineRate': return __('stats.description.acceptRejectRate');
+			case 'submissionsSkipped': return __('stats.description.submissionsSkipped');
 		}
 		return '';
 	}

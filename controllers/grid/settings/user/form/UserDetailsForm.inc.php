@@ -14,6 +14,7 @@
  */
 
 import('lib.pkp.controllers.grid.settings.user.form.UserForm');
+import('lib.pkp.classes.session.SessionManager');
 
 class UserDetailsForm extends UserForm {
 
@@ -300,6 +301,14 @@ class UserDetailsForm extends UserForm {
 				} else {
 					$this->user->setPassword(Validation::encryptCredentials($this->user->getUsername(), $this->getData('password')));
 				}
+
+				$sessionManager = SessionManager::getManager();
+                $sessionManager->invalidateSessions(
+                    $this->user->getId(),
+                    (int) $this->user->getId() === (int) $request->getUser()->getId()
+                        ? $sessionManager->getUserSession()->getId()
+                        : null
+                );
 			}
 
 			if (isset($auth)) {

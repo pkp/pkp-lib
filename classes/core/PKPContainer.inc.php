@@ -252,8 +252,10 @@ class PKPContainer extends Container
             ]
         ];
 
+        $defaultLoggingChannel = Config::getVar('logs', 'log_channel', 'stack');
+        $loggingLevel = Config::getVar('logs', 'log_level', 'error');
         $items['logging'] = [
-            'default' => 'stack',
+            'default' => $defaultLoggingChannel,
             'channels' => [
                 'stack' => [
                     'driver' => 'stack',
@@ -264,24 +266,24 @@ class PKPContainer extends Container
                 'single' => [
                     'driver' => 'single',
                     'path' => storage_path('logs/laravel.log'),
-                    'level' => 'debug',
+                    'level' => $loggingLevel,
                 ],
 
                 'daily' => [
                     'driver' => 'daily',
                     'path' => storage_path('logs/laravel.log'),
-                    'level' => 'debug',
+                    'level' => $loggingLevel,
                     'days' => 14,
                 ],
 
                 'syslog' => [
                     'driver' => 'syslog',
-                    'level' => 'debug',
+                    'level' => $loggingLevel,
                 ],
 
                 'errorlog' => [
                     'driver' => 'errorlog',
-                    'level' => 'debug',
+                    'level' => $loggingLevel,
                 ],
 
                 'null' => [

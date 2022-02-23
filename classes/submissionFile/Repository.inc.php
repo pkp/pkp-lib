@@ -38,7 +38,7 @@ use PKP\services\PKPSchemaService;
 use PKP\submissionFile\maps\Schema;
 use PKP\validation\ValidatorFactory;
 
-class Repository
+abstract class Repository
 {
     public DAO $dao;
     public string $schemaMap = Schema::class;
@@ -626,28 +626,11 @@ class Repository
 
     /**
      * Get all valid file stages
+     *
+     * Valid file stages should be passed through
+     * the hook SubmissionFile::fileStages.
      */
-    public function getFileStages(): array
-    {
-        $stages = [
-            SubmissionFile::SUBMISSION_FILE_SUBMISSION,
-            SubmissionFile::SUBMISSION_FILE_NOTE,
-            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
-            SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
-            SubmissionFile::SUBMISSION_FILE_FINAL,
-            SubmissionFile::SUBMISSION_FILE_COPYEDIT,
-            SubmissionFile::SUBMISSION_FILE_PROOF,
-            SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
-            SubmissionFile::SUBMISSION_FILE_ATTACHMENT,
-            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
-            SubmissionFile::SUBMISSION_FILE_DEPENDENT,
-            SubmissionFile::SUBMISSION_FILE_QUERY,
-        ];
-
-        HookRegistry::call('SubmissionFile::fileStages', [&$stages]);
-
-        return $stages;
-    }
+    abstract public function getFileStages(): array;
 
     /**
      * Get the path to a submission's file directory

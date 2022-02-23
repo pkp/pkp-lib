@@ -307,7 +307,15 @@ Cypress.Commands.add('recordDecisionSendToReview', (decisionLabel, authorNames, 
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
 	cy.get('.decision__footer button').contains('Next').click();
 	cy.selectPromotedFiles(filesToPromote);
-	cy.recordDecision('has been sent to the review stage');
+	// Check for the correct confirmation message for different
+	// decisions in OJS and OMP.
+	if (decisionLabel === 'Send to External Review') {
+		cy.recordDecision('has been sent to the external review stage');
+	} else if (decisionLabel === 'Send to Internal Review') {
+		cy.recordDecision('has been sent to the internal review stage');
+	} else {
+		cy.recordDecision('has been sent to the review stage');
+	}
 });
 
 /**
@@ -371,6 +379,15 @@ Cypress.Commands.add('recordDecisionDecline', (authorNames) => {
 	cy.checkComposerRecipients('#notifyAuthors .composer__recipients', authorNames);
 	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
 	cy.recordDecision('has been declined and sent to the archives');
+});
+
+Cypress.Commands.add('recordDecisionRevertDecline', (authorNames) => {
+	cy.get('h1').contains('Revert Decline').should('exist');
+	cy.get('h2').contains('Notify Authors').should('exist');
+	cy.waitForEmailTemplateToBeLoaded('#notifyAuthors');
+	cy.checkComposerRecipients('#notifyAuthors .composer__recipients', authorNames);
+	cy.checkEmailTemplateVariables('#notifyAuthors-body-control');
+	cy.recordDecision('now active in the submission stage');
 });
 
 /**

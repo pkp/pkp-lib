@@ -32,5 +32,5 @@ msgstr "The author does not fill the following posting requirements:"
 msgid "editor.submissions.assignedTo"
 msgstr "Assigned to Moderator"
 
-msgid "editor.submission.postPreprint"
+msgid "editor.submission.schedulePublication"
 msgstr "Post the preprint"

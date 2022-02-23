@@ -145,27 +145,6 @@ msgstr ""
 msgid "emails.postedAck.description"
 msgstr "This email, when enabled, is automatically sent to an author when the preprint is posted online on the server."
 
-msgid "emails.submissionAck.subject"
-msgstr "Submission Acknowledgement"
-
-msgid "emails.submissionAck.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Thank you for submitting the manuscript, &quot;{$submissionTitle}&quot; to {$contextName}. You can manage your submission by logging in to the server web site.<br />\n"
-"<br />\n"
-"{$canAuthorPublish}<br />\n"
-"<br />\n"
-"Submission URL: {$submissionUrl}<br />\n"
-"Username: {$recipientUsername}<br />\n"
-"<br />\n"
-"If you have any questions, please contact me. Thank you for considering this server as a venue for your work.<br />\n"
-"<br />\n"
-"{$signature}"
-
-msgid "emails.submissionAck.description"
-msgstr "This email, when enabled, is automatically sent to an author when he or she completes the process of submitting a manuscript to the server."
-
 msgid "emails.submissionAckNotUser.subject"
 msgstr "Submission Acknowledgement"
 
@@ -213,18 +192,6 @@ msgstr ""
 msgid "emails.editorDecisionAccept.description"
 msgstr "This email from the Manager or Moderator to an Author notifies them of a final \"accept submission\" decision regarding their submission."
 
-msgid "emails.editorRecommendation.subject"
-msgstr "Moderator Recommendation"
-
-msgid "emails.editorRecommendation.body"
-msgstr ""
-"{$editors}:<br />\n"
-"<br />\n"
-"The recommendation regarding the submission to {$contextName}, &quot;{$submissionTitle}&quot; is: {$recommendation}"
-
-msgid "emails.editorRecommendation.description"
-msgstr "This email from the recommending Manager or Moderator to the decision making Managers or  Moderators notifies them of a final recommendation regarding the submission."
-
 msgid "emails.revisedVersionNotify.subject"
 msgstr "Revised Version Uploaded"
 
@@ -249,21 +216,6 @@ msgstr "Please enter your message."
 
 msgid "emails.notificationCenterDefault.description"
 msgstr "The default (blank) message used in the Notification Center Message Listbuilder."
-
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "Moderator Decision"
-
-msgid "emails.editorDecisionInitialDecline.body"
-msgstr ""
-"\n"
-"\t\t\t{$authors}:<br />\n"
-"<br />\n"
-"We have reached a decision regarding your submission to {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
-"<br />\n"
-"Our decision is to: Decline Submission"
-
-msgid "emails.editorDecisionInitialDecline.description"
-msgstr "This email is sent to the author if the moderator declines his submission initially."
 
 msgid "emails.statisticsReportNotification.subject"
 msgstr "Preprint Server activity for {$month}, {$year}"

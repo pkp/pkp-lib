@@ -14,24 +14,44 @@
 namespace APP\submissionFile;
 
 use APP\core\Application;
-use APP\core\Request;
+use APP\preprint\PreprintGalleyDAO;
+use Exception;
 use PKP\db\DAORegistry;
 use PKP\observers\events\SubmissionFileDeleted;
+use PKP\plugins\HookRegistry;
 use PKP\security\Role;
-use PKP\services\PKPSchemaService;
 use PKP\submissionFile\Repository as BaseRepository;
 use PKP\submissionFile\SubmissionFile;
 
 class Repository extends BaseRepository
 {
-    /** @var DAO $dao */
-    public $dao;
-
     /** @copydoc DAO::delete() */
     public function delete(SubmissionFile $submissionFile): void
     {
         $this->deleteRelatedSubmissionFileObjects($submissionFile);
         parent::delete($submissionFile);
+    }
+
+    public function add(SubmissionFile $submissionFile): int
+    {
+        $galley = null;
+
+        if ($submissionFile->getData('assocType') === Application::ASSOC_TYPE_REPRESENTATION) {
+            $galleyDao = DAORegistry::getDAO('PreprintGalleyDAO'); /** @var PreprintGalleyDAO $galleyDao */
+            $galley = $galleyDao->getById($submissionFile->getData('assocId'));
+            if (!$galley) {
+                throw new Exception('Galley not found when adding submission file.');
+            }
+        }
+
+        $submissionFileId = parent::add($submissionFile);
+
+        if ($galley) {
+            $galley->setFileId($submissionFile->getId());
+            $galleyDao->updateObject($galley);
+        }
+
+        return $submissionFileId;
     }
 
     /**
@@ -71,5 +91,21 @@ class Repository extends BaseRepository
         }
 
         return $allowedFileStages;
+    }
+
+    public function getFileStages(): array
+    {
+        $stages = [
+            SubmissionFile::SUBMISSION_FILE_SUBMISSION,
+            SubmissionFile::SUBMISSION_FILE_NOTE,
+            SubmissionFile::SUBMISSION_FILE_PROOF,
+            SubmissionFile::SUBMISSION_FILE_ATTACHMENT,
+            SubmissionFile::SUBMISSION_FILE_DEPENDENT,
+            SubmissionFile::SUBMISSION_FILE_QUERY,
+        ];
+
+        HookRegistry::call('SubmissionFile::fileStages', [&$stages]);
+
+        return $stages;
     }
 }

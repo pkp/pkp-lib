@@ -11,7 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "editor.submission.postPreprint"
+msgid "editor.submission.schedulePublication"
 msgstr "Објавете го препечатениот отпис"
 
 msgid "editor.submissions.assignedTo"

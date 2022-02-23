@@ -39,7 +39,7 @@ describe('Data suite tests', function() {
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Ostrom');
-		cy.get('ul.pkp_workflow_decisions button:contains("Post the preprint")').click();
+		cy.get('.pkp_workflow_decisions button:contains("Post the preprint")').click();
 		cy.get('div.pkpPublication button:contains("Post"):visible').click();
 		cy.get('div:contains("All requirements have been met. Are you sure you want to post this?")');
 		cy.get('[id^="publish"] button:contains("Post")').click();

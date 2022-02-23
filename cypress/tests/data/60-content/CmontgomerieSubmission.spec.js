@@ -43,7 +43,7 @@ describe('Data suite tests', function() {
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Montgomerie');
-		cy.get('ul.pkp_workflow_decisions button:contains("Post the preprint")').click();
+		cy.get('.pkp_workflow_decisions button:contains("Post the preprint")').click();
 		cy.get('div.pkpPublication button:contains("Post"):visible').click();
 		cy.get('div:contains("All requirements have been met. Are you sure you want to post this?")');
 		cy.get('[id^="publish"] button:contains("Post")').click();
@@ -54,7 +54,7 @@ describe('Data suite tests', function() {
 		cy.get('#publication-button').click();
 		cy.get('div.pkpPublication button:contains("Unpost"):visible').click();
 		cy.get('div:contains("Are you sure you don\'t want this to be posted?")');
-		cy.get('.modal button').contains('Unpost').click();
+		cy.get('.modal__footer button').contains('Unpost').click();
 
 		// Edit metadata in 1st version
 		cy.get('#metadata-button').click();
@@ -74,7 +74,7 @@ describe('Data suite tests', function() {
 		// Create 2nd version and change copyright holder
 		cy.get('div.pkpPublication button:contains("Create New Version"):visible').click();
 		cy.get('div:contains("Are you sure you want to create a new version?")');
-		cy.get('.modal button').contains('Yes').click();
+		cy.get('.modal__footer button').contains('Yes').click();
 		cy.get('#license-button').click();
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en_US"').clear()
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en_US"').type('Craig Montgomerie', {delay: 0});

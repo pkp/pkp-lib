@@ -26,7 +26,6 @@ msgstr "Upload XML file to import"
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Select preprints to export"
 
-#, fuzzy
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Export Preprints"
 
@@ -39,7 +38,6 @@ msgstr "Please upload a file under \"Import\" in order to continue."
 msgid "plugins.importexport.native.importComplete"
 msgstr "The import completed successfully. The following items were imported:"
 
-#, fuzzy
 msgid "plugins.importexport.native.cliUsage"
 msgstr ""
 "Usage: {$scriptName} {$pluginName} [command] ...\n"

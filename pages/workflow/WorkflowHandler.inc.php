@@ -13,13 +13,16 @@
  * @brief Handle requests for the submssion workflow.
  */
 
+use APP\core\Application;
 use APP\core\Services;
+use APP\decision\types\Decline;
+use APP\decision\types\RevertDecline;
 use APP\file\PublicFileManager;
-
+use APP\notification\Notification;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
-use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
+use PKP\plugins\HookRegistry;
 use PKP\security\Role;
 
 import('lib.pkp.pages.workflow.PKPWorkflowHandler');
@@ -57,7 +60,7 @@ class WorkflowHandler extends PKPWorkflowHandler
         parent::setupIndex($request);
 
         $templateMgr = TemplateManager::getManager($request);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $submissionContext = $request->getContext();
         if ($submission->getContextId() !== $submissionContext->getId()) {
@@ -69,9 +72,9 @@ class WorkflowHandler extends PKPWorkflowHandler
 
         $latestPublication = $submission->getLatestPublication();
 
-        $latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
-        $temporaryFileApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'temporaryFiles');
-        $relatePublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId()) . '/relate';
+        $latestPublicationApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
+        $temporaryFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $submissionContext->getPath(), 'temporaryFiles');
+        $relatePublicationApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId()) . '/relate';
 
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($submissionContext->getId());
@@ -132,15 +135,12 @@ class WorkflowHandler extends PKPWorkflowHandler
      */
     protected function getEditorAssignmentNotificationTypeByStageId($stageId)
     {
+        if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
+            throw new Exception('Only the production stage is supported in OPS.');
+        }
         switch ($stageId) {
-            case WORKFLOW_STAGE_ID_SUBMISSION:
-                return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION;
-            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW;
-            case WORKFLOW_STAGE_ID_EDITING:
-                return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING;
             case WORKFLOW_STAGE_ID_PRODUCTION:
-                return NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION;
+                return Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION;
         }
         return null;
     }
@@ -152,7 +152,7 @@ class WorkflowHandler extends PKPWorkflowHandler
     {
         return $request->getDispatcher()->url(
             $request,
-            PKPApplication::ROUTE_COMPONENT,
+            Application::ROUTE_COMPONENT,
             null,
             'grid.preprintGalleys.PreprintGalleyGridHandler',
             'fetchGrid',
@@ -162,5 +162,54 @@ class WorkflowHandler extends PKPWorkflowHandler
                 'publicationId' => '__publicationId__',
             ]
         );
+    }
+
+    protected function getStageDecisionTypes(int $stageId): array
+    {
+        if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
+            throw new Exception('Only the production stage is supported in OPS.');
+        }
+
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        $decisionTypes = [];
+        switch ($stageId) {
+            case WORKFLOW_STAGE_ID_PRODUCTION:
+                if ($submission->getData('status') === Submission::STATUS_DECLINED) {
+                    $decisionTypes[] = new RevertDecline();
+                } elseif ($submission->getData('status') === Submission::STATUS_QUEUED) {
+                    $decisionTypes[] = new Decline();
+                }
+                break;
+        }
+
+        HookRegistry::call('Workflow::Decisions', [&$decisionTypes, $stageId]);
+
+        return $decisionTypes;
+    }
+
+    protected function getStageRecommendationTypes(int $stageId): array
+    {
+        if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
+            throw new Exception('Only the production stage is supported in OPS.');
+        }
+
+        $decisionTypes = [];
+
+        HookRegistry::call('Workflow::Recommendations', [$decisionTypes, $stageId]);
+
+        return $decisionTypes;
+    }
+
+    protected function getPrimaryDecisionTypes(): array
+    {
+        return [];
+    }
+
+    protected function getWarnableDecisionTypes(): array
+    {
+        return [
+            Decline::class,
+        ];
     }
 }

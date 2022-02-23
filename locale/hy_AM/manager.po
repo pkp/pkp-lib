@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-22 11:05+0000\n"
+"PO-Revision-Date: 2022-02-23 13:26+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -1551,3 +1551,49 @@ msgstr "Թեմայի պլագիններ"
 
 msgid "plugins.categories.themes.description"
 msgstr "Թեմայի պլագինները կարող են օգտագործվել համակարգի տեսքը փոխելու համար:"
+
+msgid "manager.paymentMethod"
+msgstr "Վճարումներ"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Ավելացրեք հատուկ HTML թեգեր, որոնք նաև հայտնի են որպես մետա թեգեր, որոնք "
+"ցանկանում եք տեղադրել յուրաքանչյուր էջի գլխում: Այստեղ պիտակներ ավելացնելուց "
+"առաջ խորհրդակցեք տեխնիկական խորհրդատուի հետ:"
+
+msgid "manager.distribution.customHeaders"
+msgstr "Անհատական թեգեր"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Մուտքագրեք հանրային արտոնագրման պայմանները, որոնք ցանկանում եք ցուցադրել "
+"հրապարակված աշխատանքի հետ մեկտեղ:"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Արտոնագրի պայմաններ"
+
+msgid "manager.distribution.license.other"
+msgstr "Այլ արտոնագրի URL"
+
+msgid "manager.distribution.license"
+msgstr "Արտոնագիր"
+
+msgid "notification.editedUser"
+msgstr "Օգտվողը խմբագրվել է։"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Լեզվի կարգավորումը չհաջողվեց պահել: Յուրաքանչյուր տարբերակի համար պետք է "
+"միացված լինի առնվազն մեկ լեզու"
+
+msgid "notification.localeSettingsSaved"
+msgstr "Տեղայինի կարգավորումները պահպանված են:"
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} տեղայինը վերաբեռնվել է {$contextName} -ի համար:"
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} տեղայինն ապատեղադրված է:"
+
+msgid "notification.localeInstalled"
+msgstr "Ընտրված բոլոր տեղայինները տեղադրված և ակտիվացված են։"

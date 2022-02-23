@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-23 13:26+0000\n"
+"PO-Revision-Date: 2022-02-24 12:23+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -1597,3 +1597,86 @@ msgstr "{$locale} տեղայինն ապատեղադրված է:"
 
 msgid "notification.localeInstalled"
 msgstr "Ընտրված բոլոր տեղայինները տեղադրված և ակտիվացված են։"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Պայմանագրեր"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Գրադարանային այս նիշքի համար անհրաժեշտ է նիշքի տեսակ:"
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Գրադարանի այս նիշքի համար անհրաժեշտ է անուն:"
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "Պահանջվում է գրադարանի նիշք: Համոզվեք, որ ընտրել և վերբեռնել եք նիշք:"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Թույլատրել ներկայացվածների մետատվյալների խմբագրումը:"
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Դուք պետք է սահմանեք փուլ, որին պետք է նշանակեք:"
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Դուք պետք է սահմանեք դերի թույլտվության մակարդակը:"
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Դուք պետք է սահմանեք դերի եզակի հապավումը:"
+
+msgid "settings.roles.uniqueName"
+msgstr "Դուք պետք է սահմանեք դերի եզակի անուն:"
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Դուք պետք է սահմանեք դերի հապավումը:"
+
+msgid "settings.roles.nameRequired"
+msgstr "Դուք պետք է սահմանեք դերի անուն:"
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Դուք պատրաստվում եք հեռացնել այս դերն այս համատեքստից: Այս գործողությունը "
+"նաև կջնջի հարակից կարգավորումները և օգտատերերի բոլոր հանձնարարությունները "
+"այս դերին: Ցանկանու՞մ եք շարունակել։"
+
+msgid "settings.roles.from"
+msgstr "Թույլտվության մակարդակը"
+
+msgid "settings.roles.roleDetails"
+msgstr "Դերի մանրամասներ"
+
+msgid "settings.roles.stages"
+msgstr "Փուլեր"
+
+msgid "settings.roles.assignedStages"
+msgstr "Նշանակված փուլեր"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Հապավում"
+
+msgid "settings.roles.roleName"
+msgstr "Դերի անվանումը"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Այս դերը թույլատրվում է միայն առաջարկել վերանայման որոշում և կպահանջվի "
+"լիազորված խմբագրի կողմից վերջնական որոշումը գրանցելու համար:"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Թույլատրել օգտվողի ինքնագրանցումը"
+
+msgid "settings.roles.showTitles"
+msgstr "Ցույց տալ դերի անվանումը աջակիցների ցանկում"
+
+msgid "settings.roles.roleOptions"
+msgstr "Դերի ընտրանքներ"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Արտարժույթ"
+
+msgid "manager.paymentMethod.method"
+msgstr "Վճարման մեթոդ"
+
+msgid "manager.paymentMethod.none"
+msgstr "Չկա ընտրված վճարման մեթոդ"
+
+msgid "manager.paymentMethod.title"
+msgstr "Վճարման մեթոդներ"

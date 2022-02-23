@@ -81,19 +81,13 @@ class LocaleBundle
         return strlen($message) ? $this->_format($message, $params) : null;
     }
 
-
     /**
      * Adds a new locale to the bundle
-    */
+     */
     public function addPath(string $path, int $priority = 0): void
     {
-        if (($this->paths[$path] ?? null) === $priority) {
-            return;
-        }
-
-        asort($this->paths);
-        // Clears the cache
-        $this->translator = null;
+        $this->paths[$path] = $priority;
+        $this->setEntries($this->paths);
     }
 
     /**
@@ -107,6 +101,19 @@ class LocaleBundle
     }
 
     /**
+     * Sets the locale paths (keys) that are part of this bundle together with their priorities (values)
+     *
+     * @param int[] $paths
+     */
+    public function setEntries(array $paths): void
+    {
+        $this->paths = $paths;
+        asort($this->paths);
+        // Clears the cache
+        $this->translator = null;
+    }
+
+    /**
      * Lazily build and retrieves the Translator instance
      */
     public function getTranslator(): Translator
@@ -116,7 +123,12 @@ class LocaleBundle
         $loader = function () use ($isSupported): Translator {
             $translator = new Translator();
             // Merge all the locale files into a single structure
-            array_walk($this->paths, fn (int $_, string $path) => $translator->addTranslations(LocaleFile::loadArray($path, $isSupported)));
+            $firstPath = array_key_first($this->paths);
+            foreach (array_keys($this->paths) as $path) {
+                $translations = LocaleFile::loadArray($path, $isSupported);
+                // Once the first locale file is added, ensures only messages are merged
+                $translator->addTranslations($firstPath === $path ? $translations : ['messages' => $translations['messages']]);
+            }
             return $translator;
         };
         $key = __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(array_keys($this->paths), fn(string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');

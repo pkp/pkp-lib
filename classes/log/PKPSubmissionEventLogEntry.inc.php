@@ -31,6 +31,7 @@ class PKPSubmissionEventLogEntry extends EventLogEntry
 
     public const SUBMISSION_LOG_EDITOR_DECISION = 0x30000003;
     public const SUBMISSION_LOG_EDITOR_RECOMMENDATION = 0x30000004;
+    public const SUBMISSION_LOG_DECISION_EMAIL_SENT = 0x40000020;
 
     public const SUBMISSION_LOG_REVIEW_ASSIGN = 0x40000001;
     public const SUBMISSION_LOG_REVIEW_REINSTATED = 0x40000005;
@@ -41,6 +42,7 @@ class PKPSubmissionEventLogEntry extends EventLogEntry
     public const SUBMISSION_LOG_REVIEW_CLEAR = 0x40000014;
     public const SUBMISSION_LOG_REVIEW_READY = 0x40000018;
     public const SUBMISSION_LOG_REVIEW_CONFIRMED = 0x40000019;
+
 
     //
     // Getters/setters

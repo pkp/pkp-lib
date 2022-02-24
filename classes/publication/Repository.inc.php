@@ -34,6 +34,7 @@ use PKP\observers\events\PublishedEvent;
 use PKP\observers\events\UnpublishedEvent;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
+use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\validation\ValidatorFactory;
 
@@ -107,14 +108,18 @@ abstract class Repository
     /**
      * Get an instance of the map class for mapping
      * publications to their schema
+     *
+     * @param UserGroup[] $userGroups
+     * @param Genre[] $genres
      */
-    public function getSchemaMap(Submission $submission, array $userGroups): maps\Schema
+    public function getSchemaMap(Submission $submission, array $userGroups, array $genres): maps\Schema
     {
         return app('maps')->withExtensions(
             $this->schemaMap,
             [
                 'submission' => $submission,
                 'userGroups' => $userGroups,
+                'genres' => $genres,
             ]
         );
     }
@@ -220,7 +225,7 @@ abstract class Repository
         );
 
         if ($validator->fails()) {
-            $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get($this->dao->schema), $allowedLocales);
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
         HookRegistry::call('Publication::validate', [&$errors, $publication, $props, $allowedLocales, $primaryLocale]);

@@ -1,0 +1,208 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
+"PO-Revision-Date: 2021-04-26 09:26+0000\n"
+"Last-Translator: Tom Granroth <tom.granroth@tsv.fi>\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ojs/emails/"
+"fi_FI/>\n"
+"Language: fi_FI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Käsikirjoituksesi on vastaanotettu"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"Hyvä {$recipientName},<br />\n"
+"<br />\n"
+"Kiitos käsikirjoituksen &quot;{$submissionTitle}&quot; lähettämisestä "
+"julkaisuun {$contextName}. Käyttämämme online-julkaisunhallintajärjestelmän "
+"avulla voitte seurata käsikirjoituksen etenemistä toimitusprosessissa "
+"kirjautumalla julkaisun verkkosivustolle:<br />\n"
+"<br />\n"
+"Käsikirjoituksen URL: {$submissionUrl}<br />\n"
+"Käyttäjätunnus: {$recipientUsername}<br />\n"
+"<br />\n"
+"Jos teillä on kysyttävää, otattehan yhteyttä minuun. Kiitos, että valitsitte "
+"tämän julkaisun työllenne.<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Tämä sähköpostiviesti voidaan lähettää automaattisesti kirjoittajalle "
+"käsikirjoituksen lähettämisen päätteeksi. Viesti sisältää ohjeita "
+"käsikirjoituksen seuraamisesta toimitusprosessissa sekä kiittää kirjoittajaa "
+"käsikirjoituksen lähettämisestä."
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Artikkelin arviointi vastaanotettu"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"Hyvä {$recipientName},<br />\n"
+"<br />\n"
+"Kiitos käsikirjoituksen &quot;{$submissionTitle}&quot; arvioimisesta "
+"julkaisulle {$contextName}. Arvostamme panostanne julkaisemamme työn laadun "
+"hyväksi."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "This email is sent by a Section Editor to confirm receipt of a completed review and thank the reviewer for their contributions."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Toimittajan päätös"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"Hyvä {$authors},<br />\n"
+"<br />\n"
+"Olemme tehneet päätöksen julkaisuun {$contextName} lähettämäänne "
+"käsikirjoitusta &quot;{$submissionTitle}&quot; koskien.<br />\n"
+"<br />\n"
+"Päätöksemme on: Lähetetään arvioitavaksi<br />\n"
+"<br />\n"
+"Käsikirjoituksen URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr "This email from the Editor or Section Editor to an Author notifies them that their submission is being sent to an external review."
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Toimittajan päätös"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"Hyvä {$authors},<br />\n"
+"<br />\n"
+"Käsikirjoituksenne &quot;{$submissionTitle},&quot; on nyt toimitettu ja "
+"lähetämme sen tuotantoon.<br />\n"
+"<br />\n"
+"Käsikirjoituksen URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr "This email from the Editor or Section Editor to an Author notifies them that their submission is being sent to production."
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Toimittajan päätös"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"Hyvä {$authors},<br />\n"
+"<br />\n"
+"Olemme tehneet päätöksen julkaisuun {$contextName} lähettämäänne "
+"käsikirjoitusta &quot;{$submissionTitle}&quot; koskien.<br />\n"
+"<br />\n"
+"Päätöksemme on: Vaatii korjauksia"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr "This email from the Editor or Section Editor to an Author notifies them of a final \"revisions required\" decision regarding their submission."
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Toimittajan päätös"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"Hyvä {$authors},<br />\n"
+"<br />\n"
+"Olemme tehneet päätöksen julkaisuun {$contextName} lähettämäänne "
+"käsikirjoitusta &quot;{$submissionTitle}&quot; koskien.<br />\n"
+"<br />\n"
+"Päätöksemme on: Lähetettävä uudelleen arvioitavaksi"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr "This email from the Editor or Section Editor to an Author notifies them of a final \"resubmit\" decision regarding their submission."
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Toimittajan päätös"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"Hyvä {$authors},<br />\n"
+"<br />\n"
+"Olemme tehneet päätöksen julkaisuun {$contextName} lähettämäänne "
+"käsikirjoitusta &quot;{$submissionTitle}&quot; koskien.<br />\n"
+"<br />\n"
+"Päätöksemme on: Käsikirjoitus on hylätty"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr "This email from the Editor or Section Editor to an Author notifies them of a final \"decline\" decision regarding their submission."
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Toimittajan suositus"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"Julkaisun {$contextName} käsikirjoitusta &quot;{$submissionTitle}&quot; "
+"koskeva suositus on: {$recommendation}"
+
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr "This email from the recommending Editor or Section Editor to the decision making Editors or Section Editors notifies them of a final recommendation regarding the submission."
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Teknistä toimittamista pyydetään"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"Hyvä {$recipientName},<br />\n"
+"<br />\n"
+"Pyytäisin teitä toimittamaan teknisesti käsikirjoituksen "
+"&quot;{$submissionTitle}&quot; julkaisulle {$contextName}, seuraavia "
+"vaiheita noudattaen:<br />\n"
+"1. Klikatkaa alla olevaa käsikirjoituksen URL-osoitetta.<br />\n"
+"2. Avatkaa Luonnostiedostot-otsikon alla olevat tiedostot ja toimittakaa ne "
+"teknisesti. Voitte samalla lisätä tekniseen toimittamiseen liittyviä "
+"keskusteluja tarpeen mukaan.<br />\n"
+"3. Tallentakaa teknisesti toimitetut tiedostot ja ladatkaa ne Teknisesti "
+"toimitettu -paneeliin.<br />\n"
+"4. Ilmoittakaa toimittajalle, että kaikki tiedostot ovat valmiina, ja että "
+"tuotantoprosessi voidaan aloittaa.<br />\n"
+"<br />\n"
+"{$contextName} URL: {$contextUrl}<br />\n"
+"Käsikirjoituksen URL: {$submissionUrl}<br />\n"
+"Käyttäjätunnus: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr "This email is sent by a Section Editor to a submission's Copyeditor to request that they begin the copyediting process. It provides information about the submission and how to access it."
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Toimittajan päätös"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\tHyvä {$authors},<br />\n"
+"<br />\n"
+"Olemme tehneet päätöksen julkaisuun {$contextName} lähettämäänne käsikirjoitusta &quot;{$submissionTitle}&quot; koskien.<br />\n"
+"<br />\n"
+"Päätöksemme on: Käsikirjoitus on hylätty"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr "This email is sent to the author if the editor declines their submission initially, before the review stage"

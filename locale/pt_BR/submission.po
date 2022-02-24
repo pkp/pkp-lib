@@ -1828,15 +1828,6 @@ msgstr "Recomendar uma decisão editorial para essa submissão."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Recomendações Registradas"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Próximo: Selecionar Arquivos para {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Selecione os arquivos que gostaria de encaminhar para o estágio de {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Anterior: Notificação do Autor"
-
 msgid "submission.list.infoCenter"
 msgstr "Log de Atividades e Anotações"
 

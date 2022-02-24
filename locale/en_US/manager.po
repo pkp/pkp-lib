@@ -913,6 +913,18 @@ msgstr "Notification of Author Submission"
 msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Send a copy to this email address"
 
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Notify All Authors"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "Who should receive a notification email when an editorial decision is recorded?"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Send an email notification to all authors of the submission."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr "Only send an email to authors assigned to the submission workflow. Usually, this is the submitting author."
+
 msgid "manager.setup.submissionsNotifications"
 msgstr "Notifications"
 
@@ -2277,8 +2289,26 @@ msgstr "Process failed to parse authors"
 msgid "plugins.importexport.publication.exportFailed"
 msgstr "Process failed to parse publications"
 
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr "All comments from completed reviews. Reviewer names are hidden for anonymous reviews"
+
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "The URL to a page where the user can recover a lost password"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "The URL to view all of a user's assigned submissions.
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "The name of the decision that was taken."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "A description of the decision that was taken."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "The stage of the editorial workflow this decision was taken in."
+
+msgid "emailTemplate.variable.decision.round"
+msgstr "The round of review this decision was taken in, if the decision is related to a review stage."
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "The full name of the recipient or all recipients"
@@ -2294,6 +2324,21 @@ msgstr "Date when the review should be completed"
 
 msgid "emailTemplate.variable.recipient.submissionReviewUrl"
 msgstr "The URL to the review assignment"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "The recommended decision, such as Accept Submission"
+
+msgid "emailTemplate.variable.reviewType"
+msgstr "A description of the default review method, such as double anonymous or open."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr "This journal conducts double-anonymous peer review. The reviewers will not see any identifying information about you or your co-authors. Similarly, you will not know who reviewed your submission, and you will not hear from the reviewers directly."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr "This journal conducts “reviewer anonymous” peer review. Your name, and those of your coauthors, will be visible to the reviewers; however, the reviewers' identities will remain anonymous."
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr "This journal conducts open peer review. The reviewers will see your name and affiliation, as well as the names and affiliations of your co-authors. Similarly, you will see the names and affiliations of the reviewers."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "The full name of the sender"
@@ -2328,8 +2373,14 @@ msgstr "Author names in a form of a shortened string"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "The full names of the authors"
 
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "The author's URL to the submission"
+
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "The URL to the submission in the editorial backend"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr "The names of the authors assigned to the submission workflow. Usually this is the submitting author"
 
 msgid "mailable.mailDiscussionMessage.name"
 msgstr "New Discussion Message"
@@ -2360,3 +2411,121 @@ msgstr "Validate Email (Site)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr "This email is automatically sent to a new user when they register with the site when the settings require the email address to be validated."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Notify Other Authors"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr "This email is sent to notify authors of a submission who are not assigned as participants that a decision has been made. Usually these are all others except the submitting author."
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "A copy of the email message that was sent to the submitting author"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Reviewer Acknowledgement"
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr "This email is sent by an Editor to a Reviewer to notify them that a decision has been made regarding a submission that they reviewed."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr "A short description of this decision that is intended to be shared in an email notification sent to reviewers about this decision."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "We have chosen to accept this submission without revisions."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "We have chosen to decline this submission."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "We have invited the authors to submit revisions."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr "We have invited the authors to submit a revised version for further review."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Submission Accepted"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been accepted for publication."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Submission Sent Back to Copyediting"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back to the copyediting stage."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Submission Sent Back to Review"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back to the review stage."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Submission Sent Back to Submission"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been sent back to the submission stage."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Submission Declined"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr "This email notifies the author that their submission has been declined after peer review."
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Submission Declined"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "New Review Round Initiated"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr "This email notifies the author that a new round of review is beginning for their submission."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Revisions Requested"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr "This email notifies the author of a decision to requests revisions during peer review."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Resubmit for Review"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr "This email notifies the author of a \"revise and resubmit\" decision regarding their submission."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Reinstate Declined Submission"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr "This email notifies the author that a previous decision to decline their submission after peer review is being reverted."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Reinstate Submission Declined Without Review"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr "This email notifies the author that a previous decision to decline their submission without review is being reverted."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Sent to Review"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr "This email notifies the author that their submission is being sent to the review stage."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Sent to Production"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr "This email notifies the author that their submission is being sent to the production stage."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Review Skipped"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr "This email notifies the author that their submission is being sent directly to the copyediting stage and will not be peer reviewed."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Recommendation Made"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr "This message notifies a senior Editor or Section Editor that an editorial recommendation has been made regarding one of their assigned submissions. This message is used when an editor is only allowed to recommend an editorial decision and requires an authorized editor to record editorial decisions. This option can be selected when assigning participants to a submission."
+

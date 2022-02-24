@@ -1560,15 +1560,6 @@ msgstr "Suosittele toimituksellista päätöstä käsikirjoitukseen liittyen."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Tallennetut suositukset"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Seuraavaksi: valitse tiedostot vaiheeseen {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Valitse tiedostot, jotka haluat lähettää vaiheeseen {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Edellinen ilmoitus kirjoittajalle"
-
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Uusi versioita on lähetetty."
 

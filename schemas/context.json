@@ -453,6 +453,14 @@
 				"nullable"
 			]
 		},
+		"notifyAllAuthors": {
+			"type": "boolean",
+			"default": true,
+			"description": "When enabled, all authors of a submission will receive a notification when an editorial decision is made regarding a submission. When disabled, only authors assigned to the submission will be notified.",
+			"validation": [
+				"nullable"
+			]
+		},
 		"numAnnouncementsHomepage": {
 			"type": "integer",
 			"validation": [

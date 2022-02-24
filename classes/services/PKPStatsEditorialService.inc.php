@@ -16,7 +16,7 @@
 
 namespace PKP\services;
 
-use APP\workflow\EditorDecisionActionsManager;
+use APP\decision\Decision;
 
 class PKPStatsEditorialService
 {
@@ -30,9 +30,9 @@ class PKPStatsEditorialService
     public function getOverview($args = [])
     {
         $received = $this->countSubmissionsReceived($args);
-        $accepted = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
-        $declinedDesk = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
-        $declinedReview = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE, $args);
+        $accepted = $this->countByDecisions(Decision::ACCEPT, $args);
+        $declinedDesk = $this->countByDecisions(Decision::INITIAL_DECLINE, $args);
+        $declinedReview = $this->countByDecisions(Decision::DECLINE, $args);
         $declined = $declinedDesk + $declinedReview;
 
         // Calculate the acceptance/decline rates
@@ -56,9 +56,9 @@ class PKPStatsEditorialService
             // within the date range that were accepted or declined. This
             // excludes submissions that were made within the date range but
             // have not yet been accepted or declined.
-            $acceptedForSubmissionDate = $this->countByDecisionsForSubmittedDate(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
-            $declinedDeskForSubmissionDate = $this->countByDecisionsForSubmittedDate(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
-            $declinedReviewForSubmissionDate = $this->countByDecisionsForSubmittedDate(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE, $args);
+            $acceptedForSubmissionDate = $this->countByDecisionsForSubmittedDate(Decision::ACCEPT, $args);
+            $declinedDeskForSubmissionDate = $this->countByDecisionsForSubmittedDate(Decision::INITIAL_DECLINE, $args);
+            $declinedReviewForSubmissionDate = $this->countByDecisionsForSubmittedDate(Decision::DECLINE, $args);
             $totalDecidedForSubmissionDate = $acceptedForSubmissionDate + $declinedDeskForSubmissionDate + $declinedReviewForSubmissionDate;
 
             // Never divide by 0
@@ -78,8 +78,8 @@ class PKPStatsEditorialService
         // Calculate the number of days it took for most submissions to
         // receive decisions
         $firstDecisionDays = $this->getDaysToDecisions([], $args);
-        $acceptDecisionDays = $this->getDaysToDecisions([EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION, EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT], $args);
-        $declineDecisionDays = $this->getDaysToDecisions([EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE, EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE], $args);
+        $acceptDecisionDays = $this->getDaysToDecisions($this->getAcceptedDecisions(), $args);
+        $declineDecisionDays = $this->getDaysToDecisions($this->getDeclinedDecisions(), $args);
         $firstDecisionDaysRate = empty($firstDecisionDays) ? 0 : $this->calculateDaysToDecisionRate($firstDecisionDays, 0.8);
         $acceptDecisionDaysRate = empty($acceptDecisionDays) ? 0 : $this->calculateDaysToDecisionRate($acceptDecisionDays, 0.8);
         $declineDecisionDaysRate = empty($declineDecisionDays) ? 0 : $this->calculateDaysToDecisionRate($declineDecisionDays, 0.8);
@@ -207,10 +207,10 @@ class PKPStatsEditorialService
 
         // Editorial decisions (accepted and declined)
         $decisionsList = [
-            'submissionsAccepted' => [EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT],
-            'submissionsDeclined' => [EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE],
-            'submissionsDeclinedDeskReject' => [EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE],
-            'submissionsDeclinedPostReview' => [EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE],
+            'submissionsAccepted' => [Decision::ACCEPT],
+            'submissionsDeclined' => [Decision::INITIAL_DECLINE, Decision::DECLINE],
+            'submissionsDeclinedDeskReject' => [Decision::INITIAL_DECLINE],
+            'submissionsDeclinedPostReview' => [Decision::DECLINE],
         ];
         $yearlyDecisions = [];
         foreach ($decisionsList as $key => $decisions) {
@@ -458,5 +458,43 @@ class PKPStatsEditorialService
         \HookRegistry::call('Stats::editorial::queryBuilder', [&$qb, $args]);
 
         return $qb;
+    }
+
+    /**
+     * Get the decisions that indicate a submission has been accepted
+     *
+     * Decision::SEND_TO_PRODUCTION is included
+     * in order to catch submissions that do not have an accept decision recorded, but have
+     * still made it to the production stage. Once a SEND_TO_PRODUCTION decision has been
+     * recorded, we assume the submission has been accepted for the purposes of statistics.
+     *
+     * This list only applies to editorial statistics. This method should not be used to
+     * identify acceptance decisions for any other purpose.
+     *
+     * @return int[] SUBMISSION_EDITOR_DECISION_ constants
+     */
+    protected function getAcceptedDecisions(): array
+    {
+        return [
+            Decision::ACCEPT,
+            Decision::SKIP_EXTERNAL_REVIEW,
+            Decision::SEND_TO_PRODUCTION,
+        ];
+    }
+
+    /**
+     * Get the decisions that indicate a submission has been declined
+     *
+     * This distinction only applies to editorial statistics. This method should not be used to
+     * identify declined decisions for any other purpose.
+     *
+     * @return int[] SUBMISSION_EDITOR_DECISION_ constants
+     */
+    protected function getDeclinedDecisions(): array
+    {
+        return [
+            Decision::DECLINE,
+            Decision::INITIAL_DECLINE,
+        ];
     }
 }

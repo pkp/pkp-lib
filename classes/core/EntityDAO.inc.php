@@ -112,22 +112,24 @@ abstract class EntityDAO
             }
         }
 
-        $rows = DB::table($this->settingsTable)
-            ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
-            ->get();
+        if ($this->settingsTable) {
+            $rows = DB::table($this->settingsTable)
+                ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
+                ->get();
 
-        $rows->each(function ($row) use ($object, $schema) {
-            if (!empty($schema->properties->{$row->setting_name})) {
-                $object->setData(
-                    $row->setting_name,
-                    $this->convertFromDB(
-                        $row->setting_value,
-                        $schema->properties->{$row->setting_name}->type
-                    ),
-                    empty($row->locale) ? null : $row->locale
-                );
-            }
-        });
+            $rows->each(function ($row) use ($object, $schema) {
+                if (!empty($schema->properties->{$row->setting_name})) {
+                    $object->setData(
+                        $row->setting_name,
+                        $this->convertFromDB(
+                            $row->setting_value,
+                            $schema->properties->{$row->setting_name}->type
+                        ),
+                        empty($row->locale) ? null : $row->locale
+                    );
+                }
+            });
+        }
 
         return $object;
     }
@@ -151,7 +153,7 @@ abstract class EntityDAO
         $object->setId((int) DB::getPdo()->lastInsertId());
 
         // Add additional properties to settings table if they exist
-        if (count($sanitizedProps) !== count($primaryDbProps)) {
+        if ($this->settingsTable && count($sanitizedProps) !== count($primaryDbProps)) {
             foreach ($schema->properties as $propName => $propSchema) {
                 if (!isset($sanitizedProps[$propName]) || array_key_exists($propName, $this->primaryTableColumns)) {
                     continue;
@@ -193,57 +195,59 @@ abstract class EntityDAO
             ->where($this->primaryKeyColumn, '=', $object->getId())
             ->update($primaryDbProps);
 
-        $deleteSettings = [];
-        foreach ($schema->properties as $propName => $propSchema) {
-            if (array_key_exists($propName, $this->primaryTableColumns)) {
-                continue;
-            } elseif (!isset($sanitizedProps[$propName])) {
-                $deleteSettings[] = $propName;
-                continue;
-            }
-            if (!empty($propSchema->multilingual)) {
-                foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
-                    // Delete rows with a null value
-                    if (is_null($localeValue)) {
-                        DB::table($this->settingsTable)
-                            ->where($this->primaryKeyColumn, '=', $object->getId())
-                            ->where('setting_name', '=', $propName)
-                            ->where('locale', '=', $localeKey)
-                            ->delete();
-                    } else {
-                        DB::table($this->settingsTable)
-                            ->updateOrInsert(
-                                [
-                                    $this->primaryKeyColumn => $object->getId(),
-                                    'locale' => $localeKey,
-                                    'setting_name' => $propName,
-                                ],
-                                [
-                                    'setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type),
-                                ]
-                            );
-                    }
+        if ($this->settingsTable) {
+            $deleteSettings = [];
+            foreach ($schema->properties as $propName => $propSchema) {
+                if (array_key_exists($propName, $this->primaryTableColumns)) {
+                    continue;
+                } elseif (!isset($sanitizedProps[$propName])) {
+                    $deleteSettings[] = $propName;
+                    continue;
                 }
-            } else {
-                DB::table($this->settingsTable)
-                    ->updateOrInsert(
-                        [
-                            $this->primaryKeyColumn => $object->getId(),
-                            'locale' => '',
-                            'setting_name' => $propName,
-                        ],
-                        [
-                            'setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type),
-                        ]
-                    );
+                if (!empty($propSchema->multilingual)) {
+                    foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
+                        // Delete rows with a null value
+                        if (is_null($localeValue)) {
+                            DB::table($this->settingsTable)
+                                ->where($this->primaryKeyColumn, '=', $object->getId())
+                                ->where('setting_name', '=', $propName)
+                                ->where('locale', '=', $localeKey)
+                                ->delete();
+                        } else {
+                            DB::table($this->settingsTable)
+                                ->updateOrInsert(
+                                    [
+                                        $this->primaryKeyColumn => $object->getId(),
+                                        'locale' => $localeKey,
+                                        'setting_name' => $propName,
+                                    ],
+                                    [
+                                        'setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type),
+                                    ]
+                                );
+                        }
+                    }
+                } else {
+                    DB::table($this->settingsTable)
+                        ->updateOrInsert(
+                            [
+                                $this->primaryKeyColumn => $object->getId(),
+                                'locale' => '',
+                                'setting_name' => $propName,
+                            ],
+                            [
+                                'setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type),
+                            ]
+                        );
+                }
             }
-        }
 
-        if (count($deleteSettings)) {
-            DB::table($this->settingsTable)
-                ->where($this->primaryKeyColumn, '=', $object->getId())
-                ->whereIn('setting_name', $deleteSettings)
-                ->delete();
+            if (count($deleteSettings)) {
+                DB::table($this->settingsTable)
+                    ->where($this->primaryKeyColumn, '=', $object->getId())
+                    ->whereIn('setting_name', $deleteSettings)
+                    ->delete();
+            }
         }
     }
 
@@ -260,9 +264,11 @@ abstract class EntityDAO
      */
     public function deleteById(int $id)
     {
-        DB::table($this->settingsTable)
-            ->where($this->primaryKeyColumn, '=', $id)
-            ->delete();
+        if ($this->settingsTable) {
+            DB::table($this->settingsTable)
+                ->where($this->primaryKeyColumn, '=', $id)
+                ->delete();
+        }
         DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
             ->delete();

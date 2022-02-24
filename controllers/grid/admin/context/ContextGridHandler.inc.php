@@ -15,6 +15,7 @@
 
 import('lib.pkp.controllers.grid.admin.context.ContextGridRow');
 
+use APP\core\Request;
 use APP\core\Services;
 use APP\template\TemplateManager;
 
@@ -195,7 +196,7 @@ class ContextGridHandler extends GridHandler
      * Add a new context.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param Request $request
      */
     public function createContext($args, $request)
     {
@@ -207,7 +208,7 @@ class ContextGridHandler extends GridHandler
      * Edit an existing context.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -243,13 +244,17 @@ class ContextGridHandler extends GridHandler
             $contextFormConfig['editContextUrl'] = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, 'index', 'admin', 'wizard', '__id__');
         }
 
+        $templateMgr = TemplateManager::getManager($request);
+
         $containerData = [
             'components' => [
                 FORM_CONTEXT => $contextFormConfig,
             ],
+            'tinyMCE' => [
+                'skinUrl' => $templateMgr->getTinyMceSkinUrl($request),
+            ],
         ];
 
-        $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'containerData' => $containerData,
             'isAddingNewContext' => !$context,
@@ -262,7 +267,7 @@ class ContextGridHandler extends GridHandler
      * Delete a context.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */
@@ -289,7 +294,7 @@ class ContextGridHandler extends GridHandler
      * Display users management grid for the given context.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param Request $request
      *
      * @return JSONMessage JSON object
      */

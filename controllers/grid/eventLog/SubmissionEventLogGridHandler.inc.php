@@ -21,6 +21,7 @@ use PKP\controllers\grid\DateGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPString;
 use PKP\log\EmailLogEntry;
 use PKP\log\EventLogEntry;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
@@ -237,20 +238,26 @@ class SubmissionEventLogGridHandler extends GridHandler
     /**
      * Format the contents of the email
      *
-     * @param EmailLogEntry $emailLogEntry
      *
      * @return string Formatted email
      */
-    public function _formatEmail($emailLogEntry)
+    public function _formatEmail(EmailLogEntry $emailLogEntry)
     {
-        assert($emailLogEntry instanceof EmailLogEntry);
-
         $text = [];
         $text[] = __('email.from') . ': ' . htmlspecialchars($emailLogEntry->getFrom());
         $text[] = __('email.to') . ': ' . htmlspecialchars($emailLogEntry->getRecipients());
+        if ($emailLogEntry->getCcs()) {
+            $text[] = __('email.cc') . ': ' . htmlspecialchars($emailLogEntry->getCcs());
+        }
+        if ($emailLogEntry->getBccs()) {
+            $text[] = __('email.bcc') . ': ' . htmlspecialchars($emailLogEntry->getBccs());
+        }
         $text[] = __('email.subject') . ': ' . htmlspecialchars($emailLogEntry->getSubject());
-        $text[] = $emailLogEntry->getBody();
 
-        return nl2br(PKPString::stripUnsafeHtml(implode(PHP_EOL . PHP_EOL, $text)));
+        return
+            '<div class="pkp_workflow_email_log_view">'
+            . nl2br(join(PHP_EOL, $text)) . '<br><br>'
+            . PKPString::stripUnsafeHtml($emailLogEntry->getBody())
+            . '</div>';
     }
 }

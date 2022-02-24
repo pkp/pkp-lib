@@ -260,6 +260,25 @@ class ReviewRoundDAO extends \PKP\db\DAO
     }
 
     /**
+     * Check if submission has a review round (in the given stage id)
+     */
+    public function submissionHasReviewRound(int $submissionId, ?int $stageId = null): bool
+    {
+        $params = [(int)$submissionId];
+        if ($stageId) {
+            $params[] = (int) $stageId;
+        }
+        $result = $this->retrieve(
+            'SELECT	review_round_id
+			FROM	review_rounds
+			WHERE	submission_id = ?
+			' . ($stageId ? ' AND stage_id = ?' : ''),
+            $params
+        );
+        return (bool) $result->current();
+    }
+
+    /**
      * Get the ID of the last inserted review round.
      *
      * @return int

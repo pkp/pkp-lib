@@ -16,10 +16,10 @@
 
 namespace PKP\services\queryBuilders;
 
-use APP\workflow\EditorDecisionActionsManager;
-
+use APP\decision\Decision;
+use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
-
+use PKP\decision\DecisionType;
 use PKP\submission\PKPSubmission;
 
 abstract class PKPStatsEditorialQueryBuilder
@@ -156,10 +156,9 @@ abstract class PKPStatsEditorialQueryBuilder
         // and then later declined. We check the current status to
         // exclude submissions where the status doesn't match the
         // decisions we are looking for.
-        $declineDecisions = [
-            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE,
-            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE
-        ];
+        $declineDecisions = array_map(function(DecisionType $decisionType) {
+            return $decisionType->getDecision();
+        }, Repo::decision()->getDeclineDecisionTypes());
         if (count(array_intersect($declineDecisions, $decisions))) {
             $q->where('s.status', '=', PKPSubmission::STATUS_DECLINED);
         } else {
@@ -329,10 +328,9 @@ abstract class PKPStatsEditorialQueryBuilder
         // and then later declined. We check the current status to
         // exclude submissions where the status doesn't match the
         // decisions we are looking for.
-        $declineDecisions = [
-            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE,
-            EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE
-        ];
+        $declineDecisions = array_map(function(DecisionType $decisionType) {
+            return $decisionType->getDecision();
+        }, Repo::decision()->getDeclineDecisionTypes());
         if (count(array_intersect($declineDecisions, $decisions))) {
             $q->where('s.status', '=', PKPSubmission::STATUS_DECLINED);
         } else {

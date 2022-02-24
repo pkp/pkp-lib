@@ -13,17 +13,19 @@
  * @brief Handle requests for the submssion workflow.
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use APP\i18n\AppLocale;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
-use APP\workflow\EditorDecisionActionsManager;
-use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\AjaxModal;
+use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\PKPSubmission;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -194,6 +196,9 @@ abstract class PKPWorkflowHandler extends Handler
         if (!empty($accessibleWorkflowStages[$currentStageId]) && array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $accessibleWorkflowStages[$currentStageId])) {
             $canAccessEditorialHistory = true;
         }
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         $locales = $submissionContext->getSupportedSubmissionLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
@@ -201,6 +206,7 @@ abstract class PKPWorkflowHandler extends Handler
         $latestPublication = $submission->getLatestPublication();
 
         $submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
+        $submissionFileApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/files');
         $latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
 
         $contributorApiUrl = $request->getDispatcher()->url(
@@ -215,6 +221,17 @@ abstract class PKPWorkflowHandler extends Handler
             PKPApplication::ROUTE_API,
             $request->getContext()->getPath('urlPath'),
             'submissions/' . $submission->getId() . '/publications'
+        );
+
+        $decisionUrl = $request->url(
+            $submissionContext->getData('urlPath'),
+            'decision',
+            'record',
+            $submission->getId(),
+            [
+                'decision' => '__decision__',
+                'reviewRoundId' => '__reviewRoundId__',
+            ]
         );
 
         $editorialHistoryUrl = $request->getDispatcher()->url(
@@ -304,7 +321,7 @@ abstract class PKPWorkflowHandler extends Handler
         });
 
         // Get full details of the working publication and the current publication
-        $mapper = Repo::publication()->getSchemaMap($submission, $authorUserGroups);
+        $mapper = Repo::publication()->getSchemaMap($submission, $authorUserGroups, $genres);
         $workingPublicationProps = $mapper->map($submission->getLatestPublication());
         $currentPublicationProps = $submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()
             ? $workingPublicationProps
@@ -315,12 +332,13 @@ abstract class PKPWorkflowHandler extends Handler
             'canAccessPublication' => $canAccessPublication,
             'canEditPublication' => $canEditPublication,
             'components' => [
-                FORM_CITATIONS => $citationsForm->getConfig(),
-                FORM_PUBLICATION_LICENSE => $publicationLicenseForm->getConfig(),
-                FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
                 $contributorsListPanel->id => $contributorsListPanel->getConfig(),
+                $citationsForm->id => $citationsForm->getConfig(),
+                $publicationLicenseForm->id => $publicationLicenseForm->getConfig(),
+                $titleAbstractForm->id => $titleAbstractForm->getConfig(),
             ],
             'currentPublication' => $currentPublicationProps,
+            'decisionUrl' => $decisionUrl,
             'editorialHistoryUrl' => $editorialHistoryUrl,
             'publicationFormIds' => [
                 FORM_CITATIONS,
@@ -336,6 +354,7 @@ abstract class PKPWorkflowHandler extends Handler
             'schedulePublicationLabel' => __('editor.submission.schedulePublication'),
             'statusLabel' => __('semicolon', ['label' => __('common.status')]),
             'submission' => $submissionProps,
+            'submissionFileApiUrl' => $submissionFileApiUrl,
             'submissionApiUrl' => $submissionApiUrl,
             'submissionLibraryLabel' => __('grid.libraryFiles.submission.title'),
             'submissionLibraryUrl' => $submissionLibraryUrl,
@@ -385,6 +404,18 @@ abstract class PKPWorkflowHandler extends Handler
             ]);
             $state['components'][FORM_PUBLICATION_IDENTIFIERS] = $identifiersForm->getConfig();
             $state['publicationFormIds'][] = FORM_PUBLICATION_IDENTIFIERS;
+        }
+
+        // Add the revision decision/recommendation forms if this app supports a review stage
+        if (count(array_intersect([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW], Application::getApplicationStages()))) {
+            $selectRevisionDecisionForm = new PKP\components\forms\decision\SelectRevisionDecisionForm();
+            $selectRevisionRecommendationForm = new PKP\components\forms\decision\SelectRevisionRecommendationForm();
+            $stage['components'][$selectRevisionDecisionForm->id] = $selectRevisionDecisionForm->getConfig();
+            $stage['components'][$selectRevisionRecommendationForm->id] = $selectRevisionRecommendationForm->getConfig();
+            $templateMgr->setConstants([
+                'FORM_SELECT_REVISION_DECISION' => FORM_SELECT_REVISION_DECISION,
+                'FORM_SELECT_REVISION_RECOMMENDATION' => FORM_SELECT_REVISION_RECOMMENDATION,
+            ]);
         }
 
         $templateMgr->setLocaleKeys([
@@ -514,6 +545,7 @@ abstract class PKPWorkflowHandler extends Handler
         // If a review round was specified, include it in the args;
         // must also check that this is the last round or decisions
         // cannot be recorded.
+        $reviewRound = null;
         if ($reviewRoundId) {
             $actionArgs['reviewRoundId'] = $reviewRoundId;
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -526,10 +558,9 @@ abstract class PKPWorkflowHandler extends Handler
         // If there is an editor assigned, retrieve stage decisions.
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
-        $dispatcher = $request->getDispatcher();
         $user = $request->getUser();
 
-        $recommendOnly = $makeDecision = false;
+        $makeRecommendation = $makeDecision = false;
         // if the user is assigned several times in an editorial role, check his/her assignments permissions i.e.
         // if the user is assigned with both possibilities: to only recommend as well as make decision
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
@@ -537,7 +568,7 @@ abstract class PKPWorkflowHandler extends Handler
                 if (!$editorsStageAssignment->getRecommendOnly()) {
                     $makeDecision = true;
                 } else {
-                    $recommendOnly = true;
+                    $makeRecommendation = true;
                 }
             }
         }
@@ -545,7 +576,7 @@ abstract class PKPWorkflowHandler extends Handler
         // If user is not assigned to the submission,
         // see if the user is manager, and
         // if the group is recommendOnly
-        if (!$recommendOnly && !$makeDecision) {
+        if (!$makeRecommendation && !$makeDecision) {
             $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
             $userGroups = $userGroupDao->getByUserId($user->getId(), $request->getContext()->getId());
             while ($userGroup = $userGroups->next()) {
@@ -553,28 +584,33 @@ abstract class PKPWorkflowHandler extends Handler
                     if (!$userGroup->getRecommendOnly()) {
                         $makeDecision = true;
                     } else {
-                        $recommendOnly = true;
+                        $makeRecommendation = true;
                     }
                 }
             }
         }
 
-        $editorActions = [];
-        $editorDecisions = [];
-        $lastRecommendation = $allRecommendations = null;
+        $lastRecommendation = null;
+        $allRecommendations = null;
+        $hasDecidingEditors = false;
         if (!empty($editorsStageAssignments) && (!$reviewRoundId || ($lastReviewRound && $reviewRoundId == $lastReviewRound->getId()))) {
-            $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-            $recommendationOptions = (new EditorDecisionActionsManager())->getRecommendationOptions($stageId);
             // If this is a review stage and the user has "recommend only role"
             if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
-                if ($recommendOnly) {
+                if ($makeRecommendation) {
                     // Get the made editorial decisions from the current user
-                    $editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $stageId, $reviewRound->getRound(), $user->getId());
+                    $editorDecisions = Repo::decision()->getMany(
+                        Repo::decision()
+                            ->getCollector()
+                            ->filterBySubmissionIds([$submission->getId()])
+                            ->filterByStageIds([$stageId])
+                            ->filterByReviewRoundIds([$reviewRound->getId()])
+                            ->filterByEditorIds([$user->getId()])
+                    );
                     // Get the last recommendation
                     foreach ($editorDecisions as $editorDecision) {
-                        if (array_key_exists($editorDecision['decision'], $recommendationOptions)) {
+                        if (Repo::decision()->isRecommendation($editorDecision->getData('decision'))) {
                             if ($lastRecommendation) {
-                                if ($editorDecision['dateDecided'] >= $lastRecommendation['dateDecided']) {
+                                if ($editorDecision->getData('dateDecided') >= $lastRecommendation->getData('dateDecided')) {
                                     $lastRecommendation = $editorDecision;
                                 }
                             } else {
@@ -583,79 +619,45 @@ abstract class PKPWorkflowHandler extends Handler
                         }
                     }
                     if ($lastRecommendation) {
-                        $lastRecommendation = __($recommendationOptions[$lastRecommendation['decision']]);
+                        $lastRecommendation = $this->getRecommendationLabel($lastRecommendation->getData('decision'));
                     }
-                    // Add the recommend link action.
-                    $editorActions[] =
-                        new LinkAction(
-                            'recommendation',
-                            new AjaxModal(
-                                $dispatcher->url(
-                                    $request,
-                                    PKPApplication::ROUTE_COMPONENT,
-                                    null,
-                                    'modals.editorDecision.EditorDecisionHandler',
-                                    'sendRecommendation',
-                                    null,
-                                    $actionArgs
-                                ),
-                                $lastRecommendation ? __('editor.submission.changeRecommendation') : __('editor.submission.makeRecommendation'),
-                                'review_recommendation'
-                            ),
-                            $lastRecommendation ? __('editor.submission.changeRecommendation') : __('editor.submission.makeRecommendation')
-                        );
+
+                    // At least one deciding editor must be assigned before a recommendation can be made
+                    /** @var StageAssignmentDAO $stageAssignmentDao */
+                    $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+                    $decidingEditorIds = $stageAssignmentDao->getDecidingEditorIds($submission->getId(), $stageId);
+                    $hasDecidingEditors = count($decidingEditorIds) > 0;
                 } elseif ($makeDecision) {
                     // Get the made editorial decisions from all users
-                    $editorDecisions = $editDecisionDao->getEditorDecisions($submission->getId(), $stageId, $reviewRound->getRound());
+                    $editorDecisions = Repo::decision()->getMany(
+                        Repo::decision()
+                            ->getCollector()
+                            ->filterBySubmissionIds([$submission->getId()])
+                            ->filterByStageIds([$stageId])
+                            ->filterByReviewRoundIds([$reviewRound->getId()])
+                    );
                     // Get all recommendations
                     $recommendations = [];
                     foreach ($editorDecisions as $editorDecision) {
-                        if (array_key_exists($editorDecision['decision'], $recommendationOptions)) {
-                            if (array_key_exists($editorDecision['editorId'], $recommendations)) {
-                                if ($editorDecision['dateDecided'] >= $recommendations[$editorDecision['editorId']]['dateDecided']) {
-                                    $recommendations[$editorDecision['editorId']] = ['dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']];
+                        if (Repo::decision()->isRecommendation($editorDecision->getData('decision'))) {
+                            if (array_key_exists($editorDecision->getData('editorId'), $recommendations)) {
+                                if ($editorDecision->getData('dateDecided') >= $recommendations[$editorDecision->getData('editorId')]['dateDecided']) {
+                                    $recommendations[$editorDecision->getData('editorId')] = ['dateDecided' => $editorDecision->getData('dateDecided'), 'decision' => $editorDecision->getData('decision')];
                                 }
                             } else {
-                                $recommendations[$editorDecision['editorId']] = ['dateDecided' => $editorDecision['dateDecided'], 'decision' => $editorDecision['decision']];
+                                $recommendations[$editorDecision->getData('editorId')] = ['dateDecided' => $editorDecision->getData('dateDecided'), 'decision' => $editorDecision->getData('decision')];
                             }
                         }
                     }
-                    $i = 0;
+                    $allRecommendations = [];
                     foreach ($recommendations as $recommendation) {
-                        $allRecommendations .= $i == 0 ? __($recommendationOptions[$recommendation['decision']]) : __('common.commaListSeparator') . __($recommendationOptions[$recommendation['decision']]);
-                        $i++;
+                        $allRecommendations[] = $this->getRecommendationLabel($recommendation['decision']);
                     }
+                    $allRecommendations = join(__('common.commaListSeparator'), $allRecommendations);
                 }
-            }
-            // Get the possible editor decisions for this stage
-            $decisions = (new EditorDecisionActionsManager())->getStageDecisions($request->getContext(), $submission, $stageId, $makeDecision);
-            // Iterate through the editor decisions and create a link action
-            // for each decision which as an operation associated with it.
-            foreach ($decisions as $decision => $action) {
-                if (empty($action['operation'])) {
-                    continue;
-                }
-                $actionArgs['decision'] = $decision;
-                $editorActions[] = new LinkAction(
-                    $action['name'],
-                    new AjaxModal(
-                        $dispatcher->url(
-                            $request,
-                            PKPApplication::ROUTE_COMPONENT,
-                            null,
-                            'modals.editorDecision.EditorDecisionHandler',
-                            $action['operation'],
-                            null,
-                            $actionArgs
-                        ),
-                        __($action['title'])
-                    ),
-                    __($action['title'])
-                );
             }
         }
 
-        $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
         $hasSubmissionPassedThisStage = $submission->getStageId() > $stageId;
         $lastDecision = null;
         switch ($submission->getStatus()) {
@@ -689,14 +691,34 @@ abstract class PKPWorkflowHandler extends Handler
                 break;
         }
 
+        $canRecordDecision =
+            // Only allow decisions to be recorded on the submission's current stage
+            $submission->getData('stageId') == $stageId
+
+            // Only allow decisions on the latest review round
+            && (!$lastReviewRound || $lastReviewRound->getId() == $reviewRoundId)
+
+            // At least one deciding editor must be assigned to make a recommendation
+            && ($makeDecision || $hasDecidingEditors);
+
         // Assign the actions to the template.
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'editorActions' => $editorActions,
+            'canRecordDecision' => $canRecordDecision,
+            'decisions' => $this->getStageDecisionTypes($stageId),
+            'recommendations' => $this->getStageRecommendationTypes($stageId),
+            'primaryDecisions' => $this->getPrimaryDecisionTypes(),
+            'warnableDecisions' => $this->getWarnableDecisionTypes(),
             'editorsAssigned' => count($editorsStageAssignments) > 0,
             'stageId' => $stageId,
+            'reviewRoundId' => $reviewRound
+                ? $reviewRound->getId()
+                : null,
             'lastDecision' => $lastDecision,
-            'submissionStatus' => $submission->getStatus(),
+            'lastReviewRound' => $lastReviewRound,
+            'submission' => $submission,
+            'makeRecommendation' => $makeRecommendation,
+            'makeDecision' => $makeDecision,
             'lastRecommendation' => $lastRecommendation,
             'allRecommendations' => $allRecommendations,
         ]);
@@ -807,6 +829,18 @@ abstract class PKPWorkflowHandler extends Handler
         return false;
     }
 
+    /**
+     * Get a label for a recommendation decision type
+     */
+    protected function getRecommendationLabel(int $decision): string
+    {
+        $decisionType = Repo::decision()->getDecisionType($decision);
+        if (!$decisionType || !method_exists($decisionType, 'getRecommendationLabel')) {
+            throw new Exception('Could not find label for unknown recommendation type.');
+        }
+        return $decisionType->getRecommendationLabel();
+    }
+
 
     //
     // Abstract protected methods.
@@ -830,4 +864,36 @@ abstract class PKPWorkflowHandler extends Handler
      * @return string
      */
     abstract protected function _getRepresentationsGridUrl($request, $submission);
+
+    /**
+     * A helper method to get a list of editor decisions to
+     * show on the right panel of each stage
+     *
+     * @return string[]
+     */
+    abstract protected function getStageDecisionTypes(int $stageId): array;
+
+    /**
+     * A helper method to get a list of editor recommendations to
+     * show on the right panel of the review stage
+     *
+     * @return string[]
+     */
+    abstract protected function getStageRecommendationTypes(int $stageId): array;
+
+    /**
+     * Get the editor decision types that should be shown
+     * as primary buttons (eg - Accept)
+     *
+     * @return string[]
+     */
+    abstract protected function getPrimaryDecisionTypes(): array;
+
+    /**
+     * Get the editor decision types that should be shown
+     * as warnable buttons (eg - Decline)
+     *
+     * @return string[]
+     */
+    abstract protected function getWarnableDecisionTypes(): array;
 }

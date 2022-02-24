@@ -18,9 +18,9 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 
 use APP\facades\Repo;
+use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
-use APP\workflow\EditorDecisionActionsManager;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
@@ -347,7 +347,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER) {
                 $notificationMgr->updateNotification(
                     $request,
-                    (new EditorDecisionActionsManager())->getStageNotifications(),
+                    $notificationMgr->getDecisionStageNotifications(),
                     null,
                     ASSOC_TYPE_SUBMISSION,
                     $submission->getId()
@@ -410,7 +410,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $notificationMgr = new NotificationManager();
         $notificationMgr->updateNotification(
             $request,
-            (new EditorDecisionActionsManager())->getStageNotifications(),
+            $notificationMgr->getDecisionStageNotifications(),
             null,
             ASSOC_TYPE_SUBMISSION,
             $submission->getId()
@@ -558,11 +558,11 @@ class StageParticipantGridHandler extends CategoryGridHandler
     public function fetchTemplateBody($args, $request)
     {
         $templateKey = $request->getUserVar('template');
-        $template = new SubmissionMailTemplate($this->getSubmission(), $templateKey);
+        $template = new SubmissionMailTemplate($this->getSubmission(), $templateKey, null, null, false);
         if ($template) {
             $user = $request->getUser();
             $template->assignParams([
-                'signature' => $user->getContactSignature(),
+                'signature' => $user->getContactSignature(AppLocale::getLocale()),
                 'senderName' => $user->getFullname(),
             ]);
             $template->replaceParams();

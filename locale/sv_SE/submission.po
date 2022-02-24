@@ -1305,15 +1305,6 @@ msgstr "Rekommendera ett redaktörsbeslut för det här bidraget."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Registrerade rekommendationer"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Nästa: Välj filer för {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Välj filer som du vill föra vidare till {$stageName}ssteget."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Tidigare: Författaravisering"
-
 msgid "submission.currentStage"
 msgstr "Nuvarande steg"
 

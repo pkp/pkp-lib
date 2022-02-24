@@ -14,28 +14,42 @@
 namespace PKP\submissionFile\maps;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
+use PKP\context\Context;
 use PKP\core\maps\Schema as BaseSchema;
 use PKP\services\PKPSchemaService;
+use PKP\submission\Genre;
 use PKP\submissionFile\SubmissionFile;
 
 class Schema extends BaseSchema
 {
-    /** @var Enumerable */
+    /**  */
     public Enumerable $collection;
 
-    /** @var string */
+    /**  */
     public string $schema = PKPSchemaService::SCHEMA_SUBMISSION_FILE;
+
+    /** @var Genre[] File genres in this context */
+    public array $genres;
+
+    public function __construct(Request $request, Context $context, PKPSchemaService $schemaService)
+    {
+        parent::__construct($request, $context, $schemaService);
+    }
 
     /**
      * Map a submission file
      *
      * Includes all properties in the submission file schema.
+     *
+     * @param Genre[] $genres
      */
-    public function map(SubmissionFile $item): array
+    public function map(SubmissionFile $item, array $genres): array
     {
+        $this->genres = $genres;
         return $this->mapByProperties($this->getProps(), $item);
     }
 
@@ -43,9 +57,12 @@ class Schema extends BaseSchema
      * Summarize a submission file
      *
      * Includes properties with the apiSummary flag in the submission file schema.
+     *
+     * @param Genre[] $genres
      */
-    public function summarize(SubmissionFile $item): array
+    public function summarize(SubmissionFile $item, array $genres): array
     {
+        $this->genres = $genres;
         return $this->mapByProperties($this->getSummaryProps(), $item);
     }
 
@@ -53,12 +70,14 @@ class Schema extends BaseSchema
      * Map a collection of submission files
      *
      * @see self::map
+     *
+     * @param Genre[] $genres
      */
-    public function mapMany(Enumerable $collection): Enumerable
+    public function mapMany(Enumerable $collection, array $genres): Enumerable
     {
         $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->map($item);
+        return $collection->map(function ($item) use ($genres) {
+            return $this->map($item, $genres);
         });
     }
 
@@ -66,25 +85,27 @@ class Schema extends BaseSchema
      * Summarize a collection of submission files
      *
      * @see self::summarize
+     *
+     * @param Genre[] $genres
      */
-    public function summarizeMany(Enumerable $collection): Enumerable
+    public function summarizeMany(Enumerable $collection, array $genres): Enumerable
     {
         $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->summarize($item);
+        return $collection->map(function ($item) use ($genres) {
+            return $this->summarize($item, $genres);
         });
     }
 
     /**
      * Map schema properties of a submission file to an assoc array
      */
-    protected function mapByProperties(array $props, SubmissionFile $item): array
+    protected function mapByProperties(array $props, SubmissionFile $submissionFile): array
     {
         $output = [];
         foreach ($props as $prop) {
             if ($prop === '_href') {
                 $output[$prop] = $this->getApiUrl(
-                    'submissions/' . $item->getData('submissionId') . '/files/' . $item->getId(),
+                    'submissions/' . $submissionFile->getData('submissionId') . '/files/' . $submissionFile->getId(),
                     $this->context->getData('urlPath')
                 );
 
@@ -94,31 +115,35 @@ class Schema extends BaseSchema
             if ($prop === 'dependentFiles') {
                 $collector = Repo::submissionFile()
                     ->getCollector()
-                    ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$item->getId()])
-                    ->filterBySubmissionIds([$item->getData('submissionId')])
+                    ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$submissionFile->getId()])
+                    ->filterBySubmissionIds([$submissionFile->getData('submissionId')])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
                     ->includeDependentFiles();
 
                 $dependentFiles = Repo::submissionFile()->getMany($collector);
 
-                $output[$prop] = $this->summarizeMany($dependentFiles)->values();
+                $output[$prop] = $this->summarizeMany($dependentFiles, $this->genres)->values();
 
                 continue;
             }
 
             if ($prop === 'documentType') {
-                $output[$prop] = Services::get('file')->getDocumentType($item->getData('mimetype'));
+                $output[$prop] = Services::get('file')->getDocumentType($submissionFile->getData('mimetype'));
 
                 continue;
+            }
+
+            if ($prop === 'genre') {
+                $output[$prop] = $this->mapGenre($submissionFile);
             }
 
             if ($prop === 'revisions') {
                 $files = [];
 
-                $revisions = Repo::submissionFile()->getRevisions($item->getId());
+                $revisions = Repo::submissionFile()->getRevisions($submissionFile->getId());
 
                 foreach ($revisions as $revision) {
-                    if ($revision->fileId === $item->getData('fileId')) {
+                    if ($revision->fileId === $submissionFile->getData('fileId')) {
                         continue;
                     }
 
@@ -136,9 +161,9 @@ class Schema extends BaseSchema
                             null,
                             [
                                 'fileId' => $revision->fileId,
-                                'submissionFileId' => $item->getId(),
-                                'submissionId' => $item->getData('submissionId'),
-                                'stageId' => Repo::submissionFile()->getWorkflowStageId($item),
+                                'submissionFileId' => $submissionFile->getId(),
+                                'submissionId' => $submissionFile->getData('submissionId'),
+                                'stageId' => Repo::submissionFile()->getWorkflowStageId($submissionFile),
                             ]
                         ),
                     ];
@@ -158,16 +183,16 @@ class Schema extends BaseSchema
                     'downloadFile',
                     null,
                     [
-                        'submissionFileId' => $item->getId(),
-                        'submissionId' => $item->getData('submissionId'),
-                        'stageId' => Repo::submissionFile()->getWorkflowStageId($item),
+                        'submissionFileId' => $submissionFile->getId(),
+                        'submissionId' => $submissionFile->getData('submissionId'),
+                        'stageId' => Repo::submissionFile()->getWorkflowStageId($submissionFile),
                     ]
                 );
 
                 continue;
             }
 
-            $output[$prop] = $item->getData($prop);
+            $output[$prop] = $submissionFile->getData($prop);
         }
 
         $output = $this->schemaService->addMissingMultilingualValues(
@@ -178,6 +203,21 @@ class Schema extends BaseSchema
 
         ksort($output);
 
-        return $this->withExtensions($output, $item);
+        return $this->withExtensions($output, $submissionFile);
+    }
+
+    protected function mapGenre(SubmissionFile $submissionFile): ?array
+    {
+        foreach ($this->genres as $genre) {
+            if ($genre->getId() === $submissionFile->getData('genreId')) {
+                return [
+                    'id' => $genre->getId(),
+                    'dependent' => $genre->getDependent(),
+                    'name' => $genre->getLocalizedName(),
+                    'supplementary' => $genre->getSupplementary(),
+                ];
+            }
+        }
+        return null;
     }
 }

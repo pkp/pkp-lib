@@ -566,6 +566,7 @@ class PKPRequest
 
     /**
      * Get site data.
+     *
      */
     public function getSite(): ?Site
     {

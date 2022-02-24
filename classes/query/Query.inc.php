@@ -18,6 +18,7 @@
 namespace PKP\query;
 
 use PKP\db\DAORegistry;
+use PKP\note\Note;
 use PKP\note\NoteDAO;
 
 class Query extends \PKP\core\DataObject

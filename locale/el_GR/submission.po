@@ -1371,15 +1371,6 @@ msgstr "Δεν απαιτείται ενέργεια"
 msgid "submission.currentStage"
 msgstr "Τρέχον στάδιο"
 
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Προηγούμενο: Ενημέρωση Συγγραφέα"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Επιλέξτε τα αρχεία που θέλετε να προωθήσετε στο στάδιο  {$stageName}."
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Επόμενο: Επιλέξτε Αρχεία για το {$stageName}"
-
 msgid "editor.submission.recordedRecommendations"
 msgstr "Καταγεγραμμένες συστάσεις"
 

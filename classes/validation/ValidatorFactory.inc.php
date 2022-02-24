@@ -22,6 +22,7 @@ use Illuminate\Translation\FileLoader;
 use Illuminate\Translation\Translator;
 
 use Illuminate\Validation\Factory;
+use Illuminate\Validation\Validator;
 use PKP\file\TemporaryFileManager;
 use PKP\i18n\LocaleMetadata;
 
@@ -37,10 +38,8 @@ class ValidatorFactory
      * @param array $props The properties to validate
      * @param array $rules The validation rules
      * @param array $messages Error messages
-     *
-     * @return Illuminate\Validation\Validator
      */
-    public static function make($props, $rules, $messages = [])
+    public static function make(array $props, array $rules, ?array $messages = []): Validator
     {
 
         // This configures a non-existent translation file, but it is necessary to

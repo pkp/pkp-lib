@@ -1700,15 +1700,6 @@ msgstr "Faire une recommandation pour cette soumission."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Recommandations enregistrées"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Prochain : Sélection de fichiers pour  {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Sélectionner les fichiers à envoyer à l'étape {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Précédemment : Avertir l'auteur"
-
 msgid "editor.submission.roundStatus.recommendationsReady"
 msgstr "Nouvelles recommandations ont été soumises."
 

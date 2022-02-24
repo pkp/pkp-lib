@@ -55,6 +55,18 @@ class ReviewAssignment extends \PKP\core\DataObject
     public const REVIEW_ASSIGNMENT_STATUS_THANKED = 9; // reviewer has been thanked
     public const REVIEW_ASSIGNMENT_STATUS_CANCELLED = 10; // reviewer cancelled review request
 
+    /**
+     * All review assignment statuses that indicate a
+     * review was completed
+     *
+     * @var array<int>
+     */
+    public const REVIEW_COMPLETE_STATUSES = [
+        self::REVIEW_ASSIGNMENT_STATUS_RECEIVED,
+        self::REVIEW_ASSIGNMENT_STATUS_COMPLETE,
+        self::REVIEW_ASSIGNMENT_STATUS_THANKED,
+    ];
+
     //
     // Get/set methods
     //

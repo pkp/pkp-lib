@@ -108,6 +108,11 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->unique(['review_id', 'submission_file_id'], 'review_files_pkey');
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
         });
+
+        // Associate editor decisions with review rounds
+        Schema::table('edit_decisions', function (Blueprint $table) {
+            $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds');
+        });
     }
 
     /**

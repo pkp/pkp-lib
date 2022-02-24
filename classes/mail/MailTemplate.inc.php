@@ -195,7 +195,7 @@ class MailTemplate extends Mail
 
         // Add some general variables
         $params = array_merge([
-            'siteTitle' => $site->getLocalizedTitle(),
+            'siteTitle' => $site->getLocalizedTitle() ?? '',
         ], $params);
 
         $this->params = $params;
@@ -258,6 +258,9 @@ class MailTemplate extends Mail
                 if (filter_var($value, FILTER_VALIDATE_URL) != false) {
                     $body = $this->manageURLValues($body, $key, $value);
                 } else {
+                    if (is_null($value) || is_int($value)) {
+                        $value = (string) $value;
+                    }
                     $body = str_replace('{$' . $key . '}', $value, $body);
                 }
             }

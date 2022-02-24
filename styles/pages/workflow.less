@@ -92,59 +92,43 @@
 }
 
 .pkp_workflow_decisions {
-	margin: 0 0 1rem;
-	padding-left: 0;
-	list-style: none;
+	margin-bottom: 1rem;
 
-	a {
-		&:extend(.pkp_button all);
-		width: 100%;
-		text-align: center;
-
-		&.pkp_linkaction_decline {
-			&:extend(.pkp_button_offset all);
-		}
-
-		&.pkp_linkaction_externalReview,
-		&.pkp_linkaction_sendToProduction,
-		&.pkp_linkaction_schedulePublication,
-		&.pkp_linkaction_toPublication {
-			&:extend(.pkp_button_primary all);
-		}
+	> * + * {
+		margin-top: 1rem;
 	}
 
-	button {
-		width: 100%;
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
 	}
 
 	li + li {
 		margin-top: 0.5rem;
 	}
-}
 
-.pkp_no_workflow_decisions,
-.pkp_workflow_decided,
-.pkp_workflow_recommendations {
-	margin-bottom: 1rem;
-	padding: 1rem;
-	font-size: @font-sml;
-	line-height: @line-sml;
-	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
-	border-radius: @radius;
-	border-top: @grid-border;
-}
-
-.pkp_workflow_decided_actions {
-	display: none;
-
-	.pkp_controllers_linkAction {
-		margin-top: 1rem;
+	.pkp_button {
+		width: 100%;
+		text-align: center;
 	}
 }
 
+.pkp_workflow_last_decision,
+.pkp_workflow_recommendations,
+.pkp_no_workflow_decisions {
+	margin-bottom: 1rem;
+	border: @bg-border-light;
+	border-radius: @radius;
+	padding: 1rem;
+	font-size: @font-sml;
+	line-height: @line-sml;
+}
+
 .pkp_workflow_change_decision {
-	padding: 0;
-	margin-top: 0;
+	display: block;
+	padding: 0.5rem 0;
+	margin-top: 0.5rem;
 	background: transparent;
 	border: none;
 	box-shadow: none;
@@ -154,6 +138,10 @@
 	color: @primary;
 	text-decoration: underline;
 	text-align: left;
+}
+
+.pkp_workflow_decisions_options_hidden {
+	display: none;
 }
 
 .export_actions {
@@ -381,6 +369,12 @@
 		font-size: @font-sml;
 		line-height: @line-sml;
 	}
+}
+
+// View of a sent email opened from the activity log
+.pkp_workflow_email_log_view {
+	font-size: @font-sml;
+	line-height: @line-sml;
 }
 
 // @todo

@@ -1396,15 +1396,6 @@ msgstr "Рекомендовать решение редакции для это
 msgid "editor.submission.recordedRecommendations"
 msgstr "Записанные рекомендации"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Далее: Выбрать файлы для {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Выберите файлы: которые вы хотите отправить на этап «{$stageName}»."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Назад: Уведомление автора"
-
 msgid "submission.currentStage"
 msgstr "Текущий этап"
 

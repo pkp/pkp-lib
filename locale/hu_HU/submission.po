@@ -1838,15 +1838,6 @@ msgstr "Javasoljon egy szerkesztőségi döntést ehhez a beküldéshez."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Rögzített javaslatok"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Következő: Válasszon fájlt ehhez: {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Válassza ki a fájlokat amelyeket továbbítana ehhez a {$stageName} szakaszhoz."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Előző: Szerző értesítése"
-
 msgid "submission.query.participantTitle"
 msgstr "{$fullName}, {$userGroup}"
 

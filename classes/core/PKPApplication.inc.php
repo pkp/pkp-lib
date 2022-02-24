@@ -127,6 +127,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public const ASSOC_TYPE_PUBLICATION = 0x010000c;
     public const ASSOC_TYPE_ACCESSIBLE_FILE_STAGES = 0x010000d;
     public const ASSOC_TYPE_NONE = 0x010000e;
+    public const ASSOC_TYPE_DECISION_TYPE = 0x010000f;
 
     // Constant used in UsageStats for submission files that are not full texts
     public const ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER = 0x0000213;
@@ -504,7 +505,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'ControlledVocabEntryDAO' => 'PKP\controlledVocab\ControlledVocabEntryDAO',
             'DataObjectTombstoneDAO' => 'PKP\tombstone\DataObjectTombstoneDAO',
             'DataObjectTombstoneSettingsDAO' => 'PKP\tombstone\DataObjectTombstoneSettingsDAO',
-            'EditDecisionDAO' => 'PKP\submission\EditDecisionDAO',
             'FilterDAO' => 'PKP\filter\FilterDAO',
             'FilterGroupDAO' => 'PKP\filter\FilterGroupDAO',
             'GenreDAO' => 'PKP\submission\GenreDAO',

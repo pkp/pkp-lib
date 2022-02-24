@@ -1305,15 +1305,6 @@ msgstr "Beveel een redacteursbeslissing aan voor deze inzending."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Opgeslagen aanbevelingen"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Volgende stap: selecteer bestanden voor {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Seleteer de bestanden die u wilt doorsturen naar de {$stageName} stap."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Vorige stap: auteur verwittigen"
-
 msgid "submission.currentStage"
 msgstr "Huidige stap"
 

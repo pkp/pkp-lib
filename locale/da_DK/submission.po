@@ -1531,15 +1531,6 @@ msgstr "Anbefal en redaktionel afgørelse i forbindelse med denne indsendelse."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Registrerede anbefalinger"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Næste: Vælg filer til {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Vælg de filer, du gerne vil sende videre til {$stageName} trinnet."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Forrige: Forfatternotifikationer"
-
 msgid "notification.type.editorAssign"
 msgstr "Du er blevet valgt som redaktør på indsendelsen \"{$title}\"."
 

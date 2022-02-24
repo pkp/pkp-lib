@@ -394,6 +394,12 @@ class APIHandler extends PKPHandler
                 break;
             case 'object':
                 if (is_array($value)) {
+                    // In some cases a property may be defined as an object but it may not
+                    // contain specific details about that object's properties. In these cases,
+                    // leave the properties alone.
+                    if (!property_exists($schema, 'properties')) {
+                        return $value;
+                    }
                     $newObject = [];
                     foreach ($schema->properties as $propName => $propSchema) {
                         if (!isset($value[$propName])) {

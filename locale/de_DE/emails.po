@@ -1,0 +1,200 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
+"PO-Revision-Date: 2020-12-15 09:06+0000\n"
+"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/ojs/emails/de_DE/"
+">\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Eingangsbestätigung"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName},<br />\n"
+"<br />\n"
+"vielen Dank für die Einreichung Ihres Manuskript &quot;{$submissionTitle}&quot; zur Veröffentlichung in {$contextName}. Das Verwaltungssystem unserer Webzeitschrift erlaubt Ihnen, jederzeit den Lauf Ihres Beitrags im Redaktionsprozess zu beobachten. Sie loggen sich dazu einfach auf unserer Webseite ein:<br />\n"
+"<br />\n"
+"URL des Manuskripts: {$submissionUrl}<br />\n"
+"Benutzer/innenname: {$recipientUsername}<br />\n"
+"<br />\n"
+"Für weitere Fragen stehen wir Ihnen gern zur Verfügung. Danke für Ihr Interesse an einer Veröffentlichung in unserer Zeitschrift.<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Diese E-Mail wird, sofern aktiviert, automatisch an eine Autorin/einen Autor "
+"gesendet, wenn sie den Einreichungsprozess eines Manuskripts für die "
+"Zeitschrift abgeschlossen haben. Sie liefert Informationen über das "
+"Verfolgen der Einreichung durch den Prozess hindurch und dankt der Autorin/"
+"dem Autor für die Einreichung."
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Eingangsbestätigung für ein Gutachten"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName},<br />\n"
+"<br />\n"
+"vielen Dank für Ihr Gutachten zum Beitrag &quot;{$submissionTitle}&quot; für {$contextName}. Ihre Stellungnahme ist eine wichtige Unterstützung für unsere Bemühungen um die Qualität der von uns veröffentlichten Arbeiten."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "Diese E-Mail wird von eine/r Rubrikredakteur/in gesendet, um den Empfang eines abgeschlossenen Gutachtens zu bestätigen und um der Gutachterin/dem Gutachter für die Mitwirkung zu danken."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Entscheidung der Redaktion"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Wir sind zu einer Entscheidung hinsichtlich Ihrer Einreichung für {$contextName}, &quot;{$submissionTitle}&quot; gekommen.<br />\n"
+"<br />\n"
+"Wir haben entschieden, ein Gutachten anzufordern.<br />\n"
+"<br />\n"
+"URL des Beitrags: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr "Diese E-Mail von Redakteur/in oder Rubrikredakteur/in benachrichtigt die/den Autor/in darüber, dass ein externes Gutachten angefordert wird."
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Entscheidung der Redaktion"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Das Lektorat Ihrer Einreichung &quot;{$submissionTitle}&quot; ist beendet. Wir leiten den Beitrag jetzt zur Herstellung weiter.<br />\n"
+"<br />\n"
+"URL des Beitrags: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr "Diese E-Mail von Redakteur/in oder Rubrikredakteur/in informiert die/den Autor/in darüber, dass deren Beitrag in die Herstellung weitergeleitet worden ist."
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Entscheidung der Redaktion"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors},<br />\n"
+"<br />\n"
+"wir sind zu einer Entscheidung in Bezug auf Ihren Beitrag für {$contextName}:"
+" &quot;{$submissionTitle}&quot; gekommen.<br />\n"
+"<br />\n"
+"Wir haben entschieden, dass Ihr Beitrag überarbeitet werden muss."
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr "Diese E-Mail von der/dem Redakteur/in oder Rubrikredakteur/in an eine/n Autor/in informiert diese/n über eine getroffene Entscheidung zu ihrer/seiner Einreichung."
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Entscheidung der Redaktion"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors},<br />\n"
+"<br />\n"
+"wir sind zu einer Entscheidung in Bezug auf Ihre Einreichung für "
+"{$contextName}: &quot;{$submissionTitle}&quot; gekommen.<br />\n"
+"<br />\n"
+"Wir haben entschieden, dass Ihr Beitrag überarbeitet werden muss und dann "
+"erneut zum Begutachtung versendet wird."
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr "Diese E-Mail von der/dem Redakteur/in oder Rubrikredakteur/in an eine/n Autor/in informiert diese/n über eine getroffene Entscheidung zu ihrer/seiner Einreichung."
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Entscheidung der Redaktion"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors},<br />\n"
+"<br />\n"
+"wir sind zu einer Entscheidung in Bezug auf Ihre Einreichung für {$contextName}: &quot;{$submissionTitle}&quot; gekommen.<br />\n"
+"<br />\n"
+"Unsere Entscheidung lautet: Beitrag ablehnen"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr "Diese E-Mail von der/dem Redakteur/in oder Rubrikredakteur/in an eine/n Autor/in informiert diese/n über eine getroffene Entscheidung zu ihrer/seiner Einreichung."
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Entscheidung der Redaktion"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"Die Empfehlung hinsichtlich der Einreichung für {$contextName}, &quot;{$submissionTitle}&quot; ist: {$recommendation}"
+
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr ""
+"Diese E-Mail von der/dem vorschlagenen Redakteur/in oder Rubrikenredakteur/"
+"in an die/den Entscheidungen treffenden Redakteur/in oder Rubrikenredakteur/"
+"in informiert diese/n über die endgültige Empfehlung zur vorliegenden "
+"Einreichung."
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Bitte um ein Lektorat"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName},<br />\n"
+"<br />\n"
+"ich bitte Sie, das Manuskript &quot;{$submissionTitle}&quot; für {$contextName} zu lektorieren. Bitte gehen Sie dabei folgendermaßen vor:<br />\n"
+"1. Klicken Sie auf die unten stehende URL des Beitrags.<br />\n"
+"2. Öffnen Sie alle Dateien, die unter Entwurf für Lektorat verfügbar sind, und beginnen Sie Ihr Lektorat. Fügen Sie neue Diskussionen zum Lektorat nach Bedarf hinzu.<br />\n"
+"3. Sichern Sie die lektorierte(n) Dateien und laden Sie sie unter Lektoriert hoch.<br />\n"
+"4. Benachrichtigen Sie die/den Redakteur/in, dass alle Dateien fertig sind und dass der Herstellungsprozess beginnen kann.<br />\n"
+"<br />\n"
+"URL {$contextName}: {$contextUrl}<br />\n"
+"URL des Beitrags: {$submissionUrl}<br />\n"
+"Benutzer/innenname: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr "Diese E-Mail wird von der/dem Rubrikredakteur/in an die/den Lektor einer Einreichung gesendet, um diese/n zu bitten, mit dem Lektorat zu beginnen. Sie liefert Informationen über die Einreichung und darüber, wie auf sie zuzugreifen ist."
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Entscheidung der Redaktion"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"Wir sind zu einer Entscheidung hinsichtlich Ihrer Einreichung für {$contextName}, &quot;{$submissionTitle}&quot; gekommen.<br />\n"
+"<br />\n"
+"Wir haben entschieden, Ihre Einreichung abzulehnen."
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr ""
+"Diese E-Mail wird an die/den Autor/in gesendet, wenn die/der Redakteur/in "
+"die Einreichung bereits vor dem Begutachtungsprozess ablehnt."

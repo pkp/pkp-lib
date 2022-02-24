@@ -15,17 +15,21 @@
  */
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Collector;
+use APP\submission\Submission;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
-
+use PKP\decision\DecisionType;
 use PKP\handler\APIHandler;
 use PKP\notification\PKPNotification;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -64,6 +68,7 @@ class PKPSubmissionHandler extends APIHandler
         'deleteContributor',
         'editContributor',
         'saveContributorsOrder',
+        'addDecision',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -161,6 +166,11 @@ class PKPSubmissionHandler extends APIHandler
                     'handler' => [$this, 'addContributor'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                 ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/decisions',
+                    'handler' => [$this, 'addDecision'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
+                ],
             ],
             'PUT' => [
                 [
@@ -236,6 +246,10 @@ class PKPSubmissionHandler extends APIHandler
             $this->addPolicy(new StageRolePolicy($this->productionStageAccessRoles, WORKFLOW_STAGE_ID_PRODUCTION, false));
         }
 
+        if ($routeName === 'addDecision') {
+            $this->addPolicy(new DecisionWritePolicy($request, $args, (int) $request->getUserVar('decision'), $request->getUser()));
+        }
+
         return parent::authorize($request, $args, $roleAssignments);
     }
 
@@ -253,10 +267,6 @@ class PKPSubmissionHandler extends APIHandler
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
         $context = $request->getContext();
-
-        if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
 
         $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
 
@@ -279,9 +289,13 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($context->getId())->toArray();
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($context->getId())->toArray();
+
         return $response->withJson([
             'itemsMax' => Repo::submission()->getCount($collector->limit(null)->offset(null)),
-            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups),
+            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres),
         ], 200);
     }
 
@@ -383,7 +397,11 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups), 200);
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
     }
 
     /**
@@ -398,11 +416,6 @@ class PKPSubmissionHandler extends APIHandler
     public function add($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
-
-        // Don't allow submissions to be added via the site-wide API
-        if (!$request->getContext()) {
-            return $response->withStatus(400)->withJsonError('api.submissions.403.contextRequired');
-        }
 
         if ($request->getContext()->getData('disableSubmissions')) {
             return $response->withStatus(403)->withJsonError('author.submit.notAccepting');
@@ -432,7 +445,11 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups), 200);
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
     }
 
     /**
@@ -451,11 +468,6 @@ class PKPSubmissionHandler extends APIHandler
 
         if (!$submission) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
-        // Don't allow submissions to be added via the site-wide API
-        if (!$request->getContext()) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.contextRequired');
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
@@ -483,7 +495,11 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups), 200);
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
     }
 
     /**
@@ -506,7 +522,11 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        $submissionProps = Repo::submission()->getSchemaMap()->map($submission, $userGroups);
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        $submissionProps = Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres);
 
         Repo::submission()->delete($submission);
 
@@ -531,7 +551,7 @@ class PKPSubmissionHandler extends APIHandler
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $stageId = $args['stageId'] ?? null;
 
-        if (!$submission) {
+        if (!$submission || $submission->getData('contextId') !== $context->getId()) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
@@ -616,8 +636,12 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
         return $response->withJson(
-            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             200
         );
     }
@@ -667,8 +691,12 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
         return $response->withJson(
-            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             200
         );
     }
@@ -721,8 +749,12 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
         return $response->withJson(
-            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             200
         );
     }
@@ -791,8 +823,12 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
         return $response->withJson(
-            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             200
         );
     }
@@ -848,8 +884,12 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
         return $response->withJson(
-            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             200
         );
     }
@@ -887,8 +927,12 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
         return $response->withJson(
-            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             200
         );
     }
@@ -926,13 +970,16 @@ class PKPSubmissionHandler extends APIHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        $output = Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication);
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        $output = Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication);
 
         Repo::publication()->delete($publication);
 
         return $response->withJson($output, 200);
     }
-
 
     /**
      * Get one of a publication's contributors
@@ -1228,5 +1275,45 @@ class PKPSubmissionHandler extends APIHandler
         }
 
         return $response->withJson($publication->getId());
+    }
+
+    /**
+     * Record an editorial decision for a submission, such as
+     * a decision to accept or reject the submission, request
+     * revisions, or send it to another stage.
+     *
+     * @param $slimRequest Request Slim request object
+     * @param $response Response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function addDecision($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest(); /** @var Request $request */
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE); /** @var DecisionType $decisionType */
+
+        if ($submission->getData('status') === Submission::STATUS_PUBLISHED) {
+            return $response->withStatus(403)->withJsonError('api.decisions.403.alreadyPublished');
+        }
+
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_DECISION, $slimRequest->getParsedBody());
+        $params['submissionId'] = $submission->getId();
+        $params['dateDecided'] = Core::getCurrentDate();
+        $params['editorId'] = $request->getUser()->getId();
+        $params['stageId'] = $decisionType->getStageId();
+
+        $errors = Repo::decision()->validate($params, $decisionType, $submission, $request->getContext());
+
+        if (!empty($errors)) {
+            return $response->withStatus(400)->withJson($errors);
+        }
+
+        $decision = Repo::decision()->newDataObject($params);
+        $decisionId = Repo::decision()->add($decision);
+        $decision = Repo::decision()->get($decisionId);
+
+        return $response->withJson(Repo::decision()->getSchemaMap()->map($decision), 200);
     }
 }

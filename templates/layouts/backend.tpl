@@ -16,6 +16,10 @@
 	{load_header context="backend"}
 	{load_stylesheet context="backend"}
 	{load_script context="backend"}
+	<style type="text/css">
+		/* Prevent flash of unstyled content in some browsers */
+		[v-cloak] { display: none; }
+	</style>
 </head>
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
@@ -30,10 +34,10 @@
 		{rdelim});
 	</script>
 
-	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}">
+	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}" v-cloak>
 		<header class="app__header" role="banner">
 			{if $availableContexts}
-				<dropdown class="app__headerAction app__contexts" v-cloak>
+				<dropdown class="app__headerAction app__contexts">
 					<template slot="button">
 						<icon icon="sitemap"></icon>
 						<span class="-screenReader">{translate key="context.contexts"}</span>
@@ -65,7 +69,7 @@
 				</div>
 			{/if}
 			{if $currentUser}
-				<div class="app__headerActions" v-cloak>
+				<div class="app__headerActions">
 					{call_hook name="Template::Layout::Backend::HeaderActions"}
 					<div class="app__headerAction app__tasks">
 						<button ref="tasksButton" @click="openTasks">
@@ -170,7 +174,7 @@
 			{/block}
 
 			<main class="app__main">
-				<div class="app__page{if $pageWidth} app__page--{$pageWidth}{/if}">
+				<div class="app__page width{if $pageWidth} width--{$pageWidth}{/if}">
 					{block name="breadcrumbs"}
 						{if $breadcrumbs}
 							<nav class="app__breadcrumbs" role="navigation" aria-label="{translate key="navigation.breadcrumbLabel"}">
@@ -210,6 +214,18 @@
 				</notification>
 			</transition-group>
 		</div>
+		<transition name="app__loading">
+			<div
+				v-if="isLoading"
+				class="app__loading"
+				role="alert"
+			>
+				<div class="app__loading__content">
+					<spinner></spinner>
+					{translate key="common.loading"}
+				</div>
+			</div>
+		</transition>
 	</div>
 
 	<script type="text/javascript">

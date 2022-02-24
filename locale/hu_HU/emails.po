@@ -1,0 +1,205 @@
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-13T21:04:53+00:00\n"
+"PO-Revision-Date: 2021-07-08 13:00+0000\n"
+"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
+"Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/ojs/emails/hu/"
+">\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Cikk beküldésének visszaigazolása"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"Tisztelt {$recipientName}!<br />\n"
+"<br />\n"
+"Köszönjük, hogy benyújtotta a(z) &quot;{$submissionTitle}&quot; című kéziratot a(z) {$contextName} folyóirathoz. Az általunk használt online folyóiratkezelő rendszerrel, lehetősége lesz végigkövetni a cikk szerkesztési folyamatát, amennyiben bejelentkezik a folyóirat oldalára:<br />\n"
+"<br />\n"
+"Kézirat URL:  {$submissionUrl}<br />\n"
+"Felhasználónév: {$recipientUsername}<br />\n"
+"<br />\n"
+"Ha bármilyen kérdése merülne fel, kérjük vegye fel a szerkesztőséggel a kapcsolatot. Köszönjük, hogy a munkájának megjelentetéséhez folyóiratunkat választotta.<br />\n"
+"<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr "Ez az email, ha be van kapcsolva, akkor automatikusan kiküldésre kerül a Szerzőnek, amikor a folyóirathoz beküldte kéziratát. Információt ad a benyújtási folyamatról és megköszöni a Szerzőnek a benyújtott kéziratot."
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Szakmai lektorálás elfogadása"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"Tisztelt {$recipientName}!<br />\n"
+"<br />\n"
+"Köszönjük, hogy elkészítette a(z) {$contextName} folyóirathoz beküldött &quot;{$submissionTitle},&quot; című kézirat szakmai bírálatát.<br />\n"
+"<br />\n"
+"Üdvözlettel,<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "Ezt az emailt a Rovatszerkesztő küldi válaszul a kész szakértői véleményre és megköszöni a Szakmai Lektornak az együttműködést."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Szerkesztői döntés"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"Tisztelt {$authors}!<br />\n"
+"<br />\n"
+"Értesítjük, hogy a(z) {$contextName} folyóirathoz beküldött &quot;{$submissionTitle}&quot; című cikkét szakmai lektorálásra elküldtük.<br />\n"
+"<br />\n"
+"A cikk URL: {$submissionUrl}<br />\n"
+"<br />\n"
+"Üdvözlettel,<br />\n"
+"{$signature}<br />"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.description"
+msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkét a szerkesztőség külső szakmai lektorálásra küldte."
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Szerkesztői döntés"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"Tisztelt {$authors}!<br />\n"
+"<br />\n"
+"A(z) &quot;{$submissionTitle},&quot; című kéziratának lektorálása befejeződött, megjelentetésre küldjük.<br />\n"
+"<br />\n"
+"A kézirat URL címe: {$submissionUrl}<br />\n"
+"<br />\n"
+"Üdvözlettel,<br />\n"
+"{$signature}<br />"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.description"
+msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkét a szerkesztőség megjelentetésre továbbította."
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Szerkesztői döntés"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"Tisztelt {$authors}!<br />\n"
+"<br />\n"
+"Értesítjük, hogy a(z) {$contextName} folyóirathoz beküldött &quot;{$submissionTitle}&quot; című cikkének átdolgozása szükséges.<br />\n"
+"<br /> \n"
+"Üdvözlettel,<br />\n"
+"{$signature}<br />"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.description"
+msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkével kapcsolatos döntés az \"Átdolgozás szükséges\"."
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Szerkesztői döntés"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"Tisztelt {$authors}!<br />\n"
+"<br />\n"
+"Értesítjük, hogy a(z) {$contextName} folyóirathoz beküldött &quot;{$submissionTitle}&quot; című cikkének új változatát szükséges benyújtani szakmai lektorálásra.<br />\n"
+"<br /> \n"
+"Üdvözlettel,<br />\n"
+"{$signature}<br />"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.description"
+msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkével kapcsolatos döntés az \"Újrabenyújtás\"."
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Szerkesztői döntés"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"Tisztelt {$authors}!<br />\n"
+"<br />\n"
+"Értesítjük, hogy a(z) {$contextName} folyóirathoz beküldött &quot;{$submissionTitle}&quot; című kézirata elutasításra került.<br />\n"
+"<br /> \n"
+"Üdvözlettel,<br />\n"
+"{$signature}<br />"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.description"
+msgstr "Ez az email a Szerkesztőtől vagy a Rovatszerkesztőtől érkezik a Szerzőnek, hogy a cikkével kapcsolatos döntés az \"Elutasítás\"."
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Szerkesztői javaslat"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"Tisztelt {$editors}!<br />\n"
+"<br />\n"
+"A(z) {$contextName} folyóirathoz beküldött &quot;{$submissionTitle}&quot; című cikkel kapcsolatban javaslatunk: {$recommendation}<br />   \n"
+"<br />\n"
+"Üdvözlettel,<br />  \n"
+"{$signature}<br />"
+
+#, fuzzy
+msgid "emails.editorRecommendation.description"
+msgstr "Ez az e-mail az ajánlatot tevő Szerkesztőtől vagy Rovatszerkesztőtől megy a döntést meghozó Szerkesztőkhöz vagy Rovatszerkesztőkhöz, értesítve őket a  kézirattal kapcsolatos végső javaslatról."
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Technikai szerkesztés kérése"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"Tisztelt {$recipientName}!<br />\n"
+"<br />\n"
+"Kérjük, hogy végezze el a(z) &quot;{$submissionTitle}&quot; című cikk alábbi lépésekből álló technikai szerkesztési folyamatát a(z) {$contextName} folyóiratnál.<br />\n"
+"1. Kattintson a kézirat URL címére alább.<br />\n"
+"2. Nyissa meg a fájlt vagy fájlokat a Vázlatok között és végezze el a technikai szerkesztést. Ha szükséges, kezdeményezzen technikai szerkesztői párbeszédet.<br />\n"
+"3. Mentse el a szerkesztett fájl(okat), és töltse fel a Szerkesztett részhez.<br />\n"
+"4. Értesítse a Szerkesztőt, hogy elkészült minden fájllal és megkezdhető a megjelentetési fázis.<br />\n"
+"<br />\n"
+"{$contextName} URL: {$contextUrl}<br />\n"
+"Kézirat URL címe: {$submissionUrl}<br />\n"
+"Felhasználónév: {$recipientUsername}<br />\n"
+"<br />\n"
+"Üdvözlettel,<br />\n"
+"{$signature}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.description"
+msgstr "Ezt az emailt a Rovatszerkesztő küldi a kézirat technikai szerkesztőjének, hogy felkérje a technikai szerkesztés munkájára. A levél információkat tartalmaz a kézirattal, illetve elérésével kapcsolatban."
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Szerkesztői döntés"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\tTisztelt {$authors}!<br />\n"
+"<br />\n"
+"Értesítjük, hogy a(z) {$contextName} folyóirathoz beküldött "
+"&quot;{$submissionTitle}&quot; című kézirata elutasításra került.<br />\n"
+"<br /> \n"
+"Üdvözlettel,<br />\n"
+"{$signature}<br />"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr "Ez az e-mail a Szerzőnek lesz küldve akkor, amikor a Szerkesztő egyből visszautasítja a benyújtott kéziratot, még a lektorálási szakasz előtt."

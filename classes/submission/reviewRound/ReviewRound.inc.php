@@ -20,13 +20,13 @@
 
 namespace PKP\submission\reviewRound;
 
-use APP\workflow\EditorDecisionActionsManager;
-
+use APP\decision\Decision;
+use APP\facades\Repo;
 use PKP\db\DAORegistry;
 
 class ReviewRound extends \PKP\core\DataObject
 {
-    // The first four statuses are set explicitly by EditorDecisions, which override
+    // The first four statuses are set explicitly by Decisions, which override
     // the current status.
     public const REVIEW_ROUND_STATUS_REVISIONS_REQUESTED = 1;
     public const REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW = 2;
@@ -149,18 +149,14 @@ class ReviewRound extends \PKP\core\DataObject
      */
     public function determineStatus()
     {
-        // Check if revisions requested or received, if this is latest review round and then check files
-        $roundStatus = $this->getStatus();
-
         // If revisions have been requested, check to see if any have been
         // submitted
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
             // get editor decisions
-            $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), EditorDecisionActionsManager::SUBMISSION_EDITOR_RECOMMEND_PENDING_REVISIONS);
+            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), Decision::PENDING_REVISIONS);
 
             if ($pendingRevisionDecision) {
-                if ($editDecisionDao->responseExists($pendingRevisionDecision, $this->getSubmissionId())) {
+                if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->getSubmissionId())) {
                     return self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED;
                 }
             }
@@ -171,11 +167,10 @@ class ReviewRound extends \PKP\core\DataObject
         // submitted
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
             // get editor decisions
-            $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
-            $pendingRevisionDecision = $editDecisionDao->findValidPendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), EditorDecisionActionsManager::SUBMISSION_EDITOR_RECOMMEND_RESUBMIT);
+            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), Decision::RESUBMIT);
 
             if ($pendingRevisionDecision) {
-                if ($editDecisionDao->responseExists($pendingRevisionDecision, $this->getSubmissionId())) {
+                if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->getSubmissionId())) {
                     return self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED;
                 }
             }
@@ -196,7 +191,6 @@ class ReviewRound extends \PKP\core\DataObject
 
         // Determine the round status by looking at the recommendOnly editor assignment statuses
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $editDecisionDao = DAORegistry::getDAO('EditDecisionDAO'); /** @var EditDecisionDAO $editDecisionDao */
         $pendingRecommendations = false;
         $recommendationsFinished = true;
         $recommendationsReady = false;
@@ -205,9 +199,15 @@ class ReviewRound extends \PKP\core\DataObject
             if ($editorsStageAssignment->getRecommendOnly()) {
                 $pendingRecommendations = true;
                 // Get recommendation from the assigned recommendOnly editor
-                $editorId = $editorsStageAssignment->getUserId();
-                $editorRecommendations = $editDecisionDao->getEditorDecisions($this->getSubmissionId(), $this->getStageId(), $this->getRound(), $editorId);
-                if (empty($editorRecommendations)) {
+                $decisions = Repo::decision()->getCount(
+                    Repo::decision()
+                        ->getCollector()
+                        ->filterBySubmissionIds([$this->getSubmissionId()])
+                        ->filterByStageIds([$this->getStageId()])
+                        ->filterByReviewRoundIds([$this->getId()])
+                        ->filterByEditorIds([$editorsStageAssignment->getUserId()])
+                );
+                if (!$decisions) {
                     $recommendationsFinished = false;
                 } else {
                     $recommendationsReady = true;

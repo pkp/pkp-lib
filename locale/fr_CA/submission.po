@@ -1328,15 +1328,6 @@ msgstr "Recommander une décision éditoriale pour cette soumission."
 msgid "editor.submission.recordedRecommendations"
 msgstr "Enregistrer les recommandations"
 
-msgid "editor.submission.decision.nextButton"
-msgstr "Poursuivre (faire parvenir les fichiers pour l'étape de {$stageName})"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Sélectionner les fichiers que vous voulez faire suivre à l'étape de {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Précédent  (avis à l'auteur-e)"
-
 msgid "submission.currentStage"
 msgstr "Étape actuelle"
 

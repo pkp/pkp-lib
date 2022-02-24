@@ -96,9 +96,9 @@ class SubmissionsMigration extends \PKP\migration\Migration
         Schema::create('edit_decisions', function (Blueprint $table) {
             $table->bigInteger('edit_decision_id')->autoIncrement();
             $table->bigInteger('submission_id');
-            $table->bigInteger('review_round_id');
+            $table->bigInteger('review_round_id')->nullable();
             $table->bigInteger('stage_id')->nullable();
-            $table->smallInteger('round');
+            $table->smallInteger('round')->nullable();
             $table->bigInteger('editor_id');
             $table->smallInteger('decision');
             $table->datetime('date_decided');

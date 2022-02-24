@@ -40,16 +40,11 @@
 		</div>
 	</div>
 	<modal
-		v-bind="MODAL_PROPS"
+		close-label="common.close"
 		name="export"
+		title="{translate key="manager.export.usersToCsv.label"}"
 		@closed="setFocusToRef('exportButton')"
 	>
-		<modal-content
-			close-label="common.close"
-			modal-name="export"
-			title="{translate key="manager.export.usersToCsv.label"}"
-		>
-			<pkp-form v-bind="components.usersReportForm" @set="set" @success="loadExport" />
-		</modal-content>
+		<pkp-form v-bind="components.usersReportForm" @set="set" @success="loadExport" />
 	</modal>
 {/block}

@@ -16,6 +16,7 @@
 use \Firebase\JWT\JWT;
 
 use Firebase\JWT\SignatureInvalidException;
+use Slim\Http\Request as SlimRequest;
 
 class ApiTokenDecodingMiddleware {
 	/** @var APIHandler $handler Reference to api handler */
@@ -37,7 +38,16 @@ class ApiTokenDecodingMiddleware {
 	 * @return boolean|string
 	 */
 	protected function _decode($slimRequest) {
-		$jwt = $slimRequest->getQueryParam('apiToken');
+		try {
+			$jwt = $this->getJWT($slimRequest);
+		} catch (Exception $e) {
+			$request = $this->_handler->getRequest();
+			return $request->getRouter()
+				->handleAuthorizationFailure(
+					$request,
+					$e->getMessage()
+				);
+		}
 		if (!$jwt) {
 			/**
 			 * If we don't have a token, it's for the authentication logic to handle if it's a problem.
@@ -120,6 +130,22 @@ class ApiTokenDecodingMiddleware {
 
 		$response = $next($request, $response);
 		return $response;
+	}
+
+	protected function getJWT(SlimRequest $slimRequest) {
+
+		$authHeader = $slimRequest->getHeader('Authorization');
+
+		if (!count($authHeader) || empty($authHeader[0])) {
+			return $slimRequest->getQueryParam('apiToken');
+		}
+
+		$parts = explode(' ', $authHeader[0]);
+		if (count($parts) < 2 || $parts[0] !== 'Bearer') {
+			throw new Exception(__('api.500.badAuthorizationheader'));
+		}
+
+		return $parts[1];
 	}
 }
 

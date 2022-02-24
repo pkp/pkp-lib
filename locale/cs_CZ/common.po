@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-02-20 09:24+0000\n"
+"PO-Revision-Date: 2022-02-25 13:26+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "cs_CZ/>\n"
@@ -2084,3 +2084,71 @@ msgstr "Rozbalit vše"
 
 msgid "timeZone"
 msgstr "Časové pásmo"
+
+msgid "email.attachmentNotFound"
+msgstr "Soubor {$fileName} nelze připojit."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Připojení souborů nahraných recenzenty"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Připojit recenzní soubory"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Připojte soubory z podání příspěvku a z knihovny vydavatele."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Připojit soubory knihovny"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Soubory knihovny"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Připojte soubory nahrané během pracovního postupu odesílání, například "
+"revize nebo soubory k recenzi."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Přiložte soubory nahrané autorem ve fázi podání příspěvku."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Připojit soubor příspěvku"
+
+msgid "common.viewError"
+msgstr "Ukázat chybu"
+
+msgid "common.upload.addFile.description"
+msgstr "Nahrajte soubor z počítače."
+
+msgid "common.switchTo"
+msgstr "Přepnout na"
+
+msgid "common.showAllSteps"
+msgstr "Ukázat všechny kroky"
+
+msgid "common.searching"
+msgstr "Hledání"
+
+msgid "common.numberedMore"
+msgstr "{$number} krát více"
+
+msgid "common.keepWorking"
+msgstr "Pokračovat v práci"
+
+msgid "common.loadTemplate"
+msgstr "Nahrát šablonu"
+
+msgid "common.findTemplate"
+msgstr "Najít šablonu"
+
+msgid "common.deselect"
+msgstr "Zrušit výběr"
+
+msgid "common.attachFiles"
+msgstr "Připojte soubory"
+
+msgid "common.attachedFiles"
+msgstr "Připojené soubory"
+
+msgid "common.addCCBCC"
+msgstr "Přidat CC/BCC"

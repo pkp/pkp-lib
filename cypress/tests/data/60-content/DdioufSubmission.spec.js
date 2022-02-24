@@ -22,12 +22,17 @@ describe('Data suite tests', function() {
 			title,
 			'abstract': 'In this review, the recent progress on genetic transformation of forest trees were discussed. Its described also, different applications of genetic engineering for improving forest trees or understanding the mechanisms governing genes expression in woody plants.',
 		});
+	});
 
-		cy.logout();
+	it('Declines the submission, reverts the decline, and declines it again', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, 'Diouf');
-		cy.get('ul.pkp_workflow_decisions button:contains("Post the preprint")').click();
-		cy.get('div.pkpPublication button:contains("Post"):visible').click();
-		cy.get('div:contains("All requirements have been met. Are you sure you want to post this?")');
-		cy.get('[id^="publish"] button:contains("Post")').click();
+		cy.clickDecision('Decline Submission');
+		cy.recordDecisionDecline(['Diaga Diouf']);
+		cy.get('.pkp_workflow_last_decision').contains('Submission declined.');
+		cy.get('button').contains('Change decision').click();
+		cy.clickDecision('Revert Decline');
+		cy.recordDecisionRevertDecline(['Diaga Diouf']);
+		cy.clickDecision('Decline Submission');
+		cy.recordDecisionDecline(['Diaga Diouf']);
 	});
 });

@@ -124,8 +124,12 @@ class SubmissionHandler extends PKPSubmissionHandler
         $userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /** @var UserGroupDAO $userGroupDao */
         $userGroups = $userGroupDao->getByContextId($submission->getData('contextId'))->toArray();
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($request->getContext()->getId())->toArray();
+
         return $response->withJson(
-            Repo::publication()->getSchemaMap($submission, $userGroups)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             200
         );
     }

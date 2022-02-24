@@ -17,7 +17,7 @@
 
 namespace APP\core;
 
-use PKP\context\Context;
+use APP\server\Server;
 use PKP\core\PKPRequest;
 use PKP\plugins\HookRegistry;
 
@@ -72,7 +72,7 @@ class Request extends PKPRequest
      *
      * @see PKPPageRouter::getContext()
      */
-    public function &getContext($level = 1): ?Context
+    public function &getContext($level = 1): ?Server
     {
         $returner = $this->_delegateToRouter('getContext', $level);
         return $returner;

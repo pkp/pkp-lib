@@ -11,18 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "emails.submissionAck.body"
-msgstr ""
-"{$recipientName}: <br />\n"
-"<br />\n"
-"Gracias por enviar el manuscrito, &quot;{$submitTitle}&quot; a {$contextName}"
-". Puede administrar su envío iniciando sesión en el sitio web del servidor. <"
-"br />\n"
-
-msgid "emails.submissionAck.subject"
-msgstr "Acuse de recibo"
-
-#, fuzzy
 msgid "emails.issuePublishNotify.description"
 msgstr ""
 "Este correo electrónico se envía a los lectores registrados a través del "

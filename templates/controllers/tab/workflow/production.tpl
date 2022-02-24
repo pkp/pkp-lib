@@ -22,22 +22,9 @@
 	{/if}
 
 	<div class="pkp_workflow_sidebar">
-		<div class="pkp_tab_actions">
-			<ul class="pkp_workflow_decisions">
-				<li>
-					<button
-						class="pkpButton pkpButton--isPrimary"
-						onClick="pkp.eventBus.$emit('open-tab', 'publication')"
-					>
-						{translate key="editor.submission.postPreprint"}
-					</button>
-				</li>
-			</ul>
-			{capture assign=submissionEditorDecisionsUrl}{url router=PKPApplication::ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId contextId="submission" escape=false}{/capture}
-			{load_url_in_div id="submissionEditorDecisionsDiv" url=$submissionEditorDecisionsUrl class="pkp_tab_actions"}
-		</div>
-
-		{capture assign=stageParticipantGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.users.stageParticipant.StageParticipantGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{capture assign=productionEditorDecisionsUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{load_url_in_div id="productionEditorDecisionsDiv" url=$productionEditorDecisionsUrl class="editorDecisionActions pkp_tab_actions"}
+		{capture assign=stageParticipantGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.stageParticipant.StageParticipantGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id="stageParticipantGridContainer" url=$stageParticipantGridUrl class="pkp_participants_grid"}
 	</div>
 

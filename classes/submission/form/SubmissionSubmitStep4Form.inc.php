@@ -95,7 +95,7 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form
                 'recipientUsername' => $user->getUsername(),
                 'signature' => $context->getData('contactName'),
                 'canAuthorPublish' => $canAuthorPublish,
-                'submissionUrl' => $router->url($request, null, 'authorDashboard', 'submission', $submission->getId()),
+                'authorSubmissionUrl' => $router->url($request, null, 'authorDashboard', 'submission', $submission->getId()),
             ]);
 
             if (!$mail->send($request)) {

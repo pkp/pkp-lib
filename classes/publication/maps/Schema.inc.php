@@ -34,6 +34,7 @@ class Schema extends \PKP\publication\maps\Schema
                     'publication' => $publication,
                     'request' => $this->request,
                     'submission' => $this->submission,
+                    'genres' => $this->genres,
                 ];
                 $output['galleys'] = array_map(
                     function ($galley) use ($galleyArgs) {

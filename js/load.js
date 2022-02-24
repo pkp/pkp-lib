@@ -16,6 +16,7 @@ import Page from '@/components/Container/Page.vue';
 import AccessPage from '@/components/Container/AccessPage.vue';
 import AddContextContainer from '@/components/Container/AddContextContainer.vue';
 import AdminPage from '@/components/Container/AdminPage.vue';
+import DecisionPage from '@/components/Container/DecisionPage.vue';
 import DoiPage from "@/components/Container/DoiPageOPS.vue";
 import ImportExportPage from '@/components/Container/ImportExportPage.vue';
 import SettingsPage from '@/components/Container/SettingsPage.vue';
@@ -36,6 +37,7 @@ window.pkp = Object.assign(PkpLoad, {
 		AccessPage,
 		AddContextContainer,
 		AdminPage,
+		DecisionPage,
 		DoiPage,
 		ImportExportPage,
 		JobsPage,

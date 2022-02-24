@@ -17,7 +17,7 @@
 import('lib.pkp.controllers.tab.workflow.PKPWorkflowTabHandler');
 
 use APP\template\TemplateManager;
-
+use PKP\decision\DecisionType;
 use PKP\security\Role;
 
 class WorkflowTabHandler extends PKPWorkflowTabHandler
@@ -71,5 +71,10 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
             ],
             NOTIFICATION_LEVEL_TRIVIAL => []
         ];
+    }
+
+    protected function getNewReviewRoundDecisionType(int $stageId): DecisionType
+    {
+        throw new Exception('Tried to get a review round decision type in OPS which does not support review rounds.');
     }
 }

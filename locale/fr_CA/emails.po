@@ -110,20 +110,6 @@ msgstr ""
 msgid "emails.userValidateContext.description"
 msgstr "Ce courriel est envoyé à un,une utilisateur-trice nouvellement inscrit-e pour valider son compte de courriel."
 
-msgid "emails.submissionAck.subject"
-msgstr "Accusé de réception de la soumission"
-
-msgid "emails.submissionAck.body"
-msgstr ""
-"{$recipientName},<br />\n"
-"<br />\n"
-"Nous vous remercions d'avoir soumis le manuscrit intitulé « "
-"{$submissionTitle} » au serveur {$contextName}. Vous pourrez suivre le "
-"traitement de votre soumission en accédant au site Web du serveur .<br />\n"
-
-msgid "emails.submissionAck.description"
-msgstr "Ce courriel, lorsqu'activé, est envoyé automatiquement à un-e auteur-e quand il ou elle a complété le processus de soumission d'un manuscrit à la seveur. Il fournit les informations sur comment suivre la soumission à travers le processus éditorial, et remercie l'auteur-e de sa soumission."
-
 msgid "emails.submissionAckNotUser.subject"
 msgstr "Accusé de réception de la soumission"
 

@@ -40,7 +40,7 @@ msgstr ""
 "preprint , prova gráfica ou arquivo). Por favor, escolha identificadores "
 "únicos dentro do seu servidor."
 
-msgid "editor.submission.postPreprint"
+msgid "editor.submission.schedulePublication"
 msgstr "Postar o preprint"
 
 msgid "editor.submissions.assignedTo"

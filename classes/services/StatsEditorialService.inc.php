@@ -15,7 +15,7 @@
 
 namespace APP\services;
 
-use APP\workflow\EditorDecisionActionsManager;
+use PKP\decision\Decision;
 use PKP\plugins\HookRegistry;
 
 class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
@@ -27,27 +27,16 @@ class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
      */
     public function getOverview($args = [])
     {
-        $received = $this->countSubmissionsReceived($args);
-        $accepted = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
-        $declinedDesk = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
-        $declinedReview = $this->countByDecisions(EditorDecisionActionsManager::SUBMISSION_EDITOR_DECISION_DECLINE, $args);
-        $declined = $declinedDesk + $declinedReview;
-
         $overview = [
             [
                 'key' => 'submissionsReceived',
                 'name' => 'stats.name.submissionsReceived',
-                'value' => $received,
-            ],
-            [
-                'key' => 'submissionsAccepted',
-                'name' => 'stats.name.submissionsAccepted',
-                'value' => $accepted,
+                'value' => $this->countSubmissionsReceived($args),
             ],
             [
                 'key' => 'submissionsDeclined',
                 'name' => 'stats.name.submissionsDeclined',
-                'value' => $declined,
+                'value' => $this->countByDecisions(Decision::INITIAL_DECLINE, $args),
             ],
             [
                 'key' => 'submissionsPublished',

@@ -17,6 +17,7 @@
 
 namespace APP\publication;
 
+use APP\core\Application;
 use APP\file\PublicFileManager;
 
 use PKP\publication\PKPPublication;

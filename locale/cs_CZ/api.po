@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-15 15:08+0000\n"
+"PO-Revision-Date: 2022-02-25 13:26+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -281,3 +281,18 @@ msgstr ""
 
 msgid "api.dois.403.editItemOutOfContext"
 msgstr "Nelze upravovat DOI položky, která není v tomto kontextu"
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Při přesunu souboru do této fáze je nutné zadat identifikátor kola recenze."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Vámi zadaná fáze souboru není platná."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"U tohoto příspěvku nelze zaznamenat rozhodnutí ani doporučit rozhodnutí, "
+"protože již byl zveřejněn."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Musíte zadat předmět a tělo e-mailu."

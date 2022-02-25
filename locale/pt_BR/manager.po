@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-02-17 05:35+0000\n"
+"PO-Revision-Date: 2022-02-25 13:26+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2571,3 +2571,14 @@ msgstr ""
 
 msgid "manager.dois.actions.deposit.label"
 msgstr "Depositar DOIs"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Envie uma notificação por e-mail para todos os autores da submissão."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Quem deve receber um e-mail de notificação quando uma decisão editorial é "
+"registrada?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Notificar todos os autores"

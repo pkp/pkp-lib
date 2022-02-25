@@ -43,6 +43,11 @@ class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
                 'name' => 'stats.name.submissionsPublished',
                 'value' => $this->countSubmissionsPublished($args),
             ],
+            [
+                'key' => 'submissionsSkipped',
+                'name' => 'stats.name.submissionsSkipped',
+                'value' => $this->countSubmissionsSkipped($args),
+            ],
         ];
 
         HookRegistry::call('EditorialStats::overview', [&$overview, $args]);

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-02-25 13:26+0000\n"
+"PO-Revision-Date: 2022-02-26 01:11+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs_CZ/>\n"
@@ -2298,3 +2298,33 @@ msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
 "E-mail o rozhodnutí byl zaslán recenzentovi (recenzentům) {$recipientCount} "
 "s předmětem {$subject}."
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Doporučení můžete vydat až poté, co vám bude přidělen editor s oprávněním "
+"zaznamenat rozhodnutí."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} doporučil tento příspěvek odmítnout."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Doporučit zamítnutí žádosti o zveřejnění příspěvku."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Doporučení odmítnutí"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} doporučil, aby byly vyžádány úpravy a tyto úpravy byly zaslány "
+"k dalšímu kolu recenzí."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Doporučit, aby byl autor vyzván k předložení úprav pro další kolo recenzního "
+"řízení."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Doporučit nové zaslání příspěvku k recenznímu řízení"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} doporučil/a, aby byly vyžádány úpravy."

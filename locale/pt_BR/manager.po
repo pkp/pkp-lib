@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-02-25 13:26+0000\n"
+"PO-Revision-Date: 2022-02-26 01:11+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2582,3 +2582,221 @@ msgstr ""
 
 msgid "manager.setup.notifyAllAuthors"
 msgstr "Notificar todos os autores"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Esta mensagem notifica um Editor sênior ou Editor de Seção que uma "
+"recomendação editorial foi feita em relação a uma de suas submissões "
+"atribuídas. Esta mensagem é usada quando um editor só pode recomendar uma "
+"decisão editorial e requer que um editor autorizado registre as decisões "
+"editoriais. Essa opção pode ser selecionada ao atribuir participantes a uma "
+"submissão."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Recomendação feita"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão está sendo enviada "
+"diretamente para a fase de edição de texto e não será avaliada por pares."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Avaliação ignorada"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que sua submissão está sendo enviada para a "
+"fase de editoração."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Enviado para Editoração"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão está sendo enviada para a "
+"fase de avaliação."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Enviado para avaliação"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma decisão anterior de recusar a "
+"submissão sem avaliação está sendo revertida."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Reintegrar submissão recusada sem Avaliação"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma decisão anterior de recusar a "
+"submissão após a avaliação por pares está sendo revertida."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Reintegrar submissão recusada"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de uma decisão de \"revisar e ressubmeter\" em "
+"relação à sua submissão."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Ressubmeter para avaliação"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de uma decisão de solicitar revisões durante a "
+"avaliação por pares."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Revisões Solicitadas"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma nova rodada de avaliação está "
+"começando para sua submissão."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Nova rodada de avaliação iniciada"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Submissão Recusada"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi recusada após a "
+"avaliação por pares."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Submissão Recusada"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi enviada de volta ao "
+"estágio de submissão."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Submissão enviada de volta para estágio de submissão"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi enviada de volta à "
+"fase de avaliação."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Submissão enviada de volta para avaliação"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi enviada de volta ao "
+"estágio de edição de texto."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Submissão enviada de volta para Edição de Texto"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que sua submissão foi aceita para publicação."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Submissão Aceita"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Convidamos os autores a enviar uma versão revisada para avaliação adicional."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Convidamos os autores a submeterem revisões."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Optamos por recusar esta submissão."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Optamos por aceitar esta submissão sem revisões."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Uma breve descrição dessa decisão que deve ser compartilhada em uma "
+"notificação por e-mail enviada aos avaliadores sobre essa decisão."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Este e-mail é enviado por um Editor a um Avaliador para notificá-lo de que "
+"uma decisão foi tomada em relação a uma submissão que ele avaliou."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Agradecimento do Avaliador"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Uma cópia da mensagem de e-mail que foi enviada ao autor da submissão"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Este e-mail é enviado para notificar os autores de uma submissão que não "
+"foram designados como participantes de que uma decisão foi tomada. "
+"Geralmente são todos os outros, exceto o autor que o submete."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Notificar outros autores"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Os nomes dos autores atribuídos ao fluxo de trabalho de submissão. "
+"Geralmente este é o autor da submissão"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "URL do autor para a submissão"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Este periódico realiza avaliação por pares aberta. Os avaliadores verão seu "
+"nome e afiliação, bem como os nomes e afiliações de seus coautores. Da mesma "
+"forma, você verá os nomes e afiliações dos avaliadores."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Este periódico realiza avaliação por pares “avaliador anônimo”. Seu nome e "
+"os de seus coautores ficarão visíveis para os avaliadores; no entanto, as "
+"identidades dos avaliadores permanecerão anônimas."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Este periódico realiza avaliação por pares anônima dupla. Os avaliadores não "
+"verão nenhuma informação de identificação sobre você ou seus coautores. Da "
+"mesma forma, você não saberá quem avaliou sua submissão e não receberá "
+"notícias diretamente dos avaliadores."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Uma descrição do método de avaliação padrão, como duplo anônimo ou aberto."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "A decisão recomendada, como Aceitar Submissão"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"A rodada de avaliação em que esta decisão foi tomada, se a decisão estiver "
+"relacionada a um estágio de avaliação."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+"O estágio do fluxo de trabalho editorial em que essa decisão foi tomada."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Uma descrição da decisão que foi tomada."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "O nome da decisão que foi tomada."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "A URL para visualizar todos as submissões atribuídas a um usuário."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Todos os comentários de avaliações concluídas. Os nomes dos avaliadores "
+"estão ocultos para avaliações anônimas"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Envie um e-mail apenas para autores atribuídos ao fluxo de trabalho da "
+"submissão. Normalmente, este é o autor da submissão."

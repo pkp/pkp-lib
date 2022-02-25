@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-02-15 15:07+0000\n"
+"PO-Revision-Date: 2022-02-25 13:26+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2552,3 +2552,228 @@ msgstr "Uložení DOI"
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "Uložení všech"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Tato zpráva oznamuje vedoucímu redaktorovi nebo redaktorovi sekce, že bylo "
+"vydáno redakční doporučení týkající se jednoho z jejich přidělených "
+"příspěvků. Tato zpráva se používá v případech, kdy je redaktor oprávněn "
+"pouze doporučit redakční rozhodnutí a vyžaduje, aby pověřený redaktor "
+"zaznamenal redakční rozhodnutí. Tuto možnost lze zvolit při přiřazování "
+"účastníků k příspěvku."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Vypracováno doporučení"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek je odeslán přímo do fáze "
+"závěrečných úprav a nebude podroben recenznímu řízení."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Recenzní řízení bylo přeskočeno"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán do produkční "
+"fáze."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Odeslání do produkční fáze"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán do fáze "
+"recenzního řízení."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Odesláno do recenzního řízení"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že předchozí rozhodnutí o zamítnutí jeho "
+"příspěvku bez recenzního řízení se ruší."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Obnovení příspěvku odmítnutého bez recenzního řízení"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že předchozí rozhodnutí o zamítnutí jeho "
+"příspěvku po recenzním řízení se ruší."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Obnovení odmítnutého příspěvku"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi rozhodnutí o požadavku na „úpravy textu "
+"opětovné předložení“ jeho příspěvku."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Znovu podat do recenzního řízení"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi rozhodnutí o požadavcích na revizi textu "
+"během recenzního řízení."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Byly vyžádány revize textu"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že začíná nové kolo recenzí jeho příspěvku."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Zahájení nového kola recenzí"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Příspěvek odmítnut"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl po recenzním řízení "
+"odmítnut."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Příspěvek odmítnut"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
+"podávání."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Příspěvek odeslán zpět do fáze podání"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
+"recenzního řízení."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Příspěvek byl poslán zpět do recenzní fáze"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
+"konečných úprav."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Příspěvek byl zaslán zpět k závěrečným úpravám"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl přijat k publikaci."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Příspěvek byl přijat"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr "Vyzvali jsme autory, aby předložili revidovanou verzi k další recenzi."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Vyzvali jsme autory k předložení revidovaného textu."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Rozhodli jsme se tento příspěvek odmítnout."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Rozhodli jsme se přijmout tento příspěvek bez revizí."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Krátký popis tohoto rozhodnutí, který má být sdílen v e-mailovém oznámení "
+"zaslaném recenzentům o tomto rozhodnutí."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Tento e-mail zasílá editor recenzentovi, aby mu oznámil, že bylo přijato "
+"rozhodnutí týkající se příspěvku, který recenzoval."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Poděkování recenzentovi"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Kopie e-mailové zprávy, která byla zaslána předkládajícímu autorovi"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Tento e-mail se zasílá autorům příspěvku, kteří nejsou přiřazeni jako "
+"účastníci, aby byli informováni o rozhodnutí. Obvykle se jedná o všechny "
+"ostatní kromě předkládajícího autora."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Upozornit ostatní autory"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Jména autorů přiřazených k pracovnímu postupu příspěvku. Obvykle se jedná o "
+"předkládajícího autora"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Adresa URL autora podání"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Tento časopis provádí otevřené recenzní řízení. Recenzenti uvidí vaše jméno "
+"a afiliaci, jakož i jména a afiliaci vašich spoluautorů. Stejně tak vy "
+"uvidíte jména a afiliace recenzentů."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Tento časopis provádí „anonymní“ recenzní řízení. Vaše jméno a jména vašich "
+"spoluautorů budou recenzentům viditelná; totožnost recenzentů však zůstane "
+"anonymní."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Tento časopis provádí dvojí anonymní recenzní řízení. Recenzenti neuvidí "
+"žádné identifikační údaje o vás ani o vašich spoluautorech. Stejně tak se "
+"nedozvíte, kdo váš příspěvek recenzoval, a recenzenti se vám přímo neozvou."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr "Popis výchozí metody recenzí, například dvojitá anonymní nebo otevřená."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Doporučené rozhodnutí, například Přijmout příspěvek"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Kolo recenzí, v němž bylo toto rozhodnutí přijato, pokud se rozhodnutí týká "
+"fáze recenze."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+"Fáze redakčního pracovního postupu, ve které bylo toto rozhodnutí přijato."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Popis přijatého rozhodnutí."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Název přijatého rozhodnutí."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "Adresa URL pro zobrazení všech přiřazených příspěvků uživatele."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Všechny komentáře z dokončených recenzí. U anonymních recenzí jsou jména "
+"recenzentů skryta"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Odeslat email pouze autorům přiřazeným k pracovnímu postupu příspěvku. "
+"Obvykle se jedná o předkládajícího autora."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Odeslání e-mailového oznámení všem autorům příspěvku."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Kdo by měl obdržet oznamovací e-mail, když je zaznamenáno redakční "
+"rozhodnutí?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Upozornit všechny autory"

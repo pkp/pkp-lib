@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"PO-Revision-Date: 2022-02-26 01:11+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -2118,3 +2118,71 @@ msgstr "Expandir todos"
 
 msgid "timeZone"
 msgstr "Fuso horário"
+
+msgid "email.attachmentNotFound"
+msgstr "O arquivo {$fileName} não pôde ser anexado."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Anexar arquivos enviados por avaliadores"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Anexar arquivos de avaliação"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Anexe arquivos de submissões e publicações à biblioteca."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Anexar arquivos da biblioteca"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Arquivos de biblioteca"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Anexe arquivos carregados durante o fluxo de trabalho de submissão, como "
+"revisões ou arquivos a serem revisados."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Anexe os arquivos enviados pelo autor na etapa de submissão."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Anexar arquivos de submissão"
+
+msgid "common.viewError"
+msgstr "Ver erro"
+
+msgid "common.upload.addFile.description"
+msgstr "Carregue um arquivo do seu computador."
+
+msgid "common.switchTo"
+msgstr "Alternar para"
+
+msgid "common.showAllSteps"
+msgstr "Mostrar todas as etapas"
+
+msgid "common.searching"
+msgstr "Pesquisando"
+
+msgid "common.numberedMore"
+msgstr "{$number} mais"
+
+msgid "common.keepWorking"
+msgstr "Continue trabalhando"
+
+msgid "common.loadTemplate"
+msgstr "Carregar um modelo"
+
+msgid "common.findTemplate"
+msgstr "Localizar Modelo"
+
+msgid "common.deselect"
+msgstr "Desmarcar"
+
+msgid "common.attachFiles"
+msgstr "Anexar Arquivos"
+
+msgid "common.attachedFiles"
+msgstr "Arquivos Anexados"
+
+msgid "common.addCCBCC"
+msgstr "Adicionar CC/BCC"

@@ -70,12 +70,35 @@ class PublishForm extends FormComponent
             ]);
         }
 
+        // Related Publication status
+        if ($publication->getData('relationStatus') == \Publication::PUBLICATION_RELATION_PUBLISHED && $publication->getData('vorDoi')) {
+            $relationStatus = __('publication.publish.relationStatus.published', [
+                'vorDoi' => $publication->getData('vorDoi')
+            ]);
+        } elseif ($publication->getData('relationStatus') == \Publication::PUBLICATION_RELATION_PUBLISHED) {
+            $relationStatus = __('publication.publish.relationStatus.published.noDoi');
+        } elseif ($publication->getData('relationStatus') == \Publication::PUBLICATION_RELATION_SUBMITTED) {
+            $relationStatus = __('publication.publish.relationStatus.submitted');
+        } else {
+            $relationStatus = __('publication.publish.relationStatus.none');
+        }
+
+        $relationStatusMsg = '<table class="pkpTable"><thead><tr>' .
+            '<th>' . __('publication.publish.relationStatus') . '</th>' .
+            '</tr></thead><tbody>';
+        $relationStatusMsg .= '<tr><td>' . $relationStatus . '</td></tr>';
+        $relationStatusMsg .= '</tbody></table>';
+
         $this->addGroup([
             'id' => 'default',
             'pageId' => 'default',
         ])
             ->addField(new FieldHTML('validation', [
                 'description' => $msg,
+                'groupId' => 'default',
+            ]))
+            ->addField(new FieldHTML('relationStatus', [
+                'description' => $relationStatusMsg,
                 'groupId' => 'default',
             ]));
     }

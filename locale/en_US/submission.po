@@ -119,16 +119,33 @@ msgid "publication.relation.label"
 msgstr "Submitted for Publication"
 
 msgid "publication.relation.none"
-msgstr "Preprint has not been submitted for publication"
+msgstr "Preprint has not been submitted for publication."
 
+#, fuzzy
 msgid "publication.relation.submitted"
-msgstr "Preprint has been submitted for publication in server"
+msgstr "Preprint has been submitted for publication in a journal or other academic publication."
 
+#, fuzzy
 msgid "publication.relation.published"
-msgstr "Preprint has been published in a journal as an preprint"
+msgstr "Preprint has been published in a journal or other academic publication."
 
 msgid "publication.relation.vorDoi"
 msgstr "DOI of the published preprint"
+
+msgid "publication.publish.relationStatus"
+msgstr "Related Publication"
+
+msgid "publication.publish.relationStatus.none"
+msgstr "This preprint has not been published elsewhere."
+
+msgid "publication.publish.relationStatus.submitted"
+msgstr "This preprint has been submitted to a journal or other academic publication."
+
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr "This preprint has been published, but no DOI is available yet."
+
+msgid "publication.publish.relationStatus.published"
+msgstr "This preprint has been <a href='{$vorDoi}' target='_blank'>published</a>."
 
 msgid "publication.publish.confirmation"
 msgstr "All requirements have been met. Are you sure you want to post this?"

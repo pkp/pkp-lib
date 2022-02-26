@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-25 13:26+0000\n"
+"PO-Revision-Date: 2022-02-27 16:26+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -2403,3 +2403,260 @@ msgstr "Ո՞վ պետք է ստանա ծանուցման նամակ, երբ խմ
 
 msgid "manager.setup.notifyAllAuthors"
 msgstr "Տեղեկացնել բոլոր հեղինակներին"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"ոլոր մեկնաբանությունները ավարտվուն գրախոսություններից: Անանուն "
+"գրախոսությունների պարագայում գրախոսների անունները թաքցված են"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Հրատարակությունները վերլուծելիս գործընթացը ձախողվեց"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Հեղինակներին վերլուծելիս գործընթացը ձախողվեց"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Նշված ամսագրի ուղին՝ \"{$contextPath}\", գոյություն չունի:"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ՍԽԱԼ:"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Զտիչի սխալ կազմաձևում [{$filterName}]: {$filterCount} հանդիպումներ: Պետք է "
+"լինի միայն մեկը."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Ընդհանուր տարրեր"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Ներբեռնեք արտահանված նիշքը ստորև բերված կոճակից:"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Արտահանումը հաջողությամբ ավարտվեց:"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Ներբեռնեք արտահանված նիշքը"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Արտահանել ներկայացումների արդյունքները"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Գործընթացը ձախողվեց: Ստուգեք ստորև՝ սխալների/նախազգուշացումների համար:"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Գրախոսությունից հետո մերժվածների տոկոսը"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Միանգամից մերժվածների տոկոսը"
+
+msgid "stats.name.declineRate"
+msgstr "Մերժման տոկոսը"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Ընդունման տոկոսը"
+
+msgid "stats.name.daysToReject"
+msgstr "Օրեր մինչ մերժելը"
+
+msgid "stats.name.daysToAccept"
+msgstr "Օրեր մինչ ընդունումը"
+
+msgid "stats.name.daysToDecision"
+msgstr "Օրեր մինչև խմբագրական առաջին որոշումը"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Ներկայացումները Հրապարակվել են"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Մերժված ներկայացումներ (Գրախոսումից հետո)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Մերժված ներկայացումներ (անմիջապես)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Մերժված ներկայացումներ"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Ընդունված ներկայացումներ"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Ստացված ներկայացումներ"
+
+msgid "stats.userStatistics"
+msgstr "Օգտվողի վիճակագրություն"
+
+msgid "stats.trends"
+msgstr "Միտումներ"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Ընդհանուրը ամսաթվերի միջակայքում"
+
+msgid "stats.total"
+msgstr "Ընդամենը"
+
+msgid "stats.submissionsActive"
+msgstr "Ակտիվ ներկայացումներ"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Որոնել ըստ վերնագրի, հեղինակի և ID-ի"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Ամսական"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Նիշքերի դիտում"
+
+msgid "stats.editorialActivity"
+msgstr "Խմբագրական ակտիվություն"
+
+msgid "stats.descriptionForStat"
+msgstr "Նկարագրություն սրա համար {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Ներկայացումների մեծ մասի համար պահանջվում է առաջին խմբագրական որոշումը "
+"ստանալու համար անհրաժեշտ օրերի քանակը, օրինակ՝ միանգամից մերժումը կամ "
+"գրախոսման ուղարկելը:<br><br>Այս թվերը ցույց են տալիս, որ ներկայացումների 80%-"
+"ը որոշում է կայացվում նշված օրերի ընթացքում:< br><br>Այս վիճակագրությունը "
+"փորձում է նկարագրել, երբ ձեր ամսագրին ներկայացնող հեղինակների "
+"մեծամասնությունը կարող է ակնկալել որոշում:"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Ընտրված ամսաթվերի տիրույթի տոկոսը հաշվարկվում է այն փաստաթղթերի համար, որոնք "
+"ներկայացվել են այս ժամկետների միջակայքում և ստացել են վերջնական "
+"որոշում:<br><br>Օրինակ, նկատի ունեցեք այն դեպքը, երբ տասը ներկայացումներ են "
+"կատարվել այս ժամկետների տիրույթում: Չորսն ընդունվել են, չորսը մերժվել , և "
+"երկուսը դեռ սպասում են վերջնական որոշմանը:<br><br>Ընդունման տոկոսը կկազմի 50%"
+" (4-ը 8 դիմումներից), քանի որ վերջնական որոշում չհասած երկու դիմումները չեն "
+"հաշվվում:"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Մինչ {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Դեպի"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Տարին մինչ օրս"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Սկսած {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Վերջին տարին"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Վերջին երկու օրը"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Վերջին 90 օրերը"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Վերջին 30 օրերը"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Վերջին 12 ամիսները"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Մեկնարկի ամսաթիվը չի կարող ավելի վաղ լինել, քան {$date} -ը:"
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Ավարտի ամսաթիվը չի կարող ավելի ուշ լինել, քան {$date} -ը:"
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Մեկնարկի ամսաթիվը պետք է լինի մինչ ավարտի ամսաթիվը:"
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Ամսաթվի ձևաչափը վավեր չէ: Մուտքագրեք յուրաքանչյուր ամսաթիվ հետևյալ ձևաչափով՝ "
+"ՏՏՏՏ-ԱԱ-ՕՕ:"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Մուտքագրեք յուրաքանչյուր ամսաթիվ՝ ՏՏՏՏ-ԱԱ-ՕՕ ձևաչափով: Օրինակ, եթե ցանկանում "
+"եք 2019 թվականի հունվարի 15-ի ամսաթիվը, մուտքագրեք 2019-01-15:"
+
+msgid "stats.dateRange.from"
+msgstr "Այստեղից"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Մուտքագրված ամսաթվերից մեկը գոյություն չունի:"
+
+msgid "stats.dateRange.customRange"
+msgstr "Անհատականացված միջակայք"
+
+msgid "stats.dateRange.change"
+msgstr "Փոխեք ամսաթվերի միջակայքը"
+
+msgid "stats.dateRange.apply"
+msgstr "Կիրառել"
+
+msgid "stats.dateRange.allDates"
+msgstr "Բոլոր ամսաթվերը"
+
+msgid "stats.dateRange"
+msgstr "Ամսաթվերի միջակայք"
+
+msgid "stats.daily"
+msgstr "Ամեն օր"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/տարի)"
+
+msgid "stats.allUsers"
+msgstr "Բոլոր օգտվողները"
+
+msgid "grid.category.categoryDetails"
+msgstr "Դասի մանրամասներ"
+
+msgid "grid.category.nameRequired"
+msgstr "Խնդրում ենք մուտքագրել դասի անունը:"
+
+msgid "grid.category.removeText"
+msgstr "Իսկապե՞ս ցանկանում եք հեռացնել այս դասը:"
+
+msgid "grid.category.parentCategory"
+msgstr "Ծնողի դաս"
+
+msgid "grid.category.description"
+msgstr "Նկարագրություն"
+
+msgid "grid.category.pathExists"
+msgstr "Դասի ուղին արդեն առկա է: Խնդրում ենք մուտքագրել եզակի ուղի:"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Դասի ուղին պետք է բաղկացած լինի միայն տառերից և թվերից:"
+
+msgid "grid.category.urlWillBe"
+msgstr "Դասի URL-ը կլինի՝ {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Ուղի"
+
+msgid "grid.category.name"
+msgstr "Անուն"
+
+msgid "grid.category.edit"
+msgstr "Խմբագրել դասը"
+
+msgid "grid.category.add"
+msgstr "Ավելացնել դաս"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Այս հղումը կցուցադրվի միայն այն դեպքում, եթե դուք մուտքագրել եք գաղտնիության "
+"հայտարարություն այստեղից Կարգավորումներ > Աշխատանքային հոսք > Ներկայացումներ:"
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Հղում դեպի գաղտնիության ձեր հայտարարությունը ցուցադրող էջին:"

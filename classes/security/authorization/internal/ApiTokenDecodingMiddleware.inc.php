@@ -147,6 +147,7 @@ class ApiTokenDecodingMiddleware
         $authHeader = $slimRequest->getHeader('Authorization');
 
         if (!count($authHeader) || empty($authHeader[0])) {
+            // DEPRECATED as of 3.4.0. Use the Authorization header.
             return $slimRequest->getQueryParam('apiToken');
         }
 

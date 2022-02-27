@@ -315,14 +315,14 @@ class AdminHandler extends Handler
         ];
         $breadcrumbs[] = [
             'id' => 'wizard',
-            'name' => __('admin.settings.wizard'),
+            'name' => __('manager.settings.wizard'),
         ];
 
         $templateMgr->assign([
             'breadcrumbs' => $breadcrumbs,
             'bulkEmailsEnabled' => $bulkEmailsEnabled,
             'editContext' => $context,
-            'pageTitle' => __('admin.settings.wizard'),
+            'pageTitle' => __('manager.settings.wizard'),
         ]);
 
         $templateMgr->display('admin/contextSettings.tpl');

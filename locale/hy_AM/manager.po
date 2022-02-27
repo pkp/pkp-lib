@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-27 16:26+0000\n"
+"PO-Revision-Date: 2022-02-28 17:26+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -2660,3 +2660,305 @@ msgstr ""
 
 msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Հղում դեպի գաղտնիության ձեր հայտարարությունը ցուցադրող էջին:"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Այս հաղորդագրությունը ծանուցում է ավագ խմբագրին կամ բաժնի խմբագրին, որ "
+"խմբագրական հանձնարարական է տրվել առնչվող իրենց հանձնարարված ներկայացումներից "
+"մեկի վերաբերյալ: Այս հաղորդագրությունն օգտագործվում է, երբ խմբագրին "
+"թույլատրվում է միայն խմբագրական որոշումներ առաջարկել և պահանջում է, որ "
+"լիազորված խմբագիրն արձանագրի խմբագրական որոշումները: Այս տարբերակը կարող է "
+"ընտրվել, երբ մասնակիցներին նշանակվում է ներկայացում:"
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Պատրաստված է առաջարկություն"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Այս նամակը ծանուցում է հեղինակին, որ իրենց ներկայացումն ուղարկվում է "
+"անմիջապես սրբագրման փուլ և գործընկերային գրախոսություն չի լինի:"
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Գրախոսությունը բաց է թողված"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ իրենց ներկայացումն ուղարկվում է "
+"արտադրության փուլ:"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Ուղարկվել է արտադրություն"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ իրենց ներկայացումն ուղարկվում է "
+"գրախոսման փուլ:"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Ուղարկել գրախոսման"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին, որ առանց գրախոսության իրենց "
+"ներկայացումը մերժելու նախկին որոշումը հետ է վերադարձվում:"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Վերականգնել ներկայացումը մերժվել է առանց գրախոսության"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին, որ գործընկերային վերանայումից հետո "
+"իրենց ներկայացումը մերժելու նախորդ որոշումը հետ է վերադարձվել:"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Վերականգնել մերժված ներկայացումը"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին իրենց ներկայացման վերաբերյալ «վերանայել "
+"և նորից ներկայացնել» որոշման մասին:"
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Կրկին ներկայացնել գրախոսության համար"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը հեղինակին ծանուցում է, որ գործընկերային գրախոսության ժամանակ "
+"կայացվել է որոշում պահանջելու վերանայումներ:"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Խնդրվել են վերանայումներ"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին, որ վերանայման նոր փուլ է սկսվում "
+"ներկայացման համար:"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Սկսվել է վերանայման նոր փուլ"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Ներկայացումը մերժվել է"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ ներկայացումը մերժվել է "
+"գործընկերային գրախոսությունից հետո:"
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Ներկայացումը մերժվել է"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ ներկայացումը հետ է ուղարկվել "
+"ներկայացման փուլ:"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Ներկայացումը հետ է ուղարկվել ներկայացման"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ ներկայացումը հետ է ուղարկվել "
+"վերանայման փուլ:"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Ներկայացումն հետ է ուղարկվել վերանայման"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Այս նամակը ծանուցում է հեղինակին, որ ներկայացումը հետ է ուղարկվել սրբագրման "
+"փուլ:"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Ներկայացումը հետ է ուղարկվել սրբագրման"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Այս էլ․ նամակը ծանուցում է հեղինակին, որ ներկայացումն ընդունվել է "
+"հրապարակման համար:"
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Ներկայացումն ընդունված է"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Մենք հեղինակներին հրավիրել ենք վերանայված տարբերակը ներկայացնել հետագա "
+"գրախոսման համար:"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Մենք հեղինակներին հրավիրել ենք գրախոսումներ ներկայացնելու։"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Մենք որոշել ենք մերժել այս ներկայացումը:"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Մենք որոշել ենք ընդունել այս ներկայացումը առանց վերանայումների:"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Այս որոշման համառոտ նկարագրությունը, որը նախատեսվում է համօգտագործել այս "
+"որոշման մասին գրախոսներին ուղարկված էլեկտրոնային ծանուցման միջոցով:"
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Այս նամակը խմբագրի կողմից ուղարկվում է գրախոսին՝ ծանուցելու որ որոշում է "
+"կայացվել իր կողմից գրախոսված ներկայացման վերաբերյալ:"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Գրախոսի հաստատում"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr ""
+"Էլ․ փոստի հաղորդագրության պատճենը, որն ուղարկվել է ներկայացնող հեղինակին"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Այս էլ․ նամակն ուղարկվում է՝ ծանուցելու այն հեղինակներին, ովքեր չեն "
+"նշանակվել որպես մասնակից, որ որոշում է կայացվել: Սովորաբար սրանք մնացյալ "
+"բոլորն են, բացառությամբ ներկայացնող հեղինակի:"
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Տեղեկացնել այլ հեղինակներին"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Այս էլ․ նամակն ինքնաշխատ կերպով ուղարկվում է նոր օգտվողին, երբ նրանք "
+"գրանցվում են կայքում, երբ կարգավորումները պահանջում են վավերացնել էլ․ փոստի "
+"հասցեն:"
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Վավերացնել էլ․ փոստը (կայք)"
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr "Այս էլ․ նամակն ուղարկվում է, երբ խմբագիրն ապանշանակում է գրախոսին:"
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Գրախոսը ապանշանակված է"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Այս էլ․ նամակն ուղարկվում է, երբ գրախոսը, որը ապանշանակված էր, խմբագրի "
+"կողմից վերականգնվում է:"
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Գրախոսը վերականգնվեց"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr "Այս նամակն ուղարկվում է, երբ գրախոսին նշանակվում է ներկայացում:"
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Գրախոսի նշանակում"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Այս էլ․ նամակն ինքնաշխատ կերպով ուղարկվում է քննարկման մասնակիցներին, երբ "
+"քննարկմանը նոր հաղորդագրություն է ավելացվում:"
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Քննարկման նոր հաղորդագրություն"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Ներկայացման աշխատանքային ընթացքին նշանակված հեղինակների անունները: Սովորաբար "
+"սա ներկայացնող հեղինակն է"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "Ներկայացման URL-ը խմբագրության հետին մասում"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Հեղինակի URL-ը այս ներկայացմանը"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Հեղինակների լրիվ անունները"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Հեղինակների անունները կրճատված տողի տեսքով"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Ներկայացման համառոտագրությունը"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Այս ներկայացման եզակի ID թիվը"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Այս ներկայացման վերնագիրը"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Այս ներկայացմանը նշանակված խմբագիրները, ովքեր կարող են որոշում կայացնել"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Կայքի հիմնական կոնտակտի էլ․ փոստը"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Կայքի հիմնական կոնտակտի լրիվ անունը"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Ուղարկողի էլ․ փոստի ստորագրությունը"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Ուղարկողի էլ․ փոստի հասցեն"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Ուղարկողի լրիվ անունը"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Այս ամսագիրը իրականացնում է գործընկերային բաց գրախոսություն: Գրախոսները "
+"կտեսնեն ձեր անունը և պատկանելությունը, ինչպես նաև ձեր համահեղինակների "
+"անուններն ու պատկանելությունները: Նմանապես, դուք կտեսնեք գրախոսողների "
+"անուններն ու պատկանելությունը:"
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Այս ամսագիրը անցկացնում է «անանուն գրախոսի» գործընկերային փորձաքննություն: "
+"Ձեր անունը և ձեր համահեղինակների անունները տեսանելի կլինեն գրախոսներին. "
+"սակայն, գրախոսների ինքնությունը կմնա անանուն:"
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Այս ամսագիրն իրականացնում է կրկնակի անանուն գործընկերային գրախոսություն: "
+"Գրախոսները չեն տեսնի ձեր կամ ձեր համահեղինակների մասին նույնականացնող որևէ "
+"տեղեկություն: Նմանապես, դուք չեք իմանա, թե ով է գրախոսել ձեր ներկայացումը, և "
+"ուղղակիորեն չեք լսի գրախոսներից:"
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Կանխադրված գրախոսման մեթոդի նկարագրությունը, օրինակ՝ կրկնակի անանուն կամ բաց:"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Առաջարկվող որոշումը, օրինակ՝ Ընդունել ներկայացումը"
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "Գրախոսության առաջադրանքի URL-ը"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Ամսաթիվ, երբ գրախոսությունը պետք է ավարտվի"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Ամսաթիվը, երբ գրախոսը պետք է ընդունի կամ մերժի հանձնարարությունը"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Ստացողի կամ բոլոր ստացողների օգտանունը"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Ստացողի կամ բոլոր ստացողների լրիվ անունները"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Սույն որոշումն ընդունվել է գրախոսման փուլում, եթե որոշումը կապված է "
+"գրախոսման փուլի հետ։"
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Այս որոշումն ընդունվել է խմբագրական աշխատանքի փուլում։"
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Ընդունված որոշման նկարագրությունը."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Ընդունված որոշման անվանումը."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "Օգտվողի կողմից նշանակված բոլոր ներկայացումները դիտելու URL-ը:"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "Էջի URL-ը, որտեղից օգտագործողը կարող է վերականգնել կորցրած գաղտնաբառը"

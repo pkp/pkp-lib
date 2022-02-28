@@ -1,9 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 # Aram Mirzoyan <mirzoyan.aram@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-01 20:24+0000\n"
-"Last-Translator: Aram Mirzoyan <mirzoyan.aram@gmail.com>\n"
+"PO-Revision-Date: 2022-02-28 17:26+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
 "Language: hy_AM\n"
@@ -44,3 +45,324 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 "Այս հրապարակման հեղինակները չեն կարող խմբագրվել, քանի որ այն արդեն "
 "հրատարակվել է:"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Խնդրում ենք մուտքագրել վավեր համառոտագրություն։"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Համառոտագրություն"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Խնդրում ենք մուտքագրել վավեր մեկնաբանություն:"
+
+msgid "metadata.property.displayName.comment"
+msgstr "Մեկնաբանություն"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Խնդրում ենք մուտքագրել հրատարակության վավեր այլընտրանքային հղում:"
+
+msgid "metadata.property.displayName.uri"
+msgstr "Հղում դեպի Հրապարակում"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Խնդրում ենք մուտքագրել վավեր PMID:"
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Խնդրում ենք մուտքագրել վավեր SICI:"
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Խնդրում ենք մուտքագրել վավեր CODEN:"
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Խնդրում ենք մուտքագրել վավեր պատվերով հրապարակման ID:"
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Պատվերով հրապարակման ID"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Խնդրում ենք մուտքագրել վավեր DOI:"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Խնդրում ենք մուտքագրել վավեր eISSN:"
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Խնդրում ենք մուտքագրել վավեր տպագիր ISSN:"
+
+msgid "metadata.property.displayName.issn"
+msgstr "Տպագիր ISSN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Խնդրում ենք մուտքագրել վավեր ISBN (9 կամ 13 թիվ):"
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Խնդրում ենք մուտքագրել հրատարակչի վավեր անուն:"
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Հրատարակչի անունը"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Խնդրում ենք մուտքագրել հրատարակչի վավեր գտնվելու վայրը:"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Հրատարակչի գտնվելու վայրը"
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+"Խնդրում ենք մուտքագրել էջերի վավեր ընդհանուր թիվը (պետք է լինի թվային արժեք):"
+
+msgid "metadata.property.displayName.size"
+msgstr "Էջերի քանակը"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Խնդրում ենք մուտքագրել վավեր վերջին էջ (պետք է լինի թվային արժեք):"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Վերջին էջը"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Խնդրում ենք մուտքագրել վավեր առաջին էջ (պետք է լինի թվային արժեք):"
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Առաջին էջը"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Խնդրում ենք մուտքագրել վավեր հաստատություն:"
+
+msgid "metadata.property.displayName.institution"
+msgstr "Կազմակերպություն"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Խնդրում ենք մուտքագրել համաժողովի վավեր հովանավորի:"
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Համաժողովի հովանավորը"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Խնդրում ենք մուտքագրել համաժողովի վավեր անունը:"
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Համաժողովի անունը"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Խնդրում ենք մուտքագրել համաժողովի անցկացման վավեր վայր:"
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Համաժողովի անցկացման վայրը"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Խնդրում ենք մուտքագրել համաժողովի վավեր ամսաթիվ (ձևաչափ՝ ՏՏՏՏ-ԱԱ-ՕՕ):"
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Համաժողովի ամսաթիվը"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Խնդրում ենք մուտքագրել վավեր հավելում:"
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Հավելում"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Խնդրում ենք մուտքագրել վավեր մատենաշար:"
+
+msgid "metadata.property.displayName.series"
+msgstr "Մատենաշար"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Խնդրում ենք մուտքագրել վավեր հրատարակություն:"
+
+msgid "metadata.property.displayName.edition"
+msgstr "Հրատարակություն"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Խնդրում ենք մուտքագրել գլխի վավեր վերնագիր:"
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Գլխի վերնագիրը"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Խնդրում ենք մուտքագրել սեզոնի վավեր նույնացուցիչ:"
+
+msgid "metadata.property.displayName.season"
+msgstr "Սեզոն"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Խնդրում ենք մուտքագրել վավեր հատոր:"
+
+msgid "metadata.property.displayName.volume"
+msgstr "Հատոր"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Խնդրում ենք մուտքագրել վավեր թողարկում:"
+
+msgid "metadata.property.displayName.issue"
+msgstr "Թողարկում"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr ""
+"Խնդրում ենք մուտքագրել մուտք գործելու վավեր ամսաթիվ (ձևաչափ՝ ՏՏՏՏ-ԱԱ-ՕՕ):"
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Մուտք գործելու ամսաթիվ"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Խնդրում ենք մուտքագրել հրապարակման վավեր ամսաթիվ (ձևաչափ՝ ՏՏՏՏ-ԱԱ-ՕՕ):"
+
+msgid "metadata.property.displayName.date"
+msgstr "Հրապարակման ամսաթիվ"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Խնդրում ենք մուտքագրել հրապարակման վավեր վերնագիր:"
+
+msgid "metadata.property.displayName.source"
+msgstr "Հրապարակման վերնագիր"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Խնդրում ենք մուտքագրել վավեր հոդվածի/նյութի վերնագիր:"
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Հոդվածի/նյութի վերնագիրը"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Լավագույն արդյունքների համար խմբագիրներին պետք է մուտքագրել հետևյալ "
+"ձևաչափով. Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Խմբագիրներ"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Լավագույն արդյունքների համար հեղինակներին պետք է մուտքագրել հետևյալ "
+"ձևաչափով. Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.author"
+msgstr "Հեղինակներ"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Ներքին սխալ. Անվավեր արժեք է տեղադրվել «կամընտրական զտիչ» պարամետրի համար: "
+"Խնդրում ենք հայտնել սա որպես վրիպակ:"
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Մի օգտագործեք լռելյայն (դեռ հասանելի կլինի խմբագրին)"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Խնդրում ենք ընտրել նշված վկայակոչումների մոդուլներից մեկը:"
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Վկայակոչման մոդուլ"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Խնդրում ենք մուտքագրել վավեր WorldCat API բանալի, եթե ունեք:"
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API բանալի"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Խնդրում ենք մուտքագրել վավեր PubMed գրանցման էլ․ հասցե, եթե ունեք։"
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed գրանցման էլ․ փոստ"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Խնդրում ենք մուտքագրել ձեր ISBNdb API բանալին: Եթե դեռ չունեք բանալի, կարող "
+"եք անվճար պահանջել այն ISBNdb նախագծից:"
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API բանալի"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Խնդրում ենք մուտքագրել վավեր Crossref գրանցման էլ.  հասցե։ Դուք կարող եք "
+"անվճար գրանցել ձեր էլ. փոստը Crossref -ի վեբ կայքում:"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Crossref -ի գրանցման էլ․ հասցե"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Ընդլայնված մետատվյալներ"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Վերադարձեք ձեր վահանակին"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Ստեղծեք նոր ներկայացում"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Գրախոսեք այս ներկայացումը"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Առայժմ կարող եք:"
+
+msgid "submission.submit.whatNext"
+msgstr "Ի՞նչ է տեղի ունենում հետո:"
+
+msgid "submission.submit.removeConfirm"
+msgstr "Իսկապե՞ս ուզում եք հեռացնել այս նիշքը:"
+
+msgid "submission.submit.genre.error"
+msgstr "Խնդրում ենք ընտրել նիշքի տեսակը յուրաքանչյուր վերբեռնման համար:"
+
+msgid "submission.submit.genre.description"
+msgstr "Ընտրեք այն տարբերակը, որը լավագույնս է նկարագրում այս նիշքը:"
+
+msgid "submission.submit.genre.label"
+msgstr "Ինչպիսի՞ նիշք է սա:"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr ""
+"Այո, ես համաձայն եմ պահպանել հեղինակային իրավունքի մասին հայտարարության "
+"պայմանները:"
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Ընդունեք հեղինակային իրավունքի հայտարարությունը"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr ""
+"Շնորհակալություն {$contextName} -ում հրապարակելու ձեր հետաքրքրության համար:"
+
+msgid "submission.submit.submissionComplete"
+msgstr "Ներկայացումն ավարտված է"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Դուք պետք է կարդաք և հաստատեք, որ կատարել եք ստորև ներկայացված պահանջները՝ "
+"շարունակելուց առաջ:"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Ներկայացման պահանջներ"
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Ներկայացրե՛ք հետևյալ դերերից որևէ մեկով, եթե ցանկանում եք, որ կարողանաք "
+"ինքներդ խմբագրել և հրապարակել այս ներկայացումը. {$managerGroups}"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Այո, ես կցանկանայի կապ հաստատել այս ներկայացման վերաբերյալ:"
+
+msgid "submission.submit.contactConsent"
+msgstr "Համապատասխան կոնտակտ"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Ընտրեք այն դերը, որը լավագույնս նկարագրում է ձեր ներդրումը այս ներկայացման "
+"մեջ:"

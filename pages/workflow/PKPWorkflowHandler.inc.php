@@ -16,7 +16,6 @@
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use APP\i18n\AppLocale;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;

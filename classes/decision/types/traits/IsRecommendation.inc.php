@@ -17,7 +17,6 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\submission\Submission;
 use APP\submission\SubmissionFileDAO;
 use Exception;
@@ -26,6 +25,7 @@ use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
+use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
@@ -193,7 +193,7 @@ trait IsRecommendation
         $submissionFile->setAllData([
             'fileId' => $fileId,
             'name' => [
-                AppLocale::getLocale() => $filename
+                Locale::getLocale() => $filename
             ],
             'fileStage' => SubmissionFile::SUBMISSION_FILE_QUERY,
             'submissionId' => $submission->getId(),

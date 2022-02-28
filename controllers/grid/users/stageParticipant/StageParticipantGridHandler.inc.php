@@ -18,12 +18,12 @@ import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridRow'
 import('lib.pkp.controllers.grid.users.stageParticipant.StageParticipantGridCategoryRow');
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
@@ -562,7 +562,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         if ($template) {
             $user = $request->getUser();
             $template->assignParams([
-                'signature' => $user->getContactSignature(AppLocale::getLocale()),
+                'signature' => $user->getContactSignature(Locale::getLocale()),
                 'senderName' => $user->getFullname(),
             ]);
             $template->replaceParams();

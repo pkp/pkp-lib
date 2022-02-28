@@ -17,11 +17,11 @@ namespace PKP\submission\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
 
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\submissionFile\SubmissionFile;
 
@@ -56,7 +56,7 @@ class PKPSubmissionSubmitStep2Form extends SubmissionSubmitForm
 
         $fileUploadApiUrl = '';
         $submissionFiles = [];
-        $submissionLocale = AppLocale::getLocale();
+        $submissionLocale = Locale::getLocale();
         if ($this->submission) {
             $fileUploadApiUrl = $request->getDispatcher()->url(
                 $request,

@@ -15,9 +15,9 @@ namespace PKP\decision\steps;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use PKP\components\fileAttachers\BaseAttacher;
 use PKP\decision\Step;
+use PKP\facades\Locale;
 use PKP\mail\Mailable;
 use PKP\user\User;
 use stdClass;
@@ -78,12 +78,11 @@ class Email extends Step
 
         $config->variables = [];
         $config->locales = [];
-        $allLocales = AppLocale::getAllLocales();
         foreach ($this->locales as $locale) {
             $config->variables[$locale] = $this->mailable->getData($locale);
             $config->locales[] = [
                 'locale' => $locale,
-                'name' => $allLocales[$locale],
+                'name' => Locale::getMetadata($locale)->getDisplayName(),
             ];
         }
 

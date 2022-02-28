@@ -15,10 +15,10 @@
  */
 
 use APP\facades\Repo;
-use APP\i18n\AppLocale;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
+use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
@@ -242,7 +242,7 @@ class ReviewerForm extends Form
             $dispatcher = $request->getDispatcher();
             $template->assignParams([
                 'journalUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath()),
-                'signature' => $user->getContactSignature(AppLocale::getLocale()),
+                'signature' => $user->getContactSignature(Locale::getLocale()),
                 'senderName' => $user->getFullname(),
                 'passwordLostUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'login', 'lostPassword'),
                 'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),

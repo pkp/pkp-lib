@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-01 06:40+0000\n"
+"PO-Revision-Date: 2022-03-01 11:21+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -387,3 +387,97 @@ msgstr ""
 
 msgid "metadata.property.displayName.publication-type"
 msgstr "Հրապարակման տեսակը"
+
+msgid "submission.attachedFile"
+msgstr "Կցված նիշքը"
+
+msgid "submission.ask"
+msgstr "Հարցնել"
+
+msgid "submission.acknowledge"
+msgstr "Հաստատում"
+
+msgid "submission.accepted"
+msgstr "Ընդունված"
+
+msgid "submission.abstractViews"
+msgstr "Ամփոփման դիտումներ"
+
+msgid "submission.agencies"
+msgstr "Գործակալություններ"
+
+msgid "submission.additionalFiles"
+msgstr "Լրացուցիչ նիշքեր"
+
+msgid "submission.addFile"
+msgstr "Վերբեռնեք նիշք"
+
+msgid "submission.mySubmissions"
+msgstr "Իմ հեղինակությամբ"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} այս {$title}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} և այլն"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "Հեղինակների կենսագրությունները"
+
+msgid "submission.authorBiography"
+msgstr "Հեղինակի կենսագրությունը"
+
+msgid "submission.authors"
+msgstr "Հեղինակներ"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Արխիվացված ներկայացումներ"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Ինձ նշանակված"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Չի նշանակված"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Ամփոփում"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Խնդրում ենք համոզվել, որ դուք սահմանել եք վավեր անվան տեսակ: Աջակցվող "
+"արժեքներն են՝ «անձնական», «կորպորատիվ» և «համաժողով»:"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Անվան տեսակ"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Խնդրում ենք մուտքագրել վավեր մասի անուն։"
+
+msgid "metadata.property.displayName.partName"
+msgstr "Մասի անուն"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Խնդրում ենք մուտքագրել վավեր մասի թիվ:"
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Մասի թիվը"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Խնդրում ենք մուտքագրել վավեր ենթավերնագիր:"
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Ենթավերնագիր"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Խնդրում ենք մուտքագրել վավեր վերնագիր:"
+
+msgid "metadata.property.displayName.title"
+msgstr "Վերնագիր"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Խնդրում ենք մուտքագրել վերնագրի միայն սկզբնական նիշերը, որոնք պետք է "
+"անտեսվեն վերնագիրը տեսակավորելիս:"

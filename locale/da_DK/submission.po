@@ -1,12 +1,13 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2022-03-01 08:49+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2022-03-01 11:21+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
 "Language: da_DK\n"
@@ -2059,3 +2060,8 @@ msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
 "En e-mail vedrørende beslutningen er blevet sendt til {$recipientCount} "
 "bedømmer(e) med emnet {$subject}."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr ""
+"Omgør beslutningen om at godkende denne indsendelse og send den tilbage til "
+"indsendelsestrinnet."

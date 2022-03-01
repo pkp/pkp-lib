@@ -58,17 +58,20 @@ class PKPUserHandler extends APIHandler
         app('router')->group(
             [
                 'prefix' => $this->getEndpointPattern(),
+                'middleware' => [
+                    'auth',
+                ],
             ],
             function () {
                 // Get Many endpoint
                 app('router')
                     ->name('usersGetyMany')
-                    ->get('', [UserController::class, 'getMany']);
-                // ->middleware([
-                //     'only.manager.roles',
-                //     'only.site.admin.roles',
-                //     'only.sub.editor.roles',
-                // ]);
+                    ->get('', [UserController::class, 'getMany'])
+                    ->middleware([
+                        // 'only.manager.roles',
+                        'only.site.admin.roles',
+                        // 'only.sub.editor.roles',
+                    ]);
 
                 app('router')
                     ->name('me')

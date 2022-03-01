@@ -23,6 +23,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use PKP\controllers\Middlewares\DecodingApiToken;
+use PKP\controllers\Middlewares\HasUser;
 use PKP\controllers\Middlewares\OnlyManagerRoles;
 use PKP\controllers\Middlewares\OnlySiteAdminRoles;
 use PKP\controllers\Middlewares\OnlySubEditorRoles;
@@ -55,6 +56,7 @@ class RoutingServiceProvider extends ServiceProvider
         'only.manager.roles' => OnlyManagerRoles::class,
         'only.site.admin.roles' => OnlySiteAdminRoles::class,
         'only.sub.editor.roles' => OnlySubEditorRoles::class,
+        'auth' => HasUser::class,
     ];
 
     /**

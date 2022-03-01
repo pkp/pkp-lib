@@ -17,17 +17,23 @@ namespace PKP\handler;
 
 use APP\core\Application;
 use APP\core\Services;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Pipeline;
 use PKP\config\Config;
-use PKP\core\APIResponse;
+use PKP\core\PKPContainer;
+
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\internal\ApiAuthorizationMiddleware;
 use PKP\security\authorization\internal\ApiCsrfMiddleware;
 
 use PKP\security\authorization\internal\ApiTokenDecodingMiddleware;
+
 use PKP\statistics\PKPStatisticsHelper;
 use PKP\validation\ValidatorFactory;
-
 use Slim\App;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Throwable;
 
 class APIHandler extends PKPHandler
 {
@@ -48,19 +54,49 @@ class APIHandler extends PKPHandler
     public function __construct()
     {
         parent::__construct();
+
+        try {
+            $response = (new Pipeline(
+                PKPContainer::getInstance()
+            ))
+                ->send(app(Request::class))
+                ->through(app('globalMiddlewares'))
+                ->then(function ($request) {
+                    return app('router')->dispatch($request);
+                });
+
+            if ($response instanceof Throwable) {
+                throw $response;
+            }
+
+            $response->send();
+        } catch (NotFoundHttpException $e) {
+            http_response_code(Response::HTTP_NOT_FOUND);
+            header('Content-Type: application/json');
+            die(json_encode([
+                'error' => 'api.404.endpointNotFound',
+                'errorMessage' => __('api.404.endpointNotFound'),
+            ]));
+        } catch (Throwable $e) {
+            $httpCode = $e->getCode() ?? Response::HTTP_INTERNAL_SERVER_ERROR;
+            http_response_code($httpCode);
+            header('Content-Type: application/json');
+            die(json_encode([
+                'error' => $e->getMessage(),
+            ]));
+        }
+
+        return;
+
         $this->_app = new \Slim\App([
-            // Load custom response handler
-            'response' => function ($c) {
-                return new APIResponse();
-            },
             'settings' => [
                 // we need access to route within middleware
                 'determineRouteBeforeAppMiddleware' => true,
             ]
         ]);
-        $this->_app->add(new ApiAuthorizationMiddleware($this));
-        $this->_app->add(new ApiCsrfMiddleware($this));
-        $this->_app->add(new ApiTokenDecodingMiddleware($this));
+        // $this->_app->add(new ApiAuthorizationMiddleware($this));
+        // $this->_app->add(new ApiCsrfMiddleware($this));
+        // $this->_app->add(new ApiTokenDecodingMiddleware($this));
         // remove trailing slashes
         $this->_app->add(function ($request, $response, $next) {
             $uri = $request->getUri();

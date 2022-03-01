@@ -17,12 +17,46 @@ declare(strict_types=1);
 
 namespace PKP\core;
 
+use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
+use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use PKP\controllers\Middlewares\DecodingApiToken;
+use PKP\controllers\Middlewares\OnlyManagerRoles;
+use PKP\controllers\Middlewares\OnlySiteAdminRoles;
+use PKP\controllers\Middlewares\OnlySubEditorRoles;
+use PKP\controllers\Middlewares\VerifyCsrfToken;
 
 class RoutingServiceProvider extends ServiceProvider
 {
+    /**
+     * The application's global HTTP middleware stack.
+     *
+     * These middleware are run during every request to your application.
+     *
+     * @var array
+     */
+    protected $middleware = [
+        DecodingApiToken::class,
+        VerifyCsrfToken::class,
+        ValidatePostSize::class,
+        ConvertEmptyStringsToNull::class,
+    ];
+
+    /**
+     * The application's route middleware.
+     *
+     * These middleware may be assigned to groups or used individually.
+     *
+     * @var array
+     */
+    protected $routeMiddleware = [
+        'only.manager.roles' => OnlyManagerRoles::class,
+        'only.site.admin.roles' => OnlySiteAdminRoles::class,
+        'only.sub.editor.roles' => OnlySubEditorRoles::class,
+    ];
+
     /**
      * Register application services
      *
@@ -35,14 +69,38 @@ class RoutingServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerRouter();
+        $this->registerRouteMiddlewares();
+        $this->registerGlobalMiddlewares();
+        $this->registerRoutePatterns();
+    }
+
+    public function registerRouter(): void
+    {
         $this->app->singleton('router', function ($app) {
             $request = Request::capture();
             $app->instance('Illuminate\Http\Request', $request);
-
-            return new Router(
-                $app['events'],
-                $app
-            );
+            return new Router($app['events'], $app);
         });
+    }
+
+    public function registerGlobalMiddlewares(): void
+    {
+        $this->app->singleton('globalMiddlewares', function () {
+            return $this->middleware;
+        });
+    }
+
+    public function registerRouteMiddlewares(): void
+    {
+        foreach ($this->routeMiddleware as $key => $middleware) {
+            app('router')->aliasMiddleware($key, $middleware);
+        }
+    }
+
+    public function registerRoutePatterns(): void
+    {
+        app('router')->pattern('contextPath', '(.*?)');
+        app('router')->pattern('version', '(.*?)');
     }
 }

@@ -15,11 +15,36 @@
  */
 
 use APP\facades\Repo;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response as HttpResponse;
+use Illuminate\Routing\Controller as BaseController;
 use PKP\facades\Locale;
+
 use PKP\handler\APIHandler;
 use PKP\plugins\HookRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+
+class UserController extends BaseController
+{
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
+
+    public function getMany(Request $request): JsonResponse
+    {
+        return new JsonResponse('test', HttpResponse::HTTP_OK);
+    }
+
+    public function me(Request $request): JsonResponse
+    {
+        return new JsonResponse(['user' => $request->user()], HttpResponse::HTTP_OK);
+    }
+}
 
 class PKPUserHandler extends APIHandler
 {
@@ -29,31 +54,53 @@ class PKPUserHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = 'users';
-        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getMany'],
-                    'roles' => $roles
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/reviewers',
-                    'handler' => [$this, 'getReviewers'],
-                    'roles' => $roles
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{userId:\d+}',
-                    'handler' => [$this, 'get'],
-                    'roles' => $roles
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/report',
-                    'handler' => [$this, 'getReport'],
-                    'roles' => $roles
-                ],
+
+        app('router')->group(
+            [
+                'prefix' => $this->getEndpointPattern(),
             ],
-        ];
+            function () {
+                // Get Many endpoint
+                app('router')
+                    ->name('usersGetyMany')
+                    ->get('', [UserController::class, 'getMany']);
+                // ->middleware([
+                //     'only.manager.roles',
+                //     'only.site.admin.roles',
+                //     'only.sub.editor.roles',
+                // ]);
+
+                app('router')
+                    ->name('me')
+                    ->get('me', [UserController::class, 'me']);
+            }
+        );
+
+        // $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
+        // $this->_endpoints = [
+        //     'GET' => [
+        //         [
+        //             'pattern' => $this->getEndpointPattern(),
+        //             'handler' => [$this, 'getMany'],
+        //             'roles' => $roles
+        //         ],
+        //         [
+        //             'pattern' => $this->getEndpointPattern() . '/reviewers',
+        //             'handler' => [$this, 'getReviewers'],
+        //             'roles' => $roles
+        //         ],
+        //         [
+        //             'pattern' => $this->getEndpointPattern() . '/{userId:\d+}',
+        //             'handler' => [$this, 'get'],
+        //             'roles' => $roles
+        //         ],
+        //         [
+        //             'pattern' => $this->getEndpointPattern() . '/report',
+        //             'handler' => [$this, 'getReport'],
+        //             'roles' => $roles
+        //         ],
+        //     ],
+        // ];
         parent::__construct();
     }
 

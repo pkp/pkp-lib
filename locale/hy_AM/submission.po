@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-01 11:39+0000\n"
+"PO-Revision-Date: 2022-03-02 09:35+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -490,3 +490,916 @@ msgstr "Փոխել որպես"
 
 msgid "submission.backToSubmissionEditing"
 msgstr "Վերադարձ դեպի Ներկայացման խմբագրում"
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Հեռացրեք մասնակցին"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Օգտագործողները նշանակվում են աշխատանքային հոսքի փուլերին՝ ըստ օգտվողների "
+"խմբի: Այս փուլին նշանակված ցանկացած օգտատեր ինքնաբերաբար կնշանակվի մյուս "
+"փուլերին, որոնց հատկացվել է իր օգտատերերի խումբը: Սա սովորաբար վերապահված է "
+"խմբագիրների, հեղինակների և թարգմանիչների համար:"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Խմբագրել հանձնարարությունը"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Նշանակեք մասնակից"
+
+msgid "editor.submission.participant"
+msgstr "Մասնակից"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Ոչ մեկը նշանակված չէ"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Մասնակիցներ"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Բոլոր առաջարկությունները ներկայացված են, և անհրաժեշտ է որոշում:"
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Ներկայացվել են խմբագրական նոր առաջարկություններ։"
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Սպասում են խմբագիրների առաջարկություններին:"
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Գրախոսությունը ժամկետանց է։"
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Բոլոր գրախոսները արձագանքել են, և անհրաժեշտ է որոշում:"
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Նոր գրախոսություններ են ներկայացվել։"
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Սպասում ենք գրախոսների պատասխաններին:"
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Սպասում է գրախոսների նշանակմանը:"
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Ներկայացումը մերժվել է:"
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Ներկայացումը ընդունվել է։"
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Ուղարկել արտաքին գրախոսության։"
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Ներկայացումը կրկին ներկայացվել է գրախոսման մեկ այլ փուլի համար:"
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Ներկայացումը պետք է նորից ներկայացվի գրախոսման մեկ այլ փուլի համար:"
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Ներկայացվել են վերանայումներ։"
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Վերանայումներ են պահանջվել:"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Այս պահին վերանայելու համար նիշքեր չկան:"
+
+msgid "submission.upload.proof"
+msgstr "Վերբեռնեք հրապարակման համար պատրաստ նիշքը"
+
+msgid "submission.upload.productionReady"
+msgstr "Վերբեռնեք արտադրության պատրաստի նիշքը"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Նշանակված նիշքը դիտելուց հետո գրանցեք ստորև բերված նիշքի վերաբերյալ ցանկացած "
+"մեկնաբանություն և/կամ վերբեռնեք նիշքի ծանոթագրված պատճենը (կամ մեկ այլ նիշք):"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Վերբեռնեք նիշքերը"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Վերբեռնեք գրական սրբագրված նիշքը"
+
+msgid "submission.upload.finalDraft"
+msgstr "Վերբեռնեք նիշքը"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Ներկայացվող փաստաթղթերի դաս"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Վերբեռնեք գրադարանի նիշքը"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Եթե դուք խմբագրված հատոր եք ներկայացնում, դուք պետք է բեռնեք հատորի բոլոր "
+"գլուխները առանձին-առանձին, ձեր դերի ներքո որպես հատորների խմբագիր:"
+
+msgid "submission.upload.userGroup"
+msgstr "Վերբեռնեք այս նիշքը իմ դերում որպես..."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Սա գոյություն ունեցող նիշքի վերանայում չէ"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"Եթե վերբեռնում եք գոյություն ունեցող նիշքի վերանայումը, խնդրում ենք նշել, թե "
+"որ նիշքն է:"
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Խնդրում ենք ընտրել այն նիշքը, որը ցանկանում եք վերանայել:"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Վերբեռնված նիշքի անունը նման է նախկինում վերբեռնված \"{$revisedFileName}\" -"
+"ի անվանմանը: Արդյո՞ք այս նիշքը նախատեսված է փոխարինելու  \"{$revisedFileName}"
+"\" -ին: Եթե այո, ապա ընտրեք ստորև ներկայացված նիշքը: Հակառակ դեպքում, նախքան "
+"շարունակելը, ընտրեք «Սա գոյություն ունեցող նիշքի վերանայումը չէ»:"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Հայտնաբերվել է հնարավոր կրկնօրինակում կամ վերանայում"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Բացակայում է կամ անվավեր օգտատերերի խումբ:"
+
+msgid "submission.upload.noGenre"
+msgstr "Բացակայում է կամ անվավեր բաղադրիչ:"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Դուք պետք է մուտքագրեք նիշքի անունը այս նիշքի համար"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Հաստատել"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Գրախոսության մանրամասներ"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Վերբեռնեք ներկայացման նիշքը"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Վերբեռնեք նիշքը"
+
+msgid "submission.status.published"
+msgstr "Հրապարակվել է"
+
+msgid "submission.status.declined"
+msgstr "Մերժված"
+
+msgid "submission.status.unassigned"
+msgstr "Չի նշանակված"
+
+msgid "submission.status.submission"
+msgstr "Սպասում է խմբագրի որոշմանը"
+
+msgid "submission.status.review"
+msgstr "Գրախոսման մեջ է"
+
+msgid "submission.status.production"
+msgstr "Սրբագրման մեջ է"
+
+msgid "submission.status.editorial"
+msgstr "Լեզվական սրբագրման մեջ է"
+
+msgid "workflow.stage"
+msgstr "Փուլ"
+
+msgid "workflow.stage.any"
+msgstr "Ցանկացած փուլ"
+
+msgid "workflow.review.internalReview"
+msgstr "Ներքին գրախոսություն"
+
+msgid "submission.form.replaceExisting"
+msgstr "Փոխարինո՞ւմ եք գոյություն ունեցող նիշքը:"
+
+msgid "submission.form.name"
+msgstr "Անվանեք նիշքը (օրինակ՝ ձեռագիր, Աղյուսակ 1)"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Մուտք արեք մատենագիտական հղումը։"
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Մուտք արեք իրավունքները։"
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Մուտք արեք աղբյուրը։"
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Մուտք արեք տեսակը։"
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Մուտք արեք ծածկույթի մասին տեղեկատվությունը։"
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Մուտք արեք բանալի բառը։"
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Մուտք արեք գիտակարգը։"
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Մուտք արեք խորագիրը։"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Մուտք արեք լեզուն։"
+
+msgid "submission.submit.addAuthor"
+msgstr "Ավելացրեք աջակցող"
+
+msgid "submission.submit.contributorRole"
+msgstr "Աջակցողի դերը"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Գլխավոր կոնտակտ խմբագրական նամակագրության համար:"
+
+msgid "submission.date.yyyymmdd"
+msgstr "ՏՏՏՏ-ԱԱ-ՕՕ"
+
+msgid "submission.date.mmdd"
+msgstr "ԱԱ-ՕՕ"
+
+msgid "submission.nameRequired"
+msgstr "Այս նյութի համար անունը պարտադիր է։"
+
+msgid "submission.fileDetails"
+msgstr "Նիշքի մանրամասներ"
+
+msgid "submission.artworkFileDetails"
+msgstr "Արվեստի գործի նիշքի մանրամասները"
+
+msgid "submission.loadMessage"
+msgstr "Խնդրում ենք սպասել, մինչև ձեր նիշքը վերբեռնվի կայան:"
+
+msgid "submission.uploadSuccessful"
+msgstr "Ձեր նիշքը վերբեռնված է։"
+
+msgid "submission.views"
+msgstr "Դիտումներ"
+
+msgid "submission.viewMetadata"
+msgstr "Դիտեք մետատվյալները"
+
+msgid "submission.createRemote"
+msgstr "Ստեղծեք հեռավար"
+
+msgid "submission.uploadFileTo"
+msgstr "Վերբեռնեք նիշքը այստեղ"
+
+msgid "submission.underway"
+msgstr "Ընթացքի մեջ է"
+
+msgid "submission.type.tip"
+msgstr ""
+"Ներկայացման տեսակը սովորաբար «պատկեր», «տեքստ» կամ այլ մուլտիմեդիա "
+"տեսակներից է, ներառյալ «ծրագրային ապահովումը» կամ «ինտերակտիվը»: Խնդրում ենք "
+"ընտրել ձեր ներկայացման համար առավել համապատասխանը: Օրինակները կարելի է գտնել "
+"<a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type</a>"
+
+msgid "submission.titleAndAbstract"
+msgstr "Վերնագիր և համառոտագիր"
+
+msgid "submission.indexingInformation"
+msgstr "Ցուցիչավորման տեղեկատվություն"
+
+msgid "submission.currentAgencies"
+msgstr "Ընթացիկ գործակալություններ"
+
+msgid "submission.supportingAgencies"
+msgstr "Աջակցող գործակալություններ"
+
+msgid "submission.summary"
+msgstr "Համառոտագրություն"
+
+msgid "submission.upload.query"
+msgstr "Վերբեռնեք քննարկման նիշքը"
+
+msgid "submission.upload.dependent"
+msgstr "Վերբեռնեք կախյալ նիշքը"
+
+msgid "submission.upload.percentComplete"
+msgstr "{$percent}% -ի վերբեռնումն ավարտված է"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Վերբեռնեք ցանկացած նիշք, որը անհրաժեշտ կլինի խմբագրական թիմին՝ ձեր "
+"ներկայացումը գնահատելու համար:"
+
+msgid "submission.manageDependentFiles"
+msgstr "Կառավարեք կախյալ նիշքերը"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Կախյալ նիշքեր"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Ներկայացման նիշքեր"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Ընդունվում են ներկայացումներ մի քանի լեզուներով: Ընտրեք ներկայացման հիմնական "
+"լեզուն վերևի բացվող ցանկից:"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Ներկայացման լեզուն"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Ձեր ներկայացման համար ավելացրեք լրացուցիչ տեղեկություններ: Յուրաքանչյուր "
+"տերմինից հետո սեղմեք «enter»:"
+
+msgid "submission.submit.metadataForm"
+msgstr "Լրացուցիչ ճշգրտումներ"
+
+msgid "submission.submit.newFile"
+msgstr "Ավելացրեք մեկ այլ նիշք"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Հրապարակումների ցուցակներ"
+
+msgid "submission.submit.includeInBrowse"
+msgstr ""
+"Հրապարակումների ցանկում հեղինակներին բացահայտելիս ներառեք այս հեղինակին:"
+
+msgid "submission.submit.fileAdded"
+msgstr "Նիշքը ավելացված է"
+
+msgid "submission.submit.fileInformation"
+msgstr "Նիշքի տեղեկատվություն"
+
+msgid "submission.submit.selectFile"
+msgstr "Ընտրեք նիշքը"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Ավարտել ներկայացումը"
+
+msgid "submission.submitter"
+msgstr "Ներկայացնող"
+
+msgid "submission.submissionReview"
+msgstr "Ներկայացման գրախոսություն"
+
+msgid "submission.submissionManuscript"
+msgstr "Ներկայացման ձեռագիրը"
+
+msgid "submission.submissionHistory"
+msgstr "Ներկայացման պատմություն"
+
+msgid "submission.start"
+msgstr "Սկիզբ"
+
+msgid "submission.submissionTitle"
+msgstr "Ներկայացման վերնագիրը․"
+
+msgid "submission.submission"
+msgstr "Ներկայացում"
+
+msgid "submissions.submitted"
+msgstr "Ներկայացված"
+
+msgid "submissions.submit"
+msgstr "Ներկայացնել"
+
+msgid "submission.source.tip"
+msgstr ""
+"Արդյո՞ք այս ներկայացումը բխում է այլ պաշարից: Եթե այո, կարող եք մուտքագրել "
+"URL կամ այդ պաշարի նկարագրությունը:"
+
+msgid "submission.source"
+msgstr "Աղբյուր"
+
+msgid "submissions.ruling"
+msgstr "Կառավարող"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Այս ներկայացմանը ոչ մի խմբագիր չի նշանակվել:"
+
+msgid "submissions.queued"
+msgstr "Հերթագրված"
+
+msgid "submissions.queuedEditing"
+msgstr "Խմբագրման մեջ"
+
+msgid "submissions.noSubmissions"
+msgstr "Չկան ներկայացումներ"
+
+msgid "submissions.incomplete"
+msgstr "Անավարտ"
+
+msgid "submissions.declined"
+msgstr "Մերժված"
+
+msgid "submissions.completed"
+msgstr "Ավարտված"
+
+msgid "submission.saveMetadata"
+msgstr "Պահել մետատվյալները"
+
+msgid "submissions.archived"
+msgstr "Արխիվացված"
+
+msgid "submissions.active"
+msgstr "Ակտիվ"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Եթե ցանկանում եք, կարող եք մուտքագրել հակիրճ հայտարարություն այս "
+"ներկայացմանը վերաբերվող կամ փոխանցվող մուտքի իրավունքների մասին:"
+
+msgid "submission.rights"
+msgstr "Իրավունքներ"
+
+msgid "submission.reviewVersion"
+msgstr "Գրախոսության տարբերակ"
+
+msgid "submission.reviewed"
+msgstr "Գրախոսված"
+
+msgid "submission.review"
+msgstr "Գրախոսություն"
+
+msgid "submission.reviewMetadata"
+msgstr "Վերանայեք մետատվյալները"
+
+msgid "submission.restrictions"
+msgstr "Սահմանափակումներ"
+
+msgid "submission.response"
+msgstr "Պատասխան"
+
+msgid "submission.request"
+msgstr "Հարցում"
+
+msgid "submission.rejected"
+msgstr "Մերժված"
+
+msgid "submission.recommendation"
+msgstr "Երաշխավորություն: {$recommendation}"
+
+msgid "submission.production"
+msgstr "Արտադրանք"
+
+msgid "submission.peerReview"
+msgstr "Գործընկերային&nbsp;Գրախոսություն"
+
+msgid "submission.page.citations"
+msgstr "#{$id} վկայակոչումներ"
+
+msgid "submission.page.summary"
+msgstr "#{$id} համառոտագրություն"
+
+msgid "submission.page.review"
+msgstr "#{$id} գրախոսում"
+
+msgid "submission.page.history"
+msgstr "#{$id} պատմություն"
+
+msgid "submission.page.editing"
+msgstr "#{$id} խմբագրում"
+
+msgid "submission.originalFile"
+msgstr "Բնօրինակ նիշքը"
+
+msgid "submission.notes.viewNotes"
+msgstr "Դիտեք նշումները"
+
+msgid "submission.notes.updateNote"
+msgstr "Վերբեռնեք նշումը"
+
+msgid "submission.notes"
+msgstr "Ներկայացման նիշքեր"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Հեռացրեք վերբեռնված նիշքը"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Ներկայացմանը նշումներ չկան"
+
+msgid "submission.notes.expandNotes"
+msgstr "Ընդլայնեք նշումը"
+
+msgid "submission.notes.editNote"
+msgstr "Խմբագրեք նշումը"
+
+msgid "submission.notes.deleteNote"
+msgstr "Ջնջեք նշումը"
+
+msgid "submission.notes.createNewNote"
+msgstr "Ստեղծեք նոր նշում"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Հեռացնե՞լ այս ներկայացման նշումը:"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Հեռացնե՞լ ներկայացման բոլոր նշումները:"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Փլուզեք նշումները"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Մաքրեք բոլոր նշումները"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Նշումներ"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Վերադարձ ներկայացման նշումներին"
+
+msgid "submission.notes.attachedFile"
+msgstr "Կցված նիշք"
+
+msgid "submission.notes.addNewNote"
+msgstr "Ավելացրեք նոր նշում"
+
+msgid "submission.noReviewAssignments"
+msgstr "Չկան նշանակված գրախոսներ"
+
+msgid "submission.metadata"
+msgstr "Ներկայացման մետատվյալներ"
+
+msgid "submission.layout.viewProof"
+msgstr "Ցույց տալ սրբագրումը"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Ներկայացման շարվածքների դիտում"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Ոճային թերթիկի ոչ մի նիշք չի ավելացվել այս շարվածքին:"
+
+msgid "submission.layout.newGalley"
+msgstr "Ստեղծեք նոր շարվածք"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Ուրվագծի տարբերակ"
+
+msgid "submission.layout"
+msgstr "Ուրվագիծ"
+
+msgid "submission.layout.layoutFile"
+msgstr "Ուրվագծի նիշք"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Սկզբնական շարվածքի ստեղծում"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Ոճ"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Ոճաթերթերի նիշք"
+
+msgid "submission.layout.galleys"
+msgstr "Շարվածքներ"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Չկան պատկերներ"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Խնդրում ենք տրամադրել վավեր հեռավար URL (ներառյալ http://):"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Հեռավար URL"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Պահանջվում է շարվածքի տեղայինը։"
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Պահանջվում է շարվածքի լեզուն։"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Պահանջվում է շարվածքի պիտակը։"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"Սովորաբար օգտագործվում է նիշքի ձևաչափը նույնականացնելու համար (օրինակ՝ PDF, "
+"HTML և այլն):"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Շարվածքի պիտակ"
+
+msgid "submission.layout.galleyImages"
+msgstr "Պատկերներ"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML շարվածքի նիշքեր"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Շարվածքի ձևաչափ"
+
+msgid "submission.layout.editGalley"
+msgstr "Խմբագրել շարվածքի ուրվագիծը"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Ջնջել այս ոճաթերթիկը:"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Իսկապե՞ս ուզում եք հեռացնել այս պատկերը շարվածքից:"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Իսկապե՞ս ուզում եք ընդմիշտ ջնջել այս շարվածքը:"
+
+msgid "submission.layout.addGalley"
+msgstr "Ավելացնել Որվագծի շարվածքը"
+
+msgid "submission.lastModified"
+msgstr "Վերջին փոփոխությունը"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Ծանուցել"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Ցույց տալ իրադարձությունները նախորդ տարբերակներից"
+
+msgid "submission.informationCenter.history"
+msgstr "Պատմություն"
+
+msgid "submission.informationCenter.notes"
+msgstr "Նշումներ"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Մետատվյալներ"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Ներկայացման տեղեկատվություն"
+
+msgid "submission.publisherId.enable"
+msgstr "Միացված է {$objects} -ի համար"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Հրատարակչի ID-ն կարող է օգտագործվել ID-ն արտաքին տվյալների շտեմարանից "
+"գրառելու համար: Օրինակ՝ PubMed -ում ավանդադրվելու համար արտահանվող նյութերը "
+"կարող են ներառել հրատարակչի ID-ն: Սա չպետք է օգտագործվի DOI-ների համար:"
+
+msgid "submission.publisherId"
+msgstr "Հրատարակչի ID"
+
+msgid "submission.identifiers"
+msgstr "Նույնացուցիչներ"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Սա հնացած տարբերակ է, որը հրապարակվել է {$datePublished} -ում: Կարդացեք  <a "
+"href=\"{$urlRecentVersion}\">վերջին տարբերակը</a>:"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Տարբերակներ"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — վերբեռնեք {$dateUpdated}"
+
+msgid "submission.initiated"
+msgstr "Սկսված է"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Ներբեռնեք վկայակոչումները"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Մեջբերումների ավելի ձևաչափեր"
+
+msgid "submission.howToCite"
+msgstr "Ինչպես մեջբերել"
+
+msgid "submission.history.viewLog"
+msgstr "Դիտեք գրանցամատյանը"
+
+msgid "submission.history.submissionNotes"
+msgstr "Ներկայացման նշումներ"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Իրադարձության գրանցամատյան"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Էլ․ փոստի գրանցամատյան"
+
+msgid "submission.history.recentLogEntries"
+msgstr "Վերջին մուտքերը"
+
+msgid "submission.history.noLogEntries"
+msgstr "Չկան գրանցամատյանի մուտքեր։"
+
+msgid "submission.history"
+msgstr "Պատմություն"
+
+msgid "submission.history.clearLog"
+msgstr "Մաքրեք գրանցամատյանը"
+
+msgid "submission.galley"
+msgstr "Շարվածք"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Նիշքի վերբեռնողի գրառումը պահվում է, երբ նիշքը ստեղծվում է և հնարավոր չէ "
+"փոխել:"
+
+msgid "submission.files.downloadAll"
+msgstr "Ներբեռնեք բոլոր նիշքերը"
+
+msgid "submission.files"
+msgstr "Նիշքեր"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Հեղինակներին այժմ չի թույլատրվում խմբագրել մետատվյալները երբ ներկայացումը "
+"{{stage} փուլում է:"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Հեղինակներին այժմ թույլատրվում է խմբագրել մետատվյալները, երբ ներկայացումը  "
+"{stage} փուլում է:"
+
+msgid "submission.event.viewEmail"
+msgstr "Դիտեք էլ․ նամակը"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Ուղարկվել է էլ․ նամակ:"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Գրախոսի դիտարկումների նիշքը թարմացված է"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Գրախոսությունը նորից է ներկայացվել"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Գրախոսության նշանակումը վերսկսված է"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Գրախոսության երաշխավորության նիշք"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Գրախոսությունը սկսված է"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Գրախոսության նիշքը թարմացված է"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Գրախոսը չեղարկված է այս ներկայացման համար"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Գրախոսի գնահատականը գրանցված է"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Գրախոս է նշանակված ներկայացմանը"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Գրախոսման ներկայացման ամսաթիվը փոխված է"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Գրախոսման հանձնարարականը մերժված է"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Գրախոսման հանձնարարականը ընդունված է"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Գրախոսման հանձնարարականն ընդունվել է միջնորդավորվածի կողմից"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Ներկայացման նիշքը թարմացվել է"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Ներկայացման մետատվյալները թարմացվել են"
+
+msgid "submission.event.fileRevised"
+msgstr "\"{$name}\" տարբերակը վերբեռնվել է {$submissionFileId} նիշքի համար:"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Նախնական ներկայացումն ավարտված է:"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Որոշման մասին նամակ է ուղարկվել {$recipientCount} գրախոս(ներ)ին՝ {$subject} "
+"վերնագրով:"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Ջնջեք մատյանի մուտքը"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Իսկապե՞ս ուզում եք ջնջել այս իրադարձությունների մատյանի գրառումը:"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Իսկապե՞ս ուզում եք ջնջել այս ներկայացման իրադարձությունների մատյանը:"
+
+msgid "submission.event.backToEventLog"
+msgstr "Վերադարձ Իրադարձությունների մատյանին"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) հեռացվել է որպես {$userGroupName}:"
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) նշանակվել է այս ներկայացմանը որպես {$userGroupName} :"
+
+msgid "submission.emailLog"
+msgstr "Էլ․ փոստի մատյան"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Ջնջել մատյանի մուտքը"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Իսկապե՞ս ուզում եք ջնջել այս էլ․ փոստի մատյանի մուտքը:"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Վստա՞հ եք, որ ցանկանում եք ջնջել այս ներկայացման էլեկտրոնային մատյանը:"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Վերադառնալ Էլփոստի մատյան"
+
+msgid "submission.editorial"
+msgstr "Սրբագրում"
+
+msgid "submission.editMetadata"
+msgstr "Խմբագրել մետատվյալները"
+
+msgid "submission.editing"
+msgstr "Խմբագրում"
+
+msgid "submission.due"
+msgstr "Կատարում"
+
+msgid "submission.dueDate"
+msgstr "Կատարման ամսաթիվ"
+
+msgid "submission.downloads"
+msgstr "Ներբեռնումներ"
+
+msgid "submission.done"
+msgstr "Արված է"
+
+msgid "submission.coverage"
+msgstr "Ծածկույթի տեղեկատվություն"
+
+msgid "submission.queryNoteFiles"
+msgstr "Քննարկման նիշքեր"
+
+msgid "submission.copyediting"
+msgstr "Սրբագրում"
+
+msgid "submission.copyedited"
+msgstr "Սրբագրում"
+
+msgid "submission.contributors"
+msgstr "Աջակիցների ցուցակ"
+
+msgid "submission.complete"
+msgstr "Ամբողջական"
+
+msgid "submission.comments.subject"
+msgstr "Խորագիր"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Ուղարկել գրախոսների խմբագրական որոշումը"
+
+msgid "submission.comments.review"
+msgstr "Գրախոսություն"
+
+msgid "submission.comments.noReviews"
+msgstr "Չկան գրախոսություններ"
+
+msgid "submission.comments.noComments"
+msgstr "Չկան մեկնաբանություններ"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Գրախոս {$reviewerLetter}:"
+
+msgid "submission.comments.addReviews"
+msgstr "Ավելացրեք գրախոսությունները էլ․ նամակին"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Ներմուծեք գործընկերային գրախոսությունները"
+
+msgid "submission.comments.editComment"
+msgstr "Խմբագրել մեկնաբանությունը"
+
+msgid "submission.comments.corrections"
+msgstr "Շտկումներ"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Վստա՞հ եք, որ ցանկանում եք ջնջել այս մեկնաբանությունը:"
+
+msgid "submission.comments.comments"
+msgstr "Մեկնաբանություններ"
+
+msgid "submission.comments.addComment"
+msgstr "Ավելացնել մեկնաբանություն"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Հանեք և պահպանեք հղումները"
+
+msgid "submission.parsedCitations.description"
+msgstr "Հետևյալ հղումները հանվել են և կկապվեն ներկայացվող մետատվյալներին:"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations"
+msgstr "Հանված հղումներ"
+
+msgid "submission.citations.description"
+msgstr ""
+"Մուտքագրեք յուրաքանչյուր հղումը նոր տողում, որպեսզի դրանք հնարավոր լինի "
+"հանել և արձանագրել առանձին:"
+
+msgid "submission.citations"
+msgstr "Հղումներ"

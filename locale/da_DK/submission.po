@@ -1,11 +1,11 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2021-12-21 08:58+0000\n"
+"PO-Revision-Date: 2022-03-01 08:49+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
@@ -2004,3 +2004,58 @@ msgstr "Kategorier"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Lister over udgivelser"
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"Send en e-mail til forfatterne for at informere dem om, at deres indsendelse "
+"blev sendt tilbage til indsendelsestrinnet. Forklar hvorfor denne beslutning "
+"blev truffet og informer forfatterne om hvilket arbejde, der vil blive "
+"udført, før indsendelsen kan komme videre til næste trin."
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr "Indsendelsen, {$title}, blev sendt tilbage til indsendelsestrinnet."
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "Sendt tilbage til indsendelse"
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "Tilbage til indsendelse"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Send en e-mail til forfatterne og informer dem om, at deres indsendelse er "
+"blevet accepteret til publicering."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Denne indsendelse vil blive accepteret til publicering og sendt til "
+"kopiredigering."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Indsendelsen, {$title}, er blevet accepteret til publicering og sendt videre "
+"til kopiredigeringstrinnet."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Indsendelse accepteret"
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} accepterede denne indsendelse og sendte den videre til "
+"kopiredigeringstrinnet."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Send en e-mail til bedømmerne for at takke dem for deres bedømmelse og "
+"informer dem om, at der er truffet en beslutning."
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Underret bedømmere"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Underret forfattere"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"En e-mail vedrørende beslutningen er blevet sendt til {$recipientCount} "
+"bedømmer(e) med emnet {$subject}."

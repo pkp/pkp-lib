@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-28 17:26+0000\n"
+"PO-Revision-Date: 2022-03-01 06:40+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -366,3 +366,24 @@ msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
 "Ընտրեք այն դերը, որը լավագույնս նկարագրում է ձեր ներդրումը այս ներկայացման "
 "մեջ:"
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Վերնագրի մի մասն անտեսվել է տեսակավորման ժամանակ"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Խնդրում ենք համոզվել, որ սահմանել եք վերնագրի վավեր տեսակ: Աջակցվող "
+"արժեքներն են «կրճատված», «թարգմանված», «այլընտրանքային» և «միատեսակ»:"
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Վերնագրի տեսակը"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Խնդրում ենք համոզվել, որ դուք միշտ սահմանել եք հրապարակման տեսակը: "
+"Ներկայումս աջակցվող արժեքներն են գիրքը (գրքերի կամ գրքերի գլուխների համար) և "
+"ամսագրերը (ամսագրերի հոդվածների համար): Հակառակ դեպքում վկայակոչումների "
+"ելքային ձևաչափումը ճիշտ չի աշխատի:"
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Հրապարակման տեսակը"

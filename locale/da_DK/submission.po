@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2022-03-02 09:11+0000\n"
+"PO-Revision-Date: 2022-03-02 09:13+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
@@ -2110,3 +2110,12 @@ msgstr "Indsendelsen, {$title} blev sendt til produktionstrinnet."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Sendt til produktion"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr "En ny bedømmelsesrunde er startet for indsendelsen, {$title}."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Bedømmelsesrunde startet"
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} startede en ny bedømmelsesrunde for denne indsendelse."

@@ -1,8 +1,9 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
+# Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-15 10:25+0000\n"
-"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
+"PO-Revision-Date: 2022-03-03 00:42+0000\n"
+"Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -505,3 +506,39 @@ msgstr "Жүктеп алу"
 
 msgid "common.done"
 msgstr "Дайын"
+
+msgid "common.noneAssigned"
+msgstr "Ешқайсысы тағайындалмаған"
+
+msgid "common.moreThanOnly"
+msgstr "Гөрі көбірек"
+
+msgid "common.moreThan"
+msgstr "{$value} немесе одан да көп"
+
+msgid "common.more"
+msgstr "Көбірек"
+
+msgid "common.keepWorking"
+msgstr "Жұмысты жалғастырыңыз"
+
+msgid "common.loadTemplate"
+msgstr "Үлгіні жүктеңіз"
+
+msgid "common.fromWithValue"
+msgstr "Кімнен: {$value}"
+
+msgid "common.findTemplate"
+msgstr "Үлгіні табыңыз"
+
+msgid "common.deselect"
+msgstr "Таңдауды алып тастау"
+
+msgid "common.attachFiles"
+msgstr "Тіркелген файлдар"
+
+msgid "common.attachedFiles"
+msgstr "Тіркелген файлдар"
+
+msgid "common.addCCBCC"
+msgstr "CC/BCC қосу"

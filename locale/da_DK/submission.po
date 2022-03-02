@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2022-03-02 09:23+0000\n"
+"PO-Revision-Date: 2022-03-02 09:28+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
@@ -2177,8 +2177,39 @@ msgstr "Rettelser ønskes"
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
-"Send en e-mail til forfatterne og lad dem vide ændringer er nødvendige for "
-"denne indsendelse vil blive godkendt til publicering. Inkluder alle "
-"informationer som forfatteren vil skulle bruge for at ændre deres "
-"indsendelse. Husk, hvor det er nødvendigt, at anonymisere fagfælle "
-"bedømmerens bemærkninger. "
+"Send en e-mail til forfatterne og lad dem vide, at det er nødvendigt at lave "
+"rettelser før denne indsendelse vil blive godkendt til publicering. Inkluder "
+"alle informationer som forfatteren skal bruge for at rette deres "
+"indsendelse. Husk, hvor det er nødvendigt, at anonymisere "
+"fagfællebedømmerens bemærkninger."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Send denne indsendelse tilbage til kopiredigeringstrinnet."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Tilbage til manuskriptredigering"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
+"blevet sendt til produktionstrinnet."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"Send denne indsendelse til produktionstrinnet for at forberede den til "
+"udgivelse."
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr "Indsendelsen, {$title}, er blevet sendt til bedømmelsestrinnet."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Sendt til bedømmelse"
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} sendte denne indsendelse til bedømmelsestrinnet."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Denne indsendelse er klar til at blive sendt til fagfællebedømmelse."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Send til bedømmelse"

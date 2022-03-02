@@ -1,8 +1,9 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
+# Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2022-03-02 09:35+0000\n"
-"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
+"Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -17,3 +18,76 @@ msgstr "{$param} параметріне қолдау көрсетілмейді.
 
 msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Сұранымға жарияланымның бір немесе бірнеше жол берілмейтін нысандары "
+"енгізілді."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Сұранымға бірде-бір жарамды жариялау нысаны енгізілмеген."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Кейбір заттар сәтті сақталмады. Жеке элементтерді нақты қате туралы "
+"хабарламалардың бар-жоғын тексеріңіз."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Қате пайда болды және жіберілген кейбір тауарлар тіркелген деп белгіленбеді."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "XML тексеру қатесі орын алды және XML экспортталмады."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Қате пайда болды және DOI нысанын жасау мүмкін болмады."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Жарияланбаған материалдарды экспорттауға/сақтауға беруге болмайды. "
+"Жарияланбаған элементтерді алып тастаңыз және әрекетті қайталаңыз."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Сіз сұраған DOI табылған жоқ."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Бұл соңғы нүкте бүкіл сайттың аттар кеңістігінен қол жетімді емес және "
+"берілген мәтінмән үшін сұралуы керек."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Сіз осы контексте жоқ элементтің DOI өңдей алмайды"
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Келесі тілдерге қолдау көрсетілмейді: {$locales}."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Сіз сұраған хабарландыру табылған жоқ."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Бұл сайтқа кіру үшін API таңбалауышын пайдалану мүмкін емес, өйткені сайт "
+"әкімшісі құпия кілтті теңшеген жоқ."
+
+msgid "api.404.endpointNotFound"
+msgstr "Сұралған URL мекенжайы танылмады."
+
+msgid "api.404.resourceNotFound"
+msgstr "Сұралған ресурс табылған жоқ."
+
+msgid "api.403.unauthorized"
+msgstr "Сіз сұралған ресурсқа кіруге рұқсат бермейсіз."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Оны жасау уақытын өзгерту мүмкін емес."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Хаттың тақырыбы мен мәтінін көрсету керек."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Келесі қатеге байланысты API маркерін декодтау мүмкін болмады: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API токенін тексеру мүмкін емес. Бұл API токеніндегі қатені немесе API "
+"токенінің енді жарамсыз екенін көрсетуі мүмкін."

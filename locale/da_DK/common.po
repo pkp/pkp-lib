@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"PO-Revision-Date: 2022-03-02 10:01+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "da_DK/>\n"
@@ -2091,3 +2091,45 @@ msgstr "Udvid alle"
 
 msgid "timeZone"
 msgstr "Tidszone"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Vedhæft indsendelsesfiler"
+
+msgid "common.viewError"
+msgstr "Vis fejl"
+
+msgid "common.upload.addFile.description"
+msgstr "Upload en fil fra din computer."
+
+msgid "common.switchTo"
+msgstr "Skift til"
+
+msgid "common.showAllSteps"
+msgstr "Vis alle trin"
+
+msgid "common.searching"
+msgstr "Søger"
+
+msgid "common.numberedMore"
+msgstr "{$number} mere"
+
+msgid "common.keepWorking"
+msgstr "Fortsæt arbejdet"
+
+msgid "common.loadTemplate"
+msgstr "Indlæs en skabelon"
+
+msgid "common.findTemplate"
+msgstr "Find skabelon"
+
+msgid "common.deselect"
+msgstr "Fravælg"
+
+msgid "common.attachFiles"
+msgstr "Vedhæft filer"
+
+msgid "common.attachedFiles"
+msgstr "Vedhæftede filer"
+
+msgid "common.addCCBCC"
+msgstr "Tilføj CC/BCC"

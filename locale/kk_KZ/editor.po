@@ -1,8 +1,9 @@
 # Beibarys <beibarys_sultan@mail.ru>, 2022.
+# Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-02 09:35+0000\n"
-"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
+"PO-Revision-Date: 2022-03-03 00:42+0000\n"
+"Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -14,3 +15,33 @@ msgstr ""
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Өтінім қарауға қабылданды."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Өндіріске жіберілді."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Шолулардың жаңа раундына жіберілді."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Материалдар жарияланды."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Өтінім қабылданды."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Ұсыныс қабылданбады."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Шешім жазылды"
+
+msgid "editor.submissionLibrary"
+msgstr "Кітапхана"
+
+msgid "editor.activityLog"
+msgstr "Әрекеттер журналы"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Бұл бөлімді біржола жойғыңыз келетініне сенімдісіз бе?"

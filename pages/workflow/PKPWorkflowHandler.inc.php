@@ -388,7 +388,7 @@ abstract class PKPWorkflowHandler extends Handler
             $state['publicationFormIds'][] = FORM_METADATA;
         }
 
-        // Add the identifieres form if one or more identifier is enabled
+        // Add the identifiers form if one or more identifier is enabled
         $identifiersEnabled = false;
         $pubIdPlugins = PluginRegistry::getPlugins('pubIds');
         foreach ($pubIdPlugins as $pubIdPlugin) {
@@ -410,8 +410,8 @@ abstract class PKPWorkflowHandler extends Handler
         if (count(array_intersect([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW], Application::getApplicationStages()))) {
             $selectRevisionDecisionForm = new PKP\components\forms\decision\SelectRevisionDecisionForm();
             $selectRevisionRecommendationForm = new PKP\components\forms\decision\SelectRevisionRecommendationForm();
-            $stage['components'][$selectRevisionDecisionForm->id] = $selectRevisionDecisionForm->getConfig();
-            $stage['components'][$selectRevisionRecommendationForm->id] = $selectRevisionRecommendationForm->getConfig();
+            $state['components'][$selectRevisionDecisionForm->id] = $selectRevisionDecisionForm->getConfig();
+            $state['components'][$selectRevisionRecommendationForm->id] = $selectRevisionRecommendationForm->getConfig();
             $templateMgr->setConstants([
                 'FORM_SELECT_REVISION_DECISION' => FORM_SELECT_REVISION_DECISION,
                 'FORM_SELECT_REVISION_RECOMMENDATION' => FORM_SELECT_REVISION_RECOMMENDATION,

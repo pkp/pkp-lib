@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2022-03-01 11:21+0000\n"
-"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
+"PO-Revision-Date: 2022-03-02 09:11+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
 "Language: da_DK\n"
@@ -2065,3 +2065,48 @@ msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
 msgstr ""
 "Omgør beslutningen om at godkende denne indsendelse og send den tilbage til "
 "indsendelsestrinnet."
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Start en ny bedømmelsesrunde for denne indsendelse."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Ny bedømmelsesrunde"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Denne indsendelse vil blive afvist og vil ikke blive publiceret. Der "
+"foretages ikke yderligere fagfællebedømmelse og indsendelsen vil blive "
+"arkiveret."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Send en e-mail til forfatterne for at fortælle dem, at deres indsendelse er "
+"blevet afslået."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr "Indsendelsen, {$title}, er blevet afslået og er arkiveret."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Indsendelse afslået"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} afslog denne indsendelse."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Denne indsendelse vil blive afslået. Fagfællebedømmelsestrinnet vil blive "
+"lukket og indsendelsen bliver arkiveret."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr ""
+"{$editorName} omgjorde beslutningen om at godkende denne indsendelse og "
+"sendte den tilbage indsendelsestrinnet. "
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} sendte denne indsendelse til produktionstrinnet."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "Indsendelsen, {$title} blev sendt til produktionstrinnet."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Sendt til produktion"

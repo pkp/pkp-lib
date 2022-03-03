@@ -2,8 +2,8 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-03 00:42+0000\n"
-"Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
+"PO-Revision-Date: 2022-03-03 14:36+0000\n"
+"Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
 "Language: kk_KZ\n"
@@ -542,3 +542,15 @@ msgstr "Тіркелген файлдар"
 
 msgid "common.addCCBCC"
 msgstr "CC/BCC қосу"
+
+msgid "common.orderDown"
+msgstr "Decrease position of {$itemTitle}"
+
+msgid "common.noItemsFound"
+msgstr "Ештеңе табылған жоқ."
+
+msgid "common.no"
+msgstr "Жоқ"
+
+msgid "common.none"
+msgstr "Жоқ"

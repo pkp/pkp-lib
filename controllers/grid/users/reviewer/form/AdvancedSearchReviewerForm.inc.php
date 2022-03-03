@@ -76,6 +76,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $this->setReviewerFormAction($advancedSearchAction);
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+
+        // get reviewer IDs already assign to this submission and this round        
         $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmissionId(), $this->getReviewRound()->getId());
         $currentlyAssigned = [];
         if (!empty($reviewAssignments)) {
@@ -121,12 +123,32 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 ],
                 'selectorName' => 'reviewerId',
                 'warnOnAssignment' => $warnOnAssignment,
-                'submission' => $this->getSubmission(),
             ]
         );
+
+        // get IDs of reviewers already assign to previous review round of this submission and who have completed a review
+        $lastRoundReviewerIds = [];
+
+        if ($this->getReviewRound()->getRound() > 1) {
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');/** @var ReviewAssignmentDAO $reviewAssignmentDao */
+            $previousRound = $this->getReviewRound()->getRound() - 1;
+            $lastReviewRound = $reviewRoundDao->getReviewRound($this->getSubmissionId(), $this->getReviewRound()->getStageId(), $previousRound);
+            $lastReviewRoundId = $lastReviewRound->getId();
+
+            $lastReviewAssignments = $reviewAssignmentDao->getByReviewRoundId($lastReviewRoundId);
+            if (!empty($lastReviewAssignments)) {
+                foreach ($lastReviewAssignments as $reviewAssignment) {
+                    if (in_array($reviewAssignment->getStatus(), [PKP\submission\reviewAssignment\ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, PKP\submission\reviewAssignment\ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE])) {
+                        $lastRoundReviewerIds[] = (int) $reviewAssignment->getReviewerId();
+                    }
+                }
+            }
+        }
+
         $selectReviewerListPanel->set([
             'items' => $selectReviewerListPanel->getItems($request),
             'itemsMax' => $selectReviewerListPanel->getItemsMax(),
+            'lastRoundReviewerIds' => $lastRoundReviewerIds,
         ]);
 
         $templateMgr = TemplateManager::getManager($request);

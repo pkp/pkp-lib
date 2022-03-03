@@ -54,7 +54,6 @@ class Collector implements CollectorInterface
     public ?string $registeredAfter = null;
     public ?string $status = self::STATUS_ACTIVE;
     public bool $includeReviewerData = false;
-    public ?int $showOnlyReviewersFromPreviousRoundsSubmissionId = null;
     public ?array $assignedSectionIds = null;
     public ?array $assignedCategoryIds = null;
     public ?array $settings = null;
@@ -208,15 +207,6 @@ class Collector implements CollectorInterface
     public function includeReviewerData(bool $includeReviewerData = true): self
     {
         $this->includeReviewerData = $includeReviewerData;
-        return $this;
-    }
-
-    /**
-     * Limit results to reviewers from previous rounds
-     */
-    public function filterByShowOnlyReviewersFromPreviousRounds(int $submissionId): self
-    {
-        if ($submissionId > 0) $this->showOnlyReviewersFromPreviousRoundsSubmissionId = $submissionId;
         return $this;
     }
 
@@ -379,7 +369,6 @@ class Collector implements CollectorInterface
             ->buildSettingsFilter($query)
             ->buildExcludedSubmissionStagesFilter($query)
             ->buildSubmissionAssignmentsFilter($query)
-            ->buildShowOnlyReviewersFromPreviousRoundsFilter($query)
             ->buildOrderBy($query);
 
         // Add app-specific query statements
@@ -407,22 +396,6 @@ class Collector implements CollectorInterface
         return $this;
     }
 
-    /**
-     * Builds the filters related to previous review assignments
-     */
-    protected function buildShowOnlyReviewersFromPreviousRoundsFilter(Builder $query): self
-    {
-        if ($this->showOnlyReviewersFromPreviousRoundsSubmissionId === null) {
-            return $this;
-        }
-        $query->whereExists(
-            fn (Builder $query) => $query->from('review_assignments', 'ra')
-                ->whereColumn('ra.reviewer_id', '=', 'u.user_id')
-                ->where('ra.submission_id', '=', $this->showOnlyReviewersFromPreviousRoundsSubmissionId)
-                ->groupBy('ra.reviewer_id')
-        );
-        return $this;
-    }
     /**
      * Builds the filters related to the user group
      */

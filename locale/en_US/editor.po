@@ -512,6 +512,9 @@ msgstr "Biography"
 msgid "reviewer.list.empty"
 msgstr "No reviewers found"
 
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Assigned to Earlier Round"
+
 msgid "editor.decision.cancelDecision"
 msgstr "Cancel Decision"
 

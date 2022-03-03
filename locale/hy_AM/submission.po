@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-03 06:20+0000\n"
+"PO-Revision-Date: 2022-03-03 14:36+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -1739,3 +1739,714 @@ msgstr "Ներկայացումը՝ {$title}, հետ է ուղարկվել գրա
 
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Հետ ուղարկեք գրական սրբագրման"
+
+msgid "submission.list.confirmDelete"
+msgstr "Ջնջե՞լ ներկայացումը։"
+
+msgid "publication.wordCount"
+msgstr "Բառերի քանակը՝ {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Ամփոփումը չափազանց երկար է։ Այն պետք է լինի {$limit} բառ կամ ավելի քիչ: Այն "
+"ներկայումս ունի {$count} բառ:"
+
+msgid "publication.version.confirm"
+msgstr "Վստա՞հ եք, որ ցանկանում եք ստեղծել նոր տարբերակ:"
+
+msgid "publication.version.all"
+msgstr "Բոլոր տարբերակները"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL-ի ուղին չի կարող լինել թիվ:"
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL-ի ուղին արդեն օգտագործվել է և չի կարող կրկին օգտագործվել:"
+
+msgid "publication.urlPath.description"
+msgstr "Ոչ պարտադիր ուղի, որը պետք է օգտագործվի URL-ում ID-ի փոխարեն:"
+
+msgid "publication.urlPath"
+msgstr "URL -ի ուղին"
+
+msgid "publication.unschedule"
+msgstr "Չպլանավորված"
+
+msgid "publication.titleAbstract"
+msgstr "Վերնագիր և ամփոփում"
+
+msgid "publication.status.unpublished"
+msgstr "Չհրապարակված"
+
+msgid "publication.status.scheduled"
+msgstr "Պլանավորված"
+
+msgid "publication.publicationLicense"
+msgstr "Թույլտվություններ և բացահայտում"
+
+msgid "publication.event.versionCreated"
+msgstr "Ստեղծվել է նոր տարբերակ։"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Ամսաթիվը պետք է լինի ՏՏՏՏ-ԱԱ-ՕՕ ձևաչափով, օրինակ՝ 2019-01-01:"
+
+msgid "publication.createVersion"
+msgstr "Ստեոծեք նոր տարբերակ"
+
+msgid "publication.contributors"
+msgstr "Աջակիցներ"
+
+msgid "catalog.category.subcategories"
+msgstr "Ենթադասեր"
+
+msgid "catalog.category.noItems"
+msgstr "Այս դասում դեռ ոչինչ չի հրապարակվել։"
+
+msgid "submission.currentCoverImage"
+msgstr "Ընթացիկ պատկերը"
+
+msgid "submission.submit.placement.categories"
+msgstr "Դասեր"
+
+msgid "category.coverImage"
+msgstr "Կազմի պատկեր"
+
+msgid "category.category"
+msgstr "Դասեր"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Հրապարակման ամսաթիվ (նախ ամենանորը)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Հրապարակման ամսաթիվ (առաջին հերթին ամենահինը)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Վերնագիր (Ֆ-Ա)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Վերնագիր (Ա-Ֆ)"
+
+msgid "grid.category.categories"
+msgstr "Դասեր"
+
+msgid "submission.list.assignEditor"
+msgstr "Նշանակեք խմբագիր"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Վերջին գործողություններից հետո օրեր"
+
+msgid "submission.list.activity"
+msgstr "Ակտիվություն"
+
+msgid "submission.list.currentStage"
+msgstr "Ներկայումս {$stage} փուլում է:"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Այս ներկայացումը պետք է ավարտվի, նախքան խմբագիրը կվերանայի այն:"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Ձեզ նշանակվել է խմբագրական դեր այս ներկայացման համար: Ցանկանու՞մ եք մուտք "
+"գործել <a href=\"{$urlEditorialWorkflow}\">Խմբագրական աշխատանքային հոսք</a>:"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Այս ներկայացման համար ձեզ նշանակվել են բազմաթիվ դերեր: Ցանկանու՞մ եք մուտք "
+"գործել <a href=\"{$urlAuthorWorkflow}\">Հեղինակի աշխատանքային հոսք</a>  կամ  "
+"<a href=\"{$urlEditorialWorkflow}\">Խմբագրական աշխատանքային հոսք</a>"
+
+msgid "submission.list.discussions"
+msgstr "Բաց քննարկումներ"
+
+msgid "submission.list.filesPrepared"
+msgstr "Նիշքերը պատրաստված են"
+
+msgid "submission.list.galleysCreated"
+msgstr "Թողարկման շարվածքները ներկայացված են"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Գրական սրբագրման նիշքերը ներկայացված են"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Ներկայացված վերանայումներ"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Նշանակված գրախոսություններն ավարտված են"
+
+msgid "submission.list.viewSubmission"
+msgstr "Դիտել ներկայացումը"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Գրախոսությունը չեղարկված է"
+
+msgid "submission.list.reviewComplete"
+msgstr "Գրախոսությունը ներկայացված է"
+
+msgid "submission.list.reviewDue"
+msgstr "Գրախոսությունը հանմձնել՝ {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Գրախոսման նշանակում"
+
+msgid "submission.list.responseDue"
+msgstr "Պատասխանը՝ {$date}"
+
+msgid "submission.list.empty"
+msgstr "Ներկայացումներ չեն գտնվել:"
+
+msgid "submission.list.infoCenter"
+msgstr "Գործունեության մատյան և նշումներ"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Նախքան քննարկում սկսելը, դուք պետք է նշանակեք այս ներկայացման առնվազն մեկ "
+"մասնակցի:"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Դուք ավելացվել եք \"{$queryTitle}\" վերնագրով քննարկմանը \"{$submissionTitle}"
+"\" ներկայացման վերաբերյալ:"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"\"{$queryTitle}\" վերնագրով քննարկմանը նոր ակտիվություն կա \""
+"{$submissionTitle}\" ներկայացման վերաբերյալ։"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} -ը սկսեց քննարկում: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} -ը պատասխանեց {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Քննարկմանը ավելացրեք նոր պատասխան"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Եթե դուրս գաք այս քննարկումից, այլևս չեք ծանուցվի նոր հաղորդագրությունների "
+"մասին: Կցանկանա՞ք լքել քննարկումը:"
+
+msgid "submission.query.leaveQuery"
+msgstr "Լքեք քննարկումը"
+
+msgid "submission.query.addNote"
+msgstr "Ավելացրեք հաղորդագրություն"
+
+msgid "submission.query.closed"
+msgstr "Փակված"
+
+msgid "submission.query.lastReply"
+msgstr "Վերջին պատասխանը"
+
+msgid "submission.query.from"
+msgstr "Սրանից"
+
+msgid "submission.query.replies"
+msgstr "Պատասխաններ"
+
+msgid "submission.query.messages"
+msgstr "Հաղորդագրություններ"
+
+msgid "submission.query.subject"
+msgstr "Խորագիր"
+
+msgid "submission.queries.editorial"
+msgstr "Գրական սրբագրման քննարկումներ"
+
+msgid "submission.queries.review"
+msgstr "Գրախոսման քննարկումներ"
+
+msgid "submission.queries.submission"
+msgstr "Նախնական գրախոսման քննարկումներ"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\"//i.creativecommons."
+"org/l/by-sa/3.0/88x31.png\" /></a><p>Այս աշխատանքն արտոնագրված է որպես <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">"
+"Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\"//i.creativecommons."
+"org/l/by/3.0/88x31.png\" /></a><p>Այս աշխատանքն արտոնագրված է որպես <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Attribution 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\"//i.creativecommons."
+"org/l/by-nd/3.0/88x31.png\" /></a><p>Այս աշխատանքն արտոնագրված է որպես <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">"
+"Creative Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\""
+"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Այս աշխատանքն "
+"արտոնագրված է որպես <a rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by-nc-sa/3.0/\">Creative Commons Attribution-NonCommercial-"
+"ShareAlike 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\"//i.creativecommons."
+"org/l/by-nc/3.0/88x31.png\" /></a><p>Այս աշխատանքն արտոնագրված է որպես <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">"
+"Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\""
+"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Այս աշխատանքն "
+"արտոնագրված է որպես <a rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by-nc-nd/3.0/\">Creative Commons Attribution-NonCommercial-"
+"NoDerivatives 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\"//i.creativecommons."
+"org/l/by-sa/4.0/88x31.png\" /></a><p>Այս աշխատանքն արտոնագրված է որպես <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">"
+"Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
+"img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\"//i.creativecommons."
+"org/l/by/4.0/88x31.png\" /></a><p>Այս աշխատանքն արտոնագրված է որպես <a rel=\""
+"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative "
+"Commons Attribution 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\"//i.creativecommons."
+"org/l/by-nd/4.0/88x31.png\" /></a><p>Այս աշխատանքն արտոնագրված է որպես <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">"
+"Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\""
+"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Այս աշխատանքն "
+"արտոնագրված է որպես a <a rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-"
+"ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\"//i.creativecommons."
+"org/l/by-nc/4.0/88x31.png\" /></a><p>Այս աշխատանքն արտոնագրված է որպես a <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">"
+"Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Ստեղծագործական համայնքներ արտոնագիր\" src=\""
+"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Այս աշխատանքը "
+"արտոնագրված է որպես <a rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-"
+"NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.licenseURL"
+msgstr "URL արտոնագիր"
+
+msgid "submission.licenseURLValid"
+msgstr "Խնդրում ենք տրամադրել վավեր հեռավոր URL (ներառյալ http://):"
+
+msgid "submission.copyrightStatement"
+msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "Հհեղինակային իրավունքի տարին"
+
+msgid "submission.copyrightOther"
+msgstr "Հեղինակային իրավունքի հայտարարություն"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Անհատականացված հեղինակային իրավունքի հայտարարություն"
+
+msgid "submission.copyrightHolder"
+msgstr "Հեղինակային իրավունքի սեփականատեր"
+
+msgid "submission.copyright"
+msgstr "Հեղինակային իրավունք"
+
+msgid "submission.license"
+msgstr "Արտոնագհր"
+
+msgid "submission.attachPermissions"
+msgstr "Ներկայացմանը կցեք հետևյալ թույլտվությունները."
+
+msgid "submission.permissions"
+msgstr "Թույլտվություններ"
+
+msgid "grid.action.editMetadata"
+msgstr "Խմբագրեք մետատվյալները"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Ստեղծեք գրախոսման նոր ձևի տարր"
+
+msgid "submission.reviewFormResponse"
+msgstr "Գրախոսման ձևի պատասխանը"
+
+msgid "submission.reviewForm"
+msgstr "Գրախոսման ձև"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Նախքան խմբագրական գործընթացը սկսելը պետք է նշանակվի արտադրական խմբագիր: "
+"Խնդրում ենք ավելացնել արտադրության խմբագիր՝ օգտագործելով Մասնակիցների ցանկը:"
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Արտադրության գործընթացը սկսելուց առաջ պետք է նշանակվի արտադրության խմբագիր: "
+"Խնդրում ենք ավելացնել արտադրության խմբագիր՝ օգտագործելով Մասնակիցների ցանկը:"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Թողարկման գործընթացը սկսված է։"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Անցեք այս ներկայացման աշխատանքային գործընթացին"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Աջակցող կամ հովանավորող գործակալություն"
+
+msgid "submission.supplementary.publisher"
+msgstr "Հրատարակիչ"
+
+msgid "submission.supplementary.subject"
+msgstr "Խորագիր"
+
+msgid "submission.supplementary.creator"
+msgstr "Նիշքի ստեղծող (կամ սեփականատեր):"
+
+msgid "submission.supplementary"
+msgstr "Լրացուցիչ բովանդակություն"
+
+msgid "submission.art"
+msgstr "Արվեստի գործ"
+
+msgid "submission.document"
+msgstr "Փաստաթուղթ"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Այս գրախոսությունն ավարտված է, և գրախոսին շնորհակալություն է հայտնել "
+"ներդրման համար:"
+
+msgid "submission.review.status.complete"
+msgstr "Այս գրախոսությունն ավարտված է:"
+
+msgid "submission.review.status.received"
+msgstr "Գրախոսը ներկայացրել է իր կարծիքը:"
+
+msgid "submission.review.status.accepted"
+msgstr "Այս գրախոսությունը ընդունվել է։"
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Գրախոսը բաց է թողել վերանայման ներկլայացման վերջնաժամկետը:"
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Գրախոսը բաց է թողել պատասխանի վերջնաժամկետը:"
+
+msgid "submission.review.status.declined"
+msgstr "Գրախոսը մերժել է վերանայման այս հարցումը:"
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Սպասում է գրախոսի պատասխանին:"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} -ն ավարտել է {$round} փուլի գրախոսումը {$submissionId} "
+"ներկայացման համար:"
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"{$userName} -ի խմբագիրը հաստատել է {$submissionId} ներկայացման {$round} "
+"փուլի գրախոսությունը:"
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"{$round} փուլի {$reviewerName} -ի կողմից {$submissionId} ներկայացման "
+"գրախոսումը վերսկսվել է:"
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} -ը նշել է {$submissionId} -ի {$round} փուլի վերանայումը որպես "
+"չդիտարկված:"
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"{$reviewerName} -ի կողմից ներկայացվող {$round} փուլի գրախոսումը "
+"{$submissionId} -ի համար մաքրվել է:"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} -ին հանձնարարվել է վերանայել {$submissionId} հայտը ՝ "
+"գրախոսման {$round} փուլի համար:"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Վերբեռնեք վերանայված նիշքը"
+
+msgid "submission.productionReady"
+msgstr "Գիրքը հասանելի է"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Ընտրեք գրախոսման նիշքեր՝ հեղինակ(ներ)ի հետ կիսվելու համար"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Գրախոսի հավելվածները"
+
+msgid "notification.type.revertDecline"
+msgstr "Այս ներկայացումը մերժելու որոշումը չեղարկվել է։"
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Ստեղծվել է ներկայացման նոր տարբերակը"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Նախքան վերանայումը սկսելը պետք է խմբագիր նշանակվի: Խնդրում ենք ավելացնել "
+"խմբագիր՝ օգտագործելով Մասնակիցների ցանկը:"
+
+msgid "notification.uploadedResponse"
+msgstr "Պատասխանը վերբեռնվեց:"
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Մերժված ներկայացումը կրկին ակտիվացվեց:"
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Ներկայացումը մերժվել է։"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Գրախոսությունների նոր փուլ է սկսվել։"
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Կրկին ուղարկել վերանայման:"
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Պահանջվում է վերանայում:"
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Արտաքին գրախոսությունը սկսված է։"
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Ներկայացումը ընդունված է։"
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Խմբագրի վերջին որոշումը."
+
+msgid "notification.type.indexRequest"
+msgstr "Ձեզ խնդրել են ստեղծել ցուցիչ \"{$title}\" -ի համար:"
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Ձեզ խնդրել են վերանայել \"{$title}\" -ի դասավորությունները:"
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Ձեզ խնդրել են վերանայել \"{$title}\" -ի գրական սրբագրումները:"
+
+msgid "notification.type.editorAssign"
+msgstr "Դուք նշանակվել եք որպես \"{$title}\" ներկայացման խմբագիր։"
+
+msgid "submission.documents"
+msgstr "Ներկայացման փաստաթղթեր"
+
+msgid "submission.stageNotInitiated"
+msgstr "Փուլը չի սկսվել։"
+
+msgid "submission.description"
+msgstr "Նկարագրություն"
+
+msgid "submission.overview"
+msgstr "Ներկայացման ընդհանուր ակնարկ"
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$name}\" ({$username}) հաստատել է սրբագրումները սրա համար \"{$formatName}."
+"\""
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+"\"{$name}\" ({$username}) դուրս է եկել սա գրանցումից հանելուց \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$name}\" ({$username}) ավարտել է աուդիտը և վերբեռնել է նիշքը՝ \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username}) հեռացվել է որպես հեղինակ \"{$file}\" նիշքի համար."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) ավելացվել է որպես աուդիտոր \"{$file}\" նիշքի համար։"
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "\"{$title}\" նիշքի վերջին տարբերակը հեռացվել է {$username} -ի կողմից:"
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"\"{$originalFileName}\" նիշքի վերանայումը ջնջվել է {$submissionId} "
+"ներկայացման համար {$username} -ի կողմից:"
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"\"{$originalFileName}\" նիշքի վերանայումը վերբեռնվեց {$submissionId} "
+"ներկայացման համար {$username} -ի կողմից:"
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"\"{$originalFileName}\" նիշքը ջնջվել է {$submissionId} -ի ներկայացման համար "
+"{$username} -ի կողմից:"
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"\"{$originalFileName}\" նիշքը վերբեռնվեց {$username}-ի կողմից {$submissionId}"
+" -ի ներկայացման համար:"
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"\"{$originalFileName}\" նիշքի մետատվյալները խմբագրվել են {$username} -ի "
+"կողմից:"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Աուդիտորին հանձնարարելիս սխալ տեղի ունեցավ: Խնդրում ենք կրկին փորձեք."
+
+msgid "submission.finalDraft"
+msgstr "Սևագիր նիշքեր"
+
+msgid "submission.submit.currentFile"
+msgstr "Ընթացիկ նիշք"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Գրախոսման նիշքեր"
+
+msgid "submission.actionNeeded"
+msgstr "Գործողություն է պահանջվում"
+
+msgid "submission.noActionRequired"
+msgstr "Գործողություն չի պահանջվում"
+
+msgid "submission.currentStage"
+msgstr "Ընթացիկ փուլ"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Արձանագրված առաջարկություններ"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Առաջարկեք խմբագրական որոշում այս ներկայացման համար:"
+
+msgid "editor.submission.recommendation"
+msgstr "Երաշխավորություն"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Դուք չեք կարող առաջարկություն անել, քանի դեռ խմբագրին չի տրվել նշանակում "
+"գրանցելու թույլտվությունը:"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Երաշխավորություններ: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Երաշխավորություն: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Փոխեք երաշխավորությունը"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Տվեք երաշխավորություն"
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} -ը խորհուրդ է տվել մերժել այս ներկայացումը:"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Առաջարկեք, որ ներկայացումը մերժվի հրապարակման համար:"
+
+msgid "editor.submission.recommend.decline"
+msgstr "Խորհուրդ տվեք մերժել"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} -ը խորհուրդ տվեց, որ վերանայումներ պահանջվեն, և դրանք "
+"ուղարկվեն գրախոսման ևս մեկ փուլի:"
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Խորհուրդ տվեք, որ հեղինակին առաջարկվի վերանայումներ ներկայացնել գրախոսման "
+"մեկ այլ փուլի համար:"
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Առաջարկեք կրկին ներկայացնել գրախոսման համար"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} -ը առաջարկել է վերանայումներ պահանջել:"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Առաջարկեք, որ վերանայումները պահանջվեն հեղինակից մինչև այս ներկայացումն "
+"ընդունվի հրապարակման համար:"
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Առաջարկեք վերանայումներ"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"Ձեր առաջարկությունը գրանցված է, և որոշում կայացնող խմբագիր(ներ)ը ծանուցվել "
+"են:"
+
+msgid "editor.submission.recommend.completed"
+msgstr "Երաշխավորությունը ներկայացված է"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} -ն երաշխավորեց, որ այս ներկայացումն ընդունվի և ուղարկվի գրական "
+"սրբագրման:"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Խորհուրդ տվեք, որ այս ներկայացումն ընդունվի հրապարակման և ուղարկվի գրական "
+"սրբագրման:"
+
+msgid "editor.submission.recommend.accept"
+msgstr "Առաջարկեք ընդունել"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Ուղարկեք հաղորդագրություն որոշում կայացնող խմբագիրներին՝ նրանց տեղեկացնելով "
+"առաջարկության մասին: Բացատրեք, թե ինչու է այս հանձնարարականն արվել՝ ի "
+"պատասխան գրախոսների կողմից ներկայացված առաջարկությունների և դիտողությունների:"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Նշանակեք խմբագրի այս փուլի խմբագրական որոշումները միացնելու համար:"

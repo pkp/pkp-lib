@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-03 00:42+0000\n"
+"PO-Revision-Date: 2022-03-03 06:20+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy_AM/>\n"
@@ -1657,3 +1657,85 @@ msgstr "Դուք պետք է ընտրեք օգտվողների խումբ:"
 msgid "editor.submission.removeStageParticipant.description"
 msgstr ""
 "Դուք պատրաստվում եք հեռացնել այս մասնակցին <strong>բոլոր</strong> փուլերից:"
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "{$title} ներկայացումը այժմ ակտիվ է ներկայացման փուլում:"
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Նամակ ուղարկեք հեղինակներին՝ տեղեկացնելու նրանց, որ այս ներկայացումը "
+"մերժելու նախկին որոշումը հետ է վերադարձվել: Բացատրեք, թե ինչու է որոշումը "
+"չեղարկվել և տեղեկացրեք նրանց, թե արդյոք ակնկալվում է, որ ներկայացումը "
+"կենթարկվի հետագա գրախոսման:"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "{$title} ներկայացումն այժմ ակտիվ ներկայացում է գրախոսման փուլում:"
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Ներկայացումը վերաակտիվացված է"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} -ը չեղարկել է այս ներկայացումը մերժելու որոշումը:"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Հետարկեք այս ներկայացումը մերժելու նախկին որոշումը և վերադարձրեք այն ակտիվ "
+"խմբագրական գործընթացին:"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Չեղարկել մերժումը"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Այս նիշքի սրբագրումն այլևս հասանելի չի լինի հանրությանը ներբեռնման կամ գնման "
+"համար: Ցանկանու՞մ եք չհաստատել այն:"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Հաստատեք սրբագրումները"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Էջի սրբագրված նիշքը պետք է նշվի որպես հաստատված՝ հասանելի դարձնելու համար: "
+"Ցանկանու՞մ եք հաստատել այն։"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Ուղարկեք ներքին գրախոսության"
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Նամակ ուղարկեք հեղինակներին՝ տեղեկացնելով, որ այս ներկայացումն ընդունվել է "
+"հրապարակման և ուղարկվել է գրական սրբագրման փուլ՝ առանց գրախոսման:"
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"{$title} ներկայացումը բաց է թողել գրախոսման փուլը և ուղարկվել է գրական "
+"սրնագրման փուլ:"
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Բաց թողնված գրախոսություն"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} -ը բաց թողեց գրախոսման փուլը և ուղարկեք այս ներկայացումը "
+"գրական սրբագրման փուլ:"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Ընդունեք այս ներկայացումը հրապարակման համար և բաց թողեք գրախոսման փուլը: "
+"Սույն որոշմամբ ներկայացումը կուղարկվի գրական սրբագրման փուլ:"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Ընդունեք և բաց թողեք գրախոսությունը"
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Նամակ ուղարկեք հեղինակներին, որպեսզի նրանք իմանան, որ այս ներկայացումը հետ է "
+"ուղարկվել գրական սրբագրման փուլ: Բացատրեք, թե ինչու է կայացվել այս որոշումը "
+"և տեղեկացրեք հեղինակին, թե հետագա ինչ խմբագրումներ կպահանջվեն մինչև այս "
+"ներկայացումը պատրաստ լինի արտադրության:"
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "Ներկայացումը՝ {$title}, հետ է ուղարկվել գրական սրբագրման փուլ:"
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Հետ ուղարկեք գրական սրբագրման"

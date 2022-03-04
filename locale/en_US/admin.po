@@ -164,6 +164,12 @@ msgstr "Editorial Report Notification"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Subscription expiry reminder"
 
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Update the DB-IP city lite database"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr "Renaming the DB-IP city lite database file {$sourceFilename} to {$targetFilename} failed."
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache version"
 

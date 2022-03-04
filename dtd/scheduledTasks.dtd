@@ -46,4 +46,5 @@
 		day CDATA #IMPLIED
 		month CDATA #IMPLIED
 		dayofweek CDATA #IMPLIED>
+		dayofmonth CDATA #IMPLIED>
 <!ELEMENT arg (#PCDATA)>

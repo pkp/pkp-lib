@@ -102,6 +102,12 @@ class ScheduledTaskHelper
         $taskDao = DAORegistry::getDAO('ScheduledTaskDAO'); /** @var ScheduledTaskDAO $taskDao */
         $lastRunTime = $taskDao->getLastRunTime($className);
 
+        // Check day of month
+        $dayOfMonth = $frequency->getAttribute('dayofmonth');
+        if (isset($dayOfMonth)) {
+            $isValid = self::_isInRange($dayOfMonth, (int)date('j'), $lastRunTime, 'month', strtotime('-1 month'), strtotime('first day of this month'));
+        }
+
         // Check day of week
         $dayOfWeek = $frequency->getAttribute('dayofweek');
         if (isset($dayOfWeek)) {

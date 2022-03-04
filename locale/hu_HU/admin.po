@@ -135,6 +135,12 @@ msgstr "Lektori emlékeztető"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Emlékeztető az előfizetés lejáratáról"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Használati statisztika file töltési feladata"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "A {$file} fájlt nem lehetett megnyitni és elvetésre került."
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache verzió"
 

@@ -138,6 +138,12 @@ msgstr "یادآوری داوری"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "یادآوری اتمام اشتراک"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "وظیفه بارگزار فایل آمار کارکرد"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "فایل {$file} نمیتواند باز شود و نادیده گرفته می شود."
+
 msgid "admin.server.apacheVersion"
 msgstr "نسخه آپاچی"
 

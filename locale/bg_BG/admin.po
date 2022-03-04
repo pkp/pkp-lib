@@ -26,6 +26,12 @@ msgstr "Стойност на настройката"
 msgid "admin.systemInfo.settingName"
 msgstr "Име на настройката"
 
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Файл {$file} не можа да се отвори и беше отхвърлен."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Статистика за ползване на задача за зареждане на файлове"
+
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Изтриване на отчетите (logs) за планираните задачи"
 

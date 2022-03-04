@@ -149,6 +149,12 @@ msgstr "Υπενθύμιση αξιολόγησης"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Υπενθύμιση λήξης συνδρομής"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Εργασία φόρτωσης αρχείων στατιστικών χρήσης"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Δεν ήταν δυνατό το άνοιγμα του αρχείου {$file} και απορρίφθηκε."
+
 msgid "admin.server.apacheVersion"
 msgstr "Έκδοση Apache"
 

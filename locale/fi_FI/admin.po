@@ -134,6 +134,12 @@ msgstr "Muistutus arvioinnista"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Muistutus tilauksen päättymisestä"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Kävijätilastotiedostojen ajoitettu tehtävä"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Tiedostoa {$file} ei voitu avata ja se hylättiin."
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache-versio"
 

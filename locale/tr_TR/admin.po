@@ -257,6 +257,12 @@ msgstr "Değerlendirme hatırlatıcısı"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Abonelik sona erme hatırlatıcısı"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Kullanım istatistikleri dosya yükleyici görevi"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "{$file} dosyası açılamadı ve reddedildi."
+
 msgid "admin.settings.siteLogo"
 msgstr "Site Logosu"
 

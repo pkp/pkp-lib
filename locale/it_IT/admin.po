@@ -267,6 +267,12 @@ msgstr "Promemoria per la revisione"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Promemoria per la scadenza dell'abbonamento"
 
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Nome del  task per il carico delle statistiche d'uso"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Il file {$file} non può essere aperto ed è stato scartato."
+
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
 "\n"

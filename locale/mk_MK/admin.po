@@ -324,6 +324,12 @@ msgstr "Драјвер за датабаза"
 msgid "admin.server.apacheVersion"
 msgstr "Apache верзија"
 
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Фајлот {$file} не може да се отвори и беше отфрлен."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Користи постапка за фајл од корисничка статистика"
+
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Потсетник за завршување на претплатата"
 

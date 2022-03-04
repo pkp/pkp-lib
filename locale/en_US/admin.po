@@ -363,6 +363,48 @@ msgstr "The \"{$utilPath}\" program execution returned the following error: {$ou
 msgid "admin.error.executingUtil"
 msgstr "Error: can't execute \"{$utilPath}\".  Check your {$utilVar} setting in config.inc.php."
 
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr "File could not be decompressed. The source gz-file {$filePath} could not be opened with gzopen."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr "File could not be decompressed. The destination file {$filePath} could not be opened fopen."
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr "File could not be decompressed. The source gz-file {$file} could not be read with gzread."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr "File could not be decompressed. The destination file {$filePath} could not be written with fwrite."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr "File could not be decompressed. The opened destination file {$filePath} could not be closed with fclose."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr "File could not be decompressed. The opened source gz-file {$filePath} could not be closed with gzclose."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr "File could not be decompressed. The decompressed source gz-file {$filePath} could not be removed with unlink."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr "File could not be compressed. The destination gz-file {$filePath} could not be opened with gzopen."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr "File could not be compressed. The source file {$filePath} could not be opened with fopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr "File could not be compressed. The source file {$filePath} could not be read with fread."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr "File could not be compressed. The destinatin gz-file {$filePath} could not be written with gzwrite."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr "File could not be compressed. The opened source file {$filePath} could not be closed with fclose."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr "File could not be compressed. The opened destination gz-file {$filePath} could not be closed with gzclose."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr "File could not be compressed. The compressed source file {$filePath} could not be removed with unlink."
+
 msgid "admin.languages.noLocalesToDownload"
 msgstr "There are no locales available for download."
 

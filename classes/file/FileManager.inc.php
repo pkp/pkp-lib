@@ -26,7 +26,6 @@ use Exception;
 use GuzzleHttp\Psr7\Stream;
 use GuzzleHttp\Psr7\Utils;
 use PKP\config\Config;
-use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\plugins\HookRegistry;
 
@@ -255,12 +254,12 @@ class FileManager
                     continue;
                 }
 
-                $Entry = "$source/$entry";
+                $Entry = "${source}/${entry}";
                 if (is_dir($Entry)) {
-                    $this->copyDir($Entry, "$dest/$entry");
+                    $this->copyDir($Entry, "${dest}/${entry}");
                     continue;
                 }
-                $this->copyFile($Entry, "$dest/$entry");
+                $this->copyFile($Entry, "${dest}/${entry}");
             }
 
             $destDir->close();
@@ -714,67 +713,97 @@ class FileManager
     /**
      * Decompress passed gziped file.
      *
-     * @param string $filePath
+     * @throws \Exception
      *
-     * @return string The file path that was created.
+     * @return string $filePath The file path that was created.
+     *
      */
-    public function decompressFile($filePath)
+    public function gzDecompressFile(string $filePath): string
     {
-        return $this->_executeGzip($filePath, true);
+        $bufferSize = 4096; // read 4kb at a time
+        $destPath = str_replace('.gz', '', $filePath);
+
+        // Open our files (in binary mode)
+        $file = gzopen($filePath, 'rb');
+        if ($file === false) {
+            throw new Exception(__('admin.error.gzDecompressFile.gzopen', ['filePath' => $filePath]));
+        }
+        $destFile = fopen($destPath, 'wb');
+        if ($destFile === false) {
+            throw new Exception(__('admin.error.gzDecompressFile.fopen', ['filePath' => $destPath]));
+        }
+        while (!gzeof($file)) {
+            // Read buffer-size bytes
+            $contents = gzread($file, $bufferSize);
+            if ($contents === false) {
+                throw new Exception(__('admin.error.gzDecompressFile.gzread', ['file' => $file]));
+            }
+            if (fwrite($destFile, $contents) === false) {
+                throw new Exception(__('admin.error.gzDecompressFile.fwrite', ['filePath' => $destFile]));
+            }
+        }
+        $success = fclose($destFile);
+        if (false === $success) {
+            throw new Exception(__('admin.error.gzDecompressFile.fclose', ['filePath' => $destFile]));
+        }
+        $success = gzclose($file);
+        if (false === $success) {
+            throw new Exception(__('admin.error.gzDecompressFile.gzclose', ['filePath' => $file]));
+        }
+
+        if (unlink($filePath) === false) {
+            throw new Exception(__('admin.error.gzDecompressFile.unlink', ['filePath' => $filePath]));
+        }
+        return $destPath;
     }
 
     /**
      * Compress passed file.
      *
      * @param string $filePath The file to be compressed.
+     * @param int $level Compression level
+     *
+     * @throws \Exception
      *
      * @return string The file path that was created.
-     */
-    public function compressFile($filePath)
-    {
-        return $this->_executeGzip($filePath, false);
-    }
-
-
-    //
-    // Private helper methods.
-    //
-    /**
-     * Execute gzip to compress or extract files.
      *
-     * @param string $filePath file to be compressed or uncompressed.
-     * @param bool $decompress optional Set true if the passed file
-     * needs to be decompressed.
-     *
-     * @return string The file path that was created with the operation
      */
-    private function _executeGzip($filePath, $decompress = false)
+    public function gzCompressFile(string $filePath, int $level = 9): string
     {
-        $gzipPath = Config::getVar('cli', 'gzip');
-        if (!is_executable($gzipPath)) {
-            throw new Exception(__('admin.error.executingUtil', ['utilPath' => $gzipPath, 'utilVar' => 'gzip']));
+        $bufferSize = 4096; // read 4kb at a time
+        $destPath = $filePath . '.gz';
+        $mode = 'wb' . $level;
+
+        $destFile = gzopen($destPath, $mode);
+        if ($destFile === false) {
+            throw new Exception(__('admin.error.gzCompressFile.gzopen', ['filePath' => $destPath]));
         }
-        $gzipCmd = escapeshellarg($gzipPath);
-        if ($decompress) {
-            $gzipCmd .= ' -d';
+        $file = fopen($filePath, 'rb');
+        if ($file === false) {
+            throw new Exception(__('admin.error.gzCompressFile.fopen', ['filePath' => $filePath]));
         }
-        // Make sure any output message will mention the file path.
-        $output = [$filePath];
-        $returnValue = 0;
-        $gzipCmd .= ' ' . escapeshellarg($filePath);
-        if (!Core::isWindows()) {
-            // Get the output, redirecting stderr to stdout.
-            $gzipCmd .= ' 2>&1';
+        while (!feof($file)) {
+            $contents = fread($file, $bufferSize);
+            if ($contents === false) {
+                throw new Exception(__('admin.error.gzCompressFile.fread', ['filePath' => $file]));
+            }
+            if (gzwrite($destFile, $contents) === false) {
+                throw new Exception(__('admin.error.gzCompressFile.gzwrite', ['filePath' => $destFile]));
+            }
         }
-        exec($gzipCmd, $output, $returnValue);
-        if ($returnValue > 0) {
-            throw new Exception(__('admin.error.utilExecutionProblem', ['utilPath' => $gzipPath, 'output' => implode(PHP_EOL, $output)]));
+        $success = fclose($file);
+        if (false === $success) {
+            throw new Exception(__('admin.error.gzCompressFile.fclose', ['filePath' => $file]));
         }
-        if ($decompress) {
-            return substr($filePath, 0, -3);
-        } else {
-            return $filePath . '.gz';
+        $success = gzclose($destFile);
+        if (false === $success) {
+            throw new Exception(__('admin.error.gzCompressFile.gzclose', ['filePath' => $destFile]));
         }
+
+        if (unlink($filePath) === false) {
+            throw new Exception(__('admin.error.gzCompressFile.unlink', ['filePath' => $filePath]));
+        }
+        return $destPath;
     }
 }
 

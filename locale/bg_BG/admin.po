@@ -1,8 +1,9 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
+# Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-10 23:43+0000\n"
-"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"PO-Revision-Date: 2022-03-04 11:21+0000\n"
+"Last-Translator: Albena Vassileva <albena.ava@gmail.com>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg_BG/>\n"
 "Language: bg_BG\n"
@@ -498,3 +499,6 @@ msgstr "команда [аргументи]"
 
 msgid "admin.cli.tool.usage.title"
 msgstr "Употреба:"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Депозиране на DOI в конфигурирана регистрационна агенция"

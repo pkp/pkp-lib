@@ -190,7 +190,7 @@ class CopyAccessLogFileTool extends \PKP\cliTool\CommandLineTool
         if ($isCompressed) {
             $fileMgr = new FileManager();
             try {
-                $tmpFilePath = $fileMgr->decompressFile($tmpFilePath);
+                $tmpFilePath = $fileMgr->gzDecompressFile($tmpFilePath);
             } catch (Exception $e) {
                 printf($e->getMessage() . "\n");
                 exit(1);

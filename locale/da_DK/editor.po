@@ -1,10 +1,11 @@
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2021-01-28 15:01+0000\n"
-"Last-Translator: Niels Erik Frederiksen <nef@kb.dk>\n"
+"PO-Revision-Date: 2022-03-04 08:10+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "da_DK/>\n"
 "Language: da_DK\n"
@@ -487,3 +488,41 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "En drøftelse kan ikke oprettes med de valgte deltagere, da det vil påvirke "
 "anonymiteten i forbindelse med bedømmelsesprocessen."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"En ID for bedømmelsesrunden skal angives for at kunne tage denne beslutning."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Du skal være tilknyttet denne indsendelse for at kunne foretage en "
+"redaktionel beslutning."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Indsendelsen er ikke på det trin i workflowet, hvor denne beslutning kan "
+"tages."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Denne bedømmelsesrunde er ikke en del af denne indsendelse."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"En bedømmelsesrunde blev stillet til rådighed, men denne beslutning kan ikke "
+"tages på bedømmelsestrinnet."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Denne bedømmelse kunne ikke findes."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Du kan ikke sende en e-mail til de følgende modtagere: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Redaktøren blev ikke genkendt og har muligvis ikke tilladelse til at "
+"foretage denne beslutning omkring denne indsendelse."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr ""
+"Du har ikke tilladelse til at foretage denne beslutning omkring denne "
+"indsendelse."

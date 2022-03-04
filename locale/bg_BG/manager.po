@@ -1,8 +1,9 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
+# Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-10 23:43+0000\n"
-"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"PO-Revision-Date: 2022-03-05 00:21+0000\n"
+"Last-Translator: Albena Vassileva <albena.ava@gmail.com>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
 "Language: bg_BG\n"
@@ -22,3 +23,176 @@ msgstr "Изглед"
 
 msgid "manager.website.information"
 msgstr "Информация"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Предстои да маркирате записи с DOI метаданни за {$count} обект(а) като "
+"регистрирани. Сигурни ли сте, че искате да маркирате тези записи като "
+"регистрирани?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Маркиране на DOI като регистрирани"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Предстои да изпратите записи с DOI метаданни за {$count} обект(а) до "
+"{$registrationAgency}. Сигурни ли сте, че искате да депозирате тези записи?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Депозиране на DOI"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Депозиране на всички"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Тип обяви"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Няма създадени типове обяви."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Необходимо е име за типа обяви."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Име"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Вече съществува тип обяви с това име."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Запази и създай друг"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Редактиране"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Редактиране на тип обяви"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Създаване"
+
+msgid "manager.announcementTypes.create"
+msgstr "Създаване на тип обяви"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Предупреждение! Всички обяви от този тип също ще бъдат изтрити. Сигурни ли "
+"сте, че искате да продължите и да изтриете този тип обяви?"
+
+msgid "manager.announcementTypes"
+msgstr "Типове обяви"
+
+msgid "manager.announcements.type"
+msgstr "Тип"
+
+msgid "manager.announcements.title"
+msgstr "Заглавие"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Няма създадени обяви."
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Моля, изберете валиден тип на обявата."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Тип"
+
+msgid "manager.announcements.form.title"
+msgstr "Заглавие"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Необходимо е заглавие на обявата."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Запази и създай друга"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Кратко описание"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Необходимо е кратко описание на обявата."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Кратко описание, което се появява заедно със заглавието на обявата."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Описанието на обява е задължително."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Пълният текст на обявата."
+
+msgid "manager.announcements.form.description"
+msgstr "Обява"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr ""
+"Моля, изберете месец и/или ден в допълнение към годината на срока на "
+"валидност."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Моля, изберете валидна дата за срока на валидност на обявата."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr ""
+"Моля, изберете година и/или ден в допълнение към месеца на срока на "
+"валидност."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Обявата ще бъде показвана на читателите до тази дата. Оставете празно, ако "
+"искате обявата да се показва за неопределен срок."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Срок на валидност"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Моля, изберете година и/или месец, освен деня, за датата на валидност."
+
+msgid "manager.announcements.editTitle"
+msgstr "Редактиране"
+
+msgid "manager.announcements.edit"
+msgstr "Редактиране на обява"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Изтриване на обява"
+
+msgid "manager.announcements.datePublish"
+msgstr "Публикувано"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Валидност"
+
+msgid "manager.announcements.createTitle"
+msgstr "Създаване"
+
+msgid "manager.announcements.create"
+msgstr "Създаване на нова обява"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Сигурни ли сте, че искате да изтриете завинаги обявата {$title}?"
+
+msgid "manager.announcements"
+msgstr "Обяви"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"Трябва да изберете поне една роля, която да бъде свързана с този потребител."
+
+msgid "manager.users"
+msgstr "Потребители"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Търсене на потребител по име"
+
+msgid "stats.editorialActivity"
+msgstr "Редакторска дейност"
+
+msgid "manager.distribution.license"
+msgstr "Лиценз"
+
+msgid "manager.workflow"
+msgstr "Работна процедура"
+
+msgid "manager.website.title"
+msgstr "Настройки на сайта"

@@ -1,11 +1,11 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-09-26 17:25+0000\n"
+"PO-Revision-Date: 2022-03-05 13:46+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
-"Language-Team: bg (generated) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"api/bg/>\n"
-"Language: bg\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"bg_BG/>\n"
+"Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -233,3 +233,58 @@ msgstr ""
 
 msgid "api.400.paramNotSupported"
 msgstr "Параметърът «{$param}» не се поддържа."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Трябва да предоставите идентификатор на кръга за преглед, когато премествате "
+"файл в този етап на редакция."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Предоставеният от вас етап на файла не е валиден."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Не можете да запишете решение или да препоръчате решение за това подаване на "
+"материали, тъй като то вече е публикувано."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Един или повече невалидни обекти за публикуване бяха включени в заявката."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "В заявката не бяха включени валидни обекти за публикуване."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Някои елементи не бяха депозирани успешно. Моля, проверете отделните "
+"елементи за техните специфични съобщения за грешка."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Възникна грешка и някои от изпратените елементи не бяха отбелязани като "
+"регистрирани."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Възникна грешка при проверка на XML и XML не можа да бъде експортиран."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Възникна грешка и DOI обектът не можа да бъде създаден."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Непубликуваните елементи не могат да бъдат експортирани/депозирани. Моля, "
+"премахнете избора на непубликувани елементи и опитайте отново."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "DOI, който поискахте, не беше намерен."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Тази крайна точка не е налична от пространството от имена за целия сайт и "
+"трябва да бъде поискана за даден контекст."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Не можете да редактирате DOI на елемент, който не е в този контекст"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Трябва да посочите тема и съдържание на имейла."

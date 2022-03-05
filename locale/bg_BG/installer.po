@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-29 11:13+0000\n"
+"PO-Revision-Date: 2022-03-05 13:46+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/bg_BG/>\n"
@@ -198,11 +198,10 @@ msgstr "Хост"
 
 msgid "installer.databaseDriverInstructions"
 msgstr ""
-"<strong>Драйверите на базата данни, изброени в скоби, изглежда нямат "
-"заредено необходимото разширение PHP и инсталирането вероятно ще се провали, "
-"ако бъдат избрани.</strong><br />Всички неподдържани драйвери на база данни, "
-"изброени по-горе, са изброени единствено за академични цели и е малко "
-"вероятно да ги работят коректно."
+"<strong>Системата в момента поддържа MySQL и PostgreSQL, в случай че не "
+"можете да изберете една от тези опции по-долу, свържете се със системния си "
+"администратор, за да се уверите, че сървърът ви има необходимите PHP "
+"разширения.</strong>"
 
 msgid "installer.contentsOfConfigFile"
 msgstr "Съдържание на конфигурационен файл"
@@ -242,3 +241,16 @@ msgstr "Административен акаунт"
 
 msgid "installer.additionalLocales"
 msgstr "Допълнителни езици"
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Изберете всякакви допълнителни езици, които да се поддържат в тази система. "
+"Допълнителни езици също могат да бъдат инсталирани по всяко време от "
+"интерфейса за администрация на сайта.<br>* = Означава езици, които не са "
+"напълно преведени (> 90% от преведените термини)"
+
+msgid "installer.timezoneInstructions"
+msgstr "Часова зона за използване в тази система."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Трябва да бъде избрана часова зона."

@@ -26,9 +26,8 @@ use PKP\core\Controllers\Middlewares\ConfigureBaseRequest;
 use PKP\core\Controllers\Middlewares\DecodingApiToken;
 use PKP\core\Controllers\Middlewares\FillContextBasedOnUri;
 use PKP\core\Controllers\Middlewares\HasUser;
-use PKP\core\Controllers\Middlewares\Permissions\OnlyManagerRoles;
-use PKP\core\Controllers\Middlewares\Permissions\OnlySiteAdminRoles;
-use PKP\core\Controllers\Middlewares\Permissions\OnlySubEditorRoles;
+use PKP\core\Controllers\Middlewares\Permissions\MatchRoles;
+use PKP\core\Controllers\Middlewares\Permissions\NeedsContext;
 use PKP\core\Controllers\Middlewares\VerifyCsrfToken;
 
 class RoutingServiceProvider extends ServiceProvider
@@ -37,6 +36,8 @@ class RoutingServiceProvider extends ServiceProvider
      * The application's global HTTP middleware stack.
      *
      * These middleware are run during every request to your application.
+     *
+     * They will be evaluate at the order of the list. Doesn't order it alphabetically.
      *
      * @var array
      */
@@ -57,10 +58,9 @@ class RoutingServiceProvider extends ServiceProvider
      * @var array
      */
     protected $routeMiddleware = [
-        'only.manager.roles' => OnlyManagerRoles::class,
-        'only.site.admin.roles' => OnlySiteAdminRoles::class,
-        'only.sub.editor.roles' => OnlySubEditorRoles::class,
+        'match.roles' => MatchRoles::class,
         'auth' => HasUser::class,
+        'needs.context' => NeedsContext::class,
     ];
 
     /**

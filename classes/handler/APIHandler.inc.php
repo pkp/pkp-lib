@@ -54,39 +54,41 @@ class APIHandler extends PKPHandler
     {
         parent::__construct();
 
-        try {
-            $response = (new Pipeline(
-                PKPContainer::getInstance()
-            ))
-                ->send(app(Request::class))
-                ->through(app('globalMiddlewares'))
-                ->then(function ($request) {
-                    return app('router')->dispatch($request);
-                });
+        if (app('router')->getRoutes()->count()) {
+            try {
+                $response = (new Pipeline(
+                    PKPContainer::getInstance()
+                ))
+                    ->send(app(Request::class))
+                    ->through(app('globalMiddlewares'))
+                    ->then(function ($request) {
+                        return app('router')->dispatch($request);
+                    });
 
-            if ($response instanceof Throwable) {
-                throw $response;
+                if ($response instanceof Throwable) {
+                    throw $response;
+                }
+
+                $response->send();
+            } catch (NotFoundHttpException $e) {
+                http_response_code(Response::HTTP_NOT_FOUND);
+                header('Content-Type: application/json');
+                die(json_encode([
+                    'error' => 'api.404.endpointNotFound',
+                    'errorMessage' => __('api.404.endpointNotFound'),
+                ]));
+            } catch (Throwable $e) {
+                @error_log($e->getTraceAsString());
+                $httpCode = $e->getCode() ?? Response::HTTP_INTERNAL_SERVER_ERROR;
+                http_response_code((int) $httpCode);
+                header('Content-Type: application/json');
+                die(json_encode([
+                    'error' => $e->getMessage(),
+                ]));
             }
 
-            $response->send();
-        } catch (NotFoundHttpException $e) {
-            http_response_code(Response::HTTP_NOT_FOUND);
-            header('Content-Type: application/json');
-            die(json_encode([
-                'error' => 'api.404.endpointNotFound',
-                'errorMessage' => __('api.404.endpointNotFound'),
-            ]));
-        } catch (Throwable $e) {
-            error_log($e->getTraceAsString());
-            $httpCode = $e->getCode() ?? Response::HTTP_INTERNAL_SERVER_ERROR;
-            http_response_code((int) $httpCode);
-            header('Content-Type: application/json');
-            die(json_encode([
-                'error' => $e->getMessage(),
-            ]));
+            return;
         }
-
-        return;
 
         // $this->_app->add(new ApiAuthorizationMiddleware($this));
         // $this->_app->add(new ApiCsrfMiddleware($this));

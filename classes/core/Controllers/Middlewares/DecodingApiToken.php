@@ -11,6 +11,7 @@ use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\SignatureInvalidException;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 use PKP\config\Config;
@@ -58,11 +59,14 @@ class DecodingApiToken
             $apiUser = Repo::user()->getByApiKey($apiToken);
 
             if ($apiUser === null || !$apiUser->getData('apiKeyEnabled')) {
-                throw new AuthorizationException(
-                    'api.403.unauthorized',
+                return new JsonResponse(
+                    ['error' => 'api.403.unauthorized'],
                     Response::HTTP_UNAUTHORIZED
                 );
             }
+
+            $contextId = $request->attributes->get('pkpContext')->getData('id');
+            $apiUser->getRoles($contextId, true);
         } catch (Exception $e) {
             /**
              * If JWT decoding fails, it throws an 'UnexpectedValueException'.

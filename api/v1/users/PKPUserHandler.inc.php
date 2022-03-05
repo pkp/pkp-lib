@@ -20,14 +20,13 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response as HttpResponse;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Str;
 use PKP\facades\Locale;
-
 use PKP\handler\APIHandler;
-use PKP\plugins\HookRegistry;
-use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class UserController extends BaseController
 {
@@ -35,249 +34,259 @@ class UserController extends BaseController
     use DispatchesJobs;
     use ValidatesRequests;
 
-    public function getMany(Request $request): JsonResponse
-    {
-        return new JsonResponse('test', HttpResponse::HTTP_OK);
-    }
-
-    public function me(Request $request): JsonResponse
-    {
-        return new JsonResponse(['user' => $request->user()], HttpResponse::HTTP_OK);
-    }
-}
-
-class PKPUserHandler extends APIHandler
-{
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->_handlerPath = 'users';
-
-        app('router')->group(
-            [
-                'prefix' => $this->getEndpointPattern(),
-                'middleware' => [
-                    'auth',
-                ],
-            ],
-            function () {
-                // Get Many endpoint
-                app('router')
-                    ->name('usersGetyMany')
-                    ->get('', [UserController::class, 'getMany'])
-                    ->middleware([
-                        // 'only.manager.roles',
-                        'only.site.admin.roles',
-                        // 'only.sub.editor.roles',
-                    ]);
-
-                app('router')
-                    ->name('me')
-                    ->get('me', [UserController::class, 'me']);
-            }
-        );
-
-        // $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
-        // $this->_endpoints = [
-        //     'GET' => [
-        //         [
-        //             'pattern' => $this->getEndpointPattern(),
-        //             'handler' => [$this, 'getMany'],
-        //             'roles' => $roles
-        //         ],
-        //         [
-        //             'pattern' => $this->getEndpointPattern() . '/reviewers',
-        //             'handler' => [$this, 'getReviewers'],
-        //             'roles' => $roles
-        //         ],
-        //         [
-        //             'pattern' => $this->getEndpointPattern() . '/{userId:\d+}',
-        //             'handler' => [$this, 'get'],
-        //             'roles' => $roles
-        //         ],
-        //         [
-        //             'pattern' => $this->getEndpointPattern() . '/report',
-        //             'handler' => [$this, 'getReport'],
-        //             'roles' => $roles
-        //         ],
-        //     ],
-        // ];
-        parent::__construct();
-    }
-
-    /**
-     * @copydoc PKPHandler::authorize()
-     */
-    public function authorize($request, &$args, $roleAssignments)
-    {
-        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-        return parent::authorize($request, $args, $roleAssignments);
-    }
-
     /**
      * Get a collection of users
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
-     * @param array $args arguments
+     * @param \Illuminate\Http\Request $request Laravel Request
      *
-     * @return Response
      */
-    public function getMany($slimRequest, $response, $args)
+    public function getMany(Request $request): JsonResponse
     {
-        $request = $this->getRequest();
-        $context = $request->getContext();
+        try {
+            $querystrings = $request->query(null);
+            $params = $this->processAllowedParams(
+                $querystrings,
+                [
+                    'assignedToCategory',
+                    'assignedToSection',
+                    'assignedToSubmission',
+                    'assignedToSubmissionStage',
+                    'count',
+                    'offset',
+                    'orderBy',
+                    'orderDirection',
+                    'roleIds',
+                    'searchPhrase',
+                    'status',
+                ]
+            );
 
-        if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            $params['contextId'] = $request->attributes->get('pkpContext')->getId();
+
+            $collector = Repo::user()->getCollector();
+
+            // Convert from $params array to what the Collector expects
+            $orderBy = null;
+            switch ($params['orderBy'] ?? 'id') {
+                case 'id': $orderBy = $collector::ORDERBY_ID; break;
+                case 'givenName': $orderBy = $collector::ORDERBY_GIVENNAME; break;
+                case 'familyName': $orderBy = $collector::ORDERBY_FAMILYNAME; break;
+                default: throw new Exception('Unknown orderBy specified');
+            }
+
+            $orderDirection = null;
+            switch ($params['orderDirection'] ?? 'ASC') {
+                case 'ASC': $orderDirection = $collector::ORDER_DIR_ASC; break;
+                case 'DESC': $orderDirection = $collector::ORDER_DIR_DESC; break;
+                default: throw new Exception('Unknown orderDirection specified');
+            }
+
+            $collector->assignedTo($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
+                ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
+                ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
+                ->filterByRoleIds($params['roleIds'] ?? null)
+                ->searchPhrase($params['searchPhrase'] ?? null)
+                ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), Locale::getPrimaryLocale()])
+                ->limit($params['count'] ?? null)
+                ->offset($params['offset'] ?? null)
+                ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
+
+            $users = Repo::user()->getMany($collector);
+
+            $map = Repo::user()->getSchemaMap();
+            $items = [];
+            foreach ($users as $user) {
+                $items[] = $map->summarize($user);
+            }
+
+            return new JsonResponse(
+                [
+                    'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
+                    'items' => $items,
+                ],
+                Response::HTTP_OK
+            );
+        } catch (Exception $e) {
+            @error_log($e->getTraceAsString());
+
+            return new JsonResponse(
+                [$e->getMessage()],
+                Response::HTTP_BAD_REQUEST
+            );
         }
+    }
+    /**
+     * Get a collection of reviewers
+     *
+     * @param \Illuminate\Http\Request $request Laravel Request
+     *
+     */
+    public function getReviewers(Request $request): JsonResponse
+    {
+        try {
+            $querystrings = $request->query(null);
+            $params = $this->processAllowedParams(
+                $querystrings,
+                [
+                    'averageCompletion',
+                    'count',
+                    'daysSinceLastAssignment',
+                    'offset',
+                    'orderBy',
+                    'orderDirection',
+                    'reviewerRating',
+                    'reviewsActive',
+                    'reviewsCompleted',
+                    'reviewStage',
+                    'searchPhrase',
+                    'status',
+                ]
+            );
 
-        $params = $this->_processAllowedParams($slimRequest->getQueryParams(), [
-            'assignedToCategory',
-            'assignedToSection',
-            'assignedToSubmission',
-            'assignedToSubmissionStage',
-            'count',
-            'offset',
-            'orderBy',
-            'orderDirection',
-            'roleIds',
-            'searchPhrase',
-            'status',
-        ]);
+            $contextId = $request->attributes->get('pkpContext')->getId();
 
-        $params['contextId'] = $context->getId();
+            $collector = Repo::user()->getCollector()
+                ->filterByContextIds([$contextId])
+                ->includeReviewerData()
+                ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
+                ->filterByWorkflowStageIds([$params['reviewStage']])
+                ->searchPhrase($params['searchPhrase'] ?? null)
+                ->filterByReviewerRating($params['reviewerRating'] ?? null)
+                ->filterByReviewsCompleted($params['reviewsCompleted'][0] ?? null)
+                ->filterByReviewsActive(...($params['reviewsActive'] ?? []))
+                ->filterByDaysSinceLastAssignment(...($params['daysSinceLastAssignment'] ?? []))
+                ->filterByAverageCompletion($params['averageCompletion'][0] ?? null)
+                ->limit($params['count'] ?? null)
+                ->offset($params['offset'] ?? null);
+            $usersCollection = Repo::user()->getMany($collector);
+            $items = [];
+            $map = Repo::user()->getSchemaMap();
+            foreach ($usersCollection as $user) {
+                $items[] = $map->summarizeReviewer($user);
+            }
 
-        HookRegistry::call('API::users::params', [&$params, $slimRequest]);
-        $collector = Repo::user()->getCollector();
+            return new JsonResponse(
+                [
+                    'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
+                    'items' => $items,
+                ],
+                Response::HTTP_OK
+            );
+        } catch (Exception $e) {
+            @error_log($e->getTraceAsString());
 
-        // Convert from $params array to what the Collector expects
-        $orderBy = null;
-        switch ($params['orderBy'] ?? 'id') {
-            case 'id': $orderBy = $collector::ORDERBY_ID; break;
-            case 'givenName': $orderBy = $collector::ORDERBY_GIVENNAME; break;
-            case 'familyName': $orderBy = $collector::ORDERBY_FAMILYNAME; break;
-            default: throw new Exception('Unknown orderBy specified');
+            return new JsonResponse(
+                [$e->getMessage()],
+                Response::HTTP_BAD_REQUEST
+            );
         }
-        $orderDirection = null;
-        switch ($params['orderDirection'] ?? 'ASC') {
-            case 'ASC': $orderDirection = $collector::ORDER_DIR_ASC; break;
-            case 'DESC': $orderDirection = $collector::ORDER_DIR_DESC; break;
-            default: throw new Exception('Unknown orderDirection specified');
+    }
+
+    /**
+     * Retrieve the user report
+     *
+     * @param \Illuminate\Http\Request $request Laravel Request
+     *
+     * @return StreamedResponse|JsonResponse
+     */
+    public function getReport(Request $request): StreamedResponse|JsonResponse
+    {
+        try {
+            $querystrings = $request->query(null);
+
+            $params = ['contextId' => [$request->attributes->get('pkpContext')->getId()]];
+
+            foreach ($querystrings as $param => $value) {
+                if ($param === 'userGroupIds') {
+                    if (is_string($value) && strpos($value, ',') > -1) {
+                        $value = explode(',', $value);
+                    } elseif (!is_array($value)) {
+                        $value = [$value];
+                    }
+
+                    $params[$param] = array_map('intval', $value);
+                    continue;
+                }
+
+                if ($param === 'mappings') {
+                    if (is_string($value) && strpos($value, ',') > -1) {
+                        $value = explode(',', $value);
+                    } elseif (!is_array($value)) {
+                        $value = [$value];
+                    }
+                    $params[$param] = $value;
+
+                    continue;
+                }
+            }
+
+            $response = new StreamedResponse(
+                null,
+                Response::HTTP_OK,
+            );
+
+            $response->setCallback(function () use ($params) {
+                $handle = fopen('php://output', 'w+');
+                $report = Repo::user()->getReport($params);
+                $report->serialize($handle);
+                fclose($handle);
+            });
+
+            $name = 'user-report-' . date('Y-m-d') . '.csv';
+
+            $response->headers->set('Content-Type', 'application/force-download');
+            $response->headers->set(
+                'Content-Disposition',
+                $response->headers->makeDisposition(
+                    'attachment',
+                    $name,
+                    str_replace('%', '', Str::ascii($name))
+                )
+            );
+
+            return $response;
+        } catch (Exception $e) {
+            @error_log($e->getTraceAsString());
+
+            return new JsonResponse(
+                [$e->getMessage()],
+                Response::HTTP_BAD_REQUEST
+            );
         }
-
-        $collector->assignedTo($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
-            ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
-            ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
-            ->filterByRoleIds($params['roleIds'] ?? null)
-            ->searchPhrase($params['searchPhrase'] ?? null)
-            ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), $request->getSite()->getPrimaryLocale()])
-            ->limit($params['count'] ?? null)
-            ->offset($params['offset'] ?? null)
-            ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
-
-        $users = Repo::user()->getMany($collector);
-
-        $map = Repo::user()->getSchemaMap();
-        $items = [];
-        foreach ($users as $user) {
-            $items[] = $map->summarize($user);
-        }
-
-        return $response->withJson([
-            'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
-            'items' => $items,
-        ], 200);
     }
 
     /**
      * Get a single user
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
-     * @param array $args arguments
+     * @param \Illuminate\Http\Request $request Laravel Request
      *
-     * @return Response
      */
-    public function get($slimRequest, $response, $args)
+    public function getUser(Request $request): JsonResponse
     {
-        $request = $this->getRequest();
+        try {
+            $userId = $request->route('userId', null);
 
-        if (!empty($args['userId'])) {
-            $user = Repo::user()->get($args['userId']);
+            $user = Repo::user()->get($userId);
+
+            if (!$user) {
+                throw new InvalidArgumentException(
+                    'api.404.resourceNotFound',
+                    Response::HTTP_NOT_FOUND
+                );
+            }
+
+            return new JsonResponse(
+                Repo::user()->getSchemaMap()->map($user),
+                Response::HTTP_OK
+            );
+        } catch (Exception $e) {
+            @error_log($e->getTraceAsString());
+
+            return new JsonResponse(
+                [$e->getMessage()],
+                $e->getCode() ?? Response::HTTP_BAD_REQUEST
+            );
         }
-
-        if (!$user) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
-        $data = Repo::user()->getSchemaMap()->map($user, $slimRequest);
-
-        return $response->withJson($data, 200);
-    }
-
-    /**
-     * Get a collection of reviewers
-     *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
-     * @param array $args arguments
-     *
-     * @return Response
-     */
-    public function getReviewers($slimRequest, $response, $args)
-    {
-        $request = $this->getRequest();
-        $context = $request->getContext();
-
-        if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
-        $params = $this->_processAllowedParams($slimRequest->getQueryParams(), [
-            'averageCompletion',
-            'count',
-            'daysSinceLastAssignment',
-            'offset',
-            'orderBy',
-            'orderDirection',
-            'reviewerRating',
-            'reviewsActive',
-            'reviewsCompleted',
-            'reviewStage',
-            'searchPhrase',
-            'reviewerIds',
-            'status',
-        ]);
-
-        HookRegistry::call('API::users::reviewers::params', [&$params, $slimRequest]);
-        $collector = Repo::user()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->includeReviewerData()
-            ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
-            ->filterByWorkflowStageIds([$params['reviewStage']])
-            ->searchPhrase($params['searchPhrase'] ?? null)
-            ->filterByReviewerRating($params['reviewerRating'] ?? null)
-            ->filterByReviewsCompleted($params['reviewsCompleted'][0] ?? null)
-            ->filterByReviewsActive(...($params['reviewsActive'] ?? []))
-            ->filterByDaysSinceLastAssignment(...($params['daysSinceLastAssignment'] ?? []))
-            ->filterByAverageCompletion($params['averageCompletion'][0] ?? null)
-            ->filterByUserIds($params['reviewerIds'] ?? null)
-            ->limit($params['count'] ?? null)
-            ->offset($params['offset'] ?? null);
-        $usersCollection = Repo::user()->getMany($collector);
-        $items = [];
-        $map = Repo::user()->getSchemaMap();
-        foreach ($usersCollection as $user) {
-            $items[] = $map->summarizeReviewer($user, $slimRequest);
-        }
-
-        return $response->withJson([
-            'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
-            'items' => $items,
-        ], 200);
     }
 
     /**
@@ -287,11 +296,11 @@ class PKPUserHandler extends APIHandler
      * @param array $params Key/value of request params
      * @param array $allowedKeys The param keys which should be processed and returned
      *
-     * @return array
      */
-    private function _processAllowedparams($params, $allowedKeys)
-    {
-
+    protected function processAllowedParams(
+        array $params,
+        array $allowedKeys
+    ): array {
         // Merge query params over default params
         $defaultParams = [
             'count' => 20,
@@ -367,54 +376,47 @@ class PKPUserHandler extends APIHandler
 
         return $returnParams;
     }
+}
 
+class PKPUserHandler extends APIHandler
+{
     /**
-     * Retrieve the user report
-     *
-     * @param Slim\Http\Request $slimRequest Slim request object
-     * @param \APIResponse $response Response
-     *
-     * @return ?\APIResponse Response
+     * Constructor
      */
-    public function getReport(\Slim\Http\Request $slimRequest, \APIResponse $response, array $args): ?\APIResponse
+    public function __construct()
     {
-        $request = $this->getRequest();
+        $this->_handlerPath = 'users';
 
-        $context = $request->getContext();
-        if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
+        $roles = implode(',', [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
 
-        $params = ['contextId' => $context->getId()];
-        foreach ($slimRequest->getQueryParams() as $param => $value) {
-            switch ($param) {
-                case 'userGroupIds':
-                    if (is_string($value) && strpos($value, ',') > -1) {
-                        $value = explode(',', $value);
-                    } elseif (!is_array($value)) {
-                        $value = [$value];
-                    }
-                    $params[$param] = array_map('intval', $value);
-                    break;
-                case 'mappings':
-                    if (is_string($value) && strpos($value, ',') > -1) {
-                        $value = explode(',', $value);
-                    } elseif (!is_array($value)) {
-                        $value = [$value];
-                    }
-                    $params[$param] = $value;
-                    break;
+        app('router')->group(
+            [
+                'prefix' => $this->getEndpointPattern(),
+                'middleware' => [
+                    'auth',
+                    'needs.context',
+                    'match.roles:' . $roles,
+                ],
+            ],
+            function () {
+                app('router')
+                    ->name('getUser')
+                    ->get('{userId}', [UserController::class, 'getUser']);
+
+                app('router')
+                    ->name('usersGetyMany')
+                    ->get('', [UserController::class, 'getMany']);
+
+                app('router')
+                    ->name('getReviewers')
+                    ->get('reviewers', [UserController::class, 'getReviewers']);
+
+                app('router')
+                    ->name('getReport')
+                    ->get('report', [UserController::class, 'getReport']);
             }
-        }
+        );
 
-        HookRegistry::call('API::users::user::report::params', [&$params, $slimRequest]);
-
-        $this->getApp()->getContainer()->get('settings')->replace(['outputBuffering' => false]);
-
-        $report = Repo::user()->getReport($params);
-        header('content-type: text/comma-separated-values');
-        header('content-disposition: attachment; filename="user-report-' . date('Y-m-d') . '.csv"');
-        $report->serialize(fopen('php://output', 'w+'));
-        exit;
+        parent::__construct();
     }
 }

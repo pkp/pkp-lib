@@ -22,12 +22,14 @@ use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use PKP\controllers\Middlewares\DecodingApiToken;
-use PKP\controllers\Middlewares\HasUser;
-use PKP\controllers\Middlewares\OnlyManagerRoles;
-use PKP\controllers\Middlewares\OnlySiteAdminRoles;
-use PKP\controllers\Middlewares\OnlySubEditorRoles;
-use PKP\controllers\Middlewares\VerifyCsrfToken;
+use PKP\core\Controllers\Middlewares\ConfigureBaseRequest;
+use PKP\core\Controllers\Middlewares\DecodingApiToken;
+use PKP\core\Controllers\Middlewares\FillContextBasedOnUri;
+use PKP\core\Controllers\Middlewares\HasUser;
+use PKP\core\Controllers\Middlewares\Permissions\OnlyManagerRoles;
+use PKP\core\Controllers\Middlewares\Permissions\OnlySiteAdminRoles;
+use PKP\core\Controllers\Middlewares\Permissions\OnlySubEditorRoles;
+use PKP\core\Controllers\Middlewares\VerifyCsrfToken;
 
 class RoutingServiceProvider extends ServiceProvider
 {
@@ -39,6 +41,8 @@ class RoutingServiceProvider extends ServiceProvider
      * @var array
      */
     protected $middleware = [
+        ConfigureBaseRequest::class,
+        FillContextBasedOnUri::class,
         DecodingApiToken::class,
         VerifyCsrfToken::class,
         ValidatePostSize::class,

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PKP\controllers\Middlewares;
+namespace PKP\core\Controllers\Middlewares;
 
 use APP\facades\Repo;
 use Closure;

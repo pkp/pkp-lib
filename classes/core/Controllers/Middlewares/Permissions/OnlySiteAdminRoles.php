@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace PKP\controllers\Middlewares;
+namespace PKP\core\Controllers\Middlewares\Permissions;
 
-use APP\core\Application;
 use Closure;
 use PKP\db\DAORegistry;
 

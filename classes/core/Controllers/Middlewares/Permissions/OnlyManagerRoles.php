@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PKP\controllers\Middlewares;
+namespace PKP\core\Controllers\Middlewares\Permissions;
 
 use Closure;
 
-class OnlySubEditorRoles
+class OnlyManagerRoles
 {
     /**
      * Handle an incoming request.

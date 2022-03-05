@@ -21,7 +21,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Pipeline;
 use PKP\config\Config;
-use PKP\core\Core;
 use PKP\core\PKPContainer;
 
 use PKP\plugins\HookRegistry;
@@ -29,7 +28,6 @@ use PKP\security\authorization\internal\ApiAuthorizationMiddleware;
 use PKP\security\authorization\internal\ApiCsrfMiddleware;
 
 use PKP\security\authorization\internal\ApiTokenDecodingMiddleware;
-use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\statistics\PKPStatisticsHelper;
 use PKP\validation\ValidatorFactory;
 use Slim\App;
@@ -56,21 +54,10 @@ class APIHandler extends PKPHandler
     {
         parent::__construct();
 
-        // $isPathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
-
-        // $contextPath = Core::getContextPaths(
-        //         $request->getPathInfo(),
-        //         $isPathInfoEnabled,
-        //         $this->_contextList,
-        //         $this->_contextDepth,
-        //         []
-        //     );
-        // dd($contextPath);
-
         try {
             $response = (new Pipeline(
-                    PKPContainer::getInstance()
-                ))
+                PKPContainer::getInstance()
+            ))
                 ->send(app(Request::class))
                 ->through(app('globalMiddlewares'))
                 ->then(function ($request) {
@@ -90,13 +77,13 @@ class APIHandler extends PKPHandler
                 'errorMessage' => __('api.404.endpointNotFound'),
             ]));
         } catch (Throwable $e) {
-            // $httpCode = $e->getCode() ?? Response::HTTP_INTERNAL_SERVER_ERROR;
-            // http_response_code((int) $httpCode);
-            // header('Content-Type: application/json');
-            // die(json_encode([
-            //     'error' => $e->getMessage(),
-            // ]));
-            dd($e->getTraceAsString());
+            error_log($e->getTraceAsString());
+            $httpCode = $e->getCode() ?? Response::HTTP_INTERNAL_SERVER_ERROR;
+            http_response_code((int) $httpCode);
+            header('Content-Type: application/json');
+            die(json_encode([
+                'error' => $e->getMessage(),
+            ]));
         }
 
         return;

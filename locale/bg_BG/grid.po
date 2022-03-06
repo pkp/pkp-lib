@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-10 23:43+0000\n"
+"PO-Revision-Date: 2022-03-08 13:26+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "bg_BG/>\n"
@@ -170,3 +170,247 @@ msgstr "Отменяне на рецензент"
 
 msgid "grid.action.saveOrdering"
 msgstr "Запис на подреждането"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Сигурни ли сте, че изкате да премахнете {$name} като спомагател/"
+"спомоществовател? Действието е необратимо."
+
+msgid "grid.action.deleteContributor"
+msgstr "Изтриване на спомагател/спомоществовател"
+
+msgid "grid.action.editContributor"
+msgstr "Редактиране на спомагател/спомоществовател"
+
+msgid "grid.action.addContributor"
+msgstr "Добавяне на спомагател/спомоществовател"
+
+msgid "grid.contributor.title"
+msgstr "Източници на поддръжка"
+
+msgid "grid.action.deleteCategory"
+msgstr "Изтриване на категория"
+
+msgid "grid.action.editCategory"
+msgstr "Редакция на категория"
+
+msgid "grid.action.addCategory"
+msgstr "Добавяне на категория"
+
+msgid "grid.action.deleteSeries"
+msgstr "Изтриване на серии"
+
+msgid "grid.action.editSeries"
+msgstr "Редакция на серии"
+
+msgid "grid.action.addSeries"
+msgstr "Добавяне на серии"
+
+msgid "grid.action.editSponsor"
+msgstr "Редакция на спонсор"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Изтриване на спонсор"
+
+msgid "grid.action.addSponsor"
+msgstr "Добавяне на спонсор"
+
+msgid "grid.sponsor.title"
+msgstr "Спонсориращи организации"
+
+msgid "grid.columns.locale"
+msgstr "Локализация"
+
+msgid "grid.columns.auditor"
+msgstr "Одитор"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.institution"
+msgstr "Организация/Институция"
+
+msgid "grid.columns.actions"
+msgstr "Действия"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Рецензията е готова. Изберете иконата с бележка от ляво за да я прочетете."
+
+msgid "grid.task.status.unfinished"
+msgstr "Задачата не е завършена"
+
+msgid "grid.task.status.uploaded"
+msgstr "Заглавието на колоната показва кой е качил този файл"
+
+msgid "grid.task.status.new"
+msgstr "Проверено след разглеждане"
+
+msgid "grid.task.status.completed"
+msgstr "Тази задача е завършена"
+
+msgid "grid.action.users"
+msgstr "Преглед/Избор на потребители"
+
+msgid "grid.action.moreItems"
+msgstr "Зареди повече"
+
+msgid "grid.action.install"
+msgstr "Инсталиране"
+
+msgid "grid.action.preview"
+msgstr "Преглед"
+
+msgid "grid.action.copy"
+msgstr "Копиране"
+
+msgid "grid.action.deactivate"
+msgstr "Деактивиране"
+
+msgid "grid.action.activate"
+msgstr "Активиране"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Наистина ли искате да експортирате всички потребители?"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Експорт на всички потребители"
+
+msgid "grid.action.logInAs"
+msgstr "Вход като"
+
+msgid "grid.action.bookInfo"
+msgstr "Информация за изпратения материал"
+
+msgid "grid.action.enable"
+msgstr "Активиране"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Този резензия е завършена, но може да не я вземете под внимание"
+
+msgid "grid.action.history"
+msgstr "Преглед на историята (списъка със събития)"
+
+msgid "grid.action.unassignUser"
+msgstr "Премахване на назначение на потребител"
+
+msgid "grid.action.mergeUser"
+msgstr "Обединение на потребителски профили"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Добавяне на съобщение"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Добавяне на тип съобщение"
+
+msgid "grid.action.uploadFile"
+msgstr "Качване на файл"
+
+msgid "grid.action.thankReviewer"
+msgstr "Изпращане на благодарствено съобщение до този рецензент"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr ""
+"Преглед на правилата за попълване на съгласие относно конкуриращи се интереси"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Преглед на указанията за рецензиране"
+
+msgid "grid.action.newRound"
+msgstr "Създайте нов етап"
+
+msgid "grid.action.sendReminder"
+msgstr "Изпратете напомняне за задача на този потребител"
+
+msgid "grid.action.viewMetadata"
+msgstr "Преглед на метаданните за тези изпратени материали"
+
+msgid "grid.action.viewLibrary"
+msgstr "Преглед на библиотеката с документи"
+
+msgid "grid.action.advancedSearch"
+msgstr "Разширено търсене"
+
+msgid "grid.action.search"
+msgstr "Търсене"
+
+msgid "grid.action.selectCreate"
+msgstr "Създаване на нов рецензент"
+
+msgid "grid.action.enrolExisting"
+msgstr "Запис на съществуващ потребител като рецензент"
+
+msgid "grid.action.details"
+msgstr "Преглед на елемента"
+
+msgid "grid.action.disable"
+msgstr "Деактивиране"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Прехване на тази потребителска група"
+
+msgid "grid.action.editUserGroup"
+msgstr "Редакция на тази потребителска група"
+
+msgid "grid.action.addUserGroup"
+msgstr "Добавяне на нова потребителска група"
+
+msgid "grid.action.notify"
+msgstr "Уведоми този потребител"
+
+msgid "grid.action.expand"
+msgstr "Показване (разширяване)"
+
+msgid "grid.action.requestAccount"
+msgstr "Добавяне на участник"
+
+msgid "grid.action.expandAll"
+msgstr "Показване на всички"
+
+msgid "grid.action.resetEmail"
+msgstr "Нулиране на този шаблон за имейл до съдържанието по подразбиране"
+
+msgid "grid.action.disableEmail"
+msgstr "Деактивиране на този шаблон за имейл"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Редактиране на този шаблон за имейл"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Добавяне на нов шаблон за имейл"
+
+msgid "grid.action.resetAll"
+msgstr "Нулиране на всички елементи до стойностите по подразбиране"
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr "Изтриване на този елемент от контролния списък"
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr "Редактиране на този елемент от контролния списък"
+
+msgid "grid.action.orderItems"
+msgstr "Активиране на режима на подредба"
+
+msgid "grid.action.importexport"
+msgstr "Импортиране или експортиране на съдържание или данни"
+
+msgid "grid.action.settings"
+msgstr "Настройки"
+
+msgid "grid.action.sendToProduction"
+msgstr "Изпратете това подаване на материали за публикуване"
+
+msgid "grid.action.externalReview"
+msgstr "Изпратете това подаване на материали за външна рецензия"
+
+msgid "grid.action.internalReview"
+msgstr "Изпратете това подаване на материали за вътрешна рецензия"
+
+msgid "grid.action.decline"
+msgstr "Отказ за приемане на подадени материали"
+
+msgid "grid.action.accept"
+msgstr "Приемане на подадени материали"
+
+msgid "grid.action.requestRevisions"
+msgstr "Поискайте ревизии за това подаване на материали"

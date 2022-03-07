@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-03-04 10:13+0000\n"
+"PO-Revision-Date: 2022-03-08 13:26+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2549,3 +2549,33 @@ msgstr ""
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr "Enviar uma notificação de e-mail para todos os autores da submissão."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Uma descrição do método de revisão padrão, tal como duplamente cega ou "
+"aberta."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "A decisão recomendada, tal como Aceitar Submissão"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"A ronda de revisão em que esta decisão foi tomada, se a decisão estiver "
+"relacionada com uma etapa de revisão."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "A etapa do fluxo editorial em que esta decisão foi tomada."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Uma descrição da decisão que foi tomada."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "O nome da decisão que foi tomada."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "O URL para visualizar todas as submissões designadas a um utilizador."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Todos os comentários de revisões concluídas. Os nomes dos revisores estão "
+"ocultos para revisões anónimas"

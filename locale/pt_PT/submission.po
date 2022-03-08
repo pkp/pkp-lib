@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2022-03-08 17:49+0000\n"
+"PO-Revision-Date: 2022-03-09 03:40+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
@@ -2207,3 +2207,72 @@ msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
 "Um e-mail sobre a decisão foi enviado para {$recipientCount} revisor(es) com "
 "o assunto {$subject}."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Esta submissão, {$title}, está agora ativa na etapa de revisão."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Submissão Reativada"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} reverteu a decisão de rejeitar esta submissão."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Reverta uma decisão anterior de rejeitar esta submissão e devolva-a ao ativo "
+"no processo editorial."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que esta submissão foi aceite "
+"para publicação e enviada para a etapa de edição de texto sem revisão."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"A submissão, {$title}, saltou a etapa de revisão e foi enviada para a etapa "
+"de edição de texto."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Saltar Revisão"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} saltou a etapa de revisão e enviou a submissão para a etapa de "
+"edição de texto."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Aceitar esta submissão para publicação e saltar a etapa de revisão. Esta "
+"decisão irá enviar a submissão para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que esta submissão foi enviada "
+"de volta para a etapa de edição de texto. Explique o porquê desta decisão "
+"ter sido tomada e informe o autor das edições adicionais que serão "
+"necessárias antes da submissão estar pronta para produção."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"A submissão, {$title}, foi enviada de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Enviar de volta para Edição de texto"
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+"{$editorName} enviou esta submissão de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Envie esta submissão de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Voltar para Edição de texto"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail para os autores para informá-lo que esta submissão foi "
+"enviada para a etapa de produção."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr "A submissão, {$title}, foi enviada para a etapa de produção."

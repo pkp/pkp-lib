@@ -142,7 +142,7 @@ class ApiTokenDecodingMiddleware {
 
 		$parts = explode(' ', $authHeader[0]);
 		if (count($parts) < 2 || $parts[0] !== 'Bearer') {
-			throw new Exception(__('api.500.badAuthorizationheader'));
+			return null; // This may be a legitimate BASIC AUTH user (pkp/pkp-lib#7751)
 		}
 
 		return $parts[1];

@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-08 13:26+0000\n"
+"PO-Revision-Date: 2022-03-08 17:49+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "bg_BG/>\n"
@@ -414,3 +414,86 @@ msgstr "Приемане на подадени материали"
 
 msgid "grid.action.requestRevisions"
 msgstr "Поискайте ревизии за това подаване на материали"
+
+msgid "grid.roles.add"
+msgstr "Създаване на нова роля"
+
+msgid "grid.roles.currentRoles"
+msgstr "Текущи роли"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Пълен/о"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Списъци с публикации"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Съкратено"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Изглед"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Формат"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Сътрудниците в тази публикация ще бъдат идентифицирани в това списание в "
+"следните формати."
+
+msgid "contributor.listPanel.preview"
+msgstr "Преглед"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Включване в списъци"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Задаване на основен контакт"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Основен контакт"
+
+msgid "author.users.contributor.role"
+msgstr "Роля"
+
+msgid "author.users.contributor.email"
+msgstr "Имейл адрес"
+
+msgid "author.users.contributor.name"
+msgstr "Име"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Елемент от контролния списък"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Контролен списък за изпращане на материали"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Библиотека с шаблони за продукционен етап (публикуване)"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Библиотека за продукционен етап (публикуване)"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Библиотека на рецензентите"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Библиотека на редакторите"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Библиотека с изпратени материали"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Файлове"
+
+msgid "grid.noFiles"
+msgstr "Няма файлове"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Варианти на отговор"
+
+msgid "grid.reviewForm.title"
+msgstr "Форми за рецензиране"
+
+msgid "grid.action.newVersion"
+msgstr "Създаване на нова версия"

@@ -12,8 +12,6 @@ class ConfigureBaseRequest
 {
     /**
      * Add few configurations on BaseRequest
-     *
-     *
      */
     public function handle(Request $request, Closure $next)
     {

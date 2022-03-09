@@ -13,9 +13,6 @@ class NeedsContext
 {
     /**
      * Verify if current request has a Context associated with it
-     *
-     * @param \Illuminate\Http\Request $request
-     *
      */
     public function handle($request, Closure $next)
     {

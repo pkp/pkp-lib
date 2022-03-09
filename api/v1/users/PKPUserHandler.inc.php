@@ -36,150 +36,126 @@ class UserController extends BaseController
 
     /**
      * Get a collection of users
-     *
-     * @param \Illuminate\Http\Request $request Laravel Request
-     *
      */
     public function getMany(Request $request): JsonResponse
     {
-        try {
-            $querystrings = $request->query(null);
-            $params = $this->processAllowedParams(
-                $querystrings,
-                [
-                    'assignedToCategory',
-                    'assignedToSection',
-                    'assignedToSubmission',
-                    'assignedToSubmissionStage',
-                    'count',
-                    'offset',
-                    'orderBy',
-                    'orderDirection',
-                    'roleIds',
-                    'searchPhrase',
-                    'status',
-                ]
-            );
+        $querystrings = $request->query(null);
+        $params = $this->processAllowedParams(
+            $querystrings,
+            [
+                'assignedToCategory',
+                'assignedToSection',
+                'assignedToSubmission',
+                'assignedToSubmissionStage',
+                'count',
+                'offset',
+                'orderBy',
+                'orderDirection',
+                'roleIds',
+                'searchPhrase',
+                'status',
+            ]
+        );
 
-            $params['contextId'] = $request->attributes->get('pkpContext')->getId();
+        $params['contextId'] = $request->attributes->get('pkpContext')->getId();
 
-            $collector = Repo::user()->getCollector();
+        $collector = Repo::user()->getCollector();
 
-            // Convert from $params array to what the Collector expects
-            $orderBy = null;
-            switch ($params['orderBy'] ?? 'id') {
-                case 'id': $orderBy = $collector::ORDERBY_ID; break;
-                case 'givenName': $orderBy = $collector::ORDERBY_GIVENNAME; break;
-                case 'familyName': $orderBy = $collector::ORDERBY_FAMILYNAME; break;
-                default: throw new Exception('Unknown orderBy specified');
-            }
-
-            $orderDirection = null;
-            switch ($params['orderDirection'] ?? 'ASC') {
-                case 'ASC': $orderDirection = $collector::ORDER_DIR_ASC; break;
-                case 'DESC': $orderDirection = $collector::ORDER_DIR_DESC; break;
-                default: throw new Exception('Unknown orderDirection specified');
-            }
-
-            $collector->assignedTo($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
-                ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
-                ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
-                ->filterByRoleIds($params['roleIds'] ?? null)
-                ->searchPhrase($params['searchPhrase'] ?? null)
-                ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), Locale::getPrimaryLocale()])
-                ->limit($params['count'] ?? null)
-                ->offset($params['offset'] ?? null)
-                ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
-
-            $users = Repo::user()->getMany($collector);
-
-            $map = Repo::user()->getSchemaMap();
-            $items = [];
-            foreach ($users as $user) {
-                $items[] = $map->summarize($user);
-            }
-
-            return new JsonResponse(
-                [
-                    'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
-                    'items' => $items,
-                ],
-                Response::HTTP_OK
-            );
-        } catch (Exception $e) {
-            @error_log($e->getTraceAsString());
-
-            return new JsonResponse(
-                [$e->getMessage()],
-                Response::HTTP_BAD_REQUEST
-            );
+        // Convert from $params array to what the Collector expects
+        $orderBy = null;
+        switch ($params['orderBy'] ?? 'id') {
+            case 'id': $orderBy = $collector::ORDERBY_ID; break;
+            case 'givenName': $orderBy = $collector::ORDERBY_GIVENNAME; break;
+            case 'familyName': $orderBy = $collector::ORDERBY_FAMILYNAME; break;
+            default: throw new Exception('Unknown orderBy specified');
         }
+
+        $orderDirection = null;
+        switch ($params['orderDirection'] ?? 'ASC') {
+            case 'ASC': $orderDirection = $collector::ORDER_DIR_ASC; break;
+            case 'DESC': $orderDirection = $collector::ORDER_DIR_DESC; break;
+            default: throw new Exception('Unknown orderDirection specified');
+        }
+
+        $collector->assignedTo($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
+            ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
+            ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
+            ->filterByRoleIds($params['roleIds'] ?? null)
+            ->searchPhrase($params['searchPhrase'] ?? null)
+            ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), Locale::getPrimaryLocale()])
+            ->limit($params['count'] ?? null)
+            ->offset($params['offset'] ?? null)
+            ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
+
+        $users = Repo::user()->getMany($collector);
+
+        $map = Repo::user()->getSchemaMap();
+        $items = [];
+        foreach ($users as $user) {
+            $items[] = $map->summarize($user);
+        }
+
+        return new JsonResponse(
+            [
+                'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
+                'items' => $items,
+            ],
+            Response::HTTP_OK
+        );
     }
     /**
      * Get a collection of reviewers
-     *
-     * @param \Illuminate\Http\Request $request Laravel Request
-     *
      */
     public function getReviewers(Request $request): JsonResponse
     {
-        try {
-            $querystrings = $request->query(null);
-            $params = $this->processAllowedParams(
-                $querystrings,
-                [
-                    'averageCompletion',
-                    'count',
-                    'daysSinceLastAssignment',
-                    'offset',
-                    'orderBy',
-                    'orderDirection',
-                    'reviewerRating',
-                    'reviewsActive',
-                    'reviewsCompleted',
-                    'reviewStage',
-                    'searchPhrase',
-                    'status',
-                ]
-            );
+        $querystrings = $request->query(null);
+        $params = $this->processAllowedParams(
+            $querystrings,
+            [
+                'averageCompletion',
+                'count',
+                'daysSinceLastAssignment',
+                'offset',
+                'orderBy',
+                'orderDirection',
+                'reviewerRating',
+                'reviewsActive',
+                'reviewsCompleted',
+                'reviewStage',
+                'searchPhrase',
+                'status',
+            ]
+        );
 
-            $contextId = $request->attributes->get('pkpContext')->getId();
+        $contextId = $request->attributes->get('pkpContext')->getId();
 
-            $collector = Repo::user()->getCollector()
-                ->filterByContextIds([$contextId])
-                ->includeReviewerData()
-                ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
-                ->filterByWorkflowStageIds([$params['reviewStage']])
-                ->searchPhrase($params['searchPhrase'] ?? null)
-                ->filterByReviewerRating($params['reviewerRating'] ?? null)
-                ->filterByReviewsCompleted($params['reviewsCompleted'][0] ?? null)
-                ->filterByReviewsActive(...($params['reviewsActive'] ?? []))
-                ->filterByDaysSinceLastAssignment(...($params['daysSinceLastAssignment'] ?? []))
-                ->filterByAverageCompletion($params['averageCompletion'][0] ?? null)
-                ->limit($params['count'] ?? null)
-                ->offset($params['offset'] ?? null);
-            $usersCollection = Repo::user()->getMany($collector);
-            $items = [];
-            $map = Repo::user()->getSchemaMap();
-            foreach ($usersCollection as $user) {
-                $items[] = $map->summarizeReviewer($user);
-            }
-
-            return new JsonResponse(
-                [
-                    'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
-                    'items' => $items,
-                ],
-                Response::HTTP_OK
-            );
-        } catch (Exception $e) {
-            @error_log($e->getTraceAsString());
-
-            return new JsonResponse(
-                [$e->getMessage()],
-                Response::HTTP_BAD_REQUEST
-            );
+        $collector = Repo::user()->getCollector()
+            ->filterByContextIds([$contextId])
+            ->includeReviewerData()
+            ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
+            ->filterByWorkflowStageIds([$params['reviewStage']])
+            ->searchPhrase($params['searchPhrase'] ?? null)
+            ->filterByReviewerRating($params['reviewerRating'] ?? null)
+            ->filterByReviewsCompleted($params['reviewsCompleted'][0] ?? null)
+            ->filterByReviewsActive(...($params['reviewsActive'] ?? []))
+            ->filterByDaysSinceLastAssignment(...($params['daysSinceLastAssignment'] ?? []))
+            ->filterByAverageCompletion($params['averageCompletion'][0] ?? null)
+            ->limit($params['count'] ?? null)
+            ->offset($params['offset'] ?? null);
+        $usersCollection = Repo::user()->getMany($collector);
+        $items = [];
+        $map = Repo::user()->getSchemaMap();
+        foreach ($usersCollection as $user) {
+            $items[] = $map->summarizeReviewer($user);
         }
+
+        return new JsonResponse(
+            [
+                'itemsMax' => Repo::user()->getCount($collector->limit(null)->offset(null)),
+                'items' => $items,
+            ],
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -191,102 +167,81 @@ class UserController extends BaseController
      */
     public function getReport(Request $request): StreamedResponse|JsonResponse
     {
-        try {
-            $querystrings = $request->query(null);
+        $querystrings = $request->query(null);
 
-            $params = ['contextId' => [$request->attributes->get('pkpContext')->getId()]];
+        $params = ['contextId' => [$request->attributes->get('pkpContext')->getId()]];
 
-            foreach ($querystrings as $param => $value) {
-                if ($param === 'userGroupIds') {
-                    if (is_string($value) && strpos($value, ',') > -1) {
-                        $value = explode(',', $value);
-                    } elseif (!is_array($value)) {
-                        $value = [$value];
-                    }
-
-                    $params[$param] = array_map('intval', $value);
-                    continue;
+        foreach ($querystrings as $param => $value) {
+            if ($param === 'userGroupIds') {
+                if (is_string($value) && strpos($value, ',') > -1) {
+                    $value = explode(',', $value);
+                } elseif (!is_array($value)) {
+                    $value = [$value];
                 }
 
-                if ($param === 'mappings') {
-                    if (is_string($value) && strpos($value, ',') > -1) {
-                        $value = explode(',', $value);
-                    } elseif (!is_array($value)) {
-                        $value = [$value];
-                    }
-                    $params[$param] = $value;
-
-                    continue;
-                }
+                $params[$param] = array_map('intval', $value);
+                continue;
             }
 
-            $response = new StreamedResponse(
-                null,
-                Response::HTTP_OK,
-            );
+            if ($param === 'mappings') {
+                if (is_string($value) && strpos($value, ',') > -1) {
+                    $value = explode(',', $value);
+                } elseif (!is_array($value)) {
+                    $value = [$value];
+                }
+                $params[$param] = $value;
 
-            $response->setCallback(function () use ($params) {
-                $handle = fopen('php://output', 'w+');
-                $report = Repo::user()->getReport($params);
-                $report->serialize($handle);
-                fclose($handle);
-            });
-
-            $name = 'user-report-' . date('Y-m-d') . '.csv';
-
-            $response->headers->set('Content-Type', 'application/force-download');
-            $response->headers->set(
-                'Content-Disposition',
-                $response->headers->makeDisposition(
-                    'attachment',
-                    $name,
-                    str_replace('%', '', Str::ascii($name))
-                )
-            );
-
-            return $response;
-        } catch (Exception $e) {
-            @error_log($e->getTraceAsString());
-
-            return new JsonResponse(
-                [$e->getMessage()],
-                Response::HTTP_BAD_REQUEST
-            );
+                continue;
+            }
         }
+
+        $response = new StreamedResponse(
+            null,
+            Response::HTTP_OK,
+        );
+
+        $response->setCallback(function () use ($params) {
+            $handle = fopen('php://output', 'w+');
+            $report = Repo::user()->getReport($params);
+            $report->serialize($handle);
+            fclose($handle);
+        });
+
+        $name = 'user-report-' . date('Y-m-d') . '.csv';
+
+        $response->headers->set('Content-Type', 'application/force-download');
+        $response->headers->set(
+            'Content-Disposition',
+            $response->headers->makeDisposition(
+                'attachment',
+                $name,
+                str_replace('%', '', Str::ascii($name))
+            )
+        );
+
+        return $response;
     }
 
     /**
      * Get a single user
-     *
-     * @param \Illuminate\Http\Request $request Laravel Request
-     *
      */
     public function getUser(Request $request): JsonResponse
     {
-        try {
-            $userId = $request->route('userId', null);
+        $userId = $request->route('userId', null);
 
-            $user = Repo::user()->get($userId);
+        $user = Repo::user()->get($userId);
 
-            if (!$user) {
-                throw new InvalidArgumentException(
-                    'api.404.resourceNotFound',
-                    Response::HTTP_NOT_FOUND
-                );
-            }
-
-            return new JsonResponse(
-                Repo::user()->getSchemaMap()->map($user),
-                Response::HTTP_OK
-            );
-        } catch (Exception $e) {
-            @error_log($e->getTraceAsString());
-
-            return new JsonResponse(
-                [$e->getMessage()],
-                $e->getCode() ?? Response::HTTP_BAD_REQUEST
+        if (!$user) {
+            throw new InvalidArgumentException(
+                'api.404.resourceNotFound',
+                Response::HTTP_NOT_FOUND
             );
         }
+
+        return new JsonResponse(
+            Repo::user()->getSchemaMap()->map($user),
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -404,7 +359,7 @@ class PKPUserHandler extends APIHandler
                     ->get('{userId}', [UserController::class, 'getUser']);
 
                 app('router')
-                    ->name('usersGetyMany')
+                    ->name('getManyUsers')
                     ->get('', [UserController::class, 'getMany']);
 
                 app('router')

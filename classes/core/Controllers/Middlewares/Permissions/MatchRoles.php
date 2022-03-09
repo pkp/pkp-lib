@@ -38,7 +38,6 @@ class MatchRoles
      *
      * @param \Illuminate\Http\Request $request
      * @param string $roles Comma-separated list with roles
-     *
      */
     public function handle($request, Closure $next, string ...$roles)
     {

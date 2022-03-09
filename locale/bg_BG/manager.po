@@ -2,8 +2,8 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-05 00:21+0000\n"
-"Last-Translator: Albena Vassileva <albena.ava@gmail.com>\n"
+"PO-Revision-Date: 2022-03-10 19:56+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg_BG/>\n"
 "Language: bg_BG\n"
@@ -196,3 +196,6 @@ msgstr "Работна процедура"
 
 msgid "manager.website.title"
 msgstr "Настройки на сайта"
+
+msgid "manager.people.mergeUsers"
+msgstr "Обединяване на потребители"

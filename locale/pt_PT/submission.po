@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2022-03-09 03:40+0000\n"
+"PO-Revision-Date: 2022-03-09 12:58+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
@@ -2276,3 +2276,77 @@ msgstr ""
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "A submissão, {$title}, foi enviada para a etapa de produção."
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Não pode emitir uma recomendação antes de ser designado um editor com "
+"permissões para registar uma decisão."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} recomendou que esta submissão seja rejeitada."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Recomendar que a submissão seja rejeitada para publicação."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Recomendo Rejeitar"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} recomendou que sejam solicitadas revisões ao autor e que sigam "
+"para nova ronda de revisão."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Recomendo que seja solicitado ao autor que reenvie revisões que sejam alvo "
+"de nova ronda de revisão."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Recomendo Reenviar para Revisão"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} recomendou que sejam solicitadas revisões."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Recomendo que sejam solicitadas revisões ao autor antes da submissão ser "
+"aceite para publicação."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Recomendo Revisões"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"A sua recomendação foi registada e o(s) editor(es) decisor(es) foi(ram) "
+"notificado(s)."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Recomendação Submetida"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} recomendou que esta submissão seja aceite e enviada para "
+"edição de texto."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Recomendar que esta submissão seja aceite para publicação e enviada para "
+"edição de texto."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Recomendo Aceitar"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Envie uma mensagem aos editores decisores para informá-los da recomendação. "
+"Explique o porquê de ter emitido essa recomendação em resposta às "
+"recomendações e comentários enviados pelos revisores."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "A submissão, {$title}, está agora ativa na etapa da submissão."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que uma decisão anterior de "
+"rejeitar esta submissão foi revertida. Explique o porquê da decisão ter sido "
+"revertida e informe-os se a submissão deverá ser submetida a nova revisão."

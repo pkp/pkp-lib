@@ -51,7 +51,7 @@ class DecisionAdded
      * for more information about what actions to expect with each
      * decision.
      */
-    public array $action;
+    public array $actions;
 
     public function __construct(Decision $decision, DecisionType $decisionType, Submission $submission, User $editor, Context $context, array $actions)
     {

@@ -76,9 +76,12 @@ class SendReviewsForm extends EditorDecisionWithEmailForm {
 		$revisionsEmail = new SubmissionMailTemplate($submission, 'EDITOR_DECISION_REVISIONS');
 		$resubmitEmail = new SubmissionMailTemplate($submission, 'EDITOR_DECISION_RESUBMIT');
 
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroups = $userGroupDao->getByContextId($submission->getContextId())->toArray();
+
 		foreach (array($revisionsEmail, $resubmitEmail) as &$email) {
 			$email->assignParams(array(
-				'authorName' => $submission->getAuthorString(),
+				'authorName' => $submission->getCurrentPublication()->getAuthorString($userGroups),
 				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 			));
 			$email->replaceParams();

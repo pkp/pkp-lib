@@ -131,14 +131,15 @@ class PKPPublication extends DataObject {
 	 * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)
 	 *
 	 * @param array $userGroups List of UserGroup objects
+	 * @param bool $preferred If the preferred public name should be used, if exists
+	 * @param bool $onlyIncludeInBrowse True iff only browse list authors should be included
 	 * @return string
 	 */
-	public function getAuthorString($userGroups) {
+	public function getAuthorString($userGroups, bool $preferred = true, bool $onlyIncludeInBrowse = false) {
 		$authors = $this->getData('authors');
-
-		if (empty($authors)) {
-			return '';
-		}
+		if ($onlyIncludeInBrowse) $authors = array_filter($authors, function($author) {
+			return $author->getData('includeInBrowse');
+		});
 
 		$str = '';
 		$lastUserGroupId = null;
@@ -158,7 +159,7 @@ class PKPPublication extends DataObject {
 					$str .= __('common.commaListSeparator');
 				}
 			}
-			$str .= $author->getFullName();
+			$str .= $author->getFullName($preferred);
 			$lastUserGroupId = $author->getUserGroupId();
 		}
 

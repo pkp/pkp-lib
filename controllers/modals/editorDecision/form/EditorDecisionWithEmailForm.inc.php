@@ -69,8 +69,12 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$email = new SubmissionMailTemplate($submission, $emailKeys[$this->getDecision()]);
 
 		$submissionUrl = $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId());
+
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroups = $userGroupDao->getByContextId($submission->getContextId())->toArray();
+
 		$email->assignParams([
-			'authorName' => $submission->getAuthorString(),
+			'authorName' => $submission->getCurrentPublication()->getAuthorString($userGroups),
 			'submissionUrl' => $submissionUrl,
 		]);
 		$email->replaceParams();
@@ -84,7 +88,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$data = [
 			'submissionId' => $submission->getId(),
 			'decision' => $this->getDecision(),
-			'authorName' => $submission->getAuthorString(),
+			'authorName' => $submission->getCurrentPublication()->getAuthorString($userGroups),
 			'personalMessage' => $email->getBody(),
 			'actionLabel' => $actionLabels[$this->getDecision()],
 			'bccReviewers' => []
@@ -316,10 +320,14 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 			$dispatcher = $router->getDispatcher();
 			$context = $request->getContext();
 			$user = $request->getUser();
+
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+			$userGroups = $userGroupDao->getByContextId($submission->getContextId())->toArray();
+
 			$email->assignParams([
 				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 				'contextName' => $context->getLocalizedName(),
-				'authorName' => $submission->getAuthorString(),
+				'authorName' => $submission->getCurrentPublication()->getAuthorString($userGroups),
 				'editorialContactSignature' => $user->getContactSignature(),
 			]);
 			if (!$email->send($request)) {
@@ -340,12 +348,16 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		$dispatcher = $router->getDispatcher();
 		$submission = $this->getSubmission();
 		$user = $request->getUser();
+
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		$userGroups = $userGroupDao->getByContextId($submission->getContextId())->toArray();
+
 		return [
 			'submissionUrl' => __('common.url'),
 			'contextName' => $request->getContext()->getLocalizedName(),
 			'editorialContactSignature' => strip_tags($user->getContactSignature(), "<br>"),
 			'submissionTitle' => strip_tags($submission->getLocalizedTitle()),
-			'authorName' => strip_tags($submission->getAuthorString()),
+			'authorName' => strip_tags($submission->getCurrentPublication()->getAuthorString($userGroups)),
 		];
 	}
 

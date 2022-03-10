@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-02-17 15:55+0000\n"
+"PO-Revision-Date: 2022-03-10 19:56+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv_SE/>\n"
@@ -2433,3 +2433,214 @@ msgid "doi.manager.settings.doiSuffixCustomIdentifier"
 msgstr ""
 "Ange manuellt DOI-suffix för varje publikation. Du hittar fält för att ange "
 "DOI i sidan för DOI-hantering."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bearbetning av bidraget "
+"krävs."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Bearbetning krävs"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att en ny granskningsomgång har "
+"satts igång."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Ny granskningsomgång har startats"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Bidraget har refuserats"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att deras bidrag har refuserats "
+"efter granskning."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Bidraget har refuserats"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "
+"till inskickat-steget."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till inskickat"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
+"tillbaka till granskningssteget."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till granskning"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "
+"till manusredigeringssteget."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till manusredigering"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bidraget har accepterats."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Bidraget är accepterat"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Vi har bjudit in författare att skicka in en bearbetad version för "
+"ytterligare granskning."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Vi har bett författarna skicka in ändringar."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Vi har valt att refusera bidraget."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Vi har valt att acceptera bidraget utan ändringar."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"En kort beskrivning av beslutet som kommer med i e-postmeddelandet till "
+"granskaren."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Detta e-postmeddelande skickas från en redaktör till en granskare för att "
+"meddela att beslut fattats om ett bidrag som de granskat."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Meddelande till granskare"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr ""
+"En kopia av e-postmeddelandet som skickades till författaren som skickade in "
+"bidraget"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Detta e-postmeddelande skickas för att meddela alla författare till ett "
+"bidrag som inte är med på deltagarlistan att ett beslut har fattats. Detta "
+"inkluderar vanligtvis alla författare förutom den som skickat in bidraget."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Meddela andra författare"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Detta e-postmeddelande skickas automatiskt till nya användare i samband med "
+"registrering, om inställningarna kräver att e-postadressen godkänns."
+
+msgid "mailable.mailReviewerUnassigned.description"
+msgstr ""
+"Detta e-postmeddelande skickas när en redaktör tar bort ett "
+"granskningsuppdrag."
+
+msgid "mailable.mailReviewerUnassigned.name"
+msgstr "Granskningsuppdrag borttaget"
+
+msgid "mailable.mailReviewerReinstate.description"
+msgstr ""
+"Detta e-postmeddelande skickas när en granskare som tagits bort sedan "
+"återinsätts av en redaktör."
+
+msgid "mailable.mailReviewerReinstate.name"
+msgstr "Granskare återinsatt"
+
+msgid "mailable.mailReviewerAssigned.description"
+msgstr ""
+"Detta e-postmeddelande skickas när en granskare utsetts till ett bidrag."
+
+msgid "mailable.mailReviewerAssigned.name"
+msgstr "Granskare utsedd"
+
+msgid "mailable.mailDiscussionMessage.description"
+msgstr ""
+"Detta e-postmeddelande skickas automatiskt till deltagare i diskussionen när "
+"ett nytt meddelande läggs till."
+
+msgid "mailable.mailDiscussionMessage.name"
+msgstr "Lägg till diskussion"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Författarnamnen som är tilldelade arbetsflödet för inskickning. Detta är "
+"oftast författaren som skickat in bidraget"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Författarens URL till bidraget"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Författarnamn i en förkortad version"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "E-postadress till sidans primära kontakt"
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Beskrivning av standardmetoden för granskning, t.ex. anonym författare/"
+"anonym granskare eller öppen."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Rekommenderat beslut, t.ex. acceptera bidrag"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Vilken granskningsomgång beslutet fattats i, om beslutet hänger ihop med "
+"granskningssteget."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Arbetsflödessteget i vilket beslutet fattats."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "En beskrivning av det fattade beslutet."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Benämningen av det fattade beslutet."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "URL för att se en användares samtliga tilldelade bidrag."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Alla kommentarer från färdigställda granskningar. Granskares namn är dolda "
+"om granskningen är anonym"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Skicka enbart e-postavisering till författare som är knutna till "
+"arbetsflödet för bidraget. Detta är vanligtvis författaren som skickat in "
+"bidraget."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Skicka en e-postavisering till bidragets samtliga författare."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "Vem ska få en e-postavisering när beslut fattats?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Meddela alla författare"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Ingen"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI:er kan skapas och registreras hos en DOI-organisation. För att använda "
+"denna funktion, installera plugin för den organisation ni är anslutna till."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Ingen DOI-organisation aktiverad"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Välj DOI-organisationen du vill använda för att registrera DOI:er."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "DOI-organisation"

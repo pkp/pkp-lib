@@ -23,8 +23,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Str;
+use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
+use PKP\plugins\HookRegistry;
 use PKP\security\Role;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -59,6 +61,8 @@ class UserController extends BaseController
 
         $params['contextId'] = $request->attributes->get('pkpContext')->getId();
 
+        HookRegistry::call('API::users::params', [&$params, $request]);
+
         $collector = Repo::user()->getCollector();
 
         // Convert from $params array to what the Collector expects
@@ -77,12 +81,14 @@ class UserController extends BaseController
             default: throw new Exception('Unknown orderDirection specified');
         }
 
+        $siteLocale = DAORegistry::getDAO('SiteDAO')->getSite()->getPrimaryLocale();
+
         $collector->assignedTo($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
             ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
             ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
             ->filterByRoleIds($params['roleIds'] ?? null)
             ->searchPhrase($params['searchPhrase'] ?? null)
-            ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), Locale::getPrimaryLocale()])
+            ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), $siteLocale])
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null)
             ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
@@ -128,6 +134,8 @@ class UserController extends BaseController
         );
 
         $contextId = $request->attributes->get('pkpContext')->getId();
+
+        HookRegistry::call('API::users::reviewers::params', [&$params, $request]);
 
         $collector = Repo::user()->getCollector()
             ->filterByContextIds([$contextId])
@@ -194,6 +202,8 @@ class UserController extends BaseController
                 continue;
             }
         }
+
+        HookRegistry::call('API::users::user::report::params', [&$params, $request]);
 
         $response = new StreamedResponse(
             null,

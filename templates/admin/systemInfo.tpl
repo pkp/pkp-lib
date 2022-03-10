@@ -96,7 +96,6 @@
 						<td colspan="2" class="app--admin__systemInfoGroup">{$category}</td>
 					</tr>
 					{foreach from=$settings item="value" key="name"}
-					
 								<tr>
 									<td>{$name|escape}</td>
 									{if $value == "password"}

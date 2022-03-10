@@ -39,9 +39,9 @@ class UserController extends BaseController
      */
     public function getMany(Request $request): JsonResponse
     {
-        $querystrings = $request->query(null);
+        $queryStrings = $request->query(null);
         $params = $this->processAllowedParams(
-            $querystrings,
+            $queryStrings,
             [
                 'assignedToCategory',
                 'assignedToSection',
@@ -108,9 +108,9 @@ class UserController extends BaseController
      */
     public function getReviewers(Request $request): JsonResponse
     {
-        $querystrings = $request->query(null);
+        $queryStrings = $request->query(null);
         $params = $this->processAllowedParams(
-            $querystrings,
+            $queryStrings,
             [
                 'averageCompletion',
                 'count',
@@ -167,11 +167,11 @@ class UserController extends BaseController
      */
     public function getReport(Request $request): StreamedResponse|JsonResponse
     {
-        $querystrings = $request->query(null);
+        $queryStrings = $request->query(null);
 
         $params = ['contextId' => [$request->attributes->get('pkpContext')->getId()]];
 
-        foreach ($querystrings as $param => $value) {
+        foreach ($queryStrings as $param => $value) {
             if ($param === 'userGroupIds') {
                 if (is_string($value) && strpos($value, ',') > -1) {
                     $value = explode(',', $value);

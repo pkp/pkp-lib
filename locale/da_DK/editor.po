@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-03-04 08:10+0000\n"
+"PO-Revision-Date: 2022-03-10 08:43+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "da_DK/>\n"
@@ -526,3 +526,38 @@ msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr ""
 "Du har ikke tilladelse til at foretage denne beslutning omkring denne "
 "indsendelse."
+
+msgid "editor.decision.emailSkipped"
+msgstr "Dette trin er sprunget over, og der vil ikke blive afsendt en e-mail."
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Spring ikke denne e-mail over"
+
+msgid "editor.decision.completeSteps"
+msgstr "Færdiggør de følgende trin for at tage denne beslutning"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Er du sikker på, at du vil annullere denne beslutning?"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Annuller beslutning"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Revisioner skal sendes til en ny bedømmelsesrunde."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Revisioner skal ikke behandles i en ny bedømmelsesrunde."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Afgørelsen kunne ikke findes. Angiv venligst en anerkendt afgørelsestype."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"En beslutning kunne ikke tages om denne indsendelse. Indsendelsens ID "
+"mangler eller passer ikke på den ønskede indsendelse."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Der kan ikke laves en anbefaling, medmindre der på dette trin er tilknyttet "
+"en redaktør, der kan tage en endelig beslutning."

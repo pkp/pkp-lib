@@ -2,7 +2,20 @@
 
 declare(strict_types=1);
 
-namespace PKP\core\Controllers\Middlewares;
+/**
+ * @file classes/core/middleware/DecodingApiToken.php
+ *
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class DecodingApiToken
+ * @ingroup core_middleware
+ *
+ * @brief Middleware to validate and decode API tokens from requests
+ */
+
+namespace PKP\core\middleware;
 
 use APP\facades\Repo;
 use Closure;
@@ -13,7 +26,6 @@ use Firebase\JWT\SignatureInvalidException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
-
 use PKP\config\Config;
 use UnexpectedValueException;
 

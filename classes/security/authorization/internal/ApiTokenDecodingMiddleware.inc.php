@@ -29,7 +29,7 @@ class ApiTokenDecodingMiddleware
 
     /**
      * Constructor
-     * NOTE: This will be deprecate in near-future in favor of PKP\core\Controllers\Middlewares\DecodingApiToken::class
+     * NOTE: This will be deprecate in near-future in favor of PKP\core\middleware\DecodingApiToken::class
      */
     public function __construct(APIHandler $handler)
     {

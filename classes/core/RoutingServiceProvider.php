@@ -22,13 +22,13 @@ use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use PKP\core\Controllers\Middlewares\ConfigureBaseRequest;
-use PKP\core\Controllers\Middlewares\DecodingApiToken;
-use PKP\core\Controllers\Middlewares\FillContextBasedOnUri;
-use PKP\core\Controllers\Middlewares\HasUser;
-use PKP\core\Controllers\Middlewares\Permissions\MatchRoles;
-use PKP\core\Controllers\Middlewares\Permissions\NeedsContext;
-use PKP\core\Controllers\Middlewares\VerifyCsrfToken;
+use PKP\core\middleware\ConfigureBaseRequest;
+use PKP\core\middleware\DecodingApiToken;
+use PKP\core\middleware\FillContextBasedOnUri;
+use PKP\core\middleware\HasUser;
+use PKP\core\middleware\permissions\MatchRoles;
+use PKP\core\middleware\permissions\NeedsContext;
+use PKP\core\middleware\VerifyCsrfToken;
 
 class RoutingServiceProvider extends ServiceProvider
 {

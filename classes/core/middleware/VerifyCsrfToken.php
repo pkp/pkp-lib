@@ -2,7 +2,20 @@
 
 declare(strict_types=1);
 
-namespace PKP\core\Controllers\Middlewares;
+/**
+ * @file classes/core/middleware/VerifyCsrfToken.php
+ *
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class VerifyCsrfToken
+ * @ingroup core_middleware
+ *
+ * @brief Middleware to check if Request needs a CSRFToken, and validates it if necessary.
+ */
+
+namespace PKP\core\middleware;
 
 use APP\core\Application;
 use Closure;

@@ -2,7 +2,20 @@
 
 declare(strict_types=1);
 
-namespace PKP\core\Controllers\Middlewares\Permissions;
+/**
+ * @file classes/core/middleware/permissions/MatchRoles.php
+ *
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class MatchRoles
+ * @ingroup core_middleware_permissions
+ *
+ * @brief Middleware to validate user roles
+ */
+
+namespace PKP\core\middleware\permissions;
 
 use Closure;
 use Illuminate\Auth\Access\AuthorizationException;

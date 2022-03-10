@@ -2,7 +2,20 @@
 
 declare(strict_types=1);
 
-namespace PKP\core\Controllers\Middlewares;
+/**
+ * @file classes/core/middleware/FillContextBasedOnUri.php
+ *
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2000-2022 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class FillContextBasedOnUri
+ * @ingroup core_middleware
+ *
+ * @brief Middleware to add context on Request Object
+ */
+
+namespace PKP\core\middleware;
 
 use APP\core\Application;
 use Closure;

@@ -96,24 +96,15 @@
 						<td colspan="2" class="app--admin__systemInfoGroup">{$category}</td>
 					</tr>
 					{foreach from=$settings item="value" key="name"}
-						{if $category == "database"}
-							{if $name != "password"}
+					
 								<tr>
 									<td>{$name|escape}</td>
-									<td>{$value|escape}</td>
+									{if $value == "password"}
+										<td>**************</td>
+									{else}
+										<td>{$value|escape}</td>
+									{/if}
 								</tr>
-							{else}
-								<tr>
-									<td>{$name|escape}</td>
-									<td>**************</td>
-								</tr>
-							{/if}
-						{else}
-							 <tr>
-								 <td>{$name|escape}</td>
-								 <td>{$value|escape}</td>
-							</tr>
-						{/if}
 					{/foreach}
 				</tbody>
 			{/foreach}

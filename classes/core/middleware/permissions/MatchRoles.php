@@ -40,7 +40,7 @@ class MatchRoles
 
         $finalRoles = [];
         foreach ($roles as $role) {
-            $finalRoles[$role->getId()] = true;
+            $finalRoles[] = $role->getId();
         }
 
         return $finalRoles;

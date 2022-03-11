@@ -17,12 +17,11 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\form\Form;
 use PKP\mail\mailables\ReviewAcknowledgement;
-use PKP\mail\SubmissionMailTemplate;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Mailer\Exception\TransportException;
 use PKP\notification\PKPNotification;
 use PKP\context\ContextDAO;
-use PKP\i18n\PKPLocale;
+use PKP\facades\Locale;
 
 class ThankReviewerForm extends Form
 {
@@ -116,7 +115,7 @@ class ThankReviewerForm extends Form
 
         HookRegistry::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);
         if (!$this->getData('skipEmail')) {
-            $mailable->setData(PKPLocale::getLocale());
+            $mailable->setData(Locale::getLocale());
             try {
                 Mail::send($mailable);
             } catch (TransportException $e) {

@@ -176,6 +176,13 @@
 				"$ref": "#/definitions/UserInterest"
 			}
 		},
+                "preferredLanguage": {
+			"type": "string",
+			"validation": [
+				"regex:/^[a-z]{2}_[A-Z]{2}$/",
+                                "nullable"
+				]
+		},
 		"locales": {
 			"type": "array",
 			"items": {

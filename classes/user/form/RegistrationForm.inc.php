@@ -65,6 +65,7 @@ class RegistrationForm extends Form
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'givenName', 'required', 'user.profile.form.givenNameRequired'));
 
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'preferredLanguage', 'required', 'user.profile.form.preferrendLanguageRequired'));
 
         // Email checks
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
@@ -116,11 +117,15 @@ class RegistrationForm extends Form
         $userFormHelper = new UserFormHelper();
         $userFormHelper->assignRoleContent($templateMgr, $request);
 
+        $requestPreferredLanguage = $request->getPreferredLanguage();
         $templateMgr->assign([
             'source' => $request->getUserVar('source'),
             'minPasswordLength' => $site->getMinPasswordLength(),
             'enableSiteWidePrivacyStatement' => Config::getVar('general', 'sitewide_privacy_statement'),
             'siteWidePrivacyStatement' => $site->getData('privacyStatement'),
+            'availableLocales' => $site->getSupportedLocaleNames(),
+            'locales' => [$requestPreferredLanguage],
+            'preferredLanguage' => $requestPreferredLanguage,
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -132,7 +137,6 @@ class RegistrationForm extends Form
     public function initData()
     {
         $this->_data = [
-            'locales' => [],
             'userGroupIds' => [],
         ];
     }
@@ -158,6 +162,8 @@ class RegistrationForm extends Form
             'privacyConsent',
             'readerGroup',
             'reviewerGroup',
+            'locales',
+            'preferredLanguage'
         ]);
 
         if ($this->captchaEnabled) {
@@ -171,6 +177,10 @@ class RegistrationForm extends Form
             array_keys((array) $this->getData('readerGroup')),
             array_keys((array) $this->getData('reviewerGroup'))
         ));
+
+        if ($this->getData('locales') == null || !is_array($this->getData('locales'))) {
+            $this->setData('locales', []);
+        }
     }
 
     /**
@@ -179,6 +189,20 @@ class RegistrationForm extends Form
     public function validate($callHooks = true)
     {
         $request = Application::get()->getRequest();
+
+        //Ensure a preferredLanguage has been selected and is valid, also locales are valid
+        $site = $request->getSite();
+        $availableLocales = $site->getSupportedLocales();
+        if ( ! (Locale::isLocaleValid($this->getData('preferredLanguage')) &&
+                in_array($this->getData('preferredLanguage'), $availableLocales)) ) {
+            $this->addError('preferredLanguage', __('user.register.form.badLocale'));
+        }
+
+        foreach ($this->getData('locales') as $locale) {
+            if (! (Locale::isLocaleValid($locale) && in_array($locale, $availableLocales)) ) {
+                $this->addError('locales', __('user.register.form.badLocale'));
+            }
+        }
 
         // Ensure the consent checkbox has been completed for the site and any user
         // group signups if we're in the site-wide registration form
@@ -243,12 +267,22 @@ class RegistrationForm extends Form
         $user->setEmail($this->getData('email'));
         $user->setCountry($this->getData('country'));
         $user->setAffiliation($this->getData('affiliation'), $currentLocale);
+        $user->setPreferredLanguage($this->getData('preferredLanguage'));
 
         if ($sitePrimaryLocale != $currentLocale) {
             $user->setGivenName($this->getData('givenName'), $sitePrimaryLocale);
             $user->setFamilyName($this->getData('familyName'), $sitePrimaryLocale);
             $user->setAffiliation($this->getData('affiliation'), $sitePrimaryLocale);
         }
+
+        $availableLocales = $site->getSupportedLocales();
+        $locales = [];
+        foreach ($this->getData('locales') as $locale) {
+            if (Locale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
+                array_push($locales, $locale);
+            }
+        }
+        $user->setLocales($locales);
 
         $user->setDateRegistered(Core::getCurrentDate());
         $user->setInlineHelp(1); // default new users to having inline help visible.

@@ -21,6 +21,7 @@ use APP\template\TemplateManager;
 use PKP\mail\MailTemplate;
 use PKP\notification\PKPNotification;
 use PKP\user\InterestManager;
+use PKP\facades\Locale;
 
 class CreateReviewerForm extends ReviewerForm
 {
@@ -58,6 +59,7 @@ class CreateReviewerForm extends ReviewerForm
             return !Repo::user()->getByEmail($email, true);
         }));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'preferredLanguage', 'required', 'user.profile.form.preferrendLanguageRequired'));
     }
 
 
@@ -72,7 +74,14 @@ class CreateReviewerForm extends ReviewerForm
         $this->setReviewerFormAction($advancedSearchAction);
         $site = $request->getSite();
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('sitePrimaryLocale', $site->getPrimaryLocale());
+        $requestPreferredLanguage = $request->getPreferredLanguage();
+
+        $templateMgr->assign(['sitePrimaryLocale', $site->getPrimaryLocale(),
+            'availableLocales' => $site->getSupportedLocaleNames(),
+            'locales' => [$requestPreferredLanguage],
+            'preferredLanguage' => $requestPreferredLanguage,
+            ]);
+
         return parent::fetch($request, $template, $display);
     }
 
@@ -94,8 +103,38 @@ class CreateReviewerForm extends ReviewerForm
             'email',
             'skipEmail',
             'userGroupId',
+            'locales',
+            'preferredLanguage'
         ]);
+
+        if ($this->getData('locales') == null || !is_array($this->getData('locales'))) {
+            $this->setData('locales', []);
+        }
     }
+
+
+    /**
+     * @copydoc Form::validate()
+     */
+    public function validate($callHooks = true)
+    {
+        $request = Application::get()->getRequest();
+        //Ensure a preferredLanguage has been selected and is valid, also locales are valid
+        $site = $request->getSite();
+        $availableLocales = $site->getSupportedLocales();
+        if ( ! (Locale::isLocaleValid($this->getData('preferredLanguage')) &&
+                in_array($this->getData('preferredLanguage'), $availableLocales)) ) {
+            $this->addError('preferredLanguage', __('user.register.form.badLocale'));
+        }
+
+        foreach ($this->getData('locales') as $locale) {
+            if (! (Locale::isLocaleValid($locale) && in_array($locale, $availableLocales)) ) {
+                $this->addError('locales', __('user.register.form.badLocale'));
+            }
+        }
+        return parent::validate($callHooks);
+    }
+
 
     /**
      * @copydoc Form::execute()
@@ -127,6 +166,18 @@ class CreateReviewerForm extends ReviewerForm
             $user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
         }
         $user->setMustChangePassword(true); // Emailed P/W not safe
+        $user->setPreferredLanguage($this->getData('preferredLanguage'));
+        $request = Application::get()->getRequest();
+        $site = $request->getSite();
+
+        $availableLocales = $site->getSupportedLocales();
+        $locales = [];
+        foreach ($this->getData('locales') as $locale) {
+            if (Locale::isLocaleValid($locale) && in_array($locale, $availableLocales)) {
+                array_push($locales, $locale);
+            }
+        }
+        $user->setLocales($locales);
 
         $user->setDateRegistered(Core::getCurrentDate());
         $reviewerId = Repo::user()->add($user);

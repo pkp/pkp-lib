@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2022-03-02 12:31+0000\n"
+"PO-Revision-Date: 2022-03-11 21:19+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
@@ -2213,3 +2213,135 @@ msgstr "Denne indsendelse er klar til at blive sendt til fagfællebedømmelse."
 
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Send til bedømmelse"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Du kan ikke komme med en anbefaling, indtil der tildeles en redaktør med "
+"tilladelse til at registrere en beslutning."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} anbefalede at denne indsendelse afvises."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Anbefal at indsendelsen afvises til publicering."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Anbefal afvisning"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} anbefalede at der anmodes om revisioner og at disse revisioner "
+"sendes i endnu en bedømmelsesrunde."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Anbefal at forfatteren bedes om at indsende revisioner til endnu en "
+"bedømmelsesrunde."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Anbefal at fremsende igen til bedømmelse"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} anbefalede at der bliver anmodet om revisioner."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Anbefal at forfatteren bliver anmodet om revisioner før denne indsendelse "
+"bliver accepteret til publicering."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Anbefal revisioner"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"Din anbefaling er blevet registreret og de(n) besluttende redaktør(er) er "
+"blevet informeret herom."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Anbefaling indsendt"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} anbefalede at denne indsendelse bliver accepteret og sendt "
+"videre til kopiredigering."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Anbefal at denne indsendelse bliver accepteret til publicering og sendt til "
+"kopiredigering."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Anbefal acceptering"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Send en meddelelse for at informere om anbefalingen til den besluttende "
+"redaktør. Forklar hvorfor denne anbefaling blev truffet som reaktion på "
+"anbefalingerne og kommentarerne indsendt af bedømmerne."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr "Indsendelsen, {$title}, er nu aktiv på indsendelsestrinnet."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Send en e-mail til forfatterne for at informere dem om, at en tidligere "
+"beslutning om at afvise denne indsendelse er blevet omgjort. Forklar hvorfor "
+"beslutningen blev truffet, og informer dem om, hvorvidt indsendelsen "
+"forventes at gennemgå yderligere bedømmelse."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+"Indsendelsen, {$title}, er nu en aktiv indsendelse på bedømmelsestrinnet."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Indsendelse genaktiveret"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} omgjorde beslutningen om at afvise denne indsendelse."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Omgør en tidligere beslutning om at afvise denne indsendelse, og aktiver "
+"dermed den redaktionelle proces."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Send en e-mail til forfatterne og informer dem om, at deres indsendelse er "
+"blevet accepteret til publicering og sendt til kopiredigeringstrinnet uden "
+"bedømmelse."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Indsendelsen, {$title}, sprang over bedømmelsestrinnet og er blevet sendt "
+"videre til kopiredigeringstrinnet."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Sprang over bedømmelse"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} sprang over bedømmelsestrinnet og sendte denne indsendelse "
+"videre til kopiredigeringstrinnet."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Godkend denne indsendelse til publicering og spring over bedømmelsestrinnet. "
+"Denne beslutning vil sende indsendelsen til kopiredigeringstrinnet."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Send en e-mail til forfatterne for at informere dem om, at deres indsendelse "
+"blev sendt tilbage til kopiredigeringstrinnet. Forklar hvorfor denne "
+"beslutning blev truffet og informer forfatterne om hvilken yderligere "
+"redigering, der vil være påkrævet, før indsendelsen kan blive klar til "
+"produktion."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr "Indsendelsen, {$title}, blev sendt tilbage til kopiredigeringstrinnet."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Sendt tilbage til kopiredigering"
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+"{$editorName} sendte denne indsendelse tilbage til kopiredigeringstrinnet."

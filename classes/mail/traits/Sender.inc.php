@@ -25,7 +25,7 @@ trait Sender
     /**
      * User that sends mailable
      */
-    protected User $senderUser;
+    protected User $sender;
 
     /**
      * @copydoc Illuminate\Mail\Mailable::setAddress()
@@ -51,12 +51,12 @@ trait Sender
     {
         $this->setAddress($sender->getEmail(), $sender->getFullName($defaultLocale), 'from');
         $this->variables[] = new SenderEmailVariable($sender);
-        $this->senderUser = $sender;
+        $this->sender = $sender;
         return $this;
     }
 
     public function getSenderUser(): User
     {
-        return $this->senderUser;
+        return $this->sender;
     }
 }

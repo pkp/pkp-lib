@@ -44,7 +44,6 @@ class I7592_RemoveUnusedEmailTemplates extends \PKP\migration\Migration
             ->whereIn('email_key', $emailKeys)
             ->delete();
 
-
         DB::table('email_templates_default_data')
             ->whereIn('email_key', $emailKeys)
             ->delete();

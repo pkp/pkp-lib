@@ -29,7 +29,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
 use PKP\db\DAORegistry;
-use PKP\i18n\PKPLocale;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\SubmissionLog;
@@ -37,22 +37,15 @@ use PKP\emailtemplate\EmailTemplate;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\MailReviewerReinstated;
 use PKP\mail\mailables\MailReviewerUnassigned;
-use PKP\mail\Sender;
+use PKP\mail\traits\Sender;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
-
-// FIXME: Add namespacing
-import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
-
-use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\user\User;
 use ReviewerGridCellProvider;
-
-import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
 use ReviewerGridRow;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -980,13 +973,12 @@ class PKPReviewerGridHandler extends GridHandler
 
         $user = $request->getUser();
         $mailable->sender($user);
-        $mailable->setData(PKPLocale::getLocale());
         $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
         ]);
 
-        $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData);
+        $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(Locale::getLocale()));
 
         return new JSONMessage(true, $body);
     }

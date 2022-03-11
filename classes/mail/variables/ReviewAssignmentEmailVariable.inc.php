@@ -36,7 +36,7 @@ class ReviewAssignmentEmailVariable extends Variable
     {
         $this->reviewAssignment = $reviewAssignment;
         $this->submission = Repo::submission()->get($this->reviewAssignment->getSubmissionId());
-        $contextDao = Application::getContextDAO();;
+        $contextDao = Application::getContextDAO();
         $this->context = $contextDao->getById($this->submission->getData('contextId'));
     }
 

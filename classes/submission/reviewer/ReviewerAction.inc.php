@@ -79,9 +79,9 @@ class ReviewerAction
             $mailable = $this->getResponseEmail($submission, $reviewAssignment, $decline, $emailText);
             HookRegistry::call('ReviewerAction::confirmReview', [$request, $submission, $mailable, $decline]);
 
-            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
+            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
             $sender = $mailable->getSenderUser();
-            $logDao->logMailable(
+            $submissionEmailLogDao->logMailable(
                 $decline ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_CONFIRM,
                 $mailable,
                 $submission,

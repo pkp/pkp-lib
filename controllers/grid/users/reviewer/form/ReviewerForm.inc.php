@@ -291,7 +291,10 @@ class ReviewerForm extends Form
         }
 
         $templatesCollection = Repo::emailTemplate()->getMany(
-            Repo::emailTemplate()->getCollector()->filterByKeys($templateKeys)->filterByContext($context->getId())
+            Repo::emailTemplate()
+                ->getCollector()
+                ->filterByKeys($templateKeys)
+                ->filterByContext($context->getId())
         );
         $templates = $templatesCollection->mapWithKeys(function(EmailTemplate $emailTemplate, int $key) {
             return [

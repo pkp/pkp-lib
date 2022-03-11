@@ -251,6 +251,12 @@ msgstr "New issue published email notifications"
 msgid "user.profile.form.urlInvalid"
 msgstr "The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)"
 
+msgid "user.profile.preferredLanguage"
+msgstr "Corresponding language"
+
+msgid "user.profile.form.preferrendLanguageRequired"
+msgstr "You must select a preferred language (used for corresponding)"
+
 msgid "user.profile.form.usergroupRequired"
 msgstr "A user group is required."
 
@@ -310,6 +316,9 @@ msgstr "The selected username is already in use by another user."
 
 msgid "user.register.form.passwordLengthRestriction"
 msgstr "The password must be at least {$length} characters."
+
+msgid "user.register.form.badLocale"
+msgstr "Selected locales are not available."
 
 msgid "user.register.registerAs"
 msgstr "Register in {$contextName} as..."

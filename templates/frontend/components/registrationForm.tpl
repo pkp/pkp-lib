@@ -70,7 +70,7 @@
                 <div class="language">
 			<label>
 				<span class="label">
-					{translate key="user.preferredLanguage"}
+					{translate key="user.profile.preferredLanguage"}
 					<span class="required" aria-hidden="true">*</span>
 					<span class="pkp_screen_reader">
 						{translate key="common.required"}

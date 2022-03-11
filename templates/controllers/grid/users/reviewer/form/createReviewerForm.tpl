@@ -64,7 +64,7 @@
 	{/fbvFormSection}
 
         {fbvFormSection}
-                {fbvElement type="select" label="user.preferredLanguage" name="preferredLanguage" id="preferredLanguage" required=true  from=$availableLocales selected=$preferredLanguage translate=false size=$fbvStyles.size.MEDIUM}
+                {fbvElement type="select" label="user.profile.preferredLanguage" name="preferredLanguage" id="preferredLanguage" required=true  from=$availableLocales selected=$preferredLanguage translate=false size=$fbvStyles.size.MEDIUM}
         {/fbvFormSection}
 
 	{if count($availableLocales) > 1}

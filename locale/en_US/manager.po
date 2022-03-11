@@ -2542,7 +2542,7 @@ msgid "mailable.reviewConfirm.name"
 msgstr "Review Confirm"
 
 msgid "mailable.reviewConfirm.description"
-msgstr "This email is automatically sent when a reviewer accepts review request"
+msgstr "This email is automatically sent when a reviewer accepts a review request"
 
 msgid "mailable.reviewDecline.name"
 msgstr "Review Decline"
@@ -2551,13 +2551,13 @@ msgid "mailable.reviewDecline.description"
 msgstr "This email is sent by a reviewer when declining a review request"
 
 msgid "mailable.reviewRemind.name"
-msgstr "Review Remind"
+msgstr "Review Reminder"
 
 msgid "mailable.reviewRemind.description"
 msgstr "This email is sent by an Editor to remind a reviewer that their review is due"
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr "Review Remind Auto"
+msgstr "Review Reminder (Automated)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr "This email is automatically sent when a reviewer has not completed their review by the due date."

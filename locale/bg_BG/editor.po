@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-10 19:56+0000\n"
+"PO-Revision-Date: 2022-03-11 21:19+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/bg_BG/>\n"
@@ -33,3 +33,73 @@ msgstr "Изпратените материали не са приети (отк
 
 msgid "editor.submission.workflowDecision.submission"
 msgstr "Решението е записано"
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Съобщение до потребителя"
+
+msgid "editor.review.notInitiated"
+msgstr "Процесът по рецензиране все още не е започнал."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Това решение не може да бъде намерено. Моля, посочете познат тип решение."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Не можа да се вземе решение по това подаване на материали. "
+"Идентификационният номер на подаването на материали липсва или не съвпада с "
+"исканото подаване на материали."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Не може да се направи препоръка, освен ако на този етап не е назначен "
+"редактор, който може да вземе окончателно решение."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"Трябва да се предостави идентификатор на кръга за рецензия, за да се вземе "
+"това решение."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Трябва да бъдете асоциирани за това подаване на материали, за да запишете "
+"редакционно решение."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Подаването на материали не е на подходящия етап от работния процес за "
+"вземане на това решение."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Този кръг на рецензиране не е част от това подаване на материали."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Предоставен е кръг за рецензиране, но това решение не се взема по време на "
+"етап на рецензиране."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Този кръг от рецензирането не можа да бъде намерен."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Не можете да изпратите имейл до следните получатели: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Редакторът не е разпознат и може да няма права да запише решение относно "
+"това подаване на материали."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Нямате права да запишете това решение в това подаване на материали."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Промяна на решението"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Изпратените материали са приети за рецензиране."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Изпратено за продукция (публикуване)."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Изпратено за нов кръг от рецензиране."

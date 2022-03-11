@@ -96,10 +96,14 @@
 						<td colspan="2" class="app--admin__systemInfoGroup">{$category}</td>
 					</tr>
 					{foreach from=$settings item="value" key="name"}
-						<tr>
-							<td>{$name|escape}</td>
-							<td>{$value|escape}</td>
-						</tr>
+								<tr>
+									<td>{$name|escape}</td>
+									{if $value == "password"}
+										<td>**************</td>
+									{else}
+										<td>{$value|escape}</td>
+									{/if}
+								</tr>
 					{/foreach}
 				</tbody>
 			{/foreach}

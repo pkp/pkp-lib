@@ -161,7 +161,7 @@ class ReviewerAction
 
         // Create dummy user if no one assigned
         if (empty($recipients)) {
-            $contextUser = new User();
+            $contextUser = Repo::user()->newDataObject();
             $supportedLocales = $context->getSupportedFormLocales();
             $contextUser->setData('givenName', array_fill_keys($supportedLocales, $context->getData('contactName')));
             $contextUser->setData('email', $context->getData('contactEmail'));

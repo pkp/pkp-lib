@@ -21,6 +21,7 @@
 
 namespace APP\install;
 
+use APP\core\Application;
 use PKP\install\PKPInstall;
 
 class Install extends PKPInstall
@@ -50,9 +51,7 @@ class Install extends PKPInstall
      */
     public function getCreateDirectories()
     {
-        $directories = parent::getCreateDirectories();
-        $directories[] = 'servers';
-        return $directories;
+        return [...parent::getCreateDirectories(), Application::getFileDirectories()['context']];
     }
 }
 

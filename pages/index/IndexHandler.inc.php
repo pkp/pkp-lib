@@ -17,6 +17,10 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 
 use APP\template\TemplateManager;
+use PKP\config\Config;
+use PKP\db\DAORegistry;
+use PKP\plugins\PluginRegistry;
+use PKP\security\Validation;
 
 import('lib.pkp.pages.index.PKPIndexHandler');
 
@@ -59,8 +63,11 @@ class IndexHandler extends PKPIndexHandler
             $sections = $sectionDao->getByContextId($server->getId());
 
             // OPS: categories
-            $categories = Repo::category()->getMany(Repo::category()->getCollector()
-                ->filterByContextIds([$server->getId()]));
+            $categories = Repo::category()->getMany(
+                Repo::category()
+                    ->getCollector()
+                    ->filterByContextIds([$server->getId()])
+            );
 
             // Latest preprints
             $collector = Repo::submission()->getCollector();
@@ -88,18 +95,17 @@ class IndexHandler extends PKPIndexHandler
 
             $templateMgr->display('frontend/pages/indexServer.tpl');
         } else {
-            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
+            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var APP\server\ServerDAO $serverDao */
             $site = $request->getSite();
 
             if ($site->getRedirect() && ($server = $serverDao->getById($site->getRedirect())) != null) {
                 $request->redirect($server->getPath());
             }
-
             $templateMgr->assign([
                 'pageTitleTranslated' => $site->getLocalizedTitle(),
                 'about' => $site->getLocalizedAbout(),
                 'serverFilesPath' => $request->getBaseUrl() . '/' . Config::getVar('files', 'public_files_dir') . '/contexts/',
-                'servers' => $serverDao->getAll(true),
+                'servers' => $serverDao->getAll(true)->toArray(),
                 'site' => $site,
             ]);
             $templateMgr->setCacheability(TemplateManager::CACHEABILITY_PUBLIC);

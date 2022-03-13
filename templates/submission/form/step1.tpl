@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Step 1 of author monograph submission.
+ * Step 1 of author preprint submission.
  *}
 {if $sectionOptions|@count == 1}
 	 {translate key="author.submit.notAccepting"}
@@ -17,7 +17,7 @@
 	{capture assign="additionalFormContent2"}
 		{if $sectionOptions|@count == 2}
 			{* There is only one section; choose it invisibly *}
-			{assign var=preselectedSectionId value=$sectionOptions|@array_keys|@array_pop}
+			{assign var=preselectedSectionId value=$sectionOptions|@array_key_last}
 			{fbvElement type="hidden" id="sectionId" value=$preselectedSectionId}
 
 			{if $sectionPolicies[$preselectedSectionId]}

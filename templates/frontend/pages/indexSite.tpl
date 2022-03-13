@@ -26,7 +26,7 @@
 			{translate key="site.noServers"}
 		{else}
 			<ul>
-				{iterate from=servers item=server}
+				{foreach from=$servers item="server"}
 					{capture assign="url"}{url server=$server->getPath()}{/capture}
 					{assign var="thumb" value=$server->getLocalizedData('serverThumbnail')}
 					{assign var="description" value=$server->getLocalizedDescription()}
@@ -59,7 +59,7 @@
 							</ul>
 						</div>
 					</li>
-				{/iterate}
+				{/foreach}
 			</ul>
 		{/if}
 	</div>

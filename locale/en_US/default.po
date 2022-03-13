@@ -21,7 +21,7 @@ msgid "section.default.path"
 msgstr "preprints"
 
 msgid "section.default.policy"
-msgstr ""
+msgstr "Section default policy"
 
 msgid "default.genres.preprint"
 msgstr "Preprint Text"

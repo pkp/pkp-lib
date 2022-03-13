@@ -25,7 +25,7 @@ use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewRemindAuto;
-use PKP\mail\mailables\ReviewResponseOverdueAuto;
+use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\security\AccessKeyManager;
 use PKP\security\Validation;
@@ -191,8 +191,8 @@ class ReviewReminder extends ScheduledTask
     {
         if ($reminderType === ReviewRemindAuto::EMAIL_KEY) {
             return new ReviewRemindAuto($reviewAssignment, $submission, $context);
-        } else if ($reminderType === ReviewResponseOverdueAuto::EMAIL_KEY) {
-            return new ReviewResponseOverdueAuto($reviewAssignment, $submission, $context);
+        } else if ($reminderType === ReviewResponseRemindAuto::EMAIL_KEY) {
+            return new ReviewResponseRemindAuto($reviewAssignment, $submission, $context);
         }
 
         throw new Exception("Unsupported reminder type: " . $reminderType);

@@ -21,7 +21,7 @@ use PKP\mail\traits\Recipient;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
-class ReviewResponseOverdueAuto extends Mailable
+class ReviewResponseRemindAuto extends Mailable
 {
     use Recipient;
 

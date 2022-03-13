@@ -17,7 +17,7 @@ namespace PKP\mail\mailables;
 
 use PKP\context\Context;
 use PKP\mail\Mailable;
-use PKP\mail\Recipient;
+use PKP\mail\traits\Recipient;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 

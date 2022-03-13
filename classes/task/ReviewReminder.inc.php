@@ -90,19 +90,8 @@ class ReviewReminder extends ScheduledTask
             $mailable->addData(['submissionReviewUrl' => $submissionReviewUrl]);
         }
 
+        // deprecated template variables OJS 2.x
         $mailable->addData([
-            // deprecated from OJS 3.3
-            'passwordResetUrl' => $dispatcher->url(
-                $request,
-                PKPApplication::ROUTE_PAGE,
-                $context->getPath(),
-                'login',
-                'resetPassword',
-                $reviewer->getUsername(),
-                ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())]
-            ),
-
-            // deprecated from OJS 2.x
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')),
         ]);

@@ -17,14 +17,13 @@ namespace PKP\mail\mailables;
 
 use APP\core\Application;
 use PKP\context\Context;
-use APP\facades\Repo;
 use PKP\mail\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\PasswordResetUrl;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\AccessKeyManager;
-use PKP\security\Validation;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -33,6 +32,7 @@ class ReviewRemind extends Mailable
     use Sender;
     use Recipient;
     use Configurable;
+    use PasswordResetUrl;
 
     public const EMAIL_KEY = 'REVIEW_REMIND';
 
@@ -55,7 +55,7 @@ class ReviewRemind extends Mailable
     /*
      * Override reviewAssignmentUrl template variable if one-click reviewer access is enabled and add passwordResetUrl
      */
-    public function setData(?string $locale = null)
+    public function setData(?string $locale = null): void
     {
         parent::setData($locale);
         $reviewerId = $this->reviewAssignment->getData('reviewerId');
@@ -80,7 +80,7 @@ class ReviewRemind extends Mailable
                 $dispatcher->url(
                     $request,
                     Application::ROUTE_PAGE,
-                    null,
+                    $this->context->getData('urlPath'),
                     'reviewer',
                     'submission',
                     null,
@@ -88,17 +88,16 @@ class ReviewRemind extends Mailable
             );
         }
 
-        // Old Review Remind template contains additional variable not supplied by _Variable classes
-        $reviewer = Repo::user()->get($reviewerId);
-        $this->viewData['passwordResetUrl'] =
-            $dispatcher->url(
-                $request,
-                Application::ROUTE_PAGE,
-                null,
-                'login',
-                'resetPassword',
-                $reviewer->getUsername(),
-                ['confirm' => Validation::generatePasswordResetHash($reviewerId)]
-            );
+        // Old REVIEW_REMIND template contains additional variable not supplied by _Variable classes
+        $this->setPasswordResetUrl($reviewerId, $this->context->getData('urlPath'));
+    }
+
+    /**
+     * @copydoc Mailable::getDataDescriptions()
+     */
+    public static function getDataDescriptions(): array
+    {
+        $variables = parent::getDataDescriptions();
+        return self::addPasswordResetUrlDescription($variables);
     }
 }

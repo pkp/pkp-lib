@@ -2391,6 +2391,9 @@ msgstr "The URL to the submission in the editorial backend"
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr "The names of the authors assigned to the submission workflow. Usually this is the submitting author"
 
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr "Hashed URL which is sent to a user to confirm the password reset"
+
 msgid "mailable.mailDiscussionMessage.name"
 msgstr "New Discussion Message"
 

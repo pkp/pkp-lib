@@ -70,8 +70,8 @@ class ReviewAssignmentEmailVariable extends Variable
     {
         $reviewDueDate = strtotime($this->reviewAssignment->getDateDue());
         if ($reviewDueDate === -1 || $reviewDueDate === false) {
-            // Default to something human-readable if no date specified
-            return '_____';
+            // Default to the variable name
+            return '{$' . self::REVIEW_DUE_DATE . '}';
         }
         return strftime($this->context->getLocalizedDateFormatShort($locale), $reviewDueDate);
     }
@@ -80,8 +80,8 @@ class ReviewAssignmentEmailVariable extends Variable
     {
         $responseDueDate = strtotime($this->reviewAssignment->getDateResponseDue());
         if ($responseDueDate === -1 || $responseDueDate === false) {
-            // Default to something human-readable if no date specified
-            return '_____';
+            // Default to the variable name
+            return '{$' . self::RESPONSE_DUE_DATE . '}';
         }
         return strftime($this->context->getLocalizedDateFormatShort($locale), $responseDueDate);
     }

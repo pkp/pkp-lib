@@ -216,7 +216,7 @@ class PKPAuthorForm extends Form
             }
         }
 
-        $author->setGivenName($this->getData('givenName'), null);
+        $author->setGivenName(array_map('trim', $this->getData('givenName')), null);
         $author->setFamilyName($this->getData('familyName'), null);
         $author->setPreferredPublicName($this->getData('preferredPublicName'), null);
         $author->setAffiliation($this->getData('affiliation'), null); // localized

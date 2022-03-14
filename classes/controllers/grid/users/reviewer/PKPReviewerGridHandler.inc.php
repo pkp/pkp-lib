@@ -965,7 +965,7 @@ class PKPReviewerGridHandler extends GridHandler
         {
             use Sender;
         };
-        $template = $mailable->getTemplate($context->getId(), $request->getUserVar('template'));
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $request->getUserVar('template'));
 
         if (!$template) {
             return;

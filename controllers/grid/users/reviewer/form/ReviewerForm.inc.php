@@ -216,7 +216,7 @@ class ReviewerForm extends Form
         $reviewAssignment->setSubmissionId($this->getSubmissionId());
 
         $mailable = new MailReviewerAssigned($context, $submission, $reviewAssignment);
-        $template = $mailable->getTemplate($context->getId(), $templateKey);
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
         $mailable->sender($request->getUser());
         $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),

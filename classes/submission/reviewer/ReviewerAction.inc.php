@@ -171,7 +171,7 @@ class ReviewerAction
         $mailable->recipients($recipients);
 
         // Set email body and subject
-        $template = $mailable->getTemplate($context->getId());
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
         $emailText ? $mailable->body($emailText) : $mailable->body($template->getLocalizedData('body'));
         $mailable->subject($template->getLocalizedData('subject'));
 

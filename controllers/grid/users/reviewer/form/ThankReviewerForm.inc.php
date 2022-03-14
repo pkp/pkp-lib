@@ -73,14 +73,14 @@ class ThankReviewerForm extends Form
 
         $mailable = new ReviewAcknowledgement($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
-        $template = $mailable->getTemplate($context->getId());
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
 
         $this->setData('submissionId', $submission->getId());
         $this->setData('stageId', $reviewAssignment->getStageId());
         $this->setData('reviewAssignmentId', $reviewAssignment->getId());
         $this->setData('reviewAssignment', $reviewAssignment);
         $this->setData('reviewerName', $reviewer->getFullName() . ' <' . $reviewer->getEmail() . '>');
-        $this->setData('message', Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(PKPLocale::getLocale())));
+        $this->setData('message', Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(Locale::getLocale())));
     }
 
     /**
@@ -110,7 +110,7 @@ class ThankReviewerForm extends Form
         // Create mailable and populate with data
         $mailable = new ReviewAcknowledgement($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
-        $template = $mailable->getTemplate($context->getId());
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
         $mailable->body($this->getData('message'))->subject($template->getLocalizedData('subject'));
 
         HookRegistry::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);

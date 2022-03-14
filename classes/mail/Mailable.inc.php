@@ -219,23 +219,6 @@ class Mailable extends IlluminateMailable
     }
 
     /**
-     * Retrieve associated email template or by a template key for editable emails
-     * @throws Exception
-     */
-    public function getTemplate(int $contextId, string $templateKey = null): EmailTemplate
-    {
-        if ($templateKey) {
-            return Repo::emailTemplate()->getByKey($contextId, $templateKey);
-        }
-
-        if (static::EMAIL_KEY != null) {
-            return Repo::emailTemplate()->getByKey($contextId, static::EMAIL_KEY);
-        }
-
-        throw new Exception('Associated email template key should be defined as a constant or passed as a second parameter');
-    }
-
-    /**
      * Allow data to be passed to the subject
      *
      * @param \Illuminate\Mail\Message $message

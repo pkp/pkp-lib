@@ -66,7 +66,7 @@ class ReviewReminder extends ScheduledTask
         $mailable = $this->getMailable($reminderType, $reviewAssignment, $submission, $context);
 
         $primaryLocale = $context->getPrimaryLocale();
-        $emailTemplate = $mailable->getTemplate($context->getId());
+        $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
         $mailable->subject($emailTemplate->getData('subject', $primaryLocale))
             ->body($emailTemplate->getData('body', $primaryLocale))
             ->from($context->getData('contactEmail'), $context->getData('contactName'))

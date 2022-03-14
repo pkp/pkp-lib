@@ -77,7 +77,7 @@ class ReviewReminderForm extends Form
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
-        $template = $mailable->getTemplate($context->getId());
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
         $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(PKPLocale::getLocale()));
 
         $this->setData('stageId', $reviewAssignment->getStageId());
@@ -132,7 +132,7 @@ class ReviewReminderForm extends Form
         // Create ReviewRemind email and populate with data
         $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
-        $template = $mailable->getTemplate($context->getId());
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
         $mailable->subject($template->getLocalizedData('subject'))->body($this->getData('message'));
         $mailable->setData(Locale::getLocale());
 

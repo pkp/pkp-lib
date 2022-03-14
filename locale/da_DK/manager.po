@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-02-21 07:33+0000\n"
+"PO-Revision-Date: 2022-03-14 10:24+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2631,3 +2631,117 @@ msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
 "Om DOI'er skal registreres automatisk hos den registreringsorganisation, der "
 "er konfigureret i opsætningen."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Vi har bedt forfatterne indsende en revideret version til videre bedømmelse."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Vi har bedt forfatterne indsende revisioner."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Vi har besluttet af afvise denne indsendelse."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Vi har besluttet af acceptere denne indsendelse uden revisioner."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"En kort beskrivelse af denne beslutning, som er ment til at blive delt i en "
+"e-mail besked, der sendes til bedømmerne omkring denne indsendelse."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Denne e-mail sendes til en redaktør eller bedømmer for at informere dem om, "
+"at der er blevet truffet en beslutning angående en indsendelse, som de har "
+"bedømt."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Bekræftelse af bedømmer"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "En kopi af den e-mail, der blev sendt til den indsendende forfatter"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Denne e-mail sendes for at informere forfattere af en indsendelse, som ikke "
+"er tilmeldt som deltagere i det redaktionelle workflow, om at der er truffet "
+"en beslutning. Dette drejer sig som regel om alle andre end den indsendende "
+"forfatter."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Underret andre forfattere"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Navnene på forfatterne tilmeldt det redaktionelle workflow. Det er som regel "
+"kun den indsendende forfatter"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Forfatterens URL til indsendelsen"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Dette tidsskrift foretager åbne fagfællebedømmelser. Bedømmerne vil se dit "
+"og dine medforfatteres navne og tilknytninger. På samme vis vil du se navn "
+"og tilknytning på dine bedømmere."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Dette tidsskrift foretager \"anonym bedømmer\" fagfællebedømmelse. Dit og "
+"dine medforfatteres navne vil være synlige for bedømmerne, mens bedømmernes "
+"identiteter vil forblive anonyme."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Dette tidsskrift foretager dobbelt-anonyme fagfællebedømmelser. Bedømmerne "
+"vil ikke se nogle identificerbare informationer omkring dig eller dine "
+"medforfattere. På samme vis, vil du ikke vide hvem der bedømte din "
+"indsendelse, og du vil ikke høre direkte fra bedømmerne."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"En beskrivelse af standard bedømmelsesmetoden, som fx dobbelt anonym eller "
+"åben."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Den anbefalede beslutning, som fx Accepter Indsendelse"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Bedømmelsesrunden, hvor denne beslutning blev truffet, hvis beslutningen er "
+"relateret til bedømmelsestrinnet."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+"Trinnet af det redaktionelle workflow, hvor denne beslutning blev truffet."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "En beskrivelse af den trufne beslutning."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Navnet på beslutningen, der blev truffet."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "URL til at se alle brugerens tildelte indsendelser."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Alle kommentarer fra færdiggjorte bedømmelser. Bedømmeres navne er skjulte "
+"ved anonyme bedømmelser"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Send kun en e-mail til forfattere, der er tilmeldt det redaktionelle "
+"workflow. Dette er som regel kun den indsendende forfatter."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Send en besked via e-mail til alle forfattere af indsendelsen."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Hvem skal modtage en besked via e-mail, når en redaktionel beslutning "
+"registreres?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Underret alle forfattere"

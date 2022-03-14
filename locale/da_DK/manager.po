@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-03-14 10:31+0000\n"
+"PO-Revision-Date: 2022-03-14 10:37+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2797,3 +2797,19 @@ msgstr ""
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
 msgstr "Ny bedømmelsesrunde indledt"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Denne e-mail meddeler forfatteren om en beslutning angående vedkommendes "
+"indsendelse om at revidere og indsende igen."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Fremsend igen til bedømmelse"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Denne e-mail meddeler forfatteren om en beslutning om at ønske rettelser "
+"under fagfællebedømmelsen."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Rettelser ønskes"

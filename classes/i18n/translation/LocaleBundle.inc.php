@@ -61,7 +61,7 @@ class LocaleBundle
     public function translateSingular(string $key, array $params = []): ?string
     {
         $message = $this->getTranslator()->getSingular($key);
-        return strlen($message) ? $this->_format($message, $params) : null;
+        return $message !== null ? $this->_format($message, $params) : null;
     }
 
     /**
@@ -78,7 +78,7 @@ class LocaleBundle
     public function translatePlural(string $key, int $count, array $params = []): ?string
     {
         $message = $this->getTranslator()->getPlural($key, $count);
-        return strlen($message) ? $this->_format($message, $params) : null;
+        return $message !== null ? $this->_format($message, $params) : null;
     }
 
     /**

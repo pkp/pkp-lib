@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-03-09 12:58+0000\n"
+"PO-Revision-Date: 2022-03-14 18:24+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -2626,3 +2626,139 @@ msgstr ""
 "terão acesso a qualquer informação de identificação sobre si ou os seus "
 "coautores. Da mesma forma, não saberá quem fez a revisão da sua submissão, e "
 "não receberá notícias diretamente dos revisores."
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Esta mensagem notifica um Editor sénior ou Editor de Secção que uma "
+"recomendação editorial foi emitida relativa a uma das submissões a que está "
+"designado. Esta mensagem é usada quando um editor só tem permissões de "
+"recomendar uma decisão editorial e é necessário um editor autorizado para "
+"registar as decisões editoriais. Esta opção pode ser selecionado ao designar "
+"participantes a uma submissão."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Recomendação feita"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que a sua submissão será enviada diretamente "
+"para a etapa de edição de texto sem revisão por pares."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Revisão ignorada"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que a sua submissão está a ser enviada para "
+"a etapa de produção."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Enviado para Produção"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que a sua submissão está a ser enviada para "
+"a etapa de revisão."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Enviar para Revisão"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma decisão anterior de rejeitar a sua "
+"submissão sem revisão foi revertida."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Reintegrar Submissão Rejeitada sem Revisão"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a decisão anterior de rejeitar a sua "
+"submissão após revisão por pares foi revertida."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Reintegrar Submissão Rejeitada"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor da decisão de \"rever e submeter novamente para "
+"revisão\" relativa à sua submissão."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Submeter novamente para revisão"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor da decisão de solicitar revisões durante a "
+"revisão por pares."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Revisões Solicitadas"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma nova ronda de revisão foi iniciada "
+"para a sua submissão."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Nova Ronda de Revisão iniciada"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Submissão Rejeitada"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a sua submissão foi rejeitada após revisão "
+"por pares."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Submissão Rejeitada"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
+"etapa de submissão."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Submissão enviada de volta para Submissão"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
+"etapa de revisão."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Submissão enviada de volta para Revisão"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
+"etapa de edição de texto."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Submissão enviada de volta para Edição de Texto"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a sua submissão foi aceite para publicação."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Submissão Aceite"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Convidámos os autores a submeter uma versão revista para revisão adicional."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.pendingRevisions"
+msgstr "Convidámos os autores a submeter revisões."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Decidimos rejeitar esta submissão."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Decidimos aceitar esta submissão sem revisões."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Uma breve descrição desta decisão que se destina a ser partilhada através de "
+"notificação de e-mail enviada aos revisores sobre esta decisão."

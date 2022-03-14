@@ -2765,3 +2765,11 @@ msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
 "blevet sendt tilbage til kopiredigeringstrinnet."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Indsendelse sendt tilbage til indsendelsestrinnet"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
+"blevet sendt tilbage til bedømmelsestrinnet."

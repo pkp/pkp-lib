@@ -32,7 +32,6 @@ use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewConfirm;
 use PKP\mail\mailables\ReviewDecline;
 use PKP\notification\PKPNotification;
-
 use PKP\plugins\HookRegistry;
 use PKP\security\Role;
 use PKP\security\UserGroupDAO;
@@ -40,7 +39,6 @@ use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
-use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class ReviewerAction
@@ -125,14 +123,13 @@ class ReviewerAction
 
     /**
      * Get the reviewer response email template.
-     * @return ReviewConfirm|ReviewDecline
      */
     public function getResponseEmail(
         PKPSubmission $submission,
         ReviewAssignment $reviewAssignment,
         bool $decline,
         ?string $emailText
-    ): Mailable
+    ): ReviewConfirm|ReviewDecline
     {
         $context = Application::getContextDAO()->getById($submission->getData('contextId')); /** @var Context $context */
 

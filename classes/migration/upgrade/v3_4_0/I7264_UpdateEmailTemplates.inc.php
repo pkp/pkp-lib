@@ -149,6 +149,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
             'NOTIFICATION' => [
                 'url' => 'notificationUrl',
                 'principalContactSignature' => 'contextSignature',
+                'siteTitle' => 'contextName',
             ],
             'NOTIFICATION_CENTER_DEFAULT' => [
                 'contextName' => 'contextName',

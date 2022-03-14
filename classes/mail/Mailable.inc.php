@@ -45,7 +45,6 @@ use PKP\file\TemporaryFileManager;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\variables\DecisionEmailVariable;
-use PKP\emailTemplate\EmailTemplate;
 use PKP\mail\variables\QueuedPaymentEmailVariable;
 use PKP\mail\variables\RecipientEmailVariable;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;

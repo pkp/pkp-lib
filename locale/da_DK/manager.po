@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-03-14 10:39+0000\n"
+"PO-Revision-Date: 2022-03-14 10:51+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da_DK/>\n"
@@ -2816,3 +2816,19 @@ msgstr "Rettelser ønskes"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
 msgstr "Genindsæt afvist indsendelse"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Sendt til bedømmelse"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at en tidligere beslutning om at "
+"afvise vedkommendes indsendelse uden bedømmelse er blevet omstødt."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Genindsæt indsendelse, der blev afvist uden bedømmelse"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Denne e-mail informerer forfatteren om, at en tidligere beslutning om at "
+"afvise vedkommendes indsendelse efter fagfællebedømmelsen er blevet omstødt."

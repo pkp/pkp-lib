@@ -28,7 +28,6 @@ use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
-use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewConfirm;
 use PKP\mail\mailables\ReviewDecline;
 use PKP\notification\PKPNotification;
@@ -158,11 +157,10 @@ class ReviewerAction
 
         // Create dummy user if no one assigned
         if (empty($recipients)) {
-            $contextUser = Repo::user()->newDataObject();
-            $supportedLocales = $context->getSupportedFormLocales();
-            $contextUser->setData('givenName', array_fill_keys($supportedLocales, $context->getData('contactName')));
-            $contextUser->setData('email', $context->getData('contactEmail'));
-            $recipients[] = $contextUser;
+            $contextUser = Repo::user()->getUserFromContextContact($context);
+            if ($contextUser->getData('email')) {
+                $recipients[] = $contextUser;
+            }
         }
 
         $mailable->recipients($recipients);

@@ -22,7 +22,5 @@
             <li><a href="{url op="reports" path="report" pluginName=$plugin->getName()|escape}">{$plugin->getDisplayName()|escape}</a></li>
         {/foreach}
         </ul>
-
-        <p><a class="pkp_button" href="{url op="reports" path="reportGenerator"}">{translate key="manager.statistics.reports.generateReport"}</a></p>
     </div>
 {/block}

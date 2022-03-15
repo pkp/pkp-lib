@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-14 18:24+0000\n"
+"PO-Revision-Date: 2022-03-15 11:18+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -305,3 +305,102 @@ msgstr ""
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Изпратени са нови рецензии и се разглеждат от редактора."
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Моля въведете валидно място на провеждане на конференцията."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Място на провеждане на конференцията"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Моля, въведете валидна дата на конференцията (формат: ГГГГ-ММ-ДД)."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Дата на конференцията"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Моля, въведете валидно допълнение на изданието."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Допълнение"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Моля, въведете валидна серия."
+
+msgid "metadata.property.displayName.series"
+msgstr "Серия"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Моля, въведете валидно издание."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Издание"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Моля, въведете валидно заглавие на глава на изданието."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Заглавие на глава"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Моля, въведете валиден сезон (при серии) на изданието."
+
+msgid "metadata.property.displayName.season"
+msgstr "Сезон (при серии)"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Моля, въведете валиден том на изданието."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Том"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Моля, въведете валиден брой на изданието."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Брой"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Моля, въведете валидна дата на достъп (формат: ГГГГ-ММ-ДД)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Дата на достъп"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Моля, въведете валидна дата на публикуване (формат: ГГГГ-ММ-ДД)."
+
+msgid "metadata.property.displayName.date"
+msgstr "Дата на публикуване"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Моля, въведете заглавие на публикацията."
+
+msgid "metadata.property.displayName.source"
+msgstr "Заглавие на публикацията"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Моля въведете валидно заглавие на статията/материала."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Заглавие на статията/материала"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"За най-добри резултати редакторите трябва да бъдат въведени в следния формат:"
+" Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Редактори"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"За най-добри резултати авторите трябва да бъдат въведени в следния формат: "
+"Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.author"
+msgstr "Автори"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Вътрешна грешка. Има невалидна стойност за настройката „незадължителен "
+"филтър“. Моля, докладвайте това като грешка."

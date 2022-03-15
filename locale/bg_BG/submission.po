@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-15 11:18+0000\n"
+"PO-Revision-Date: 2022-03-16 00:29+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -307,7 +307,7 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Изпратени са нови рецензии и се разглеждат от редактора."
 
 msgid "metadata.property.validationMessage.conf-loc"
-msgstr "Моля въведете валидно място на провеждане на конференцията."
+msgstr "Моля, въведете валидно място на провеждане на конференцията."
 
 msgid "metadata.property.displayName.conf-loc"
 msgstr "Място на провеждане на конференцията"
@@ -404,3 +404,273 @@ msgid "metadata.filters.settings.isOptional.validationMessage"
 msgstr ""
 "Вътрешна грешка. Има невалидна стойност за настройката „незадължителен "
 "филтър“. Моля, докладвайте това като грешка."
+
+msgid "submission.comments.editComment"
+msgstr "Редакция на коментар"
+
+msgid "submission.comments.corrections"
+msgstr "Корекции"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Сигурни ли сте, че искате да изтриете този коментар?"
+
+msgid "submission.comments.comments"
+msgstr "Коментари"
+
+msgid "submission.comments.addComment"
+msgstr "Добавяне на коментар"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Извличане и запазване на литература (референции)"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Следните препратки на литература (референции) са извлечени и ще бъдат "
+"свързани с метаданните за подаване."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations"
+msgstr "Извлечена литература (референции)"
+
+msgid "submission.changeFile"
+msgstr "Промяна на файл"
+
+msgid "submission.changeComments"
+msgstr "Промени на"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Обратно към редактиране на подадените материали"
+
+msgid "submission.attachedFile"
+msgstr "Прикрепен файл"
+
+msgid "submission.ask"
+msgstr "Въпрос"
+
+msgid "submission.acknowledge"
+msgstr "Признание"
+
+msgid "submission.accepted"
+msgstr "Приети"
+
+msgid "submission.abstractViews"
+msgstr "Преглед на абстракти (резюмета)"
+
+msgid "submission.agencies"
+msgstr "Агенции"
+
+msgid "submission.additionalFiles"
+msgstr "Допълнителни файлове"
+
+msgid "submission.addFile"
+msgstr "Качване на файл"
+
+msgid "submission.mySubmissions"
+msgstr "С мен като автор"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} на {$title}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} и др."
+
+msgid "submission.authorWithAffiliation"
+msgstr "Автор: {$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "Авторски биографии"
+
+msgid "submission.authorBiography"
+msgstr "Авторска биография"
+
+msgid "submission.authors"
+msgstr "Автори"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Архивирани подадени материали"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Асоциирани към мен"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Неасоциирани"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Абстракт (резюме)"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Моля, уверете се, че сте задали валиден тип име (наименование). Поддържаните "
+"стойности са 'personal', 'corporate' и 'conference'."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Тип на името (наименованието)"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Моля, въведете валидно име на част."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Име на част"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Моля, въведете валиден номер на част."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Номер на част"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Моля, въведете валидно подзаглавие."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Подзаглавие"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Моля, въведете валидно заглавие."
+
+msgid "metadata.property.displayName.title"
+msgstr "Заглавие"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Моля, въведете само началните знаци на заглавието, които трябва да се "
+"игнорират при сортиране на заглавието."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Част от заглавието се игнорира при сортиране"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Моля, уверете се, че сте задали валиден тип заглавие. Поддържаните стойности "
+"са 'abreviated', 'translated', 'alternative' и 'uniform'."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Тип на заглавие"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Моля, уверете се, че винаги задавате тип публикация. Понастоящем "
+"поддържаните стойности са book (за книги или глави от книги) и journal (за "
+"статии от списания). В противен случай изходното форматиране на цитатите "
+"няма да работи правилно."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Тип на публикация"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Моля, въведете валидна анотация."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Анотация"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Моля, въведете валиден коментар."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Коментар"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Моля, въведете валидна алтернативна връзка към публикацията."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Връзка към публикацията"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Моля, въведете валиден PMID."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Моля, въведете валиден SICI."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Моля, въведете валиден CODEN."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Моля, въведете валиден собствен идентификатор на публикация."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Собствен идентификатор на публикация"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Моля, въведете валиднен DOI."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Моля, въведете валиден онлайн ISSN (ISSN на онлайн издание)."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "Онлайн ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Моля, въведете валиден печатен ISSN (ISSN за печатно издание)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Печатен ISSN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Моля, въведете валиден ISBN (9 или 13 цифри)."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Моля, въведете валидно име на издателството."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Име на издателство"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Моля, въведете валидно място на издаване (на издателя)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Място на издаване (на издателя)"
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+"Моля, въведете валиден общ брой страници (трябва да бъде числова стойност)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Брой страници"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr ""
+"Моля, въведете валидна последна страница (трябва да бъде числова стойност)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Последна страница"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr ""
+"Моля, въведете валидна първа страница (трябва да бъде числова стойност)."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Първа страница"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Моля, въведете валидна институция."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Институция"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Моля, въведете валиден спонсор на конференцията."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Спонсор на конференцията"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Моля, въведете валидно име на конференцията."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Име на конференцията"

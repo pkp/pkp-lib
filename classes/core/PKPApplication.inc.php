@@ -19,7 +19,6 @@ namespace PKP\core;
 use APP\core\Application;
 
 use APP\core\Request;
-use APP\statistics\StatisticsHelper;
 use DateTime;
 use DateTimeZone;
 use Exception;
@@ -30,10 +29,8 @@ use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
-use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\session\SessionManager;
-use PKP\statistics\PKPStatisticsHelper;
 use PKP\submission\RepresentationDAOInterface;
 
 interface iPKPApplicationInfoProvider
@@ -577,204 +574,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             return $map[$name];
         }
         return null;
-    }
-
-
-    //
-    // Statistics API
-    //
-    /**
-     * Return all metric types supported by this application.
-     *
-     * @return array An array of strings of supported metric type identifiers.
-     */
-    public function getMetricTypes($withDisplayNames = false)
-    {
-        // Retrieve site-level report plugins.
-        $reportPlugins = PluginRegistry::loadCategory('reports', true, self::CONTEXT_SITE);
-        if (empty($reportPlugins)) {
-            return [];
-        }
-
-        // Run through all report plugins and retrieve all supported metrics.
-        $metricTypes = [];
-        foreach ($reportPlugins as $reportPlugin) {
-            /** @var ReportPlugin $reportPlugin */
-            $pluginMetricTypes = $reportPlugin->getMetricTypes();
-            if ($withDisplayNames) {
-                foreach ($pluginMetricTypes as $metricType) {
-                    $metricTypes[$metricType] = $reportPlugin->getMetricDisplayType($metricType);
-                }
-            } else {
-                $metricTypes = array_merge($metricTypes, $pluginMetricTypes);
-            }
-        }
-
-        return $metricTypes;
-    }
-
-    /**
-     * Returns the currently configured default metric type for this site.
-     * If no specific metric type has been set for this site then null will
-     * be returned.
-     *
-     * @return null|string A metric type identifier or null if no default metric
-     *   type could be identified.
-     */
-    public function getDefaultMetricType()
-    {
-        $request = $this->getRequest();
-        $site = $request->getSite();
-        if (!$site instanceof \PKP\site\Site) {
-            return null;
-        }
-        $defaultMetricType = $site->getData('defaultMetricType');
-
-        // Check whether the selected metric type is valid.
-        $availableMetrics = $this->getMetricTypes();
-        if (empty($defaultMetricType)) {
-            // If there is only a single available metric then use it.
-            if (count($availableMetrics) === 1) {
-                $defaultMetricType = $availableMetrics[0];
-            } else {
-                return null;
-            }
-        } else {
-            if (!in_array($defaultMetricType, $availableMetrics)) {
-                return null;
-            }
-        }
-        return $defaultMetricType;
-    }
-
-    /**
-     * Main entry point for PKP statistics reports.
-     *
-     * @see <https://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
-     * for a full specification of the input and output format of this method.
-     *
-     * @param null|string|array $metricType metrics selection
-     *   NB: If you want to use the default metric on journal level then you must
-     *   set $metricType = null and add an explicit filter on a single journal ID.
-     *   Otherwise the default site-level metric will be used.
-     * @param string|array $columns column (aggregation level) selection
-     * @param array $orderBy order criteria
-     * @param null|DBResultRange $range paging specification
-     *
-     * @return null|array The selected data as a simple tabular result set or
-     *   null if the given parameter combination is not supported.
-     */
-    public function getMetrics($metricType = null, $columns = [], $filter = [], $orderBy = [], $range = null)
-    {
-        $statsHelper = new StatisticsHelper();
-
-        // Check the parameter format.
-        if (!(is_array($filter) && is_array($orderBy))) {
-            return null;
-        }
-
-        // Check whether which context we are.
-        $context = $statsHelper->getContext($filter);
-
-        // Identify and canonicalize filtered metric types.
-        $defaultSiteMetricType = $this->getDefaultMetricType();
-        $siteMetricTypes = $this->getMetricTypes();
-        $metricType = $statsHelper->canonicalizeMetricTypes($metricType, $context, $defaultSiteMetricType, $siteMetricTypes);
-        if (!is_array($metricType)) {
-            return null;
-        }
-        $metricTypeCount = count($metricType);
-
-        // Canonicalize columns.
-        if (is_scalar($columns)) {
-            $columns = [$columns];
-        }
-
-        // The metric type dimension is not additive. This imposes two important
-        // restrictions on valid report descriptions:
-        // 1) We need at least one metric Type to be specified.
-        if ($metricTypeCount === 0) {
-            return null;
-        }
-        // 2) If we have multiple metrics then we have to force inclusion of
-        // the metric type column to avoid aggregation over several metric types.
-        if ($metricTypeCount > 1) {
-            if (!in_array(PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE, $columns)) {
-                array_push($columns, PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE);
-            }
-        }
-
-        // Retrieve report plugins.
-        if ($context instanceof \PKP\context\Context) {
-            $contextId = $context->getId();
-        } else {
-            $contextId = self::CONTEXT_SITE;
-        }
-        $reportPlugins = PluginRegistry::loadCategory('reports', true, $contextId);
-        if (empty($reportPlugins)) {
-            return null;
-        }
-
-        // Run through all report plugins and try to retrieve the requested metrics.
-        $report = [];
-        foreach ($reportPlugins as $reportPlugin) {
-            // Check whether one (or more) of the selected metrics can be
-            // provided by this plugin.
-            $availableMetrics = $reportPlugin->getMetricTypes();
-            $availableMetrics = array_intersect($availableMetrics, $metricType);
-            if (count($availableMetrics) == 0) {
-                continue;
-            }
-
-            // Retrieve a (partial) report.
-            $partialReport = $reportPlugin->getMetrics($availableMetrics, $columns, $filter, $orderBy, $range);
-
-            // Merge the partial report with the main report.
-            $report = array_merge($report, (array) $partialReport);
-
-            // Remove the found metric types from the metric type array.
-            $metricType = array_diff($metricType, $availableMetrics);
-        }
-
-        // Check whether we found all requested metric types.
-        if (count($metricType) > 0) {
-            return null;
-        }
-
-        // Return the report.
-        return $report;
-    }
-
-    /**
-     * Return metric in the primary metric type
-     * for the passed associated object.
-     *
-     * @param int $assocType
-     * @param int $assocId
-     *
-     * @return int
-     */
-    public function getPrimaryMetricByAssoc($assocType, $assocId)
-    {
-        $filter = [
-            PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_ID => $assocId,
-            PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE => $assocType];
-
-        $request = $this->getRequest();
-        $router = $request->getRouter();
-        $context = $router->getContext($request);
-        if ($context) {
-            $filter[PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID] = $context->getId();
-        }
-
-        $metric = $this->getMetrics(null, [], $filter);
-        if (is_array($metric)) {
-            if (!is_null($metric[0][PKPStatisticsHelper::STATISTICS_METRIC])) {
-                return $metric[0][PKPStatisticsHelper::STATISTICS_METRIC];
-            }
-        }
-
-        return 0;
     }
 
     /**

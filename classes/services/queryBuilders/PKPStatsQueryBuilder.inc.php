@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/services/QueryBuilders/PKPStatsQueryBuilder.php
+ * @file classes/services/queryBuilders/PKPStatsQueryBuilder.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -10,125 +10,32 @@
  * @class PKPStatsQueryBuilder
  * @ingroup query_builders
  *
- * @brief Helper class to construct a query to fetch stats records from the
- *  metrics table.
+ * @brief Basis class for statistics query builders.
  */
 
 namespace PKP\services\queryBuilders;
 
 use Illuminate\Support\Facades\DB;
-
+use PKP\config\Config;
 use PKP\statistics\PKPStatisticsHelper;
 
-class PKPStatsQueryBuilder
+abstract class PKPStatsQueryBuilder
 {
-    /** @var array Include records for these objects. Requires $assocType to be specified. */
-    protected $assocIds = [];
+    /** Include records for these contexts */
+    protected array $contextIds = [];
 
-    /**
-     * Include records for these object types.
-     *
-     * One or more of ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_CONTEXT, ASSOC_TYPE_ISSUE,
-     * 	ASSOC_TYPE_SUBMISSION_FILE, ASSOC_TYPE_REPRESENTATION
-     *
-     * @var array
-     */
-    protected $assocTypes = [];
+    /** Include records from this date or before. Default: yesterday's date */
+    protected string $dateEnd;
 
-    /** @var array Include records for these contexts */
-    protected $contextIds = [];
-
-    /** @var string Include records from this date or before. Default: yesterday's date */
-    protected $dateEnd;
-
-    /** @var string Include records from this date or after. Default: STATISTICS_EARLIEST_DATE */
-    protected $dateStart;
-
-    /** @var array Include records for these file types: STATISTICS_FILE_TYPE_* */
-    protected $fileTypes;
-
-    /** @var array Include records from for these sections (or series in OMP) */
-    protected $sectionIds = [];
-
-    /** @var array Include records for these submissions */
-    protected $submissionIds = [];
+    /** Include records from this date or after. Default: STATISTICS_EARLIEST_DATE */
+    protected string $dateStart;
 
     /**
      * Set the contexts to get records for
-     *
-     * @param array|int $contextIds
-     *
-     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
-    public function filterByContexts($contextIds)
+    public function filterByContexts(array|int $contextIds): self
     {
         $this->contextIds = is_array($contextIds) ? $contextIds : [$contextIds];
-        return $this;
-    }
-
-    /**
-     * Set the submissions to get records for
-     *
-     * @param array|int $submissionIds
-     *
-     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
-     */
-    public function filterBySubmissions($submissionIds)
-    {
-        $this->submissionIds = is_array($submissionIds) ? $submissionIds : [$submissionIds];
-        return $this;
-    }
-
-    /**
-     * Set the assocTypes to get records for
-     *
-     * @param array|int $assocTypes
-     *
-     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
-     */
-    public function filterByAssocTypes($assocTypes)
-    {
-        $this->assocTypes = is_array($assocTypes) ? $assocTypes : [$assocTypes];
-        return $this;
-    }
-
-    /**
-     * Set the assoc type object ids to get records for
-     *
-     * @param array|int $assocIds
-     *
-     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
-     */
-    public function filterByAssocIds($assocIds)
-    {
-        $this->assocIds = is_array($assocIds) ? $assocIds : [$assocIds];
-        return $this;
-    }
-
-    /**
-     * Set the galley file type to get records for
-     *
-     * @param array|int $fileTypes STATISTICS_FILE_TYPE_*
-     *
-     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
-     */
-    public function filterByFileTypes($fileTypes)
-    {
-        $this->fileTypes = is_array($fileTypes) ? $fileTypes : [$fileTypes];
-        return $this;
-    }
-
-    /**
-     * Set the to get records for. This is stored under the section_id
-     * db column but in OMP refers to seriesIds.
-     *
-     * @param array|int $sectionIds
-     *
-     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
-     */
-    public function filterBySections($sectionIds)
-    {
-        $this->sectionIds = is_array($sectionIds) ? $sectionIds : [$sectionIds];
         return $this;
     }
 
@@ -137,11 +44,10 @@ class PKPStatsQueryBuilder
      *
      * @param string $dateEnd YYYY-MM-DD
      *
-     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
-    public function before($dateEnd)
+    public function before(string $dateEnd): self
     {
-        $this->dateEnd = str_replace('-', '', $dateEnd);
+        $this->dateEnd = $dateEnd;
         return $this;
     }
 
@@ -150,22 +56,11 @@ class PKPStatsQueryBuilder
      *
      * @param string $dateStart YYYY-MM-DD
      *
-     * @return \PKP\services\queryBuilders\PKPStatsQueryBuilder
      */
-    public function after($dateStart)
+    public function after(string $dateStart): self
     {
-        $this->dateStart = str_replace('-', '', $dateStart);
+        $this->dateStart = $dateStart;
         return $this;
-    }
-
-    /**
-     * Get all matching records
-     *
-     * @return QueryObject
-     */
-    public function getRecords()
-    {
-        return $this->_getObject()->select('*');
     }
 
     /**
@@ -177,54 +72,23 @@ class PKPStatsQueryBuilder
      *
      * @param array $groupBy One or more columns to group by
      *
-     * @return QueryObject
      */
-    public function getSum($groupBy = [])
+    public function getSum(array $groupBy = []): \Illuminate\Database\Query\Builder
     {
+        $selectColumns = $groupBy;
+        $selectColumns = $this->getSelectColumns($selectColumns);
+
         $q = $this->_getObject();
-
-        $q->select(array_merge(
-            [DB::raw('SUM(metric) as metric')],
-            $groupBy
-        ));
-
-        if (!empty($groupBy)) {
-            $q->groupBy($groupBy);
+        // Build the select and group by clauses.
+        if (!empty($selectColumns)) {
+            $q->select($selectColumns);
+            if (!empty($groupBy)) {
+                $q->groupBy($groupBy);
+            }
         }
+        $q->addSelect(DB::raw('SUM(metric) AS metric'));
 
         return $q;
-    }
-
-    /**
-     * Get the sum of all matching records for one day or month
-     *
-     * @param string $date A month or day in the format YYYY-MM or YYYY-MM-DD
-     *
-     * @return QueryObject
-     */
-    public function getTimeline($date)
-    {
-        $q = $this->_getObject();
-        $q->select(DB::raw('SUM(metric) as metric'));
-        if (strlen($date) === 10) {
-            $q->where(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, '=', str_replace('-', '', $date));
-        } else {
-            $q->where(PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH, '=', str_replace('-', '', $date));
-        }
-        return $q;
-    }
-
-    /**
-     * Get a list of submission ids that have matching records
-     * for the query
-     *
-     * @return QueryObject
-     */
-    public function getSubmissionIds()
-    {
-        return $this->_getObject()
-            ->select('submission_id')
-            ->groupBy('submission_id');
     }
 
     /**
@@ -233,43 +97,38 @@ class PKPStatsQueryBuilder
      * Public methods should call this method to set up the query
      * object and apply any additional selection, grouping and
      * ordering conditions.
-     *
-     * @return QueryObject
      */
-    protected function _getObject()
+    abstract protected function _getObject(): \Illuminate\Database\Query\Builder;
+
+    /**
+     * Get appropriate SQL code for columns in the select part of the query
+     */
+    protected function getSelectColumns(array $selectColumns): array
     {
-        $q = DB::table('metrics');
-
-        if (!empty($this->contextIds)) {
-            $q->whereIn(PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID, $this->contextIds);
-        }
-
-        if (!empty($this->submissionIds)) {
-            $q->whereIn(PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, $this->submissionIds);
-        }
-
-        if (!empty($this->sectionIds)) {
-            $q->whereIn(PKPStatisticsHelper::STATISTICS_DIMENSION_PKP_SECTION_ID, $this->sectionIds);
-        }
-
-        if (!empty($this->assocTypes)) {
-            $q->whereIn(PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_TYPE, $this->assocTypes);
-
-            if (!empty($this->assocIds)) {
-                $q->whereIn(PKPStatisticsHelper::STATISTICS_DIMENSION_ASSOC_ID, $this->assocIds);
+        if (in_array(PKPStatisticsHelper::STATISTICS_DIMENSION_YEAR, $selectColumns)
+            || in_array(PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH, $selectColumns)
+            || in_array(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, $selectColumns)) {
+            foreach ($selectColumns as $i => $selectColumn) {
+                if ($selectColumn == PKPStatisticsHelper::STATISTICS_DIMENSION_YEAR) {
+                    if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
+                        $selectColumns[$i] = DB::raw("date_trunc('year',date) AS year");
+                    } else {
+                        $selectColumns[$i] = DB::raw("date_format(date, '%Y-01-01') AS year");
+                    }
+                    break;
+                } elseif ($selectColumn == PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH) {
+                    if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
+                        $selectColumns[$i] = DB::raw("date_trunc('month',date) AS month");
+                    } else {
+                        $selectColumns[$i] = DB::raw("date_format(date, '%Y-%m-01') AS month");
+                    }
+                    break;
+                } elseif ($selectColumn == PKPStatisticsHelper::STATISTICS_DIMENSION_DAY) {
+                    $selectColumns[$i] = DB::raw('date AS day');
+                    break;
+                }
             }
         }
-
-        if (!empty($this->fileTypes)) {
-            $q->whereIn(PKPStatisticsHelper::STATISTICS_DIMENSION_FILE_TYPE, $this->fileTypes);
-        }
-
-        $q->whereBetween(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, [$this->dateStart, $this->dateEnd]);
-
-        $q->where(PKPStatisticsHelper::STATISTICS_DIMENSION_METRIC_TYPE, '=', METRIC_TYPE_COUNTER);
-
-        \HookRegistry::call('Stats::queryObject', [&$q, $this]);
-
-        return $q;
+        return $selectColumns;
     }
 }

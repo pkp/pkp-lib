@@ -18,6 +18,29 @@ use Slim\Http\Response;
 
 class APIResponse extends Response
 {
+    public const RESPONSE_CSV = 'text/csv';
+
+    /**
+     * CSV Response
+     */
+    public function withCSV(int $itemsMax, array $items, array $columnNames): self
+    {
+        $fp = fopen('php://output', 'wt');
+        //Add BOM (byte order mark) to fix UTF-8 in Excel
+        fprintf($fp, chr(0xEF) . chr(0xBB) . chr(0xBF));
+        fputcsv($fp, ['']);
+        fputcsv($fp, $columnNames);
+        foreach ($items as $item) {
+            fputcsv($fp, $item);
+        }
+        $csvData = stream_get_contents($fp);
+        fclose($fp);
+        $this->getBody()->rewind();
+        $this->getBody()->write($csvData);
+        $this->withStatus(200);
+        return $this->withHeader('X-Total-Count', $itemsMax)->withHeader('Content-Type', self::RESPONSE_CSV);
+    }
+
     /**
      * Response with an error message
      *

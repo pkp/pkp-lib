@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-31 17:07+0000\n"
+"PO-Revision-Date: 2022-03-16 00:29+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/is_IS/>\n"
@@ -25,11 +25,11 @@ msgid "manager.readingTools"
 msgstr "Lestrartól"
 
 msgid "manager.plugins"
-msgstr "Kerfis viðbætur"
+msgstr "Kerfisviðbætur"
 
 msgid "manager.plugins.sitePlugin"
 msgstr ""
-"Þetta viðbótarforrit nær yfir alla vefsíðuna.  Engöngu vefstjóri getur "
+"Þetta viðbótarforrit nær yfir alla vefsíðuna.  Eingöngu vefstjóri getur "
 "sýslað með þessa viðbót."
 
 msgid "manager.plugins.pluginManagement"
@@ -54,7 +54,7 @@ msgid "manager.people.unenroll"
 msgstr "Afskrá"
 
 msgid "manager.people.syncUsers"
-msgstr "Samstilla notenda skráningar"
+msgstr "Samstilla notendaskráningar"
 
 msgid "manager.people.signInAsUser"
 msgstr "Skrá inn sem notandi"
@@ -81,7 +81,7 @@ msgid "manager.people.noMatchingUsers"
 msgstr "Engir notendur sem passa."
 
 msgid "manager.people.mustProvideName"
-msgstr "Vinsamlega skráðu fyrst a.m.k. eftirnafn notandanns."
+msgstr "Vinsamlega skráðu fyrst a.m.k. eftirnafn notanda."
 
 msgid "manager.people.mustChooseRole"
 msgstr ""
@@ -93,16 +93,16 @@ msgstr "Tvinna saman notendur"
 
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
-"Ertu viss um að þú viljir tvinna saman {$oldAccountCount} notenda reikning(a)"
-" við notendanafnið \"{$newUsername}\"?  Valinn/valdir {$oldAccountCount} "
-"notendareikningar  verða ekki til á eftir. Þessa aðgerð er ekki hægt að "
+"Ertu viss um að þú viljir tvinna {$oldAccountCount} notenda reikning(a) við "
+"notendanafnið \"{$newUsername}\"?  Valinn/valdir {$oldAccountCount} "
+"notendareikningar  verða ekki til eftir það. Aðgerðina er ekki hægt að "
 "afturkalla."
 
 msgid "manager.people.mergeUser"
 msgstr "Tvinna saman notendur"
 
 msgid "manager.people.invalidUser"
-msgstr "Afsakaðu, umbeðinn notandi er ekki til."
+msgstr "Umbeðinn notandi er ekki til."
 
 msgid "manager.people.enrollUserAs"
 msgstr "Skrá notanda sem"
@@ -130,11 +130,10 @@ msgstr "Virkja"
 
 msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
-"Veldu þá notendur sem þú vilt senda tölvupóst á með því að merkja í kassann "
-"við hvert nafn"
+"Veldu þá notendur sem þú vilt senda tölvupóst með því að haka við hvert nafn"
 
 msgid "manager.people.emailUsers.selectLocale"
-msgstr "Veldur tungumál"
+msgstr "Veldu tungumál"
 
 msgid "manager.people.emailUsers"
 msgstr "Senda notendum tölvupóst"
@@ -152,16 +151,18 @@ msgid "manager.people.editProfile"
 msgstr "Breyta forstillingum"
 
 msgid "manager.people.doNotEnroll"
-msgstr "Með ekkert hlutverk"
+msgstr "Án hlutverks"
 
 msgid "manager.people.disable"
 msgstr "Afvirkja"
 
 msgid "manager.people.createUserSendNotify"
-msgstr "Senda notanda velkominn tölvupóst með notendanafni og lykilorði."
+msgstr ""
+"Bjóða notanda velkominn með tölvupósti þar sem notendanafn og lykilorð kemur "
+"fram."
 
 msgid "manager.people.createUserGeneratePassword"
-msgstr "Búa til slembi lykilorð."
+msgstr "Búa til slembilykilorð."
 
 msgid "manager.people.createUser"
 msgstr "Stofna nýjan notanda"
@@ -180,15 +181,14 @@ msgstr "Tímastimpill"
 
 msgid "manager.languages.supportedLocalesInstructions"
 msgstr ""
-"Veldu öll tungumál sem vefsíðan á að styðja við á tungumála valmyndinni sem "
-"birtist á hverri síðu. Valmyndin birtist bara ef fleira en eitt tungumál er "
-"valið."
+"Veldu öll tungumál sem vefsíðan á að styðja við á tungumálavalmyndinni sem "
+"birtist á hverri síðu. Valmyndin birtist ef fleira en eitt tungumál er valið."
 
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
-"Þetta kerfi leyfir að sérstakar mikilvægar upplýsingar séu settar inn á "
-"viðbótar tungumálum.  Til að nota þenna möguleika, veldu viðbótar tungumál "
-"og veldu valkost af listanum."
+"Þetta kerfi leyfir að ákveðnar mikilvægar upplýsingar séu settar inn á "
+"viðbótartungumálum.  Til að nota þenna möguleika, veldu viðbótartungumál og "
+"valkost af listanum."
 
 msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Endurhlaða sjálfgefnum gildum"
@@ -197,7 +197,7 @@ msgid "manager.language.forms"
 msgstr "Eyðublöð"
 
 msgid "manager.language.submissions"
-msgstr "Senda inn grein"
+msgstr "Innsendingar"
 
 msgid "manager.language.ui"
 msgstr "UI"
@@ -255,11 +255,11 @@ msgstr "Stofna skráasvæði"
 
 msgid "manager.files.confirmDelete"
 msgstr ""
-"Eyða þessari skrá eða skráasvæði?  ATH skráasvæði þarf að vera tómt svo hægt "
-"sé að eyða því."
+"Eyða þessari skrá eða skráasvæði?  ATH skráasvæði þarf að vera tómt til að "
+"hægt sé að eyða því."
 
 msgid "manager.filesBrowser"
-msgstr "Skráa vafri"
+msgstr "Skráavafri"
 
 msgid "manager.export.usersToCsv.description"
 msgstr "Velja notendur til að flytja út í Excel/CSV skrá."
@@ -271,7 +271,7 @@ msgid "manager.emails.subjectWithValue"
 msgstr "Efni: {$subject}"
 
 msgid "manager.emails.sentTo"
-msgstr "Sent til"
+msgstr "Móttakandi"
 
 msgid "manager.emails.sentFrom"
 msgstr "Sent frá"
@@ -291,12 +291,12 @@ msgid "manager.emails.reset"
 msgstr "Endurstilla"
 
 msgid "manager.emails.resetAll.complete"
-msgstr "Upprunalegu tölvupóst sniðmátin hafa verið endurheimt."
+msgstr "Upprunalegu tölvupóstsniðmátin hafa verið endurheimt."
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
-"Ef þú endurstillir öll sniðmát, munu allar breytingar á tölvupóst "
-"sniðmátunum tapast.  Viltu staðfesta þessa aðgerð?"
+"Ef þú endurstillir öll sniðmát, munu allar breytingar á tölvupóstsniðmátunum "
+"tapast.  Viltu staðfesta þessa aðgerð?"
 
 msgid "manager.emails.resetAll"
 msgstr "Endurstilla allt"
@@ -312,17 +312,17 @@ msgstr "Meginmál er áskilið fyrir tölvupóstinn."
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr ""
-"Einkvæmur tölvupósts lykill sem inniheldur engin stafabil eða sérstafi er "
-"áskilinn fyri tölvupóstinn."
+"Fyrir tölvupóstinn er áskilinn einkvæmur tölvupóstslykill sem inniheldur "
+"engin stafabil eða sérstafi."
 
 msgid "manager.emails.enable.message"
-msgstr "Þú ert við það að virja þennan tölvupóst.  Viltu staðfesta aðgerðina?"
+msgstr "Þú ert við það að virkja tölvupóstinn.  Viltu staðfesta aðgerðina?"
 
 msgid "manager.emails.enable"
 msgstr "Virkja"
 
 msgid "manager.emails.enabled"
-msgstr "Virkja tölvupóst sniðmát"
+msgstr "Virkja sniðmát tölvupósts"
 
 msgid "manager.emails.emailTemplate.noDuplicateKeys"
 msgstr "Lykillinn sem þú slóst inn er nú þegar í notkun."
@@ -350,7 +350,7 @@ msgid "manager.emails.emailKey.description"
 msgstr "Tölvupóstslykill má bara innihalda bókstafi, númer og undirstrik."
 
 msgid "manager.emails.emailKey"
-msgstr "Tölvupósts lykill"
+msgstr "Tölvupóstslykill"
 
 msgid "manager.emails.editTestExample"
 msgstr "Breyta tölvupósti - dæmi um prófun"
@@ -360,9 +360,8 @@ msgstr "Breyta tölvupósti"
 
 msgid "manager.emails.disable.message"
 msgstr ""
-"Þú ert við það að afvirkja þetta sniðmát.  Ef það eru aðrir ferlar í kerfinu "
-"sem nota þetta sniðmát, þá geta þeir ekki gert það lengur.  Viltu staðfesta "
-"þessa aðgerð?"
+"Þú ert við það að afvirkja þetta sniðmát.  Þar með munu aðrir ferlar í "
+"kerfinu ekki lengur geta notað sniðmátið.  Viltu staðfesta þessa aðgerð?"
 
 msgid "manager.emails.disable"
 msgstr "Afvirkja"
@@ -371,7 +370,7 @@ msgid "manager.emails.details"
 msgstr "Sniðmát - nánar"
 
 msgid "manager.emails.data"
-msgstr "Sniðmát -  Skilaboð"
+msgstr "Sniðmát - skilaboð"
 
 msgid "manager.emails.customTemplate"
 msgstr "Sérsniðið sniðmát"
@@ -384,11 +383,11 @@ msgstr "Bæta við sniðmáti"
 
 msgid "manager.emails.confirmReset"
 msgstr ""
-"Ertu viss um að þú villjir endurstilla þetta tölvupóst sniðmát í upphaflegt "
+"Ertu viss um að þú villjir endurstilla þetta sniðmát tölvupósts í upphaflegt "
 "form?"
 
 msgid "manager.emails.confirmDelete"
-msgstr "Ert þú viss um að þú viljir eyða þessu tölvupósts sniðmáti?"
+msgstr "Ertu viss um að þú viljir eyða þessu sniðmáti tölvupósts?"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Búið að uppfæra upplýsingar í áminningu um ritrýni."
@@ -486,19 +485,19 @@ msgid "manager.announcements.form.descriptionRequired"
 msgstr "Lýsing á tilkynningu er áskilin."
 
 msgid "manager.announcements.form.descriptionInstructions"
-msgstr "Heildartexti tilkynningarinnar."
+msgstr "Heildartexti tilkynningar."
 
 msgid "manager.announcements.form.description"
 msgstr "Tilkynning"
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr "Vinsamlega veldu mánuð og/eða dag til viðbótar við gildisloka-ár."
+msgstr "Vinsamlega veldu mánuð og/eða dag til viðbótar við gildislokaár."
 
 msgid "manager.announcements.form.dateExpireValid"
-msgstr "Vinsamlega veldu gilda dagsetningu sem gildisloka dagsetningu."
+msgstr "Vinsamlega veldu gilda dagsetningu fyrir gildislok"
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
-msgstr "Vinsamlega veldu ár og/eða dag í viðbót við gildisloka-mánuð."
+msgstr "Vinsamlega veldu ár og/eða dag í viðbót við gildislokamánuð."
 
 msgid "manager.announcements.form.dateExpireInstructions"
 msgstr ""
@@ -506,10 +505,10 @@ msgstr ""
 "á að birtast ótímabundið."
 
 msgid "manager.announcements.form.dateExpire"
-msgstr "Gildisloka dagsetning"
+msgstr "Dagsetning gildisloka"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr "Vinsamlega veldu ár og/eða mánuð í viðbót við gildisloka-daginn."
+msgstr "Vinsamlega veldu ár og/eða mánuð til viðbótar við gildislokadaginn."
 
 msgid "manager.announcements.editTitle"
 msgstr "Breyta"
@@ -533,14 +532,14 @@ msgid "manager.announcements.create"
 msgstr "Stofna nýja tilkynningu"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Ertu viss um að þú viljir eyða endanlega þessari tilkynningu: {$title}?"
+msgstr "Ertu viss um að þú viljir eyða tilkynningunni endanlega: {$title}?"
 
 msgid "manager.announcements"
 msgstr "Tilkynningar"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
-"Mynda skrá er áskilin. Vinsamlega gakktu úr skugga um að þú hafir valið og "
+"Myndaskrá er áskilin. Vinsamlega gakktu úr skugga um að þú hafir valið og "
 "hlaðið upp skrá."
 
 msgid "manager.statistics.reports.aggregationColumns"

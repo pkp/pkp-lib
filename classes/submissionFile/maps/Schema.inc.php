@@ -135,6 +135,8 @@ class Schema extends BaseSchema
 
             if ($prop === 'genre') {
                 $output[$prop] = $this->mapGenre($submissionFile);
+
+                continue;
             }
 
             if ($prop === 'revisions') {
@@ -212,9 +214,9 @@ class Schema extends BaseSchema
             if ($genre->getId() === $submissionFile->getData('genreId')) {
                 return [
                     'id' => $genre->getId(),
-                    'dependent' => $genre->getDependent(),
+                    'dependent' => (bool) $genre->getDependent(),
                     'name' => $genre->getLocalizedName(),
-                    'supplementary' => $genre->getSupplementary(),
+                    'supplementary' => (bool) $genre->getSupplementary(),
                 ];
             }
         }

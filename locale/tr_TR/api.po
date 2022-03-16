@@ -1,6 +1,7 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-28 15:01+0000\n"
+"PO-Revision-Date: 2022-03-16 12:16+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "tr_TR/>\n"
@@ -215,3 +216,6 @@ msgid "api.400.invalidApiToken"
 msgstr ""
 "API anahtarı doğrulanamadı. Bu, API anahtarı hatalı olduğunu veya geçerli "
 "olmadığını gösterir."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "E-posta için bir konu ve içerik girmelisiniz."

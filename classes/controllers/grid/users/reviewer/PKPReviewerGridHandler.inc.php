@@ -952,13 +952,8 @@ class PKPReviewerGridHandler extends GridHandler
 
     /**
      * Fetches an email template's message body and returns it via AJAX.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return void|JSONMessage JSON object
      */
-    public function fetchTemplateBody($args, $request)
+    public function fetchTemplateBody(array $args, PKPRequest $request): ?JSONMessage
     {
         $context = $request->getContext();
         $mailable = new class([$context, $this->getSubmission()]) extends Mailable
@@ -968,7 +963,7 @@ class PKPReviewerGridHandler extends GridHandler
         $template = Repo::emailTemplate()->getByKey($context->getId(), $request->getUserVar('template'));
 
         if (!$template) {
-            return;
+            return null;
         }
 
         $user = $request->getUser();

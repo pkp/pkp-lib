@@ -53,8 +53,7 @@ class ReviewerAction
     // Actions.
     //
     /**
-     * Records whether or not the reviewer accepts the review assignment.
-     * @return bool|void
+     * Records whether the reviewer accepts the review assignment.
      */
     public function confirmReview(
         PKPRequest $request,
@@ -62,12 +61,12 @@ class ReviewerAction
         Submission $submission,
         bool $decline,
         ?string $emailText = null
-    )
+    ): void
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) {
-            return true;
+            return;
         }
 
         // Only confirm the review for the reviewer if

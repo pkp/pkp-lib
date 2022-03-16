@@ -23,16 +23,13 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\security\AccessKeyManager;
-use PKP\security\Validation;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
-use Exception;
 
 class ReviewReminder extends ScheduledTask
 {
@@ -46,24 +43,21 @@ class ReviewReminder extends ScheduledTask
 
     /**
      * Send the automatic review reminder to the reviewer.
-     * @return bool|void
      */
     public function sendReminder(
         ReviewAssignment $reviewAssignment,
         PKPSubmission $submission,
         Context $context,
-        string $reminderType = 'REVIEW_RESPONSE_OVERDUE_AUTO' // REVIEW_RESPONSE_OVERDUE_AUTO or REVIEW_REMIND_AUTO
-    )
+        ReviewRemindAuto|ReviewResponseRemindAuto $mailable
+    ): void
     {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewId = $reviewAssignment->getId();
 
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) {
-            return false;
+            return;
         }
-
-        $mailable = $this->getMailable($reminderType, $reviewAssignment, $submission, $context);
 
         $primaryLocale = $context->getPrimaryLocale();
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::EMAIL_KEY);
@@ -145,46 +139,26 @@ class ReviewReminder extends ScheduledTask
                 $submitReminderDays = $context->getData('numDaysBeforeSubmitReminder');
             }
 
-            $reminderType = false;
+            $mailable = null;
             if ($submitReminderDays >= 1 && $reviewAssignment->getDateDue() != null) {
                 $checkDate = strtotime($reviewAssignment->getDateDue());
                 if (time() - $checkDate > 60 * 60 * 24 * $submitReminderDays) {
-                    $reminderType = 'REVIEW_REMIND_AUTO';
+                    $mailable = new ReviewRemindAuto($reviewAssignment, $submission, $context);
                 }
             }
             if ($inviteReminderDays >= 1 && $reviewAssignment->getDateConfirmed() == null) {
                 $checkDate = strtotime($reviewAssignment->getDateResponseDue());
                 if (time() - $checkDate > 60 * 60 * 24 * $inviteReminderDays) {
-                    $reminderType = 'REVIEW_RESPONSE_OVERDUE_AUTO';
+                    $mailable = new ReviewResponseRemindAuto($reviewAssignment, $submission, $context);
                 }
             }
 
-            if ($reminderType) {
-                $this->sendReminder($reviewAssignment, $submission, $context, $reminderType);
+            if ($mailable) {
+                $this->sendReminder($reviewAssignment, $submission, $context, $mailable);
             }
         }
 
         return true;
-    }
-
-    /**
-     * Initialize correct Mailable based on a reminder type and one-click review access setting
-     * @throws Exception
-     */
-    protected function getMailable(
-        string $reminderType,
-        ReviewAssignment $reviewAssignment,
-        PKPSubmission $submission,
-        Context $context
-    ): Mailable
-    {
-        if ($reminderType === ReviewRemindAuto::EMAIL_KEY) {
-            return new ReviewRemindAuto($reviewAssignment, $submission, $context);
-        } else if ($reminderType === ReviewResponseRemindAuto::EMAIL_KEY) {
-            return new ReviewResponseRemindAuto($reviewAssignment, $submission, $context);
-        }
-
-        throw new Exception("Unsupported reminder type: " . $reminderType);
     }
 }
 

@@ -2,7 +2,7 @@
 # Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-03 14:36+0000\n"
+"PO-Revision-Date: 2022-03-16 12:16+0000\n"
 "Last-Translator: Beibarys <beibarys_sultan@mail.ru>\n"
 "Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "kk_KZ/>\n"
@@ -554,3 +554,58 @@ msgstr "Жоқ"
 
 msgid "common.none"
 msgstr "Жоқ"
+
+msgid "common.other"
+msgstr "Басқа"
+
+msgid "common.or"
+msgstr "немесе"
+
+msgid "common.originalFileName"
+msgstr "Бастапқы файл атауы"
+
+msgid "common.orderUp"
+msgstr "Жоғары көтеру {$itemTitle}"
+
+msgid "common.order"
+msgstr "Тапсырыс"
+
+msgid "common.options"
+msgstr "Опциялар"
+
+msgid "common.on"
+msgstr "қосулы"
+
+msgid "common.numberedMore"
+msgstr "{$number} көп"
+
+msgid "common.noMatches"
+msgstr "Сәйкестік жоқ"
+
+msgid "common.notified.date"
+msgstr "Ескерту: {$dateNotified}"
+
+msgid "common.notified"
+msgstr "Хабардар етілген"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Жазбалар (сары: жаңа жазбалар бар; көк: қаралған жазбалар; сұр: жазбалар жоқ)"
+
+msgid "common.notes"
+msgstr "Жазбалар"
+
+msgid "common.noTemporaryFile"
+msgstr "Сіз жүктеген файл табылмады. Оны қайтадан жүктеп көріңіз."
+
+msgid "common.note"
+msgstr "Ескертпе"
+
+msgid "common.notAvailable"
+msgstr "Қол жетімді емес"
+
+msgid "common.notApplicable"
+msgstr "Жарамсыз"
+
+msgid "common.noComments"
+msgstr "пікірлер жоқ"

@@ -305,6 +305,7 @@ class PKPSubmissionHandler extends APIHandler
     protected function getSubmissionCollector(array $queryParams): Collector
     {
         $request = Application::get()->getRequest();
+        /** @var \PKP\context\Context $context */
         $context = $request->getContext();
 
         $collector = Repo::submission()->getCollector()
@@ -375,6 +376,10 @@ class PKPSubmissionHandler extends APIHandler
                     break;
                 case 'doiStatus':
                     $collector->filterByDoiStatuses(array_map('intval', $this->paramToArray($val)));
+                    break;
+                case 'hasDois':
+                    $collector->filterByHasDois((bool) $val, $context->getEnabledDoiTypes());
+                    break;
             }
         }
 

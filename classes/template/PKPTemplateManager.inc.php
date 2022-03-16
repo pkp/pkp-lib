@@ -29,6 +29,7 @@ use APP\core\Services;
 use APP\file\PublicFileManager;
 
 use APP\notification\Notification;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
 use Less_Parser;
@@ -800,6 +801,10 @@ class PKPTemplateManager extends Smarty
             'ROLE_ID_READER' => Role::ROLE_ID_READER,
             'ROLE_ID_SUB_EDITOR' => Role::ROLE_ID_SUB_EDITOR,
             'ROLE_ID_SUBSCRIPTION_MANAGER' => Role::ROLE_ID_SUBSCRIPTION_MANAGER,
+            'STATUS_QUEUED' => Submission::STATUS_QUEUED,
+            'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
+            'STATUS_DECLINED' => Submission::STATUS_DECLINED,
+            'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
         ]);
 
         // Common locale keys available in the browser for every page

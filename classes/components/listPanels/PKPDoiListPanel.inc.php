@@ -71,12 +71,21 @@ abstract class PKPDoiListPanel extends ListPanel
         $config['registrationAgencyInfo'] = $this->registrationAgencyInfo;
         $config['doiPrefix'] = $this->doiPrefix;
         $config['filters'][] = [
-            'heading' => __('manager.dois.depositStatus'),
             'filters' => [
                 [
+                    'title' => __('manager.dois.status.needsDoi'),
+                    'param' => 'hasDois',
+                    'value' => '0'
+                ],
+                [
+                    'title' => __('publication.status.unpublished'),
+                    'param' => 'unpublished',
+                    'value' => 'true'
+                ],
+                [
                     'title' => __('manager.dois.status.unregistered'),
-                    'param' => 'doiStatus',
-                    'value' => Doi::STATUS_UNREGISTERED
+                    'param' => 'unregistered',
+                    'value' => 'true'
                 ],
                 [
                     'title' => __('manager.dois.status.submitted'),
@@ -100,15 +109,16 @@ abstract class PKPDoiListPanel extends ListPanel
                 ],
             ]
         ];
+        $config['publishedStatuses'] = [
+            'name' => 'status',
+            'published' => [PKPSubmission::STATUS_PUBLISHED],
+            'unpublished' => [PKPSubmission::STATUS_QUEUED, PKPSubmission::STATUS_SCHEDULED],
+        ];
 
         // Provide required locale keys
         $request = Application::get()->getRequest();
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->setConstants([
-            'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
-            'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
-            'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
-            'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
             'DOI_STATUS_SUBMITTED' => Doi::STATUS_SUBMITTED,
             'DOI_STATUS_UNREGISTERED' => Doi::STATUS_UNREGISTERED,
             'DOI_STATUS_REGISTERED' => Doi::STATUS_REGISTERED,

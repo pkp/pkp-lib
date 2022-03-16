@@ -69,6 +69,14 @@ abstract class Context extends \PKP\core\DataObject
     }
 
     /**
+     * Retrieves array of enabled DOI types (items are one of Repo::doi()::TYPE_*).
+     */
+    public function getEnabledDoiTypes(): array
+    {
+        return $this->getData(Context::SETTING_ENABLED_DOI_TYPES) ?? [];
+    }
+
+    /**
      * Retrieves configured DOI registration agnecy plugin, if any active
      *
      */

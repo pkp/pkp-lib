@@ -14,6 +14,7 @@
 namespace PKP\submission;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\facades\Locale;
 use APP\submission\Collector as AppCollector;
 use Exception;
@@ -25,6 +26,7 @@ use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\identity\Identity;
 use PKP\plugins\HookRegistry;
+use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 
 abstract class Collector implements CollectorInterface
@@ -54,9 +56,10 @@ abstract class Collector implements CollectorInterface
     public ?array $statuses = null;
     public ?array $stageIds = null;
     public ?array $doiStatuses = null;
+    public ?bool $hasDois = null;
 
-    /** @var bool Whether null/empty values should count when considering Doi::STATUS_UNREGISTERED */
-    public bool $strictDoiStatusFilter = false;
+    /** @var array Which DOI types should be considered when checking if a submission has DOIs set */
+    public array $enabledDoiTypes = [];
 
     /** @var array|int */
     public $assignedTo = null;
@@ -88,14 +91,26 @@ abstract class Collector implements CollectorInterface
      * Limit results to submissions that contain any pub objects (e.g. publication and galley) with these statuses
      *
      * @param array|null $statuses One or more of DOI::STATUS_* constants
-     * @param bool $strict Whether null/empty values should count when considering Doi::STATUS_UNREGISTERED
      *
      */
-    public function filterByDoiStatuses(?array $statuses, bool $strict = false): AppCollector
+    public function filterByDoiStatuses(?array $statuses): AppCollector
     {
         $this->doiStatuses = $statuses;
-        $this->strictDoiStatusFilter = $strict;
 
+        return $this;
+    }
+
+    /**
+     * Limit results to submissions that do/don't have any DOIs assign to their sub objects
+     *
+     * @param bool|null $hasDois
+     * @param array|null $enabledDoiTypes TYPE_* constants to consider when checking submission has DOIs
+     * @return AppCollector
+     */
+    public function filterByHasDois(?bool $hasDois, ?array $enabledDoiTypes = null): AppCollector
+    {
+        $this->hasDois = $hasDois;
+        $this->enabledDoiTypes = $enabledDoiTypes === null ? [Repo::doi()::TYPE_PUBLICATION] : $enabledDoiTypes;
         return $this;
     }
 
@@ -217,6 +232,11 @@ abstract class Collector implements CollectorInterface
      *
      */
     abstract protected function addDoiStatusFilterToQuery(Builder $q);
+
+    /**
+     * Add APP-specific filtering methods for checking if submission sub objects have DOIs assigned
+     */
+    abstract protected function addHasDoisFilterToQuery(Builder $q);
 
     /**
      * @copydoc CollectorInterface::getQueryBuilder()
@@ -341,7 +361,7 @@ abstract class Collector implements CollectorInterface
                 ->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
                 ->leftJoin('user_groups', 'stage_assignments.user_group_id', '=', 'user_groups.user_group_id')
                 ->where('stage_assignments.submission_id', '=', DB::raw('s.submission_id'))
-                ->whereIn('user_groups.role_id', [ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR]);
+                ->whereIn('user_groups.role_id', [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
 
             $q->whereNotNull('s.date_submitted')
                 ->mergeBindings($sub)
@@ -392,6 +412,11 @@ abstract class Collector implements CollectorInterface
         // By any child pub object's DOI status
         $q->when($this->doiStatuses !== null, function (Builder $q) {
             $this->addDoiStatusFilterToQuery($q);
+        });
+
+        // By whether any child pub objects have DOIs assigned
+        $q->when($this->hasDois !== null, function (Builder $q) {
+            $this->addHasDoisFilterToQuery($q);
         });
 
         // Limit and offset results for pagination

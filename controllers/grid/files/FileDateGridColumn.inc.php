@@ -14,8 +14,10 @@
  * @brief Implements a file name column.
  */
 
+use APP\core\Application;
 use PKP\controllers\grid\ColumnBasedGridCellProvider;
 use PKP\controllers\grid\GridColumn;
+use PKP\core\PKPString;
 
 class FileDateGridColumn extends GridColumn
 {
@@ -60,8 +62,8 @@ class FileDateGridColumn extends GridColumn
         $submissionFile = $submissionFileData['submissionFile'];
         assert($submissionFile instanceof \PKP\submissionFile\SubmissionFile);
         $mtimestamp = strtotime($submissionFile->getData('updatedAt'));
-        $dateFormatLong = \Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
-        $date = strftime($dateFormatLong, $mtimestamp);
+        $dateFormatLong = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong());
+        $date = date($dateFormatLong, $mtimestamp);
         // File age
         $age = (int)floor((date('U') - $mtimestamp) / 86400);
         switch (true) {

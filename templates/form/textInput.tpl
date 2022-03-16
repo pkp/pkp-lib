@@ -65,10 +65,10 @@
 		{if $FBV_urlValidationErrorMessage} data-msg-url="{$FBV_urlValidationErrorMessage|escape}"{/if}
 	/>
 
-	{if $FBV_class|default:""|strstr:"datepicker"}
+	{if $FBV_class|default:""|strstr:"datepicker" !== false}
 		<input data-date-format="{$dateFormatShort|dateformatPHP2JQueryDatepicker}" type="hidden" 
 		name="{$FBV_name|escape}"
-		value="{if !empty($FBV_value)}{$FBV_value|date_format:"%Y-%m-%d"|escape}{/if}"
+		value="{if !empty($FBV_value)}{$FBV_value|date_format:"Y-m-d"|escape}{/if}"
 		id="{$FBV_id|escape}{$uniqId}-altField" />
 	{/if}
 

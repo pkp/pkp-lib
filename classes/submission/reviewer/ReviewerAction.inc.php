@@ -19,6 +19,7 @@ use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use PKP\core\Core;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
@@ -128,12 +129,12 @@ class ReviewerAction
 
         // Get due date
         $reviewDueDate = strtotime($reviewAssignment->getDateDue());
-        $dateFormatShort = $context->getLocalizedDateFormatShort();
+        $dateFormatShort = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort());
         if ($reviewDueDate == -1) {
             $reviewDueDate = $dateFormatShort;
         } // Default to something human-readable if no date specified
         else {
-            $reviewDueDate = strftime($dateFormatShort, $reviewDueDate);
+            $reviewDueDate = date($dateFormatShort, $reviewDueDate);
         }
 
         $email->setReplyTo($reviewer->getEmail(), $reviewer->getFullName());

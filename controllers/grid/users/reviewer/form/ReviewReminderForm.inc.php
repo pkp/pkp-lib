@@ -79,12 +79,12 @@ class ReviewReminderForm extends Form
 
         // Format the review due date
         $reviewDueDate = strtotime($reviewAssignment->getDateDue());
-        $dateFormatShort = $context->getLocalizedDateFormatShort();
+        $dateFormatShort = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort());
         if ($reviewDueDate == -1) {
             $reviewDueDate = $dateFormatShort;
         } // Default to something human-readable if no date specified
         else {
-            $reviewDueDate = strftime($dateFormatShort, $reviewDueDate);
+            $reviewDueDate = date($dateFormatShort, $reviewDueDate);
         }
 
         $dispatcher = $request->getDispatcher();

@@ -15,25 +15,27 @@
 
 namespace PKP\controllers\grid;
 
+use PKP\core\PKPString;
+
 class DateGridCellProvider extends GridCellProvider
 {
     /** @var DataProvider The actual data provider to wrap */
     public $_dataProvider;
 
-    /** @var string The format to use; see strftime */
+    /** @var string The format to use; see DateTime::format */
     public $_format;
 
     /**
      * Constructor
      *
      * @param DataProvider $dataProvider The object to wrap
-     * @param string $format See strftime
+     * @param string $format See DateTime::format
      */
     public function __construct($dataProvider, $format)
     {
         parent::__construct();
         $this->_dataProvider = $dataProvider;
-        $this->_format = $format;
+        $this->_format = PKPString::convertStrftimeFormat($format);
     }
 
     //
@@ -51,7 +53,7 @@ class DateGridCellProvider extends GridCellProvider
     public function getTemplateVarsFromRowColumn($row, $column)
     {
         $v = $this->_dataProvider->getTemplateVarsFromRowColumn($row, $column);
-        $v['label'] = strftime($this->_format, strtotime($v['label']));
+        $v['label'] = date($this->_format, strtotime($v['label']));
         return $v;
     }
 }

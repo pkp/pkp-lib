@@ -2024,6 +2024,9 @@ msgstr "Review Cancelled"
 msgid "submission.list.confirmDelete"
 msgstr "Delete submission?"
 
+msgid "submission.list.viewAllSubmissions"
+msgstr "View All Submissions"
+
 msgid "submission.list.viewSubmission"
 msgstr "View Submission"
 

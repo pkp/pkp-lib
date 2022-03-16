@@ -414,7 +414,7 @@ class DAO
                     if (!is_numeric($value)) {
                         $value = strtotime($value);
                     }
-                    $value = strftime('%Y-%m-%d %H:%M:%S', $value);
+                    $value = date('Y-m-d H:M:S', $value);
                 }
                 break;
             case 'string':

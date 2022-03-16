@@ -113,7 +113,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
         }
 
         if ($datePublished = $entity->getData('datePublished')) {
-            $entityNode->setAttribute('date_published', strftime('%Y-%m-%d', strtotime($datePublished)));
+            $entityNode->setAttribute('date_published', date('Y-m-d', strtotime($datePublished)));
         }
 
         $this->addMetadata($doc, $entityNode, $entity);
@@ -171,7 +171,6 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      * @param DOMDocument $doc
      * @param DOMElement $entityNode
      * @param PKPPublication $entity
-     * @param PubIdPlugin $pubIdPlugin
      *
      * @return DOMElement|null
      */

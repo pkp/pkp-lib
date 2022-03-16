@@ -28,7 +28,6 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\file\PublicFileManager;
 
-use PKP\facades\Locale;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
 use Exception;
@@ -42,15 +41,16 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
-use PKP\session\SessionManager;
 use PKP\linkAction\request\NullAction;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\security\Validation;
+use PKP\session\SessionManager;
 use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
 use Smarty;
@@ -118,9 +118,9 @@ class PKPTemplateManager extends Smarty
         $baseDir = Core::getBaseDir();
         $cachePath = CacheManager::getFileCachePath();
 
-        $this->compile_dir = "$cachePath/t_compile";
-        $this->config_dir = "$cachePath/t_config";
-        $this->cache_dir = "$cachePath/t_cache";
+        $this->compile_dir = "${cachePath}/t_compile";
+        $this->config_dir = "${cachePath}/t_config";
+        $this->cache_dir = "${cachePath}/t_cache";
 
         $this->_cacheability = self::CACHEABILITY_NO_STORE; // Safe default
 
@@ -480,7 +480,7 @@ class PKPTemplateManager extends Smarty
         $cacheDirectory = CacheManager::getFileCachePath();
         $context = $this->_request->getContext();
         $contextId = $context instanceof \PKP\context\Context ? $context->getId() : 0;
-        return "$cacheDirectory/$contextId-$name.css";
+        return "${cacheDirectory}/${contextId}-${name}.css";
     }
 
     /**
@@ -746,7 +746,7 @@ class PKPTemplateManager extends Smarty
                 $allLocales = $this->_request->getSite()->getSupportedLocales();
             }
             $allLocales = array_unique($allLocales);
-            $rtlLocales = array_filter($allLocales, fn(string $locale) => Locale::getMetadata($locale)->isRightToLeft());
+            $rtlLocales = array_filter($allLocales, fn (string $locale) => Locale::getMetadata($locale)->isRightToLeft());
             $app_data['rtlLocales'] = array_values($rtlLocales);
         }
 
@@ -1423,7 +1423,7 @@ class PKPTemplateManager extends Smarty
      * {translate key="localization.key.name" count="10" [paramName="paramValue" ...]}
      * Custom Smarty function for translating localization keys.
      * Substitution works by replacing tokens like "{$foo}" with the value of the parameter named "foo" (if supplied).
-     * 
+     *
      * The params named "key", "count", "locale" and "params" are reserved. If you need to pass one of them as a translation variable specify them using the "params":
      * $smarty->assign('params', ['key' => "Golden key"]);
      * {translate key="pluralized.key" locale="en_US" count="10" params=$params}
@@ -2455,7 +2455,7 @@ class PKPTemplateManager extends Smarty
 
         $months = [];
         for ($i = 1; $i <= 12; $i++) {
-            $months[$i] = strftime('%B', strtotime('2020-' . $i . '-01'));
+            $months[$i] = date('M', strtotime('2020-' . $i . '-01'));
         }
 
         $days = [];

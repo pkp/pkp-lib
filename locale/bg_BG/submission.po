@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-16 00:29+0000\n"
+"PO-Revision-Date: 2022-03-16 12:16+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -674,3 +674,69 @@ msgstr "Моля, въведете валидно име на конференц
 
 msgid "metadata.property.displayName.conf-name"
 msgstr "Име на конференцията"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Обратно към дневника (лог) на имейли"
+
+msgid "submission.editorial"
+msgstr "Стилова корекция"
+
+msgid "submission.editMetadata"
+msgstr "Редактиране на метаданни"
+
+msgid "submission.editing"
+msgstr "Редактиране"
+
+msgid "submission.due"
+msgstr "До"
+
+msgid "submission.dueDate"
+msgstr "Крайна дата"
+
+msgid "submission.downloads"
+msgstr "Файлове за сваляне"
+
+msgid "submission.done"
+msgstr "Готово"
+
+msgid "submission.coverage"
+msgstr "Информация относно обхвата"
+
+msgid "submission.queryNoteFiles"
+msgstr "Дискусионни файлове"
+
+msgid "submission.copyediting"
+msgstr "Стилова корекция"
+
+msgid "submission.copyedited"
+msgstr "Стилово коригиран"
+
+msgid "submission.contributors"
+msgstr "Списък на автори и участници"
+
+msgid "submission.complete"
+msgstr "Завръшено"
+
+msgid "submission.comments.subject"
+msgstr "Тема (предмет)"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Изпращане на редакционно решение към рецензентите"
+
+msgid "submission.comments.review"
+msgstr "Рецензия"
+
+msgid "submission.comments.noReviews"
+msgstr "Няма рецензии"
+
+msgid "submission.comments.noComments"
+msgstr "Няма коментари"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Рецензент {$reviewerLetter}:"
+
+msgid "submission.comments.addReviews"
+msgstr "Добавяне на рецензии към имейл"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Импортиране на рецензии"

@@ -47,15 +47,13 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
-use PKP\facades\Locale;
 use APP\template\TemplateManager;
 use Exception;
-use generator;
-use FilesystemIterator;
 use PKP\config\Config;
-
 use PKP\core\Registry;
+
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\install\Installer;
 
@@ -356,7 +354,7 @@ abstract class Plugin
     {
         $pluginPath = $this->getPluginPath();
         if ($inCore) {
-            $pluginPath = PKP_LIB_PATH . "/$pluginPath";
+            $pluginPath = PKP_LIB_PATH . "/${pluginPath}";
         }
         $plugin = basename($pluginPath);
         $category = basename(dirname($pluginPath));
@@ -398,7 +396,7 @@ abstract class Plugin
     protected function _registerTemplateResource($inCore = false)
     {
         if ($templatePath = $this->getTemplatePath($inCore)) {
-            $templateMgr = TemplateManager::getManager();
+            $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
             $pluginTemplateResource = new PKPTemplateResource($templatePath);
             $templateMgr->registerResource($this->getTemplateResource(null, $inCore), $pluginTemplateResource);
         }
@@ -482,7 +480,7 @@ abstract class Plugin
      */
     public function addLocaleData(): void
     {
-        $basePath = $this->getPluginPath() . "/locale";
+        $basePath = $this->getPluginPath() . '/locale';
         foreach ([$basePath, "lib/pkp/${basePath}"] as $path) {
             if (is_dir($path)) {
                 Locale::registerPath($path);
@@ -612,7 +610,7 @@ abstract class Plugin
         // Load email template data as required from the locale files.
         $locales = [];
         foreach ($installer->installedLocales as $locale) {
-            if (file_exists($this->getPluginPath() . "/locale/$locale/emails.po")) {
+            if (file_exists($this->getPluginPath() . "/locale/${locale}/emails.po")) {
                 $locales[] = $locale;
             }
         }

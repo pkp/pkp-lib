@@ -45,9 +45,13 @@ use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\user\User;
+use Symfony\Component\Mailer\Exception\TransportException;
+
+// FIXME: Add namespacing
+import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridCellProvider');
+import('lib.pkp.controllers.grid.users.reviewer.ReviewerGridRow');
 use ReviewerGridCellProvider;
 use ReviewerGridRow;
-use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPReviewerGridHandler extends GridHandler
 {

@@ -40,7 +40,7 @@
 		<steps
 			v-if="steps.length"
 			:current="currentStep.id"
-			:initialized-steps="initializedSteps"
+			:started-steps="startedSteps"
 			label="{translate key="editor.decision.completeSteps"}"
 			progress-label="{$current}/{$total} steps"
 			show-steps-label="{translate key="common.showAllSteps"}"

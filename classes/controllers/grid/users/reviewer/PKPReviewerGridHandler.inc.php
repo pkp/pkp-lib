@@ -867,7 +867,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Form handling.
         import('lib.pkp.controllers.grid.users.reviewer.form.EmailReviewerForm');
-        $emailReviewerForm = new \EmailReviewerForm($reviewAssignment);
+        $emailReviewerForm = new \EmailReviewerForm($reviewAssignment, $submission);
         if (!$request->isPost()) {
             $emailReviewerForm->initData();
             return new JSONMessage(
@@ -881,7 +881,7 @@ class PKPReviewerGridHandler extends GridHandler
             );
         }
         $emailReviewerForm->readInputData();
-        $emailReviewerForm->execute($submission);
+        $emailReviewerForm->execute();
         return new JSONMessage(true);
     }
 

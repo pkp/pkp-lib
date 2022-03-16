@@ -18,7 +18,7 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\mail\SubmissionMailTemplate;
-
+use APP\submission\Submission;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -27,16 +27,20 @@ class EmailReviewerForm extends Form
     /** @var ReviewAssignment The review assignment to use for this contact */
     public $_reviewAssignment;
 
+    protected Submission $submission;
+
     /**
      * Constructor.
      *
      * @param ReviewAssignment $reviewAssignment The review assignment to use for this contact.
+     * @param Submission $submission
      */
-    public function __construct($reviewAssignment)
+    public function __construct($reviewAssignment, $submission)
     {
         parent::__construct('controllers/grid/users/reviewer/form/emailReviewerForm.tpl');
 
         $this->_reviewAssignment = $reviewAssignment;
+        $this->submission = $submission;
 
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'subject', 'required', 'email.subjectRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'message', 'required', 'email.bodyRequired'));
@@ -81,16 +85,14 @@ class EmailReviewerForm extends Form
 
     /**
      * Send the email
-     *
-     * @param Submission $submission
      */
-    public function execute($submission, ...$functionArgs)
+    public function execute(...$functionArgs)
     {
         $toUser = Repo::user()->get($this->_reviewAssignment->getReviewerId());
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 
-        $email = new SubmissionMailTemplate($submission);
+        $email = new SubmissionMailTemplate($this->submission);
 
         $email->addRecipient($toUser->getEmail(), $toUser->getFullName());
         $email->setReplyTo($fromUser->getEmail(), $fromUser->getFullName());
@@ -102,6 +104,6 @@ class EmailReviewerForm extends Form
             $notificationMgr->createTrivialNotification($request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);
         }
 
-        parent::execute($submission, ...$functionArgs);
+        parent::execute(...$functionArgs);
     }
 }

@@ -448,6 +448,9 @@ msgstr ""
 "sem leyfir honum að skoða hver er höfundur.  Því er ekki hægt að tryggja "
 "nafnlausa ritrýni. Viltu samt opna þennan ritrýni?"
 
+msgid "reviewer.list.reassign"
+msgstr "Endurúthluta"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Þessum ritrýni hefur nú þegar verið úthlutað þessu handriti í ritrýni."
 

@@ -397,6 +397,9 @@ msgstr "Gemiddeld aantal dagen om een review af te ronden"
 msgid "reviewer.list.neverAssigned"
 msgstr "Nooit toegewezen"
 
+msgid "reviewer.list.reassign"
+msgstr "Opnieuw toekennen"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Deze reviewer werd al toegewezen als reviewer voor deze inzending."
 

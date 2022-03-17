@@ -37,6 +37,9 @@ msgstr ""
 "vizualizeze identitatea autorului. Nu poate fi garantată revizuirea în orb. "
 "Ați dori oricum să deblocați acest recenzor?"
 
+msgid "reviewer.list.reassign"
+msgstr "Realocați"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Acest recenzor a fost deja desemnat să examineze această trimitere."
 

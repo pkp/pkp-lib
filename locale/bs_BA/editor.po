@@ -416,6 +416,9 @@ msgstr ""
 "vidi identitet autora. Ne može se garantovati anonimni pregled. Želite li "
 "ipak otključati ovog recenzenta?"
 
+msgid "reviewer.list.reassign"
+msgstr "Ponovo dodijeli"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Ovom recenzentu je već dodijeljeno da pregleda ovu predaju."
 

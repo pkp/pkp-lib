@@ -390,6 +390,9 @@ msgstr "Genomsnittligt antal dagar för färdigställande av granskning"
 msgid "reviewer.list.neverAssigned"
 msgstr "Aldrig tilldelad något granskningsuppdrag"
 
+msgid "reviewer.list.reassign"
+msgstr "Tilldela om"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Den här granskaren har redan fått i uppdrag att granska det här bidraget."
 

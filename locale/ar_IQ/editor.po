@@ -444,6 +444,9 @@ msgstr "معدل أيام إكمال التحكيم"
 msgid "reviewer.list.neverAssigned"
 msgstr "لم يسبق تعيينه"
 
+msgid "reviewer.list.reassign"
+msgstr "إعادة تعيين"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "هذا المحكم قد سبق تعيينه لتحكيم طلب التقديم هذا."
 

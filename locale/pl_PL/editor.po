@@ -397,6 +397,9 @@ msgstr "Średnia liczba dni wykonania recenzji"
 msgid "reviewer.list.neverAssigned"
 msgstr "Nigdy nie przypisany"
 
+msgid "reviewer.list.reassign"
+msgstr "Przypisz ponownie"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Recenzent został już przypisany do zrecenzowania tego tekstu."
 

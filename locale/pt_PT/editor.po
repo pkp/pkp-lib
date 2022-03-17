@@ -389,6 +389,9 @@ msgstr "Número médio de dias para completar a revisão"
 msgid "reviewer.list.neverAssigned"
 msgstr "Nunca designado"
 
+msgid "reviewer.list.reassign"
+msgstr "Redesignar"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Este revisor já foi designado para rever esta submissão."
 

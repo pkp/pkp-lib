@@ -454,6 +454,12 @@ msgstr "Moyenne de jours pour compléter une évaluation"
 msgid "reviewer.list.neverAssigned"
 msgstr "Jamais assigné-e"
 
+msgid "reviewer.list.reassign"
+msgstr "Réassigner"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Réassigner {$name}"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Cet,Cette évaluateur-trice a déjà été assigné-e à l'évaluation de cette soumission."
 

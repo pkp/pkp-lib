@@ -382,6 +382,9 @@ msgstr ""
 "ver a identidade do autor. Non se pode garantir a revisión anónima por "
 "pares. Desexa desbloquear este revisor de tódolos xeitos?"
 
+msgid "reviewer.list.reassign"
+msgstr "Reasignar"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Este revisor/a xa foi asignado para revisar este envío."
 

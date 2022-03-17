@@ -307,22 +307,23 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			$expectedFileSize = $node->getAttribute('filesize');
 			if ($fileSizeOnDisk != $expectedFileSize) {
 				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.filesizeMismatch', array('expected' => $expectedFileSize, 'actual' => $fileSizeOnDisk)));
-			} else {
-				clearstatcache(true, $temporaryFilename);
-				import('lib.pkp.classes.file.FileManager');
-				$fileManager = new FileManager();
-				$submissionDir = Services::get('submissionFile')->getSubmissionDir($submission->getData('contextId'), $submission->getId());
-				$newFileId = Services::get('file')->add(
-					$temporaryFilename,
-					$submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')
-				);
-				$deployment->setFileDBId($node->getAttribute('id'), $newFileId);
 			}
+
+			clearstatcache(true, $temporaryFilename);
+			import('lib.pkp.classes.file.FileManager');
+			$fileManager = new FileManager();
+			$submissionDir = Services::get('submissionFile')->getSubmissionDir($submission->getData('contextId'), $submission->getId());
+			$newFileId = Services::get('file')->add(
+				$temporaryFilename,
+				$submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')
+			);
+			$deployment->setFileDBId($node->getAttribute('id'), $newFileId);
 		}
 
-		if ($newFileId) {
+		if (isset($newFileId)) {
 			return $newFileId;
 		}
+		return null;
 	}
 
 	/**

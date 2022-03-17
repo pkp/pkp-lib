@@ -410,6 +410,9 @@ msgstr ""
 "la identitat de l'autor/a. Per tant, l'avaluació d'experts amb cegament no "
 "està garantida. Voleu desbloquejar-lo igualment?"
 
+msgid "reviewer.list.reassign"
+msgstr "Reassignació"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Aquest revisor/a ja ha estat assignat per revisar aquesta tramesa."
 

@@ -377,6 +377,9 @@ msgstr "Média de dias para completar uma avaliação"
 msgid "reviewer.list.neverAssigned"
 msgstr "Nunca designado"
 
+msgid "reviewer.list.reassign"
+msgstr "Reatribuir"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Esse avaliador já foi designado para avaliar essa submissão."
 

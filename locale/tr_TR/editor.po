@@ -398,6 +398,9 @@ msgstr "Son değerlendirme tarihinden bu yana geçen gün sayısı"
 msgid "reviewer.list.averageCompletion"
 msgstr "Ortalama değerlendirme gün sayısı"
 
+msgid "reviewer.list.reassign"
+msgstr "Yeniden Ata"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Bu hakem, bu gönderiyi değerlendirmek için zaten atandı."
 

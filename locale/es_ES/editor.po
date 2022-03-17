@@ -398,6 +398,9 @@ msgstr "Promedio de días para completar la revisión"
 msgid "reviewer.list.neverAssigned"
 msgstr "Nunca asignado"
 
+msgid "reviewer.list.reassign"
+msgstr "Volver a asignar"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Este revisor/a ya ha sido asignado para revisar este envío."
 

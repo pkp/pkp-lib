@@ -143,8 +143,8 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['emptyLabel'] = __('reviewer.list.empty');
         $config['gossipLabel'] = __('user.gossip');
         $config['neverAssignedLabel'] = __('reviewer.list.neverAssigned');
-        $config['reassignLabel'] = __('editor.reassign');
-        $config['reassignWithNameLabel'] = __('editor.reassign.withName');
+        $config['reassignLabel'] = __('reviewer.list.reassign');
+        $config['reassignWithNameLabel'] = __('reviewer.list.reassign.withName');
         $config['reviewerRatingLabel'] = __('reviewer.list.reviewerRating');
         $config['reviewInterestsLabel'] = __('reviewer.list.reviewInterests');
         $config['selectReviewerLabel'] = __('editor.submission.selectReviewer');

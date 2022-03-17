@@ -47,6 +47,9 @@ msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "査読者は、著者の個人情報を閲覧できる役割を割り当てられているため、ロックされています。匿名での査読が保証されません。この査読者のロックを解除したいですか？"
 
+msgid "reviewer.list.reassign"
+msgstr "再任命"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "査読者はすでにこの投稿の査読に割り当てられています。"
 

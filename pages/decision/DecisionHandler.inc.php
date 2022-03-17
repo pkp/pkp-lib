@@ -154,6 +154,13 @@ class DecisionHandler extends Handler
                 $context->getData('urlPath'),
                 'submissions/' . $this->submission->getId()
             ),
+            'submissionListUrl' => $dispatcher->url(
+                $request,
+                Application::ROUTE_PAGE,
+                $context->getData('urlPath'),
+                'submissions',
+            ),
+            'viewAllSubmissionsLabel' => __('submission.list.viewAllSubmissions'),
             'viewSubmissionLabel' => __('submission.list.viewSubmission'),
         ]);
 

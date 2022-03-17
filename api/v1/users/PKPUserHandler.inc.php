@@ -198,11 +198,11 @@ class PKPUserHandler extends APIHandler
             'reviewsCompleted',
             'reviewStage',
             'searchPhrase',
+            'reviewerIds',
             'status',
         ]);
 
         HookRegistry::call('API::users::reviewers::params', [&$params, $slimRequest]);
-
         $collector = Repo::user()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->includeReviewerData()
@@ -214,6 +214,7 @@ class PKPUserHandler extends APIHandler
             ->filterByReviewsActive(...($params['reviewsActive'] ?? []))
             ->filterByDaysSinceLastAssignment(...($params['daysSinceLastAssignment'] ?? []))
             ->filterByAverageCompletion($params['averageCompletion'][0] ?? null)
+            ->filterByUserIds($params['reviewerIds'] ?? null)
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null);
         $usersCollection = Repo::user()->getMany($collector);
@@ -273,6 +274,7 @@ class PKPUserHandler extends APIHandler
                     break;
 
                 // Always convert roleIds to array
+                case 'reviewerIds':
                 case 'roleIds':
                     if (is_string($val)) {
                         $val = explode(',', $val);
@@ -288,9 +290,6 @@ class PKPUserHandler extends APIHandler
                 case 'reviewerRating':
                 case 'reviewStage':
                 case 'offset':
-                    $returnParams[$param] = (int) $val;
-                    break;
-
                 case 'searchPhrase':
                     $returnParams[$param] = trim($val);
                     break;

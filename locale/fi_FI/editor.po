@@ -386,6 +386,9 @@ msgstr "Arviointiaika keskimäärin"
 msgid "reviewer.list.neverAssigned"
 msgstr "Ei aiempia arviointeja"
 
+msgid "reviewer.list.reassign"
+msgstr "Osoita uudelleen"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Arvioijalle on jo tehty arviointipyyntö tähän käsikirjoitukseen."
 

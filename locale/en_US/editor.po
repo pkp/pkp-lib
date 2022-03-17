@@ -467,6 +467,9 @@ msgstr "{$count} active"
 msgid "reviewer.list.activeReviewsDescription"
 msgstr "Active reviews currently assigned"
 
+msgid "reviewer.list.assignedToLastRound"
+msgstr "This reviewer completed a review in the last round."
+
 msgid "reviewer.list.completedReviews"
 msgstr "Reviews completed"
 
@@ -494,8 +497,15 @@ msgstr "Average days to complete review"
 msgid "reviewer.list.neverAssigned"
 msgstr "Never assigned"
 
+msgid "reviewer.list.reassign"
+msgstr "Reassign"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Reassign {$name}"
+
+#, fuzzy
 msgid "reviewer.list.currentlyAssigned"
-msgstr "This reviewer has already been assigned to review this submission."
+msgstr "This reviewer has already been assigned to this review round."
 
 msgid "reviewer.list.warnOnAssign"
 msgstr "This reviewer is locked because they have been assigned a role which allows them to view the author's identity. Anonymous peer review can not be guaranteed. Would you like to unlock this reviewer anyway?"
@@ -511,6 +521,9 @@ msgstr "Biography"
 
 msgid "reviewer.list.empty"
 msgstr "No reviewers found"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Assigned to Earlier Round"
 
 msgid "editor.decision.cancelDecision"
 msgstr "Cancel Decision"

@@ -403,6 +403,9 @@ msgstr "Durchschnittliche Dauer (Tage) der Begutachtung"
 msgid "reviewer.list.neverAssigned"
 msgstr "Noch nie zugewiesen"
 
+msgid "reviewer.list.reassign"
+msgstr "Wieder zuweisen"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Dieser Gutachterin/diesem Gutachter ist diese Einreichung bereits zur Begutachtung zugewiesen worden."
 

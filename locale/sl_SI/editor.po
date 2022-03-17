@@ -390,6 +390,9 @@ msgstr "Povprečno število dni za zaključek recenzije"
 msgid "reviewer.list.neverAssigned"
 msgstr "Nikoli deljen"
 
+msgid "reviewer.list.reassign"
+msgstr "Prerazporeditev"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Recenzent je že dodlejen temu prispevku."
 

@@ -344,6 +344,9 @@ msgstr "完成审阅所需的平均时间"
 msgid "reviewer.list.neverAssigned"
 msgstr "未被分配"
 
+msgid "reviewer.list.reassign"
+msgstr "重新分配"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "已经分配了该审阅者来审阅此提交。"
 

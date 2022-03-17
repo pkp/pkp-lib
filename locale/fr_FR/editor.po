@@ -467,6 +467,12 @@ msgstr "Temps moyen pour faire une évaluation"
 msgid "reviewer.list.neverAssigned"
 msgstr "Jamais assigné"
 
+msgid "reviewer.list.reassign"
+msgstr "Réassigner"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Réassigner {$name}"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Ce rapporteur évalue déjà cette soumission."
 

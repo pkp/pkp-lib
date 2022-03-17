@@ -416,6 +416,9 @@ msgstr "Průměrný počet dnů na provedení recenze"
 msgid "reviewer.list.neverAssigned"
 msgstr "Nikdy nebyla přidělena recenze"
 
+msgid "reviewer.list.reassign"
+msgstr "Nové přidělení"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Recenzentovi již byla přidělen tento příspěvek."
 

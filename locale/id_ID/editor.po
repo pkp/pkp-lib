@@ -392,6 +392,9 @@ msgstr ""
 "untuk melihat identitas penulis. Blind peer review tidak terjamin. Apakah "
 "Anda ingin membuka akses mitra bestari ini?"
 
+msgid "reviewer.list.reassign"
+msgstr "Tugaskan ulang"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Mitra bestari ini telah ditugaskan mereview naskah ini."
 

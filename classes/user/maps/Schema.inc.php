@@ -13,10 +13,8 @@
 
 namespace PKP\user\maps;
 
-use APP\core\Request;
 use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
-use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\services\PKPSchemaService;
@@ -81,6 +79,19 @@ class Schema extends \PKP\core\maps\Schema
         $this->collection = $collection;
         return $collection->map(function ($item) {
             return $this->summarize($item);
+        });
+    }
+
+    /**
+     * Summarize a collection of reviewers
+     *
+     * @see self::summarizeReviewer
+     */
+    public function summarizeManyReviewers(Enumerable $collection): Enumerable
+    {
+        $this->collection = $collection;
+        return $collection->map(function ($item) {
+            return $this->summarizeReviewer($item);
         });
     }
 

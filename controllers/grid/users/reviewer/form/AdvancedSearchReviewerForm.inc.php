@@ -18,9 +18,12 @@ import('lib.pkp.controllers.grid.users.reviewer.form.ReviewerForm');
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
+use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
 {
@@ -77,7 +80,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
 
-        // get reviewer IDs already assign to this submission and this round        
+        // get reviewer IDs already assign to this submission and this round
         $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmissionId(), $this->getReviewRound()->getId());
         $currentlyAssigned = [];
         if (!empty($reviewAssignments)) {
@@ -126,21 +129,33 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             ]
         );
 
-        // get IDs of reviewers already assign to previous review round of this submission and who have completed a review
-        $lastRoundReviewerIds = [];
-
+        // Get reviewers who completed a review in the last round
         if ($this->getReviewRound()->getRound() > 1) {
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');/** @var ReviewAssignmentDAO $reviewAssignmentDao */
             $previousRound = $this->getReviewRound()->getRound() - 1;
             $lastReviewRound = $reviewRoundDao->getReviewRound($this->getSubmissionId(), $this->getReviewRound()->getStageId(), $previousRound);
-            $lastReviewRoundId = $lastReviewRound->getId();
 
-            $lastReviewAssignments = $reviewAssignmentDao->getByReviewRoundId($lastReviewRoundId);
-            if (!empty($lastReviewAssignments)) {
+            if ($lastReviewRound) {
+                $lastReviewAssignments = $reviewAssignmentDao->getByReviewRoundId($lastReviewRound->getId());
+                $lastRoundReviewerIds = [];
                 foreach ($lastReviewAssignments as $reviewAssignment) {
-                    if (in_array($reviewAssignment->getStatus(), [PKP\submission\reviewAssignment\ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, PKP\submission\reviewAssignment\ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE])) {
+                    if (in_array($reviewAssignment->getStatus(), [ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE])) {
                         $lastRoundReviewerIds[] = (int) $reviewAssignment->getReviewerId();
                     }
+                }
+
+                $lastRoundReviewers = Repo::user()->getMany(
+                    Repo::user()->getCollector()
+                        ->filterByContextIds([$submissionContext->getId()])
+                        ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
+                        ->filterByUserIds($lastRoundReviewerIds)
+                        ->includeReviewerData()
+                );
+
+                if (count($lastRoundReviewers)) {
+                    $selectReviewerListPanel->set([
+                        'lastRoundReviewers' => $lastRoundReviewers,
+                    ]);
                 }
             }
         }
@@ -148,7 +163,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $selectReviewerListPanel->set([
             'items' => $selectReviewerListPanel->getItems($request),
             'itemsMax' => $selectReviewerListPanel->getItemsMax(),
-            'lastRoundReviewerIds' => $lastRoundReviewerIds,
         ]);
 
         $templateMgr = TemplateManager::getManager($request);

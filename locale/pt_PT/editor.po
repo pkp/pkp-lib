@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-03-08 17:49+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/pt_PT/>\n"
@@ -394,7 +394,7 @@ msgid "reviewer.list.reassign"
 msgstr "Redesignar"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Este revisor já foi designado para rever esta submissão."
+msgstr "Este revisor já foi designado a esta ronda de revisão."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -559,3 +559,12 @@ msgstr "Não foi possível encontrar esta ronda de revisão."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr "Não pode enviar e-mail para os seguintes destinatários: {$names}."
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Designado a Ronda Anterior"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Redesignar {$name}"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Este revisor concluiu uma revisão na ronda anterior."

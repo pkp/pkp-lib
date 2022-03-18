@@ -56,7 +56,7 @@
 	{/fbvFormSection}
 
 	{fbvFormSection title="user.email" required="true"}
-		{fbvElement type="email" id="email" required="true" value=$email maxlength="90" size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="email" id="email" required="true" value=$email maxlength="255" size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
 	{fbvFormSection title="manager.reviewerSearch.interests" for="interests"}

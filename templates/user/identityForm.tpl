@@ -31,8 +31,8 @@
 
 	{fbvFormArea id="userFormCompactLeft"}
 		{fbvFormSection title="user.name"}
-			{fbvElement type="text" label="user.givenName" multilingual="true" required="true" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="text" label="user.familyName" multilingual="true" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.givenName" multilingual="true" required="true" id="givenName" value=$givenName inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.familyName" multilingual="true" id="familyName" value=$familyName inline=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

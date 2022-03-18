@@ -62,7 +62,7 @@
 		{fbvElement type="textarea" label="user.biography" multilingual="true" name="biography" id="biography" rich=true value=$biography}
 	{/fbvFormSection}
 	{fbvFormSection}
-		{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="255"}
+		{fbvElement type="text" label="user.url" name="userUrl" id="userUrl" value=$userUrl maxlength="2047"}
 	{/fbvFormSection}
 	{fbvFormSection}
 		{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="37"}

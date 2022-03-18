@@ -25,8 +25,8 @@
 
 {fbvFormArea id="userDetails"}
 	{fbvFormSection title="user.name"}
-		{fbvElement type="text" label="user.givenName" multilingual="true" name="givenName" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM required="true"}
-		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="text" label="user.givenName" multilingual="true" name="givenName" id="givenName" value=$givenName inline=true size=$fbvStyles.size.MEDIUM required="true"}
+		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName inline=true size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
 	{fbvFormSection for="preferredPublicName" description="user.preferredPublicName.description"}
@@ -63,8 +63,8 @@
 		{if $userId}{capture assign="passwordInstruction"}{translate key="user.profile.leavePasswordBlank"} {translate key="user.register.form.passwordLengthRestriction" length=$minPasswordLength}{/capture}{/if}
 		{fbvFormArea id="passwordSection" title="user.password"}
 			{fbvFormSection for="password" description=$passwordInstruction translate=false}
-				{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
-				{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="32" inline=true size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="text" label="user.password" required=$passwordRequired name="password" id="password" password="true" value=$password maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="text" label="user.repeatPassword" required=$passwordRequired name="password2" id="password2" password="true" value=$password2 maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
 			{/fbvFormSection}
 
 			{if !$userId}

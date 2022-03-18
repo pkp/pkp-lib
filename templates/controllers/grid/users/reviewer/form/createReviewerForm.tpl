@@ -46,8 +46,8 @@
 	{/if}
 
 	{fbvFormSection title="common.name"}
-		{fbvElement type="text" label="user.givenName" multilingual="true" name="givenName" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM required="true"}
-		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+		{fbvElement type="text" label="user.givenName" multilingual="true" name="givenName" id="givenName" value=$givenName inline=true size=$fbvStyles.size.MEDIUM required="true"}
+		{fbvElement type="text" label="user.familyName" multilingual="true" name="familyName" id="familyName" value=$familyName inline=true size=$fbvStyles.size.MEDIUM}
 	{/fbvFormSection}
 
 	{fbvFormSection title="user.username" required="true"}

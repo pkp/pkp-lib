@@ -27,6 +27,7 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\log\PKPSubmissionEventLogEntry;
 
@@ -179,8 +180,8 @@ class EditorAction
                     [
                         'reviewAssignmentId' => $reviewAssignment->getId(),
                         'reviewerName' => $reviewer->getFullName(),
-                        'dueDate' => strftime(
-                            $context->getLocalizedDateFormatShort(),
+                        'dueDate' => date(
+                            PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
                             strtotime($reviewAssignment->getDateDue())
                         ),
                         'submissionId' => $submission->getId(),

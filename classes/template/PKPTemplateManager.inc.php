@@ -27,7 +27,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\file\PublicFileManager;
-
 use APP\notification\Notification;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -40,6 +39,7 @@ use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPString;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -161,22 +161,22 @@ class PKPTemplateManager extends Smarty
         // Assign date and time format
         if ($currentContext) {
             $this->assign([
-                'dateFormatShort' => $currentContext->getLocalizedDateFormatShort(),
-                'dateFormatLong' => $currentContext->getLocalizedDateFormatLong(),
-                'datetimeFormatShort' => $currentContext->getLocalizedDateTimeFormatShort(),
-                'datetimeFormatLong' => $currentContext->getLocalizedDateTimeFormatLong(),
-                'timeFormat' => $currentContext->getLocalizedTimeFormat(),
+                'dateFormatShort' => PKPString::convertStrftimeFormat($currentContext->getLocalizedDateFormatShort()),
+                'dateFormatLong' => PKPString::convertStrftimeFormat($currentContext->getLocalizedDateFormatLong()),
+                'datetimeFormatShort' => PKPString::convertStrftimeFormat($currentContext->getLocalizedDateTimeFormatShort()),
+                'datetimeFormatLong' => PKPString::convertStrftimeFormat($currentContext->getLocalizedDateTimeFormatLong()),
+                'timeFormat' => PKPString::convertStrftimeFormat($currentContext->getLocalizedTimeFormat()),
                 'displayPageHeaderTitle' => $currentContext->getLocalizedData('name'),
                 'displayPageHeaderLogo' => $currentContext->getLocalizedData('pageHeaderLogoImage'),
                 'displayPageHeaderLogoAltText' => $currentContext->getLocalizedData('pageHeaderLogoImageAltText'),
             ]);
         } else {
             $this->assign([
-                'dateFormatShort' => Config::getVar('general', 'date_format_short'),
-                'dateFormatLong' => Config::getVar('general', 'date_format_long'),
-                'datetimeFormatShort' => Config::getVar('general', 'datetime_format_short'),
-                'datetimeFormatLong' => Config::getVar('general', 'datetime_format_long'),
-                'timeFormat' => Config::getVar('general', 'time_format'),
+                'dateFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_short')),
+                'dateFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_long')),
+                'datetimeFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_short')),
+                'datetimeFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_long')),
+                'timeFormat' => PKPString::convertStrftimeFormat(Config::getVar('general', 'time_format')),
             ]);
         }
 
@@ -1334,7 +1334,7 @@ class PKPTemplateManager extends Smarty
         if (!isset($request)) {
             $request = Registry::get('request');
             if (Config::getVar('debug', 'deprecation_warnings')) {
-                trigger_error('Deprecated call without request object.');
+                throw new Exception('Deprecated call without request object.');
             }
         }
         assert($request instanceof \PKP\core\PKPRequest);

@@ -293,9 +293,8 @@ class Schema extends \PKP\core\maps\Schema
             $request = Application::get()->getRequest();
             $currentUser = $request->getUser();
             $context = $request->getContext();
-            $dateFormatShort = $context->getLocalizedDateFormatShort();
-            $due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
-            $responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
+            $due = is_null($reviewAssignment->getDateDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateDue()));
+            $responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateResponseDue()));
 
             $reviews[] = [
                 'id' => (int) $reviewAssignment->getId(),

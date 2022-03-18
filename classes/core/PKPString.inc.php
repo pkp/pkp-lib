@@ -522,7 +522,51 @@ class PKPString
     }
 
     /**
-     * Matches each symbol of PHP strftime format string
+     * Get a mapping from strftime to DateTime::format formatting equivalents.
+     * Old format: https://www.php.net/manual/en/function.strftime.php
+     * New format: https://www.php.net/manual/en/datetime.format.php
+     *
+     * Introduced in 3.4.0; remove this function (and calls to it) after this is distributed
+     * in an LTS release.
+     */
+    public static function getStrftimeConversion(): array
+    {
+        return [
+            '%%' => '%', '%h' => 'M', '%d' => 'd', '%a' => 'D',
+            '%e' => 'j', '%A' => 'l', '%u' => 'N', '%w' => 'w',
+            '%U' => 'W', '%B' => 'F', '%m' => 'm', '%b' => 'M',
+            '%e' => 'n', '%Y' => 'Y', '%y' => 'y', '%P' => 'a',
+            '%p' => 'A', '%l' => 'g', '%k' => 'G', '%I' => 'h',
+            '%H' => 'H', '%M' => 'i', '%S' => 's', '%Z' => 'e',
+            '%Z' => 'T',
+        ];
+    }
+
+    /**
+     * Convert any strftime-based datetime formatting into DateTime::format equivalent.
+     * Passes through any strings that are already in the new format without modification.
+     * Old format: https://www.php.net/manual/en/function.strftime.php
+     * New format: https://www.php.net/manual/en/datetime.format.php
+     *
+     * Introduced in 3.4.0; remove this function (and calls to it) after this is distributed
+     * in an LTS release.
+     */
+    public static function convertStrftimeFormat(string $format): string
+    {
+        // Following the lead of Smarty's date_format modifier, check the
+        // format string for "%" characters. If found, attempt to convert.
+        // We don't expect date/time formats to contain other uses of %.
+        if (strstr($format, '%')) {
+            if (Config::getVar('debug', 'deprecation_warnings')) {
+                trigger_error('Deprecated use of strftime-based date format.');
+            }
+            $format = strtr($format, self::getStrftimeConversion());
+        }
+        return $format;
+    }
+
+    /**
+     * Matches each symbol of PHP date format string
      * to jQuery Datepicker widget date format.
      *
      * @param string $phpFormat
@@ -531,83 +575,11 @@ class PKPString
      */
     public static function dateformatPHP2JQueryDatepicker($phpFormat)
     {
-        $symbols = [
-            // Day
-            'a' => 'D',  // date() format 'D'
-            'A' => 'DD', // date() format 'DD'
-            'd' => 'dd', // date() format 'd'
-            'e' => 'd',  // date() format 'j'
-            'j' => 'oo', // date() format none
-            'u' => '',   // date() format 'N'
-            'w' => '',   // date() format 'w'
-
-            // Week
-            'U' => '',   // date() format none
-            'V' => '',   // date() format none
-            'W' => '',   // date() format 'W'
-
-            // Month
-            'b' => 'M',  // date() format 'M'
-            'h' => 'M',  // date() format 'M'
-            'B' => 'MM', // date() format 'F'
-            'm' => 'mm', // date() format 'm'
-
-            // Year
-            'C' => '',   // date() format none
-            'g' => 'y',  // date() format none
-            'G' => 'yy', // date() format 'o'
-            'y' => 'y',  // date() format 'y'
-            'Y' => 'yy', // date() format 'Y'
-
-            // Time
-            'H' => '',   // date() format 'H'
-            'k' => '',   // date() format none
-            'I' => '',   // date() format 'h'
-            'l' => '',   // date() format 'g'
-            'P' => '',   // date() format 'a'
-            'p' => '',   // date() format 'A'
-            'M' => '',   // date() format 'i'
-            'S' => '',   // date() format 's'
-            's' => '',   // date() format 'u'
-
-            // Timezone
-            'z' => '',   // date() format 'O'
-            'Z' => '',   // date() format 'T'
-
-            // Full Date/Time
-            'r' => '',   // date() format none
-            'R' => '',   // date() format none
-            'X' => '',   // date() format none
-            'D' => '',   // date() format none
-            'F' => '',   // date() format none
-            'x' => '',   // date() format none
-            'c' => '',   // date() format none
-
-            // Other
-            '%' => ''
-        ];
-
-        $datepickerFormat = '';
-        $escaping = false;
-
-        for ($i = 0; $i < strlen($phpFormat); $i++) {
-            $char = $phpFormat[$i];
-            if ($char === '\\') {
-                $i++;
-                $datepickerFormat .= $escaping ? $phpFormat[$i] : '\'' . $phpFormat[$i];
-
-                $escaping = true;
-            } else {
-                if ($escaping) {
-                    $datepickerFormat .= "'";
-                    $escaping = false;
-                }
-
-                $datepickerFormat .= $symbols[$char] ?? $char;
-            }
-        }
-
-        return $datepickerFormat;
+        return str_replace(
+            ['d',  'j', 'l',  'm',  'n', 'F',  'Y'],
+            ['dd', 'd', 'DD', 'mm', 'm', 'MM', 'yy'],
+            $phpFormat
+        );
     }
 }
 

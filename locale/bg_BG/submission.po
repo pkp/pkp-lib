@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-16 12:16+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -740,3 +740,101 @@ msgstr "Добавяне на рецензии към имейл"
 
 msgid "submission.comments.importPeerReviews"
 msgstr "Импортиране на рецензии"
+
+msgid "submission.event.viewEmail"
+msgstr "Преглед на имейл"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Изпратен е имейл:"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Файлът с ревизии (версии) на рецензента е актуализиран"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Повторно е изпратена рецензия"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Подновена е процедура по асоцииране на рецензент"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Файл с препоръки от рецензента"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Започната е процедура по асоцииране на рецензент"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Файлът с рецензия е актуализиран"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Премахнато е асоциирането на рецензент за изпратените материали"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Изпратена е оценка за рецензента"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Асоцииран е рецензент за изпратените материали"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Променен е крайният срок за изготвян на рецензия"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Асоциирането на заданието за рецензия е отказано"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Асоциирането на заданието за рецензия е прието"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Заданието за рецензия е прието от пълномощник"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Файлът за подадените материали е актуализиран"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Метаданните за подадените материали са актуализирани"
+
+msgid "submission.event.fileRevised"
+msgstr "Версия (ревизия) \"{$name}\" беше качена за файл {$submissionFileId}."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Първоначалното подаване на материали е завършено."
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Изпратен е имейл за решението на {$recipientCount} рецензент/и с тема "
+"{$subject}."
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Изтриване на запис от регистъра"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr ""
+"Наистина ли искате да изтриете този запис в регистъра на събитията (лог)?"
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+"Наистина ли искате да изчистите регистъра на събитията (лог) за това "
+"подаване на материали?"
+
+msgid "submission.event.backToEventLog"
+msgstr "Обратно към регистъра събитията (лог)"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) беше премахнат като {$userGroupName}."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) беше причислен към това подаване на материали като "
+"{$userGroupName}."
+
+msgid "submission.emailLog"
+msgstr "Имейл регистър (лог)"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Изтриване на запис в регистрационния файл (лог)"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Наистина ли искате да изтриете този запис в имейл регистъра (лог)?"
+
+msgid "submission.email.confirmClearLog"
+msgstr ""
+"Наистина ли искате да изчистите имейл регистъра (лог) за това изпращане?"

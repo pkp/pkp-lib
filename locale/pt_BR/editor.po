@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-02-27 16:26+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/pt_BR/>\n"
@@ -382,7 +382,7 @@ msgid "reviewer.list.reassign"
 msgstr "Reatribuir"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Esse avaliador já foi designado para avaliar essa submissão."
+msgstr "Esse avaliador já foi designado para avaliar esta rodada de avaliação."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -583,3 +583,12 @@ msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
 "O editor não foi reconhecido e pode não ter permissão para registrar uma "
 "decisão sobre esta submissão."
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Atribuído à rodada anterior"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Reatribuir {$name}"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Este avaliador completou uma avaliação na última rodada."

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-02-25 13:26+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "cs_CZ/>\n"
@@ -420,7 +420,7 @@ msgid "reviewer.list.reassign"
 msgstr "Nové přidělení"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Recenzentovi již byla přidělen tento příspěvek."
+msgstr "Tento recenzent již byl přiřazen k tomuto kolu recenzního řízení."
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
@@ -586,3 +586,12 @@ msgstr ""
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr "K zápisu tohoto rozhodnutí k tomuto příspěvku nemáte oprávnění."
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Zařazeno do dřívějšího kola"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Znovu přiřadit {$name}"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Tento recenzent dokončil recenzi v minulém kole."

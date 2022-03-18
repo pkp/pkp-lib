@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-14 18:24+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/bg_BG/>\n"
@@ -147,8 +147,7 @@ msgstr ""
 "гарантирано. Искате ли все пак да отключите този рецензент?"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr ""
-"Този рецензент вече е асоцииран да рецензира това подаване на материали."
+msgstr "Този рецензент вече е асоцииран да рецензира в този кръг."
 
 msgid "reviewer.list.neverAssigned"
 msgstr "Никога не е асоцииран като рецензент"
@@ -598,3 +597,15 @@ msgstr "Трябва да изберете поне един файл, към к
 
 msgid "editor.submission.externalReviewDescription"
 msgstr "Изберете файлове по-долу, за да ги изпратите на етап за рецензиране."
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Асоцииран в предишен кръг"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Повторно асоцииране {$name}"
+
+msgid "reviewer.list.reassign"
+msgstr "Повторно асоцииране"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Този рецензент завърши рецензията в последния кръг."

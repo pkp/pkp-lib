@@ -19,6 +19,7 @@ use APP\core\Application;
 use PKP\context\Context;
 use APP\facades\Repo;
 use PKP\core\PKPApplication;
+use PKP\core\PKPString;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -73,7 +74,8 @@ class ReviewAssignmentEmailVariable extends Variable
             // Default to the variable name
             return '{$' . self::REVIEW_DUE_DATE . '}';
         }
-        return strftime($this->context->getLocalizedDateFormatShort($locale), $reviewDueDate);
+        $dateFormatShort = PKPString::convertStrftimeFormat($this->context->getLocalizedDateFormatShort($locale));
+        return date($dateFormatShort, $reviewDueDate);
     }
 
     protected function getResponseDueDate($locale): string
@@ -83,7 +85,8 @@ class ReviewAssignmentEmailVariable extends Variable
             // Default to the variable name
             return '{$' . self::RESPONSE_DUE_DATE . '}';
         }
-        return strftime($this->context->getLocalizedDateFormatShort($locale), $responseDueDate);
+        $dateFormatShort = PKPString::convertStrftimeFormat($this->context->getLocalizedDateFormatShort($locale));
+        return date($dateFormatShort, $responseDueDate);
     }
 
     /**

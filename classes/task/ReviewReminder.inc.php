@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\mail\mailables\ReviewResponseRemindAuto;

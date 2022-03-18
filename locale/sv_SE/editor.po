@@ -1,10 +1,10 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2021-11-17 13:02+0000\n"
+"PO-Revision-Date: 2022-03-18 17:42+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "sv_SE/>\n"
@@ -394,7 +394,7 @@ msgid "reviewer.list.reassign"
 msgstr "Tilldela om"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Den här granskaren har redan fått i uppdrag att granska det här bidraget."
+msgstr "Den här granskaren har redan tilldelats denna granskningsomgång."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -479,3 +479,89 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "En diskussion kan inte inledas med de valda deltagarna eftersom det skulle "
 "påverka anonymiteten i granskningsprocessen."
+
+msgid "editor.decision.stepError"
+msgstr "Det fanns ett problem med steg nummer {$stepName}."
+
+msgid "editor.decision.skipEmail"
+msgstr "Hoppa över detta e-postmeddelande"
+
+msgid "editor.decision.recordDecision"
+msgstr "Fatta beslut"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Detta steg har hoppats över, inget e-postmeddelande kommer skickas."
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Hoppa inte över detta e-postmeddelande"
+
+msgid "editor.decision.completeSteps"
+msgstr "Färdigställ följande steg för att fatta beslutet"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Är du säker på att du vill återkalla detta beslut?"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Återkalla beslut"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Tilldelad en tidigare omgång"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Återinför {$name}"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Granskaren har färdigställt en granskning i den senaste omgången."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Ändringar ska genomgå en ny granskningsomgång."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Ändringar ska inte genomgå en ny granskningsomgång."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "Beslutet kunde inte hittas. Ange ett korrekt typ av beslut."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Beslut kan inte fattas för bidraget. Bidragets ID saknas eller matchar inte "
+"det begärda bidraget."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"En rekommendation kan inte ges om ingen redaktör med behörighet att fatta "
+"ett slutgiltigt beslut är tilldelad."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"Ett granskningsomgångs-ID måste finnas för att beslutet ska kunna fattas."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Du måste vara tilldelad behörighet till bidraget för att kunna fatta ett "
+"redaktionellt beslut."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Bidraget är inte i rätt steg i arbetsflödet för att beslutet ska kunna "
+"fattas."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Granskningsomgången är inte en del av bidraget."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"En granskningsomgång pågår, men detta beslut kan inte fattas i "
+"granskningssteget."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Granskningsomgången hittades inte."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Du kan inte skicka e-postmeddelande till följande mottagare: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr "Redaktören har inte behörighet att fatta beslut om detta bidrag."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Du har inte behörighet att fatta beslut om detta bidrag."

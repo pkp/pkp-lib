@@ -609,9 +609,13 @@ class PKPSubmissionHandler extends APIHandler
         );
         $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
 
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
         return $response->withJson([
             'itemsMax' => Repo::publication()->getCount($collector->limit(null)->offset(null)),
-            'items' => Repo::publication()->getSchemaMap($submission, $userGroups)->summarizeMany($publications, $anonymize),
+            'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize),
         ], 200);
     }
 

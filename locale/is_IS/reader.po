@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-29 19:02+0000\n"
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reader/is_IS/>\n"
@@ -16,7 +16,7 @@ msgid "comments.titleRequired"
 msgstr "Það þarf að vera titill á athugasemd."
 
 msgid "reader.fullText"
-msgstr "Heildar texti:"
+msgstr "Heildartexti:"
 
 msgid "comments.viewAllComments"
 msgstr "Skoða allar athugasemdir"
@@ -37,7 +37,7 @@ msgid "comments.postReply"
 msgstr "Svara"
 
 msgid "comments.postAnonymously"
-msgstr "Pósta þessari athugasemd nafnlaust"
+msgstr "Birta þessa athugasemd nafnlaust"
 
 msgid "comments.oneReply"
 msgstr "(1 svar)"
@@ -52,7 +52,7 @@ msgid "comments.name"
 msgstr "Nafn póstanda"
 
 msgid "comments.inResponseTo"
-msgstr "Sem svar við <a href=\"{$url}\">{$title}</a>"
+msgstr "Svar við <a href=\"{$url}\">{$title}</a>"
 
 msgid "comments.enterComment"
 msgstr "Skrifa athugasemd"
@@ -61,7 +61,7 @@ msgid "comments.emailReply"
 msgstr "Senda svar í tölvupósti"
 
 msgid "comments.email"
-msgstr "Netfang póstanda"
+msgstr "Netfang þess sem póstar"
 
 msgid "comments.delete"
 msgstr "Eyða þessari athugasemd"

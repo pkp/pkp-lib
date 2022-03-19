@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-16 00:29+0000\n"
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/is_IS/>\n"
@@ -618,10 +618,10 @@ msgid "common.originalFileName"
 msgstr "Upphaflegt skráarheiti"
 
 msgid "common.orderDown"
-msgstr "Lækka staðsetningu af {$itemTitle}"
+msgstr "Lækka staðsetningu {$itemTitle}"
 
 msgid "common.orderUp"
-msgstr "Hækka staðsetningu af {$itemTitle}"
+msgstr "Hækka staðsetningu {$itemTitle}"
 
 msgid "common.order"
 msgstr "Röðun"
@@ -1445,7 +1445,7 @@ msgid "form.errorGoTo"
 msgstr "Hoppa á næstu villu"
 
 msgid "form.errorA11y"
-msgstr "Farðu til {$fieldLabel}: {$errorMessage}"
+msgstr "Fara til {$fieldLabel}: {$errorMessage}"
 
 msgid "form.dropzone.dictMaxFilesExceeded"
 msgstr "Þú getur ekki hlaðið upp fleiri skrám."

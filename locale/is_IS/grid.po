@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-16 00:29+0000\n"
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "is_IS/>\n"
@@ -663,7 +663,7 @@ msgid "contributor.listPanel.preview"
 msgstr "Forskoða"
 
 msgid "author.users.contributor.includeInBrowse"
-msgstr "Á vafra listum"
+msgstr "Á vafralistum"
 
 msgid "author.users.contributor.setPrincipalContact"
 msgstr "Skrá aðaltengilið"

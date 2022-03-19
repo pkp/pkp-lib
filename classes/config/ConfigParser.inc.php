@@ -46,7 +46,7 @@ class ConfigParser {
 		}
 
 		while (!feof($fp)) {
-			$line = fgets($fp, 1024);
+			$line = fgets($fp);
 			$line = trim($line);
 			if ($line === '' || strpos($line, ';') === 0) {
 				// Skip empty or commented line

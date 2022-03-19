@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-16 00:29+0000\n"
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/is_IS/>\n"
@@ -182,7 +182,7 @@ msgid "installer.contentsOfConfigFile"
 msgstr "Uppsetningarskrá"
 
 msgid "installer.connectionCharset"
-msgstr "Tengi stafasett"
+msgstr "Tengistafasett"
 
 msgid "installer.configFileError"
 msgstr ""

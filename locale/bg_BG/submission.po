@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-20 16:56+0000\n"
+"PO-Revision-Date: 2022-03-21 10:40+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -1175,3 +1175,112 @@ msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
 "На авторите вече е разрешено да редактират метаданни при подаване на етап "
 "{stage}."
+
+msgid "submission.titleAndAbstract"
+msgstr "Заглавие и абстракт"
+
+msgid "submission.indexingInformation"
+msgstr "Информация за индексиране"
+
+msgid "submission.currentAgencies"
+msgstr "Текущи организации"
+
+msgid "submission.supportingAgencies"
+msgstr "Поддържащи организации"
+
+msgid "submission.summary"
+msgstr "Обобщение"
+
+msgid "submission.upload.query"
+msgstr "Качване на дискусионен файл"
+
+msgid "submission.upload.dependent"
+msgstr "Качване на зависим файл"
+
+msgid "submission.upload.percentComplete"
+msgstr "Качването е {$percent}% завършено"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Качете всички файлове, от които редакционният екип ще се нуждае, за да оцени "
+"вашето подаване на материали."
+
+msgid "submission.manageDependentFiles"
+msgstr "Управление на зивисимите файлове"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Зависими файлове"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Файлове на подадените материали"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Приемат се материали на няколко езика. Изберете основния език на материалите "
+"от падащото меню по-горе."
+
+msgid "submission.submit.submissionLocale"
+msgstr "Език на подадените материали"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Добавяне на допълнителна информация за вашето подаване на материали. "
+"Натискайте 'enter' след всеки термин."
+
+msgid "submission.submit.metadataForm"
+msgstr "Допълнителни уточнения"
+
+msgid "submission.submit.newFile"
+msgstr "Добавяне на друг файл"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Списъци с публикации"
+
+msgid "submission.submit.includeInBrowse"
+msgstr ""
+"Включване на този сътрудник, когато се идентифицират автори в списъци с "
+"публикации."
+
+msgid "submission.submit.fileAdded"
+msgstr "Файлът е добавен"
+
+msgid "submission.submit.fileInformation"
+msgstr "Информация за файла"
+
+msgid "submission.submit.selectFile"
+msgstr "Избиране на файл"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Завършване на изпращането на материали"
+
+msgid "submission.submitter"
+msgstr "Изпращач"
+
+msgid "submission.submissionReview"
+msgstr "Рецензия на изпратените материали"
+
+msgid "submission.submissionManuscript"
+msgstr "Ръкопис на изпратените материали"
+
+msgid "submission.submissionHistory"
+msgstr "История на изпратените материали"
+
+msgid "submission.start"
+msgstr "Начало"
+
+msgid "submission.submissionTitle"
+msgstr "Заглавие на изпратените материали:"
+
+msgid "submission.submission"
+msgstr "Изпратени материали"
+
+msgid "submissions.submitted"
+msgstr "Изпратени"
+
+msgid "submissions.submit"
+msgstr "Изпращане"
+
+msgid "submission.source.tip"
+msgstr ""
+"Това подаване на материали извлечено ли е от друг ресурс? Ако е така, можете "
+"да въведете URL адрес или описание на този ресурс."

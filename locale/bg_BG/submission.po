@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-18 17:42+0000\n"
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg_BG/>\n"
@@ -838,3 +838,340 @@ msgstr "Наистина ли искате да изтриете този зап
 msgid "submission.email.confirmClearLog"
 msgstr ""
 "Наистина ли искате да изчистите имейл регистъра (лог) за това изпращане?"
+
+msgid "submission.source"
+msgstr "Източник"
+
+msgid "submissions.ruling"
+msgstr "Решение"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Не е асоцииран редактор към това подаване на материали."
+
+msgid "submissions.queued"
+msgstr "В опашката"
+
+msgid "submissions.queuedEditing"
+msgstr "В процес на редакция"
+
+msgid "submissions.noSubmissions"
+msgstr "Няма подадени материали"
+
+msgid "submissions.incomplete"
+msgstr "Незавършени"
+
+msgid "submissions.declined"
+msgstr "Отказани"
+
+msgid "submissions.completed"
+msgstr "Завършени"
+
+msgid "submission.saveMetadata"
+msgstr "Запис на метаданните"
+
+msgid "submissions.archived"
+msgstr "Архивирани"
+
+msgid "submissions.active"
+msgstr "Активни"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Ако желаете, можете да въведете кратко изявление относно правата за достъп, "
+"притежавани в или над това подаване на материали."
+
+msgid "submission.rights"
+msgstr "Права"
+
+msgid "submission.reviewVersion"
+msgstr "Версия за рецензия"
+
+msgid "submission.reviewed"
+msgstr "Рецензирано"
+
+msgid "submission.review"
+msgstr "Рецензия"
+
+msgid "submission.reviewMetadata"
+msgstr "Метаданни на рецензията"
+
+msgid "submission.restrictions"
+msgstr "Ограничения"
+
+msgid "submission.response"
+msgstr "Отговор"
+
+msgid "submission.request"
+msgstr "Заявка"
+
+msgid "submission.rejected"
+msgstr "Отказано"
+
+msgid "submission.recommendation"
+msgstr "Препоръка: {$recommendation}"
+
+msgid "submission.production"
+msgstr "Публикация"
+
+msgid "submission.peerReview"
+msgstr "Рецензиране"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Цитати (библиография)"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Абстракт"
+
+msgid "submission.page.review"
+msgstr "#{$id} Рецензия"
+
+msgid "submission.page.history"
+msgstr "#{$id} История"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Редактиране"
+
+msgid "submission.originalFile"
+msgstr "Оригинален файл"
+
+msgid "submission.notes.viewNotes"
+msgstr "Преглед на бележките"
+
+msgid "submission.notes.updateNote"
+msgstr "Актуализиране на бележката"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Премахване на качен файл"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Няма бележки към изпратения материал"
+
+msgid "submission.notes.expandNotes"
+msgstr "Разгъване на бележките"
+
+msgid "submission.notes.editNote"
+msgstr "Редакция на бележка"
+
+msgid "submission.notes.deleteNote"
+msgstr "Изтриване на бележка"
+
+msgid "submission.notes.createNewNote"
+msgstr "Създаване на нова бележка"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Да бъде ли премахната тази бележка към изпратения материал?"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Да бъдат ли премахнати всички бележки към изпратения материал?"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Свиване на бележките"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Изчистване на всички бележки"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Бележки"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Обратно към бележките към изпратения материал"
+
+msgid "submission.notes.attachedFile"
+msgstr "Прикрепен файл"
+
+msgid "submission.notes.addNewNote"
+msgstr "Добавяне на нова бележка"
+
+msgid "submission.noReviewAssignments"
+msgstr "Няма асоциирани рецензенти"
+
+msgid "submission.metadata"
+msgstr "Метаданни на подадените материали"
+
+msgid "submission.layout.viewProof"
+msgstr "Преглед на коректурата"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Преглеждане на типографията на изпратените материали"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Към тази типография не е добавен файл със стилова таблица."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} - ({$version})"
+
+msgid "submission.layout.newGalley"
+msgstr "Създаване на нова типография"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Версия на оформлението"
+
+msgid "submission.layout"
+msgstr "Оформление"
+
+msgid "submission.layout.layoutFile"
+msgstr "Оформителски файл"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Първоначално създаване на типография"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Стил"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Файл на стиловата таблица"
+
+msgid "submission.layout.galleys"
+msgstr "Типографии"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Няма изображения"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Моля, предоставете валиден отдалечен URL (включете http://)."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Отдалечен/външен URL"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Изисква се локализация на типографията."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Изисква се език на типографията."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Изисква се етикет на типографията."
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"Обикновено се използва за идентифициране на файловия формат (напр. PDF, HTML "
+"и др.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Заглавие на типографията"
+
+msgid "submission.layout.galleyImages"
+msgstr "Изображения"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "Файлове на HTML типография"
+
+msgid "submission.layout.editGalley"
+msgstr "Редактиране на оформителска типография"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Изтриване на тази стилова таблица."
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Наистина ли искате да премахнете това изображение от типографията?"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Наистина ли искате да изтриете тази типографията за постоянно?"
+
+msgid "submission.layout.addGalley"
+msgstr "Добавяне на оформителска типография"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Формат на типографията"
+
+msgid "submission.lastModified"
+msgstr "Последно модифицирано"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Показване на събитията от предни версии"
+
+msgid "submission.informationCenter.notes"
+msgstr "Бележки"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Метаданни"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Информация за изпратения материал"
+
+msgid "submission.publisherId.enable"
+msgstr "Активиране за {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Идентификационният номер на издателя може да се използва за запис на "
+"идентификатора от външна база данни. Например статиите, експортирани за "
+"депозит в PubMed, могат да включват идентификационния номер на издателя. "
+"Това не трябва да се използва за DOI."
+
+msgid "submission.publisherId"
+msgstr "Идентификатор на издателя"
+
+msgid "submission.identifiers"
+msgstr "Идентификатори"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Това е стара версия, публикувана на {$datePublished}. Прочетете <a href=\""
+"{$urlRecentVersion}\">последната версия</a>."
+
+msgid "submission.versions"
+msgstr "Версии"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Актуализирано на {$dateUpdated}"
+
+msgid "submission.initiated"
+msgstr "Започнато"
+
+msgid "submission.history.viewLog"
+msgstr "Преглед на регистъра (лог)"
+
+msgid "submission.history.submissionNotes"
+msgstr "Бележки към изпратените материали"
+
+msgid "submission.notes"
+msgstr "Бележки към изпратените материали"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Регистър (лог) на събитията"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Имейл регистър (лог)"
+
+msgid "submission.history.recentLogEntries"
+msgstr "Последни записи"
+
+msgid "submission.history.noLogEntries"
+msgstr "Няма записи в регистъра (лог)."
+
+msgid "submission.stageParticipants.notify"
+msgstr "Известяване"
+
+msgid "submission.informationCenter.history"
+msgstr "История"
+
+msgid "submission.history"
+msgstr "История"
+
+msgid "submission.history.clearLog"
+msgstr "Изчистване на регистъра (лог)"
+
+msgid "submission.galley"
+msgstr "Типография"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Записът за качващия файл се записва, когато файлът е създаден и не може да "
+"бъде променен."
+
+msgid "submission.files.downloadAll"
+msgstr "Сваляне на всички файлове"
+
+msgid "submission.files"
+msgstr "Файлове"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"На авторите вече не е разрешено да редактират метаданни при подаване на етап "
+"{stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"На авторите вече е разрешено да редактират метаданни при подаване на етап "
+"{stage}."

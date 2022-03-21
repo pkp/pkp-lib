@@ -22,7 +22,6 @@ namespace PKP\identity;
 
 use APP\core\Application;
 use PKP\facades\Locale;
-use Sokil\IsoCodes\IsoCodesFactory;
 
 class Identity extends \PKP\core\DataObject
 {
@@ -91,7 +90,7 @@ class Identity extends \PKP\core\DataObject
      */
     public function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null)
     {
-        $locale = Locale::getLocale();
+        $locale = $defaultLocale ?? Locale::getLocale();
         if ($preferred) {
             $preferredPublicName = $this->getPreferredPublicName($locale);
             if (!empty($preferredPublicName)) {
@@ -100,13 +99,9 @@ class Identity extends \PKP\core\DataObject
         }
         $givenName = $this->getGivenName($locale);
         if (empty($givenName)) {
-            if (is_null($defaultLocale)) {
-                // the users register for the site, thus
-                // the site primary locale is the default locale
-                $site = Application::get()->getRequest()->getSite();
-                $defaultLocale = $site->getPrimaryLocale();
-            }
-            $locale = $defaultLocale;
+            // Fallback to the site's primary locale if no given name
+            // exists in the requested locale
+            $locale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
             $givenName = $this->getGivenName($locale);
         }
         $familyName = $this->getFamilyName($locale);

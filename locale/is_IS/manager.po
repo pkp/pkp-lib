@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-20 16:56+0000\n"
+"PO-Revision-Date: 2022-03-21 17:59+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/is_IS/>\n"
@@ -1772,7 +1772,7 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.monthly"
-msgstr "Mánaðarlega"
+msgstr "Mánaðarlegt"
 
 msgid "stats.html"
 msgstr "HTML"
@@ -1871,7 +1871,7 @@ msgid "stats.dateRange"
 msgstr "Tímabil"
 
 msgid "stats.daily"
-msgstr "Daglega"
+msgstr "Daglegt"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/ár)"

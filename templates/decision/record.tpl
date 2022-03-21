@@ -80,25 +80,39 @@
 					{capture assign="recipientsLabel"}{translate key="email.to"}{/capture}
 					<composer
 						v-else
-						v-bind="step"
 						add-c-c-label="{translate key="common.addCCBCC"}"
 						attach-files-label="{translate key="common.attachFiles"}"
 						attached-files-label="{translate key="semicolon" label=$attachedFilesLabel}"
+						:attachers="step.attachers"
+						:attachments="step.attachments"
+						:bcc="step.bcc"
 						bcc-label="{translate key="semicolon" label=$bccLabel}"
+						:body="step.body"
 						body-label="{translate key="stageParticipants.notify.message"}"
+						:can-change-recipients="step.canChangeRecipients"
+						:cc="step.cc"
 						cc-label="{translate key="semicolon" label=$ccLabel}"
 						deselect-label="{translate key="common.deselect"}"
+						:email-templates="step.emailTemplates"
 						:email-templates-api-url="emailTemplatesApiUrl"
 						find-template-label="{translate key="common.findTemplate"}"
+						:id="step.id"
+						:initial-template-key="step.initialTemplateKey"
 						load-template-label="{translate key="common.loadTemplate"}"
+						:locales="step.locales"
 						more-search-results-label="{translate key="common.numberedMore"}"
+						:recipient-options="step.recipientOptions"
+						:recipients="step.recipients"
 						recipients-label="{translate key="semicolon" label=$recipientsLabel}"
 						remove-item-label="{translate key="common.removeItem"}"
 						searching-label="{translate key="common.searching"}"
+						:subject="step.subject"
 						subject-label="{translate key="semicolon" label=$subjectLabel}"
 						switch-language-label="{translate key="semicolon" label=$switchTolabel}"
+						:variables="step.variables"
 						@set="updateStep"
 					>
+
 						<template slot="description">
 							<h2>{{ step.name }}</h2>
 							<p v-html="step.description"></p>

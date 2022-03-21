@@ -53,7 +53,6 @@ class FieldRichTextarea extends Field
         if (!empty($this->preparedContent)) {
             $config['preparedContent'] = $this->preparedContent;
         }
-        $config['insertPreparedContentLabel'] = __('common.insert');
         if (!empty($this->size)) {
             $config['size'] = $this->size;
         }

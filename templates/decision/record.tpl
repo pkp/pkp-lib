@@ -92,6 +92,7 @@
 						:can-change-recipients="step.canChangeRecipients"
 						:cc="step.cc"
 						cc-label="{translate key="semicolon" label=$ccLabel}"
+						confirm-switch-locale-label="{translate key="email.confirmSwitchLocale"}"
 						deselect-label="{translate key="common.deselect"}"
 						:email-templates="step.emailTemplates"
 						:email-templates-api-url="emailTemplatesApiUrl"
@@ -106,9 +107,11 @@
 						recipients-label="{translate key="semicolon" label=$recipientsLabel}"
 						remove-item-label="{translate key="common.removeItem"}"
 						searching-label="{translate key="common.searching"}"
+						search-results-label="{translate key="search.searchResults"}"
 						:subject="step.subject"
 						subject-label="{translate key="semicolon" label=$subjectLabel}"
-						switch-language-label="{translate key="semicolon" label=$switchTolabel}"
+						switch-to-label="{translate key="semicolon" label=$switchTolabel}"
+						switch-to-named-language-label="{translate key="common.switchToNamedItem"}"
 						:variables="step.variables"
 						@set="updateStep"
 					>
@@ -136,6 +139,8 @@
 									<select-submission-file-list-item
 										:document-type="item.documentType"
 										download-label="{translate key="common.download"}"
+										:genreName="item.genre.name"
+										:genreIsPrimary="!item.genre.dependent && !item.genre.supplementary"
 										:genre="item.genre"
 										:file-id="item.id"
 										:name="localize(item.name)"
@@ -147,7 +152,7 @@
 											:value="item.id"
 											v-model="step.selected"
 										/>
-									</select>
+									</select-submission-file-list-item>
 								</template>
 							</list-panel>
 						</panel-section>

@@ -64,6 +64,12 @@ class Upload extends BaseAttacher
             'dropzoneDictRemoveFile' => __('form.dropzone.dictRemoveFile'),
             'dropzoneDictMaxFilesExceeded' => __('form.dropzone.dictMaxFilesExceeded'),
         ];
+        $props['addFilesLabel'] = __('common.addFiles');
+        $props['attachFilesLabel'] = __('common.attachFiles');
+        $props['dragAndDropMessage'] = __('common.dragAndDropHere');
+        $props['dragAndDropOrUploadMessage'] = __('common.orUploadFile');
+        $props['backLabel'] = __('common.back');
+        $props['removeItemLabel'] = __('common.removeItem');
 
         return $props;
     }

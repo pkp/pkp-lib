@@ -54,6 +54,8 @@ class ReviewFiles extends BaseAttacher
     public function getState(): array
     {
         $props = parent::getState();
+        $props['attachSelectedLabel'] = __('common.attachSelected');
+        $props['backLabel'] = __('common.back');
         $props['downloadLabel'] = __('common.download');
         $props['files'] = $this->getFilesState();
 

@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-28 17:26+0000\n"
+"PO-Revision-Date: 2022-03-21 10:40+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy_AM/>\n"
@@ -2962,3 +2962,6 @@ msgstr "Օգտվողի կողմից նշանակված բոլոր ներկայա
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "Էջի URL-ը, որտեղից օգտագործողը կարող է վերականգնել կորցրած գաղտնաբառը"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Անհրաժեշտ է DOI"

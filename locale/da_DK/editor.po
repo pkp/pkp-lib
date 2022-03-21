@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-03-21 12:22+0000\n"
+"PO-Revision-Date: 2022-03-21 12:23+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "da_DK/>\n"
@@ -403,7 +403,7 @@ msgid "reviewer.list.reassign"
 msgstr "Overfør"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Denne bedømmer er allerede blevet tildelt denne indsendelse til bedømmelse."
+msgstr "Denne bedømmer er allerede blevet tilmeldt denne bedømmelsesrunde."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -577,3 +577,6 @@ msgstr "Denne bedømmer færdiggjorde en bedømmelse i sidste runde."
 
 msgid "reviewer.list.reassign.withName"
 msgstr "Gentildel {$name}"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Tilmeldt til tidligere runde"

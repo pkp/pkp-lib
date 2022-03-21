@@ -81,14 +81,12 @@ class UserController extends BaseController
             default: throw new Exception('Unknown orderDirection specified');
         }
 
-        $siteLocale = DAORegistry::getDAO('SiteDAO')->getSite()->getPrimaryLocale();
-
         $collector->assignedTo($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
             ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
             ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
             ->filterByRoleIds($params['roleIds'] ?? null)
             ->searchPhrase($params['searchPhrase'] ?? null)
-            ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), $siteLocale])
+            ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), DAORegistry::getDAO('SiteDAO')->getSite()->getPrimaryLocale()])
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null)
             ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
@@ -109,6 +107,29 @@ class UserController extends BaseController
             Response::HTTP_OK
         );
     }
+
+    /**
+     * Get a single user
+     */
+    public function get(Request $request): JsonResponse
+    {
+        $userId = $request->route('userId', null);
+
+        $user = Repo::user()->get($userId);
+
+        if (!$user) {
+            throw new InvalidArgumentException(
+                'api.404.resourceNotFound',
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        return new JsonResponse(
+            Repo::user()->getSchemaMap()->map($user),
+            Response::HTTP_OK
+        );
+    }
+
     /**
      * Get a collection of reviewers
      */
@@ -233,28 +254,6 @@ class UserController extends BaseController
     }
 
     /**
-     * Get a single user
-     */
-    public function getUser(Request $request): JsonResponse
-    {
-        $userId = $request->route('userId', null);
-
-        $user = Repo::user()->get($userId);
-
-        if (!$user) {
-            throw new InvalidArgumentException(
-                'api.404.resourceNotFound',
-                Response::HTTP_NOT_FOUND
-            );
-        }
-
-        return new JsonResponse(
-            Repo::user()->getSchemaMap()->map($user),
-            Response::HTTP_OK
-        );
-    }
-
-    /**
      * Convert the query params passed to the end point. Exclude unsupported
      * params and coerce the type of those passed.
      *
@@ -366,7 +365,7 @@ class PKPUserHandler extends APIHandler
             function () {
                 app('router')
                     ->name('getUser')
-                    ->get('{userId}', [UserController::class, 'getUser']);
+                    ->get('{userId}', [UserController::class, 'get']);
 
                 app('router')
                     ->name('getManyUsers')

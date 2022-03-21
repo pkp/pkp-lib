@@ -1,7 +1,7 @@
 # Kolbrun Reynisdottir <kolla@probus.is>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-20 16:56+0000\n"
+"PO-Revision-Date: 2022-03-21 17:59+0000\n"
 "Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
 "Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "is_IS/>\n"
@@ -58,7 +58,7 @@ msgstr "Búa til nýjan API lykil"
 
 msgid "user.apiKeyEnabled"
 msgstr ""
-"Leyfa ytri forritum með API lyklinn að hafa aðgang að þessum notandareikning"
+"Leyfa yrtri forritum með API lykil að hafa aðgang að þessum notendareikningi"
 
 msgid "user.apiKey"
 msgstr "API lykill"
@@ -301,7 +301,7 @@ msgstr ""
 "verki.  Dæmi: Dr. Egill S. Grímsson"
 
 msgid "user.preferredPublicName"
-msgstr "Vil kallast"
+msgstr "Opinber birting á nafni"
 
 msgid "user.phone"
 msgstr "Sími"

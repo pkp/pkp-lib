@@ -27,7 +27,7 @@ class ApiCsrfMiddleware
 
     /**
      * Constructor
-     *
+     * NOTE: This will be deprecate in near-future in favor of PKP\core\middleware\VerifyCsrfToken::class
      */
     public function __construct(APIHandler $handler)
     {

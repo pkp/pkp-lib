@@ -33,6 +33,7 @@ use PKP\log\SubmissionLog;
 use PKP\observers\events\PublishedEvent;
 use PKP\observers\events\UnpublishedEvent;
 use PKP\plugins\HookRegistry;
+use PKP\security\UserGroup;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;

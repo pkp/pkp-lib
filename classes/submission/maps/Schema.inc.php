@@ -22,10 +22,14 @@ use Illuminate\Support\Enumerable;
 use PKP\db\DAORegistry;
 use PKP\plugins\HookRegistry;
 use PKP\plugins\PluginRegistry;
+use PKP\query\QueryDAO;
 use PKP\security\UserGroup;
+use PKP\security\UserGroupDAO;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class Schema extends \PKP\core\maps\Schema
@@ -38,6 +42,9 @@ class Schema extends \PKP\core\maps\Schema
 
     /** @var UserGroup[] The user groups for this context. */
     public array $userGroups;
+
+    /** @var Genre[] The file genres in this context. */
+    public array $genres;
 
     /**
      * Get extra property names used in the submissions list
@@ -94,7 +101,7 @@ class Schema extends \PKP\core\maps\Schema
      * Includes properties with the apiSummary flag in the submission schema.
      *
      * @param UserGroup[] $userGroups The user groups in this context
-     * @param Genres[] $genres The file genres in this context
+     * @param Genre[] $genres The file genres in this context
      */
     public function summarize(Submission $item, array $userGroups, array $genres): array
     {
@@ -109,7 +116,7 @@ class Schema extends \PKP\core\maps\Schema
      * @see self::map
      *
      * @param UserGroup[] $userGroups The user groups in this context
-     * @param Genres[] $genres The file genres in this context
+     * @param Genre[] $genres The file genres in this context
      */
     public function mapMany(Enumerable $collection, array $userGroups, array $genres): Enumerable
     {
@@ -127,7 +134,7 @@ class Schema extends \PKP\core\maps\Schema
      * @see self::summarize
      *
      * @param UserGroup[] $userGroups The user groups in this context
-     * @param Genres[] $genres The file genres in this context
+     * @param Genre[] $genres The file genres in this context
      */
     public function summarizeMany(Enumerable $collection, array $userGroups, array $genres): Enumerable
     {
@@ -143,7 +150,7 @@ class Schema extends \PKP\core\maps\Schema
      * Map a submission with extra properties for the submissions list
      *
      * @param UserGroup[] $userGroups The user groups in this context
-     * @param Genres[] $genres The file genres in this context
+     * @param Genre[] $genres The file genres in this context
      */
     public function mapToSubmissionsList(Submission $item, array $userGroups, array $genres): array
     {
@@ -158,7 +165,7 @@ class Schema extends \PKP\core\maps\Schema
      * @see self::map
      *
      * @param UserGroup[] $userGroups The user groups in this context
-     * @param Genres[] $genres The file genres in this context
+     * @param Genre[] $genres The file genres in this context
      */
     public function mapManyToSubmissionsList(Enumerable $collection, array $userGroups, array $genres): Enumerable
     {

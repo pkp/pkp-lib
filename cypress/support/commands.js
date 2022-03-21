@@ -397,7 +397,7 @@ Cypress.Commands.add('recordRecommendation', (decisionLabel, decidingEditors) =>
 	cy.get('h1').contains(decisionLabel).should('exist');
 	cy.get('h2').contains('Notify Editors').should('exist');
 	cy.waitForEmailTemplateToBeLoaded('.composer:contains("Notify Editors")');
-	cy.checkComposerRecipients('#discussion .composer__recipients', decidingEditors);
+	cy.checkComposerRecipients('.composer__recipients', decidingEditors);
 	cy.checkEmailTemplateVariables('#discussion-body-control');
 	cy.recordDecision('Your recommendation has been recorded');
 });
@@ -428,7 +428,7 @@ Cypress.Commands.add('selectPromotedFiles', (filenames) => {
 Cypress.Commands.add('recordDecision', (successMessage) => {
 	cy.get('button:contains("Record Decision")').click();
 	cy.get('#modals-container:contains("' + successMessage + '")').should('exist');
-	cy.get('button').contains('View Submission').click();
+	cy.get('a.pkpButton').contains('View Submission').click();
 });
 
 Cypress.Commands.add('submissionIsDeclined', () => {

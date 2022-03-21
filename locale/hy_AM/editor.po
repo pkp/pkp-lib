@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-27 16:26+0000\n"
+"PO-Revision-Date: 2022-03-21 10:40+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy_AM/>\n"
@@ -436,9 +436,8 @@ msgstr ""
 "տալիս տեսնել հոդվածագրին։ Այս դեպքում անանուն գրախոսում երաշխավորել հնարավոր "
 "չէ։"
 
-
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Այս գրախոսողը արդել կցված եղել է այս նյութի գրախոսմանը։"
+msgstr "Այս գրախոսը արդեն կցված եղել է գրախոսման այս փուլին։"
 
 msgid "reviewer.list.neverAssigned"
 msgstr "Երբեք չի նշանակվել գրախոսող"
@@ -594,3 +593,15 @@ msgstr ""
 msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr ""
 "Դուք թույլտվություն չունեք գրանցելու այս որոշումը այս ներկայացման վերաբերյալ:"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Նշանակվել է ավելի վաղ փուլին"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Վերանշանակել {$name}"
+
+msgid "reviewer.list.reassign"
+msgstr "Վերանշանակել"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Այս գրախոսը ավարտեց վերանայումը վերջին փուլում:"

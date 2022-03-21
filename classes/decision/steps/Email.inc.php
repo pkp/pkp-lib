@@ -93,9 +93,13 @@ class Email extends Step
     {
         $recipientOptions = [];
         foreach ($this->recipients as $user) {
+            $names = [];
+            foreach ($this->locales as $locale) {
+                $names[$locale] = $user->getFullName(true, false, $locale);
+            }
             $recipientOptions[] = [
                 'value' => $user->getId(),
-                'label' => $user->getFullName(),
+                'label' => $names,
             ];
         }
         return $recipientOptions;

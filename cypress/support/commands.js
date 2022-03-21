@@ -608,9 +608,6 @@ Cypress.Commands.add('checkGraph', (totalAbstractViews, abstractViews, files, to
 	cy.get('div.pkpStats__graph table thead tr th:contains("' + abstractViews + '")');
 	while (d < daysAgo10) {
 		var dateString = d.toLocaleDateString(['en-CA'], {timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric'});
-		// PHP quirk: The date format specifier %e front-pads single-digit days with a space and there
-		// doesn't seem to be a standard way to avoid it. (Apparently %-e works but not documented.)
-		dateString = dateString.replace(/^([^ ]*) ([^ ]), ([^ ]*)$/, '$1  $2, $3');
 		cy.get('div.pkpStats__graph table tbody tr th:contains("' + dateString + '")');
 		cy.log(d.toLocaleDateString(['en-CA'], {timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric'}));
 		d.setDate(d.getDate()+1);

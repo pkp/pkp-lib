@@ -17,7 +17,10 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 
+use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
@@ -139,6 +142,13 @@ class ReviewReminderForm extends Form
         // Finally, send email and handle Symfony transport exceptions
         try {
             Mail::send($mailable);
+            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+            $submissionEmailLogDao->logMailable(
+                SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_REMIND,
+                $mailable,
+                $submission,
+                $user,
+            );
         } catch(TransportException $e) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(

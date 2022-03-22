@@ -75,25 +75,25 @@ class ReviewerAction
             $mailable = $this->getResponseEmail($submission, $reviewAssignment, $decline, $emailText);
             HookRegistry::call('ReviewerAction::confirmReview', [$request, $submission, $mailable, $decline]);
 
-            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-            $sender = $mailable->getSenderUser();
-            $submissionEmailLogDao->logMailable(
-                $decline ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_CONFIRM,
-                $mailable,
-                $submission,
-                $sender->getId() ? $sender : null
-            );
-
-            try {
-                Mail::send($mailable);
-            } catch (TransportException $e) {
-                $notificationMgr = new NotificationManager();
-                $notificationMgr->createTrivialNotification(
-                    $request->getUser()->getId(),
-                    PKPNotification::NOTIFICATION_TYPE_ERROR,
-                    ['contents' => __('email.compose.error')]
-                );
-                trigger_error($e->getMessage(), E_USER_WARNING);
+            if (!empty($mailable->to)) {
+                try {
+                    Mail::send($mailable);
+                    $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+                    $submissionEmailLogDao->logMailable(
+                        $decline ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_CONFIRM,
+                        $mailable,
+                        $submission,
+                        $mailable->getSenderUser()
+                    );
+                } catch (TransportException $e) {
+                    $notificationMgr = new NotificationManager();
+                    $notificationMgr->createTrivialNotification(
+                        $request->getUser()->getId(),
+                        PKPNotification::NOTIFICATION_TYPE_ERROR,
+                        ['contents' => __('email.compose.error')]
+                    );
+                    trigger_error($e->getMessage(), E_USER_WARNING);
+                }
             }
 
             $reviewAssignment->setDateReminded(null);

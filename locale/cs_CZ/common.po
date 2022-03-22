@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2022-02-25 13:26+0000\n"
+"PO-Revision-Date: 2022-03-22 23:33+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "cs_CZ/>\n"
@@ -2152,3 +2152,24 @@ msgstr "Připojené soubory"
 
 msgid "common.addCCBCC"
 msgstr "Přidat CC/BCC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Jste si jisti, že chcete změnit na {$localeName} pro sestavení tohoto e-"
+"mailu? Veškeré změny, které jste provedli v předmětu a těle e-mailu, budou "
+"ztraceny."
+
+msgid "common.switchToNamedItem"
+msgstr "Přepnout na {$name}"
+
+msgid "common.orUploadFile"
+msgstr "Nebo nahrajte soubor"
+
+msgid "common.dragAndDropHere"
+msgstr "Přetáhněte sem soubory."
+
+msgid "common.attachSelected"
+msgstr "Připojit vybrané"
+
+msgid "common.addFiles"
+msgstr "Přidat soubory"

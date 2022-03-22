@@ -1,10 +1,10 @@
-# M. Ali <vorteem@gmail.com>, 2021.
+# M. Ali <vorteem@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2021-10-04 04:06+0000\n"
+"PO-Revision-Date: 2022-03-22 17:35+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
@@ -2033,3 +2033,80 @@ msgstr "هذا ينبغي أن يحتوي حروفًا، أرقامًا، شُر
 
 msgid "validation.invalidOption"
 msgstr "هذا ليس خيارًا صحيحًا."
+
+msgid "list.collapseAll"
+msgstr "طي الكل"
+
+msgid "list.expandAll"
+msgstr "توسيع الكل"
+
+msgid "timeZone"
+msgstr "المنطقة الزمنية"
+
+msgid "email.attachmentNotFound"
+msgstr "تعذر إرفاق الملف {$fileName}."
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "إرفاق الملفات التي رفعها المحكمون"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "إرفاق ملفات التحكيم"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "إرفاق ملفات من مكتبة طلب التقديم ومكتبة الناشر."
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "إرفاق ملفات المكتبة"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "ملفات المكتبة"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"إرفاق الملفات المرفوعة خلال سير عمل التقديم، مثل التنقيحات أو الملفات المزمع "
+"تحكيمها."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "إرفاق الملفات المرفوعة من قبل المؤلف في مرحلة التقديم."
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "إرفاق ملفات طلب التقديم"
+
+msgid "common.viewError"
+msgstr "معاينة الخطأ"
+
+msgid "common.upload.addFile.description"
+msgstr "رفع ملف من حاسبتك."
+
+msgid "common.switchTo"
+msgstr "التبديل إلى"
+
+msgid "common.showAllSteps"
+msgstr "إظهار كل الخطوات"
+
+msgid "common.searching"
+msgstr "قيد البحث"
+
+msgid "common.numberedMore"
+msgstr "إضافة {$number}"
+
+msgid "common.keepWorking"
+msgstr "متابعة العمل"
+
+msgid "common.loadTemplate"
+msgstr "تحميل القالب"
+
+msgid "common.findTemplate"
+msgstr "إعثر على القالب"
+
+msgid "common.deselect"
+msgstr "إلغاء التحديد"
+
+msgid "common.attachFiles"
+msgstr "إرفاق ملفات"
+
+msgid "common.attachedFiles"
+msgstr "الملفات المرفقة"
+
+msgid "common.addCCBCC"
+msgstr "إضافة نسخة/نسخة سرية"

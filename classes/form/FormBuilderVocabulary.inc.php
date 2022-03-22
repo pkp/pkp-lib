@@ -620,7 +620,7 @@ class FormBuilderVocabulary
                     break;
                 case 'subLabelTranslate': break;
                 case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
-                default: $selectParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
+                default: $selectParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value ?? '', ENT_QUOTES) . '" ';
             }
         }
 

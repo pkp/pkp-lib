@@ -16,13 +16,13 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\core\Services;
-use PKP\facades\Locale;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use DateTimeInterface;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\emailTemplate\EmailTemplate;
+use PKP\facades\Locale;
 
 use PKP\mail\Mail;
 use PKP\mail\MailTemplate;
@@ -100,7 +100,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
         $this->_params = [
             'newSubmissions' => $newSubmissions,
             'declinedSubmissions' => $declinedSubmissions,
-            'acceptedSubmissions' => $acceptedSubmissions,
+            'acceptedSubmissions' => $acceptedSubmissions ?? null,
             'totalSubmissions' => Services::get('editorialStats')->countSubmissionsReceived(['contextIds' => [$this->_context->getId()]]),
             'month' => $this->_getLocalizedMonthName($dateStart, $locale),
             'year' => $dateStart->format('Y'),

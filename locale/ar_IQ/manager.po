@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-01-27 05:25+0000\n"
+"PO-Revision-Date: 2022-03-22 17:35+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar_IQ/>\n"
@@ -2211,3 +2211,100 @@ msgstr "رسالة جديدة من المناقشة"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "عنوان البريد الالكتروني لجهة الاتصال الرئيسية في الموقع"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "تم تسليم العناصر بنجاح لغرض الإيداع"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "تم تعيين معرفات مكونات رقمية جديدة للعناصر بنجاح"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "تم تأشير العناصر بأنها مسجلة"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "تم تصدير العناصر بنجاح"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "بعض معرفات المكونات الرقمية فشل تحديثها."
+
+msgid "manager.dois.status.stale"
+msgstr "عتيقة"
+
+msgid "manager.dois.status.error"
+msgstr "خطأ"
+
+msgid "manager.dois.status.registered"
+msgstr "مسجلة"
+
+msgid "manager.dois.status.submitted"
+msgstr "مسلمة"
+
+msgid "manager.dois.status.unregistered"
+msgstr "غير مسجلة"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "إيداع معرفات المكونات الرقمية"
+
+msgid "manger.dois.update.success"
+msgstr "تم تحديث معرفات المكونات الرقمية بنجاح"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "رسالة التسجيل الموفق"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "معاينة السجل"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "رسالة خطأ التسجيل"
+
+msgid "manager.dois.registration.viewError"
+msgstr "معاينة الخطأ"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "لا يمكن إيداع هذا العنصر حتى يتم نشره."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "البيانات الوصفية لهذا لعنصر لم يتم تسليمها إلى {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "البيانات الوصفية لهذا لعنصر قد تم تسليمها إلى {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "حالة النشر"
+
+msgid "manager.dois.depositStatus"
+msgstr "حالة الإيداع"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "إيداع كل معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "تعيين معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"أنت بصدد تصدير سجلات البيانات الوصفية لمعرفات المكونات الرقمية لـ {$count} "
+"من العناصر إلى {$registrationAgency}. هل أنت متأكد من رغبتك في تصدير هذه "
+"السجلات؟"
+
+msgid "manager.dois.actions.export.label"
+msgstr "تصدير معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"أنت بصدد تأشير سجلات البيانات الوصفية لـ {$count} من العناصر بأنها مسجلة. هل "
+"أنت متأكد من رغبتك في تأشير تلك السجلات بأنها مسجلة؟"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "تأشير معرفات المكونات الرقمية على أنها مسجلة"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"أنت بصدد إرسال سجلات البيانات الوصفية لـ {$count} من العناصر إلى "
+"{$registrationAgency}. هل أنت متأكد من رغبتك في إيداع هذه السجلات؟"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "إيداع معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "إيداع الكل"

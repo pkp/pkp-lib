@@ -22,7 +22,7 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	{fbvFormArea id="name"}
 		{fbvFormSection title="common.name" required=true}
-			{fbvElement type="text" id="libraryFileName" value=$libraryFileName maxlength="255" multilingual=true required=true}
+			{fbvElement type="text" id="libraryFileName" value=$libraryFileName multilingual=true required=true}
 		{/fbvFormSection}
 	{/fbvFormArea}
 

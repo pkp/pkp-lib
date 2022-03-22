@@ -8,6 +8,6 @@
  * Custom remote Url NMI Type edit form part
  *}
 {fbvFormSection id="NMI_TYPE_REMOTE_URL" class="NMI_TYPE_CUSTOM_EDIT" title="manager.navigationMenus.form.url" for="remoteUrl" list=true required="true"}
-	{fbvElement type="text" multilingual=true id="remoteUrl" value=$remoteUrl maxlength="255" required="true"}
+	{fbvElement type="text" multilingual=true id="remoteUrl" value=$remoteUrl required="true"}
 {/fbvFormSection}
 

@@ -21,7 +21,7 @@
 
 {fbvFormArea id="genreInfo"}
 {fbvFormSection title="common.name" for="name" required="true"}
-	{fbvElement type="text" multilingual="true" id="name" value=$name maxlength="80" required="true"}
+	{fbvElement type="text" multilingual="true" id="name" value=$name required="true"}
 {/fbvFormSection}
 {fbvFormSection list="true" title="manager.setup.genres.label"}
 	{fbvElement type="checkbox" id="dependent" checked=$dependent label="manager.setup.genres.dependent"}

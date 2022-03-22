@@ -20,7 +20,7 @@ class RemoveLocaleKey extends \PKP\cliTool\CommandLineTool
     /** @var string Locale key to be removed */
     public $localeKey = '';
 
-    /** @var string Which files to remove the locale key from */
+    /** @var array Which files to remove the locale key from */
     public $dirs = ['locale', 'lib/pkp/locale'];
 
     /**

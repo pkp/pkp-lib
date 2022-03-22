@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2022-01-27 05:25+0000\n"
+"PO-Revision-Date: 2022-03-22 17:35+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ar_IQ/>\n"
@@ -331,3 +331,130 @@ msgstr "الرسائل بالجملة"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "إشعار تقرير التحرير"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "إيداع معرفات المكونات الرقمية لدى وكالة التسجيل المعرفة"
+
+msgid "admin.jobs.createdAt"
+msgstr "منشأ عند {$createdAt}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "منشأ عند"
+
+msgid "admin.jobs.list.attempts"
+msgstr "المحاولات"
+
+msgid "admin.jobs.list.queueName"
+msgstr "الطابور"
+
+msgid "admin.jobs.list.displayName"
+msgstr "العمل"
+
+msgid "admin.jobs.list.id"
+msgstr "الرمز التعريفي"
+
+msgid "navigation.tools.jobs"
+msgstr "الأعمال"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "معاينة الأعمال التي في الطابور"
+
+msgid "admin.jobs.totalCount"
+msgstr "هناك ما مجمله <strong>{$total}</strong> من الأعمال في الطابور"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "هل كنت تقصد واحدًا مما يأتي؟"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "الخيار {$option} غير موجود."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "لدينا {$total} من الأعمال في الطابور"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "حذف كل الأعمال!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "كان من المستحيل حذف كل الأعمال."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "تم حذف العمل!"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "الرمز التعريفي للعمل غير صالح"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"ينبغي عليك تمرير الرمز التعريفي للعمل على الأقل، ضع '--all' أو '--queue=' "
+"لاستعمال هذا الأمر"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "التالي"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "السابق"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "الحالي"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "ترقيم الصفحات"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "منشأ عند"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "متاح عند"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "محجوز عند"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "المحاولات"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "مسمى عرض العمل"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "الطابور"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "الرمز التعريفي"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "الأعمال في الطابور"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "لا يمكن أن يكون الخيار فارغًا! تحقق من طريقة الاستعمال."
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "عرض معاملات استعمال الأعمال"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "عرض استعمالات أمر الأعمال"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "عرض كمية الأعمال التي في الطابور"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "إضافة عمل تجريبي إلى الطابور الافتراضي"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"تطهير عمل معين ضمن الطابور بناءً على هذا الرمز التعريفي. إذا أردت تطهير كل "
+"الأعمال، مرر المعامل --all. إذا أردت تطهير كل الأعمال من طابور معين، مرر "
+"المعامل --queue="
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"قائمة الأعمال في الطابور. إذا أردت توزيع النتائج على صفحات، استعمل العوامل "
+"--page= و --perPage="
+
+msgid "admin.cli.tool.available.commands"
+msgstr "الأوامر المتاحة في `{$namespace}` namespace:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "command [arguments]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "طريقة الاستعمال:"

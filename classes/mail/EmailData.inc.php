@@ -64,6 +64,11 @@ class EmailData
     public array $attachments = [];
 
     /**
+     * The locale of the email
+     */
+    public ?string $locale = null;
+
+    /**
      * Instantiate an object from an assoc array of request data
      *
      * @param array $args [

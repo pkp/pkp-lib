@@ -65,7 +65,7 @@ trait NotifyAuthors
 
         $mailable = $this->addEmailDataToMailable($mailable, $editor, $email);
 
-        Mail::send($mailable->recipients($recipients));
+        Mail::send($mailable->recipients($recipients, $email->locale));
 
         /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
         $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');

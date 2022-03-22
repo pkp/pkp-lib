@@ -77,6 +77,7 @@ class Email extends Step
         $config->recipientOptions = $this->getRecipientOptions();
 
         $config->variables = [];
+        $config->locale = Locale::getLocale();
         $config->locales = [];
         foreach ($this->locales as $locale) {
             $config->variables[$locale] = $this->mailable->getData($locale);

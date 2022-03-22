@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2022-01-27 05:26+0000\n"
+"PO-Revision-Date: 2022-03-22 17:35+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar_IQ/>\n"
@@ -1914,3 +1914,14 @@ msgstr "الفئات"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "قوائم النشر"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "إشعار المحكمين"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "إشعار المؤلفين"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"تم إرسال بريد الكتروني عن القرار إلى {$recipientCount} من المحكمين تحت عنوان "
+"{$subject}."

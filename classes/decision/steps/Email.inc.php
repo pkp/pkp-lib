@@ -77,6 +77,7 @@ class Email extends Step
         $config->recipientOptions = $this->getRecipientOptions();
 
         $config->variables = [];
+        $config->locale = Locale::getLocale();
         $config->locales = [];
         foreach ($this->locales as $locale) {
             $config->variables[$locale] = $this->mailable->getData($locale);
@@ -93,9 +94,13 @@ class Email extends Step
     {
         $recipientOptions = [];
         foreach ($this->recipients as $user) {
+            $names = [];
+            foreach ($this->locales as $locale) {
+                $names[$locale] = $user->getFullName(true, false, $locale);
+            }
             $recipientOptions[] = [
                 'value' => $user->getId(),
-                'label' => $user->getFullName(),
+                'label' => $names,
             ];
         }
         return $recipientOptions;

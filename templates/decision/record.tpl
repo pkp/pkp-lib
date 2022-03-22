@@ -100,6 +100,7 @@
 						:id="step.id"
 						:initial-template-key="step.initialTemplateKey"
 						load-template-label="{translate key="common.loadTemplate"}"
+						:locale="step.locale"
 						:locales="step.locales"
 						more-search-results-label="{translate key="common.numberedMore"}"
 						:recipient-options="step.recipientOptions"

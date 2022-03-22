@@ -81,7 +81,7 @@ trait NotifyReviewers
         }, $email->recipients);
 
         foreach ($recipients as $recipient) {
-            Mail::send($mailable->recipients([$recipient]));
+            Mail::send($mailable->recipients([$recipient], $email->locale));
 
             // Update the ReviewAssignment to indicate the reviewer has been acknowledged
             /** @var ReviewAssignmentDAO $reviewAssignmentDao */

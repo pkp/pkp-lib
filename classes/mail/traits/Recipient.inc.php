@@ -43,9 +43,10 @@ trait Recipient
     /**
      * Set recipients of the email and set values for related template variables
      *
-     * @param iterable<User> $recipients
+     * @param User[] $recipients
+     * @param ?string $locale Optional. A locale key to use when setting the recipient names. Default: current locale
      */
-    public function recipients(array $recipients): Mailable
+    public function recipients(array $recipients, ?string $locale = null): Mailable
     {
         $to = [];
         foreach ($recipients as $recipient) {
@@ -54,7 +55,7 @@ trait Recipient
             }
             $to[] = [
                 'email' => $recipient->getEmail(),
-                'name' => $recipient->getFullName(),
+                'name' => $recipient->getFullName(true, false, $locale),
             ];
         }
 

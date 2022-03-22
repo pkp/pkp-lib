@@ -22,6 +22,7 @@ use PKP\core\APIResponse;
 use PKP\file\TemporaryFileManager;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -128,6 +129,9 @@ class PKPDoiHandler extends APIHandler
     {
         // This endpoint is not available at the site-wide level
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        // DOIs must be enabled to access DOI API endpoints
+        $this->addPolicy(new DoisEnabledPolicy($request->getContext()));
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {

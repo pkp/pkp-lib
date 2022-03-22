@@ -1,9 +1,10 @@
+# M. Ali <vorteem@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2021-01-29 12:17+0000\n"
+"PO-Revision-Date: 2022-03-22 17:35+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ar_IQ/>\n"
@@ -448,7 +449,7 @@ msgid "reviewer.list.reassign"
 msgstr "إعادة تعيين"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "هذا المحكم قد سبق تعيينه لتحكيم طلب التقديم هذا."
+msgstr "هذا المحكم قد سبق تعيينه لجولة التحكيم هذه."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -479,3 +480,84 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "لا يمكن إنشاء المناقشة مع المشاركين المحددين لأن ذلك سيؤثر على سرية عملية "
 "التحكيم."
+
+msgid "editor.decision.stepError"
+msgstr "هناك مشكلة في الخطوة {$stepName}."
+
+msgid "editor.decision.skipEmail"
+msgstr "تخطى هذا البريد الالكتروني"
+
+msgid "editor.decision.recordDecision"
+msgstr "تسجيل القرار"
+
+msgid "editor.decision.emailSkipped"
+msgstr "تم تخطي هذه الخطوة ولن يتم إرسال أي بريد الكتروني."
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "لا تتخطى هذا البريد الالكتروني"
+
+msgid "editor.decision.completeSteps"
+msgstr "أكمل الخطوات الآتية لاتخاذ هذا القرار"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "هل أنت متأكد من رغبتك في إلغاء هذا القرار؟"
+
+msgid "editor.decision.cancelDecision"
+msgstr "إلغاء القرار"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "تم تعيينه لجولة تحكيم سابقة"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "إعادة تعيين {$name}"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "هذا المحكم أكمل التحكيم في الجولة الأخيرة."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "التنقيحات ينبغي أن تتعرض إلى جولة جديدة من التحكيم المناظر."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "التنقيحات ينبغي أن لا تتعرض إلى جولة جديدة من التحكيم المناظر."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "تعذر العثور على هذا القرار. يرجى إعطاء نوع قرار يمكن التعرف عليه."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"تعذر اتخاذ القرار بشأن طلب التقديم هذا. الرمز التعريفي لطلب التقديم مفقود أو "
+"لا يطابق طلب التقديم المطلوب."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"لا يمكن وضع التوصية ما لم يتم تعيين محرر لهذه المرحلة له إمكانية اتخاذ قرار "
+"نهائي."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "ينبغي إعطاء الرمز التعريفي لجولة التحكيم من أجل اتخاذ هذا القرار."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr "ينبغي أن يتم تعيينك لطلب التقديم هذا من أجل تسجيل قرار هيئة التحرير."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"طلب التقديم ليس في المرحلة المناسبة من مراحل سير العمل لاتخاذ هذا القرار."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "جولة التحكيم هذه ليست جزءًا من طلب التقديم هذا."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr "تم إعطاء جولة تحكيم ولكن هذا القرار لم يتم اتخاذه خلال مرحلة التحكيم."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "تعذر العثور على جولة التحكيم هذه."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "لا يمكنك إرسال بريد الاكتروني إلى هؤلاء المتلقين: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"تعذر التعرف على المحرر وقد لا تكون له صلاحية تسجيل قرار لطلب التقديم هذا."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "ليست لديك صلاحية تسجيل هذا القرار لطلب التقديم هذا."
